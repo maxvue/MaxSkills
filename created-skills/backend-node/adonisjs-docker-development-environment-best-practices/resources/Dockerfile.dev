@@ -1,0 +1,23 @@
+FROM node:20-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies (needed for certain node modules or tools)
+RUN apk add --no-cache libc6-compat python3 make g++
+
+# Copy package files
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install
+
+# Copy application files
+COPY . .
+
+# Expose AdonisJS dev port and Vite HMR port
+EXPOSE 3333
+EXPOSE 5173
+
+# Start command (using Adonis v6 watch dev mode or delegates to package.json)
+CMD ["npm", "run", "dev"]

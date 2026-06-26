@@ -1,0 +1,234 @@
+---
+name: vue-max-stack-frontend-best-practices
+description: >-
+  Use when developing the Vue 3 front-end of the Maxdmin project (AdonisJS backend) that uses
+  Vue Router, @maxvue/max-components-ui (MaxComponentsUi), @maxvue/max-use (MaxUse) and
+  @maxvue/max-pinia (MaxPinia). Triggers when creating or editing
+  components, pages, layouts, Pinia stores, composables, routes or styles; building forms, tables,
+  modals, grids; integrating with the API (axios + MaxPinia stores, /api string paths — no Ziggy/Inertia); or deciding SFC, UnoCSS and SCSS
+  conventions. Fires whenever you see Max* components (MaxButton, MaxInputText, MaxModal, MaxTable,
+  MaxGrid), `@maxvue/*` imports, `script setup lang=ts` blocks, `defineStore`, `useXxxStore`, or
+  UnoCSS classes like `s100`/`flex`, even if the user does not explicitly mention "Max" or "Vue".
+---
+
+# Front-end Vue do Ecossistema Max (Maxdmin + Engeapp)
+
+## Objetivo
+
+Produzir código front-end consistente, idiomático e alinhado entre os projetos **Maxdmin** (backend AdonisJS v6) e **Engeapp** (backend Laravel), que compartilham o mesmo stack de UI: **Vue 3 (Composition API) + Vue Router + UnoCSS/SCSS** sobre as bibliotecas locais **MaxComponentsUi**, **MaxUse** e **MaxPinia**.
+
+Esta skill é autocontida: ela traz os padrões reais observados nos dois repositórios. Onde os projetos divergem (estrutura de pastas e integração com o backend), as diferenças estão marcadas explicitamente — leia a seção do projeto em que você está trabalhando.
+
+## Por que essas convenções importam
+
+O ecossistema Max depende fortemente de **auto-import** (`unplugin-auto-import`) e **auto-resolução de componentes** (`unplugin-vue-components`). Isso significa que `ref`, `computed`, `watch`, `defineStore`, `axios`, as stores e os componentes `Max*` ficam disponíveis **sem import manual**. Seguir o padrão não é estética: import duplicado, ordem de blocos errada ou SCSS que reimplementa o que o UnoCSS já resolve quebram o lint, incham o bundle e divergem do que o resto da base espera. Quando você escreve no mesmo idioma da base, o código "desaparece" — que é o objetivo.
+
+## 1. Estrutura do SFC (regra rígida — vem do ESLint)
+
+Ambos os projetos compartilham o mesmo `eslint.config.js` (regras `@stylistic` + `vue/*`). Siga exatamente:
+
+- **Ordem dos blocos**: `<template>` → `<script setup lang="ts">` → `<style lang="scss" scoped>`. (`vue/block-order`)
+- **Sempre Composition API** com `<script setup lang="ts">`. Options API é proibida.
+- **Indentação**: 4 espaços, em `.ts`, `.js` e dentro de `<script>` e `<template>`.
+- **Aspas simples** (`'texto'`), nunca duplas no JS/TS.
+- **Ponto e vírgula** obrigatório ao fim de cada instrução.
+- **Sem vírgula pendente** (`comma-dangle: never`).
+- **Arrow parens sempre**: `(x) => x`, nunca `x => x`.
+- **Atributos inline no template**: mantenha props/atributos de uma tag em uma única linha. Não quebre em múltiplas linhas. Ex: `<MaxButton label="Salvar" icon="mdi:content-save" severity="primary" @click="save" />`.
+- **Comentários sempre em pt-BR.**
+
+Esqueleto canônico:
+
+```vue
+<template>
+    <div class="entidade-page" s100 flex flex-col>
+        <MaxLoader v-if="loading" label="Carregando..." />
+        <MaxGrid v-else>
+            <MaxButton label="Novo" icon="mdi:plus" @click="abrirCriacao" />
+        </MaxGrid>
+    </div>
+</template>
+
+<script setup lang="ts">
+    // vue, vue-router, axios, defineStore e stores são auto-importados — não reimporte.
+    const route = useRoute();
+    const loading = ref(true);
+    const itens = ref<Entidade[]>([]);
+
+    async function carregar(): Promise<void> {
+        loading.value = true;
+        try {
+            const { data } = await axios.get('/api/entidades');
+            itens.value = data;
+        } finally {
+            loading.value = false;
+        }
+    }
+
+    onMounted(carregar);
+</script>
+
+<style lang="scss" scoped>
+.entidade-page {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+</style>
+```
+
+> **Auto-import**: confira `vite.config.ts` e `auto-imports.d.ts` do projeto antes de adicionar um import manual de `vue`/`vue-router`/`pinia`/`axios` — quase sempre já está disponível. Importe manualmente apenas o que não está coberto (tipos, libs de terceiros, componentes específicos de `@maxvue/max-components-ui` quando precisar do tipo).
+
+## 2. Componentes: MaxComponentsUi (PrimeVue por baixo)
+
+Prefira sempre o componente `Max*` a um elemento HTML cru. Eles já trazem tema, acessibilidade e integração com o restante da UI. **Escolha o componente mais específico que existir** — há um input dedicado para cada tipo de dado (CPF, CEP, telefone, data). Usar o wrapper genérico `MaxInputText` onde existe um dedicado obriga você a reimplementar máscara e validação que o componente já entrega de graça.
+
+### Use o input dedicado (não reinvente máscara/validação)
+
+| Dado | Componente | Em vez de |
+|------|------------|-----------|
+| CPF/CNPJ | `MaxInputCpfCnpj` (prop `cpf` ou `cnpj`) | `MaxInputText` + regex |
+| CEP | `MaxInputCep` | `MaxInputText` + máscara |
+| Telefone | `MaxPhoneField` / `MaxInputPhoneMail` | `MaxInputText` + `formatPhone` |
+| Data | `MaxInputDatePicker` | `MaxInputText` |
+| Endereço | `MaxInputTypeAddress` | vários `MaxInputText` |
+| Número | `MaxInputNumber` | `MaxInputText` + parse |
+| Seleção | `MaxInputSelect`, `MaxInputSelectTag`, `MaxInputAutoCompleteApi` | — |
+| Texto longo | `MaxInputTextArea`, `MaxInputMarkdown` | — |
+| Lista de texto | `MaxInputTextList` | — |
+| Switch/checkbox/radio | `MaxInputSwitch`, `MaxInputCheckbox`, `MaxInputRadio` | — |
+| Upload | `MaxInputFileUpload`, `MaxInputFileUploadButton` | `<input type=file>` |
+
+Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isValid"`, `:error="mensagemErro"`, `:caution="aviso"` e `v-model` para o valor.
+
+### Componentes estruturais (nomes reais)
+
+- **Botões**: `MaxButton`, `MaxIconButton`.
+- **Layout/grid**: `MaxGrid` (wrapper flexbox) ou `MaxGridCols` (24 colunas). Nos filhos, use atalhos de tamanho UnoCSS: `s100` (100%), `s50`, `s33`, `s25`.
+- **Tabelas**: `MaxTable` (leitura, cabeçalho fixo) e `MaxTableFields` (+ `MaxTableColumn`, editável).
+- **Modais/popovers**: `MaxModal` (métodos `toggle()`/`show()`/`hide()` ou store `useModalStore`), `MaxPopover`, `MaxPopoverConfirm`, `MaxPopoverMenu`, `MaxIconConfirm`.
+- **Feedback**: `MaxLoader`, `MaxBadgeComponent`, `MaxToast` (montar uma vez na raiz). Disparo: `Toast.show({ severity: 'success' | 'error' | 'warn', title, message })` (importado de `@maxvue/max-components-ui`).
+- **Títulos/cards**: `MaxTitle`, `MaxAuthCard`.
+- **Ícones**: `MaxIcon` ou prop `icon` por string Iconify — MDI no Maxdmin (`icon="mdi:plus"`), também `heroicons:*` no Engeapp. Não importe SVGs avulsos quando há ícone no set.
+
+> Se o componente que você imagina não está nesta lista, confira o catálogo do projeto (`resources/components-catalog.md` / `components-catalog`) **antes** de varrer o código-fonte da MaxComponentsUi — a lista acima já cobre os casos comuns e evita exploração desnecessária (e lenta).
+
+## 3. Utilitários e composables: MaxUse
+
+`@maxvue/max-use` evita reinventar lógica comum (datas, validação BR, cache, rotas). Vários composables são auto-importados via `maxUseAutoImport`; confira a config do projeto.
+
+- **Import modular** (melhor tree-shaking) quando importar manualmente:
+  ```ts
+  import { isCpf, isCnpj, cepIsValid } from '@maxvue/max-use/validations';
+  import { formatCurrency, formatCpf, formatPhone, maskSensitive } from '@maxvue/max-use/format';
+  import { useTimeAgo, useRefCached, useDefaultReset } from '@maxvue/max-use/composables';
+  ```
+- **Reatividade**: os utilitários aceitam `Ref` ou getter `() => T` e usam `toValue()` internamente — passe a fonte reativa diretamente, não desembrulhe com `unref()` antes.
+- **Validação/formatação BR**: nunca escreva regex próprio para CPF/CNPJ/CEP/telefone. Use `isCpf()`, `isCnpj()`, `isCpfCnpj()`, `cepIsValid()`, `phone()`, `formatCurrency()`, `formatCpf()`, `formatCnpj()`, `formatPhone()`, `maskSensitive()`.
+- **Composables úteis**: `useRefCached(key, initial)` (sincroniza Ref com `localStorage`), `useDefaultReset(initial)` (Ref zerável com ULID e data automáticos), `useTimeAgo()` (tempo relativo pt-BR, formatos `br`/`abbrev`/`action`/`limit`), `watchTrue`.
+
+## 4. Estado: MaxPinia (`defineStore` em sintaxe setup)
+
+Stores usam **sintaxe de setup** (função), nunca a sintaxe de objeto. Nome do export em camelCase com sufixo `Store` (`useProjectStore`, `useUserStore`, `useSocialMediaCharactersStore`).
+
+Padrão CRUD típico (Engeapp e Maxdmin compartilham o formato; muda só o helper de rota — ver seção 6):
+
+```ts
+export const useEntidadesStore = defineStore('entidades', () => {
+    const itens = ref<Entidade[]>([]);
+    const loading = ref(false);
+
+    async function load(): Promise<void> {
+        loading.value = true;
+        try {
+            const { data } = await axios.get('/api/entidades');
+            itens.value = data;
+        } finally {
+            loading.value = false;
+        }
+    }
+
+    async function create(payload: Partial<Entidade>): Promise<Entidade> {
+        const { data } = await axios.post('/api/entidades', payload);
+        itens.value.push(data);
+        return data;
+    }
+
+    return { itens, loading, load, create };
+});
+```
+
+### Integração com `@maxvue/max-pinia`
+
+Quando a store precisa de cache e sincronização automática com o backend, use o plugin `@maxvue/max-pinia` (anteriormente `piniaWithCache`). Exponha `isCached` e a computed `options` (rota + chave). Em stores de autenticação, exponha `waitRequest` para que guards de rota aguardem os dados do usuário antes de redirecionar:
+
+```ts
+export const useUserStore = defineStore('user', () => {
+    const data = ref<User | null>(null);
+    const isCached = ref(true);
+    const options = computed(() => ({ get: { route: '/user/data' }, key: 'user' }));
+
+    function waitRequest(this: any): Promise<void> {
+        return new Promise((resolve) => {
+            if (this?.status?.server?.get?.is_requested) return resolve();
+            const unwatch = watch(
+                () => (this as any)?.status?.server?.get?.is_requested,
+                (isRequested) => {
+                    if (isRequested) {
+                        unwatch();
+                        resolve();
+                    }
+                }
+            );
+        });
+    }
+
+    return { data, options, isCached, waitRequest };
+});
+```
+
+## 5. Vue Router
+
+- Rotas montadas a partir do diretório de páginas via `import.meta.glob(...)` das `Pages/`.
+- Integre o roteador ao MaxUse com `setLibraryRouter(router as any)`.
+- Use `beforeEach`/`afterEach` para o loading global (`useLoadingStore().start()` / `.end()`) e para aguardar o usuário autenticado: `await user.waitRequest()` antes de decidir o redirecionamento.
+- Use `meta.layout` (ou equivalente) para diferenciar áreas `guest` e `auth`. A raiz (`App.vue`) decide o layout/shell.
+- Rotas devem ser lazy quando fizer sentido para o bundle.
+
+## 6. Integração com o backend (AdonisJS — Maxdmin)
+
+- **Todo GET ao backend passa por uma store `@maxvue/max-pinia`** (cache + auto-save). Não busque dados com `axios.get` direto em componentes/serviços — defina uma store cacheada (`isCached` + `options.get.route`).
+- Rotas de API são caminhos string com prefixo `/api`: `'/api/projects/${id}'`. **Não existe Ziggy nem `route()`** — Ziggy é nativo do Laravel e foi descontinuado. Os helpers `apiGetRoute`/`apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`/`apiUploadRoute` do `@maxvue/max-use` resolvem para esses caminhos `/api/...`; `goToRoute` para navegação SPA.
+- O axios é configurado para sessão por cookie + XSRF (em `app.ts`):
+  ```ts
+  axios.defaults.withCredentials = true;
+  axios.defaults.withXSRFToken = true;
+  ```
+- Há interceptor global: `401` → redireciona para `/login`.
+- Não use Inertia — é um SPA Vue puro servido pelo AdonisJS (rota catch-all).
+
+## 7. Estilização: UnoCSS + SCSS
+
+- **Layout e espaçamento são responsabilidade do UnoCSS**, não do SCSS. Use utilitários: `flex`, `items-center`, `justify-center`, `gap`, `w-full`, `h-max-200`, `flex-grow`, e os atalhos de tamanho `s100`/`s50`/`s33`/`s25`. Presets em uso: `presetMaxUno()`, `presetWind3()`, `presetAttributify()`, `presetIcons()`.
+- **Não reescreva em SCSS** o que o UnoCSS já resolve (width, height, padding, margin, flex). Reserve o `<style scoped>` para estrutura específica do componente e composições que os utilitários não cobrem.
+- **Cores via CSS vars** do tema, não hex cru: `var(--background-0)`, `var(--background-100)`, `var(--background-200)`.
+- **Attributify** é válido: `<div s100 flex items-center>` funciona como classe.
+- Estilos globais/tema ficam em `resources/.../Theme/All.scss` (fonte, vars). Não duplique tema dentro de componentes.
+
+## 8. Estrutura de pastas (Maxdmin — `resources/js/`)
+
+```
+Pages/  Layouts/  stores/  Theme/  App.vue  app.ts  router.ts
+```
+Stores ficam em `stores/` (auto-importadas). Não há pasta `components/` local — usa-se MaxComponentsUi.
+
+## Restrições
+
+- **NÃO** use Options API.
+- **NÃO** quebre atributos de componentes em múltiplas linhas no `<template>`.
+- **NÃO** reimporte o que é auto-importado (`ref`, `computed`, `watch`, `axios`, `defineStore`, stores, componentes `Max*`).
+- **NÃO** escreva regex próprio para CPF/CNPJ/CEP/telefone — use MaxUse.
+- **NÃO** reimplemente layout/espaçamento em SCSS quando o UnoCSS resolve.
+- **NÃO** use `route()`/Ziggy — não existem neste projeto. Use os helpers do `@maxvue/max-use` (que resolvem para `/api/...`) e, para GETs, stores `@maxvue/max-pinia`.
+- **NÃO** omita `withCredentials`/`withXSRFToken` na configuração do axios do Maxdmin.
+- **NÃO** escreva comentários fora do pt-BR.
