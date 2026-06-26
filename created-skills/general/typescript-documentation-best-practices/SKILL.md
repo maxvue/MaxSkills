@@ -182,39 +182,31 @@ Referências (padrões detalhados):
 
 ## Exemplos
 
-### Documentando um hook React
+### Documentando um composable Vue 3
 
 ```typescript
 /**
- * Hook customizado para buscar dados paginados
+ * Composable para acessar dados paginados de usinas via store MaxPinia
  *
  * @remarks
- * Este hook gerencia estados de carregamento, tratamento de erros e
- * refetch automático quando a página ou o filtro mudam.
+ * O GET ao backend é feito pela store `@maxvue/max-pinia` (cache +
+ * salvamento automático debounced); o composable não faz requisições manuais.
+ * A rota é um caminho string `/api/...` resolvido por `apiGetRoute`.
  *
  * @example
- * ```tsx
- * function UserList() {
- *   const { data, isLoading, error } = usePaginatedData('/api/users', {
- *     page: currentPage,
- *     limit: 10
- *   });
- *
- *   if (isLoading) return <Spinner />;
- *   if (error) return <ErrorMessage error={error} />;
- *   return <UserTable users={data.items} />;
- * }
+ * ```vue
+ * <script setup lang="ts">
+ * const { data, isLoading, error } = usePaginatedUsinas({ page: 1, limit: 10 })
+ * </script>
  * ```
  *
- * @param endpoint - Endpoint da API de onde buscar
  * @param options - Opções de paginação e filtro
- * @returns Resposta paginada com itens e metadados
+ * @returns Refs reativas com itens, estado de carregamento e erro
  */
-export function usePaginatedData<T>(
-  endpoint: string,
+export function usePaginatedUsinas(
   options: PaginationOptions
-): UsePaginatedDataResult<T> {
-  // Implementação
+): UsePaginatedResult<Usina> {
+  // Implementação via store @maxvue/max-pinia
 }
 ```
 

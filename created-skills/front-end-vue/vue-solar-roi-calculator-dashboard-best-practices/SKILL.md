@@ -167,11 +167,14 @@ const cashFlowData = computed<CashFlowItem[]>(() => {
     data.push({
       year,
       generation: Math.round(gen),
+      rawSavings: savings,
+      rawCosts: maintenance,
+      rawNetFlow: netFlow,
+      rawCumulative: cumulative,
       savings: formatCurrency(savings),
       costs: formatCurrency(maintenance),
       netFlow: formatCurrency(netFlow),
-      cumulative: formatCurrency(cumulative),
-      rawCumulative: cumulative
+      cumulative: formatCurrency(cumulative)
     });
   }
 
@@ -185,8 +188,7 @@ const npvValue = computed<number>(() => {
   let npv = -cost;
 
   cashFlowData.value.slice(1).forEach((item, index) => {
-    const net = parseFloat(item.netFlow.replace(/[^\d,-]/g, '').replace(',', '.'));
-    npv += net / Math.pow(1 + rate, index + 1);
+    npv += item.rawNetFlow / Math.pow(1 + rate, index + 1);
   });
 
   return npv;
