@@ -130,17 +130,31 @@ export default defineConfig({
 
 ---
 
-## Configuração `adonisrc.ts` (Vite 8)
+## Configuração `adonisrc.ts` (Adonis v6)
+
+No Adonis v6 **não existe** uma chave `vite` em `adonisrc.ts`. A integração com o Vite é feita por:
+1. o plugin `adonisjs()` no `vite.config.ts` (já configurado acima), e
+2. o provider `@adonisjs/vite/vite_provider` registrado em `adonisrc.ts`.
+
+O `defineConfig` é importado de `@adonisjs/core/app`:
 
 ```typescript
-import { defineConfig } from '@adonisjs/core/build/config'
+import { defineConfig } from '@adonisjs/core/app'
 
 export default defineConfig({
-  vite: {
-    config: 'vite.config.ts',
-  },
+  // ...
+  providers: [
+    () => import('@adonisjs/core/providers/app_provider'),
+    () => import('@adonisjs/core/providers/hash_provider'),
+    () => import('@adonisjs/core/providers/edge_provider'),
+    () => import('@adonisjs/vite/vite_provider'),
+    // ...
+  ],
+  // ...
 })
 ```
+
+> O bundling e o HMR são controlados pelo plugin `adonisjs()` (entrypoints, `reloadServer`) no `vite.config.ts`. Não há `adonisrc.vite.config`.
 
 ---
 

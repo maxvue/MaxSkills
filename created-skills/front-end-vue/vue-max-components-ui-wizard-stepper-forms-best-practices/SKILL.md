@@ -1,32 +1,27 @@
 ---
 name: vue-max-components-ui-wizard-stepper-forms-best-practices
-description: Use when designing, implementing, styling, or validating multi-step form wizard/stepper flows in Vue 3 (SocialMediaApp) using the MaxComponentsUi library and VueUse's useStepper. Triggers on files managing Wizard forms, step navigation logic, steps status (active, completed, error), state persistence between steps using useRefStorage, and partial step-by-step Zod schema validations.
+description: Use when designing, implementing, styling, or validating multi-step form wizard/stepper flows in Vue 3 (EngeApp/Maxdmin) using the @maxvue/max-components-ui library and @maxvue/max-use's useStepper. Triggers on files managing Wizard forms, step navigation logic, steps status (active, completed, error), state persistence between steps using useRefCached, persisting data through @maxvue/max-pinia stores, and partial step-by-step Zod schema validations.
 ---
 
 # Boas Práticas para Formulários Assistentes (Wizard/Stepper) com MaxComponentsUi no Vue
 
 ## Objetivo
-Estabelecer um padrão de implementação claro, consistente e robusto para formulários multi-etapas (assistentes/wizards/steppers) no Vue 3 utilizando a biblioteca local `MaxComponentsUi`, `@maxvue/max-use` (especificamente `useStepper` e `useRefStorage` para gerenciamento de progresso e persistência entre abas) e validação parcial de etapas com Zod.
+Estabelecer um padrão de implementação claro, consistente e robusto para formulários multi-etapas (assistentes/wizards/steppers) no Vue 3 utilizando a biblioteca local `@maxvue/max-components-ui`, `@maxvue/max-use` (especificamente `useStepper` e `useRefCached` para gerenciamento de progresso e persistência entre abas), persistência final via store `@maxvue/max-pinia` e validação parcial de etapas com Zod.
 
 ## Instruções
 
 1. **Importações e Configuração do Stepper:**
-   - Importe os componentes de stepper do PrimeVue a partir de `max-components-ui/prime`:
+   - Os componentes de stepper e os componentes de formulário/botões do Max UI são auto-importados pelo projeto (unplugin-vue-components). Quando precisar de import explícito, use sempre o pacote `@maxvue/max-components-ui`:
      ```typescript
-     import { Stepper, StepList, Step, StepPanels, StepPanel } from 'max-components-ui/prime';
+     import { Stepper, StepList, Step, StepPanels, StepPanel } from '@maxvue/max-components-ui';
+     import { MaxInputText, MaxButton } from '@maxvue/max-components-ui';
      ```
-   - Importe os componentes de formulário e botões principais do Max UI a partir de `max-components-ui`:
-     ```typescript
-     import { MaxInputText, MaxButton } from 'max-components-ui';
-     ```
-   - Gerencie a navegação de etapas do wizard utilizando um índice reativo (`ref(0)`) ou o `useStepper` do VueUse.
+   - Gerencie a navegação de etapas do wizard utilizando um índice reativo (`ref(0)`) ou o `useStepper` do `@maxvue/max-use`.
 
 2. **Estado Persistente do Assistente:**
-   - Inicialize e persista as entradas do wizard entre recarregamentos de página ou abas duplicadas utilizando `useRefStorage`:
+   - Inicialize e persista as entradas do wizard entre recarregamentos de página ou abas duplicadas utilizando `useRefCached` do `@maxvue/max-use` (auto-importado; não manipule `localStorage` diretamente):
      ```typescript
-     import { useRefStorage } from '@maxvue/max-use';
-     
-     const formData = useRefStorage('localStorageKey', {
+     const formData = useRefCached('wizard-cache-key', {
        name: '',
        website: '',
        // outros campos...
@@ -44,9 +39,19 @@ Estabelecer um padrão de implementação claro, consistente e robusto para form
      ```
    - No clique do botão "Avançar", valide apenas os campos pertinentes à etapa ativa antes de prosseguir.
    - Vincule os erros de validação a campos reativos específicos, passando-os para a propriedade `:error` dos componentes Max para exibir os problemas imediatamente.
-   - Limpe o estado e as chaves do `localStorage` somente após o envio final do formulário com sucesso.
+   - Limpe o cache (`useRefCached`) somente após o envio final do formulário com sucesso.
 
-4. **Estilização de Atributos do Template (Restrição Crítica):**
+4. **Persistência dos Dados (via MaxPinia):**
+   - O envio final NÃO deve ser feito com `axios`/`fetch` manual. Persista os dados gravando-os em uma store `@maxvue/max-pinia`, que cuida do auto-save (debounced) contra `/api/...`:
+     ```typescript
+     import { useWizardStore } from '@/stores/wizard';
+
+     const store = useWizardStore();
+     // ao alterar/atribuir os dados na store, o MaxPinia persiste automaticamente no backend
+     store.data = { ...formData.value };
+     ```
+
+5. **Estilização de Atributos do Template (Restrição Crítica):**
    - Certifique-se de que todos os parâmetros e atributos nos componentes Vue dentro do template sejam escritos inline em uma única linha. Não quebre as tags dos componentes em atributos multilinha.
 
 ## Examples
@@ -66,7 +71,7 @@ Estabelecer um padrão de implementação claro, consistente e robusto para form
       <StepPanels>
         <StepPanel :value="0">
           <div class="step-content">
-            <MaxInputText v-model="formData.name" :error="errors.name" label="Nome da Agência" placeholder="Digite o nome" />
+            <MaxInputText v-model="formData.name" :error="errors.name" label="Nome da Usina" placeholder="Digite o nome" />
             <MaxButton @click="validateAndNext(0)" label="Avançar" />
           </div>
         </StepPanel>
@@ -83,7 +88,7 @@ Estabelecer um padrão de implementação claro, consistente e robusto para form
         
         <StepPanel :value="2">
           <div class="step-content">
-            <p>Confirme os dados da agência {{ formData.name }} ({{ formData.website }}).</p>
+            <p>Confirme os dados da usina {{ formData.name }} ({{ formData.website }}).</p>
             <div class="button-group">
               <MaxButton @click="back" label="Voltar" severity="secondary" />
               <MaxButton :loading="submitting" @click="submit" label="Finalizar" />
@@ -97,10 +102,11 @@ Estabelecer um padrão de implementação claro, consistente e robusto para form
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Stepper, StepList, Step, StepPanels, StepPanel } from 'max-components-ui/prime';
-import { MaxInputText, MaxButton } from 'max-components-ui';
-import { useRefStorage } from '@maxvue/max-use';
+// Stepper, MaxInputText e MaxButton são auto-importados de @maxvue/max-components-ui;
+// useRefCached é auto-importado de @maxvue/max-use. Imports explícitos, quando necessários:
+// import { Stepper, StepList, Step, StepPanels, StepPanel, MaxInputText, MaxButton } from '@maxvue/max-components-ui';
 import { z } from 'zod';
+import { useUsinaWizardStore } from '@/stores/usinaWizard';
 
 // Definição da interface do formulário
 interface WizardData {
@@ -108,9 +114,12 @@ interface WizardData {
   website: string;
 }
 
-// Chave para persistência e inicialização de dados
-const storageKey = 'agency-onboarding-data';
-const formData = useRefStorage<WizardData>(storageKey, { name: '', website: '' });
+// Chave para cache de progresso (persistência entre abas/recargas)
+const cacheKey = 'usina-onboarding-data';
+const formData = useRefCached<WizardData>(cacheKey, { name: '', website: '' });
+
+// Store MaxPinia (auto-save/debounced contra /api/...)
+const wizardStore = useUsinaWizardStore();
 
 // Erros de validação
 const errors = ref<Record<keyof WizardData, string>>({ name: '', website: '' });
@@ -143,7 +152,7 @@ const validateAndNext = (step: number) => {
     }
   } catch (err) {
     if (err instanceof z.ZodError) {
-      err.errors.forEach(e => {
+      err.issues.forEach(e => {
         const field = e.path[0] as keyof WizardData;
         errors.value[field] = e.message;
       });
@@ -166,15 +175,17 @@ const submit = async () => {
     const fullSchema = stepOneSchema.merge(stepTwoSchema);
     fullSchema.parse(formData.value);
     
-    // Simulação do envio de dados à API
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Persistir via store MaxPinia: ao atribuir os dados, o auto-save (debounced)
+    // grava no backend em /api/... — sem axios/fetch manual.
+    wizardStore.data = { ...formData.value };
+    await wizardStore.flush?.();
     
-    // Limpar o storage após sucesso
-    localStorage.removeItem(storageKey);
+    // Limpar o cache de progresso após sucesso
+    formData.value = { name: '', website: '' };
     // Redirecionar ou concluir fluxo
   } catch (err) {
     if (err instanceof z.ZodError) {
-      err.errors.forEach(e => {
+      err.issues.forEach(e => {
         const field = e.path[0] as keyof WizardData;
         errors.value[field] = e.message;
       });

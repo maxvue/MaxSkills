@@ -1,12 +1,12 @@
 ---
 name: adonisjs-multitenancy-data-isolation-best-practices
-description: Use when designing, reviewing, or debugging multi-tenant architectures, data isolation, query scopes, and tenant middleware in AdonisJS. Triggers on requests involving database filters by tenant id (e.g., solarCompanyId, idSolarCompany), global Lucid query scopes, and tenant context resolution.
+description: Use when designing, reviewing, or debugging multi-tenant architectures, data isolation, query scopes, and tenant middleware in AdonisJS. Triggers on requests involving database filters by tenant id (e.g., solarCompanyId, idSolarCompany), Lucid query hooks and named scopes, and tenant context resolution.
 ---
 
 # Melhores Práticas de Multi-Tenancy e Isolamento de Dados no AdonisJS
 
 ## Objetivo
-Fornecer diretrizes estritas e padrões para implementação de arquiteturas multi-tenant, isolamento de dados, escopos globais de consulta (Lucid) e resolução de contexto de requisição/job em aplicações AdonisJS v6.
+Fornecer diretrizes estritas e padrões para implementação de arquiteturas multi-tenant, isolamento de dados, filtro automático via query hooks/named scopes (Lucid) e resolução de contexto de requisição/job em aplicações AdonisJS v6.
 
 ## Instruções
 
@@ -56,14 +56,19 @@ import { TenantService } from '#services/tenant_service'
 
 export default class TenantMiddleware {
   async handle(ctx: HttpContext, next: () => Promise<void>) {
-    // 1. Resolve o ID do tenant (ex: do usuário autenticado ou cabeçalho da requisição)
+    // 1. Garante que a autenticação (guard web/sessão) já rodou ANTES deste middleware,
+    //    pois usamos ctx.auth.user para resolver o tenant. Registre o middleware de
+    //    auth antes do TenantMiddleware na pipeline (kernel/rotas).
+    await ctx.auth.check()
+
+    // 2. Resolve o ID do tenant (ex: do usuário autenticado ou cabeçalho da requisição)
     const tenantId = ctx.auth.user?.solarCompanyId || ctx.request.header('X-Tenant-Id')
 
     if (!tenantId) {
       return ctx.response.unauthorized({ error: 'Não foi possível resolver o contexto do tenant' })
     }
 
-    // 2. Envolve a execução da requisição subsequente dentro do contexto do tenant
+    // 3. Envolve a execução da requisição subsequente dentro do contexto do tenant
     await TenantService.run(tenantId, async () => {
       await next()
     })
@@ -71,49 +76,67 @@ export default class TenantMiddleware {
 }
 ```
 
-### 3. Escopos Globais de Consulta do Lucid (Global Query Scopes)
-Use escopos globais de consulta do Lucid para aplicar automaticamente filtros de tenant em todas as consultas. Isso garante isolamento estrito de dados por padrão.
+### 3. Filtro Automático de Tenant via Query Hooks do Lucid
+> **Importante:** o Lucid v6 NÃO possui `addGlobalScope`/`static boot()` (isso é Eloquent/Laravel). No Adonis use **query hooks** (`@beforeFind`, `@beforeFetch`, `@beforePaginate`) para aplicar o filtro de tenant automaticamente, ou **named scopes** via `scope()` para aplicação explícita.
 
-Crie uma classe reutilizável `TenantScope`:
+Crie um helper reutilizável que aplica o filtro no query builder, lendo o `tenantKey` dinamicamente para suportar convenções diferentes (`solarCompanyId` vs `idSolarCompany`):
 ```typescript
-import { ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
+import type { ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
+import type { LucidModel } from '@adonisjs/lucid/types/model'
 import { TenantService } from '#services/tenant_service'
 
-export class TenantScope {
-  /**
-   * Mapeamento do nome da coluna dependendo das convenções de nomenclatura do modelo
-   */
-  constructor(private tenantKey: 'solarCompanyId' | 'idSolarCompany' = 'solarCompanyId') {}
+export function applyTenantFilter(
+  query: ModelQueryBuilderContract<LucidModel>,
+  tenantKey: 'solarCompanyId' | 'idSolarCompany' = 'solarCompanyId'
+) {
+  const tenantId = TenantService.getTenantId()
 
-  apply(builder: ModelQueryBuilderContract<any>) {
-    const tenantId = TenantService.getTenantId()
-    
-    // Apenas aplica o escopo se um ID de tenant estiver definido no contexto
-    if (tenantId) {
-      builder.where(this.tenantKey, tenantId)
-    }
+  // Apenas aplica o filtro se um ID de tenant estiver definido no contexto
+  if (tenantId) {
+    query.where(tenantKey, tenantId)
   }
 }
 ```
 
-Adicione o escopo global aos seus modelos:
+Aplique automaticamente em cada modelo usando os decorators de query hook do Lucid. Os hooks recebem o próprio query builder, então o filtro vale para `find*`, `fetch`/`all`, `paginate` e demais consultas de leitura:
 ```typescript
-import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
-import { TenantScope } from '#scopes/tenant_scope'
+import { BaseModel, beforeFind, beforeFetch, beforePaginate, column } from '@adonisjs/lucid/orm'
+import type { ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
+import { applyTenantFilter } from '#scopes/tenant_scope'
 
-export default class SocialMediaAgent extends BaseModel {
-  static table = 'calendar_social_media_agent'
+export default class CalendarEvent extends BaseModel {
+  static table = 'calendar_events'
 
   @column()
   declare idSolarCompany: string // Chave estrangeira no banco de dados
 
-  // Aplica o escopo global apontando para a chave estrangeira correta
-  static boot() {
-    super.boot()
-    this.addGlobalScope('tenant', new TenantScope('idSolarCompany').apply)
+  // Aplica o filtro de tenant apontando para a chave estrangeira correta
+  @beforeFind()
+  @beforeFetch()
+  static applyTenant(query: ModelQueryBuilderContract<typeof CalendarEvent>) {
+    applyTenantFilter(query, 'idSolarCompany')
+  }
+
+  @beforePaginate()
+  static applyTenantOnPaginate([countQuery, query]: [
+    ModelQueryBuilderContract<typeof CalendarEvent>,
+    ModelQueryBuilderContract<typeof CalendarEvent>,
+  ]) {
+    applyTenantFilter(countQuery, 'idSolarCompany')
+    applyTenantFilter(query, 'idSolarCompany')
   }
 }
 ```
+
+> Para aplicação **explícita** (em vez de automática), prefira um named scope:
+> ```typescript
+> import { BaseModel, column, scope } from '@adonisjs/lucid/orm'
+>
+> export default class CalendarEvent extends BaseModel {
+>   static forTenant = scope((query) => applyTenantFilter(query, 'idSolarCompany'))
+> }
+> // Uso: await CalendarEvent.query().withScopes((s) => s.forTenant())
+> ```
 
 ### 4. Consistência de Tenant em Mutações
 Garanta a integridade dos dados durante a criação e atualização usando ganchos (hooks) do Lucid (`beforeCreate`, `beforeSave`). Isso evita que um usuário crie registros acidentalmente ou maliciosamente sob um tenant diferente.
@@ -122,14 +145,14 @@ Garanta a integridade dos dados durante a criação e atualização usando ganch
 import { BaseModel, beforeCreate, column } from '@adonisjs/lucid/orm'
 import { TenantService } from '#services/tenant_service'
 
-export default class SocialMediaCharacter extends BaseModel {
-  static table = 'social_media_characters'
+export default class SolarProject extends BaseModel {
+  static table = 'solar_projects'
 
   @column()
   declare solarCompanyId: string
 
   @beforeCreate()
-  static setTenant(model: SocialMediaCharacter) {
+  static setTenant(model: SolarProject) {
     const tenantId = TenantService.getRequiredTenantId()
     
     // Garante ou sobrescreve o ID do tenant com o contexto atual
@@ -146,9 +169,9 @@ Ao disparar jobs em segundo plano, sempre passe o contexto do tenant ativo no pa
 import { Queue } from 'bullmq'
 import { TenantService } from '#services/tenant_service'
 
-const queue = new Queue('social-media-agent')
-await queue.add('generate-script', {
-  eventId: 'event_123',
+const queue = new Queue('solar-proposals')
+await queue.add('generate-proposal', {
+  projectId: 'project_123',
   tenantId: TenantService.getRequiredTenantId() // Passa o contexto do tenant
 })
 ```
@@ -158,21 +181,21 @@ await queue.add('generate-script', {
 import { Worker, Job } from 'bullmq'
 import { TenantService } from '#services/tenant_service'
 
-new Worker('social-media-agent', async (job: Job) => {
-  const { eventId, tenantId } = job.data
+new Worker('solar-proposals', async (job: Job) => {
+  const { projectId, tenantId } = job.data
 
   // Executa o job dentro do contexto do tenant
   await TenantService.run(tenantId, async () => {
     // A lógica de processamento do job possui acesso isolado ao banco de dados automaticamente
-    const event = await CalendarEvent.findOrFail(eventId)
-    await event.generateScript()
+    const project = await SolarProject.findOrFail(projectId)
+    await project.generateProposal()
   })
 })
 ```
 
 ## Restrições
-* **Sem Consultas Manuais de Tenant**: Evite adicionar manualmente filtros `.where('solarCompanyId', ...)` em ações padrão de controllers. Confie nos escopos globais de consulta para evitar vazamentos de dados.
+* **Sem Consultas Manuais de Tenant**: Evite adicionar manualmente filtros `.where('solarCompanyId', ...)` em ações padrão de controllers. Confie nos query hooks (`@beforeFind`/`@beforeFetch`/`@beforePaginate`) para evitar vazamentos de dados.
 * **Armazenamento de Contexto Estático**: Nunca armazene o ID do tenant ativo em variáveis estáticas de classe ou propriedades globais, pois elas persistem entre requisições HTTP concorrentes nos ambientes Octane e Node.js. Sempre use `AsyncLocalStorage`.
 * **Mapeamento de Chave Estrangeira**: Verifique duas vezes o nome da chave estrangeira do tenant em cada modelo (ex: `solarCompanyId` ou `idSolarCompany`). Aplicar o nome da chave incorreto quebrará as consultas ao banco de dados.
 * **Proteção de Mutação**: Nunca insira ou atualize registros sem verificar se a propriedade `tenantId` está alinhada com o contexto ativo do tenant.
-* **Desativação de Escopos**: Apenas ignore os escopos globais (`ignoreScopes(['tenant'])`) em contextos administrativos/console ou após realizar uma validação explícita de autenticação e autorização.
+* **Desativação do Filtro Automático**: Para consultas cross-tenant (contextos administrativos/console), não há `ignoreScopes` no Lucid. Garanta que `TenantService.getTenantId()` retorne `null` no contexto de execução (não envolva a operação em `TenantService.run`) ou use uma conexão/query dedicada, sempre após validação explícita de autenticação e autorização.

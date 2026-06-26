@@ -6,7 +6,7 @@ description: Use when designing, implementing, configuring, or debugging SaaS su
 # Boas Práticas de Faturamento e Assinatura no AdonisJS
 
 ## Objetivo
-Estabelecer uma arquitetura de faturamento e assinaturas modular, desacoplada e segura no AdonisJS v6. Suporta múltiplos gateways (Efí, Banco Inter) usando um núcleo unificado baseado em TypeScript, garante a idempotência nos webhooks por meio do processamento com BullMQ e impõe controles de acesso aos inquilinos (tenants) no nível da agência.
+Estabelecer uma arquitetura de faturamento e assinaturas modular, desacoplada e segura no AdonisJS v6. Suporta múltiplos gateways (Efí, Banco Inter) usando um núcleo unificado baseado em TypeScript, garante a idempotência nos webhooks por meio do processamento com BullMQ e impõe controles de acesso aos inquilinos (tenants) no nível da empresa solar.
 
 ## Instruções
 
@@ -16,13 +16,13 @@ Organize a lógica de pagamento e faturamento em três camadas principais:
   * Defina uma interface comum `PaymentGateway` contendo métodos como `createCustomer`, `createSubscription`, `cancelSubscription` e `handleWebhook`.
   * Instancie os drivers (ex: `EfiGateway`, `InterGateway`) usando um padrão de fábrica (factory pattern), mantendo singletons para os clientes de API.
 * **`billing-adonis` (Adaptador do Framework)**: Contém Service Providers, models/migrations de banco de dados, controllers para endpoints de webhook e middlewares de rota.
-* **`billing-vue` (Camada Frontend)**: Composables Vue 3 e elementos de interface headless-first para buscar o status do plano atual, renderizar telas de pagamento e gerenciar checkouts.
+* **`billing-vue` (Camada Frontend)**: Componentes Vue 3 e elementos de interface headless-first para renderizar telas de pagamento e gerenciar checkouts. O status do plano atual e demais dados de página DEVEM ser lidos e atualizados através de uma store `@maxvue/max-pinia` (com cache e auto-save/debounced), NUNCA via fetch manual de status. Rotas são caminhos string `/api/...` resolvidos por `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use`.
 
 ### 2. Esquema de Banco de Dados e Mapeamento Lucid ORM
-Implemente tabelas usando ULID como chaves primárias. Estruture os relacionamentos cuidadosamente em torno do model de Tenant (ex: `MarketingAgency`):
+Implemente tabelas usando ULID como chaves primárias. Estruture os relacionamentos cuidadosamente em torno do model de Tenant (ex: `SolarCompany`):
 
 * **`plans`**: Armazena o catálogo de planos (`id`, `name`, `price`, `interval`, `gateway_plan_id`).
-* **`subscriptions`**: Rastreia os estados ativos de faturamento recorrente (`id`, `marketing_agency_id`, `plan_id`, `status`, `current_period_end`, `gateway_subscription_id`).
+* **`subscriptions`**: Rastreia os estados ativos de faturamento recorrente (`id`, `solar_company_id`, `plan_id`, `status`, `current_period_end`, `gateway_subscription_id`).
   * Defina estados padrão de assinatura: `pending`, `trialing`, `active`, `past_due`, `canceled`.
 * **`invoices`**: Registra as tentativas de cobrança (`id`, `subscription_id`, `amount`, `status`, `payment_method`, `due_date`, `paid_at`).
 * **`webhook_events`**: Armazena os payloads brutos dos webhooks recebidos do gateway para evitar a execução duplicada de eventos (`id` [ID do evento no gateway], `gateway`, `payload`, `processed_at`).
@@ -33,7 +33,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, beforeCreate, column, belongsTo } from '@adonisjs/lucid/orm'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import { ulid } from 'ulid'
-import MarketingAgency from '#models/marketing_agency'
+import SolarCompany from '#models/solar_company'
 import Plan from '#models/plan'
 
 export default class Subscription extends BaseModel {
@@ -48,7 +48,7 @@ export default class Subscription extends BaseModel {
   declare id: string
 
   @column()
-  declare marketingAgencyId: string
+  declare solarCompanyId: string
 
   @column()
   declare planId: string
@@ -62,8 +62,8 @@ export default class Subscription extends BaseModel {
   @column()
   declare gatewaySubscriptionId: string
 
-  @belongsTo(() => MarketingAgency)
-  declare marketingAgency: BelongsTo<typeof MarketingAgency>
+  @belongsTo(() => SolarCompany)
+  declare solarCompany: BelongsTo<typeof SolarCompany>
 
   @belongsTo(() => Plan)
   declare plan: BelongsTo<typeof Plan>
@@ -115,8 +115,8 @@ export default class WebhooksController {
 
 ### 4. Middleware de Enforcement de Faturamento
 Proteja as rotas da aplicação verificando o status de faturamento do Tenant atual usando um middleware HTTP:
-* Extraia o contexto da agência atual.
-* Verifique se `MarketingAgency.isActive` é verdadeiro e se há uma `Subscription` ativa ou em período de testes (`trialing`) que não tenha expirado.
+* Extraia o contexto da empresa solar atual.
+* Verifique se `SolarCompany.isActive` é verdadeiro e se há uma `Subscription` ativa ou em período de testes (`trialing`) que não tenha expirado.
 * Conceda um período de carência (ex: 3 dias) para estados de inadimplência (`past_due`) antes de bloquear o acesso completamente.
 * Se não estiver autorizado, interrompa a requisição e retorne um status HTTP `402 Payment Required` personalizado ou redirecione para a página de faturamento/checkout.
 
@@ -129,20 +129,20 @@ export default class BillingEnforcementMiddleware {
     const { auth, response } = ctx
     const user = auth.user
     
-    if (!user || !user.marketingAgencyId) {
+    if (!user || !user.solarCompanyId) {
       return next()
     }
 
-    await user.load('marketingAgency', (query) => {
+    await user.load('solarCompany', (query) => {
       query.preload('subscriptions', (subQuery) => {
         subQuery.where('status', 'active').orWhere('status', 'trialing')
       })
     })
 
-    const agency = user.marketingAgency
-    const hasActiveSub = agency.subscriptions.length > 0
+    const company = user.solarCompany
+    const hasActiveSub = company.subscriptions.length > 0
 
-    if (!agency.isActive || !hasActiveSub) {
+    if (!company.isActive || !hasActiveSub) {
       return response.paymentRequired({
         message: 'Acesso suspenso. Assinatura ativa necessária.',
         code: 'BILLING_SUSPENDED'
@@ -161,7 +161,7 @@ export default class BillingEnforcementMiddleware {
 
 ## Restrições
 * NUNCA execute requisições de API de gateways de terceiros de forma síncrona dentro do ciclo de requisição/resposta HTTP principal para webhooks. Use o BullMQ.
-* NUNCA codifique credenciais ou conteúdos de arquivos de certificado de forma estática (hardcoded). Sempre faça referência a eles via `#config/redis` ou variáveis de ambiente.
+* NUNCA codifique credenciais ou conteúdos de arquivos de certificado de forma estática (hardcoded). Sempre faça referência a eles via `env` (variáveis de ambiente) ou um arquivo de configuração dedicado de billing (ex: `#config/billing`).
 * NUNCA use IDs numéricos auto-incrementáveis para planos, assinaturas, faturas ou logs de eventos de webhook. Use ULIDs.
 * NUNCA execute atualizações de faturamento sem realizar verificações de idempotência nas tabelas de `webhook_events` primeiro.
 * NUNCA verifique o status de faturamento diretamente em todos os controllers de rota. Use um middleware `BillingEnforcementMiddleware` unificado.

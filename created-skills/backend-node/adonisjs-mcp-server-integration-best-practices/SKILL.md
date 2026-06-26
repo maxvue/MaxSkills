@@ -1,6 +1,6 @@
 ---
 name: adonisjs-mcp-server-integration-best-practices
-description: Use when designing, configuring, implementing, securing, or debugging Model Context Protocol (MCP) server integrations, stdio/HTTP transports, and Bearer token authenticated API endpoints for MCP clients in AdonisJS v6 applications.
+description: Use when designing, configuring, implementing, securing, or debugging Model Context Protocol (MCP) server integrations, stdio/Streamable HTTP transports, and Bearer (OAT) token authenticated API endpoints for MCP/M2M clients in AdonisJS v6 applications.
 ---
 
 # Boas Práticas de Integração do Servidor MCP no AdonisJS
@@ -17,11 +17,11 @@ Estabelecer padrões seguros, performáticos e padronizados para a implementaç�
   ```
 * Escolha o transporte apropriado:
   * **Stdio (Integração de Linha de Comando/IDE)**: Melhor para integrações locais onde o servidor é executado como um subprocesso.
-  * **SSE/HTTP (Integrações Remotas)**: Melhor para serviços baseados na web e microsserviços.
+  * **Streamable HTTP (Integrações Remotas)**: Melhor para serviços baseados na web e microsserviços. Use o `StreamableHTTPServerTransport` (o transporte SSE legado está depreciado).
 
 ### 2. Servidor MCP Stdio via Comando Ace (`commands/mcp_server.ts`)
 * O transporte Stdio utiliza a entrada/saída padrão (`stdin`/`stdout`). Para evitar que logs do framework ou declarações print poluam o stdout e quebrem a comunicação JSON-RPC:
-  * Configure o logger do AdonisJS para gravar no `stderr` ou em um arquivo.
+  * Configure o logger do AdonisJS para gravar no `stderr` ou em um arquivo (via `config/logger.ts`, no transporte do pino). NÃO escreva no `stdout`.
   * NÃO utilize `console.log()` dentro do código do comando ou serviço.
 * Padrão de implementação:
   ```typescript
@@ -30,14 +30,17 @@ Estabelecer padrões seguros, performáticos e padronizados para a implementaç�
   import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
   import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js'
   import app from '@adonisjs/core/services/app'
+  import logger from '@adonisjs/core/services/logger'
 
   export default class McpServerCommand extends BaseCommand {
     static commandName = 'mcp:server'
     static description = 'Starts the MCP Stdio server'
 
     async run() {
-      // Direciona o logger para stderr para evitar quebrar o transporte stdio
-      app.container.use('logger').destination = process.stderr
+      // O logger é obtido via service do core (não há app.container.use()).
+      // Para o transporte stdio, garanta em config/logger.ts que o destino do
+      // pino seja stderr (pino.destination(2)) ou um arquivo — nunca stdout.
+      logger.info('Iniciando servidor MCP via stdio')
 
       const server = new Server(
         { name: 'maxdmin-mcp-server', version: '1.0.0' },
@@ -91,66 +94,65 @@ Estabelecer padrões seguros, performáticos e padronizados para a implementaç�
   }
   ```
 
-### 3. Servidor MCP HTTP & SSE com Autenticação de Token Bearer
-* Ao expor o MCP via SSE (Server-Sent Events) sobre HTTP, proteja os endpoints usando Autenticação de Token Bearer (por exemplo, usando tokens OAT do `@adonisjs/auth` ou middleware de chave de API personalizado):
-* Defina as rotas em `start/routes.ts`:
+### 3. Servidor MCP HTTP (Streamable HTTP) com Autenticação de Token Bearer
+* Para integrações remotas use o **Streamable HTTP transport** (`StreamableHTTPServerTransport`), que substituiu o antigo transporte SSE depreciado das versões recentes do `@modelcontextprotocol/sdk`. Proteja os endpoints com Token Bearer via tokens OAT do `@adonisjs/auth` (o uso de OAT/Bearer aqui é restrito a clientes MCP/M2M — não é o modelo de auth da aplicação web, que é sessão+cookie).
+* Defina as rotas em `start/routes.ts`. O Streamable HTTP usa um único endpoint que atende POST (mensagens cliente→servidor), GET (stream servidor→cliente) e DELETE (encerramento de sessão):
   ```typescript
   import router from '@adonisjs/core/services/router'
   import { middleware } from '#start/kernel'
   const McpController = () => import('#controllers/mcp_controller')
 
   router.group(() => {
-    // Endpoint de conexão SSE (requer token de consulta de autenticação ou cabeçalho personalizado)
-    router.get('/mcp/sse', [McpController, 'sse'])
-    // Endpoint de postagem de mensagem (requer validação padrão de Token Bearer)
-    router.post('/mcp/message', [McpController, 'message'])
+    // Endpoint único do Streamable HTTP transport (Token Bearer obrigatório)
+    router.post('/mcp', [McpController, 'handle'])
+    router.get('/mcp', [McpController, 'handle'])
+    router.delete('/mcp', [McpController, 'handle'])
   }).use(middleware.auth({ guards: ['api'] }))
   ```
-* Implemente o Controller usando `SSEServerTransport`:
+* Implemente o Controller usando `StreamableHTTPServerTransport`, mantendo um transporte por sessão MCP:
   ```typescript
   import type { HttpContext } from '@adonisjs/core/http'
   import { Server } from '@modelcontextprotocol/sdk/server/index.js'
-  import { SSEServerTransport } from '@modelcontextprotocol/sdk/server/sse.js'
-  import app from '@adonisjs/core/services/app'
+  import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
+  import { randomUUID } from 'node:crypto'
 
   export default class McpController {
-    private mcpServer: Server
-    private sseTransports = new Map<string, SSEServerTransport>()
+    // Transportes ativos indexados pelo Mcp-Session-Id
+    private transports = new Map<string, StreamableHTTPServerTransport>()
 
-    constructor() {
-      this.mcpServer = new Server(
+    private buildServer() {
+      const server = new Server(
         { name: 'maxdmin-remote-mcp', version: '1.0.0' },
         { capabilities: { tools: {} } }
       )
-      this.registerHandlers()
+      this.registerHandlers(server)
+      return server
     }
 
-    private registerHandlers() {
+    private registerHandlers(server: Server) {
       // Registre as ferramentas e esquemas de recursos aqui
     }
 
-    async sse({ response, auth }: HttpContext) {
-      const user = auth.getUserOrFail()
-      const transport = new SSEServerTransport('/api/mcp/message', response.response)
-      
-      this.sseTransports.set(user.id, transport)
-      await this.mcpServer.connect(transport)
+    async handle({ request, response, auth }: HttpContext) {
+      // Garante autenticação do cliente MCP (token OAT) antes de qualquer I/O
+      await auth.authenticate()
 
-      // Mantém a resposta aberta para SSE
-      response.response.on('close', () => {
-        this.sseTransports.delete(user.id)
-      })
-    }
-
-    async message({ request, response, auth }: HttpContext) {
-      const user = auth.getUserOrFail()
-      const transport = this.sseTransports.get(user.id)
+      const sessionId = request.header('mcp-session-id')
+      let transport = sessionId ? this.transports.get(sessionId) : undefined
 
       if (!transport) {
-        return response.notFound('Conexão de transporte SSE não encontrada')
+        transport = new StreamableHTTPServerTransport({
+          sessionIdGenerator: () => randomUUID(),
+          onsessioninitialized: (id) => this.transports.set(id, transport!),
+        })
+        transport.onclose = () => {
+          if (transport!.sessionId) this.transports.delete(transport!.sessionId)
+        }
+        await this.buildServer().connect(transport)
       }
 
-      await transport.handlePostMessage(request.request, response.response)
+      // Delega o ciclo de requisição/streaming ao transporte
+      await transport.handleRequest(request.request, response.response, request.body())
     }
   }
   ```
@@ -201,5 +203,5 @@ Estabelecer padrões seguros, performáticos e padronizados para a implementaç�
 ## Restrições
 * NÃO envie saídas usando `console.log()` no modo de transporte stdio. Apenas registre logs no `stderr` ou use um arquivo de log dedicado.
 * NÃO exponha chaves primárias do banco de dados diretamente nas ferramentas MCP se forem IDs autoincrementados simples; use ULIDs/UUIDs e mapeie-os com segurança.
-* NÃO permita acesso anônimo às rotas HTTP SSE/message. Aplique rigorosamente o middleware de autenticação do AdonisJS.
+* NÃO permita acesso anônimo às rotas HTTP do MCP. Aplique rigorosamente o middleware de autenticação do AdonisJS (guard `api`/OAT, restrito a clientes MCP/M2M).
 * NÃO execute consultas SQL puras diretamente dentro das ferramentas MCP. Mantenha a integridade das operações do banco de dados utilizando validação VineJS e Lucid ORM.

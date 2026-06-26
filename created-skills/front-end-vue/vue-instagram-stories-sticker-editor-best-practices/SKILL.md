@@ -18,7 +18,7 @@ Padronizar a implementação de um editor visual interativo de stickers para Ins
 ### 2. Interatividade de Arrastar, Redimensionar e Rotacionar
 * Utilizar variáveis reativas para o estado do sticker ativo: `x`, `y`, `width`, `height` e `rotation`.
 * Implementar guias de encaixe magnético (snapping guides) para alinhamento central horizontal e vertical que aparecem quando um sticker está em um intervalo de 5px do eixo central.
-* Centralizar eventos de mouse/toque usando composables da Composition API do `@vueuse/core` (como `useDraggable`) ou ouvintes personalizados do `MaxUse` para manipular as coordenadas de forma suave.
+* Centralizar eventos de mouse/toque usando os wrappers de interação expostos via `@maxvue/max-use` (auto-import, ex.: `useDraggable`) para manipular as coordenadas de forma suave. Evite importar `@vueuse/core` diretamente — use os helpers do `MaxUse`.
 
 ### 3. Normalização de Coordenadas
 * Converter coordenadas locais do container em pixels para decimais relativos (0.0 a 1.0) e a rotação para graus (0 a 360) para compatibilidade com a Meta Graph API.
@@ -43,12 +43,14 @@ Padronizar a implementação de um editor visual interativo de stickers para Ins
   }
   ```
 
-### 4. Gerenciamento de Estado com Pinia
-* Centralizar o estado em uma store Pinia chamada `useStickerEditorStore`.
-* Expor actions limpas: `addSticker`, `removeSticker`, `updateStickerPosition` e `selectSticker`.
-* Manter uma separação clara entre o sticker ativo sendo editado (estado da UI) e a lista serializada final dos stickers do Story.
+### 4. Gerenciamento de Estado e Persistência com MaxPinia
+* Centralizar o estado de UI em uma store `useStickerEditorStore` (sticker ativo, alças, seleção). O estado puramente visual/efêmero pode ser uma store Pinia local.
+* Toda leitura e persistência do payload normalizado (a lista final de stickers do Story) DEVE passar por uma store `@maxvue/max-pinia`, que cuida do GET inicial e do auto-save (debounced) no backend Adonis. Não faça `axios.get`/`axios.post` manual nem salve por submit.
+* As rotas são caminhos string `/api/...` resolvidos por `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` (sem `route()`/Ziggy). Ex.: `apiGetRoute('/api/stories/{id}/stickers')`.
+* Expor actions limpas na store de UI: `addSticker`, `removeSticker`, `updateStickerPosition` e `selectSticker`; ao mutar a lista normalizada na store MaxPinia, o salvamento ocorre automaticamente.
+* Manter uma separação clara entre o sticker ativo sendo editado (estado da UI) e a lista serializada final dos stickers do Story (persistida via store MaxPinia).
 
-### 5. UI e Estilos (UnoCSS / Tailwind CSS)
+### 5. UI e Estilos (UnoCSS)
 * Usar propriedades de transformação CSS (`translate` e `rotate`) para renderizar os stickers no canvas.
 * Renderizar alças de transformação interativas (alças de redimensionamento nos quatro cantos e uma alça de rotação no topo) apenas ao redor do sticker ativo selecionado.
 * Integrar formulários de edição dos detalhes do sticker (como opções da enquete ou URLs do link) usando a biblioteca de componentes de design system local `MaxComponentsUi`.
@@ -57,3 +59,5 @@ Padronizar a implementação de um editor visual interativo de stickers para Ins
 * NÃO defina valores fixos de pixel do canvas no payload final enviado para a Meta Graph API. Sempre converta para valores decimais relativos (normalizados).
 * NÃO bloqueie a thread principal de renderização com detecções complexas de colisão em tempo real; utilize debouncing ou atualizações via `requestAnimationFrame`.
 * NÃO misture coordenadas locais da UI em pixels diretamente com as coordenadas de persistência. Sempre isole o estado local do estado persistido em decimais.
+* NÃO use Tailwind CSS. Use exclusivamente UnoCSS com `presetMaxUno` (modo attributify) e os componentes `MaxComponentsUi`.
+* NÃO faça GET/save manual do payload de stickers. A leitura inicial e o salvamento passam obrigatoriamente por uma store `@maxvue/max-pinia`.

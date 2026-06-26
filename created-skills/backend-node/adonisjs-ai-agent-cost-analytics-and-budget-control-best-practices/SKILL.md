@@ -1,6 +1,6 @@
 ---
 name: adonisjs-ai-agent-cost-analytics-and-budget-control-best-practices
-description: Use when implementing, reviewing, or debugging backend logic for AI agent requests in AdonisJS v6 — executeAgent execution with model fallback chains, capturing token/cost metrics and persisting them via saveAiCost into the AgentAiCost model, analyzing/aggregating AgentAiCost records (sums grouped by dates, agents, or clients), converting values using DolarService, applying tenant budget limits to restrict LLM calls, and broadcasting real-time updates via Pusher/Soketi or Transmit.
+description: Use when implementing, reviewing, or debugging backend logic for AI agent requests in AdonisJS v6 — executeAgent execution with model fallback chains, capturing token/cost metrics and persisting them via saveAiCost into the AgentAiCost model, analyzing/aggregating AgentAiCost records (sums grouped by dates, agents, or clients), converting values using DolarService, applying tenant budget limits to restrict LLM calls, and broadcasting real-time updates via AdonisJS Transmit (SSE).
 ---
 
 ## Objetivo
@@ -11,8 +11,8 @@ Fornecer diretrizes, estruturas e padrões de implementação para a execução 
 ## Instruções
 
 ### 1. Referência do Model do Banco de Dados
-Sempre referencie o model `AgentAiCost` ([agent_ai_cost.ts](file:///home/johnattas/GitHub/Skills/projects/SocialMediaApp/app/models/agent_ai_cost.ts)) ao escrever consultas de custos. Ele mapeia para a tabela `agents_ai_cost` e armazena o consumo de tokens das LLMs e o preço final em USD. Os campos chave incluem:
-- `costableType`: FQCN da entidade relacionada (ex: `App\\Models\\Calendar\\Event`).
+Sempre referencie o model `AgentAiCost` (`#models/agent_ai_cost`) ao escrever consultas de custos. Ele mapeia para a tabela `agents_ai_cost` e armazena o consumo de tokens das LLMs e o preço final em USD. Os campos chave incluem:
+- `costableType`: identificador da entidade relacionada (string curta, ex: `ProjectSolar`, `ProposalEnergy`). Use um enum/string simples do domínio Adonis — **não** FQCN PHP estilo `App\Models\...`.
 - `costableId`: A chave primária da entidade relacionada.
 - `agent`: O nome do agente de IA que executou.
 - `totalPrice`: O custo calculado em USD.
@@ -45,21 +45,20 @@ Ao retornar de `executeAgent`, calcule o custo financeiro com base no status de 
 ### 4. Persistência dos Custos (saveAiCost → AgentAiCost)
 Após cada execução, grave as métricas calculadas chamando `saveAiCost`, que insere o registro na tabela `agents_ai_cost` via model `AgentAiCost` (ver seção 1). Esses registros são exatamente os consumidos pelas análises e pela checagem de budget.
 - Preencha todos os campos necessários: `costableType`, `costableId`, `agent`, `typeData`, `model`, `totalTokens`, `tokensInput`, `tokensCached`, `tokensInputTotal`, `tokensOutput`, `toolsUses`, `toolsAmount`, `totalPrice`, `totalDuration`.
-- Mapeie as associações polimórficas de `costableType` conforme o backend Laravel:
+- Mapeie as associações polimórficas de `costableType` usando identificadores de domínio simples (strings do Adonis, nunca FQCN PHP):
   ```typescript
   export const COSTABLE_TYPES = {
-    Event: 'App\\Models\\Calendar\\Event',
-    SocialMediaTheme: 'App\\Models\\Calendar\\SocialMediaTheme',
-    SocialMediaAgent: 'App\\Models\\Calendar\\SocialMediaAgent',
+    ProjectSolar: 'ProjectSolar',
+    ProposalEnergy: 'ProposalEnergy',
+    SolarSimulation: 'SolarSimulation',
   } as const
   ```
 - Capture exceções em `saveAiCost`/`AgentAiCost`: uma falha de banco ao registrar o custo **não** deve quebrar o fluxo principal do agente.
 
-### 5. Broadcast em Tempo Real (Pusher/Soketi e Transmit)
-Notifique os usuários vinculados à empresa do evento de forma assíncrona e segura.
-- Via Pusher/Soketi: envie em canais privados no formato `private-system.${userId}` (ex.: `broadcastCalendarUpdate`).
-- Via Transmit: canais no formato `users/${user.id}/calendar` (usado, por exemplo, nos alertas de orçamento da seção `AiBudgetService`).
-- Sempre encapsule o broadcast em `try/catch`: a falha de um websocket nunca deve interromper o fluxo de execução principal.
+### 5. Broadcast em Tempo Real (AdonisJS Transmit / SSE)
+Notifique os usuários vinculados à empresa de forma assíncrona e segura usando exclusivamente AdonisJS Transmit (SSE). Não use Pusher/Soketi/Reverb nem Laravel Echo.
+- Use `transmit.broadcast` em canais no formato `users/${user.id}/ai-budget` (usado, por exemplo, nos alertas de orçamento da seção `AiBudgetService`).
+- Sempre encapsule o broadcast em `try/catch`: a falha do canal SSE nunca deve interromper o fluxo de execução principal.
 
 ### 6. Agregação Eficiente de Custos
 Ao construir relatórios financeiros ou painéis de uso:
@@ -74,10 +73,9 @@ Ao construir relatórios financeiros ou painéis de uso:
   async function getMonthlyCostReport(clientId: string, startDate: string, endDate: string) {
     const rawCosts = await db
       .from('agents_ai_cost')
-      .join('calendar_events', 'agents_ai_cost.costable_id', '=', 'calendar_events.id')
-      .join('calendar_social_media_agent', 'calendar_events.agent_id', '=', 'calendar_social_media_agent.id')
-      .where('agents_ai_cost.costable_type', 'App\\Models\\Calendar\\Event')
-      .where('calendar_social_media_agent.id_solar_company', clientId)
+      .join('projects_solar', 'agents_ai_cost.costable_id', '=', 'projects_solar.id')
+      .where('agents_ai_cost.costable_type', 'ProjectSolar')
+      .where('projects_solar.solar_company_id', clientId)
       .whereBetween('agents_ai_cost.created_at', [startDate, endDate])
       .select('agents_ai_cost.agent')
       .sum('agents_ai_cost.total_price as totalUsd')
@@ -116,9 +114,9 @@ Crie um serviço dedicado `AiBudgetService` para computar o consumo mensal e apl
 
       const result = await db
         .from('agents_ai_cost')
-        .join('calendar_events', 'agents_ai_cost.costable_id', '=', 'calendar_events.id')
-        .join('calendar_social_media_agent', 'calendar_events.agent_id', '=', 'calendar_social_media_agent.id')
-        .where('calendar_social_media_agent.id_solar_company', solarCompanyId)
+        .join('projects_solar', 'agents_ai_cost.costable_id', '=', 'projects_solar.id')
+        .where('agents_ai_cost.costable_type', 'ProjectSolar')
+        .where('projects_solar.solar_company_id', solarCompanyId)
         .whereBetween('agents_ai_cost.created_at', [firstDay, lastDay])
         .sum('agents_ai_cost.total_price as total')
         .first()
@@ -159,14 +157,15 @@ Crie um serviço dedicado `AiBudgetService` para computar o consumo mensal e apl
       try {
         const users = await User.query().where('solar_company_id', solarCompanyId).select(['id'])
         for (const user of users) {
-          transmit.broadcast(`users/${user.id}/calendar`, {
+          transmit.broadcast(`users/${user.id}/ai-budget`, {
             type,
             spent,
             limit,
           })
         }
       } catch (err) {
-        logger.error(`Falha ao transmitir alerta de orçamento para o tenant ${solarCompanyId}: ${err.message}`)
+        const message = err instanceof Error ? err.message : String(err)
+        logger.error(`Falha ao transmitir alerta de orçamento para o tenant ${solarCompanyId}: ${message}`)
       }
     }
   }
@@ -205,7 +204,7 @@ Declare uma exceção personalizada e reutilizável para formatar uma resposta H
 Garanta que os gerenciadores de execução validem o orçamento antes de processar qualquer requisição:
 - **Em requisições HTTP / Controllers:** Verifique o orçamento utilizando o serviço e dispare `AiBudgetExceededException` se a verificação falhar.
 - **Em Jobs de Fila (ex: workers BullMQ):** Valide o orçamento antes de invocar o loop de execução. Se excedido, encerre o job de forma amigável e registre o motivo no log.
-- **Exemplo de verificação no fluxo [agent_ai_request.ts](file:///home/johnattas/GitHub/Skills/projects/SocialMediaApp/app/ai/agent_ai_request.ts):**
+- **Exemplo de verificação no fluxo de execução do agente (`app/ai/agent_ai_request.ts`):**
   ```typescript
   import AiBudgetExceededException from '#exceptions/ai_budget_exceeded_exception'
   import { AiBudgetService } from '#services/ai_budget_service'

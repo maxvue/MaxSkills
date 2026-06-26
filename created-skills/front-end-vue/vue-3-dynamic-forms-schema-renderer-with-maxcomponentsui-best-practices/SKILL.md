@@ -29,14 +29,16 @@ export interface FormFieldSchema {
 ## 2. Mapeamento Dinâmico de Componentes
 Em vez de duplicar templates com diretivas `v-if` para cada tipo de campo, mapeie os nomes dos componentes dinamicamente usando o mecanismo `<component :is="...">` do Vue.
 
+Os componentes `@maxvue/max-components-ui` são resolvidos por auto-import (`unplugin-vue-components`); **não** os importe manualmente. Como `<component :is="...">` exige uma referência, use `resolveComponent` para obter o componente registrado a partir do nome em string.
+
 ```typescript
-import { MaxInputText, MaxInputTextArea, MaxSelect, MaxSwitch } from '@maxvue/max-components-ui';
+import { resolveComponent } from 'vue';
 
 const componentMap = {
-  MaxInputText,
-  MaxInputTextArea,
-  MaxSelect,
-  MaxSwitch
+  MaxInputText: resolveComponent('MaxInputText'),
+  MaxInputTextArea: resolveComponent('MaxInputTextArea'),
+  MaxSelect: resolveComponent('MaxSelect'),
+  MaxSwitch: resolveComponent('MaxSwitch')
 };
 ```
 
@@ -47,13 +49,12 @@ Construa um renderizador de formulário dinâmico SFC reutilizável. Mantenha os
 ```vue
 <template>
   <form class="max-dynamic-form" @submit.prevent="handleSubmit">
-    <div class="form-grid">
+    <!-- Use sempre <MaxGrid>: o layout das colunas vem do gridClass (s33/s50/s100) de cada campo. Nunca monte grids manuais. -->
+    <MaxGrid>
       <!-- Mapeamento dinâmico dos componentes com atributos em uma única linha -->
-      <div v-for="field in schema" :key="field.key" :class="['form-field', field.gridClass]">
-        <component :is="componentMap[field.component]" v-model="formData[field.key]" v-bind="field.props" :label="field.label" :error="errors[field.key]" @update:model-value="clearError(field.key)" />
-      </div>
-    </div>
-    
+      <component :is="componentMap[field.component]" v-for="field in schema" :key="field.key" :class="field.gridClass" v-model="formData[field.key]" v-bind="field.props" :label="field.label" :error="errors[field.key]" @update:model-value="clearError(field.key)" />
+    </MaxGrid>
+
     <div class="form-actions">
       <slot name="actions">
         <MaxButton label="Salvar" type="submit" :loading="submitting" />
@@ -63,9 +64,8 @@ Construa um renderizador de formulário dinâmico SFC reutilizável. Mantenha os
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, watch } from 'vue';
+// ref/reactive/watch e os componentes Max sao auto-importados (unplugin-auto-import / unplugin-vue-components). Nao os importe manualmente.
 import { z } from 'zod';
-import { MaxButton, MaxInputText, MaxInputTextArea, MaxSelect, MaxSwitch } from '@maxvue/max-components-ui';
 import type { FormFieldSchema } from './types';
 
 const props = defineProps<{
@@ -94,10 +94,10 @@ watch(formData, (newVal) => {
 }, { deep: true });
 
 const componentMap = {
-  MaxInputText,
-  MaxInputTextArea,
-  MaxSelect,
-  MaxSwitch
+  MaxInputText: resolveComponent('MaxInputText'),
+  MaxInputTextArea: resolveComponent('MaxInputTextArea'),
+  MaxSelect: resolveComponent('MaxSelect'),
+  MaxSwitch: resolveComponent('MaxSwitch')
 };
 
 // Constrói o schema Zod dinamicamente a partir das regras de validação do formulário
@@ -118,7 +118,8 @@ const validate = (): boolean => {
   const result = validationSchema.safeParse(formData.value);
   
   if (!result.success) {
-    errors.value = result.error.errors.reduce((acc, err) => {
+    // Zod 4: use .issues (a antiga .errors foi removida)
+    errors.value = result.error.issues.reduce((acc, err) => {
       const path = err.path.join('.');
       acc[path] = err.message;
       return acc;
@@ -145,34 +146,10 @@ const handleSubmit = () => {
 
 <style scoped lang="scss">
 .max-dynamic-form {
+  // O grid e o dimensionamento das colunas (s33/s50/s100) sao responsabilidade do <MaxGrid> + UnoCSS (presetMaxUno). Nao reimplemente grid manual aqui.
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
-  .form-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-
-    .form-field {
-      display: flex;
-      flex-direction: column;
-
-      &.s33 {
-        flex: 1 1 calc(33.333% - 1rem);
-        min-width: 250px;
-      }
-
-      &.s50 {
-        flex: 1 1 calc(50% - 1rem);
-        min-width: 300px;
-      }
-
-      &.s100 {
-        flex: 1 1 100%;
-      }
-    }
-  }
 
   .form-actions {
     display: flex;
@@ -184,83 +161,66 @@ const handleSubmit = () => {
 ```
 
 ## 4. Exemplo de Uso
-Defina um componente que consome o renderizador de formulário dinâmico, mostrando como configurar campos com validações e opções específicas.
+Defina um componente que consome o renderizador de formulário dinâmico, mostrando como configurar campos com validações e opções específicas. Os dados de página vêm de uma store `@maxvue/max-pinia`: a store faz o GET inicial e persiste as alterações com auto-save (debounced), dispensando requisições/salvamentos manuais.
 
 ```vue
 <template>
-  <div class="agent-configuration">
-    <h2>Configurações do Agente de IA</h2>
-    <MaxDynamicForm :schema="formSchema" v-model="agentData" :submitting="saving" @submit="saveConfig" />
+  <div class="inverter-configuration">
+    <MaxTitle>Configuração do Inversor Fotovoltaico</MaxTitle>
+    <MaxDynamicForm :schema="formSchema" v-model="store.inverterConfig" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
 import { z } from 'zod';
 import MaxDynamicForm from './components/MaxDynamicForm.vue';
 import type { FormFieldSchema } from './components/types';
-import { Toast } from '@maxvue/max-components-ui';
+import { useInverterStore } from '@/stores/inverter';
 
-const saving = ref(false);
-
-const agentData = ref({
-  name: '',
-  description: '',
-  tone: 'professional',
-  active: true
-});
+// Store @maxvue/max-pinia: o GET inicial e o salvamento sao feitos pela store.
+// Ao editar campos do v-model, o MaxPinia salva automaticamente no backend (auto-save debounced).
+// Por isso o formulario nao precisa de @submit nem de logica manual de POST.
+const store = useInverterStore();
 
 const formSchema: FormFieldSchema[] = [
   {
-    key: 'name',
-    label: 'Nome do Agente',
+    key: 'model',
+    label: 'Modelo do Inversor',
     component: 'MaxInputText',
     gridClass: 's50',
-    validation: z.string().min(3, 'O nome deve ter pelo menos 3 caracteres').max(50, 'O nome não deve exceder 50 caracteres'),
-    props: { placeholder: 'Ex: Assistente de Vendas' }
+    validation: z.string().min(3, 'O modelo deve ter pelo menos 3 caracteres').max(50, 'O modelo não deve exceder 50 caracteres'),
+    props: { placeholder: 'Ex: Growatt MIN 5000TL-X' }
   },
   {
-    key: 'tone',
-    label: 'Tom de Voz',
+    key: 'phase',
+    label: 'Tipo de Fase',
     component: 'MaxSelect',
     gridClass: 's50',
-    validation: z.string().min(1, 'O tom de voz é obrigatório'),
+    validation: z.string().min(1, 'O tipo de fase é obrigatório'),
     props: {
       options: [
-        { label: 'Profissional', value: 'professional' },
-        { label: 'Amigável', value: 'friendly' },
-        { label: 'Criativo', value: 'creative' }
+        { label: 'Monofásico', value: 'single' },
+        { label: 'Bifásico', value: 'biphasic' },
+        { label: 'Trifásico', value: 'three' }
       ]
     }
   },
   {
-    key: 'description',
-    label: 'Instruções de Comportamento',
+    key: 'notes',
+    label: 'Observações de Instalação',
     component: 'MaxInputTextArea',
     gridClass: 's100',
-    validation: z.string().min(10, 'A descrição deve ter pelo menos 10 caracteres'),
-    props: { placeholder: 'Descreva as instruções que o agente deve seguir...', rows: 4 }
+    validation: z.string().min(10, 'As observações devem ter pelo menos 10 caracteres'),
+    props: { placeholder: 'Descreva detalhes da instalação do inversor...', rows: 4 }
   },
   {
     key: 'active',
     label: 'Ativo',
     component: 'MaxSwitch',
     gridClass: 's100',
-    props: { label: 'Habilitar agente de IA nas redes sociais' }
+    props: { label: 'Habilitar monitoramento deste inversor' }
   }
 ];
-
-const saveConfig = async (data: Record<string, any>) => {
-  saving.value = true;
-  try {
-    // Lógica para enviar dados à API
-    Toast.show({ severity: 'success', title: 'Sucesso', message: 'Configurações do agente salvas!' });
-  } catch (error) {
-    Toast.show({ severity: 'error', title: 'Erro', message: 'Falha ao salvar as configurações.' });
-  } finally {
-    saving.value = false;
-  }
-};
 </script>
 ```
 

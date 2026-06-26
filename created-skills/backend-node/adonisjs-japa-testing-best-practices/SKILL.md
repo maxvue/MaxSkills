@@ -1,6 +1,6 @@
 ---
 name: adonisjs-japa-testing-best-practices
-description: Use when creating, reviewing, or refactoring automated tests in AdonisJS using the Japa framework. Triggers on test creation, assertions, mocking, and test database management.
+description: Use when creating, reviewing, or refactoring automated tests in AdonisJS v6 with the Japa framework — unit and functional tests, test.group lifecycle hooks, the HTTP client and loginAs auth, asserting status/body, faking mail and the emitter, and isolating the test database via testUtils.db() migrations/truncation. Triggers on .spec.ts files, `node ace test`, mocking external services, and PostgreSQL test-data cleanup.
 ---
 
 # Melhores Práticas de Teste com Japa no AdonisJS
@@ -61,16 +61,44 @@ Estabelecer padrões consistentes e robustos para a escrita de testes automatiza
   ```
 
 ### 4. Interações com Banco de Dados e Isolamento
-* Gerenciamento de Banco nos Testes: Como os testes podem rodar no mesmo banco de dados de desenvolvimento compartilhado (sem base de teste separada em alguns ambientes), garanta que os testes limpem toda sujeira deixada.
-* Sempre exclua registros temporários criados nos testes no hook de teardown correspondente, limpando em ordem hierárquica reversa (tabelas filhas antes de tabelas pai para evitar violações de integridade referencial, como deletar tokens de acesso antes do usuário).
+* Use sempre um banco de dados de teste dedicado (PostgreSQL), separado do banco de desenvolvimento. Configure-o via `NODE_ENV=test`/`.env.test`. NUNCA rode testes contra o banco de desenvolvimento.
+* Garanta o isolamento global no `tests/bootstrap.ts` usando os utilitários do Adonis em vez de limpeza manual:
+  ```typescript
+  import testUtils from '@adonisjs/core/services/test_utils'
+
+  export const runnerHooks = {
+    setup: [
+      // Roda as migrations antes da suite e faz rollback ao final
+      () => testUtils.db().migrate(),
+    ],
+    teardown: [],
+  }
+  ```
+* Para resetar dados entre testes/grupos, prefira `testUtils.db().truncate()` (trunca todas as tabelas, preservando o schema) ou `testUtils.db().withGlobalTransaction()` em vez de `delete()` manual tabela por tabela:
+  ```typescript
+  group.each.setup(() => testUtils.db().truncate())
+  ```
 * Aliases de Importação: Sempre importe models e serviços utilizando aliases configurados (ex: `#models/user`, `#services/some_service`).
 
 ### 5. Mocking e Stubbing (Simulações)
 * Para APIs externas, disparos de e-mail ou agentes de IA de terceiros, utilize mocks ou fakes para manter os testes rápidos, previsíveis e desacoplados de serviços externos.
-* Use fakes integrados do framework (ex: `Mail.fake()`, `Event.fake()`) para validar os efeitos colaterais sem de fato enviar e-mails ou executar filas complexas.
+* Use fakes integrados do framework (no Adonis v6 a API é em camelCase, via serviços do container): `mail.fake()` (de `@adonisjs/mail/services/main`) e `emitter.fake()` (de `@adonisjs/core/services/emitter`) para validar os efeitos colaterais sem de fato enviar e-mails ou disparar handlers de eventos:
+  ```typescript
+  import mail from '@adonisjs/mail/services/main'
+  import emitter from '@adonisjs/core/services/emitter'
+
+  const mails = mail.fake()
+  const events = emitter.fake()
+  // ... ação que dispara e-mail/evento
+  mails.assertSent(VerifyEmail)
+  events.assertEmitted('user:registered')
+  // Restaure ao final
+  mail.restore()
+  emitter.restore()
+  ```
 
 ## Restrições
-* NÃO execute testes que façam operações de escrita sem limpar o estado do banco de dados ao final.
+* NÃO rode testes contra o banco de desenvolvimento; use sempre o banco de teste dedicado com isolamento via `testUtils.db()` (migrate/truncate/transaction global).
 * NÃO utilize importações relativas padrão (`../../`) para classes dentro da pasta app; utilize sempre `#models/*`, `#services/*` ou outras importações de subpath configuradas.
 * NÃO ignore testes de cenários de erro. Sempre escreva asserções para validações e falhas (ex: 400 Bad Request, 422 Unprocessable Entity, 401 Unauthorized, 404 Not Found).
 * NÃO teste múltiplos recursos não relacionados em um único caso de teste. Mantenha cada teste focado e de propósito único.

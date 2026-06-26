@@ -26,7 +26,7 @@ Use esta skill quando a tarefa for:
 - Escrever Changelogs e Release Notes
 - Criar guias de instalação e configuração
 - Documentar decisões arquiteturais (ADRs)
-- Gerar PHPDoc, JSDoc ou TSDoc para código
+- Gerar JSDoc ou TSDoc para código
 - Criar `CONTRIBUTING.md` e guias de contribuição
 - Documentar schemas de banco de dados
 - Escrever documentação de bibliotecas e SDKs
@@ -131,8 +131,8 @@ NÃO use esta skill quando a tarefa for exclusivamente escrever/corrigir código
 ```markdown
 ![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
 ![Licença](https://img.shields.io/badge/licença-MIT-green)
-![PHP](https://img.shields.io/badge/PHP-8.2+-purple)
-![Laravel](https://img.shields.io/badge/Laravel-11-red)
+![Node](https://img.shields.io/badge/Node-20+-green)
+![AdonisJS](https://img.shields.io/badge/AdonisJS-6-blueviolet)
 ![Testes](https://img.shields.io/badge/testes-passando-brightgreen)
 ```
 
@@ -328,13 +328,12 @@ Descrição clara do que este endpoint faz.
 
 ### Autenticação
 
-Requer token Bearer no header `Authorization`.
+Requer sessão autenticada (guard `web`, cookie de sessão). O front consome este endpoint através de uma store `@maxvue/max-pinia` — o cookie de sessão é enviado automaticamente pelo navegador.
 
 ### Headers
 
 | Header          | Valor                | Obrigatório |
 |-----------------|----------------------|-------------|
-| `Authorization` | `Bearer {token}`     | Sim         |
 | `Content-Type`  | `application/json`   | Sim         |
 | `Accept`        | `application/json`   | Sim         |
 
@@ -344,6 +343,8 @@ Requer token Bearer no header `Authorization`.
 |------------|----------|-------------|--------------------------|
 | `pagina`   | `int`    | Não         | Número da página (padrão: 1) |
 | `limite`   | `int`    | Não         | Itens por página (padrão: 15) |
+
+> O consumo no front passa por uma store `@maxvue/max-pinia` (caminho string resolvido por `apiGetRoute`/`apiPostRoute` para `/api/...`), nunca por `axios.get`/`axios.post` manual. Alterações de dados são persistidas via auto-save (debounced) da store.
 
 ### Body (JSON)
 
@@ -388,11 +389,11 @@ Requer token Bearer no header `Authorization`.
 }
 \```
 
-#### ❌ 401 — Não Autenticado
+#### ❌ 401 — Sessão Não Autenticada
 
 \```json
 {
-  "message": "Não autenticado."
+  "message": "Sessão não autenticada."
 }
 \```
 ```
@@ -416,8 +417,8 @@ Descrição do que o componente faz e quando usá-lo.
 </template>
 
 <script setup lang="ts">
-import { NomeDoComponente } from '@/components';
-
+// Componentes Max e helpers (ref, etc.) chegam por auto-import
+// (unplugin-vue-components / unplugin-auto-import). Não importe manualmente.
 const listaDeItens = ref([
   { id: 1, nome: 'Item 1' },
   { id: 2, nome: 'Item 2' },
@@ -566,7 +567,7 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/lang/pt-BR
 - Timeout em consultas com muitos registros (#126)
 
 ### Removido
-- Suporte ao PHP 8.1 (mínimo agora é 8.2)
+- Suporte ao Node 18 (mínimo agora é Node 20)
 
 ## [1.1.0] — 2026-04-15
 

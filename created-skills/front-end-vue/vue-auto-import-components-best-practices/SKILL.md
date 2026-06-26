@@ -30,20 +30,19 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        // Suporte para formatos de array e objeto de maxUseAutoImport
-        ...(Array.isArray(maxUseAutoImport) ? maxUseAutoImport : [maxUseAutoImport]),
-        { pinia: ['defineStore'] },
-        { axios: [['default', 'axios']] }
+        // maxUseAutoImport é uma FUNÇÃO: chame-a para registrar os helpers do MaxUse
+        maxUseAutoImport(),
+        { pinia: ['defineStore'] }
       ],
       ignore: ['toRef', 'toRefs'],
       dts: './auto-import.d.ts',
       vueTemplate: true,
       viteOptimizeDeps: true,
       dirs: [
-        './resources/Functions/**',
-        './resources/Helpers/**',
-        './resources/Types/**',
-        './resources/Stores/**'
+        './src/Functions/**',
+        './src/Helpers/**',
+        './src/Types/**',
+        './src/Stores/**'
       ],
       // Gera arquivo de variáveis globais para o ESLint evitar erros de validação
       eslintrc: {
@@ -53,7 +52,7 @@ export default defineConfig({
       }
     }),
     Components({
-      dirs: ['./resources/Vue', './resources/components'],
+      dirs: ['./src/Vue', './src/components'],
       extensions: ['vue', 'js', 'ts'],
       deep: true,
       dts: './auto-import-components.d.ts',
@@ -76,8 +75,8 @@ Certifique-se de que os arquivos autogerados de declaração de tipos (`auto-imp
     // ... outras configurações do compilador
   },
   "include": [
-    "./resources/**/*.vue",
-    "./resources/**/*.ts",
+    "./src/**/*.vue",
+    "./src/**/*.ts",
     "./auto-import.d.ts",
     "./auto-import-components.d.ts"
   ]

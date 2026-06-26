@@ -17,7 +17,7 @@ Estabelecer padrões limpos, otimizados para desempenho e padronizados para a de
 Exemplo: `app/validators/auth.ts`
 ```typescript
 import vine from '@vinejs/vine'
-import { Infer } from '@vinejs/vine/types'
+import type { Infer } from '@vinejs/vine/types'
 
 export const loginValidator = vine.compile(
   vine.object({
@@ -49,8 +49,8 @@ Para validar formatos comuns no mercado brasileiro, crie regras customizadas e r
 
 1. **Defina a Regra em `start/validator.ts`**:
    ```typescript
-   import vine from '@vinejs/vine'
-   import { FieldContext } from '@vinejs/vine/types'
+   import vine, { VineString } from '@vinejs/vine'
+   import type { FieldContext } from '@vinejs/vine/types'
    
    // Função utilitária para validação de CPF
    function isValidCpf(cpf: string): boolean {
@@ -80,9 +80,9 @@ Para validar formatos comuns no mercado brasileiro, crie regras customizadas e r
      }
    })
 
-   // Registra os macros na classe do VineJS
-   vine.addMacro('cpf', function (this: any) {
-     return this.use(cpfRule)
+   // Registra o macro no prototipo correto (VineString) — API publica do VineJS v6
+   VineString.macro('cpf', function (this: VineString) {
+     return this.use(cpfRule())
    })
    ```
 

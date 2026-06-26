@@ -13,31 +13,30 @@ Padronizar a implementação de listas interativas do tipo arrastar e soltar (dr
 ### 1. Implementação no Front-end (Vue 3 & TypeScript)
 Ao criar ou editar componentes Vue (arquivos `.vue`) que exijam reordenação, siga estas diretrizes:
 - **Ordem dos Blocos**: Siga a ordem estrita do SFC (Single-File Component): `<template>`, `<script setup lang="ts">` e `<style scoped lang="scss">`.
-- **Importação do Componente**: Importe `draggable` de `vue-draggable-next` como uma importação nomeada:
+- **Importação do Componente**: Importe `VueDraggableNext` de `vue-draggable-next` (export nomeado) e registre-o localmente como `<draggable>`:
   ```typescript
-  import { draggable } from 'vue-draggable-next'
+  import { VueDraggableNext as draggable } from 'vue-draggable-next'
   ```
 - **Reatividade e v-model**: Use `v-model` para vincular o array reativo. Isso garante que a reatividade do Vue atualize a ordem do array automaticamente:
   ```html
-  <draggable v-model="items" item-key="id" ghost-class="ghost-item" drag-class="dragging-item" handle=".drag-handle" @change="onOrderChange">
+  <draggable v-model="items" ghost-class="ghost-item" drag-class="dragging-item" handle=".drag-handle" @change="onOrderChange">
   ```
 - **Atributos Obrigatórios**:
-  - `item-key`: Uma string que representa o identificador único dos elementos (geralmente `"id"`).
   - `ghost-class`: Classe CSS aplicada ao espaço reservado (placeholder) de soltura.
   - `drag-class`: Classe CSS aplicada ao item que está sendo arrastado no momento.
   - `handle`: Seletor CSS para restringir o início do arrasto a um elemento de alça específico (ex: `".drag-handle"`).
 - **Regra de Atributos em Linha Única**: Mantenha todos os atributos do componente `<draggable>` em uma única linha no template para seguir a convenção do Engeapp.
-- **Slot de Item**: Use o slot `#item` para renderizar os elementos da lista. Sempre desestruture `{ element, index }`:
+- **Slot Padrão (default)**: O `vue-draggable-next` usa o slot **default** com `v-for` para renderizar os elementos (NÃO o slot `#item`/`item-key`, que pertence ao `vuedraggable`/Sortable v4). Sempre forneça uma `:key` única:
   ```html
-  <template #item="{ element, index }">
-    <div class="list-item">
+  <draggable v-model="items" handle=".drag-handle">
+    <div v-for="element in items" :key="element.id" class="list-item">
       <span class="drag-handle">☰</span>
       <span>{{ element.title }}</span>
     </div>
-  </template>
+  </draggable>
   ```
 - **Manipulação de Alterações de Estado**: Use o evento `@change` para capturar atualizações de posição. O payload do evento contém uma propriedade `moved` com o `element`, `newIndex` e `oldIndex`.
-- **Envio ao Backend**: Envie a nova ordenação ao backend no evento `@change` usando `axios.post` com a rota gerada por `apiGetRoute` do `@maxvue/max-use`. Exiba sobreposições/indicadores de salvamento para evitar cliques duplos. **Nunca use Inertia.js.**
+- **Envio ao Backend (MaxPinia)**: NÃO faça `axios.post` manual. Toda alteração de dados de página passa por uma store `@maxvue/max-pinia`: vincule a lista ao estado da store e, no `@change`, atualize o estado da store — o MaxPinia faz o auto-save (debounced) na rota `/api/...` automaticamente. Exiba indicadores de salvamento (ex.: estado de loading da store) para evitar cliques duplos. **Nunca use Inertia.js.**
 
 ### 2. Implementação no Back-end (AdonisJS)
 Para persistir os itens reordenados de forma eficiente:
@@ -54,17 +53,15 @@ Para persistir os itens reordenados de forma eficiente:
 <template>
   <div class="todo-list-container">
     <h2 class="title">Lista de Tarefas</h2>
-    <draggable v-model="todoItems" item-key="id" ghost-class="ghost-item" drag-class="dragging-item" handle=".drag-handle" @change="handleOrderChange" class="draggable-list">
-      <template #item="{ element }">
-        <div class="todo-item">
-          <div class="drag-handle">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-              <path d="M2 8a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm10-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-            </svg>
-          </div>
-          <span class="todo-text">{{ element.name }}</span>
+    <draggable v-model="todoItems" ghost-class="ghost-item" drag-class="dragging-item" handle=".drag-handle" @change="handleOrderChange" class="draggable-list">
+      <div v-for="element in todoItems" :key="element.id" class="todo-item">
+        <div class="drag-handle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M2 8a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm10-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
         </div>
-      </template>
+        <span class="todo-text">{{ element.name }}</span>
+      </div>
     </draggable>
     <div v-if="isSaving" class="saving-overlay">
       Salvando nova ordenação...
@@ -73,9 +70,9 @@ Para persistir os itens reordenados de forma eficiente:
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { draggable } from 'vue-draggable-next'
-import axios from 'axios'
+import { computed } from 'vue'
+import { VueDraggableNext as draggable } from 'vue-draggable-next'
+import { useTodosStore } from '@/stores/todos'
 
 interface TodoItem {
   id: number
@@ -83,29 +80,25 @@ interface TodoItem {
   position: number
 }
 
-const props = defineProps<{
-  initialItems: TodoItem[]
-}>()
+// Store MaxPinia: faz o GET inicial dos dados e o auto-save (debounced) ao alterar o estado.
+const todosStore = useTodosStore()
 
-// Inicializa a lista com base nas props
-const todoItems = ref<TodoItem[]>([...props.initialItems])
-const isSaving = ref<boolean>(false)
+// Lista reativa vinda da store. O v-model do draggable reordena o estado da store,
+// e o MaxPinia persiste automaticamente em /api/todos (sem axios manual).
+const todoItems = computed<TodoItem[]>({
+  get: () => todosStore.items,
+  set: (value) => (todosStore.items = value),
+})
 
-// Envia a nova ordenação para o backend
-const handleOrderChange = async () => {
-  isSaving.value = true
+// Indicador de salvamento exposto pela store.
+const isSaving = computed<boolean>(() => todosStore.isSaving)
 
-  // Mapeia a nova estrutura de ordenação para envio
-  const payload = todoItems.value.map((item, index) => ({
-    id: item.id,
+// Apenas reescreve as posições no estado; o MaxPinia detecta a mudança e salva.
+const handleOrderChange = () => {
+  todosStore.items = todoItems.value.map((item, index) => ({
+    ...item,
     position: index,
   }))
-
-  try {
-    await axios.post(apiPostRoute('todos.reorder'), { items: payload })
-  } finally {
-    isSaving.value = false
-  }
 }
 </script>
 
@@ -201,7 +194,8 @@ export default class TodosController {
 
     await db.transaction(async (trx) => {
       for (const item of items) {
-        await Todo.query({ client: trx })
+        await Todo.query()
+          .useTransaction(trx)
           .where('id', item.id)
           .where('user_id', userId)
           .update({ position: item.position })
@@ -217,8 +211,8 @@ export default class TodosController {
 
 ## Restrições
 - **Uso Estrito de Composition API**: NÃO use a Options API (`data`, `methods`, etc.).
-- **Proibido Inertia.js**: Nunca importe ou use `@inertiajs/vue3`. Use `axios` com `apiPostRoute` do `@maxvue/max-use`.
-- **Provedor de item-key Obrigatório**: Nunca omita o atributo `item-key` no componente `<draggable>`.
+- **Proibido Inertia.js**: Nunca importe ou use `@inertiajs/vue3`. A persistência da ordenação é feita pela store `@maxvue/max-pinia` (auto-save debounced para `/api/...`), nunca por `axios.post` manual.
+- **Slot Padrão Obrigatório**: Use o slot default com `v-for` e `:key` única. NÃO use `item-key`/slot `#item` (isso é API do `vuedraggable`, não do `vue-draggable-next`).
 - **Transições de CSS**: Ao envolver o `<draggable>` em transições, use `<transition-group>` dentro do componente ao invés de `<transition>`.
 - **Transação de Banco Obrigatória**: NÃO execute atualizações de posição no AdonisJS sem usar transações de banco de dados (`db.transaction`).
 - **Chamada de Componente em Linha Única**: Garanta que a tag de abertura `<draggable>` e todas as suas propriedades fiquem em uma única linha no template HTML/Vue.

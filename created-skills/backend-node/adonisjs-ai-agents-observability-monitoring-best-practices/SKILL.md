@@ -25,9 +25,9 @@ const { text } = await generateText({
   system: systemPrompt,
   prompt: prompt,
   tools: tools,
-  onStepFinish: ({ text, toolCalls, toolResults, usage, finishReason }) => {
-    // 1. Calcular métricas de cache
-    const cacheRead = (usage as any).providerMetadata?.google?.cachedContentTokenCount ?? 0
+  onStepFinish: ({ text, toolCalls, toolResults, usage, providerMetadata, finishReason }) => {
+    // 1. Calcular métricas de cache (providerMetadata é argumento separado do callback)
+    const cacheRead = (providerMetadata?.google as any)?.cachedContentTokenCount ?? 0
     const rawInput = Math.max((usage.inputTokens ?? 0) - cacheRead, 0)
     
     // 2. Log estruturado da execução do passo
@@ -43,7 +43,7 @@ const { text } = await generateText({
       tools: toolCalls?.map((tc) => ({
         id: tc.toolCallId,
         name: tc.toolName,
-        args: tc.args,
+        input: tc.input,
       })),
       finishReason,
     }, `AI Agent step finished`)
@@ -56,8 +56,8 @@ const { text } = await generateText({
           agent: agentName,
           tool: tr.toolName,
           toolCallId: tr.toolCallId,
-          args: tr.args,
-          result: tr.result,
+          input: tr.input,
+          output: tr.output,
         }, `Tool execution completed`)
       })
     }

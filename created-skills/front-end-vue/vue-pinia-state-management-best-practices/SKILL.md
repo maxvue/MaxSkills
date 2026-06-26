@@ -86,6 +86,7 @@ Para evitar loops de dependência circular:
 ```typescript
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 export interface User {
   id: number
@@ -98,7 +99,7 @@ export const useUserStore = defineStore('user', () => {
   const data = ref<User | null>(null)
 
   const options = computed(() => ({
-    get: { route: apiGetRoute('user.data') },
+    get: { route: apiGetRoute('/api/user') }, // caminho string /api/...; sem rotas nomeadas estilo Ziggy
     key: 'user',
   }))
 
@@ -110,6 +111,7 @@ export const useUserStore = defineStore('user', () => {
 ```typescript
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { apiGetRoute, apiPostRoute } from '@maxvue/max-use'
 
 export interface BrandPositioning {
   company_name: string | null
@@ -130,8 +132,8 @@ export const useBrandPositioningStore = defineStore('brand.positioning.store', (
 
   // GET para carregar; save ativa auto-save com debounce de 300ms ao alterar 'data'
   const options = computed(() => ({
-    get: { route: apiGetRoute('brand-positioning.data') },
-    save: apiPostRoute('brand-positioning.save'),
+    get: { route: apiGetRoute('/api/brand-positioning') },
+    save: apiPostRoute('/api/brand-positioning'),
     key: 'brand-positioning',
   }))
 
@@ -162,7 +164,7 @@ const store = useBrandPositioningStore()
 ```typescript
 const options = computed(() => ({
   get: {
-    route: apiGetRoute('project.data'),
+    route: apiGetRoute('/api/project'),
     data: { project_id: projectId.value }, // parâmetros reativos
   },
   key: `project-${projectId.value}`,

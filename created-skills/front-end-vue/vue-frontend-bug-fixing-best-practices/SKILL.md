@@ -1,6 +1,6 @@
 ---
 name: vue-frontend-bug-fixing-best-practices
-description: Use when diagnosing and fixing front-end bugs in the EngeApp project built with Vue 3 + TypeScript + Pinia + UnoCSS + MaxComponentsUi + MaxUse — visual glitches, reactivity issues, TS type errors, broken Pinia stores, MaxComponentsUi/MaxUse component or composable failures, Vite/HMR breakage, or routing problems.
+description: Use when diagnosing and fixing front-end bugs in the EngeApp project built with Vue 3 + TypeScript + MaxPinia (@maxvue/max-pinia) + UnoCSS + MaxComponentsUi + MaxUse — visual glitches, reactivity issues, TS type errors, broken MaxPinia stores (cache/auto-save), MaxComponentsUi/MaxUse component or composable failures, Vite/HMR breakage, or routing problems.
 ---
 
 # Correção de Bugs do Front-End Vue — Melhores Práticas
@@ -10,7 +10,7 @@ Segue um processo estruturado: **evidência → classificação → diagnóstico
 
 ## Objetivo
 
-Diagnosticar e corrigir bugs do front-end em projetos Vue 3 + TypeScript + Pinia + UnoCSS + MaxComponentsUi + MaxUse, atacando a causa raiz em vez de mascarar o sintoma, respeitando as convenções do projeto e suas próprias bibliotecas de componentes/composables.
+Diagnosticar e corrigir bugs do front-end em projetos Vue 3 + TypeScript + MaxPinia (@maxvue/max-pinia) + UnoCSS + MaxComponentsUi + MaxUse, atacando a causa raiz em vez de mascarar o sintoma, respeitando as convenções do projeto e suas próprias bibliotecas de componentes/composables.
 
 Usar esta skill quando:
 
@@ -18,7 +18,7 @@ Usar esta skill quando:
 - Erros de TypeScript aparecerem em arquivos `.vue` ou `.ts` do front-end
 - Ocorrerem problemas de reatividade (estado não atualiza, `watch` não dispara, `computed` incorreto)
 - Aparecerem erros no console do navegador (runtime errors, warnings do Vue)
-- Ocorrerem problemas com Pinia (stores não sincronizando, estado perdido)
+- Ocorrerem problemas com MaxPinia (stores não sincronizando, estado perdido, auto-save/cache falhando)
 - Ocorrerem problemas com MaxComponentsUi (componentes não renderizando, props incorretas)
 - Aparecerem erros de build do Vite ou HMR quebrado
 - O layout/CSS estiver quebrado (UnoCSS, SCSS)
@@ -28,18 +28,18 @@ Usar esta skill quando:
 
 | Tecnologia | Versão | Notas |
 |------------|--------|-------|
-| Vue | 3.6 | Composition API + `<script setup lang="ts">` — SEMPRE |
+| Vue | 3.6.0-beta.17 | Composition API + `<script setup lang="ts">` — SEMPRE |
 | TypeScript | Strict mode | Tipagem obrigatória em todo front-end |
-| Pinia | 3 | State management global |
-| Vue Router | 5 | SPA — rotas de API resolvidas por helpers do `@maxvue/max-use` para caminhos string `/api/...` (sem Ziggy) |
+| **@maxvue/max-pinia** | **local** | **State management — camada de cache + auto-save (debounced). TODO GET/save de dados de página passa por stores MaxPinia (sobre Pinia 3). Não usar Pinia puro nem GET/POST manual para dados de página.** |
+| Vue Router | 4 | SPA pura (Adonis serve catch-all HTML) — rotas de API resolvidas por helpers do `@maxvue/max-use` para caminhos string `/api/...` (sem Ziggy) |
 | PrimeVue | — | Componentes base para UI (base da MaxComponentsUi) |
 | UnoCSS | 66 | Estilização utilitária (sem Tailwind) |
 | Vite | 8 | Bundler + HMR |
 | Unplugin Auto Import | — | Auto-importação de composables e helpers |
-| Unplugin Vue Components | 32 | Auto-importação de componentes |
+| Unplugin Vue Components | — | Auto-importação de componentes |
 | **@maxvue/max-components-ui** | **local** | **Biblioteca própria de componentes UI (58 componentes + componentes do PrimeVue inclusos)** |
 | **@maxvue/max-use** | **local** | **Biblioteca própria de composables, helpers, rotas e utilitários** |
-| @laravel/echo-vue | 2 | WebSockets (broadcasting do AdonisJS) |
+| @adonisjs/transmit-client | 1 | Realtime via SSE (AdonisJS Transmit) |
 | @vue-flow/core | 1 | Diagramas de fluxo |
 | @tanstack/vue-virtual | 3 | Virtualização de listas |
 | floating-vue | 5 | Tooltips e popovers |
@@ -124,7 +124,7 @@ resources/
 │   ├── Pages/         # Páginas/views
 │   ├── Sections/      # Seções de funcionalidades (subpastas por domínio)
 │   └── Structure/     # Componentes estruturais
-├── Stores/            # Pinia stores (organizados por domínio)
+├── Stores/            # Stores @maxvue/max-pinia (organizados por domínio)
 │   ├── Client/
 │   ├── Component/
 │   ├── Concessionaire/
@@ -136,7 +136,7 @@ resources/
 │   ├── Setting/
 │   ├── Support/
 │   ├── UserStores/
-│   ├── _Plugins/      # Plugins do Pinia
+│   ├── _Plugins/      # Plugins do MaxPinia/Pinia
 │   └── calendar/
 ├── Types/             # Tipos TypeScript / DTOs (gerados do backend)
 │   ├── generated.d.ts # DTOs gerados automaticamente — NÃO EDITAR MANUALMENTE
@@ -178,11 +178,7 @@ resources/
 
 #### 1.1 Verificar Logs do Navegador
 
-Usar a ferramenta MCP `browser-logs` para capturar erros recentes:
-
-```
-Ferramenta: browser-logs (entries: 20)
-```
+Capturar erros recentes no console do navegador (DevTools → Console).
 
 Procurar por:
 - `[Vue warn]` — avisos do Vue (reatividade, props, template)
@@ -193,11 +189,7 @@ Procurar por:
 
 #### 1.2 Verificar Erros do Backend
 
-Usar a ferramenta MCP `last-error` para verificar se o bug tem origem no backend:
-
-```
-Ferramenta: last-error
-```
+Verificar os logs do servidor AdonisJS (saída do `node ace serve --watch` / logger do Adonis) para identificar se o bug tem origem no backend (erro 500, validação 422, exceção de controller/serviço).
 
 #### 1.3 Verificar Terminal do Vite
 
@@ -221,7 +213,7 @@ Classificar o bug em uma das categorias abaixo para direcionar o diagnóstico:
 | **Reatividade** | Estado não atualiza, UI desatualizada, `.value` ausente, `watch` não dispara |
 | **Tipagem TypeScript** | Erros TS2322, TS2345, TS2339, tipos incompatíveis, `Ref` vs valor primitivo |
 | **Template/Renderização** | `v-if`/`v-for` incorretos, componentes não renderizando, key ausente |
-| **Pinia/Store** | Estado global não sincroniza, store não reativo, ações falhando |
+| **MaxPinia/Store** | Estado global não sincroniza, store não reativo, ações falhando, auto-save não dispara, cache desatualizado |
 | **MaxComponents** | Componente Max* com props/eventos incorretos, InputBase não valida, MaxTable quebrada |
 | **MaxUse/Helpers** | `_` retornando undefined, composable com estado incorreto, `useRefCached` não persistindo |
 | **MaxUse/Rotas** | `apiGetRoute`/`apiPostRoute` falhando, caminho `/api/...` incorreto, upload com erro |
@@ -235,8 +227,6 @@ Classificar o bug em uma das categorias abaixo para direcionar o diagnóstico:
 ### Fase 3: Diagnóstico Guiado
 
 #### Para bugs de Reatividade
-
-Ativar skill: `@vue-debug-guides` (seção Reactivity)
 
 Checklist:
 - [ ] Acessando `.value` corretamente em `ref()` dentro do `<script>`?
@@ -260,8 +250,6 @@ Checklist:
 
 #### Para bugs de Template/Renderização
 
-Ativar skill: `@vue-debug-guides` (seção Templates)
-
 Checklist:
 - [ ] `v-for` tem `:key` único e estável?
 - [ ] `v-if` e `v-for` não estão no mesmo elemento?
@@ -270,16 +258,16 @@ Checklist:
 - [ ] `v-model` está no elemento correto (não em `<template>`)?
 - [ ] Slots nomeados sendo usados com `v-slot:nome` ou `#nome`?
 
-#### Para bugs de Pinia/Store
-
-Ativar skills: `@pinia`, `@vue-pinia-best-practices`
+#### Para bugs de MaxPinia/Store (`@maxvue/max-pinia`)
 
 Checklist:
+- [ ] Dados de página estão vindo de uma store `@maxvue/max-pinia` (não de `apiGetRoute` manual no componente)?
+- [ ] Auto-save (debounced) do MaxPinia disparando ao alterar o estado? Verificar se a alteração é feita no estado da store (não em cópia local)
+- [ ] Camada de cache do MaxPinia retornando dado obsoleto? Verificar invalidação/refetch
 - [ ] Store usando `storeToRefs()` ao desestruturar estado/getters?
 - [ ] Actions são chamadas como métodos (sem desestruturar)?
 - [ ] Estado reativo não sendo substituído por reatribuição direta?
-- [ ] Store não está usando `$reset()` em store com setup syntax sem implementação customizada?
-- [ ] Verificar se o store está registrado corretamente no Pinia?
+- [ ] Verificar se o store está registrado corretamente no MaxPinia?
 
 #### Para bugs de MaxComponents (`@maxvue/max-components-ui`)
 
@@ -316,7 +304,7 @@ Checklist:
 - [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('nome.rota', { id: 1 })`)
 - [ ] `apiPostRoute` — corpo da requisição com dados corretos?
 - [ ] `apiUploadRoute` — arquivo sendo enviado como `FormData`?
-- [ ] Erros de CORS ou autenticação? Verificar se o token de autenticação está presente
+- [ ] Erros de CORS ou autenticação? Auth é sessão + cookie (guard web) — verificar se o cookie de sessão está sendo enviado (`withCredentials`), não procurar Bearer/token
 - [ ] Resposta HTTP sendo tratada (status 200 vs 422 vs 500)?
 
 #### Para bugs de PrimeVue (componentes puros, não Max*)
@@ -423,27 +411,24 @@ Checklist:
 
 ### Skills Relacionadas
 
-Ativar conforme necessário durante o diagnóstico:
+Ativar conforme necessário durante o diagnóstico (usar apenas skills que existam de fato neste ambiente):
 
 | Skill | Quando Ativar |
 |-------|---------------|
-| `@vue-debug-guides` | Bugs de reatividade, watchers, computed, template, lifecycle |
-| `@vue-best-practices` | Validar se o código segue as melhores práticas do Vue 3 |
-| `@vue-pinia-best-practices` | Bugs envolvendo Pinia stores |
-| `@pinia` | Referência da API do Pinia |
-| `@typescript-pro` | Erros de tipagem complexos |
-| `@systematic-debugging` | Bugs difíceis que necessitam investigação em fases |
-| `@bug-hunter` | Processo geral de caça a bugs |
+| `superpowers:systematic-debugging` | Bugs difíceis que necessitam investigação sistemática em fases |
+| `superpowers:test-driven-development` | Reproduzir o bug com um teste (Vitest) antes de corrigir |
 
-### Ferramentas MCP Disponíveis
+> Para regras específicas de Vue 3 / TypeScript / MaxPinia / MaxComponentsUi / MaxUse, este documento já consolida os checklists; não dependa de skills `@...` que possam não existir no repositório.
 
-| Ferramenta | Uso |
-|------------|-----|
-| `browser-logs` | Logs do console do navegador |
-| `last-error` | Último erro/exceção do backend |
-| `search-docs` | Buscar documentação das dependências instaladas |
-| `database-query` | Verificar dados no banco (read-only) |
-| `get-absolute-url` | Resolver URL absoluta do projeto |
+### Fontes de Diagnóstico Disponíveis
+
+| Fonte | Uso |
+|-------|-----|
+| Console do navegador (DevTools) | Logs/erros do front-end (`[Vue warn]`, runtime errors) |
+| Logs do servidor AdonisJS | Último erro/exceção do backend (controller/serviço/validação) |
+| Aba Network (DevTools) | Inspecionar requisições `/api/...` (status, payload, resposta) |
+| PostgreSQL (psql / cliente) | Verificar dados no banco quando o bug parecer de dados |
+| Terminal do Vite | Erros de compilação/HMR |
 
 ### Fluxo de Atualização das Bibliotecas Locais
 

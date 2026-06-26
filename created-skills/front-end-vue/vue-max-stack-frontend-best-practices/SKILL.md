@@ -11,13 +11,13 @@ description: >-
   UnoCSS classes like `s100`/`flex`, even if the user does not explicitly mention "Max" or "Vue".
 ---
 
-# Front-end Vue do Ecossistema Max (Maxdmin + Engeapp)
+# Front-end Vue do Ecossistema Max (Maxdmin — alvo da migração do EngeApp)
 
 ## Objetivo
 
-Produzir código front-end consistente, idiomático e alinhado entre os projetos **Maxdmin** (backend AdonisJS v6) e **Engeapp** (backend Laravel), que compartilham o mesmo stack de UI: **Vue 3 (Composition API) + Vue Router + UnoCSS/SCSS** sobre as bibliotecas locais **MaxComponentsUi**, **MaxUse** e **MaxPinia**.
+Produzir código front-end consistente, idiomático e alinhado para o projeto **Maxdmin** (backend **AdonisJS v6**), o alvo da migração do EngeApp (Laravel → Node/Adonis). O EngeApp Laravel é apenas a **origem** da migração — o foco e as recomendações desta skill são o stack-alvo. Stack de UI: **Vue 3 (Composition API) + Vue Router + UnoCSS/SCSS** sobre as bibliotecas locais **MaxComponentsUi**, **MaxUse** e **MaxPinia**.
 
-Esta skill é autocontida: ela traz os padrões reais observados nos dois repositórios. Onde os projetos divergem (estrutura de pastas e integração com o backend), as diferenças estão marcadas explicitamente — leia a seção do projeto em que você está trabalhando.
+Esta skill é autocontida: ela traz os padrões reais do stack-alvo Maxdmin/Adonis. Quando uma convenção tiver origem no EngeApp Laravel, ela é citada apenas como "na origem era X, no Adonis use Y".
 
 ## Por que essas convenções importam
 
@@ -50,22 +50,14 @@ Esqueleto canônico:
 </template>
 
 <script setup lang="ts">
-    // vue, vue-router, axios, defineStore e stores são auto-importados — não reimporte.
+    // vue, vue-router, defineStore e stores são auto-importados — não reimporte.
     const route = useRoute();
-    const loading = ref(true);
-    const itens = ref<Entidade[]>([]);
+    // Todo GET de dados de página passa por uma store @maxvue/max-pinia (cache + auto-save).
+    // Não faça axios.get direto no componente — consuma a store cacheada.
+    const store = useEntidadesStore();
+    const { itens, loading } = storeToRefs(store);
 
-    async function carregar(): Promise<void> {
-        loading.value = true;
-        try {
-            const { data } = await axios.get('/api/entidades');
-            itens.value = data;
-        } finally {
-            loading.value = false;
-        }
-    }
-
-    onMounted(carregar);
+    onMounted(() => store.load());
 </script>
 
 <style lang="scss" scoped>
@@ -109,7 +101,7 @@ Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isVali
 - **Modais/popovers**: `MaxModal` (métodos `toggle()`/`show()`/`hide()` ou store `useModalStore`), `MaxPopover`, `MaxPopoverConfirm`, `MaxPopoverMenu`, `MaxIconConfirm`.
 - **Feedback**: `MaxLoader`, `MaxBadgeComponent`, `MaxToast` (montar uma vez na raiz). Disparo: `Toast.show({ severity: 'success' | 'error' | 'warn', title, message })` (importado de `@maxvue/max-components-ui`).
 - **Títulos/cards**: `MaxTitle`, `MaxAuthCard`.
-- **Ícones**: `MaxIcon` ou prop `icon` por string Iconify — MDI no Maxdmin (`icon="mdi:plus"`), também `heroicons:*` no Engeapp. Não importe SVGs avulsos quando há ícone no set.
+- **Ícones**: `MaxIcon` ou prop `icon` por string Iconify — MDI no Maxdmin (`icon="mdi:plus"`). Não importe SVGs avulsos quando há ícone no set.
 
 > Se o componente que você imagina não está nesta lista, confira o catálogo do projeto (`resources/components-catalog.md` / `components-catalog`) **antes** de varrer o código-fonte da MaxComponentsUi — a lista acima já cobre os casos comuns e evita exploração desnecessária (e lenta).
 
@@ -129,50 +121,49 @@ Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isVali
 
 ## 4. Estado: MaxPinia (`defineStore` em sintaxe setup)
 
-Stores usam **sintaxe de setup** (função), nunca a sintaxe de objeto. Nome do export em camelCase com sufixo `Store` (`useProjectStore`, `useUserStore`, `useSocialMediaCharactersStore`).
+Stores usam **sintaxe de setup** (função), nunca a sintaxe de objeto. Nome do export em camelCase com sufixo `Store` (`useProjectStore`, `useUserStore`, `useUsinasStore`).
 
-Padrão CRUD típico (Engeapp e Maxdmin compartilham o formato; muda só o helper de rota — ver seção 6):
+Padrão CRUD típico: a store é cacheada via `@maxvue/max-pinia` (o GET de carga vem da camada de cache, não de um `axios.get` manual). Exponha `isCached` + `options.get.route` para o GET; use os helpers `apiPostRoute`/`apiPutRoute`/`apiDeleteRoute` do `@maxvue/max-use` para as mutações (lembre que o MaxPinia também faz auto-save dos dados editados):
 
 ```ts
 export const useEntidadesStore = defineStore('entidades', () => {
     const itens = ref<Entidade[]>([]);
-    const loading = ref(false);
+    const isCached = ref(true);
+    // GET roteado pela camada de cache do @maxvue/max-pinia — sem axios.get manual.
+    const options = computed(() => ({ get: { route: '/api/entidades' }, key: 'entidades' }));
 
+    // load() apenas dispara/aguarda a carga cacheada; o MaxPinia popula a store.
     async function load(): Promise<void> {
-        loading.value = true;
-        try {
-            const { data } = await axios.get('/api/entidades');
-            itens.value = data;
-        } finally {
-            loading.value = false;
-        }
+        await (useEntidadesStore() as any).status?.server?.get?.request?.();
     }
 
     async function create(payload: Partial<Entidade>): Promise<Entidade> {
-        const { data } = await axios.post('/api/entidades', payload);
+        const { data } = await apiPostRoute('/api/entidades', payload);
         itens.value.push(data);
         return data;
     }
 
-    return { itens, loading, load, create };
+    return { itens, isCached, options, load, create };
 });
 ```
 
 ### Integração com `@maxvue/max-pinia`
 
-Quando a store precisa de cache e sincronização automática com o backend, use o plugin `@maxvue/max-pinia` (anteriormente `piniaWithCache`). Exponha `isCached` e a computed `options` (rota + chave). Em stores de autenticação, exponha `waitRequest` para que guards de rota aguardem os dados do usuário antes de redirecionar:
+Toda store de dados de página usa o plugin `@maxvue/max-pinia` (anteriormente `piniaWithCache`, hoje `@maxvue/max-pinia`) para cache + auto-save. Exponha `isCached` e a computed `options` (rota string `/api/...` + chave). O contrato do MaxPinia injeta `status.server.get` na store (com `is_requested` e `request()`), usado para aguardar a carga. Em stores de autenticação, exponha `waitRequest` para que guards de rota aguardem os dados do usuário antes de redirecionar:
 
 ```ts
 export const useUserStore = defineStore('user', () => {
     const data = ref<User | null>(null);
     const isCached = ref(true);
-    const options = computed(() => ({ get: { route: '/user/data' }, key: 'user' }));
+    // Rota string /api/... resolvida pela camada de cache (sem Ziggy/route()).
+    const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }));
 
+    // Aguarda a carga via contrato MaxPinia: status.server.get.is_requested.
     function waitRequest(this: any): Promise<void> {
         return new Promise((resolve) => {
             if (this?.status?.server?.get?.is_requested) return resolve();
             const unwatch = watch(
-                () => (this as any)?.status?.server?.get?.is_requested,
+                () => this?.status?.server?.get?.is_requested,
                 (isRequested) => {
                     if (isRequested) {
                         unwatch();

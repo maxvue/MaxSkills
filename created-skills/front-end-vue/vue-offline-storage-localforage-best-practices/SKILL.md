@@ -1,12 +1,22 @@
 ---
 name: vue-offline-storage-localforage-best-practices
-description: Use when implementing or debugging offline storage, persistent client-state, or local caching using localforage or idb-keyval in Vue 3. Triggers on indexedDB access, localForage configuration, state synchronization, and offline-first client architecture.
+description: Use when implementing or debugging offline storage, persistent client-state, or local caching using localforage or idb-keyval in Vue 3 — para dados que NÃO são dados de página (esses passam por @maxvue/max-pinia, que já usa LocalForage internamente para cache/auto-save). Triggers on indexedDB access, localForage configuration, state synchronization, and offline-first client architecture.
 ---
 
 # Boas Práticas para Armazenamento Offline e LocalForage no Vue
 
 ## Objetivo
 Estabelecer diretrizes sólidas, seguras e consistentes para armazenamento local no cliente, cache de dados e persistência de estado offline em aplicações Vue 3 utilizando `localforage`.
+
+## Caminho padrão: MaxPinia primeiro
+> **CRÍTICO:** Para **dados de página** (qualquer coisa que o front busca do backend via GET ou salva via POST), o caminho correto é uma store `@maxvue/max-pinia`. O MaxPinia **já usa LocalForage internamente** para cache e salvamento automático (auto-save/debounced). Não reimplemente manualmente o que ele faz: não crie sincronização manual store↔storage nem flags do tipo `is_save_in_pause` para dados de página — isso duplica o comportamento do MaxPinia e gera divergência de estado.
+>
+> Use `localforage` diretamente **apenas** para estado que fica **fora do fluxo de dados de página**, por exemplo:
+> - preferências/UI puramente locais (tema, layout, rascunhos offline);
+> - cache de assets/listas estáticas que não pertencem a uma store de domínio;
+> - filas offline-first que serão reconciliadas depois.
+>
+> Se o dado pertence a uma página/domínio e precisa ir ao backend, prefira a store MaxPinia (rotas string `/api/...` via `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use`) em vez das técnicas manuais abaixo.
 
 ## Instruções
 
@@ -64,13 +74,14 @@ async function cacheData(key: string, rawData: any): Promise<void> {
 }
 ```
 
-### 4. Sincronização e Gerenciamento de Estado (Integração com Pinia)
-* Ao sincronizar o armazenamento com o estado local de um componente Vue ou de uma store Pinia, gerencie o fluxo de sincronização com cuidado para evitar loops infinitos de leitura/escrita.
-* Utilize um padrão de bloqueio (ex: `is_save_in_pause`) ao carregar o estado para a store para evitar que watchers reativos disparem um comando de escrita de volta ao armazenamento com valores iniciais ou parciais.
+### 4. Sincronização e Gerenciamento de Estado
+* **Dados de página → use MaxPinia, não sincronize manualmente.** O cache offline e o auto-save de dados de domínio são responsabilidade do `@maxvue/max-pinia`. Não recrie o ciclo store↔storage à mão (com flags de bloqueio como `is_save_in_pause`) para esses dados — isso é exatamente o que o MaxPinia já resolve e duplicá-lo causa loops e divergência de estado.
+* **Apenas para estado fora do fluxo de dados de página** (preferências locais, rascunhos, filas offline) você pode sincronizar `localforage` manualmente. Nesse caso, gerencie o fluxo com cuidado para evitar loops infinitos de leitura/escrita e use um padrão de bloqueio ao carregar o estado para evitar que watchers reativos disparem uma escrita de volta com valores iniciais ou parciais.
 * Implemente políticas de expiração de cache. Adicione um campo de metadados com timestamp `updatedAt` dentro da estrutura cacheada e invalide/atualize o cache quando ele exceder o limite de expiração.
 
 ```typescript
-// Exemplo de sincronização com flag de carregamento
+// Exemplo APENAS para estado fora do fluxo de dados de página
+// (para dados de domínio, use uma store @maxvue/max-pinia em vez disto)
 let isSavingPaused = false;
 
 async function loadStoreState() {

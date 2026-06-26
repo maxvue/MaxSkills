@@ -1,12 +1,12 @@
 ---
 name: vue-instagram-feed-grid-simulator-best-practices
-description: Use when building, modifying, styling, or debugging the Instagram profile feed grid simulator UI in Vue 3, managing the 3x3 post grid preview, handling media aspect ratio containers, implementing drag-and-drop reordering for scheduled posts, or integrating with Pinia stores for calendar events.
+description: Use when building, modifying, styling, or debugging the Instagram profile feed grid simulator UI in Vue 3, managing the 3x3 post grid preview, handling media aspect ratio containers, implementing drag-and-drop reordering for scheduled posts, or integrating with @maxvue/max-pinia stores for calendar events.
 ---
 
 # Boas Práticas para o Simulador de Grade de Feed do Instagram em Vue
 
 ## Objetivo
-Padronizar a implementação da interface do usuário para o simulador de grade de feed de perfil do Instagram em Vue 3 usando Composition API, TypeScript, SCSS e UnoCSS. Isso inclui a criação de um grid 3x3 responsivo, controle de proporção de aspecto de imagens, renderização de marcadores de tipo de postagem (ex: Reels, Carrossel), implementação de reordenação por arrastar e soltar (drag-and-drop) para postagens agendadas, e integração com stores Pinia e pacotes do ecossistema Engeapp.
+Padronizar a implementação da interface do usuário para o simulador de grade de feed de perfil do Instagram em Vue 3 usando Composition API, TypeScript, SCSS e UnoCSS. Isso inclui a criação de um grid 3x3 responsivo, controle de proporção de aspecto de imagens, renderização de marcadores de tipo de postagem (ex: Reels, Carrossel), implementação de reordenação por arrastar e soltar (drag-and-drop) para postagens agendadas, e integração com stores `@maxvue/max-pinia` (com auto-save) e pacotes do ecossistema Engeapp.
 
 ## Instruções
 
@@ -14,7 +14,7 @@ Padronizar a implementação da interface do usuário para o simulador de grade 
 * **Ordem de Blocos SFC**: Defina os blocos Single-File Component exatamente nesta ordem: `<template>`, `<script setup lang="ts">` e depois `<style lang="scss" scoped>`.
 * **Comentários em Português do Brasil**: Todos os comentários inline e documentação nos componentes Vue devem ser escritos em **Português do Brasil (pt-BR)**.
 * **Atributos Inline no Template**: Mantenha todos os atributos de tags HTML e componentes em uma única linha no template, evitando formatação multilinha para as tags.
-* **Integração com MaxComponentsUi**: Reutilize os componentes da biblioteca [MaxComponentsUi](file:///home/johnattas/GitHub/MaxComponentsUi) sempre que possível:
+* **Integração com MaxComponentsUi**: Reutilize os componentes da biblioteca [MaxComponentsUi](file:///home/johnattas/GitHub/MaxComponentsUi) sempre que possível. Estes componentes são registrados via `unplugin-vue-components` e usados diretamente no template **sem import manual** (auto-import obrigatório):
   * Utilize [MaxButton.vue](file:///home/johnattas/GitHub/MaxComponentsUi/src/components/MaxButton.vue) para botões.
   * Utilize [MaxUserAvatar.vue](file:///home/johnattas/GitHub/MaxComponentsUi/src/components/MaxUserAvatar.vue) para avatares de usuário.
   * Utilize [MaxIcon.vue](file:///home/johnattas/GitHub/MaxComponentsUi/src/components/MaxIcon.vue) para exibição de ícones.
@@ -31,12 +31,13 @@ Padronizar a implementação da interface do usuário para o simulador de grade 
 * **VueDraggableNext**: Integre a funcionalidade de ordenação usando a biblioteca `vue-draggable-next`, seguindo as diretrizes descritas na skill [vue-draggable-next-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/front-end-vue/vue-draggable-next-best-practices/SKILL.md).
 * **Vinculação Reativa**: Vincule a lista de posts reativa ao componente utilizando `<draggable v-model="posts" item-key="id" ...>` em uma única linha.
 * **Slot de Item**: Utilize o slot `#item` desestruturando `{ element }` para renderizar os cards de mídia do feed.
-* **Persistência da Ordenação**: Capture o evento `@change` para sincronizar a nova agenda de publicação no backend. Ao reordenar, mapeie os IDs e posições dos elementos e persista utilizando ações do Pinia ou requisições via axios.
+* **Persistência da Ordenação**: Capture o evento `@change` para refletir a nova ordem no estado da store `@maxvue/max-pinia`. NÃO faça requisições `axios` manuais nem chame endpoints de salvamento diretamente: ao mutar o array reativo da store (`store.posts`), o MaxPinia dispara o auto-save (debounced) para `/api/...` automaticamente. Basta mapear os IDs e posições para o estado da store.
 
-### 4. Sincronização com Pinia e APIs do Backend
-* **Integração com Stores**:
-  * Sincronize com a store [useCalendarEventStore](file:///home/johnattas/GitHub/SocialMedia/resources/Stores/calendar/useCalendarEvent.Store.ts) para gerenciar o estado da publicação selecionada no simulador.
-  * Recupere e atualize a lista de pautas e agendamentos utilizando a store [useSocialMediaThemesStore](file:///home/johnattas/GitHub/SocialMedia/resources/Stores/calendar/useSocialMediaThemes.Store.ts).
+### 4. Sincronização com Stores MaxPinia
+* **Integração com Stores `@maxvue/max-pinia`**:
+  * Toda leitura e escrita de dados de página passa por uma store `@maxvue/max-pinia` — nunca via GET/POST manual. As stores usam helpers `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` que resolvem para caminhos string `/api/...` (não existe `route()`/Ziggy).
+  * Sincronize com uma store de eventos de calendário (ex.: `useCalendarEventStore`) para gerenciar o estado da publicação selecionada no simulador. O GET inicial dos posts agendados é feito pela store, e qualquer mutação no estado é persistida automaticamente pelo auto-save do MaxPinia.
+  * Recupere e atualize a lista de pautas e agendamentos por meio de uma store dedicada (ex.: `useSocialMediaThemesStore`), também ancorada em `@maxvue/max-pinia`.
 * **Simulação de Uploads Temporários**: Permita que o usuário simule a pré-visualização de imagens rascunho (não agendadas no banco) gerando URLs locais temporárias via `URL.createObjectURL(file)` e atualizando o estado reativo local antes de consolidar o agendamento final no calendário.
 
 ---
@@ -85,10 +86,10 @@ Padronizar a implementação da interface do usuário para o simulador de grade 
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { draggable } from 'vue-draggable-next';
-import MaxUserAvatar from '@/components/MaxUserAvatar.vue';
-import MaxIcon from '@/components/MaxIcon.vue';
+// `ref`/`watch` são auto-importados (unplugin-auto-import).
+// MaxUserAvatar e MaxIcon são auto-registrados (unplugin-vue-components) — sem import manual.
+// O componente da lib é o default export, registrado globalmente como <draggable>.
+import VueDraggableNext from 'vue-draggable-next';
 
 // Define a estrutura de um post no simulador do Instagram
 interface InstagramSimulatedPost {
@@ -112,6 +113,7 @@ const emit = defineEmits<{
 }>();
 
 const posts = ref<InstagramSimulatedPost[]>([...props.initialPosts]);
+// Reflete o estado de salvamento exposto pela store @maxvue/max-pinia (auto-save).
 const isSaving = ref<boolean>(false);
 
 // Sincroniza a reatividade interna caso os posts iniciais mudem
@@ -126,14 +128,11 @@ const getIndicatorIcon = (type: 'image' | 'video' | 'carousel'): string => {
   return '';
 };
 
-// Dispara a reordenação das datas e envia a nova ordem ao pai
+// Dispara a reordenação das datas e propaga a nova ordem ao pai.
+// A persistência é feita ao mutar o estado da store @maxvue/max-pinia,
+// cujo auto-save (debounced) envia para /api/... automaticamente — sem axios manual.
 const onGridReorder = () => {
-  isSaving.value = true;
   emit('reordered', posts.value);
-  // Simulação rápida de salvamento
-  setTimeout(() => {
-    isSaving.value = false;
-  }, 800);
 };
 </script>
 

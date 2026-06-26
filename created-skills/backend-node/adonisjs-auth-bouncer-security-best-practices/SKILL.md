@@ -48,15 +48,15 @@ Crie políticas na pasta `app/policies/` seguindo o seguinte padrão:
 import User from '#models/user'
 import Post from '#models/post'
 import { BasePolicy } from '@adonisjs/bouncer'
-import { AuthorizeResult } from '@adonisjs/bouncer'
+import { AuthorizationResponse } from '@adonisjs/bouncer'
 
 export default class PostPolicy extends BasePolicy {
   /**
    * Autoriza um usuário a visualizar um post. Deve pertencer ao mesmo tenant (solar_company_id).
    */
-  async view(user: User, post: Post): Promise<boolean | AuthorizeResult> {
+  async view(user: User, post: Post): Promise<AuthorizationResponse | boolean> {
     if (user.solarCompanyId !== post.solarCompanyId) {
-      return AuthorizeResult.deny('Você não pertence ao tenant proprietário deste recurso.', 403)
+      return AuthorizationResponse.deny('Você não pertence ao tenant proprietário deste recurso.', 403)
     }
     return true
   }
@@ -64,14 +64,14 @@ export default class PostPolicy extends BasePolicy {
   /**
    * Autoriza a edição/exclusão. Deve ser o proprietário E pertencer ao mesmo tenant.
    */
-  async edit(user: User, post: Post): Promise<boolean | AuthorizeResult> {
+  async edit(user: User, post: Post): Promise<AuthorizationResponse | boolean> {
     if (user.solarCompanyId !== post.solarCompanyId) {
-      return AuthorizeResult.deny('Incompatibilidade de tenant.', 403)
+      return AuthorizationResponse.deny('Incompatibilidade de tenant.', 403)
     }
     
     return user.id === post.userId
       ? true
-      : AuthorizeResult.deny('Apenas o autor pode modificar este post.', 403)
+      : AuthorizationResponse.deny('Apenas o autor pode modificar este post.', 403)
   }
 }
 ```
@@ -116,10 +116,10 @@ export default class SocialAuthController {
     if (google.hasError()) {
       if (google.isCanceled()) {
         logger.info('Fluxo OAuth cancelado pelo usuário.')
-        return response.redirect().toRoute('login', {}, { q: 'auth_canceled' })
+        return response.redirect().toRoute('login', {}, { qs: { q: 'auth_canceled' } })
       }
       logger.error('Erro de autenticação OAuth: ' + google.getError())
-      return response.redirect().toRoute('login', {}, { q: 'auth_failed' })
+      return response.redirect().toRoute('login', {}, { qs: { q: 'auth_failed' } })
     }
 
     try {
@@ -142,7 +142,7 @@ export default class SocialAuthController {
       return response.redirect().toRoute('dashboard')
     } catch (error) {
       logger.error(`SocialAuthError no callback: ${error.message}`)
-      return response.redirect().toRoute('login', {}, { q: 'auth_exception' })
+      return response.redirect().toRoute('login', {}, { qs: { q: 'auth_exception' } })
     }
   }
 }

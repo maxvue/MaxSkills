@@ -139,7 +139,7 @@ export async function generatePostImage(html: string, ratio: InstagramRatio): Pr
 Em vez de gravar arquivos temporários no disco local, envie diretamente o Buffer da imagem gerada para o armazenamento usando o AdonisJS Drive.
 
 ```typescript
-import drive from '@adonisjs/core/services/drive'
+import drive from '@adonisjs/drive/services/main'
 import { generatePostImage } from '#services/image_generator'
 
 const imageBuffer = await generatePostImage(htmlContent, 'square')
@@ -159,7 +159,7 @@ A geração de imagens via navegador headless consome muita CPU e memória. Mova
   ```typescript
   import { Job } from 'bullmq'
   import { generatePostImage } from '#services/image_generator'
-  import drive from '@adonisjs/core/services/drive'
+  import drive from '@adonisjs/drive/services/main'
 
   export interface PostGenerationData {
     htmlContent: string

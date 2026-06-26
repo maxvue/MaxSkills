@@ -1,12 +1,12 @@
 ---
 name: adonisjs-instagram-meta-token-renewal-best-practices
-description: Use when designing, implementing, configuring, or debugging the automatic renewal of Meta/Instagram Graph API long-lived access tokens, managing OAuth2 token lifespans, scheduling token refresh cron jobs, or handling Meta OAuth authentication expiration in AdonisJS v6/v7 applications.
+description: Use when designing, implementing, configuring, or debugging the automatic renewal of Meta/Instagram Graph API long-lived access tokens, managing OAuth2 token lifespans, scheduling token refresh cron jobs, or handling Meta OAuth authentication expiration in AdonisJS v6 applications.
 ---
 
 # Melhores Práticas para Renovação de Tokens da API da Meta e Instagram no AdonisJS
 
 ## Objetivo
-Estabelecer diretrizes de codificação, padrões de arquitetura e padrões de implementação para verificar, validar, renovar e persistir de forma segura e em segundo plano os tokens de acesso de longa duração da Graph API da Meta/Instagram em aplicações AdonisJS v6/v7.
+Estabelecer diretrizes de codificação, padrões de arquitetura e padrões de implementação para verificar, validar, renovar e persistir de forma segura e em segundo plano os tokens de acesso de longa duração da Graph API da Meta/Instagram em aplicações AdonisJS v6.
 
 ## Instruções
 
@@ -24,10 +24,12 @@ Estabelecer diretrizes de codificação, padrões de arquitetura e padrões de i
   - Ou se o token não tiver data de expiração definida, mas tiver sido atualizado há mais de 45 dias.
 
 ### 3. Chamadas de API para Renovação Programática
-Dependendo do tipo de token:
-* **Para a API do Instagram Basic Display:**
+Determine o tipo de token a partir de um campo explícito persistido na credencial (ex.: `provider` = `instagram` | `facebook`). **Não** infira o tipo pelo prefixo do valor do token (ex.: `startsWith('IG')`), pois é frágil e não confiável.
+
+* **Para a Instagram API with Instagram Login (Graph API):**
   Execute uma requisição `GET` para:
   `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token={long-lived-access-token}`
+  > Observação: a antiga Instagram Basic Display API foi descontinuada pela Meta (dez/2024). Use a Instagram API com Instagram Login / Graph API.
 * **Para a Graph API da Meta/Facebook:**
   Execute uma requisição `GET` para trocar/renovar o token usando:
   `https://graph.facebook.com/{version}/oauth/access_token?grant_type=fb_exchange_token&client_id={client-id}&client_secret={client-secret}&fb_exchange_token={existing-token}`
@@ -43,8 +45,8 @@ Dependendo do tipo de token:
 * Trate falhas de autorização com segurança. Se a Meta retornar um erro de autorização ou permissão (como erro de OAuthException código `190` - Token Inválido/Expirado, ou status HTTP 401/400):
   - Marque a credencial como inativa (`isActive = false`).
   - Limpe o token inválido se necessário para evitar novas tentativas desnecessárias.
-  - Dispare um evento baseado em classe (ex: `MetaTokenRenewalFailed`).
-* Registre um listener carregado de forma preguiçosa (lazy-loaded listener) para o evento, com o objetivo de notificar a agência de marketing ou o cliente para que refaçam a autenticação manualmente.
+  - Dispare um evento baseado em classe usando o emitter do Adonis v6: `emitter.emit(MetaTokenRenewalFailed, { credential, reason })`.
+* Registre um listener carregado de forma preguiçosa (lazy-loaded listener) para o evento, com o objetivo de notificar o responsável pela conta para que refaça a autenticação manualmente.
 
 ## Examples
 
@@ -76,6 +78,10 @@ export default class SocialMediaCredential extends BaseModel {
   @column()
   declare externalAccountId: string | null
 
+  // Tipo de provedor persistido explicitamente ('instagram' | 'facebook'); não inferir pelo valor do token
+  @column()
+  declare provider: 'instagram' | 'facebook'
+
   // Criptografa o token transparentemente ao salvar, e descriptografa ao ler
   @column({
     serializeAs: null,
@@ -103,6 +109,7 @@ export default class SocialMediaCredential extends BaseModel {
 import SocialMediaCredential from '#models/calendar/social_media_credential'
 import { DateTime } from 'luxon'
 import MetaTokenRenewalFailed from '#events/meta_token_renewal_failed'
+import emitter from '@adonisjs/core/services/emitter'
 import logger from '@adonisjs/core/services/logger'
 
 export class MetaTokenRenewalService {
@@ -115,9 +122,10 @@ export class MetaTokenRenewalService {
 
     try {
       let renewalUrl = ''
-      const isInstagramBasic = originalToken.startsWith('IG')
+      // Usa o tipo de provedor persistido explicitamente; nunca infere pelo valor do token
+      const isInstagram = credential.provider === 'instagram'
 
-      if (isInstagramBasic) {
+      if (isInstagram) {
         renewalUrl = `https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${originalToken}`
       } else {
         const clientId = process.env.META_CLIENT_ID
@@ -161,8 +169,8 @@ export class MetaTokenRenewalService {
     credential.isActive = false
     await credential.save()
 
-    // Dispara o evento para alertar o sistema que a ação do usuário é necessária
-    await MetaTokenRenewalFailed.dispatch(credential, error.message)
+    // Dispara o evento para alertar o sistema que a ação do usuário é necessária (API do emitter do Adonis v6)
+    await emitter.emit(MetaTokenRenewalFailed, { credential, reason: error.message })
   }
 }
 ```

@@ -47,7 +47,7 @@ Para esses padrões transversais, **não duplique** — consulte:
 ### 5. Event Replanner
 - **Arquivos:** agente de replanejamento + job `ReplanEventJob`, fila `replan-event` (status `'replanning'`). Modelo `gemini-3.5-flash`, `maxSteps: 10`, `maxCalls: 2`.
 - **Tools (ordem):** `GetBrandPositioning` → recuperar evento + motivo da rejeição/feedback → replanejar → `UpdateCalendarItem`.
-- **Únicos:** incorpora feedback do usuário como diretriz de alta prioridade; gera tema/conceito/briefing COMPLETAMENTE novo (nunca repete o rejeitado). Atualiza só título, tema e instruções — NÃO altera formato, data ou tipo de mídia. SSE/WebSocket após conclusão.
+- **Únicos:** incorpora feedback do usuário como diretriz de alta prioridade; gera tema/conceito/briefing COMPLETAMENTE novo (nunca repete o rejeitado). Atualiza só título, tema e instruções — NÃO altera formato, data ou tipo de mídia. Notifica o front via AdonisJS Transmit (SSE) após conclusão (`broadcastCalendarUpdate`).
 
 ### 6. Protocol Extractor
 - **Arquivos:** `protocol_extractor_agent.ts` / `analyze_protocol_job.ts`. Factory `createProtocolExtractorAgent(cardId: string): AgentConfig`. Modelo `gemini-2.5-flash` ou `gemini-3.1-flash-lite`, `temperature: 0`. Prompt com `<ENTRADA>`/`<TAREFA>`/`<REGRAS>`.

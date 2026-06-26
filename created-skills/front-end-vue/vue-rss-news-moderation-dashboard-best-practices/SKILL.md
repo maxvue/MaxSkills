@@ -1,6 +1,6 @@
 ---
 name: vue-rss-news-moderation-dashboard-best-practices
-description: Use when implementing, modifying, styling, or debugging RSS news moderation dashboard components or views in Vue 3 (SocialMediaApp). Triggers on news items filter, approve/disapprove actions, tab/category navigation, search queries for news, and UI/UX improvements on TabNewsItems component.
+description: Use when implementing, modifying, styling, or debugging RSS news moderation dashboard components or views in Vue 3 (EngeApp). Triggers on news items filter, approve/disapprove actions, tab/category navigation, search queries for news, and UI/UX improvements on TabNewsItems component.
 ---
 
 ## Objetivo
@@ -37,25 +37,39 @@ Imagens externas de feeds RSS são frequentemente instáveis. Sempre implemente 
 
 ### 3. Feedback Visual Imediato e Micro-animações
 Garanta uma experiência fluida para o usuário fornecendo feedback visual tátil instantâneo nas decisões de moderação:
-- Aplique classes CSS dinâmicas ou classes utilitárias de animação do UnoCSS (como `animate-fade-out` or `scale-95 duration-200`) quando um item for aprovado ou arquivado.
-- Atualize de forma otimista o estado da lista na interface do usuário imediatamente quando um botão de ação for clicado, e então execute a requisição Axios no backend em segundo plano:
+- Aplique classes CSS dinâmicas ou classes utilitárias de animação do UnoCSS (como `animate-fade-out` ou `scale-95 duration-200`) quando um item for aprovado ou arquivado.
+- Atualize de forma otimista o estado da lista na interface do usuário imediatamente quando um botão de ação for clicado. A persistência NÃO usa Axios cru: toda leitura/gravação de dados de página passa por uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) no backend. Para ações pontuais de comando (aprovar/arquivar), dispare o método da store que resolve o caminho via `apiPostRoute`:
   ```typescript
+  import { useNewsModerationStore } from '~/stores/newsModeration'
+
+  const newsStore = useNewsModerationStore()
+
   const approveItem = async (itemId: string) => {
     // 1. Atualização otimista da UI: desliza/esmaece o item
-    const index = items.value.findIndex(item => item.id === itemId)
+    const index = newsStore.items.findIndex(item => item.id === itemId)
     if (index !== -1) {
-      items.value[index].isLeaving = true
+      newsStore.items[index].isLeaving = true
       setTimeout(() => {
-        items.value.splice(index, 1)
+        newsStore.items.splice(index, 1)
       }, 300) // deve corresponder à duração da animação
     }
-    
-    // 2. Executa a persistência no backend via Axios
+
+    // 2. Persistência via store MaxPinia (sem Axios manual);
+    //    a store resolve a rota string /api/... e trata o rollback ao recarregar.
+    await newsStore.approve(itemId)
+  }
+  ```
+  Na store, o comando usa `apiPostRoute` do `@maxvue/max-use` para resolver o caminho string `/api/...`, e em caso de falha refaz o GET pela própria store (sem reexecutar fetch manual):
+  ```typescript
+  // stores/newsModeration.ts
+  import { apiPostRoute } from '@maxvue/max-use'
+
+  async approve(itemId: string) {
     try {
-      await axios.post(`/api/news/moderation/${itemId}/approve`)
+      await apiPostRoute(`/api/news/moderation/${itemId}/approve`)
     } catch (error) {
-      // 3. Desfaz a alteração caso a API falhe e mostra mensagem de erro
-      fetchNewsItems()
+      // rollback: recarrega o estado via a própria store
+      await this.load()
     }
   }
   ```
@@ -63,22 +77,25 @@ Garanta uma experiência fluida para o usuário fornecendo feedback visual táti
 ### 4. Filtragem Híbrida no Lado do Cliente e do Servidor
 Combine a busca instantânea de texto no cliente com a filtragem dinâmica via API no backend:
 - Implemente a filtragem no lado do cliente na lista de notícias carregada atualmente usando uma propriedade computada (`computed`) para obter resultados instantâneos conforme o usuário digita.
-- Utilize debounce nos termos de busca (ex: usando `refDebounced` do VueUse ou `debounce` do Lodash com atraso de 300ms) antes de enviar as requisições de busca para a API do backend para consultas mais amplas no banco de dados:
+- Utilize debounce nos termos de busca (ex: usando `refDebounced` do VueUse com atraso de 300ms) antes de pedir uma nova carga ao backend. A busca no servidor é feita pela store MaxPinia (que faz o GET via `apiGetRoute` resolvendo o caminho string `/api/...`), nunca por `axios.get` manual:
   ```typescript
   import { refDebounced } from '@vueuse/core'
-  
+  import { useNewsModerationStore } from '~/stores/newsModeration'
+
+  const newsStore = useNewsModerationStore()
   const searchInput = ref('')
   const debouncedSearch = refDebounced(searchInput, 300)
-  
+
   watch(debouncedSearch, (newQuery) => {
-    fetchNewsItems({ search: newQuery })
+    // a store reexecuta o GET (/api/...) e atualiza seu cache automaticamente
+    newsStore.load({ search: newQuery })
   })
   ```
 
 ### 5. Prompt Semântico de IA para Sugestões Editoriais
 Integre sugestões de IA de forma dinâmica na tela de moderação para auxiliar os criadores de conteúdo:
 - Forneça um card inline com ações como "Sugerir Tema Editorial" ou "Gerar Rascunho do Post" ao lado ou dentro da visualização de detalhes da notícia.
-- Envie o título e a prévia do conteúdo do item de notícia para o agente de IA no backend para gerar classificações de tópicos estruturadas, ângulos para publicações ou rascunhos de posts.
+- Envie o título e a prévia do conteúdo do item de notícia para o endpoint de IA no backend, que roteia a geração pelo **Vercel AI SDK** (provider Gemini via Vercel AI SDK), produzindo classificações de tópicos estruturadas, ângulos para publicações ou rascunhos de posts. A chamada parte de um método da store MaxPinia (`apiPostRoute('/api/news/.../ai-suggest')`), não de Axios cru.
 - Renderize os resultados em um card envolto por `MaxLoaderAi`, permitindo a cópia com um clique ou a inserção direta nas ferramentas de agendamento/redação.
 
 ### 6. Sintaxe de Componentes e Diretrizes de Atributos

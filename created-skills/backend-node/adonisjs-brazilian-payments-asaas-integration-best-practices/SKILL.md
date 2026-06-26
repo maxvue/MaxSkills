@@ -11,7 +11,7 @@ Estabelecer uma integração de pagamentos segura, resiliente e altamente modula
 ## Instruções
 
 ### 1. Cliente HTTP e Configuração de Serviço
-Implemente uma classe de serviço isolada para interagir com a API v3 do Asaas. Evite wrappers de bibliotecas de terceiros desatualizadas; prefira o cliente HTTP nativo do AdonisJS (`@adonisjs/core/services/http`) ou uma instância limpa do Axios.
+Implemente uma classe de serviço isolada para interagir com a API v3 do Asaas. Evite wrappers de bibliotecas de terceiros desatualizadas; prefira o `fetch` nativo do Node ou uma instância limpa do Axios. (Observação: `@adonisjs/http-client` é voltado a testes, não a chamadas HTTP de produção.)
 
 * **Autenticação da API**: Use o cabeçalho `access_token` para enviar as credenciais.
 * **Configuração de Ambiente**: Defina as variáveis de configuração no arquivo `start/env.ts` e no arquivo `#config/asaas.ts`.
@@ -21,7 +21,7 @@ Exemplo de configuração do Asaas:
 // start/env.ts
 import { Env } from '@adonisjs/core/env'
 
-export const envSchema = Env.schema({
+export default await Env.create(new URL('../', import.meta.url), {
   ASAAS_API_KEY: Env.schema.string(),
   ASAAS_WEBHOOK_TOKEN: Env.schema.string(),
   ASAAS_API_URL: Env.schema.string({ format: 'url' }),
@@ -70,7 +70,7 @@ export default class AsaasService {
 ```
 
 ### 2. Modelos de Banco de Dados e Lucid ORM
-Utilize ULIDs para todos os modelos relacionados a faturamento e pagamentos. Mapeie corretamente os relacionamentos entre inquilinos (`MarketingAgency` ou `User`) com `AsaasCustomer` e `AsaasInvoice`.
+Utilize ULIDs para todos os modelos relacionados a faturamento e pagamentos. Mapeie corretamente os relacionamentos entre inquilinos (`SolarCompany` ou `User`) com `AsaasCustomer` e `AsaasInvoice`.
 
 * **`AsaasCustomer`**: Vincula um inquilino/usuário local ao ID do cliente no Asaas.
 * **`AsaasInvoice`**: Rastreia os status das transações (`PENDING`, `RECEIVED`, `CONFIRMED`, `OVERDUE`, `REFUNDED`).
@@ -81,7 +81,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, beforeCreate, column, belongsTo } from '@adonisjs/lucid/orm'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import { ulid } from 'ulid'
-import MarketingAgency from '#models/marketing_agency'
+import SolarCompany from '#models/solar_company'
 
 export default class AsaasCustomer extends BaseModel {
   static table = 'asaas_customers'
@@ -96,7 +96,7 @@ export default class AsaasCustomer extends BaseModel {
   declare id: string
 
   @column()
-  declare marketingAgencyId: string
+  declare solarCompanyId: string
 
   @column()
   declare asaasCustomerId: string
@@ -107,8 +107,8 @@ export default class AsaasCustomer extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => MarketingAgency)
-  declare marketingAgency: BelongsTo<typeof MarketingAgency>
+  @belongsTo(() => SolarCompany)
+  declare solarCompany: BelongsTo<typeof SolarCompany>
 }
 ```
 

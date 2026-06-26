@@ -6,7 +6,7 @@ description: Use when implementing, formatting, or validating user inputs with m
 # Boas Práticas de Inputs, Máscaras e Validação no Vue 3
 
 ## Objetivo
-Estabelecer padrões claros e de alta qualidade de desenvolvimento para a aplicação de máscaras e validações de input em formulários no front-end Vue 3 do Engeapp. Isso garante uma interface consistente, tratamento dinâmico de máscaras, validação de cartões de crédito e telefones, e a extração automática do valor bruto sem formatação (unmasked) antes do envio dos dados ao Laravel.
+Estabelecer padrões claros e de alta qualidade de desenvolvimento para a aplicação de máscaras e validações de input em formulários no front-end Vue 3 do Engeapp. Isso garante uma interface consistente, tratamento dinâmico de máscaras, validação de cartões de crédito e telefones, e a extração automática do valor bruto sem formatação (unmasked) antes da persistência dos dados via store `@maxvue/max-pinia` no backend AdonisJS.
 
 ## Instruções
 
@@ -50,17 +50,18 @@ Para formatar inputs monetários, utilize a configuração nativa de número (`n
   ```
 
 ### 5. Remoção de Máscara e Sanitização de Dados
-Nunca envie caracteres de formatação da máscara para a validação do backend Laravel. Sempre faça a sanitização:
+Nunca envie caracteres de formatação da máscara para a validação do backend AdonisJS. Sempre faça a sanitização:
 - **Usando Vinculações Nativas do Maska**: Use o modificador `.unmasked`:
   ```html
   <input v-model="displayValue" v-maska:rawValue.unmasked="maskPattern" />
   ```
-- **Usando Funções Utilitárias**: Limpe os caracteres de formatação utilizando a função `onlyNumbers(val)` do `@maxvue/max-use` antes de enviar ao backend.
+- **Usando Funções Utilitárias**: Limpe os caracteres de formatação utilizando a função `onlyNumbers(val)` do `@maxvue/max-use` antes de persistir o dado.
+- **Persistência via MaxPinia**: O valor limpo (rawValue/E.164) deve ser atribuído ao campo da store `@maxvue/max-pinia`; o auto-save (debounced) da store envia ao backend. Não faça `axios.post`/submit manual para salvar inputs de página.
 
 ### 6. Validação de Input de Telefone
 - Sempre prefira utilizar o componente pré-definido `MaxPhoneField` da biblioteca `MaxComponentsUi`, que encapsula a seleção de código de país (DDI) e a máscara de input dinâmica.
 - Importe e use a função helper de validação `phone` de `@maxvue/max-use` (que utiliza internamente `libphonenumber-js`).
-- Normalize o valor no formato estrito `E.164` antes de enviar ao backend:
+- Normalize o valor no formato estrito `E.164` antes de atribuí-lo ao campo da store MaxPinia (que persiste via auto-save):
   ```typescript
   const formatToE164 = (rawPhone: string): string => {
       const cleanDigits = rawPhone.replace(/\D/g, '');
@@ -85,7 +86,8 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
 - Nunca persista dados brutos de cartão de crédito ou códigos CVV no `localStorage` ou `sessionStorage`.
 
 ## Restrições
-- **Sem Valores Formatados para o Backend**: Nunca envie valores contendo caracteres de formatação de máscara para o backend Laravel. Sempre envie strings limpas ou floats, ou formato `E.164` para telefones.
+- **Sem Valores Formatados para o Backend**: Nunca persista valores contendo caracteres de formatação de máscara no backend AdonisJS. Sempre grave strings limpas ou floats, ou formato `E.164` para telefones, nos campos da store `@maxvue/max-pinia`.
+- **Sem Save Manual**: Não use `axios`/fetch manual nem submit de formulário para salvar inputs de página. A persistência ocorre pelo auto-save da store MaxPinia.
 - **Sem Formatação/Validação Manual via Expressões Regulares**: Não utilize substituição de strings sob demanda (ad-hoc) ou regex complexos personalizados para validação ou formatação de dados padrão brasileiros ou telefones. Confie inteiramente nos arrays de diretivas do Maska, `libphonenumber-js` ou `card-validator`.
 - **Sem Options API**: Todos os arquivos SFC do Vue devem utilizar estritamente `<script setup lang="ts">` e a Composition API.
 - **Atributos em Linha Única**: Sempre mantenha todas as propriedades dos elementos HTML/Vue em linha única nos templates.

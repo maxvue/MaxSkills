@@ -4,10 +4,10 @@ description: >-
   Use when working with @maxvue/max-components-ui or @maxvue/max-use — the custom UI and utility
   libraries of the Maxdmin project. Covers MaxButton, MaxModal, MaxTable, MaxGrid, MaxGridCols,
   MaxInput* form components, InputBase validation wrapper, MaxIcon (Iconify), Brazilian formatters
-  and validators (_), cached composables (useRefCached, useRefCachedApi), and MaxUse route helpers
+  and validators (_), cached composables (useRefCached for localStorage, useCachedApi/useRefCachedApi for API state), and MaxUse route helpers
   (apiGetRoute, apiPostRoute) that resolve to /api string paths. Triggers on any Max* component, @maxvue import, or reference to the
   MaxComponentsUi/MaxUse libraries. For general SFC structure and Pinia store patterns, use
-  vue-maxvue-frontend-best-practices instead.
+  vue-max-stack-frontend-best-practices instead.
 ---
 
 # Melhores Práticas do Ecossistema Vue Max
@@ -22,7 +22,7 @@ Fornecer diretrizes claras para o uso consistente e otimizado da biblioteca de c
 
 #### 1. Prefira Componentes do Catálogo
 
-Antes de construir elementos customizados, verifique o `resources/components-catalog.md`. Dê preferência a componentes como `MaxButton`, `MaxInputText`, `MaxModal`, `MaxTable`, `MaxGrid` e `MaxGridCols`.
+Antes de construir elementos customizados, consulte o catálogo de componentes do pacote `@maxvue/max-components-ui`. Dê preferência a componentes como `MaxButton`, `MaxInputText`, `MaxModal`, `MaxTable`, `MaxGrid` e `MaxGridCols`.
 
 #### 2. Layout & Grids
 

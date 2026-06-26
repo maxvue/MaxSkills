@@ -17,17 +17,17 @@ Estruture a caixa de entrada usando um layout de duas colunas otimizado para erg
 - Use `MaxCard` e estilização CSS nativa para criar painéis visualmente premium.
 
 ### 2. Ingestão em Tempo Real (Server-Sent Events)
-Integre o `@adonisjs/transmit-client` via `useTransmit` para manter a linha de comentários atualizada sem recarregamento manual de página:
-- Escute as atualizações de comentários e mensagens em tempo real:
+Integre o `@adonisjs/transmit-client` diretamente para manter a linha de comentários atualizada sem recarregamento manual de página:
+- Instancie o cliente Transmit e escute as atualizações de comentários e mensagens em tempo real:
   ```typescript
-  import { useTransmit } from '@js/transmit'
-  
-  const transmit = useTransmit()
+  import { Transmit } from '@adonisjs/transmit-client'
+
+  const transmit = new Transmit({ baseUrl: window.location.origin })
   const subscription = transmit.subscription(`instagram/moderation/${clientId}`)
   await subscription.create()
-  
+
   subscription.onMessage<{ commentId: string; text: string; action: string }>((data) => {
-    // Atualiza reativamente a coleção local de mensagens ou comentários
+    // Atualiza reativamente a store @maxvue/max-pinia (mescla o novo comentário/mensagem na coleção)
   })
   ```
 - **Limpeza:** Sempre chame `subscription.delete()` dentro de `onUnmounted()` para evitar vazamentos de listeners ativos no lado do cliente.
@@ -42,7 +42,7 @@ Melhore o fluxo de trabalho de moderação utilizando sugestões de IA integrada
 Exponha gatilhos de ação rápida para moderação de comentários do Instagram:
 - Implemente botões para ações de **Curtir (Coração)**, **Ocultar/Exibir** e **Excluir** usando `MaxIconButton` com os ícones correspondentes (`mdi:heart-outline`, `mdi:eye-off-outline`, `mdi:trash-can-outline`).
 - Trate os estados de carregamento reativamente usando referências booleanas para cada requisição de ação.
-- Use padrões REST com Axios para despachar as ações para o backend AdonisJS.
+- **Despache as ações via store `@maxvue/max-pinia`:** mutações na coleção de comentários/mensagens (curtir, ocultar/exibir, excluir) devem alterar o estado da store, que persiste automaticamente no backend AdonisJS (auto-save debounced) através de `apiPostRoute`/`apiGetRoute` resolvendo caminhos string `/api/...`. NÃO faça requisições Axios REST manuais para dados de página.
 
 ### 5. Diretrizes de Código e Templates
 - Sempre use a Composition API (`<script setup lang="ts">`) e SCSS (`<style scoped lang="scss">`).

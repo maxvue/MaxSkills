@@ -1,6 +1,6 @@
 ---
 name: adonisjs-audio-transcription-analysis-best-practices
-description: Use when implementing, reviewing, or debugging audio transcription and voice analysis features in AdonisJS v6, using services like OpenAI Whisper, Google Gemini API (speech-to-text), or local tools. Triggers on files handling audio upload processing for speech-to-text, integrating with Whisper/Gemini APIs for audio parsing, extracting voice metadata, or generating transcription transcripts for database storage.
+description: Use when implementing, reviewing, or debugging audio transcription and voice analysis features in AdonisJS v6, routing AI calls (Whisper, Google Gemini speech-to-text) through the Vercel AI SDK. Triggers on files handling audio upload processing for speech-to-text, integrating Whisper/Gemini via the AI SDK for audio parsing, extracting voice metadata, or generating transcription transcripts for database storage.
 ---
 
 ## Objetivo
@@ -28,12 +28,12 @@ export const uploadAudioValidator = vine.compile(
 )
 ```
 
-## 2. Padrões de Integração de API (Whisper e Gemini)
-Integre-se com APIs de transcrição de forma segura e eficiente:
-- **API OpenAI Whisper**: Use o pacote oficial `openai`. Envie o arquivo usando `fs.createReadStream(file.tmpPath)`.
-- **API Google Gemini**: Use o SDK oficial `@google/genai` ou os endpoints REST. Para arquivos maiores que 20MB, utilize o helper File API do Gemini em vez de enviar dados inline brutos.
-- **Variáveis de ambiente**: Carregue as credenciais usando a configuração de ambiente do AdonisJS: `env.get('OPENAI_API_KEY')` ou `env.get('GEMINI_API_KEY')`. Nunca insira chaves diretamente no código (hardcoded).
-- **Timeout e Tentativas (Retries)**: Implemente mecanismos de retry usando bibliotecas auxiliares ou loops de atraso simples para lidar com instabilidades de rede e rate limiting (HTTP 429).
+## 2. Padrões de Integração de API (Vercel AI SDK)
+Toda integração de IA (transcrição e análise) DEVE passar pelo **Vercel AI SDK** (`ai`), nunca pelos SDKs diretos `openai` ou `@google/genai`.
+- **Transcrição (Whisper)**: Use `transcribe()` do `ai` com o provider OpenAI (`@ai-sdk/openai`), passando o áudio como `Buffer`/`Uint8Array` lido do disco.
+- **Análise/Resumo (Gemini)**: Use `generateText()`/`generateObject()` do `ai` com o provider Google (`@ai-sdk/google`). Para arquivos maiores que 20MB, prefira referenciar o arquivo via File API do provider em vez de enviar dados inline brutos.
+- **Variáveis de ambiente**: Carregue as credenciais usando a configuração de ambiente do AdonisJS: `env.get('OPENAI_API_KEY')` ou `env.get('GOOGLE_GENERATIVE_AI_API_KEY')`. Nunca insira chaves diretamente no código (hardcoded).
+- **Timeout e Tentativas (Retries)**: O Vercel AI SDK aceita `maxRetries` nas chamadas; configure-o para lidar com instabilidades de rede e rate limiting (HTTP 429).
 
 ## 3. Execução Assíncrona e Integração com Filas
 A transcrição é um processo pesado e pode bloquear o ciclo principal de requisição-resposta HTTP.
@@ -81,72 +81,55 @@ Armazene o resultado da transcrição juntamente com metadados ricos em colunas 
 
 # Exemplos
 
-### Exemplo: Serviço de Transcrição (OpenAI e Gemini)
+### Exemplo: Serviço de Transcrição (Vercel AI SDK)
 ```typescript
 import fs from 'node:fs'
 import { inject } from '@adonisjs/core'
-import env from '#start/env'
-import OpenAI from 'openai'
-import { GoogleGenAI } from '@google/genai'
+import { experimental_transcribe as transcribe, generateText } from 'ai'
+import { openai } from '@ai-sdk/openai'
+import { google } from '@ai-sdk/google'
 
 @inject()
 export default class AudioTranscriptionService {
-  private openai?: OpenAI
-  private ai?: GoogleGenAI
-
-  constructor() {
-    const openAiKey = env.get('OPENAI_API_KEY')
-    if (openAiKey) {
-      this.openai = new OpenAI({ apiKey: openAiKey })
-    }
-
-    const geminiKey = env.get('GEMINI_API_KEY')
-    if (geminiKey) {
-      this.ai = new GoogleGenAI({ apiKey: geminiKey })
-    }
-  }
-
   /**
-   * Transcreve áudio usando OpenAI Whisper
+   * Transcreve áudio usando Whisper via Vercel AI SDK
+   * (lê OPENAI_API_KEY do ambiente automaticamente)
    */
   async transcribeWithWhisper(filePath: string): Promise<string> {
-    if (!this.openai) {
-      throw new Error('A chave da OpenAI não está configurada')
-    }
+    const audio = await fs.promises.readFile(filePath)
 
-    const response = await this.openai.audio.transcriptions.create({
-      file: fs.createReadStream(filePath),
-      model: 'whisper-1',
+    const result = await transcribe({
+      model: openai.transcription('whisper-1'),
+      audio,
+      maxRetries: 3,
     })
 
-    return response.text
+    return result.text
   }
 
   /**
    * Processa o áudio e gera uma análise estruturada usando o Gemini
+   * via Vercel AI SDK (lê GOOGLE_GENERATIVE_AI_API_KEY do ambiente)
    */
-  async analyzeAudioWithGemini(filePath: string, prompt: string): Promise<string | null> {
-    if (!this.ai) {
-      throw new Error('A API do Gemini não está configurada')
-    }
-
+  async analyzeAudioWithGemini(filePath: string, prompt: string): Promise<string> {
     const fileBuffer = await fs.promises.readFile(filePath)
     const mimeType = this.detectMimeType(filePath)
 
-    const response = await this.ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: [
+    const { text } = await generateText({
+      model: google('gemini-2.5-flash'),
+      maxRetries: 3,
+      messages: [
         {
-          inlineData: {
-            data: fileBuffer.toString('base64'),
-            mimeType
-          }
+          role: 'user',
+          content: [
+            { type: 'text', text: prompt },
+            { type: 'file', data: fileBuffer, mediaType: mimeType },
+          ],
         },
-        prompt
-      ]
+      ],
     })
 
-    return response.text
+    return text
   }
 
   private detectMimeType(filePath: string): string {
@@ -165,20 +148,21 @@ import { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
 import { uploadAudioValidator } from '#validators/audio'
 import VoiceNote from '#models/voice_note'
-// import QueueService ou BullMQ helper
+import Queue from '#services/queue_service'
 
 @inject()
 export default class VoiceNotesController {
   async store({ request, response }: HttpContext) {
     const { audio } = await request.validateUsing(uploadAudioValidator)
 
-    // Salva o áudio localmente ou no Drive
+    // Move o áudio para o disco (Drive). O nome final é definido após o move.
     await audio.moveToDisk('voice-notes')
-    const fileName = audio.fileName!
+    // Use a chave gerada pelo Drive (key), não `fileName` cru.
+    const key = audio.meta?.key ?? `voice-notes/${audio.fileName}`
 
     // Salva o registro inicial no banco de dados com status pendente
     const voiceNote = await VoiceNote.create({
-      filePath: fileName,
+      filePath: key,
       transcript: '',
       metadata: {
         duration: 0,
@@ -189,7 +173,7 @@ export default class VoiceNotesController {
     })
 
     // Despacha o job em segundo plano para transcrição para evitar bloquear a resposta
-    // await QueueService.dispatch('transcribe-audio', { voiceNoteId: voiceNote.id })
+    await Queue.add('transcribe-audio', { voiceNoteId: voiceNote.id })
 
     return response.accepted({
       message: 'Áudio recebido e enfileirado para processamento',

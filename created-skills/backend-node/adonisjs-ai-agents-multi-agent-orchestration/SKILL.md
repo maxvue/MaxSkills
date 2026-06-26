@@ -14,7 +14,7 @@ Estabelecer diretrizes arquiteturais robustas e padrões de código para orquest
 
 ### 1. Gerenciamento e Persistência de Estados
 Evite manter o estado de execução de múltiplos agentes puramente em memória. Pipelines longos são propensos a timeouts e falhas.
-- **Estado do Model Lucid:** Use o modelo da entidade principal (por exemplo, `CalendarEvent`) para persistir a etapa atual do pipeline usando uma coluna `status`.
+- **Estado do Model Lucid:** Use o modelo da entidade principal (por exemplo, `CalendarEvent`, um evento de conteúdo no calendário de marketing da empresa fotovoltaica) para persistir a etapa atual do pipeline usando uma coluna `status`.
 - **Progressão de Status:** Etapas típicas do fluxo:
   - `draft` -> `extracting_themes` -> `planning` -> `generating_copy` -> `script_drafted` -> `revising_copy` -> `script_ready` -> `generating_art` -> `art_ready` -> `analyzing_art` -> `approved` / `rejected`
 - **Armazenamento de Loops de Feedback e Rejeição:** Persista o feedback de revisão diretamente no banco de dados (por exemplo, coluna `rejection_observations`) para permitir que os agentes recuperem a razão do retrabalho.
@@ -25,6 +25,7 @@ Para execuções assíncronas, não execute cadeias de agentes em uma única req
 - **Jobs Dedicados:** Crie uma classe Job para cada estágio de agente (por exemplo, `CopywriterJob`, `CopywriterReviewerJob`, `GraphicEditorJob`, `ArtAnalystJob`).
 - **Despacho Sequencial:** Um job deve processar a execução de seu agente e disparar o próximo passo despachando o job subsequente por meio de sua fila assim que a condição de conclusão (`isDone`) for atendida.
 - **Recuperação e Resiliência de Jobs:** Aproveite os parâmetros de retentativa do BullMQ. Garanta que a função `executeAgent` use cadeias de modelos de fallback (por exemplo, migrando de `gemini-2.5-pro` para `gemini-2.5-flash` em caso de erro).
+- **Camada de IA:** `executeAgent` deve invocar os modelos através do **Vercel AI SDK** (`generateText`/`generateObject` com o provider Gemini via `@ai-sdk/google`), e não SDKs diretos do provedor. Isso padroniza o roteamento de modelos, tool-calling e fallback.
 
 ### 3. Implementando Loops de Feedback
 Quando um agente rejeitar a saída de um agente anterior (por exemplo, `ArtAnalyst` rejeita o briefing visual ou copy da arte):
@@ -32,9 +33,24 @@ Quando um agente rejeitar a saída de um agente anterior (por exemplo, `ArtAnaly
 2. Atualize o status da entidade (por exemplo, altere o status para `script_drafted` ou acione uma revisão parcial).
 3. Despache o job correspondente de volta para a fila (por exemplo, `CopywriterJob` com instruções para focar apenas nos slides reprovados, evitando reprocessar os aprovados).
 
-### 4. Sincronização de Cliente em Tempo Real (Soketi/Pusher)
-- Transmita eventos para o frontend sempre que um estado mudar ou um agente concluir um passo.
-- Chame um método de serviço (por exemplo, `broadcastCalendarUpdate(agentId, solarCompanyId)`) após chamar `executeAgent` para notificar os componentes cliente do Vue 3 sobre o progresso.
+### 4. Sincronização de Cliente em Tempo Real (AdonisJS Transmit / SSE)
+- Use **AdonisJS Transmit** (SSE) para transmitir eventos ao frontend sempre que um estado mudar ou um agente concluir um passo. Não use Pusher/Soketi/Reverb/Echo.
+- Chame um método de serviço (por exemplo, `broadcastPipelineUpdate(agentId, companyId)`) que publica num canal Transmit após chamar `executeAgent`, notificando os componentes cliente do Vue 3 sobre o progresso.
+- No frontend, a leitura do estado do pipeline (GET) deve passar por uma store `@maxvue/max-pinia`; o Transmit serve apenas para invalidar/atualizar essa store em tempo real, não para substituir o fluxo de dados de página.
+
+Exemplo de broadcast com Transmit no backend:
+
+```typescript
+// app/services/pipeline_broadcaster.ts
+import transmit from '@adonisjs/transmit/services/main'
+
+export async function broadcastPipelineUpdate(agentId: string, companyId: string) {
+  // Canal por empresa/agente; o front assina e revalida a store MaxPinia ao receber.
+  transmit.broadcast(`companies/${companyId}/agents/${agentId}/pipeline`, {
+    updatedAt: new Date().toISOString(),
+  })
+}
+```
 
 ### 5. Auditoria de Custos e Uso
 - Armazene o uso de tokens de prompt e conclusão, o tempo de execução e o nome do modelo usado após cada execução de agente.
@@ -52,7 +68,8 @@ Abaixo está um exemplo de um orquestrador/job tratando o loop de feedback pós-
 import type { Job } from 'bullmq'
 import { artAnalystQueue } from '#services/queue_service'
 import CalendarEvent from '#models/calendar/event'
-import { executeAgent, saveAiCost, COSTABLE_TYPES, broadcastCalendarUpdate } from '#ai/agent_ai_request'
+import { executeAgent, saveAiCost, COSTABLE_TYPES } from '#ai/agent_ai_request'
+import { broadcastPipelineUpdate } from '#services/pipeline_broadcaster'
 import { createArtAnalystAgent } from '#ai/agents/art_analyst'
 import CopywriterJob from '#jobs/copywriter_job'
 
@@ -96,8 +113,8 @@ export default class ArtAnalystJob {
       // Finaliza ou envia para a fila de publicação
     }
 
-    // Transmite o status para o frontend Vue em tempo real
-    await broadcastCalendarUpdate(agentId, solarCompanyId)
+    // Transmite o status para o frontend Vue em tempo real (AdonisJS Transmit / SSE)
+    await broadcastPipelineUpdate(agentId, solarCompanyId)
   }
 }
 ```
@@ -113,10 +130,10 @@ export function createCopywriterAgent(event: CalendarEvent) {
   const isRevision = event.status === 'art_rejected' && event.rejectionObservations
   
   return {
-    agentName: 'AgentInstagramCopywriter',
+    agentName: 'AgentSolarCopywriter',
     typeData: 'structured-data',
     initialModel: 'gemini-2.5-flash',
-    systemPrompt: `Você é o Agente Redator de Mídias Sociais.
+    systemPrompt: `Você é o Agente Redator de conteúdo de marketing da empresa fotovoltaica.
     
     ${isRevision ? `
     [ATENÇÃO: MODO REVISÃO]

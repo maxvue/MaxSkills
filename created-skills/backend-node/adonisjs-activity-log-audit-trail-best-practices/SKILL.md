@@ -12,10 +12,10 @@ Fornecer um padrão seguro, performático e padronizado para projetar e implemen
 
 ### 1. Esquema de Banco de Dados para Trilhas de Auditoria
 * **JSON Binário (JSONB)**: Use `jsonb` nas migrações para armazenar a diferença (ex: estados anterior/posterior, ou metadados de campos alterados).
-* **Tipos de Identificadores**: Sempre use ULID (`CHAR(26)`) para chaves primárias e chaves estrangeiras (ex: `user_id`, `marketing_agency_id`) para se alinhar aos padrões da base de código.
+* **Tipos de Identificadores**: Sempre use ULID (`CHAR(26)`) para chaves primárias e chaves estrangeiras (ex: `user_id`, `solar_company_id`) para se alinhar aos padrões da base de código.
 * **Índices**: 
   * Aplique um índice GIN nas colunas JSONB para consultas flexíveis.
-  * Crie índices compostos nos identificadores de tenant e carimbo de data/hora (timestamp) (ex: `[marketing_agency_id, created_at]`) para otimizar as consultas de painéis.
+  * Crie índices compostos nos identificadores de tenant e carimbo de data/hora (timestamp) (ex: `[solar_company_id, created_at]`) para otimizar as consultas de painéis.
 
 ```typescript
 import { BaseSchema } from '@adonisjs/lucid/schema'
@@ -27,9 +27,9 @@ export default class extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.specificType('id', 'CHAR(26)').primary()
       table.specificType('user_id', 'CHAR(26)').nullable().references('id').inTable('users').onDelete('SET NULL')
-      table.specificType('marketing_agency_id', 'CHAR(26)').nullable().references('id').inTable('marketing_agencies').onDelete('CASCADE')
-      table.string('action').notNullable() // ex: 'POST_CREATED', 'API_KEY_ROTATED'
-      table.string('auditable_type').notNullable() // ex: 'User', 'InstagramCredential'
+      table.specificType('solar_company_id', 'CHAR(26)').nullable().references('id').inTable('solar_companies').onDelete('CASCADE')
+      table.string('action').notNullable() // ex: 'PROJETO_CRIADO', 'API_KEY_ROTATED'
+      table.string('auditable_type').notNullable() // ex: 'User', 'IntegradorCredential'
       table.specificType('auditable_id', 'CHAR(26)').notNullable()
       table.jsonb('old_values').nullable()
       table.jsonb('new_values').nullable()
@@ -40,7 +40,7 @@ export default class extends BaseSchema {
     // Índices
     this.schema.raw(`CREATE INDEX idx_activity_logs_old_gin ON ${this.tableName} USING gin (old_values)`)
     this.schema.raw(`CREATE INDEX idx_activity_logs_new_gin ON ${this.tableName} USING gin (new_values)`)
-    this.schema.raw(`CREATE INDEX idx_activity_logs_tenant_date ON ${this.tableName} (marketing_agency_id, created_at DESC)`)
+    this.schema.raw(`CREATE INDEX idx_activity_logs_tenant_date ON ${this.tableName} (solar_company_id, created_at DESC)`)
   }
 
   async down() {
@@ -63,7 +63,7 @@ import User from '#models/user'
 export interface LogMetadata {
   ip: string
   userAgent: string
-  impersonatedBy?: string // Rastreia quem impersonou o usuário, se aplicável
+  impersonatedBy?: string // Rastreia quem impersonou o usuário (ex: admin da empresa solar), se aplicável
 }
 
 export default class ActivityLog extends BaseModel {
@@ -82,7 +82,7 @@ export default class ActivityLog extends BaseModel {
   declare userId: string | null
 
   @column()
-  declare marketingAgencyId: string | null
+  declare solarCompanyId: string | null
 
   @column()
   declare action: string
@@ -111,7 +111,7 @@ export default class ActivityLog extends BaseModel {
 ```
 
 ### 3. Hooks de Model para Rastrear Alterações
-* **Extrair Diferenças**: Utilize as propriedades `$original` e `$attributes` do modelo nos hooks Lucid (como `@afterSave` ou `@afterDelete`) para registrar modificações.
+* **Extrair Diferenças**: Utilize as propriedades `$original` e `$attributes` do modelo nos hooks Lucid para registrar modificações. Separe `@afterCreate` (INSERT) de `@afterUpdate` (UPDATE) — em `@afterSave` o registro já possui `id`, então `!model.$original.id` NÃO distingue criação de atualização de forma confiável.
 * **Determinar Propriedades Alteradas**: Compare as propriedades antes e depois. Filtre campos sensíveis como `password` ou tokens internos.
 * **Envio Assíncrono (Async Dispatching)**: Transfira a gravação de logs de auditoria para eventos (`emitter`) ou workers de fila (ex: BullMQ) para evitar bloquear as requisições principais do usuário.
 
@@ -130,42 +130,57 @@ export default class AuditListener {
 ```
 
 ```typescript
-// dentro de um modelo auditável: ex: app/models/social_media_credential.ts
-import { BaseModel, column, afterSave } from '@adonisjs/lucid/orm'
+// dentro de um modelo auditável: ex: app/models/integrador_credential.ts
+import { BaseModel, column, afterCreate, afterUpdate } from '@adonisjs/lucid/orm'
 import emitter from '@adonisjs/core/services/emitter'
 
-export default class SocialMediaCredential extends BaseModel {
+const IGNORED_KEYS = ['password', 'token', 'secret', 'updatedAt']
+
+export default class IntegradorCredential extends BaseModel {
   // Atributos do modelo...
 
-  @afterSave()
-  static async logSave(model: SocialMediaCredential) {
-    const isNew = !model.$original.id
+  // INSERT: não há estado anterior, registramos apenas os novos valores.
+  @afterCreate()
+  static async logCreate(model: IntegradorCredential) {
+    const newValues: Record<string, any> = {}
+    for (const key of Object.keys(model.$attributes)) {
+      if (IGNORED_KEYS.includes(key)) continue
+      newValues[key] = model.$attributes[key]
+    }
+
+    emitter.emit('audit:log', {
+      action: 'CREDENTIAL_CREATED',
+      auditableType: 'IntegradorCredential',
+      auditableId: model.id,
+      oldValues: null,
+      newValues,
+    })
+  }
+
+  // UPDATE: comparamos $original (antes) com $attributes (depois).
+  @afterUpdate()
+  static async logUpdate(model: IntegradorCredential) {
     const oldValues: Record<string, any> = {}
     const newValues: Record<string, any> = {}
 
-    // Excluir chaves sensíveis do log
-    const ignoredKeys = ['password', 'token', 'secret', 'updatedAt']
-
     for (const key of Object.keys(model.$attributes)) {
-      if (ignoredKeys.includes(key)) continue
+      if (IGNORED_KEYS.includes(key)) continue
 
       const originalVal = model.$original[key]
       const currentVal = model.$attributes[key]
 
       if (originalVal !== currentVal) {
-        if (!isNew) {
-          oldValues[key] = originalVal
-        }
+        oldValues[key] = originalVal
         newValues[key] = currentVal
       }
     }
 
     if (Object.keys(newValues).length > 0) {
       emitter.emit('audit:log', {
-        action: isNew ? 'CREDENTIAL_CREATED' : 'CREDENTIAL_UPDATED',
-        auditableType: 'SocialMediaCredential',
+        action: 'CREDENTIAL_UPDATED',
+        auditableType: 'IntegradorCredential',
         auditableId: model.id,
-        oldValues: isNew ? null : oldValues,
+        oldValues,
         newValues,
       })
     }
@@ -174,8 +189,8 @@ export default class SocialMediaCredential extends BaseModel {
 ```
 
 ### 4. Isolamento de Tenant e Registro de Impersonação
-* **Garantia de Tenancy**: Certifique-se de que o `marketing_agency_id` seja sempre capturado e preenchido para manter o isolamento de dados entre clientes/agências.
-* **Impersonação**: Quando um administrador estiver representando (impersonando) um usuário de agência, capture tanto o ID do usuário final (`userId`) quanto o ID do administrador real dentro de `metadata.impersonatedBy` usando os dados da sessão ativa.
+* **Garantia de Tenancy**: Certifique-se de que o `solar_company_id` seja sempre capturado e preenchido para manter o isolamento de dados entre empresas solares/integradores.
+* **Impersonação**: Quando um administrador estiver representando (impersonando) um usuário de uma empresa solar, capture tanto o ID do usuário final (`userId`) quanto o ID do administrador real dentro de `metadata.impersonatedBy` usando os dados da sessão ativa (guard web).
 
 ## Restrições
 * **NÃO use Serialização Manual**: Nunca aplique `prepare: (val) => JSON.stringify(val)` ou `consume: (val) => JSON.parse(val)` em campos JSONB do Lucid, pois isso causa erros de codificação/decodificação duplicados.

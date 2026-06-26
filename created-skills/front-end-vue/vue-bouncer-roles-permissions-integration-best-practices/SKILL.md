@@ -18,8 +18,8 @@ Defina uma estrutura compartilhada que represente as permissões do usuário. Es
 Exemplo de estrutura em `/resources/Types/generated.d.ts`:
 ```typescript
 declare global {
-  type BouncerAbility = 'approveEvent' | 'manageCharacters' | 'editTheme' | 'viewBilling';
-  type UserRole = 'admin' | 'social_media_manager' | 'designer' | 'copywriter' | 'revisor' | 'client';
+  type BouncerAbility = 'approveProject' | 'manageInstallations' | 'editProposal' | 'viewBilling';
+  type UserRole = 'admin' | 'engenheiro' | 'instalador' | 'vendedor' | 'revisor' | 'cliente';
 
   interface User {
     id: string;
@@ -33,17 +33,19 @@ declare global {
 }
 ```
 
-### 2. Vinculação na Store do Pinia
-A store de autenticação/usuário deve armazenar reativamente o mapa de permissões do usuário autenticado e expor verificadores rápidos.
-* Utilize o formato Setup Store no Pinia.
-* Exponha getters ou funções auxiliares para verificar as permissões.
+### 2. Vinculação na Store do Pinia (MaxPinia)
+Não redefina a store de usuário aqui. Reuse a MESMA store de sessão `useUserStore` definida pela skill de auth-session, que já carrega os dados de sessão via `options.get` apontando para `apiGetRoute('/api/user/data')` e expõe `waitRequest`. As permissões e o papel já chegam dentro de `data` (formato serializado pelo AdonisJS Bouncer), portanto basta derivar getters de permissão a partir dessa store.
+* A store é uma `@maxvue/max-pinia` Setup Store com `data: ref(null)` + `options.get` (sem GET manual).
+* Adicione apenas os getters/funções de permissão (`hasPermission`, `hasRole`) à definição já existente, mantendo uma única fonte da verdade.
 
-Exemplo:
+Exemplo (getters adicionados à store de sessão MaxPinia existente):
 ```typescript
-import { defineStore } from 'pinia';
+import { defineStore } from '@maxvue/max-pinia';
 import { ref, computed } from 'vue';
+import { apiGetRoute } from '@maxvue/max-use';
 
 export const useUserStore = defineStore('user', () => {
+  // data + options.get definidos pela skill de auth-session; replicados aqui só por contexto
   const data = ref<User | null>(null);
 
   const permissions = computed(() => data.value?.permissions || {} as Record<BouncerAbility, boolean>);
@@ -61,8 +63,14 @@ export const useUserStore = defineStore('user', () => {
   };
 
   return { data, permissions, role, hasPermission, hasRole };
+}, {
+  // mesma config da skill auth-session: carrega a sessão sem GET manual
+  options: {
+    get: () => apiGetRoute('/api/user/data'),
+  },
 });
 ```
+> Importante: existe UMA única `useUserStore('user')`. Esta skill apenas acrescenta `permissions`, `role`, `hasPermission` e `hasRole`; o carregamento dos dados (`options.get` + `waitRequest`) pertence à store de sessão e não deve ser duplicado/conflitado.
 
 ### 3. Composable `useBouncer`
 Implemente um hook cliente `useBouncer` em `/resources/Js/composables/useBouncer.ts` para facilitar checagens de autorização imperativas no bloco `<script setup>` de Single-File Components (SFC).
@@ -93,31 +101,59 @@ export function useBouncer() {
 Registre uma diretiva personalizada global `v-can` no arquivo `/resources/app.ts` para fazer checagens declarativas de permissão nos templates Vue.
 * **Modo Ocultar (Padrão):** Se o usuário não tiver a permissão, remova o elemento do DOM ou defina `display: none`.
 * **Modo Desabilitar (Modifier `.disable`):** Se o usuário não tiver a permissão, adicione o atributo `disabled` e classes de estilo apropriadas (como `is-disabled`, `pointer-events-none`). Isso é crucial para manter a visibilidade do botão de ação, mas impedi-lo de ser clicado.
+* **Reatividade obrigatória:** a diretiva NÃO pode avaliar apenas em `mounted`. Como as permissões mudam em login/logout/troca de tenant, aplique a checagem via um `watchEffect` (criado em `mounted`, descartado em `unmounted`) para que o elemento seja reavaliado sempre que a store de usuário mudar.
 
 Exemplo de registro no `app.ts`:
 ```typescript
-import { createApp } from 'vue';
+import { createApp, watchEffect, type WatchStopHandle } from 'vue';
 import App from './App.vue';
 import { useUserStore } from '@/Stores/UserStores/useUser.Store';
 
 const app = createApp(App);
 
-app.directive('can', {
-  mounted(el, binding) {
-    const userStore = useUserStore();
-    const ability = binding.value as BouncerAbility;
-    const modifiers = binding.modifiers;
+// Armazena o stop handle do efeito reativo por elemento
+const stops = new WeakMap<HTMLElement, WatchStopHandle>();
 
+const applyCan = (el: HTMLElement, binding: any) => {
+  const userStore = useUserStore();
+  const ability = binding.value as BouncerAbility;
+  const modifiers = binding.modifiers;
+
+  // watchEffect reage a mudanças de permissions/role (login/logout/troca de usuário)
+  const stop = watchEffect(() => {
     const hasAccess = userStore.hasPermission(ability);
 
-    if (!hasAccess) {
-      if (modifiers.disable) {
-        el.setAttribute('disabled', 'true');
-        el.classList.add('opacity-50', 'pointer-events-none', 'cursor-not-allowed');
-      } else {
-        el.style.display = 'none';
-      }
+    if (hasAccess) {
+      // Restaura o estado original quando a permissão passa a existir
+      el.style.display = '';
+      el.removeAttribute('disabled');
+      el.classList.remove('opacity-50', 'pointer-events-none', 'cursor-not-allowed');
+      return;
     }
+
+    if (modifiers.disable) {
+      el.setAttribute('disabled', 'true');
+      el.classList.add('opacity-50', 'pointer-events-none', 'cursor-not-allowed');
+    } else {
+      el.style.display = 'none';
+    }
+  });
+
+  stops.set(el, stop);
+};
+
+app.directive('can', {
+  mounted(el: HTMLElement, binding) {
+    applyCan(el, binding);
+  },
+  updated(el: HTMLElement, binding) {
+    // Reavalia se o valor da ability mudar
+    stops.get(el)?.();
+    applyCan(el, binding);
+  },
+  unmounted(el: HTMLElement) {
+    stops.get(el)?.();
+    stops.delete(el);
   }
 });
 ```
@@ -125,10 +161,10 @@ app.directive('can', {
 Exemplo de uso em templates:
 ```html
 <!-- Comportamento padrão (oculta o elemento do DOM) -->
-<button v-can="'approveEvent'">Aprovar Publicação</button>
+<button v-can="'approveProject'">Aprovar Projeto</button>
 
 <!-- Modificador disable (mantém visível mas desabilita interação) -->
-<button v-can.disable="'editTheme'">Editar Tema</button>
+<button v-can.disable="'editProposal'">Editar Proposta</button>
 ```
 
 ### 5. Guards de Navegação no Vue Router

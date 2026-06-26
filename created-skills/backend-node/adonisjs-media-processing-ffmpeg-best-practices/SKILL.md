@@ -116,6 +116,8 @@ export async function getVideoMetadata(filePath: string): Promise<VideoMetadata>
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
 import fs from 'node:fs/promises'
+import { createWriteStream } from 'node:fs'
+import { pipeline } from 'node:stream/promises'
 import ffmpeg from 'fluent-ffmpeg'
 import drive from '@adonisjs/drive/services/main'
 import logger from '@adonisjs/core/services/logger'
@@ -129,8 +131,10 @@ export async function processVideoForInstagram(
 
   try {
     // 1. Faz o download do arquivo do AdonisJS Drive para o /tmp local
-    const fileBuffer = await drive.use().get(driveKey)
-    await fs.writeFile(localInputPath, fileBuffer)
+    //    Use getStream()/getBytes() para binários — get() retorna string e
+    //    corromperia arquivos de vídeo. Aqui usamos o stream com pipeline.
+    const inputStream = await drive.use().getStream(driveKey)
+    await pipeline(inputStream, createWriteStream(localInputPath))
 
     // 2. Transcodifica o vídeo usando fluent-ffmpeg
     await new Promise<void>((resolve, reject) => {
@@ -163,8 +167,9 @@ export async function processVideoForInstagram(
     })
 
     // 3. Faz o upload do arquivo otimizado de volta para o AdonisJS Drive
+    //    Assinatura correta: put(key, contents, options).
     const outputBuffer = await fs.readFile(localOutputPath)
-    await drive.use().put(outputBuffer, outputKey, {
+    await drive.use().put(outputKey, outputBuffer, {
       contentType: 'video/mp4',
     })
 

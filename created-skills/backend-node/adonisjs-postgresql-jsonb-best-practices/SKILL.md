@@ -92,17 +92,23 @@ export default class extends BaseSchema {
 ```
 
 ### 4. Consultando Colunas JSONB
-Utilize os métodos auxiliares do Lucid ou consultas brutas (raw) com segurança.
-- **`whereJson`**: Filtra linhas que correspondem exatamente a um par chave-valor no JSON.
-- **`whereJsonContains`**: Verifica se um array contém um item específico, ou se um objeto possui determinados pares chave-valor.
+Utilize os métodos auxiliares JSON do Lucid/Knex ou consultas brutas (raw) com segurança. O Lucid v6 **não** expõe um `whereJson` genérico para igualdade de objeto; use os helpers JSON reais do query builder:
+- **`whereJsonObject`**: Filtra linhas cuja coluna JSON é igual ao objeto informado.
+- **`whereJsonSuperset`**: Verifica se o JSON da coluna contém (é superset de) o objeto/par chave-valor informado (operador `@>`).
+- **`whereJsonSubset`**: Verifica se o JSON da coluna é subset do objeto informado (operador `<@`).
+- **`whereJsonPath`**: Compara um valor extraído por JSONPath (operador `@@` / `jsonb_path_query`).
 - **`whereRaw`**: Use para operadores PostgreSQL avançados, garantindo que todas as entradas sejam parametrizadas.
 
 ```typescript
-// Corresponder a um valor exato
-const darkThemeUsers = await User.query().whereJson('metadata', { theme: 'dark' })
+// Corresponder a um par chave-valor contido no objeto (operador @>)
+const darkThemeUsers = await User.query().whereJsonSuperset('metadata', { theme: 'dark' })
 
-// Verificação de array contido ou valor específico
-const emailSubscribers = await User.query().whereJsonContains('metadata->preferences', { marketingEmails: true })
+// Verificar superset em um caminho específico do JSON
+const emailSubscribers = await User.query()
+  .whereJsonSuperset('metadata', { preferences: { marketingEmails: true } })
+
+// Comparar valor extraído por JSONPath
+const proUsers = await User.query().whereJsonPath('metadata', '$.theme', '=', 'dark')
 
 // Operador de continuação raw avançado (@>)
 const tagMatches = await User.query().whereRaw("metadata->'tags' @> ?", [JSON.stringify(['newsletter'])])

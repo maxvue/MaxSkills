@@ -1,6 +1,6 @@
 ---
 name: vue-google-business-profile-post-preview-simulator-best-practices
-description: Use when designing, building, styling, or debugging Vue 3 components, views, or composables related to the Google Business Profile (GBP / Google My Business) post and update preview simulator. Triggers on components like GoogleBusinessPostPreview, GoogleBusinessSimulator, layouts supporting news/offers/events post types, call-to-action buttons (Learn More, Sign Up, Buy, Call Now), date picker event offsets, and desktop/mobile search result mockups in SocialMediaApp.
+description: Use when designing, building, styling, or debugging Vue 3 components, views, or composables related to the Google Business Profile (GBP / Google My Business) post and update preview simulator. Triggers on components like GoogleBusinessPostPreview, GoogleBusinessSimulator, layouts supporting news/offers/events post types, call-to-action buttons (Learn More, Sign Up, Buy, Call Now), date picker event offsets, and desktop/mobile search result mockups no EngeApp.
 ---
 
 # Boas Práticas para Simulador e Pré-visualização de Posts do Google Business Profile
@@ -41,11 +41,11 @@ Implemente um mapeador dinâmico de botões para as ações suportadas pelo GBP:
 - Se nenhum CTA for selecionado, oculte o botão de ação por completo.
 
 ### 4. Layout & Estética (Estilo Google Local Search)
-- **Simulação de Viewport:** Ofereça suporte para alternar entre a barra lateral de pesquisa no desktop (`max-w-[650px]`) e o feed de pesquisa no mobile (`max-w-[420px]`).
+- **Simulação de Viewport:** Ofereça suporte para alternar entre a barra lateral de pesquisa no desktop (`max-w="650px"`) e o feed de pesquisa no mobile (`max-w="420px"`). Use UnoCSS attributify, não classes Tailwind.
 - **Cabeçalho:** Renderize o Nome da Empresa (negrito, cinza escuro), o Avatar da Empresa (circular) e o tempo relativo da publicação (ex: "Agora mesmo" ou tempo relativo usando o composable `useTimeAgo`).
 - **Container de Mídia:** Mantenha uma proporção de aspecto 4:3 ou 16:9 para a imagem do post com um efeito suave de zoom ao passar o mouse.
 - **Tipografia:** Siga a tipografia padrão do Google: `Roboto`, `arial`, sans-serif.
-- **Estilo do Botão de CTA:** Botão azul arredondado padrão do Google (`bg-[#1a73e8]`, hover `bg-[#1557b0]`, inteiramente arredondado/rounded-full, texto branco, semibold).
+- **Estilo do Botão de CTA:** Botão azul arredondado padrão do Google (fundo `#1a73e8`, hover `#1557b0`, inteiramente arredondado/`rounded-full`, texto branco, semibold).
 
 ---
 
@@ -64,88 +64,82 @@ Aqui está uma implementação de alta fidelidade do componente de pré-visualiz
 
 ```vue
 <template>
-  <div class="google-preview-container flex flex-col gap-4 p-4 bg-zinc-50 dark:bg-zinc-950 rounded-xl border border-zinc-200 dark:border-zinc-800">
+  <div class="google-preview-container" flex="~ col" gap-4 p-4 bg="zinc-50 dark:zinc-950" rounded-xl border="~ zinc-200 dark:zinc-800">
     <!-- Alternador de Visualização (Desktop / Mobile) -->
-    <div class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
-      <span class="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Visualização Prévia</span>
-      <div class="flex bg-zinc-200 dark:bg-zinc-800 p-0.5 rounded-lg">
-        <button @click="isMobile = false" :class="[!isMobile ? 'bg-white dark:bg-zinc-700 shadow-sm text-blue-600' : 'text-zinc-600 dark:text-zinc-400']" class="px-3 py-1 text-xs font-medium rounded-md transition-all flex items-center gap-1">
-          <MaxIcon icon="mdi:desktop-mac" size="0.9rem" />
-          <span>Desktop</span>
-        </button>
-        <button @click="isMobile = true" :class="[isMobile ? 'bg-white dark:bg-zinc-700 shadow-sm text-blue-600' : 'text-zinc-600 dark:text-zinc-400']" class="px-3 py-1 text-xs font-medium rounded-md transition-all flex items-center gap-1">
-          <MaxIcon icon="mdi:cellphone" size="0.9rem" />
-          <span>Mobile</span>
-        </button>
+    <div flex="~" items-center justify-between border-b="~ zinc-200 dark:zinc-800" pb-3>
+      <span text="xs zinc-500" font-semibold uppercase tracking-wider>Visualização Prévia</span>
+      <div flex="~" bg="zinc-200 dark:zinc-800" p-0.5 rounded-lg>
+        <MaxButton :variant="!isMobile ? 'soft' : 'ghost'" size="sm" icon="mdi:desktop-mac" @click="isMobile = false">Desktop</MaxButton>
+        <MaxButton :variant="isMobile ? 'soft' : 'ghost'" size="sm" icon="mdi:cellphone" @click="isMobile = true">Mobile</MaxButton>
       </div>
     </div>
 
     <!-- Card de Post no Padrão do Google -->
-    <div :class="[isMobile ? 'max-w-[420px]' : 'max-w-[650px]']" class="gbp-post-card w-full mx-auto bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg shadow-sm overflow-hidden text-[#202124] dark:text-[#e8eaed] transition-all duration-300">
+    <div :max-w="isMobile ? '420px' : '650px'" class="gbp-post-card" w-full mx-auto bg="white dark:zinc-900" border="~ zinc-200 dark:zinc-800" rounded-lg shadow-sm overflow-hidden text="[#202124] dark:[#e8eaed]" transition-all duration-300>
       <!-- Cabeçalho do Card (Local / Perfil) -->
-      <div class="flex items-center gap-3 p-4">
-        <img :src="businessAvatar || '/default-business.png'" alt="Avatar" class="w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-700 object-cover" />
-        <div class="flex flex-col">
-          <span class="font-medium text-sm text-[#202124] dark:text-[#e8eaed] leading-tight">{{ businessName || 'Nome da Empresa' }}</span>
-          <span class="text-xs text-[#70757a] dark:text-[#9aa0a6] mt-0.5">{{ formattedTime }}</span>
+      <div flex="~" items-center gap-3 p-4>
+        <img :src="businessAvatar || '/default-business.png'" alt="Avatar" w-10 h-10 rounded-full border="~ zinc-200 dark:zinc-700" object-cover />
+        <div flex="~ col">
+          <span font-medium text="sm [#202124] dark:[#e8eaed]" leading-tight>{{ businessName || 'Nome da Empresa' }}</span>
+          <span text="xs [#70757a] dark:[#9aa0a6]" mt-0.5>{{ formattedTime }}</span>
         </div>
       </div>
 
       <!-- Imagem de Destaque -->
-      <div v-if="imageUrl" class="media-container relative aspect-[4/3] w-full bg-zinc-100 dark:bg-zinc-950 overflow-hidden border-b border-zinc-100 dark:border-zinc-800">
-        <img :src="imageUrl" alt="Post Media" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" />
-        
+      <div v-if="imageUrl" class="media-container" relative aspect="4/3" w-full bg="zinc-100 dark:zinc-950" overflow-hidden border-b="~ zinc-100 dark:zinc-800">
+        <img :src="imageUrl" alt="Post Media" w-full h-full object-cover transition-transform duration-300 hover:scale-105 />
+
         <!-- Badge de Oferta ou Evento sobreposta -->
-        <span v-if="postType === 'OFFER'" class="absolute top-3 left-3 bg-[#e8f0fe] dark:bg-blue-950/60 text-[#1a73e8] dark:text-blue-300 text-xs font-semibold px-2.5 py-1 rounded flex items-center gap-1 shadow-sm">
+        <span v-if="postType === 'OFFER'" absolute top-3 left-3 bg="[#e8f0fe] dark:blue-950/60" text="xs [#1a73e8] dark:blue-300" font-semibold px-2.5 py-1 rounded flex="~" items-center gap-1 shadow-sm>
           <MaxIcon icon="mdi:tag-outline" size="0.9rem" />
           <span>Oferta</span>
         </span>
-        <span v-else-if="postType === 'EVENT'" class="absolute top-3 left-3 bg-[#fef7e0] dark:bg-amber-950/60 text-[#b06000] dark:text-amber-300 text-xs font-semibold px-2.5 py-1 rounded flex items-center gap-1 shadow-sm">
+        <span v-else-if="postType === 'EVENT'" absolute top-3 left-3 bg="[#fef7e0] dark:amber-950/60" text="xs [#b06000] dark:amber-300" font-semibold px-2.5 py-1 rounded flex="~" items-center gap-1 shadow-sm>
           <MaxIcon icon="mdi:calendar-star" size="0.9rem" />
           <span>Evento</span>
         </span>
       </div>
 
       <!-- Área de Informações Específicas do Tipo de Post -->
-      <div class="p-4 flex flex-col gap-3">
+      <div p-4 flex="~ col" gap-3>
         <!-- 1. Títulos Especiais (Oferta / Evento) -->
-        <div v-if="postType === 'OFFER' && offerTitle" class="flex flex-col">
-          <h3 class="text-lg font-bold text-[#1a73e8] dark:text-blue-400 leading-snug">{{ offerTitle }}</h3>
-          <span class="text-xs text-[#70757a] dark:text-[#9aa0a6] font-medium mt-1 flex items-center gap-1">
+        <div v-if="postType === 'OFFER' && offerTitle" flex="~ col">
+          <MaxTitle3 text="[#1a73e8] dark:blue-400" font-bold leading-snug>{{ offerTitle }}</MaxTitle3>
+          <span text="xs [#70757a] dark:[#9aa0a6]" font-medium mt-1 flex="~" items-center gap-1>
             <MaxIcon icon="mdi:clock-outline" size="0.8rem" />
             <span>Validade: {{ offerDates }}</span>
           </span>
         </div>
 
-        <div v-else-if="postType === 'EVENT' && eventTitle" class="flex flex-col">
-          <h3 class="text-lg font-bold text-[#b06000] dark:text-amber-400 leading-snug">{{ eventTitle }}</h3>
-          <span class="text-xs text-[#70757a] dark:text-[#9aa0a6] font-medium mt-1 flex items-center gap-1">
+        <div v-else-if="postType === 'EVENT' && eventTitle" flex="~ col">
+          <MaxTitle3 text="[#b06000] dark:amber-400" font-bold leading-snug>{{ eventTitle }}</MaxTitle3>
+          <span text="xs [#70757a] dark:[#9aa0a6]" font-medium mt-1 flex="~" items-center gap-1>
             <MaxIcon icon="mdi:calendar-clock" size="0.8rem" />
             <span>Horário: {{ eventDates }}</span>
           </span>
         </div>
 
         <!-- 2. Texto do Post / Descrição -->
-        <p v-if="description" class="text-sm text-[#3c4043] dark:text-[#bdc1c6] leading-relaxed whitespace-pre-line">
+        <p v-if="description" text="sm [#3c4043] dark:[#bdc1c6]" leading-relaxed whitespace-pre-line>
           {{ displayedDescription }}
-          <button v-if="hasLongText && !showFullText" @click="showFullText = true" class="text-[#1a73e8] dark:text-blue-400 font-medium hover:underline ml-1">Mais</button>
+          <MaxButton v-if="hasLongText && !showFullText" variant="link" size="sm" @click="showFullText = true">Mais</MaxButton>
         </p>
 
         <!-- 3. Detalhes Adicionais da Oferta (Cupom / Termos) -->
-        <div v-if="postType === 'OFFER' && (couponCode || terms)" class="offer-details flex flex-col gap-2 mt-1 p-3 bg-zinc-50 dark:bg-zinc-800/40 rounded-lg border border-dashed border-zinc-300 dark:border-zinc-700">
-          <div v-if="couponCode" class="flex items-center justify-between">
-            <div class="flex items-center gap-1.5 text-xs text-[#3c4043] dark:text-[#bdc1c6]">
-              <MaxIcon icon="mdi:ticket-percent" class="text-[#1a73e8]" size="1rem" />
-              <span>Código: <code class="font-mono bg-zinc-200 dark:bg-zinc-700 px-1.5 py-0.5 rounded text-sm font-semibold select-all">{{ couponCode }}</code></span>
+        <div v-if="postType === 'OFFER' && (couponCode || terms)" class="offer-details" flex="~ col" gap-2 mt-1 p-3 bg="zinc-50 dark:zinc-800/40" rounded-lg border="~ dashed zinc-300 dark:zinc-700">
+          <div v-if="couponCode" flex="~" items-center justify-between>
+            <div flex="~" items-center gap-1.5 text="xs [#3c4043] dark:[#bdc1c6]">
+              <MaxIcon icon="mdi:ticket-percent" text="[#1a73e8]" size="1rem" />
+              <span>Código: <code font-mono bg="zinc-200 dark:zinc-700" px-1.5 py-0.5 rounded text-sm font-semibold select-all>{{ couponCode }}</code></span>
             </div>
-            <button @click="simulateCopy" class="text-xs text-[#1a73e8] dark:text-blue-400 font-semibold hover:underline">Copiar</button>
+            <MaxButton variant="link" size="sm" @click="simulateCopy">Copiar</MaxButton>
           </div>
-          <button v-if="terms" @click="showTermsModal = true" class="text-xs text-[#70757a] dark:text-[#9aa0a6] text-left hover:underline w-fit">Ver termos e condições</button>
+          <MaxButton v-if="terms" variant="link" size="sm" @click="showTermsModal = true">Ver termos e condições</MaxButton>
         </div>
 
         <!-- 4. Botão de Call to Action (CTA) -->
-        <div v-if="ctaType && ctaLabel" class="flex justify-end mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800">
-          <a :href="ctaUrl" @click.prevent="handleCtaClick" class="google-cta-btn bg-[#1a73e8] hover:bg-[#1557b0] text-white text-xs font-semibold px-5 py-2.5 rounded-full transition-colors flex items-center gap-1.5 shadow-sm">
+        <div v-if="ctaType && ctaLabel" flex="~" justify-end mt-2 pt-2 border-t="~ zinc-100 dark:zinc-800">
+          <a :href="ctaUrl" @click.prevent="handleCtaClick" class="google-cta-btn" bg="[#1a73e8] hover:[#1557b0]" text="xs white" font-semibold px-5 py-2.5 rounded-full transition-colors flex="~" items-center gap-1.5 shadow-sm>
             <MaxIcon v-if="ctaType === 'CALL_NOW'" icon="mdi:phone" size="0.9rem" />
             <span>{{ ctaLabel }}</span>
           </a>
@@ -153,22 +147,18 @@ Aqui está uma implementação de alta fidelidade do componente de pré-visualiz
       </div>
     </div>
 
-    <!-- Modal Simulado de Termos da Oferta -->
-    <div v-if="showTermsModal" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      <div class="bg-white dark:bg-zinc-900 rounded-lg p-5 max-w-sm w-full border border-zinc-200 dark:border-zinc-800 shadow-xl">
-        <h4 class="text-sm font-bold border-b pb-2 mb-3">Termos e Condições</h4>
-        <p class="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">{{ terms }}</p>
-        <div class="flex justify-end">
-          <button @click="showTermsModal = false" class="bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-xs font-semibold px-4 py-2 rounded transition-colors">Fechar</button>
-        </div>
-      </div>
-    </div>
+    <!-- Modal de Termos da Oferta -->
+    <MaxModal v-model="showTermsModal" title="Termos e Condições">
+      <p text="xs zinc-600 dark:zinc-400" leading-relaxed>{{ terms }}</p>
+    </MaxModal>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useTimeAgo } from '@maxvue/max-use'; // Helper de data e reatividade da biblioteca local
+import { useTimeAgo, useToast } from '@maxvue/max-use'; // Helpers de data/reatividade e toast da biblioteca local
+
+const toast = useToast();
 
 // Define os tipos aceitos para postagem
 type GbpPostType = 'NEWS' | 'OFFER' | 'EVENT';
@@ -205,10 +195,13 @@ const isMobile = ref<boolean>(false);
 const showFullText = ref<boolean>(false);
 const showTermsModal = ref<boolean>(false);
 
-// Formatador de tempo relativo
+// Formatador de tempo relativo — o composable é instanciado UMA vez, reagindo à fonte reativa.
+// Instanciar useTimeAgo() dentro de um computed o recriaria a cada recálculo (vazamento/efeitos duplicados).
+const publishDateRef = computed<Date>(() => new Date(props.publishDate ?? Date.now()));
+const timeAgo = useTimeAgo(publishDateRef);
 const formattedTime = computed<string>(() => {
   if (!props.publishDate) return 'Agora mesmo';
-  return useTimeAgo(new Date(props.publishDate)).value;
+  return timeAgo.value;
 });
 
 // Validador de truncamento de texto longo (limite do Google de cerca de 220 caracteres visíveis no snippet)
@@ -260,16 +253,16 @@ const ctaUrl = computed<string>(() => {
   return props.ctaTargetUrl || '#';
 });
 
-// Simulação das ações do usuário no preview
+// Simulação das ações do usuário no preview (feedback via toast do design system)
 const simulateCopy = (): void => {
-  alert(`[Simulador] Código do cupom "${props.couponCode}" copiado para a área de transferência!`);
+  toast.info(`[Simulador] Código do cupom "${props.couponCode}" copiado para a área de transferência!`);
 };
 
 const handleCtaClick = (): void => {
   if (props.ctaType === 'CALL_NOW') {
-    alert('[Simulador] Ação "Ligar agora" disparada. Iniciando chamada telefônica...');
+    toast.info('[Simulador] Ação "Ligar agora" disparada. Iniciando chamada telefônica...');
   } else {
-    alert(`[Simulador] Ação de CTA "${ctaLabel.value}" redirecionando para: ${ctaUrl.value}`);
+    toast.info(`[Simulador] Ação de CTA "${ctaLabel.value}" redirecionando para: ${ctaUrl.value}`);
   }
 };
 </script>

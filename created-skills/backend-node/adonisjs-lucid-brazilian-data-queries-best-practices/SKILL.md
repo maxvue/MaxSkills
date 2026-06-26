@@ -17,7 +17,7 @@ Estabelecer padrões e diretrizes estritas para modelagem, sanitização, consul
 * **Getters de Serialização**: Formate os valores de volta para a representação padrão brasileira ao serializar os dados.
 
 ```typescript
-import { BaseModel, beforeSave, column } from '@adonisjs/lucid/orm'
+import { BaseModel, beforeSave, column, computed } from '@adonisjs/lucid/orm'
 import { scope } from '@adonisjs/lucid/orm'
 
 export default class Customer extends BaseModel {
@@ -29,16 +29,17 @@ export default class Customer extends BaseModel {
   @column()
   declare cnpj: string // Armazenado como "12345678000100"
 
-  // Formatação automática na serialização
-  @column({
-    consume: (value: string) => value ? value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4') : value
-  })
-  declare cpfFormatted: string
+  // Formatação automática na serialização — campos DERIVADOS, sem coluna real no banco.
+  // Use @computed() (não @column, que mapearia uma coluna inexistente).
+  @computed()
+  get cpfFormatted() {
+    return this.cpf ? this.cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4') : this.cpf
+  }
 
-  @column({
-    consume: (value: string) => value ? value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5') : value
-  })
-  declare cnpjFormatted: string
+  @computed()
+  get cnpjFormatted() {
+    return this.cnpj ? this.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5') : this.cnpj
+  }
 
   @beforeSave()
   static sanitizeDocuments(customer: Customer) {
@@ -128,8 +129,10 @@ export async function getOrdersByLocalDate(dateStr: string) {
 
   return await Order.query()
     .whereBetween('createdAt', [
-      startUtc.toSQL(),
-      endUtc.toSQL()
+      // includeOffset: false evita gravar o offset do fuso na string SQL,
+      // garantindo comparação correta contra a coluna armazenada em UTC.
+      startUtc.toSQL({ includeOffset: false }),
+      endUtc.toSQL({ includeOffset: false })
     ])
 }
 ```

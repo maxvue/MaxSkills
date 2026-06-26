@@ -16,11 +16,11 @@ Todo job executado em segundo plano em um contexto multi-tenant deve exigir expl
 Defina a estrutura do payload em `app/jobs/`:
 ```typescript
 export interface BaseTenantJobData {
-  tenantId: string // Resolve para marketingAgencyId ou clientId dependendo do escopo de isolamento
+  tenantId: string // Resolve para integradorId ou clientId dependendo do escopo de isolamento
 }
 
 export interface MyTenantJobData extends BaseTenantJobData {
-  eventId: string
+  usinaId: string
   action: 'generate' | 'publish'
 }
 ```
@@ -30,23 +30,23 @@ Ao despachar um job a partir de controllers, middlewares ou services durante uma
 
 ```typescript
 import { TenantService } from '#services/tenant_service'
-import GenerateArtJob from '#jobs/generate_art_job'
+import GenerateReportJob from '#jobs/generate_report_job'
 
-export default class CalendarController {
+export default class UsinaReportController {
   async handle({ request, response }: HttpContext) {
-    const eventId = request.input('eventId')
+    const usinaId = request.input('usinaId')
     
     // Recupera o ID do tenant ativo no contexto da requisição HTTP
     const tenantId = TenantService.getRequiredTenantId()
     
     // Passa o tenantId como parte do payload do job
-    await GenerateArtJob.dispatch({
+    await GenerateReportJob.dispatch({
       tenantId,
-      eventId,
+      usinaId,
       action: 'generate',
     })
 
-    return response.ok({ message: 'Art generation job scheduled' })
+    return response.ok({ message: 'Relatório de geração solar agendado' })
   }
 }
 ```
@@ -59,7 +59,7 @@ Em `commands/worker.ts` (ou na configuração do seu worker):
 import { Worker, Job } from 'bullmq'
 import { TenantService } from '#services/tenant_service'
 import redisConfig from '#config/redis'
-import GenerateArtJob from '#jobs/generate_art_job'
+import GenerateReportJob from '#jobs/generate_report_job'
 
 export default class WorkerRun extends BaseCommand {
   static commandName = 'worker:run'
@@ -68,8 +68,8 @@ export default class WorkerRun extends BaseCommand {
   async run() {
     const { connection } = redisConfig
 
-    const artWorker = new Worker(
-      GenerateArtJob.queueName,
+    const reportWorker = new Worker(
+      GenerateReportJob.queueName,
       async (job: Job) => {
         const { tenantId } = job.data
 
@@ -79,7 +79,7 @@ export default class WorkerRun extends BaseCommand {
 
         // Restaura o contexto do tenant para todas as consultas e escopos do banco de dados a jusante
         return await TenantService.run(tenantId, async () => {
-          return await GenerateArtJob.handle(job)
+          return await GenerateReportJob.handle(job)
         })
       },
       { connection }
@@ -91,22 +91,27 @@ export default class WorkerRun extends BaseCommand {
 ### 4. Isolamento e Limitação de Concorrência de Tenant (Throttling)
 Para evitar que um único tenant monopolize os workers da fila (por exemplo, um tenant disparando 10.000 tarefas e bloqueando todos os outros), aplique o isolamento de concorrência.
 
-#### Opção A: Limitação de Fila baseada em Grupo (Group-Based Queue Limiting)
-Configure a limitação de taxa dinâmica baseada em grupo no Worker, fornecendo uma `groupKey` personalizada. Isso garante que o BullMQ limite a concorrência dinamicamente com base na propriedade que contém o ID do tenant.
+#### Opção A: Rate-Limiting Global e Filas Dedicadas por Tenant
+ATENÇÃO: o BullMQ open-source NÃO suporta rate-limiting por grupo (`limiter.groupKey`). Essa funcionalidade existe apenas no BullMQ **Pro** (`Worker` de `@taskforcesh/bullmq-pro`, pago). Em open-source, o `limiter` aplica um teto **global** à fila inteira, não por tenant:
 ```typescript
 const worker = new Worker(
   'high-throughput-queue',
   async (job) => { /* lógica do processador */ },
   {
     connection,
+    // Teto GLOBAL da fila (não por tenant): no máx. 100 jobs por segundo no total
     limiter: {
-      max: 100, // Processa no máximo 100 jobs
-      duration: 1000, // Por 1 segundo
-      groupKey: 'tenantId' // Limitação de taxa dinâmica aplicada por tenantId
-    }
+      max: 100,
+      duration: 1000,
+    },
+    concurrency: 10,
   }
 )
 ```
+Para isolamento real por tenant com open-source, use uma das estratégias:
+- **Filas dedicadas por tenant** (`generate-report:${tenantId}`) com um worker/limiter próprio por fila; ou
+- O **controle de concorrência na camada de aplicação com Redis** descrito na Opção B.
+Se rate-limiting nativo por grupo for um requisito rígido, adote BullMQ Pro com `BullMQPro` + `group: { id: tenantId }` no payload.
 
 #### Opção B: Controle de Concorrência na Camada de Aplicação com Redis
 Se precisar limitar as execuções ativas simultâneas por tenant no nível do aplicativo, verifique as cotas de uso do tenant ou crie travas (locks) de concorrência dentro de um Service ou diretamente na execução do job antes de executar chamadas pesadas de IA ou APIs externas.
@@ -119,9 +124,12 @@ import type { Job } from 'bullmq'
 import logger from '@adonisjs/core/services/logger'
 import { TenantService } from '#services/tenant_service'
 
-export default class GenerateArtJob {
-  static readonly queueName = 'generate-art'
+export default class GenerateReportJob {
+  static readonly queueName = 'generate-report'
 
+  // O tenantId NÃO é lido de estado global: ele é resolvido do ALS estabelecido
+  // por TenantService.run() no worker (ver Seção 3). O handle depende desse
+  // contexto implícito — nunca de variáveis estáticas compartilhadas.
   static async handle(job: Job) {
     const tenantId = TenantService.getRequiredTenantId()
     
@@ -132,13 +140,13 @@ export default class GenerateArtJob {
       tenantId,
     })
 
-    jobLogger.info('Iniciando processo de geração de arte')
+    jobLogger.info('Iniciando geração de relatório da usina solar')
 
     try {
       // Executa a lógica de negócios...
-      jobLogger.info('Geração de arte concluída com sucesso')
+      jobLogger.info('Relatório de geração solar concluído com sucesso')
     } catch (error) {
-      jobLogger.error({ err: error }, 'Falha ao gerar arte')
+      jobLogger.error({ err: error }, 'Falha ao gerar relatório da usina')
       throw error
     }
   }

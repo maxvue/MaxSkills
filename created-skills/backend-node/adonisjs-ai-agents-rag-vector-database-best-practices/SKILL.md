@@ -78,11 +78,15 @@ export default class DocumentChunk extends BaseModel {
   @column()
   declare chunkIndex: number
 
-  // A coluna de embedding armazenada como vetor array/string
+  // A coluna de embedding armazenada como vetor.
+  // `prepare` converte o array JS para o literal aceito pelo pgvector na ESCRITA;
+  // `consume` converte o literal de volta para array de números na LEITURA.
   @column({
-    serialize: (value: number[]) => value ? `[${value.join(',')}]` : null,
+    prepare: (value: number[] | null) => (value ? `[${value.join(',')}]` : null),
+    consume: (value: string | null) =>
+      value ? value.replace(/[[\]]/g, '').split(',').map(Number) : null,
   })
-  declare embedding: number[] | string | null
+  declare embedding: number[] | null
 
   @column()
   declare metadata: Record<string, any> | null
@@ -154,6 +158,7 @@ export async function generateBatchEmbeddings(texts: string[]): Promise<number[]
 Para consultar blocos semelhantes no banco de dados, execute uma consulta bruta (raw query) mapeando a distância de cosseno (`<=>`), distância L2 (`<->`) ou o produto interno negativo (`<#>`).
 
 ```typescript
+import db from '@adonisjs/lucid/services/db'
 import DocumentChunk from '#models/document_chunk'
 
 export async function searchSimilarChunks(
@@ -162,12 +167,13 @@ export async function searchSimilarChunks(
   similarityThreshold: number = 0.7
 ): Promise<DocumentChunk[]> {
   const vectorStr = `[${queryEmbedding.join(',')}]`
-  
+
   // similaridade de cosseno = 1 - distância de cosseno (<=>)
+  // `db.raw` vem do serviço @adonisjs/lucid/services/db (não existe `Model.db`).
   const result = await DocumentChunk.query()
     .select('*')
     .select(
-      DocumentChunk.db.raw('1 - (embedding <=> ?) as similarity', [vectorStr])
+      db.raw('1 - (embedding <=> ?) as similarity', [vectorStr])
     )
     .whereRaw('1 - (embedding <=> ?) >= ?', [vectorStr, similarityThreshold])
     .orderByRaw('embedding <=> ? ASC', [vectorStr])

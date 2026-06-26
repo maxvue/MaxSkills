@@ -1,31 +1,31 @@
 ---
 name: vue-tenant-client-context-best-practices
-description: Use when designing, implementing, or reviewing tenant/client active context selection and state isolation in Vue 3 frontend, managing useSelectedClient Pinia store, persisting active client ID, or intercepting Axios requests to inject client headers. Triggers on selected client changes, resetting client-dependent state stores, or configuring client workspace route guards.
+description: Use when designing, implementing, or reviewing tenant/client active context selection and state isolation in Vue 3 frontend, managing useSelectedClient store via @maxvue/max-pinia, persisting active client ID, or injecting the active client header into HTTP requests. Triggers on selected client changes, resetting client-dependent state stores, or configuring client workspace route guards.
 ---
 
 # Boas Práticas para Contexto de Cliente Tenant no Vue 3
 
 ## Objetivo
-Estabelecer um fluxo de contexto ativo do cliente (tenant) rigoroso, reativo e seguro no front-end Vue 3. Garantir o isolamento do estado entre os clientes, a parametrização das chaves de persistência local pelo ID do cliente, a injeção automática de cabeçalho HTTP e guardas globais de redirecionamento para evitar vazamento de dados ou poluição do cache ao alternar entre clientes de agências de marketing.
+Estabelecer um fluxo de contexto ativo do cliente (tenant) rigoroso, reativo e seguro no front-end Vue 3. Garantir o isolamento do estado entre os clientes, a parametrização das chaves de persistência local pelo ID do cliente, a injeção automática de cabeçalho HTTP e guardas globais de redirecionamento para evitar vazamento de dados ou poluição do cache ao alternar entre clientes/projetos fotovoltaicos do EngeApp.
 
 ## Instruções
 
 ### 1. Store do Cliente Selecionado (`useSelectedClientStore`)
-- Crie uma Setup Store centralizada para gerenciar o cliente atualmente ativo.
+- Crie uma store `@maxvue/max-pinia` centralizada para gerenciar o cliente atualmente ativo.
 - Persista o ID do cliente selecionado no `localStorage` utilizando uma chave global (ex: `'selected.client.id'`).
-- Busque a lista de clientes disponíveis no back-end (`/api/clients`).
+- Busque a lista de clientes disponíveis no back-end via store MaxPinia apontando para `apiGetRoute('/api/clients')` (NUNCA via GET manual / axios solto). O MaxPinia faz o cache da resposta automaticamente.
 - Implemente um observador (watcher) na lista de clientes. Se a lista for carregada e o ID do cliente atualmente armazenado não estiver presente (ex: sessão antiga, cliente excluído ou cliente desvinculado), limpe a seleção ativa e redirecione o usuário de volta ao painel de listagem e seleção de clientes.
 
 ### 2. Isolamento de Estado do Cliente & Resets Reativos
-- Qualquer store do Pinia que contenha dados específicos de um cliente (ex: personagens, calendário de mídia social, credenciais de marca, palavras-chave) deve isolar o seu estado por cliente.
+- Qualquer store `@maxvue/max-pinia` que contenha dados específicos de um cliente (ex: usinas, projetos fotovoltaicos, propostas, inversores, dados de geração) deve isolar o seu estado por cliente.
 - **Chaves de Cache Parametrizadas**: Parametrizar o `localStorage` ou chaves de cache utilizando o ID do cliente ativo (ex: `resource.key::${clientId}`).
 - **Watchers Reativos**: Observar as mudanças de ID do cliente de `useSelectedClientStore` dentro das stores dependentes. Quando o ID do cliente mudar:
   - Resete todos os valores reativos da store para seus estados iniciais vazios (ex: `null`, `[]` ou objetos vazios) para evitar a exibição de dados antigos (stale).
   - Recarregue o ID ou configuração armazenada usando a nova chave de cache específica do cliente.
-  - Dispare automaticamente o recarregamento dos recursos do cliente a partir do back-end se um cliente válido estiver selecionado.
+  - Dispare automaticamente o recarregamento dos recursos do cliente a partir do back-end (através da store MaxPinia correspondente) se um cliente válido estiver selecionado.
 
-### 3. Injeção de Cabeçalho na Requisição Axios & Validação de Sessão
-- Use interceptores globais do Axios para anexar de forma transparente o ID do cliente ativo às requisições enviadas.
+### 3. Injeção de Cabeçalho na Requisição & Validação de Sessão
+- Use interceptores globais do cliente HTTP para anexar de forma transparente o ID do cliente ativo às requisições enviadas. O auth é por sessão+cookie (guard web), portanto envie credenciais (cookies) e NÃO use Bearer/JWT/Sanctum.
 - **Interceptor de Requisição**: Recupere o ID do cliente ativo do `localStorage` e injete-o como o cabeçalho HTTP `X-Client-Id`.
 - **Interceptor de Resposta**: Intercepte respostas HTTP `403 Forbidden`. Se ocorrer um erro `403` e a requisição continha o cabeçalho `X-Client-Id`:
   - Remova o ID do cliente ativo do `localStorage` (já que ele não é mais válido ou acessível).

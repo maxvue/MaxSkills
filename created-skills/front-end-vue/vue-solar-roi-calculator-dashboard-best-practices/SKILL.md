@@ -13,9 +13,10 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
    - Mantenha a formatação de atributos em uma única linha (inline) dentro do template do Vue para todos os componentes de UI.
 
 2. **Cálculos Financeiros Reativos (Composition API)**:
-   - Vincule os valores de entrada a propriedades reativas (`ref`). Use propriedades computadas (`computed`) para valores derivados (como degradação anual, geração anual ajustada e projeções de fluxo de caixa anuais).
+   - **Persistência via MaxPinia**: parâmetros de entrada (custo do sistema, geração, tarifa, inflação, taxa de desconto) e cenários salvos são dados de página. Carregue-os e salve-os por uma store `@maxvue/max-pinia` (rotas string `/api/...`); o salvamento é automático/debounced ao alterar o estado da store. Não faça GET/POST manual nem mantenha esses parâmetros apenas em `ref` locais quando forem persistidos por projeto/proposta. Use `ref` locais apenas para simulações efêmeras de "what-if".
+   - Vincule os valores de entrada a propriedades reativas (vindas da store ou `ref` locais para simulação). Use propriedades computadas (`computed`) para valores derivados (como degradação anual, geração anual ajustada e projeções de fluxo de caixa anuais).
    - Projete os valores do fluxo de caixa por até 25 anos. Mantenha os cálculos reativos usando o sistema de reatividade do Vue.
-   - Calcule separadamente os custos de energia usando os componentes de TUSD (Tarifa de Uso do Sistema de Distribuição) e TE (Tarifa de Energia) para tratar os cenários tributários corretos (ICMS, PIS, COFINS) conforme ditado pelo backend (`laravel-concessionaires-tariffs-regulation-best-practices`).
+   - Calcule separadamente os custos de energia usando os componentes de TUSD (Tarifa de Uso do Sistema de Distribuição) e TE (Tarifa de Energia) para tratar os cenários tributários corretos (ICMS, PIS, COFINS) conforme as regras de tarifa de concessionárias expostas pelo backend AdonisJS. As tarifas e regras regulatórias devem ser carregadas via store `@maxvue/max-pinia` (GET para `/api/...`), nunca codificadas no front.
    - Considere a degradação anual dos painéis (tipicamente entre 0,5% e 0,8% ao ano), a inflação da tarifa de energia (tipicamente entre 5% e 10% ao ano) e a taxa de desconto (cálculo de VPL baseado na taxa Selic ou na taxa de atratividade mínima do cliente).
    - Certifique-se de deduzir a depreciação do inversor (custo de substituição) como uma despesa de manutenção (O&M) no ano 10 ou 15.
    - Para simulações de financiamento, implemente as fórmulas das tabelas SAC ou Price em composables locais.
@@ -23,7 +24,7 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
 3. **Representação Visual (Chart.js)**:
    - Integre um gráfico de linha do fluxo de caixa acumulado mostrando o ponto de transição do payback (do saldo acumulado negativo para positivo) ao longo de 25 anos.
    - Siga as diretrizes de `vue-chartjs-best-practices`: envolva o canvas dentro de um contêiner `.chart-container`, inicialize dentro do hook `onMounted` com `nextTick`, destrua no `onUnmounted` para evitar vazamentos de memória (memory leaks) e atualize os conjuntos de dados (datasets) reativamente usando um watch profundo.
-   - Formate todos os rótulos de eixos e dicas de ferramentas (tooltips) usando o helper `formatCurrency` da biblioteca `@maxvue/max-use/format`.
+   - Formate todos os rótulos de eixos e dicas de ferramentas (tooltips) usando o helper `formatCurrency` de `@maxvue/max-use`. Ele é auto-importado pelo `unplugin-auto-import` do projeto — NÃO escreva o `import` manualmente.
 
 4. **Grade de Dados e Exportação (MaxTable)**:
    - Exiba uma tabela detalhada do fluxo de caixa ano a ano usando o componente `MaxTable`.
@@ -32,6 +33,7 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
 ## Restrições
 - NÃO utilize a Options API. Sempre use a Composition API do Vue 3 com `<script setup lang="ts">`.
 - NÃO realize cálculos financeiros utilizando números de ponto flutuante brutos (floats) onde a precisão exata é exigida (especialmente ao lidar com centavos de Real); utilize inteiros representando centavos ou funções de arredondamento seguras.
+- NÃO recalcule VPL/TIR/payback a partir de strings formatadas (ex.: `parseFloat(item.netFlow.replace(...))`). Mantenha os valores numéricos crus (ex.: `rawNetFlow`, `rawCumulative`) na estrutura de dados e use o número formatado APENAS para exibição. Fazer parse de string formatada de volta para número perde precisão e contraria a restrição acima.
 - NÃO escreva estilos CSS diretamente inline. Use SCSS escopado (`<style scoped lang="scss">`) para o layout do dashboard.
 - NÃO deixe instâncias do Chart.js ativas sem chamar o método `.destroy()` quando o componente for desmontado.
 - NÃO quebre tags de componentes Vue em várias linhas no bloco `<template>`. As regras do formatador exigem atributos em linha única.
@@ -92,7 +94,7 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue';
 import { Chart, registerables } from 'chart.js';
-import { formatCurrency } from '@maxvue/max-use/format';
+// `formatCurrency` é auto-importado (unplugin-auto-import); não importe manualmente.
 
 Chart.register(...registerables);
 
@@ -110,11 +112,16 @@ let chartInstance: Chart | null = null;
 interface CashFlowItem {
   year: number;
   generation: number;
+  // Valores numéricos crus — fonte de verdade para os cálculos financeiros.
+  rawSavings: number;
+  rawCosts: number;
+  rawNetFlow: number;
+  rawCumulative: number;
+  // Strings formatadas — uso EXCLUSIVO de exibição.
   savings: string;
   costs: string;
   netFlow: string;
   cumulative: string;
-  rawCumulative: number;
 }
 
 const cashFlowData = computed<CashFlowItem[]>(() => {
@@ -131,11 +138,14 @@ const cashFlowData = computed<CashFlowItem[]>(() => {
   data.push({
     year: 0,
     generation: 0,
+    rawSavings: 0,
+    rawCosts: cost,
+    rawNetFlow: -cost,
+    rawCumulative: -cost,
     savings: formatCurrency(0),
     costs: formatCurrency(cost),
     netFlow: formatCurrency(-cost),
-    cumulative: formatCurrency(-cost),
-    rawCumulative: -cost
+    cumulative: formatCurrency(-cost)
   });
 
   for (let year = 1; year <= 25; year++) {

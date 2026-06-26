@@ -6,7 +6,7 @@ description: Use when implementing, reviewing, or configuring AI avatar video ge
 # Boas Práticas para Geração de Vídeo por IA do HeyGen no AdonisJS
 
 ## Objetivo
-Padronizar a implementação, configuração e execução de geração assíncrona de vídeos de avatar por IA usando a API HeyGen no AdonisJS v6. Isso inclui agendamento de fluxos via BullMQ, gerenciadores seguros de webhook, mecanismo de fallback por polling e download resiliente do arquivo de vídeo para o sistema de arquivos local.
+Padronizar a implementação, configuração e execução de geração assíncrona de vídeos de avatar por IA usando a API HeyGen no AdonisJS v6. Isso inclui agendamento de fluxos via BullMQ, gerenciadores seguros de webhook, mecanismo de fallback por polling e download resiliente do arquivo de vídeo armazenado via `@adonisjs/drive`.
 
 ## Instruções
 
@@ -17,7 +17,7 @@ Padronizar a implementação, configuração e execução de geração assíncro
 ### 2. Fluxo de Geração de Vídeo
 - Implemente `createVideoFromAvatar(scriptText: string, avatarId: string, voiceId: string)` no `HeyGenService`.
 - Envie a solicitação de geração para `POST https://api.heygen.com/v2/video/generate` usando a configuração de avatar apropriada.
-- Salve o `video_id` retornado do HeyGen no banco de dados sob `CalendarEvent` (ou modelo de rastreamento de vídeo correspondente) e atualize seu status para `rendering`.
+- Salve o `video_id` retornado do HeyGen no banco de dados sob o modelo de rastreamento de vídeo correspondente (ex: vídeo institucional/comercial de proposta fotovoltaica) e atualize seu status para `rendering`.
 
 ### 3. Processamento Assíncrono com BullMQ
 - Use o BullMQ (`#services/queue_service`) para gerenciar o ciclo de vida do vídeo.
@@ -30,11 +30,11 @@ Padronizar a implementação, configuração e execução de geração assíncro
 - Retorne uma resposta rápida `200 OK` para o originador do webhook do HeyGen imediatamente para evitar timeouts.
 - Ao receber o evento `video_status.completed`, despache um job de background para realizar o download e o armazenamento do vídeo gerado.
 
-### 5. Download de Arquivo Local e Persistência no Banco de Dados
+### 5. Armazenamento do Arquivo e Persistência no Banco de Dados
 - Baixe a stream do vídeo MP4 concluído a partir da URL fornecida pelo HeyGen usando um cliente compatível com streams (ex: `axios` com `responseType: 'stream'`).
-- Salve o arquivo localmente usando `node:fs/promises` na pasta pública `app.publicPath('instagram/videos')` (utilizando o serviço `app` de `@adonisjs/core/services/app`).
-- Defina um nome de arquivo único usando o ID do evento e um ULID (ex: `${event.id}_${ulid()}.mp4`).
-- Atualize o modelo do evento com o caminho relativo do vídeo (`instagram/videos/filename.mp4`) e mude o status. Dispare atualizações em tempo real no frontend usando `@adonisjs/transmit` se necessário.
+- Persista o arquivo através do serviço `@adonisjs/drive` (`drive.use().putStream(key, stream)`), nunca com `node:fs/promises` direto, mantendo consistência com o padrão de armazenamento das skills irmãs (geração de imagens).
+- Defina uma chave única usando o ID do registro e um ULID (ex: `videos/${record.id}_${ulid()}.mp4`).
+- Atualize o modelo com a chave do Drive do vídeo e mude o status. Dispare atualizações em tempo real no frontend usando `@adonisjs/transmit` (SSE) se necessário.
 
 ### 6. Tratamento de Erros e Política de Tentativas (Retry)
 - Envolva todas as chamadas da API HeyGen e a lógica de download de arquivos em blocos try-catch robustos.
@@ -44,5 +44,5 @@ Padronizar a implementação, configuração e execução de geração assíncro
 ## Restrições
 - **NÃO Realize Operações Síncronas Bloqueantes:** Não realize polling longo ou requisições de download de arquivos de forma síncrona na thread da requisição HTTP. Sempre delegue essas tarefas aos workers em background do BullMQ.
 - **NÃO Vaze Credenciais:** Nunca insira chaves de API, segredos de webhook ou credenciais de serviço de forma estática no código. Carregue-os dinamicamente de variáveis de ambiente.
-- **Resolução de Caminhos:** Sempre resolva caminhos de arquivos usando o helper `app.publicPath()` do AdonisJS. Não use caminhos absolutos do sistema estáticos no código.
+- **Armazenamento via Drive:** Sempre persista arquivos de vídeo através do serviço `@adonisjs/drive` usando chaves relativas. Não use `node:fs/promises` nem caminhos absolutos estáticos no código.
 - **Sem Processamento Direto no Webhook:** Os controladores de webhook devem apenas registrar o evento e agendar jobs em segundo plano. Nunca execute atualizações no banco de dados ou pipelines de download diretamente no ciclo de vida HTTP do webhook.

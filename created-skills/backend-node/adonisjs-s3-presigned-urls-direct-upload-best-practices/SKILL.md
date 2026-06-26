@@ -8,8 +8,8 @@ Estabelecer padrões seguros, escaláveis e resilientes para uploads diretos de 
 
 ## Instruções
 
-## 1. Backend: Acesso ao Sub-Cliente do `@adonisjs/drive`
-O driver `@adonisjs/drive-s3` do AdonisJS v6 encapsula o cliente oficial do AWS SDK v3. Para gerar uma URL assinada de upload, recupere o `S3Client` e o nome do bucket diretamente da instância de drive configurada.
+## 1. Backend: Cliente S3 dedicado para assinatura de PUT
+O driver `@adonisjs/drive-s3` do AdonisJS v6 expõe `getSignedUrl()` para leitura (GET), mas para assinar um `PutObjectCommand` de upload o mais estável é instanciar o seu próprio `S3Client` do AWS SDK v3 (o driver NÃO expõe publicamente `.client`/`config.bucket` de forma garantida entre versões). Reaproveite as mesmas variáveis de ambiente do drive para manter a configuração única.
 
 ### Instalação
 Certifique-se de que as dependências do AWS SDK necessárias estão instaladas:
@@ -30,25 +30,41 @@ export const generatePresignedUrlValidator = vine.compile(
 )
 ```
 
+### Cliente S3 compartilhado (`app/services/s3_client.ts`)
+Instancie um `S3Client` único a partir das variáveis de ambiente, reutilizadas pelo `config/drive.ts`.
+```typescript
+import { S3Client } from '@aws-sdk/client-s3'
+import env from '#start/env'
+
+export const s3Bucket = env.get('S3_BUCKET')
+
+export const s3Client = new S3Client({
+  region: env.get('S3_REGION'),
+  endpoint: env.get('S3_ENDPOINT'), // ex.: http://127.0.0.1:9000 (MinIO local)
+  forcePathStyle: true, // necessário para MinIO
+  credentials: {
+    accessKeyId: env.get('S3_KEY'),
+    secretAccessKey: env.get('S3_SECRET'),
+  },
+})
+```
+
 ### Controller (`app/controllers/uploads_controller.ts`)
 Gere uma chave de objeto única (usando `cuid()` ou `ulid()`), crie um `PutObjectCommand` e assine-o usando `getSignedUrl`.
 ```typescript
 import { HttpContext } from '@adonisjs/core/http'
 import { cuid } from '@adonisjs/core/helpers'
-import drive from '@adonisjs/drive/services/main'
 import { PutObjectCommand } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
+import { s3Client, s3Bucket } from '#services/s3_client'
 import { generatePresignedUrlValidator } from '#validators/upload'
 
 export default class UploadsController {
   async generatePresignedUrl({ request, response }: HttpContext) {
     const { fileName, contentType } = await request.validateUsing(generatePresignedUrlValidator)
 
-    // 1. Obtém a instância do driver S3
-    // Nota: Certifique-se de que o drive padrão ou selecionado está configurado como 's3'
-    const s3Driver = drive.use('s3')
-    const s3Client = s3Driver.client // Instância nativa do S3Client
-    const bucket = s3Driver.config.bucket
+    // 1. Usa o cliente S3 compartilhado
+    const bucket = s3Bucket
 
     // 2. Gera uma chave única para evitar colisões de nomes
     const fileExtension = fileName.split('.').pop()
@@ -75,10 +91,10 @@ export default class UploadsController {
 ---
 
 ## 2. Frontend: Executando o Upload Direto
-No frontend (Vue 3/Axios), use a URL assinada gerada para fazer o upload do arquivo diretamente com uma requisição HTTP `PUT`.
+No frontend as chamadas ao próprio backend `/api` passam pelos helpers de `@maxvue/max-use` (auto-importados): use `apiPostRoute` para pedir a URL assinada e para confirmar o upload — **nunca** `axios` cru contra o seu backend. Apenas o `PUT` direto ao S3 é uma exceção legítima ao fluxo padrão (vai para o bucket, não para o `/api` do EngeApp), e usa o cliente HTTP nativo (`fetch`).
 
 ```typescript
-import axios from 'axios'
+// apiPostRoute e os helpers vêm de @maxvue/max-use via auto-import (unplugin-auto-import)
 
 interface UploadResponse {
   uploadUrl: string
@@ -89,35 +105,39 @@ async function uploadFileToS3(
   file: File,
   onProgress?: (percent: number) => void
 ): Promise<string> {
-  // 1. Solicita a URL assinada ao backend AdonisJS
-  const { data } = await axios.post<UploadResponse>('/api/uploads/presigned', {
+  // 1. Solicita a URL assinada ao backend AdonisJS via helper string-route /api/...
+  const data = await apiPostRoute<UploadResponse>('/api/uploads/presigned', {
     fileName: file.name,
     contentType: file.type,
   })
 
-  // 2. Faz o upload do arquivo diretamente para o S3 via requisição PUT
-  // IMPORTANTE: O cabeçalho Content-Type DEVE corresponder exatamente ao assinado no backend
-  await axios.put(data.uploadUrl, file, {
-    headers: {
-      'Content-Type': file.type,
-    },
-    onUploadProgress: (progressEvent) => {
-      if (progressEvent.total && onProgress) {
-        const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-        onProgress(percent)
+  // 2. Upload DIRETO ao S3 via PUT — exceção legítima: não passa pelo /api do EngeApp.
+  // IMPORTANTE: O cabeçalho Content-Type DEVE corresponder exatamente ao assinado no backend.
+  const xhr = new XMLHttpRequest()
+  await new Promise<void>((resolve, reject) => {
+    xhr.open('PUT', data.uploadUrl)
+    xhr.setRequestHeader('Content-Type', file.type)
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable && onProgress) {
+        onProgress(Math.round((e.loaded * 100) / e.total))
       }
-    },
+    }
+    xhr.onload = () => (xhr.status < 300 ? resolve() : reject(new Error(`S3 ${xhr.status}`)))
+    xhr.onerror = () => reject(new Error('Falha no upload ao S3'))
+    xhr.send(file)
   })
 
-  // Retorna a chave do arquivo para ser salva no banco de dados
+  // Retorna a chave do arquivo para ser confirmada/salva
   return data.key
 }
 ```
 
+> O `XMLHttpRequest` é usado apenas porque o `PUT` direto ao S3 precisa de eventos de progresso de upload; ele não toca no backend. Para persistir/confirmar a referência do arquivo, use a store MaxPinia / `apiPostRoute` (seção 3) — não salve manualmente.
+
 ---
 
 ## 3. Endpoint de Confirmação de Upload
-Para evitar arquivos "órfãos" no bucket S3 que não possuem referências no banco de dados, exija que o cliente envie um payload de confirmação assim que o upload for concluído com sucesso.
+Para evitar arquivos "órfãos" no bucket S3 que não possuem referências no banco de dados, exija que o cliente envie um payload de confirmação assim que o upload for concluído com sucesso. No frontend essa confirmação é uma chamada ao `/api` do próprio backend e portanto vai pela store `@maxvue/max-pinia` / `apiPostRoute('/api/uploads/confirm', { key, entityId })`, não por `axios` manual.
 
 ### Validador (`app/validators/upload.ts`)
 ```typescript

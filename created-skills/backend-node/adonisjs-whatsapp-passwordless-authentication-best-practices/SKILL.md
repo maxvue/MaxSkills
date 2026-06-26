@@ -1,12 +1,12 @@
 ---
 name: adonisjs-whatsapp-passwordless-authentication-best-practices
-description: Use when implementing, configuring, reviewing, or debugging passwordless authentication flows via WhatsApp OTP in AdonisJS v6 using Auth (Session or OAT), including generating secure codes, rate-limiting, sending messages via WhatsApp Cloud API, and validating logins.
+description: Use when implementing, configuring, reviewing, or debugging passwordless authentication flows via WhatsApp OTP in AdonisJS v6 using session auth (guard web), including generating secure codes, rate-limiting, sending messages via WhatsApp Cloud API, and validating logins.
 ---
 
 # Melhores Práticas para Autenticação Sem Senha via WhatsApp no AdonisJS
 
 ## Objetivo
-Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático e robusto via One-Time Password (OTP) do WhatsApp no AdonisJS v6, garantindo alta proteção contra abusos/força bruta, rate limiting adequado e geração transparente de sessões/tokens de usuário.
+Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático e robusto via One-Time Password (OTP) do WhatsApp no AdonisJS v6, garantindo alta proteção contra abusos/força bruta, rate limiting adequado e geração transparente de sessões de usuário (auth por sessão+cookie, guard `web`).
 
 ## Instruções
 
@@ -93,7 +93,7 @@ Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático
 * Busque o usuário correspondente ao número de telefone.
   - Se o usuário existir: Autentique-o.
   - Se o usuário não existir: Inicie o fluxo de cadastro/onboarding ou crie a conta automaticamente (de acordo com os requisitos de negócio).
-* Utilize o Auth (Session ou OAT) para emitir sessões ou tokens.
+* Utilize o guard de sessão (`auth.use('web').login(user)`) para emitir a sessão. Esse é o modelo de auth padrão do projeto (sessão+cookie, sessões em DB, 30 dias). Access Tokens (OAT) só devem ser emitidos em cenários M2M/MCP, nunca como caminho padrão do login web.
 * Exemplo de lógica do Controller de Validação de Login:
   ```typescript
   import type { HttpContext } from '@adonisjs/core/http'
@@ -132,18 +132,16 @@ Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático
         isNewUser = true
       }
 
-      // Gera as credenciais
-      // Exemplo para autenticação via Session:
+      // Emite a sessão (modelo de auth padrão: guard `web`, sessão+cookie)
       await auth.use('web').login(user)
 
-      // Exemplo para autenticação via token OAT:
-      // const token = await auth.use('api').generate(user)
+      // Apenas em cenários M2M/MCP (NÃO no login web padrão) emita um OAT:
+      // const token = await User.accessTokens.create(user)
 
       return response.ok({
         message: 'Autenticado com sucesso.',
         isNewUser,
         user,
-        // ...(token ? { token } : {})
       })
     }
   }

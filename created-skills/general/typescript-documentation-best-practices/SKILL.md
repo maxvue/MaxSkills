@@ -1,19 +1,19 @@
 ---
 name: typescript-documentation-best-practices
-description: Use when generating TypeScript documentation — JSDoc annotations, TypeDoc API reference, architectural decision records (ADRs), and framework-specific doc patterns for NestJS, Express, React, Angular, and Vue. Triggers on documenting public APIs, setting up doc CI/CD pipelines, and validating JSDoc with ESLint.
+description: Use when generating TypeScript documentation — JSDoc annotations, TypeDoc API reference, architectural decision records (ADRs), and doc patterns for AdonisJS v6 controllers/services e composables Vue 3. Triggers on documenting public APIs, setting up doc CI/CD pipelines, and validating JSDoc with ESLint.
 ---
 
 # Boas Práticas de Documentação em TypeScript
 
 ## Objetivo
 
-Gerar documentação TypeScript pronta para produção com uma arquitetura em camadas para múltiplos públicos. Use anotações JSDoc para documentação inline, TypeDoc para geração de referência de API e ADRs para rastrear decisões de design, além de padrões específicos de frameworks para NestJS, Express, React, Angular e Vue.
+Gerar documentação TypeScript pronta para produção com uma arquitetura em camadas para múltiplos públicos. Use anotações JSDoc para documentação inline, TypeDoc para geração de referência de API e ADRs para rastrear decisões de design, além de padrões alinhados ao stack-alvo (AdonisJS v6 no backend e Vue 3 no front).
 
 Capacidades principais:
 - Configuração do TypeDoc e geração de documentação de API
 - Padrões JSDoc para todas as construções do TypeScript
 - Criação e manutenção de ADRs
-- Padrões específicos de frameworks (NestJS, React, Express, Angular, Vue)
+- Padrões de documentação para controllers/services AdonisJS v6 e composables Vue 3
 - Regras de validação do ESLint para qualidade da documentação
 - Configuração de pipeline com GitHub Actions
 
@@ -62,27 +62,29 @@ npm install --save-dev typedoc typedoc-plugin-markdown
  * Serviço para gerenciar a autenticação de usuários
  *
  * @remarks
- * Lida com autenticação baseada em JWT com hashing de senha via bcrypt.
+ * Lida com autenticação baseada em sessão+cookie (guard `web` do AdonisJS),
+ * com sessões persistidas em banco e validade de 30 dias. Hashing de senha
+ * via scrypt (driver padrão do AdonisJS Hash).
+ *
+ * Notas de segurança:
+ * - Senhas com hash via scrypt (driver padrão do AdonisJS)
+ * - Sessão emitida via cookie HttpOnly + SameSite; sem tokens no front
  *
  * @example
  * ```typescript
- * const authService = new AuthService(config);
- * const token = await authService.login(email, password);
+ * const authService = new AuthService()
+ * await authService.login(ctx, credentials)
  * ```
- *
- * @security
- * - Senhas com hash via bcrypt (fator de custo 12)
- * - Tokens JWT assinados com RS256
  */
-@Injectable()
 export class AuthService {
   /**
-   * Autentica um usuário e retorna tokens de acesso
+   * Autentica um usuário e inicia a sessão (guard `web`)
+   * @param ctx - HttpContext da requisição AdonisJS
    * @param credentials - Credenciais de login do usuário
-   * @returns Resultado da autenticação com tokens
+   * @returns Usuário autenticado
    * @throws {InvalidCredentialsError} Se as credenciais forem inválidas
    */
-  async login(credentials: LoginCredentials): Promise<AuthResult> {
+  async login(ctx: HttpContext, credentials: LoginCredentials): Promise<User> {
     // Implementação
   }
 }
@@ -171,7 +173,7 @@ Restrições e avisos:
 
 Referências (padrões detalhados):
 - **[references/jsdoc-patterns.md](references/jsdoc-patterns.md)** — Padrões JSDoc para interfaces, funções, classes, generics e uniões
-- **[references/framework-patterns.md](references/framework-patterns.md)** — Padrões específicos de frameworks para NestJS, React, Express e Angular
+- **[references/framework-patterns.md](references/framework-patterns.md)** — Padrões de documentação para controllers/services AdonisJS v6 e composables Vue 3
 - **[references/adr-patterns.md](references/adr-patterns.md)** — Templates e exemplos de ADR
 - **[references/pipeline-setup.md](references/pipeline-setup.md)** — Configuração de pipeline de CI/CD para documentação
 - **[references/validation.md](references/validation.md)** — Regras do ESLint e checklists de validação

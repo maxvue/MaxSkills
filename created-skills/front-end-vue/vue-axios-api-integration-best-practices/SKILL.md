@@ -17,16 +17,16 @@ Para sessões baseadas em SPA, você deve habilitar o envio automático de crede
 - `axios.defaults.withXSRFToken = true;`
 - Defina `axios.defaults.baseURL` apontando para a API do backend.
 
-### 2. Sincronização de Cookies CSRF
-Antes de realizar requisições que alteram estado (POST, PUT, DELETE, PATCH), garanta a obtenção do cookie CSRF caso ele ainda não esteja presente.
-- Obtenha o cookie chamando a rota específica do backend (ex: `GET /sanctum/csrf-cookie` ou equivalente no AdonisJS).
-- Execute esta etapa durante a fase de inicialização (bootstrap) da aplicação ou imediatamente antes da primeira requisição de autenticação.
+### 2. Proteção CSRF (AdonisJS Shield)
+A autenticação é baseada em **sessão + cookie (guard `web`)**. O AdonisJS Shield emite automaticamente o cookie `XSRF-TOKEN` em respostas; não existe (e não deve existir) um endpoint dedicado de "csrf-cookie" — esse fluxo é do Sanctum/Laravel e está fora do escopo.
+- Habilite `axios.defaults.withXSRFToken = true;` e `axios.defaults.withCredentials = true;` para que o Axios leia o cookie `XSRF-TOKEN` e o reenvie no header `X-XSRF-TOKEN` automaticamente.
+- Como o Adonis serve um catch-all HTML na carga inicial da SPA, o cookie `XSRF-TOKEN` já estará presente; não é necessário nenhum GET prévio para "buscar" o token.
 
 ### 3. Configuração de Interceptadores Globais
 Defina interceptadores globais de requisição e resposta para gerenciar tokens de autenticação, logs e estados de erro HTTP comuns.
 
 #### Interceptador de Requisição
-- Anexe cabeçalhos dinamicamente (ex: cabeçalho `Authorization` se estiver utilizando autenticação baseada em tokens).
+- A autenticação é por **sessão + cookie** (guard `web`); não anexe header `Authorization`/Bearer nem tokens manualmente — as credenciais viajam via cookie de sessão (`withCredentials`) e o CSRF via `withXSRFToken`.
 - Configure os cabeçalhos padrão como `Accept: application/json` e `Content-Type: application/json`.
 
 #### Interceptador de Resposta (Tratamento de Erros)
@@ -115,33 +115,34 @@ axios.interceptors.response.use(
 export default axios;
 ```
 
-### Busca de CSRF e Login Reativo na Store do Pinia
+### Login Reativo na Store do Pinia (POST de formulário)
+O `login` é um POST de mutação de estado e usa Axios diretamente (transporte permitido para POST/PUT/DELETE). O cookie `XSRF-TOKEN` do Shield já está presente, então **não há GET prévio de "csrf-cookie"**. Os **dados do usuário autenticado (`/api/user/data`) NÃO são buscados aqui** — eles vêm de uma store MaxPinia (`isCached`/`options.get`), conforme a skill de auth-session.
 ```typescript
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import axios from 'axios';
+import { apiPostRoute } from '@maxvue/max-use';
 import router from '@/Js/router';
 
 export const useAuthStore = defineStore('auth', () => {
-    const user = ref(null);
     const loading = ref(false);
 
-    async function login(credentials: any) {
+    async function login(credentials: { email: string; password: string }) {
         loading.value = true;
         try {
-            // 1. Busca o cookie CSRF antes de enviar a requisição de login (AdonisJS Shield ou Laravel Sanctum)
-            await axios.get('/sanctum/csrf-cookie');
+            // POST de autenticação (sessão + cookie via guard web do Adonis).
+            // O Shield já emitiu o cookie XSRF-TOKEN; withXSRFToken o reenvia.
+            await axios.post(apiPostRoute('/api/login'), credentials);
 
-            // 2. Realiza a requisição POST de autenticação
-            const { data } = await axios.post('/login', credentials);
-            user.value = data.user;
+            // Os dados do usuário são carregados pela store MaxPinia correspondente,
+            // não por axios.get manual aqui.
             router.push({ name: 'dashboard' });
         } finally {
             loading.value = false;
         }
     }
 
-    return { user, loading, login };
+    return { loading, login };
 });
 ```
 

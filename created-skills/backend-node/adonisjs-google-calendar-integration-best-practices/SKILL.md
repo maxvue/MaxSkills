@@ -13,17 +13,17 @@ Fornecer regras estritas, padrões de configuração e modelos de código para i
 ### 1. Handshake do Google OAuth 2.0 e Armazenamento Seguro de Tokens
 * Configure o driver Google Ally ou construa manualmente o fluxo OAuth usando a biblioteca oficial `google-auth-library`.
 * Sempre solicite `access_type: 'offline'` e `prompt: 'consent'` nos parâmetros de autorização para garantir que o Google retorne um `refresh_token` de longa duração.
-* Mapeie colunas do banco de dados no modelo de credenciais (ex: `SocialMediaCredential`) para armazenar:
+* Mapeie colunas do banco de dados no modelo de credenciais (ex: `GoogleCalendarCredential`, vinculado ao usuário/técnico que agenda visitas e instalações fotovoltaicas) para armazenar:
   - `accessToken`: O token de acesso temporário.
   - `tokenExpiresAt`: Data/Hora em que o token de acesso expira (mapeado com `DateTime` do Luxon).
-  - `refreshToken`: **DEVE** ser criptografado no banco de dados. Use o serviço de criptografia (`encryption`) do AdonisJS.
+  - `refreshToken`: **DEVE** ser criptografado no banco de dados. Use o serviço de criptografia (`encryption`) do AdonisJS. Armazene-o em uma coluna dedicada `refresh_token` (não em um campo genérico `params`).
 * Exemplo de lógica para armazenamento seguro e renovação de token:
   ```typescript
   import { google } from 'googleapis'
   import encryption from '@adonisjs/core/services/encryption'
   import { DateTime } from 'luxon'
   import env from '#start/env'
-  import SocialMediaCredential from '#models/calendar/social_media_credential'
+  import GoogleCalendarCredential from '#models/calendar/google_calendar_credential'
 
   export class GoogleTokenService {
     private oauth2Client = new google.auth.OAuth2(
@@ -32,35 +32,42 @@ Fornecer regras estritas, padrões de configuração e modelos de código para i
       env.get('GOOGLE_REDIRECT_URL')
     )
 
-    async getAuthenticatedClient(credential: SocialMediaCredential) {
-      let accessToken = credential.accessToken
-      let expiresAt = credential.tokenExpiresAt
-
-      // Se o token estiver ausente, expirado ou expirando em menos de 5 minutos, renove-o
-      if (!accessToken || !expiresAt || DateTime.now().plus({ minutes: 5 }) >= expiresAt) {
-        const encryptedRefresh = credential.params?.refreshToken
-        if (!encryptedRefresh) {
-          throw new Error('Refresh token não encontrado para a credencial: ' + credential.id)
-        }
-        
-        const decryptedRefreshToken = encryption.decrypt<string>(encryptedRefresh)
-        this.oauth2Client.setCredentials({ refresh_token: decryptedRefreshToken })
-        
-        const { credentials } = await this.oauth2Client.refreshAccessToken()
-        accessToken = credentials.access_token!
-        
-        // A data de expiração retornada pelo Google está em milissegundos (timestamp)
-        const expiryMs = credentials.expiry_date || (Date.now() + 3600000)
-        expiresAt = DateTime.fromMillis(expiryMs)
-
-        // Salva as credenciais atualizadas de volta no banco de dados
-        credential.accessToken = accessToken
-        credential.tokenExpiresAt = expiresAt
-        await credential.save()
+    async getAuthenticatedClient(credential: GoogleCalendarCredential) {
+      const encryptedRefresh = credential.refreshToken
+      if (!encryptedRefresh) {
+        throw new Error('Refresh token não encontrado para a credencial: ' + credential.id)
       }
 
-      this.oauth2Client.setCredentials({ access_token: accessToken })
-      return this.oauth2Client;
+      const decryptedRefreshToken = encryption.decrypt<string>(encryptedRefresh)
+
+      // Forneça o refresh_token e o access_token/expiry atuais ao cliente.
+      // A google-auth-library moderna renova o access_token automaticamente
+      // quando ele está ausente ou expirado (não use refreshAccessToken(), que é legado).
+      this.oauth2Client.setCredentials({
+        refresh_token: decryptedRefreshToken,
+        access_token: credential.accessToken ?? undefined,
+        expiry_date: credential.tokenExpiresAt?.toMillis() ?? undefined,
+      })
+
+      // Persiste os tokens sempre que a biblioteca emitir um access_token renovado.
+      this.oauth2Client.on('tokens', async (tokens) => {
+        if (tokens.access_token) {
+          credential.accessToken = tokens.access_token
+        }
+        if (tokens.expiry_date) {
+          credential.tokenExpiresAt = DateTime.fromMillis(tokens.expiry_date)
+        }
+        // O Google só reenvia refresh_token em consentimentos novos; preserve o existente.
+        if (tokens.refresh_token) {
+          credential.refreshToken = encryption.encrypt(tokens.refresh_token)
+        }
+        await credential.save()
+      })
+
+      // getAccessToken() força a renovação se necessário e dispara o evento 'tokens'.
+      await this.oauth2Client.getAccessToken()
+
+      return this.oauth2Client
     }
   }
   ```

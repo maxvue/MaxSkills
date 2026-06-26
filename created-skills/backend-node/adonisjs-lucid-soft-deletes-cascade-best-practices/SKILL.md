@@ -41,9 +41,20 @@ Crie o arquivo `app/mixins/with_soft_deletes.ts`:
 
 ```typescript
 import { DateTime } from 'luxon'
-import { BaseModel, beforeFind, beforeFetch, column } from '@adonisjs/lucid/orm'
-import { ModelQueryBuilderContract, scope } from '@adonisjs/lucid/types/model'
+import { BaseModel, beforeFind, beforeFetch, column, scope } from '@adonisjs/lucid/orm'
+import type { ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
 import { NormalizeConstructor } from '@adonisjs/core/types/helpers'
+
+/**
+ * Flags de soft delete carregadas diretamente no objeto da query.
+ * Os escopos (withTrashed/onlyTrashed) e os hooks (beforeFind/beforeFetch)
+ * compartilham a MESMA instância de query, então marcamos a flag na própria
+ * query em vez de depender de qualquer estado global do client.
+ */
+type SoftDeleteQuery = ModelQueryBuilderContract<any> & {
+  $withTrashed?: boolean
+  $onlyTrashed?: boolean
+}
 
 export function withSoftDeletes<T extends NormalizeConstructor<typeof BaseModel>>(superclass: T) {
   class SoftDeletableModel extends superclass {
@@ -54,12 +65,11 @@ export function withSoftDeletes<T extends NormalizeConstructor<typeof BaseModel>
      * Hook para excluir automaticamente linhas deletadas logicamente das consultas de seleção
      */
     @beforeFind()
-    static ignoreDeletedFind(query: ModelQueryBuilderContract<any>) {
-      const context = query.client.userContext || {}
-      if (context.withTrashed) {
+    static ignoreDeletedFind(query: SoftDeleteQuery) {
+      if (query.$withTrashed) {
         return
       }
-      if (context.onlyTrashed) {
+      if (query.$onlyTrashed) {
         query.whereNotNull('deleted_at')
         return
       }
@@ -67,12 +77,11 @@ export function withSoftDeletes<T extends NormalizeConstructor<typeof BaseModel>
     }
 
     @beforeFetch()
-    static ignoreDeletedFetch(query: ModelQueryBuilderContract<any>) {
-      const context = query.client.userContext || {}
-      if (context.withTrashed) {
+    static ignoreDeletedFetch(query: SoftDeleteQuery) {
+      if (query.$withTrashed) {
         return
       }
-      if (context.onlyTrashed) {
+      if (query.$onlyTrashed) {
         query.whereNotNull('deleted_at')
         return
       }
@@ -82,17 +91,15 @@ export function withSoftDeletes<T extends NormalizeConstructor<typeof BaseModel>
     /**
      * Escopo de consulta para incluir registros deletados logicamente
      */
-    static withTrashed = scope((query) => {
-      query.client.userContext = query.client.userContext || {}
-      query.client.userContext.withTrashed = true
+    static withTrashed = scope((query: SoftDeleteQuery) => {
+      query.$withTrashed = true
     })
 
     /**
      * Escopo de consulta para buscar APENAS registros deletados logicamente
      */
-    static onlyTrashed = scope((query) => {
-      query.client.userContext = query.client.userContext || {}
-      query.client.userContext.onlyTrashed = true
+    static onlyTrashed = scope((query: SoftDeleteQuery) => {
+      query.$onlyTrashed = true
     })
 
     /**

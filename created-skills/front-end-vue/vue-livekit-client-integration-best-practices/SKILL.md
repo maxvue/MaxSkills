@@ -12,7 +12,7 @@ Fornecer diretrizes sólidas e padrões estruturados para integrar, gerenciar e 
 
 ### 1. Conexão e Gerenciamento da Sala (Room)
 * **Ciclo de Vida da Sala:** A instanciação do objeto `Room` deve usar `shallowRef` em vez de `ref` para evitar que o Vue rastreie recursivamente a estrutura interna pesada do LiveKit, o que causa problemas de desempenho.
-* **Tokens e Configurações:** Solicite dinamicamente o token de conexão ao backend Laravel. Inicialize a Room com opções robustas para reconexão automática e fluxos adaptativos (adaptive streams).
+* **Tokens e Configurações:** Solicite dinamicamente o token de conexão ao backend AdonisJS v6 **através de uma store `@maxvue/max-pinia`** (que internamente usa `apiGetRoute('/api/...')` do `@maxvue/max-use` para resolver o caminho string). Nunca faça `axios.get` manual para o token — o GET deve passar pela store. Inicialize a Room com opções robustas para reconexão automática e fluxos adaptativos (adaptive streams).
 * **Composables:** Centralize a lógica de conexão, ouvintes da sala (listeners) e estado da conexão dentro de um composable (ex: `useLiveKit.ts`).
 
 ### 2. Prevenção de Vazamento de Memória (Memory Leaks - Ciclo de Vida da Track)
@@ -132,7 +132,7 @@ export function useLiveKit() {
 
     newRoom.on(RoomEvent.Connected, () => {
       isConnected.value = true;
-      participants.value = Array.from(newRoom.participants.values());
+      participants.value = Array.from(newRoom.remoteParticipants.values());
     });
 
     newRoom.on(RoomEvent.Disconnected, () => {

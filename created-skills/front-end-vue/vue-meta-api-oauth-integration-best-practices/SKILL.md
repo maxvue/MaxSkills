@@ -23,10 +23,10 @@ Estabelecer padrões claros, seguros e robustos de implementação para fluxos d
    - Implemente um temporizador de verificação com `setInterval` monitorando o `popup.closed` a cada 500ms.
    - Se o usuário fechar o popup manualmente sem concluir a autorização, resolva o estado graciosamente, limpe o listener e exiba uma notificação amigável para o usuário.
 
-4. **Integração com Stores e Contexto de Tenant**
-   - O callback do OAuth deve disparar uma atualização de estado na `useSocialMediaCredentialsStore` usando o método `.load()`.
-   - Garanta que as requisições levem os contextos de cliente/tenant ativos adequados (cabeçalhos/payload) seguindo as diretrizes de `vue-tenant-client-context-best-practices`.
-   - Nunca armazene credenciais brutas ou tokens de acesso confidenciais dentro de stores do lado do cliente ou no LocalStorage. Dependa de sessões do backend e represente o estado de autorização com flags abstratas como `has_token: boolean`.
+4. **Integração com Stores (MaxPinia)**
+   - Todo GET de dados de página (incluindo a auth-url e as credenciais sociais) deve passar por uma store `@maxvue/max-pinia`, não por `axios.get` manual no componente. Use `apiGetRoute('/api/...')` do `@maxvue/max-use` para resolver os caminhos string da API.
+   - O callback do OAuth deve disparar uma atualização de estado na store de credenciais sociais (recarregando via store MaxPinia), refletindo o auto-save/cache da camada `@maxvue/max-pinia`.
+   - Nunca armazene credenciais brutas ou tokens de acesso confidenciais dentro de stores do lado do cliente ou no LocalStorage. Dependa de sessões do backend (guard web, sessão+cookie) e represente o estado de autorização com flags abstratas como `has_token: boolean`.
 
 ## Restrições
 - NÃO busque URLs de autorização na API antes de abrir a janela popup, caso contrário, os bloqueadores de popup do navegador serão ativados.
@@ -46,9 +46,10 @@ Estabelecer padrões claros, seguros e robustos de implementação para fluxos d
 
 <script setup lang="ts">
 import { ref, onUnmounted } from 'vue';
-import { useSocialMediaCredentialsStore } from '@/Stores/calendar/useSocialMediaCredentials.Store';
 import { Toast } from '@maxvue/max-components-ui';
+import { apiGetRoute } from '@maxvue/max-use';
 
+// Store MaxPinia auto-importada (definida em stores/)
 const credentialsStore = useSocialMediaCredentialsStore();
 const loading = ref(false);
 
@@ -111,7 +112,7 @@ const handleMessage = async (event: MessageEvent): Promise<void> => {
 
   if (status === 'success') {
     try {
-      // Recarrega as credenciais de mídias sociais na store do Pinia
+      // Recarrega as credenciais de mídias sociais via store MaxPinia (cache/auto-save)
       await credentialsStore.load();
       Toast.show({ severity: 'success', title: 'Sucesso', message: 'Conta conectada com sucesso!' });
     } catch {
@@ -139,7 +140,8 @@ const connectAccount = async (): Promise<void> => {
 
   try {
     // Obtém do AdonisJS a URL de redirecionamento de autorização da Meta
-    const { data } = await axios.get('/social_media/facebook/auth-url');
+    // via apiGetRoute (resolve para o caminho string /api/...), nunca axios.get manual
+    const { data } = await apiGetRoute('/api/social_media/facebook/auth-url');
 
     // Redireciona o popup em branco para a URL oficial
     popupWindow.location.href = data.url;

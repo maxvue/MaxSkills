@@ -1,125 +1,101 @@
 ---
 name: adonisjs-broadcasting-websockets-best-practices
-description: Use when creating, configuring, or debugging WebSocket connections, event broadcasting, and real-time communication in AdonisJS. Triggers on private/public channel authorization, HMAC sha256 signature generation for Pusher/Soketi, event dispatching, and integrating with laravel-echo or Vue frontends.
+description: Use when creating, configuring, or debugging real-time event broadcasting and server-sent events in AdonisJS using @adonisjs/transmit. Triggers on Transmit channel authorization, broadcasting events from controllers/services, the @adonisjs/transmit-client (EventSource), and integrating real-time streams with Vue 3 frontends.
 ---
 
-# Melhores Práticas de Broadcasting e WebSockets no AdonisJS
+# Melhores Práticas de Broadcasting e Real-time no AdonisJS (Transmit)
 
 ## Objetivo
-Padronizar a transmissão de eventos em tempo real usando o protocolo Pusher/Soketi no AdonisJS v6, protegendo canais privados com assinaturas HMAC personalizadas e integrando de forma eficiente com frontends Vue 3 através da biblioteca `@laravel/echo-vue`.
+Padronizar a transmissão de eventos em tempo real usando o **AdonisJS Transmit** (Server-Sent Events / SSE) no AdonisJS v6, protegendo canais privados com autorização baseada na sessão autenticada (guard `web`) e integrando de forma eficiente com frontends Vue 3 através do cliente oficial `@adonisjs/transmit-client`.
+
+> Transmit usa SSE sobre HTTP, sem servidor de WebSocket externo. NÃO há Pusher, Soketi, Reverb nem `laravel-echo` neste stack.
 
 ## Instruções
 
-### 1. Integração do Cliente Pusher no Backend
-* Sempre utilize um helper singleton em cache para inicializar o cliente `Pusher`. Isso evita vazamentos de recursos e instâncias duplicadas de conexão:
+### 1. Configuração do Transmit no Backend
+* Instale e configure o pacote oficial. O broadcasting de eventos é feito pelo serviço singleton `transmit` exportado pelo container:
   ```typescript
-  import Pusher from 'pusher'
-  import env from '#start/env'
+  // config/transmit.ts
+  import { defineConfig } from '@adonisjs/transmit'
 
-  let pusherInstance: Pusher | null = null
-
-  export function getPusher(): Pusher {
-    if (!pusherInstance) {
-      pusherInstance = new Pusher({
-        appId: env.get('SOKETI_APP_ID') || process.env.SOKETI_APP_ID!,
-        key: env.get('SOKETI_APP_KEY') || process.env.SOKETI_APP_KEY!,
-        secret: env.get('SOKETI_APP_SECRET') || process.env.SOKETI_APP_SECRET!,
-        host: env.get('SOKETI_HOST') || process.env.SOKETI_HOST!,
-        port: env.get('SOKETI_PORT') || process.env.SOKETI_PORT!,
-        useTLS: false,
-        cluster: 'mt1',
-      })
-    }
-    return pusherInstance
-  }
+  export default defineConfig({
+    pingInterval: false,
+    transport: null,
+  })
   ```
 
-* Dispare eventos com segurança dentro de serviços, controllers ou comandos:
+* Dispare eventos com segurança de dentro de serviços, controllers ou comandos usando o serviço `transmit`:
   ```typescript
-  const pusher = getPusher()
-  await pusher.trigger('private-channel-name', 'EventName', {
-    someData: 'value'
+  import transmit from '@adonisjs/transmit/services/main'
+
+  // Publica no canal; o payload é serializado como JSON automaticamente
+  await transmit.broadcast(`live/company/${companyId}`, {
+    event: 'GenerationReportImported',
+    count: 42,
   })
   ```
 
 ### 2. Autorização de Canais Privados
-* Registre a rota de autenticação de broadcasting em `start/routes.ts`:
+* Registre as rotas do Transmit e autorize canais privados em `start/transmit.ts`. A autorização usa a sessão autenticada (guard `web`), não tokens nem assinaturas HMAC:
   ```typescript
-  const BroadcastingController = () => import('#controllers/broadcasting_controller')
+  import transmit from '@adonisjs/transmit/services/main'
 
-  router.post('/broadcasting/auth', [BroadcastingController, 'auth'])
-    .as('broadcasting.auth')
-    .use(middleware.auth())
-  ```
+  // Canal privado por usuário
+  transmit.authorize<{ id: string }>('system/:id', (ctx, { id }) => {
+    return ctx.auth.user?.id === Number(id)
+  })
 
-* Implemente autorização segura dentro do `BroadcastingController`:
-  ```typescript
-  import { createHmac } from 'node:crypto'
-  import type { HttpContext } from '@adonisjs/core/http'
-  import env from '#start/env'
-
-  export default class BroadcastingController {
-    async auth({ request, auth, response }: HttpContext) {
-      const user = auth.user!
-      const socketId = request.input('socket_id')
-      const channelName = request.input('channel_name')
-
-      if (!socketId || !channelName) {
-        return response.badRequest({ message: 'socket_id e channel_name são obrigatórios.' })
-      }
-
-      // Autoriza o acesso ao canal combinando estritamente com os identificadores do usuário/empresa
-      const isAuthorized =
-        channelName === `private-system.${user.id}` ||
-        channelName === `private-live.company.${user.solarCompanyId}`
-
-      if (!isAuthorized) {
-        return response.forbidden({ message: 'Acesso negado ao canal.' })
-      }
-
-      // Gera a assinatura HMAC exigida pelo servidor Pusher/Soketi
-      const appKey = env.get('SOKETI_APP_KEY')
-      const appSecret = env.get('SOKETI_APP_SECRET')
-      const signature = createHmac('sha256', appSecret)
-        .update(`${socketId}:${channelName}`)
-        .digest('hex')
-
-      return response.json({ auth: `${appKey}:${signature}` })
-    }
-  }
-  ```
-
-### 3. Integração com Frontend usando Vue 3 e Laravel Echo
-* Inicialize o Echo em `configureReverbEcho.js` (o Reverb utiliza o protocolo Pusher):
-  ```javascript
-  import { configureEcho } from '@laravel/echo-vue'
-
-  export function configureReverbEcho() {
-    configureEcho({
-      broadcaster: 'reverb',
-      key: import.meta.env.VITE_REVERB_APP_KEY,
-      wsHost: import.meta.env.VITE_REVERB_HOST,
-      wsPort: 80,
-      wssPort: 443,
-      forceTLS: true,
-      enabledTransports: ['ws', 'wss'],
-      disableStats: true,
-    })
-  }
-  ```
-
-* Escute eventos nos componentes Vue usando o composable `useEcho`. Note que a biblioteca `@laravel/echo-vue` adiciona o prefixo `private-` automaticamente ao se inscrever com visibilidade privada (padrão):
-  ```typescript
-  import { useEcho } from '@laravel/echo-vue'
-
-  // Se inscreve no canal 'private-live.company.XYZ' automaticamente
-  useEcho(`live.company.${companyId}`, 'SocialMediaNewsImported', (payload: { count: number }) => {
-    console.log(`${payload.count} novos itens importados.`)
+  // Canal privado por empresa solar (multi-tenant)
+  transmit.authorize<{ companyId: string }>('live/company/:companyId', (ctx, { companyId }) => {
+    return ctx.auth.user?.solarCompanyId === Number(companyId)
   })
   ```
 
+* Registre as rotas HTTP do Transmit em `start/routes.ts`, protegidas pelo middleware de autenticação por sessão:
+  ```typescript
+  import transmit from '@adonisjs/transmit/services/main'
+  import { middleware } from '#start/kernel'
+
+  transmit.registerRoutes((route) => {
+    // Garante que apenas usuários autenticados (sessão+cookie) assinem canais
+    route.use(middleware.auth())
+  })
+  ```
+
+### 3. Integração com Frontend usando Vue 3 e o Transmit Client
+* Inicialize o cliente em um módulo dedicado (ex.: `app/transmit.ts`). O `@adonisjs/transmit-client` usa `EventSource` por baixo dos panos, então o cookie de sessão acompanha a conexão automaticamente:
+  ```typescript
+  import { Transmit } from '@adonisjs/transmit-client'
+
+  export const transmit = new Transmit({
+    baseUrl: window.location.origin,
+  })
+  ```
+
+* Escute eventos nos componentes Vue assinando o canal e registrando o callback. Lembre-se de cancelar a inscrição ao desmontar o componente:
+  ```typescript
+  import { onUnmounted } from 'vue'
+  import { transmit } from '@/transmit'
+
+  // Assina o canal privado 'live/company/XYZ' (autorizado via sessão no backend)
+  const subscription = transmit.subscription(`live/company/${companyId}`)
+  await subscription.create()
+
+  const unsubscribe = subscription.onMessage((payload: { event: string; count: number }) => {
+    console.log(`${payload.count} novos itens importados.`)
+  })
+
+  onUnmounted(() => {
+    unsubscribe()
+    subscription.delete()
+  })
+  ```
+
+> Dados de página (GET/save) continuam passando por stores `@maxvue/max-pinia`. O Transmit é apenas o canal de notificação/push; ao receber um evento, dispare o refetch pela store correspondente em vez de montar requisições manuais.
+
 ## Restrições
-* NÃO exponha credenciais críticas de WebSocket (como `SOKETI_APP_SECRET`) no aplicativo frontend.
-* NÃO adicione manualmente o prefixo `private-` aos nomes dos canais dentro do composable `useEcho` do frontend, a menos que esteja substituindo o parâmetro de visibilidade padrão para `'public'`. Fazer isso levará a inscrições incorretas (ex: `private-private-channel`).
-* NÃO pule a verificação de usuário dentro do `BroadcastingController` do backend. O acesso aos canais `private-` deve ser verificado explicitamente contra o objeto de usuário autenticado.
-* NÃO instancie `new Pusher(...)` múltiplas vezes; sempre obtenha a instância através da função de fábrica em cache.
+* NÃO use Pusher, Soketi, Reverb ou `@laravel/echo-vue` — o realtime do stack-alvo é exclusivamente AdonisJS Transmit (SSE).
+* NÃO gere assinaturas HMAC nem exponha segredos de WebSocket no frontend; a autorização de canais é feita pela sessão autenticada no backend via `transmit.authorize`.
+* NÃO leia variáveis de ambiente com `process.env.*`; use sempre `env.get(...)` (validado em `start/env.ts`) quando precisar de configuração.
+* NÃO pule a verificação de usuário dentro de `transmit.authorize`. O acesso a canais privados deve ser verificado explicitamente contra a sessão/usuário autenticado (`ctx.auth.user`).
+* NÃO esqueça de cancelar a inscrição (`unsubscribe` / `subscription.delete()`) ao desmontar componentes Vue, evitando vazamentos de conexões SSE.

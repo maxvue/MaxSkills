@@ -30,6 +30,7 @@ Fornecer diretrizes seguras, performáticas e resilientes para a integração co
 * Exemplo de implementação do `WhatsAppService`:
   ```typescript
   import logger from '@adonisjs/core/services/logger'
+  import env from '#start/env'
 
   export interface WhatsAppMessagePayload {
     messaging_product: 'whatsapp'
@@ -50,9 +51,9 @@ Fornecer diretrizes seguras, performáticas e resilientes para a integração co
     private version: string
 
     constructor() {
-      this.token = process.env.WHATSAPP_TOKEN || ''
-      this.phoneNumberId = process.env.WHATSAPP_PHONE_NUMBER_ID || ''
-      this.version = process.env.WHATSAPP_GRAPH_VERSION || 'v24.0'
+      this.token = env.get('WHATSAPP_TOKEN', '')
+      this.phoneNumberId = env.get('WHATSAPP_PHONE_NUMBER_ID', '')
+      this.version = env.get('WHATSAPP_GRAPH_VERSION', 'v24.0')
     }
 
     private getRequestUrl(): string {
@@ -119,13 +120,14 @@ Fornecer diretrizes seguras, performáticas e resilientes para a integração co
 
 ### 3. Endpoint de Webhook Seguro (Controller)
 * **Validação do GET:** Confirme que as requisições de assinatura da Meta batem com o `WHATSAPP_WEBHOOK_VERIFY_TOKEN` e retorne o texto bruto do `hub_challenge`.
-* **Segurança do POST (X-Hub-Signature-256):** Sempre verifique a assinatura HMAC SHA-256 enviada pela Meta no cabeçalho `X-Hub-Signature-256` utilizando o `WHATSAPP_APP_SECRET` para prevenir requisições forjadas (spoofing).
+* **Segurança do POST (X-Hub-Signature-256):** Sempre verifique a assinatura HMAC SHA-256 enviada pela Meta no cabeçalho `X-Hub-Signature-256` utilizando o `WHATSAPP_APP_SECRET` para prevenir requisições forjadas (spoofing). Calcule o HMAC sobre o corpo **bruto** (`request.raw()`) — o body parser deve preservar o rawBody — e compare em tempo constante com `crypto.timingSafeEqual`, nunca com igualdade de string.
 * **Ingestão Rápida:** Salve o payload bruto no model `Webhook` imediatamente para construir o histórico de auditoria e, em seguida, enfileire uma tarefa do BullMQ passando apenas o ID do registro inserido.
 * Exemplo de implementação do `WhatsAppWebhookController`:
   ```typescript
   import crypto from 'node:crypto'
   import type { HttpContext } from '@adonisjs/core/http'
   import logger from '@adonisjs/core/services/logger'
+  import env from '#start/env'
   import Webhook from '#models/webhook'
   import WhatsAppWebhookJob from '#jobs/whatsapp_webhook_job'
 
@@ -136,7 +138,7 @@ Fornecer diretrizes seguras, performáticas e resilientes para a integração co
       const token = request.input('hub.verify_token')
       const challenge = request.input('hub.challenge')
 
-      if (mode === 'subscribe' && token === process.env.WHATSAPP_WEBHOOK_VERIFY_TOKEN) {
+      if (mode === 'subscribe' && token === env.get('WHATSAPP_WEBHOOK_VERIFY_TOKEN')) {
         return response.status(200).send(String(challenge))
       }
 
@@ -153,16 +155,23 @@ Fornecer diretrizes seguras, performáticas e resilientes para a integração co
       }
 
       // Validação do X-Hub-Signature-256
-      const appSecret = process.env.WHATSAPP_APP_SECRET || ''
+      const appSecret = env.get('WHATSAPP_APP_SECRET', '')
       const elements = signature.split('=')
-      const signatureHash = elements[1]
+      const signatureHash = elements[1] ?? ''
 
       const expectedHash = crypto
         .createHmac('sha256', appSecret)
         .update(rawBody)
         .digest('hex')
 
-      if (signatureHash !== expectedHash) {
+      // Comparação em tempo constante para evitar timing attacks
+      const signatureBuffer = Buffer.from(signatureHash, 'hex')
+      const expectedBuffer = Buffer.from(expectedHash, 'hex')
+
+      if (
+        signatureBuffer.length !== expectedBuffer.length ||
+        !crypto.timingSafeEqual(signatureBuffer, expectedBuffer)
+      ) {
         logger.warn('WhatsAppWebhook: Falha na verificação de assinatura')
         return response.status(401).send('Unauthorized: Incompatibilidade de assinatura')
       }

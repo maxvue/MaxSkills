@@ -14,7 +14,7 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 - `GET /auth/:provider/redirect` — inicia o login social (Google/Facebook).
 - `GET /auth/:provider/callback` — callback do provedor, redireciona para `/projects`.
 
-> Rotas são strings (`/api/...`). Use os helpers `apiGetRoute` / `apiPostRoute` do `@maxvue/max-use` para resolver para `/api`. NÃO existe Ziggy, Inertia ou Sanctum aqui (são de Laravel) — não invente esses recursos.
+> Rotas são strings (`/api/...`). Os helpers `apiGetRoute` / `apiPostRoute` do `@maxvue/max-use` são **funções assíncronas que JÁ executam a requisição** (`await apiGetRoute('/...')` retorna `response.data`) — não são resolvedores de URL e NÃO devem ser embrulhados em `axios.get(...)`. Para dados de página, prefira a store MaxPinia (que faz GET/save por baixo); use `apiGetRoute`/`apiPostRoute` apenas em chamadas pontuais que não são estado de página (ex.: submit de login). NÃO existe Ziggy, Inertia ou Sanctum aqui (são de Laravel) — não invente esses recursos.
 
 ## Instruções
 
@@ -22,7 +22,8 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 - Todo GET ao backend passa por uma store `@maxvue/max-pinia` (cache + auto-save). O estado do usuário atual (`/user/data`) DEVE vir de uma store MaxPinia, nunca de `axios.get` manual espalhado pelas views.
 - Declare a store com Composition API (`defineStore`) e configure o `get` apontando para `/user/data`:
   `options: computed(() => ({ get: { route: '/user/data' }, key: 'user' }))`.
-- Implemente `waitRequest()` retornando uma promessa resolvida quando a primeira requisição de sessão concluir. Isso evita race conditions nos guards do router ao recarregar a página.
+- O MaxPinia injeta `status`, `reload()` e `clearAll()` na própria instância da store. Leia o estado SEMPRE pela instância (`userStore.status.server.get.is_requested`), nunca via `this` dentro da setup store.
+- Implemente `waitRequest(store)` como helper que recebe a instância da store e retorna uma promessa resolvida quando a primeira requisição de sessão concluir (observando `store.status.server.get.is_requested`). Isso evita race conditions nos guards do router ao recarregar a página.
 
 ## 2. Configuração do Cliente de API & CSRF
 - Autenticação é por SESSÃO via cookie. Configure o Axios para enviar cookies e o token XSRF automaticamente:
@@ -52,7 +53,7 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 
 ## 4. Proteção de Rotas com Vue Router Guard
 - Implemente `router.beforeEach` para proteger rotas com base nos metadados (`requiresAuth` ou rotas exclusivas de visitante).
-- Aguarde a validação inicial da sessão com `await userStore.waitRequest()` antes de decidir o redirecionamento.
+- Aguarde a validação inicial da sessão com `await waitRequest(userStore)` antes de decidir o redirecionamento.
 - Avalie o status de autenticação pelo estado da store (dados do usuário) e por eventual 401 da última requisição:
   ```typescript
   const serverIs401 = userStore.status?.server?.get?.error?.response?.status === 401;
@@ -92,34 +93,37 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 import { ref, computed, watch, type Ref } from 'vue';
 import { defineStore } from 'pinia';
 
+// `status`, `reload()` e `clearAll()` são injetados pelo plugin MaxPinia na instância da store.
 export const useUserStore = defineStore('user', () => {
     // Estado do usuário autenticado, vindo de GET /user/data via MaxPinia
     const data: Ref<any | null> = ref(null);
     const isCached = ref(true);
     const options = computed(() => ({ get: { route: '/user/data' }, key: 'user' }));
 
-    /**
-     * Aguarda a primeira requisição de dados do usuário concluir.
-     * Evita race condition nos route guards do Vue Router ao recarregar.
-     */
-    function waitRequest(this: any): Promise<void> {
-        return new Promise((resolve) => {
-            if (this?.status?.server?.get?.is_requested) return resolve();
-
-            const unwatch = watch(
-                () => this?.status?.server?.get?.is_requested,
-                (isRequested) => {
-                    if (isRequested) {
-                        unwatch();
-                        resolve();
-                    }
-                }
-            );
-        });
-    }
-
-    return { data, options, isCached, waitRequest };
+    return { data, options, isCached };
 });
+
+/**
+ * Aguarda a primeira requisição de dados do usuário concluir.
+ * Evita race condition nos route guards do Vue Router ao recarregar.
+ * Recebe a instância da store e lê `store.status` (injetado pelo MaxPinia) —
+ * nunca use `this` dentro da setup store.
+ */
+export function waitRequest(store: ReturnType<typeof useUserStore>): Promise<void> {
+    return new Promise((resolve) => {
+        if (store.status?.server?.get?.is_requested) return resolve();
+
+        const unwatch = watch(
+            () => store.status?.server?.get?.is_requested,
+            (isRequested) => {
+                if (isRequested) {
+                    unwatch();
+                    resolve();
+                }
+            }
+        );
+    });
+}
 ```
 
 ### Exemplo 2: View de Login (LoginPage.vue)
@@ -131,7 +135,6 @@ export const useUserStore = defineStore('user', () => {
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import axios from 'axios';
 import { apiPostRoute, apiGetRoute } from '@maxvue/max-use';
 import { useUserStore } from '@/Stores/UserStores/useUser.Store';
 
@@ -142,14 +145,11 @@ const loading = ref(false);
 const error = ref('');
 const providers = ref<Array<{ id: string; label: string; icon?: string }>>([]);
 
-// Carrega os provedores de login social disponíveis
+// Carrega os provedores de login social disponíveis.
+// apiGetRoute já executa o GET e retorna response.data (não embrulhe em axios.get).
 onMounted(async () => {
-    try {
-        const { data } = await axios.get(apiGetRoute('/auth/providers'));
-        providers.value = data?.providers ?? data ?? [];
-    } catch {
-        providers.value = [];
-    }
+    const res = await apiGetRoute('/auth/providers');
+    providers.value = res?.providers ?? res ?? [];
 });
 
 // Redireciona o navegador para o fluxo OAuth do provedor (navegação real)
@@ -164,14 +164,14 @@ const submit = async (payload: { email: string; password: string; remember: bool
     error.value = '';
 
     try {
-        // withCredentials/withXSRFToken já estão habilitados globalmente
-        await axios.post(apiPostRoute('/login'), payload);
+        // apiPostRoute executa o POST (cookies/CSRF já incluídos) e retorna response.data.
+        // Retorna null em caso de erro de rede/HTTP.
+        const res = await apiPostRoute('/login', payload);
+        if (res === null) throw new Error('login_failed');
 
         // Limpa chaves locais obsoletas e recarrega o usuário pela store MaxPinia
         localStorage.removeItem('selected.client.id');
-        if (typeof (userStore as any).reload === 'function') {
-            (userStore as any).reload();
-        }
+        userStore.reload();
 
         router.push({ name: 'projects' });
     } catch (e: any) {
@@ -196,16 +196,17 @@ const submit = async (payload: { email: string; password: string; remember: bool
 
 ### Exemplo 3: Logout
 ```typescript
-import axios from 'axios';
 import { apiPostRoute } from '@maxvue/max-use';
 
-// Encerra a sessão no backend e limpa o estado local
+// Encerra a sessão no backend e limpa o estado local.
+// apiPostRoute executa o POST e já trata o erro (retorna null) — não embrulhe em axios.post.
 async function logout(router: any, userStore: any): Promise<void> {
     try {
-        await axios.post(apiPostRoute('/logout'));
+        await apiPostRoute('/logout');
     } finally {
         localStorage.removeItem('selected.client.id');
-        if (typeof userStore.clear === 'function') userStore.clear();
+        // O plugin MaxPinia injeta clearAll() (não `clear`) para limpar cache + estado.
+        if (typeof userStore.clearAll === 'function') await userStore.clearAll();
         router.push({ name: 'login' });
     }
 }

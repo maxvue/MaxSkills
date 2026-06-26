@@ -16,7 +16,7 @@ Estabelecer convenções e padrões rígidos para a geração de documentos PDF 
   1. Receba a requisição de exportação em um controller (ex: [ReportsController](file:///home/johnattas/GitHub/socialmedia-node/app/controllers/reports_controller.ts)).
   2. Crie e envie um Job (ex: `GenerateReportJob` em `app/jobs/`).
   3. Responda imediatamente com o status `202 Accepted` e um ID de rastreamento do job/relatório.
-  4. Processe o relatório de forma assíncrona, grave a saída via stream no storage e notifique o usuário por WebSockets ou e-mail quando concluído.
+  4. Processe o relatório de forma assíncrona, grave a saída via stream no storage e notifique o usuário via AdonisJS Transmit (SSE) ou e-mail quando concluído.
 
 ### 2. Geração de PDF de Alta Fidelidade (Puppeteer e Edge.js)
 * **Templates HTML com Edge.js:** Desenhe os layouts de relatórios utilizando templates Edge.js. O Edge.js fornece herança de layout, componentes e funções auxiliares para renderizar dados dinâmicos.
@@ -24,10 +24,9 @@ Estabelecer convenções e padrões rígidos para a geração de documentos PDF 
   
   ```typescript
   import puppeteer from 'puppeteer'
-  import edge from 'edge.js'
-  import { Application } from '@adonisjs/core/app'
+  import edge from '@adonisjs/core/services/edge'
 
-  // Primeiro renderiza o HTML
+  // Primeiro renderiza o HTML usando a config de views do projeto
   const html = await edge.render('emails/report_template', { data })
 
   // Inicializa o navegador com as flags recomendadas para ambientes containerizados

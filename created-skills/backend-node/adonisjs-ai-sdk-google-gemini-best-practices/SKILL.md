@@ -23,9 +23,8 @@ Estabelecer diretrizes e convenções de código estritas para a integração ro
 - **Array de Modelos:** Mantenha um array de modelos de fallback para tratar limites de taxa (429) ou falhas temporárias na API:
   ```typescript
   const FALLBACK_CHAIN = [
-    'gemini-3.1-flash-lite',
+    'gemini-2.5-flash-lite',
     'gemini-2.5-flash',
-    'gemini-3.5-flash',
     'gemini-2.5-pro',
   ]
   ```
@@ -48,7 +47,7 @@ Estabelecer diretrizes e convenções de código estritas para a integração ro
   ```
 
 ## 3. Respostas Estruturadas com Zod
-- **Tipagem Estrita:** Ao exigir saídas estruturadas, utilize as configurações de `experimental_objectGeneration` ou `output: 'object'` / `output: 'array'` correspondentes ao esquema desejado.
+- **Tipagem Estrita:** Ao exigir saídas estruturadas, utilize `generateObject`/`streamObject` (importados de `ai`) com `output: 'object'` ou `output: 'array'` e o `schema` Zod correspondente ao formato desejado.
 - **Campos Autodescritivos:** Cada campo no esquema Zod deve conter uma chamada `.describe()` explicativa para garantir que o LLM entenda e gere os valores corretamente.
   ```typescript
   import { z } from 'zod'

@@ -1,6 +1,6 @@
 ---
 name: adonisjs-google-business-profile-api-integration-best-practices
-description: Use when implementing, configuring, reviewing, or debugging integrations with Google Business Profile (GBP / Google My Business) API v4 or Google Business Performance API in AdonisJS v6. Triggers on files managing Google OAuth 2.0 credentials, refreshing tokens, creating posts (local posts/updates, offers, events), uploading media to Google Business accounts, and handling API rate limits or webhook notifications in SocialMediaApp.
+description: Use when implementing, configuring, reviewing, or debugging integrations with Google Business Profile (GBP / Google My Business) API v4 or Google Business Performance API in AdonisJS v6. Triggers on files managing Google OAuth 2.0 credentials, refreshing tokens, creating posts (local posts/updates, offers, events), uploading media to Google Business accounts, and handling API rate limits or webhook notifications.
 ---
 
 # Boas Práticas de Integração da API Google Business Profile no AdonisJS
@@ -41,6 +41,7 @@ Estabelecer padrões seguros, resilientes e robustos para integrar aplicações 
   ```typescript
   // app/services/google_token_service.ts
   import encryption from '@adonisjs/core/services/encryption'
+  import env from '#start/env'
   import { DateTime } from 'luxon'
   import SocialMediaCredential from '#models/calendar/social_media_credential'
 
@@ -51,6 +52,8 @@ Estabelecer padrões seguros, resilientes e robustos para integrar aplicações 
 
       // Se o token estiver ausente, expirado ou prestes a expirar em 5 minutos
       if (!accessToken || !expiresAt || DateTime.now().plus({ minutes: 5 }) >= expiresAt) {
+        // `params` é uma coluna JSONB no model (declarada com @column({ prepare/consume })
+        // ou tipada como objeto). Garanta esse mapeamento no SocialMediaCredential.
         const encryptedRefresh = credential.params?.refreshToken
         if (!encryptedRefresh) {
           throw new Error(`Nenhum refresh token encontrado para a credencial: ${credential.id}`)
@@ -63,8 +66,8 @@ Estabelecer padrões seguros, resilientes e robustos para integrar aplicações 
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({
-            client_id: process.env.GOOGLE_CLIENT_ID || '',
-            client_secret: process.env.GOOGLE_CLIENT_SECRET || '',
+            client_id: env.get('GOOGLE_CLIENT_ID'),
+            client_secret: env.get('GOOGLE_CLIENT_SECRET'),
             refresh_token: decryptedRefresh,
             grant_type: 'refresh_token',
           }),
@@ -115,7 +118,9 @@ Estabelecer padrões seguros, resilientes e robustos para integrar aplicações 
     ) {
       const token = await this.tokenService.getAccessToken(credential)
       const locationId = credential.externalAccountId // ex: accounts/123/locations/456
-      const url = `https://mybusinesslocalpost.googleapis.com/v1/${locationId}/localPosts`
+      // localPosts são servidos pela API v4 do Google My Business (mybusiness.googleapis.com).
+      // O caminho do recurso já vem completo em externalAccountId: accounts/{id}/locations/{id}.
+      const url = `https://mybusiness.googleapis.com/v4/${locationId}/localPosts`
 
       const payload: Record<string, any> = {
         languageCode: 'pt-BR',

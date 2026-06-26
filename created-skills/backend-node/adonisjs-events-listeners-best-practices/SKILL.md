@@ -36,20 +36,16 @@ Implemente os ouvintes como classes no diretório `app/listeners/`. Utilize o co
 *Exemplo (`app/listeners/notify_subscribers.ts`):*
 ```typescript
 import type CampaignCreated from '#events/campaign_created'
-import { inject } from '@adonisjs/core'
-import Logger from '@adonisjs/core/services/logger'
+import logger from '@adonisjs/core/services/logger'
 
-@inject()
 export default class NotifySubscribers {
-  constructor(protected logger: Logger) {}
-
   async handle(event: CampaignCreated) {
     const { campaign } = event
     try {
-      this.logger.info({ campaignId: campaign.id }, 'Enviando notificações da campanha para os inscritos...')
+      logger.info({ campaignId: campaign.id }, 'Enviando notificações da campanha para os inscritos...')
       // Chame a lógica do serviço aqui...
     } catch (error) {
-      this.logger.error({ error, campaignId: campaign.id }, 'Falha ao notificar inscritos')
+      logger.error({ error, campaignId: campaign.id }, 'Falha ao notificar inscritos')
     }
   }
 }
@@ -110,15 +106,17 @@ test('criação de campanha dispara evento', async ({ assert }) => {
 })
 ```
 
-### 7. Integração com Transmissões (Broadcasting / WebSockets)
-Para atualizações de progresso em tempo real, dispare eventos que se propagam para o frontend via Soketi/Pusher utilizando as convenções de transmissão:
-- De dentro do ouvinte, utilize o serviço de transmissão WebSocket configurado para notificar os usuários nos canais adequados.
+### 7. Integração com Tempo Real (AdonisJS Transmit / SSE)
+Para atualizações de progresso em tempo real, dispare eventos que se propagam para o frontend via **AdonisJS Transmit** (Server-Sent Events). NÃO use Soketi/Pusher/Reverb/WebSockets — o stack-alvo padroniza Transmit.
+- De dentro do ouvinte, importe o serviço `transmit` e publique a mensagem no canal apropriado para notificar os usuários.
 
 *Exemplo:*
 ```typescript
 import type JobProgressUpdated from '#events/job_progress_updated'
-// import broadcast service...
-// broadcastService.toChannel(`jobs.${event.jobId}`).emit('progress', event.progress)
+import transmit from '@adonisjs/transmit/services/main'
+
+// Dentro do método handle do ouvinte:
+transmit.broadcast(`jobs/${event.jobId}`, { progress: event.progress })
 ```
 
 ## Restrições

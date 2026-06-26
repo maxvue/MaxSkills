@@ -13,25 +13,25 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
 ### 1. Definição de Esquemas e Inferência de Tipos
 - Defina todos os esquemas Zod em arquivos dedicados sob um diretório de esquemas (ex: `resources/Vue/Schemas/`). Nomeie-os utilizando o sufixo `.schema.ts`.
 - Sempre infira e exporte os tipos do TypeScript diretamente dos esquemas Zod usando `z.infer`. Não duplique definições de interfaces manualmente.
-- Exemplo (`resources/Vue/Schemas/event.schema.ts`):
+- Exemplo (`resources/Vue/Schemas/gerador.schema.ts`):
   ```typescript
   import { z } from 'zod';
 
-  export const EventSchema = z.object({
-      title: z.string()
-          .min(3, 'O título deve ter pelo menos 3 caracteres')
-          .max(100, 'O título não pode exceder 100 caracteres'),
-      scheduled_at: z.string()
-          .datetime('Data e hora de agendamento inválidas'),
-      platforms: z.array(z.string())
-          .min(1, 'Selecione pelo menos uma rede social'),
-      content: z.string()
-          .max(2200, 'O conteúdo do post não pode exceder 2200 caracteres')
+  export const GeradorSchema = z.object({
+      nome: z.string()
+          .min(3, 'O nome deve ter pelo menos 3 caracteres')
+          .max(100, 'O nome não pode exceder 100 caracteres'),
+      potencia_kwp: z.number()
+          .positive('A potência (kWp) deve ser maior que zero'),
+      inversores: z.array(z.string())
+          .min(1, 'Selecione pelo menos um inversor'),
+      observacoes: z.string()
+          .max(2200, 'As observações não podem exceder 2200 caracteres')
           .optional()
           .nullable(),
   });
 
-  export type EventInput = z.infer<typeof EventSchema>;
+  export type GeradorInput = z.infer<typeof GeradorSchema>;
   ```
 
 ### 2. Validação Reativa de Formulários no Vue 3
@@ -51,7 +51,8 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
       const validate = (): boolean => {
           const result = schema.safeParse(formData);
           if (!result.success) {
-              errors.value = result.error.errors.reduce((acc, err) => {
+              // API atual do Zod: use result.error.issues (errors é alias legado)
+              errors.value = result.error.issues.reduce((acc, err) => {
                   const path = err.path.join('.');
                   acc[path] = err.message;
                   return acc;
@@ -83,28 +84,33 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
   <template>
     <form @submit.prevent="handleSubmit">
       <!-- Mantenha os atributos na mesma linha -->
-      <MaxInputText label="Título" v-model="form.title" :error="errors.title" @update:model-value="clearError('title')" />
-      <MaxInputText label="Data de Agendamento" v-model="form.scheduled_at" :error="errors.scheduled_at" @update:model-value="clearError('scheduled_at')" />
+      <MaxInputText label="Nome" v-model="form.nome" :error="errors.nome" @update:model-value="clearError('nome')" />
+      <MaxInputNumber label="Potência (kWp)" v-model="form.potencia_kwp" :error="errors.potencia_kwp" @update:model-value="clearError('potencia_kwp')" />
       <MaxButton label="Salvar" type="submit" :loading="saving" />
     </form>
   </template>
 
   <script setup lang="ts">
   import { ref, reactive } from 'vue';
-  import { EventSchema } from '../Schemas/event.schema';
+  import { GeradorSchema } from '../Schemas/gerador.schema';
   import { useFormValidation } from '../Composables/useFormValidation';
   import { Toast } from '@maxvue/max-components-ui';
-  import axios from 'axios';
+  import { apiPostRoute } from '@maxvue/max-use';
+  // O salvamento de dados de página passa pela store MaxPinia (auto-save/debounced),
+  // não por axios manual. Aqui usamos a store de geradores fotovoltaicos.
+  import { useGeradorStore } from '../Stores/gerador';
+
+  const geradorStore = useGeradorStore();
 
   const form = reactive({
-      title: '',
-      scheduled_at: '',
-      platforms: [],
-      content: ''
+      nome: '',
+      potencia_kwp: 0,
+      inversores: [],
+      observacoes: ''
   });
 
   const saving = ref(false);
-  const { errors, validate, clearError } = useFormValidation(EventSchema, form);
+  const { errors, validate, clearError } = useFormValidation(GeradorSchema, form);
 
   const handleSubmit = async () => {
       // Validação local antes de enviar
@@ -115,17 +121,18 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
 
       saving.value = true;
       try {
-          await axios.post('/api/events', form);
-          Toast.show({ severity: 'success', title: 'Sucesso', message: 'Evento agendado com sucesso!' });
+          // Persiste via store @maxvue/max-pinia; o helper apiPostRoute resolve o caminho string /api/...
+          await geradorStore.save(form, apiPostRoute('/api/geradores'));
+          Toast.show({ severity: 'success', title: 'Sucesso', message: 'Gerador cadastrado com sucesso!' });
       } catch (err: any) {
-          // Trata erro de API
+          // Trata erro de validação retornado pelo backend Adonis/VineJS (HTTP 422)
           if (err.response?.status === 422 && err.response?.data?.errors) {
               // Mapeia erros 422 de validação vindos do backend Adonis/VineJS
               err.response.data.errors.forEach((e: any) => {
                   errors.value[e.field] = e.message;
               });
           } else {
-              Toast.show({ severity: 'error', title: 'Erro', message: 'Falha ao salvar evento.' });
+              Toast.show({ severity: 'error', title: 'Erro', message: 'Falha ao salvar gerador.' });
           }
       } finally {
           saving.value = false;
@@ -140,7 +147,7 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
   ```json
   {
     "errors": [
-      { "field": "title", "message": "O título é obrigatório" }
+      { "field": "nome", "message": "O nome é obrigatório" }
   ]
   }
   ```

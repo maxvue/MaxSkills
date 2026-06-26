@@ -36,8 +36,8 @@ export class TikTokTokenService {
     expiresIn: number
     refreshExpiresIn: number
   }> {
-    const refreshToken = encryption.decrypt<string>(encryptedRefreshToken)
-    if (!refreshToken) {
+    const refreshToken = encryption.decrypt(encryptedRefreshToken, 'tiktok-token')
+    if (typeof refreshToken !== 'string') {
       throw new Error('Refresh token inválido ou ilegível.')
     }
 
@@ -64,8 +64,8 @@ export class TikTokTokenService {
     }
 
     return {
-      accessToken: encryption.encrypt(data.access_token),
-      refreshToken: encryption.encrypt(data.refresh_token),
+      accessToken: encryption.encrypt(data.access_token, undefined, 'tiktok-token'),
+      refreshToken: encryption.encrypt(data.refresh_token, undefined, 'tiktok-token'),
       expiresIn: data.expires_in,
       refreshExpiresIn: data.refresh_expires_in,
     }
@@ -101,7 +101,7 @@ graph TD
 ```typescript
 import { inject } from '@adonisjs/core'
 import logger from '@adonisjs/core/services/logger'
-import fs from 'node:fs'
+import fs from 'node:fs/promises'
 
 @inject()
 export class TikTokPublishingService {
@@ -149,15 +149,19 @@ export class TikTokPublishingService {
    * Envia um bloco do vídeo para a URL temporária do S3 fornecida pelo TikTok.
    */
   async uploadChunk(uploadUrl: string, chunkPath: string, startByte: number, endByte: number, totalSize: number) {
-    const fileStream = fs.createReadStream(chunkPath)
-    
+    // O fetch nativo (undici) não aceita um ReadStream do Node diretamente.
+    // Como os blocos são limitados (ex.: 10MB), lemos o bloco como Buffer/Uint8Array,
+    // que o fetch aceita nativamente como corpo da requisição.
+    const chunk = await fs.readFile(chunkPath)
+
     const response = await fetch(uploadUrl, {
       method: 'PUT',
       headers: {
         'Content-Range': `bytes ${startByte}-${endByte}/${totalSize}`,
         'Content-Type': 'video/mp4',
+        'Content-Length': String(chunk.byteLength),
       },
-      body: fileStream as any
+      body: chunk,
     })
 
     if (!response.ok) {
@@ -266,17 +270,30 @@ import env from '#start/env'
 
 export default class TikTokWebhooksController {
   async handle({ request, response }: HttpContext) {
-    const signature = request.header('X-TikTok-Signature')
-    const payload = JSON.stringify(request.body())
+    const signature = request.header('TikTok-Signature')
+    const timestamp = request.header('TikTok-Timestamp')
     const clientSecret = env.get('TIKTOK_CLIENT_SECRET')
 
-    // Validação da assinatura do webhook do TikTok
+    // O TikTok assina a concatenação do timestamp com o corpo BRUTO da requisição
+    // (não o JSON re-serializado). Registre o body cru via um middleware/bodyparser
+    // raw para que o HMAC seja idêntico ao calculado pelo TikTok.
+    const rawBody = request.raw() ?? ''
+    if (!signature || !timestamp) {
+      return response.status(401).send('Cabeçalhos de assinatura ausentes')
+    }
+
+    // Validação da assinatura do webhook do TikTok: HMAC-SHA256 de `${timestamp}.${rawBody}`
     const expectedSignature = crypto
       .createHmac('sha256', clientSecret)
-      .update(payload)
+      .update(`${timestamp}.${rawBody}`)
       .digest('hex')
 
-    if (signature !== expectedSignature) {
+    // Comparação em tempo constante para evitar timing attacks.
+    const valid =
+      signature.length === expectedSignature.length &&
+      crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expectedSignature))
+
+    if (!valid) {
       return response.status(401).send('Assinatura inválida')
     }
 
@@ -295,4 +312,4 @@ export default class TikTokWebhooksController {
 - **Criptografia Obrigatória de Credenciais**: Sempre salve access tokens, refresh tokens e credenciais de usuários em colunas criptografadas com o serviço `Encryption` do AdonisJS.
 - **Limites de Polling Estritos**: Sempre imponha um número máximo de tentativas de polling e use backoff exponencial para evitar a ocupação indefinida dos workers de fila.
 - **Mascarar Logs Sensíveis**: Nunca escreva segredos de cliente, chaves públicas, tokens em texto puro ou credenciais confidenciais nos logs do sistema.
-- **Validação de Webhooks**: Sempre valide o cabeçalho `X-TikTok-Signature` com o segredo do cliente para rejeitar payloads falsificados.
+- **Validação de Webhooks**: Sempre valide o cabeçalho `TikTok-Signature` calculando o HMAC-SHA256 de `${TikTok-Timestamp}.${corpo bruto}` com o segredo do cliente (comparação em tempo constante) para rejeitar payloads falsificados.

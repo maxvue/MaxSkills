@@ -19,15 +19,15 @@ node ace configure adonis-autoswagger
 ```
 
 ### 2. Configuração do Swagger (`config/swagger.ts`)
-Defina os metadados da API, esquemas de autenticação (como Bearer Tokens) e exclua rotas que não necessitam de documentação (como rotas genéricas de captura da SPA).
+Defina os metadados da API, esquemas de autenticação (sessão + cookie via guard web) e exclua rotas que não necessitam de documentação (como rotas genéricas de captura da SPA).
 ```typescript
 import path from 'node:path'
 import url from 'node:url'
 
 export default {
   // Título da documentação da API
-  title: 'SocialMediaApp REST API',
-  description: 'Documentação interativa de API para os serviços do SocialMediaApp',
+  title: 'EngeApp REST API',
+  description: 'Documentação interativa de API para os serviços do EngeApp (fotovoltaico/solar)',
   version: '1.0.0',
   
   // Destino do arquivo Swagger JSON
@@ -37,21 +37,24 @@ export default {
   scanDirs: ['app/controllers', 'start'],
   
   // Definição dos esquemas de segurança
+  // O modelo de auth do projeto é sessão + cookie (guard web, sessões em DB, 30 dias).
+  // O cookie de sessão é enviado automaticamente pelo browser; documente-o como apiKey em cookie.
   securitySchemes: {
-    ApiKeyAuth: {
+    SessionCookie: {
       type: 'apiKey',
-      in: 'header',
-      name: 'Authorization',
+      in: 'cookie',
+      name: 'adonis-session',
     },
+    // OAT (Opaque Access Token) APENAS para endpoints MCP/M2M — nunca como padrão da API.
     BearerAuth: {
       type: 'http',
       scheme: 'bearer',
-      bearerFormat: 'JWT',
+      bearerFormat: 'OAT',
     }
   },
   
-  // Segurança padrão aplicada a todos os endpoints
-  security: [{ BearerAuth: [] }],
+  // Segurança padrão aplicada a todos os endpoints: sessão + cookie (guard web)
+  security: [{ SessionCookie: [] }],
   
   // Definição de schemas globais/modelos
   schemas: {
@@ -74,7 +77,7 @@ export default {
   },
   
   // Ignorar rotas que coincidam com estes padrões
-  ignore: ['/sanctum/csrf-cookie', '/webhooks/meta', '/docs', '/swagger'],
+  ignore: ['/webhooks/meta', '/docs', '/swagger'],
   
   // Modo de persistência da interface (true para autogeração, false para manual)
   persistOnStart: true,
@@ -131,7 +134,7 @@ export default class ClientController {
   /**
    * @index
    * @operationId getClients
-   * @description Recupera a lista de clientes gerenciados pela agência do usuário autenticado
+   * @description Recupera a lista de clientes (titulares de usinas fotovoltaicas) do usuário autenticado
    * @responseBody 200 - Lista de clientes - [{"id": "string", "name": "string", "cpf_cnpj": "string", "isActive": true}]
    * @responseBody 401 - Não autorizado
    */
@@ -142,7 +145,7 @@ export default class ClientController {
   /**
    * @store
    * @operationId createClient
-   * @description Cria um novo cliente para a agência
+   * @description Cria um novo cliente (titular de usina)
    * @requestBody {"name": "string", "cpf_cnpj": "string", "international_phone_number": "string", "email": "string"}
    * @responseBody 201 - Detalhes do cliente criado - {"id": "string", "name": "string"}
    * @responseBody 400 - Erro de validação - {"errors": [{"message": "string"}]}
@@ -158,7 +161,7 @@ export default class ClientController {
    * @description Recupera os dados de um cliente específico pelo ID
    * @paramUse id - ID do cliente - true
    * @responseBody 200 - Detalhes do cliente - {"id": "string", "name": "string"}
-   * @responseBody 403 - Proibido (Acesso negado ao cliente desta agência)
+   * @responseBody 403 - Proibido (Acesso negado ao cliente)
    * @responseBody 404 - Cliente não encontrado
    */
   async show({ params, auth, response }: HttpContext) {

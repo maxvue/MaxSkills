@@ -10,12 +10,11 @@ Estabelecer padrões robustos e convenções de codificação para gerenciar o t
 
 ## 1. Tratador Global de Exceções (`app/exceptions/handler.ts`)
 
-O AdonisJS usa uma classe centralizada para capturar e processar todas as exceções não tratadas. Configure seu tratador para retornar formatos de erro JSON consistentes ao lidar com requisições de API, preservando as páginas de status para requisições HTML.
+O AdonisJS usa uma classe centralizada para capturar e processar todas as exceções não tratadas. Como o front-end é uma SPA pura (Vue Router; o Adonis apenas serve o HTML catch-all), o backend funciona como API e **toda** resposta de erro deve ser JSON consistente — não existem views de erro server-side (Edge) para renderizar.
 
 ```typescript
 import app from '@adonisjs/core/services/app'
 import { type HttpContext, ExceptionHandler } from '@adonisjs/core/http'
-import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http'
 import { errors as vErrors } from '@vinejs/vine'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
@@ -26,30 +25,11 @@ export default class HttpExceptionHandler extends ExceptionHandler {
   protected debug = !app.inProduction
 
   /**
-   * As páginas de status renderizam templates HTML personalizados para códigos de status HTTP específicos.
-   */
-  protected renderStatusPages = app.inProduction
-
-  protected statusPages: Record<StatusPageRange, StatusPageRenderer> = {
-    '404': (error, { view }) => {
-      return view.render('pages/errors/not_found', { error })
-    },
-    '500..599': (error, { view }) => {
-      return view.render('pages/errors/server_error', { error })
-    },
-  }
-
-  /**
-   * O método handle intercepta todas as exceções e retorna a resposta ao cliente.
+   * O método handle intercepta todas as exceções e retorna sempre JSON ao cliente.
+   * A SPA (Vue Router) consome estas respostas; não há statusPages/templates HTML.
    */
   async handle(error: any, ctx: HttpContext) {
-    const isJsonRequest = ctx.request.accepts(['html', 'json']) === 'json' || ctx.request.url().startsWith('/api')
-
-    if (isJsonRequest) {
-      return this.handleJsonResponse(error, ctx)
-    }
-
-    return super.handle(error, ctx)
+    return this.handleJsonResponse(error, ctx)
   }
 
   /**
@@ -160,20 +140,15 @@ export default class AccountSuspendedException extends Exception {
   /**
    * Método opcional handle para definir a capacidade de auto-renderização.
    * O AdonisJS chama este método automaticamente ao retornar as respostas.
+   * Backend é API pura: sempre responda JSON (a SPA cuida da UI de erro).
    */
   async handle(error: this, ctx: HttpContext) {
-    const isJsonRequest = ctx.request.accepts(['html', 'json']) === 'json' || ctx.request.url().startsWith('/api')
-
-    if (isJsonRequest) {
-      return ctx.response.status(error.status).send({
-        error: {
-          code: error.code,
-          message: error.message,
-        },
-      })
-    }
-
-    return ctx.view.render('pages/errors/forbidden', { error })
+    return ctx.response.status(error.status).send({
+      error: {
+        code: error.code,
+        message: error.message,
+      },
+    })
   }
 }
 ```
@@ -218,7 +193,7 @@ Evite registrar credenciais, cartões de crédito ou cabeçalhos de autenticaç�
 ```typescript
 import env from '#start/env'
 import app from '@adonisjs/core/services/app'
-import { defineConfig, syncDestination, targets } from '@adonisjs/core/logger'
+import { defineConfig, targets } from '@adonisjs/core/logger'
 
 const loggerConfig = defineConfig({
   default: 'app',
@@ -227,8 +202,7 @@ const loggerConfig = defineConfig({
       enabled: true,
       name: env.get('APP_NAME'),
       level: env.get('LOG_LEVEL'),
-      desination: !app.inProduction ? await syncDestination() : undefined,
-      
+
       // Oculta chaves confidenciais na saída dos logs
       redact: {
         paths: [
@@ -243,8 +217,13 @@ const loggerConfig = defineConfig({
         censor: '***MASKED***',
       },
 
+      // Em desenvolvimento, formata com pino-pretty; em produção,
+      // escreve JSON no stdout (file descriptor 1) para agregadores de log.
       transport: {
-        targets: [targets.file({ destination: 1 })],
+        targets: targets()
+          .pushIf(!app.inProduction, targets.pretty())
+          .pushIf(app.inProduction, targets.file({ destination: 1 }))
+          .toArray(),
       },
     },
   },
