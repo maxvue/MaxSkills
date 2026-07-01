@@ -6,7 +6,7 @@ description: Use when linting, formatting, or resolving ESLint and Stylelint iss
 # Vue ESLint e Stylelint - Padrões de Qualidade
 
 ## Objetivo
-Estabelecer diretrizes unificadas para a depuração, formatação e resolução de inconsistências de estilo e qualidade do código frontend utilizando ESLint 9 e Stylelint 16.
+Estabelecer diretrizes unificadas para a depuração, formatação e resolução de inconsistências de estilo e qualidade do código frontend utilizando ESLint 10 e Stylelint 17.
 
 ## Instruções
 1. **Resolução de ESLint**:
@@ -34,6 +34,8 @@ Estabelecer diretrizes unificadas para a depuração, formatação e resolução
 - NÃO use `<section>` (nem `<article>`/`<aside>` como container genérico); use sempre `<div>` no lugar.
 - NÃO use inputs/botões nativos (`<input>`, `<button>`, `<select>`, `<textarea>`) em código de aplicação; use os componentes MaxComponentsUi (`MaxInputText`, `MaxButton`, etc.).
 - NÃO importe `@vueuse/core` nem `lodash` diretamente; use os composables/utilitários do MaxUse (`@maxvue/max-use`).
+- NÃO use headings nativos (`<h1>`, `<h2>`, `<h3>`, `<h4>`) como título; use `MaxTitle1`/`MaxTitle2`.
+- NÃO use `MaxGridCols` em formulários; use `MaxGrid` e dimensione os campos com atributos (`s-30`, `w-max-300`, `h-min-50`, `w-min-10rem`).
 - NÃO utilize aspas duplas para strings JS/TS ou CSS/SCSS a menos que estejam aninhadas.
 - NÃO adicione vírgulas pendentes em objetos ou arrays (`comma-dangle` é desativado/sinalizado como erro `never`).
 - NÃO remova pontos e vírgulas obrigatórios no fim de declarações (`semi` está definido como `always`).

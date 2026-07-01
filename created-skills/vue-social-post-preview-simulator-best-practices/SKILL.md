@@ -23,7 +23,7 @@ Stack-alvo: AdonisJS v6 (Node) + Vue Router (SPA pura) + Vite 8. SEM Inertia, SE
 - Comentários de código (script/style/template) estritamente em **Português do Brasil (pt-BR)**.
 
 ### 2. Integração com Bibliotecas Locais (MaxComponentsUi / MaxUse)
-- Use componentes do MaxComponentsUi no lugar de tags nativas: `MaxButton`/`MaxIconButton` (em vez de `<button>`), `MaxIcon` (ícones), `MaxTitle`/`MaxText` (em vez de `<h3>`/`<h4>`), `MaxUserAvatar` (avatares), `MaxModal`, `MaxCard`, `MaxGrid` quando aplicável.
+- Use componentes do MaxComponentsUi no lugar de tags nativas: `MaxButton`/`MaxIconButton` (em vez de `<button>`), `MaxIcon` (ícones), `MaxTitle`/`MaxText` (em vez de `<h3>`/`<h4>`), `MaxUserAvatar` (avatares), `MaxModal`, `MaxGrid` quando aplicável (não existe um `MaxCard` genérico — use `<div>` + SCSS).
 - Componentes do MaxComponentsUi são auto-registrados via `unplugin-vue-components` — **sem import manual** no template.
 - `ref`, `computed`, `watch` etc. são auto-importados via `unplugin-auto-import` — **sem import manual**.
 - `useTimeAgo` (e demais composables do `@maxvue/max-use`): instancie o composable **uma única vez** no `setup`, passando um `ref`/`computed` reativo com a data. **Nunca** instancie dentro de um `computed` — `useTimeAgo` cria um efeito interno e seria recriado a cada recálculo (vazamento/efeitos duplicados).
@@ -362,7 +362,7 @@ import { useTimeAgo } from '@maxvue/max-use';
 ### Instagram — grade de feed 3×3 com drag-and-drop
 - Container `935px`; grid `repeat(3, 1fr)`; cards quadrados (`aspect-ratio: 1/1`, `object-fit: cover`).
 - Indicadores de tipo no canto superior direito (`position: absolute`): Carrossel (`iconoir:multiple-pages`), Reels/Vídeo (`iconoir:play`), Imagem (sem overlay).
-- **Drag-and-drop** com `vue-draggable-next` (ver skill `vue-draggable-next-best-practices`): `<draggable v-model="posts" item-key="id" ...>` em uma linha, slot `#item` com `{ element }`.
+- **Drag-and-drop** com `vue-draggable-next` (ver skill `vue-draggable-next-best-practices`): importe e registre localmente o componente sob o nome `draggable` (`import { VueDraggableNext as draggable } from 'vue-draggable-next'`); use `<draggable v-model="posts" item-key="id" ...>` em uma linha, slot `#item` com `{ element }`.
 - **Persistência:** capture `@change` e reflita a nova ordem no estado da store `@maxvue/max-pinia`. NÃO faça `axios` manual — mutar `store.posts` dispara o auto-save (debounced) para `/api/...`.
 
 ```vue
@@ -403,8 +403,8 @@ import { useTimeAgo } from '@maxvue/max-use';
 </template>
 
 <script setup lang="ts">
-// O componente da lib é o default export, registrado globalmente como <draggable>.
-import VueDraggableNext from 'vue-draggable-next';
+// Registro local: renomeia o componente da lib para <draggable> no template deste componente.
+import { VueDraggableNext as draggable } from 'vue-draggable-next';
 
 interface InstagramSimulatedPost {
   id: string;
@@ -568,9 +568,8 @@ const onGridReorder = () => { emit('reordered', posts.value); };
 </template>
 
 <script setup lang="ts">
-import { useTimeAgo, useToast } from '@maxvue/max-use';
-
-const toast = useToast();
+import { useTimeAgo } from '@maxvue/max-use';
+import { Toast } from '@maxvue/max-components-ui';
 
 type GbpPostType = 'NEWS' | 'OFFER' | 'EVENT';
 type GbpCtaType = 'BOOK' | 'ORDER_ONLINE' | 'BUY' | 'LEARN_MORE' | 'SIGN_UP' | 'CALL_NOW';
@@ -640,12 +639,12 @@ const ctaUrl = computed<string>(() => {
 });
 
 const simulateCopy = (): void => {
-  toast.info(`[Simulador] Código do cupom "${props.couponCode}" copiado!`);
+  Toast.info(`[Simulador] Código do cupom "${props.couponCode}" copiado!`);
 };
 
 const handleCtaClick = (): void => {
-  if (props.ctaType === 'CALL_NOW') toast.info('[Simulador] Ação "Ligar agora" disparada.');
-  else toast.info(`[Simulador] CTA "${ctaLabel.value}" redirecionando para: ${ctaUrl.value}`);
+  if (props.ctaType === 'CALL_NOW') Toast.info('[Simulador] Ação "Ligar agora" disparada.');
+  else Toast.info(`[Simulador] CTA "${ctaLabel.value}" redirecionando para: ${ctaUrl.value}`);
 };
 </script>
 
@@ -934,7 +933,7 @@ const validateAspectRatio = (file: File): Promise<boolean> => {
 - **NÃO** quebre atributos do template em várias linhas — mantenha-os em uma única linha.
 - **NÃO** faça GET/POST manual (`axios`/`fetch`) para dados de página nem salvamentos manuais — use stores `@maxvue/max-pinia` (auto-save debounced) com rotas string `/api/...`. NÃO use `route()`/Ziggy.
 - **NÃO** manipule o DOM por seletores (`document.querySelector`) — use `ref` de template.
-- **NÃO** use `alert()` nativo — use componentes locais de notificação (ex.: `useToast`).
+- **NÃO** use `alert()` nativo — use o helper `Toast` do `@maxvue/max-components-ui` (ex.: `Toast.info(...)`/`Toast.show({ title, severity })`).
 - **NÃO** ignore as Safe Zones (9:16) nem os limites de caracteres (500 Threads, ~220/1500 GBP, 300 Facebook, 80 legenda vertical).
 - Todos os comentários de código em **pt-BR**.
 

@@ -1,0 +1,88 @@
+{
+  "corporate_blue": {
+    "table": {
+      "borderSize": 6,
+      "borderColor": "1B365D",
+      "cellMargin": 120,
+      "alignment": "center"
+    },
+    "header": {
+      "bgColor": "1B365D",
+      "font": {
+        "name": "Arial",
+        "size": 10,
+        "bold": true,
+        "color": "FFFFFF"
+      },
+      "paragraph": {
+        "alignment": "center",
+        "spaceAfter": 0
+      }
+    },
+    "row_odd": {
+      "bgColor": "F0F4F8",
+      "font": {
+        "name": "Arial",
+        "size": 9,
+        "color": "333333"
+      },
+      "paragraph": {
+        "spaceAfter": 0
+      }
+    },
+    "row_even": {
+      "bgColor": "FFFFFF",
+      "font": {
+        "name": "Arial",
+        "size": 9,
+        "color": "333333"
+      },
+      "paragraph": {
+        "spaceAfter": 0
+      }
+    }
+  },
+  "corporate_green": {
+    "table": {
+      "borderSize": 6,
+      "borderColor": "2E7D32",
+      "cellMargin": 120,
+      "alignment": "center"
+    },
+    "header": {
+      "bgColor": "2E7D32",
+      "font": {
+        "name": "Arial",
+        "size": 10,
+        "bold": true,
+        "color": "FFFFFF"
+      },
+      "paragraph": {
+        "alignment": "center",
+        "spaceAfter": 0
+      }
+    },
+    "row_odd": {
+      "bgColor": "E8F5E9",
+      "font": {
+        "name": "Arial",
+        "size": 9,
+        "color": "333333"
+      },
+      "paragraph": {
+        "spaceAfter": 0
+      }
+    },
+    "row_even": {
+      "bgColor": "FFFFFF",
+      "font": {
+        "name": "Arial",
+        "size": 9,
+        "color": "333333"
+      },
+      "paragraph": {
+        "spaceAfter": 0
+      }
+    }
+  }
+}

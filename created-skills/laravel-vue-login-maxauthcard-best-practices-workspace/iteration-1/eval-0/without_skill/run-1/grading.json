@@ -1,0 +1,36 @@
+{
+  "expectations": [
+    {
+      "text": "Usa MaxAuthCard reagindo aos eventos @submit e @social (componente visual), sem colocar HTTP dentro dele",
+      "passed": false,
+      "evidence": "Login.vue ALUCINA a API: usa <MaxAuthCard.Field>, <MaxAuthCard.Checkbox>, <MaxAuthCard.SubmitButton>, <MaxAuthCard.SocialButton> e :errors (plural) — nenhum existe. O card real expõe v-model:email/password/remember, :providers, :error, @submit, @social. Não emite @social (usa @click em SocialButton inexistente)."
+    },
+    {
+      "text": "A action de login chama apiPostRoute('login', ...) com NOME de rota Ziggy, não URL crua nem axios.get manual",
+      "passed": false,
+      "evidence": "Usa this.post(route('login'), ...) — método .post inventado no store MaxPinia; não usa apiPostRoute do MaxUse."
+    },
+    {
+      "text": "Login social é navegação total: window.location.href = route('social.redirect', { provider }), não XHR",
+      "passed": true,
+      "evidence": "loginWith: window.location.href = route('oauth.redirect', { provider }) — mecanismo correto (nome de rota fora do contrato: oauth.redirect vs social.redirect)."
+    },
+    {
+      "text": "Carrega provedores (apiGetRoute('social.providers')) e mapeia para { id, label, icon } no :providers",
+      "passed": false,
+      "evidence": "Provedores hardcoded em <template> (Google/Facebook fixos); não há fetch de social.providers nem :providers dinâmico."
+    },
+    {
+      "text": "Trata e-mail OU telefone (detecção/seleção do identificador) e o 'remember'",
+      "passed": true,
+      "evidence": "Campo único 'login' (e-mail ou telefone) + useToggle remember; backend escolhe a coluna."
+    }
+  ],
+  "score": "2/5",
+  "summary": {
+    "pass_rate": 0.4,
+    "passed": 2,
+    "failed": 3,
+    "total": 5
+  }
+}

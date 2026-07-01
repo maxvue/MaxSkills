@@ -42,9 +42,10 @@ Estabelecer padrões de codificação e padrões estruturais para criar playgrou
   - **Resposta de chat do agente:** consuma o stream do backend (AdonisJS rodando o Vercel AI SDK) com o helper de cliente do Vercel AI SDK (`useChat`/`readUIMessageStream`), acumulando os chunks de texto de forma reativa em `message.content`.
   - **Eventos colaterais em tempo real** (progresso de ferramentas, broadcast multi-usuário): assine via `@adonisjs/transmit-client`:
     ```typescript
-    import { Transmit } from '@adonisjs/transmit-client'
+    import { useTransmitClient } from '@/composables/useTransmitClient'
 
-    const transmit = new Transmit({ baseUrl: window.location.origin })
+    // Obtenha SEMPRE o cliente Transmit pelo singleton — nunca instancie `new Transmit()` no componente.
+    const transmit = useTransmitClient()
     const subscription = transmit.subscription(`playground/${runId}`)
     await subscription.create()
     subscription.onMessage((chunk) => {

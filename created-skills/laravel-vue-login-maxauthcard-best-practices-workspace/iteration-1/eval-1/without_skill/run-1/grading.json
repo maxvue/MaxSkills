@@ -1,0 +1,36 @@
+{
+  "expectations": [
+    {
+      "text": "Store useUser usa MaxPinia com get por NOME de rota (get: { route: 'user.data' }), não axios.get solto",
+      "passed": true,
+      "evidence": "options com get: { route: 'user.data' }, key: 'user'. Leu as libs reais e usou nome Ziggy, não path /api."
+    },
+    {
+      "text": "Implementa helper waitRequest aguardando a 1ª requisição de sessão concluir",
+      "passed": true,
+      "evidence": "ensureUserResolved() (equivalente ao waitRequest) aguarda status.server.get.is_requested settled (200 ou 401), com dedup e timeout."
+    },
+    {
+      "text": "Guard beforeEach usa await user.waitRequest() ANTES de checar user.data?.id",
+      "passed": true,
+      "evidence": "router.ts: await ensureUserResolved() antes de checar isLoggedIn."
+    },
+    {
+      "text": "Redireciona para a rota nomeada 'login' quando não autenticado",
+      "passed": true,
+      "evidence": "return { name: 'login', query: { redirect: to.fullPath } }."
+    },
+    {
+      "text": "Explica o porquê (race condition no reload da página)",
+      "passed": true,
+      "evidence": "Comentários explicam: leitura síncrona de isLoggedIn com data null antes do GET resolver. Bônus: aponta necessidade de 401 e clearAll no logout."
+    }
+  ],
+  "score": "5/5",
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

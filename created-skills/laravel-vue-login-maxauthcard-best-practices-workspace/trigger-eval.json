@@ -1,0 +1,23 @@
+[
+  { "query": "preciso montar a tela de entrar no maxdmin com aquele card de login (MaxAuthCard), e-mail ou telefone + senha, e o botão de entrar com google. front é vue com ziggy, backend laravel", "should_trigger": true },
+  { "query": "como faço o guard do vue router parar de jogar o usuário pro /login quando dá F5? tô usando maxpinia no engeapp (laravel 13) e o user.data ainda não carregou", "should_trigger": true },
+  { "query": "implementa o callback do socialite pro google no nosso laravel, criando o usuário no primeiro acesso e autenticando por sessão", "should_trigger": true },
+  { "query": "o login social com facebook tá dando InvalidStateException no callback, é laravel socialite com sessão, me ajuda a debugar", "should_trigger": true },
+  { "query": "quero adicionar o MaxAuthCard na página de login e ligar os eventos submit e social no store, sem inertia, com vue router", "should_trigger": true },
+  { "query": "onde eu defino as rotas nomeadas de auth pro ziggy resolver o route('login') e o redirect do oauth no front?", "should_trigger": true },
+  { "query": "recuperar o usuário logado no frontend por uma store maxpinia (user.data) e proteger as rotas que exigem autenticação no engeapp", "should_trigger": true },
+  { "query": "o apiPostRoute('login') tá retornando null e não cria a sessão, stack laravel 13 com sanctum csrf e cookie, o que pode ser?", "should_trigger": true },
+  { "query": "monta o fluxo de entrar por e-mail/telefone com lembrar-me e os botões google e facebook na tela de acesso do painel administrativo", "should_trigger": true },
+  { "query": "preciso do logout que encerra a sessão no laravel e redireciona pra tela de login limpando o estado do usuário no front", "should_trigger": true },
+
+  { "query": "implementa o login social com Ally no AdonisJS do Maxdmin (node), google e facebook, autenticação por sessão", "should_trigger": false },
+  { "query": "cria o formulário multi-etapas de CADASTRO de nova empresa solar com CNPJ, endereço e validação no engeapp", "should_trigger": false },
+  { "query": "configura o Sanctum para autenticação de API por TOKEN pra um app mobile consumir os endpoints do engeapp", "should_trigger": false },
+  { "query": "preciso de uma policy de autorização pra checar se o usuário pode editar um projeto específico no laravel", "should_trigger": false },
+  { "query": "adiciona autenticação de dois fatores (2FA) por app autenticador (TOTP) pros usuários", "should_trigger": false },
+  { "query": "gera os detalhes do driver do socialite pro Microsoft Azure AD e o mock dele em teste Pest", "should_trigger": false },
+  { "query": "como faço o fluxo de reset de senha por e-mail (esqueci minha senha) com token no laravel?", "should_trigger": false },
+  { "query": "cria uma store maxpinia pra listar e auto-salvar os projetos da dashboard, com cache", "should_trigger": false },
+  { "query": "configura o ziggy no vite pra gerar o arquivo de rotas nomeadas do app inteiro no build", "should_trigger": false },
+  { "query": "o impersonate de usuário (entrar como outro usuário) tá dando erro no laravel, como arrumo?", "should_trigger": false }
+]

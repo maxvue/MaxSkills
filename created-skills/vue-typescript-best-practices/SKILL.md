@@ -36,6 +36,10 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
 
 *Nunca importe `@vueuse/core` nem `lodash` diretamente: use os composables e o objeto `_` (estilo lodash) do **MaxUse** (`@maxvue/max-use`). Se faltar algo, adicione ao MaxUse encapsulando o VueUse — não importe `@vueuse/core`/`lodash` no código de aplicação.*
 
+*Nunca use headings nativos (`<h1>`/`<h2>`/`<h3>`/`<h4>`) como título: use `<MaxTitle1 h1="Título" h2="Subtítulo" />` (título principal) e `<MaxTitle2 h1="Título da seção" />` (seção).*
+
+*Formulários usam `MaxGrid` (nunca `MaxGridCols`): dimensione os campos internos com atributos UnoCSS — `s-[porcentagem]` (ex.: `s-30` = 30% da largura do formulário) e `[w|h]-[max|min]-[valor]` (px sem unidade, ou `rem`: `w-max-300`, `h-min-50`, `w-min-10rem`).*
+
 ## 2. Tipagem de defineProps e defineEmits
 - **defineProps:** Use declarações baseadas em tipo (`defineProps<{ ... }>()`) em vez de arrays ou objetos em tempo de execução. Utilize `withDefaults` para definir valores padrão para as propriedades.
   ```typescript
@@ -84,10 +88,10 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
 ## 5. Stores do Pinia (Setup Stores)
 - **Dados de página vindos do backend (GET) e salvamento (save) DEVEM passar por uma store `@maxvue/max-pinia`**, que é a camada padrão de cache + auto-save (debounced) do projeto. Não faça `axios.get`/`axios.post` manuais nem salvamento por submit manual para dados de página; deixe o MaxPinia resolver o GET (via `apiGetRoute`) e persistir as alterações automaticamente. Tipifique explicitamente o estado da store.
   ```typescript
-  import { definePiniaStore } from '@maxvue/max-pinia';
+  import { defineStore } from 'pinia';
   import { ref, computed } from 'vue';
 
-  export const useClienteStore = definePiniaStore('cliente', () => {
+  export const useClienteStore = defineStore('cliente', () => {
       // Carregado e salvo automaticamente pela camada MaxPinia (rota string '/api/...').
       const cliente = ref<Client | null>(null);
       const possuiProjetos = computed<boolean>(() => (cliente.value?.projects?.length ?? 0) > 0);

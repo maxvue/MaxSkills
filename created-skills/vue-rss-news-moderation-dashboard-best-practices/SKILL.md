@@ -59,20 +59,40 @@ Garanta uma experiência fluida para o usuário fornecendo feedback visual táti
     await newsStore.approve(itemId)
   }
   ```
-  Na store, o comando usa `apiPostRoute` do `@maxvue/max-use` para resolver o caminho string `/api/...`, e em caso de falha refaz o GET pela própria store (sem reexecutar fetch manual):
+  A store é uma SETUP store do `@maxvue/max-pinia` (`isCached` + `options`). O comando de aprovar usa `apiPostRoute` do `@maxvue/max-use` (chamada imperativa — executa a requisição e retorna o payload direto), e em caso de falha refaz o GET pela própria store via `reload()` (sem reexecutar fetch manual):
   ```typescript
   // stores/newsModeration.ts
+  import { defineStore } from 'pinia'
+  import { ref, computed } from 'vue'
   import { apiPostRoute } from '@maxvue/max-use'
 
-  async approve(itemId: string) {
-    try {
-      await apiPostRoute(`/api/news/moderation/${itemId}/approve`)
-    } catch (error) {
-      // rollback: recarrega o estado via a própria store
-      await this.load()
+  export const useNewsModerationStore = defineStore('news.moderation', () => {
+    const isCached = ref(true)
+    const items = ref<any[]>([])
+    // Parâmetro de busca reativo: alterá-lo dispara automaticamente novo GET pela store.
+    const search = ref('')
+
+    // route é caminho string /api/...; a store chama apiGetRoute internamente.
+    // options.get.data é reativo — o GET refaz sozinho quando search muda.
+    const options = computed(() => ({
+      get: { route: '/api/news/moderation', data: { search: search.value } },
+      key: 'news-moderation',
+    }))
+
+    async function approve(itemId: string) {
+      try {
+        // Chamada imperativa de comando (não é config de store): dispara o POST.
+        await apiPostRoute(`/api/news/moderation/${itemId}/approve`)
+      } catch (error) {
+        // rollback: recarrega o estado via a própria store (não existe load())
+        await reload()
+      }
     }
-  }
+
+    return { isCached, items, search, options, approve }
+  })
   ```
+  > `reload()` é injetado pelo `@maxvue/max-pinia`; dentro da setup store ele fica disponível na instância.
 
 ### 4. Filtragem Híbrida no Lado do Cliente e do Servidor
 Combine a busca instantânea de texto no cliente com a filtragem dinâmica via API no backend:
@@ -87,8 +107,10 @@ Combine a busca instantânea de texto no cliente com a filtragem dinâmica via A
   const debouncedSearch = refDebounced(searchInput, 300)
 
   watch(debouncedSearch, (newQuery) => {
-    // a store reexecuta o GET (/api/...) e atualiza seu cache automaticamente
-    newsStore.load({ search: newQuery })
+    // Atualiza o parâmetro reativo da store (options.get.data). Como ele é reativo,
+    // o @maxvue/max-pinia reexecuta o GET (/api/...) e atualiza o cache automaticamente.
+    // Se precisar forçar a revalidação, chame newsStore.reload().
+    newsStore.search = newQuery
   })
   ```
 

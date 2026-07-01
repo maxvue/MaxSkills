@@ -46,7 +46,7 @@ Fornecer diretrizes e convenções claras para implementar atalhos de teclado gl
    - Exemplo:
      ```html
      <!-- Dispara apenas quando Enter é pressionado sozinho -->
-     <input @keydown.enter.exact="confirmAction" />
+     <MaxInputText @keydown.enter.exact="confirmAction" />
 
      <!-- Dispara apenas quando Ctrl e S são pressionados juntos, prevenindo a ação do navegador -->
      <div @keydown.ctrl.s.prevent.exact="saveChanges"></div>

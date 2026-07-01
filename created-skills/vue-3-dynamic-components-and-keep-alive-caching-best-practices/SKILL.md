@@ -88,7 +88,9 @@ const activeComponent = computed(() => {
     gap: 8px;
     margin-bottom: 16px;
     
-    button {
+    // O template renderiza <MaxButton>, não um <button> nativo; alcançamos o
+    // elemento interno via :deep() e alvejamos a classe aplicada no componente.
+    :deep(.max-button) {
       padding: 8px 16px;
       border: 1px solid #ccc;
       background-color: #f9f9f9;
@@ -119,17 +121,24 @@ const activeComponent = computed(() => {
 </template>
 
 <script setup lang="ts">
-import { shallowRef, defineAsyncComponent } from 'vue';
+import { shallowRef, defineAsyncComponent, defineComponent, h } from 'vue';
 import LoadingSpinner from './LoadingSpinner.vue';
 import ErrorDisplay from './ErrorDisplay.vue';
 
-// Carrega o componente de forma assíncrona com estados de carregamento e erro
-const AsyncChartWidget = defineAsyncComponent({
+// O wrapper de defineAsyncComponent NÃO expõe o nome do componente interno,
+// então `<KeepAlive include="AsyncChartWidget">` não casaria. Damos um nome
+// explícito ao wrapper para que o `include` resolva corretamente.
+const AsyncChartInner = defineAsyncComponent({
   loader: () => import('./components/AsyncChartWidget.vue'),
   loadingComponent: LoadingSpinner,
   delay: 200, // Evita flash do spinner para conexões rápidas
   errorComponent: ErrorDisplay,
   timeout: 5000 // Limite de 5 segundos para carregar
+});
+
+const AsyncChartWidget = defineComponent({
+  name: 'AsyncChartWidget', // nome que o KeepAlive `include` irá casar
+  render: () => h(AsyncChartInner)
 });
 
 // shallowRef para melhor performance ao gerenciar o componente dinâmico

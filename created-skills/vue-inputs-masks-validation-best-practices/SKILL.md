@@ -63,11 +63,18 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
 ### 6. Validação de Input de Telefone
 - Sempre prefira utilizar o componente pré-definido `MaxPhoneField` da biblioteca `MaxComponentsUi`, que encapsula a seleção de código de país (DDI) e a máscara de input dinâmica.
 - Importe e use a função helper de validação `phone` de `@maxvue/max-use` (que utiliza internamente `libphonenumber-js`).
-- Normalize o valor no formato estrito `E.164` antes de atribuí-lo ao campo da store MaxPinia (que persiste via auto-save):
+- Normalize o valor no formato estrito `E.164` antes de atribuí-lo ao campo da store MaxPinia (que persiste via auto-save). Não basta remover não-dígitos e prefixar `+` — isso NÃO produz E.164 válido. Use `libphonenumber-js` para parsear e emitir o número no formato correto:
   ```typescript
+  import { parsePhoneNumber } from 'libphonenumber-js';
+
   const formatToE164 = (rawPhone: string): string => {
-      const cleanDigits = rawPhone.replace(/\D/g, '');
-      return cleanDigits ? `+${cleanDigits}` : '';
+      try {
+          // 'BR' é o país padrão para números digitados sem DDI.
+          const parsed = parsePhoneNumber(rawPhone, 'BR');
+          return parsed?.isValid() ? parsed.number : ''; // `.number` já está em E.164 (ex.: +5511999999999)
+      } catch {
+          return '';
+      }
   };
   ```
 

@@ -104,8 +104,8 @@ const loadDetails = async (): Promise<void> => {
   try {
     // Exemplo com store MaxPinia (cache + GET automático):
     // const store = useResponsavelTecnicoStore();
-    // await store.load();
-    // userData.value = store.item;
+    // await store.reload(); // GET automático no boot; reload() apenas para refetch manual
+    // userData.value = store.data;
     // (placeholder de simulação abaixo apenas para o exemplo isolado)
     await new Promise((resolve) => setTimeout(resolve, 600));
     userData.value = {

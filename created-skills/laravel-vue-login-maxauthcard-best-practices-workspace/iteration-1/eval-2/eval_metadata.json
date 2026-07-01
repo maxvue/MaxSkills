@@ -1,0 +1,12 @@
+{
+  "eval_id": 2,
+  "eval_name": "socialite-backend",
+  "prompt": "Implementa o backend de login social com Laravel Socialite pro nosso stack (Google e Facebook), com as rotas nomeadas certas pro Ziggy e criando o usuário automaticamente se for o primeiro acesso. Lembra que a autenticação é por sessão.",
+  "assertions": [
+    { "text": "SocialiteController com redirect(), callback() e providers()", "passed": null, "evidence": "" },
+    { "text": "Valida o provider contra allowlist (abort 404 / rejeita provider inválido)", "passed": null, "evidence": "" },
+    { "text": "Callback faz find-or-create do usuário com senha aleatória e Auth::login (sessão, não token)", "passed": null, "evidence": "" },
+    { "text": "Define rotas NOMEADAS social.redirect / social.callback / social.providers para o Ziggy", "passed": null, "evidence": "" },
+    { "text": "Configura config/services.php para google e facebook", "passed": null, "evidence": "" }
+  ]
+}

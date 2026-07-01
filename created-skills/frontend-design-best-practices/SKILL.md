@@ -138,7 +138,7 @@ Essa âncora deve estar visível na UI final.
 **Orientação de Framework**
 
 * **HTML/CSS**: Prefira recursos nativos, CSS moderno. Use `<div>` no lugar de `<section>`.
-* **Vue 3 + UnoCSS (attributify, `presetMaxUno`)**: Componentes `<script setup>`, estilos via atributos UnoCSS e componentes Max (`@maxvue/max-components-ui`). Sem Tailwind. Atributos sempre inline (uma linha por tag); nunca `<section>` — sempre `<div>`. **Nunca use inputs/botões nativos** (`<input>`/`<button>`/`<select>`/`<textarea>`) em código de app — use sempre os componentes MaxComponentsUi (`MaxInputText`, `MaxButton`, `MaxIconButton`, etc.). **Não importe `@vueuse/core` nem `lodash`** — use os composables/utilitários do MaxUse (`@maxvue/max-use`).
+* **Vue 3 + UnoCSS (attributify, `presetMaxUno`)**: Componentes `<script setup>`, estilos via atributos UnoCSS e componentes Max (`@maxvue/max-components-ui`). Sem Tailwind. Atributos sempre inline (uma linha por tag); nunca `<section>` — sempre `<div>`. **Nunca use inputs/botões nativos** (`<input>`/`<button>`/`<select>`/`<textarea>`) em código de app — use sempre os componentes MaxComponentsUi (`MaxInputText`, `MaxButton`, `MaxIconButton`, etc.). **Nunca use headings nativos** (`<h1>`/`<h2>`/`<h3>`/`<h4>`) — use `MaxTitle1`/`MaxTitle2`. **Formulários usam `MaxGrid`** (nunca `MaxGridCols`), com campos dimensionados por atributos (`s-30`, `w-max-300`, `h-min-50`, `w-min-10rem`). **Não importe `@vueuse/core` nem `lodash`** — use os composables/utilitários do MaxUse (`@maxvue/max-use`).
 * **Animação**: CSS/transições nativas primeiro; bibliotecas de motion apenas quando justificado
 
 **Correspondência de Complexidade**

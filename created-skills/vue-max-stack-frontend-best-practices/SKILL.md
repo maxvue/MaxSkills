@@ -62,6 +62,8 @@ Ambos os projetos compartilham o mesmo `eslint.config.js` (regras `@stylistic` +
   ❌ `<button @click="salvar">Salvar</button>`  →  ✅ `<MaxButton label="Salvar" icon="mdi:content-save" @click="salvar" />`
 
   (Exceção: **dentro** da própria biblioteca MaxComponentsUi — ao construir os wrappers via `InputBase` — o elemento nativo é a primitiva e é permitido.)
+- **Nunca use headings nativos como título**: nada de `<h1>`/`<h2>` (nem `<h3>`/`<h4>`). Use `<MaxTitle1 h1="Título" h2="Subtítulo" />` para o título principal e `<MaxTitle2 h1="Título da seção" />` para títulos de seção.
+- **Formulários usam `MaxGrid` (nunca `MaxGridCols`)**: dimensione os campos internos com atributos UnoCSS — `s-[porcentagem]` (ex.: `s-30` = 30% da largura do formulário) e `[w|h]-[max|min]-[valor]` (px sem unidade, ou `rem`: `w-max-300`, `h-min-50`, `w-min-10rem`). Não monte grids/larguras manuais com CSS.
 - **Nunca importe `@vueuse/core` nem `lodash` diretamente**: use os composables e utilitários do **MaxUse** (`@maxvue/max-use`) — o objeto `_` (estilo lodash) para helpers e os composables do MaxUse para reatividade. Se o composable/helper necessário ainda não existir no MaxUse, adicione-o lá (encapsulando o VueUse), em vez de importar `@vueuse/core`/`lodash` no código de aplicação.
 - **Comentários sempre em pt-BR.**
 
@@ -85,7 +87,7 @@ Esqueleto canônico:
     const store = useEntidadesStore();
     const { itens, loading } = storeToRefs(store);
 
-    onMounted(() => store.load());
+    // O GET é automático ao montar a store (MaxPinia). Para revalidar, use store.reload().
 </script>
 
 <style lang="scss" scoped>
@@ -124,11 +126,15 @@ Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isVali
 ### Componentes estruturais (nomes reais)
 
 - **Botões**: `MaxButton`, `MaxIconButton`.
-- **Layout/grid**: `MaxGrid` (wrapper flexbox) ou `MaxGridCols` (24 colunas). Nos filhos, use atalhos de tamanho UnoCSS: `s100` (100%), `s50`, `s33`, `s25`.
+- **Layout/grid**: `MaxGrid` (wrapper flexbox) ou `MaxGridCols` (24 colunas). **Ao montar formulários, use sempre `MaxGrid` — nunca `MaxGridCols`.** Os elementos internos (inputs, etc.) recebem o dimensionamento por props/atributos UnoCSS diretamente:
+  - **Largura percentual do formulário**: `s-[porcentagem]` → `s-30` ocupa 30% da largura do formulário, `s-50` = 50%, `s-100` = 100%. (Os atalhos discretos `s100`/`s50`/`s33`/`s25` continuam válidos como equivalentes de 100/50/33/25%.)
+  - **Limites de largura/altura**: `[w|h]-[max|min]-[valor]`. Sem unidade = px; com `rem` = rem. Exemplos: `w-max-300` (largura máxima de 300px), `h-min-50` (altura mínima de 50px), `w-min-10rem` (largura mínima de 10rem).
+
+  Ex.: `<MaxInputText v-model="form.nome" label="Nome" s-70 w-max-400 />` · `<MaxInputCep v-model="form.cep" label="CEP" s-30 w-min-8rem />` dentro de um `<MaxGrid>`.
 - **Tabelas**: `MaxTable` (leitura, cabeçalho fixo) e `MaxTableFields` (+ `MaxTableColumn`, editável).
 - **Modais/popovers**: `MaxModal` (métodos `toggle()`/`show()`/`hide()` ou store `useModalStore`), `MaxPopover`, `MaxPopoverConfirm`, `MaxPopoverMenu`, `MaxIconConfirm`.
 - **Feedback**: `MaxLoader`, `MaxBadgeComponent`, `MaxToast` (montar uma vez na raiz). Disparo: `Toast.show({ severity: 'success' | 'error' | 'warn', title, message })` (importado de `@maxvue/max-components-ui`).
-- **Títulos/cards**: `MaxTitle`, `MaxAuthCard`.
+- **Títulos/cards**: `MaxTitle1` (título principal — props `h1="Título"` e `h2="Subtítulo"`), `MaxTitle2` (título de seção), `MaxAuthCard`. **Nunca use headings nativos** (`<h1>`, `<h2>`, `<h3>`, `<h4>`) como título — use `MaxTitle1`/`MaxTitle2`.
 - **Ícones**: `MaxIcon` ou prop `icon` por string Iconify — MDI no Maxdmin (`icon="mdi:plus"`). Não importe SVGs avulsos quando há ícone no set.
 
 > Se o componente que você imagina não está nesta lista, confira o catálogo do projeto (`resources/components-catalog.md` / `components-catalog`) **antes** de varrer o código-fonte da MaxComponentsUi — a lista acima já cobre os casos comuns e evita exploração desnecessária (e lenta).
@@ -162,18 +168,17 @@ export const useEntidadesStore = defineStore('entidades', () => {
     // GET roteado pela camada de cache do @maxvue/max-pinia — sem axios.get manual.
     const options = computed(() => ({ get: { route: '/api/entidades' }, key: 'entidades' }));
 
-    // load() apenas dispara/aguarda a carga cacheada; o MaxPinia popula a store.
-    async function load(): Promise<void> {
-        await (useEntidadesStore() as any).status?.server?.get?.request?.();
-    }
+    // GET automático ao montar; para revalidar use o reload() injetado pelo MaxPinia
+    // (params dinâmicos vão via options.get.data reativo). Não invente um load() próprio.
 
     async function create(payload: Partial<Entidade>): Promise<Entidade> {
-        const { data } = await apiPostRoute('/api/entidades', payload);
+        // apiPostRoute executa a requisição e retorna o payload DIRETAMENTE (não { data }).
+        const data = await apiPostRoute('/api/entidades', payload);
         itens.value.push(data);
         return data;
     }
 
-    return { itens, isCached, options, load, create };
+    return { itens, isCached, options, create };
 });
 ```
 

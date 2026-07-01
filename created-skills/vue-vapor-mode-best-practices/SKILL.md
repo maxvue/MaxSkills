@@ -3,14 +3,15 @@ name: vue-vapor-mode-best-practices
 description: Use when developing, reviewing, or debugging Vue 3 components using the experimental Vapor Mode, configuring the vaporInteropPlugin, managing reactive state without Virtual DOM, or integrating Vapor components with traditional VDOM components. Triggers on Vapor compilation, .vapor.vue files, vapor import, and VDOM interop.
 ---
 
-# Boas Práticas do Vue 3.6 Vapor Mode
+# Boas Práticas do Vapor Mode (experimental) no Vue
 
 ## Objetivo
-Estabelecer diretrizes sólidas, padrões de desenvolvimento e padrões de performance para criar e otimizar componentes do Vue 3 utilizando o modo experimental Vapor no ecossistema Engeapp.
+Estabelecer diretrizes sólidas, padrões de desenvolvimento e padrões de performance para criar e otimizar componentes do Vue utilizando o Vapor Mode (experimental, ainda sem release estável — não presuma uma versão específica) no ecossistema Engeapp.
 
 ## Instruções
 1. **Configuração e Declaração de Componentes**:
-   - Sempre declare os componentes Vapor utilizando o atributo `vapor` na tag `<script setup>`: `<script setup lang="ts" vapor>`.
+   - O Vapor é ativado pelo tooling de build, não por uma sintaxe canônica no SFC. Marque componentes Vapor pela convenção de arquivo `.vapor.vue` e registre o `vaporInteropPlugin` (ver seção de Interop) para habilitar a compilação.
+   - O atributo `<script setup lang="ts" vapor>` existe mas ainda **não é estável/canônico** — não o trate como a API oficial; prefira o mecanismo de build (`.vapor.vue` + `vaporInteropPlugin`) enquanto o Vapor for experimental.
    - Certifique-se de que a ordem dos blocos SFC segue o padrão do projeto: `<template>` primeiro, depois `<script setup>` e, por fim, `<style lang="scss" scoped>`.
 
 2. **Reatividade e Gerenciamento de Estado Puro**:
@@ -28,7 +29,7 @@ Estabelecer diretrizes sólidas, padrões de desenvolvimento e padrões de perfo
    - Fique atento às limitações de diretivas sob o modo experimental Vapor (ex: modificações de `v-model`, templates dinâmicos complexos). Certifique-se de que o `v-for` utilize sempre uma chave `:key` estrita e única para permitir a atualização granular ideal do DOM.
 
 ## Restrições
-- **NÃO** utilize a Options API. Sempre utilize a Composition API com `<script setup lang="ts" vapor>`.
+- **NÃO** utilize a Options API. Sempre utilize a Composition API com `<script setup lang="ts">` em componentes Vapor (habilitados via `.vapor.vue` + `vaporInteropPlugin`).
 - **NÃO** utilize estilos CSS puros; use SCSS (`lang="scss" scoped`).
 - **NÃO** ignore a segurança de tipos; toda a lógica deve ser tipada em TypeScript.
 - **NÃO** aninhe componentes VDOM complexos dentro de loops de renderização Vapor de alta frequência sem validar o uso de memória e os custos de repintura (repaint).

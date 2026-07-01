@@ -71,7 +71,7 @@ const togglePlayback = () => {
     return;
   }
   
-  if (dotLottie.value.is_playing()) {
+  if (dotLottie.value.isPlaying) {
     dotLottie.value.pause();
   } else {
     dotLottie.value.play();
