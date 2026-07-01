@@ -47,9 +47,9 @@ Use `$slots` checks when wrapper elements add spacing, borders, or layout constr
       <slot name="header" />
     </header>
 
-    <section class="card-body">
+    <div class="card-body">
       <slot />
-    </section>
+    </div>
 
     <footer class="card-footer">
       <slot name="footer" />
@@ -67,9 +67,9 @@ Use `$slots` checks when wrapper elements add spacing, borders, or layout constr
       <slot name="header" />
     </header>
 
-    <section v-if="$slots.default" class="card-body">
+    <div v-if="$slots.default" class="card-body">
       <slot />
-    </section>
+    </div>
 
     <footer v-if="$slots.footer" class="card-footer">
       <slot name="footer" />

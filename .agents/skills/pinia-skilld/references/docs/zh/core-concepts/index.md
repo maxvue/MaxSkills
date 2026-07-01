@@ -4,11 +4,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://play.gumlet.io/embed/651ecff2e4c322668b0a17af"
-  mp-link="https://masteringpinia.com/lessons/quick-start-with-pinia"
-  title="Get started with Pinia"
-/>
+<MasteringPiniaLink href="https://play.gumlet.io/embed/651ecff2e4c322668b0a17af" mp-link="https://masteringpinia.com/lessons/quick-start-with-pinia" title="Get started with Pinia" />
 
 在深入研究核心概念之前，我们得知道 Store 是用 `defineStore()` 定义的，它的第一个参数要求是一个**独一无二的**名字：
 

@@ -21,11 +21,7 @@ tags: [vue3, animation, css, transition, style-binding, state, interactive]
 
 ```vue
 <template>
-  <div
-    @mousemove="onMousemove"
-    :style="{ backgroundColor: `hsl(${hue}, 80%, 50%)` }"
-    class="interactive-area"
-  >
+  <div @mousemove="onMousemove" :style="{ backgroundColor: `hsl(${hue}, 80%, 50%)` }" class="interactive-area">
     <p>Move your mouse across this div...</p>
     <p>Hue: {{ hue }}</p>
   </div>
@@ -61,16 +57,8 @@ function onMousemove(e) {
 
 ```vue
 <template>
-  <div
-    class="container"
-    @mousemove="onMousemove"
-  >
-    <div
-      class="follower"
-      :style="{
-        transform: `translate(${x}px, ${y}px)`
-      }"
-    />
+  <div class="container" @mousemove="onMousemove">
+    <div class="follower" :style="{ transform: `translate(${x}px, ${y}px)` }" />
   </div>
 </template>
 
@@ -112,17 +100,9 @@ function onMousemove(e) {
 ```vue
 <template>
   <div class="progress-container">
-    <div
-      class="progress-bar"
-      :style="{ width: `${progress}%` }"
-    />
+    <div class="progress-bar" :style="{ width: `${progress}%` }" />
   </div>
-  <input
-    type="range"
-    v-model.number="progress"
-    min="0"
-    max="100"
-  />
+  <input type="range" v-model.number="progress" min="0" max="100" />
 </template>
 
 <script setup>
@@ -151,13 +131,7 @@ const progress = ref(0)
 
 ```vue
 <template>
-  <div
-    class="hero"
-    :style="{
-      opacity: heroOpacity,
-      transform: `translateY(${scrollOffset}px)`
-    }"
-  >
+  <div class="hero" :style="{ opacity: heroOpacity, transform: `translateY(${scrollOffset}px)` }">
     <h1>Scroll Down</h1>
   </div>
 </template>
@@ -203,10 +177,7 @@ onUnmounted(() => {
 
 ```vue
 <template>
-  <div
-    class="app"
-    :style="themeStyles"
-  >
+  <div class="app" :style="themeStyles">
     <button @click="toggleTheme">Toggle Theme</button>
     <p>Current theme: {{ isDark ? 'Dark' : 'Light' }}</p>
   </div>

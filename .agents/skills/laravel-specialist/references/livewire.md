@@ -58,12 +58,7 @@ class PostList extends Component
 ```blade
 <div>
     {{-- Search --}}
-    <input
-        type="text"
-        wire:model.debounce.300ms="search"
-        placeholder="Search posts..."
-        class="form-input"
-    >
+    <input type="text" wire:model.debounce.300ms="search" placeholder="Search posts..." class="form-input">
 
     {{-- Filter by category --}}
     <select wire:model="categoryId">
@@ -191,12 +186,7 @@ class PostForm extends Component
     {{-- Title --}}
     <div>
         <label for="title">Title</label>
-        <input
-            type="text"
-            wire:model.defer="title"
-            id="title"
-            class="@error('title') border-red-500 @enderror"
-        >
+        <input type="text" wire:model.defer="title" id="title" class="@error('title') border-red-500 @enderror">
         @error('title')
             <span class="text-red-500">{{ $message }}</span>
         @enderror
@@ -205,11 +195,7 @@ class PostForm extends Component
     {{-- Content --}}
     <div>
         <label for="content">Content</label>
-        <textarea
-            wire:model.defer="content"
-            id="content"
-            class="@error('content') border-red-500 @enderror"
-        ></textarea>
+        <textarea wire:model.defer="content" id="content" class="@error('content') border-red-500 @enderror"></textarea>
         @error('content')
             <span class="text-red-500">{{ $message }}</span>
         @enderror
@@ -220,11 +206,7 @@ class PostForm extends Component
         <label>Tags</label>
         @foreach($availableTags as $tag)
             <label>
-                <input
-                    type="checkbox"
-                    wire:model="tags"
-                    value="{{ $tag->id }}"
-                >
+                <input type="checkbox" wire:model="tags" value="{{ $tag->id }}">
                 {{ $tag->name }}
             </label>
         @endforeach
@@ -337,10 +319,7 @@ $this->dispatchBrowserEvent('post-saved', ['id' => $post->id]);
 ## Listen to Browser Events
 
 ```blade
-<div
-    x-data
-    @post-saved.window="alert('Post saved!')"
->
+<div x-data @post-saved.window="alert('Post saved!')">
     <!-- content -->
 </div>
 
@@ -399,19 +378,12 @@ window.addEventListener('post-saved', event => {
 </div>
 
 {{-- Loading classes --}}
-<button
-    wire:click="save"
-    wire:loading.class="opacity-50"
-    wire:loading.class.remove="bg-blue-500"
->
+<button wire:click="save" wire:loading.class="opacity-50" wire:loading.class.remove="bg-blue-500">
     Save
 </button>
 
 {{-- Loading attributes --}}
-<button
-    wire:click="save"
-    wire:loading.attr="disabled"
->
+<button wire:click="save" wire:loading.attr="disabled">
     Save
 </button>
 ```

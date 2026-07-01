@@ -4,10 +4,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state"
-  title="Learn all about state in Pinia"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state" title="Learn all about state in Pinia" />
 
 在大多数情况下，state 都是你的 store 的核心。人们通常会先定义能代表他们 APP 的 state。在 Pinia 中，state 被定义为一个返回初始状态的函数。这使得 Pinia 可以同时支持服务端和客户端。
 
@@ -118,10 +115,7 @@ export const useCounterStore = defineStore('counter', () => {
 
 ### 使用选项式 API 的用法 %{#usage-with-the-options-api}%
 
-<VueSchoolLink
-  href="https://vueschool.io/lessons/access-pinia-state-in-the-options-api"
-  title="Access Pinia State via the Options API"
-/>
+<VueSchoolLink href="https://vueschool.io/lessons/access-pinia-state-in-the-options-api" title="Access Pinia State via the Options API" />
 
 在下面的例子中，你可以假设相关 store 已经创建了：
 

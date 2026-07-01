@@ -21,47 +21,26 @@ mp-link="https://masteringpinia.com/lessons/the-what-and-why-of-st...
 - [Migrating from v2 to v3](./cookbook/migration-v2-v3.md): Pinia v3 is a boring major release with no new features. It drops deprecated APIs and updates major dependencies. It only supports Vue 3. If you ar...
 - [Migrating from Vuex ≤4](./cookbook/migration-vuex.md): Although the structure of Vuex and Pinia stores is different, a lot of the logic can be reused. This guide serves to help you through the process a...
 - [Usage without setup()](./cookbook/options-api.md): Pinia can be used even if you are not using the composition API (if you are using Vue <2.7, you still need to install the @vue/composition-api plug...
-- [Testing stores](./cookbook/testing.md): <MasteringPiniaLink
-href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc"
-title="Watch a free video of Mastering Pinia about testing stores"
-/>
+- [Testing stores](./cookbook/testing.md): <MasteringPiniaLink href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc" title="Watch a free video of Mastering Pinia about testing stores" />
 - [VS Code Snippets](./cookbook/vscode-snippets.md): These are some snippets that I use in VS Code to make my life easier.
 
 ## core-concepts (6)
 
-- [Actions](./core-concepts/actions.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions"
-title="Learn all about actions in Pinia"
-/>
-- [Getters](./core-concepts/getters.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters"
-title="Learn all about getters in Pinia"
-/>
+- [Actions](./core-concepts/actions.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions" title="Learn all about actions in Pinia" />
+- [Getters](./core-concepts/getters.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters" title="Learn all about getters in Pinia" />
 - [Defining a Store](./core-concepts/index.md): <MasteringPiniaLink
 href="https://play.gumlet.io/embed/651ecff2e4c322668b0a17af"
 mp-link="https://masteringpinia.com/lessons/quick-start-with-pinia...
 - [Using a store outside of a component](./core-concepts/outside-component-usage.md): <MasteringPiniaLink
 href="https://play.gumlet.io/embed/651ed1ec4c2f339c6860fd06"
 mp-link="https://masteringpinia.com/lessons/how-does-usestore-work...
-- [Plugins](./core-concepts/plugins.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin"
-title="Learn all about Pinia plugins"
-/>
-- [State](./core-concepts/state.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state"
-title="Learn all about state in Pinia"
-/>
+- [Plugins](./core-concepts/plugins.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin" title="Learn all about Pinia plugins" />
+- [State](./core-concepts/state.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state" title="Learn all about state in Pinia" />
 
 ## ssr (2)
 
-- [Server Side Rendering (SSR)](./ssr/index.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/ssr-friendly-state"
-title="Learn about SSR best practices"
-/>
-- [Nuxt](./ssr/nuxt.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/ssr-friendly-state"
-title="Learn about SSR best practices"
-/>
+- [Server Side Rendering (SSR)](./ssr/index.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/ssr-friendly-state" title="Learn about SSR best practices" />
+- [Nuxt](./ssr/nuxt.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/ssr-friendly-state" title="Learn about SSR best practices" />
 
 ## zh/api/enums (1)
 
@@ -111,36 +90,21 @@ title="Learn about SSR best practices"
 - [从 0.x (v1) 迁移至 v2 %{#migrating-from-0-x-v1-to-v2}%](./zh/cookbook/migration-v1-v2.md): 从 2.0.0-rc.4 版本开始，pinia 同时支持 Vue 2 和 Vue 3！这意味着，v2 版本的所有更新，将会让 Vue 2 和 Vue 3 的用户都受益。如果你使用的是 Vue 3，这对你来说没有任何改变，因为你已经在使用 rc 版本，你可以查看发布日志来了解所有更新的详细解释。...
 - [从 Vuex ≤4 迁移 %{#migrating-from-vuex-≤4}%](./zh/cookbook/migration-vuex.md): 虽然 Vuex 和 Pinia store 的结构不同，但很多逻辑都可以复用。本指南的作用是帮助你完成迁移，并指出一些可能出现的常见问题。
 - [不使用 setup() 的用法 %{#usage-without-setup}%](./zh/cookbook/options-api.md): 即使你没有使用组合式 API，也可以使用 Pinia(如果你使用 Vue 2，你仍然需要安装 @vue/composition-api 插件)。虽然我们推荐你试着学习一下组合式 API，但对你和你的团队来说目前可能还不是时候，你可能正在迁移一个应用，或者有其他原因。你可以试试下面几个函数：
-- [store 测试 %{#testing-stores}%](./zh/cookbook/testing.md): <MasteringPiniaLink
-href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc"
-title="Watch a free video of Mastering Pinia about testing stores"
-/>
+- [store 测试 %{#testing-stores}%](./zh/cookbook/testing.md): <MasteringPiniaLink href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc" title="Watch a free video of Mastering Pinia about testing stores" />
 - [VS Code 代码片段](./zh/cookbook/vscode-snippets.md): 有一些代码片段可以让你在 VS Code 中更轻松地使用 Pinia。
 
 ## zh/core-concepts (6)
 
-- [Action %{#actions}%](./zh/core-concepts/actions.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions"
-title="Learn all about actions in Pinia"
-/>
-- [Getter %{#getters}%](./zh/core-concepts/getters.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters"
-title="Learn all about getters in Pinia"
-/>
+- [Action %{#actions}%](./zh/core-concepts/actions.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions" title="Learn all about actions in Pinia" />
+- [Getter %{#getters}%](./zh/core-concepts/getters.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters" title="Learn all about getters in Pinia" />
 - [定义 Store %{#defining-a-store}%](./zh/core-concepts/index.md): <MasteringPiniaLink
 href="https://play.gumlet.io/embed/651ecff2e4c322668b0a17af"
 mp-link="https://masteringpinia.com/lessons/quick-start-with-pinia...
 - [在组件外使用 store %{#using-a-store-outside-of-a-component}%](./zh/core-concepts/outside-component-usage.md): <MasteringPiniaLink
 href="https://play.gumlet.io/embed/651ed1ec4c2f339c6860fd06"
 mp-link="https://masteringpinia.com/lessons/how-does-usestore-work...
-- [插件 %{#plugins}%](./zh/core-concepts/plugins.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin"
-title="Learn all about Pinia plugins"
-/>
-- [State %{#state}%](./zh/core-concepts/state.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state"
-title="Learn all about state in Pinia"
-/>
+- [插件 %{#plugins}%](./zh/core-concepts/plugins.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin" title="Learn all about Pinia plugins" />
+- [State %{#state}%](./zh/core-concepts/state.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state" title="Learn all about state in Pinia" />
 
 ## zh (3)
 
@@ -152,11 +116,5 @@ mp-link="https://masteringpinia.com/lessons/the-what-and-why-of-st...
 
 ## zh/ssr (2)
 
-- [服务端渲染 (SSR) %{#server-side-rendering-ssr}%](./zh/ssr/index.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/ssr-friendly-state"
-title="Learn about SSR best practices"
-/>
-- [Nuxt %{#nuxt}%](./zh/ssr/nuxt.md): <MasteringPiniaLink
-href="https://masteringpinia.com/lessons/ssr-friendly-state"
-title="Learn about SSR best practices"
-/>
+- [服务端渲染 (SSR) %{#server-side-rendering-ssr}%](./zh/ssr/index.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/ssr-friendly-state" title="Learn about SSR best practices" />
+- [Nuxt %{#nuxt}%](./zh/ssr/nuxt.md): <MasteringPiniaLink href="https://masteringpinia.com/lessons/ssr-friendly-state" title="Learn about SSR best practices" />

@@ -2,10 +2,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters"
-  title="Learn all about getters in Pinia"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters" title="Learn all about getters in Pinia" />
 
 Getters are exactly the equivalent of computed values for the state of a Store. They can be defined with the `getters` property in `defineStore()`. They receive the `state` as the first parameter **to encourage** the usage of arrow function:
 
@@ -185,10 +182,7 @@ store.doubleCount // 6
 
 ## Usage with the Options API
 
-<VueSchoolLink
-  href="https://vueschool.io/lessons/access-pinia-getters-in-the-options-api"
-  title="Access Pinia Getters via the Options API"
-/>
+<VueSchoolLink href="https://vueschool.io/lessons/access-pinia-getters-in-the-options-api" title="Access Pinia Getters via the Options API" />
 
 For the following examples, you can assume the following store was created:
 

@@ -2,11 +2,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://play.gumlet.io/embed/651ecf274c2f339c6860e36b"
-  mp-link="https://masteringpinia.com/lessons/the-what-and-why-of-state-management-and-stores"
-  title="Create your own Pinia from scratch"
-/>
+<MasteringPiniaLink href="https://play.gumlet.io/embed/651ecf274c2f339c6860e36b" mp-link="https://masteringpinia.com/lessons/the-what-and-why-of-state-management-and-stores" title="Create your own Pinia from scratch" />
 
 Pinia started as an experiment to redesign what a Store for Vue could look like with the Composition API around November 2019. Since then, the initial principles have remained the same and Vue 2 support has been dropped in 2025, but Pinia **doesn't require you to use the composition API**.
 
@@ -32,8 +28,7 @@ If you still have doubts, check out the **official** Mastering Pinia course. In 
 
 <RuleKitLink />
 
-<VueMasteryLogoLink for="pinia-cheat-sheet">
-</VueMasteryLogoLink>
+<VueMasteryLogoLink for="pinia-cheat-sheet"></VueMasteryLogoLink>
 
 ## Basic example
 

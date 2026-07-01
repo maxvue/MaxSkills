@@ -77,10 +77,7 @@ function submitForm() {
 
 ```vue
 <template>
-  <button
-    @click="save"
-    :class="{ pulse: saved }"
-  >
+  <button @click="save" :class="{ pulse: saved }">
     {{ saved ? 'Saved!' : 'Save' }}
   </button>
 </template>
@@ -113,9 +110,7 @@ async function save() {
 
 ```vue
 <template>
-  <div
-    :class="{ highlight: justUpdated }"
-  >
+  <div :class="{ highlight: justUpdated }">
     Value: {{ value }}
   </div>
 </template>
@@ -148,10 +143,7 @@ watch(value, () => {
 
 ```vue
 <template>
-  <div
-    :class="{ bounce: needsAttention }"
-    @animationend="needsAttention = false"
-  >
+  <div :class="{ bounce: needsAttention }" @animationend="needsAttention = false">
     <BellIcon />
   </div>
 </template>
@@ -185,10 +177,7 @@ Instead of `setTimeout`, use the `animationend` event for cleaner code:
 
 ```vue
 <template>
-  <div
-    :class="{ animate: isAnimating }"
-    @animationend="isAnimating = false"
-  >
+  <div :class="{ animate: isAnimating }" @animationend="isAnimating = false">
     Content
   </div>
 </template>
@@ -237,17 +226,11 @@ const pulse = useAnimation(500)
 </script>
 
 <template>
-  <button
-    :class="{ shake: shake.isAnimating.value }"
-    @click="shake.trigger()"
-  >
+  <button :class="{ shake: shake.isAnimating.value }" @click="shake.trigger()">
     Shake me
   </button>
 
-  <button
-    :class="{ pulse: pulse.isAnimating.value }"
-    @click="pulse.trigger()"
-  >
+  <button :class="{ pulse: pulse.isAnimating.value }" @click="pulse.trigger()">
     Pulse me
   </button>
 </template>

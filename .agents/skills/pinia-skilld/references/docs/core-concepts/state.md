@@ -2,10 +2,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state"
-  title="Learn all about state in Pinia"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-state" title="Learn all about state in Pinia" />
 
 The state is, most of the time, the central part of your store. People often start by defining the state that represents their app. In Pinia the state is defined as a function that returns the initial state. This allows Pinia to work in both Server and Client Side.
 
@@ -130,10 +127,7 @@ export const useCounterStore = defineStore('counter', () => {
 
 ### Usage with the Options API
 
-<VueSchoolLink
-  href="https://vueschool.io/lessons/access-pinia-state-in-the-options-api"
-  title="Access Pinia State via the Options API"
-/>
+<VueSchoolLink href="https://vueschool.io/lessons/access-pinia-state-in-the-options-api" title="Access Pinia State via the Options API" />
 
 For the following examples, you can assume the following store was created:
 

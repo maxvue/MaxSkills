@@ -336,11 +336,7 @@ function handleSelect(item: T) {
 
 <template>
   <div>
-    <div
-      v-for="item in items"
-      :key="item.id"
-      @click="handleSelect(item)"
-    >
+    <div v-for="item in items" :key="item.id" @click="handleSelect(item)">
       <slot :item="item"></slot>
     </div>
   </div>

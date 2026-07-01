@@ -49,13 +49,7 @@ Animate enter/leave of a single element or component.
 ### JavaScript Hooks
 
 ```vue
-<Transition
-  @before-enter="onBeforeEnter"
-  @enter="onEnter"
-  @after-enter="onAfterEnter"
-  @leave="onLeave"
-  :css="false"
->
+<Transition @before-enter="onBeforeEnter" @enter="onEnter" @after-enter="onAfterEnter" @leave="onLeave" :css="false">
   <div v-if="show">Content</div>
 </Transition>
 
@@ -169,11 +163,7 @@ const data = await fetch('/api/data').then(r => r.json())
 ### Events
 
 ```vue
-<Suspense
-  @pending="onPending"
-  @resolve="onResolve"
-  @fallback="onFallback"
->
+<Suspense @pending="onPending" @resolve="onResolve" @fallback="onFallback">
   ...
 </Suspense>
 ```

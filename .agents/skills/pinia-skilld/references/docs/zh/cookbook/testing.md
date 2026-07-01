@@ -2,10 +2,7 @@
 
 <RuleKitLink />
 
-<MasteringPiniaLink
-  href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc"
-  title="Watch a free video of Mastering Pinia about testing stores"
-/>
+<MasteringPiniaLink href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc" title="Watch a free video of Mastering Pinia about testing stores" />
 
 从设计上来说，许多地方都会使用 store，所以可能比正常情况更难测试。但幸运的是，这不一定是真的。在测试 store 时，我们需要注意三件事：
 

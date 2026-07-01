@@ -2,10 +2,7 @@
 
 <RuleKitLink />
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin"
-  title="Learn all about Pinia plugins"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/What-is-a-pinia-plugin" title="Learn all about Pinia plugins" />
 
 由于有了底层 API 的支持，Pinia store 现在完全支持扩展。以下是你可以扩展的内容：
 

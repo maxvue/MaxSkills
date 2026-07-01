@@ -2,10 +2,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions"
-  title="Learn all about actions in Pinia"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions" title="Learn all about actions in Pinia" />
 
 Actions are the equivalent of methods in components. They can be defined with the `actions` property in `defineStore()` and **they are perfect to define business logic**:
 
@@ -91,10 +88,7 @@ export const useSettingsStore = defineStore('settings', {
 
 ## Usage with the Options API
 
-<VueSchoolLink
-  href="https://vueschool.io/lessons/access-pinia-actions-in-the-options-api"
-  title="Access Pinia Getters via the Options API"
-/>
+<VueSchoolLink href="https://vueschool.io/lessons/access-pinia-actions-in-the-options-api" title="Access Pinia Getters via the Options API" />
 
 For the following examples, you can assume the following store was created:
 

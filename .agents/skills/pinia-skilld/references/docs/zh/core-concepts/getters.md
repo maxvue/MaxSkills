@@ -4,10 +4,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters"
-  title="Learn all about getters in Pinia"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-getters" title="Learn all about getters in Pinia" />
 
 Getter 完全等同于 store 的 state 的计算值。可以通过 `defineStore()` 中的 `getters` 属性来定义它们。**推荐**使用箭头函数，并且它将接收 `state` 作为第一个参数：
 
@@ -182,10 +179,7 @@ store.doubleCount // 6
 
 ## 使用选项式 API 的用法 %{#usage-with-the-options-api}%
 
-<VueSchoolLink
-  href="https://vueschool.io/lessons/access-pinia-getters-in-the-options-api"
-  title="Access Pinia Getters via the Options API"
-/>
+<VueSchoolLink href="https://vueschool.io/lessons/access-pinia-getters-in-the-options-api" title="Access Pinia Getters via the Options API" />
 
 在下面的例子中，你可以假设相关的 store 已经创建了：
 

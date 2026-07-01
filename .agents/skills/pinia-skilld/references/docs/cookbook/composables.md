@@ -4,10 +4,7 @@ Composables are functions that leverage Vue Composition API to encapsulate and r
 
 ## Option Stores
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/using-composables-in-option-stores"
-  title="Using Composables in Option Stores"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/using-composables-in-option-stores" title="Using Composables in Option Stores" />
 
 When defining an option store, you can call a composable inside of the `state` property:
 
@@ -34,10 +31,7 @@ Here are some examples of composables that cannot be used in an option stores (b
 
 ## Setup Stores
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/using-composables-in-setup-stores"
-  title="Using Composables in Setup Stores"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/using-composables-in-setup-stores" title="Using Composables in Setup Stores" />
 
 On the other hand, when defining a setup store, you can use almost any composable since every property gets discerned into state, action, or getter:
 

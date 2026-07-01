@@ -81,11 +81,7 @@ const companyName = 'Acme Corp'
 ```vue
 <template>
   <!-- GOOD: Items only re-render when their selection state changes -->
-  <div
-    v-for="item in list"
-    :key="item.id"
-    v-memo="[item.id === selectedId]"
-  >
+  <div v-for="item in list" :key="item.id" v-memo="[item.id === selectedId]">
     <div :class="{ selected: item.id === selectedId }">
       <ExpensiveComponent :data="item" />
     </div>
@@ -110,16 +106,8 @@ const selectedId = ref(null)
 ```vue
 <template>
   <!-- Re-render only when item's selection OR editing state changes -->
-  <div
-    v-for="item in items"
-    :key="item.id"
-    v-memo="[item.id === selectedId, item.id === editingId]"
-  >
-    <ItemCard
-      :item="item"
-      :selected="item.id === selectedId"
-      :editing="item.id === editingId"
-    />
+  <div v-for="item in items" :key="item.id" v-memo="[item.id === selectedId, item.id === editingId]">
+    <ItemCard :item="item" :selected="item.id === selectedId" :editing="item.id === editingId" />
   </div>
 </template>
 

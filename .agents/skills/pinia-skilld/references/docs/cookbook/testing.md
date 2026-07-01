@@ -1,9 +1,6 @@
 # Testing stores
 
-<MasteringPiniaLink
-  href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc"
-  title="Watch a free video of Mastering Pinia about testing stores"
-/>
+<MasteringPiniaLink href="https://play.gumlet.io/embed/65f9a9c10bfab01f414c25dc" title="Watch a free video of Mastering Pinia about testing stores" />
 
 Stores will, by design, be used at many places and can make testing much harder than it should be. Fortunately, this doesn't have to be the case. We need to take care of three things when testing stores:
 

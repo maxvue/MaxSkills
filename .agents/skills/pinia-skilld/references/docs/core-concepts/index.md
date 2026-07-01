@@ -2,11 +2,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://play.gumlet.io/embed/651ecff2e4c322668b0a17af"
-  mp-link="https://masteringpinia.com/lessons/quick-start-with-pinia"
-  title="Get started with Pinia"
-/>
+<MasteringPiniaLink href="https://play.gumlet.io/embed/651ecff2e4c322668b0a17af" mp-link="https://masteringpinia.com/lessons/quick-start-with-pinia" title="Get started with Pinia" />
 
 Before diving into core concepts, we need to know that a store is defined using `defineStore()` and that it requires a **unique** name, passed as the first argument:
 

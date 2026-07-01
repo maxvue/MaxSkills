@@ -15,12 +15,7 @@ const { textarea, input } = useTextareaAutosize()
 </script>
 
 <template>
-  <textarea
-    ref="textarea"
-    v-model="input"
-    class="resize-none"
-    placeholder="What's on your mind?"
-  />
+  <textarea ref="textarea" v-model="input" class="resize-none" placeholder="What's on your mind?" />
 </template>
 ```
 

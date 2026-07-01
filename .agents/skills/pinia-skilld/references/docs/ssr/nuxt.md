@@ -1,9 +1,6 @@
 # Nuxt
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/ssr-friendly-state"
-  title="Learn about SSR best practices"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/ssr-friendly-state" title="Learn about SSR best practices" />
 
 Using Pinia with Nuxt is easier since Nuxt takes care of a lot of things when it comes to _server side rendering_. For instance, **you don't need to care about serialization nor XSS attacks**. Pinia supports Nuxt 3 and 4.
 

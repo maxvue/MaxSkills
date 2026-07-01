@@ -4,10 +4,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions"
-  title="Learn all about actions in Pinia"
-/>
+<MasteringPiniaLink href="https://masteringpinia.com/lessons/the-3-pillars-of-pinia-actions" title="Learn all about actions in Pinia" />
 
 Action 相当于组件中的 method。它们可以通过 `defineStore()` 中的 `actions` 属性来定义，**并且它们也是定义业务逻辑的完美选择。**
 
@@ -89,10 +86,7 @@ export const useSettingsStore = defineStore('settings', {
 
 ## 使用选项式 API 的用法 %{#usage-with-the-options-api}%
 
-<VueSchoolLink
-  href="https://vueschool.io/lessons/access-pinia-actions-in-the-options-api"
-  title="Access Pinia Getters via the Options API"
-/>
+<VueSchoolLink href="https://vueschool.io/lessons/access-pinia-actions-in-the-options-api" title="Access Pinia Getters via the Options API" />
 
 在下面的例子中，你可以假设相关的 store 已经创建了：
 

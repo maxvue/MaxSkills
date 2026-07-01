@@ -2,11 +2,7 @@
 
 
 
-<MasteringPiniaLink
-  href="https://play.gumlet.io/embed/651ecf274c2f339c6860e36b"
-  mp-link="https://masteringpinia.com/lessons/the-what-and-why-of-state-management-and-stores"
-  title="Create your own Pinia from scratch"
-/>
+<MasteringPiniaLink href="https://play.gumlet.io/embed/651ecf274c2f339c6860e36b" mp-link="https://masteringpinia.com/lessons/the-what-and-why-of-state-management-and-stores" title="Create your own Pinia from scratch" />
 
 Pinia 起始于 2019 年 11 月左右的一次实验，其目的是设计一个拥有组合式 API 的 Vue 状态管理库。从那时起，我们就倾向于同时支持 Vue 2 和 Vue 3，并且不强制要求开发者使用组合式 API，我们的初心至今没有改变。除了**安装**和 **SSR** 两章之外，其余章节中提到的 API 均支持 Vue 2 和 Vue 3。虽然本文档主要是面向 Vue 3 的用户，但在必要时会标注出 Vue 2 的内容，因此 Vue 2 和 Vue 3 的用户都可以阅读本文档。
 

@@ -34,11 +34,7 @@ Use a virtualization library when dealing with lists that could exceed 50-100 it
 <template>
   <!-- BAD: Renders ALL 10,000 items immediately -->
   <div class="user-list">
-    <UserCard
-      v-for="user in users"
-      :key="user.id"
-      :user="user"
-    />
+    <UserCard v-for="user in users" :key="user.id" :user="user" />
   </div>
 </template>
 
@@ -59,13 +55,7 @@ onMounted(async () => {
 ```vue
 <template>
   <!-- GOOD: Only renders ~20 visible items at a time -->
-  <RecycleScroller
-    class="user-list"
-    :items="users"
-    :item-size="80"
-    key-field="id"
-    v-slot="{ item }"
-  >
+  <RecycleScroller class="user-list" :items="users" :item-size="80" key-field="id" v-slot="{ item }">
     <UserCard :user="item" />
   </RecycleScroller>
 </template>
@@ -96,24 +86,8 @@ onMounted(async () => {
 ```vue
 <template>
   <div ref="parentRef" class="list-container">
-    <div
-      :style="{
-        height: `${rowVirtualizer.getTotalSize()}px`,
-        position: 'relative'
-      }"
-    >
-      <div
-        v-for="virtualRow in rowVirtualizer.getVirtualItems()"
-        :key="virtualRow.key"
-        :style="{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: `${virtualRow.size}px`,
-          transform: `translateY(${virtualRow.start}px)`
-        }"
-      >
+    <div :style="{ height: `${rowVirtualizer.getTotalSize()}px`, position: 'relative' }">
+      <div v-for="virtualRow in rowVirtualizer.getVirtualItems()" :key="virtualRow.key" :style="{ position: 'absolute', top: 0, left: 0, width: '100%', height: `${virtualRow.size}px`, transform: `translateY(${virtualRow.start}px)` }">
         <UserCard :user="users[virtualRow.index]" />
       </div>
     </div>
@@ -148,17 +122,9 @@ const rowVirtualizer = useVirtualizer({
 ```vue
 <template>
   <!-- For variable height items, use DynamicScroller -->
-  <DynamicScroller
-    :items="messages"
-    :min-item-size="54"
-    key-field="id"
-  >
+  <DynamicScroller :items="messages" :min-item-size="54" key-field="id">
     <template #default="{ item, index, active }">
-      <DynamicScrollerItem
-        :item="item"
-        :active="active"
-        :data-index="index"
-      >
+      <DynamicScrollerItem :item="item" :active="active" :data-index="index">
         <ChatMessage :message="item" />
       </DynamicScrollerItem>
     </template>
