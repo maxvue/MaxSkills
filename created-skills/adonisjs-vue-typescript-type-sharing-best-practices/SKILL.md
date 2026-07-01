@@ -112,7 +112,7 @@ type CompanyState = ModelAttributes<SolarCompany>
 const company = useCompanyStore() // state: CompanyState; save aceita SavePayload
 ```
 
-> **Endpoints REST avulsos.** Apenas para um endpoint fora do fluxo de store (raro), tipe a resposta com o envelope correto: GET retorna `{ data: ... }` e save retorna `{ success: true }` — não o model cru. Mesmo nesses casos, prefira o fluxo de store para dados de página (ver `adonisjs-maxpinia-endpoint-patterns`).
+> **Endpoints REST avulsos.** Apenas para um endpoint fora do fluxo de store (raro), tipe a resposta com o envelope correto: GET retorna `{ data: ... }` e save retorna `{ success: true }` — não o model cru. Mesmo nesses casos, prefira o fluxo de store para dados de página (ver `adonisjs-maxpinia-endpoint-patterns-best-practices`).
 
 ---
 

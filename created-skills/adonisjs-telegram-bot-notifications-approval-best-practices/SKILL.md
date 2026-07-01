@@ -126,6 +126,16 @@ export default class TelegramNotificationJob {
 
 ### 4. Retornos Interativos (Callbacks) e Segurança do Webhook
 * Trate retornos de botões interativos (Inline Keyboards) expondo um endpoint de webhook (ex: `/api/webhooks/telegram`).
+* **Shield CSRF — rota de webhook deve ser excepcionada:** O Shield protege POSTs com CSRF por padrão. O Telegram não envia `XSRF-TOKEN`, então a requisição seria rejeitada com 403 antes de chegar ao controller. Adicione o path em `config/shield.ts`:
+  ```typescript
+  // config/shield.ts
+  csrf: {
+    enabled: true,
+    exceptRoutes: ['/api/webhooks/telegram'],
+    // ...
+  }
+  ```
+  A autenticidade é garantida pelo `X-Telegram-Bot-Api-Secret-Token`, não pelo CSRF.
 * **Verificação de Token Secreto/Assinatura:**
   - Ao configurar o webhook via `setWebhook`, passe um token secreto aleatório no parâmetro `secret_token`.
   - No controller da sua rota no AdonisJS, verifique se o cabeçalho `X-Telegram-Bot-Api-Secret-Token` recebido coincide com a variável de ambiente `TELEGRAM_WEBHOOK_SECRET`.

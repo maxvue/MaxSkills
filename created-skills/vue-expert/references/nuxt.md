@@ -148,9 +148,8 @@ const { data: users, pending, error, refresh } = await useFetch<User[]>('/api/us
 const { data } = await useFetch('/api/users', {
   method: 'POST',
   body: { name: 'John' },
-  headers: {
-    'Authorization': 'Bearer token'
-  },
+  // Auth = sessão + cookie (Shield XSRF-TOKEN via withCredentials) — sem Bearer/JWT
+  credentials: 'include',
   query: { page: 1, limit: 10 },
   // Transform response
   transform: (data) => data.map(u => ({ ...u, fullName: u.firstName + ' ' + u.lastName })),
@@ -364,12 +363,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   const api = $fetch.create({
     baseURL: '/api',
     onRequest({ options }) {
-      // Add auth token
-      const token = useCookie('token')
-      if (token.value) {
-        options.headers = options.headers || {}
-        options.headers.Authorization = `Bearer ${token.value}`
-      }
+      // Auth = sessão + cookie (Shield XSRF-TOKEN); sem Bearer/JWT no target
+      options.credentials = 'include'
     },
     onResponseError({ response }) {
       if (response.status === 401) {

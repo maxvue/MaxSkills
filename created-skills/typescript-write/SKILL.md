@@ -5,9 +5,6 @@ description: Write TypeScript and JavaScript code following Metabase coding stan
 
 # TypeScript/JavaScript Development Skill
 
-@./../_shared/development-workflow.md
-@./../_shared/typescript-commands.md
-@./../_shared/react-redux-patterns.md
 
 ## No `any` — hard rule
 

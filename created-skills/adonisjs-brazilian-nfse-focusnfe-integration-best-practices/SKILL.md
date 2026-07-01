@@ -198,6 +198,16 @@ import db from '@adonisjs/lucid/services/db'
 
 export default class FocusNfeWebhooksController {
   async handle({ request, response }: HttpContext) {
+    // Validar token secreto antes de processar — qualquer chamante com o reference pode
+    // forçar transição de status sem essa verificação.
+    // Configure FOCUSNFE_WEBHOOK_SECRET no env e passe-o como parâmetro de query/path ao
+    // registrar a URL de callback na FocusNFe (ex: /api/webhooks/focusnfe?token=SECRET).
+    const secret = env.get('FOCUSNFE_WEBHOOK_SECRET')
+    const provided = request.qs().token ?? request.header('x-webhook-token') ?? ''
+    if (!secret || provided !== secret) {
+      return response.status(401).json({ error: 'Unauthorized' })
+    }
+
     const payload = request.all()
     const { reference, status, caminho_xml_nota, caminho_pdf_nota } = payload
 

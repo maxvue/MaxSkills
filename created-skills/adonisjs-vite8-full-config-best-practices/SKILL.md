@@ -1,12 +1,14 @@
 ---
 name: adonisjs-vite8-full-config-best-practices
-description: Use when configuring, updating, or debugging the Vite 8 build setup in an AdonisJS v6 project. This project uses Vite 8 (NOT older versions) with @adonisjs/vite, unplugin-auto-import, unplugin-vue-components, UnoCSS, Vue 3.6, and the MaxComponentsUi resolver. Triggers on vite.config.ts changes, plugin configuration, auto-import setup, path aliases, HMR issues, build optimization, or upgrading from an older Vite version.
+description: Use when configuring, updating, or debugging the Vite build setup in an AdonisJS v6 project. This project uses Vite 7 (vite@^7.3.3) with @adonisjs/vite@^5, @vitejs/plugin-vue@^6, unplugin-auto-import, unplugin-vue-components, UnoCSS, Vue 3.6, and the MaxComponentsUi resolver. Triggers on vite.config.ts changes, plugin configuration, auto-import setup, path aliases, HMR issues, or build optimization.
 ---
 
-# Configuração Completa do Vite 8 com AdonisJS
+# Configuração Completa do Vite com AdonisJS
 
 ## Objetivo
-Documentar a configuração padrão do Vite 8 no ecossistema Engeapp com AdonisJS v6. O Vite 8 traz melhorias significativas no Environment API, performance de HMR, e suporte a módulos ESM. **Sempre especifique a versão 8 do Vite** — nunca faça downgrade ou use configurações de versões anteriores.
+Documentar a configuração padrão do Vite no ecossistema Engeapp com AdonisJS v6.
+
+> **Versões instaladas no projeto:** `vite@^7.3.3`, `@vitejs/plugin-vue@^6.0.7`, `@adonisjs/vite@^5.1.1`. Use exatamente estas versões — não faça upgrade para Vite 8 sem validar a compatibilidade com `@adonisjs/vite`.
 
 ---
 
@@ -15,9 +17,9 @@ Documentar a configuração padrão do Vite 8 no ecossistema Engeapp com AdonisJ
 ```json
 {
   "devDependencies": {
-    "vite": "^8.0.0",
-    "@vitejs/plugin-vue": "^5.0.0",
-    "@adonisjs/vite": "^3.0.0",
+    "vite": "^7.3.3",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "@adonisjs/vite": "^5.1.1",
     "unplugin-auto-import": "^0.18.0",
     "unplugin-vue-components": "^0.27.0",
     "unocss": "^66.0.0"
@@ -210,7 +212,7 @@ server: {
 ---
 
 ## Restrições
-- **Sempre use Vite 8** — não faça downgrade para versões anteriores. Verifique `"vite": "^8.0.0"` no `package.json`.
+- **Use `vite@^7.3.3`** com `@vitejs/plugin-vue@^6.0.7` e `@adonisjs/vite@^5.1.1` — versões instaladas no projeto. Não faça upgrade para Vite 8 sem validar `@adonisjs/vite` compatível.
 - **`unplugin-auto-import` e `unplugin-vue-components` são obrigatórios** — não importe Vue, Pinia, MaxUse ou componentes Max manualmente nos `.vue` files.
 - **UnoCSS é o sistema de estilos** — não use Tailwind CSS. O preset `presetMaxUno` do MaxComponentsUi é obrigatório.
 - **Não use Inertia.js** — esta é uma SPA pura com Vue Router. O AdonisJS serve o HTML via catch-all e o Vue Router cuida da navegação.

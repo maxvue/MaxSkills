@@ -59,6 +59,15 @@ export function isPrivateIp(ip: string): boolean {
 
     // Multicast (ff00::/8)
     if (cleanIp.startsWith('ff')) return true
+
+    // IPv4-mapeado em IPv6 (::ffff:a.b.c.d) — bypass crítico de SSRF:
+    // node:net.isIP('::ffff:169.254.169.254') retorna 6, mas o prefixo não casa
+    // com nenhuma das verificações acima. Detectar e re-validar a parte IPv4.
+    const ipv4MappedMatch = cleanIp.match(/^::ffff:(\d+\.\d+\.\d+\.\d+)$/)
+    if (ipv4MappedMatch) return isPrivateIp(ipv4MappedMatch[1])
+
+    // Também bloquear formas numéricas ::ffff:hex (ex: ::ffff:7f00:1 = 127.0.0.1)
+    if (cleanIp.startsWith('::ffff:')) return true
   }
 
   return false

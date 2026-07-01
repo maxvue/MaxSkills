@@ -1,17 +1,17 @@
 ---
 name: adonisjs-ai-agent-cost-analytics-and-budget-control-best-practices
-description: Use when implementing, reviewing, or debugging backend logic for AI agent requests in AdonisJS v6 — executeAgent execution with model fallback chains, capturing token/cost metrics and persisting them via saveAiCost into the AgentAiCost model, analyzing/aggregating AgentAiCost records (sums grouped by dates, agents, or clients), converting values using DolarService, applying tenant budget limits to restrict LLM calls, and broadcasting real-time updates via AdonisJS Transmit (SSE).
+description: Use when implementing, reviewing, or debugging backend logic for AI agent requests in AdonisJS v6 — executeAgent execution with model fallback chains, capturing token/cost metrics and persisting them via saveAiCost into the AgentAiCost model, analyzing/aggregating AgentAiCost records (sums grouped by dates, agents, or clients), converting USD→BRL via ExchangeRateService, applying tenant budget limits to restrict LLM calls, and broadcasting real-time updates via AdonisJS Transmit (SSE).
 ---
 
 ## Objetivo
-Fornecer diretrizes, estruturas e padrões de implementação para a execução resiliente de agentes de IA, o rastreamento/agregação dos custos e a aplicação de controle de orçamento (budget) em um backend AdonisJS v6. Cobre cadeias de fallback de modelos, registro de custos no momento da requisição (`saveAiCost` → model `AgentAiCost`), análises financeiras agregadas, conversão de câmbio (USD para BRL via `DolarService`) e feedback em tempo real ao usuário. Isso garante continuidade do serviço sob rate-limit, supervisão financeira confiável e evita loops de execução descontrolados.
+Fornecer diretrizes, estruturas e padrões de implementação para a execução resiliente de agentes de IA, o rastreamento/agregação dos custos e a aplicação de controle de orçamento (budget) em um backend AdonisJS v6. Cobre cadeias de fallback de modelos, registro de custos no momento da requisição (`saveAiCost` → model `AgentAiCost`), análises financeiras agregadas, conversão de câmbio (USD para BRL via `ExchangeRateService` em `#services/bank/exchange_rate_service`) e feedback em tempo real ao usuário. Isso garante continuidade do serviço sob rate-limit, supervisão financeira confiável e evita loops de execução descontrolados.
 
 > **Fluxo de tracking de custo (visão única):** cada execução de `executeAgent` calcula tokens/custo no momento da requisição e chama `saveAiCost`, que persiste um registro na tabela `agents_ai_cost` através do model `AgentAiCost`. As análises agregadas, relatórios e a checagem de budget (seções de análise e `AiBudgetService`) consultam exatamente esses mesmos registros. Ou seja: `saveAiCost` é a fonte de escrita; `AgentAiCost` é a fonte de leitura.
 
 ## Instruções
 
 ### 1. Referência do Model do Banco de Dados
-Sempre referencie o model `AgentAiCost` (`#models/agent_ai_cost`) ao escrever consultas de custos. Ele mapeia para a tabela `agents_ai_cost` e armazena o consumo de tokens das LLMs e o preço final em USD. Os campos chave incluem:
+Sempre referencie o model `AgentAiCost` (`#models/openai/agent_ai_cost`) ao escrever consultas de custos. Ele mapeia para a tabela `agents_ai_cost` e armazena o consumo de tokens das LLMs e o preço final em USD. Os campos chave incluem:
 - `costableType`: identificador da entidade relacionada (string curta, ex: `ProjectSolar`, `ProposalEnergy`). Use um enum/string simples do domínio Adonis — **não** FQCN PHP estilo `App\Models\...`.
 - `costableId`: A chave primária da entidade relacionada.
 - `agent`: O nome do agente de IA que executou.
@@ -63,8 +63,8 @@ Ao construir relatórios financeiros ou painéis de uso:
 - **Exemplo de Consulta Lucid (Custos Agrupados):**
   ```typescript
   import db from '@adonisjs/lucid/services/db'
-  import { dolarReal } from '#services/dolar_service'
-  import AgentAiCost from '#models/agent_ai_cost'
+  import { ExchangeRateService } from '#services/bank/exchange_rate_service'
+  import AgentAiCost from '#models/openai/agent_ai_cost'
 
   async function getMonthlyCostReport(clientId: string, startDate: string, endDate: string) {
     const rawCosts = await db
@@ -77,7 +77,7 @@ Ao construir relatórios financeiros ou painéis de uso:
       .sum('agents_ai_cost.total_price as totalUsd')
       .groupBy('agents_ai_cost.agent')
 
-    const usdToBrlRate = await dolarReal()
+    const usdToBrlRate = await new ExchangeRateService().getRate('USD', 'BRL')
 
     return rawCosts.map((row) => {
       const usd = parseFloat(row.totalUsd || 0)
@@ -222,7 +222,7 @@ Garanta que os gerenciadores de execução validem o orçamento antes de process
 
 ## Restrições
 - **Nunca contorne a checagem de orçamento:** A validação do orçamento deve ser executada antes de disparar qualquer chamada de API de IA que seja tarifável.
-- **Sem consultas externas de câmbio em loop:** Use sempre `#services/dolar_service` (`dolarReal()`) para obter a cotação do dólar em reais. Nunca faça requisições HTTP ad-hoc de cotação de moedas em loops.
+- **Sem consultas externas de câmbio em loop:** Use sempre `ExchangeRateService` (`#services/bank/exchange_rate_service`, método `getRate('USD','BRL')`) para obter a cotação do dólar em reais. Nunca faça requisições HTTP ad-hoc de cotação de moedas em loops.
 - **Eficiência de Banco de Dados:** Sempre execute operações de soma (SUM) diretamente no motor de banco de dados. Nunca traga todos os registros de `AgentAiCost` para somá-los na memória do TypeScript.
 - **Resiliência obrigatória:** Nunca pule a `FALLBACK_CHAIN` em produção; degrade os modelos progressivamente em caso de falha.
 - **Segurança de credenciais:** Nunca escreva chaves ou credenciais estaticamente; use sempre `process.env`.

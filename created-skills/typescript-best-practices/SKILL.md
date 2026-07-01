@@ -7,9 +7,9 @@ description: Use when reading or writing TypeScript or JavaScript files (.ts, .t
 
 Follows type-first, functional, and error handling patterns from CLAUDE.md. This skill covers language-specific idioms only.
 
-## Pair with React Best Practices
+## Pair with Vue Best Practices
 
-When working with React components (`.tsx`, `.jsx` files or `@react` imports), always load `react-best-practices` alongside this skill. This skill covers TypeScript fundamentals; React-specific patterns (effects, hooks, refs, component design) are in the dedicated React skill.
+When working with Vue components (`.vue`, `.ts` files no target Maxdmin/EngeApp), use `vue-typescript-best-practices` e `vue-best-practices` em conjunto com esta skill. O target deste projeto é Vue 3 — não React.
 
 ## Make Illegal States Unrepresentable
 

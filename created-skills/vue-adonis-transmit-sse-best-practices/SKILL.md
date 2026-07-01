@@ -115,7 +115,7 @@ onMounted(async () => {
 ```
 
 ### 4. Canais Privados com Autorização
-Para canais que exigem autenticação, configure a autorização no AdonisJS e passe o token no cliente:
+Para canais que exigem autenticação, configure a autorização no AdonisJS. **Não há token a passar no cliente** — o `@adonisjs/transmit-client` já envia `withCredentials: true`, portanto o cookie de sessão é incluído automaticamente nas requisições de subscribe/EventSource. O backend lê `ctx.auth.user` no callback `authorize`:
 
 ```typescript
 // Frontend: transmit.ts

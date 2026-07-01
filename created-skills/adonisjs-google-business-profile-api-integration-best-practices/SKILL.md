@@ -191,6 +191,8 @@ Estabelecer padrões seguros, resilientes e robustos para integrar aplicações 
   import type { Job } from 'bullmq'
   import SocialMediaCredential from '#models/calendar/social_media_credential'
   import { GoogleBusinessProfileService } from '#services/google_business_profile_service'
+  // gbpQueue deve ser declarado em app/services/queue_service.ts antes de importar:
+  // export const gbpQueue = new Queue('gbp-publish', { connection: redis })
   import { gbpQueue } from '#services/queue_service'
 
   export interface GbpPublishData {

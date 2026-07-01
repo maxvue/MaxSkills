@@ -42,10 +42,14 @@ function initUppy() {
         endpoint: '/api/files/upload',
         formData: true,
         fieldName: 'files', // Deve casar com request.files('files') no controller Adonis
-        // Não defina X-CSRF-TOKEN manualmente: o AdonisJS Shield lê o token do
-        // cookie XSRF-TOKEN e o front o reenvia no header X-XSRF-TOKEN automaticamente
-        // em requisições com withCredentials: true.
         withCredentials: true,
+        // @uppy/xhr-upload NÃO lê o cookie XSRF-TOKEN automaticamente (diferente do axios).
+        // É preciso passar o header explicitamente para o Shield aceitar o upload:
+        headers: {
+            'X-XSRF-TOKEN': decodeURIComponent(
+                document.cookie.match(/(?:^|;\s*)XSRF-TOKEN=([^;]+)/)?.[1] ?? ''
+            ),
+        },
     });
 
     uppyInstance.value.on('upload-progress', (file, progress) => {
@@ -89,7 +93,7 @@ O endpoint padrão do backend do Engeapp é `files/upload`, tratado por `FilesUp
 - Os arquivos são extraídos do corpo da requisição via `request.files('files')` do AdonisJS.
 - O `fieldName` configurado no `@uppy/xhr-upload` deve casar exatamente com a chave usada em `request.files(...)`. Use `files` em ambos os lados — não use a convenção PHP `files[]`, que não corresponde ao argumento esperado por `request.files('files')` no Adonis.
 - O controller AdonisJS retorna uma resposta JSON contendo os registros dos arquivos criados; esses registros devem ser hidratados na store `@maxvue/max-pinia` correspondente para alimentar a página.
-- O token CSRF do AdonisJS Shield é enviado automaticamente: o Shield grava o token no cookie `XSRF-TOKEN` e o reenvia no header `X-XSRF-TOKEN` em requisições XHR com `withCredentials: true`. Não leia `meta[name="csrf-token"]` nem injete `X-CSRF-TOKEN` manualmente (padrão Laravel/Blade).
+- O `@uppy/xhr-upload` **não** lê o cookie `XSRF-TOKEN` automaticamente (ao contrário do axios, que faz isso por padrão). Passe o header `X-XSRF-TOKEN` explicitamente na opção `headers` (lendo e decodificando o cookie `XSRF-TOKEN`). Sem isso, todas as requisições serão rejeitadas com 403 pelo Shield. Use `withCredentials: true` além do header explícito.
 
 ## 3. Padrões de UI e UX
 - Forneça indicadores visuais claros para o estado do upload: spinner de carregamento, barra de progresso em porcentagem, ícones de sucesso e mecanismos para tentar novamente em caso de falha.
@@ -99,5 +103,5 @@ O endpoint padrão do backend do Engeapp é `files/upload`, tratado por `FilesUp
 ## Restrições
 - **Não** insira scripts inline ou lógica de negócio diretamente nos templates Vue. Todos os manipuladores de evento, configurações e callbacks devem residir na tag `<script setup lang="ts">`.
 - **Não** esqueça de destruir e limpar a instância do Uppy no unmount usando `uppy.close()`. O esquecimento deste passo causa vazamentos de memória (memory leaks) em Single Page Applications (SPA).
-- **Não** ignore a validação CSRF, mas também **não** envie o header manualmente. Mantenha `withCredentials: true` para que o AdonisJS Shield gerencie o token via cookie `XSRF-TOKEN`/header `X-XSRF-TOKEN` automaticamente.
+- **Não** ignore a validação CSRF. O `@uppy/xhr-upload` **requer** o header `X-XSRF-TOKEN` explicitamente — diferente do axios, ele não lê o cookie automaticamente. Leia o cookie `XSRF-TOKEN`, decodifique com `decodeURIComponent` e passe em `headers: { 'X-XSRF-TOKEN': ... }`. Combine com `withCredentials: true`.
 - **Não** trate o resultado do upload apenas com `emit('success')`. Os registros de arquivo retornados são dados de página e devem ser incorporados a uma store `@maxvue/max-pinia`, que cuida do cache e do salvamento.

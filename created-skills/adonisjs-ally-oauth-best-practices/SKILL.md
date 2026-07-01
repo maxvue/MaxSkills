@@ -107,9 +107,10 @@ async callback({ ally, params, response, auth }: HttpContext) {
 > `accessDenied()` cobre o cancelamento explícito da autorização; `hasError()` cobre os demais erros do callback (state inválido, parâmetros faltando etc.). Verifique ambos **antes** de chamar `driver.user()`.
 
 ### 5. Find-or-Create por Email e Login (Session Guard `web`)
-* **Vinculação por email (somente se verificado pelo provedor)**: o email é a chave de identidade, mas vincular um login social a uma conta local existente **apenas pelo email** é um vetor de account-hijacking — um atacante com um email social *não verificado* igual ao de uma conta existente assumiria essa conta. Antes de vincular, exija que o provedor tenha verificado o email. O Google expõe `email_verified` em `socialUser.original.email_verified`; o Facebook só retorna emails de contas confirmadas, mas trate ausência como não-verificado:
+* **Vinculação por email (somente se verificado pelo provedor)**: o email é a chave de identidade, mas vincular um login social a uma conta local existente **apenas pelo email** é um vetor de account-hijacking — um atacante com um email social *não verificado* igual ao de uma conta existente assumiria essa conta. Antes de vincular, exija que o provedor tenha verificado o email. Use **sempre** o campo canônico do Ally `emailVerificationState` para ambos os provedores — o Facebook não garante verificação universal (o driver Ally retorna `'verified' | 'unverified' | 'unsupported'`; tratar `'facebook'` como sempre verificado é um vetor de hijacking):
   ```typescript
-  const emailVerified = socialUser.original?.email_verified === true || provider === 'facebook';
+  // Use o campo canônico do Ally — válido para Google, Facebook e qualquer outro driver
+  const emailVerified = socialUser.emailVerificationState === 'verified';
   let user = await User.findBy('email', socialUser.email);
 
   // conta local já existe + email não comprovadamente verificado → não vincule automaticamente

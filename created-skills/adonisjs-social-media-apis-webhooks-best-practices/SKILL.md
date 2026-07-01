@@ -37,13 +37,27 @@ Estabelecer uma integração segura, performática e resiliente com APIs de míd
 * **Restrição de Timeout dos Webhooks da Meta:** A Meta espera uma resposta `200 OK` em menos de 3 segundos. Para evitar timeouts, NÃO processe a lógica de negócios do webhook de forma síncrona dentro do ciclo de requisição HTTP.
 * **Persistência Imediata:** Persista o payload bruto do webhook imediatamente no banco de dados (por exemplo, utilizando um modelo `Webhook` com chave primária ULID) para estabelecer uma trilha de auditoria.
 * **Despacho para Fila:** Enfileire um job em segundo plano usando um gerenciador de filas (como o BullMQ), passando apenas o ID do registro do webhook criado, e retorne a resposta HTTP (por exemplo, `response.json(false)` ou `response.status(200)`) imediatamente.
+* **Verificação de Assinatura PRIMEIRO:** Antes de tocar o banco, verifique o HMAC-SHA256. Só persista após confirmar autenticidade.
 * Exemplo de Ingestão:
   ```typescript
+  import crypto from 'node:crypto'
   import Webhook from '#models/webhook'
   import MetaWebhookJob from '#jobs/meta_webhook_job'
   import logger from '@adonisjs/core/services/logger'
+  import env from '#start/env'
 
   // Dentro do método do seu controller (POST)
+  // 1. Verificar assinatura HMAC-SHA256 antes de persistir qualquer coisa
+  const signature = request.header('x-hub-signature-256') ?? ''
+  const expected = 'sha256=' + crypto
+    .createHmac('sha256', env.get('META_APP_SECRET'))
+    .update(request.raw() ?? '')
+    .digest('hex')
+  if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
+    return response.status(401).json({ error: 'Invalid signature' })
+  }
+
+  // 2. Persistir apenas após validação
   const webhook = await Webhook.create({
     payload: request.all() ?? null,
     parameters: request.params() ?? null,
@@ -53,7 +67,7 @@ Estabelecer uma integração segura, performática e resiliente com APIs de míd
 
   logger.info({ webhook_id: webhook.id }, 'MetaWebhook: Evento recebido')
 
-  // Despacha o job de forma assíncrona usando BullMQ
+  // 3. Despachar o job de forma assíncrona usando BullMQ
   await MetaWebhookJob.dispatch(webhook.id)
 
   return response.json(false)

@@ -71,7 +71,7 @@ router.beforeEach(async (to, from) => {
     await user.waitRequest();
     const isAuthenticated = !!user.data?.id;
 
-    // Vue Router 4: controle de fluxo por RETORNO (o callback `next()` está obsoleto).
+    // Vue Router v5: controle de fluxo por RETORNO (o callback `next()` está obsoleto).
     if (requiresAuth && !isAuthenticated) {
         return { name: 'login' };
     }

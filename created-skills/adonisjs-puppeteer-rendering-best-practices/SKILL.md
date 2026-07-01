@@ -15,7 +15,7 @@ Estabelecer convenções rígidas, eficientes em memória e de alto desempenho p
 ### 1. Padrões Arquiteturais e Execução Assíncrona de Tarefas Pesadas
 * **Nunca gere PDFs, imagens ou relatórios grandes de forma síncrona dentro de uma requisição HTTP.** Isso bloqueia o event loop de thread única do Node.js e a geração via navegador headless consome muita CPU e memória, podendo causar timeouts de gateway ou travamento do servidor.
 * **Sempre envie a geração para uma fila em background** usando BullMQ:
-  1. Receba a requisição de exportação em um controller (ex: [ReportsController](file:///home/johnattas/GitHub/socialmedia-node/app/controllers/reports_controller.ts)).
+  1. Receba a requisição de exportação em um controller (ex: `app/controllers/reports_controller.ts`).
   2. Crie e envie um Job (ex: `GenerateReportJob`, `GeneratePostImageJob` em `app/jobs/`).
   3. Responda imediatamente com o status `202 Accepted` e um ID de rastreamento do job/relatório.
   4. Processe de forma assíncrona, grave a saída via stream/buffer no storage e notifique o usuário via AdonisJS Transmit (SSE) ou e-mail quando concluído.
@@ -230,7 +230,7 @@ Configure a viewport com densidade elevada (`deviceScaleFactor: 2`) para saída 
   * Declare `static readonly queueName` (ou `static key`).
   * Implemente `static async dispatch(...)` para enfileirar tarefas.
   * Implemente o `handle(job)` para a execução.
-  * Registre o worker no script global [worker.ts](file:///home/johnattas/GitHub/socialmedia-node/commands/worker.ts) e adicione o objeto da fila em [queue_service.ts](file:///home/johnattas/GitHub/socialmedia-node/app/services/queue_service.ts).
+  * Registre o worker no script global `commands/worker.ts` e adicione o objeto da fila em `app/services/queue_service.ts`.
 
   ```typescript
   import { Job } from 'bullmq'

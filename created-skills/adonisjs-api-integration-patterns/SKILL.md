@@ -86,7 +86,11 @@ export default class WhatsAppApiService {
    * Helper para ocultar credenciais sensíveis de URLs ou strings
    */
   private redact(str: string): string {
-    return str.replace(new RegExp(this.accessToken, 'g'), '***REDACTED***')
+    // Não usar new RegExp(token) — tokens com metacaracteres ('(', '[', '+') lançam SyntaxError
+    // ou silenciosamente falham no match (ex: '.' casa qualquer char), vazando o segredo nos logs.
+    // Substituição por split/join é segura e não requer escape.
+    if (!this.accessToken) return str
+    return str.split(this.accessToken).join('***REDACTED***')
   }
 
   /**

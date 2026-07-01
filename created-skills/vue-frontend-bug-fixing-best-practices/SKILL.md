@@ -31,10 +31,10 @@ Usar esta skill quando:
 | Vue | 3.6.0-beta.17 | Composition API + `<script setup lang="ts">` — SEMPRE |
 | TypeScript | Strict mode | Tipagem obrigatória em todo front-end |
 | **@maxvue/max-pinia** | **local** | **State management — camada de cache + auto-save (debounced). TODO GET/save de dados de página passa por stores MaxPinia (sobre Pinia 3). Não usar Pinia puro nem GET/POST manual para dados de página.** |
-| Vue Router | 4 | SPA pura (Adonis serve catch-all HTML) — rotas de API resolvidas por helpers do `@maxvue/max-use` para caminhos string `/api/...` (sem Ziggy) |
+| Vue Router | 5 | SPA pura (Adonis serve catch-all HTML) — rotas de API resolvidas por helpers do `@maxvue/max-use` para caminhos string `/api/...` (sem Ziggy) |
 | PrimeVue | — | Componentes base para UI (base da MaxComponentsUi) |
 | UnoCSS | 66 | Estilização utilitária (sem Tailwind) |
-| Vite | 8 | Bundler + HMR |
+| Vite | 7 | Bundler + HMR |
 | Unplugin Auto Import | — | Auto-importação de composables e helpers |
 | Unplugin Vue Components | — | Auto-importação de componentes |
 | **@maxvue/max-components-ui** | **local** | **Biblioteca própria de componentes UI (~70 componentes + componentes do PrimeVue inclusos)** |
@@ -302,7 +302,7 @@ Checklist:
 
 Checklist:
 - [ ] Caminho/rota `/api/...` existe no backend? Verificar na lista de rotas do Adonis
-- [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('nome.rota', { id: 1 })`)
+- [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('/api/recurso', { id: 1 })` — caminho string, não nome estilo Ziggy)
 - [ ] `apiPostRoute` — corpo da requisição com dados corretos?
 - [ ] `apiUploadRoute` — arquivo sendo enviado como `FormData`?
 - [ ] Erros de CORS ou autenticação? Auth é sessão + cookie (guard web) — verificar se o cookie de sessão está sendo enviado (`withCredentials`), não procurar Bearer/token

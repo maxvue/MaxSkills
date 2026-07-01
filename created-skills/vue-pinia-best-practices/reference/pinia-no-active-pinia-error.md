@@ -62,37 +62,31 @@ app.mount('#app')
 ## Common Cause 2: Store Used at Module Level
 
 ```javascript
-// api.js - WRONG: Module-level store usage
-import { useAuthStore } from '@/stores/auth'
+// stores/user.ts - WRONG: Module-level store usage
+import { useUserStore } from './user'
 
 // This runs immediately when the module is imported!
-const authStore = useAuthStore()  // ERROR: No active Pinia yet
+const userStore = useUserStore()  // ERROR: No active Pinia yet
 
-export function fetchUser() {
-  return fetch('/api/user', {
-    headers: {
-      Authorization: `Bearer ${authStore.token}`
-    }
-  })
+export function getUser() {
+  return userStore.user  // will throw
 }
 ```
 
-**Fix: Call useStore inside functions:**
+**Fix: Call useStore inside functions (no bearer/token — auth via sessão + cookie Shield):**
 
 ```javascript
-// api.js - CORRECT: Store used inside function
-import { useAuthStore } from '@/stores/auth'
+// stores/user.ts - CORRECT: Store used inside function
+import { useUserStore } from './user'
 
-export function fetchUser() {
+export function getUser() {
   // Store is accessed when function is called, not when module loads
-  const authStore = useAuthStore()
-
-  return fetch('/api/user', {
-    headers: {
-      Authorization: `Bearer ${authStore.token}`
-    }
-  })
+  const userStore = useUserStore()
+  return userStore.user
 }
+```
+
+> **Auth no target:** toda comunicação usa sessão + cookie (`withCredentials: true` + XSRF-TOKEN gerenciado pelo MaxPinia/Shield). Não há `authStore.token` nem header `Authorization: Bearer`. Use stores `@maxvue/max-pinia` — elas enviam credenciais automaticamente.
 ```
 
 ## Common Cause 3: Script Tag Missing "setup"

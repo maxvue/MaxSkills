@@ -52,7 +52,11 @@ For pulling finalized designs back into the editorial calendar:
   const hmac = crypto.createHmac('sha256', webhookSecret)
   hmac.update(rawRequestBody)
   const computedSignature = hmac.digest('hex')
-  if (computedSignature !== providedSignature) {
+  // Comparação constant-time para evitar timing attack
+  if (
+    computedSignature.length !== providedSignature.length ||
+    !crypto.timingSafeEqual(Buffer.from(computedSignature), Buffer.from(providedSignature))
+  ) {
     throw new Error('Invalid webhook signature')
   }
   ```

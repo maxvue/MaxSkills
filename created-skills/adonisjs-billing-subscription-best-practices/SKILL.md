@@ -92,13 +92,25 @@ export default class WebhooksController {
       return response.badRequest({ error: 'Missing event identifier' })
     }
 
-    // Verificar idempotência
+    // 1. Verificar assinatura do gateway ANTES de qualquer operação no banco
+    // (implementação varia por gateway — exemplo para HMAC genérico):
+    const rawBody = request.raw() ?? ''
+    const gatewaySignature = request.header('X-Gateway-Signature') ?? ''
+    const expectedSig = 'sha256=' + crypto
+      .createHmac('sha256', env.get('PAYMENT_GATEWAY_WEBHOOK_SECRET'))
+      .update(rawBody)
+      .digest('hex')
+    if (!crypto.timingSafeEqual(Buffer.from(gatewaySignature), Buffer.from(expectedSig))) {
+      return response.unauthorized({ error: 'Invalid webhook signature' })
+    }
+
+    // 2. Verificar idempotência
     const existing = await WebhookEvent.find(eventId)
     if (existing) {
       return response.ok({ status: 'already_received' })
     }
 
-    // Persistir o evento antes de processar
+    // 3. Persistir o evento após validação
     const event = await WebhookEvent.create({
       id: eventId,
       gateway,

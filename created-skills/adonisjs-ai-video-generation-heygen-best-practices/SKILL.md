@@ -26,7 +26,18 @@ Padronizar a implementação, configuração e execução de geração assíncro
 
 ### 4. Manipulador Resiliente de Webhook
 - Crie um `HeygenWebhookController` para receber os eventos enviados pela API do HeyGen.
-- Persista o payload bruto da requisição na tabela de banco de dados `Webhook` antes de processá-lo, garantindo trilhas de auditoria.
+- **Verificar assinatura ANTES de persistir:** Valide o HMAC-SHA256 do payload usando `HEYGEN_WEBHOOK_SECRET` (já declarado em `start/env.ts`). Rejeite com 401 se inválido. Só então persista no banco:
+  ```typescript
+  import crypto from 'node:crypto'
+  import env from '#start/env'
+  const rawBody = request.raw() ?? ''
+  const provided = request.header('heygen-signature') ?? ''
+  const expected = crypto.createHmac('sha256', env.get('HEYGEN_WEBHOOK_SECRET')).update(rawBody).digest('hex')
+  if (!crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(provided))) {
+    return response.status(401).json({ error: 'Invalid signature' })
+  }
+  ```
+- Persista o payload bruto da requisição na tabela de banco de dados `Webhook` após a verificação, garantindo trilhas de auditoria.
 - Retorne uma resposta rápida `200 OK` para o originador do webhook do HeyGen imediatamente para evitar timeouts.
 - Ao receber o evento `video_status.completed`, despache um job de background para realizar o download e o armazenamento do vídeo gerado.
 
