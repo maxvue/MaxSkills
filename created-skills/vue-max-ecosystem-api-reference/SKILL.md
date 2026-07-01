@@ -1,17 +1,20 @@
 ---
 name: vue-max-ecosystem-api-reference
-description: >-
-  Catálogo de API (referência) das bibliotecas locais do ecossistema Max — @maxvue/max-components-ui
-  (MaxComponentsUi), @maxvue/max-use (MaxUse) e @maxvue/max-pinia (MaxPinia). Use SEMPRE que precisar
-  saber as props, v-model, emits, slots, expose de um componente Max* (MaxButton, MaxInputText,
-  MaxInputSelect, MaxTable, MaxModal, MaxPopover, MaxGrid, etc.), a assinatura de um composable/rota/helper
-  do MaxUse (useRefCached, useRefCachedApi, useTimeAgo, apiGetRoute, goToRoute, o objeto `_`, re-export do
-  VueUse) ou o contrato de store cacheado do MaxPinia (isCached, options.get/save/key, status, reload,
-  clearAll, saveInServer). Dispara quando você for escolher qual componente/composable usar, conferir um
-  nome de prop, um payload de evento, um slot disponível, o default de um valor, ou a assinatura exata de
-  uma função — mesmo que o usuário não diga "Max". Consulte esta skill antes de inventar props ou importar
-  `@vueuse/core`/`lodash` direto. É referência de API; para convenções de código e como montar telas use a
-  vue-max-stack-frontend-best-practices.
+description: |-
+  Referência de API das libs locais do projeto Vue/Maxdmin — MaxComponentsUi, MaxUse e MaxPinia. Acione
+  SEMPRE que for escrever código Vue neste projeto e precisar de um detalhe concreto, mesmo que o usuário
+  não escreva "Max" nem cite a lib:
+  - Qual componente usar no lugar de um elemento nativo (input, file, select, textarea, button, checkbox,
+    modal, tabela, popover, grid) e suas props, eventos/payload, slots, v-model ou expose — ex.: prop pra
+    esconder header/botão de um modal; qual evento um select emite.
+  - A assinatura exata de um composable, helper ou rota — ordem dos argumentos e o que retorna
+    (useRefCached, useTimeAgo, apiGetRoute).
+  - O equivalente da lib pra um utilitário do VueUse ou lodash (debounce, cloneDeep) que NÃO se deve
+    importar direto de @vueuse/core ou lodash.
+  - Como configurar um store cacheado pra fazer GET numa rota e salvar sozinho (options.get/save/key,
+    reload, saveInServer).
+  Consulta antes de inventar prop, chutar argumento ou importar dependência externa. Só referência de API —
+  para convenções e montar telas, use vue-max-stack-frontend-best-practices.
 ---
 
 # Catálogo de API do Ecossistema Max (MaxComponentsUi · MaxUse · MaxPinia)
