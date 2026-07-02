@@ -28,10 +28,10 @@ Fornecer diretrizes sólidas, padrões e restrições de segurança para a imple
 - **Coleta de Dados**: Escute o evento `ondataavailable` e acumule os pedaços (chunks) de áudio em um array reativo de objetos `Blob`.
 - **Finalização**: No callback `onstop`, compile o array em um único `Blob` final (normalmente no formato `audio/webm` ou outro suportado pelo navegador) e mapeie-o para uma URL temporária via `URL.createObjectURL(audioBlob)`. Limpe o array de pedaços após isso.
 
-### 3.1. Envio do Áudio ao Backend (MaxPinia)
-- Ao persistir o áudio gravado, **NÃO** dispare `axios.post`/`fetch` manuais. Encaminhe o upload através de uma store `@maxvue/max-pinia`, deixando que a camada de cache + salvamento automático cuide da requisição.
-- Os caminhos de rota são strings `/api/...` resolvidas por `apiPostRoute` do `@maxvue/max-use` (não há `route()`/Ziggy).
-- Para o `Blob`, monte um `FormData` e atribua-o ao campo da store; o auto-save (debounced) envia ao backend Adonis v6 sem submit manual.
+### 3.1. Envio do Áudio ao Backend (upload binário fora do auto-save)
+- **NÃO** empurre o `Blob`/`FormData` para o estado (`data`) de uma store `@maxvue/max-pinia` esperando que o auto-save faça o upload. Isso quebra contra a implementação real do MaxPinia: o `saveInServer()` envia via `axios.post` com header fixo `'Content-Type': 'application/json'`, então um upload multipart não acontece — o Adonis não recebe o arquivo. Além disso, a detecção de mudanças usa `cloneDeep(store.data)` e serializa cada campo para JSON; um `Blob`/`FormData` não sobrevive a `cloneDeep`/`JSON.stringify` (um `Blob` vira `{}`), então o binário é silenciosamente perdido.
+- Para áudio/binário, faça o upload do `FormData` **explicitamente** — via `apiPostRoute` com opções/axios cientes de multipart, ou uma requisição multipart dedicada. Os caminhos de rota são strings `/api/...` resolvidas por `apiPostRoute` do `@maxvue/max-use` (não há `route()`/Ziggy), e não `axios`/`fetch` cru contra o backend.
+- Mantenha na store MaxPinia **apenas o id/URL (string)** do arquivo retornado pelo upload — nunca o `Blob`. Assim o auto-save JSON (debounced) persiste a referência normalmente, enquanto o upload binário passa por fora desse caminho.
 
 ### 4. Prevenção de Vazamento de Memória e Liberação de Hardware (CRÍTICO)
 - **Limpeza do AudioContext**: Se estiver usando a Web Audio API (`AudioContext`, `AnalyserNode`) para visualizações gráficas:
@@ -61,6 +61,7 @@ Fornecer diretrizes sólidas, padrões e restrições de segurança para a imple
 - Garanta que o loop de animação (ex: `requestAnimationFrame` ou intervalos) seja imediatamente interrompido quando a gravação parar ou o componente for desmontado.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO use Options API**: Não utilize a Options API (`data`, `methods`, etc.) sob nenhuma circunstância.
 - **NÃO deixe AudioContext aberto**: Nunca deixe instâncias de `AudioContext` ativas após o término da gravação, pois os navegadores limitam severamente a quantidade de contextos ativos.
 - **NÃO bloqueie o microfone**: Não mantenha tracks do stream ativas após encerrar a gravação. Sempre libere o hardware.

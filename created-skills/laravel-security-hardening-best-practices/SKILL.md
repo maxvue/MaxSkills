@@ -43,6 +43,7 @@ Establish robust security guidelines and hardening practices for backend develop
 - **Sanitized Logs**: Mask credentials and secrets in logs. Do not log passwords, tokens, or personal identifiers in plain text. Use structured logging patterns.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - NEVER use unvalidated input in database queries or file system paths.
 - NEVER leave `app.debug` enabled in production environments.
 - NEVER bypass policies or authorize checks for convenience during database operations or API development.

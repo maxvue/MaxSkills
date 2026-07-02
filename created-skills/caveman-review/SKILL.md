@@ -53,3 +53,6 @@ Drop terse mode for: security findings (CVE-class bugs need full explanation + r
 ## Boundaries
 
 Reviews only — does not write the code fix, does not approve/request-changes, does not run linters. Output the comment(s) ready to paste into the PR. "stop caveman-review" or "normal mode": revert to verbose review style.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

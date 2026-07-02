@@ -55,6 +55,7 @@ Sempre importe e use os wrappers padrão de [functions.py](file:///home/johnatta
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não ignore os helpers de `functions.py`** — não escreva loops manuais de espera/clique; eles já tratam espera e erros.
 - **Sem esperas estáticas indiscriminadas** — não use `time.sleep()` para checar presença de elemento.
 - **Sem lixo temporário** — exclua prints/captchas locais logo após o uso.

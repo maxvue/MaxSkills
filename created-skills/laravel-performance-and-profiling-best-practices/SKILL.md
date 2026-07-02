@@ -50,6 +50,7 @@ Establish standard guidelines for debugging, profiling, inspecting, and optimizi
 - **Etiquette**: Do NOT manually `grep` or `tail` the physical `laravel.log` when Pail can provide a cleaner, filterable stream.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No Production Exposure**: Never expose Clockwork, LaraDumps, or Telescope globally in production. Log Viewer and Pulse must be protected by auth gates.
 - **No Sensitive Data Leaks**: Never log or dump sensitive user information, credentials, raw authorization tokens, or payment details. Filter such data appropriately.
 - **Brazilian Portuguese Comments**: All code comments inside PHP examples must be strictly written in Brazilian Portuguese (pt-BR).

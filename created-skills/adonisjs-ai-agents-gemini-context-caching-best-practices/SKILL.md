@@ -22,7 +22,9 @@ npm install @google/genai @ai-sdk/google ai zod
 ```
 
 ### Implementação do Serviço Gerenciador de Cache
-Crie uma classe de serviço para lidar com o ciclo de vida dos seus caches de contexto do Gemini, utilizando o Redis ou o banco de dados para reutilizar o ID do cache:
+Crie uma classe de serviço para lidar com o ciclo de vida dos seus caches de contexto do Gemini, utilizando o Redis ou o banco de dados para reutilizar o ID do cache.
+
+> **Dependência:** o exemplo abaixo usa `@adonisjs/redis`, que **não vem instalado por padrão** no backend-alvo. Antes de usá-lo, instale e configure com `node ace add @adonisjs/redis`. Alternativamente, troque o Redis por uma tabela Lucid/linha no banco de dados indexada pelo hash do conteúdo (a mesma opção de armazenamento mencionada acima).
 
 ```typescript
 // app/services/gemini_cache_service.ts
@@ -127,7 +129,7 @@ export async function executeAgentWithCache(opts: ExecOptions) {
     },
     onStepFinish: ({ usage, providerMetadata }) => {
       // 3. Monitora os tokens cacheados para análise de custos
-      const cacheRead = ((providerMetadata as any)?.google?.cachedContentTokenCount as number) ?? 0
+      const cacheRead = ((providerMetadata as any)?.google?.usageMetadata?.cachedContentTokenCount as number) ?? 0
       const promptNonCached = Math.max((usage.inputTokens ?? 0) - cacheRead, 0)
       
       // Salvar métricas...
@@ -145,6 +147,7 @@ Caches explícitos cobram uma taxa diferente para tokens de entrada dependendo s
 - **Custo de armazenamento de cache:** Caches explícitos cobram uma pequena taxa por GB por hora (calcule se for manter caches ativos por horas/dias).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Restrição de Requisições Subsequentes:** Ao passar um parâmetro `cachedContent` para o Gemini, você **não pode** especificar `systemInstruction`, `tools` ou `toolConfig` na chamada do `generateText` se estes já tiverem sido definidos dentro do cache. Garanta que estes componentes estejam incluídos diretamente na etapa de criação do cache.
 - Não instancie novos caches diretamente dentro de Controllers; delegue a verificação e o registro de cache a um Serviço centralizado (ex: `GeminiCacheService`).
 - Não configure TTLs extremamente longos sem um contexto específico de usuário; use o padrão de 5 minutos (`300s`) ou 1 hora (`3600s`) para evitar cobranças excessivas de armazenamento.

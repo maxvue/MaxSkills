@@ -28,11 +28,11 @@ Não use access tokens para o login da SPA web nem como mecanismo geral de auth 
 ## Instruções
 
 ### 1. Configuração do Guard e Model
-* **Guard de Token**: Mantenha o guard `web` como `default` em `config/auth.ts`. Adicione o guard `api` (com `accessTokensGuard` e `accessTokensUserProvider`) **apenas** como guard adicional, usado explicitamente por MCP/integrações — nunca como padrão da aplicação.
+* **Guard de Token**: Mantenha o guard `web` como `default` em `config/auth.ts`. Adicione o guard `api` (com `tokensGuard` e `tokensUserProvider`) **apenas** como guard adicional, usado explicitamente por MCP/integrações — nunca como padrão da aplicação.
   ```typescript
   import { defineConfig } from '@adonisjs/auth'
   import { sessionGuard, sessionUserProvider } from '@adonisjs/auth/session'
-  import { accessTokensGuard, accessTokensUserProvider } from '@adonisjs/auth/access_tokens'
+  import { tokensGuard, tokensUserProvider } from '@adonisjs/auth/access_tokens'
 
   const authConfig = defineConfig({
     default: 'web',
@@ -44,8 +44,8 @@ Não use access tokens para o login da SPA web nem como mecanismo geral de auth 
         }),
       }),
       // Exceção: usado por MCP / integrações máquina-a-máquina
-      api: accessTokensGuard({
-        provider: accessTokensUserProvider({
+      api: tokensGuard({
+        provider: tokensUserProvider({
           model: () => import('#models/user'),
         }),
       }),
@@ -53,21 +53,23 @@ Não use access tokens para o login da SPA web nem como mecanismo geral de auth 
   })
   export default authConfig
   ```
-* **Configuração do Model**: Para habilitar tokens, componha o model `User` com o mixin `withAccessTokens` (além do `withAuthFinder` já usado para a autenticação por sessão).
+* **Configuração do Model**: Para habilitar tokens, anexe um provider de tokens ao model `User` via propriedade estática `accessTokens = DbAccessTokensProvider.forModel(User)` (não existe mixin `withAccessTokens`). Mantenha o `withAuthFinder` já usado para a autenticação por sessão.
   ```typescript
   import { compose } from '@adonisjs/core/helpers'
   import hash from '@adonisjs/core/services/hash'
   import { BaseModel } from '@adonisjs/lucid/orm'
   import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
-  import { withAccessTokens } from '@adonisjs/auth/access_tokens'
+  import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
 
   const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
     uids: ['email'],
     passwordColumnName: 'password',
   })
 
-  export default class User extends compose(BaseModel, AuthFinder, withAccessTokens) {
+  export default class User extends compose(BaseModel, AuthFinder) {
     // ... propriedades do model
+
+    static accessTokens = DbAccessTokensProvider.forModel(User)
   }
   ```
 
@@ -133,6 +135,7 @@ Não use access tokens para o login da SPA web nem como mecanismo geral de auth 
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Não** use access tokens como mecanismo de login da SPA web nem como auth padrão da aplicação — isso é responsabilidade do guard `web` (sessão no banco, 30 dias). Veja a skill de autenticação por sessão / Bouncer.
 * **Não** torne o guard `api` o `default` em `config/auth.ts`; o padrão é `web`.
 * **Não** exponha tokens em texto plano ou os armazene em formato de texto plano no lado do servidor.

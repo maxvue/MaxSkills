@@ -79,6 +79,7 @@ Estabelecer padrões de código e práticas de implementação para o envio resi
 * **Fallback no Exception Handler:** Dentro do manipulador global de exceções (`app/exceptions/handler.ts`), dispare os alertas de forma assíncrona sem bloquear a resposta do usuário. Trate erros de rede de forma isolada e segura.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Nunca adicione URLs de webhook do Slack ou tokens de autenticação diretamente no controle de versão.
 * Evite o disparo em massa ou repetitivo de notificações. Implemente uma janela de deduplicação simples em memória ou baseada em Redis (ex: limite de um alerta a cada 5 minutos para a mesma assinatura de exceção).
 * Evite enviar apenas mensagens em formato de texto puro para erros complexos; sempre utilize a estrutura de `blocks` para garantir clareza visual.

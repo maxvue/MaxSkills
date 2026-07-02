@@ -406,6 +406,7 @@ const triggerPlayOverlay = (): void => {
 - Estados puramente locais de UI (reprodução, silenciamento, expansão de legenda, exibição de Safe Zones) podem permanecer como `ref` locais no componente — não precisam de store. Já os dados persistidos do canal/mídia devem vir da store `@maxvue/max-pinia`, que cuida do salvamento automático (auto-save/debounced) ao serem alterados.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** utilize Options API. Sempre utilize `<script setup lang="ts">`.
 - **NÃO** escreva estilos em CSS puro ou Tailwind CSS. SCSS é obrigatório.
 - **NÃO** escreva os comentários do código em inglês. Todos os comentários de código devem ser em Português do Brasil (`pt-BR`).

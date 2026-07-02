@@ -1,6 +1,6 @@
 ---
 name: vue-inputs-masks-validation-best-practices
-description: Use when implementing, formatting, or validating user inputs with masks in Vue 3 components using the Maska library (v3), libphonenumber-js, card-validator, and @polvo-labs/card-type. Triggers on setting up phone, CPF, CNPJ, currency, zip code (CEP), vehicle plate, credit card inputs, handling dynamic masks, and validation/unmasking.
+description: Use when implementing, formatting, or validating user inputs with masks in Vue 3 components using the Maska library (v3) and libphonenumber-js, plus the optional (install-on-demand) card-validator and @polvo-labs/card-type packages. Triggers on setting up phone, CPF, CNPJ, currency, zip code (CEP), vehicle plate, credit card inputs, handling dynamic masks, and validation/unmasking.
 ---
 
 # Boas Práticas de Inputs, Máscaras e Validação no Vue 3
@@ -65,20 +65,19 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
 - Importe e use a função helper de validação `phone` de `@maxvue/max-use` (que utiliza internamente `libphonenumber-js`).
 - Normalize o valor no formato estrito `E.164` antes de atribuí-lo ao campo da store MaxPinia (que persiste via auto-save). Não basta remover não-dígitos e prefixar `+` — isso NÃO produz E.164 válido. Use `libphonenumber-js` para parsear e emitir o número no formato correto:
   ```typescript
-  import { parsePhoneNumber } from 'libphonenumber-js';
+  import { parsePhoneNumberFromString } from 'libphonenumber-js';
 
   const formatToE164 = (rawPhone: string): string => {
-      try {
-          // 'BR' é o país padrão para números digitados sem DDI.
-          const parsed = parsePhoneNumber(rawPhone, 'BR');
-          return parsed?.isValid() ? parsed.number : ''; // `.number` já está em E.164 (ex.: +5511999999999)
-      } catch {
-          return '';
-      }
+      // 'BR' é o país padrão para números digitados sem DDI.
+      // parsePhoneNumberFromString não lança exceção — retorna PhoneNumber | undefined.
+      const parsed = parsePhoneNumberFromString(rawPhone, 'BR');
+      return parsed?.isValid() ? parsed.number : ''; // `.number` já está em E.164 (ex.: +5511999999999)
   };
   ```
 
 ### 7. Formatação e Validação de Cartões de Crédito
+> **Dependências não incluídas:** `card-validator` e `@polvo-labs/card-type` **não** fazem parte das dependências do alvo (Maxdmin) nem de nenhuma lib Max (`@maxvue/max-components-ui`, `@maxvue/max-use`). Se um componente/helper Max cobrir validação/detecção de bandeira de cartão, prefira-o; caso contrário, adicione esses pacotes explicitamente ao projeto (`npm i card-validator @polvo-labs/card-type`) antes de usar os exemplos abaixo.
+
 - **Formatação em Tempo Real**: Máscara padrão para número de cartão: `#### #### #### ####`. Máscara de data de validade: `##/##`.
 - **Validação de Cartão**: Use o pacote `card-validator`:
   ```typescript
@@ -95,6 +94,7 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
 - Nunca persista dados brutos de cartão de crédito ou códigos CVV no `localStorage` ou `sessionStorage`.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Valores Formatados para o Backend**: Nunca persista valores contendo caracteres de formatação de máscara no backend AdonisJS. Sempre grave strings limpas ou floats, ou formato `E.164` para telefones, nos campos da store `@maxvue/max-pinia`.
 - **Sem Save Manual**: Não use `axios`/fetch manual nem submit de formulário para salvar inputs de página. A persistência ocorre pelo auto-save da store MaxPinia.
 - **Sem Formatação/Validação Manual via Expressões Regulares**: Não utilize substituição de strings sob demanda (ad-hoc) ou regex complexos personalizados para validação ou formatação de dados padrão brasileiros ou telefones. Confie inteiramente nos arrays de diretivas do Maska, `libphonenumber-js` ou `card-validator`.

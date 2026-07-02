@@ -16,6 +16,8 @@ Para fazer o streaming de respostas de texto dinamicamente, utilize a função `
 - Importe `streamText` e o provedor Google AI.
 - Configure os headers de streaming apropriados para evitar buffering no proxy e no navegador.
 - Para enviar apenas os tokens de texto, use `result.pipeTextStreamToResponse(response.response)`. Para emitir o protocolo de mensagens do Vercel AI SDK (consumido pelos hooks `@ai-sdk/vue`), use `result.pipeUIMessageStreamToResponse(response.response)`. **Confirme o nome exato do método contra a versão do pacote `ai` instalada** — em versões anteriores ele se chamava `pipeDataStreamToResponse`. Ambos recebem o objeto `ServerResponse` nativo do Node (`response.response`).
+- **Headers:** `pipeTextStreamToResponse` escreve DIRETAMENTE no `ServerResponse` nativo (chama `response.response.writeHead(...)` internamente), então headers definidos via `response.header(...)` do AdonisJS (que só são liberados pelo `writeHead()` interno do AdonisJS) são silenciosamente descartados. Passe os headers no próprio pipe — `result.pipeTextStreamToResponse(response.response, { headers: { ... } })` — ou defina-os no response nativo com `response.response.setHeader(...)` antes do pipe. Não use `response.header(...)` aqui.
+- **Content-Type:** `pipeTextStreamToResponse` emite um stream de texto puro (`text/plain; charset=utf-8`) SEM o framing SSE (`data:`/`event:`), então NÃO anuncie `text/event-stream` para ele — um cliente `EventSource`/parser SSE não conseguirá interpretá-lo (consuma via `fetch` + `ReadableStream`). Use `text/event-stream` apenas com `pipeUIMessageStreamToResponse` (protocolo de dados/SSE do AI SDK) ou SSE escrito à mão.
 
 #### Exemplo de Configuração de Stream Padrão:
 ```typescript
@@ -27,12 +29,6 @@ export default class AiStreamingController {
   public async generate({ request, response }: HttpContext) {
     const { prompt } = request.only(['prompt'])
 
-    // Desativa buffering de saída e compressão para SSE
-    response.header('Content-Type', 'text/event-stream')
-    response.header('Cache-Control', 'no-cache, no-transform')
-    response.header('Connection', 'keep-alive')
-    response.header('X-Accel-Buffering', 'no') // Ignora buffering do Nginx
-
     const result = await streamText({
       model: google('gemini-2.5-flash'),
       prompt: prompt,
@@ -40,9 +36,19 @@ export default class AiStreamingController {
 
     // Pipe do stream de texto diretamente para o objeto de resposta nativo do Node.js.
     // Confira o nome do método na versão instalada do pacote `ai`:
-    //   - pipeTextStreamToResponse  -> apenas tokens de texto
-    //   - pipeUIMessageStreamToResponse -> protocolo de mensagens (hooks @ai-sdk/vue)
-    result.pipeTextStreamToResponse(response.response)
+    //   - pipeTextStreamToResponse  -> apenas tokens de texto (text/plain)
+    //   - pipeUIMessageStreamToResponse -> protocolo de mensagens/SSE (hooks @ai-sdk/vue)
+    //
+    // IMPORTANTE: passe os headers no próprio pipe. Headers definidos via
+    // response.header(...) do AdonisJS são descartados, pois pipeTextStreamToResponse
+    // chama writeHead() diretamente no ServerResponse nativo.
+    result.pipeTextStreamToResponse(response.response, {
+      headers: {
+        'Cache-Control': 'no-cache, no-transform', // desativa buffering/compressão
+        'Connection': 'keep-alive',
+        'X-Accel-Buffering': 'no', // ignora buffering do Nginx
+      },
+    })
   }
 }
 ```
@@ -70,6 +76,7 @@ O streaming HTTP direto (acima) é o caminho mais simples quando o cliente está
 Escolha um dos dois mecanismos por endpoint — não duplique o mesmo fluxo de tokens em HTTP stream e Transmit simultaneamente.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** utilize `response.send()` ou retorne uma string simples para endpoints de streaming. Isso envia todo o payload de uma única vez, anulando o propósito do streaming.
 - **NÃO** deixe a compressão ativada em rotas de streaming. Sempre verifique se os chunks estão sendo recebidos progressivamente no cliente.
 - **NÃO** se esqueça do header `X-Accel-Buffering: no` se a aplicação estiver atrás de um proxy Nginx, caso contrário o Nginx reterá o stream no buffer.

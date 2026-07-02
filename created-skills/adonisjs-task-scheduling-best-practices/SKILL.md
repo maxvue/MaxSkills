@@ -20,7 +20,7 @@ Estabelecer diretrizes de codificação, padrões de arquitetura e padrões de i
   static commandName = 'scheduler:run'
   static description = 'Executa tarefas de agendamento periódicas em segundo plano'
   ```
-* Sempre ative a inicialização completa do framework definindo `static options = { startApp: true }`. Isso é necessário para acessar Models do Lucid, serviços, arquivos de configuração e o container de IoC.
+* Sempre ative a inicialização completa do framework e mantenha o processo vivo definindo `static options: CommandOptions = { startApp: true, staysAlive: true }` (importe o tipo com `import type { CommandOptions } from '@adonisjs/core/types/ace'`). `startApp` é necessário para acessar Models do Lucid, serviços, configs e o container de IoC; `staysAlive` é a flag documentada pelo framework que impede a aplicação de terminar após o retorno de `run()` num comando de longa duração.
 
 ### 2. Implementando Loops de Intervalo
 * Defina funções de execução assíncronas distintas dentro do método `run` para cada tarefa agendada (ex: `publishDueEvents`, `fetchNews`).
@@ -30,9 +30,8 @@ Estabelecer diretrizes de codificação, padrões de arquitetura e padrões de i
 
 ### 3. Encerramento Gracioso (Graceful Shutdown) e Resiliência
 * Um processo scheduler precisa liberar recursos de forma limpa quando for finalizado, reiniciado ou durante novos deploys.
-* Envolva o tempo de vida do comando Ace em uma `new Promise<void>` para manter a execução do CLI ativa indefinidamente.
-* Escute os sinais `SIGTERM` e `SIGINT` do sistema operacional usando `process.once()`.
-* Dentro da função de encerramento (`shutdown`), limpe todos os intervalos ativos usando `clearInterval()` e resolva a Promise para permitir a finalização limpa do processo.
+* Mantenha o processo vivo com `staysAlive: true` nas `options` do comando — não dependa de uma `new Promise<void>` infinita para bloquear o retorno de `run()`.
+* Registre a limpeza dos timers com `this.app.terminating(() => { ... })`. O AdonisJS invoca esse hook ao encerrar (incluindo nos sinais `SIGTERM`/`SIGINT`), então limpe todos os intervalos ativos com `clearInterval()` ali dentro.
 
 ### 4. Integração com Filas
 * Para tarefas pesadas ou com duração variável, não execute a lógica de negócios diretamente dentro do loop do scheduler.
@@ -46,6 +45,7 @@ Abaixo está a estrutura padrão para um comando scheduler robusto e persistente
 
 ```typescript
 import { BaseCommand } from '@adonisjs/core/ace'
+import type { CommandOptions } from '@adonisjs/core/types/ace'
 import { DateTime } from 'luxon'
 import CalendarEvent from '#models/calendar/event'
 import PublishEventJob from '#jobs/publish_event_job'
@@ -54,7 +54,7 @@ import FetchNewsJob from '#jobs/fetch_news_job'
 export default class SchedulerRun extends BaseCommand {
   static commandName = 'scheduler:run'
   static description = 'Executa tarefas periódicas em segundo plano com encerramento gracioso'
-  static options = { startApp: true }
+  static options: CommandOptions = { startApp: true, staysAlive: true }
 
   async run() {
     this.logger.info('Scheduler iniciado')
@@ -95,23 +95,20 @@ export default class SchedulerRun extends BaseCommand {
     const publishInterval = setInterval(publishDue, 60_000) // 1 minuto
     const newsInterval = setInterval(fetchNews, 6 * 60 * 60 * 1000) // 6 horas
 
-    // 3. Mantém o processo ativo e escuta sinais do S.O. para Encerramento Gracioso
-    await new Promise<void>((resolve) => {
-      const shutdown = async () => {
-        this.logger.info('Scheduler encerrando graciosamente...')
-        clearInterval(publishInterval)
-        clearInterval(newsInterval)
-        resolve()
-      }
-
-      process.once('SIGTERM', shutdown)
-      process.once('SIGINT', shutdown)
+    // 3. Registra a limpeza dos timers no encerramento gracioso da aplicação.
+    // Com `staysAlive: true`, o processo permanece vivo após o retorno de run();
+    // o AdonisJS chama este hook ao terminar (incluindo SIGTERM/SIGINT).
+    this.app.terminating(() => {
+      this.logger.info('Scheduler encerrando graciosamente...')
+      clearInterval(publishInterval)
+      clearInterval(newsInterval)
     })
   }
 }
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Não** escreva lógicas complexas de negócios dentro do arquivo do comando caso elas demorem mais do que alguns segundos. Despache-as para uma fila ou serviço separado.
 * **Não** omita o bloco `try/catch` dentro dos métodos auxiliares chamados pelo `setInterval`. Qualquer rejeição não tratada derrubará o processo do scheduler.
 * **Não** deixe timers pendentes na memória. Você deve limpar todas as referências a `setInterval` e `setTimeout` na sequência de desligamento.

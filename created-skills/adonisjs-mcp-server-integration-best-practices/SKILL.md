@@ -96,6 +96,34 @@ Estabelecer padrões seguros, performáticos e padronizados para a implementaç�
 
 ### 3. Servidor MCP HTTP (Streamable HTTP) com Autenticação de Token Bearer
 * Para integrações remotas use o **Streamable HTTP transport** (`StreamableHTTPServerTransport`), que substituiu o antigo transporte SSE depreciado das versões recentes do `@modelcontextprotocol/sdk`. Proteja os endpoints com Token Bearer via tokens OAT do `@adonisjs/auth` (o uso de OAT/Bearer aqui é restrito a clientes MCP/M2M — não é o modelo de auth da aplicação web, que é sessão+cookie).
+* **Pré-requisito — configurar o guard de access tokens.** O `config/auth.ts` do projeto define **apenas** o guard de sessão `web`; **não existe** guard `api`/access-tokens. Sem o passo abaixo, `guards: ['api']` falha na inferência de TypeScript contra a interface `Authenticators` e quebra em runtime. Este guard OAT é a exceção sancionada para MCP/M2M (o resto da aplicação continua sessão+cookie). Adicione o guard em `config/auth.ts`:
+  ```typescript
+  import { defineConfig } from '@adonisjs/auth'
+  import { tokensGuard, tokensUserProvider } from '@adonisjs/auth/access_tokens'
+
+  const authConfig = defineConfig({
+    default: 'web',
+    guards: {
+      web: /* ...guard de sessão existente... */,
+      api: tokensGuard({
+        provider: tokensUserProvider({
+          tokens: 'accessTokens',
+          model: () => import('#models/user'),
+        }),
+      }),
+    },
+  })
+  ```
+  E adicione o mixin `DbAccessTokensProvider` ao model `User` (`app/models/user.ts`):
+  ```typescript
+  import { DbAccessTokensProvider } from '@adonisjs/auth/access_tokens'
+
+  export default class User extends BaseModel {
+    // ...colunas existentes...
+    static accessTokens = DbAccessTokensProvider.forModel(User)
+  }
+  ```
+  Rode a migration da tabela de tokens (`auth_access_tokens`) antes de usar o guard.
 * Defina as rotas em `start/routes.ts`. O Streamable HTTP usa um único endpoint que atende POST (mensagens cliente→servidor), GET (stream servidor→cliente) e DELETE (encerramento de sessão):
   ```typescript
   import router from '@adonisjs/core/services/router'
@@ -201,6 +229,7 @@ Estabelecer padrões seguros, performáticos e padronizados para a implementaç�
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO envie saídas usando `console.log()` no modo de transporte stdio. Apenas registre logs no `stderr` ou use um arquivo de log dedicado.
 * NÃO exponha chaves primárias do banco de dados diretamente nas ferramentas MCP se forem IDs autoincrementados simples; use ULIDs/UUIDs e mapeie-os com segurança.
 * NÃO permita acesso anônimo às rotas HTTP do MCP. Aplique rigorosamente o middleware de autenticação do AdonisJS (guard `api`/OAT, restrito a clientes MCP/M2M).

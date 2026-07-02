@@ -130,7 +130,7 @@ transmitInstance = new Transmit({
 import transmit from '@adonisjs/transmit/services/main'
 import { middleware } from '#start/kernel'
 
-transmit.authorizeChannel<{ userId: string }>(
+transmit.authorize<{ userId: string }>(
   'notifications/user/:userId',
   async (ctx, { userId }) => {
     // PKs são ULID/UUID (string) neste stack — compare como string, sem Number()
@@ -168,8 +168,9 @@ await transmit.broadcast(`notifications/user/${userId}`, {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca use `laravel-echo`, Pusher, Soketi ou qualquer lib de WebSocket** para comunicação server-push. Use exclusivamente `@adonisjs/transmit-client`.
 - **Sempre limpe as subscriptions** no `onUnmounted` (o composable `useTransmitChannel` já faz isso automaticamente via `subscription.delete()`).
 - **Singleton obrigatório**: nunca instancie `new Transmit()` diretamente nos componentes — use sempre `useTransmitClient()` para reutilizar a conexão.
-- **Canais privados precisam de autorização** no backend via `transmit.authorizeChannel()`. Nunca exponha dados sensíveis em canais públicos.
+- **Canais privados precisam de autorização** no backend via `transmit.authorize()`. Nunca exponha dados sensíveis em canais públicos.
 - **SSE é unidirecional** (servidor → cliente). Para comunicação bidirecional (ex: envio de mensagens de chat), use requisições HTTP normais via axios/MaxPinia para o envio, e SSE apenas para receber atualizações do servidor.

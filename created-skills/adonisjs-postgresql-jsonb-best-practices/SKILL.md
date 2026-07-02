@@ -92,8 +92,8 @@ export default class extends BaseSchema {
 ```
 
 ### 4. Consultando Colunas JSONB
-Utilize os métodos auxiliares JSON do Lucid/Knex ou consultas brutas (raw) com segurança. O Lucid v6 **não** expõe um `whereJson` genérico para igualdade de objeto; use os helpers JSON reais do query builder:
-- **`whereJsonObject`**: Filtra linhas cuja coluna JSON é igual ao objeto informado.
+Utilize os métodos auxiliares JSON do Lucid/Knex ou consultas brutas (raw) com segurança. O Lucid v6 **expõe** um `whereJson(column, value)` público (além de `orWhereJson`/`andWhereJson`/`whereNotJson`) para igualdade de objeto completo; use os helpers JSON reais do query builder:
+- **`whereJson`**: Filtra linhas cuja coluna JSON é igual ao objeto informado.
 - **`whereJsonSuperset`**: Verifica se o JSON da coluna contém (é superset de) o objeto/par chave-valor informado (operador `@>`).
 - **`whereJsonSubset`**: Verifica se o JSON da coluna é subset do objeto informado (operador `<@`).
 - **`whereJsonPath`**: Compara um valor extraído por JSONPath (operador `@@` / `jsonb_path_query`).
@@ -136,6 +136,7 @@ await User.query()
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO Usar Preparadores/Consumidores Manuais**: Não adicione funções `prepare` ou `consume` aos decoradores `@column()` de colunas JSON que chamam `JSON.stringify` ou `JSON.parse`. Isso causa erros de dupla serialização, pois o driver de banco lida com a serialização nativamente.
 - **NÃO Usar Tipagem `any`**: Nunca tipifique uma coluna JSON como `any` nos Models do Lucid. Sempre defina um `type` ou `interface` TypeScript para garantir segurança de tipo estática.
 - **NÃO Usar Operadores PostgreSQL sem Escape**: No Knex (motor de consulta do Lucid), o ponto de interrogação `?` é tratado como um placeholder posicional. Se você utilizar operadores JSONB do PostgreSQL como `?`, `?|` ou `?&`, você **DEVE** escapá-los como `\\?` (ex: `metadata \\? ?`), ou utilizar funções do PostgreSQL como `jsonb_exists(metadata, ?)` para evitar exceções de sintaxe de binding.

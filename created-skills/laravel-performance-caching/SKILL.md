@@ -47,3 +47,6 @@ Cache::lock('reports:daily', 30)->block(5, function () {
 - Use cache tags (if supported) to invalidate related entries together
 - Avoid caching highly dynamic or user-specific data without a plan
 - Document invalidation triggers next to cached code
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

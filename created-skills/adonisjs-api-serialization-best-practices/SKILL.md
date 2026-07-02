@@ -15,7 +15,7 @@ Não renomeie campos manualmente em cada controller. Em vez disso, registre uma 
 Crie uma estratégia de nomenclatura personalizada em `app/services/api_naming_strategy.ts`:
 ```typescript
 import { SnakeCaseNamingStrategy } from '@adonisjs/lucid/orm'
-import { string } from '@adonisjs/core/helpers'
+import string from '@adonisjs/core/helpers/string'
 
 export class ApiCamelCaseNamingStrategy extends SnakeCaseNamingStrategy {
   // Mantém os nomes das colunas no banco de dados como snake_case
@@ -184,6 +184,7 @@ export default class PostsController {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não** escreva lógica de mapeamento JSON bruto dentro dos controllers. Sempre delegue a formatação para os models do Lucid ORM usando decorators, estratégias de nomenclatura ou métodos de serialização personalizados.
 - **Nunca** exponha credenciais confidenciais (senhas, tokens, chaves secretas) nos models serializados. Utilize `serializeAs: null` em todos os campos sensíveis.
 - **Não** dispare consultas ao banco de dados dentro de getters, setters ou métodos de serialização. Isso garante que consultas N+1 não ocorram durante a formatação das respostas.

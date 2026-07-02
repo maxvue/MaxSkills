@@ -12,6 +12,8 @@ tags: [vue3, pinia, state-management, setup-stores, ssr, devtools]
 
 This is a critical gotcha that can cause silent failures in production.
 
+> **Nota do projeto-alvo:** os exemplos abaixo usam `fetch('/api/...')` dentro de actions apenas para ilustrar a regra "retorne todo o state". No alvo, o GET/salvamento de dados de página **não** é feito com `fetch`/`axios` manual em actions — flui por stores cacheadas do `@maxvue/max-pinia` (rotas string `/api/...` via `options.get.route`/`options.save`, GET automático + auto-save debounced). Ver a seção "Target ecosystem — @maxvue/max-pinia" no `SKILL.md`. Além disso, o auth do alvo é por sessão+cookie (Shield), sem `authToken`/Bearer.
+
 ## Task Checklist
 
 - [ ] Return ALL reactive state properties from setup stores

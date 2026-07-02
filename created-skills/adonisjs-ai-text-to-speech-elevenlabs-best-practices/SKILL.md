@@ -26,7 +26,13 @@ Fornecer padrões unificados, padrões de arquitetura e restrições para integr
     private readonly baseUrl = 'https://api.elevenlabs.io/v1'
 
     constructor() {
-      this.apiKey = env.get('ELEVENLABS_API_KEY')
+      // ELEVENLABS_API_KEY é Env.schema.string.optional() → env.get retorna string | undefined.
+      // Faça o guard para satisfazer o TypeScript estrito e evitar enviar `xi-api-key: undefined`.
+      const key = env.get('ELEVENLABS_API_KEY')
+      if (!key) {
+        throw new Error('ELEVENLABS_API_KEY não configurada')
+      }
+      this.apiKey = key
     }
 
     /**
@@ -159,6 +165,7 @@ Fornecer padrões unificados, padrões de arquitetura e restrições para integr
   * `tenantId` (ID da organização ou empresa que utiliza o recurso).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Nunca** execute chamadas de text-to-speech de forma síncrona dentro de uma ação de Controller HTTP. Sempre despache as tarefas de síntese para o BullMQ.
 * **Nunca** chame a API da ElevenLabs sem antes verificar se o hash do texto já existe no armazenamento do `@adonisjs/drive`. Essa verificação de cache é obrigatória para evitar cobranças duplicadas.
 * **Nunca** defina IDs de voz de forma estática (hardcoded). Os IDs de voz devem ser recuperados dinamicamente dos modelos de configuração de tenant/empresa (ex: `TtsCredential` ou `SolarCompany`).

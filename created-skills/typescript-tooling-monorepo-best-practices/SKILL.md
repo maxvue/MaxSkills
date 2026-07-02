@@ -352,6 +352,7 @@ Language server lento? -> Exclua node_modules, limite arquivos no tsconfig
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 Checklist de revisão de código — foco nestes aspectos específicos do domínio.
 
 Segurança de tipos:

@@ -50,6 +50,7 @@ Provide guidelines, configurations, and strategies to successfully run, deploy, 
    - If running FrankenPHP as a systemd service, configure systemd to support graceful reloads (e.g., sending `SIGHUP` or `SIGUSR1` to reload configurations/workers).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No direct request storage**: Do NOT store the current `Request` object in singletons or class properties that persist across requests.
 - **No unmanaged state**: Never use PHP superglobals (`$_GET`, `$_POST`, `$_SERVER`, `$_SESSION`) or `global` variables directly; always use Laravel's request lifecycle objects.
 - **No unmanaged static properties**: Do NOT append to static arrays/collections during a request without resetting them at the end of the request.

@@ -184,6 +184,7 @@ Como o VineJS define as regras de validação da aplicação, faça-as correspon
 3. Para objetos aninhados ou reutilizáveis, registre-os em `config/swagger.ts` dentro de `schemas` (ex: `ClientPayload`) e faça referência a eles no JSDoc se o processador de Swagger suportar referências (ex: `#definitions/ClientPayload`).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO exponha as rotas `/docs` ou `/swagger.json` em ambientes de produção sem a proteção devida (como middleware de autenticação `middleware.auth()`) se a API for privada ou contiver rotas internas de uso estrito da organização.
 * NÃO duplique estruturas de payloads diretamente em anotações de múltiplos controllers. Caso uma estrutura seja compartilhada, defina um schema global em `config/swagger.ts` dentro do objeto `schemas`.
 * NÃO documente endpoints de forma puramente manual escrevendo arquivos de especificação OpenAPI monolíticos em YAML ou JSON. Sempre priorize o JSDoc nos controllers e a autogeração baseada em rotas para manter a documentação próxima ao código de execução.

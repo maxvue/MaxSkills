@@ -144,22 +144,22 @@ Pinia handles SSR state correctly:
 
 ### 6. Plugin Ecosystem
 
-Pinia supports plugins for common needs:
+Pinia supports plugins for common needs. **No projeto-alvo, a persistência já é fornecida pelo `@maxvue/max-pinia`** (cache backed por localforage nas stores com `isCached`) — **não** adicione `pinia-plugin-persistedstate`, que seria um plugin de persistência concorrente conflitante com a arquitetura do MaxPinia.
 
 ```javascript
 import { createPinia } from 'pinia'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import { createMaxPinia } from '@maxvue/max-pinia'
 
 const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
+pinia.use(createMaxPinia({ axios })) // persistência/cache (localforage) para stores isCached
 
-// Now stores can persist to localStorage
-export const useSettingsStore = defineStore('settings', {
-  state: () => ({
-    theme: 'light',
-    language: 'en'
-  }),
-  persist: true  // Automatically saved/restored
+// Uma store cacheada persiste automaticamente ao declarar `isCached` + `options`.
+// Ver a seção "Target ecosystem — @maxvue/max-pinia" no SKILL.md para o contrato completo.
+export const useSettingsStore = defineStore('settings', () => {
+  const data = ref({ theme: 'light', language: 'en' })
+  const isCached = ref(true) // ativa o cache/persistência do MaxPinia
+  const options = computed(() => ({ get: { route: '/api/settings' }, save: '/api/settings', key: 'settings' }))
+  return { data, isCached, options }
 })
 ```
 

@@ -63,6 +63,7 @@ Estabelecer diretrizes seguras, performáticas e confiáveis para manipulação 
 * Intercepte `SIGKILL`, códigos de saída ou handlers de eventos (`error`) para limpar processos pendentes.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** execute a codificação pesada do FFmpeg de forma síncrona dentro de controllers HTTP. Sempre despache essas tarefas para jobs em segundo plano (ex: BullMQ).
 * **NÃO** envie vídeos não comprimidos ou não verificados diretamente para as APIs do Meta/Instagram.
 * **NÃO** deixe arquivos temporários órfãos no sistema de arquivos local. Todos os arquivos temporários DEVEM ser excluídos no bloco `finally` da execução.

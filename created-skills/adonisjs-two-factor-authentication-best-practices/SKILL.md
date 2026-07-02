@@ -49,11 +49,12 @@ Estabelecer padrões seguros, robustos e consistentes para a implementação de 
   - No guarda de navegação global (`router.beforeEach`), verifique se a rota requer autenticação.
   - Se `is2faPending` for `true`, redirecione o usuário para `/login/2fa` e restrinja o acesso a qualquer outra rota protegida.
 * **Design do Componente SFC (Composition API):**
-  - Use estritamente Composition API (`<script setup lang="ts">`) e SCSS (`lang="scss"`).
+  - Use estritamente Composition API (`<script setup lang="ts">`). Estilize via UnoCSS attributify (presetMaxUno + presets de attributify) e tokens de tema — sem blocos `<style>`/`lang="scss"` e sem classes Tailwind cruas.
   - A tela de desafio 2FA (`/login/2fa`) é uma tela de autenticação — reutilize **`<MaxAuthCard>`** (o mesmo componente da tela de login, ver `vue-auth-session-state-best-practices`) para manter consistência visual com o fluxo de login Maxdmin. O input do código TOTP entra no slot do card; demais campos via `<MaxInputText>`/`<MaxButton>` do `MaxComponentsUi`.
   - Formate o template do componente mantendo todos os atributos/parâmetros na mesma linha (estilo inline), sem quebra de atributos em várias linhas.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO armazene os segredos TOTP em texto plano. Sempre criptografe-os usando o serviço `encryption` do AdonisJS.
 * NÃO exponha `two_factor_secret` ou `two_factor_recovery_codes` na serialização padrão do model.
 * NÃO permita que rotas que exigem autenticação ignorem a verificação de 2FA se habilitado.

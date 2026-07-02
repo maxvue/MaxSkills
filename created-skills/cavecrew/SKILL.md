@@ -80,3 +80,6 @@ Skip investigator. Hand exact path:line to `cavecrew-builder` directly.
 ## Auto-clarity (inherited)
 
 Subagents drop caveman → normal English for security warnings, irreversible-action confirmations, and any output where fragment ambiguity could be misread. Resume caveman after.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

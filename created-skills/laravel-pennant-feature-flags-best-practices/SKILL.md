@@ -116,6 +116,7 @@ it('displays premium dashboard when billing-v2 feature is active', function () {
 ---
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NO Inline Flag Logic in Frontend:** Do not implement standalone feature activation logic in Vue; always read flags from the MaxPinia store populated by the /api endpoint.
 - **NO Static Configuration Cache for Scope Resolution:** Never resolve scope features using hardcoded configuration arrays that require manual code releases to change. Use Eloquent attributes, roles, or database settings.
 - **Strict pt-BR Code Comments:** All code comments inside PHP and JS code examples must be strictly written in Brazilian Portuguese (pt-BR).

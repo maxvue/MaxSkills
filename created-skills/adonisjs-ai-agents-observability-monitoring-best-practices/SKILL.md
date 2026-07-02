@@ -10,7 +10,7 @@ Estabelecer padrões robustos e melhores práticas para rastreamento (tracing), 
 
 ## 1. Rastreamento de Steps (Passos) com `onStepFinish`
 Ao chamar `generateText` ou `streamText` do Vercel AI SDK, utilize o callback `onStepFinish` para obter detalhes estruturados de cada passo executado.
-- **Extrair Metadados de Tokens e Cache:** Para o Gemini, calcule os tokens servidos a partir do cache usando `providerMetadata.google.cachedContentTokenCount` e subtraia do total de `usage.inputTokens` para identificar os custos de entrada brutos.
+- **Extrair Metadados de Tokens e Cache:** Para o Gemini, calcule os tokens servidos a partir do cache usando `providerMetadata.google.usageMetadata.cachedContentTokenCount` (ou, preferencialmente, o campo nativo do SDK `usage.inputTokenDetails.cacheReadTokens`) e subtraia do total de `usage.inputTokens` para identificar os custos de entrada brutos.
 - **Logs Estruturados de Telemetria:** Grave logs estruturados de cada passo no `logger` oficial do AdonisJS para simplificar o agrupamento e visualização de logs.
 - **Rastreamento de Ferramentas:** Registre qual ferramenta foi chamada, seus argumentos e o retorno gerado.
 
@@ -27,7 +27,7 @@ const { text } = await generateText({
   tools: tools,
   onStepFinish: ({ text, toolCalls, toolResults, usage, providerMetadata, finishReason }) => {
     // 1. Calcular métricas de cache (providerMetadata é argumento separado do callback)
-    const cacheRead = (providerMetadata?.google as any)?.cachedContentTokenCount ?? 0
+    const cacheRead = (providerMetadata?.google as any)?.usageMetadata?.cachedContentTokenCount ?? 0
     const rawInput = Math.max((usage.inputTokens ?? 0) - cacheRead, 0)
     
     // 2. Log estruturado da execução do passo
@@ -157,6 +157,7 @@ export function broadcastAgentProgress(userId: string, payload: {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Não utilize console.log simples para rastrear a execução de agentes; sempre utilize o AdonisJS `logger` aplicando níveis corretos (`info` para passos, `debug` para parâmetros/retornos de ferramentas e `error` para falhas).
 - Não envie credenciais, chaves privadas ou tokens confidenciais fornecidos pelo usuário aos campos extras do Sentry; sanitize as informações antes de enviar.
 - Não deixe que falhas no broadcast do Transmit (SSE) travem a execução do agente. Envolva as chamadas de broadcast em try/catch para garantir resiliência.

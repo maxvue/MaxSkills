@@ -84,6 +84,7 @@ Establish guidelines, conventions, and standards for user activity tracking, Elo
      ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do NOT use wildcard `logAll()` on models. Specify fields explicitly using `logOnly()`.
 - Do NOT log sensitive information (e.g., passwords, credit card info, auth tokens) in model attributes or custom properties.
 - Do NOT query activity logs without eager-loading `causer` and `subject` relations.

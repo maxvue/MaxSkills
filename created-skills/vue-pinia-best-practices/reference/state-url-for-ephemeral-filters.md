@@ -87,19 +87,20 @@ function updateQuery(newParams) {
 
 <template>
   <div>
-    <input v-model="searchQuery" placeholder="Search...">
+    <!-- House rule: sem input/select nativos — use os componentes MaxComponentsUi. -->
+    <MaxInputText v-model="searchQuery" placeholder="Search..." />
 
-    <select v-model="selectedCategory">
-      <option value="all">All Categories</option>
-      <option value="electronics">Electronics</option>
-      <option value="clothing">Clothing</option>
-    </select>
+    <MaxInputSelect v-model="selectedCategory" :options="[
+      { label: 'All Categories', value: 'all' },
+      { label: 'Electronics', value: 'electronics' },
+      { label: 'Clothing', value: 'clothing' },
+    ]" />
 
-    <select v-model="sortBy">
-      <option value="newest">Newest</option>
-      <option value="price-low">Price: Low to High</option>
-      <option value="price-high">Price: High to Low</option>
-    </select>
+    <MaxInputSelect v-model="sortBy" :options="[
+      { label: 'Newest', value: 'newest' },
+      { label: 'Price: Low to High', value: 'price-low' },
+      { label: 'Price: High to Low', value: 'price-high' },
+    ]" />
 
     <!-- URL now looks like: /products?category=electronics&sort=price-low&q=phone -->
     <!-- Users can bookmark, share, and refresh without losing state -->
@@ -113,7 +114,8 @@ VueUse provides `useRouteQuery` for type-safe URL state:
 
 ```vue
 <script setup>
-import { useRouteQuery } from '@vueuse/router'
+// House rule: composables da família VueUse vêm via MaxUse, nunca de '@vueuse/*' direto.
+import { useRouteQuery } from '@maxvue/max-use'
 
 // Automatically syncs with URL query parameters
 const category = useRouteQuery('category', 'all')
@@ -129,9 +131,10 @@ const selectedTags = useRouteQuery('tags', [], {
 </script>
 
 <template>
-  <input v-model="search" placeholder="Search...">
-  <select v-model="category">...</select>
-  <input type="checkbox" v-model="showOutOfStock"> Show out of stock
+  <!-- House rule: componentes MaxComponentsUi em vez de input/select/checkbox nativos. -->
+  <MaxInputText v-model="search" placeholder="Search..." />
+  <MaxInputSelect v-model="category" :options="categoryOptions" />
+  <MaxInputCheckbox v-model="showOutOfStock" label="Show out of stock" />
 </template>
 ```
 

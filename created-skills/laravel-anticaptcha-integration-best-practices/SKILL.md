@@ -107,6 +107,7 @@ Log::channel('anticaptcha')->info("Captcha solved successfully. Task ID: {$api->
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** commit the API key (`ANTICAPTCHA_KEY`) to Git. Keep it in the `.env` file.
 - **Do NOT** use default logging channels for captcha logs; always write to `Log::channel('anticaptcha')`.
 - **Do NOT** hardcode long sleep periods or infinite polling loops. Use `$api->waitForResult($maxSeconds)` with a sane timeout to prevent hanging Laravel worker processes or Octane threads.

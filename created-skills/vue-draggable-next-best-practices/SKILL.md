@@ -36,7 +36,9 @@ Ao criar ou editar componentes Vue (arquivos `.vue`) que exijam reordenação, s
   </draggable>
   ```
 - **Manipulação de Alterações de Estado**: Use o evento `@change` para capturar atualizações de posição. O payload do evento contém uma propriedade `moved` com o `element`, `newIndex` e `oldIndex`.
-- **Envio ao Backend (MaxPinia)**: NÃO faça `axios.post` manual. Toda alteração de dados de página passa por uma store `@maxvue/max-pinia`: vincule a lista ao estado da store e, no `@change`, atualize o estado da store — o MaxPinia faz o auto-save (debounced) na rota `/api/...` automaticamente. Exiba indicadores de salvamento (ex.: estado de loading da store) para evitar cliques duplos. **Nunca use Inertia.js.**
+- **Envio ao Backend (MaxPinia)**: NÃO faça `axios.post` manual. Toda alteração de dados de página passa por uma store `@maxvue/max-pinia`: vincule a lista a um campo **dentro de `store.data`** (ex.: `store.data.items`) e, no `@change`, atualize esse campo — o watcher interno do MaxPinia observa `cloneDeep(store.data)` (deep watch) e dispara o auto-save (debounced) na rota `options.save` automaticamente. Mutar propriedades top-level da store (ex.: `store.items`) **não** dispara o save.
+  - **Atenção (list stores)**: NÃO defina as flags `isList`/`is_list` numa store cujo objetivo é persistir a reordenação — o MaxPinia trata `isList` como `isBlocked` e **pula** o auto-save. A store precisa de `isCached` + `options.get`/`options.save` (rotas em string) configurados para que o save ocorra.
+  - **Indicador de salvamento**: leia o estado via objeto injetado `status` — `status.server.save.is_requesting` (ou `is_requesting_now`) — não use uma propriedade `isSaving` fabricada. **Nunca use Inertia.js.**
 
 ### 2. Implementação no Back-end (AdonisJS)
 Para persistir os itens reordenados de forma eficiente:
@@ -51,19 +53,19 @@ Para persistir os itens reordenados de forma eficiente:
 ### Frontend: Componente de Lista Reordenável (`TodoList.vue`)
 ```vue
 <template>
-  <div class="todo-list-container">
-    <h2 class="title">Lista de Tarefas</h2>
-    <draggable v-model="todoItems" ghost-class="ghost-item" drag-class="dragging-item" handle=".drag-handle" @change="handleOrderChange" class="draggable-list">
-      <div v-for="element in todoItems" :key="element.id" class="todo-item">
-        <div class="drag-handle">
+  <div relative p-6 bg-surface text-default rounded-lg>
+    <h2 text-xl font-semibold mb-4>Lista de Tarefas</h2>
+    <draggable v-model="todoItems" ghost-class="ghost-item" drag-class="dragging-item" handle=".drag-handle" @change="handleOrderChange" flex="~ col" gap-2>
+      <div v-for="element in todoItems" :key="element.id" flex items-center px-4 py-3 bg-muted border="~ base rounded-md">
+        <div class="drag-handle" mr-4 cursor-grab text-muted>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path d="M2 8a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm10-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0-3a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm0 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
           </svg>
         </div>
-        <span class="todo-text">{{ element.name }}</span>
+        <span text-base>{{ element.name }}</span>
       </div>
     </draggable>
-    <div v-if="isSaving" class="saving-overlay">
+    <div v-if="isSaving" absolute top-4 right-4 px-3 py-1 bg-primary text-white rounded text-xs>
       Salvando nova ordenação...
     </div>
   </div>
@@ -80,22 +82,22 @@ interface TodoItem {
   position: number
 }
 
-// Store MaxPinia: faz o GET inicial dos dados e o auto-save (debounced) ao alterar o estado.
+// Store MaxPinia: faz o GET inicial dos dados e o auto-save (debounced) ao alterar store.data.
 const todosStore = useTodosStore()
 
-// Lista reativa vinda da store. O v-model do draggable reordena o estado da store,
-// e o MaxPinia persiste automaticamente em /api/todos (sem axios manual).
+// Lista reativa vinda de store.data. O v-model do draggable reordena store.data.items,
+// e o watcher interno (deep watch em cloneDeep(store.data)) dispara o auto-save em options.save.
 const todoItems = computed<TodoItem[]>({
-  get: () => todosStore.items,
-  set: (value) => (todosStore.items = value),
+  get: () => todosStore.data.items,
+  set: (value) => (todosStore.data.items = value),
 })
 
-// Indicador de salvamento exposto pela store.
-const isSaving = computed<boolean>(() => todosStore.isSaving)
+// Indicador de salvamento exposto pelo objeto `status` injetado pelo MaxPinia.
+const isSaving = computed<boolean>(() => todosStore.status.server.save.is_requesting)
 
-// Apenas reescreve as posições no estado; o MaxPinia detecta a mudança e salva.
+// Reescreve as posições dentro de store.data.items; o MaxPinia detecta a mudança e salva.
 const handleOrderChange = () => {
-  todosStore.items = todoItems.value.map((item, index) => ({
+  todosStore.data.items = todoItems.value.map((item, index) => ({
     ...item,
     position: index,
   }))
@@ -103,70 +105,51 @@ const handleOrderChange = () => {
 </script>
 
 <style scoped lang="scss">
-.todo-list-container {
-  padding: 1.5rem;
-  background-color: #1e1e2e;
-  border-radius: 8px;
-  color: #cdd6f4;
-  position: relative;
+.ghost-item {
+  opacity: 0.5;
+  border: 1px dashed var(--primary);
+}
 
-  .title {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-  }
+.dragging-item {
+  opacity: 0.9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
-  .draggable-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .todo-item {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    background-color: #313244;
-    border-radius: 6px;
-    border: 1px solid #45475a;
-
-    .drag-handle {
-      cursor: grab;
-      margin-right: 1rem;
-      color: #a6adc8;
-
-      &:active {
-        cursor: grabbing;
-      }
-    }
-
-    .todo-text {
-      font-size: 1rem;
-    }
-  }
-
-  .ghost-item {
-    opacity: 0.5;
-    background-color: #45475a;
-    border: 1px dashed #f38ba8;
-  }
-
-  .dragging-item {
-    opacity: 0.9;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  .saving-overlay {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: #a6e3a1;
-    color: #11111b;
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
+.drag-handle {
+  &:active {
+    cursor: grabbing;
   }
 }
 </style>
+```
+
+### Frontend: Definição da Store MaxPinia (`stores/todos.ts`)
+A store precisa de `isCached` e das rotas `options.get`/`options.save` (strings) para que o GET inicial e o auto-save funcionem. NÃO defina `isList`/`is_list` — isso bloquearia o save.
+```typescript
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+
+interface TodoItem {
+  id: number
+  name: string
+  position: number
+}
+
+export const useTodosStore = defineStore('todos', () => {
+  // Ativa o cache/persistência e o watcher de auto-save do MaxPinia.
+  const isCached = ref(true)
+
+  // A lista fica DENTRO de data para que o deep watch em cloneDeep(store.data) dispare o save.
+  const data = ref<{ items: TodoItem[] }>({ items: [] })
+
+  // Rotas em string: GET inicial e POST de auto-save (debounced).
+  const options = ref({
+    get: '/api/todos',
+    save: '/api/todos/reorder',
+  })
+
+  return { isCached, data, options }
+})
 ```
 
 ### Backend: Controller AdonisJS (`TodosController.ts`)
@@ -210,6 +193,7 @@ export default class TodosController {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Uso Estrito de Composition API**: NÃO use a Options API (`data`, `methods`, etc.).
 - **Proibido Inertia.js**: Nunca importe ou use `@inertiajs/vue3`. A persistência da ordenação é feita pela store `@maxvue/max-pinia` (auto-save debounced para `/api/...`), nunca por `axios.post` manual.
 - **Slot Padrão Obrigatório**: Use o slot default com `v-for` e `:key` única. NÃO use `item-key`/slot `#item` (isso é API do `vuedraggable`, não do `vue-draggable-next`).

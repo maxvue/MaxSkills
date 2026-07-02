@@ -88,8 +88,9 @@ export default class UploadsController {
     // Gera um nome de arquivo seguro e único usando cuid()
     const fileName = `${cuid()}.${avatar.extname}`
     
-    // Move o arquivo para o bucket/diretório do disco padrão
-    await avatar.moveToDisk('avatars', { name: fileName })
+    // Move o arquivo para o disco padrão. O 1º argumento é a CHAVE completa
+    // (path de destino), não um diretório + opção `name`. Não existe opção `name`.
+    await avatar.moveToDisk(`avatars/${fileName}`)
     
     return response.ok({
       path: `avatars/${fileName}`
@@ -174,6 +175,7 @@ const invoiceUrl = await drive.use().getSignedUrl('invoices/inv-2026.pdf', {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca** grave arquivos diretamente na pasta pública usando `app.publicPath()` ou a API padrão `fs/promises` em produção. Sempre direcione os uploads através do `@adonisjs/drive` para manter a portabilidade para a nuvem.
 - **Nunca** use `moveToDisk()` em um `MultipartFile` após tê-lo modificado com o `sharp`. Uma vez que uma imagem é processada em um buffer/stream, você deve fazer o upload usando `drive.use().put()`.
 - **Nunca** exponha credenciais de armazenamento, chaves S3, regiões ou nomes de buckets diretamente nos arquivos de código. Sempre recupere-os via `env.get()` e valide-os em `start/env.ts`.

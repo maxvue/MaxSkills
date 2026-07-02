@@ -123,6 +123,7 @@ An array of objects representing PV module models, containing:
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NEVER** return units (V, A, W, mm, kg, %, etc.) in numeric schema fields.
 - **NEVER** default missing numeric fields to `null` or empty strings; always use `0`.
 - **NEVER** search the internet or use external knowledge for missing technical details. Ground all extractions in the provided PDF.

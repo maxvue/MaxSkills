@@ -1,6 +1,6 @@
 ---
 name: typescript-write
-description: Write TypeScript and JavaScript code following Metabase coding standards and best practices. Use when developing or refactoring TypeScript/JavaScript code.
+description: Write TypeScript and JavaScript code following the EngeApp/Maxdmin (AdonisJS v6 backend + Vue 3 frontend) coding standards and best practices. Use when developing or refactoring TypeScript/JavaScript code.
 ---
 
 # TypeScript/JavaScript Development Skill
@@ -22,22 +22,22 @@ description: Write TypeScript and JavaScript code following Metabase coding stan
 - **`satisfies` for object literals** that must conform without widening (config objects, lookup maps, discriminated literals) — better than `: T` (widens) or `as T` (unsafe).
 - **Avoid non-null assertions (`!`)**. Prefer a guard, early return, or `?.`. Use `!` only when non-nullness is provably true and localized, with a comment.
 - **No redundant runtime coercion** — don't wrap already-typed values in `Number()` / `String()` / `Boolean()`.
-- **Type guards belong in `frontend/src/metabase-types/guards/`**. Do not redefine them locally.
+- **Type guards belong in a shared guards module** (not scattered across feature folders). Do not redefine them locally.
 
 ## Type modeling
 
-- **Reuse existing types; don't re-declare them.** Use canonical IDs and domain entity types from `metabase-types/api` (`FieldId`, `TableId`, `ConcreteTableId`, `SchemaName`, …) and key data structures by them (`new Map<ConcreteTableId, …>()`). Don't duplicate generated/API types — compose or derive (`Pick`, `Omit`, indexed access `SomeType["field"]`, `ReturnType`).
+- **Reuse existing types; don't re-declare them.** Use the project's canonical domain/entity types (AdonisJS Lucid models, shared DTOs, and the API response types) and key data structures by them. Don't duplicate generated/API types — compose or derive (`Pick`, `Omit`, indexed access `SomeType["field"]`, `ReturnType`).
 - **Use generics to allow TypeScript to infer correct types** when creating functions and components that need to be reusable and type-safe. Don't hesitate to introduce complex generics if they allow to derive types automatically instead of manual narrowing.
 - **Model the actual data contract; keep types narrow.** Optional `field?: T` for a key that may be absent, `field: T | undefined` only when the key is always present but the value may be undefined, `| null` for explicit API nulls. Prefer domain unions over broad `string` / `number` / loose `Record`.
 - **Refer to API implementation** when defining or refining types to ensure they match the actual data structure. When considering a type cast, first consider if the type should be refined to match the actual data structure.
 - **Discriminated unions for variant state, with exhaustive checks.** Model "one of N shapes" as a union with a literal discriminant rather than a bag of optional fields, and exhaust it with ts-pattern's `.exhaustive()` so adding a variant becomes a compile error:
   ```ts
-  import { match } from "ts-pattern";
+  import { match, P } from "ts-pattern";
 
-  const result = match(status)
-    .with({ type: "loading" }, () => <Spinner />)
-    .with({ type: "error", error: P.select() }, (error) => <Error message={error.message} />)
-    .with({ type: "success", data: P.select() }, (data) => <Content data={data} />)
+  const label = match(status)
+    .with({ type: "loading" }, () => "Carregando…")
+    .with({ type: "error", error: P.select() }, (error) => `Erro: ${error.message}`)
+    .with({ type: "success", data: P.select() }, (data) => data.title)
     .exhaustive(); // Compile-time guarantee all cases handled
   ```
 - **Derive union types from constants** (`as const` + `typeof`/`keyof`) so the type and the values can't drift.
@@ -49,7 +49,7 @@ description: Write TypeScript and JavaScript code following Metabase coding stan
 - **Narrow at the source**. If a value is optional only in a corner case, don't thread `undefined` through every layer — guard at the producer.
 - **Sensible defaults for optional values**. Use `?.` and `??` at the consumer.
 - **Lists should be filtered** before being used in a map or other iteration.
-- **Avoid non-strict null comparisons** (`X != null`) when `X` can never be `null` — use a strict check or narrow the type. Use `checkNotNull` where necessary.
+- **Avoid non-strict null comparisons** (`X != null`) when `X` can never be `null` — use a strict check or narrow the type. Assert non-null explicitly (guard or early return) where necessary.
 - **Check actual nullability against API implementation**. Find the API endpoint implementation and check if the field can actually be null.
 
 ## Naming
@@ -77,4 +77,7 @@ description: Write TypeScript and JavaScript code following Metabase coding stan
 
 ## Verify before done
 
-- **Run the project type-check** when finished (see the shared TypeScript commands above).
+- **Run the project type-check** when finished (`npm run typecheck`, i.e. `tsc --noEmit -p tsconfig.json`).
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

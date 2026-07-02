@@ -118,10 +118,12 @@ export const safeAxios = axios.create({
 ```
 
 #### Opção B: Usando fetch Nativo (Undici)
-No Node.js 18+, o `fetch` nativo roda sobre a biblioteca `undici`. Configure um agente despachante customizado:
+No Node.js 18+, o `fetch` nativo roda sobre a biblioteca `undici`. Configure um agente despachante customizado.
+
+> **Requisito:** o pacote standalone `undici` (que exporta a classe `Agent`) **não é dependência declarada do projeto** — só `undici-types` (bundled com `@types/node`) está presente. Sem instalar `undici`, o `import { Agent } from 'undici'` lança `ERR_MODULE_NOT_FOUND`. Rode `npm i undici` antes de usar a Opção B, **ou** use a Opção A (axios), que já é dependência do projeto.
 
 ```typescript
-import { Agent } from 'undici'
+import { Agent } from 'undici' // requer: npm i undici
 import dns from 'node:dns'
 import { isPrivateIp } from './ip_validator.js'
 
@@ -223,6 +225,7 @@ export function logOutboundRequest(url: string, method = 'GET') {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NUNCA execute requisições HTTP de saída sem usar agentes de conexão que restrinjam a resolução. O uso do `fetch` comum ou `axios.get(url)` padrão é estritamente proibido quando a URL de destino é fornecida pelo usuário.
 * NÃO ignore limites de tamanho de resposta. Uma URL pode apontar para um fluxo de dados de comprimento infinito, esgotando a memória ou o espaço em disco do servidor.
 * NÃO registre cabeçalhos de autorização ou a URL original contendo parâmetros de consulta diretamente em logs.

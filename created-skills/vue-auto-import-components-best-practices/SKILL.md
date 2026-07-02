@@ -30,8 +30,8 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue',
-        // maxUseAutoImport é uma FUNÇÃO: chame-a para registrar os helpers do MaxUse
-        maxUseAutoImport(),
+        // maxUseAutoImport é um ARRAY de import-sources: faça spread dele nos imports
+        ...(Array.isArray(maxUseAutoImport) ? maxUseAutoImport : [maxUseAutoImport]),
         { pinia: ['defineStore'] }
       ],
       ignore: ['toRef', 'toRefs'],
@@ -164,6 +164,7 @@ function increment(): void {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 *   **Não Escreva Imports Manuais**: Jamais importe manualmente funções do núcleo do Vue (`ref`, `computed`, `watch`, `onMounted`, etc.) ou funções auxiliares do `@maxvue/max-use` que já estejam mapeadas no auto-import.
 *   **Não Desative a Geração de DTS**: Nunca defina `dts: false` na configuração dos plugins. Isso quebra o autocompletar da IDE e a validação estática.
 *   **Mantenha Arquivos Gerados fora do Git (Opcional)**: Se preferir, garanta que os arquivos `auto-import.d.ts` e `auto-import-components.d.ts` estejam no `.gitignore` caso o pipeline de build os gere em tempo de execução (mas garanta que estejam disponíveis no desenvolvimento local para DX).

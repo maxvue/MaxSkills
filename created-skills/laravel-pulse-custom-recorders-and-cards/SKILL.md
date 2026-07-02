@@ -41,6 +41,7 @@ See the following examples in the `examples/` directory:
 - [pulse-card.blade.php](file:///home/johnattas/GitHub/Skills/created-skills/laravel-pulse-custom-recorders-and-cards/examples/pulse-card.blade.php): Blade template using Livewire to render a custom Pulse dashboard card.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - DO NOT query the Pulse database tables directly from the application code; always use the `Pulse` facade query APIs.
 - DO NOT perform heavy database writes or blocking synchronous external calls inside custom recorders. Use async queuing or lightweight in-memory storage (e.g., Redis ingest driver) if high performance is required.
 - DO NOT expose the Pulse dashboard publicly; always secure it behind a Gate.

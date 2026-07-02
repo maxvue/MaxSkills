@@ -1,6 +1,6 @@
 # Exemplo de Teste de Store MaxPinia (Vitest)
 
-Este exemplo demonstra como testar uma store MaxPinia (`@maxvue/max-pinia`) que carrega dados de página via auto-GET (`options.get.route`). O foco é testar estado, cache (`isCached`) e o recarregamento via `reload()` — sem mockar `axios` diretamente, pois a camada de rota/cache do MaxPinia é quem executa a requisição.
+Este exemplo demonstra como testar uma store MaxPinia (`@maxvue/max-pinia`) que carrega dados de página via auto-GET (`options.get.route`). O foco é testar o estado carregado em `store.data`, o opt-in de cache (`isCached`) e o recarregamento via `reload()`. Como o MaxPinia executa o GET/save **dentro do plugin** (não dentro de actions), o plugin é registrado com uma instância de `axios` mockada, que é o ponto de isolamento correto.
 
 ### Store Alvo: `useUserStore.ts`
 ```typescript
@@ -14,23 +14,24 @@ interface User {
 
 // Setup store no padrão MaxPinia: o GET dos dados de página é declarado
 // em options.get.route e executado automaticamente pela camada MaxPinia.
+// O opt-in `isCached: true` ativa o plugin de cache para esta store.
 export const useUserStore = defineStore('user', () => {
-  const users = ref<User[]>([]);
+  // O MaxPinia SEMPRE escreve a resposta do GET em `store.data`.
+  // Não existe `options.get.target`; a rota é lida de `options.get.route`.
+  const data = ref<User[]>([]);
+  const isCached = true;
 
-  // Convenção MaxPinia: auto-GET para /api/users. A store dispara o GET,
-  // popula `users` e mantém o resultado em cache (isCached).
   const options = {
     get: {
       route: '/api/users',
-      target: users,
     },
   };
 
   function clearUsers() {
-    users.value = [];
+    data.value = [];
   }
 
-  return { users, options, clearUsers };
+  return { data, isCached, options, clearUsers };
 });
 ```
 
@@ -39,72 +40,67 @@ export const useUserStore = defineStore('user', () => {
 ### Arquivo de Teste: `useUserStore.test.ts`
 ```typescript
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { setActivePinia, createPinia } from 'pinia';
+import { createPinia, setActivePinia } from 'pinia';
+import { createMaxPinia } from '@maxvue/max-pinia';
 import { useUserStore } from './useUserStore';
+
+// Instância de axios mockada injetada no plugin MaxPinia.
+// O GET/save do MaxPinia acontece dentro do plugin (via axios), não em actions.
+const mockedAxios = {
+  get: vi.fn(),
+  post: vi.fn(),
+};
 
 describe('useUserStore (MaxPinia)', () => {
   beforeEach(() => {
-    // Inicializa uma nova instância do Pinia antes de cada teste
-    // para isolar o estado entre as execuções.
-    setActivePinia(createPinia());
     vi.clearAllMocks();
+    // Registra o plugin MaxPinia com o axios mockado ANTES de ativar o Pinia,
+    // para que o comportamento de auto-GET/cache exista nas stores.
+    const pinia = createPinia();
+    pinia.use(createMaxPinia({ axios: mockedAxios }));
+    setActivePinia(pinia);
   });
 
   it('inicia com o estado padrão vazio', () => {
     const store = useUserStore();
 
-    expect(store.users).toEqual([]);
-    // O auto-GET ainda não trouxe dados; o cache está frio.
-    expect(store.isCached).toBe(false);
+    expect(store.data).toEqual([]);
+    // O auto-GET ainda não trouxe dados; o estado de sucesso é falso.
+    expect(store.status.server.get.is_success).toBe(false);
   });
 
-  it('carrega usuários via reload() (auto-GET MaxPinia) e marca cache', async () => {
+  it('carrega usuários via reload() (auto-GET MaxPinia) e marca sucesso', async () => {
     const mockUsers = [
       { id: 1, name: 'João Silva', email: 'joao@engeapp.com' },
       { id: 2, name: 'Maria Souza', email: 'maria@engeapp.com' },
     ];
 
-    // A camada MaxPinia resolve options.get.route ('/api/users').
-    // Em teste, interceptamos a rota respondendo os dados mockados.
-    server.use(
-      http.get('/api/users', () => HttpResponse.json(mockUsers)),
-    );
+    // A camada MaxPinia resolve options.get.route ('/api/users') e chama axios.get.
+    mockedAxios.get.mockResolvedValue({ data: mockUsers });
 
     const store = useUserStore();
 
     // reload() força o refetch pelo auto-GET declarado em options.get.route.
     await store.reload();
 
-    // Validamos pelo estado da store, não por chamadas de axios.
-    expect(store.users).toEqual(mockUsers);
-    expect(store.isCached).toBe(true);
-  });
-
-  it('serve os dados do cache sem novo refetch quando isCached é true', async () => {
-    const mockUsers = [{ id: 1, name: 'João Silva', email: 'joao@engeapp.com' }];
-    server.use(
-      http.get('/api/users', () => HttpResponse.json(mockUsers)),
-    );
-
-    const store = useUserStore();
-    await store.reload();
-
-    expect(store.isCached).toBe(true);
-    // Segundo acesso deve vir do cache (MaxPinia); o estado permanece populado.
-    expect(store.users).toEqual(mockUsers);
+    // Os dados sempre chegam em `store.data`; o carregamento é rastreado
+    // por `status.server.get.is_success` (ou `store.is_done`).
+    expect(store.data).toEqual(mockUsers);
+    expect(store.status.server.get.is_success).toBe(true);
+    expect(store.is_done).toBe(true);
   });
 
   it('limpa os usuários da lista através da action clearUsers', () => {
     const store = useUserStore();
 
-    // Define estado inicial sujo diretamente no estado da store.
-    store.users = [{ id: 1, name: 'João Silva', email: 'joao@engeapp.com' }];
+    // Define estado inicial sujo diretamente em store.data.
+    store.data = [{ id: 1, name: 'João Silva', email: 'joao@engeapp.com' }];
 
     store.clearUsers();
 
-    expect(store.users).toEqual([]);
+    expect(store.data).toEqual([]);
   });
 });
 ```
 
-> **Nota:** O teste valida o comportamento da store pelo seu estado e pelos flags do MaxPinia (`isCached`) e pelo `reload()`, em vez de mockar `axios`. As requisições HTTP são interceptadas no nível da rede (ex.: MSW — `http`/`HttpResponse` de um `server` compartilhado no setup dos testes), respeitando o contrato de rotas string do `@maxvue/max-use`.
+> **Nota:** O teste valida o comportamento da store pelo estado carregado em `store.data`, pelos flags de status do MaxPinia (`status.server.get.is_success` / `store.is_done`) e pelo `reload()`. O isolamento é feito injetando uma instância de `axios` mockada em `createMaxPinia({ axios })`, pois o GET/save do MaxPinia é executado dentro do plugin — não em actions da store. `isCached: true` é um flag de **entrada** (opt-in) que a store declara para ativar o plugin de cache; não é uma flag de saída que indica "dados carregados".

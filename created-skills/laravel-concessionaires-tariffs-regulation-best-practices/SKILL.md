@@ -37,6 +37,7 @@ When validating or transferring tariff configuration payloads, use Spatie Larave
 - **Actions / Service Classes**: Place payback calculations, tariff applications, and ANEEL compensation models inside specific service classes (e.g., `App\Services\Financial\PaybackCalculatorService`).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NEVER** use raw floats for database columns storing tariffs or monetary totals. Use `decimal(12, 6)` or `integer` representing cents.
 - **DO NOT** hardcode TUSD/TE rates inside controllers or services. Always fetch them from the database or DTO config arrays associated with the client's `ConcessionaireSubsidiary`.
 - **DO NOT** duplicate calculation logic across controllers. Centralize in Service/Action classes.

@@ -11,11 +11,11 @@ Estabelecer políticas robustas de segurança e prevenir o abuso de recursos em 
 ### 1. Proteção CSRF e Exclusão de Webhooks
 O AdonisJS Shield fornece proteção global contra Cross-Site Request Forgery (CSRF). No entanto, endpoints externos como webhooks de inversores/integrações de terceiros (`/webhooks/inverter`) não possuem um token CSRF e falharão com erro `403 Forbidden` se não forem explicitamente excluídos.
 - **Configuração de CSRF (`config/shield.ts`):**
-  Garanta que o CSRF esteja ativo e adicione as rotas de webhooks externos em `exceptRoutes`. No `@adonisjs/shield` v6, `exceptRoutes` aceita um array de strings com correspondência **exata** OU uma função para lógica dinâmica — não há suporte nativo a glob (`*`). Para excluir um prefixo de rotas (ex.: `/api/webhooks/...`), use a forma de callback.
+  Garanta que o CSRF esteja ativo e adicione as rotas de webhooks externos em `exceptRoutes`. No `@adonisjs/shield` v8, `exceptRoutes` aceita um array de strings — que casa contra o **padrão de rota registrado** (`ctx.route.pattern`, com placeholders de parâmetro como `/projects/:id`), não contra a URL concreta da requisição — OU uma função para lógica dinâmica. Não há suporte nativo a glob (`*`). Para excluir um prefixo de rotas (ex.: `/api/webhooks/...`), use a forma de callback, que recebe o `ctx` e pode inspecionar `ctx.request.url()`.
   ```typescript
   csrf: {
     enabled: true,
-    // Use callback para excluir prefixos; o array de strings só faz match exato.
+    // Use callback para excluir prefixos; o array de strings casa o padrão de rota (ctx.route.pattern), não a URL da requisição.
     exceptRoutes: (ctx) => {
       const url = ctx.request.url()
       return url === '/webhooks/inverter' // callback de webhook do inversor
@@ -28,6 +28,8 @@ O AdonisJS Shield fornece proteção global contra Cross-Site Request Forgery (C
 
 ### 2. Limitação de Taxa Baseada em Redis (AdonisJS Limiter)
 Para operações dispendiosas, como chamadas de LLM/Agentes de IA, rotas suscetíveis a força bruta (ex: `/login`) ou manipuladores de webhook, implemente limitação de taxa baseada em Redis.
+
+> **Pré-requisito (obrigatório):** o `@adonisjs/limiter` e uma conexão Redis (`@adonisjs/redis`) **não** fazem parte das dependências base deste projeto. Instale-os antes de usar o código abaixo: `node ace add @adonisjs/limiter` e `node ace add @adonisjs/redis` (configure a conexão em `config/redis.ts`). Sem esses pacotes, os imports `@adonisjs/limiter`/`@adonisjs/redis` a seguir não resolvem.
 - **Configuração do Limiter (`config/limiter.ts`):**
   Configure o armazenamento Redis para compartilhar os limites de taxa em arquiteturas com múltiplos nós ou workers.
   ```typescript
@@ -136,6 +138,7 @@ Certifique-se de que as exceções de segurança sejam capturadas e formatadas c
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca desative o CSRF globalmente:** Não desligue a proteção contra CSRF em `config/shield.ts` para resolver problemas de Webhooks/APIs. Sempre exclua as rotas específicas usando o array `exceptRoutes`.
 - **Nunca use o Memory Store do Limiter em produção:** O armazenamento em memória padrão para limites de taxa não é compartilhado entre processos ou após reinicializações. Sempre force o driver `redis` em produção para consistência.
 - **Nunca exponha stack traces em erros de segurança:** Sempre oculte stack traces e detalhes internos nas respostas de `E_TOO_MANY_REQUESTS` e `E_BAD_CSRF_TOKEN`, retornando apenas a mensagem amigável e o `code`. Isso vale inclusive ao testar localmente simulando o comportamento de um cliente de produção.

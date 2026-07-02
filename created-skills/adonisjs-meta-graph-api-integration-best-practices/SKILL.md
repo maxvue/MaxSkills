@@ -253,6 +253,7 @@ export class MetaErrorNormalizer {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Polling Síncrono**: Nunca execute loops de polling em controllers ou threads HTTP síncronas. Sempre utilize filas e background workers (como o BullMQ).
 - **Criptografar Tokens**: Nunca salve tokens de acesso de Usuário ou Página em colunas do banco de dados em texto aberto. Utilize o serviço `Encryption` do AdonisJS.
 - **Limitar Tentativas de Polling**: Sempre configure limites máximos estritos para tentativas de polling (`maxAttempts`) e tempo máximo de espera para evitar que os workers fiquem travados indefinidamente.

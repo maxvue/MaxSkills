@@ -9,7 +9,7 @@ Provide solid guidelines and configuration patterns for database replication and
 ## Instructions
 1. **Lucid ORM Connection Setup**:
    Configure database connections in `config/database.ts`. Specify a write node (primary) and read replicas (read-only).
-   Use a `read.connection` array in the connection configuration to define multiple read hosts.
+   Read/write replica routing is configured via a top-level `replicas` key (sibling to `connection`/`pool`): `replicas.write.connection` is a single connection object and `replicas.read.connection` is an ARRAY of connection objects for the read hosts.
    Example layout:
    ```typescript
    import env from '#start/env'
@@ -20,13 +20,24 @@ Provide solid guidelines and configuration patterns for database replication and
      connections: {
        pg: {
          client: 'pg',
+         // Default node connection
          connection: {
+           host: env.get('DB_WRITE_HOST'),
+           port: env.get('DB_PORT'),
+           user: env.get('DB_USER'),
+           password: env.get('DB_PASSWORD'),
+           database: env.get('DB_DATABASE'),
+         },
+         // Read/write replica routing
+         replicas: {
            write: {
-             host: env.get('DB_WRITE_HOST'),
-             port: env.get('DB_PORT'),
-             user: env.get('DB_USER'),
-             password: env.get('DB_PASSWORD'),
-             database: env.get('DB_DATABASE'),
+             connection: {
+               host: env.get('DB_WRITE_HOST'),
+               port: env.get('DB_PORT'),
+               user: env.get('DB_USER'),
+               password: env.get('DB_PASSWORD'),
+               database: env.get('DB_DATABASE'),
+             },
            },
            read: {
              connection: [
@@ -38,8 +49,8 @@ Provide solid guidelines and configuration patterns for database replication and
                  database: env.get('DB_DATABASE'),
                },
                // Add more replicas if available
-             ]
-           }
+             ],
+           },
          },
          // Connection Pool Tuning
          pool: {
@@ -49,13 +60,13 @@ Provide solid guidelines and configuration patterns for database replication and
            createTimeoutMillis: 30000,
            acquireTimeoutMillis: 30000,
          },
-         healthCheck: true,
          debug: env.get('NODE_ENV') === 'development',
        }
      }
    })
    export default dbConfig
    ```
+   > **Health checks:** Lucid v6 has no `healthCheck` config boolean. To monitor a connection, register `DbCheck` / `DbConnectionCountCheck` from `@adonisjs/lucid/database` with the app's HealthChecks service (e.g. `import { DbCheck } from '@adonisjs/lucid/database'`), not via a config key.
 
 2. **Query Routing**:
    Ensure write queries go to the write node, and read queries are automatically distributed among read replicas.
@@ -82,14 +93,15 @@ Provide solid guidelines and configuration patterns for database replication and
 4. **Debugging and Profiling**:
    - Enable Lucid query debugging in development to verify routing:
      ```typescript
-     import db from '@adonisjs/lucid/services/db'
-     db.on('query', (query) => {
+     import emitter from '@adonisjs/core/services/emitter'
+     emitter.on('db:query', (query) => {
        console.log(query.sql, query.bindings)
      })
      ```
    - Watch for "Too many connections" errors. Use connection pooling limits or PgBouncer/Supabase connection poolers if necessary.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NEVER** run write operations (INSERT, UPDATE, DELETE) inside read-only configurations.
 - **NEVER** execute transactions against read replicas; transactions must always run on the write connection.
 - Do not hardcode connection pool sizes; always read them from validated environment variables in `start/env.ts`.

@@ -174,6 +174,7 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
   ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No Hardcoded/Manual Tenant Filtering:** Avoid querying with manual `->where('solar_company_id', ...)` filters. Rely on the `BelongsToTenant` trait and its global scope to prevent developer oversight and data leakage.
 - **Tenant Context Restoration:** Always clear or restore the tenant context at the end of background jobs, Artisan commands, or test executions to avoid memory leaks or context contamination between consecutive jobs (especially under Octane).
 - **Explicit Scope Bypassing:** Restrict bypassing of the tenant scope using `withoutGlobalScope(TenantScope::class)` to system-level operations, administrative dashboards, or explicitly approved cross-tenant console commands. Document all instances of scope bypassing.

@@ -64,17 +64,18 @@ function initUppy() {
 
     uppyInstance.value.on('complete', (result) => {
         isUploading.value = false;
-        if (result.successful.length > 0) {
+        // No Uppy core 5.x `successful`/`failed` são opcionais; proteja com optional chaining.
+        if ((result.successful?.length ?? 0) > 0) {
             // Processa uploads bem-sucedidos. O endpoint XHR cuida apenas do
             // streaming binário; os registros de arquivo retornados devem ser
             // incorporados ao estado de página via store @maxvue/max-pinia,
             // não mantidos apenas no escopo do componente.
-            const responseData = result.successful.map(file => file.response?.body);
+            const responseData = result.successful?.map(file => file.response?.body);
             const filesStore = useFilesStore();
             filesStore.appendUploaded(responseData); // store reflete e persiste o estado
             emit('success', responseData);
         }
-        if (result.failed.length > 0) {
+        if ((result.failed?.length ?? 0) > 0) {
             console.error('Erros no upload do Uppy:', result.failed);
             emit('error', result.failed);
         }
@@ -83,7 +84,8 @@ function initUppy() {
 
 onBeforeUnmount(() => {
     if (uppyInstance.value) {
-        uppyInstance.value.close({ keepFilesState: false });
+        // Uppy core 5.x usa `destroy()` (sem argumentos); `close()` não existe mais.
+        uppyInstance.value.destroy();
     }
 });
 ```
@@ -101,7 +103,8 @@ O endpoint padrão do backend do Engeapp é `files/upload`, tratado por `FilesUp
 - Ao criar componentes personalizados de arrastar e soltar, utilize hooks como `useDropZone` e `useFileDialog` para desacoplar a lógica do template HTML.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não** insira scripts inline ou lógica de negócio diretamente nos templates Vue. Todos os manipuladores de evento, configurações e callbacks devem residir na tag `<script setup lang="ts">`.
-- **Não** esqueça de destruir e limpar a instância do Uppy no unmount usando `uppy.close()`. O esquecimento deste passo causa vazamentos de memória (memory leaks) em Single Page Applications (SPA).
+- **Não** esqueça de destruir e limpar a instância do Uppy no unmount usando `uppy.destroy()`. O esquecimento deste passo causa vazamentos de memória (memory leaks) em Single Page Applications (SPA).
 - **Não** ignore a validação CSRF. O `@uppy/xhr-upload` **requer** o header `X-XSRF-TOKEN` explicitamente — diferente do axios, ele não lê o cookie automaticamente. Leia o cookie `XSRF-TOKEN`, decodifique com `decodeURIComponent` e passe em `headers: { 'X-XSRF-TOKEN': ... }`. Combine com `withCredentials: true`.
 - **Não** trate o resultado do upload apenas com `emit('success')`. Os registros de arquivo retornados são dados de página e devem ser incorporados a uma store `@maxvue/max-pinia`, que cuida do cache e do salvamento.

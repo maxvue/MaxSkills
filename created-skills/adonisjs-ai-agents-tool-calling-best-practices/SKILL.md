@@ -81,6 +81,7 @@ export function getBrandPositioningTool(agent: SocialMediaAgent) {
 - Evite retornar instâncias brutas de models do banco de dados que possam conter campos confidenciais (como hashes de senha, tokens, flags internas). Filtre ou mapeie a estrutura de saída cuidadosamente.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem SQL Puro Inseguro:** Nunca execute consultas SQL brutas montadas por interpolação de strings dentro das ferramentas. Utilize o Query Builder do Lucid ou parâmetros de consulta vinculados (bindings).
 - **Sem Vazamento de Dados Sensíveis:** Nunca retorne rastreamentos de pilha de erro (stack traces), caminhos internos do sistema ou variáveis de ambiente para o LLM na resposta de `error`.
 - **Isolamento de Dados:** Sempre valide se o recurso solicitado pertence ao tenant/empresa ativo antes de atualizá-lo ou lê-lo.

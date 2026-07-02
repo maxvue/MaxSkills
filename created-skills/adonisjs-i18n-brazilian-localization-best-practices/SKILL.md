@@ -94,14 +94,14 @@ Exemplo de configuração para `validator.json`:
 ```
 
 ### 4. Detecção Dinâmica de Locale via Middleware
-Para detectar automaticamente o locale do cliente (a partir de cookies, sessão ou do cabeçalho `Accept-Language`), certifique-se de que o middleware nativo de inicialização do i18n (`initialize_middleware`, registrado pelo próprio pacote ao rodar `node ace add @adonisjs/i18n`) está presente na lista de middlewares de roteador no arquivo `start/kernel.ts`.
+Para detectar automaticamente o locale do cliente (a partir de cookies, sessão ou do cabeçalho `Accept-Language`), rode `node ace add @adonisjs/i18n`. O passo de configuração **cria um arquivo de middleware local** em `app/middleware/detect_user_locale_middleware.ts` (mesmo padrão do `initialize_bouncer_middleware.ts` já presente no projeto) e o registra em `start/kernel.ts`. **Não** existe um subpath importável `@adonisjs/i18n/initialize_middleware` — importar esse caminho falha na resolução. Registre o arquivo local gerado:
 ```typescript
 // start/kernel.ts
 router.use([
-  () => import('@adonisjs/i18n/initialize_middleware')
+  () => import('#middleware/detect_user_locale_middleware')
 ])
 ```
-Este middleware analisa os cabeçalhos de requisição e define o locale ativo na instância de `HttpContext.i18n` para a requisição atual.
+Este middleware analisa os cabeçalhos de requisição e define o locale ativo na instância de `HttpContext.i18n` para a requisição atual. Confira em `start/kernel.ts` se o `add` já o incluiu na pilha; caso contrário, adicione a linha acima manualmente.
 
 ### 5. Formatação de Datas e Moeda (BRL / pt-BR)
 Use as funções de formatação da instância de `i18n` para produzir consistentemente datas e moedas no formato brasileiro (BRL / pt-BR) no backend. O front é uma SPA Vue pura (sem Edge), então o backend formata os valores e os entrega já formatados via API (consumidos no front através de stores `@maxvue/max-pinia`), ou o front formata no cliente com `Intl.NumberFormat`/`Intl.DateTimeFormat` em `pt-BR`.
@@ -134,6 +134,7 @@ data.format(new Date(transaction.createdAt))
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO use APIs de localização legadas do AdonisJS v5** (como o provider legado `Antl`). Use as APIs padrão do `@adonisjs/i18n` v2 (para Adonis v6).
 * **NÃO escreva diretamente strings de tradução em pt-BR (hardcoded)** dentro de validadores VineJS ou controllers. Todas as mensagens de tradução devem estar localizadas em `resources/lang/pt-BR/`.
 * **NÃO ignore a Injeção de Locale no nível da Requisição**. Não importe um singleton global de `i18n` diretamente ao validar dados da requisição, pois isso quebrará o suporte a múltiplos inquilinos (multitenancy) ou múltiplos idiomas. Use sempre a instância de `i18n` do `HttpContext` para garantir que o idioma de preferência do usuário seja respeitado.

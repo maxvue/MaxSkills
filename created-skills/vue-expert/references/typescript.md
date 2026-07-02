@@ -458,7 +458,10 @@ if (!requiredContext) {
 </script>
 ```
 
-## Store Typing (Pinia)
+## Store Typing (@maxvue/max-pinia cached store)
+
+Stores são setup-style e cacheadas. O `data` é tipado; o GET vem da camada de cache (`options.get.route`
+com path `/api/...`) — sem `fetch`/`axios.get` cru. Mutações usam os helpers de rota do `@maxvue/max-use`.
 
 ```typescript
 // stores/user.ts
@@ -473,33 +476,29 @@ interface User {
 }
 
 export const useUserStore = defineStore('user', () => {
-  // State
-  const user = ref<User | null>(null)
-  const users = ref<User[]>([])
+  // State — reidratado pelo plugin @maxvue/max-pinia (GET automático ao montar).
+  const data = ref<User | null>(null)
+  const isCached = ref(true)
+
+  // Rota string /api/... resolvida pela camada de cache (sem Ziggy/route()).
+  const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }))
 
   // Getters
-  const isAdmin = computed(() => user.value?.role === 'admin')
-  const userCount = computed(() => users.value.length)
+  const isAdmin = computed(() => data.value?.role === 'admin')
 
-  // Actions
-  async function fetchUser(id: number): Promise<User> {
-    const response = await fetch(`/api/users/${id}`)
-    const data = await response.json()
-    user.value = data
-    return data
-  }
-
-  function logout() {
-    user.value = null
+  // Mutação tipada via apiPostRoute (retorna o payload direto, não { data }).
+  async function updateProfile(payload: Partial<User>): Promise<User> {
+    const updated = await apiPostRoute('/api/user/save', payload)
+    data.value = updated
+    return updated
   }
 
   return {
-    user,
-    users,
+    data,
+    isCached,
+    options,
     isAdmin,
-    userCount,
-    fetchUser,
-    logout
+    updateProfile
   }
 })
 
@@ -507,61 +506,28 @@ export const useUserStore = defineStore('user', () => {
 export type UserStore = ReturnType<typeof useUserStore>
 ```
 
-## Global Properties Typing
+## Route Helper Typing (@maxvue/max-use)
+
+Os helpers de rota executam a requisição HTTP e retornam `Promise<any>`; tipe o retorno com um genérico no
+seu wrapper/uso em vez de `fetch` cru.
 
 ```typescript
-// plugins/api.ts
-export default defineNuxtPlugin(() => {
-  const api = {
-    async get<T>(url: string): Promise<T> {
-      const response = await fetch(url)
-      return response.json()
-    },
-    async post<T>(url: string, data: unknown): Promise<T> {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(data)
-      })
-      return response.json()
-    }
-  }
+// Import modular (melhor tree-shaking).
+import { apiGetRoute, apiPostRoute } from '@maxvue/max-use'
 
-  return {
-    provide: {
-      api
-    }
-  }
-})
-
-// types/nuxt.d.ts - Augment types
-declare module '#app' {
-  interface NuxtApp {
-    $api: {
-      get<T>(url: string): Promise<T>
-      post<T>(url: string, data: unknown): Promise<T>
-    }
-  }
-}
-
-declare module 'vue' {
-  interface ComponentCustomProperties {
-    $api: {
-      get<T>(url: string): Promise<T>
-      post<T>(url: string, data: unknown): Promise<T>
-    }
-  }
-}
-
-// Usage
-<script setup lang="ts">
 interface User {
   id: number
   name: string
 }
 
-const { $api } = useNuxtApp()
-const user = await $api.get<User>('/api/user')
-</script>
+async function loadUser(id: number): Promise<User> {
+  // apiGetRoute(routeOrPath, data?, options?) — path string /api/...
+  return (await apiGetRoute('/api/users/data', { id })) as User
+}
+
+async function createUser(payload: Omit<User, 'id'>): Promise<User> {
+  return (await apiPostRoute('/api/users', payload)) as User
+}
 ```
 
 ## Quick Reference

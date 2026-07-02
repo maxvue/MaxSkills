@@ -81,26 +81,18 @@ Para tornar o visualizador de PDF responsivo a diferentes tamanhos de container 
 2.  Vincule a largura calculada à propriedade `:width` do `VuePdfEmbed`.
 
 ```typescript
-// `ref`, `onMounted`, `onUnmounted` são auto-importados (unplugin-auto-import).
+// `ref` é auto-importado (unplugin-auto-import).
+// `useResizeObserver` vem do MaxUse (@maxvue/max-use), que reexporta o VueUse — não use
+// `new ResizeObserver` manual: o composable já desconecta a observação no unmount.
+import { useResizeObserver } from '@maxvue/max-use'
+
 const containerRef = ref<HTMLElement | null>(null)
 const pdfWidth = ref<number>(800)
-let resizeObserver: ResizeObserver | null = null
 
-onMounted(() => {
-  if (containerRef.value) {
-    resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        // Deixe uma margem de segurança (ex: 16px) para evitar barras de rolagem
-        pdfWidth.value = Math.max(150, entry.contentRect.width - 16)
-      }
-    })
-    resizeObserver.observe(containerRef.value)
-  }
-})
-
-onUnmounted(() => {
-  if (resizeObserver) {
-    resizeObserver.disconnect()
+useResizeObserver(containerRef, (entries) => {
+  for (const entry of entries) {
+    // Deixe uma margem de segurança (ex: 16px) para evitar barras de rolagem
+    pdfWidth.value = Math.max(150, entry.contentRect.width - 16)
   }
 })
 ```
@@ -124,7 +116,7 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = new URL(
 **Aviso Crítico de Performance**: NÃO armazene as instâncias de documentos ou páginas do `pdfjs` dentro de um objeto reativo padrão (`ref` ou `reactive`). A reatividade profunda do Vue degrada drasticamente a performance e pode corromper os estados internos do PDF.js. Use `shallowRef` ou mantenha as referências em variáveis comuns.
 
 ```typescript
-import { shallowRef } from 'vue';
+// `shallowRef` é auto-importado (unplugin-auto-import) — não importe de 'vue' manualmente.
 const pdfDoc = shallowRef<pdfjsLib.PDFDocumentProxy | null>(null);
 ```
 
@@ -194,17 +186,14 @@ Destrua adequadamente os objetos do PDF.js e fluxos de URL quando o componente f
 - Limpe o canvas, cancele tarefas de renderização ativas e invoque `destroy()` na instância do documento.
 
 ```typescript
-import { onUnmounted } from 'vue';
-
+// `onUnmounted` é auto-importado (unplugin-auto-import) — não importe de 'vue' manualmente.
+// O `useResizeObserver` do MaxUse já limpa a observação sozinho no unmount.
 onUnmounted(() => {
   if (currentRenderTask) {
     currentRenderTask.cancel();
   }
   if (pdfDoc.value) {
     pdfDoc.value.destroy();
-  }
-  if (resizeObserver) {
-    resizeObserver.disconnect()
   }
   // URL.revokeObjectURL(url) se tiver sido criado
 });
@@ -231,6 +220,7 @@ vi.mock('vue-pdf-embed', () => ({
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Apenas Composition API:** Sempre use `<script setup lang="ts">`.
 - **TypeScript & SCSS:** Todas as seções de script devem usar TypeScript (`lang="ts"`) e a estilização deve usar SCSS (`lang="scss"`). A ordem dos elementos no arquivo SFC deve ser: `<template>`, `<script>`, `<style>`.
 - **Restrições de Reatividade:** NUNCA associe proxies de documentos ou páginas do PDF.js diretamente a refs profundamente reativos do Vue (`ref()` ou `reactive()`). Use sempre `shallowRef()`.

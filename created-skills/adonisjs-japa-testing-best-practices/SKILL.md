@@ -98,6 +98,7 @@ Estabelecer padrões consistentes e robustos para a escrita de testes automatiza
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO rode testes contra o banco de desenvolvimento; use sempre o banco de teste dedicado com isolamento via `testUtils.db()` (migrate/truncate/transaction global).
 * NÃO utilize importações relativas padrão (`../../`) para classes dentro da pasta app; utilize sempre `#models/*`, `#services/*` ou outras importações de subpath configuradas.
 * NÃO ignore testes de cenários de erro. Sempre escreva asserções para validações e falhas (ex: 400 Bad Request, 422 Unprocessable Entity, 401 Unauthorized, 404 Not Found).

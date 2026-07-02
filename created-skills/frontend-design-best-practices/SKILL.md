@@ -194,6 +194,7 @@ Antes de finalizar a saída:
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Sem layouts padrão.
 * Sem design-por-componentes.
 * Sem paletas ou fontes "seguras".

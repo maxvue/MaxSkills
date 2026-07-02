@@ -8,7 +8,12 @@ Estabelecer diretrizes claras e padrões de código estruturados para implementa
 
 ## Instruções
 
-> **Nota sobre o pacote oficial**: O AdonisJS v6 oferece o módulo oficial de health checks (`@adonisjs/core/health` com `HealthChecks`, `DbCheck`, `DbConnectionCountCheck`, `RedisCheck`, `RedisMemoryUsageCheck`, `DiskSpaceCheck`, `MemoryHeapCheck`). Prefira-o para checagens de banco/Redis/memória/disco e estenda-o com checagens customizadas (`BaseCheck`/`Check`) apenas para integrações externas que ele não cobre (WhatsApp Cloud, EFI, Inter). Os exemplos manuais abaixo servem como referência conceitual e para casos não cobertos pelo pacote.
+> **Nota sobre o pacote oficial**: O AdonisJS v6 oferece o módulo oficial de health checks. Atenção às origens dos checks — eles NÃO vêm todos de `@adonisjs/core/health`:
+> - De `@adonisjs/core/health`: `HealthChecks`, `BaseCheck`, `Result`, `MemoryHeapCheck`, `MemoryRSSCheck`, `DiskSpaceCheck`.
+> - De `@adonisjs/lucid/database`: `DbCheck`, `DbConnectionCountCheck` (banco de dados).
+> - De `@adonisjs/redis`: `RedisCheck`, `RedisMemoryUsageCheck` — **esse pacote não está instalado no EngeAppNode**; instale `@adonisjs/redis` antes de usá-los (ou use a checagem manual de Redis mais abaixo).
+>
+> Estenda com checagens customizadas apenas com a classe base `BaseCheck` (não existe um export `Check`), para integrações externas que o pacote não cobre (WhatsApp Cloud, EFI, Inter). Os exemplos manuais abaixo servem como referência conceitual e para casos não cobertos pelo pacote.
 
 ## 1. Expondo um Endpoint Seguro `/health`
 No AdonisJS v6, exponha uma rota dedicada para verificações de status de integridade. Este endpoint deve ser protegido contra varreduras não autorizadas para evitar ataques de Negação de Serviço (DoS) e evitar o vazamento de status do sistema para terceiros.
@@ -195,6 +200,7 @@ export default class HealthCheckService {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Vazamentos em Produção**: Nunca retorne credenciais de banco de dados, informações de esquema de tabela, tokens de API ou stack traces detalhados no payload JSON do `/health`.
 - **Limite de Timeout Curto**: Cada verificação de integridade direcionada a serviços externos ou bancos de dados deve ter um timeout explícito (máximo de 2000-3000ms) para evitar que as requisições fiquem aguardando indefinidamente.
 - **Sem Cache Estático**: Sempre execute as checagens de forma dinâmica para requisições ativas. Não sirva um status "OK" em cache indefinidamente.

@@ -494,3 +494,6 @@ The skill classifies the user request into one of the t2i or i2i routes above an
 - [`ai-avatar-video`](https://www.skills.sh/agentspace-so/runcomfy-agent-skills/ai-avatar-video) — talking-head / lip-sync video
 - [`image-edit`](https://www.skills.sh/agentspace-so/runcomfy-agent-skills/image-edit) — full edit treatment (mask-driven, multi-batch)
 - [`image-to-video`](https://www.skills.sh/agentspace-so/runcomfy-agent-skills/image-to-video) — animate a still
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

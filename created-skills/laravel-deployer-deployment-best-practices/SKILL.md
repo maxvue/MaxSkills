@@ -139,6 +139,7 @@ after('deploy:failed', 'deploy:unlock');
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** embed raw passwords or credentials inside `deploy.php`. Use SSH keys or environment variables.
 - **Do NOT** commit `.env` or local logs to production hosts.
 - **Do NOT** run `artisan:migrate` or optimization commands without verifying the target database connection is active and stable.

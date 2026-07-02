@@ -29,6 +29,7 @@ Provide solid guidelines and structured patterns for creating, formatting, and v
    - Format dates dynamically using localized, translated datetime format (e.g. `now()->translatedFormat(...)` in Portuguese).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do NOT hardcode regional concessionaire details or designer data; always resolve them through relations (e.g., `$project->concessionaire`, `$project->designer`).
 - Do NOT generate HTML with raw, unformatted CPFs or CNPJs; always apply formatting/sanitization helper functions (e.g., `formatCpfCnpj`).
 - Do NOT proceed with PDF generation if crucial client/location fields are null; use validation checks to ensure clean data beforehand.

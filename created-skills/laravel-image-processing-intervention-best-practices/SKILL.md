@@ -59,6 +59,7 @@ Provide solid, standardized guidelines for manipulating, resizing, optimizing, a
    - Delegate heavy image manipulation tasks (like batch uploads or high-resolution photo resizing) to background queue jobs utilizing the `ShouldQueue` contract.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** use the old static class calls (`Image::make()`), which belong to Intervention Image v2.
 - **Do NOT** use the old resizing methods like `resize(300, null, function ($constraint) { $constraint->aspectRatio(); })`. Use the modern `scale(width: 300)` instead.
 - **Do NOT** store processed image instances in memory across requests in Octane environments.

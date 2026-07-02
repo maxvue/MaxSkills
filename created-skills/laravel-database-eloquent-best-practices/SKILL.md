@@ -58,6 +58,7 @@ Establish robust guidelines and structured patterns for optimizing Eloquent quer
 - **Database Optimization**: Index columns used in `prunable()` (typically `created_at`) to prevent full-table scans. Use `--chunk` for huge tables to avoid memory exhaustion or long locks.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do NOT run queries inside loops.
 - Do NOT write class-level comments or scope descriptions in English. Always use pt-BR.
 - All code comments inside PHP examples must be strictly written in Brazilian Portuguese (pt-BR).

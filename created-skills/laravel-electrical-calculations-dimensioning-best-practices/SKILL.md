@@ -76,3 +76,6 @@ $breaker = getCircuitBrake([15.5, 24.2, 19.8], 80); // Returns 32
 - **Database Caching:** Do not clear or bypass the `db_abnt_wire` caching mechanisms. The helper handles caching automatically.
 - **Strict Typing:** Ensure input currents are converted or cast appropriately before passing them to the helpers. If array or null are possible, let the helper normalize it or handle empty values gracefully (e.g., returning 0 or null).
 - **Standards:** All calculations must align with NBR 5410. Do not invent custom rating values for standard commercial breakers.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

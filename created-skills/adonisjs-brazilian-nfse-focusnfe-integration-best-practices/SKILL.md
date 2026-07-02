@@ -211,7 +211,9 @@ export default class FocusNfeWebhooksController {
     const payload = request.all()
     const { reference, status, caminho_xml_nota, caminho_pdf_nota } = payload
 
-    await db.transaction(async (trx) => {
+    // Um `return` dentro do callback da transação gerenciada apenas resolve o valor
+    // da transação — NÃO retorna do método handle. Capture o resultado e ramifique DEPOIS.
+    const result = await db.transaction(async (trx) => {
       const invoice = await Invoice.query()
         .useTransaction(trx)
         .where('nfseReferenceId', reference)
@@ -219,12 +221,12 @@ export default class FocusNfeWebhooksController {
         .first()
 
       if (!invoice) {
-        return response.notFound({ error: 'Invoice not found for reference' })
+        return { status: 'not_found' as const }
       }
 
       // Evita reprocessamento se o status já for o mesmo
       if (invoice.nfseStatus === status) {
-        return response.ok({ message: 'Already processed' })
+        return { status: 'duplicate' as const }
       }
 
       invoice.nfseStatus = status
@@ -232,9 +234,17 @@ export default class FocusNfeWebhooksController {
         invoice.nfseXmlUrl = caminho_xml_nota
         invoice.nfsePdfUrl = caminho_pdf_nota
       }
-      
+
       await invoice.save()
+      return { status: 'ok' as const }
     })
+
+    if (result.status === 'not_found') {
+      return response.notFound({ error: 'Invoice not found for reference' })
+    }
+    if (result.status === 'duplicate') {
+      return response.ok({ message: 'Already processed' })
+    }
 
     return response.ok({ received: true })
   }
@@ -242,6 +252,7 @@ export default class FocusNfeWebhooksController {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Chamadas Síncronas**: Nunca realize requisições HTTP da API FocusNFe diretamente em controllers ou fluxos de requisição do usuário. Delegue sempre para workers do BullMQ executando em segundo plano.
 - **Variáveis de Ambiente Estritas**: Não utilize `process.env` diretamente dentro dos arquivos. Importe e use `env.get()` configurado em `#start/env`.
 - **Convenção de Chaves no Banco**: Mantenha a consistência com o restante do repositório; tabelas de faturas e de auditoria tributária devem usar **ULID** gerados de forma automática no hook `@beforeCreate()` da model.

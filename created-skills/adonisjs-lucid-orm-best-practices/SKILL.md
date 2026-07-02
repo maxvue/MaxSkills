@@ -119,6 +119,7 @@ try {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Inicializadores de Propriedade**: Nunca use inicializadores padrão de propriedades de classe (ex: `id = ''`) em modelos. Sempre use `declare`.
 * **SQL Raw**: Evite consultas SQL brutas (raw SQL) a menos que otimizações complexas sejam necessárias. Prefira o Lucid Query Builder.
 * **Prevenção de N+1**: Nunca execute consultas separadas ao banco de dados dentro de loops `forEach` ou `map`. Carregue todos os dados através de relacionamentos adiantados (preload).

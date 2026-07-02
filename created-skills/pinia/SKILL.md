@@ -57,3 +57,6 @@ Pinia is the official state management library for Vue, designed to be intuitive
 - **Call stores inside functions** not at module scope, especially for SSR
 - **Add HMR support** to each store for better development experience
 - **Use `@pinia/testing`** for component tests with mocked stores
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

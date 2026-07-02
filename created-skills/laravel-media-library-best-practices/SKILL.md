@@ -107,6 +107,7 @@ $contracts = ProjectContract::with('media')->get();
 - Use `php artisan media-library:clean` to remove orphaned files from storage.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do not** run image conversions synchronously. Always use `queued()` for any conversion.
 - **Do not** upload files without validating them in a Form Request.
 - **Do not** use raw database queries to fetch media URLs. Always use Spatie's API (`getFirstMediaUrl()` or helper methods).

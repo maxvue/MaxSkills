@@ -48,6 +48,7 @@ Padronizar a renderização, manipulação reativa e prevenção de erros na ger
   - Calcule o fator de escala dinamicamente: `(larguraDaJanela - margem) / larguraDoCodigo`. Utilize funções auxiliares do MaxUse (`@maxvue/max-use`, que reexporta o VueUse), como `useWindowSize` e `useElementSize`.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Nunca execute a função `JsBarcode()` sem envolvê-la em uma estrutura de tratamento de erros `try/catch`.
 * Não utilize valores estáticos ou formatos fixados diretamente no código. Garanta que sejam dinâmicos através de Props do Vue ou variáveis reativas.
 * Jamais utilize a Options API ou JavaScript comum sem tipagem TypeScript (`lang="ts"`).

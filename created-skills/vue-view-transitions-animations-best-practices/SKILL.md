@@ -1,6 +1,6 @@
 ---
 name: vue-view-transitions-animations-best-practices
-description: Use when implementing, refactoring, or optimizing page transitions, element animations, or reactive UI transitions in the Vue 3 frontend. Triggers on configuring Vue <Transition> or <TransitionGroup>, integrating UnoCSS animation utilities, implementing route-based animations with Vue Router, using @vueuse/motion, or optimizing animation rendering performance.
+description: Use when implementing, refactoring, or optimizing page transitions, element animations, or reactive UI transitions in the Vue 3 frontend. Triggers on configuring Vue <Transition> or <TransitionGroup>, integrating UnoCSS animation utilities, implementing route-based animations with Vue Router, using GSAP for JS-driven animation, or optimizing animation rendering performance.
 ---
 
 # Boas Práticas para Transições e Animações no Vue 3
@@ -53,20 +53,20 @@ Use classes utilitárias do UnoCSS para interações simples (como hovers e redi
 
 ### 7. Desempenho e Limpeza de Recursos
 - **Concorrência e Deslocamento de Layout:** Certifique-se de que os componentes sob transição possuam posicionamento absoluto ou isolado caso o `mode="out-in"` não possa ser utilizado, impedindo que elementos empurrem outros componentes da tela durante os ciclos de entrada/saída.
-- **Limpeza de Listeners:** Se estiver utilizando ganchos JavaScript (`@before-enter`, `@enter`, etc.) integrados a bibliotecas de animação como `@vueuse/motion` ou GreenSock (GSAP), sempre limpe e destrua as instâncias de animação no gancho `onUnmounted`.
+- **Limpeza de Listeners:** Se estiver utilizando ganchos JavaScript (`@before-enter`, `@enter`, etc.) integrados a uma biblioteca de animação como GreenSock (GSAP), sempre limpe e destrua as instâncias de animação no gancho `onUnmounted`.
 
 ## Exemplos
 
 ### Exemplo 1: Transição de Modal Premium Padrão (SFC)
 ```vue
 <template>
-  <div class="modal-overlay" v-if="isOpen" @click="close">
-    <transition name="modal-scale" appear>
-      <div class="modal-content" @click.stop v-if="isOpen">
+  <transition name="modal-scale" appear>
+    <div class="modal-overlay" v-if="isOpen" @click="close">
+      <div class="modal-content" @click.stop>
         <slot />
       </div>
-    </transition>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script setup lang="ts">
@@ -183,6 +183,7 @@ defineProps<{
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não usar Options API:** Jamais declare `data()`, `methods` ou ganchos utilizando a estrutura de objeto da Options API.
 - **Evitar Deslocamentos Visuais (Layout Shifts):** Nunca execute transições de substituição sem definir `mode="out-in"`.
 - **Animações de Pintura Pesada Banidas:** Nunca anime propriedades que afetem as dimensões de bloco (como `width`, `height`, `top`, `left`, `margin`, `padding`, `border-width`) dentro de transições CSS. Prefira translações e escalas por `transform`.

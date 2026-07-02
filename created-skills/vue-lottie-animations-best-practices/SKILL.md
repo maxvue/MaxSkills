@@ -15,14 +15,14 @@ import { DotLottieVue } from '@lottiefiles/dotlottie-vue';
 ```
 
 ### 2. Estrutura de Componente Single File (SFC)
-Sempre utilize a Composition API (`<script setup lang="ts">`) e SCSS (`lang="scss"`). Mantenha a ordem dos blocos do SFC como: `<template>`, `<script>` e `<style>`.
+Sempre utilize a Composition API (`<script setup lang="ts">`). Dimensione e estilize via UnoCSS attributify (`presetMaxUno`) e tokens de tema — evite SCSS e `style` inline; recorra ao `style` inline apenas quando o componente de terceiros (`<DotLottieVue>`) genuinamente exigir dimensões via prop `style`. Mantenha a ordem dos blocos do SFC como: `<template>` e `<script>`.
 
 ### 3. Restrição de Atributos Inline
 Dentro do bloco `<template>`, formate o componente `<DotLottieVue>` mantendo todos os seus atributos/propriedades em uma única linha (sem quebras de linha nos atributos).
 ```vue
 <template>
   <div class="lottie-wrapper">
-    <DotLottieVue style="height: 250px; width: 250px;" autoplay loop src="https://lottie.host/example.lottie" />
+    <DotLottieVue h-250 w-250 autoplay loop src="https://lottie.host/example.lottie" />
   </div>
 </template>
 ```
@@ -36,7 +36,7 @@ Para controlar a reprodução programaticamente (ex: play, pause, stop, definir 
 ```vue
 <template>
   <div class="animation-control-container">
-    <DotLottieVue ref="playerRef" style="height: 300px; width: 300px;" src="/animations/loading.lottie" />
+    <DotLottieVue ref="playerRef" h-300 w-300 src="/animations/loading.lottie" />
     <MaxButton label="Alternar Play/Pause" @click="togglePlayback" />
   </div>
 </template>
@@ -84,7 +84,7 @@ const togglePlayback = () => {
 Para interações simples de reprodução ao passar o mouse, utilize a propriedade nativa `playOnHover`:
 ```vue
 <template>
-  <DotLottieVue playOnHover style="height: 100px; width: 100px;" src="/animations/button-feedback.lottie" />
+  <DotLottieVue playOnHover h-100 w-100 src="/animations/button-feedback.lottie" />
 </template>
 ```
 
@@ -93,38 +93,24 @@ Evite renderizar e executar animações que estão fora da tela. Envolva o playe
 ```vue
 <template>
   <div ref="targetContainer" class="lazy-animation-container">
-    <DotLottieVue v-if="isVisible" style="height: 400px; width: 400px;" autoplay loop src="/animations/banner.lottie" />
+    <DotLottieVue v-if="isVisible" h-400 w-400 autoplay loop src="/animations/banner.lottie" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref } from 'vue';
+import { useElementVisibility } from '@maxvue/max-use';
 import { DotLottieVue } from '@lottiefiles/dotlottie-vue';
 
 const targetContainer = ref<HTMLElement | null>(null);
-const isVisible = ref<boolean>(false);
-let observer: IntersectionObserver | null = null;
-
-onMounted(() => {
-  observer = new IntersectionObserver(([entry]) => {
-    // Define a visibilidade com base na interseção na tela
-    isVisible.value = entry.isIntersecting;
-  }, { threshold: 0.1 });
-
-  if (targetContainer.value) {
-    observer.observe(targetContainer.value);
-  }
-});
-
-onUnmounted(() => {
-  if (observer) {
-    observer.disconnect();
-  }
-});
+// useElementVisibility (re-exportado pelo @maxvue/max-use) observa o container e
+// cuida do cleanup automaticamente — sem IntersectionObserver manual nem onMounted/onUnmounted.
+const isVisible = useElementVisibility(targetContainer);
 </script>
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NUNCA** utilize a Options API. Sempre utilize `<script setup lang="ts">` com a Composition API.
 - **NUNCA** quebre os atributos de `<DotLottieVue>` em várias linhas dentro do `<template>`. Mantenha-os todos na mesma linha.
 - **NUNCA** carregue recursos pesados de animação na inicialização sem lazy loading.

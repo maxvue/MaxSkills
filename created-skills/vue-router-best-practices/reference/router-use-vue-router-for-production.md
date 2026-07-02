@@ -149,7 +149,7 @@ createApp(App)
 ## Modern Vue Router Features (2025+)
 
 ```javascript
-// Data Loading API (Vue Router 4.2+)
+// Data Loading API (Vue Router 5+)
 const routes = [
   {
     path: '/users/:id',

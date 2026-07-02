@@ -39,14 +39,14 @@ test.group('Instagram Service - Publish Post', (group) => {
 
   test('successfully publishes a photo to Instagram Feed', async ({ assert }) => {
     // Intercept outbound post creation request
-    nock('https://graph.facebook.com/v20.0')
+    nock('https://graph.facebook.com/v24.0')
       .post('/123456789/media', {
         image_url: 'https://example.com/photo.jpg',
         caption: 'Hello World',
       })
       .reply(200, { id: 'media_container_id' })
 
-    nock('https://graph.facebook.com/v20.0')
+    nock('https://graph.facebook.com/v24.0')
       .post('/123456789/media_publish', {
         creation_id: 'media_container_id',
       })
@@ -109,6 +109,8 @@ test.group('Instagram Comments Webhook', () => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Nunca faça requisições HTTP reais para APIs externas no seu conjunto de testes.
 - Não faça mock de toda a interface da classe se estiver realizando testes de integração; em vez disso, simule na camada de transporte HTTP usando nock (interceptando o `fetch` nativo).
 - Nunca exponha chaves secretas do Meta ou credenciais sensíveis codificadas em testes; sempre recupere-as de variáveis de ambiente ou arquivos de configuração.
+- Mantenha a versão da Graph API dos mocks alinhada à que o código realmente usa (atualmente `v24.0`, e `v22.0` em alguns endpoints); prefira derivá-la de config/env em vez de fixar a versão diretamente no interceptor, para que os mocks acompanhem a versão que o serviço requisita.

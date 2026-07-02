@@ -89,6 +89,7 @@ Define standard guidelines, patterns, and conventions for writing Unit, Feature,
    - Do NOT use real credentials, sandbox tokens, or API keys in mocks — use fake placeholders (e.g., `'fake-token'`).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do NOT use PHPUnit-style test classes or method declarations (e.g., `public function test_something()`). Use Pest's functional syntax and `arch()` helper.
 - Do NOT mix `DatabaseTransactions` with `RefreshDatabase` inside test files. Let the global `tests/Pest.php` handle the transactional state for the `Feature` suite.
 - Do NOT query the database inside `tests/Unit`. Use mock objects or `make()` factories instead.

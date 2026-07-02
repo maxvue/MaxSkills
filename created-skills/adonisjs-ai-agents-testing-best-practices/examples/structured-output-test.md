@@ -1,6 +1,6 @@
 # Exemplo: Testando Saídas Estruturadas e Schemas Zod
 
-Este exemplo demonstra como escrever um teste para verificar se um agente de IA retorna uma estrutura de dados JSON em conformidade com um schema Zod no AdonisJS v6, utilizando o `MockLanguageModelV2`.
+Este exemplo demonstra como escrever um teste para verificar se um agente de IA retorna uma estrutura de dados JSON em conformidade com um schema Zod no AdonisJS v6, utilizando o `MockLanguageModelV4`.
 
 ## Arquivo de Teste Unitário
 
@@ -8,7 +8,7 @@ Crie o arquivo `tests/unit/ai_agent_structured.spec.ts`:
 
 ```typescript
 import { test } from '@japa/runner'
-import { MockLanguageModelV2 } from 'ai/test'
+import { MockLanguageModelV4 } from 'ai/test'
 import { executeAgent } from '#ai/agent_ai_request'
 import { z } from 'zod'
 
@@ -28,7 +28,7 @@ test.group('Agentes de IA | Teste Unitário de Saída Estruturada', () => {
     }
 
     // 1. Criar o modelo mockado retornando a string JSON esperada pelo schema
-    const mockModel = new MockLanguageModelV2({
+    const mockModel = new MockLanguageModelV4({
       doGenerate: async () => {
         return {
           content: [
@@ -39,10 +39,10 @@ test.group('Agentes de IA | Teste Unitário de Saída Estruturada', () => {
           ],
           finishReason: 'stop',
           usage: {
-            promptTokens: 20,
-            completionTokens: 35,
+            inputTokens: { total: 20 },
+            outputTokens: { total: 35 },
           },
-          rawCall: { rawPrompt: null, rawSettings: {} },
+          warnings: [],
         }
       },
     })

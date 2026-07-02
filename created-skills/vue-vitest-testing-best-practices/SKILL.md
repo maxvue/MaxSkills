@@ -55,25 +55,23 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
   ```
 
 ### 3. Testes de Store MaxPinia
-- **Pinia Ativo:** Sempre inicialize e configure a instância ativa do Pinia no gancho `beforeEach` para evitar a poluição de estado entre os testes:
+- **Pinia Ativo + plugin MaxPinia registrado:** `@maxvue/max-pinia` é um **plugin do Pinia** instalado via `createMaxPinia()` (`pinia.use(...)`). Suas propriedades injetadas (`reload`, `status`, cache, e a escrita dos dados do GET em `store.data`) só existem quando o plugin está ativo **e** a store faz opt-in (`isCached: true`). Um teste baseado em `createPinia()` puro **não** terá comportamento MaxPinia — `store.reload()` seria `undefined`. Sempre registre o plugin no `beforeEach`:
   ```typescript
-  import { setActivePinia, createPinia } from 'pinia';
-  
-  beforeEach(() => {
-      setActivePinia(createPinia());
-  });
-  ```
-- **Stores `@maxvue/max-pinia`:** As stores do projeto usam `@maxvue/max-pinia` (camada de cache + auto-save/debounced sobre rotas string `/api/...`). Ao montar componentes que consomem essas stores, prefira `createTestingPinia` do `@pinia/testing` para interceptar as ações de fetch/save e evitar requisições reais:
-  ```typescript
-  import { createTestingPinia } from '@pinia/testing';
+  import { createPinia, setActivePinia } from 'pinia';
+  import { createMaxPinia } from '@maxvue/max-pinia';
 
-  const wrapper = mount(MyComponent, {
-      global: {
-          plugins: [createTestingPinia({ createSpy: vi.fn })]
-      }
+  // axios mockado: o GET/save do MaxPinia roda DENTRO do plugin, via axios.
+  const mockedAxios = { get: vi.fn(), post: vi.fn() };
+
+  beforeEach(() => {
+      const pinia = createPinia();
+      pinia.use(createMaxPinia({ axios: mockedAxios }));
+      setActivePinia(pinia);
   });
   ```
-  Com `createTestingPinia`, as ações da store (incluindo o fetch via `apiGetRoute` e o auto-save via `apiPostRoute`) ficam stubadas por padrão — defina `stubActions: false` apenas quando precisar exercitar a lógica real da action.
+  `createMaxPinia` e `useAsyncStatus` são os únicos exports de `@maxvue/max-pinia`.
+- **Isolamento de rede — injete o axios mockado, não `createTestingPinia`:** O MaxPinia executa o GET (auto-GET) e o save **dentro do plugin** (via `axios`, disparado por watchers), e **não** dentro de actions da store. Portanto, `createTestingPinia({ stubActions: true })` do `@pinia/testing` **não** intercepta essas requisições — as chamadas reais aconteceriam mesmo assim. Prefira injetar uma instância de `axios` mockada em `createMaxPinia({ axios })` (como acima) ou interceptar no nível da rede (MSW). Só use `@pinia/testing` após adicioná-lo como devDependency do projeto (ele não é dependência do projeto-alvo).
+- **Opt-in de cache e estado de carga:** `isCached`/`is_cached` é um flag de **entrada** que a store declara para ativar o plugin de cache (o plugin faz `if (!store.isCached && !store.is_cached) return {};`), **não** um flag de saída de "dados carregados". Para saber se os dados chegaram, use `store.status.server.get.is_success` ou `store.is_done`. Os dados do GET sempre chegam em `store.data`.
 - **Testes Isolados:** Teste as ações da store invocando-as diretamente e inspecionando o estado mutado:
   ```typescript
   const store = useMyStore();
@@ -82,7 +80,7 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
   ```
 
 ### 4. Mockando Chamadas de API e Dependências
-- **Prefira mockar a store MaxPinia:** Como TODO GET/save de dados de página passa por uma store `@maxvue/max-pinia`, o ponto de isolamento natural é a própria store — não o cliente HTTP. Mocke a store (via `createTestingPinia`, como na seção 3) ou sobrescreva diretamente o estado/ações expostas, deixando o componente alheio ao transporte:
+- **Prefira mockar a store MaxPinia:** Como TODO GET/save de dados de página passa por uma store `@maxvue/max-pinia`, o ponto de isolamento natural é a instância de `axios` injetada em `createMaxPinia({ axios })` (como na seção 3) — não o cliente HTTP importado diretamente. Sobrescreva diretamente o estado/ações expostas quando quiser deixar o componente alheio ao transporte:
   ```typescript
   const store = useMyStore();
   store.items = [{ id: 1, nome: 'Usina Solar 01' }]; // estado já carregado, sem fetch real
@@ -120,6 +118,7 @@ Consulte o diretório `examples/` para ver implementações detalhadas:
 - [Exemplo de Teste de Store](examples/store-test-example.md) — Demonstra testes em uma store Pinia com simulação de ações e estado.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NUNCA** permita que os testes realizem operações de rede reais.
 - **NUNCA** escreva comentários em inglês; sempre utilize português (pt-BR) dentro do código do teste.
 - **NUNCA** deixe de chamar `vi.clearAllMocks()` ou `setActivePinia` ao testar componentes ou stores que possuem estado mutável ou que rastreiam históricos de mocks.

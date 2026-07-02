@@ -68,7 +68,7 @@ Use **sempre** a API do AdonisJS Drive (`@adonisjs/drive`) — nunca `file.move(
 - **Persistindo Arquivos:** Use `file.moveToDisk()` com uma key ULID única, e obtenha a URL pública via Drive:
   ```typescript
   import drive from '@adonisjs/drive/services/main'
-  import { ulid } from 'ulidx'
+  import { ulid } from 'ulid'
 
   const key = `uploads/characters/${ulid()}.${file.extname}`
   await file.moveToDisk(key) // usa o disco padrão configurado
@@ -90,6 +90,7 @@ Use **sempre** a API do AdonisJS Drive (`@adonisjs/drive`) — nunca `file.move(
 - Guard rails: Se a lista de personagens estiver vazia, instrua o LLM a não inventar personagens.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **SEM Tenant Leakage:** Nunca execute consultas ou atualizações sem verificar ou filtrar por `solarCompanyId`.
 - **SEM IDs Simples:** Não use IDs inteiros com autoincremento. Todos os identificadores devem usar ULID.
 - **SEM Exposição Direta do Caminho do Arquivo:** Salve uploads em uma pasta pública estruturada (ex: `/uploads/...`) e armazene os nomes originais dos arquivos de forma segura.

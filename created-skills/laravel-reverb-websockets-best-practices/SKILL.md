@@ -111,6 +111,7 @@ Ensure `REVERB_SCALING_ENABLED=true` is set in production `.env` and that Redis 
 - **Debugging Handshake Failures:** If connections fail to establish, check browser logs using `browser-logs` or inspect the Network tab for HTTP upgrade failures (403 Forbidden indicates invalid CORS/Origin settings, 502/504 Bad Gateway indicates Nginx configuration or Reverb process issues).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do not expose raw Reverb ports** (e.g. 9000) directly to the public internet. Always route traffic through Nginx, Apache, or Caddy.
 - **Never run** `reverb:start` directly in production without a process manager (Supervisor/systemd).
 - **Avoid hardcoding configuration values** inside `config/reverb.php`; always resolve them using the `env()` helper.

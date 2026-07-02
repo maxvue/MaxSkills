@@ -68,6 +68,7 @@ Establish solid guidelines, patterns, and architectural standards for creating, 
 - Use factories to set up model states (e.g., `Lead` or `Project`) before testing synchronization jobs.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NO Static Hardcoding:** Never hardcode credentials, URLs, or client keys. Always retrieve them from `config()` files, which reference `.env` variables.
 - **NO Synchronous API Calls:** Do not make API calls directly from controllers or models; delegate all integration network calls to queue workers.
 - **NO Blind Retries:** Never retry requests infinitely without exponential backoff, otherwise rate limit headers will be exhausted and IP blocking may occur.

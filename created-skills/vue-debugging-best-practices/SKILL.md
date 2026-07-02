@@ -192,7 +192,7 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 - Estilos com escopo não se aplicam a elementos de componente filho → Veja [sfc-scoped-css-child-component-styling](reference/sfc-scoped-css-child-component-styling.md)
 - Estilos com escopo não se aplicam a conteúdo dinâmico v-html → Veja [sfc-scoped-css-dynamic-content](reference/sfc-scoped-css-dynamic-content.md)
 - Estilos com escopo não se aplicam ao conteúdo de slot → Veja [sfc-scoped-css-slot-content](reference/sfc-scoped-css-slot-content.md)
-- Classes Tailwind ausentes quando construídas dinamicamente → Veja [tailwind-dynamic-class-generation](reference/tailwind-dynamic-class-generation.md)
+- Utilitários UnoCSS ausentes quando construídos dinamicamente → Veja [unocss-dynamic-class-generation](reference/unocss-dynamic-class-generation.md)
 - Componentes recursivos não renderizam por conflitos de nome → Veja [self-referencing-component-name](reference/self-referencing-component-name.md)
 
 ### Plugins
@@ -207,6 +207,7 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 - Auto-registro de componentes baseado em require.context falha no Vite → Veja [dynamic-component-registration-vite](reference/dynamic-component-registration-vite.md)
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Trate cada guia de referência como a fonte de verdade para o seu sintoma específico; não adivinhe uma correção quando existe um guia correspondente.
 - Associe pelo sintoma de runtime observado (erro, aviso, valor obsoleto, divergência), não apenas pelo nome da API.
 - Para convenções de desenvolvimento e pegadinhas não relacionadas a depuração, recorra a `vue-best-practices` em vez de duplicar a orientação aqui.

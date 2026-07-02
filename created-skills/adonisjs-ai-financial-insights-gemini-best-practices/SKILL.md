@@ -72,6 +72,7 @@ Focus on cost control, project margin, cash flow, and homologation timelines. Do
 * Registre o uso de tokens e o custo total de execução em `AgentAiCost` usando o mapeamento `COSTABLE_TYPES` associando ao projeto ou recurso de planejamento.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Nunca exponha informações pessoais sensíveis (PII) (como números de conta, documentos do cliente ou descrições cruas de lançamentos) para a API do LLM.
 * Os valores monetários devem sempre ser calculados, transmitidos e armazenados em centavos (inteiros) para manter a precisão matemática absoluta.
 * O LLM não deve realizar cálculos matemáticos brutos de somas de orçamentos; as consultas de banco de dados devem computar essas somas e fornecê-las ao LLM.

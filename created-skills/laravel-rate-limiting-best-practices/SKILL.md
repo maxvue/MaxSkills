@@ -113,6 +113,7 @@ Provide clear guidelines and robust standards for implementing, configuring, and
      ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No Raw Database Locks**: Do NOT write custom DB queries or lock files to count requests. Always use Laravel's native `RateLimiter` facade or `throttle` middleware.
 - **Never Block Globally**: Do NOT define rate limiters without a unique identifier (like IP or User ID) using `by()`, as it would throttle the route for all users globally.
 - **JSON Response on APIs**: Rate limiters applied to API routes must return JSON responses with standard CORS and retry-after headers, avoiding default HTML error pages.

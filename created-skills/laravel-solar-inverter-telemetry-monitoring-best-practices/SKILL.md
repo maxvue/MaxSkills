@@ -38,6 +38,7 @@ Establish a resilient, high-performance architecture for integrating third-party
    - Guard alerts using cache flags to prevent spamming the client (e.g., allow only one notification per 24 hours per inverter anomaly).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do NOT make direct raw HTTP calls inside Controllers or Models; always route them through abstract client implementations.
 - Do NOT perform intensive data synchronization synchronously within web request cycles.
 - Do NOT store large telemetry payloads long-term in the main database without compression or structural normalization.

@@ -138,6 +138,7 @@ export async function getOrdersByLocalDate(dateStr: string) {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Nunca armazene documentos formatados**: Não salve pontos, traços ou barras nas colunas de banco de dados para CPF, CNPJ ou CEP.
 * **Não utilize tipos de ponto flutuante para dinheiro**: Evite tipos de banco de dados como `float` ou `double` para valores monetários; utilize sempre `integer` representando os valores em centavos.
 * **Nunca compare datas locais usando strings brutas**: Evite buscar registros utilizando `where('created_at', dateStr)` diretamente se a data representar um dia local, pois o desvio do fuso horário trará resultados errados. Sempre converta as fronteiras explicitamente para UTC.

@@ -130,6 +130,7 @@ test.group('Pdf Edit Service', () => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não insira valores de coordenadas diretamente em pontos (`pt`) na lógica de negócio/sobreposição.** Mantenha todos os parâmetros em milímetros (`mm`) e faça a conversão dinamicamente no serviço.
 - **Não utilize métodos síncronos de geração/carregamento** que possam bloquear a thread de execução do Node.js. O embutimento de fontes e carregamento de bytes devem ser assíncronos.
 - **Não implemente cálculos de desenho de diagramas elétricos complexos** dentro do `PdfEditService`. Crie serviços de diagramas separados que chamem os métodos primitivos do `PdfEditService`.

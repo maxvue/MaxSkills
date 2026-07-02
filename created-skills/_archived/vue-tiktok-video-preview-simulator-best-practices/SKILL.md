@@ -443,6 +443,7 @@ const triggerPlayOverlay = (): void => {
 - Integre o estado de reprodução do vídeo com a store do Pinia utilizando as diretrizes de `vue-max-pinia-integration-best-practices` caso seja necessária a sincronização entre múltiplas telas (como a edição de detalhes e a visualização prévia).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** utilize Options API. Sempre utilize `<script setup lang="ts">`.
 - **NÃO** escreva estilos em CSS puro ou Tailwind CSS. SCSS é obrigatório.
 - **NÃO** escreva comentários do código Vue em inglês. Todos os comentários de código devem ser em português brasileiro (`pt-BR`).

@@ -38,7 +38,7 @@ export default class MyCustomCommand extends BaseCommand {
 - Importar os decorators `flags` e `args` de `@adonisjs/core/ace`.
 - Usar o modificador `declare` do TypeScript para declarações de propriedades.
 - Definir flags usando decorators como `@flags.string()`, `@flags.boolean()`, `@flags.number()` ou `@flags.array()`.
-- Definir argumentos posicionais usando `@args.string()`, `@args.number()` ou `@args.spread()`.
+- Definir argumentos posicionais usando `@args.string()` ou `@args.spread()`. Não existe `@args.number()` — argumentos posicionais só suportam `string`/`spread`; converta manualmente um valor numérico dentro do `run()` se necessário (flags numéricas existem via `@flags.number()`).
 
 ```typescript
 import { BaseCommand, flags, args } from '@adonisjs/core/ace'
@@ -106,6 +106,7 @@ await new Promise<void>((resolve) => {
 - Evitar chamar `process.exit()` diretamente; deixe que o Kernel do AdonisJS cuide do encerramento com base no valor de `this.exitCode` ao final do `run()`.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NUNCA** use `console.log()` ou `console.error()`. Sempre use `this.logger` para impressões no console.
 - **NUNCA** esqueça de declarar as opções estáticas `options = { startApp: true }` se você consultar models, executar migrações ou chamar serviços que dependam do container IoC do AdonisJS. Não fazer isso causará erros de "Application not started" ou falhas na instanciação de dependências.
 - **NÃO** use `process.exit()` diretamente dentro de comandos. Em vez disso, defina `this.exitCode`.

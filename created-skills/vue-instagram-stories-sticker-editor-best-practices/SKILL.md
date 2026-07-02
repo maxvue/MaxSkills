@@ -56,6 +56,7 @@ Padronizar a implementação de um editor visual interativo de stickers para Ins
 * Integrar formulários de edição dos detalhes do sticker (como opções da enquete ou URLs do link) usando a biblioteca de componentes de design system local `MaxComponentsUi`.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO defina valores fixos de pixel do canvas no payload final enviado para a Meta Graph API. Sempre converta para valores decimais relativos (normalizados).
 * NÃO bloqueie a thread principal de renderização com detecções complexas de colisão em tempo real; utilize debouncing ou atualizações via `requestAnimationFrame`.
 * NÃO misture coordenadas locais da UI em pixels diretamente com as coordenadas de persistência. Sempre isole o estado local do estado persistido em decimais.

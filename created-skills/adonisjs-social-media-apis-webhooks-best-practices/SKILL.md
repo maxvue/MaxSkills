@@ -20,11 +20,12 @@ Estabelecer uma integração segura, performática e resiliente com APIs de míd
 
   export default class MetaWebhookController {
     async index({ request, response }: HttpContext) {
-      if (request.method() === 'GET' && request.input('hub_challenge')) {
-        const token = env.get('META_WEBHOOK_TOKEN')
+      // A Meta envia os parâmetros com ponto: `hub.mode`, `hub.verify_token`, `hub.challenge`.
+      if (request.method() === 'GET' && request.input('hub.challenge')) {
+        const token = env.get('META_WEBHOOK_VERIFY_TOKEN')
 
-        if (request.input('hub_verify_token') === token) {
-          return response.status(200).send(String(request.input('hub_challenge')))
+        if (request.input('hub.mode') === 'subscribe' && request.input('hub.verify_token') === token) {
+          return response.status(200).send(String(request.input('hub.challenge')))
         }
         return response.status(403).send('Token inválido')
       }
@@ -86,6 +87,7 @@ Estabelecer uma integração segura, performática e resiliente com APIs de míd
 * Registre logs com marcações claras para ingestão, processamento e resolução dos payloads dos webhooks.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO execute lógica de negócios demorada, downloads de mídia, geração de IA ou chamadas pesadas de API externa diretamente no controller do receptor de webhook.
 * NÃO confie em payloads de webhooks recebidos sem verificar a assinatura da requisição (por exemplo, assinatura HMAC-SHA256 nos cabeçalhos) ou confirmar a integridade do payload antes de agir sobre ele.
 * NÃO utilize IDs inteiros autoincrementais para registros de Webhooks; sempre utilize `ulid()` ou `uuid()` para evitar a enumeração de IDs.

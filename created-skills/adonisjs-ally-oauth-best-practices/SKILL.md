@@ -13,17 +13,18 @@ Fornecer diretrizes claras, padrões de código e etapas de depuração para imp
 ### 1. Ambiente e Configuração
 * **Validação de Variáveis de Ambiente**: Declare e valide os IDs de cliente, segredos e URLs de callback de cada provedor no `start/env.ts`:
   ```typescript
-  GOOGLE_CLIENT_ID: Env.schema.string(),
-  GOOGLE_CLIENT_SECRET: Env.schema.string(),
-  GOOGLE_CALLBACK_URL: Env.schema.string(),
-  FACEBOOK_CLIENT_ID: Env.schema.string(),
-  FACEBOOK_CLIENT_SECRET: Env.schema.string(),
-  FACEBOOK_CALLBACK_URL: Env.schema.string(),
+  GOOGLE_CLIENT_ID: Env.schema.string.optional(),
+  GOOGLE_CLIENT_SECRET: Env.schema.string.optional(),
+  GOOGLE_CALLBACK_URL: Env.schema.string.optional(),
+  FACEBOOK_CLIENT_ID: Env.schema.string.optional(),
+  FACEBOOK_CLIENT_SECRET: Env.schema.string.optional(),
+  FACEBOOK_CALLBACK_URL: Env.schema.string.optional(),
   ```
 * **Definição de Configuração**: Configure `google` e `facebook` em `config/ally.ts` com `defineConfig` e os helpers `services.google` / `services.facebook`. Use o segundo argumento de `env.get` como fallback `''` para não quebrar o boot quando uma credencial estiver ausente:
   ```typescript
   import env from '#start/env';
   import { defineConfig, services } from '@adonisjs/ally';
+  import type { InferSocialProviders } from '@adonisjs/ally/types';
 
   const allyConfig = defineConfig({
       google: services.google({
@@ -133,6 +134,7 @@ async callback({ ally, params, response, auth }: HttpContext) {
 * Se for necessário chamar a API do provedor após o login (ex.: Google ou Meta Graph), armazene `socialUser.token.token`, `token.refreshToken` e `token.expiresAt` em uma tabela própria vinculada ao usuário. Mantenha os tokens **somente no servidor**; nunca os exponha ao frontend.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NUNCA** chame `driver.user()` sem antes verificar `driver.accessDenied()` **e** `driver.hasError()`, nessa ordem.
 * **SEMPRE** valide `params.provider` contra `{ google, facebook }` tanto no `redirect` quanto no `callback`, retornando `badRequest` para valores inesperados.
 * **MANTENHA** os redirects de erro exatos do fluxo: `/login?error=access_denied`, `/login?error=oauth_error`, `/login?error=no_email`, `/login?error=email_not_verified`; e o sucesso em `/projects`.

@@ -1,6 +1,6 @@
 ---
 name: vue-vite-bundling-optimization-best-practices
-description: Use when configuring, analyzing, or optimizing the Vite 8 bundler, Rollup build options, code splitting, dynamic imports, or plugins (unplugin-auto-import, unplugin-vue-components, visualizer) in a Vue 3 and AdonisJS application. Triggers on build performance issues, huge bundle size warnings, Vite 8 config changes, and lazy loading strategies.
+description: Use when configuring, analyzing, or optimizing the Vite 7 bundler, Rollup build options, code splitting, dynamic imports, or plugins (unplugin-auto-import, unplugin-vue-components, visualizer) in a Vue 3 and AdonisJS application. Triggers on build performance issues, huge bundle size warnings, Vite 7 config changes, and lazy loading strategies.
 ---
 
 # Melhores Práticas de Otimização de Bundling com Vue & Vite
@@ -15,10 +15,10 @@ Fornecer diretrizes sólidas e padrões arquiteturais para a otimização do pro
 - Exemplo:
   ```typescript
   // Recomendado: Permite a divisão de código (code splitting) para esta página
-  const Dashboard = () => import('@/Vue/Pages/Dashboard.vue');
+  const Dashboard = () => import('@/Pages/Dashboard.vue');
   
   // Evitar: Aumenta o tamanho do bundle inicial desnecessariamente
-  import Dashboard from '@/Vue/Pages/Dashboard.vue';
+  import Dashboard from '@/Pages/Dashboard.vue';
   ```
 
 ### 2. Carregamento Tardio (Lazy Loading) de Componentes Pesados
@@ -28,7 +28,7 @@ Fornecer diretrizes sólidas e padrões arquiteturais para a otimização do pro
   import { defineAsyncComponent } from 'vue';
 
   const HeavyChart = defineAsyncComponent(() =>
-    import('@/Vue/Components/HeavyChart.vue')
+    import('@/Components/HeavyChart.vue')
   );
   ```
 
@@ -57,8 +57,9 @@ Fornecer diretrizes sólidas e padrões arquiteturais para a otimização do pro
   ```
 
 ### 4. Otimização de Auto-Imports & Componentes
-- Certifique-se de que os plugins `unplugin-auto-import` e `unplugin-vue-components` estão configurados para varrer apenas os diretórios necessários (ex: `./src/Vue/Functions/**`, `./src/Vue/Helpers/**`).
-- Utilize a opção `dts` para gerar arquivos de declaração TypeScript (`auto-import.d.ts` e `auto-import-components.d.ts`) para manter a verificação de tipos rápida e precisa.
+- O alias `@` resolve para `./resources/js` (não existe pasta `src/` nem subpasta `Vue/`); os diretórios reais são `resources/js/Pages`, `resources/js/Components` e `resources/js/stores`.
+- Certifique-se de que os plugins `unplugin-auto-import` e `unplugin-vue-components` estão configurados para varrer apenas os diretórios necessários (ex.: `resources/js/stores` e demais diretórios de funções/helpers existentes).
+- Utilize a opção `dts` para gerar arquivos de declaração TypeScript (`resources/js/auto-imports.d.ts` para o AutoImport e `resources/js/components.d.ts` para o Components) para manter a verificação de tipos rápida e precisa.
 - Sempre inclua os resolvers nativos ou de bibliotecas (como o `MaxComponentsUiResolver` para os componentes de UI do Engeapp) para permitir que o bundler faça o tree-shaking correto de componentes não utilizados.
 
 ### 5. Otimização de Dependências em Desenvolvimento (`optimizeDeps`)
@@ -85,6 +86,7 @@ Fornecer diretrizes sólidas e padrões arquiteturais para a otimização do pro
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não aumente o valor de `chunkSizeWarningLimit`** apenas para mascarar problemas de empacotamento. O limite deve refletir metas reais de performance (o padrão do Vite é 500KB; evite alterá-lo para valores extremos como `4000` sem antes tentar otimizar com chunks manuais).
 - **Não importe estilos CSS globalmente** se eles forem utilizados por apenas um componente. Utilize `<style scoped lang="scss">` para que o compilador possa otimizar os estilos e remover CSS não utilizado.
 - **Não desative a divisão de código (code splitting)** ou force todo o empacotamento em um único arquivo, a menos que seja explicitamente necessário para assets independentes.

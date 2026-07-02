@@ -8,11 +8,11 @@ Estabelecer padrões seguros, escaláveis e resilientes para uploads diretos de 
 
 ## Instruções
 
-## 1. Backend: Cliente S3 dedicado para assinatura de PUT
-O driver `@adonisjs/drive-s3` do AdonisJS v6 expõe `getSignedUrl()` para leitura (GET), mas para assinar um `PutObjectCommand` de upload o mais estável é instanciar o seu próprio `S3Client` do AWS SDK v3 (o driver NÃO expõe publicamente `.client`/`config.bucket` de forma garantida entre versões). Reaproveite as mesmas variáveis de ambiente do drive para manter a configuração única.
+## 1. Backend: Assinatura de PUT via `@adonisjs/drive`
+O `@adonisjs/drive` v4 (baseado no flydrive) já traz o driver S3 no subpath `@adonisjs/drive/drivers/s3` e expõe o método nativo `getSignedUploadUrl(key, options)` — feito exatamente para assinar um `PUT` de upload. Não instancie um `S3Client` próprio nem chame `PutObjectCommand`/`getSignedUrl` do AWS SDK: use o mesmo disco s3 do drive que você já usa para `exists()`.
 
 ### Instalação
-Certifique-se de que as dependências do AWS SDK necessárias estão instaladas:
+O driver s3 do `@adonisjs/drive` consome internamente os pacotes AWS SDK como peer deps. Garanta que estão instalados, mas **não** os importe no código da aplicação — a assinatura é feita pelo disco do drive:
 ```bash
 npm i @aws-sdk/client-s3 @aws-sdk/s3-request-presigner
 ```
@@ -30,55 +30,27 @@ export const generatePresignedUrlValidator = vine.compile(
 )
 ```
 
-### Cliente S3 compartilhado (`app/services/s3_client.ts`)
-Instancie um `S3Client` único a partir das variáveis de ambiente, reutilizadas pelo `config/drive.ts`.
-```typescript
-import { S3Client } from '@aws-sdk/client-s3'
-import env from '#start/env'
-
-export const s3Bucket = env.get('S3_BUCKET')
-
-export const s3Client = new S3Client({
-  region: env.get('S3_REGION'),
-  endpoint: env.get('S3_ENDPOINT'), // ex.: http://127.0.0.1:9000 (MinIO local)
-  forcePathStyle: true, // necessário para MinIO
-  credentials: {
-    accessKeyId: env.get('S3_KEY'),
-    secretAccessKey: env.get('S3_SECRET'),
-  },
-})
-```
-
 ### Controller (`app/controllers/uploads_controller.ts`)
-Gere uma chave de objeto única (usando `cuid()` ou `ulid()`), crie um `PutObjectCommand` e assine-o usando `getSignedUrl`.
+Gere uma chave de objeto única (usando `cuid()` ou `ulid()`) e assine o upload com `drive.use('s3').getSignedUploadUrl(key, options)`. O `contentType` e o `expiresIn` são passados nas opções — o mesmo disco s3 do drive cuida de toda a assinatura.
 ```typescript
 import { HttpContext } from '@adonisjs/core/http'
 import { cuid } from '@adonisjs/core/helpers'
-import { PutObjectCommand } from '@aws-sdk/client-s3'
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
-import { s3Client, s3Bucket } from '#services/s3_client'
+import drive from '@adonisjs/drive/services/main'
 import { generatePresignedUrlValidator } from '#validators/upload'
 
 export default class UploadsController {
   async generatePresignedUrl({ request, response }: HttpContext) {
     const { fileName, contentType } = await request.validateUsing(generatePresignedUrlValidator)
 
-    // 1. Usa o cliente S3 compartilhado
-    const bucket = s3Bucket
-
-    // 2. Gera uma chave única para evitar colisões de nomes
+    // 1. Gera uma chave única para evitar colisões de nomes
     const fileExtension = fileName.split('.').pop()
     const key = `uploads/${cuid()}.${fileExtension}`
 
-    // 3. Cria o comando do S3 especificando a chave e o ContentType
-    const command = new PutObjectCommand({
-      Bucket: bucket,
-      Key: key,
-      ContentType: contentType,
+    // 2. Assina a URL de PUT via o disco s3 do drive — válida por 15 minutos
+    const uploadUrl = await drive.use('s3').getSignedUploadUrl(key, {
+      contentType,
+      expiresIn: '15mins',
     })
-
-    // 4. Gera a URL assinada para requisição PUT válida por 15 minutos (900 segundos)
-    const uploadUrl = await getSignedUrl(s3Client, command, { expiresIn: 900 })
 
     return response.ok({
       uploadUrl,
@@ -106,10 +78,16 @@ async function uploadFileToS3(
   onProgress?: (percent: number) => void
 ): Promise<string> {
   // 1. Solicita a URL assinada ao backend AdonisJS via helper string-route /api/...
-  const data = await apiPostRoute<UploadResponse>('/api/uploads/presigned', {
+  // apiPostRoute não tem parâmetro genérico; faça o cast se quiser tipagem.
+  const data = (await apiPostRoute('/api/uploads/presigned', {
     fileName: file.name,
     contentType: file.type,
-  })
+  })) as UploadResponse | false | null
+
+  // apiPostRoute retorna `false` em rota inválida e `null` em erro de requisição — proteja antes de usar.
+  if (!data) {
+    throw new Error('Falha ao obter a URL assinada')
+  }
 
   // 2. Upload DIRETO ao S3 via PUT — exceção legítima: não passa pelo /api do EngeApp.
   // IMPORTANTE: O cabeçalho Content-Type DEVE corresponder exatamente ao assinado no backend.
@@ -192,9 +170,10 @@ Certifique-se de que o seu bucket S3 (ou MinIO) está configurado para aceitar r
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca** faça upload de arquivos para o S3 via HTTP POST multipart no servidor se os arquivos excederem 10MB; sempre direcione uploads grandes para URLs assinadas do lado do cliente.
 - **Nunca** omita o parâmetro `ContentType` ao chamar `PutObjectCommand`. O algoritmo de assinatura do S3 incorpora o Content-Type, e a divergência dele na requisição PUT do cliente causará um erro HTTP 403 Forbidden.
 - **Nunca** confie no nome original do arquivo fornecido pelo cliente. Sempre renomeie o arquivo com `cuid()` ou `ulid()` no backend para evitar explorações de path traversal e colisões de nomes.
 - **Evite** o uso de URLs com tempo de expiração longo. Limite a expiração da URL assinada (`expiresIn`) a no máximo 15 minutos (900 segundos) para reduzir a janela de vulnerabilidade a interceptações.
 - **Não** crie o registro no banco de dados *antes* do término do upload. Apenas persista a referência do arquivo S3 no banco de dados por meio do controller de confirmação APÓS o frontend verificar que o upload foi bem-sucedido.
-- **Não** utilize o driver local `fs` em desenvolvimento se URLs assinadas forem necessárias; configure um container local do **MinIO** e aponte o `@adonisjs/drive-s3` do AdonisJS para o endpoint do MinIO local (`http://127.0.0.1:9000`), garantindo a paridade entre ambientes de desenvolvimento e produção.
+- **Não** utilize o driver local `fs` em desenvolvimento se URLs assinadas forem necessárias; configure um container local do **MinIO** e aponte o disco s3 do `@adonisjs/drive` (driver `@adonisjs/drive/drivers/s3`) para o endpoint do MinIO local (`http://127.0.0.1:9000`), garantindo a paridade entre ambientes de desenvolvimento e produção.

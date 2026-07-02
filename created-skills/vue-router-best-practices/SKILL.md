@@ -24,30 +24,26 @@ O frontend registra as páginas de forma dinâmica utilizando o `import.meta.glo
 ### 2. Gerenciamento de Layouts Dinâmicos
 - Os metadados de cada rota devem definir um template de layout (`meta: { layout }`).
 - Layouts disponíveis: `'default'` (páginas autenticadas) e `'guest'` (páginas públicas como login/registro).
-- O componente wrapper de layout raiz resolve o layout dinâmicamente a partir de `route.meta.layout`:
+- O `App.vue` raiz seleciona o layout com um booleano simples `isGuestRoute` derivado de `route.meta.layout === 'guest'`: rotas guest renderizam o `<RouterView>` puro, todas as demais são envolvidas por `<PageLayout>`.
 
 ```vue
 <template>
-  <component :is="layoutComponent">
+  <!-- Rotas de guest (login/register) — sem layout -->
+  <RouterView v-if="isGuestRoute" />
+
+  <!-- Rotas autenticadas — com layout completo -->
+  <PageLayout v-else>
     <RouterView />
-  </component>
+  </PageLayout>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import DefaultLayout from '@/Layouts/DefaultLayout.vue';
-import GuestLayout from '@/Layouts/GuestLayout.vue';
 
 const route = useRoute();
-const layouts = {
-    default: DefaultLayout,
-    guest: GuestLayout
-};
 
-const layoutComponent = computed(() => {
-    const layoutName = route.meta.layout as keyof typeof layouts;
-    return layouts[layoutName] || DefaultLayout;
+const isGuestRoute = computed(() => {
+    return route.meta?.layout === 'guest';
 });
 </script>
 ```
@@ -69,14 +65,17 @@ router.beforeEach(async (to, from) => {
     const user = useUserStore();
     const requiresAuth = to.meta.public ? false : (to.meta.requiresAuth ?? true);
     await user.waitRequest();
-    const isAuthenticated = !!user.data?.id;
+    // Se o servidor retornou 401, o dado em user.data pode ser cache antigo — não considerar autenticado.
+    const serverIs401 = user.status?.server?.get?.error?.response?.status === 401;
+    const isAuthenticated = !!user.data?.id && !serverIs401;
 
     // Vue Router v5: controle de fluxo por RETORNO (o callback `next()` está obsoleto).
     if (requiresAuth && !isAuthenticated) {
         return { name: 'login' };
     }
-    if ((to.name === 'login' || to.name === 'register') && isAuthenticated) {
-        return { name: 'dashboard' };
+    const guestOnlyRoutes = ['login', 'register', 'forgot_password', 'reset_password', 'home'];
+    if ((guestOnlyRoutes.includes(to.name as string) || !to.name) && isAuthenticated) {
+        return { name: 'clients' };
     }
 
     return true;
@@ -101,15 +100,16 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 // Navegar para uma rota nomeada
-const navigateToProfile = () => {
-    router.push({ name: 'edit_profile' });
+const navigateToClients = () => {
+    router.push({ name: 'clients' });
 };
 
-// Navegar com query params
-const navigateWithFilters = (projectId: string) => {
+// Navegar para uma rota com parâmetro dinâmico + query params
+const navigateToWorkspace = (clientId: string) => {
     router.push({
-        name: 'project_details',
-        query: { project_id: projectId, tab: 'documents' }
+        name: 'client.workspace',
+        params: { clientId },
+        query: { tab: 'calendar' }
     });
 };
 ```
@@ -137,6 +137,7 @@ const filterStatus = computed<string>(() => (route.query.status as string) || 'a
 - Todos os comentários de código devem ser escritos em português brasileiro (pt-BR).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO registre rotas estáticas manualmente em `router.ts` sem aprovação explícita — confie no mapeamento glob dinâmico.
 - NÃO ignore o `await user.waitRequest()` nos guards de navegação.
 - NÃO referencie rotas por caminhos de URL estáticos — sempre use `name`.

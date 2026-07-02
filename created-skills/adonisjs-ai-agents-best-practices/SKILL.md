@@ -9,19 +9,8 @@ Estabelecer padrões estritos e melhores práticas para a criação, depuração
 ## Instruções
 
 ## 1. Design e Arquitetura de Agentes de IA
-- **Padrão de Configuração:** Defina objetos de configuração usando a estrutura padrão de `AgentConfig`:
-  ```typescript
-  interface AgentConfig {
-    agentName: string
-    typeData: string
-    systemPrompt: string
-    tools: Record<string, Tool>
-    initialModel: string
-    maxSteps: number
-    maxCalls: number
-  }
-  ```
-- **Exportação de Factory:** Sempre exporte uma função factory para construir a configuração do agente, por exemplo, `create[AgentName]Agent(...args): AgentConfig`.
+- **Padrão de Configuração:** Passe as opções de execução usando a interface real `AgentExecuteOptions` de `#ai/agent_ai_request`. Ela exige o campo `messages` e aceita campos opcionais como `isDone`, `customModel` e `onStepFinish` (além de `systemPrompt`, `tools`, etc.). Não invente uma interface `AgentConfig`.
+- **Exportação de Factory:** Sempre exporte uma função factory assíncrona que executa o agente e retorna o resultado, por exemplo `export async function [name]Agent(params): Promise<AgentExecuteResult>`, retornando diretamente a chamada `await executeAgent({...})`.
 - **System Prompts:** Prompts direcionados ao agente devem ser estruturados com tags semânticas claras no estilo XML:
   - `<ENTRADA>`: Especificações de contexto e de dados de entrada.
   - `<TAREFA>`: Diretrizes detalhadas para a geração de saída.
@@ -64,7 +53,7 @@ Estabelecer padrões estritos e melhores práticas para a criação, depuração
   }
   ```
 - **Implementação do Handler:** Implemente um método estático `handle(job: Job<Data>)` para buscar os registros, invocar `executeAgent` com a configuração de agente apropriada e persistir os resultados.
-- **Registro de Custos:** Salve os tokens da API e os custos de processamento usando o helper `saveAiCost(costableType, costableId, result)`.
+- **Registro de Custos:** Modelos que registram custo compõem o mixin `HasAiCost` (de `#mixins/HasAiCost`); persista tokens e custo chamando `await model.addAiCost(tokens, costUsd)`.
 
 ## 4. Workers via Comandos Ace CLI
 - **Processo Worker:** Crie arquivos de comando em `commands/` estendendo `BaseCommand`.
@@ -72,6 +61,7 @@ Estabelecer padrões estritos e melhores práticas para a criação, depuração
 - **Graceful Shutdown:** Registre ouvintes para `SIGTERM` e `SIGINT` para fechar todas as instâncias ativas de `Worker` de forma limpa.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Não defina ferramentas de forma inline dentro de controllers ou comandos; mantenha-as em `app/ai/tools/`.
 - Todos os esquemas de entrada de ferramentas devem ter chamadas explícitas e detalhadas de `.describe()` em todos os campos.
 - Não inicie múltiplos workers para a mesma fila no mesmo processo sem tratar adequadamente seu ciclo de vida de finalização.

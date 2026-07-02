@@ -74,6 +74,7 @@ Apply these best practices to improve system efficiency, provided they do not co
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 1.  **NEVER** violate the minimum/maximum voltage limits of the inverter's string range.
 2.  **NEVER** exceed the maximum DC input power (`maximum_power`) of any inverter.
 3.  **NEVER** mix modules with different `equipment_id`s on the same MPPT.

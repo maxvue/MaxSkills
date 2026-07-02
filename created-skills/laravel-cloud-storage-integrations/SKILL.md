@@ -35,6 +35,7 @@ Provide solid guidelines, consistent patterns, and architectural standards for c
 * Define the correct target disk directly inside your model's media collections registration (`->useDisk('s3')` or `->useDisk('webdav')`).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * **NO Credentials in Version Control:** Never hardcode AWS/WebDAV keys or credentials. Use `env()` or `config()`.
 * **NO Production Local Storage for User Files:** Do not store user-uploaded assets on `local` or `public` disks. Target a cloud disk.
 * **NO Real Network Calls in Tests:** Mock the filesystem with `Storage::fake()`.

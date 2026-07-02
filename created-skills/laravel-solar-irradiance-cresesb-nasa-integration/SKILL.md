@@ -79,6 +79,7 @@ Standardize the integration of solar irradiance APIs (NASA POWER and CRESESB) an
    - Standardize the `performanceRatio` ($PR$) default value to $0.80$ (representing $20\%$ system losses, including inverter efficiency, temperature coefficients, wiring, and dirt/soiling).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** make direct HTTP calls using raw `Illuminate\Support\Facades\Http` clients. All integrations must inherit from `BaseApi`.
 - **Do NOT** use unrounded coordinates in cache keys. Raw coordinates lead to cache misses and resource exhaustion.
 - **Do NOT** hardcode calculation variables such as Performance Ratio ($PR$) globally without letting the user or system configuration override them dynamically.

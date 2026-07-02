@@ -75,24 +75,15 @@ export function clearUserSentryContext() {
 ```
 
 ### 4. Breadcrumbs Personalizados nas Requisições de API
-Para obter contexto preciso de requisições de API que falharam, registre breadcrumbs no ponto de configuração de rede que a lib realmente usa. **Não importe um `http` de `@maxvue/max-use` — esse export não existe.** Use `setApiRequestConfig` (a configuração compartilhada de axios usada por baixo das stores `@maxvue/max-pinia`) ou instrumente diretamente a instância de axios configurada pela sua própria aplicação. Isso garante que toda a telemetria de rede passe por um único ponto e que informações sensíveis sejam removidas antes do envio.
+Para obter contexto preciso de requisições de API que falharam, registre breadcrumbs no ponto de configuração de rede que a lib realmente usa. **Não importe um `http` de `@maxvue/max-use` — esse export não existe.** O MaxUse expõe apenas configuração de requisição **estática** (`headers`/`withCredentials`) via `setApiRequestConfig`; **não** há instância de axios compartilhada configurável nem qualquer API de interceptor à qual anexar hooks. Os helpers de rota do MaxUse chamam o axios global padrão diretamente e não expõem nenhum hook por requisição, então **não é possível registrar breadcrumbs por requisição através do MaxUse**. Confie na `httpClientIntegration` / `browserTracingIntegration` do próprio Sentry para breadcrumbs de rede, ou instrumente diretamente a instância de axios própria da sua aplicação (se houver uma).
 
 > Lembrete de escopo: dados de página são lidos/salvos via stores `@maxvue/max-pinia`. Os interceptores abaixo servem apenas para enriquecer breadcrumbs de erro, não para fazer GET/save manuais.
 
 ```typescript
-import { setApiRequestConfig } from '@maxvue/max-use';
 import * as Sentry from '@sentry/vue';
 
-// Enriquece os breadcrumbs a partir da configuração de requisição compartilhada,
-// sem depender de uma instância axios inexistente do MaxUse.
-setApiRequestConfig((config) => {
-  Sentry.addBreadcrumb({
-    category: 'api',
-    message: `Enviando requisição ${config.method?.toUpperCase()} para ${config.url}`,
-    level: 'info',
-  });
-  return config;
-});
+// O MaxUse não expõe hook por requisição; use as integrações de rede do próprio Sentry
+// (httpClientIntegration / browserTracingIntegration) no init da aplicação.
 
 // Alternativa: se a sua aplicação mantém uma instância de axios própria e configurada,
 // registre os interceptores diretamente nela (NÃO importe `http` do MaxUse):
@@ -131,6 +122,7 @@ try {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** insira a chave DSN de forma estática (hardcoded). Utilize variáveis de ambiente (ex: `import.meta.env.VITE_SENTRY_DSN`).
 - **NÃO** envie Informações Pessoais Identificáveis (PII) ou tokens sensíveis (ex: senhas, cabeçalhos de autorização, dados de cartão de crédito) em tags, objetos de usuário ou breadcrumbs. Certifique-se de configurar `maskAllText: true` e `blockAllMedia: true` nas integrações de Session Replay.
 - **NÃO** envie eventos para o Sentry em ambientes de desenvolvimento local. Faça a inicialização condicional ou verifique a presença da variável DSN antes de executar `Sentry.init`.

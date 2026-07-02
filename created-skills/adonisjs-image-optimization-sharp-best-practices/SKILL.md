@@ -149,7 +149,8 @@ export default class OptimizeImageJob {
     const exists = await drive.use().exists(sourcePath)
     if (!exists) return
 
-    const rawBuffer = await drive.use().get(sourcePath)
+    // `get()` retorna string (UTF-8) e corrompe binário — use `getBytes()` para ler bytes crus.
+    const rawBuffer = Buffer.from(await drive.use().getBytes(sourcePath))
 
     // 2. Generate Thumbnails and Multi-resolutions using Sharp
     const sizes = [
@@ -177,6 +178,7 @@ export default class OptimizeImageJob {
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** block the node event loop processing huge images synchronously in the main HTTP request thread. Offload high-volume or heavy resizing operations to background jobs.
 - **Do NOT** write raw unoptimized images directly to the permanent public local storage. Always compress and optimize uploads.
 - **Do NOT** upscale images (e.g., resizing a 300px image to 1200px) as it inflates file size while degrading quality. Always use `withoutEnlargement: true`.

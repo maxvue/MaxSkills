@@ -19,7 +19,7 @@ import { z } from 'zod';
 export interface FormFieldSchema {
   key: string;
   label: string;
-  component: 'MaxInputText' | 'MaxInputTextArea' | 'MaxSelect' | 'MaxSwitch';
+  component: 'MaxInputText' | 'MaxInputTextArea' | 'MaxInputSelect' | 'MaxInputSwitch';
   gridClass: 's33' | 's50' | 's100';
   props?: Record<string, any>;
   validation?: z.ZodTypeAny;
@@ -38,8 +38,8 @@ Os componentes `@maxvue/max-components-ui` são resolvidos por auto-import (`unp
 const componentMap = {
   MaxInputText: resolveComponent('MaxInputText'),
   MaxInputTextArea: resolveComponent('MaxInputTextArea'),
-  MaxSelect: resolveComponent('MaxSelect'),
-  MaxSwitch: resolveComponent('MaxSwitch')
+  MaxInputSelect: resolveComponent('MaxInputSelect'),
+  MaxInputSwitch: resolveComponent('MaxInputSwitch')
 };
 ```
 
@@ -99,8 +99,8 @@ watch(formData, (newVal) => {
 const componentMap = {
   MaxInputText: resolveComponent('MaxInputText'),
   MaxInputTextArea: resolveComponent('MaxInputTextArea'),
-  MaxSelect: resolveComponent('MaxSelect'),
-  MaxSwitch: resolveComponent('MaxSwitch')
+  MaxInputSelect: resolveComponent('MaxInputSelect'),
+  MaxInputSwitch: resolveComponent('MaxInputSwitch')
 };
 
 // Constrói o schema Zod dinamicamente a partir das regras de validação do formulário
@@ -169,7 +169,7 @@ Defina um componente que consome o renderizador de formulário dinâmico, mostra
 ```vue
 <template>
   <div class="inverter-configuration">
-    <MaxTitle>Configuração do Inversor Fotovoltaico</MaxTitle>
+    <MaxTitle1>Configuração do Inversor Fotovoltaico</MaxTitle1>
     <MaxDynamicForm :schema="formSchema" v-model="store.inverterConfig" />
   </div>
 </template>
@@ -197,7 +197,7 @@ const formSchema: FormFieldSchema[] = [
   {
     key: 'phase',
     label: 'Tipo de Fase',
-    component: 'MaxSelect',
+    component: 'MaxInputSelect',
     gridClass: 's50',
     validation: z.string().min(1, 'O tipo de fase é obrigatório'),
     props: {
@@ -219,7 +219,7 @@ const formSchema: FormFieldSchema[] = [
   {
     key: 'active',
     label: 'Ativo',
-    component: 'MaxSwitch',
+    component: 'MaxInputSwitch',
     gridClass: 's100',
     props: { label: 'Habilitar monitoramento deste inversor' }
   }
@@ -228,6 +228,7 @@ const formSchema: FormFieldSchema[] = [
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Apenas Composition API**: Nunca utilize a Options API. Sempre use `<script setup lang="ts">`.
 * **TypeScript Obrigatório**: Todos os scripts devem ser totalmente tipados. Use `lang="ts"`.
 * **SCSS Obrigatório**: Todas as estilizações devem ser escritas em SCSS e com escopo local (`scoped`).

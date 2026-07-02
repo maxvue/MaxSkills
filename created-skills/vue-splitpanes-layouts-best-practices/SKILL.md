@@ -69,9 +69,10 @@ const defaultSizes = [25, 75];
 
 const paneSizes = useLocalStorage<number[]>(STORAGE_KEY, defaultSizes);
 
-// Atualiza o estado persistido após o usuário terminar o redimensionamento
-const handleResized = (panes: PaneState[]) => {
-  paneSizes.value = panes.map((p) => p.size);
+// Atualiza o estado persistido após o usuário terminar o redimensionamento.
+// splitpanes v4 emite `resized` com um payload OBJETO; o array de panes vem em `.panes`.
+const handleResized = (payload: { panes: PaneState[] }) => {
+  paneSizes.value = payload.panes.map((p) => p.size);
 };
 </script>
 
@@ -124,6 +125,7 @@ const handleResized = (panes: PaneState[]) => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Sob nenhuma circunstância utilize a Options API.
 - Não quebre atributos/parâmetros de componentes Vue em múltiplas linhas dentro do `<template>`.
 - Não estilize o componente splitpanes usando estilos inline; sempre utilize SCSS no bloco `<style scoped lang="scss">`.

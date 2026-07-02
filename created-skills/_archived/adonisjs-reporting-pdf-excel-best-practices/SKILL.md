@@ -119,6 +119,7 @@ Estabelecer convenções e padrões rígidos para a geração de documentos PDF 
   * Registre o worker no script global [worker.ts](file:///home/johnattas/GitHub/socialmedia-node/commands/worker.ts) e adicione o objeto da fila em [queue_service.ts](file:///home/johnattas/GitHub/socialmedia-node/app/services/queue_service.ts).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** bloqueie o event loop com operações síncronas de arquivos (`fs.writeFileSync`). Use versões assíncronas (`fs.promises`) ou streams.
 * **NÃO** inicialize o Puppeteer sem um bloco `try/finally` que fecha o navegador. Vazamentos de processos zumbis do Chrome consumirão rapidamente toda a memória RAM da hospedagem.
 * **NÃO** exponha URLs brutas dos arquivos do bucket diretamente ao público se os relatórios contiverem informações confidenciais do banco de dados, métricas ou credenciais. Use URLs assinadas.

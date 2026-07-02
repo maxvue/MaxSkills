@@ -53,6 +53,7 @@ Feature tests must cover:
 3. **Expired Cache:** Verify that requests are processed fresh when the TTL expires.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** define API request methods manually using `Http::get` or `Http::post` within the connector class unless implementing high-level aggregation.
 - **Do NOT** skip defining `path` attributes in `EndPoints.json` if the URL contains curly braces.
 - **Do NOT** write inline SQL or instantiate models in connectors.

@@ -1,5 +1,15 @@
 # Components
 
+> **Controles de UI = componentes `Max*` (MaxComponentsUi).** Em código de aplicação, **nunca** use
+> `<button>`/`<input>`/`<select>`/`<textarea>`/checkbox nativos. Mapeie para os equivalentes Max:
+> `<button>` → `<MaxButton>` (ou `<MaxIconButton>`), `<input type="text">` → `<MaxInputText>`,
+> `<textarea>` → `<MaxInputTextArea>`, `<select>` → `<MaxInputSelect>`, `<input type="checkbox">` →
+> `<MaxInputCheckbox>`, número → `<MaxInputNumber>`, arquivo → `<MaxInputFileUpload>`. Os exemplos abaixo
+> que mostram `<input>`/`<select>` crus servem **apenas** para ilustrar o mecanismo interno de `v-model`,
+> emits e slots (a primitiva que os wrappers `Max*` já encapsulam via `InputBase`). Ao consumir esses
+> padrões numa tela, use o componente `Max*`. Estilize com UnoCSS attributify (não CSS/SCSS à mão) e use
+> `<div>` (nunca `<section>`).
+
 ## Props with TypeScript
 
 ```vue
@@ -87,8 +97,8 @@ const runtimeEmit = defineEmits({
 </script>
 
 <template>
-  <button @click="handleUpdate">Update</button>
-  <button @click="handleDelete(123)">Delete</button>
+  <MaxButton label="Update" @click="handleUpdate" />
+  <MaxButton label="Delete" @click="handleDelete(123)" />
 </template>
 ```
 
@@ -175,7 +185,7 @@ const emit = defineEmits<Emits>()
     </template>
 
     <template #footer="{ close }">
-      <button @click="close">Close</button>
+      <MaxButton label="Close" @click="close" />
     </template>
   </Card>
 </template>
@@ -294,7 +304,7 @@ function handleUpdate() {
   <div>
     <p>User: {{ user?.name }}</p>
     <p>Theme: {{ theme }}</p>
-    <button @click="handleUpdate">Update User</button>
+    <MaxButton label="Update User" @click="handleUpdate" />
   </div>
 </template>
 ```
@@ -309,15 +319,16 @@ const showModal = ref(false)
 </script>
 
 <template>
-  <button @click="showModal = true">Show Modal</button>
+  <!-- Em telas reais, prefira <MaxModal> (toggle()/show()/hide()); este exemplo ilustra o Teleport cru. -->
+  <MaxButton label="Show Modal" @click="showModal = true" />
 
   <!-- Teleport to body -->
   <Teleport to="body">
     <div v-if="showModal" class="modal">
       <div class="modal-content">
-        <h2>Modal Title</h2>
+        <MaxTitle2 h1="Modal Title" />
         <p>Modal content</p>
-        <button @click="showModal = false">Close</button>
+        <MaxButton label="Close" @click="showModal = false" />
       </div>
     </div>
   </Teleport>
@@ -378,9 +389,9 @@ function switchView(view: keyof typeof components) {
 </script>
 
 <template>
-  <button @click="switchView('home')">Home</button>
-  <button @click="switchView('about')">About</button>
-  <button @click="switchView('contact')">Contact</button>
+  <MaxButton label="Home" @click="switchView('home')" />
+  <MaxButton label="About" @click="switchView('about')" />
+  <MaxButton label="Contact" @click="switchView('contact')" />
 
   <!-- Dynamic component with KeepAlive -->
   <KeepAlive>

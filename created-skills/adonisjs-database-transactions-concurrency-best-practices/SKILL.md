@@ -85,6 +85,7 @@ await db.transaction(async (trx) => {
 - Bloqueie os registros consistentemente na mesma ordem em diferentes transações para prevenir esperas circulares.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO use queries brutas para transações**: Nunca use comandos SQL manuais (`BEGIN`, `COMMIT`, `ROLLBACK`) para gerenciar transações, a menos que a API do Lucid esteja completamente indisponível para um caso específico.
 - **NÃO deixe conexões órfãs**: Toda transação manual aberta (`db.transaction()`) DEVE obrigatoriamente ter uma execução correspondente de `trx.commit()` ou `trx.rollback()`.
 - **Vinculação obrigatória**: Não execute consultas ou salve models dentro de um callback/bloco de transação sem passar `trx` ou sem usar `useTransaction(trx)`. Ignorar essa regra fará com que a operação ignore o contexto da transação, provocando leituras sujas ou bloqueios indesejados.

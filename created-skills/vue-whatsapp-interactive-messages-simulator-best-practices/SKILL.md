@@ -6,7 +6,7 @@ description: Use when designing, building, modifying, styling, or debugging Vue 
 # Boas Práticas para Simulador de Mensagens Interativas do WhatsApp no Vue 3
 
 ## Objetivo
-Fornecer diretrizes de UI/UX, especificações de design system e padrões de desenvolvimento frontend em Vue 3 para implementar, estilizar e depurar simuladores de WhatsApp de alta fidelidade e editores de templates dentro do ecossistema Engeapp/SocialMedia.
+Fornecer diretrizes de UI/UX, especificações de design system e padrões de desenvolvimento frontend em Vue 3 para implementar, estilizar e depurar simuladores de WhatsApp de alta fidelidade e editores de templates dentro do ecossistema EngeApp.
 
 ## Instruções
 
@@ -51,6 +51,7 @@ Implemente contadores de caracteres ativos e estados de validação no formulár
 - **Variáveis/Parâmetros:** Certifique-se de detectar variáveis (`{{1}}`, `{{2}}`, etc.) e renderizar dinamicamente campos de entrada separados para preenchimento.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** ignore as regras da Composition API. Nunca utilize a Options API.
 - **NÃO** utilize cores de tema hardcoded. Utilize variáveis CSS ou tokens do UnoCSS que respondam corretamente ao alternador global de modo escuro/claro do sistema.
 - **NÃO** realize requisições à API da Meta diretamente dentro dos componentes visuais. Todo GET de dados de página e todo salvamento de template devem passar por uma store `@maxvue/max-pinia` (MaxPinia), que cuida do cache e do auto-save/debounced para o backend — não faça `axios.get/post` manuais nem salvamentos por submit. As rotas são caminhos string `/api/...` resolvidos por `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` (sem `route()`/Ziggy). Exponha o estado da store através de composables limpos para os componentes visuais.

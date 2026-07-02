@@ -75,3 +75,6 @@ Fluxo de consulta:
 
 Essas regras vêm da [vue-max-stack-frontend-best-practices](../vue-max-stack-frontend-best-practices/SKILL.md);
 o catálogo existe justamente para você achar o item Max certo em vez de cair no equivalente nativo/externo.
+
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

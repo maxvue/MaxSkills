@@ -59,6 +59,7 @@ Every time a coupon is successfully applied, record the history in the `finance_
 ---
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NO Database Writes in Read Events:** NEVER invoke `$model->save()` or database write operations inside Eloquent model events that trigger on read (such as `retrieved` or `booted` read hooks). Doing so creates recursive queries, massive performance issues, and write locks on simple select queries.
 - **Attribute Assignments:** NEVER mismatch relationship assignments (e.g. assigning client IDs or company IDs to `project_id` by mistake). Verify assignments carefully:
   ```php

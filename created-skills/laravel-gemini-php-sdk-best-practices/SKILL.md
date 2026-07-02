@@ -123,3 +123,6 @@ try {
 - **Memory Efficiency:** Avoid storing massive files in memory. Ensure Base64 payloads are processed and garbage-collected efficiently.
 - **Required Fields in Schema:** When defining structured outputs, always pass the array of required keys to ensure the schema validator guarantees their presence in the final output.
 - **Brazilian Portuguese Comments:** Keep code documentation, model constraints, and inline comments in **Brazilian Portuguese** (`pt-BR`) as per repository guidelines.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

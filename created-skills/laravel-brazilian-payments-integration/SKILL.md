@@ -52,6 +52,7 @@ Webhooks must be received via dedicated routes pointing to specific controllers.
 ---
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** perform raw HTTP requests to APIs outside the `BaseApi` integration structure or approved SDKs.
 - **Do NOT** process webhook events synchronously. Always queue them to prevent timeouts.
 - **Do NOT** bypass signature or token verification on webhooks.

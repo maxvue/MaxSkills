@@ -43,6 +43,7 @@ Estabelecer diretrizes sólidas e padrões consistentes para a utilização da b
    - O FloatingVue lida automaticamente com atributos ARIA essenciais (ex: `aria-describedby` e `aria-haspopup`), mas verifique se a navegação por teclado (Esc para fechar, tab-index dentro dos menus) funciona perfeitamente.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO use a Options API. Sempre utilize a Composition API (`<script setup lang="ts">`).
 - NÃO quebre os atributos das tags HTML/SFC em várias linhas no bloco `<template>`. Todos os atributos devem ser mantidos inline na mesma linha.
 - NÃO utilize cores, bordas ou sombras estáticas. Alinhe a estilização ao sistema de design da aplicação utilizando variáveis de tema.

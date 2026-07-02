@@ -37,7 +37,7 @@ O HMR funciona re-importando os módulos modificados e substituindo as instânci
 ### 3. Prevenção de Vazamento de Memória e Recursos
 Quando o `hot-hook` substitui um módulo, o contexto de execução anterior é descartado, mas bindings externos (como timers, conexões de rede abertas e listeners de eventos globais) continuam ativos no processo.
 - **Limpe listeners ativos**: Remova listeners de eventos globais (`process.on`, `emitter.on`) e limpe timers ativos (`setInterval`, `setTimeout`) quando um módulo for descarregado.
-- **Hooks de descarte (dispose)**: O `hot-hook` recarrega o módulo re-importando-o; ele NÃO expõe a API `import.meta.hot` do Vite no backend. Portanto, torne o registro de recursos idempotente (limpe antes de registrar) e centralize a desmontagem em um provider/serviço fora das boundaries, ou guarde a referência no objeto `global` para limpá-la na próxima execução do módulo.
+- **Hooks de descarte (dispose)**: O `hot-hook` (v0.4.0) **expõe** a API `import.meta.hot` no backend, com o método `dispose(callback)` — esse é o mecanismo idiomático de limpeza. Registre a desmontagem em `import.meta.hot?.dispose(() => { ... })`: o optional-chaining faz com que vire no-op em produção (onde `import.meta.hot` é `undefined`). Dentro do callback, remova listeners (`emitter.off`) e limpe timers (`clearInterval`/`clearTimeout`). A abordagem de guardar a referência no objeto `global` (limpar antes de registrar) só deve ser usada como fallback quando `dispose` não for aplicável.
 
 ### 4. Gerenciamento de Estado
 Arquivos dentro das boundaries do HMR terão seu estado local (no escopo do módulo) reiniciado após cada re-importação.
@@ -50,7 +50,7 @@ Arquivos dentro das boundaries do HMR terão seu estado local (no escopo do mód
 ### Exemplo 1: Prevenindo Vazamento de Listeners de Eventos
 Ao registrar ganchos (hooks) ou listeners globais de eventos dentro de um módulo recarregável por HMR, certifique-se de limpar listeners anteriormente registrados para evitar que executem múltiplas vezes.
 
-O serviço `router` do Adonis v6 NÃO é um EventEmitter genérico (não há `router.on/off`). Para eventos use o emitter da aplicação (`@adonisjs/core/services/emitter`), que oferece `on`/`off`. Como o módulo é re-executado a cada recarga, guarde a referência do listener no `global` para remover o anterior antes de registrar o novo (evitando duplicações).
+O serviço `router` do Adonis v6 NÃO é um EventEmitter genérico (não há `router.on/off`). Para eventos use o emitter da aplicação (`@adonisjs/core/services/emitter`), que oferece `on`/`off`. Registre a limpeza em `import.meta.hot?.dispose()`: antes de re-importar o módulo, o `hot-hook` executa o callback de dispose, removendo o listener anterior (evitando duplicações). Em produção `import.meta.hot` é `undefined`, então o optional-chaining torna a chamada um no-op.
 
 ```typescript
 import emitter from '@adonisjs/core/services/emitter'
@@ -60,15 +60,16 @@ function onHttpRequest(payload: any) {
   console.log(`Requisição: ${payload.request.url()}`)
 }
 
-// Remove o listener registrado na execução anterior do módulo (HMR), se houver
-const g = globalThis as any
-if (g.__onHttpRequest) {
-  emitter.off('http:request_completed', g.__onHttpRequest)
-}
-g.__onHttpRequest = onHttpRequest
-
 emitter.on('http:request_completed', onHttpRequest)
+
+// Mecanismo principal de limpeza no HMR: remove o listener quando o módulo é descartado.
+// Optional-chained → no-op em produção (import.meta.hot === undefined).
+import.meta.hot?.dispose(() => {
+  emitter.off('http:request_completed', onHttpRequest)
+})
 ```
+
+> Fallback (quando `dispose` não for aplicável): guarde a referência do listener no objeto `global` e remova a anterior antes de registrar a nova — `if (g.__onHttpRequest) emitter.off('http:request_completed', g.__onHttpRequest)`.
 
 ### Exemplo 2: Resolução Dinâmica no Contêiner (Evitando Referências Desatualizadas)
 Evite armazenar instâncias de classes recarregáveis por HMR em propriedades estáticas ou parâmetros de construtor de um singleton de longa duração.
@@ -96,6 +97,7 @@ Garanta que os serviços injetados sejam registrados como transientes no contêi
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca** inclua arquivos com lógica de conexão de banco de dados, instanciação de cliente Redis ou inicialização do servidor HTTP no array `hotHook.boundaries`.
 - **Nunca** registre listeners de eventos permanentes no escopo global de um módulo recarregado por HMR sem uma estratégia explícita de desmontagem/limpeza.
 - Não utilize estado global dentro de controllers e middlewares; o estado deve ser gerenciado por meio de sessão, banco de dados ou tokens sem estado para evitar resets inesperados de dados durante as atualizações do HMR.

@@ -109,6 +109,7 @@ await db.transaction(async (trx) => {
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 *   **Proibido Vínculos Múltiplos:** Uma única transação `BankStatementTransaction` não deve ser vinculada a várias transações locais, a menos que seja implementado um recurso específico de desmembramento de transações (split transaction) modelado explicitamente com relações de pai e filho.
 *   **Proibido Deleção Física (Hard Delete):** Nunca remova linhas da tabela `BankStatementTransaction`. Se uma conciliação for desfeita, exclua o registro de `BankReconciliation` e altere o status da transação bancária de volta para `'pending'`.
 *   **Desacoplamento de Importação e Matching:** Não execute o engine de correspondência (matching engine) dentro da mesma requisição HTTP que processa o arquivo OFX. Coloque a tarefa em fila usando BullMQ ou um processo em segundo plano para garantir respostas rápidas e resiliência com novas tentativas.

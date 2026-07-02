@@ -165,6 +165,7 @@ Com os três pontos ativos, `auth.use('web').login(user, true)` passa a emitir u
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - O padrão atual do projeto é a persistência via `age: '30 days'` da sessão no banco com `useRememberMeTokens: false`. Não ative tokens dedicados sem necessidade real e sem aplicar os três pontos (guard + provider no model + migration) em conjunto.
 - **Nunca** salve o valor bruto do token (texto simples) no banco. O `@adonisjs/auth` hasheia o token automaticamente; não contorne isso.
 - **Nunca** crie ou manipule os cookies de sessão/remember-me manualmente no frontend ou backend. Deixe o `@adonisjs/auth` e o `@adonisjs/session` gerenciarem os cookies nativamente.

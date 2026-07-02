@@ -27,11 +27,13 @@ interface Boleto {
     tipoBoleto: 'ARRECADACAO_PREFEITURA' | 'CONVENIO_SANEAMENTO' | 'CONVENIO_ENERGIA_ELETRICA_E_GAS' | 'CONVENIO_TELECOMUNICACOES' | 'ARRECADACAO_ORGAOS_GOVERNAMENTAIS' | 'OUTROS' | 'ARRECADACAO_TAXAS_DE_TRANSITO' | 'BANCO';
     codigoBarras: string;
     linhaDigitavel: string;
-    vencimento: string; // ISO date string
-    vencimentoApos22022025: string; // ISO date string (suporta atualização do fator de 2025)
+    vencimento: Date; // objeto Date do JS (não string)
+    vencimentoComNovoFator2025: Date; // objeto Date do JS (suporta atualização do fator de 2025)
     valor: number;
 }
 ```
+
+> **Atenção aos tipos:** o `boleto-utils.d.ts` que a lib publica está incorreto — declara `vencimentoApos22022025: string`, mas o runtime (`boleto-utils.js`) na verdade atribui `vencimentoComNovoFator2025` e ambos os campos de vencimento são objetos `Date` do JS (as funções internas fazem `return dataBoleto.toDate()`), não strings. Confie no runtime, não no nome do tipo (faça cast quando necessário).
 
 ### 2. Fluxo de Validação de Input de Formulário
 Ao construir campos de formulário para capturar informações de boleto:
@@ -108,7 +110,7 @@ export function useBoleto() {
 
     <div v-if="isValid && details" class="boleto-field__details">
       <div class="detail-row"><span>Valor:</span> <strong>R$ {{ details.valor.toFixed(2) }}</strong></div>
-      <div class="detail-row"><span>Vencimento:</span> <strong>{{ formatDate(details.vencimentoApos22022025 || details.vencimento) }}</strong></div>
+      <div class="detail-row"><span>Vencimento:</span> <strong>{{ formatDate(details.vencimentoComNovoFator2025 || details.vencimento) }}</strong></div>
       <div class="detail-row"><span>Tipo:</span> <strong>{{ details.tipoBoleto }}</strong></div>
     </div>
   </div>
@@ -121,7 +123,7 @@ import { validarBoleto, type Boleto } from '@mrmgomes/boleto-utils';
 
 // Definição das propriedades e eventos
 const emit = defineEmits<{
-  (e: 'valid', payload: { code: string; value: number; vencimento: string }): void;
+  (e: 'valid', payload: { code: string; value: number; vencimento: Date }): void;
   (e: 'invalid', message: string): void;
 }>();
 
@@ -130,10 +132,9 @@ const error = ref<string>('');
 const isValid = ref<boolean>(false);
 const details = ref<Boleto | null>(null);
 
-// Formata a data ISO para exibição local em pt-BR
-const formatDate = (dateStr: string): string => {
-  if (!dateStr) return '';
-  const date = new Date(dateStr);
+// Formata o objeto Date (retornado pela lib) para exibição local em pt-BR
+const formatDate = (date: Date | null | undefined): string => {
+  if (!date) return '';
   return date.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 };
 
@@ -165,7 +166,7 @@ const validate = () => {
       emit('valid', {
         code: cleanCode,
         value: result.valor,
-        vencimento: result.vencimentoApos22022025 || result.vencimento
+        vencimento: result.vencimentoComNovoFator2025 || result.vencimento
       });
     } else {
       error.value = result.mensagem || 'Código de boleto inválido';
@@ -185,7 +186,8 @@ const validate = () => {
 <style scoped lang="scss">
 // O input em si é o MaxInputText (label, foco e estado de erro já vêm do
 // componente de tema). Aqui estilizamos apenas o bloco de detalhes,
-// usando variáveis do tema — sem cores hexadecimais estáticas.
+// usando tokens reais do tema Max — sem cores hexadecimais estáticas.
+// (Preferencialmente, prefira UnoCSS attributify / presetMaxUno a este bloco SCSS.)
 .boleto-field {
   display: flex;
   flex-direction: column;
@@ -195,11 +197,11 @@ const validate = () => {
   &__details {
     margin-top: 0.75rem;
     padding: 0.75rem;
-    background-color: var(--max-surface-2);
-    border: 1px solid var(--max-border);
-    border-radius: var(--max-radius);
+    background-color: var(--max-surface-400);
+    border: 1px solid var(--max-inputtext-border-color);
+    border-radius: var(--max-inputtext-border-radius);
     font-size: 0.875rem;
-    color: var(--max-text);
+    color: var(--max-surface-900);
 
     .detail-row {
       display: flex;
@@ -218,6 +220,7 @@ const validate = () => {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Sempre sanitizar entradas:** Nunca envie espaços de formatação, pontos ou traços diretamente para `@mrmgomes/boleto-utils`.
 * **Envolver a validação em try/catch:** A biblioteca pode lançar exceções não tratadas em tempo de execução para números extremamente malformados.
 * **Ordenação de componentes:** Componentes Vue devem seguir a ordem `<template>`, `<script setup lang="ts">` e `<style lang="scss">` sem exceções.

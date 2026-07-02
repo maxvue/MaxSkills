@@ -225,6 +225,7 @@ const onGridReorder = () => {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **PROIBIDO uso de Tailwind CSS**: Deve-se utilizar SCSS com escopo fechado (`scoped`) ou as classes utilitárias customizadas do UnoCSS.
 * **PROIBIDO manipulação direta do DOM por seletores**: Utilize sempre referências do template do Vue (`ref="el"`) em vez de seletores do document como `document.querySelector`.
 * **PROIBIDO Tags com Atributos Multilinha**: A abertura de tags HTML e os parâmetros de componentes Vue devem ser declarados em uma única linha no template.

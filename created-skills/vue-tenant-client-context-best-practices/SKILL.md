@@ -175,25 +175,30 @@ guard web — sem Bearer/JWT/Sanctum). Portanto **NÃO** monte um `axios` global
 `interceptors.request`/`response` só para injetar header/credenciais — isso duplica o que a lib já faz e cria
 duas fontes de verdade.
 
-Se você precisar de um hook de resposta (ex: em `403`, limpar o cliente ativo e redirecionar para `/clients`),
-registre-o via o config oficial da lib — `setApiRequestConfig` — e não com um interceptor num axios avulso:
+Atenção: `setApiRequestConfig` **não** é um hook de resposta — ele aceita apenas um objeto plano
+`{ headers?, withCredentials? }` (merge estático de cabeçalho/credenciais) e não expõe `onResponseError`
+nem qualquer interceptor. Além disso, os helpers `apiGetRoute`/`apiPostRoute` **engolem os erros
+internamente**: em qualquer falha HTTP (inclusive `403`) eles retornam `null`/`false` e o status **não é
+propagado** para o chamador. Ou seja, não há como um interceptor de `403` disparar por meio da lib.
+
+Para tratar tenant inválido/negado, detecte no código chamador (após `await`) o resultado `null`/`false`
+combinado com uma revalidação fresca da `clientList` — exatamente como já é feito no `watch` de
+`useSelectedClientStore`. Se sua aplicação mantiver um axios global próprio com interceptor de resposta
+configurado, o `403` pode ser tratado lá; mas isso é infraestrutura da app, não do MaxUse:
 
 ```typescript
-import { setApiRequestConfig } from '@maxvue/max-use';
+import { apiGetRoute } from '@maxvue/max-use';
 import router from '@/router';
 
 // X-Client-Id e withCredentials já são injetados pelos helpers apiGetRoute/apiPostRoute.
-// Aqui adicionamos apenas o tratamento de 403 (tenant inválido/negado) de forma centralizada.
-setApiRequestConfig({
-    onResponseError: (error) => {
-        // Cliente ativo inválido ou negado: limpa a seleção e volta à listagem
-        if (error?.response?.status === 403) {
-            localStorage.removeItem('selected.client.id');
-            router.push({ name: 'clients' });
-        }
-        return Promise.reject(error);
-    },
-});
+// Como os helpers retornam null/false em erro (status não exposto), detectamos tenant
+// inválido pelo resultado nulo + revalidação da lista de clientes.
+const data = await apiGetRoute('/api/clients/current');
+if (data === null) {
+    // Cliente ativo inválido ou negado: limpa a seleção e volta à listagem
+    localStorage.removeItem('selected.client.id');
+    router.push({ name: 'clients' });
+}
 ```
 
 ### 4. Sincronização do Workspace no Componente Layout
@@ -246,6 +251,7 @@ watch(clientId, (id) => {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** permita vazamento de dados entre clientes. Garanta que todo estado reativo dependente do cliente ativo seja limpo imediatamente após a alternância de cliente.
 - **NÃO** utilize uma chave global única de localStorage para persistir dados que são específicos do cliente. Sempre paramerize as chaves na estrutura `nome_chave::${clientId}`.
 - **NÃO** gerencie o redirecionamento ou limpeza por erro 403 manualmente em cada componente de dados. Centralize esse comportamento no interceptor de resposta global.

@@ -40,35 +40,44 @@ Estabelecer diretrizes padronizadas e otimizadas para a criação de componentes
 
 ## Serviços de API
 1. **Nomenclatura & Localização:**
-   - Mantenha em `resources/Services/` ou caminhos específicos do módulo, com o sufixo `Service.ts` (ex: `UserService.ts`).
+   - Mantenha em `resources/js/services/` ou caminhos específicos do módulo, com o sufixo `Service.ts` (ex: `UserService.ts`).
 2. **Integração:**
    - Use helpers de rotas do `@maxvue/max-use` (ex: `apiGetRoute`, `apiPostRoute`) em vez de chamadas diretas ao Axios.
    - Passe o caminho da rota como string `/api/...` (ou o nome interno registrado no Adonis). **Não existe Ziggy** — é nativo do Laravel e foi descontinuado.
    - **Prefira stores MaxPinia para GETs:** todo GET ao backend deve passar por uma store `@maxvue/max-pinia` (cache + auto-save). A camada `Service` abaixo destina-se a ações não-GET; não crie serviços só para buscar dados que caberiam numa store cacheada.
 3. **Tipagem:**
    - Anote os tipos de retorno explicitamente (ex: `Promise<User[] | null>`).
-   - Não use `any`. Importe DTOs de `resources/Types/`.
+   - Não use `any`. Importe DTOs de `resources/js/types/`.
 4. **Consumo:**
    - Chame métodos de serviço a partir de stores do Pinia ou no `script setup` do componente. Nenhuma requisição de rede bruta deve ser feita dentro de stores/componentes.
 
 ## Stores do Pinia
 1. **Nomenclatura & Localização:**
-   - Padrão: `use{Name}.Store.ts` (ex: `useClient.Store.ts`).
-   - Insira em pastas de domínio sob `resources/Stores/`.
+   - Padrão: arquivo `use{Name}.ts` exportando `use{Name}Store` (ex: `useProject.ts` exporta `useProjectStore`).
+   - Insira sob `resources/js/stores/` (minúsculo).
 2. **Configuração:**
-   - Use `defineStore('dominio.meuModulo', () => { ... })`.
+   - Use `defineStore('project', () => { ... })` com um id plano (ex: `'user'`, `'project'`), condizente com as stores reais.
    - Defina explicitamente o tipo de todos os refs e propriedades computadas.
 3. **Integração com `@maxvue/max-pinia`** (anteriormente `piniaWithCache`):
    - `isCached`: `ref(true)`
    - `id`: `computed(() => parent.id ?? null)`
    - `enabled`: `computed(() => id.value !== null)`
    - `data`: `ref<MyType | null>(null)`
-   - `options`: Objeto computado com `get`, `enabled`, `save`, `key`, `id`.
+   - `options`: Objeto computado onde a rota de GET vive em `options.get.route` (string), ex:
+     ```typescript
+     const options = computed(() => ({
+       get: { route: '/api/...' },
+       save: '/api/...',
+       enabled,
+       key,
+     }))
+     ```
 4. **Overlay de Carregamento (Loading):**
    - Configure `loading_options` (ex: `message` e `target`) para o hook de overlay global.
    - Retorne todas as propriedades, estados e actions no objeto de retorno da setup store.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NUNCA** use a Options API.
 - **NUNCA** use CSS puro (simpre use SCSS).
 - **NUNCA** quebre tags de componentes do template em várias linhas.

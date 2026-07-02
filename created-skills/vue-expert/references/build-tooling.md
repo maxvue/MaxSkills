@@ -31,35 +31,41 @@ export default defineConfig({
 // vite.config.ts
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import UnoCSS from 'unocss/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import { QuasarResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   plugins: [
     vue(),
 
+    // UnoCSS (presetMaxUno + attributify) — ver uno.config.ts
+    UnoCSS(),
+
     // Vue DevTools integration
     VueDevTools(),
 
-    // Auto-import components
+    // Auto-import components — os Max* de @maxvue/max-components-ui são auto-resolvidos.
     Components({
       dirs: ['src/components'],
-      resolvers: [QuasarResolver()],
       dts: 'src/components.d.ts'
     }),
 
-    // Auto-import Vue APIs
+    // Auto-import Vue APIs, vue-router, stores e composables do MaxUse.
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
       dts: 'src/auto-imports.d.ts',
-      dirs: ['src/composables'],
+      dirs: ['src/composables', 'src/stores'],
       vueTemplate: true
     })
   ]
 })
 ```
+
+> UnoCSS usa `presetMaxUno()` (de `@maxvue/max-components-ui/preset`), `presetWind3()`,
+> `presetAttributify()` e `presetIcons()` no `uno.config.ts`. Ver a skill
+> `vue-unocss-styling-best-practices` para os tokens de tema e o attributify.
 
 ### Environment Variables
 
@@ -273,11 +279,11 @@ export default defineConfig({
           // Vendor chunk for core dependencies
           'vendor': ['vue', 'vue-router', 'pinia'],
 
-          // UI framework chunk
-          'ui': ['quasar', '@quasar/extras'],
+          // Ecossistema Max (UI + composables + stores cacheadas)
+          'max': ['@maxvue/max-components-ui', '@maxvue/max-use', '@maxvue/max-pinia'],
 
           // Utility libraries
-          'utils': ['lodash-es', 'date-fns', 'axios']
+          'utils': ['date-fns', 'axios']
         }
       }
     }

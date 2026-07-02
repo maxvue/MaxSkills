@@ -71,6 +71,7 @@ Renderize widgets personalizáveis sobrepostos com estilização precisa:
 - Vincule o estado (lista de stories, índice do story ativo atual, status de reprodução/pausa) a uma store dedicada do `@maxvue/max-pinia`. Qualquer GET/save de dados de página (carregar a lista de stories do backend, persistir alterações) deve passar pela store MaxPinia, e não por requisições axios manuais — o MaxPinia faz o salvamento automático (debounced). Estado puramente local de UI (índice ativo, play/pause, timers) pode permanecer reativo no componente.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** utilize Options API. Sempre utilize `<script setup lang="ts">`.
 - **NÃO** escreva estilos em CSS puro ou Tailwind CSS. SCSS é obrigatório.
 - **NÃO** escreva comentários de código em inglês. Todos os comentários de código devem ser em Português do Brasil (`pt-BR`).

@@ -39,6 +39,7 @@ Load detailed guidance based on context:
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 ### MUST DO
 - Use PHP 8.2+ features (readonly, enums, typed properties)
 - Type hint all method parameters and return types

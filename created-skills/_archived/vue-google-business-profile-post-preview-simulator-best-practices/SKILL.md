@@ -50,6 +50,7 @@ Implemente um mapeador dinâmico de botões para as ações suportadas pelo GBP:
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** utilize a Options API. Sempre utilize `<script setup lang="ts">`.
 - **NÃO** escreva estilos fora de blocos SCSS escopados (`scoped`).
 - **NÃO** escreva comentários de código em inglês. Todos os comentários inline dentro dos templates/scripts do Vue devem ser escritos em **Português do Brasil (pt-BR)**.

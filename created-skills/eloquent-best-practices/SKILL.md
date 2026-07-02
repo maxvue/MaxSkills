@@ -224,3 +224,6 @@ Model::preventLazyLoading(!app()->isProduction());
 - [ ] Chunking for large datasets
 - [ ] Model events used appropriately
 - [ ] Lazy loading prevented in development
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

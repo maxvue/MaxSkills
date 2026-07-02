@@ -38,6 +38,7 @@ Solar project homologations with electricity concessionaires require precise SLA
 - Verify that `addBusinessDays` shifts the date correctly across multiple consecutive holidays (e.g., Carnival or Christmas/New Year).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **DO NOT** write custom loops (`while`) to skip weekends or calculate business days directly in Controllers or Services. Use `addBusinessDays`.
 - **DO NOT** query the Invertexto API directly from custom services or commands. All holiday fetches must go through `HolidayService`.
 - **DO NOT** write holidays directly to the database without updating the cache or bypassing `HolidayService::isHoliday()` logic.

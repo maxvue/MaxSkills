@@ -41,6 +41,7 @@ Standardize and robustly manage the integration with the Trello API (via `Trello
    - Follow standard Laravel Artisan conventions (e.g., using `--force` flags, structured console output, and clear description strings).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No Synchronous Mutations in Controllers**: Do not perform write operations (create/update/delete card) to Trello synchronously inside HTTP Controllers. Offload them to queued Jobs.
 - **No Hardcoded API Keys or Secrets**: Secrets must never be stored directly in code repositories; always read from configuration files.
 - **No Raw Exception Output**: Never display detailed Trello API raw exceptions or tracebacks to the end-user. Catch them, log to the `trello` channel, and return a clean user-facing error message.

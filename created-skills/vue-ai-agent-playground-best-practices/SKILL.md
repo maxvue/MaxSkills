@@ -66,6 +66,7 @@ Estabelecer padrões de codificação e padrões estruturais para criar playgrou
 - Escreva todos os comentários do código em Português do Brasil (pt-BR).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **PROIBIDO Options API:** Não use `data()`, `methods` ou `computed` nos objetos de opções padrão. Use apenas a Composition API.
 - **PROIBIDO estilização pura:** Não utilize CSS puro ou estilos inline para barras de rolagem personalizadas ou cards visuais. Em vez disso, use UnoCSS ou estilos SCSS com escopo (`scoped`).
 - **PROIBIDO atributos multilinha:** Não formate tags de componentes com quebras de linha nos atributos. Mantenha os atributos na mesma linha da tag de abertura.
@@ -169,6 +170,7 @@ Estabelecer padrões de codificação e padrões estruturais para criar playgrou
 
 <script setup lang="ts">
 import { ref, computed, nextTick } from 'vue';
+import { storeToRefs } from 'pinia';
 import { splitpanes, pane } from 'splitpanes';
 import 'splitpanes/dist/splitpanes.css';
 import { usePlaygroundStore } from '@/stores/playground'; // store @maxvue/max-pinia
@@ -188,18 +190,19 @@ interface ChatMessage {
   tools?: ToolCall[];
 }
 
-// Estados reativos do formulário e parâmetros
-const selectedAgentId = ref<string>('');
-const systemPrompt = ref<string>('');
-const temperature = ref<number>(0.7);
-const maxTokens = ref<number>(2048);
-const enableTools = ref<boolean>(true);
-const inputText = ref<string>('');
-
 // Store de configuração do playground (@maxvue/max-pinia): GET cacheado dos agentes
-// e auto-save dos parâmetros. Substitui qualquer axios.get/post manual.
+// e auto-save (debounced) dos parâmetros. Substitui qualquer axios.get/post manual.
 const playgroundStore = usePlaygroundStore();
 const agentOptions = computed(() => playgroundStore.agentOptions);
+
+// Os PARÂMETROS do modelo devem fluir pela store para que o auto-save debounced
+// do MaxPinia seja de fato exercido. `storeToRefs` devolve refs GRAVÁVEIS do state,
+// então o v-model persiste automaticamente ao alterar cada campo.
+const { selectedAgentId, systemPrompt, temperature, maxTokens, enableTools } =
+  storeToRefs(playgroundStore);
+
+// Apenas estado de UI transitório permanece como ref local (não persistido).
+const inputText = ref<string>('');
 
 // Mensagens do chat
 const messages = ref<ChatMessage[]>([]);

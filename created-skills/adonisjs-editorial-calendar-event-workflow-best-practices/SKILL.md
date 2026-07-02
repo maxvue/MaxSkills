@@ -47,6 +47,7 @@ Validate that workers listen to their respective queues and behave deterministic
 * **`publish-event`**: Sends final assets and texts to Meta Graph APIs.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * **DO NOT** trigger `CopywriterJob` manually if the status is already `script_drafted` or `script_ready` unless explicitly requested or transitioning back from `art_rejected`.
 * **DO NOT** regenerate artwork for slides that are already marked as `approved` in `CalendarEventArtwork` database table.
 * **DO NOT** allow status transitions that bypass the sequence (e.g., transitioning directly from `planned` to `script_ready`).

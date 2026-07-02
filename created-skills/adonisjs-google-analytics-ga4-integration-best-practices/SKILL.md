@@ -76,6 +76,7 @@ Estabelecer diretrizes seguras, eficientes e escaláveis para integrar e consult
 - Leia os dados a partir do banco de dados ao exibir as métricas no dashboard front-end. No front, consuma essas métricas agregadas por meio de uma store `@maxvue/max-pinia` (caminho string `/api/...` resolvido por `apiGetRoute`), e não via `axios.get` manual. Apenas dispare sincronizações manuais por meio de jobs se for explicitamente solicitado pelo usuário.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Credenciais Hardcoded:** Nunca salve IDs de cliente do Google, Client Secrets ou IDs de Propriedade no código. Use o `.env` e mapeie-os em `start/env.ts`.
 - **Sem Chamadas Bloqueantes:** Não realize requisições diretas e síncronas para a API do Google em ações de Controllers. Use jobs enfileirados (`SyncGa4MetricsJob`) ou recupere valores do cache.
 - **Isolamento de Tenants:** Garanta que todas as consultas de propriedades do GA4 estejam estritamente escopadas ao contexto do tenant ou cliente atual para evitar vazamento de dados entre clientes.

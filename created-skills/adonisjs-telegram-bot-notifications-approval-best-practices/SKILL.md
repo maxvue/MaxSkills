@@ -12,7 +12,7 @@ Estabelecer diretrizes e padrões de implementação para envio de notificaçõe
 
 ### 1. Validação de Configuração e Ambiente
 * Defina as credenciais do Telegram em variáveis de ambiente.
-* Valide as variáveis de ambiente no arquivo `start/env.ts` usando o VineJS:
+* Valide as variáveis de ambiente no arquivo `start/env.ts` usando o `Env.schema` (`@adonisjs/core/env`):
   ```typescript
   TELEGRAM_BOT_TOKEN: Env.schema.string(),
   TELEGRAM_CHAT_ID: Env.schema.string.optional(), // ID padrão do chat/canal
@@ -185,6 +185,7 @@ export default class TelegramWebhooksController {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Não exponha o token do bot ou segredos de webhook em repositórios públicos ou aplicações front-end.
 * Não exceda os limites de taxa do Telegram (máximo de 30 mensagens por segundo em todos os chats, máximo de 1 mensagem por segundo em um chat específico).
 * Nunca exceda o limite de **64 bytes** nos payloads de `callback_data`. Sempre comprima as chaves de ação.

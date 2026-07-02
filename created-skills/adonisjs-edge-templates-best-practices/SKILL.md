@@ -50,6 +50,7 @@ Fornecer uma arquitetura padronizada e diretrizes para criar, modificar, estiliz
    - Para renderizar diretamente (e-mail manual, geração de PDF via Puppeteer, comandos Ace, filas/BullMQ), resolva o renderizador `edge`: `import edge from 'edge.js'` e chame `await edge.render('emails/welcome', data)`. O HTML resultante é então enviado por e-mail ou passado ao Puppeteer para gerar o PDF.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO Utilize Interpolação Raw para Inputs de Usuário**: NUNCA use `{{{ user_input }}}` para exibir dados enviados por usuários.
 - **NÃO Insira Lógica de Negócios nos Templates**: Mantenha os templates estritamente orientados à apresentação. Não faça consultas de banco de dados, condicionais complexas ou cálculos extensos em arquivos Edge; delegue para services, controllers ou helpers personalizados.
 - **NÃO Utilize Caminhos Relativos para Recursos Absolutos**: Ao referenciar recursos do lado do cliente (imagens, folhas de estilo, fontes) em templates de e-mail, sempre utilize URLs absolutas (por exemplo, prefixadas com o host) em vez de caminhos relativos (`/images/logo.png`), pois estes falharão ao serem abertos em um cliente de e-mail.

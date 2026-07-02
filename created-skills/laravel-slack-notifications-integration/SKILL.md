@@ -130,6 +130,7 @@ it('sends a critical slack notification on process failure', function () {
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No Hardcoded Values:** Never write webhook URLs, slack tokens, or default channel names directly inside notification classes. Always load them via `config('services.slack...')`.
 - **Always Queue:** Never send Slack notifications synchronously on customer-facing controller requests. Always implement `ShouldQueue`.
 - **Keep Payloads Clean:** Do not dump massive raw trace exception arrays directly into the Slack message text. Format only key error summaries into structured attachment fields.

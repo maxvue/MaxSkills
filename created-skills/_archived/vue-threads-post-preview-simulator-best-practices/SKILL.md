@@ -46,6 +46,7 @@ Fornecer um conjunto padronizado de boas práticas e diretrizes de implementaç�
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** defina cores fixas (hardcoded) nem use a paleta crua do tipo Tailwind (`zinc-900`, `amber-500`, `red-500`, etc.). Use exclusivamente os tokens de cor do tema `presetMaxUno`/Aura (ex.: `bg-surface`, `text-muted`, `border-base`, `text-danger`, `text-warning`), que já suportam os modos claro e escuro nativamente.
 - **NÃO** use Options API. Sempre utilize `<script setup lang="ts">`.
 - **NÃO** ignore o indicador de limite de 500 caracteres; o simulador precisa avisar visualmente se a validação do backend for rejeitar a publicação.

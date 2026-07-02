@@ -17,12 +17,12 @@ services:
       - DB_PORT=5432
       - DB_USER=${DB_USER:-postgres}
       - DB_PASSWORD=${DB_PASSWORD:-root}
-      - DB_DATABASE=${DB_DATABASE:-socialmedia}
+      - DB_DATABASE=${DB_DATABASE:-engeapp}
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=
-      - MEILI_HOST=http://meilisearch:7700
-      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY:-masterKey}
+      - MEILISEARCH_HOST=http://meilisearch:7700
+      - MEILISEARCH_KEY=${MEILISEARCH_KEY:-masterKey}
     volumes:
       - .:/app
       - /app/node_modules
@@ -41,13 +41,13 @@ services:
     environment:
       POSTGRES_USER: ${DB_USER:-postgres}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-root}
-      POSTGRES_DB: ${DB_DATABASE:-socialmedia}
+      POSTGRES_DB: ${DB_DATABASE:-engeapp}
     ports:
       - "${DB_PORT:-5432}:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d ${DB_DATABASE:-socialmedia}"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ${DB_DATABASE:-engeapp}"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -74,7 +74,7 @@ services:
       - "${MEILI_PORT:-7700}:7700"
     environment:
       MEILI_ENV: development
-      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:-masterKey}
+      MEILI_MASTER_KEY: ${MEILISEARCH_KEY:-masterKey}
       MEILI_NO_ANALYTICS: "true"
     volumes:
       - meilidata:/data.ms

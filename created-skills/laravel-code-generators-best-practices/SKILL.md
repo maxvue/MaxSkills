@@ -126,6 +126,7 @@ Establish strict conventions, guidelines, and patterns for creating, modifying, 
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do **NOT** use plain PHP functions such as `echo`, `print_r`, `$request->validate()`, inline raw queries, or pipe `|` validations.
 - Keep controllers, routes, and observers thin. Avoid running external APIs synchronously without jobs.
 - Code comments and PHPDocs **MUST** be written in Brazilian Portuguese (pt-BR) per the global user rules.

@@ -54,6 +54,7 @@ Estabelecer diretrizes e padrões de alta qualidade para exportação de element
    - Escreva todos os comentários do código no idioma Português do Brasil (pt-BR).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Nunca execute a captura diretamente em elementos descarregados do DOM (`v-if="false"`). Sempre valide se a referência do elemento não é nula antes de prosseguir.
 - Não utilize dimensões de pixel absolutas e fixas para capturas, preservando o comportamento responsivo dos componentes.
 - Não ignore as configurações de CORS; falhas de CORS causarão exceções de segurança ("Tainted canvases may not be exported").

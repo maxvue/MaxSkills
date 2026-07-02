@@ -63,6 +63,7 @@ Fornecer diretrizes e convenções claras para implementar atalhos de teclado gl
    - Adicione `tabindex="0"` para tornar elementos não interativos personalizados focáveis quando necessário.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO dispare atalhos globais (como `S`, `N` ou `Ctrl+S`) quando o foco estiver dentro de um controle de formulário (`INPUT`, `TEXTAREA`, `SELECT`, `contenteditable`).
 - NÃO defina ouvintes de `keydown` globais usando `window.addEventListener('keydown', ...)` nativo sem removê-los na destruição do componente (`onUnmounted`). Dê preferência aos utilitários reativos reutilizáveis do VueUse ou realize a limpeza correta.
 - NÃO defina atalhos de teclado genéricos que colidam com atalhos comuns do navegador (ex: Ctrl+T, Ctrl+W, F5), a menos que explicitamente solicitado e totalmente controlado.

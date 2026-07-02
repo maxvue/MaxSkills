@@ -63,3 +63,6 @@ return {
 - Use `createTestingPinia()` from `@pinia/testing` for component tests rather than `createPinia()` — it stubs all actions by default and makes them inspectable as spies; pass plugins via the `plugins` option, not via `testingPinia.use()` [source](./references/docs/cookbook/testing.md#unit-testing-components)
 
 - In options store getters, prefer arrow functions that receive `state` as the first parameter over regular functions using `this` — arrow function return types are inferred automatically, while `this`-based getters require an explicit return type annotation [source](./references/docs/core-concepts/getters.md#getters)
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

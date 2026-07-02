@@ -63,8 +63,8 @@ const proposalSummary: ProposalSummaryPayload = result.object
 
 ### 4. Tratamento de Erros e Resiliência
 A geração de saídas estruturadas pode falhar devido a erros de rede, incompatibilidades de validação com o Zod ou problemas de parsing. Envolva a execução em try-catch e trate os erros específicos do AI SDK:
-* **`TypeValidationError`:** Ocorre quando o modelo gera o JSON, mas ele não passa na validação do esquema Zod.
-* **`NoObjectGeneratedError`:** Ocorre quando o modelo falha em produzir qualquer JSON.
+* **`NoObjectGeneratedError`:** Ocorre quando o modelo não produz um objeto válido. No AI SDK v7, este é o erro efetivamente lançado tanto quando o modelo falha em gerar JSON quanto quando o JSON gerado não passa na validação do esquema Zod.
+* **`TypeValidationError`:** Nunca é lançado diretamente por `generateObject` em falhas de validação; ele vem encapsulado em `NoObjectGeneratedError.cause`. Detecte-o via `error.cause`, e não com `error instanceof TypeValidationError`.
 * **Estratégia de Fallback:** Se a validação falhar, registre os erros, degrade para um modelo mais forte (ex: de `gemini-2.5-flash-lite` para `gemini-2.5-pro`) e tente novamente.
 
 ```typescript
@@ -85,11 +85,14 @@ async function generateWithFallback(prompt: string): Promise<ProposalSummaryPayl
       return object
     } catch (error) {
       lastError = error
-      if (error instanceof TypeValidationError) {
-        // Registra erros de validação (ex: campos ausentes ou com tipo incorreto)
-        // Use o logger do Adonis; o valor rejeitado fica em `error.value` e a causa em `error.cause`.
-        logger.error({ value: error.value, cause: error.cause }, `Validation failed using ${modelName}`)
-      } else if (error instanceof NoObjectGeneratedError) {
+      if (NoObjectGeneratedError.isInstance(error) && TypeValidationError.isInstance(error.cause)) {
+        // Falha de validação do esquema Zod: o TypeValidationError vem encapsulado em `error.cause`.
+        // O valor rejeitado fica em `error.cause.value` e a causa (issues do Zod) em `error.cause.cause`.
+        logger.error(
+          { value: error.cause.value, cause: error.cause.cause },
+          `Validation failed using ${modelName}`
+        )
+      } else if (NoObjectGeneratedError.isInstance(error)) {
         logger.error({ err: error }, `No object generated using ${modelName}`)
       }
       // Aguarda antes de tentar novamente com um modelo mais forte
@@ -136,6 +139,7 @@ async function saveProposalToDatabase(proposalId: string, data: ProposalSummaryP
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NUNCA use expressões regulares manuais ou `JSON.parse` em saídas de texto bruto para extrair dados estruturados. Sempre use o método nativo `generateObject`.
 * NUNCA omita a chamada `.describe()` em nenhum campo do esquema Zod enviado ao modelo de linguagem.
 * NÃO crie esquemas Zod recursivos ou excessivamente profundos; mantenha as relações planas para evitar alucinações de LLM e erros de falta de memória.

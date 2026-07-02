@@ -72,3 +72,6 @@ Provide strict guidelines, architectural patterns, and code conventions for impl
 * **DO NOT** try to resend messages that already contain a valid `message_meta_id` to avoid sending duplicates to users.
 * **DO NOT** log raw auth tokens or client secrets. Ensure they are read from `config()` files and securely stored in `.env`.
 * **DO NOT** use default application log files (`laravel.log`) for WhatsApp integrations. Always use the `whatsapp` log channel.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

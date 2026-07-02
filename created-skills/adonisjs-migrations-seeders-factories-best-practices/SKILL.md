@@ -127,6 +127,7 @@ export const UserFactory = Factory
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Nunca use chaves primárias inteiras autoincrementais, a menos que seja explicitamente solicitado pela configuração do projeto. Sempre use `CHAR(26)` para ULIDs.
 * Nunca use `.create()` ou `.createMany()` de forma direta dentro dos seeders sem garantir que eles não duplicarão dados em execuções subsequentes.
 * Nunca execute operações destrutivas de esquema (como remover colunas com dados existentes) em migrações sem um backup ou plano de segurança de migração.

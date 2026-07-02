@@ -79,6 +79,7 @@ Establish solid guidelines and consistent patterns for scheduling, monitoring, c
 - For extremely heavy operations, decouple the command from the scheduler by dispatching a queued Job in background.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NEVER** write heavy processing, HTTP requests, or raw database queries directly inside `routes/console.php` closures. Always delegate to an Artisan command or a queue Job.
 - **NEVER** omit `withoutOverlapping()` for cleanups or synchronization tasks that might take longer than their execution interval.
 - **NEVER** run commands without specifying environment boundaries if they modify test data or mock external API integrations.

@@ -1,6 +1,6 @@
 ---
 name: vue-instagram-comments-moderation-inbox-best-practices
-description: Use when building, modifying, reviewing, or styling the Instagram comments and direct messages (DM) moderation inbox interface in Vue 3 (SocialMediaApp), handling real-time updates from Server-Sent Events (SSE), implementing AI-generated reply suggestions, managing moderation actions (like, reply, hide, delete comments), or structuring custom scrollbars and grid systems for interactive panels.
+description: Use when building, modifying, reviewing, or styling the Instagram comments and direct messages (DM) moderation inbox interface in Vue 3 (an EngeApp feature), handling real-time updates from Server-Sent Events (SSE), implementing AI-generated reply suggestions, managing moderation actions (like, reply, hide, delete comments), or structuring custom scrollbars and grid systems for interactive panels.
 ---
 
 ## Objetivo
@@ -50,6 +50,7 @@ Exponha gatilhos de ação rápida para moderação de comentários do Instagram
   - *Exemplo:* `<MaxButton class="btn-primary" :loading="isSubmitting" @click="submit" />`
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **PROIBIDO Options API:** Não utilize a Options API do Vue sob nenhuma circunstância.
 - **PROIBIDO Sockets Alternativos:** Não use Pusher, Echo ou Soketi para novas integrações em tempo real no AdonisJS v6. Prefira sempre o `@adonisjs/transmit`.
 - **PROIBIDO Desvios de Layout (Layout Shifts):** Garanta que as atualizações de altura do scroll ocorram de forma suave ao carregar novas mensagens ou comentários dinamicamente, preservando a posição de rolagem do usuário caso ele tenha rolado para cima.

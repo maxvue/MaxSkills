@@ -101,7 +101,7 @@ test('criação de campanha dispara evento', async ({ assert }) => {
   // Executa a lógica que dispara o evento
   await createCampaignService()
 
-  assert.true(fakeEmitter.hasTriggered(CampaignCreated))
+  assert.isTrue(fakeEmitter.exists(CampaignCreated))
   emitter.restore()
 })
 ```
@@ -120,6 +120,7 @@ transmit.broadcast(`jobs/${event.jobId}`, { progress: event.progress })
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO importe as classes dos ouvintes no arquivo `start/events.ts`:** Sempre use o formato de string com lazy loading (`'#listeners/nome.handle'`) para evitar sobrecarga de memória e lentidão no boot.
 - **NÃO execute tarefas síncronas pesadas e não resilientes diretamente nos ouvintes:** Para tarefas que necessitam de retentativas automáticas ou execuções demoradas (como processamento de vídeo ou envio massivo de e-mails), delegue a execução para uma fila do BullMQ a partir do ouvinte, em vez de processá-la de forma síncrona.
 - **NÃO se esqueça do tratamento e registro de exceções:** Todo ouvinte DEVE envolver seu bloco de execução em um `try/catch` e registrar falhas usando o serviço de `Logger` do AdonisJS.

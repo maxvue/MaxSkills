@@ -277,6 +277,7 @@ const triggerPlayOverlay = (): void => {
 - Sincronize o estado de reprodução ativa (reproduzindo, progresso, duração atual) com o painel de pré-visualização ou com a store `@maxvue/max-pinia` correspondente para validações editoriais. Observação: esse estado é puramente de UI/preview do simulador; qualquer GET/save de dados de página (ex.: a peça de conteúdo sendo pré-visualizada) deve passar pela store `@maxvue/max-pinia`, que cuida do carregamento e do salvamento automático.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** utilize Options API. Sempre utilize `<script setup lang="ts">`.
 - **NÃO** escreva estilos em CSS puro ou Tailwind CSS. SCSS é obrigatório.
 - **NÃO** escreva comentários de código em inglês. Todos os comentários de código devem ser em Português do Brasil (`pt-BR`).

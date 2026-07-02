@@ -117,6 +117,7 @@ const company = useCompanyStore() // state: CompanyState; save aceita SavePayloa
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NUNCA** importe modelos Lucid sem o modificador `type` (ex: `import type User`) dentro de componentes Vue ou composables do frontend. Fazer isso resultará em erros de `Unable to resolve dependency` ou falhas de empacotamento no Vite.
 * **NUNCA** instancie classes de backend diretamente dentro de scripts do frontend.
 * **NUNCA** duplique a estrutura de campos manualmente entre o modelo do banco de dados e a interface do frontend; reutilize os tipos dos modelos AdonisJS ou a inferência do VineJS sempre que possível.

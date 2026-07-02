@@ -95,6 +95,7 @@ if ($lock->get()) {
 ---
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NO Plain Keys:** Never use cache keys without structured prefixes (e.g., do not use just `$this->id`, use `"model:inverters:{$this->id}"` instead).
 - **NO Inline Cache Invalidation:** Do not inline cache invalidation code inside controllers; delegate it to Observers.
 - **NO Stateful Singletons:** Never store cached values in singleton instance properties unless you explicitly implement a cleanup mechanism or bind them using resolver closures.

@@ -57,6 +57,7 @@ Estabelecer convenções rígidas de arquitetura, estilização, testes e regist
 * Certifique-se de que os aliases do componente estejam devidamente definidos em `src/scripts/generateResolver.ts` e exportados no arquivo `src/index.ts` (por exemplo, exportando aliases como `MaxInputText`, `InputText` e `InputField` apontando para o mesmo arquivo).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Sem Options API**: Não use `data()`, `methods`, `computed`, etc., dentro do objeto padrão de opções.
 * **Estilização**: Não escreva CSS puro; use SCSS com variáveis MaxTheme ou classes utilitárias do UnoCSS.
 * **Layout de Atributos**: Nunca divida os atributos de tags HTML/Vue em múltiplas linhas dentro do `<template>`.

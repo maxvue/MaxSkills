@@ -45,7 +45,7 @@ Sempre escreva stores como Setup Stores com Composition API:
 ### 2. Ativando o MaxPinia (isCached + options)
 Para que o plugin `@maxvue/max-pinia` gerencie a store, é **obrigatório** declarar:
 - `const isCached = ref(true)` — sinal para o plugin interceptar esta store.
-- `const options = computed(() => ({ get: {...}, save: '...', key: '...' }))` — configura as rotas da API.
+- `const options = computed(() => ({ get: {...}, save: '...' }))` — configura as rotas da API. (Não use `key`: o plugin **nunca** lê `options.key`. A chave de cache é derivada de `store.$id` + `store.id`/`store.options.id` via `getKey()`.)
 
 O plugin então:
 1. Carrega dados do cache LocalForage imediatamente.
@@ -65,7 +65,7 @@ O plugin injeta automaticamente estas propriedades em toda store com `isCached =
 ### 4. Métodos de Controle Injetados
 - `reload()` — limpa o estado anterior e força novo GET ao servidor.
 - `cancelLoad(retryInSeconds?)` — aborta o GET ativo.
-- `clearAll()` — limpa estado reativo e dados no LocalForage.
+- `clearAll()` — limpa TODO o cache LocalForage (de todas as stores, via `localforage.clear()`); **não** reseta o estado reativo desta store. Para limpar apenas o estado da store, use `setDefaultData`/`reload`.
 - `saveInServer()` — força POST imediato sem esperar o debounce.
 - `saveInCache()` — persiste imediatamente no LocalForage.
 
@@ -100,7 +100,6 @@ export const useUserStore = defineStore('user', () => {
   // route é caminho string /api/...; a store chama apiGetRoute internamente. Sem rotas nomeadas estilo Ziggy.
   const options = computed(() => ({
     get: { route: '/api/user' },
-    key: 'user',
   }))
 
   return { data, isCached, options }
@@ -134,7 +133,6 @@ export const useBrandPositioningStore = defineStore('brand.positioning.store', (
   const options = computed(() => ({
     get: { route: '/api/brand-positioning' },
     save: '/api/brand-positioning',
-    key: 'brand-positioning',
   }))
 
   return { isCached, data, options }
@@ -161,19 +159,21 @@ const store = useBrandPositioningStore()
 ```
 
 ### GET com parâmetros dinâmicos
+Para variar a chave de cache por parâmetro dinâmico, defina `options.id` (ou um `id` top-level na store) — NÃO use `key`, que é ignorado. A chave final é `store.$id + '.' + (store.id ?? store.options?.id ?? 'global')`.
 ```typescript
 const options = computed(() => ({
   get: {
     route: '/api/project', // caminho string; a store executa apiGetRoute internamente
     data: { project_id: projectId.value }, // parâmetros reativos
   },
-  key: `project-${projectId.value}`,
+  id: `project-${projectId.value}`, // varia a chave de cache via getKey()
 }))
 ```
 
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NUNCA** faça GET direto com `axios.get()` ou `fetch()` em componentes ou services — todo GET ao backend deve passar por uma store MaxPinia com `isCached = true`.
 - **NUNCA** use Options API nas stores (sem `state`, `getters`, `actions`). Use exclusivamente Setup Stores.
 - **NUNCA** escreva `setInterval` ou watchers manuais para sincronizar dados com o backend — o `@maxvue/max-pinia` cuida do debounce e auto-save via `options.save`.

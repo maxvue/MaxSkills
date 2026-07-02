@@ -85,7 +85,8 @@ Esqueleto canônico:
     // Todo GET de dados de página passa por uma store @maxvue/max-pinia (cache + auto-save).
     // Não faça axios.get direto no componente — consuma a store cacheada.
     const store = useEntidadesStore();
-    const { itens, loading } = storeToRefs(store);
+    // MaxPinia popula o GET cacheado em store.data (não em um ref de nome arbitrário).
+    const { data, loading } = storeToRefs(store);
 
     // O GET é automático ao montar a store (MaxPinia). Para revalidar, use store.reload().
 </script>
@@ -163,7 +164,10 @@ Padrão CRUD típico: a store é cacheada via `@maxvue/max-pinia` (o GET de carg
 
 ```ts
 export const useEntidadesStore = defineStore('entidades', () => {
-    const itens = ref<Entidade[]>([]);
+    // O MaxPinia sempre grava o payload do GET cacheado em `data` — use exatamente esse
+    // nome de ref (nunca um nome arbitrário como `itens`, senão o GET automático popula
+    // `store.data` e o seu ref fica vazio).
+    const data = ref<Entidade[]>([]);
     const isCached = ref(true);
     // GET roteado pela camada de cache do @maxvue/max-pinia — sem axios.get manual.
     const options = computed(() => ({ get: { route: '/api/entidades' }, key: 'entidades' }));
@@ -173,12 +177,12 @@ export const useEntidadesStore = defineStore('entidades', () => {
 
     async function create(payload: Partial<Entidade>): Promise<Entidade> {
         // apiPostRoute executa a requisição e retorna o payload DIRETAMENTE (não { data }).
-        const data = await apiPostRoute('/api/entidades', payload);
-        itens.value.push(data);
-        return data;
+        const novo = await apiPostRoute('/api/entidades', payload);
+        data.value.push(novo);
+        return novo;
     }
 
-    return { itens, isCached, options, create };
+    return { data, isCached, options, create };
 });
 ```
 
@@ -250,6 +254,7 @@ Stores ficam em `stores/` (auto-importadas). Não há pasta `components/` local 
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** use Options API.
 - **NÃO** quebre atributos de componentes em múltiplas linhas no `<template>`.
 - **NÃO** reimporte o que é auto-importado (`ref`, `computed`, `watch`, `axios`, `defineStore`, stores, componentes `Max*`).

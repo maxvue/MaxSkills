@@ -124,6 +124,7 @@ route('project.show', project);
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NO HARDCODED URLs:** Never write static strings for Laravel-controlled URLs in frontend components or stores. Always resolve them using `route()` or `apiGetRoute()`.
 - **NO PRIVATE EXPOSURE:** Ensure internal-only routes are filtered out in `config/ziggy.php`.
 - **REGENERATE ON BUILD:** Always run `php artisan ziggy:generate --types` as part of the frontend build pipeline or deployment workflow to keep frontend definitions synchronized with the backend.

@@ -17,7 +17,7 @@ Estabelecer diretrizes e convenções de código estritas para a integração ro
 - **Referência ao Provedor:** Instancie o provedor do Google usando `google('nome-do-modelo')` dentro das funções de geração, em vez de manter uma instância global que possa vazar estados entre requisições.
 - **Parâmetros do Modelo:** Padronize parâmetros que equilibrem qualidade e custo:
   - Use `temperature` (padrão 0.7 para tarefas criativas, 0.2 para tarefas analíticas).
-  - Controle o multi-step (loops de ferramentas agentícias, AI Tools) com `stopWhen: stepCountIs(N)` na chamada de `generateText`/`streamText`. No Vercel AI SDK v5 não existe `maxSteps`; a parada é definida via `stopWhen`.
+  - Controle o multi-step (loops de ferramentas agentícias, AI Tools) com `stopWhen: stepCountIs(N)` na chamada de `generateText`/`streamText`. No Vercel AI SDK v7 não existe `maxSteps`; a parada é definida via `stopWhen`.
   ```typescript
   const result = await generateText({
     model: google('gemini-2.5-flash'),
@@ -98,7 +98,9 @@ Estabelecer diretrizes e convenções de código estritas para a integração ro
   let totalOutput = 0
 
   onStepFinish: ({ usage, providerMetadata }) => {
-    const cacheRead = ((providerMetadata as any)?.google?.cachedContentTokenCount as number) ?? 0
+    // Em @ai-sdk/google@4 o contador fica aninhado sob `usageMetadata`, não no topo da chave `google`.
+    // Em v7 prefira `usage.inputTokenDetails.cacheReadTokens` diretamente.
+    const cacheRead = ((providerMetadata as any)?.google?.usageMetadata?.cachedContentTokenCount as number) ?? 0
     const promptNonCached = Math.max((usage.inputTokens ?? 0) - cacheRead, 0)
     totalInputNotCached += promptNonCached
     totalInputCached += cacheRead
@@ -108,6 +110,7 @@ Estabelecer diretrizes e convenções de código estritas para a integração ro
 - **Cálculo de Custo:** Calcule o preço dinamicamente com base nas taxas de entrada normal e de cache por milhão de tokens, conforme o catálogo de precificação definido (ex. tabela `AgentAiCost`).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Nunca declare ferramentas inline dentro de controllers ou jobs de segundo plano; mantenha-as sempre modularizadas em `app/ai/tools/`.
 - Não ignore a cadeia de fallback de modelos em tarefas de segundo plano críticas voltadas para produção.
 - Jamais insira credenciais ou chaves de API diretamente nos arquivos de código fonte; recupere-as sempre de variáveis de ambiente através de `process.env`.

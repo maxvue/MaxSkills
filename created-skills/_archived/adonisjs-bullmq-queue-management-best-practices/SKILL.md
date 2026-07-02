@@ -150,6 +150,7 @@ Fornecer regras rígidas, padrões de configuração e modelos de código para a
 * Utilize a capacidade de rate-limiting do BullMQ no worker ou na fila para dependências de APIs de terceiros.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NUNCA defina dados de conexão brutos diretamente nos arquivos de Queue ou Worker. Sempre importe a configuração central do Redis de `#config/redis`.
 * NUNCA atribua um número inteiro para `maxRetriesPerRequest` nas configurações do Redis utilizadas no BullMQ; o valor DEVE ser `null`.
 * NUNCA execute transações de banco de dados pesadas ou consumo direto de APIs externas dentro do método `handle` do Job. Delegue esta lógica para Services.

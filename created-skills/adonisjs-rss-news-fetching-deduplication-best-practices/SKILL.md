@@ -19,7 +19,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, beforeCreate, belongsTo, column } from '@adonisjs/lucid/orm'
 import type { BelongsTo } from '@adonisjs/lucid/types/relations'
 import { ulid } from 'ulid'
-import SolarCompany from '#models/solar_company'
+import UserSolarCompany from '#models/user/user_solar_company'
 
 export default class SocialMediaNews extends BaseModel {
   static table = 'social_media_news'
@@ -35,6 +35,9 @@ export default class SocialMediaNews extends BaseModel {
 
   @column()
   declare solarCompanyId: string
+
+  @belongsTo(() => UserSolarCompany, { foreignKey: 'solarCompanyId' })
+  declare solarCompany: BelongsTo<typeof UserSolarCompany>
 
   @column()
   declare title: string
@@ -178,6 +181,7 @@ if (newCount > 0) {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **SEM Parsers de XML Externos:** Não utilize pacotes de parsing de XML pesados (ex: `fast-xml-parser`, `xml2js`). Sempre realize o parse dos feeds utilizando expressões regulares seguras e decodificação manual de entidades.
 - **AbortController OBRIGATÓRIO:** Sempre configure um timeout usando `AbortController` (máximo de 15 segundos) ao realizar chamadas a feeds externos para evitar travamento de recursos.
 - **Verificação de Hash da URL:** Sempre calcule e compare o `url_hash` utilizando `crypto.createHash('sha1')` para garantir a unicidade no banco de dados.

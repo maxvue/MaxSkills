@@ -137,6 +137,7 @@ Establish robust patterns, coding conventions, and exception handling guidelines
     ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 *   **NEVER** use `sleep()` or `usleep()` for synchronization; always implement explicit `WebDriverWait` with conditions.
 *   **NEVER** forget to close the webdriver sessions in a `finally` block; orphan processes will crash the application server due to memory leaks.
 *   **DO NOT** log user credentials or session payloads in the `agent_browser` log channel.

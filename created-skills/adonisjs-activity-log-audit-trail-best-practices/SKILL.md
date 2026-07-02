@@ -193,6 +193,7 @@ export default class IntegradorCredential extends BaseModel {
 * **Impersonação**: Quando um administrador estiver representando (impersonando) um usuário de uma empresa solar, capture tanto o ID do usuário final (`userId`) quanto o ID do administrador real dentro de `metadata.impersonatedBy` usando os dados da sessão ativa (guard web).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO use Serialização Manual**: Nunca aplique `prepare: (val) => JSON.stringify(val)` ou `consume: (val) => JSON.parse(val)` em campos JSONB do Lucid, pois isso causa erros de codificação/decodificação duplicados.
 * **NÃO inclua Dados Sensíveis nos Logs**: Certifique-se de que credenciais, tokens ou senhas hash sejam explicitamente excluídos de `old_values` e `new_values`.
 * **NÃO faça Chamadas Bloqueantes Diretas ao Banco nos Hooks**: Não execute instruções SQL pesadas ou transações de forma síncrona dentro de hooks de ciclo de vida do Lucid ORM. Delegue para `emitter.emit()` ou para um job de fila.

@@ -163,3 +163,6 @@ router.beforeEach(async (to, _from, next) => {
 - `laravel-ziggy-routing-integration-best-practices` — geração e uso de rotas nomeadas.
 - `vue-auth-session-state-best-practices` — contraparte **AdonisJS** (rotas em string, sem Ziggy/Sanctum).
 - `vue-max-use-development-best-practices` / `adonisjs-maxpinia-endpoint-patterns-best-practices` — helpers MaxUse/MaxPinia.
+
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

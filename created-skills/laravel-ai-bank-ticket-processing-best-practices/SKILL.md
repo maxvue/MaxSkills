@@ -80,6 +80,7 @@ it('rejects payments for non-eligible tickets', function () {
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 1.  **NEVER** execute `PayBankTicket` without first invoking `CheckBankTicket` on the same ticket's barcode.
 2.  **NEVER** hardcode Efí SDK credentials; always retrieve them from `config('services.efi')` or `.env`.
 3.  **NEVER** process a payment without a verified `project_id` matching an active project in the database.

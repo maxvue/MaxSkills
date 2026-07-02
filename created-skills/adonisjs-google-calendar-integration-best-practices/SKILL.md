@@ -153,6 +153,7 @@ Fornecer regras estritas, padrões de configuração e modelos de código para i
 * Rastreie timestamps da última sincronização (`synchronized_at` ou `sync_version`) no banco de dados local e compare-os com o timestamp `updated` do evento retornado pelo Google.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO execute chamadas à API do Google Calendar dentro de controllers HTTP do AdonisJS. Todas as chamadas de API devem passar por jobs do BullMQ.
 * NÃO armazene o `refresh_token` em texto limpo. Sempre criptografe-o usando o serviço de criptografia (`encryption`) do AdonisJS.
 * NÃO inicialize `google.calendar` sem passar um cliente OAuth válido que trate a autorrenovação do token de acesso.

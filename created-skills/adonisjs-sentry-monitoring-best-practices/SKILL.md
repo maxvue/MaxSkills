@@ -25,14 +25,13 @@ export default await Env.create(new URL('../', import.meta.url), {
 Crie um arquivo de configuração em `config/sentry.ts`:
 ```typescript
 import env from '#start/env'
-import { defineConfig } from '@adonisjs/core/config'
 
-const sentryConfig = defineConfig({
+const sentryConfig = {
   dsn: env.get('SENTRY_DSN'),
   environment: env.get('NODE_ENV'),
   enabled: env.get('NODE_ENV') === 'production' || !!env.get('SENTRY_DSN'),
   tracesSampleRate: 1.0,
-})
+}
 
 export default sentryConfig
 ```
@@ -76,7 +75,8 @@ import { type HttpContext, ExceptionHandler } from '@adonisjs/core/http'
 import * as Sentry from '@sentry/node'
 
 export default class HttpExceptionHandler extends ExceptionHandler {
-  // ... outras propriedades
+  // Delega ao `shouldReport` da base: erros com estes status não são reportados (evita ruído 4xx)
+  protected ignoreStatuses = [401, 403, 404, 422]
 
   async report(error: any, ctx: HttpContext) {
     if (!this.shouldReport(error)) {
@@ -110,12 +110,6 @@ export default class HttpExceptionHandler extends ExceptionHandler {
     }
 
     await super.report(error, ctx)
-  }
-
-  private shouldReport(error: any): boolean {
-    const status = error.status || 500
-    // Evita enviar erros irrelevantes de autenticação ou validação (401, 403, 404, 422) ao Sentry
-    return status >= 500
   }
 
   private sanitizeHeaders(headers: Record<string, any>): Record<string, any> {
@@ -157,14 +151,15 @@ worker.on('failed', (job, err) => {
 ```
 
 ## 5. Rastreamento de Banco de Dados e Lucid ORM
-Para rastreamento de performance, o Sentry se conecta automaticamente a drivers nativos como `pg` ou `mysql2` na inicialização. Para instrumentar manualmente consultas lentas ou transações no Lucid:
+Para rastreamento de performance, o Sentry se conecta automaticamente a drivers nativos como `pg` ou `mysql2` na inicialização. Para instrumentar manualmente consultas lentas, escute o evento `db:query` no emitter. **Requisito:** habilite `debug: true` em `config/database.ts` (globalmente ou por conexão) para que o Lucid emita o evento `db:query`.
 
 ```typescript
-import db from '@adonisjs/lucid/services/db'
+import emitter from '@adonisjs/core/services/emitter'
 import * as Sentry from '@sentry/node'
 
-// Escutar eventos de execução de query para capturar consultas lentas
-db.primary.on('query', (query) => {
+// Escutar o evento `db:query` para capturar consultas lentas
+// Payload (DbQueryEventNode): { connection, model?, ddl?, duration?: [number, number], method, sql, bindings?, inTransaction? }
+emitter.on('db:query', (query) => {
   const duration = query.duration
   const durationMs = Array.isArray(duration) ? (duration[0] * 1000 + duration[1] / 1e6) : duration
 
@@ -182,6 +177,7 @@ db.primary.on('query', (query) => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não Envie Erros 4xx:** Evite o envio de erros 400, 401, 403, 404 e 422 para o Sentry para evitar ruído. Apenas capture códigos de status >= 500 ou exceções não tratadas.
 - **Redação Rígida de Dados Sensíveis:** Sempre remova ou oculte cabeçalhos de autorização, cookies, senhas e tokens antes de enviar os metadados da requisição.
 - **Inicialização Antecipada:** Certifique-se de que o `Sentry.init` seja executado em `start/instrument.ts`, carregado como o primeiríssimo import do entrypoint (ou via `node --import`), antes de qualquer módulo core de HTTP/banco. A fase `register` de um provider é tarde demais para a auto-instrumentação.

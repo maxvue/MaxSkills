@@ -138,6 +138,7 @@ Utilize um mecanismo confiável (como o `onClickOutside` do MaxUse (`@maxvue/max
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** importe o `EmojiPicker` de forma síncrona. Sempre envolva-o dentro de `defineAsyncComponent` (que já gerencia o estado de carregamento; `<Suspense>` é desnecessário).
 - **NÃO** anexe emojis estritamente no final do texto a menos que as referências da posição do cursor não estejam disponíveis ou estejam vazias.
 - **NÃO** fixe de forma estática os temas `"light"` ou `"dark"`; torne-os reativos com base no contexto de tema global da aplicação.

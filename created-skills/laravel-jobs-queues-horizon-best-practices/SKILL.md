@@ -325,6 +325,7 @@ public function tags(): array
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 1. **NEVER** create a Job without both `$tries` and `$backoff` properties.
 2. **NEVER** use `$this->delete()` inside `handle()` to suppress errors — let the retry mechanism work.
 3. **NEVER** dispatch Jobs inside database transactions — the transaction may rollback but the Job is already queued.

@@ -172,3 +172,6 @@ Sanitize payloads or query parameters inside `config/sentry.php`:
 - Do NOT set `traces_sample_rate` to `1.0` in high-traffic production environments. Keep it between `0.01` and `0.20` to prevent rate limiting, high billing, and performance overhead.
 - Do NOT capture common, expected HTTP exceptions such as `ValidationException`, `AuthenticationException`, or `ModelNotFoundException` that are part of standard flow. Configure them in the `dont_report` list of the Exception Handler or under Sentry's `ignore_exceptions` configuration.
 - Do NOT block execution for exception reports. Always verify Sentry calls do not cause critical service degradation if Sentry servers are offline.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

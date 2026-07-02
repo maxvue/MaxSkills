@@ -86,17 +86,27 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
 - Trate relacionamentos de forma explícita (ex: `Client & { projects?: Project[] }` ou `Client: { projects?: Project[] }`).
 
 ## 5. Stores do Pinia (Setup Stores)
-- **Dados de página vindos do backend (GET) e salvamento (save) DEVEM passar por uma store `@maxvue/max-pinia`**, que é a camada padrão de cache + auto-save (debounced) do projeto. Não faça `axios.get`/`axios.post` manuais nem salvamento por submit manual para dados de página; deixe o MaxPinia resolver o GET (via `apiGetRoute`) e persistir as alterações automaticamente. Tipifique explicitamente o estado da store.
+- **Dados de página vindos do backend (GET) e salvamento (save) DEVEM passar por uma store `@maxvue/max-pinia`**, que é a camada padrão de cache + auto-save (debounced) do projeto. Não faça `axios.get`/`axios.post` manuais nem salvamento por submit manual para dados de página; o próprio MaxPinia faz o GET e o save usando a instância axios que ele injeta internamente, contra uma **rota string** configurada nas `options` da store (não usa `apiGetRoute`). Reserve `apiGetRoute`/`apiPostRoute` para chamadas pontuais fora do fluxo da store cacheada. Tipifique explicitamente o estado da store.
   ```typescript
   import { defineStore } from 'pinia';
   import { ref, computed } from 'vue';
 
   export const useClienteStore = defineStore('cliente', () => {
-      // Carregado e salvo automaticamente pela camada MaxPinia (rota string '/api/...').
-      const cliente = ref<Client | null>(null);
-      const possuiProjetos = computed<boolean>(() => (cliente.value?.projects?.length ?? 0) > 0);
+      // Contrato da store cacheada: `data` guarda o estado do servidor, `isCached` ativa
+      // a camada MaxPinia e `options` fornece as rotas string. Com isso o plugin faz o GET
+      // (cache-first) e o auto-save (debounce 300ms sobre `data`) automaticamente.
+      const data = ref<Client | null>(null);
+      const isCached = ref(true);
 
-      return { cliente, possuiProjetos };
+      const options = computed(() => ({
+          get:  { route: '/api/cliente' }, // GET automático + cache
+          save: '/api/cliente',            // opcional: POST com auto-save debounced
+          id:   'cliente',                 // alimenta a chave de cache do localforage
+      }));
+
+      const possuiProjetos = computed<boolean>(() => (data.value?.projects?.length ?? 0) > 0);
+
+      return { data, isCached, options, possuiProjetos };
   });
   ```
 - Para estado puramente local de UI (sem origem no backend), uma Setup Store Pinia comum (`defineStore` de `pinia`) é aceitável. Tipifique explicitamente refs de estado, getters e retornos de actions.
@@ -121,6 +131,7 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
 - Respeite as assinaturas de parâmetros esperadas pelo backend. Evite passar objetos não tipados para endpoints que esperam parâmetros específicos.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Options API é proibida:** Não utilize as opções `data()`, `methods` ou `computed`. Sempre use `<script setup lang="ts">`.
 - **SCSS é obrigatório:** Não utilize CSS padrão, Less ou utilitários (como Tailwind) a menos que utilize as classes utilitárias do UnoCSS.
 - **Proibido o uso de `any`:** A checagem do compilador do TypeScript deve passar sem erros. Todos os tipos devem ser declarados ou importados.

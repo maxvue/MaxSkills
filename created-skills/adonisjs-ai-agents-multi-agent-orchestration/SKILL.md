@@ -152,6 +152,7 @@ export function createCopywriterAgent(event: CalendarEvent) {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** mantenha estados de execução dos agentes em variáveis globais ou memória temporária por longos períodos; persista sempre no banco de dados.
 - **NÃO** encadeie chamadas de execução de forma síncrona usando `await executeAgent` dentro do loop de execução de outro agente. Sempre separe as etapas através de jobs de filas.
 - **NÃO** dispare replanejamentos automáticos sem verificar limites de tentativas/rejeições. Falhas consecutivas repetidas devem parar o fluxo e notificar operadores humanos em vez de criar loops infinitos entre os agentes.

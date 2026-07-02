@@ -31,3 +31,6 @@ Order::where('status', 'open')->lazy()->each(fn($o) => ...);
 - Prefer `withCount`, `withSum`, `withMax` for simple aggregates
 - Apply global / local scopes for recurring constraints
 - Keep relationship names consistent and pluralized where appropriate
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

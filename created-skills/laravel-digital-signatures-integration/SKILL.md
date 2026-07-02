@@ -144,6 +144,7 @@ public function handle(Request $request): Response
 Upon receiving a signed status notification, fetch the signed PDF securely and save it using Laravel's `Storage` abstraction. Implement a Queue Job with automatic retries for resilient downloads.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No Synchronous Webhook Processing:** Always delegate webhook payload processing, document downloading, and status checks to background queue jobs.
 - **Strict Webhook Validation:** Never bypass `X-Hook-Signature` (Clicksign) or Token verification (Autentique). Always use `hash_equals()` for constant-time comparison to prevent timing attacks.
 - **Config-Driven Secrets:** Do not hardcode URLs, tokens, or webhook secrets in the code.

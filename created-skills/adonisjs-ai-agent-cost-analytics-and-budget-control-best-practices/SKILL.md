@@ -1,12 +1,12 @@
 ---
 name: adonisjs-ai-agent-cost-analytics-and-budget-control-best-practices
-description: Use when implementing, reviewing, or debugging backend logic for AI agent requests in AdonisJS v6 — executeAgent execution with model fallback chains, capturing token/cost metrics and persisting them via saveAiCost into the AgentAiCost model, analyzing/aggregating AgentAiCost records (sums grouped by dates, agents, or clients), converting USD→BRL via ExchangeRateService, applying tenant budget limits to restrict LLM calls, and broadcasting real-time updates via AdonisJS Transmit (SSE).
+description: Use when implementing, reviewing, or debugging backend logic for AI agent requests in AdonisJS v6 — executeAgent execution with model fallback chains, capturing token/cost metrics and persisting them via the HasAiCost mixin (addAiCost) then reading them back through the AgentAiCost model, analyzing/aggregating AgentAiCost records (sums grouped by dates, agents, or clients), converting USD→BRL via ExchangeRateService, applying tenant budget limits to restrict LLM calls, and broadcasting real-time updates via AdonisJS Transmit (SSE).
 ---
 
 ## Objetivo
 Fornecer diretrizes, estruturas e padrões de implementação para a execução resiliente de agentes de IA, o rastreamento/agregação dos custos e a aplicação de controle de orçamento (budget) em um backend AdonisJS v6. Cobre cadeias de fallback de modelos, registro de custos no momento da requisição (`saveAiCost` → model `AgentAiCost`), análises financeiras agregadas, conversão de câmbio (USD para BRL via `ExchangeRateService` em `#services/bank/exchange_rate_service`) e feedback em tempo real ao usuário. Isso garante continuidade do serviço sob rate-limit, supervisão financeira confiável e evita loops de execução descontrolados.
 
-> **Fluxo de tracking de custo (visão única):** cada execução de `executeAgent` calcula tokens/custo no momento da requisição e chama `saveAiCost`, que persiste um registro na tabela `agents_ai_cost` através do model `AgentAiCost`. As análises agregadas, relatórios e a checagem de budget (seções de análise e `AiBudgetService`) consultam exatamente esses mesmos registros. Ou seja: `saveAiCost` é a fonte de escrita; `AgentAiCost` é a fonte de leitura.
+> **Fluxo de tracking de custo (visão única):** cada execução de `executeAgent` calcula tokens/custo no momento da requisição e persiste um registro de custo. A persistência **nativa** do projeto é feita pelo mixin `HasAiCost` (método `addAiCost(tokens, costUsd)`) — **não existe** uma função `saveAiCost` no código; se você adotar esse nome, trate-o como um helper a ser criado que apenas encapsula `addAiCost`. **Atenção à divergência de esquema:** o insert de fallback do mixin grava na tabela `agent_ai_costs` com a coluna `total_price_usd_micro` (microdólares), enquanto o model `AgentAiCost` mapeia a tabela `agents_ai_cost` com `totalPrice`. Não trate escrita e leitura como um único caminho contínuo sem reconciliar essa diferença. As análises agregadas, relatórios e a checagem de budget (seções de análise e `AiBudgetService`) consultam esses registros de leitura via `AgentAiCost`.
 
 ## Instruções
 
@@ -38,8 +38,8 @@ Ao retornar de `executeAgent`, calcule o custo financeiro com base no status de 
   - `gemini-2.5-flash`: `notCached: 0.3`, `cached: 0.03`, `outputReasoning: 2.5`
   - `gemini-2.5-pro`: `notCached: 1.25`, `cached: 0.125`, `outputReasoning: 10`
 
-### 4. Persistência dos Custos (saveAiCost → AgentAiCost)
-Após cada execução, grave as métricas calculadas chamando `saveAiCost`, que insere o registro na tabela `agents_ai_cost` via model `AgentAiCost` (ver seção 1). Esses registros são exatamente os consumidos pelas análises e pela checagem de budget.
+### 4. Persistência dos Custos (mixin HasAiCost / addAiCost)
+Após cada execução, grave as métricas calculadas usando o mixin nativo `HasAiCost` (método `addAiCost(tokens, costUsd)`). Se preferir centralizar a lógica em um helper `saveAiCost`, **crie-o você mesmo** como um wrapper de `addAiCost` — não há função `saveAiCost` nativa no projeto. Lembre da divergência de tabela/coluna descrita na visão única (`agent_ai_costs`/`total_price_usd_micro` na escrita vs. `agents_ai_cost`/`totalPrice` na leitura via `AgentAiCost`).
 - Preencha todos os campos necessários: `costableType`, `costableId`, `agent`, `typeData`, `model`, `totalTokens`, `tokensInput`, `tokensCached`, `tokensInputTotal`, `tokensOutput`, `toolsUses`, `toolsAmount`, `totalPrice`, `totalDuration`.
 - Mapeie as associações polimórficas de `costableType` usando identificadores de domínio simples (strings do Adonis, nunca FQCN PHP):
   ```typescript
@@ -49,7 +49,7 @@ Após cada execução, grave as métricas calculadas chamando `saveAiCost`, que 
     SolarSimulation: 'SolarSimulation',
   } as const
   ```
-- Capture exceções em `saveAiCost`/`AgentAiCost`: uma falha de banco ao registrar o custo **não** deve quebrar o fluxo principal do agente.
+- Capture exceções em `addAiCost`/`AgentAiCost`: uma falha de banco ao registrar o custo **não** deve quebrar o fluxo principal do agente.
 
 ### 5. Broadcast em Tempo Real (AdonisJS Transmit / SSE)
 Notifique os usuários vinculados à empresa de forma assíncrona e segura usando exclusivamente AdonisJS Transmit (SSE). Não use Pusher/Soketi/Reverb nem Laravel Echo.
@@ -221,10 +221,11 @@ Garanta que os gerenciadores de execução validem o orçamento antes de process
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca contorne a checagem de orçamento:** A validação do orçamento deve ser executada antes de disparar qualquer chamada de API de IA que seja tarifável.
 - **Sem consultas externas de câmbio em loop:** Use sempre `ExchangeRateService` (`#services/bank/exchange_rate_service`, método `getRate('USD','BRL')`) para obter a cotação do dólar em reais. Nunca faça requisições HTTP ad-hoc de cotação de moedas em loops.
 - **Eficiência de Banco de Dados:** Sempre execute operações de soma (SUM) diretamente no motor de banco de dados. Nunca traga todos os registros de `AgentAiCost` para somá-los na memória do TypeScript.
 - **Resiliência obrigatória:** Nunca pule a `FALLBACK_CHAIN` em produção; degrade os modelos progressivamente em caso de falha.
 - **Segurança de credenciais:** Nunca escreva chaves ou credenciais estaticamente; use sempre `process.env`.
-- **Custos com/sem cache:** Diferencie rigorosamente tokens cacheados e não cacheados ao calcular e inserir métricas via `saveAiCost`.
-- **Tracking não pode quebrar o fluxo:** Capture exceções em `saveAiCost`/`AgentAiCost` e nos broadcasts; falhas de persistência ou websocket não devem interromper a execução do agente.
+- **Custos com/sem cache:** Diferencie rigorosamente tokens cacheados e não cacheados ao calcular e inserir métricas via `addAiCost` (mixin `HasAiCost`).
+- **Tracking não pode quebrar o fluxo:** Capture exceções em `addAiCost`/`AgentAiCost` e nos broadcasts; falhas de persistência ou websocket não devem interromper a execução do agente.

@@ -192,6 +192,7 @@ test('a prévia da proposta deve renderizar corretamente', async ({ page }) => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 1. **Nenhuma Requisição Real para Terceiros**: Nunca permita que os testes acessem diretamente APIs externas reais (provedores de irradiância/geolocalização, pagamento ou serviços de IA). Sempre utilize `page.route()` para mockar os payloads de rede.
 2. **Evitar Seletores Frágeis**: Não use classes de estilização (ex: hashes aleatórios do UnoCSS ou combinações dinâmicas de classes utilitárias) ou caminhos hierárquicos profundos (ex: `div > div > span`). Utilize funções baseadas em acessibilidade (`getByRole`), conteúdo de texto (`getByText`) ou atributos `data-testid`.
 3. **Sem Contaminação do Banco de Dados**: Certifique-se de que cada teste seja executado em um estado isolado ou que as transações do banco de dados sejam limpas. Simule consultas de backend quando aplicável ou remova os registros criados durante o teste.

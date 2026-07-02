@@ -9,7 +9,7 @@ tags: [vue3, transition-group, animation, performance, list, css-framework]
 # TransitionGroup Performance with Large Lists and CSS Frameworks
 
 **Impact: MEDIUM** - Vue's `<TransitionGroup>` can experience significant DOM update lag when animating list changes, particularly when:
-- Using CSS frameworks (Tailwind, Bootstrap, etc.)
+- Using utility CSS frameworks (UnoCSS, etc.)
 - Performing array operations like `slice()` that change multiple items
 - Working with larger lists
 
@@ -28,7 +28,7 @@ Without TransitionGroup, DOM updates occur instantly. With it, there can be noti
 <template>
   <!-- Potentially slow with large lists or complex CSS -->
   <TransitionGroup name="list" tag="ul">
-    <li v-for="item in items" :key="item.id" class="p-4 m-2 rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-purple-600 hover:shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 border border-gray-200 flex items-center justify-between">
+    <li v-for="item in items" :key="item.id" p4 m2 rounded-lg shadow-md bg="primary-500" hover:shadow-lg transition-all duration-300 ease-in-out hover:scale-105 border="~ gray-200" flex items-center justify-between>
       {{ item.name }}
     </li>
   </TransitionGroup>
@@ -161,7 +161,11 @@ import { RecycleScroller } from 'vue-virtual-scroller'
 <style>
 /* Move complex styles to a stable wrapper */
 .list-item-wrapper {
-  @apply p-4 m-2 rounded-lg shadow-md bg-gradient-to-r from-blue-500 to-purple-600;
+  padding: 1rem;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--max-primary-500);
 }
 
 /* Keep animated element styles minimal */

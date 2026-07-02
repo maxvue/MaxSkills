@@ -29,6 +29,7 @@ Estabelecer diretrizes unificadas para a depuração, formatação e resolução
      - Stylelint: `npx stylelint --fix <caminho_do_arquivo>`
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO utilize Options API sob nenhuma circunstância.
 - NÃO quebre atributos de componentes/elementos SFC em múltiplas linhas dentro dos templates; mantenha-os todos na mesma linha (regra absoluta, independente da quantidade de atributos).
 - NÃO use `<section>` (nem `<article>`/`<aside>` como container genérico); use sempre `<div>` no lugar.

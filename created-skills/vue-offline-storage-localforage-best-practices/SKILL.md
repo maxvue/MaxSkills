@@ -82,12 +82,18 @@ async function cacheData(key: string, rawData: any): Promise<void> {
 ```typescript
 // Exemplo APENAS para estado fora do fluxo de dados de página
 // (para dados de domínio, use uma store @maxvue/max-pinia em vez disto)
+
+// Instância dedicada: NUNCA use o localforage padrão — ele é compartilhado com o
+// cache do @maxvue/max-pinia (storeName 'max-pinia-cache'), e o clearAll() dele
+// chama localforage.clear(), apagando qualquer chave local guardada no DB padrão.
+const localStateStore = localforage.createInstance({ name: 'app-local-state', storeName: 'ui-state' });
+
 let isSavingPaused = false;
 
 async function loadStoreState() {
     isSavingPaused = true;
     try {
-        const savedState = await localforage.getItem('my-store-key');
+        const savedState = await localStateStore.getItem('my-store-key');
         if (savedState) {
             store.data = savedState;
         }
@@ -98,6 +104,7 @@ async function loadStoreState() {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Sem Acesso Síncrono:** Não tente usar modelos de armazenamento síncronos. Não bloqueie a thread principal.
 * **Sem Dados Sensíveis:** Nunca armazene informações confidenciais do usuário não criptografadas (como credenciais, tokens em texto limpo ou dados de identificação pessoal) no localforage.
 * **Sem Reatividade no Banco:** Não passe refs reativas ou proxies Vue diretamente para `localforage.setItem`. Sempre faça a sanitização antes.

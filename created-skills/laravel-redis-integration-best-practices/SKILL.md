@@ -130,6 +130,7 @@ Cache::tags(['solar-data'])->flush();
 * Configure redis queue connection with a high enough `retry_after` (larger than your longest-running job).
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * **DO NOT** run slow Redis commands (like `KEYS *`, `FLUSHALL`, `FLUSHDB`) in production. Use `SCAN` or clean cache using Laravel's native cache clear commands.
 * **DO NOT** use Redis cache tags without verifying the driver. The database and file cache drivers do not support tags.
 * **DO NOT** write raw Redis queries without catching connection exceptions. Always assume Redis can go offline.

@@ -127,6 +127,7 @@ export default class WorkerCommand extends BaseCommand {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO use tentativas infinitas (`attempts: 0` ou valores muito altos como `999`) sem um mecanismo de alerta explícito.
 - NÃO coloque valores fixos (hardcoded) para parâmetros de conexão do Redis dentro de filas ou workers. Sempre importe e use as propriedades de conexão de `#config/redis`.
 - NÃO silencie erros no `handle` sem relançá-los para o BullMQ, a menos que `job.discard()` tenha sido chamado explicitamente. Silenciar erros sem descartar fará com que o BullMQ assuma que o job foi concluído com sucesso.

@@ -71,6 +71,7 @@ Estabelecer um padrão arquitetural seguro, auditável e confiável para a imple
 *   **Teste de Fluxo de Integração:** Implemente um teste Japa que simule o login do admin, chame o endpoint de personificação, verifique os valores na sessão e depois finalize a personificação.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 *   **NÃO** permita que usuários comuns ou papéis não autorizados acionem endpoints de personificação sob nenhuma circunstância.
 *   **NÃO** registre senhas de usuários alvo, e-mails ou dados pessoais identificáveis em logs de auditoria. Registre apenas IDs, eventos e timestamps.
 *   **NÃO** persista sessões personificadas utilizando cookies remember-me.

@@ -136,3 +136,6 @@ class PaymentController extends Controller
 - Do **NOT** mutate static properties on classes inside the container.
 - Do **NOT** manually instantiate services using `new` inside Controllers or Models if they should be managed and injected by the container.
 - Do **NOT** bypass constructor injection in favor of the `app()` helper inside service classes (prefer proper constructor DI).
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

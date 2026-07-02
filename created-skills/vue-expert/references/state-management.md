@@ -1,449 +1,290 @@
-# State Management with Pinia
+# State Management with @maxvue/max-pinia (cached stores)
 
-## Basic Store Setup
+> No Maxdmin, **todo estado de dados de página passa por uma store cacheada `@maxvue/max-pinia`**. Não use
+> `pinia` cru: nada de `defineStore` em sintaxe de objeto, `createPinia` no componente, `storeToRefs` de
+> `'pinia'` para dados de servidor, nem `pinia-plugin-persistedstate`. O cache offline (localforage), o GET
+> automático ao montar e o auto-save debounced já vêm do plugin `@maxvue/max-pinia`. Nunca faça
+> `fetch('/api/...')` ou `axios.get` cru dentro de uma action — o GET é roteado pela camada de cache e as
+> mutações usam os helpers `apiPostRoute`/`apiPutRoute`/`apiDeleteRoute` do `@maxvue/max-use`.
 
-```typescript
-// stores/counter.ts
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+## Contrato mínimo de uma store cacheada
 
-// Setup Stores (Composition API style) - RECOMMENDED
-export const useCounterStore = defineStore('counter', () => {
-  // State
-  const count = ref(0)
-  const name = ref('Counter')
-
-  // Getters (computed)
-  const doubleCount = computed(() => count.value * 2)
-  const isEven = computed(() => count.value % 2 === 0)
-
-  // Actions
-  function increment() {
-    count.value++
-  }
-
-  function decrement() {
-    count.value--
-  }
-
-  function reset() {
-    count.value = 0
-  }
-
-  async function incrementAsync() {
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    count.value++
-  }
-
-  return {
-    // State
-    count,
-    name,
-    // Getters
-    doubleCount,
-    isEven,
-    // Actions
-    increment,
-    decrement,
-    reset,
-    incrementAsync
-  }
-})
-
-// Usage in component
-<script setup lang="ts">
-import { useCounterStore } from '@/stores/counter'
-import { storeToRefs } from 'pinia'
-
-const counter = useCounterStore()
-
-// Use storeToRefs to maintain reactivity when destructuring
-const { count, doubleCount, isEven } = storeToRefs(counter)
-
-// Actions can be destructured directly (they don't need refs)
-const { increment, decrement } = counter
-</script>
-
-<template>
-  <div>
-    <p>Count: {{ count }}</p>
-    <p>Double: {{ doubleCount }}</p>
-    <p>Is Even: {{ isEven }}</p>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-  </div>
-</template>
-```
-
-## Options Store (Alternative Style)
+Uma store é setup-style (função) e faz opt-in de cache expondo `isCached: ref(true)` mais um `options`
+(computed) com a rota de GET. A rota é um **path string `/api/...`** (resolvido pela camada de cache; sem
+Ziggy/`route()`). Ao montar, o plugin dispara o GET automaticamente e reidrata `data`.
 
 ```typescript
 // stores/user.ts
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
 
 interface User {
-  id: number
-  name: string
-  email: string
+    id: number;
+    name: string;
+    email: string;
+    role: 'admin' | 'user';
 }
 
-interface UserState {
-  user: User | null
-  users: User[]
-  loading: boolean
-}
+export const useUserStore = defineStore('user', () => {
+    // `data` é lido pelo plugin como o estado cacheado. GET automático ao montar.
+    const data = ref<User | null>(null);
+    const isCached = ref(true);
 
-export const useUserStore = defineStore('user', {
-  // State
-  state: (): UserState => ({
-    user: null,
-    users: [],
-    loading: false
-  }),
+    // GET automático + cache-first pela camada @maxvue/max-pinia — sem axios.get manual.
+    // `save` (opcional) habilita o POST com auto-save debounced (300 ms).
+    const options = computed(() => ({
+        get: { route: '/api/user/data' }, // path string /api/... (não Ziggy)
+        save: '/api/user/save',
+        key: 'user' // ilustrativo; a chave real é `${$id}.${id|'global'}`
+    }));
 
-  // Getters
-  getters: {
-    isLoggedIn: (state) => state.user !== null,
-    userCount: (state) => state.users.length,
+    // Getters derivados são apenas computed sobre `data`.
+    const isAdmin = computed(() => data.value?.role === 'admin');
 
-    // Getter with parameters
-    getUserById: (state) => {
-      return (userId: number) => state.users.find(u => u.id === userId)
-    },
-
-    // Getter accessing other getters
-    activeUserCount(): number {
-      return this.users.filter(u => u.isActive).length
-    }
-  },
-
-  // Actions
-  actions: {
-    async fetchUsers() {
-      this.loading = true
-      try {
-        const response = await fetch('/api/users')
-        this.users = await response.json()
-      } catch (error) {
-        console.error('Failed to fetch users:', error)
-      } finally {
-        this.loading = false
-      }
-    },
-
-    async login(email: string, password: string) {
-      this.loading = true
-      try {
-        const response = await fetch('/api/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password })
-        })
-        this.user = await response.json()
-      } catch (error) {
-        console.error('Login failed:', error)
-        throw error
-      } finally {
-        this.loading = false
-      }
-    },
-
-    logout() {
-      this.user = null
-    },
-
-    // Action calling another action
-    async refreshUserData() {
-      if (this.user) {
-        await this.fetchUsers()
-      }
-    }
-  }
-})
+    return { data, options, isCached, isAdmin };
+});
 ```
 
-## Store with TypeScript
+O plugin injeta métodos e status reativo na store (não precisam ser declarados): `reload()`,
+`saveInServer()`, `saveInCache()`, `clearAll()`, `cancelLoad()`, `status`, `is_done`, `is_done_to_show`,
+`countChanges`, `key`. Consulte a skill `vue-max-ecosystem-api-reference` (references/maxpinia.md) para o
+contrato completo.
+
+## Consumo no componente
+
+`data` reidrata sozinho; use `status`/`is_done_to_show` para o estado de carga e `reload()` para revalidar.
+
+```vue
+<template>
+    <div class="user-card" flex flex-col gap-2>
+        <MaxLoader v-if="store.status.server.get.is_requesting" label="Carregando..." />
+        <template v-else-if="store.is_done_to_show">
+            <span text-default>{{ user?.name }}</span>
+            <MaxButton label="Recarregar" icon="mdi:refresh" @click="store.reload()" />
+        </template>
+    </div>
+</template>
+
+<script setup lang="ts">
+    // defineStore, useXxxStore e storeToRefs são auto-importados no projeto.
+    const store = useUserStore();
+    // storeToRefs preserva reatividade ao desestruturar o estado da store.
+    const { data: user } = storeToRefs(store);
+</script>
+```
+
+## Auto-save (POST debounced) e mutações explícitas
+
+Quando `options.save` está presente, o plugin observa `data` e faz POST **300 ms** após a última mudança
+válida — não escreva `watch` + `setTimeout` manuais. Para mutações explícitas (criar/atualizar/excluir),
+use os helpers de rota do `@maxvue/max-use`, que executam a requisição e retornam o payload **diretamente**
+(não `{ data }`).
 
 ```typescript
 // stores/todos.ts
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
 
 interface Todo {
-  id: number
-  title: string
-  completed: boolean
-  createdAt: Date
+    id: number;
+    title: string;
+    completed: boolean;
 }
 
-type TodoFilter = 'all' | 'active' | 'completed'
+type TodoFilter = 'all' | 'active' | 'completed';
 
 export const useTodoStore = defineStore('todos', () => {
-  // State
-  const todos = ref<Todo[]>([])
-  const filter = ref<TodoFilter>('all')
-  const loading = ref(false)
-  const error = ref<string | null>(null)
+    const data = ref<Todo[]>([]);
+    const isCached = ref(true);
+    const filter = ref<TodoFilter>('all');
 
-  // Getters
-  const filteredTodos = computed(() => {
-    switch (filter.value) {
-      case 'active':
-        return todos.value.filter(t => !t.completed)
-      case 'completed':
-        return todos.value.filter(t => t.completed)
-      default:
-        return todos.value
+    // GET automático pela camada de cache; `data` reidrata sozinho ao montar.
+    const options = computed(() => ({ get: { route: '/api/todos' }, key: 'todos' }));
+
+    // Getters = computed sobre `data`.
+    const filteredTodos = computed(() => {
+        switch (filter.value) {
+            case 'active':
+                return data.value.filter((t) => !t.completed);
+            case 'completed':
+                return data.value.filter((t) => t.completed);
+            default:
+                return data.value;
+        }
+    });
+
+    const completedCount = computed(() => data.value.filter((t) => t.completed).length);
+
+    // Mutações via apiPostRoute/apiDeleteRoute (não fetch/axios cru). Retornam o payload direto.
+    async function addTodo(title: string): Promise<Todo> {
+        const todo = await apiPostRoute('/api/todos', { title, completed: false });
+        data.value.push(todo);
+        return todo;
     }
-  })
 
-  const completedCount = computed(() =>
-    todos.value.filter(t => t.completed).length
-  )
-
-  const activeCount = computed(() =>
-    todos.value.filter(t => !t.completed).length
-  )
-
-  // Actions
-  async function fetchTodos() {
-    loading.value = true
-    error.value = null
-    try {
-      const response = await fetch('/api/todos')
-      if (!response.ok) throw new Error('Failed to fetch todos')
-      todos.value = await response.json()
-    } catch (e) {
-      error.value = e instanceof Error ? e.message : 'Unknown error'
-    } finally {
-      loading.value = false
+    async function toggleTodo(id: number): Promise<void> {
+        const todo = data.value.find((t) => t.id === id);
+        if (!todo) return;
+        // Alterar `data` já dispara o auto-save debounced quando há options.save.
+        // Aqui persistimos explicitamente via apiPutRoute para ter a resposta.
+        const updated = await apiPutRoute('/api/todos', { id, completed: !todo.completed });
+        Object.assign(todo, updated);
     }
-  }
 
-  function addTodo(title: string) {
-    const newTodo: Todo = {
-      id: Date.now(),
-      title,
-      completed: false,
-      createdAt: new Date()
+    async function deleteTodo(id: number): Promise<void> {
+        await apiDeleteRoute('/api/todos', { id });
+        const index = data.value.findIndex((t) => t.id === id);
+        if (index > -1) data.value.splice(index, 1);
     }
-    todos.value.push(newTodo)
-  }
 
-  function toggleTodo(id: number) {
-    const todo = todos.value.find(t => t.id === id)
-    if (todo) {
-      todo.completed = !todo.completed
+    function setFilter(newFilter: TodoFilter): void {
+        filter.value = newFilter;
     }
-  }
 
-  function deleteTodo(id: number) {
-    const index = todos.value.findIndex(t => t.id === id)
-    if (index > -1) {
-      todos.value.splice(index, 1)
-    }
-  }
-
-  function setFilter(newFilter: TodoFilter) {
-    filter.value = newFilter
-  }
-
-  function clearCompleted() {
-    todos.value = todos.value.filter(t => !t.completed)
-  }
-
-  return {
-    // State
-    todos,
-    filter,
-    loading,
-    error,
-    // Getters
-    filteredTodos,
-    completedCount,
-    activeCount,
-    // Actions
-    fetchTodos,
-    addTodo,
-    toggleTodo,
-    deleteTodo,
-    setFilter,
-    clearCompleted
-  }
-})
+    return {
+        data,
+        isCached,
+        options,
+        filter,
+        filteredTodos,
+        completedCount,
+        addTodo,
+        toggleTodo,
+        deleteTodo,
+        setFilter
+    };
+});
 ```
 
-## Accessing Other Stores
+## Aguardar a carga em guards de rota
+
+Stores de dados críticos (usuário autenticado) expõem um `waitRequest` baseado no contrato do MaxPinia
+(`status.server.get.is_requested`) para que os guards de `vue-router` aguardem antes de redirecionar.
+
+```typescript
+// stores/user.ts (trecho)
+export const useUserStore = defineStore('user', () => {
+    const data = ref<User | null>(null);
+    const isCached = ref(true);
+    const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }));
+
+    // Aguarda a carga via contrato MaxPinia (status.server.get.is_requested).
+    function waitRequest(this: any): Promise<void> {
+        return new Promise((resolve) => {
+            if (this?.status?.server?.get?.is_requested) return resolve();
+            const unwatch = watch(
+                () => this?.status?.server?.get?.is_requested,
+                (isRequested) => {
+                    if (isRequested) {
+                        unwatch();
+                        resolve();
+                    }
+                }
+            );
+        });
+    }
+
+    return { data, isCached, options, waitRequest };
+});
+```
+
+```typescript
+// router.ts (trecho) — aguarda o usuário antes de decidir o redirecionamento.
+router.beforeEach(async (to) => {
+    const user = useUserStore();
+    await user.waitRequest();
+    if (to.meta.requiresAuth && !user.data) return { path: '/login' };
+});
+```
+
+## Acessando outras stores
+
+Uma store cacheada pode consumir outra normalmente (as demais stores também são cacheadas).
 
 ```typescript
 // stores/cart.ts
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
-import { useUserStore } from './user'
-import { useProductStore } from './product'
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
 
 interface CartItem {
-  productId: number
-  quantity: number
+    productId: number;
+    quantity: number;
 }
 
 export const useCartStore = defineStore('cart', () => {
-  const items = ref<CartItem[]>([])
+    const data = ref<CartItem[]>([]);
+    const isCached = ref(true);
+    const options = computed(() => ({ get: { route: '/api/cart' }, save: '/api/cart/save', key: 'cart' }));
 
-  const userStore = useUserStore()
-  const productStore = useProductStore()
+    const userStore = useUserStore();
+    const productStore = useProductStore();
 
-  const total = computed(() => {
-    return items.value.reduce((sum, item) => {
-      const product = productStore.getProductById(item.productId)
-      return sum + (product?.price || 0) * item.quantity
-    }, 0)
-  })
+    const total = computed(() =>
+        data.value.reduce((sum, item) => {
+            const product = productStore.getProductById(item.productId);
+            return sum + (product?.price ?? 0) * item.quantity;
+        }, 0)
+    );
 
-  function addItem(productId: number, quantity = 1) {
-    const existingItem = items.value.find(i => i.productId === productId)
-    if (existingItem) {
-      existingItem.quantity += quantity
-    } else {
-      items.value.push({ productId, quantity })
-    }
-  }
-
-  async function checkout() {
-    if (!userStore.isLoggedIn) {
-      throw new Error('User must be logged in to checkout')
+    function addItem(productId: number, quantity = 1): void {
+        const existing = data.value.find((i) => i.productId === productId);
+        if (existing) existing.quantity += quantity;
+        else data.value.push({ productId, quantity });
+        // Alteração de `data` dispara o auto-save debounced (options.save).
     }
 
-    // Checkout logic
-    const order = {
-      userId: userStore.user?.id,
-      items: items.value,
-      total: total.value
+    async function checkout(): Promise<void> {
+        if (!userStore.data) throw new Error('Usuário precisa estar autenticado para finalizar');
+        await apiPostRoute('/api/checkout', { items: data.value, total: total.value });
+        data.value = [];
     }
 
-    // Make API call
-    await fetch('/api/checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(order)
-    })
-
-    items.value = []
-  }
-
-  return { items, total, addItem, checkout }
-})
+    return { data, isCached, options, total, addItem, checkout };
+});
 ```
 
-## Store Plugins
+## Testando stores cacheadas
+
+Registre o Pinia com o plugin `createMaxPinia` no `beforeEach`. Mocke as chamadas HTTP (helpers de rota do
+`@maxvue/max-use`) em vez de testar a rede real.
 
 ```typescript
-// plugins/pinia-logger.ts
-import { PiniaPluginContext } from 'pinia'
+// stores/__tests__/todos.spec.ts
+import { setActivePinia, createPinia } from 'pinia';
+import { createMaxPinia } from '@maxvue/max-pinia';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { useTodoStore } from '../todos';
 
-export function piniaLogger({ store }: PiniaPluginContext) {
-  store.$subscribe((mutation, state) => {
-    console.log(`[${store.$id}]:`, mutation.type, mutation.payload)
-    console.log('New state:', state)
-  })
-}
+describe('Todo Store', () => {
+    beforeEach(() => {
+        const pinia = createPinia();
+        pinia.use(createMaxPinia({ cacheName: 'test' }));
+        setActivePinia(pinia);
+    });
 
-// main.ts
-import { createPinia } from 'pinia'
-import { piniaLogger } from './plugins/pinia-logger'
-
-const pinia = createPinia()
-pinia.use(piniaLogger)
-
-app.use(pinia)
-```
-
-## Persistence Plugin
-
-```typescript
-// Install: npm install pinia-plugin-persistedstate
-
-// main.ts
-import { createPinia } from 'pinia'
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-
-const pinia = createPinia()
-pinia.use(piniaPluginPersistedstate)
-
-// stores/settings.ts
-export const useSettingsStore = defineStore('settings', () => {
-  const theme = ref<'light' | 'dark'>('light')
-  const language = ref('en')
-
-  function setTheme(newTheme: 'light' | 'dark') {
-    theme.value = newTheme
-  }
-
-  return { theme, language, setTheme }
-}, {
-  persist: true // Auto-persist to localStorage
-})
-
-// Advanced persistence
-export const useAuthStore = defineStore('auth', () => {
-  const token = ref<string | null>(null)
-  const user = ref<User | null>(null)
-
-  return { token, user }
-}, {
-  persist: {
-    key: 'auth-storage',
-    storage: sessionStorage,
-    paths: ['token'] // Only persist token, not user
-  }
-})
-```
-
-## Store Testing
-
-```typescript
-// stores/__tests__/counter.spec.ts
-import { setActivePinia, createPinia } from 'pinia'
-import { describe, it, expect, beforeEach } from 'vitest'
-import { useCounterStore } from '../counter'
-
-describe('Counter Store', () => {
-  beforeEach(() => {
-    setActivePinia(createPinia())
-  })
-
-  it('increments count', () => {
-    const counter = useCounterStore()
-    expect(counter.count).toBe(0)
-    counter.increment()
-    expect(counter.count).toBe(1)
-  })
-
-  it('doubles count', () => {
-    const counter = useCounterStore()
-    counter.count = 5
-    expect(counter.doubleCount).toBe(10)
-  })
-
-  it('resets count', () => {
-    const counter = useCounterStore()
-    counter.count = 10
-    counter.reset()
-    expect(counter.count).toBe(0)
-  })
-})
+    it('adiciona um todo via apiPostRoute', async () => {
+        vi.stubGlobal('apiPostRoute', vi.fn().mockResolvedValue({ id: 1, title: 'A', completed: false }));
+        const store = useTodoStore();
+        await store.addTodo('A');
+        expect(store.data).toHaveLength(1);
+        expect(store.completedCount).toBe(0);
+    });
+});
 ```
 
 ## Quick Reference
 
 | Pattern | Use Case |
 |---------|----------|
-| Setup stores | Composition API style (recommended) |
-| Options stores | Traditional Vuex-like syntax |
-| `storeToRefs()` | Maintain reactivity when destructuring |
-| `store.$subscribe()` | Watch for state changes |
-| `store.$patch()` | Batch state updates |
-| `store.$reset()` | Reset state to initial |
-| Plugins | Add global functionality (logger, persistence) |
-| Accessing stores | Use other stores in actions |
-| Testing | Use `setActivePinia()` for isolated tests |
+| `isCached: ref(true)` + `options` | Opt-in de cache do `@maxvue/max-pinia` |
+| `options.get.route` (`/api/...`) | GET automático + cache-first (sem axios.get manual) |
+| `options.save` (`/api/...`) | POST com auto-save debounced (300 ms) |
+| `data` (ref) | Estado reidratado pelo plugin |
+| `store.reload()` | Revalidar (refaz o GET) |
+| `store.saveInServer()` | POST imediato (fora do debounce) |
+| `store.status.server.get` | Estado de carga (`is_requesting`/`is_requested`/`is_success`) |
+| `store.is_done_to_show` | Pronto para renderizar (cache ou servidor) |
+| `apiPostRoute`/`apiPutRoute`/`apiDeleteRoute` | Mutações — retornam o payload direto |
+| `storeToRefs(store)` | Preservar reatividade ao desestruturar |
+| `waitRequest()` | Guards de rota aguardarem a carga |
+| `createMaxPinia(config)` | Registrar o plugin (boot/tests) |

@@ -18,14 +18,14 @@ Estabelecer convenções e padrões rígidos para configuração, design, envio 
 Exemplo de configuração (`config/mail.ts`):
 ```typescript
 import env from '#start/env'
-import { defineConfig, drivers } from '@adonisjs/mail'
+import { defineConfig, transports } from '@adonisjs/mail'
 
 const mailConfig = defineConfig({
   // `default` deve ser uma das chaves de `mailers` (ex.: 'smtp' | 'resend').
   // Valide MAIL_MAILER em start/env.ts com Env.schema.enum(['smtp', 'resend']).
   default: env.get('MAIL_MAILER', 'smtp'),
   mailers: {
-    smtp: drivers.smtp({
+    smtp: transports.smtp({
       host: env.get('SMTP_HOST'),
       port: env.get('SMTP_PORT'),
       secure: false,
@@ -35,8 +35,9 @@ const mailConfig = defineConfig({
         pass: env.get('SMTP_PASSWORD'),
       },
     }),
-    resend: drivers.resend({
+    resend: transports.resend({
       key: env.get('RESEND_API_KEY'),
+      baseUrl: 'https://api.resend.com',
     }),
   },
 })
@@ -150,6 +151,7 @@ try {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** escreva HTML inline como string dentro de `BaseMail`. Use sempre templates do Edge.js (`.edge`) localizados em `resources/views/emails/` para manter a organização visual do código.
 * **NÃO** bloqueie o processo do HTTP realizando requisições de e-mail de forma síncrona. Use filas do `BullMQ` ou filas nativas do AdonisJS.
 * **NÃO** armazene chaves de API ou credenciais de e-mail diretamente no código. Carregue-as sempre a partir do arquivo `.env` e faça a validação no `start/env.ts`.

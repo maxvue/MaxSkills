@@ -20,7 +20,7 @@ Estabelecer diretrizes arquiteturais e padrões de codificação para a implemen
 
 ### 2. Configuração do Modal e Navegação
 - Envolva formulários complexos utilizando o `MaxModal` da biblioteca `@maxvue/max-components-ui`.
-- Utilize uma referência (ex: `const modalRef = ref<any>(null)`) e alterne a visibilidade chamando `.toggle()` ou os métodos de API `.open()` / `.close()`.
+- Utilize uma referência (ex: `const modalRef = ref<any>(null)`) e alterne a visibilidade chamando os métodos realmente expostos pelo MaxModal: `.toggle()`, `.show()` e `.hide()` (o estado reativo é `is_show`). O MaxModal **não** expõe `.open()` / `.close()`.
 - Para formulários com abas múltiplas, gerencie a navegação das abas usando uma referência reativa (ex: `const activeTab = ref<string>('nomeDaAba')`).
 - Vincule classes de estilo dinamicamente para indicar a aba ativa e alterne as abas por meio de eventos de clique simples.
 
@@ -55,6 +55,7 @@ Estabelecer diretrizes arquiteturais e padrões de codificação para a implemen
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não** utilize inputs HTML puros quando houver inputs equivalentes na biblioteca `@maxvue/max-components-ui`.
 - **Não** omita a Composition API (`<script setup lang="ts">`) ou os estilos SCSS.
 - **Não** quebre os atributos de componentes/elementos HTML em várias linhas dentro do `<template>`. Mantenha as tags em uma única linha.

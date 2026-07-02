@@ -35,6 +35,7 @@ Establish clean, testable, and consistent guidelines for creating and maintainin
    - Log failures using the `Log` facade with descriptive messages and context arrays, avoiding generic statements.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **No Controller/HTTP coupling**: Do not reference HTTP request variables (`request()`), sessions, or redirect helpers inside Service classes.
 - **No View presentation logic**: Services must not render HTML, return JSON responses, or construct UI components.
 - **No static state accumulation**: Avoid declaring public static properties that persist across requests to maintain compatibility with Octane.

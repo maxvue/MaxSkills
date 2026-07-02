@@ -250,3 +250,6 @@ Browse all apps: `belt app store`
 - [Streaming Results](https://inference.sh/docs/api/sdk/streaming) - Real-time progress updates
 - [Content Pipeline Example](https://inference.sh/docs/examples/content-pipeline) - Building media workflows
 
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

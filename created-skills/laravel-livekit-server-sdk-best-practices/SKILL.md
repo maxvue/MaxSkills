@@ -218,6 +218,7 @@ class LiveTokenController extends Controller
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * **Enforce Strict Access Grants:** Never leave VideoGrants empty or grant wildcard permissions without explicitly specifying the room details (`setRoomJoin`, `setRoomName`).
 * **Clean WS URLs:** Always sanitize the WebSocket URL using a string replacement before instantiating `RoomServiceClient` to avoid connection scheme failures.
 * **Proper Error Logging:** Never suppress errors from the LiveKit Server API. Wrap all calls in `try-catch` blocks and log them using the `Log` facade with descriptive context.

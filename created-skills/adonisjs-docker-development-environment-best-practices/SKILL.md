@@ -33,6 +33,7 @@ Estabelecer um ambiente de desenvolvimento local estruturado e otimizado para ap
    - Defina valores padrão (fallback) para ambientes locais para que os desenvolvedores possam rodar `docker compose up` imediatamente sem configuração manual.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO exponha senhas de banco de dados de containers para produção. Garanta que as configurações de docker-compose para desenvolvimento tenham avisos explícitos contra o uso em produção.
 - NÃO execute etapas de compilação de produção (como compilar TypeScript via `node ace build`) no estágio de desenvolvimento, pois isso desacelera a inicialização inicial e quebra o hot-reloading ativo.
 - Evite utilizar a pasta `node_modules` do host dentro do container. Sempre previna isso através do mapeamento anônimo `/app/node_modules` ou volume especializado.

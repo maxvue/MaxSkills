@@ -22,6 +22,7 @@ Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático
   ```
 
 ### 2. Armazenamento Temporário e Expiração Rápida (Redis)
+* **Pré-requisito:** o `@adonisjs/redis` NÃO faz parte das dependências do backend-alvo (apenas `ioredis`, transitivamente via bullmq). Antes de usar `import redis from '@adonisjs/redis/services/main'`, instale e configure o pacote (`node ace add @adonisjs/redis`, gerando `config/redis.ts`); caso contrário o import não resolve. Alternativamente, use o cliente `ioredis` diretamente.
 * Armazene os OTPs gerados no Redis para acesso rápido, baixa latência e expiração automática.
 * Use um prefixo de chave consistente, como `otp:phone_number`, e defina um tempo de vida (TTL) curto entre 5 a 10 minutos.
 * Mantenha a chave simples e garanta que ela seja removida assim que validada (uso único).
@@ -98,6 +99,7 @@ Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático
   ```typescript
   import type { HttpContext } from '@adonisjs/core/http'
   import redis from '@adonisjs/redis/services/main'
+  import { randomBytes } from 'node:crypto'
   import User from '#models/user'
 
   export default class AuthOtpController {
@@ -123,12 +125,21 @@ Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático
       await redis.del(`otp:${phone}`)
 
       // Recupera ou cria o usuário
-      let user = await User.findBy('phone', phone)
+      // O modelo User usa `phoneNumber` (e `internationalPhoneNumber` para E.164);
+      // não existe coluna `phone`.
+      let user = await User.findBy('phoneNumber', phone)
       let isNewUser = false
 
       if (!user) {
-        // Se for cadastro automático:
-        user = await User.create({ phone })
+        // Se for cadastro automático: `email` e `password` são NOT NULL no modelo real,
+        // então nunca crie um usuário só com o telefone. Exija o email no onboarding
+        // ou gere valores placeholder (e torne-os nullable via migration, se preferir).
+        user = await User.create({
+          phoneNumber: phone,
+          internationalPhoneNumber: phone, // formato E.164
+          email: `otp_${phone}@placeholder.local`, // substitua no onboarding
+          password: randomBytes(16).toString('hex'), // hash aplicado pelo hook do modelo
+        })
         isNewUser = true
       }
 
@@ -148,6 +159,7 @@ Estabelecer um fluxo de autenticação sem senha (passwordless) seguro, prático
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO use o gerador padrão `Math.random()` para a criação do código. Sempre utilize inteiros aleatórios criptograficamente seguros.
 * NÃO retorne o código OTP nas respostas HTTP (ex: no JSON de resposta de `requestOtp`). O OTP deve ser entregue EXCLUSIVAMENTE via WhatsApp.
 * NÃO armazene os OTPs em tabelas de banco de dados sem um índice e uma limpeza/expiração automática e rápida via TTL (o uso do Redis é altamente recomendado sobre o banco de dados Lucid para OTPs temporários).

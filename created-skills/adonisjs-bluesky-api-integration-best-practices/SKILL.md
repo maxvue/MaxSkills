@@ -39,6 +39,7 @@ Fornecer padrões, diretrizes de codificação e boas práticas para desenvolver
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** envie posts com texto puro contendo links ou menções sem antes resolvê-los usando facets do `RichText`; caso contrário, eles aparecerão como texto normal e não serão clicáveis.
 * **NÃO** salve senhas de aplicativo (App Passwords) ou nomes de usuário fixos no código (hardcoded) ou no controle de versão.
 * **NÃO** envie uploads de imagens concorrentes usando `Promise.all`. Faça o envio sequencialmente.

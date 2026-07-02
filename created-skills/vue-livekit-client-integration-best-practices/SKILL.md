@@ -34,10 +34,11 @@ Este componente garante a associação e desassociação correta das faixas de m
 
 ```vue
 <template>
-  <div class="track-wrapper">
-    <!-- Atributos do template devem ficar na mesma linha -->
-    <video v-if="track.kind === 'video'" ref="videoEl" autoplay playsinline class="media-video" />
-    <audio v-else ref="audioEl" class="media-audio" />
+  <div relative w-full h-full>
+    <!-- Atributos do template devem ficar na mesma linha; estilização via UnoCSS attributify (presetMaxUno) -->
+    <!-- <video>/<audio> nativos são aceitáveis aqui pois LiveKit attach() exige elementos de mídia DOM crus -->
+    <video v-if="track.kind === 'video'" ref="videoEl" autoplay playsinline w-full h-full object-cover rounded-lg />
+    <audio v-else ref="audioEl" hidden />
   </div>
 </template>
 
@@ -85,25 +86,6 @@ watch(() => props.track, (newTrack, oldTrack) => {
   attachTrack();
 });
 </script>
-
-<style scoped lang="scss">
-.track-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-
-  .media-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-
-  .media-audio {
-    display: none;
-  }
-}
-</style>
 ```
 
 ### Composable para Gerenciamento de Sala (`useLiveKit.ts`)
@@ -189,8 +171,9 @@ export function useLiveKit() {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Sem Reatividade Profunda no Objeto Room:** Nunca envolva a instância de `Room` em um `ref()` ou `reactive()` padrão. É **obrigatório** usar `shallowRef(room)` para evitar degradação substancial de desempenho.
 * **Limpeza de Track Obrigatória:** Cada associação de track (`track.attach()`) deve ter uma desassociação correspondente (`track.detach()`) no `onUnmounted` ou antes de trocar as tracks. Não fazer isso causará vazamentos de memória no navegador e manterá os indicadores de câmera/microfone ativos.
-* **Arquitetura de Componentes:** O estilo SFC é obrigatório. Use Composition API (`<script setup lang="ts">`) and SCSS (`lang="scss"`).
+* **Arquitetura de Componentes:** O estilo SFC é obrigatório. Use Composition API (`<script setup lang="ts">`) e estilização via UnoCSS attributify (`presetMaxUno`) com tokens de tema — não use SCSS nem classes CSS nomeadas. Os elementos `<video>`/`<audio>` nativos são aceitáveis por exigência do `attach()` do LiveKit.
 * **Atributos Inline:** Dentro do template Vue, mantenha todos os atributos/parâmetros dos componentes na mesma linha. Não quebre os atributos em várias linhas.
 * **Idioma dos Comentários:** Comentários de código e docstrings nos blocos de exemplo devem ser escritos em **Português do Brasil (pt-BR)**.

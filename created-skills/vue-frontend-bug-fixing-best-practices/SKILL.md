@@ -39,12 +39,12 @@ Usar esta skill quando:
 | Unplugin Vue Components | — | Auto-importação de componentes |
 | **@maxvue/max-components-ui** | **local** | **Biblioteca própria de componentes UI (~70 componentes + componentes do PrimeVue inclusos)** |
 | **@maxvue/max-use** | **local** | **Biblioteca própria de composables, helpers, rotas e utilitários** |
-| @adonisjs/transmit-client | 1 | Realtime via SSE (AdonisJS Transmit) |
-| @vue-flow/core | 1 | Diagramas de fluxo |
-| @tanstack/vue-virtual | 3 | Virtualização de listas |
-| floating-vue | 5 | Tooltips e popovers |
-| lucide-vue-next | 1 | Ícones |
-| Vitest | 4 | Testes unitários front-end |
+| @adonisjs/transmit-client | via lib | Realtime via SSE (AdonisJS Transmit) — transitivo via `@maxvue/max-components-ui`/`@maxvue/max-use`, não é dependência direta do app |
+| @vue-flow/core | via lib | Diagramas de fluxo — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
+| @tanstack/vue-virtual | via lib | Virtualização de listas — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
+| floating-vue | via lib | Tooltips e popovers — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
+| lucide-vue-next | via lib | Ícones — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
+| Vitest | — | **Não** é usado pelo app Maxdmin. O app roda testes com **Japa** (`@japa/runner`, script `"test": "node ace test"`). Vitest é o runner apenas das libs Max* (`@maxvue/max-use`, `@maxvue/max-components-ui`), não do front-end do app. |
 
 ### Bibliotecas Próprias — Contexto Obrigatório
 
@@ -417,7 +417,7 @@ Ativar conforme necessário durante o diagnóstico (usar apenas skills que exist
 | Skill | Quando Ativar |
 |-------|---------------|
 | `superpowers:systematic-debugging` | Bugs difíceis que necessitam investigação sistemática em fases |
-| `superpowers:test-driven-development` | Reproduzir o bug com um teste (Vitest) antes de corrigir |
+| `superpowers:test-driven-development` | Reproduzir o bug com um teste antes de corrigir (app Maxdmin usa Japa/`node ace test`; Vitest só nas libs Max*) |
 
 > Para regras específicas de Vue 3 / TypeScript / MaxPinia / MaxComponentsUi / MaxUse, este documento já consolida os checklists; não dependa de skills `@...` que possam não existir no repositório.
 
@@ -450,6 +450,7 @@ cd /home/johnattas/GitHub/MaxUse && npm run build
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Esta skill é focada em bugs do **front-end**.
 - Não modificar `App.vue`, `app.ts` ou `env.d.ts` sem aprovação explícita.
 - Não modificar `resources/Types/generated.d.ts` manualmente — é gerado pelo backend.

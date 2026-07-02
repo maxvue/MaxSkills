@@ -308,6 +308,7 @@ export default class TikTokWebhooksController {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Proibido Upload Síncrono de Blocos**: A divisão de arquivos e requisições PUT individuais nunca devem ser executadas síncronas no ciclo HTTP. Use workers do BullMQ.
 - **Criptografia Obrigatória de Credenciais**: Sempre salve access tokens, refresh tokens e credenciais de usuários em colunas criptografadas com o serviço `Encryption` do AdonisJS.
 - **Limites de Polling Estritos**: Sempre imponha um número máximo de tentativas de polling e use backoff exponencial para evitar a ocupação indefinida dos workers de fila.

@@ -194,6 +194,7 @@ new Worker('solar-proposals', async (job: Job) => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Sem Consultas Manuais de Tenant**: Evite adicionar manualmente filtros `.where('solarCompanyId', ...)` em ações padrão de controllers. Confie nos query hooks (`@beforeFind`/`@beforeFetch`/`@beforePaginate`) para evitar vazamentos de dados.
 * **Armazenamento de Contexto Estático**: Nunca armazene o ID do tenant ativo em variáveis estáticas de classe ou propriedades globais, pois elas persistem entre requisições HTTP concorrentes nos ambientes Octane e Node.js. Sempre use `AsyncLocalStorage`.
 * **Mapeamento de Chave Estrangeira**: Verifique duas vezes o nome da chave estrangeira do tenant em cada modelo (ex: `solarCompanyId` ou `idSolarCompany`). Aplicar o nome da chave incorreto quebrará as consultas ao banco de dados.

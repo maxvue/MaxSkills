@@ -79,6 +79,7 @@ Provide solid guidelines and best practices for building, optimizing, and debugg
    - Ensure the frontend properly reads the GraphQL standard response: data is in `data`, and issues are in the top-level `errors` array.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 1. **Never perform manual N+1 loops**: Never execute queries inside loops within custom resolvers. Eager load all relations (`$models->load(...)` or use schema `@with`).
 2. **Do not modify state in Queries**: Queries must be side-effect-free (read-only). State-modifying actions must strictly be modeled as GraphQL Mutations.
 3. **No raw database errors in production**: Ensure all raw database exceptions are caught and sanitized. Do not allow raw DB details to leak in the GraphQL error payload.

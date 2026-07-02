@@ -133,6 +133,7 @@ Establish guidelines, conventions, and standards for implementing authorization 
      ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do NOT hardcode permission or role checking logic directly inside Blade views, Vue views, or controller logic (e.g., `if ($user->role === 'admin')`). Encapsulate all logic inside Policies and Gates.
 - Do NOT expose full, un-scoped permissions arrays in the `/api` endpoint payload. Keep the frontend authorization payload minimal and scoped.
 - Do NOT skip authorization checks in the backend under the assumption that the frontend hides unauthorized UI elements. The backend is the single source of truth for authorization.

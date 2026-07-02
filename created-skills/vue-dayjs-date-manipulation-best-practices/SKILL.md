@@ -5,6 +5,8 @@ description: Use when manipulating, formatting, parsing, or comparing dates and 
 
 # Boas Práticas de Manipulação de Datas com Day.js no Vue 3
 
+> **Atenção — Day.js NÃO é uma dependência de frontend do projeto.** O Maxdmin/Engeapp não possui `dayjs` em `package.json` (ele aparece apenas transitivamente via `@vinejs/vine` no backend) e não há uso de Day.js em `resources/js/`. A ferramenta de datas padrão do frontend é o `@maxvue/max-use` (`useDateFormat`, `useTimeAgo`), que encapsula o `@vueuse/core`. **Prefira essas composables.** Só siga o restante desta skill se houver necessidade real de recursos avançados que o Day.js oferece (timezone, durations, parsing customizado estrito) e, nesse caso, **instale-o explicitamente antes** com `npm i dayjs`. Não trate o Day.js como biblioteca de datas já estabelecida no projeto.
+
 ## Objetivo
 Estabelecer diretrizes padrão, padrões de código e restrições para a execução segura, reativa e localizada de operações de data e hora no frontend Vue 3 do Engeapp utilizando a biblioteca Day.js. Isso garante consistência, evita desvios de fuso horário entre backend/frontend e fornece padrões de helpers comuns.
 
@@ -12,7 +14,7 @@ Estabelecer diretrizes padrão, padrões de código e restrições para a execu�
 
 ### 1. Inicialização Centralizada
 A biblioteca Day.js é altamente modular e permite tree-shaking. Para usar recursos avançados (como timezone, formatos personalizados, durações), você deve carregar os plugins explicitamente.
-Inicialize e configure o Day.js em um ponto de entrada central (ex: `resources/Vue/app.ts` ou um helper compartilhado `resources/Vue/Helpers/date.ts`):
+Inicialize e configure o Day.js em um ponto de entrada central (ex: `resources/js/app.ts` ou um helper compartilhado `resources/js/Helpers/date.ts`):
 
 ```typescript
 import dayjs from 'dayjs';
@@ -113,6 +115,7 @@ export function useFormattedDate(
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não Misture Bibliotecas**: Não importe Moment.js, date-fns ou Luxon. Mantenha toda a lógica de data da interface unificada usando Day.js ou os wrappers existentes em `@maxvue/max-use` (ex: `useDateFormat`, `useTimeAgo`).
 - **Sem Mutação Global**: Evite modificar a configuração global do `dayjs` dentro de componentes. Mantenha as extensões e locales centralizados.
 - **Sempre Valide**: Sempre execute `.isValid()` antes de exibir valores de entrada do usuário ou da API que foram analisados dinamicamente e que não têm garantia de ser uma data válida.

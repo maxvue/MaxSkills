@@ -148,6 +148,7 @@ jobs:
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 Boas práticas:
 
 1. **Documente APIs públicas**: Todos os métodos, classes e interfaces públicos

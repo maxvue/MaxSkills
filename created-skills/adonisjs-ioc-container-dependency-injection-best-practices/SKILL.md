@@ -105,6 +105,7 @@ test.group('Processo de Faturamento', (group) => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca** instancie classes manualmente (por exemplo, `const service = new PaymentService()`) se elas próprias requererem injeção de dependências.
 - **Nunca** armazene estados mutáveis específicos de requisições dentro de instâncias singleton.
 - **Nunca** chame `app.container.swap` no código de produção. A substituição (swapping) é estritamente restrita a ambientes de teste.

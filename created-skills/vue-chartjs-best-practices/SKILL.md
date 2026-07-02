@@ -42,6 +42,7 @@ Estabelecer diretrizes e templates para a implementação, gerenciamento do cicl
    - Os dados de origem devem vir de uma store `@maxvue/max-pinia` no componente pai; não faça requisições GET manuais (axios/fetch) dentro do componente de gráfico.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO use a Options API. Sempre utilize a Composition API (`<script setup lang="ts">`).
 - NÃO instancie gráficos em elementos canvas sem envolver a criação com `nextTick()` ou `onMounted()`.
 - NÃO deixe instâncias de gráficos ativas sem destruí-las na desmontagem do componente (`onUnmounted`).
@@ -128,10 +129,12 @@ const initChart = (): void => {
   });
 };
 
-// Observa mudanças nos dados para atualizar o gráfico reativamente
-watch(() => props.chartData, (newData) => {
+// Observa dados E labels para atualizar o gráfico reativamente (labels podem mudar
+// sem que o número de pontos mude; observar só chartData deixaria o eixo X defasado)
+watch(() => [props.chartData, props.labels], () => {
   if (chartInstance) {
-    chartInstance.data.datasets[0].data = newData;
+    chartInstance.data.labels = props.labels;
+    chartInstance.data.datasets[0].data = props.chartData;
     chartInstance.update();
   } else {
     nextTick(() => initChart());

@@ -8,7 +8,7 @@
 > `required`, `dark`/`light`, `noStatus`, etc.) mesmo quando não redeclaradas. Onde relevante isso está
 > anotado por componente.
 >
-> **Export público**: nem todo componente está no `index.ts` — `MaxMsgLabels`, `MaxTableColumn` e
+> **Export público**: nem todo componente está no `index.ts` — `MaxTableColumn` e
 > `MaxTogglePopover` não são exportados pelo entry principal; `MaxTextInputFloatLabel` está **deprecado**
 > (renderiza `<div>` vazio); `MaxInputFile`/`MaxTableColumn` são placeholders só-estilo. Detalhes na
 > seção final "Stores, Helpers e Exports públicos".
@@ -1597,7 +1597,7 @@ Propósito: modal centralizado com botão de abertura, header (título/subtítul
 ---
 
 ### MaxMsgLabels
-Import: (não exportado no index principal; componente interno de labels) `import MaxMsgLabels from '@maxvue/max-components-ui/.../MaxMsgLabels.vue'`
+Import: `import { MaxMsgLabels } from '@maxvue/max-components-ui'` (named export público do entry principal)
 Propósito: exibe rótulos de mensagem/erro e o asterisco de obrigatoriedade. (Não consta no `index.ts`.)
 
 **Props**

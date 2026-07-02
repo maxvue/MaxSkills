@@ -227,13 +227,14 @@ Configure a viewport com densidade elevada (`deviceScaleFactor: 2`) para saída 
 ### 8. Estrutura de Job Padrão (BullMQ)
 * Integre o enfileiramento seguindo a estrutura padrão de Jobs do projeto:
   * Crie a classe do job em `app/jobs/` (ex: `generate_report_job.ts`, `generate_post_image_job.ts`).
-  * Declare `static readonly queueName` (ou `static key`).
+  * Declare `static readonly queueName`.
   * Implemente `static async dispatch(...)` para enfileirar tarefas.
-  * Implemente o `handle(job)` para a execução.
+  * Implemente `static async handle(job)` para a execução.
   * Registre o worker no script global `commands/worker.ts` e adicione o objeto da fila em `app/services/queue_service.ts`.
 
   ```typescript
-  import { Job } from 'bullmq'
+  import type { Job } from 'bullmq'
+  import { aiQueue } from '#services/queue_service'
   import { generatePostImage } from '#services/image_generator'
   import drive from '@adonisjs/drive/services/main'
 
@@ -244,9 +245,18 @@ Configure a viewport com densidade elevada (`deviceScaleFactor: 2`) para saída 
   }
 
   export default class GeneratePostImageJob {
-    static key = 'GeneratePostImageJob'
+    static readonly queueName = 'ai'
 
-    async handle(job: Job<PostGenerationData>) {
+    static async dispatch(data: PostGenerationData): Promise<void> {
+      await aiQueue.add('generate-post-image', data, {
+        attempts: 3,
+        backoff: { type: 'exponential', delay: 5000 },
+        removeOnComplete: { count: 100 },
+        removeOnFail: { count: 500 },
+      })
+    }
+
+    static async handle(job: Job<PostGenerationData>): Promise<void> {
       const { htmlContent, ratio, destinationPath } = job.data
 
       // Executa no worker em segundo plano
@@ -260,6 +270,7 @@ Configure a viewport com densidade elevada (`deviceScaleFactor: 2`) para saída 
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** bloqueie o event loop com operações síncronas de arquivos (`fs.writeFileSync`). Use versões assíncronas (`fs.promises`) ou streams.
 * **NÃO** execute `puppeteer.launch` diretamente dentro de controllers de requisição ou em loops. Use o serviço singleton encapsulado; em fluxos pontuais, garanta o `browser.close()` em `try/finally`. Vazamentos de processos zumbis do Chrome consomem rapidamente toda a RAM.
 * **NÃO** deixe páginas/abas abertas. Sempre envolva a captura/geração em `try...finally`, garantindo `page.close()` independentemente de sucesso ou falha.

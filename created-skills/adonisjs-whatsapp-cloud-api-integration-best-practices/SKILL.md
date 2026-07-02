@@ -176,9 +176,12 @@ Fornecer diretrizes seguras, performáticas e resilientes para a integração co
         return response.status(401).send('Unauthorized: Incompatibilidade de assinatura')
       }
 
-      // Persistência rápida do payload bruto
+      // Persistência do payload exato que foi assinado (rawBody).
+      // NÃO use request.all(): com bodyparser json.convertEmptyStringsToNull=true,
+      // strings vazias viram null e divergem dos bytes verificados na assinatura.
+      const payload = JSON.parse(rawBody)
       const webhook = await Webhook.create({
-        payload: request.all() ?? null,
+        payload: payload ?? null,
         parameters: request.params() ?? null,
         ip: request.ip(),
         routeName: 'api.whatsapp.webhook',
@@ -202,6 +205,7 @@ Fornecer diretrizes seguras, performáticas e resilientes para a integração co
 * Atualize o campo `processedAt` do webhook original para indicar conclusão.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO execute fluxos de negócios complexos, gravações lentas em banco de dados ou chamadas síncronas de processamento HTTP de mensagens dentro do controller do Webhook.
 * NÃO confie em payloads de webhook sem realizar a validação prévia do cabeçalho `X-Hub-Signature-256` utilizando o App Secret.
 * NÃO armazene chaves, tokens ou segredos de API diretamente nos arquivos de código do repositório; use sempre arquivos de ambiente `.env` e a camada de config.

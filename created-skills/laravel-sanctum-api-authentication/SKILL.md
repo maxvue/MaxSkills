@@ -127,6 +127,7 @@ Follow these patterns to authenticate API requests in your feature tests.
   ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Never expose the plain text token** in any responses or logs after its initial creation.
 - **Do not use stateful cookie authentication** for external webhooks or third-party APIs. Always use Personal Access Tokens.
 - **Do not skip CSRF verification** on routes using stateful cookie-based session authentication.

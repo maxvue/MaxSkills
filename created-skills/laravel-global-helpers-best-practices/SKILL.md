@@ -73,6 +73,7 @@ test('format_cnpj formats raw numbers correctly', function () {
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NEVER** define a global helper function without wrapping it in a `if (! function_exists(...))` block.
 - **NEVER** use static state variables or static class properties to preserve state across requests.
 - **NEVER** use generic names that might collide with Laravel's built-in helper functions (e.g., `array_get`, `collect`, `request`). Always check the Laravel Helpers documentation before creation.

@@ -27,8 +27,9 @@ Provide guidelines, standards, and best practices for implementing dynamic compo
    - Avoid using `onMounted` or `onUnmounted` for tasks that must execute every time the user navigates back to a cached tab, as these hooks only fire once per component mount/unmount cycle.
 
 5. **Composition API & SFC Standards**:
-   - Ensure all components use `<script setup lang="ts">` and `<style scoped lang="scss">`.
-   - Block order must strictly follow: `<template>`, then `<script>`, then `<style>`.
+   - Ensure all components use `<script setup lang="ts">`.
+   - Style via UnoCSS attributify (`presetMaxUno`) with theme tokens (`bg-primary`, `bg-background`, `color-text`, `border-$gray-light`, etc.) applied as inline attributes on the elements — do NOT write `<style scoped lang="scss">` blocks or raw hex colors.
+   - Block order must strictly follow: `<template>`, then `<script>`.
    - In templates, format component tags with all parameters on a single line (inline layout, do not wrap attributes into multiple lines).
 
 ## Examples
@@ -36,11 +37,11 @@ Provide guidelines, standards, and best practices for implementing dynamic compo
 ### Example 1: Strongly Typed Dynamic Tabs with KeepAlive and shallowRef
 ```vue
 <template>
-  <div class="tabs-container">
-    <div class="tabs-header">
-      <MaxButton v-for="tab in tabItems" :key="tab.id" :class="{ active: activeTab === tab.id }" :label="tab.label" @click="activeTab = tab.id" />
+  <div flex flex-col w-full>
+    <div flex gap-2 mb-4>
+      <MaxButton v-for="tab in tabItems" :key="tab.id" :variant="activeTab === tab.id ? undefined : 'text'" :label="tab.label" @click="activeTab = tab.id" />
     </div>
-    <div class="tabs-content">
+    <div>
       <KeepAlive :max="5">
         <component :is="activeComponent" />
       </KeepAlive>
@@ -76,43 +77,16 @@ const activeComponent = computed(() => {
   return currentTab ? currentTab.component : null;
 });
 </script>
-
-<style scoped lang="scss">
-.tabs-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  
-  .tabs-header {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-    
-    // O template renderiza <MaxButton>, não um <button> nativo; alcançamos o
-    // elemento interno via :deep() e alvejamos a classe aplicada no componente.
-    :deep(.max-button) {
-      padding: 8px 16px;
-      border: 1px solid #ccc;
-      background-color: #f9f9f9;
-      cursor: pointer;
-      
-      &.active {
-        background-color: #007bff;
-        color: white;
-        border-color: #007bff;
-      }
-    }
-  }
-}
-</style>
 ```
+
+> Estado ativo/inativo da aba: use a própria prop `variant` do `MaxButton` (aba ativa = variante sólida padrão; abas inativas = `variant="text"`), em vez de tentar estilizar uma classe interna inventada como `.max-button` — o `MaxButton` renderiza um `<Button>` do PrimeVue e só aplica condicionalmente `.max-button-dashed` / `.icon-button-b`, nunca uma classe `.max-button`. Layout/espaçamento via atributos UnoCSS (attributify) com tokens do tema.
 
 ### Example 2: Code Splitting with defineAsyncComponent and Cache Lifecycle Hooks
 ```vue
 <template>
-  <div class="dashboard-panel">
+  <div p-6 bg-background>
     <h2>Painel Executivo</h2>
-    <div class="widget-area">
+    <div mt-4 min-h-75>
       <KeepAlive include="AsyncChartWidget" :max="3">
         <component :is="chartComponent" />
       </KeepAlive>
@@ -144,28 +118,16 @@ const AsyncChartWidget = defineComponent({
 // shallowRef para melhor performance ao gerenciar o componente dinâmico
 const chartComponent = shallowRef(AsyncChartWidget);
 </script>
-
-<style scoped lang="scss">
-.dashboard-panel {
-  padding: 24px;
-  background-color: #ffffff;
-  
-  .widget-area {
-    margin-top: 16px;
-    min-height: 300px;
-  }
-}
-</style>
 ```
 
 ### Example 3: Inside a Cached Tab Component (AsyncChartWidget.vue)
 ```vue
 <template>
-  <div class="chart-widget">
+  <div b="1 solid $gray-light" p-4 rounded-lg>
     <h3>Relatório de Engajamento</h3>
-    <div class="chart-container">
+    <div>
       <div v-if="loading">Carregando dados atualizados...</div>
-      <div v-else class="chart-placeholder">Gráfico renderizado: {{ chartData }}</div>
+      <div v-else>Gráfico renderizado: {{ chartData }}</div>
     </div>
   </div>
 </template>
@@ -207,21 +169,14 @@ onDeactivated(() => {
   console.log('Componente de métricas desativado. Intervalo limpo.');
 });
 </script>
-
-<style scoped lang="scss">
-.chart-widget {
-  border: 1px solid #eaeaea;
-  padding: 16px;
-  border-radius: 8px;
-}
-</style>
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** use Options API (`data`, `methods`, etc.). All logic must use Composition API (`<script setup lang="ts">`).
 - **Do NOT** wrap dynamic components in standard `ref()` without wrapping the component definition in `markRaw()`, or assigning to a `shallowRef()`. Wrapping large component instances in a deep reactive proxy will cause severe performance degradation and browser warnings.
 - **Do NOT** omit the `max` prop on `<KeepAlive>`. Unbounded caches can lead to browser memory exhaustion, especially on heavy dashboards.
 - **Do NOT** use `onMounted` or `onUnmounted` for actions that must execute every time the user enters or leaves a cached view (e.g., starting pollers, updating data). Use `onActivated` and `onDeactivated` instead.
-- **Do NOT** write styles in plain CSS. All styling must use SCSS (`lang="scss"`).
+- **Do NOT** write `<style scoped lang="scss">` blocks or raw hex colors (e.g. `#007bff`). All styling must use UnoCSS attributify (`presetMaxUno`) via inline attributes on the elements, using theme tokens (`bg-primary`, `bg-background`, `color-white`, `border-$gray-light`) instead of hardcoded colors.
 - **Do NOT** break Vue component tags into multiple lines in the `<template>` section. Keep all attributes inline on a single line.
 - **Do NOT** write code comments in English. All code comments in examples must be written in Brazilian Portuguese (pt-BR).

@@ -85,6 +85,7 @@ Gerencie as requisições API e URLs usando os helpers do `@maxvue/max-use` (res
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** escreva SCSS customizado (como width, height, padding, margin) que possa ser solucionado pelo preset UnoCSS.
 - Mantenha os blocos em arquivos Single File Component estritamente nesta ordem: `<template>`, `<script setup lang="ts">`, `<style scoped lang="scss">`.
 - Os atributos em tags dentro de `<template>` devem ficar *inline* (em uma única linha), não devendo ser quebrados em múltiplas linhas.

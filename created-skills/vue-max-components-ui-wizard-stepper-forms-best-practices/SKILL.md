@@ -60,26 +60,26 @@ Estabelecer um padrão de implementação claro, consistente e robusto para form
 
 ```vue
 <template>
-  <div class="wizard-container">
+  <div max-w-600px mx-auto p-8>
     <Stepper :value="activeStep">
       <StepList>
-        <Step :value="0" class="step-header">Passo 1: Onboarding</Step>
-        <Step :value="1" class="step-header">Passo 2: Configuração</Step>
-        <Step :value="2" class="step-header">Passo 3: Confirmação</Step>
+        <Step :value="0" font-600>Passo 1: Onboarding</Step>
+        <Step :value="1" font-600>Passo 2: Configuração</Step>
+        <Step :value="2" font-600>Passo 3: Confirmação</Step>
       </StepList>
       
       <StepPanels>
         <StepPanel :value="0">
-          <div class="step-content">
+          <div flex flex-col gap-6 mt-8>
             <MaxInputText v-model="formData.name" :error="errors.name" label="Nome da Usina" placeholder="Digite o nome" />
             <MaxButton @click="validateAndNext(0)" label="Avançar" />
           </div>
         </StepPanel>
         
         <StepPanel :value="1">
-          <div class="step-content">
+          <div flex flex-col gap-6 mt-8>
             <MaxInputText v-model="formData.website" :error="errors.website" label="Website" placeholder="https://..." />
-            <div class="button-group">
+            <div flex justify-between gap-4>
               <MaxButton @click="back" label="Voltar" severity="secondary" />
               <MaxButton @click="validateAndNext(1)" label="Avançar" />
             </div>
@@ -87,9 +87,9 @@ Estabelecer um padrão de implementação claro, consistente e robusto para form
         </StepPanel>
         
         <StepPanel :value="2">
-          <div class="step-content">
+          <div flex flex-col gap-6 mt-8>
             <p>Confirme os dados da usina {{ formData.name }} ({{ formData.website }}).</p>
-            <div class="button-group">
+            <div flex justify-between gap-4>
               <MaxButton @click="back" label="Voltar" severity="secondary" />
               <MaxButton :loading="submitting" @click="submit" label="Finalizar" />
             </div>
@@ -199,34 +199,11 @@ const submit = async () => {
 };
 </script>
 
-<style scoped lang="scss">
-.wizard-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-  
-  .step-header {
-    font-weight: 600;
-  }
-  
-  .step-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-}
-</style>
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO use Options API:** Sempre implemente utilizando `<script setup lang="ts">` (Composition API e TypeScript).
-- **NÃO use Estilização Tailwind:** Mantenha os estilos estruturados dentro de `<style scoped lang="scss">`. Não use classes utilitárias do Tailwind a menos que explicitamente solicitado.
+- **Estilização via UnoCSS attributify (presetMaxUno):** Aplique layout e espaçamento com atributos utilitários inline nos `<div>` (ex.: `flex flex-col gap-6`, `flex justify-between gap-4`, `max-w-600px mx-auto p-8`). NÃO use classes CSS nomeadas nem blocos `<style scoped lang="scss">` para estrutura.
 - **NÃO use Atributos HTML Multilinha:** Todas as propriedades/atributos dentro de componentes customizados Max Vue no `<template>` devem ser formatados inline em uma única linha.
 - **NÃO faça Transições de Etapa Sem Validação:** Nunca incremente o índice de etapas ou invoque funções de avanço sem rodar validações Zod nos campos da etapa ativa.

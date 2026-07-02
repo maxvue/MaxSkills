@@ -1,10 +1,10 @@
 ---
 name: typescript-max-banks-efi-gateway-best-practices
-description: Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2 authentication, executing Pix charges or credit card subscriptions via Efí, handling failed payments, and parsing Efí webhooks.
+description: Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks.
 ---
 
 ## Objetivo
-Fornecer diretrizes estruturadas e melhores práticas para a integração do gateway de pagamento Efí (EfiGateway) dentro do pacote `@maxvue/max-banks`. Isso garante autenticação OAuth2/mTLS segura, abstração limpa dos fluxos de Pix e assinaturas de cartão de crédito, e processamento resiliente de webhooks.
+Fornecer diretrizes estruturadas e melhores práticas para a integração do gateway de pagamento Efí (EfiGateway) dentro do pacote `@maxvue/max-banks`. Isso garante autenticação OAuth2/mTLS segura, abstração limpa do fluxo de Pix (`createPixCharge`/`getCharge`) e processamento resiliente de webhooks.
 
 ## Instruções
 
@@ -37,29 +37,22 @@ Fornecer diretrizes estruturadas e melhores práticas para a integração do gat
   - Obtenha a imagem do QR code e o payload fazendo uma requisição GET para `/v2/loc/{locId}/qrcode`.
   - Exponha tanto a imagem do QR code codificada em base64 quanto a string bruta de "Copia e Cola EMV" (`pixCopiaECola`).
 
-## 3. Gerenciamento de Cartão de Crédito e Assinaturas
-* Para pagamentos com cartão de crédito e assinaturas recorrentes:
-  - Utilize os tokens de pagamento gerados de forma segura no lado do cliente (nunca passe detalhes brutos do cartão diretamente pela API do seu backend).
-  - Respeite o fluxo de assinaturas da Efí, que usa endpoints distintos e em ordem:
-    - **Criar o plano:** `POST /v1/plan` (define nome, intervalo e repetições do ciclo). O plano é reutilizável entre assinantes.
-    - **Criar a assinatura sobre o plano:** `POST /v1/plan/{id}/subscription` informando os `items` (valor em centavos) e os dados do cliente.
-    - **Vincular o pagamento (cartão recorrente):** `POST /v1/subscription/{id}/pay` enviando o `payment_token` gerado no cliente e os dados de cobrança. É este passo que efetiva a recorrência no cartão.
-    - **Cobranças avulsas (não recorrentes) de cartão:** use `POST /v1/charge` seguido de `POST /v1/charge/{id}/pay` com o `payment_token`.
-  - Traduza os estados de assinatura da Efí para estados canônicos: `active`/`new` é mapeado para `active`, `unpaid`/`expired` é mapeado para `past_due` e `canceled` é mapeado para `canceled`.
+> **Escopo:** Na versão atual do `@maxvue/max-banks`, o `EfiGateway` implementa apenas a superfície de Pix — a interface `PaymentGateway` declara somente `createPixCharge`, `getCharge` e `parseWebhook`, e `PaymentMethod` é "v1: apenas pix". Não existe API de cartão de crédito nem endpoints de plano/assinatura (`/v1/plan`, `/v1/subscription`, `payment_token`) no gateway. Assinaturas, quando existem, são modeladas por uma máquina de estados canônica e orientada a eventos (`core/subscription/stateMachine.ts`, com `SubscriptionStatus` = `incomplete`/`trialing`/`active`/`past_due`/`grace`/`canceled` e transições via `transition()`/`canTransition()` sobre eventos como `payment_confirmed`/`payment_failed`/`grace_expired`/`cancel`), e **não** por mapeamento de strings de status da Efí. Não invente aqui um fluxo de cartão/assinatura via gateway.
 
-## 4. Processamento e Validação de Webhooks
+## 3. Processamento e Validação de Webhooks
 * **Fonte da Verdade:** Webhooks são a principal fonte da verdade para atualizações de status de transações.
-* **Análise e Normalização:** Traduza os payloads de webhook da Efí em um `CanonicalWebhookEvent` usando uma `idempotencyKey` determinística formatada como `efi:pix:{txid}` ou `efi:subscription:{subscriptionId}`.
+* **Análise e Normalização:** Traduza os payloads de webhook da Efí em um `CanonicalWebhookEvent` usando uma `idempotencyKey` determinística igual ao `endToEndId` do Pix (com fallback para o `txid` e, na ausência de ambos, `'unknown'`) — **sem prefixo** (não use `efi:pix:` nem qualquer variante `efi:subscription:`; não há webhook de assinatura).
 * **Segurança e Verificação:**
-  - Webhooks da Efí devem ser validados verificando as faixas de IP de origem ou validando um token de cabeçalho customizado compartilhado durante o registro do webhook.
+  - **mTLS na borda é o mecanismo primário/recomendado** de autenticação dos webhooks da Efí (o certificado cliente é validado no ingress/reverse-proxy antes de chegar à aplicação).
+  - Como defesa em profundidade, valide adicionalmente as faixas de IP de origem (allowlist) e, se configurado, um token de cabeçalho compartilhado comparado de forma segura contra timing (comparação time-safe). Não há header HMAC por padrão.
 
-## 5. Tratamento e Normalização de Erros
+## 4. Tratamento e Normalização de Erros
 * Intercepte erros de resposta da API Efí e analise o payload de erro para lançar exceções padronizadas:
   - `401 Unauthorized` -> `AuthenticationError` (por exemplo, credenciais de cliente expiradas ou inválidas).
   - `400 Bad Request` com subcódigos Pix -> `InvalidPixPayloadError` (por exemplo, chave Pix inválida, txid expirado).
-  - Recusas de cartão de crédito -> `PaymentDeclinedError` com a mensagem específica fornecida pela Efí (por exemplo, saldo insuficiente, CVV incorreto).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Não acesse variáveis de ambiente de processo globais (`process.env`) dentro do código do cliente ou do gateway.
 * Não utilize credenciais de API fixadas diretamente no código (hardcoded), as credenciais devem ser passadas dinamicamente.
 * Nunca registre senhas brutas de certificados, segredos do cliente ou logs de payloads completos contendo detalhes confidenciais de clientes.

@@ -26,7 +26,7 @@ Estabelecer diretrizes de código, padrões arquiteturais e padrões de implemen
   }
   ```
 * Imponha a autorização dentro dos controladores utilizando o helper de bouncer do contexto HTTP: `await bouncer.with(PostPolicy).authorize('view', post)`.
-* Trate falhas de autorização de forma amigável. O Bouncer do AdonisJS lança uma exceção `E_AUTHORIZATION_DENIED`, que deve ser tratada globalmente no manipulador de exceções da aplicação ou localmente com blocos try-catch para retornar uma resposta estruturada de `403 Forbidden`.
+* Trate falhas de autorização de forma amigável. O Bouncer do AdonisJS lança uma exceção `E_AUTHORIZATION_FAILURE` (classe `AuthorizationException`), que deve ser tratada globalmente no manipulador de exceções da aplicação ou localmente com blocos try-catch para retornar uma resposta estruturada de `403 Forbidden`.
 
 ### 3. Login Social (AdonisJS Ally)
 * Utilize o `@adonisjs/ally` para autenticação OAuth com os provedores sociais configurados no projeto: **Google** e **Facebook**. Após o callback bem-sucedido, autentique o usuário pela sessão (`auth.use('web').login(user)`).
@@ -114,7 +114,7 @@ export default class SocialAuthController {
 
     // 1. Verifica erros no fluxo do provedor/usuário
     if (google.hasError()) {
-      if (google.isCanceled()) {
+      if (google.accessDenied()) {
         logger.info('Fluxo OAuth cancelado pelo usuário.')
         return response.redirect().toRoute('login', {}, { qs: { q: 'auth_canceled' } })
       }
@@ -149,6 +149,7 @@ export default class SocialAuthController {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Não** escreva regras de autorização inline nos controladores para objetos que exijam isolamento de tenant. Sempre delegue para as Políticas do Bouncer (Policies).
 * **Não** ignore a verificação de multitenancy (ex: verificar apenas a propriedade do recurso, mas esquecer de comparar o contexto de tenant `solar_company_id`).
 * **Não** armazene senhas em texto puro. Utilize o hashing do AdonisJS (mixin `withAuthFinder` com `hash` / `hash.make()`). Access tokens, quando usados para integrações (ex: MCP), também devem ser persistidos com hash.

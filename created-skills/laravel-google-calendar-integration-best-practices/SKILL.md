@@ -107,6 +107,7 @@ Establish clean, secure, and resilient standards for integrating and synchronizi
   ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * **No Synchronous API Calls:** Absolutely no Google Calendar HTTP API requests are allowed during synchronous web requests.
 * **No Plain-Text Tokens:** Do not store plain-text access or refresh tokens in the database.
 * **No hardcoded credentials:** Credentials (client IDs, secrets, service account details) must never be hardcoded in PHP files.

@@ -158,6 +158,7 @@ Git:
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Nunca proponha uma correção antes de completar a investigação da causa raiz na Fase 1.
 - Corrija a causa raiz, não o sintoma.
 - Mude UMA variável por vez; nunca empilhe várias correções.

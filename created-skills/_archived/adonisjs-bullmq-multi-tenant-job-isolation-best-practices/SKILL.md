@@ -154,6 +154,7 @@ export default class GenerateReportJob {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Nenhuma Ação de Worker sem Tenant**: Nunca realize inserções, atualizações ou exclusões no banco de dados dentro de uma tarefa de worker sem antes estabelecer o contexto do `TenantService`.
 * **Nenhum Estado Compartilhado em Nível de Classe**: Nunca armazene o `tenantId` do job atual em variáveis estáticas ou campos de classe compartilhados. Os workers processam múltiplos jobs de forma concorrente, e variáveis estáticas causarão vazamento de dados entre tenants (tenant leakage). Sempre execute as tarefas dentro de `TenantService.run()`.
 * **Limpeza Segura de Contexto em Falhas**: Se o processo do worker falhar ou lançar uma exceção, garanta que o contexto seja limpo. O `TenantService.run()` gerencia a pilha de contextos automaticamente, mas quaisquer conexões ou configurações manuais personalizadas devem ser tratadas em um bloco `finally`.

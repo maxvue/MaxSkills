@@ -215,6 +215,7 @@ export default class CalendarEvent extends compose(BaseModel, withSoftDeletes) {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Uso de Transações Obrigatório**: Nunca propague alterações de soft delete entre múltiplas tabelas/models sem envolver a execução em uma transação de banco de dados (`db.transaction()`).
 - **Não Sobrescrever o Método Delete Nativo**: Não sobrescreva o método `delete()` base do modelo diretamente com comportamento de soft delete, a menos que isso seja explicitamente documentado e esperado pela arquitetura da aplicação, pois outros componentes ou scripts CLI podem depender da exclusão física real. Prefira métodos explícitos como `softDelete()`, `cascadeSoftDelete()` e `restore()`.
 - **Query Scopes Vinculados ao Contexto**: Ao realizar consultas contendo joins, certifique-se de selecionar explicitamente as colunas desejadas ou qualificar as colunas `deleted_at` (ex: `nome_tabela.deleted_at IS NULL`) para evitar erros de ambiguidade de nome de coluna no SQL.

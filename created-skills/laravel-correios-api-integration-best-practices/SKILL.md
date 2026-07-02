@@ -29,6 +29,7 @@ Establish solid, consistent guidelines for integrating, consuming, and debugging
 *   **Custom Exceptions**: Avoid silent failures or returning generic empty values. Throw a domain-specific exception (e.g., `CorreiosIntegrationException`) when the API is unreachable, credentials are invalid, or responses are malformed.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 *   **NEVER** silence HTTP exceptions or connection failures by returning `null` without logging the error with full context.
 *   **DO NOT** invoke HTTP response methods (like `json()`) on arrays read from the cache.
 *   **DO NOT** store the authentication token in static class properties or instance properties without a mechanism to refresh it when it expires in the cache.

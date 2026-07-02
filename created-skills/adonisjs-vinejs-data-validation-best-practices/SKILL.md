@@ -129,6 +129,7 @@ Para validar formatos comuns no mercado brasileiro, crie regras customizadas e r
 * Para projetos com múltiplos idiomas, utilize a integração com o pacote `@adonisjs/i18n`, que automaticamente gerencia o provedor de mensagens com base nos dicionários de tradução em `resources/lang/`.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NUNCA chame `vine.compile()` dentro de métodos de controllers. Sempre declare e compile esquemas de validação no escopo do módulo.
 * NUNCA use blocos manuais de try/catch nos controllers apenas para lidar com erros de validação. Deixe o handler global de exceções do AdonisJS capturar `E_VALIDATION_ERROR` (Unprocessable Entity) e formatar a resposta JSON.
 * NUNCA ignore a segurança de tipagem com TypeScript. Exporte sempre o tipo utilitário usando `Infer<typeof validator>` para compartilhamento seguro com outras partes da aplicação.

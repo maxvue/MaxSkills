@@ -72,6 +72,7 @@ Provide solid guidelines and structured patterns for creating, reading, editing,
 ---
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NO Direct Controller Output:** Never perform heavy document generation synchronously inside controllers. If document generation takes more than 2 seconds (e.g., generating high-photo lauds), dispatch a Queue Job and notify the user via WebSockets/Reverb.
 - **NO Unescaped Raw HTML:** Do not pass raw HTML strings directly into `setValue()`. The XML parser will fail and MS Word will complain that the file is corrupt. Use specialized HTML parsers (like `Html::addHtml`) or escape/strip tags first.
 - **NO Hardcoded Paths:** Do not hardcode filesystem paths for templates or output files. Always use `storage_path()` or `resource_path()`.

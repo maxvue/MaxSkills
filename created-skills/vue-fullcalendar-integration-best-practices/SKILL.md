@@ -71,22 +71,32 @@ Ao vincular eventos, evite reinstanciar o array de origem `events` inteiro se is
 * O GET dos eventos deve passar por uma store `@maxvue/max-pinia` (com cache + auto-save), não por `axios.get` manual. Forneça o array reativo dessa store (ex.: `store.events`) diretamente nas opções computadas ou como uma prop separada. Você também pode definir `events` como uma função callback que lê da store.
 * Se estiver usando a propriedade `events` dentro de `calendarOptions`, certifique-se de que o array reativo mapeado para ela seja atualizado de forma rasa ou utilize uma referência estável.
 
+Não coloque o `.map()` diretamente dentro do `calendarOptions` computed: como o computed re-executa a cada mudança reativa (inclusive de outras opções), o `.map()` produziria um array novo — com novas identidades de objeto — a cada avaliação, forçando o FullCalendar a redesenhar todos os eventos. Isole o mapeamento em um `computed` próprio (referência estável, só recalcula quando `store.events` muda) e referencie-o em `calendarOptions`:
+
 ```typescript
-const calendarOptions = computed<CalendarOptions>(() => ({
-  plugins: [dayGridPlugin, interactionPlugin],
-  initialView: 'dayGridMonth',
-  locale: 'pt-br',
-  // store é uma store @maxvue/max-pinia que faz o GET dos eventos (cache + auto-save)
-  events: store.events.map(event => ({
+// store é uma store @maxvue/max-pinia que faz o GET dos eventos (cache + auto-save).
+// computed dedicado: só recalcula (e gera novas identidades) quando store.events muda.
+const calendarEvents = computed(() =>
+  store.events.map(event => ({
     id: event.id,
     title: event.title,
     start: event.start_at,
     end: event.end_at,
     extendedProps: { ...event }
-  })),
+  }))
+);
+
+const calendarOptions = computed<CalendarOptions>(() => ({
+  plugins: [dayGridPlugin, interactionPlugin],
+  initialView: 'dayGridMonth',
+  locale: 'pt-br',
+  // Referência estável: reutiliza o array memoizado; muda apenas quando store.events muda.
+  events: calendarEvents.value,
   // ...
 }));
 ```
+
+> Alternativa: passar `events` como função callback (`events: (info, success) => success(calendarEvents.value)`), deixando o FullCalendar buscar da store sob demanda, ou fazer o mapeamento na camada da store para manter as identidades estáveis.
 
 ### 4. Internacionalização (pt-BR)
 Sempre configure a opção `locale: 'pt-br'` e defina os textos de botões apropriados:
@@ -125,6 +135,7 @@ Como os elementos HTML do FullCalendar são criados dinamicamente fora do escopo
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** utilize `ref` ou `reactive` comuns para armazenar instâncias de API ou componentes do FullCalendar. Você deve usar `shallowRef`.
 * **NÃO** quebre atributos em múltiplas linhas no bloco `<template>`.
 * **NÃO** utilize a Options API. Sempre utilize a Composition API (`<script setup lang="ts">`).

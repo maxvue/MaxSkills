@@ -211,6 +211,7 @@ export default class AsaasWebhookJob {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NUNCA execute chamadas síncronas de gravação na API do Asaas dentro do ciclo de vida HTTP do endpoint de webhook. Sempre use BullMQ.
 * NUNCA aceite pacotes de webhook do Asaas sem validar o cabeçalho `asaas-access-token`.
 * NUNCA utilize chaves numéricas autoincrementais para chaves primárias dos models de relacionamento com o Asaas; sempre utilize chaves de tipo ULID.

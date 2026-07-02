@@ -23,7 +23,7 @@ Stack-alvo: AdonisJS v6 (Node) + Vue Router (SPA pura) + Vite 8. SEM Inertia, SE
 - Comentários de código (script/style/template) estritamente em **Português do Brasil (pt-BR)**.
 
 ### 2. Integração com Bibliotecas Locais (MaxComponentsUi / MaxUse)
-- Use componentes do MaxComponentsUi no lugar de tags nativas: `MaxButton`/`MaxIconButton` (em vez de `<button>`), `MaxIcon` (ícones), `MaxTitle`/`MaxText` (em vez de `<h3>`/`<h4>`), `MaxUserAvatar` (avatares), `MaxModal`, `MaxGrid` quando aplicável (não existe um `MaxCard` genérico — use `<div>` + SCSS).
+- Use componentes do MaxComponentsUi no lugar de tags nativas: `MaxButton`/`MaxIconButton` (em vez de `<button>`), `MaxIcon` (ícones), `MaxTitle1`/`MaxTitle2` (títulos, via props `:h1`/`:h2` — não existe um `MaxTitle` genérico com `:level`, nem `MaxText`; para texto simples use `<span>`/`<p>` com tokens de tema), `MaxUserAvatar` (avatares), `MaxModal`, `MaxGrid` quando aplicável (não existe um `MaxCard` genérico — use `<div>` + SCSS).
 - Componentes do MaxComponentsUi são auto-registrados via `unplugin-vue-components` — **sem import manual** no template.
 - `ref`, `computed`, `watch` etc. são auto-importados via `unplugin-auto-import` — **sem import manual**.
 - `useTimeAgo` (e demais composables do `@maxvue/max-use`): instancie o composable **uma única vez** no `setup`, passando um `ref`/`computed` reativo com a data. **Nunca** instancie dentro de um `computed` — `useTimeAgo` cria um efeito interno e seria recriado a cada recálculo (vazamento/efeitos duplicados).
@@ -88,10 +88,10 @@ Stack-alvo: AdonisJS v6 (Node) + Vue Router (SPA pura) + Vite 8. SEM Inertia, SE
 
     <!-- Conteúdo do Texto -->
     <div px-3 pb-2 text-sm leading-relaxed whitespace-pre-wrap select-text>
-      <MaxText>
+      <span>
         <span>{{ displayedText }}</span>
         <MaxButton v-if="hasMoreText && !showFullText" variant="text" text-primary font-semibold ml-1 @click="showFullText = true">Ver mais</MaxButton>
-      </MaxText>
+      </span>
     </div>
 
     <!-- Mídia (Grade de Imagens / Collage) -->
@@ -141,8 +141,8 @@ Stack-alvo: AdonisJS v6 (Node) + Vue Router (SPA pura) + Vite 8. SEM Inertia, SE
       <img v-if="linkPreview.image" :src="linkPreview.image" alt="Thumbnail" w-full h-64 object-cover />
       <div p-3>
         <span text-xs text-muted uppercase tracking-wider>{{ linkPreview.domain }}</span>
-        <MaxTitle :level="4" text-sm font-semibold mt-1 text-default line-clamp-1>{{ linkPreview.title }}</MaxTitle>
-        <MaxText text-xs text-muted mt-1 line-clamp-2>{{ linkPreview.description }}</MaxText>
+        <MaxTitle2 :h1="linkPreview.title" text-sm font-semibold mt-1 text-default line-clamp-1 />
+        <p text-xs text-muted mt-1 line-clamp-2>{{ linkPreview.description }}</p>
       </div>
     </a>
 
@@ -369,7 +369,7 @@ import { useTimeAgo } from '@maxvue/max-use';
 <template>
   <div class="instagram-simulator-container">
     <div class="profile-header-preview" flex items-center mb-20>
-      <MaxUserAvatar :imageUrl="props.clientAvatar" :name="props.clientName" size="xlarge" />
+      <MaxUserAvatar :imageUrl="props.clientAvatar" :name="props.clientName" />
       <div class="profile-info-meta" ml-15>
         <span class="username" text-lg font-bold>{{ props.clientUsername }}</span>
         <div class="stats-counter" flex gap-15 mt-5>
@@ -492,8 +492,8 @@ const onGridReorder = () => { emit('reordered', posts.value); };
     <div flex="~" items-center justify-between border-b="~ base" pb-3>
       <span text-xs text-muted font-semibold uppercase tracking-wider>Visualização Prévia</span>
       <div flex="~" bg-surface p-0.5 rounded-lg>
-        <MaxButton :variant="!isMobile ? 'soft' : 'ghost'" size="sm" icon="mdi:desktop-mac" @click="isMobile = false">Desktop</MaxButton>
-        <MaxButton :variant="isMobile ? 'soft' : 'ghost'" size="sm" icon="mdi:cellphone" @click="isMobile = true">Mobile</MaxButton>
+        <MaxButton :variant="!isMobile ? 'outlined' : 'text'" size="sm" icon="mdi:desktop-mac" @click="isMobile = false">Desktop</MaxButton>
+        <MaxButton :variant="isMobile ? 'outlined' : 'text'" size="sm" icon="mdi:cellphone" @click="isMobile = true">Mobile</MaxButton>
       </div>
     </div>
 
@@ -522,13 +522,13 @@ const onGridReorder = () => { emit('reordered', posts.value); };
       <div p-4 flex="~ col" gap-3>
         <!-- Títulos Especiais -->
         <div v-if="postType === 'OFFER' && offerTitle" flex="~ col">
-          <MaxTitle :level="3" class="gbp-offer-title" font-bold leading-snug>{{ offerTitle }}</MaxTitle>
+          <MaxTitle1 :h1="offerTitle" class="gbp-offer-title" font-bold leading-snug />
           <span text-xs text-muted font-medium mt-1 flex="~" items-center gap-1>
             <MaxIcon icon="mdi:clock-outline" size="0.8rem" /><span>Validade: {{ offerDates }}</span>
           </span>
         </div>
         <div v-else-if="postType === 'EVENT' && eventTitle" flex="~ col">
-          <MaxTitle :level="3" class="gbp-event-title" font-bold leading-snug>{{ eventTitle }}</MaxTitle>
+          <MaxTitle1 :h1="eventTitle" class="gbp-event-title" font-bold leading-snug />
           <span text-xs text-muted font-medium mt-1 flex="~" items-center gap-1>
             <MaxIcon icon="mdi:calendar-clock" size="0.8rem" /><span>Horário: {{ eventDates }}</span>
           </span>
@@ -549,7 +549,12 @@ const onGridReorder = () => { emit('reordered', posts.value); };
             </div>
             <MaxButton variant="link" size="sm" @click="simulateCopy">Copiar</MaxButton>
           </div>
-          <MaxButton v-if="terms" variant="link" size="sm" @click="showTermsModal = true">Ver termos e condições</MaxButton>
+          <MaxModal v-if="terms" title="Termos e Condições">
+            <template #button>
+              <MaxButton variant="link" size="sm">Ver termos e condições</MaxButton>
+            </template>
+            <p text-xs text-muted leading-relaxed>{{ terms }}</p>
+          </MaxModal>
         </div>
 
         <!-- Botão de CTA -->
@@ -560,10 +565,6 @@ const onGridReorder = () => { emit('reordered', posts.value); };
         </div>
       </div>
     </div>
-
-    <MaxModal v-model="showTermsModal" title="Termos e Condições">
-      <p text-xs text-muted leading-relaxed>{{ terms }}</p>
-    </MaxModal>
   </div>
 </template>
 
@@ -595,7 +596,6 @@ const props = withDefaults(defineProps<Props>(), { postType: 'NEWS', description
 
 const isMobile = ref<boolean>(false);
 const showFullText = ref<boolean>(false);
-const showTermsModal = ref<boolean>(false);
 
 // useTimeAgo instanciado uma vez, reagindo à fonte reativa.
 const publishDateRef = computed<Date>(() => new Date(props.publishDate ?? Date.now()));
@@ -639,12 +639,12 @@ const ctaUrl = computed<string>(() => {
 });
 
 const simulateCopy = (): void => {
-  Toast.info(`[Simulador] Código do cupom "${props.couponCode}" copiado!`);
+  Toast.show({ title: `[Simulador] Código do cupom "${props.couponCode}" copiado!`, severity: 'info' });
 };
 
 const handleCtaClick = (): void => {
-  if (props.ctaType === 'CALL_NOW') Toast.info('[Simulador] Ação "Ligar agora" disparada.');
-  else Toast.info(`[Simulador] CTA "${ctaLabel.value}" redirecionando para: ${ctaUrl.value}`);
+  if (props.ctaType === 'CALL_NOW') Toast.show({ title: '[Simulador] Ação "Ligar agora" disparada.', severity: 'info' });
+  else Toast.show({ title: `[Simulador] CTA "${ctaLabel.value}" redirecionando para: ${ctaUrl.value}`, severity: 'info' });
 };
 </script>
 
@@ -933,10 +933,13 @@ const validateAspectRatio = (file: File): Promise<boolean> => {
 - **NÃO** quebre atributos do template em várias linhas — mantenha-os em uma única linha.
 - **NÃO** faça GET/POST manual (`axios`/`fetch`) para dados de página nem salvamentos manuais — use stores `@maxvue/max-pinia` (auto-save debounced) com rotas string `/api/...`. NÃO use `route()`/Ziggy.
 - **NÃO** manipule o DOM por seletores (`document.querySelector`) — use `ref` de template.
-- **NÃO** use `alert()` nativo — use o helper `Toast` do `@maxvue/max-components-ui` (ex.: `Toast.info(...)`/`Toast.show({ title, severity })`).
+- **NÃO** use `alert()` nativo — use o helper `Toast` do `@maxvue/max-components-ui` (ex.: `Toast.show({ title, severity })`).
 - **NÃO** ignore as Safe Zones (9:16) nem os limites de caracteres (500 Threads, ~220/1500 GBP, 300 Facebook, 80 legenda vertical).
 - Todos os comentários de código em **pt-BR**.
 
 ## Skills relacionadas
 - `vue-draggable-next-best-practices` — drag-and-drop na grade do Instagram.
 - Stores e cache: padrões `@maxvue/max-pinia` (GET + auto-save).
+
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

@@ -1,28 +1,28 @@
 ---
 name: adonisjs-ai-image-generation-best-practices
-description: Use when designing, implementing, configuring, or debugging AI-based image generation features (using Google Imagen, OpenAI DALL-E, or other GenAI image models) within AdonisJS v6 backend. Triggers on setting up Vercel AI SDK image generation, handling image upload/storage to local Drive/S3, defining image prompt templates for graphic editor agents, and integrating image generation jobs in BullMQ.
+description: Use when designing, implementing, configuring, or debugging AI-based image generation features (using Google Imagen via @ai-sdk/google) within AdonisJS v6 backend. Triggers on setting up Vercel AI SDK image generation, handling image upload/storage to local Drive/S3, defining image prompt templates for graphic editor agents, and integrating image generation jobs in BullMQ.
 ---
 
 ## Objetivo
-Estabelecer padrões robustos, resilientes e com controle de custos para integrar a geração de imagens baseada em IA (como Google Imagen ou OpenAI DALL-E) no backend AdonisJS v6, incluindo o processamento assíncrono de filas de tarefas via BullMQ, armazenamento persistente de arquivos usando o `@adonisjs/drive` e o registro de custos/uso de tokens de IA.
+Estabelecer padrões robustos, resilientes e com controle de custos para integrar a geração de imagens baseada em IA (Google Imagen via `@ai-sdk/google`) no backend AdonisJS v6, incluindo o processamento assíncrono de filas de tarefas via BullMQ, armazenamento persistente de arquivos usando o `@adonisjs/drive` e o registro de custos/uso de tokens de IA.
 
 ## Instruções
 
 ## 1. Configuração do SDK de Geração de Imagens por IA
-Ao integrar a geração de imagens, use o Vercel AI SDK (`ai` e `@ai-sdk/google` ou `@ai-sdk/openai`). Evite usar chamadas REST diretas ou SDKs antigos e desatualizados.
+Ao integrar a geração de imagens, use o Vercel AI SDK (`ai` e `@ai-sdk/google`, o único provider de imagem instalado no projeto). Evite usar chamadas REST diretas ou SDKs antigos e desatualizados.
 
 ### Exemplo: Serviço Auxiliar (`app/services/image_generation_service.ts`)
 ```typescript
-import { experimental_generateImage as generateImage } from 'ai'
+import { generateImage } from 'ai'
 import { google } from '@ai-sdk/google'
 import env from '#start/env'
 
 export class ImageGenerationService {
   /**
-   * Gera uma imagem usando o modelo Google Imagen 3 via Vercel AI SDK
+   * Gera uma imagem usando o modelo Google Imagen 4 via Vercel AI SDK
    */
   async generate(prompt: string, aspectRatio: '1:1' | '3:4' | '4:3' | '16:9' = '4:3'): Promise<Buffer> {
-    const model = google.image('imagen-3.0-generate-002')
+    const model = google.image('imagen-4.0-generate-001')
 
     // O Vercel AI SDK aceita `size` OU `aspectRatio` (mutuamente exclusivos).
     // A resposta expõe `image.uint8Array` e `image.base64` (confirme contra a versão instalada do pacote `ai`).
@@ -146,7 +146,7 @@ export default class ImageGenerationJob {
       // Registra o Custo da API
       await saveAiCost('Project', projectId, {
         tokens: 0, // A geração geralmente tem preço fixo ou específico por modelo
-        model: 'imagen-3.0-generate-002',
+        model: 'imagen-4.0-generate-001',
         costInCents: 3, // Preço de referência em centavos por imagem
       })
     } catch (error) {
@@ -171,6 +171,7 @@ logger.error({ err: error, prompt }, 'Falha ao gerar imagem via IA')
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Nunca** armazene URLs externas temporárias retornadas por APIs de IA diretamente no banco de dados. Sempre baixe e salve os arquivos via `@adonisjs/drive` e persista o caminho local/S3 resolvido.
 - **Nunca** execute a geração de imagens por IA de forma síncrona em requisições de controllers. Roteie sempre para uma fila do BullMQ.
 - **Nunca** ignore políticas de erro. Configure sempre retries exponenciais e controle de limites de taxa de chamadas no BullMQ.

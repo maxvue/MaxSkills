@@ -18,8 +18,9 @@ Os endpoints AdonisJS precisam seguir padrões específicos para funcionar corre
 
 ```
 Frontend Store (isCached=true)
-  options.get.route  → GET /api/recurso/data  → Controller.data()  → { data: {...} }
+  options.get.route  → GET /api/recurso/data  → Controller.data()  → { ...campos }   (vira store.data verbatim)
   options.save       → POST /api/recurso/save → Controller.save()  → { success: true }
+                       body do POST = { ...store.data } (campos na raiz, sem wrapper "data")
 ```
 
 ---
@@ -27,9 +28,9 @@ Frontend Store (isCached=true)
 ## Instruções
 
 ### 1. Padrão de Endpoint GET
-O MaxPinia faz GET para `options.get.route` ao montar a store. O endpoint deve:
-- Retornar um objeto JSON com `data` como chave raiz.
-- Enviar os dados completos do estado — o MaxPinia popula `store.data` com o valor retornado.
+O MaxPinia faz GET para `options.get.route` ao montar a store. **Atenção:** o plugin faz `store.data = response.data`, ou seja, `store.data` recebe o **corpo JSON inteiro da resposta, verbatim**. Portanto, se você envolver os campos em `{ data: {...} }`, os campos ficam em `store.data.data` (e não em `store.data.company_name`). Para que o componente leia `store.data.company_name` diretamente, retorne os **campos na raiz** da resposta. O endpoint deve:
+- Retornar os campos do estado diretamente na raiz do objeto JSON (sem wrapper `data`), pois `store.data` = corpo inteiro.
+- Manter a mesma forma no GET e no POST (campos na raiz em ambos).
 - Usar autenticação e escopo de tenant adequados.
 
 ```typescript
@@ -40,40 +41,38 @@ export default class BrandPositioningController {
       .where('id', auth.user!.solarCompanyId)
       .firstOrFail()
 
+    // Campos na raiz → store.data = { company_name, mission, ... }
     return {
-      data: {
-        company_name: company.name,
-        mission: company.mission,
-        values: company.values,
-        content_pillars: company.contentPillars ?? [],
-      },
+      company_name: company.name,
+      mission: company.mission,
+      values: company.values,
+      content_pillars: company.contentPillars ?? [],
     }
   }
 }
 ```
 
 ### 2. Padrão de Endpoint POST (Auto-Save)
-O MaxPinia faz POST para `options.save` com o payload `{ data: store.data }` sempre que `data` muda (debounce 300ms). O endpoint deve:
-- Receber o payload em `request.input('data')` ou como corpo da requisição.
+O MaxPinia faz POST para `options.save` sempre que `data` muda (debounce 300ms). **Atenção ao formato do corpo:** por padrão o plugin envia `{ ...store.data }` — os campos da store espalhados na **raiz** do corpo da requisição (sem wrapper `data`). Em `saveInServer`, o corpo é `const data_send = getPostData() ?? { ...store.data }`, postado verbatim como body do axios. Só existe um wrapper diferente se a store definir explicitamente `options.save.data`/`getSaveData`. O endpoint deve:
+- Ler/validar os campos **na raiz** do corpo (ex: `request.input('company_name')`), não sob uma chave `data`.
 - Validar o payload com VineJS.
 - Retornar `{ success: true }` ou os dados atualizados.
 
 ```typescript
 // POST /api/brand-positioning/save → options.save: '/api/brand-positioning/save'
+// Corpo recebido = { company_name, mission, values, content_pillars } (campos na raiz)
 const saveValidator = vine.compile(
   vine.object({
-    data: vine.object({
-      company_name: vine.string().nullable().optional(),
-      mission: vine.string().nullable().optional(),
-      values: vine.string().nullable().optional(),
-      content_pillars: vine.array(vine.string()).optional(),
-    }),
+    company_name: vine.string().nullable().optional(),
+    mission: vine.string().nullable().optional(),
+    values: vine.string().nullable().optional(),
+    content_pillars: vine.array(vine.string()).optional(),
   })
 )
 
 export default class BrandPositioningController {
   async save({ request, auth }: HttpContext) {
-    const { data } = await request.validateUsing(saveValidator)
+    const data = await request.validateUsing(saveValidator)
 
     const company = await SolarCompany.query()
       .where('id', auth.user!.solarCompanyId)
@@ -114,12 +113,11 @@ async data({ request, auth }: HttpContext) {
     .where('solar_company_id', auth.user!.solarCompanyId)
     .firstOrFail()
 
+  // Campos na raiz → store.data = { id, name, status }
   return {
-    data: {
-      id: project.id,
-      name: project.name,
-      status: project.status,
-    },
+    id: project.id,
+    name: project.name,
+    status: project.status,
   }
 }
 ```
@@ -151,12 +149,11 @@ const options = computed(() => ({
 // Backend: retorna apenas o objeto de dados
 async profile({ auth }: HttpContext) {
   const user = auth.user!
+  // Campos na raiz → store.data = { id, name, email }
   return {
-    data: {
-      id: user.id,
-      name: user.fullName,
-      email: user.email,
-    },
+    id: user.id,
+    name: user.fullName,
+    email: user.email,
   }
 }
 ```
@@ -165,8 +162,8 @@ async profile({ auth }: HttpContext) {
 
 ## Checklist ao Criar Endpoints para MaxPinia
 
-- [ ] GET retorna `{ data: { ... } }` como objeto raiz
-- [ ] POST recebe `{ data: { ... } }` no body (ou parâmetros individuais validados)
+- [ ] GET retorna os campos na raiz (`{ ...campos }`), pois `store.data = response.data` (corpo inteiro)
+- [ ] POST recebe os campos na raiz do body (`{ ...store.data }`), sem wrapper `data` (salvo se a store definir `options.save.data`/`getSaveData`)
 - [ ] A store referencia os caminhos string `/api/modulo/data` e `/api/modulo/save` (sem rota nomeada Ziggy)
 - [ ] Ambas passam pelo middleware de autenticação `middleware.auth()`
 - [ ] O escopo de tenant/empresa está aplicado nas queries
@@ -175,7 +172,8 @@ async profile({ auth }: HttpContext) {
 ---
 
 ## Restrições
-- **Nunca retorne arrays diretamente** no GET do MaxPinia — sempre envolva em `{ data: [...] }` para manter consistência com o padrão da store.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **Lembre-se que `store.data = response.data`** (corpo inteiro) — para listas, retorne o array/objeto na forma exata que o componente vai consumir em `store.data`; não adicione wrappers `{ data: ... }` inesperados que empurrem os campos para `store.data.data`.
 - **Valide sempre** o payload do POST/save com VineJS antes de tocar no banco de dados.
 - **Aplique escopo de tenant** em toda query — nunca retorne dados de outras empresas/usuários.
 - **Não quebre o debounce** retornando erros 4xx em salvamentos parciais — prefira salvar o que é válido e ignorar campos inválidos silenciosamente, ou retornar 422 com mensagens claras para o frontend tratar.

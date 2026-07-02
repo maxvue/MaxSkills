@@ -37,6 +37,7 @@ When dealing with electrical design validations and project approvals:
 - Ensure that document upload states are dynamically updated and reflect the utility's requirements.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do not bypass technical regulations:** Never allow a project to proceed to submittal if it violates the limits specified in the active `ConcessionaireSubsidiaryRegulation`.
 - **Do not write direct DB queries in controllers:** All query modifications or updates to homologation processes must go through the service layer (`HomologationService`).
 - **Do not bypass notifications logic:** Ensure that protocol status changes respect the notification flags (`notify_client`, `notify_designer`, `notify_solar_company`) and delegate the notification delivery to asynchronous Jobs to prevent blocking user requests.

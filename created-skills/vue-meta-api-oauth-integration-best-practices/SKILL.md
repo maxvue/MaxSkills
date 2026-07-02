@@ -29,6 +29,7 @@ Estabelecer padrões claros, seguros e robustos de implementação para fluxos d
    - Nunca armazene credenciais brutas ou tokens de acesso confidenciais dentro de stores do lado do cliente ou no LocalStorage. Dependa de sessões do backend (guard web, sessão+cookie) e represente o estado de autorização com flags abstratas como `has_token: boolean`.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO busque URLs de autorização na API antes de abrir a janela popup, caso contrário, os bloqueadores de popup do navegador serão ativados.
 - NÃO aceite mensagens de origens curinga (`*`) nos listeners de `postMessage`.
 - NÃO armazene ou exponha credenciais brutas ou tokens de autorização confidenciais no estado do lado do cliente.
@@ -134,7 +135,7 @@ const connectAccount = async (): Promise<void> => {
 
   if (!popupWindow) {
     loading.value = false;
-    Toast.show({ severity: 'warn', title: 'Popup Bloqueado', message: 'Por favor, habilite a exibição de popups para este site.' });
+    Toast.show({ severity: 'warning', title: 'Popup Bloqueado', message: 'Por favor, habilite a exibição de popups para este site.' });
     return;
   }
 
@@ -153,7 +154,7 @@ const connectAccount = async (): Promise<void> => {
     pollTimer = window.setInterval(() => {
       if (popupWindow && popupWindow.closed) {
         cleanup();
-        Toast.show({ severity: 'warn', title: 'Cancelado', message: 'A conexão com a conta foi cancelada pelo usuário.' });
+        Toast.show({ severity: 'warning', title: 'Cancelado', message: 'A conexão com a conta foi cancelada pelo usuário.' });
       }
     }, 500);
 

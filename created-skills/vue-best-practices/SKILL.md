@@ -151,3 +151,6 @@ Performance work is a post-functionality pass. Do not optimize before core behav
 - Moved state/side effects into composables if applicable
 - Optional features are used only when requirements demand them.
 - Performance changes were applied only after functionality was complete.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

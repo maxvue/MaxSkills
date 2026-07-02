@@ -81,8 +81,8 @@ function processStatus(status: Status): string {
 import { z } from "zod";
 
 const UserSchema = z.object({
-  id: z.string().uuid(),
-  email: z.string().email(),
+  id: z.uuid(),
+  email: z.email(),
   name: z.string().min(1),
   createdAt: z.string().transform((s) => new Date(s)),
 });
@@ -101,7 +101,7 @@ export async function fetchUser(id: string): Promise<User> {
 // Caller handles both success and error from user input
 const result = UserSchema.safeParse(formData);
 if (!result.success) {
-  setErrors(result.error.flatten().fieldErrors);
+  setErrors(z.flattenError(result.error).fieldErrors);
   return;
 }
 ```
@@ -122,3 +122,6 @@ import type { Opaque, PartialDeep } from 'type-fest';
 type UserId = Opaque<string, 'UserId'>;
 type UserPatch = PartialDeep<User>;
 ```
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

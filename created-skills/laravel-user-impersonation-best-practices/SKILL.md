@@ -169,3 +169,6 @@ test('administrator can impersonate and then leave impersonation', function () {
 * **No Persistent Session Storage in Cookies**: Do not store the administrator's password/hash in plain text inside localstorage/cookies. Rely purely on Laravel session drivers.
 * **Strict Model Guards**: Never bypass model-level rules (`canImpersonate`/`canBeImpersonated`) even if the controller has custom verification.
 * **Follow PHPDoc Location Rule**: Do not write model-specific PHPDoc inline inside models; keep them in separate IDE Helper files.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

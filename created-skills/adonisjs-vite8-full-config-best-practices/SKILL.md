@@ -20,8 +20,8 @@ Documentar a configuração padrão do Vite no ecossistema Engeapp com AdonisJS 
     "vite": "^7.3.3",
     "@vitejs/plugin-vue": "^6.0.7",
     "@adonisjs/vite": "^5.1.1",
-    "unplugin-auto-import": "^0.18.0",
-    "unplugin-vue-components": "^0.27.0",
+    "unplugin-auto-import": "^21.0.0",
+    "unplugin-vue-components": "^32.1.0",
     "unocss": "^66.0.0"
   }
 }
@@ -39,7 +39,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import UnoCSS from 'unocss/vite'
 import { maxUseAutoImport } from '@maxvue/max-use'
-import { MaxComponentsUiResolver } from '@maxvue/max-components-ui'
+import { MaxComponentsUiResolver } from '@maxvue/max-components-ui/resolver'
 import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
@@ -62,7 +62,8 @@ export default defineConfig({
         'vue',
         'vue-router',
         'pinia',
-        maxUseAutoImport(),
+        // maxUseAutoImport é um ARRAY (JSON), não uma função — faça spread, não chame
+        ...(Array.isArray(maxUseAutoImport) ? maxUseAutoImport : [maxUseAutoImport]),
         {
           axios: [['default', 'axios']],
         },
@@ -104,8 +105,6 @@ export default defineConfig({
       output: {
         manualChunks: {
           'vendor-vue': ['vue', 'vue-router', 'pinia'],
-          'vendor-primevue': ['primevue'],
-          'vendor-charts': ['chart.js'],
         },
       },
     },
@@ -119,7 +118,7 @@ export default defineConfig({
 
 ```typescript
 import { defineConfig } from 'unocss'
-import { presetMaxUno } from '@maxvue/max-components-ui'
+import { presetMaxUno } from '@maxvue/max-components-ui/preset'
 import presetAttributify from '@unocss/preset-attributify'
 
 export default defineConfig({
@@ -212,6 +211,7 @@ server: {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Use `vite@^7.3.3`** com `@vitejs/plugin-vue@^6.0.7` e `@adonisjs/vite@^5.1.1` — versões instaladas no projeto. Não faça upgrade para Vite 8 sem validar `@adonisjs/vite` compatível.
 - **`unplugin-auto-import` e `unplugin-vue-components` são obrigatórios** — não importe Vue, Pinia, MaxUse ou componentes Max manualmente nos `.vue` files.
 - **UnoCSS é o sistema de estilos** — não use Tailwind CSS. O preset `presetMaxUno` do MaxComponentsUi é obrigatório.

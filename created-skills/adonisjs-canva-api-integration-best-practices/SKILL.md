@@ -1,17 +1,17 @@
 ---
 name: adonisjs-canva-api-integration-best-practices
-description: Use when implementing, configuring, reviewing, or debugging integrations with the Canva API in an AdonisJS application, managing Canva OAuth 2.0 flows, uploading media assets to Canva, exporting or publishing designs created on Canva directly to the social media calendar, or handling Canva webhook notifications for design updates.
+description: Use when implementing, configuring, reviewing, or debugging integrations with the Canva API in an AdonisJS application, managing Canva OAuth 2.0 flows, uploading media assets to Canva, exporting or importing designs generated on Canva, or handling Canva webhook notifications for design updates.
 ---
 
 ## Goal
-Establish robust, secure, and resilient development standards for integrating the Canva API into AdonisJS v6 applications. This covers multi-tenant OAuth 2.0 credential management, media assets synchronization, secure webhook endpoints, and rate-limiting handling.
+Establish robust, secure, and resilient development standards for integrating the Canva API into AdonisJS v6 applications. This covers multi-tenant OAuth 2.0 credential management, media asset synchronization (exporting backend-generated assets to Canva and importing finalized designs back), secure webhook endpoints, and rate-limiting handling.
 
 ## Instructions
 
 ### 1. Canva OAuth 2.0 Flow Integration (AdonisJS Ally)
 When implementing OAuth 2.0 with Canva, extend AdonisJS Ally by creating a custom Canva driver or implementing a custom flow if not built-in.
 - **Config & Env:** Define variables (`CANVA_CLIENT_ID`, `CANVA_CLIENT_SECRET`, `CANVA_CALLBACK_URL`) in `start/env.ts` using `Env.schema.string()`.
-- **Token Storage:** Save credentials within `SocialMediaCredential` model. Include fields `access_token`, `refresh_token`, and `token_expires_at` (using Luxon `DateTime`).
+- **Token Storage:** Save credentials within a dedicated `CanvaCredential` model, keyed by tenant (`solarCompanyId`). Include fields `access_token`, `refresh_token`, and `token_expires_at` (using Luxon `DateTime`).
 - **Token Refreshing:** Implement a token refresh helper within the service. Before any API request, check if the token expires in less than 5 minutes, and trigger refresh if needed:
   ```typescript
   if (credential.tokenExpiresAt && credential.tokenExpiresAt.diffNow('minutes').minutes < 5) {
@@ -28,7 +28,7 @@ To export backend-generated assets to Canva:
 - **Async Handling:** The Canva Upload API is asynchronous. Check the upload status by polling the endpoint provided in the response metadata (`GET https://api.canva.com/v1/asset-uploads/{uploadId}`) until status is `completed` or `failed`.
 
 ### 3. List and Import Canva Designs
-For pulling finalized designs back into the editorial calendar:
+For pulling finalized designs back into the application (e.g. storing exported assets on Drive):
 - **List designs:** `GET https://api.canva.com/v1/designs` filtering by client/user scopes.
 - **Exporting design:** Call `POST https://api.canva.com/v1/exports` to generate high-resolution PNG or PDF outputs.
 - **Download to Drive:** Stream the output from the generated Canva export URL and save it using the AdonisJS `drive` service. Com `fetch` nativo, converta o corpo da resposta (web `ReadableStream`) para um stream Node antes de gravar:
@@ -67,6 +67,7 @@ For pulling finalized designs back into the editorial calendar:
 - **Circuit Breaker:** If a connection fails consecutively or returns `401 Unauthorized` (indicating revoked permission), disable the credential (`is_active = false`) and log the event with details.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** store OAuth client secrets or webhook keys in source code. Always use `env.get()`.
 - **Do NOT** perform Canva API HTTP calls synchronously within DB transactions, as this blocks pool connections.
 - **Do NOT** allow raw unauthenticated webhooks; HMAC verification is mandatory.

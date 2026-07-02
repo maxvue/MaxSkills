@@ -62,3 +62,6 @@ You are an expert in Laravel and PHP development with deep knowledge of modern w
 - Implement caching strategies
 - Optimize database queries
 - Use queues for heavy operations
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

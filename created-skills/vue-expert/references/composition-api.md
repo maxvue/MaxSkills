@@ -216,6 +216,11 @@ onErrorCaptured((err, instance, info) => {
 
 ## Composables Pattern
 
+> Antes de escrever um composable comum (debounce, tempo relativo, cache, listeners, storage), confira o
+> **@maxvue/max-use** — ele re-exporta o VueUse e traz helpers do projeto (`useRefCached`, `useTimeAgo`,
+> `useDefaultReset`, `useEventListener`…). Nunca importe `@vueuse/core` ou `lodash` direto; use o MaxUse.
+> Os exemplos abaixo mostram o padrão de composable para lógica própria não coberta pela lib.
+
 ```typescript
 // composables/useCounter.ts
 import { ref, computed } from 'vue'

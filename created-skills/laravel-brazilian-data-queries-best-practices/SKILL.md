@@ -101,6 +101,7 @@ Normalize CNPJ responses to a consistent format:
 - Throw a custom `BrazilianDataQueryException` only when all API providers fail.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** execute raw cURL requests directly; always use Laravel's `Http` client.
 - **Do NOT** store API endpoints or credentials directly in code; manage them via `config()` values mapped to `.env`.
 - **Do NOT** perform external API requests inside loops. Implement caching or chunking.

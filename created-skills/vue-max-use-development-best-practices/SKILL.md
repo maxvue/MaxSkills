@@ -62,6 +62,7 @@ Fornecer diretrizes rígidas e padrões para criação, extensão e manutenção
    - Garanta suporte a tree-shaking evitando efeitos colaterais (side effects) nas exportações.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO ignore o uso de `toValue()` ao lidar com parâmetros `MaybeRefOrGetter`.
 - NÃO registre imports automáticos (auto-imports) manualmente nos projetos consumidores; garanta que eles sejam devidamente adicionados no arquivo `src/Helpers/maxUseItems.ts` ou arquivos correspondentes, se necessário.
 - NÃO teste composables com watchers reativos fora de um `effectScope()`.

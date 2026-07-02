@@ -11,9 +11,9 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
 ## Instruções
 
 ### 1. Definição de Esquemas e Inferência de Tipos
-- Defina todos os esquemas Zod em arquivos dedicados sob um diretório de esquemas (ex: `resources/Vue/Schemas/`). Nomeie-os utilizando o sufixo `.schema.ts`.
+- Defina todos os esquemas Zod em arquivos dedicados sob um diretório de esquemas (ex: `resources/js/schemas/`). Nomeie-os utilizando o sufixo `.schema.ts`.
 - Sempre infira e exporte os tipos do TypeScript diretamente dos esquemas Zod usando `z.infer`. Não duplique definições de interfaces manualmente.
-- Exemplo (`resources/Vue/Schemas/gerador.schema.ts`):
+- Exemplo (`resources/js/schemas/gerador.schema.ts`):
   ```typescript
   import { z } from 'zod';
 
@@ -92,12 +92,12 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
 
   <script setup lang="ts">
   import { ref, reactive } from 'vue';
-  import { GeradorSchema } from '../Schemas/gerador.schema';
-  import { useFormValidation } from '../Composables/useFormValidation';
+  import { GeradorSchema } from '../schemas/gerador.schema';
+  import { useFormValidation } from '../composables/useFormValidation';
   import { Toast } from '@maxvue/max-components-ui';
   // O salvamento de dados de página passa pela store MaxPinia (auto-save/debounced),
   // não por axios manual. Aqui usamos a store de geradores fotovoltaicos.
-  import { useGeradorStore } from '../Stores/gerador';
+  import { useGeradorStore } from '../stores/gerador';
 
   const geradorStore = useGeradorStore();
 
@@ -114,7 +114,7 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
   const handleSubmit = async () => {
       // Validação local antes de enviar
       if (!validate()) {
-          Toast.show({ severity: 'warn', title: 'Validação', message: 'Por favor, corrija os erros do formulário.' });
+          Toast.show({ severity: 'warning', title: 'Validação', message: 'Por favor, corrija os erros do formulário.' });
           return;
       }
 
@@ -155,6 +155,7 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
 - Mapeie estes erros diretamente para o objeto reativo de erros dentro do bloco `catch` das requisições de API, conforme demonstrado no exemplo acima.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO utilize a Options API. Sempre utilize a Composition API (`<script setup lang="ts">`).
 - NÃO utilize `.parse()` para validação de formulários; use `.safeParse()` em vez disso para evitar erros de execução não tratados.
 - NÃO escreva comentários de código em outro idioma que não seja o português do Brasil (pt-BR).

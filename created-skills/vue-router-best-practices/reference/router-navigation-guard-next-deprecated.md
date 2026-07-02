@@ -8,7 +8,7 @@ tags: [vue3, vue-router, navigation-guards, migration, async]
 
 # Vue Router Navigation Guard next() Function Deprecated
 
-**Impact: HIGH** - The third `next()` argument in navigation guards is deprecated in Vue Router 4. While still supported for backward compatibility, using it incorrectly is one of the most common sources of bugs: calling it multiple times, forgetting to call it, or calling it conditionally without proper logic.
+**Impact: HIGH** - The third `next()` argument in navigation guards is deprecated in Vue Router 5. While still supported for backward compatibility, using it incorrectly is one of the most common sources of bugs: calling it multiple times, forgetting to call it, or calling it conditionally without proper logic.
 
 ## Task Checklist
 
@@ -49,7 +49,7 @@ router.beforeEach(async (to, from, next) => {
 ## Solution: Use Return-Based Guards
 
 ```javascript
-// CORRECT: Return-based syntax (modern Vue Router 4+)
+// CORRECT: Return-based syntax (modern Vue Router 5+)
 router.beforeEach((to, from) => {
   if (!isAuthenticated) {
     return '/login'  // Redirect

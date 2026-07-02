@@ -210,6 +210,7 @@ export default class MetaTokenRenewalJob {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Não** armazene tokens de acesso OAuth em texto simples. Sempre utilize ganchos do `@column()` em conjunto com `encryption.encrypt` para garantir a segurança dos dados.
 * **Não** chame endpoints de renovação de token de forma síncrona dentro de controllers em requisições HTTP do usuário. Sempre delegue a execução para comandos cron ou tarefas de fila do BullMQ.
 * **Não** tente renovar tokens infinitamente quando a Meta retornar erros de permissão ou autenticação (como erro de OAuthException código `190`). Defina imediatamente `isActive = false` e dispare `MetaTokenRenewalFailed` para evitar bloqueios por limites de requisições ou banimento de IP.

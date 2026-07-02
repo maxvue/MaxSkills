@@ -36,7 +36,6 @@ export const useBillingStore = defineStore('billing', () => {
     // GET automático via plugin; route é caminho string /api/... (a store chama apiGetRoute internamente); sem rotas nomeadas estilo Ziggy.
     const options = computed(() => ({
         get: { route: '/api/billing/subscription' },
-        key: 'billing',
     }));
 
     // `data` é populado/cacheado pela store MaxPinia.
@@ -62,7 +61,7 @@ export const useBillingStore = defineStore('billing', () => {
   2. `<script setup lang="ts">`
   3. `<style scoped lang="scss">`
 * **Formatação de Atributos em Linha Única**: No template, formate todos os componentes de UI do Vue mantendo os atributos em uma única linha. Não quebre os atributos em múltiplas linhas.
-  - **Correto**: `<MaxModal :visible="showModal" @close="closeModal" title="Subscrição" width="600" />`
+  - **Correto**: `<MaxModal ref="modalRef" title="Subscrição" subTitle="Gerencie seu plano" width="600" />` — o `MaxModal` NÃO tem prop `visible` nem evento `@close`; ele é controlado pelo próprio botão/slot embutido ou imperativamente por um template ref chamando os métodos expostos `show()` / `hide()` / `toggle()`.
 * **Variáveis de Tema**: Use variáveis CSS baseadas no tema (`var(--max-primary-500)`, `var(--background-200)`) para destacar os cards de plano, badges de status e tabelas de transações. Não utilize cores hexadecimais estáticas (hardcoded).
 * **Apresentação Visual**: Renderize o histórico de faturamento usando componentes de tabela, exibindo colunas como `ID da Fatura`, `Data`, `Valor`, `Status` (Pago, Pendente, Falhou) e um link para download do PDF da fatura.
 
@@ -71,6 +70,7 @@ export const useBillingStore = defineStore('billing', () => {
 * **Tela de Bloqueio (Overlay)**: Se a assinatura do usuário estiver como `canceled` ou se estiver como `past_due` além do período de carência, exiba uma tela inteira de bloqueio (blocking overlay) ou redirecione-o para uma página de faturamento (`/billing`) que limite o acesso aos recursos do sistema até que o pagamento seja regularizado.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Composition API**: Você deve escrever o código do front-end usando `<script setup lang="ts">`. A Options API é estritamente proibida.
 * **Sem CSS Puro**: Não escreva CSS vanilla; utilize SCSS com variáveis de tema ou UnoCSS.
 * **Layout de Atributos**: Nunca quebre atributos de componentes Vue em múltiplas linhas dentro do `<template>`.

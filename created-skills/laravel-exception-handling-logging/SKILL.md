@@ -67,6 +67,7 @@ Establish standardized patterns for exception handling and structured logging in
     ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 *   **NEVER** use empty catch blocks (`catch (\Throwable $e) {}`) that hide errors without logging or reporting.
 *   **DO NOT** log sensitive user data (passwords, auth tokens, full card numbers).
 *   **DO NOT** use default log channels (`single`, `daily`) for specific third-party integration logs; always use/create a dedicated channel.

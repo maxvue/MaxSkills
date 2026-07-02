@@ -34,19 +34,20 @@ declare global {
 ```
 
 ### 2. Vinculação na Store do Pinia (MaxPinia)
-Não redefina a store de usuário aqui. Reuse a MESMA store de sessão `useUserStore` definida pela skill de auth-session, que já carrega os dados de sessão via `options.get` apontando para `apiGetRoute('/api/user/data')` e expõe `waitRequest`. As permissões e o papel já chegam dentro de `data` (formato serializado pelo AdonisJS Bouncer), portanto basta derivar getters de permissão a partir dessa store.
+Não redefina a store de usuário aqui. Reuse a MESMA store de sessão `useUserStore` definida pela skill de auth-session, que já carrega os dados de sessão via `options.get.route` (`'/api/user/data'`) e cujo helper standalone `waitRequest(store)` resolve a corrida de inicialização. As permissões e o papel já chegam dentro de `data` (formato serializado pelo AdonisJS Bouncer), portanto basta derivar getters de permissão a partir dessa store.
 * A store é uma `@maxvue/max-pinia` Setup Store com `data: ref(null)` + `options.get` (sem GET manual).
 * Adicione apenas os getters/funções de permissão (`hasPermission`, `hasRole`) à definição já existente, mantendo uma única fonte da verdade.
 
 Exemplo (getters adicionados à store de sessão MaxPinia existente):
 ```typescript
-import { defineStore } from '@maxvue/max-pinia';
+import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
-import { apiGetRoute } from '@maxvue/max-use';
 
 export const useUserStore = defineStore('user', () => {
-  // data + options.get definidos pela skill de auth-session; replicados aqui só por contexto
+  // data + options definidos pela skill de auth-session; replicados aqui só por contexto
   const data = ref<User | null>(null);
+  const isCached = ref(true);
+  const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }));
 
   const permissions = computed(() => data.value?.permissions || {} as Record<BouncerAbility, boolean>);
   const role = computed(() => data.value?.role || null);
@@ -62,12 +63,7 @@ export const useUserStore = defineStore('user', () => {
     return allowedRoles.includes(role.value);
   };
 
-  return { data, permissions, role, hasPermission, hasRole };
-}, {
-  // mesma config da skill auth-session: carrega a sessão sem GET manual
-  options: {
-    get: () => apiGetRoute('/api/user/data'),
-  },
+  return { data, isCached, options, permissions, role, hasPermission, hasRole };
 });
 ```
 > Importante: existe UMA única `useUserStore('user')`. Esta skill apenas acrescenta `permissions`, `role`, `hasPermission` e `hasRole`; o carregamento dos dados (`options.get` + `waitRequest`) pertence à store de sessão e não deve ser duplicado/conflitado.
@@ -175,7 +171,7 @@ Garanta a segurança de navegação nas rotas do cliente usando metadados de rot
 Exemplo:
 ```typescript
 import { createRouter, createWebHistory } from 'vue-router';
-import { useUserStore } from '@/Stores/UserStores/useUser.Store';
+import { useUserStore, waitRequest } from '@/Stores/UserStores/useUser.Store';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -195,10 +191,8 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
   const userStore = useUserStore();
 
-  // Aguarda a inicialização dos dados da store de usuário se necessário
-  if (userStore.waitRequest) {
-    await userStore.waitRequest();
-  }
+  // Aguarda a inicialização dos dados da store de usuário (helper standalone da skill auth-session)
+  await waitRequest(userStore);
 
   const isAuthenticated = !!userStore.data;
 
@@ -225,6 +219,7 @@ router.beforeEach(async (to, from, next) => {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO ignore a validação de Backend:** A checagem de autorização no frontend serve apenas para fins de melhoria de UX. Sempre garanta que controllers e middlewares no AdonisJS validem os dados e bloqueiem requisições de verdade.
 * **Evite o uso de Papéis (Roles) Estáticos:** Dê preferência a checagens de *Abilities* (`can('edit')`) sobre *Roles* (`is('admin')`) sempre que possível. Papéis costumam mudar e adquirir flexibilidade dinâmica no futuro.
 * **NÃO armazene dados sensíveis de forma insegura:** Qualquer dado renderizado condicionalmente na tela deve ser obtido através de APIs que validem os privilégios do usuário ativo no backend.

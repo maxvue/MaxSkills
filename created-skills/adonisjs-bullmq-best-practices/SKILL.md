@@ -402,6 +402,7 @@ export default class GenerateReportJob {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NUNCA defina dados de conexão brutos diretamente nos arquivos de Queue/Worker. Sempre importe `#config/redis`.
 * NUNCA atribua um inteiro a `maxRetriesPerRequest` nas configs do Redis usadas pelo BullMQ; DEVE ser `null`.
 * NUNCA execute transações pesadas de banco ou consumo direto de APIs externas dentro do `handle`. Delegue a Services.

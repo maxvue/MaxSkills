@@ -122,6 +122,7 @@ test('deve gerar um qr code pix valido no formato png', function () {
 ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * Do NOT use the legacy v5 `Builder::create()` static factory (removed in v6). Always construct the QR Code via the `Builder` constructor with named arguments (`new Builder(writer: ..., data: ..., ...)`) and call `->build()`.
 * Do NOT use low or medium error correction levels (`ErrorCorrectionLevel::Low`, `ErrorCorrectionLevel::Medium`) when embedding a logo in the QR code. You must use `ErrorCorrectionLevel::High`.
 * Do NOT perform QR Code generation dynamically on every request without caching if the content is static.

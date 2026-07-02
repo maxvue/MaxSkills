@@ -53,6 +53,7 @@ Padronizar a implementação, configuração e execução de geração assíncro
 - Se o HeyGen retornar um estado de falha na renderização (`video_status.failed`), atualize o status do modelo no banco de dados para `failed` e registre os detalhes do erro.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO Realize Operações Síncronas Bloqueantes:** Não realize polling longo ou requisições de download de arquivos de forma síncrona na thread da requisição HTTP. Sempre delegue essas tarefas aos workers em background do BullMQ.
 - **NÃO Vaze Credenciais:** Nunca insira chaves de API, segredos de webhook ou credenciais de serviço de forma estática no código. Carregue-os dinamicamente de variáveis de ambiente.
 - **Armazenamento via Drive:** Sempre persista arquivos de vídeo através do serviço `@adonisjs/drive` usando chaves relativas. Não use `node:fs/promises` nem caminhos absolutos estáticos no código.

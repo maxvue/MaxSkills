@@ -11,21 +11,21 @@ Estabelecer padrões e melhores práticas para integrar, configurar e executar p
 ## 1. Configuração do Ambiente e do Cliente
 
 ### Variáveis de Ambiente
-Defina e valide as credenciais do Meilisearch no arquivo `start/env.ts`:
+`MEILISEARCH_HOST` e `MEILISEARCH_KEY` **já estão declaradas** no `start/env.ts` do projeto, ambas como opcionais. NÃO as re-adicione (isso criaria uma chave de schema duplicada) e NÃO as torne obrigatórias — mantenha a declaração existente:
 ```typescript
-MEILISEARCH_HOST: Env.schema.string({ format: 'url' }),
+MEILISEARCH_HOST: Env.schema.string.optional(),
 MEILISEARCH_KEY: Env.schema.string.optional(),
 ```
 
 ### Serviço do Meilisearch
-Crie o arquivo `app/services/meilisearch_service.ts` para exportar uma instância única do cliente Meilisearch:
+Crie o arquivo `app/services/meilisearch_service.ts` para exportar uma instância única do cliente Meilisearch. Construa-o a partir do `#config/search` já existente no projeto (`config.meilisearch.host` / `config.meilisearch.apiKey`), que já provê fallbacks seguros (localhost / `''`). NÃO leia `env.get('MEILISEARCH_HOST')` diretamente — como a var é opcional, isso pode passar `undefined` como `host` para o `new MeiliSearch(...)`.
 ```typescript
 import { MeiliSearch } from 'meilisearch'
-import env from '#start/env'
+import config from '#config/search'
 
 const meilisearch = new MeiliSearch({
-  host: env.get('MEILISEARCH_HOST'),
-  apiKey: env.get('MEILISEARCH_KEY'),
+  host: config.meilisearch.host,
+  apiKey: config.meilisearch.apiKey,
 })
 
 export default meilisearch
@@ -83,7 +83,7 @@ Crie o arquivo `app/jobs/meilisearch_index_job.ts` para processar as operações
 
 ```typescript
 import { Queue, type Job } from 'bullmq'
-import { redisConnection } from '#services/queue_service' // conexão Redis compartilhada
+import queueConfig from '#config/queue' // conexão Redis + prefix compartilhados
 import meilisearch from '#services/meilisearch_service'
 import Post from '#models/post' // Mapeie outros models conforme necessário
 
@@ -99,7 +99,8 @@ const JOB_NAME = 'meilisearch-sync'
 // Fila dedicada de indexação. Mantenha o nome do job (JOB_NAME) idêntico ao
 // que o worker desta fila escuta, garantindo que dispatch e handle se acoplem.
 const meilisearchQueue = new Queue<MeilisearchJobData>(QUEUE_NAME, {
-  connection: redisConnection,
+  connection: queueConfig.connection,
+  prefix: queueConfig.prefix,
 })
 
 export default class MeilisearchIndexJob {
@@ -214,6 +215,7 @@ export default class PostService {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Chamadas Síncronas à API:** NÃO chame as APIs do Meilisearch de forma síncrona nos fluxos de requisição HTTP, controllers ou no ciclo de vida de transações de banco de dados. Sempre despache para o BullMQ.
 - **Sem Indexação de Segredos:** NÃO serialize credenciais, senhas ou tokens criptografados para o Meilisearch. Defina um mapeamento explícito em `toSearchableObject()`.
 - **Eficiência na Indexação em Lote:** Ao escrever rotinas de reindexação em lote, não consulte os registros do banco de dados um a um dentro de loops. Use paginação/lotes (chunking) ou streams de banco de dados.

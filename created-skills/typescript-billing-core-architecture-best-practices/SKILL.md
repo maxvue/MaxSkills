@@ -55,6 +55,7 @@ Garanta a divisão estrita de responsabilidade de código entre os diretórios d
 * Não dependa de conexões de banco de dados, migrações ou variáveis de ambiente ativas durante a execução dos testes.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * Nunca importe provedores, models ou controllers específicos de frameworks dentro da biblioteca.
 * Nunca coloque credenciais de pagamento ou buscas de variáveis de ambiente hardcoded.
 * Nunca ignore a máquina de estados ao atualizar status de assinatura; sempre invoque a função `transition` para garantir o fluxo de ciclo de vida válido.

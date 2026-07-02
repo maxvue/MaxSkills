@@ -157,3 +157,6 @@ class ValidHashid implements ValidationRule
 - **Do NOT expose raw database IDs in API responses** for models utilizing this trait. Ensure API Resources and DTOs explicitly map the `id` property to the model's `hashid` attribute.
 - **Never perform internal SQL joins using hashids.** Always decode the hashid to the raw integer key before running manual database operations or custom queries.
 - **Handle decode failures gracefully.** Invalid or tampered hashes must immediately trigger a `ModelNotFoundException` (resulting in a 404 response) instead of throwing generic PHP array offset exceptions.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

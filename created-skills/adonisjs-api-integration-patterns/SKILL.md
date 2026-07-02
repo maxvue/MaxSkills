@@ -42,6 +42,7 @@ Fornecer regras, padrões e melhores práticas para projetar, codificar e depura
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** realize requisições HTTP diretas dentro de controllers, models ou views.
 * **NÃO** faça qualquer requisição a APIs externas sem configurar um timeout (o uso de `AbortSignal.timeout` é obrigatório).
 * **NÃO** registre logs com tokens de autorização brutos, segredos de cliente ou informações de identificação pessoal (PII) sensíveis.

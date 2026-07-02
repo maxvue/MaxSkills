@@ -184,6 +184,7 @@ A geração de imagens via navegador headless consome muita CPU e memória. Mova
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO execute `puppeteer.launch` diretamente dentro de controllers de requisição ou em loops. Use sempre o serviço singleton encapsulado.
 * NÃO deixe páginas abertas. Sempre envolva a captura da imagem em um bloco `try...finally`, garantindo que `page.close()` seja chamado independentemente de sucesso ou falha.
 * NÃO use assets de rede lentos (como fontes externas ou imagens pesadas) sem fazer pré-carregamento ou embuti-los como base64; caso contrário, o Puppeteer bloqueará ou causará timeout aguardando `networkidle0`.

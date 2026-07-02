@@ -125,6 +125,16 @@ export default class WebhooksController {
 }
 ```
 
+**CSRF (Shield):** Neste projeto o Shield tem CSRF habilitado sem exceções. Gateways externos (Efí, Banco Inter) fazem `POST` server-to-server e **não** conseguem enviar o `XSRF-TOKEN` de sessão, então suas requisições seriam rejeitadas antes de chegar ao controller. Registre as rotas de webhook em `csrf.exceptRoutes` no `config/shield.ts` (ou aplique um grupo de rotas que ignore o CSRF), mantendo a validação de assinatura HMAC do gateway como a real barreira de segurança:
+```typescript
+// config/shield.ts
+csrf: {
+  enabled: true,
+  exceptRoutes: ['/webhooks/*'], // rotas dos gateways de pagamento (server-to-server)
+  // ...
+}
+```
+
 ### 4. Middleware de Enforcement de Faturamento
 Proteja as rotas da aplicação verificando o status de faturamento do Tenant atual usando um middleware HTTP:
 * Extraia o contexto da empresa solar atual.
@@ -172,6 +182,7 @@ export default class BillingEnforcementMiddleware {
 * Envolva com segurança as respostas do cliente de pagamento em blocos try/catch, lançando exceções de domínio normalizadas personalizadas (ex: `PaymentGatewayException`).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NUNCA execute requisições de API de gateways de terceiros de forma síncrona dentro do ciclo de requisição/resposta HTTP principal para webhooks. Use o BullMQ.
 * NUNCA codifique credenciais ou conteúdos de arquivos de certificado de forma estática (hardcoded). Sempre faça referência a eles via `env` (variáveis de ambiente) ou um arquivo de configuração dedicado de billing (ex: `#config/billing`).
 * NUNCA use IDs numéricos auto-incrementáveis para planos, assinaturas, faturas ou logs de eventos de webhook. Use ULIDs.

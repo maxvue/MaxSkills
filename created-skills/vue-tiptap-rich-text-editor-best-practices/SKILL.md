@@ -77,8 +77,9 @@ Para limitar campos de texto com tamanho máximo (ex: descrição de projeto, ob
 * Use chips/badges visuais interativos no editor em vez de colchetes de texto puro para que os usuários possam facilmente identificá-los e apagá-los.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NUNCA** utilize a Options API. Sempre utilize `<script setup lang="ts">`.
 * **NUNCA** utilize TailwindCSS. Para a UI ao redor do editor use UnoCSS attributify (`presetMaxUno` de `@maxvue/max-components-ui`) e componentes Max. Para estilizar os nós internos do ProseMirror (`.ProseMirror`), use classes SCSS escopadas com variáveis CSS/tokens do design system, já que essas regras alcançam markup gerado pelo Tiptap.
-* **NUNCA** atualize o conteúdo do editor diretamente a cada alteração de propriedade (`prop`) sem comparar primeiro (utilizando `editor.getHTML()` ou `getMarkdown()`). Isso causaria perda da posição atual do cursor do usuário.
+* **NUNCA** atualize o conteúdo do editor diretamente a cada alteração de propriedade (`prop`) sem comparar primeiro (utilizando `editor.getHTML()` ou `editor.storage.markdown.getMarkdown()`). Isso causaria perda da posição atual do cursor do usuário.
 * **NÃO** utilize estilos CSS inline para elementos do Tiptap. Estilizações da classe `.ProseMirror` e auxiliares devem estar dentro de blocos `<style scoped lang="scss">`.
 * Todos os itens interativos (popovers, list items) nos menus de sugestão customizados **DEVEM** ter IDs únicos e descritivos para fins de testes automatizados do navegador.

@@ -21,7 +21,7 @@ tags: [vue3, state-management, pinia, composables, ssr, vueuse]
 ## Choose the Lightest Store Approach
 
 - **Feature composable:** Default for reusable logic with local/feature-level state.
-- **Singleton composable or VueUse `createGlobalState`:** Small non-SSR apps needing shared app state.
+- **Singleton composable or `createGlobalState` (via `@maxvue/max-use`):** Small non-SSR apps needing shared app state.
 - **Pinia:** SSR/Nuxt apps, medium-to-large apps, and cases requiring DevTools, plugins, or action tracing.
 
 ## Avoid Exporting Mutable Module State
@@ -87,6 +87,8 @@ export function useServerCart() {
 
 > `pinia` dependency required.
 
+> **Stack alvo (Maxdmin/EngeApp):** para dados que sincronizam com a API AdonisJS (`/api/...`), o contrato de store é `@maxvue/max-pinia` (`createMaxPinia`) — cached stores com rota string, GET automático e auto-save com debounce. Use Pinia puro (`defineStore` abaixo) apenas para estado puramente client-side (carrinho efêmero, UI), roteando GET/save de dados via `apiGetRoute`/`apiPostRoute` ou pelas cached stores do max-pinia.
+
 ```ts
 // stores/cart.ts
 import { defineStore } from 'pinia'
@@ -110,12 +112,12 @@ export const useCartStore = defineStore('cart', {
 
 ## Use `createGlobalState` for Small SPA Global State
 
-> `@vueuse/core` dependency required.
+> Importe `createGlobalState` via `@maxvue/max-use` (não diretamente de `@vueuse/core`): no stack alvo, os utilitários VueUse passam pelo MaxUse.
 
 If the app is non-SSR and already uses VueUse, `createGlobalState` removes singleton boilerplate.
 
 ```ts
-import { createGlobalState } from '@vueuse/core'
+import { createGlobalState } from '@maxvue/max-use'
 import { computed, ref } from 'vue'
 
 export const useAuthState = createGlobalState(() => {

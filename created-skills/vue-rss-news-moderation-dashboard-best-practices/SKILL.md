@@ -23,7 +23,8 @@ Imagens externas de feeds RSS são frequentemente instáveis. Sempre implemente 
 - Use um marcador de posição (placeholder) de fallback padrão quando a imagem do item RSS estiver ausente, falhar ao carregar ou retornar um erro/404.
 - Crie um manipulador de erro de carregamento de imagem para alternar para o fallback reativamente:
   ```html
-  <img :src="item.imageUrl || defaultFallbackUrl" @error="handleImageError" class="w-full h-48 object-cover rounded-lg" />
+  <!-- Estilize via atributos attributify do UnoCSS (presetMaxUno) + tokens de tema, não via class="..." cru -->
+  <img :src="item.imageUrl || defaultFallbackUrl" @error="handleImageError" w-full h-48 object-cover rounded-lg />
   ```
   ```typescript
   const defaultFallbackUrl = '/images/news-fallback.jpg'
@@ -37,7 +38,7 @@ Imagens externas de feeds RSS são frequentemente instáveis. Sempre implemente 
 
 ### 3. Feedback Visual Imediato e Micro-animações
 Garanta uma experiência fluida para o usuário fornecendo feedback visual tátil instantâneo nas decisões de moderação:
-- Aplique classes CSS dinâmicas ou classes utilitárias de animação do UnoCSS (como `animate-fade-out` ou `scale-95 duration-200`) quando um item for aprovado ou arquivado.
+- Aplique utilitários de animação do UnoCSS como atributos attributify (ex.: `animate-fade-out` ou `scale-95 duration-200`), ligados dinamicamente via `:class`/`:animate-fade-out` quando um item for aprovado ou arquivado — nunca como strings `class="..."` cruas de Tailwind.
 - Atualize de forma otimista o estado da lista na interface do usuário imediatamente quando um botão de ação for clicado. A persistência NÃO usa Axios cru: toda leitura/gravação de dados de página passa por uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) no backend. Para ações pontuais de comando (aprovar/arquivar), dispare o método da store que resolve o caminho via `apiPostRoute`:
   ```typescript
   import { useNewsModerationStore } from '~/stores/newsModeration'
@@ -55,11 +56,16 @@ Garanta uma experiência fluida para o usuário fornecendo feedback visual táti
     }
 
     // 2. Persistência via store MaxPinia (sem Axios manual);
-    //    a store resolve a rota string /api/... e trata o rollback ao recarregar.
-    await newsStore.approve(itemId)
+    //    a store resolve a rota string /api/... . Em caso de falha, o rollback é
+    //    feito AQUI (no componente), chamando reload() na instância da store.
+    try {
+      await newsStore.approve(itemId)
+    } catch {
+      await newsStore.reload() // reload só é acessível na instância da store
+    }
   }
   ```
-  A store é uma SETUP store do `@maxvue/max-pinia` (`isCached` + `options`). O comando de aprovar usa `apiPostRoute` do `@maxvue/max-use` (chamada imperativa — executa a requisição e retorna o payload direto), e em caso de falha refaz o GET pela própria store via `reload()` (sem reexecutar fetch manual):
+  A store é uma SETUP store do `@maxvue/max-pinia` (`isCached` + `options`). O comando de aprovar usa `apiPostRoute` do `@maxvue/max-use` (chamada imperativa — executa a requisição e retorna o payload direto). O `reload()` é injetado pelo `@maxvue/max-pinia` **na instância** da store, não é uma variável do escopo da setup — então o rollback é feito pelo chamador via `newsStore.reload()` (como acima), e não dentro da setup:
   ```typescript
   // stores/newsModeration.ts
   import { defineStore } from 'pinia'
@@ -76,23 +82,20 @@ Garanta uma experiência fluida para o usuário fornecendo feedback visual táti
     // options.get.data é reativo — o GET refaz sozinho quando search muda.
     const options = computed(() => ({
       get: { route: '/api/news/moderation', data: { search: search.value } },
-      key: 'news-moderation',
+      id: 'news-moderation',
     }))
 
     async function approve(itemId: string) {
-      try {
-        // Chamada imperativa de comando (não é config de store): dispara o POST.
-        await apiPostRoute(`/api/news/moderation/${itemId}/approve`)
-      } catch (error) {
-        // rollback: recarrega o estado via a própria store (não existe load())
-        await reload()
-      }
+      // Chamada imperativa de comando (não é config de store): dispara o POST.
+      // Deixe o erro propagar — o rollback (reload) é feito pelo chamador na instância.
+      await apiPostRoute(`/api/news/moderation/${itemId}/approve`)
     }
 
     return { isCached, items, search, options, approve }
   })
   ```
-  > `reload()` é injetado pelo `@maxvue/max-pinia`; dentro da setup store ele fica disponível na instância.
+  > `reload()` é injetado pelo `@maxvue/max-pinia` **na instância** da store (ex.: `newsStore.reload()`); NÃO é uma variável do escopo da setup — referenciá-lo bare dentro da setup lança `ReferenceError`. Use-o a partir do componente.
+  > A chave do cache vem de `options.id` (o `@maxvue/max-pinia` não lê `options.key`).
 
 ### 4. Filtragem Híbrida no Lado do Cliente e do Servidor
 Combine a busca instantânea de texto no cliente com a filtragem dinâmica via API no backend:
@@ -126,6 +129,7 @@ Integre sugestões de IA de forma dinâmica na tela de moderação para auxiliar
   - *Exemplo:* `<MaxButton class="btn-primary" :loading="isSubmitting" @click="submit" />`
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **PROIBIDO Options API:** Não utilize a Options API sob nenhuma circunstância.
 - **PROIBIDO Pré-visualizações em Branco:** Não permita que falhas no carregamento de imagens externas de RSS causem espaços vazios ou ícones de imagens quebradas; o uso de imagens de fallback é obrigatório.
 - **PROIBIDO UI de Bloqueio Síncrono:** Nunca congele a tela de moderação ou bloqueie outras interações enquanto aguarda a resposta das APIs de aprovação/arquivamento. Use atualizações otimistas da UI e loaders localizados.

@@ -51,3 +51,6 @@ Provide consistent guidelines and best practices for configuring, optimizing, an
 * Never log raw credentials, mTLS certificates, or database passwords in the Telescope request parameters or headers.
 * Do not leave the `DumpWatcher` enabled on persistent shared staging environments.
 * Never run migrations or test suites without ensuring Telescope is configured to run silently or disabled (`TELESCOPE_ENABLED=false`).
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

@@ -162,6 +162,7 @@ await db.transaction(async (trx) => {
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** use `jobId`s gerados automaticamente para tarefas que exijam deduplicação estrita. Sempre gere uma string determinística baseada no payload.
 * **NÃO** omita as opções `removeOnComplete` e `removeOnFail` ao adicionar jobs à fila. Deixá-los acumular no Redis causa vazamentos de memória.
 * **NÃO** omita a liberação do lock do Redis em um bloco `finally`. Deixar de liberá-lo causa deadlocks.

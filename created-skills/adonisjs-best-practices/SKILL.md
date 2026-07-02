@@ -32,7 +32,7 @@ Estabelecer padrões sólidos e padronizados para o desenvolvimento, estruturaç
 
   const url = router.makeUrl('clients.show', [42]) // → '/clients/42'
   // ou, com params nomeados explícitos:
-  // const url = router.makeUrl('clients.show', { params: { id: 42 } })
+  // const url = router.makeUrl('clients.show', { id: 42 })
   ```
 * Utilize o helper de middleware de `#start/kernel` para proteger rotas:
   ```typescript
@@ -123,6 +123,7 @@ Estabelecer padrões sólidos e padronizados para o desenvolvimento, estruturaç
   * `#start/*` para Configurações de inicialização
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * NÃO utilize referências de controllers baseadas em string antigas nas rotas (ex: `'UsersController.index'`). Utilize apenas importações dinâmicas com o padrão de tupla `[UsersController, 'index']`.
 * NÃO execute lógica de negócios complexa ou integrações com APIs externas diretamente nos controllers. Implemente-as em Serviços ou na lógica de Domínio.
 * NÃO ignore a validação de entrada. Sempre valide o payload das requisições de entrada utilizando o VineJS.

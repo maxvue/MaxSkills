@@ -88,6 +88,7 @@ Para a criação automatizada de novas instâncias (ex: quando uma recorrência 
 - Garanta a idempotência utilizando chaves de bloqueio ou verificando se uma transação com o mesmo `recurrenceGroupId` and `date` alvo já existe antes de inserir.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO realize operações em cascata sem transações**: Nunca execute atualizações/exclusões de múltiplas linhas em loops sem encapsular a lógica em `db.transaction(async (trx) => { ... })`.
 - **NÃO realize matemática de datas no lado do cliente para geração**: Não permita que o frontend calcule datas para gerar ocorrências. Sempre gerencie a progressão de datas de recorrência no backend usando Luxon.
 - **NÃO use console.log para depuração**: Use `@adonisjs/core/services/logger` para rastreamento e reporte de falhas de fila ou reversão (rollback) de transações.

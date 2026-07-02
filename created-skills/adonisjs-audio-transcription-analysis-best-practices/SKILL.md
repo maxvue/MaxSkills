@@ -1,6 +1,6 @@
 ---
 name: adonisjs-audio-transcription-analysis-best-practices
-description: Use when implementing, reviewing, or debugging audio transcription and voice analysis features in AdonisJS v6, routing AI calls (Whisper, Google Gemini speech-to-text) through the Vercel AI SDK. Triggers on files handling audio upload processing for speech-to-text, integrating Whisper/Gemini via the AI SDK for audio parsing, extracting voice metadata, or generating transcription transcripts for database storage.
+description: Use when implementing, reviewing, or debugging audio transcription and voice analysis features in AdonisJS v6, routing AI calls (Google Gemini speech-to-text) through the Vercel AI SDK. Triggers on files handling audio upload processing for speech-to-text, integrating Gemini via the AI SDK for audio parsing, extracting voice metadata, or generating transcription transcripts for database storage.
 ---
 
 ## Objetivo
@@ -29,10 +29,10 @@ export const uploadAudioValidator = vine.compile(
 ```
 
 ## 2. Padrões de Integração de API (Vercel AI SDK)
-Toda integração de IA (transcrição e análise) DEVE passar pelo **Vercel AI SDK** (`ai`), nunca pelos SDKs diretos `openai` ou `@google/genai`.
-- **Transcrição (Whisper)**: Use `transcribe()` do `ai` com o provider OpenAI (`@ai-sdk/openai`), passando o áudio como `Buffer`/`Uint8Array` lido do disco.
+Toda integração de IA (transcrição e análise) DEVE passar pelo **Vercel AI SDK** (`ai`), nunca pelos SDKs diretos `@google/genai`. O provider `@ai-sdk/openai` (Whisper) NÃO faz parte do stack-alvo — apenas `@ai-sdk/google` e `@ai-sdk/anthropic` estão disponíveis.
+- **Transcrição (Gemini)**: Use `generateText()` do `ai` com o provider Google (`@ai-sdk/google`), usando um modelo Gemini com suporte a áudio (ex.: `gemini-2.5-flash`) e passando o áudio como content part do tipo `file` (`Buffer`/`Uint8Array` lido do disco).
 - **Análise/Resumo (Gemini)**: Use `generateText()`/`generateObject()` do `ai` com o provider Google (`@ai-sdk/google`). Para arquivos maiores que 20MB, prefira referenciar o arquivo via File API do provider em vez de enviar dados inline brutos.
-- **Variáveis de ambiente**: Carregue as credenciais usando a configuração de ambiente do AdonisJS: `env.get('OPENAI_API_KEY')` ou `env.get('GOOGLE_GENERATIVE_AI_API_KEY')`. Nunca insira chaves diretamente no código (hardcoded).
+- **Variáveis de ambiente**: Carregue as credenciais usando a configuração de ambiente do AdonisJS: `env.get('GOOGLE_GENERATIVE_AI_API_KEY')`. Nunca insira chaves diretamente no código (hardcoded).
 - **Timeout e Tentativas (Retries)**: O Vercel AI SDK aceita `maxRetries` nas chamadas; configure-o para lidar com instabilidades de rede e rate limiting (HTTP 429).
 
 ## 3. Execução Assíncrona e Integração com Filas
@@ -74,6 +74,7 @@ Armazene o resultado da transcrição juntamente com metadados ricos em colunas 
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** execute tarefas de transcrição de forma síncrona para áudios com mais de 15 segundos; sempre use um job/worker em segundo plano (por exemplo, BullMQ).
 - **NÃO** armazene arquivos de áudio grandes diretamente no banco de dados (por exemplo, usando `bytea` ou `blob`). Armazene os arquivos em um sistema de armazenamento local ou em nuvem (AdonisJS Drive) e referencie o caminho deles.
 - **NÃO** ignore a validação do tipo MIME e do tamanho do arquivo enviado no lado do servidor.
@@ -85,26 +86,34 @@ Armazene o resultado da transcrição juntamente com metadados ricos em colunas 
 ```typescript
 import fs from 'node:fs'
 import { inject } from '@adonisjs/core'
-import { experimental_transcribe as transcribe, generateText } from 'ai'
-import { openai } from '@ai-sdk/openai'
+import { generateText } from 'ai'
 import { google } from '@ai-sdk/google'
 
 @inject()
 export default class AudioTranscriptionService {
   /**
-   * Transcreve áudio usando Whisper via Vercel AI SDK
-   * (lê OPENAI_API_KEY do ambiente automaticamente)
+   * Transcreve áudio usando Gemini via Vercel AI SDK
+   * (lê GOOGLE_GENERATIVE_AI_API_KEY do ambiente automaticamente)
    */
-  async transcribeWithWhisper(filePath: string): Promise<string> {
+  async transcribeWithGemini(filePath: string): Promise<string> {
     const audio = await fs.promises.readFile(filePath)
+    const mimeType = this.detectMimeType(filePath)
 
-    const result = await transcribe({
-      model: openai.transcription('whisper-1'),
-      audio,
+    const { text } = await generateText({
+      model: google('gemini-2.5-flash'),
       maxRetries: 3,
+      messages: [
+        {
+          role: 'user',
+          content: [
+            { type: 'text', text: 'Transcreva o áudio a seguir na íntegra, apenas o texto falado.' },
+            { type: 'file', data: audio, mediaType: mimeType },
+          ],
+        },
+      ],
     })
 
-    return result.text
+    return text
   }
 
   /**
@@ -146,6 +155,7 @@ export default class AudioTranscriptionService {
 ```typescript
 import { HttpContext } from '@adonisjs/core/http'
 import { inject } from '@adonisjs/core'
+import { cuid } from '@adonisjs/core/helpers'
 import { uploadAudioValidator } from '#validators/audio'
 import VoiceNote from '#models/voice_note'
 import Queue from '#services/queue_service'
@@ -155,10 +165,9 @@ export default class VoiceNotesController {
   async store({ request, response }: HttpContext) {
     const { audio } = await request.validateUsing(uploadAudioValidator)
 
-    // Move o áudio para o disco (Drive). O nome final é definido após o move.
-    await audio.moveToDisk('voice-notes')
-    // Use a chave gerada pelo Drive (key), não `fileName` cru.
-    const key = audio.meta?.key ?? `voice-notes/${audio.fileName}`
+    // Calcule a chave de destino (o 1º argumento de moveToDisk É a key completa no storage).
+    const key = `voice-notes/${cuid()}.${audio.extname}`
+    await audio.moveToDisk(key)
 
     // Salva o registro inicial no banco de dados com status pendente
     const voiceNote = await VoiceNote.create({

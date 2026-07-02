@@ -320,6 +320,7 @@ test('it queues measurements import when uploading file', function () {
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 1. **NEVER** use `FromCollection` or `ToArray` for exports with over 500 rows. Always implement `FromQuery` to leverage database pagination.
 2. **NEVER** call Eloquent relation properties in the `map()` method without declaring them inside eager loading (e.g., `with()`) in `query()`. This avoids N+1 queries.
 3. **NEVER** run imports directly inside the HTTP Request thread (`(new Import)->import(...)`). Always implement `ShouldQueue` and use `(new Import)->queue(...)` for spreadsheets containing more than 100 rows.

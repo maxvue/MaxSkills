@@ -1,6 +1,6 @@
 ---
 name: vue-vapor-mode-best-practices
-description: Use when developing, reviewing, or debugging Vue 3 components using the experimental Vapor Mode, configuring the vaporInteropPlugin, managing reactive state without Virtual DOM, or integrating Vapor components with traditional VDOM components. Triggers on Vapor compilation, .vapor.vue files, vapor import, and VDOM interop.
+description: Use when developing, reviewing, or debugging Vue 3 components using the experimental Vapor Mode, configuring the vaporInteropPlugin, managing reactive state without Virtual DOM, or integrating Vapor components with traditional VDOM components. Triggers on Vapor compilation, the `vapor` SFC block attribute, vapor import, and VDOM interop.
 ---
 
 # Boas Práticas do Vapor Mode (experimental) no Vue
@@ -10,8 +10,8 @@ Estabelecer diretrizes sólidas, padrões de desenvolvimento e padrões de perfo
 
 ## Instruções
 1. **Configuração e Declaração de Componentes**:
-   - O Vapor é ativado pelo tooling de build, não por uma sintaxe canônica no SFC. Marque componentes Vapor pela convenção de arquivo `.vapor.vue` e registre o `vaporInteropPlugin` (ver seção de Interop) para habilitar a compilação.
-   - O atributo `<script setup lang="ts" vapor>` existe mas ainda **não é estável/canônico** — não o trate como a API oficial; prefira o mecanismo de build (`.vapor.vue` + `vaporInteropPlugin`) enquanto o Vapor for experimental.
+   - O único mecanismo que ativa a compilação Vapor de um componente é o **atributo `vapor` no bloco `<script>` ou `<template>`** do SFC, ex: `<script setup lang="ts" vapor>` (ou `<template vapor>`). Não existe convenção de nome de arquivo `.vapor.vue` no toolchain.
+   - O `vaporInteropPlugin` **não habilita a compilação** — ele é apenas o plugin de runtime que permite misturar componentes VDOM e Vapor (ver seção de Interop). Habilitação de compilação e interop de runtime são mecanismos separados.
    - Certifique-se de que a ordem dos blocos SFC segue o padrão do projeto: `<template>` primeiro, depois `<script setup>` e, por fim, `<style lang="scss" scoped>`.
 
 2. **Reatividade e Gerenciamento de Estado Puro**:
@@ -29,7 +29,8 @@ Estabelecer diretrizes sólidas, padrões de desenvolvimento e padrões de perfo
    - Fique atento às limitações de diretivas sob o modo experimental Vapor (ex: modificações de `v-model`, templates dinâmicos complexos). Certifique-se de que o `v-for` utilize sempre uma chave `:key` estrita e única para permitir a atualização granular ideal do DOM.
 
 ## Restrições
-- **NÃO** utilize a Options API. Sempre utilize a Composition API com `<script setup lang="ts">` em componentes Vapor (habilitados via `.vapor.vue` + `vaporInteropPlugin`).
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **NÃO** utilize a Options API. Sempre utilize a Composition API com `<script setup lang="ts" vapor>` em componentes Vapor (habilitados pelo atributo `vapor` no bloco SFC).
 - **NÃO** utilize estilos CSS puros; use SCSS (`lang="scss" scoped`).
 - **NÃO** ignore a segurança de tipos; toda a lógica deve ser tipada em TypeScript.
 - **NÃO** aninhe componentes VDOM complexos dentro de loops de renderização Vapor de alta frequência sem validar o uso de memória e os custos de repintura (repaint).

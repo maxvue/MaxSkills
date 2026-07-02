@@ -90,6 +90,7 @@ Fornecer diretrizes de segurança robustas e padrões de código para construç�
    Envolva as requisições de IA em blocos try-catch robustos. Trate casos onde o modelo falha em retornar um JSON válido ou viola restrições, retornando defaults seguros e registrando o incidente em logs sem expor erros brutos de execução para os usuários finais.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO Fazer Interpolação Direta**: Nunca interpole variáveis não confiáveis diretamente no corpo do `systemPrompt`. Mantenha todas as variáveis dinâmicas na seção `prompt`, envolvidas em tags delimitadoras.
 - **NÃO Vazamento de Segredos**: Nunca inclua strings de conexão de banco de dados, credenciais ou detalhes confidenciais do sistema em textos de prompt ou instruções do sistema.
 - **NÃO Executar Ferramentas Sem Validação**: Nunca crie ferramentas dinâmicas onde o nome da ferramenta ou a lógica de consulta seja gerada diretamente pelo LLM sem validação por lista de permissões (whitelist).

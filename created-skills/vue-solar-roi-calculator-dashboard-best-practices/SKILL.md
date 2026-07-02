@@ -31,6 +31,7 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
    - As colunas devem incluir: Ano, Geração de Energia (kWh), Economia Anual (R$), Custos de O&M (R$), Fluxo de Caixa Líquido (R$) e Saldo Acumulado (R$).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO utilize a Options API. Sempre use a Composition API do Vue 3 com `<script setup lang="ts">`.
 - NÃO realize cálculos financeiros utilizando números de ponto flutuante brutos (floats) onde a precisão exata é exigida (especialmente ao lidar com centavos de Real); utilize inteiros representando centavos ou funções de arredondamento seguras.
 - NÃO recalcule VPL/TIR/payback a partir de strings formatadas (ex.: `parseFloat(item.netFlow.replace(...))`). Mantenha os valores numéricos crus (ex.: `rawNetFlow`, `rawCumulative`) na estrutura de dados e use o número formatado APENAS para exibição. Fazer parse de string formatada de volta para número perde precisão e contraria a restrição acima.
@@ -269,8 +270,8 @@ const renderChart = (): void => {
         label: 'Saldo Acumulado (R$)',
         data: chartData,
         // Puxe a cor do tema (token CSS) em vez de fixar um hex — mantém coerência com o theme.
-        borderColor: getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim(),
-        backgroundColor: `rgb(from ${getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim()} r g b / 0.1)`,
+        borderColor: getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim(),
+        backgroundColor: `rgb(from ${getComputedStyle(document.documentElement).getPropertyValue('--primary-color').trim()} r g b / 0.1)`,
         fill: true,
         tension: 0.1
       }]

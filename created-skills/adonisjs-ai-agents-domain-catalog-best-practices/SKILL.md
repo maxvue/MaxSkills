@@ -66,3 +66,6 @@ Para esses padrões transversais, **não duplique** — consulte:
 - Nunca inventar dados, personagens ou porta-vozes; `personagens` vazio → `[]` / sem rostos humanos.
 - Respeitar a ordem e a tool final de cada agente (ex.: `SaveEventScript`, `SaveArtAnalysis`).
 - Persistência multi-protocolo/artwork sempre em transação Lucid; conexões Redis/DB liberadas nos workers.
+
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

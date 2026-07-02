@@ -149,6 +149,7 @@ Use the `@maxvue/max-use` library helpers for logic and validation:
   ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * NEVER store formatted documents (e.g., with dots, slashes, or dashes) in the database. Always use `onlyNumbers()`.
 * DO NOT write custom validation algorithms for CPF/CNPJ or CEP. Always reuse `lacus/br-utils`, `phillarmonic/cpf-cnpj` or `@maxvue/max-use`.
 * NEVER break HTML/Vue component attributes into multiple lines inside templates. Maintain single-line tags (inline style).

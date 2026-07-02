@@ -30,9 +30,12 @@ const loadedLanguages: string[] = [];
 
 export function setI18nLanguage(locale: string) {
   i18n.global.locale.value = locale;
-  // Persistimos o locale ativo para que os helpers de @maxvue/max-use
-  // (apiGetRoute/apiPostRoute) enviem o cabecalho Accept-Language nas
-  // requisicoes ao backend Adonis. Nao dependemos de axios global.
+  // Persistimos o locale ativo apenas no cliente. Isso NAO faz os helpers de
+  // @maxvue/max-use (apiGetRoute/apiPostRoute) enviarem Accept-Language — esse
+  // mecanismo automatico nao existe no MaxUse. Para negociar o locale com o
+  // backend Adonis, registre o cabecalho explicitamente no init da app via
+  // setApiRequestConfig, pois so cabecalhos registrados por ali sao enviados:
+  //   setApiRequestConfig({ headers: { 'Accept-Language': () => localStorage.getItem('locale') ?? 'pt-BR' } })
   localStorage.setItem('locale', locale);
   document.querySelector('html')?.setAttribute('lang', locale);
 }
@@ -83,12 +86,12 @@ Organize as chaves de tradução em namespaces estruturados (por página/domíni
 ```
 
 ### 3. Uso em Componentes Vue SFC (Composition API)
-Sempre use a Composition API (`<script setup lang="ts">`) e SCSS. Siga a ordem padrão de blocos: `<template>`, `<script>` e `<style>`.
+Sempre use a Composition API (`<script setup lang="ts">`). Estilize com UnoCSS no modo **attributify** (`presetMaxUno`) e tokens de tema — não use SCSS nem `<style scoped>`. Siga a ordem padrão de blocos: `<template>`, `<script>`.
 
 ```vue
 <!-- MeuComponente.vue -->
 <template>
-  <div class="user-welcome">
+  <div flex flex-col gap-4>
     <p>{{ $t('dashboard.welcome', { name: userName }) }}</p>
     <MaxButton :label="$t('common.buttons.save')" @click="saveChanges" />
   </div>
@@ -106,14 +109,6 @@ function saveChanges(): void {
   console.log(t('common.alerts.success'));
 }
 </script>
-
-<style scoped lang="scss">
-.user-welcome {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-</style>
 ```
 
 ### 4. Pluralização e Interpolação
@@ -151,6 +146,7 @@ export function formatDate(date: Date): string {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não** utilize a Options API nos componentes Vue ou definições de configuração do i18n no formato legado.
 - **Não** importe arquivos de tradução de forma estática no ponto de entrada da aplicação (`app.ts`), exceto o locale base de fallback se for estritamente necessário.
 - **Não** utilize strings de texto localizadas diretamente (hardcoded) dentro dos componentes. Todo texto visível deve ser referenciado usando chaves de tradução.

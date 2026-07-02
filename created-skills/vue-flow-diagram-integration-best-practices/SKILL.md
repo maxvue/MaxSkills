@@ -10,7 +10,7 @@ Estabelecer diretrizes robustas e padrões de design consistentes para integrar,
 
 ## Instruções
 1. **Arquitetura do Componente (SFC)**:
-   - Sempre siga a ordem de blocos padrão do Single-File Component (SFC): `<template>`, `<script setup lang="ts">`, `<style scoped lang="scss">`.
+   - Sempre siga a ordem de blocos padrão do Single-File Component (SFC): `<template>`, `<script setup lang="ts">`. A estilização deve ser feita via UnoCSS attributify (`presetMaxUno`) com tokens de tema diretamente nos elementos; use um bloco `<style scoped lang="scss">` apenas quando for genuinamente inevitável (ex: seletores do Vue Flow que não podem ser expressos por atributos utilitários).
    - Dentro do bloco `<template>`, formate os componentes e elementos Vue mantendo todos os atributos/parâmetros na mesma linha (estilo inline). Não quebre parâmetros em várias linhas.
    - Use TypeScript (`lang="ts"`) e Composition API com `<script setup>` para toda a lógica.
 
@@ -21,8 +21,8 @@ Estabelecer diretrizes robustas e padrões de design consistentes para integrar,
    - Exemplo de estrutura para o container principal do diagrama:
      ```vue
      <template>
-       <div class="flow-container">
-         <VueFlow v-model:nodes="nodes" v-model:edges="edges" :node-types="nodeTypes" :fit-view-on-init="true" class="custom-flow" />
+       <div w-full h-500px border="1 solid gray-300">
+         <VueFlow v-model:nodes="nodes" v-model:edges="edges" :node-types="nodeTypes" :fit-view-on-init="true" bg-gray-50 />
        </div>
      </template>
 
@@ -45,17 +45,6 @@ Estabelecer diretrizes robustas e padrões de design consistentes para integrar,
        { id: 'e1-2', source: '1', target: '2', animated: true },
      ]);
      </script>
-
-     <style scoped lang="scss">
-     .flow-container {
-       width: 100%;
-       height: 500px;
-       border: 1px solid #ccc;
-       .custom-flow {
-         background: #fafafa;
-       }
-     }
-     </style>
      ```
 
 3. **Hooks da Composition API (`useVueFlow`)**:
@@ -71,10 +60,10 @@ Estabelecer diretrizes robustas e padrões de design consistentes para integrar,
    - Exemplo de Nó Customizado:
      ```vue
      <template>
-       <div class="custom-node-card">
+       <div p-2.5 rounded-lg bg-white border="2 solid primary" shadow-md>
          <Handle type="target" :position="Position.Top" />
-         <div class="card-content">
-           <span class="card-title">{{ data.label }}</span>
+         <div>
+           <span text-sm font-bold>{{ data.label }}</span>
          </div>
          <Handle type="source" :position="Position.Bottom" />
        </div>
@@ -91,20 +80,6 @@ Estabelecer diretrizes robustas e padrões de design consistentes para integrar,
        };
      }>();
      </script>
-
-     <style scoped lang="scss">
-     .custom-node-card {
-       padding: 10px;
-       border-radius: 8px;
-       background: #ffffff;
-       border: 2px solid #4f46e5;
-       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-       .card-title {
-         font-size: 14px;
-         font-weight: bold;
-       }
-     }
-     </style>
      ```
 
 5. **Otimização de Performance e Memória**:
@@ -114,8 +89,9 @@ Estabelecer diretrizes robustas e padrões de design consistentes para integrar,
    - Limpe ouvintes de eventos e subscrições customizadas de forma adequada no desmonte de componentes ou em composables (`onScopeDispose`).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Jamais utilize a Options API. Sempre utilize `<script setup lang="ts">` e TypeScript.
-- Não defina estilos customizados de forma inline dentro do bloco `<template>`. Use estilos SCSS (`lang="scss"`).
+- Estilize os elementos via UnoCSS attributify (`presetMaxUno`) com tokens de tema, escritos como atributos utilitários diretamente nos elementos do `<template>`. Não fixe cores hexadecimais cruas nem tamanhos em px; recorra a um bloco `<style scoped lang="scss">` apenas quando genuinamente inevitável (ex: seletores internos do Vue Flow).
 - Nunca quebre as propriedades ou parâmetros dos elementos em múltiplas linhas dentro do bloco `<template>`. Escreva-os todos na mesma linha para respeitar as regras SFC do Engeapp.
 - Não incorpore lógica de persistência ou requisições de API brutas diretamente dentro dos componentes dos nós; o estado e a persistência devem viver em uma store `@maxvue/max-pinia` (auto-save debounced), consumida pelos containers pais ou composables dedicados. Não use `axios.get`/`axios.post` manuais para carregar ou salvar o grafo.
 - Comentários de código no interior dos componentes, exemplos ou blocos de código devem sempre estar no idioma Português do Brasil (pt-BR).

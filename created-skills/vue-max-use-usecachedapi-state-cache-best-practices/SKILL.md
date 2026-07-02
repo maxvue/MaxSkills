@@ -102,7 +102,8 @@ Ao realizar modificações por meio de requisições POST/PUT/DELETE (mutações
 Se os dados contiverem objetos complexos, garanta que sejam serializáveis antes de colocá-los no ref (sem referências circulares, métodos ou objetos Vue Raw). Use `JSON.parse(JSON.stringify(value))` se for necessário limpar, embora o composable faça isso internamente na resposta da API.
 
 ## Restrições
-- **NÃO** use a Options API em arquivos `.vue`. Use `<script setup lang="ts">` e SCSS para estilização.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **NÃO** use a Options API em arquivos `.vue`. Use `<script setup lang="ts">`; a estilização deve usar UnoCSS attributify (`presetMaxUno`) com tokens de tema — sem Tailwind cru e sem SCSS ad-hoc.
 - **NÃO** assuma que `options.key` mudará reativamente os escopos de cache se passar um wrapper reativo diretamente. Use o padrão de `watch` manual para caches dependentes de contexto/tenant.
 - **NÃO** omita o `defaultValue` a menos que a interface de usuário seja completamente ocultada durante o carregamento e a assinatura de tipo contemple `null`.
 - **NÃO** quebre os atributos do template Vue em várias linhas. Mantenha as tags declaradas em linha única (inline).

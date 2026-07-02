@@ -103,11 +103,12 @@ Fornecer boas práticas, detalhes de implementação e restrições para o recor
 
 7. **Integração de Interface (UI)**:
    - Envolva o componente de recorte em um overlay `MaxModal` para exibição em janela modal.
-   - Use `MaxButton` para as ações do usuário (ex: Recortar, Redefinir, Cancelar) definindo os respectivos severities (ex: `severity="primary"`, `severity="secondary"`).
+   - Use `MaxButton` para as ações do usuário (ex: Recortar, Redefinir, Cancelar). Para a ação primária, use o `MaxButton` **sem** `severity` (o padrão já é o estilo primário — `'primary'` não é um valor válido da prop `severity`); use severities válidos apenas quando aplicável (ex: `severity="secondary"`).
    - Os componentes `@maxvue` (`MaxModal`, `MaxButton`, etc.) são auto-importados via `unplugin-vue-components` — NÃO faça import manual deles no `<script setup>`.
    - Aplique micro-animações suaves e efeitos de hover nos botões e controles para uma experiência premium.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **PROIBIDO o uso da Options API**: Não utilize de forma alguma a estrutura clássica de options do Vue (`data`, `methods`, etc.). Toda a lógica de estado e funções deve ser construída na `<script setup lang="ts">`.
 - **PROIBIDO o uso de Tailwind CSS**: Evite utilizar classes utilitárias do Tailwind CSS, a menos que solicitado expressamente pelo usuário. Utilize regras de SCSS com escopo fechado (`scoped`).
 - **PROIBIDO manipulação direta do DOM por seletores**: Nunca utilize seletores globais como `document.getElementById` ou `document.querySelector` para obter a imagem. Utilize referências de template do Vue (`ref="imageRef"`).

@@ -42,6 +42,7 @@ Fornecer diretrizes, padrões de design e exemplos claros para a implementação
    - Personalize itens de lista individuais com o slot `#item="{ data }"`.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Estrutura SFC:** Siga sempre a ordem estrita de blocos: `<template>`, depois `<script setup lang="ts">` e, por fim, `<style lang="scss">`.
 - **Atributos Inline:** Todos os atributos/props dentro dos templates Vue DEVEM ser declarados em uma única linha (sem quebras de linha entre propriedades na mesma tag).
 - **TypeScript:** O bloco de script deve sempre utilizar `lang="ts"`.

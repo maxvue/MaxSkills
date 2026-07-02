@@ -107,3 +107,6 @@ Ensure database migrations, seeders, and model factories in Laravel comply with 
 - DO NOT hardcode relationship IDs in seeders or factories. Always use factory relationships (e.g. `User::factory()`).
 - DO NOT use `$this->faker` in new factories; prefer the global `fake()` helper.
 - DO NOT omit void return statements on migration `up`/`down` methods and seeder `run` methods.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

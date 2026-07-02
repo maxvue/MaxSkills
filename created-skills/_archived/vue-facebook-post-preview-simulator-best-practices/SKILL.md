@@ -42,6 +42,7 @@ Fornecer um conjunto padronizado de melhores práticas e diretrizes de implement
 ---
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** use a Options API. Sempre use `<script setup lang="ts">`.
 - **NÃO** defina cores de tema estáticas diretamente no código ("hardcoded"). Use os tokens/utilitários de tema do `presetMaxUno` (UnoCSS attributify) com suporte nativo a modo claro e escuro. **NÃO** use classes no estilo Tailwind (`bg-white`, `dark:bg-zinc-900`, `text-blue-600`, etc.).
 - **NÃO** quebre os atributos do template em várias linhas. Mantenha-os em uma única linha.

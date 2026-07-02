@@ -61,6 +61,7 @@ Since Engeapp runs on Laravel Octane, state persistence between requests must be
 - However, if you store state in custom static properties or singletons, you must manually reset them using Octane event listeners (`tick` or request terminators) or avoid them entirely in favor of `Context`.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NO Sensitive Data:** Never store passwords, API keys, full credit card numbers, or personally identifiable information (PII) directly in the Context.
 - **NO Large Objects:** Do not store heavy Eloquent model instances or massive arrays in the Context. Store IDs (e.g., `user_id`, `project_id`) instead.
 - **Avoid Overwriting:** Ensure third-party libraries or internal packages do not overwrite system keys like `trace_id` by using structured prefixing (e.g., `engeapp:trace_id`) if namespace collision is possible.

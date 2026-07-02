@@ -60,6 +60,7 @@ Establish solid, secure, and automated guidelines for backing up databases and a
    - Run `php artisan backup:monitor` periodically or schedule it to ensure backup files are fresh and destinations are accessible.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Security:** Do not write or commit credentials, AWS keys, or WebDAV passwords directly into `config/backup.php` or `config/filesystems.php`. Use `.env` and `env()` helpers instead.
 - **Privacy:** Never include sensitive runtime environment files (like `.env`) or private keys (`oauth-private.key`) in the backup zip. Exclude them explicitly in `config/backup.php`.
 - **Location:** Do not store backups in the `public/` directory or any web-accessible path.

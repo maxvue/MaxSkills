@@ -22,11 +22,12 @@ Provide a comprehensive set of guidelines and best practices for defining, valid
    - `Env.schema.boolean()` to cast values like `"true"`, `"false"`, `"1"`, or `"0"` to boolean.
    - `Env.schema.enum(['val1', 'val2'] as const)` for strict set of values.
    - Use `.optional()` at the end of validators for variables that are not mandatory (e.g., `Env.schema.string.optional()`).
-   - Use `Env.schema.secret()` for sensitive information (e.g. `APP_KEY`, API tokens) to prevent them from being logged during application boot or debug dumps.
+   - Declare sensitive information (e.g. `APP_KEY`, API tokens) with `Env.schema.string()` — the same way the project's own `start/env.ts` validates `APP_KEY`. The installed validator schema (`@poppinss/validator-lite`) exposes only `number`, `string`, `boolean`, and `enum`; there is no `Env.schema.secret()` validator, so do not call it (it throws `Env.schema.secret is not a function`) and do not assume any log-masking feature from the schema.
 4. **Maintenance of `.env.example`**:
    - Ensure every variable added to `start/env.ts` is documented in the root `.env.example` file with placeholder values, keeping local credentials blank.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Never** read environment variables directly using `process.env.KEY_NAME`. Always use `env.get('KEY_NAME')`.
 - **Do not** add sensitive credentials, production passwords, or real API keys to version-controlled files like `start/env.ts` or `.env.example`.
 - **Never** bypass environment variable validation in production. The application must crash during bootstrap if a required variable is missing or invalid.

@@ -11,7 +11,7 @@ Estabelecer um padrão estruturado, performático e resiliente para a implementa
 ## Instruções
 
 ### 1. Migrações de Banco de Dados para pgvector
-Antes de utilizar vetores, certifique-se de que a extensão `vector` do PostgreSQL está habilitada. Defina uma coluna de vetor com dimensão fixa (ex: `768` dimensões para o modelo `text-embedding-004`).
+Antes de utilizar vetores, certifique-se de que a extensão `vector` do PostgreSQL está habilitada. Defina uma coluna de vetor com dimensão fixa que corresponda à saída do modelo de embedding escolhido. Ex.: `768` dimensões com `gemini-embedding-001` configurado com `outputDimensionality: 768` (o padrão do `gemini-embedding-001` não é 768; ajuste a coluna ou reduza a saída para que coincidam).
 
 ```typescript
 import { BaseSchema } from '@adonisjs/lucid/schema'
@@ -135,12 +135,17 @@ Utilize o provedor `@ai-sdk/google` com as funções `embed` ou `embedMany` para
 import { google } from '@ai-sdk/google'
 import { embed, embedMany } from 'ai'
 
-const model = google.embedding('text-embedding-004')
+// `text-embedding-004` não existe mais no @ai-sdk/google@4.0.0. Use um modelo
+// suportado, ex.: `gemini-embedding-001`. Esse modelo NÃO tem 768 dimensões por
+// padrão — para manter a coluna `vector(768)`, reduza a saída via
+// `outputDimensionality: 768` (ou ajuste a dimensão da coluna ao padrão do modelo).
+const model = google.embedding('gemini-embedding-001')
 
 export async function generateSingleEmbedding(text: string): Promise<number[]> {
   const { embedding } = await embed({
     model,
     value: text,
+    providerOptions: { google: { outputDimensionality: 768 } },
   })
   return embedding
 }
@@ -149,6 +154,7 @@ export async function generateBatchEmbeddings(texts: string[]): Promise<number[]
   const { embeddings } = await embedMany({
     model,
     values: texts,
+    providerOptions: { google: { outputDimensionality: 768 } },
   })
   return embeddings
 }
@@ -231,6 +237,7 @@ export default class IndexDocumentJob {
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Limites Síncronos:** Nunca gere embeddings de forma síncrona durante requisições HTTP. Para grandes volumes de dados, utilize sempre Jobs do BullMQ para evitar timeouts e travamentos da thread.
 - **Otimização de Índices:** Sempre defina um índice vetorial (`HNSW` ou `IVFFlat`) nas migrações em ambientes produtivos. Evite consultar colunas vetoriais sem índice em tabelas com mais de 10.000 registros.
 - **Tratamento de Falhas (Null Safety):** Certifique-se de que a geração de embeddings tenha tratamento com blocos try-catch para prevenir quedas no sistema caso a API do modelo de linguagem sofra rate limit ou fique temporariamente indisponível.

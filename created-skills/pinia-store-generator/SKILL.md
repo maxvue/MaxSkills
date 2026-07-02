@@ -181,3 +181,6 @@ export function createPersistedState(options: {
 - 导出的函数使用 `use{ModuleName}Store` 命名
 - 复杂逻辑建议封装到 composable 中
 - 敏感数据不要持久化到本地存储
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

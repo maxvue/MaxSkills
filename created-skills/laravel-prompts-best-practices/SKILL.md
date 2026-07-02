@@ -53,6 +53,7 @@ Establish solid guidelines and consistent patterns for utilizing the Laravel Pro
    - Use built-in alert functions `info()`, `warning()`, `error()`, and `note()` for styled output instead of raw echo or `$this->info()`.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do not** use legacy Symfony Console inputs like `$this->ask()` or `$this->confirm()` unless Laravel Prompts is incompatible with the environment.
 - **Do not** block the terminal with long-running synchronous tasks without using `spin()` or `progress()` to give feedback.
 - **Do not** write custom ASCII loaders or spinners. Use the native `spin()` function.

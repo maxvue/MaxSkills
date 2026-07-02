@@ -40,12 +40,14 @@ transmit.registerRoutes((route) => {
 
 // Canal privado do usuário
 transmit.authorize<{ id: string }>('users/:id/calendar', (ctx, { id }) => {
-  return ctx.auth.user?.id === id
+  // O param `id` chega como string; o PK do User é numérico. Coaja para número
+  // antes de comparar, senão `number === string` é sempre false e ninguém assina.
+  return ctx.auth.user?.id === Number(id)
 })
 
 // Canal privado da empresa
 transmit.authorize<{ id: string }>('companies/:id/news', (ctx, { id }) => {
-  return ctx.auth.user?.solarCompanyId === id
+  return ctx.auth.user?.solarCompanyId === Number(id)
 })
 ```
 
@@ -81,8 +83,8 @@ Sempre limpe as inscrições quando os componentes forem desmontados para evitar
 **Exemplo de Estrutura de Componente:**
 ```vue
 <template>
-  <div class="notifications-panel">
-    <!-- Elementos de interface -->
+  <div p-4>
+    <!-- Elementos de interface (UnoCSS attributify via presetMaxUno) -->
   </div>
 </template>
 
@@ -121,15 +123,10 @@ async function setupNewsListener(): Promise<void> {
   })
 }
 </script>
-
-<style scoped lang="scss">
-.notifications-panel {
-  padding: 1rem;
-}
-</style>
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO utilizar Echo/Soketi/Pusher/Reverb:** Não use Laravel Echo, Soketi, Pusher, Reverb (`@laravel/echo-vue`) ou pacotes WebSocket crus para funcionalidades em tempo real em novos desenvolvimentos no AdonisJS v6. Sempre dê preferência ao `@adonisjs/transmit`.
 - **SEM HMAC nem segredos no frontend:** Nunca gere assinaturas HMAC nem exponha segredos de WebSocket no frontend. A autorização de canais é feita exclusivamente pela sessão autenticada no backend via `transmit.authorize`.
 - **Configuração via `env.get(...)`:** Nunca leia variáveis de ambiente com `process.env.*`; use sempre `env.get(...)` (validado em `start/env.ts`) quando precisar de configuração.

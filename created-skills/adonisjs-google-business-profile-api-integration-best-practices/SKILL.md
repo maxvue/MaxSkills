@@ -235,6 +235,7 @@ Estabelecer padrões seguros, resilientes e robustos para integrar aplicações 
 * **Confirmação Imediata**: Sempre envie a notificação para uma fila em background e retorne imediatamente o status HTTP `200 OK` ao Google, evitando que o webhook envie tentativas repetidas desnecessariamente.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** execute operações das APIs do Google dentro do ciclo de vida das rotas HTTP dos controllers. Envie as operações para filas no BullMQ.
 * **NÃO** salve o `refresh_token` do OAuth 2.0 em texto limpo no banco de dados. Você DEVE criptografá-lo usando o serviço `encryption` do AdonisJS.
 * **NÃO** envie formatos de mídia não suportados (como WebP ou SVG) para os endpoints do Google Business Profile; valide estritamente que as imagens sejam JPG ou PNG e tenham menos de 10MB.

@@ -26,3 +26,6 @@ Ensure solid, consistent guidelines for configuring, generating, and validating 
 - Do NOT add the `#[TypeScript]` attribute to classes inheriting from `Spatie\LaravelData\Data`, as they are auto-mapped.
 - Do NOT use plain untyped array properties in DTOs when they represent collections of DTOs; always specify the target type using the `#[DataCollectionOf(ClassData::class)]` attribute.
 - Do NOT import generated types manually in Vue components; they are registered globally via `declare global` in `generated.d.ts`.
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

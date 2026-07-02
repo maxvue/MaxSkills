@@ -234,6 +234,7 @@ export default loggerConfig
 
 ## Restrições
 
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Vazamento de Dados Sensíveis**: Nunca exiba stack traces (`error.stack`) ou detalhes de erros brutos de SQL diretamente nas respostas HTTP em produção.
 - **Sem Logs com o Console**: Sempre use `ctx.logger` ou o serviço global `Logger`. NÃO use `console.log`, `console.error` ou outros comandos globais de saída do Javascript.
 - **Sem Blocos Try-Catch Vazios**: Não capture exceções para silenciá-las de forma oculta (`catch (e) {}`). Sempre registre o erro usando o logger ou relance a exceção.

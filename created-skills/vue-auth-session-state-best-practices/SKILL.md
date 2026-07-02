@@ -79,6 +79,7 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 - Comentários estritamente em Português do Brasil (pt-BR).
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NUNCA use a Options API. Use Composition API com `<script setup lang="ts">`.
 - Não use caminhos fixos (hardcoded) para redirecionamento; use rotas nomeadas (`router.push({ name: 'login' })`).
 - Não consuma `/user/data` com `axios.get` solto — sempre pela store MaxPinia.
@@ -129,7 +130,7 @@ export function waitRequest(store: ReturnType<typeof useUserStore>): Promise<voi
 ### Exemplo 2: View de Login (LoginPage.vue)
 ```vue
 <template>
-  <MaxAuthCard title="Maxdmin" subtitle="Acesse sua conta" icon="mdi:lock-outline" :providers="providers" :loading="loading" :error="error" :forgot-to="{ name: 'forgot_password' }" @submit="submit" @provider="loginWith" />
+  <MaxAuthCard title="Maxdmin" subtitle="Acesse sua conta" icon="mdi:lock-outline" :providers="providers" :loading="loading" :error="error" :forgot-to="{ name: 'forgot_password' }" @submit="submit" @social="loginWith" />
 </template>
 
 <script setup lang="ts">
@@ -165,17 +166,20 @@ const submit = async (payload: { email: string; password: string; remember: bool
 
     try {
         // apiPostRoute executa o POST (cookies/CSRF já incluídos) e retorna response.data.
-        // Retorna null em caso de erro de rede/HTTP.
+        // Ele NÃO lança em erro de HTTP: retorna null (erro de rede/servidor, ex.: 401/422)
+        // ou false (rota inválida). Por isso ramifique pelo valor de retorno — não use e.response.
         const res = await apiPostRoute('/api/login', payload);
-        if (res === null) throw new Error('login_failed');
+        if (!res || (res as any).errors) {
+            error.value = (res as any)?.message
+                ?? 'Falha na autenticação. Verifique suas credenciais.';
+            return;
+        }
 
         // Limpa chaves locais obsoletas e recarrega o usuário pela store MaxPinia
         localStorage.removeItem('selected.client.id');
         userStore.reload();
 
         router.push({ name: 'projects' });
-    } catch (e: any) {
-        error.value = e?.response?.data?.message ?? 'Falha na autenticação. Verifique suas credenciais.';
     } finally {
         loading.value = false;
     }

@@ -8,6 +8,19 @@ description: Use when configuring, querying, or troubleshooting Redis, implement
 ## Objetivo
 Estabelecer diretrizes de código, padrões arquiteturais e padrões de implementação para o uso eficiente e resiliente do Redis como camada de cache e limitador de taxa (rate limiter) no AdonisJS v6.
 
+## Pré-requisitos (instalação obrigatória)
+
+> **Atenção:** Este projeto **não** inclui os pacotes abaixo por padrão. Todos os imports desta skill (`@adonisjs/redis/services/main`, `defineConfig` de `@adonisjs/redis`, `config/redis.ts`, `@adonisjs/limiter/services/main`, etc.) **assumem que estes pacotes já foram instalados e configurados**. Instale-os **antes** de aplicar qualquer exemplo:
+
+* **`@adonisjs/redis`** — necessário para o serviço Redis, `defineConfig` e `config/redis.ts`. Instale e configure primeiro:
+  ```bash
+  node ace add @adonisjs/redis
+  ```
+* **`@adonisjs/limiter`** — necessário para o rate limiting da Seção 3 (`@adonisjs/limiter/services/main`, `limiter.use('redis', {...})`, `consume()`). O projeto **não** registra nenhum provider de limiter por padrão. Instale e configure:
+  ```bash
+  node ace add @adonisjs/limiter
+  ```
+
 ## Instruções
 
 ### 1. Inicialização da Conexão
@@ -115,6 +128,7 @@ export class RateLimiterService {
 > Acesse a conexão Redis diretamente apenas se realmente precisar de uma janela customizada que o `@adonisjs/limiter` não cobre. Nesse caso, importe `redis` de `@adonisjs/redis/services/main` e use `MULTI`/`INCR`/`EXPIRE` — nunca acesse propriedades privadas de outro serviço via bracket access.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Não** permita que erros de conexão no Redis interrompam as requisições HTTP ou jobs em background. Envolva as chamadas em `try/catch` e forneça um fallback limpo para o banco de dados principal.
 * **Não** armazene credenciais sensíveis, tokens OAuth descriptografados ou payloads excessivamente grandes no Redis sem criptografia apropriada ou estruturas adequadas.
 * **Não** omita o tempo de expiração (TTL) ao salvar dados em cache, prevenindo o crescimento indefinido do uso de memória da máquina e dados obsoletos.

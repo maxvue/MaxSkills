@@ -56,6 +56,7 @@ Provide solid guidelines and secure standards for implementing OAuth authenticat
    - Verify that user creation, session creation, and error states are tested comprehensively.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - Do NOT perform auto-linking of OAuth users to existing user accounts without verifying that the email was marked as verified by the provider.
 - Do NOT store raw OAuth client credentials in `config/services.php`; always reference `.env` variables.
 - Do NOT allow `InvalidStateException` to bubble up to a 500 server error; always handle it gracefully and redirect to the login page.

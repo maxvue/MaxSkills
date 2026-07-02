@@ -40,7 +40,7 @@ Estabelecer diretrizes claras, sólidas e padrões consistentes para estilizar c
 - Para classes condicionais, prefira a sintaxe padrão de binding do Vue com notação de objeto ou array.
 - Agrupe classes estáticas em um atributo `class` comum e declare as classes dinâmicas/condicionais dentro do `:class`.
 - Mantenha a declaração limpa e reativa.
-  - **Bom:** `<div class="p-4 rounded-md border" :class="{ 'border-success bg-success-subtle': isActive, 'border-base bg-surface': !isActive }">`
+  - **Bom:** `<div class="p-4 rounded-md border" :class="{ 'border-emerald-700 bg-emerald-50': isActive, 'border-background-200 bg-background-0': !isActive }">`
 
 ### 5. Classes Utilitárias vs. SCSS Localizado `<style scoped lang="scss">`
 - Dê preferência total às classes utilitárias do UnoCSS para 90% das tarefas de estilo (layout, cores, espaçamento, bordas e tipografia).
@@ -55,8 +55,9 @@ Estabelecer diretrizes claras, sólidas e padrões consistentes para estilizar c
 - Exemplo: `<MaxButton danger pointer label="Remover Item" @click="handleDelete" />`
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não quebre os atributos de componentes em várias linhas** nos templates Vue.
-- **Não escreva cores hexadecimais manualmente** no HTML ou em CSS inline. Utilize sempre os tokens semânticos do tema do `presetMaxUno` (`bg-surface`, `border-base`, `text-default`, `bg-success-subtle`, etc.) em vez de classes de paleta cruas (`bg-white`, `border-gray-200`, `bg-emerald-50`).
+- **Não escreva cores hexadecimais manualmente** no HTML ou em CSS inline. Utilize sempre os tokens que realmente existem no tema do `presetMaxUno` — escalas numéricas (`bg-background-0`, `bg-red-700`, `bg-emerald-700`, `text-blue-600`, `text-primary-600`, etc.) ou os vars semânticos existentes (`--primary`, `--secondary`, `--success`, `--danger`, `--error`, `--info`, `--warn`, `--text`, `--white`).
 - **Não crie regras CSS em folhas de estilo globais** quando puderem ser resolvidas por meio de utilitários UnoCSS ou SCSS local (`<style scoped lang="scss">`).
 - **Não utilize Options API** sob nenhuma circunstância; sempre implemente a Composition API `<script setup lang="ts">` usando TypeScript.
 - **Mantenha todos os comentários em Português do Brasil (pt-BR)** dentro dos arquivos SFC de código, respeitando as regras globais do projeto.

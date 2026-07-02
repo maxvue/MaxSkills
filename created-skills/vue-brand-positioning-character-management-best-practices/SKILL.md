@@ -37,8 +37,9 @@ Estabelecer diretrizes claras, padrões e convenções de fluxo reativo para ger
 * Trate os erros de validação de forma amigável. Destaque os campos de entrada usando atributos de validação (`error`, `done`) envolvidos em `<InputBase>` onde aplicável.
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **NÃO** utilize Options API. Sempre utilize `<script setup lang="ts">`.
-* **NÃO** escreva estilos em CSS puro ou Tailwind CSS. SCSS é obrigatório.
+* **Estilização (House Rule):** Faça layout, espaçamento e cores via atributos do UnoCSS attributify (`presetMaxUno`) e tokens do tema (ex.: `p0`, `s50`, `s100`, `s33`, `s25`, `w-flex`) — essa é a convenção real do projeto. Reserve o bloco opcional `<style scoped lang="scss">` apenas para estilos que não são expressáveis via attributify. **NÃO** use CSS puro nem Tailwind CSS.
 * **NÃO** escreva comentários de código em inglês. Todos os comentários de código devem ser em Português do Brasil (`pt-BR`).
 * **NÃO** quebre os parâmetros do template em várias linhas. Mantenha todos os atributos na mesma linha dentro do template.
 * **NÃO** use diálogos nativos do navegador (ex: `confirm()`, `alert()`) para avisos de exclusão. Use confirmações em modais personalizados.

@@ -68,6 +68,7 @@ To convert UTM coordinates (highly used in Brazilian solar plant designs) to Dec
   ```
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **Do NOT** use `E` (East) or `W` (West) orientations in Brazilian DMS formatting. Use `L` (Leste) and `O` (Oeste).
 - **Do NOT** duplicate coordinate validation rules in controllers. Always delegate coordinate validation to the Spatie Data classes (`CoordinateUTMData`, `CoordinateDecimalData`, `CoordinateDMSData`).
 - **Do NOT** break Vue component template attributes into multiple lines. Keep them in a single line.

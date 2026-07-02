@@ -50,6 +50,7 @@ Specific business rules, mathematical algorithms, area weighting (Business, Expe
 
 ## Constraints
 
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 - **NEVER** make real (non-mocked) calls to the LLM API in automated tests.
 - **ALWAYS** use the required attributes (`Provider`, `Model`, `Temperature`, `MaxTokens`, `Timeout`) on the Agent class.
 - **NEVER** skip validating limits and quotas before the request using `RateLimiter` or Cache.

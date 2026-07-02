@@ -32,9 +32,9 @@ export interface AgentExecuteOptions {
 const modelToUse = opts.customModel ?? google(currentModel)
 ```
 
-## 2. Configurando Testes Unitários com MockLanguageModelV2
-Use a classe `MockLanguageModelV2` de `ai/test` para interceptar as chamadas e retornar respostas determinísticas:
-1. Importe `MockLanguageModelV2` no seu arquivo de teste `.spec.ts`.
+## 2. Configurando Testes Unitários com MockLanguageModelV4
+Use a classe `MockLanguageModelV4` de `ai/test` para interceptar as chamadas e retornar respostas determinísticas:
+1. Importe `MockLanguageModelV4` no seu arquivo de teste `.spec.ts`.
 2. Inicialize-o definindo uma implementação para `doGenerate` que retorne os tokens de uso e o conteúdo desejado.
 3. Passe esse modelo mockado para a função que executa o agente.
 4. Faça as asserções usando o helper `assert` do contexto do Japa.
@@ -65,6 +65,7 @@ Os testes funcionais e de integração que disparam agentes reais podem persisti
   ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **SEM Chamadas Reais de API:** Nunca execute testes automatizados que façam requisições HTTP reais para o Google Gemini ou outras APIs de IA.
 * **SEM Segredos Hardcoded:** Nunca inclua chaves de API reais nos arquivos de teste; utilize variáveis de ambiente ou mocks.
 * **SEM Resíduos no Banco:** Limpe todos os registros de teste gerados no banco de dados antes que o processo de teste seja finalizado.

@@ -109,3 +109,6 @@ Compressed:
 - If unsure whether something is code or prose, leave it unchanged
 - Original file is backed up as FILE.original.md before overwriting
 - Never compress FILE.original.md (skip it)
+
+## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

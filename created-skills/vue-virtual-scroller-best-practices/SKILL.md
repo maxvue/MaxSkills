@@ -23,7 +23,7 @@ Siga estas convenções de configuração e implementação:
 - **Dimensões do Container de Rolagem:** O elemento pai de rolagem **deve** possuir dimensões definidas (ex: `height: 100%`, `height: 400px` ou `flex-grow: 1`) e controles de overflow (`overflow-y: auto`) para evitar que o scroller renderize todos os itens simultaneamente na tela.
 - **Dimensionamento dos Itens (Sizing):**
   - No `RecycleScroller`, sempre defina o `item-size` (em pixels).
-  - No `DynamicScroller`, sempre defina o `min-item-size` (estimativa inicial aproximada em pixels) e envolva os conteúdos de cada item no componente `<DynamicScrollerItem>`, fornecendo as props necessárias: `item`, `active-holder` (geralmente `active`) e `id`.
+  - No `DynamicScroller`, sempre defina o `min-item-size` (estimativa inicial aproximada em pixels) e envolva os conteúdos de cada item no componente `<DynamicScrollerItem>`, fornecendo as props: `item`, `active` (obrigatório, boolean) e, opcionalmente, `index`. (O componente não possui props `active-holder` nem `id`.)
 - **Chaves Dinâmicas (Keying):** Garanta que as listas utilizem uma chave identificadora única (ex: `key-field="id"`). Evite usar o índice do array como chave.
 - **Reciclagem Reativa de Dados:** Compreenda que os elementos dentro do pool de virtualização são reciclados e reutilizados. Componentes filhos nas linhas devem reagir dinamicamente a mudanças de props. Não inicialize estado não reativo no bloco `setup()` esperando que ele seja reexecutado para cada nova linha exibida.
 - **Estilização Customizada de CSS:** Use as variáveis CSS/SCSS estabelecidas no Engeapp/MaxComponentsUi para estilização.
@@ -81,7 +81,7 @@ defineProps<{
     border-bottom: 1px solid var(--background-200);
 
     .log-time {
-      color: var(--text-muted);
+      color: var(--text-500);
       margin-right: 16px;
     }
   }
@@ -146,6 +146,7 @@ defineProps<{
 ```
 
 ## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NUNCA** utilize a Options API.
 - **NUNCA** escreva estilos com CSS puro (sempre utilize SCSS).
 - **NUNCA** quebre os atributos dos elementos dos componentes em várias linhas nos templates; mantenha-os em uma única linha.

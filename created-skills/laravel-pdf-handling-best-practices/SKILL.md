@@ -49,6 +49,7 @@ Establish robust guidelines, coding standards, and memory-efficient practices fo
 * Mock external calls or use small dummy PDF assets for PestPHP tests.
 
 ## Constraints
+- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
 * **DO NOT** use absolute remote URLs for images in DomPDF. Always use Base64 encoding.
 * **DO NOT** use CSS Flexbox or Grid for DomPDF/mPDF page structures.
 * **DO NOT** perform synchronous PDF processing (conversion/heavy text extraction) directly inside an HTTP Request thread. Queue it.
