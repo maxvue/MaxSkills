@@ -1,0 +1,119 @@
+# Ranking de RELEVÂNCIA das skills — created-skills (109 skills)
+
+Relevância (%) derivada de: amplitude de uso real (nº de arquivos do projeto que usam o assunto,
+medido por grep em engeapp + libs Max) + papel da skill (guardiões transversais de qualidade/arquitetura
+recebem relevância alta por natureza, independente de contagem). `transversal` = aplica-se a todo o código.
+
+**Distribuição:** ESSENCIAL(≥90): 28 · ALTA(75-89): 48 · MÉDIA(55-74): 15 · BAIXA(40-54): 14 · MARGINAL(<40): 4
+
+| # | % | Faixa | Arquivos | Cat | Skill |
+|---|---|---|---|---|---|
+| 1 | 99% | ESSENCIAL | 797 | GUARDIAN | php-best-practices |
+| 2 | 99% | ESSENCIAL | 316 | GUARDIAN | typescript-best-practices |
+| 3 | 99% | ESSENCIAL | 313 | GUARDIAN | laravel-migrations-seeders-factories-best-practices |
+| 4 | 99% | ESSENCIAL | 301 | GUARDIAN | laravel-database-eloquent-best-practices |
+| 5 | 99% | ESSENCIAL | 201 | CORE | vue-max-use-development-best-practices |
+| 6 | 98% | ESSENCIAL | 135 | CORE | laravel-multitenancy-data-isolation-best-practices |
+| 7 | 98% | ESSENCIAL | 131 | CORE | laravel-whatsapp-cloud-api-integration |
+| 8 | 98% | ESSENCIAL | 112 | CORE | laravel-jobs-queues-horizon-best-practices |
+| 9 | 98% | ESSENCIAL | 106 | CORE | laravel-ziggy-routing-integration-best-practices |
+| 10 | 98% | ESSENCIAL | 76 | GUARDIAN | laravel-pest-testing-best-practices |
+| 11 | 96% | ESSENCIAL | 91 | CORE | vue-max-components-ui-development-best-practices |
+| 12 | 96% | ESSENCIAL | 68 | CORE | laravel-ai-agents-ecosystem |
+| 13 | 95% | ESSENCIAL | 58 | GUARDIAN | laravel-services-best-practices |
+| 14 | 95% | ESSENCIAL | 40 | GUARDIAN | laravel-cache-best-practices |
+| 15 | 94% | ESSENCIAL | transversal | GUARDIAN | laravel-best-practices |
+| 16 | 94% | ESSENCIAL | transversal | GUARDIAN | laravel-security-hardening-best-practices |
+| 17 | 94% | ESSENCIAL | transversal | GUARDIAN | vue-best-practices |
+| 18 | 94% | ESSENCIAL | transversal | GUARDIAN | vue-max-ecosystem-api-reference |
+| 19 | 94% | ESSENCIAL | transversal | GUARDIAN | vue-max-stack-frontend-best-practices |
+| 20 | 94% | ESSENCIAL | transversal | GUARDIAN | vue |
+| 21 | 94% | ESSENCIAL | transversal | GUARDIAN | vue-typescript-best-practices |
+| 22 | 94% | ESSENCIAL | transversal | GUARDIAN | vue-unocss-styling-best-practices |
+| 23 | 93% | ESSENCIAL | 59 | CORE | vue-pinia-state-management-best-practices |
+| 24 | 93% | ESSENCIAL | 58 | CORE | vue-floating-vue-tooltips-popovers-best-practices |
+| 25 | 93% | ESSENCIAL | 46 | CORE | laravel-brazilian-localization-best-practices |
+| 26 | 93% | ESSENCIAL | 41 | CORE | laravel-cloud-storage-integrations |
+| 27 | 93% | ESSENCIAL | 41 | CORE | laravel-editorial-calendar-event-workflow-best-practices |
+| 28 | 91% | ESSENCIAL | 34 | CORE | laravel-concessionaires-tariffs-regulation-best-practices |
+| 29 | 89% | ALTA | 31 | HEAVY | laravel-reverb-websockets-best-practices |
+| 30 | 89% | ALTA | 28 | CORE | laravel-finance-coupons-discounts-best-practices |
+| 31 | 89% | ALTA | 25 | CORE | laravel-brazilian-payments-integration |
+| 32 | 88% | ALTA | transversal | GUARDIAN | laravel-exception-handling-logging |
+| 33 | 88% | ALTA | transversal | GUARDIAN | laravel-performance-and-profiling-best-practices |
+| 34 | 88% | ALTA | transversal | GUARDIAN | laravel-php-code-quality-tooling |
+| 35 | 88% | ALTA | transversal | GUARDIAN | laravel-redis-integration-best-practices |
+| 36 | 88% | ALTA | transversal | GUARDIAN | laravel-telescope-debugging-best-practices |
+| 37 | 88% | ALTA | transversal | GUARDIAN | frontend-design-best-practices |
+| 38 | 88% | ALTA | transversal | GUARDIAN | vue-code-generators-best-practices |
+| 39 | 88% | ALTA | transversal | GUARDIAN | vue-debugging-best-practices |
+| 40 | 88% | ALTA | transversal | GUARDIAN | vue-eslint-stylelint-quality-standards |
+| 41 | 88% | ALTA | transversal | GUARDIAN | vue-expert |
+| 42 | 88% | ALTA | transversal | GUARDIAN | vue-frontend-bug-fixing-best-practices |
+| 43 | 88% | ALTA | transversal | GUARDIAN | vue-vitest-testing-best-practices |
+| 44 | 88% | ALTA | transversal | GUARDIAN | systematic-debugging-best-practices |
+| 45 | 88% | ALTA | transversal | GUARDIAN | technical-documentation-best-practices |
+| 46 | 88% | ALTA | transversal | GUARDIAN | typescript-advanced-types-best-practices |
+| 47 | 88% | ALTA | transversal | GUARDIAN | typescript-tooling-monorepo-best-practices |
+| 48 | 87% | ALTA | 8 | GUARDIAN | laravel-frankenphp-octane-best-practices |
+| 49 | 86% | ALTA | 24 | HEAVY | laravel-gemini-file-api-media-integration-best-practices |
+| 50 | 86% | ALTA | 23 | CORE | laravel-media-library-best-practices |
+| 51 | 86% | ALTA | 23 | CORE | laravel-power-of-attorney-generation-best-practices |
+| 52 | 86% | ALTA | 23 | CORE | laravel-scout-searchable-best-practices |
+| 53 | 86% | ALTA | 23 | CORE | laravel-trello-api-integration |
+| 54 | 86% | ALTA | 23 | CORE | python-concessionarias-automation-best-practices |
+| 55 | 86% | ALTA | 22 | CORE | vue-axios-api-integration-best-practices |
+| 56 | 86% | ALTA | 21 | CORE | laravel-ai-datasheet-extraction-best-practices |
+| 57 | 84% | ALTA | 18 | CORE | laravel-global-helpers-best-practices |
+| 58 | 84% | ALTA | 17 | HEAVY | laravel-digital-signatures-integration |
+| 59 | 84% | ALTA | 17 | HEAVY | vue-complex-modal-forms-autosave-best-practices |
+| 60 | 82% | ALTA | 16 | HEAVY | laravel-authorization-policies-gates |
+| 61 | 82% | ALTA | 16 | HEAVY | vue-router-best-practices |
+| 62 | 79% | ALTA | 14 | HEAVY | laravel-meta-graph-api-integration-best-practices |
+| 63 | 79% | ALTA | 14 | HEAVY | typescript-billing-core-architecture-best-practices |
+| 64 | 79% | ALTA | 13 | HEAVY | laravel-typescript-transformer-best-practices |
+| 65 | 79% | ALTA | 13 | HEAVY | laravel-vuefinder-media-library-integration |
+| 66 | 79% | ALTA | 13 | HEAVY | vue-max-components-ui-popovers-confirmations-best-practices |
+| 67 | 78% | ALTA | 12 | HEAVY | laravel-ai-bank-ticket-processing-best-practices |
+| 68 | 78% | ALTA | 12 | HEAVY | laravel-api-integration-patterns |
+| 69 | 78% | ALTA | 12 | HEAVY | laravel-user-impersonation-best-practices |
+| 70 | 78% | ALTA | 12 | HEAVY | vue-meta-api-oauth-integration-best-practices |
+| 71 | 75% | ALTA | 11 | HEAVY | laravel-qrcode-generation-best-practices |
+| 72 | 75% | ALTA | 11 | HEAVY | vue-dayjs-date-manipulation-best-practices |
+| 73 | 75% | ALTA | 10 | HEAVY | laravel-holiday-sla-calculation-best-practices |
+| 74 | 75% | ALTA | 10 | HEAVY | laravel-livekit-server-sdk-best-practices |
+| 75 | 75% | ALTA | 10 | HEAVY | laravel-pdf-handling-best-practices |
+| 76 | 75% | ALTA | 10 | HEAVY | typescript-max-banks-efi-gateway-best-practices |
+| 77 | 72% | MÉDIA | 9 | HEAVY | laravel-electrical-calculations-dimensioning-best-practices |
+| 78 | 72% | MÉDIA | 9 | HEAVY | laravel-engeapp-project-homologation-best-practices |
+| 79 | 72% | MÉDIA | 9 | HEAVY | vue-auth-session-state-best-practices |
+| 80 | 70% | MÉDIA | 8 | HEAVY | laravel-gemini-php-sdk-best-practices |
+| 81 | 70% | MÉDIA | 8 | HEAVY | vue-max-use-usecachedapi-state-cache-best-practices |
+| 82 | 67% | MÉDIA | 7 | MODERATE | laravel-task-scheduling-best-practices |
+| 83 | 64% | MÉDIA | 6 | MODERATE | laravel-anticaptcha-integration-best-practices ⚠(impl custom, sem pacote) |
+| 84 | 64% | MÉDIA | 6 | MODERATE | laravel-brazilian-data-queries-best-practices |
+| 85 | 64% | MÉDIA | 6 | MODERATE | laravel-browser-automation-webdriver |
+| 86 | 64% | MÉDIA | 6 | MARGINAL | vue-auto-import-components-best-practices |
+| 87 | 64% | MÉDIA | 6 | MODERATE | vue-inputs-masks-validation-best-practices |
+| 88 | 64% | MÉDIA | 6 | MODERATE | vue-whatsapp-interactive-messages-simulator-best-practices |
+| 89 | 60% | MÉDIA | 5 | MODERATE | laravel-social-media-oauth-token-lifecycle-management-best-practices |
+| 90 | 60% | MÉDIA | 5 | MODERATE | laravel-vue-geocoordinates-maps-best-practices |
+| 91 | 60% | MÉDIA | 5 | MODERATE | vue-keyboard-shortcuts-navigation-best-practices |
+| 92 | 54% | BAIXA | 4 | MODERATE | laravel-correios-api-integration-best-practices ⚠(impl custom, sem pacote) |
+| 93 | 54% | BAIXA | 4 | MODERATE | laravel-vue-login-maxauthcard-best-practices |
+| 94 | 54% | BAIXA | 4 | MODERATE | vue-emoji-picker-integration-best-practices |
+| 95 | 50% | BAIXA | 3 | LIGHT | vue-boleto-utils-best-practices |
+| 96 | 50% | BAIXA | 3 | LIGHT | vue-brand-positioning-character-management-best-practices |
+| 97 | 50% | BAIXA | 3 | LIGHT | vue-lottie-animations-best-practices |
+| 98 | 50% | BAIXA | 3 | LIGHT | vue-rss-news-moderation-dashboard-best-practices |
+| 99 | 42% | BAIXA | 2 | LIGHT | laravel-ai-design-engineer-best-practices |
+| 100 | 42% | BAIXA | 2 | LIGHT | laravel-rate-limiting-best-practices |
+| 101 | 42% | BAIXA | 2 | MARGINAL | laravel-sanctum-api-authentication |
+| 102 | 42% | BAIXA | 2 | LIGHT | laravel-service-providers-dependency-injection-best-practices |
+| 103 | 42% | BAIXA | 2 | LIGHT | laravel-socialite-oauth-integration-best-practices |
+| 104 | 42% | BAIXA | 2 | LIGHT | vue-pdf-viewer-best-practices |
+| 105 | 42% | BAIXA | 2 | LIGHT | vue-toast-notifications-toastify-best-practices |
+| 106 | 33% | MARGINAL | 1 | MARGINAL | vue-jsbarcode-generation-best-practices |
+| 107 | 33% | MARGINAL | 1 | MARGINAL | vue-livekit-client-integration-best-practices |
+| 108 | 33% | MARGINAL | 1 | MARGINAL | vue-vite-bundling-optimization-best-practices |
+| 109 | 20% | MARGINAL | 0 | MARGINAL | vue-draggable-next-best-practices |

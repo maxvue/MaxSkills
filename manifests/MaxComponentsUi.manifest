@@ -1,0 +1,21 @@
+# Skills para MaxComponentsUi (lib de componentes Vue: primevue, tiptap, unocss, maska, vitest)
+dev-practices/systematic-debugging-best-practices
+dev-practices/technical-documentation-best-practices
+typescript/typescript-best-practices
+typescript/typescript-advanced-types-best-practices
+typescript/typescript-tooling-monorepo-best-practices
+frontEnd/vue
+frontEnd/vue-best-practices
+frontEnd/vue-typescript-best-practices
+frontEnd/vue-max-components-ui-development-best-practices
+frontEnd/vue-max-components-ui-popovers-confirmations-best-practices
+frontEnd/vue-max-ecosystem-api-reference
+frontEnd/vue-unocss-styling-best-practices
+frontEnd/vue-auto-import-components-best-practices
+frontEnd/vue-eslint-stylelint-quality-standards
+frontEnd/vue-vitest-testing-best-practices
+frontEnd/vue-inputs-masks-validation-best-practices
+frontEnd/vue-pdf-viewer-best-practices
+frontEnd/vue-lottie-animations-best-practices
+frontEnd/vue-router-best-practices
+frontEnd/frontend-design-best-practices
