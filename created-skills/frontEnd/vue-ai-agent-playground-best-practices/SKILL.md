@@ -23,7 +23,7 @@ Estabelecer padrões de codificação e padrões estruturais para criar playgrou
   - Agrupe-o com um `MaxInputText` somente leitura ou um indicador numérico para feedback visual preciso.
 - **Tokens Máximos (Max Tokens):** Vincule a um `MaxInputText` (`type="number"`) restringindo o valor mínimo a `1` e o máximo a `8192` (ou limite atual do modelo).
 - **Input de Mensagem:** Use `MaxInputText` para o campo de envio de mensagem; evite `<input type="text">` nativo.
-- **Toggle de Ferramentas:** Use `MaxInputCheckbox` (ou o toggle equivalente do MaxComponentsUi) envelopado dentro de grids de layout responsivos (`MaxGrid` ou `MaxGridCols`). Não use `<input type="checkbox">` nativo.
+- **Toggle de Ferramentas:** Use `MaxInputCheckbox` (ou o toggle equivalente do MaxComponentsUi) dentro do `MaxGrid` do formulário (sempre `MaxGrid` em formulário, nunca `MaxGridCols`). Não use `<input type="checkbox">` nativo.
 
 ### 3. Console de Chat em Streaming
 - **Estado de Stream Reativo:** Gerencie o histórico do chat como um array reativo de objetos de mensagem contendo `id`, `role` ('user' ou 'assistant'), `content` (texto em streaming) e `tools` (array de ferramentas chamadas).
@@ -38,22 +38,19 @@ Estabelecer padrões de codificação e padrões estruturais para criar playgrou
     })
   }
   ```
-- **Integração real de streaming (Vercel AI SDK + Transmit):** O streaming NÃO deve ser simulado com `setInterval` em produção — isso serve apenas para protótipos. Use uma das duas abordagens reais:
-  - **Resposta de chat do agente:** consuma o stream do backend (AdonisJS rodando o Vercel AI SDK) com o helper de cliente do Vercel AI SDK (`useChat`/`readUIMessageStream`), acumulando os chunks de texto de forma reativa em `message.content`.
-  - **Eventos colaterais em tempo real** (progresso de ferramentas, broadcast multi-usuário): assine via `@adonisjs/transmit-client`:
+- **Integração real de streaming (`laravel/ai` + Laravel Reverb):** O streaming NÃO deve ser simulado com `setInterval` em produção — isso serve apenas para protótipos. Use uma das duas abordagens reais:
+  - **Resposta de chat do agente:** consuma o stream SSE do backend (Laravel rodando o `laravel/ai`, ex.: `Ai::agent(...)->stream()`) com um `EventSource`/leitor de stream, acumulando os chunks de texto de forma reativa em `message.content`.
+  - **Eventos colaterais em tempo real** (progresso de ferramentas, broadcast multi-usuário): assine via **Laravel Reverb + `@laravel/echo-vue`** (`useEcho`):
     ```typescript
-    import { useTransmitClient } from '@/composables/useTransmitClient'
+    import { useEcho } from '@laravel/echo-vue'
 
-    // Obtenha SEMPRE o cliente Transmit pelo singleton — nunca instancie `new Transmit()` no componente.
-    const transmit = useTransmitClient()
-    const subscription = transmit.subscription(`playground/${runId}`)
-    await subscription.create()
-    subscription.onMessage((chunk) => {
+    // useEcho gerencia a assinatura e o cleanup automaticamente ao desmontar o componente.
+    useEcho(`playground.${runId}`, 'ChunkStreamed', (chunk: { messageId: string; delta: string }) => {
       const msg = messages.value.find(m => m.id === chunk.messageId)
       if (msg) { msg.content += chunk.delta; scrollToBottom() }
     })
     ```
-  Não use Pusher, Soketi, Reverb ou Laravel Echo.
+  Reverb e `@laravel/echo-vue` são as libs reais do stack — use-as (não use Pusher hospedado ou Soketi).
 
 ### 4. Logs de Execução de Ferramentas Colapsáveis
 - Renderize as ferramentas invocadas durante a execução do agente em elementos colapsáveis (ex: tags HTML `<details>` ou cards reativos com toggles).
@@ -231,14 +228,14 @@ const sendMessage = () => {
   inputText.value = '';
   scrollToBottom();
 
-  // Em produção, dispare a chamada ao backend (AdonisJS + Vercel AI SDK) e
-  // consuma o stream real via useChat/readUIMessageStream ou via assinatura
-  // @adonisjs/transmit-client. O bloco abaixo é APENAS um stub de protótipo.
+  // Em produção, dispare a chamada ao backend (Laravel + laravel/ai) e
+  // consuma o stream SSE real, ou assine eventos colaterais via Laravel Reverb
+  // + @laravel/echo-vue (useEcho). O bloco abaixo é APENAS um stub de protótipo.
   simulateStreamResponse();
 };
 
 // STUB DE PROTÓTIPO — não use setInterval em produção.
-// Substitua pelo consumo real do stream do Vercel AI SDK / Transmit.
+// Substitua pelo consumo real do stream SSE do laravel/ai ou por eventos Reverb/Echo.
 const simulateStreamResponse = () => {
   const assistantMsgId = `assistant-${Date.now()}`;
   const streamMessage: ChatMessage = {

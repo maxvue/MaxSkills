@@ -3,19 +3,19 @@ name: laravel-redis-integration-best-practices
 description: Use when configuring, optimizing, or debugging Redis database connections, queues, sessions, cache stores, pub/sub channels, or distributed locks in Laravel. Triggers on Redis facade usage, phpredis/predis config, cache tags, connection exceptions, and Horizon queue backend configurations.
 ---
 
-# Laravel Redis Integration Best Practices
+# Boas Práticas de Integração com Redis no Laravel
 
-## Goal
-Establish solid guidelines and consistent patterns for configuring, optimizing, securing, and developing resilient Redis-based routines in the Engeapp Laravel backend.
+## Objetivo
+Estabelecer diretrizes sólidas e padrões consistentes para configurar, otimizar, proteger e desenvolver rotinas resilientes baseadas em Redis no backend Laravel do Engeapp.
 
-## Instructions
+## Instruções
 
-### 1. Redis Client & Configuration
-* **Default Client:** Always use `phpredis` as the default client (as it is implemented in C and offers much higher performance than `predis`).
-* **Persistent Connections:** Ensure `REDIS_PERSISTENT` is enabled in production environments to avoid the overhead of establishing a new connection on every request.
-* **Timeout and Read Timeout:** Set reasonable values for `timeout` and `read_timeout` (e.g., 1.5s to 2.0s) to prevent a slow Redis instance from blocking web workers.
+### 1. Cliente Redis e Configuração
+* **Cliente Padrão:** Sempre use `phpredis` como cliente padrão (por ser implementado em C e oferecer performance muito superior ao `predis`).
+* **Conexões Persistentes:** Garanta que `REDIS_PERSISTENT` esteja habilitado em ambientes de produção para evitar o overhead de estabelecer uma nova conexão a cada requisição.
+* **Timeout e Read Timeout:** Defina valores razoáveis para `timeout` e `read_timeout` (ex: 1.5s a 2.0s) para evitar que uma instância lenta do Redis bloqueie os web workers.
 
-Example configuration in `config/database.php`:
+Exemplo de configuração em `config/database.php`:
 ```php
 'redis' => [
     'client' => env('REDIS_CLIENT', 'phpredis'),
@@ -27,15 +27,15 @@ Example configuration in `config/database.php`:
         'timeout' => 1.5,
         'read_timeout' => 1.5,
     ],
-    // ... connections configuration ...
+    // ... configuração das conexões ...
 ],
 ```
 
-### 2. Semantic Key Naming Convention
-To prevent key collisions and ensure visibility, use a structured colon-separated naming convention:
-* **Pattern:** `app_name:domain:resource:identifier`
-* **Example:** `engeapp:payments:charge:123456`
-* **Rule:** Never use hardcoded strings for Redis keys. Define constants or helper methods on the service/model class handling the resource.
+### 2. Convenção Semântica de Nomenclatura de Chaves
+Para evitar colisões de chaves e garantir visibilidade, use uma convenção de nomenclatura estruturada separada por dois-pontos:
+* **Padrão:** `app_name:domain:resource:identifier`
+* **Exemplo:** `engeapp:payments:charge:123456`
+* **Regra:** Nunca use strings hardcoded para chaves Redis. Defina constantes ou métodos helper na classe de service/model que manipula o recurso.
 
 ```php
 class PaymentService
@@ -49,11 +49,11 @@ class PaymentService
 }
 ```
 
-### 3. Distributed Locks for Concurrency Control
-Always use distributed locks for critical business logic (e.g., payment processing, inventory updates, concurrent ticket creation) to prevent race conditions.
-* Use `Cache::lock($name, $seconds)` which uses the Redis lock driver.
-* Utilize `block($seconds, callable)` to wait for the lock if it's currently held.
-* Wrap logic in a `try/finally` block or pass a closure to `block()` to ensure the lock is always released.
+### 3. Locks Distribuídos para Controle de Concorrência
+Sempre use locks distribuídos para lógica de negócio crítica (ex: processamento de pagamentos, atualizações de estoque, criação concorrente de tickets) para evitar condições de corrida.
+* Use `Cache::lock($name, $seconds)`, que utiliza o driver de lock do Redis.
+* Utilize `block($seconds, callable)` para aguardar pelo lock se ele estiver atualmente em uso.
+* Envolva a lógica em um bloco `try/finally` ou passe uma closure para `block()` para garantir que o lock seja sempre liberado.
 
 ```php
 use Illuminate\Support\Facades\Cache;
@@ -61,18 +61,18 @@ use Illuminate\Support\Facades\Cache;
 $lock = Cache::lock('payment_lock_user_' . $userId, 10);
 
 try {
-    // Block for up to 5 seconds waiting for the lock
+    // Bloqueia por até 5 segundos aguardando pelo lock
     $lock->block(5, function () use ($paymentData) {
-        // Critical transaction/payment logic here
+        // Lógica crítica de transação/pagamento aqui
     });
 } catch (\Illuminate\Contracts\Cache\LockTimeoutException $e) {
-    // Handle the lock acquisition failure gracefully
+    // Trata a falha de aquisição do lock de forma elegante
     throw new PaymentProcessingException('Process already in execution. Please try again in a few seconds.', 429);
 }
 ```
 
-### 4. Redis Pipelines for Batch Operations
-When reading or writing multiple keys, use `Redis::pipeline()` to send commands in a single batch, reducing round-trip time (RTT).
+### 4. Pipelines do Redis para Operações em Lote
+Ao ler ou escrever múltiplas chaves, use `Redis::pipeline()` para enviar comandos em um único lote, reduzindo o tempo de ida e volta (RTT).
 
 ```php
 use Illuminate\Support\Facades\Redis;
@@ -84,10 +84,10 @@ $results = Redis::pipeline(function ($pipe) use ($geckodriverPorts) {
 });
 ```
 
-### 5. Resilient Connection Failbacks and Exception Handling
-Redis connection drops should not bring down the entire application (unless it's a hard dependency like session or rate-limiting).
-* Catch `RedisException` or general cache drivers exceptions.
-* Implement a fallback database query or default values if the Redis server goes offline.
+### 5. Failbacks de Conexão Resilientes e Tratamento de Exceções
+Quedas de conexão com o Redis não devem derrubar a aplicação inteira (a menos que seja uma dependência rígida, como sessão ou rate-limiting).
+* Capture `RedisException` ou exceções gerais dos drivers de cache.
+* Implemente uma query de fallback no banco de dados ou valores padrão caso o servidor Redis fique offline.
 
 ```php
 use Illuminate\Support\Facades\Log;
@@ -103,35 +103,35 @@ public function getActivePorts(): array
             'exception' => $e->getMessage()
         ]);
         
-        // Fallback option (e.g. read from fallback persistent source or return empty)
+        // Opção de fallback (ex: ler de uma fonte persistente alternativa ou retornar vazio)
         return [];
     }
 }
 ```
 
-### 6. Cache Tags and Invalidation
-When caching structured database query results, use Cache Tags so they can be selectively invalidated.
-* **Important:** Redis does not natively support tags; Laravel implements this by creating additional tracking keys, which can be memory-heavy. Avoid tags if caching millions of keys.
-* Flush tags selectively instead of clearing the entire cache.
+### 6. Cache Tags e Invalidação
+Ao fazer cache de resultados estruturados de query do banco de dados, use Cache Tags para que possam ser invalidados seletivamente.
+* **Importante:** O Redis não suporta tags nativamente; o Laravel implementa isso criando chaves de rastreamento adicionais, o que pode consumir muita memória. Evite tags se estiver fazendo cache de milhões de chaves.
+* Faça flush das tags seletivamente em vez de limpar o cache inteiro.
 
 ```php
 use Illuminate\Support\Facades\Cache;
 
-// Storing with tags
+// Armazenando com tags
 Cache::tags(['solar-data', 'nasa-power'])->put($cacheKey, $data, now()->addDays(7));
 
-// Invalidating by tag
+// Invalidando por tag
 Cache::tags(['solar-data'])->flush();
 ```
 
-### 7. Horizon and Queue Tuning
-* Make sure `horizon.php` connection configuration matches the persistent default connection.
-* Avoid dispatching huge payloads in jobs. Instead, store the Model ID in the job payload and fetch the fresh data from the database/cache inside the job.
-* Configure redis queue connection with a high enough `retry_after` (larger than your longest-running job).
+### 7. Ajuste do Horizon e das Filas
+* Certifique-se de que a configuração de conexão em `horizon.php` corresponda à conexão persistente padrão.
+* Evite despachar payloads enormes em jobs. Em vez disso, armazene o ID do Model no payload do job e busque os dados atualizados no banco de dados/cache dentro do job.
+* Configure a conexão de fila do redis com um `retry_after` suficientemente alto (maior que o seu job de execução mais longa).
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-* **DO NOT** run slow Redis commands (like `KEYS *`, `FLUSHALL`, `FLUSHDB`) in production. Use `SCAN` or clean cache using Laravel's native cache clear commands.
-* **DO NOT** use Redis cache tags without verifying the driver. The database and file cache drivers do not support tags.
-* **DO NOT** write raw Redis queries without catching connection exceptions. Always assume Redis can go offline.
-* **DO NOT** serialize complete Eloquent models directly to Redis; use `json_encode` of necessary data or standard model serialization via jobs.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+* **NÃO** execute comandos Redis lentos (como `KEYS *`, `FLUSHALL`, `FLUSHDB`) em produção. Use `SCAN` ou limpe o cache usando os comandos nativos de limpeza de cache do Laravel.
+* **NÃO** use cache tags do Redis sem verificar o driver. Os drivers de cache database e file não suportam tags.
+* **NÃO** escreva queries Redis brutas sem capturar exceções de conexão. Sempre assuma que o Redis pode ficar offline.
+* **NÃO** serialize models Eloquent completos diretamente no Redis; use `json_encode` dos dados necessários ou a serialização padrão de model via jobs.

@@ -3,45 +3,45 @@ name: laravel-anticaptcha-integration-best-practices
 description: Use when implementing, configuring, or debugging CAPTCHA resolution services (Anti-Captcha) in the Laravel backend, including ImageToText tasks, handling API keys, handling errors, timeouts, and logging.
 ---
 
-# Laravel Anti-Captcha Integration Best Practices
+# Boas Práticas de Integração com Anti-Captcha no Laravel
 
-## Goal
-Provide clear, structured guidelines and code patterns for integrating, solving, and monitoring CAPTCHA resolution services (specifically Anti-Captcha) within the Laravel backend of the Engeapp ecosystem, ensuring resilience, secure configuration, robust error handling, and dedicated logging.
+## Objetivo
+Fornecer diretrizes claras e estruturadas e padrões de código para integrar, resolver e monitorar serviços de resolução de CAPTCHA (especificamente o Anti-Captcha) no backend Laravel do ecossistema Engeapp, garantindo resiliência, configuração segura, tratamento robusto de erros e logging dedicado.
 
-## Instructions
+## Instruções
 
-### 1. Configuration & Key Management
-- Always use environment variables to store the Anti-Captcha API key.
-- The configuration must be read via `config('app.anticaptcha')` which points to `env('ANTICAPTCHA_KEY')` in `config/app.php`.
-- Do NOT hardcode the API key in classes, controllers, or services.
-- Always check if the API key is configured before initiating a captcha request. If empty, fail gracefully or throw a configuration exception.
+### 1. Configuração e Gerenciamento de Chaves
+- Sempre use variáveis de ambiente para armazenar a chave de API do Anti-Captcha.
+- A configuração deve ser lida via `config('app.anticaptcha')`, que aponta para `env('ANTICAPTCHA_KEY')` em `config/app.php`.
+- NÃO fixe a chave de API diretamente em classes, controllers ou services.
+- Sempre verifique se a chave de API está configurada antes de iniciar uma requisição de captcha. Se estiver vazia, falhe de forma controlada ou lance uma exceção de configuração.
 
-### 2. Utilizing App Classes
-Engeapp has wrapper classes for Anti-Captcha under `App\Classes\Anticaptcha`:
-- **`App\Classes\Anticaptcha\Anticaptcha`**: Use the static helper `image(string $path, array $options = [])` for quick ImageToText tasks. It handles instantiation, task creation, and polling automatically.
-- **`App\Classes\Anticaptcha\ImageToText`**: Direct instantiation for more customized visual CAPTCHAs.
-  - Set the image file using `$api->setFile($filePath)`.
-  - Set optional flags (e.g., `$api->phrase = true`, `$api->numeric = 1` for numbers only, `$api->case = true` for case sensitive).
-  - Invoke `$api->createTask()` to submit.
-  - Invoke `$api->waitForResult()` to poll for the solution.
-  - Retrieve the solved text with `$api->getTaskSolution()`.
+### 2. Utilizando as Classes do App
+O Engeapp possui classes wrapper para o Anti-Captcha em `App\Classes\Anticaptcha`:
+- **`App\Classes\Anticaptcha\Anticaptcha`**: Use o helper estático `image(string $path, array $options = [])` para tarefas rápidas de ImageToText. Ele cuida da instanciação, criação da tarefa e polling automaticamente.
+- **`App\Classes\Anticaptcha\ImageToText`**: Instanciação direta para CAPTCHAs visuais mais customizados.
+  - Defina o arquivo de imagem usando `$api->setFile($filePath)`.
+  - Defina flags opcionais (ex.: `$api->phrase = true`, `$api->numeric = 1` para apenas números, `$api->case = true` para diferenciar maiúsculas/minúsculas).
+  - Chame `$api->createTask()` para submeter.
+  - Chame `$api->waitForResult()` para fazer polling da solução.
+  - Recupere o texto resolvido com `$api->getTaskSolution()`.
 
-### 3. Error Handling and Resilience
-- Captcha resolution depends on external APIs and is prone to network failure, timeouts, or insufficient balance.
-- Check return values:
-  - If `createTask()` returns `false` or `null`, a task creation error occurred. Inspect `$api->errorMessage` or `$api->errorCode`.
-  - If `waitForResult()` returns `false`, the task processing timed out or failed.
-- Implement retries with backoff if network connection drops, but cap the total execution time (default API timeout is 30s per request, polling takes up to 300s by default).
-- For automated scrapers/services, catch `Illuminate\Http\Client\ConnectionException` and `Illuminate\Http\Client\RequestException` appropriately.
+### 3. Tratamento de Erros e Resiliência
+- A resolução de captcha depende de APIs externas e está sujeita a falhas de rede, timeouts ou saldo insuficiente.
+- Verifique os valores de retorno:
+  - Se `createTask()` retornar `false` ou `null`, ocorreu um erro na criação da tarefa. Inspecione `$api->errorMessage` ou `$api->errorCode`.
+  - Se `waitForResult()` retornar `false`, o processamento da tarefa expirou (timeout) ou falhou.
+- Implemente retries com backoff caso a conexão de rede caia, mas limite o tempo total de execução (o timeout padrão da API é de 30s por requisição, o polling leva até 300s por padrão).
+- Para scrapers/services automatizados, capture `Illuminate\Http\Client\ConnectionException` e `Illuminate\Http\Client\RequestException` de forma apropriada.
 
-### 4. Transaction Logging
-- All captcha transactions must be logged in the dedicated `anticaptcha` channel (`Log::channel('anticaptcha')`).
-- Log warnings or errors with context: include the source file, error description, task ID, and relevant metadata (excluding secret keys).
-- Logs are routed to `storage/logs/anticaptcha.log`. Make sure to monitor it when debugging captcha-related automation failures.
+### 4. Logging de Transações
+- Todas as transações de captcha devem ser registradas no canal dedicado `anticaptcha` (`Log::channel('anticaptcha')`).
+- Registre avisos ou erros com contexto: inclua o arquivo de origem, a descrição do erro, o ID da tarefa e metadados relevantes (excluindo chaves secretas).
+- Os logs são roteados para `storage/logs/anticaptcha.log`. Certifique-se de monitorá-lo ao depurar falhas de automação relacionadas a captcha.
 
-## Examples
+## Exemplos
 
-### Example 1: Resolving a CAPTCHA Image using the Static Wrapper
+### Exemplo 1: Resolvendo uma Imagem de CAPTCHA usando o Wrapper Estático
 ```php
 use App\Classes\Anticaptcha\Anticaptcha;
 use Illuminate\Support\Facades\Log;
@@ -53,7 +53,7 @@ if (!file_exists($imagePath)) {
     return null;
 }
 
-// Solve using the static helper with custom options (numbers only, case sensitive)
+// Resolve usando o helper estático com opções customizadas (apenas números, diferencia maiúsculas/minúsculas)
 $solution = Anticaptcha::image($imagePath, [
     'numeric' => 1,
     'case' => true,
@@ -66,7 +66,7 @@ if ($solution === null) {
 }
 ```
 
-### Example 2: Detailed Workflow using ImageToText Class Directly
+### Exemplo 2: Fluxo Detalhado usando a Classe ImageToText Diretamente
 ```php
 use App\Classes\Anticaptcha\ImageToText;
 use Illuminate\Support\Facades\Log;
@@ -79,13 +79,13 @@ if (!$api->setFile($imagePath)) {
     return null;
 }
 
-// Configure options
+// Configura as opções
 $api->phrase = false;
-$api->numeric = 1; // 1 = only numbers
+$api->numeric = 1; // 1 = apenas números
 $api->minLength = 4;
 $api->maxLength = 6;
 
-// Create task
+// Cria a tarefa
 $taskCreated = $api->createTask();
 if ($taskCreated === null || $taskCreated === false) {
     Log::channel('anticaptcha')->error("Captcha task creation failed. Message: {$api->errorMessage}");
@@ -94,7 +94,7 @@ if ($taskCreated === null || $taskCreated === false) {
 
 Log::channel('anticaptcha')->info("Captcha task created. Task ID: {$api->taskId}");
 
-// Poll for result (max 120 seconds)
+// Faz polling do resultado (máximo de 120 segundos)
 $solved = $api->waitForResult(120);
 
 if (!$solved) {
@@ -106,8 +106,8 @@ $solution = $api->getTaskSolution();
 Log::channel('anticaptcha')->info("Captcha solved successfully. Task ID: {$api->taskId}, Result: {$solution}");
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Do NOT** commit the API key (`ANTICAPTCHA_KEY`) to Git. Keep it in the `.env` file.
-- **Do NOT** use default logging channels for captcha logs; always write to `Log::channel('anticaptcha')`.
-- **Do NOT** hardcode long sleep periods or infinite polling loops. Use `$api->waitForResult($maxSeconds)` with a sane timeout to prevent hanging Laravel worker processes or Octane threads.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- **NÃO** faça commit da chave de API (`ANTICAPTCHA_KEY`) no Git. Mantenha-a no arquivo `.env`.
+- **NÃO** use canais de log padrão para logs de captcha; sempre escreva em `Log::channel('anticaptcha')`.
+- **NÃO** fixe períodos longos de sleep ou loops de polling infinitos. Use `$api->waitForResult($maxSeconds)` com um timeout sensato para evitar travar processos worker do Laravel ou threads do Octane.

@@ -6,151 +6,151 @@ metadata:
   version: "3.x"
 ---
 
-# Vue Best Practices Workflow
+# Fluxo de Trabalho de Boas Práticas do Vue
 
-Use this skill as an instruction set. Follow the workflow in order unless the user explicitly asks for a different order.
+Use esta skill como um conjunto de instruções. Siga o fluxo de trabalho na ordem, a menos que o usuário peça explicitamente uma ordem diferente.
 
-## Core Principles
-- **Keep state predictable:** one source of truth, derive everything else.
-- **Make data flow explicit:** Props down, Events up for most cases.
-- **Favor small, focused components:** easier to test, reuse, and maintain.
-- **Avoid unnecessary re-renders:** use computed properties and watchers wisely.
-- **Readability counts:** write clear, self-documenting code.
+## Princípios Fundamentais
+- **Mantenha o estado previsível:** uma única fonte de verdade, derive todo o resto.
+- **Torne o fluxo de dados explícito:** props para baixo, eventos para cima na maioria dos casos.
+- **Prefira componentes pequenos e focados:** mais fáceis de testar, reutilizar e manter.
+- **Evite re-renderizações desnecessárias:** use propriedades computadas e watchers com sabedoria.
+- **Legibilidade importa:** escreva código claro e autodocumentado.
 
-## 1) Confirm architecture before coding (required)
+## 1) Confirme a arquitetura antes de programar (obrigatório)
 
-- Default stack: Vue 3 + Composition API + `<script setup lang="ts">`.
-- If the project explicitly uses Options API, load `vue-options-api-best-practices` skill if available.
-- If the project explicitly uses JSX, load `vue-jsx-best-practices` skill if available.
+- Stack padrão: Vue 3 + Composition API + `<script setup lang="ts">`.
+- Se o projeto usa explicitamente a Options API, carregue a skill `vue-options-api-best-practices`, se disponível.
+- Se o projeto usa explicitamente JSX, carregue a skill `vue-jsx-best-practices`, se disponível.
 
-### 1.1 Must-read core references (required)
+### 1.1 Referências centrais de leitura obrigatória (obrigatório)
 
-- Before implementing any Vue task, make sure to read and apply these core references:
+- Antes de implementar qualquer tarefa em Vue, certifique-se de ler e aplicar estas referências centrais:
   - `references/reactivity.md`
   - `references/sfc.md`
   - `references/component-data-flow.md`
   - `references/composables.md`
-- Keep these references in active working context for the entire task, not only when a specific issue appears.
+- Mantenha essas referências no contexto de trabalho ativo durante toda a tarefa, não apenas quando um problema específico aparecer.
 
-### 1.2 Plan component boundaries before coding (required)
+### 1.2 Planeje os limites dos componentes antes de programar (obrigatório)
 
-Create a brief component map before implementation for any non-trivial feature.
+Crie um breve mapa de componentes antes da implementação para qualquer funcionalidade não trivial.
 
-- Define each component's single responsibility in one sentence.
-- Keep entry/root and route-level view components as composition surfaces by default.
-- Move feature UI and feature logic out of entry/root/view components unless the task is intentionally a tiny single-file demo.
-- Define props/emits contracts for each child component in the map.
-- Prefer a feature folder layout (`components/<feature>/...`, `composables/use<Feature>.ts`) when adding more than one component.
+- Defina a responsabilidade única de cada componente em uma frase.
+- Mantenha os componentes de entrada/raiz e de view de nível de rota como superfícies de composição por padrão.
+- Mova a UI de funcionalidade e a lógica de funcionalidade para fora dos componentes de entrada/raiz/view, a menos que a tarefa seja intencionalmente uma pequena demo em arquivo único.
+- Defina os contratos de props/emits para cada componente filho no mapa.
+- Prefira um layout de pasta por funcionalidade (`components/<feature>/...`, `composables/use<Feature>.ts`) ao adicionar mais de um componente.
 
-## 2) Apply essential Vue foundations (required)
+## 2) Aplique os fundamentos essenciais do Vue (obrigatório)
 
-These are essential, must-know foundations. Apply all of them in every Vue task using the core references already loaded in section `1.1`.
+Estes são fundamentos essenciais e indispensáveis. Aplique todos eles em toda tarefa em Vue usando as referências centrais já carregadas na seção `1.1`.
 
-### Reactivity
+### Reatividade
 
-- Must-read reference from `1.1`: [reactivity](references/reactivity.md)
-- Keep source state minimal (`ref`/`reactive`), derive everything possible with `computed`.
-- Use watchers for side effects if needed.
-- Avoid recomputing expensive logic in templates.
+- Referência de leitura obrigatória de `1.1`: [reactivity](references/reactivity.md)
+- Mantenha o estado de origem mínimo (`ref`/`reactive`), derive tudo o que for possível com `computed`.
+- Use watchers para efeitos colaterais quando necessário.
+- Evite recalcular lógica custosa nos templates.
 
-### SFC structure and template safety
+### Estrutura de SFC e segurança de template
 
-- Must-read reference from `1.1`: [sfc](references/sfc.md)
-- Keep SFC sections in this order: `<template>` → `<script>` → `<style>`.
-- Keep SFC responsibilities focused; split large components.
-- Keep templates declarative; move branching/derivation to script.
-- Apply Vue template safety rules (`v-html`, list rendering, conditional rendering choices).
+- Referência de leitura obrigatória de `1.1`: [sfc](references/sfc.md)
+- Mantenha as seções do SFC nesta ordem: `<template>` → `<script>` → `<style>`.
+- Mantenha as responsabilidades do SFC focadas; divida componentes grandes.
+- Mantenha os templates declarativos; mova ramificações/derivações para o script.
+- Aplique as regras de segurança de template do Vue (`v-html`, renderização de listas, escolhas de renderização condicional).
 
-### Keep components focused
+### Mantenha os componentes focados
 
-Split a component when it has **more than one clear responsibility** (e.g. data orchestration + UI, or multiple independent UI sections).
+Divida um componente quando ele tiver **mais de uma responsabilidade clara** (ex: orquestração de dados + UI, ou múltiplas seções de UI independentes).
 
-- Prefer **smaller components + composables** over one “mega component”
-- Move **UI sections** into child components (props in, events out).
-- Move **state/side effects** into composables (`useXxx()`).
+- Prefira **componentes menores + composables** em vez de um único "megacomponente".
+- Mova **seções de UI** para componentes filhos (props para dentro, eventos para fora).
+- Mova **estado/efeitos colaterais** para composables (`useXxx()`).
 
-Apply objective split triggers. Split the component if **any** condition is true:
+Aplique gatilhos objetivos de divisão. Divida o componente se **qualquer** condição for verdadeira:
 
-- It owns both orchestration/state and substantial presentational markup for multiple sections.
-- It has 3+ distinct UI sections (for example: form, filters, list, footer/status).
-- A template block is repeated or could become reusable (item rows, cards, list entries).
+- Ele detém tanto orquestração/estado quanto marcação de apresentação substancial para múltiplas seções.
+- Ele tem 3+ seções de UI distintas (por exemplo: formulário, filtros, lista, rodapé/status).
+- Um bloco de template é repetido ou poderia se tornar reutilizável (linhas de itens, cards, entradas de lista).
 
-Entry/root and route view rule:
+Regra de entrada/raiz e view de rota:
 
-- Keep entry/root and route view components thin: app shell/layout, provider wiring, and feature composition.
-- Do not place full feature implementations in entry/root/view components when those features contain independent parts.
-- For CRUD/list features (todo, table, catalog, inbox), split at least into:
-  - feature container component
-  - input/form component
-  - list (and/or item) component
-  - footer/actions or filter/status component
-- Allow a single-file implementation only for very small throwaway demos; if chosen, explicitly justify why splitting is unnecessary.
+- Mantenha os componentes de entrada/raiz e de view de rota enxutos: shell/layout da aplicação, wiring de providers e composição de funcionalidades.
+- Não coloque implementações completas de funcionalidades nos componentes de entrada/raiz/view quando essas funcionalidades contêm partes independentes.
+- Para funcionalidades de CRUD/lista (todo, tabela, catálogo, inbox), divida ao menos em:
+  - componente contêiner da funcionalidade
+  - componente de input/formulário
+  - componente de lista (e/ou item)
+  - componente de rodapé/ações ou filtro/status
+- Permita uma implementação em arquivo único apenas para demos descartáveis muito pequenas; se escolhida, justifique explicitamente por que a divisão é desnecessária.
 
-### Component data flow
+### Fluxo de dados entre componentes
 
-- Must-read reference from `1.1`: [component-data-flow](references/component-data-flow.md)
-- Use props down, events up as the primary model.
-- Use `v-model` only for true two-way component contracts.
-- Use provide/inject only for deep-tree dependencies or shared context.
-- Keep contracts explicit and typed with `defineProps`, `defineEmits`, and `InjectionKey` as needed.
+- Referência de leitura obrigatória de `1.1`: [component-data-flow](references/component-data-flow.md)
+- Use props para baixo, eventos para cima como modelo principal.
+- Use `v-model` apenas para contratos de componente de mão dupla verdadeiros.
+- Use provide/inject apenas para dependências de árvore profunda ou contexto compartilhado.
+- Mantenha os contratos explícitos e tipados com `defineProps`, `defineEmits` e `InjectionKey` conforme necessário.
 
 ### Composables
 
-- Must-read reference from `1.1`: [composables](references/composables.md)
-- Extract logic into composables when it is reused, stateful, or side-effect heavy.
-- Keep composable APIs small, typed, and predictable.
-- Separate feature logic from presentational components.
+- Referência de leitura obrigatória de `1.1`: [composables](references/composables.md)
+- Extraia lógica para composables quando ela for reutilizada, com estado, ou carregada de efeitos colaterais.
+- Mantenha as APIs de composables pequenas, tipadas e previsíveis.
+- Separe a lógica de funcionalidade dos componentes de apresentação.
 
-## 3) Consider optional features only when requirements call for them
+## 3) Considere funcionalidades opcionais apenas quando os requisitos as exigirem
 
-### 3.1 Standard optional features
+### 3.1 Funcionalidades opcionais padrão
 
-Do not add these by default. Load the matching reference only when the requirement exists.
+Não adicione estas por padrão. Carregue a referência correspondente apenas quando o requisito existir.
 
-- Slots: parent needs to control child content/layout -> [component-slots](references/component-slots.md)
-- Fallthrough attributes: wrapper/base components must forward attrs/events safely -> [component-fallthrough-attrs](references/component-fallthrough-attrs.md)
-- Built-in component `<KeepAlive>` for stateful view caching -> [component-keep-alive](references/component-keep-alive.md)
-- Built-in component `<Teleport>` for overlays/portals -> [component-teleport](references/component-teleport.md)
-- Built-in component `<Suspense>` for async subtree fallback boundaries -> [component-suspense](references/component-suspense.md)
-- Animation-related features: pick the simplest approach that matches the required motion behavior.
-  - Built-in component `<Transition>` for enter/leave effects -> [transition](references/component-transition.md)
-  - Built-in component `<TransitionGroup>` for animated list mutations -> [transition-group](references/component-transition-group.md)
-  - Class-based animation for non-enter/leave effects -> [animation-class-based-technique](references/animation-class-based-technique.md)
-  - State-driven animation for user-input-driven animation -> [animation-state-driven-technique](references/animation-state-driven-technique.md)
+- Slots: o pai precisa controlar o conteúdo/layout do filho -> [component-slots](references/component-slots.md)
+- Atributos de fallthrough: componentes wrapper/base devem encaminhar attrs/eventos com segurança -> [component-fallthrough-attrs](references/component-fallthrough-attrs.md)
+- Componente nativo `<KeepAlive>` para cache de views com estado -> [component-keep-alive](references/component-keep-alive.md)
+- Componente nativo `<Teleport>` para overlays/portais -> [component-teleport](references/component-teleport.md)
+- Componente nativo `<Suspense>` para fronteiras de fallback de subárvore assíncrona -> [component-suspense](references/component-suspense.md)
+- Funcionalidades relacionadas a animação: escolha a abordagem mais simples que atenda ao comportamento de movimento necessário.
+  - Componente nativo `<Transition>` para efeitos de entrada/saída -> [transition](references/component-transition.md)
+  - Componente nativo `<TransitionGroup>` para mutações de lista animadas -> [transition-group](references/component-transition-group.md)
+  - Animação baseada em classes para efeitos que não sejam de entrada/saída -> [animation-class-based-technique](references/animation-class-based-technique.md)
+  - Animação orientada por estado para animação dirigida por input do usuário -> [animation-state-driven-technique](references/animation-state-driven-technique.md)
 
-### 3.2 Less-common optional features
+### 3.2 Funcionalidades opcionais menos comuns
 
-Use these only when there is explicit product or technical need.
+Use estas apenas quando houver necessidade explícita de produto ou técnica.
 
-- Directives: behavior is DOM-specific and not a good composable/component fit -> [directives](references/directives.md)
-- Async components: heavy/rarely-used UI should be lazy loaded -> [component-async](references/component-async.md)
-- Render functions only when templates cannot express the requirement -> [render-functions](references/render-functions.md)
-- Plugins when behavior must be installed app-wide -> [plugins](references/plugins.md)
-- State management patterns: app-wide shared state crosses feature boundaries -> [state-management](references/state-management.md)
+- Diretivas: o comportamento é específico do DOM e não se encaixa bem em um composable/componente -> [directives](references/directives.md)
+- Componentes assíncronos: UI pesada/raramente usada deve ser carregada sob demanda (lazy) -> [component-async](references/component-async.md)
+- Render functions apenas quando os templates não conseguirem expressar o requisito -> [render-functions](references/render-functions.md)
+- Plugins quando o comportamento deve ser instalado em toda a aplicação -> [plugins](references/plugins.md)
+- Padrões de gerenciamento de estado: estado compartilhado por toda a aplicação que cruza fronteiras de funcionalidades -> [state-management](references/state-management.md)
 
-## 4) Run performance optimization after behavior is correct
+## 4) Execute a otimização de performance depois que o comportamento estiver correto
 
-Performance work is a post-functionality pass. Do not optimize before core behavior is implemented and verified.
+O trabalho de performance é uma etapa pós-funcionalidade. Não otimize antes que o comportamento central esteja implementado e verificado.
 
-- Large list rendering bottlenecks -> [perf-virtualize-large-lists](references/perf-virtualize-large-lists.md)
-- Static subtrees re-rendering unnecessarily -> [perf-v-once-v-memo-directives](references/perf-v-once-v-memo-directives.md)
-- Over-abstraction in hot list paths -> [perf-avoid-component-abstraction-in-lists](references/perf-avoid-component-abstraction-in-lists.md)
-- Expensive updates triggered too often -> [updated-hook-performance](references/updated-hook-performance.md)
+- Gargalos de renderização de listas grandes -> [perf-virtualize-large-lists](references/perf-virtualize-large-lists.md)
+- Subárvores estáticas re-renderizando desnecessariamente -> [perf-v-once-v-memo-directives](references/perf-v-once-v-memo-directives.md)
+- Sobre-abstração em caminhos quentes de lista -> [perf-avoid-component-abstraction-in-lists](references/perf-avoid-component-abstraction-in-lists.md)
+- Atualizações custosas disparadas com frequência demais -> [updated-hook-performance](references/updated-hook-performance.md)
 
-## 5) Final self-check before finishing
+## 5) Autoverificação final antes de concluir
 
-- Core behavior works and matches requirements.
-- All must-read references were read and applied.
-- Reactivity model is minimal and predictable.
-- SFC structure and template rules are followed.
-- Components are focused and well-factored, splitting when needed.
-- Entry/root and route view components remain composition surfaces unless there is an explicit small-demo exception.
-- Component split decisions are explicit and defensible (responsibility boundaries are clear).
-- Data flow contracts are explicit and typed.
-- Composables are used where reuse/complexity justifies them.
-- Moved state/side effects into composables if applicable
-- Optional features are used only when requirements demand them.
-- Performance changes were applied only after functionality was complete.
+- O comportamento central funciona e corresponde aos requisitos.
+- Todas as referências de leitura obrigatória foram lidas e aplicadas.
+- O modelo de reatividade é mínimo e previsível.
+- A estrutura de SFC e as regras de template são seguidas.
+- Os componentes são focados e bem fatorados, dividindo quando necessário.
+- Os componentes de entrada/raiz e de view de rota permanecem como superfícies de composição, a menos que haja uma exceção explícita de demo pequena.
+- As decisões de divisão de componentes são explícitas e defensáveis (os limites de responsabilidade são claros).
+- Os contratos de fluxo de dados são explícitos e tipados.
+- Os composables são usados onde a reutilização/complexidade os justifica.
+- Estado/efeitos colaterais foram movidos para composables, se aplicável.
+- Funcionalidades opcionais são usadas apenas quando os requisitos exigem.
+- Mudanças de performance foram aplicadas apenas depois que a funcionalidade estava completa.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.

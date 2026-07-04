@@ -3,55 +3,55 @@ name: laravel-pdf-handling-best-practices
 description: Use when creating, configuring, rendering, extracting text, converting, or debugging PDF documents. Triggers on PDF generation using DomPDF, mPDF, TCPDF/FPDI, Spatie PDF, spatie/pdf-to-text, and spatie/pdf-to-image.
 ---
 
-# Laravel PDF Handling Best Practices
+# Boas Práticas de Manipulação de PDF no Laravel
 
-## Goal
-Establish robust guidelines, coding standards, and memory-efficient practices for generating dynamic and static PDF documents, as well as a unified, high-performance, and error-resilient workflow for extracting text and converting pages to images from PDF files in the Laravel framework.
+## Objetivo
+Estabelecer diretrizes robustas, padrões de código e práticas eficientes em memória para gerar documentos PDF dinâmicos e estáticos, bem como um fluxo de trabalho unificado, de alta performance e resiliente a erros para extrair texto e converter páginas em imagens a partir de arquivos PDF no framework Laravel.
 
-## Instructions
+## Instruções
 
-### 1. PDF Generation
+### 1. Geração de PDF
 
 ### 1.1 DomPDF (barryvdh/laravel-dompdf)
-* Always use the `Barryvdh\DomPDF\Facade\Pdf` facade for PDF operations (`loadView`, `loadHTML`).
-* Include UTF-8 meta tag to prevent broken characters.
-* Do not use CSS Flexbox or Grid. Use tables and control pagination with `page-break-*` properties.
-* Declare custom fonts using `@import` or `@font-face` and set `isRemoteEnabled` to `true`. Base64 encode images instead of using remote URLs.
+* Sempre use a facade `Barryvdh\DomPDF\Facade\Pdf` para operações de PDF (`loadView`, `loadHTML`).
+* Inclua a meta tag UTF-8 para evitar caracteres quebrados.
+* Não use CSS Flexbox ou Grid. Use tabelas e controle a paginação com as propriedades `page-break-*`.
+* Declare fontes customizadas usando `@import` ou `@font-face` e defina `isRemoteEnabled` como `true`. Codifique imagens em Base64 em vez de usar URLs remotas.
 
 ### 1.2 mPDF (mPDF)
-* Instantiate with a dedicated, writable temporary directory inside Laravel's storage folder.
-* Register custom TrueType fonts by configuring `fontDir` and `fontdata`.
-* Use proprietary HTML tags (`<htmlpageheader>`, `<htmlpagefooter>`) for dynamic headers and footers. Do not use Flexbox/Grid.
+* Instancie com um diretório temporário dedicado e gravável dentro da pasta de storage do Laravel.
+* Registre fontes TrueType customizadas configurando `fontDir` e `fontdata`.
+* Use tags HTML proprietárias (`<htmlpageheader>`, `<htmlpagefooter>`) para cabeçalhos e rodapés dinâmicos. Não use Flexbox/Grid.
 
-### 1.3 TCPDF and FPDI
-* Use specific custom classes (e.g., `\App\Classes\PdfEdit()`) and `$pdf->importFile()` for static templates.
-* Standardize placement using X and Y coordinates (in millimeters). Do not use native TCPDF positioning functions if wrappers exist.
-* Remove or disable `$pdf->setGrid()` calls in production.
+### 1.3 TCPDF e FPDI
+* Use classes customizadas específicas (ex: `\App\Classes\PdfEdit()`) e `$pdf->importFile()` para templates estáticos.
+* Padronize o posicionamento usando coordenadas X e Y (em milímetros). Não use funções nativas de posicionamento do TCPDF se existirem wrappers.
+* Remova ou desabilite as chamadas `$pdf->setGrid()` em produção.
 
 ### 1.4 Spatie Laravel PDF
-* Do not import `SpatiePdf` and `DomPdf` facades using the same alias.
-* Headless Chromium supports modern CSS (Flexbox, Grid) and native pagination controls.
-* Wrap PDF generation in `try/catch` blocks.
-* Do NOT perform heavy queries inside Blade; eager-load relationships.
+* Não importe as facades `SpatiePdf` e `DomPdf` usando o mesmo alias.
+* O Chromium headless suporta CSS moderno (Flexbox, Grid) e controles nativos de paginação.
+* Envolva a geração de PDF em blocos `try/catch`.
+* NÃO execute consultas pesadas dentro do Blade; faça eager-load dos relacionamentos.
 
-### 2. PDF Extraction & Conversion
+### 2. Extração e Conversão de PDF
 
-### 2.1 Extracting Text (spatie/pdf-to-text)
-* Use `Spatie\PdfToText\Pdf::getText($path)`. Wrap in try-catch to handle decryption, corruption, or binary errors.
-* Provide custom binary paths if `pdftotext` is not in the default PATH.
+### 2.1 Extração de Texto (spatie/pdf-to-text)
+* Use `Spatie\PdfToText\Pdf::getText($path)`. Envolva em try-catch para tratar erros de descriptografia, corrupção ou binário.
+* Forneça caminhos de binário customizados se o `pdftotext` não estiver no PATH padrão.
 
-### 2.2 Converting to Images (spatie/pdf-to-image)
-* Ensure compatibility with v2/v3 APIs.
-* Convert to `.png` to prevent Imagick from generating black backgrounds on transparent pages.
+### 2.2 Conversão para Imagens (spatie/pdf-to-image)
+* Garanta compatibilidade com as APIs v2/v3.
+* Converta para `.png` para evitar que o Imagick gere fundos pretos em páginas transparentes.
 
-### 2.3 Background Processing & Testing
-* For large PDFs, always dispatch queued Laravel Jobs (using `ShouldQueue`) instead of processing directly inside HTTP Request threads.
-* Mock external calls or use small dummy PDF assets for PestPHP tests.
+### 2.3 Processamento em Segundo Plano e Testes
+* Para PDFs grandes, sempre despache Jobs enfileirados do Laravel (usando `ShouldQueue`) em vez de processar diretamente nas threads de requisição HTTP.
+* Faça o mock de chamadas externas ou use pequenos arquivos PDF dummy para os testes PestPHP.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-* **DO NOT** use absolute remote URLs for images in DomPDF. Always use Base64 encoding.
-* **DO NOT** use CSS Flexbox or Grid for DomPDF/mPDF page structures.
-* **DO NOT** perform synchronous PDF processing (conversion/heavy text extraction) directly inside an HTTP Request thread. Queue it.
-* **DO NOT** assume `pdftotext` or Ghostscript is installed without proper checks.
-* **DO NOT** log sensitive document data during extraction exceptions.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+* **NÃO** use URLs remotas absolutas para imagens no DomPDF. Sempre use codificação Base64.
+* **NÃO** use CSS Flexbox ou Grid para estruturas de página do DomPDF/mPDF.
+* **NÃO** execute processamento de PDF síncrono (conversão/extração pesada de texto) diretamente dentro de uma thread de requisição HTTP. Enfileire-o.
+* **NÃO** assuma que o `pdftotext` ou o Ghostscript estão instalados sem as devidas verificações.
+* **NÃO** registre em log dados sensíveis do documento durante exceções de extração.

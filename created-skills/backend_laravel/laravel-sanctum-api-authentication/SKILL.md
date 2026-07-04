@@ -3,44 +3,44 @@ name: laravel-sanctum-api-authentication
 description: Use when configuring, implementing, securing, or debugging API authentication using Laravel Sanctum. Triggers on Sanctum token creation, SPA cookie authentication, Sanctum middleware, and API token guard configurations.
 ---
 
-# Laravel Sanctum API Authentication
+# Autenticação de API com Laravel Sanctum
 
-## Goal
-Establish solid guidelines and best practices for implementing API and SPA authentication using Laravel Sanctum in the Engeapp ecosystem, ensuring security, performance, and consistent testing.
+## Objetivo
+Estabelecer diretrizes sólidas e boas práticas para implementar autenticação de API e SPA usando o Laravel Sanctum no ecossistema Engeapp, garantindo segurança, performance e testes consistentes.
 
-## Instructions
+## Instruções
 
-### 1. Stateful SPA Authentication Configuration
-Stateful authentication is used for the Engeapp front-end (Vue SPA com Vue Router, SPA pura) to allow cookie-based, session-safe authenticated requests.
+### 1. Configuração de Autenticação Stateful para SPA
+A autenticação stateful é usada para o front-end do Engeapp (Vue SPA com Vue Router, SPA pura) para permitir requisições autenticadas baseadas em cookie e seguras por sessão.
 
-- **Enable Sanctum Stateful Middleware**:
-  In `bootstrap/app.php` (Laravel 13), append the stateful middleware to the `web` middleware group:
+- **Habilite o Middleware Stateful do Sanctum**:
+  Em `bootstrap/app.php` (Laravel 13), anexe o middleware stateful ao grupo de middleware `web`:
   ```php
   $middleware->web(append: [
       \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
   ]);
   ```
 
-- **Configure Environment Variables**:
-  Configure stateful domains and session domain settings in your `.env` file:
+- **Configure as Variáveis de Ambiente**:
+  Configure os domínios stateful e as definições de domínio de sessão no seu arquivo `.env`:
   ```env
   SANCTUM_STATEFUL_DOMAINS=localhost,127.0.0.1,localhost:3000,engeapp.test
   SESSION_DOMAIN=.engeapp.test
   ```
 
-- **CSRF Cookie Initialization**:
-  Before making a login request from the SPA, request the CSRF cookie to initialize the session:
+- **Inicialização do Cookie CSRF**:
+  Antes de fazer uma requisição de login a partir da SPA, solicite o cookie CSRF para inicializar a sessão:
   ```javascript
   axios.get('/sanctum/csrf-cookie').then(response => {
-      // Proceed with the login request
+      // Prossiga com a requisição de login
   });
   ```
 
-### 2. Personal Access Tokens (API Authentication)
-Personal Access Tokens (PATs) are used for mobile applications, third-party integrations, and headless API routes.
+### 2. Personal Access Tokens (Autenticação de API)
+Personal Access Tokens (PATs) são usados para aplicações mobile, integrações de terceiros e rotas de API headless.
 
-- **Configure User Model**:
-  Ensure the `User` model imports and uses the `HasApiTokens` trait:
+- **Configure o Model User**:
+  Garanta que o model `User` importe e use a trait `HasApiTokens`:
   ```php
   namespace App\Models;
 
@@ -53,40 +53,40 @@ Personal Access Tokens (PATs) are used for mobile applications, third-party inte
   }
   ```
 
-- **Issue Tokens**:
-  Create a token with optional abilities/scopes for the authenticated user:
+- **Emita Tokens**:
+  Crie um token com habilidades/escopos opcionais para o usuário autenticado:
   ```php
   $token = $user->createToken('api-token', ['read:projects', 'write:projects']);
   
-  // Return the plain text token to the client (only visible once)
+  // Retorna o token em texto puro para o cliente (visível apenas uma vez)
   return response()->json([
       'token' => $token->plainTextToken
   ]);
   ```
 
-- **Verify Abilities (Route or Controller)**:
-  Check for token abilities before allowing access to resources:
+- **Verifique Habilidades (Rota ou Controller)**:
+  Verifique as habilidades do token antes de permitir o acesso a recursos:
   ```php
   if ($request->user()->tokenCan('write:projects')) {
-      // Proceed with modification
+      // Prossiga com a modificação
   }
   ```
 
-- **Revoke Tokens**:
-  Revoke tokens for logging out or cycling keys:
+- **Revogue Tokens**:
+  Revogue tokens para logout ou rotação de chaves:
   ```php
-  // Revoke the token currently in use
+  // Revoga o token atualmente em uso
   $request->user()->currentAccessToken()->delete();
 
-  // Revoke all tokens for the user
+  // Revoga todos os tokens do usuário
   $user->tokens()->delete();
   ```
 
-### 3. Testing Authenication with Pest
-Follow these patterns to authenticate API requests in your feature tests.
+### 3. Testando Autenticação com Pest
+Siga estes padrões para autenticar requisições de API nos seus feature tests.
 
-- **API Token Authentication (Pest)**:
-  Use `Sanctum::actingAs` to mock a user with specific token abilities:
+- **Autenticação por Token de API (Pest)**:
+  Use `Sanctum::actingAs` para mockar um usuário com habilidades de token específicas:
   ```php
   use App\Models\User;
   use Laravel\Sanctum\Sanctum;
@@ -105,8 +105,8 @@ Follow these patterns to authenticate API requests in your feature tests.
   });
   ```
 
-- **SPA Cookie Authentication**:
-  Use standard `$this->actingAs` for normal web/SPA route testing:
+- **Autenticação por Cookie de SPA**:
+  Use o `$this->actingAs` padrão para testes normais de rotas web/SPA:
   ```php
   test('user can access dashboard', function () {
       $user = User::factory()->create();
@@ -117,18 +117,18 @@ Follow these patterns to authenticate API requests in your feature tests.
   });
   ```
 
-### 4. Security Hardening and Pruning
-- **Token Pruning**:
-  Schedule the pruning of expired tokens inside `routes/console.php` (Laravel 13) or your schedule provider:
+### 4. Hardening de Segurança e Limpeza (Pruning)
+- **Limpeza de Tokens**:
+  Agende a limpeza de tokens expirados dentro de `routes/console.php` (Laravel 13) ou no seu provider de agendamento:
   ```php
   use Illuminate\Support\Facades\Schedule;
 
   Schedule::command('sanctum:prune-expired --hours=24')->daily();
   ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Never expose the plain text token** in any responses or logs after its initial creation.
-- **Do not use stateful cookie authentication** for external webhooks or third-party APIs. Always use Personal Access Tokens.
-- **Do not skip CSRF verification** on routes using stateful cookie-based session authentication.
-- **Never store raw tokens** in user logs or error reporting services.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **Nunca exponha o token em texto puro** em quaisquer respostas ou logs após sua criação inicial.
+- **Não use autenticação stateful por cookie** para webhooks externos ou APIs de terceiros. Sempre use Personal Access Tokens.
+- **Não pule a verificação CSRF** em rotas que usam autenticação de sessão stateful baseada em cookie.
+- **Nunca armazene tokens brutos** em logs de usuário ou serviços de relatório de erros.

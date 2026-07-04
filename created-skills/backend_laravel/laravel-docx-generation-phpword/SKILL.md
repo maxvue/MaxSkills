@@ -5,30 +5,30 @@ description: Use when generating, formatting, or exporting Word documents (.docx
 
 # laravel-docx-generation-phpword
 
-## Goal
-Provide solid guidelines and structured patterns for creating, reading, editing, and exporting Word documents (`.docx`) using the `phpoffice/phpword` library within the Laravel/Engeapp ecosystem. Ensure consistent document styling, safe template variable replacement, dynamic image embedding, and efficient memory management to prevent memory leaks and corrupted XML files.
+## Objetivo
+Fornecer diretrizes sólidas e padrões estruturados para criar, ler, editar e exportar documentos Word (`.docx`) usando a biblioteca `phpoffice/phpword` dentro do ecossistema Laravel/Engeapp. Garantir estilização consistente de documentos, substituição segura de variáveis de template, incorporação dinâmica de imagens e gerenciamento eficiente de memória para prevenir vazamentos de memória e arquivos XML corrompidos.
 
 ---
 
-## Instructions
+## Instruções
 
-### 1. Basic Setup & Bootstrapping
-- Install the package using Composer: `composer require phpoffice/phpword`.
-- Always wrap PHPWord operations in `try-catch` blocks and use Laravel's standard logging (`Log::error`) for processing failures, as physical file access and ZipArchive operations can fail due to file permissions or corrupt templates.
-- Define a dedicated temporary directory in `config/filesystems.php` or use `storage_path('app/temp')` for PHPWord's working files to avoid permission issues in serverless or containerized environments.
+### 1. Configuração Básica e Bootstrapping
+- Instale o pacote usando o Composer: `composer require phpoffice/phpword`.
+- Sempre envolva as operações do PHPWord em blocos `try-catch` e use o logging padrão do Laravel (`Log::error`) para falhas de processamento, pois o acesso físico a arquivos e as operações do ZipArchive podem falhar devido a permissões de arquivo ou templates corrompidos.
+- Defina um diretório temporário dedicado em `config/filesystems.php` ou use `storage_path('app/temp')` para os arquivos de trabalho do PHPWord, a fim de evitar problemas de permissão em ambientes serverless ou em contêineres.
 
-### 2. Using `TemplateProcessor` Safely
-- For pre-styled corporate templates, always prefer `PhpOffice\PhpWord\TemplateProcessor`.
-- **XML Sanitization:** Raw input containing HTML-sensitive characters (`&`, `<`, `>`, `"`) can corrupt the underlying `document.xml` file. Always escape values using `htmlspecialchars($value, ENT_QUOTES, 'UTF-8')` before injecting them:
+### 2. Usando `TemplateProcessor` com Segurança
+- Para templates corporativos pré-estilizados, sempre prefira `PhpOffice\PhpWord\TemplateProcessor`.
+- **Sanitização de XML:** Input cru contendo caracteres sensíveis ao HTML (`&`, `<`, `>`, `"`) pode corromper o arquivo `document.xml` subjacente. Sempre escape os valores usando `htmlspecialchars($value, ENT_QUOTES, 'UTF-8')` antes de injetá-los:
   ```php
   $templateProcessor->setValue('client_name', htmlspecialchars($clientName, ENT_QUOTES, 'UTF-8'));
   ```
-- **Line Breaks:** Standard newline characters (`\n`) are ignored in Word. Replace them with PHPWord's line break element or use the XML tag `<w:br/>` via `setValue`:
+- **Quebras de Linha:** Caracteres de nova linha padrão (`\n`) são ignorados no Word. Substitua-os pelo elemento de quebra de linha do PHPWord ou use a tag XML `<w:br/>` via `setValue`:
   ```php
   $formattedText = str_replace("\n", '</w:t><w:br/><w:t>', htmlspecialchars($text, ENT_QUOTES, 'UTF-8'));
   $templateProcessor->setValue('description', $formattedText);
   ```
-- **Cloning Rows & Blocks:** Use `cloneRow` and `cloneBlock` for repeating tables or dynamic sections (e.g., repeating item lists or dynamic attachments).
+- **Clonando Linhas e Blocos:** Use `cloneRow` e `cloneBlock` para tabelas repetidas ou seções dinâmicas (ex: listas de itens repetidas ou anexos dinâmicos).
   ```php
   $templateProcessor->cloneRow('item_id', count($items));
   foreach ($items as $index => $item) {
@@ -38,30 +38,30 @@ Provide solid guidelines and structured patterns for creating, reading, editing,
   }
   ```
 
-### 3. Dynamic Image Insertion
-- When injecting images into template placeholders (e.g., `${image_placeholder}`), use `setImageValue` with correct proportions to prevent squishing or bloating:
+### 3. Inserção Dinâmica de Imagens
+- Ao injetar imagens em placeholders de template (ex: `${image_placeholder}`), use `setImageValue` com proporções corretas para evitar achatamento ou distorção:
   ```php
   $templateProcessor->setImageValue('image_placeholder', [
       'path' => $imagePath,
       'width' => 300,
       'height' => 200,
-      'ratio' => false // Set to true to preserve aspect ratio based on width
+      'ratio' => false // Defina como true para preservar a proporção com base na largura
   ]);
   ```
-- Always check if the image file exists (`file_exists($imagePath)`) before trying to inject it. If it does not exist, inject a placeholder image or a descriptive text fallback to prevent exceptions.
+- Sempre verifique se o arquivo de imagem existe (`file_exists($imagePath)`) antes de tentar injetá-lo. Se ele não existir, injete uma imagem placeholder ou um texto descritivo de fallback para prevenir exceções.
 
-### 4. Dynamic Table Styling and Formatting (PHPWord Native)
-- When generating documents from scratch, define reusable table styles using `PhpOffice\PhpWord\SimpleType\TblWidth`.
-- Use a dedicated configuration file or reference `resources/table_styles.json` for corporate themes (borders, alternating row backgrounds, and specific fonts).
-- Use `gridSpan` to merge cells horizontally and `vMerge` to merge cells vertically.
+### 4. Estilização e Formatação Dinâmica de Tabelas (PHPWord Nativo)
+- Ao gerar documentos do zero, defina estilos de tabela reutilizáveis usando `PhpOffice\PhpWord\SimpleType\TblWidth`.
+- Use um arquivo de configuração dedicado ou referencie `resources/table_styles.json` para temas corporativos (bordas, fundos de linha alternados e fontes específicas).
+- Use `gridSpan` para mesclar células horizontalmente e `vMerge` para mesclar células verticalmente.
   ```php
   $table->addCell(2000, ['vMerge' => 'restart'])->addText('Merged Category');
   $table->addCell(4000, ['gridSpan' => 2])->addText('Spanned Columns');
   ```
 
-### 5. Memory Management & File Response
-- Generating large documents with multiple high-resolution images can easily exceed memory limits. Ensure you optimize images before embedding (e.g., using Spatie Image or Intervention Image) and call PHP's garbage collector if batch-processing documents.
-- Always output the generated file using Laravel's binary response, clean up local temporary files after the response completes or via queue jobs:
+### 5. Gerenciamento de Memória e Resposta de Arquivo
+- Gerar documentos grandes com múltiplas imagens de alta resolução pode facilmente exceder os limites de memória. Certifique-se de otimizar as imagens antes de incorporá-las (ex: usando Spatie Image ou Intervention Image) e chame o garbage collector do PHP se estiver processando documentos em lote.
+- Sempre entregue o arquivo gerado usando a resposta binária do Laravel e limpe os arquivos temporários locais após a conclusão da resposta ou via queue jobs:
   ```php
   $tempFile = tempnam(sys_get_temp_dir(), 'docx');
   $templateProcessor->saveAs($tempFile);
@@ -71,18 +71,18 @@ Provide solid guidelines and structured patterns for creating, reading, editing,
 
 ---
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **NO Direct Controller Output:** Never perform heavy document generation synchronously inside controllers. If document generation takes more than 2 seconds (e.g., generating high-photo lauds), dispatch a Queue Job and notify the user via WebSockets/Reverb.
-- **NO Unescaped Raw HTML:** Do not pass raw HTML strings directly into `setValue()`. The XML parser will fail and MS Word will complain that the file is corrupt. Use specialized HTML parsers (like `Html::addHtml`) or escape/strip tags first.
-- **NO Hardcoded Paths:** Do not hardcode filesystem paths for templates or output files. Always use `storage_path()` or `resource_path()`.
-- **NO Resource Leaks:** Never leave temporary files generated during the process on the server disk. Use `deleteFileAfterSend(true)` or register a cleanup hook.
+## Restrições
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
+- **SEM Saída Direta no Controller:** Nunca faça geração pesada de documentos de forma síncrona dentro de controllers. Se a geração do documento levar mais de 2 segundos (ex: gerando laudos com muitas fotos), despache um Queue Job e notifique o usuário via WebSockets/Reverb.
+- **SEM HTML Cru Sem Escape:** Não passe strings de HTML cru diretamente para `setValue()`. O parser de XML falhará e o MS Word reclamará que o arquivo está corrompido. Use parsers de HTML especializados (como `Html::addHtml`) ou escape/remova as tags primeiro.
+- **SEM Caminhos Hardcoded:** Não faça hardcode de caminhos de filesystem para templates ou arquivos de saída. Sempre use `storage_path()` ou `resource_path()`.
+- **SEM Vazamento de Recursos:** Nunca deixe arquivos temporários gerados durante o processo no disco do servidor. Use `deleteFileAfterSend(true)` ou registre um hook de limpeza.
 
 ---
 
-## Examples
+## Exemplos
 
-### Complete Laravel Controller Pattern
+### Padrão Completo de Controller Laravel
 ```php
 namespace App\Http\Controllers;
 
@@ -106,11 +106,11 @@ class LaudExportController extends Controller
         try {
             $templateProcessor = new TemplateProcessor($templatePath);
 
-            // 1. Simple Values Escaped
+            // 1. Valores simples com escape
             $templateProcessor->setValue('laud_number', htmlspecialchars($laud->number, ENT_QUOTES, 'UTF-8'));
             $templateProcessor->setValue('client_name', htmlspecialchars($laud->client->name, ENT_QUOTES, 'UTF-8'));
 
-            // 2. Multiline Text with Word Line Breaks
+            // 2. Texto multilinha com quebras de linha do Word
             $formattedDescription = str_replace(
                 "\n", 
                 '</w:t><w:br/><w:t>', 
@@ -118,7 +118,7 @@ class LaudExportController extends Controller
             );
             $templateProcessor->setValue('description', $formattedDescription);
 
-            // 3. Dynamic Image Injection
+            // 3. Injeção dinâmica de imagem
             if ($laud->cover_image && file_exists(storage_path("app/public/{$laud->cover_image}"))) {
                 $templateProcessor->setImageValue('cover_photo', [
                     'path' => storage_path("app/public/{$laud->cover_image}"),
@@ -130,7 +130,7 @@ class LaudExportController extends Controller
                 $templateProcessor->setValue('cover_photo', 'No photo attached');
             }
 
-            // 4. Repeating Rows (Measurements)
+            // 4. Linhas repetidas (medições)
             $measurements = $laud->measurements;
             $templateProcessor->cloneRow('m_id', count($measurements));
             foreach ($measurements as $index => $measurement) {
@@ -140,7 +140,7 @@ class LaudExportController extends Controller
                 $templateProcessor->setValue("m_current#{$row}", number_format($measurement->current, 2, ',', '.'));
             }
 
-            // Save to temp file
+            // Salva em arquivo temporário
             $tempFile = tempnam(sys_get_temp_dir(), 'laud_');
             $templateProcessor->saveAs($tempFile);
 

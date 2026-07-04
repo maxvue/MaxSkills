@@ -3,43 +3,51 @@ name: laravel-lighthouse-graphql-best-practices
 description: Use when creating, updating, or debugging GraphQL schemas, queries, mutations, subscriptions, custom resolvers, or Lighthouse configuration in Laravel. Triggers on changes to GraphQL schema files (*.graphql), Lighthouse directives, and custom GraphQL resolver PHP classes.
 ---
 
-# Laravel Lighthouse GraphQL Best Practices
+# Boas Práticas de GraphQL com Lighthouse no Laravel
 
-## Goal
-Provide solid guidelines and best practices for building, optimizing, and debugging GraphQL APIs using the `nuwave/lighthouse` package in Laravel, ensuring consistency, schema readability, proper error handling, and prevention of N+1 query performance issues within the Engeapp ecosystem.
+## Objetivo
+Fornecer diretrizes sólidas e boas práticas para construir, otimizar e depurar APIs GraphQL usando o pacote `nuwave/lighthouse` no Laravel, garantindo consistência, legibilidade do schema, tratamento adequado de erros e prevenção de problemas de performance com queries N+1 dentro do ecossistema Engeapp.
 
-## Instructions
+## Instruções
 
-1. **Schema Design & Organization**:
-   - Maintain the entry schema file at `graphql/schema.graphql`.
-   - For larger applications, decompose the schema using the `#import` directive (e.g., `#import types/*.graphql`) to organize queries, mutations, and types into domains.
-   - Follow standard naming conventions: `PascalCase` for Types and Enums, `camelCase` for fields, arguments, and input names, and `UPPERCASE` for Enum values.
-   - Group related mutations and queries logically.
+> **⚠️ Setup necessário no engeapp:** `nuwave/lighthouse ^6.64` já está no vendor, mas **ainda não foi configurado** — não existem `config/lighthouse.php` nem `graphql/schema.graphql`. Antes de aplicar qualquer boa prática abaixo, faça o scaffold da instalação:
+> ```bash
+> php artisan vendor:publish --provider="Nuwave\Lighthouse\LighthouseServiceProvider" --tag=config   # cria config/lighthouse.php
+> php artisan vendor:publish --provider="Nuwave\Lighthouse\LighthouseServiceProvider" --tag=schema   # cria graphql/schema.graphql inicial
+> ```
+> Só depois de `config/lighthouse.php` e `graphql/schema.graphql` existirem é que as diretivas e resolvers passam a ser resolvidos.
 
-2. **Leveraging Built-in Directives**:
-   - Prefer built-in Lighthouse directives over writing custom PHP resolvers for standard CRUD operations:
-     - **Retrieval**: Use `@all`, `@find`, `@first`, and `@paginate` (always use `@paginate` for lists that might grow to prevent loading too many records in memory).
-     - **Relationships**: Use `@belongsTo`, `@hasMany`, `@hasOne`, `@belongsToMany` to let Lighthouse resolve relationships automatically.
-     - **Performance**: Always use `@with` directive to eager load relations and prevent N+1 query execution problems.
+1. **Design & Organização do Schema**:
+   - Mantenha o arquivo de schema de entrada em `graphql/schema.graphql`.
+   - Para aplicações maiores, decomponha o schema usando a diretiva `#import` (ex: `#import types/*.graphql`) para organizar queries, mutations e types em domínios.
+   - Siga as convenções de nomenclatura padrão: `PascalCase` para Types e Enums, `camelCase` para campos, argumentos e nomes de input, e `UPPERCASE` para valores de Enum.
+   - Agrupe mutations e queries relacionadas de forma lógica.
+
+2. **Aproveitando as Diretivas Nativas**:
+   - Prefira diretivas nativas do Lighthouse em vez de escrever resolvers PHP customizados para operações CRUD padrão:
+     - **Recuperação**: Use `@all`, `@find`, `@first` e `@paginate` (sempre use `@paginate` para listas que possam crescer, para evitar carregar registros demais em memória).
+     - **Relacionamentos**: Use `@belongsTo`, `@hasMany`, `@hasOne`, `@belongsToMany` para deixar o Lighthouse resolver os relacionamentos automaticamente.
+     - **Performance**: A diretiva de relação (`@hasMany`, `@belongsTo`, etc.) já resolve o relacionamento e faz o batching/eager-load correto sozinha — **não empilhe `@with` sobre um campo que já usa `@hasMany`** (é redundante e incorreto). Use `@with` apenas para eager-loading de relações que são consumidas por um resolver que **não** é o resolver de relação (por exemplo, uma relação necessária dentro de um accessor/campo computado que não é exposto diretamente como `@hasMany`).
        ```graphql
        type User {
          id: ID!
          name: String!
-         posts: [Post!]! @hasMany @with(relation: "posts")
+         # @hasMany sozinho já resolve e faz batching da relação — sem @with aqui
+         posts: [Post!]! @hasMany
        }
        ```
-     - **Filtering**: Use `@eq`, `@where`, `@like` for basic filtering arguments on fields.
-     - **Authorization**: Secure fields, queries, or mutations by applying `@can` (uses Laravel Policies) or `@guard` (uses Laravel Auth middlewares).
+     - **Filtragem**: Use `@eq`, `@where`, `@like` para argumentos básicos de filtragem em campos.
+     - **Autorização**: Proteja campos, queries ou mutations aplicando `@can` (usa Policies do Laravel) ou `@guard` (usa middlewares de Auth do Laravel).
        ```graphql
        type Query {
          users: [User!]! @paginate @can(ability: "viewAny", model: "App\\Models\\User")
        }
        ```
 
-3. **Custom Resolvers**:
-   - Write custom resolvers only when complex business logic is required that cannot be expressed via schema directives.
-   - Place queries in `app/GraphQL/Queries` and mutations in `app/GraphQL/Mutations`.
-   - Write type-safe code using PHP 8 type declarations. Use PHPDoc block definitions to specify the shapes of `$args` using array shapes:
+3. **Resolvers Customizados**:
+   - Escreva resolvers customizados apenas quando for necessária uma lógica de negócio complexa que não possa ser expressa via diretivas de schema.
+   - Coloque as queries em `app/GraphQL/Queries` e as mutations em `app/GraphQL/Mutations`.
+   - Escreva código type-safe usando declarações de tipo do PHP 8. Use blocos de definição PHPDoc para especificar os formatos de `$args` usando array shapes:
      ```php
      namespace App\GraphQL\Queries;
 
@@ -49,7 +57,7 @@ Provide solid guidelines and best practices for building, optimizing, and debugg
      class UserReport
      {
          /**
-          * Resolve user report details.
+          * Resolve os detalhes do relatório de usuário.
           *
           * @param  null  $rootValue
           * @param  array{start_date: string, end_date: string, user_id: int}  $args
@@ -59,28 +67,28 @@ Provide solid guidelines and best practices for building, optimizing, and debugg
           */
          public function __invoke($rootValue, array $args, GraphQLContext $context, ResolveInfo $resolveInfo): array
          {
-             // Implement logic using strict types
+             // Implemente a lógica usando tipos estritos
              return [];
          }
      }
      ```
 
-4. **Error Handling & Validation**:
-   - For input validation, use the built-in `@validator` directive to delegate validation to custom validator classes or standard Laravel Form Requests.
-   - Custom exceptions meant to display clean, formatted errors to the frontend client must implement the `GraphQL\Error\ClientAware` interface and return `true` for `isClientSafe()`.
-   - Never expose raw SQL exceptions or system stack traces to the client in production. Ensure that `lighthouse.debug` is disabled in non-local environments.
+4. **Tratamento de Erros & Validação**:
+   - Para validação de input, use a diretiva nativa `@validator` para delegar a validação a classes validadoras customizadas ou a Form Requests padrão do Laravel.
+   - Exceções customizadas destinadas a exibir erros limpos e formatados para o cliente frontend devem implementar a interface `GraphQL\Error\ClientAware` e retornar `true` para `isClientSafe()`.
+   - Nunca exponha exceções SQL brutas ou stack traces do sistema para o cliente em produção. Garanta que `lighthouse.debug` esteja desabilitado em ambientes não-locais.
 
-5. **Performance & Security Settings**:
-   - Monitor the query complexity and depth using the security middleware settings in `config/lighthouse.php` to prevent malicious or excessively heavy nested queries (DoS attacks).
-   - Eagerly utilize Laravel's query profiling (using Clockwork or Debugbar) to inspect SQL queries dispatched during GraphQL operations.
+5. **Configurações de Performance & Segurança**:
+   - Monitore a complexidade e a profundidade das queries usando as configurações de middleware de segurança em `config/lighthouse.php` para prevenir queries aninhadas maliciosas ou excessivamente pesadas (ataques de DoS).
+   - Utilize ativamente o profiling de queries do Laravel (usando Clockwork ou Debugbar) para inspecionar as queries SQL disparadas durante as operações GraphQL.
 
-6. **Frontend Integration**:
-   - Map returned paginate envelopes (`Paginator` or `Connection` types) to matching frontend reactive structures.
-   - Ensure the frontend properly reads the GraphQL standard response: data is in `data`, and issues are in the top-level `errors` array.
+6. **Integração com o Frontend**:
+   - Mapeie os envelopes de paginação retornados (types `Paginator` ou `Connection`) para estruturas reativas correspondentes no frontend.
+   - Garanta que o frontend leia corretamente a resposta padrão do GraphQL: os dados ficam em `data` e os problemas ficam no array `errors` de nível superior.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-1. **Never perform manual N+1 loops**: Never execute queries inside loops within custom resolvers. Eager load all relations (`$models->load(...)` or use schema `@with`).
-2. **Do not modify state in Queries**: Queries must be side-effect-free (read-only). State-modifying actions must strictly be modeled as GraphQL Mutations.
-3. **No raw database errors in production**: Ensure all raw database exceptions are caught and sanitized. Do not allow raw DB details to leak in the GraphQL error payload.
-4. **Never skip type declarations**: Always use return types and parameter type hints in custom query, mutation, and validator PHP classes.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+1. **Nunca faça loops N+1 manuais**: Nunca execute queries dentro de loops em resolvers customizados. Faça eager-load de todas as relações (`$models->load(...)` ou use `@with` no schema).
+2. **Não modifique estado em Queries**: Queries devem ser livres de efeitos colaterais (read-only). Ações que modificam estado devem ser modeladas estritamente como Mutations GraphQL.
+3. **Sem erros de banco brutos em produção**: Garanta que todas as exceções brutas de banco de dados sejam capturadas e sanitizadas. Não permita que detalhes brutos do DB vazem no payload de erro do GraphQL.
+4. **Nunca pule declarações de tipo**: Sempre use tipos de retorno e type hints de parâmetros em classes PHP customizadas de query, mutation e validator.

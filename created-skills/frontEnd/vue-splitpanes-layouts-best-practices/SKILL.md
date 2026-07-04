@@ -38,16 +38,16 @@ Fornecer diretrizes sólidas e padrões consistentes para o uso da biblioteca `s
   <div class="layout-container">
     <splitpanes class="default-theme" @resized="handleResized">
       <pane :size="paneSizes[0]" min-size="15" max-size="40">
-        <aside class="sidebar-content">
+        <div class="sidebar-content">
           <!-- Conteúdo da barra lateral -->
-          <h3>Painel Lateral</h3>
-        </aside>
+          <MaxTitle2 h1="Painel Lateral" />
+        </div>
       </pane>
       <pane :size="paneSizes[1]">
-        <main class="main-content">
+        <div class="main-content">
           <!-- Conteúdo principal -->
-          <h1>Área Principal</h1>
-        </main>
+          <MaxTitle1 h1="Área Principal" />
+        </div>
       </pane>
     </splitpanes>
   </div>

@@ -4,7 +4,7 @@ description: Use when creating, reviewing, or refactoring Vue 3 frontend compone
 ---
 
 ## Objetivo
-Fornecer diretrizes claras de arquitetura e implementação para integrar fluxos de faturamento (billing) e assinatura (subscription) SaaS no front-end Vue 3, compartilhando o estado globalmente via store `@maxvue/max-pinia` (que faz os GETs cacheados e o auto-save ao backend Adonis) e entregando um design visual premium com `@maxvue/max-components-ui`.
+Fornecer diretrizes claras de arquitetura e implementação para integrar fluxos de faturamento (billing) e assinatura (subscription) SaaS no front-end Vue 3, compartilhando o estado globalmente via store `@maxvue/max-pinia` (que faz os GETs cacheados e o auto-save ao backend Laravel) e entregando um design visual premium com `@maxvue/max-components-ui`.
 
 ## Instruções
 
@@ -53,7 +53,7 @@ export const useBillingStore = defineStore('billing', () => {
 * **Métodos de Pagamento**:
   - **Pix (Pagamento Instantâneo)**: Quando o checkout retornar uma transação Pix, exiba o QR Code claramente junto com um botão de "Copiar Código Pix" (Pix Copia e Cola). Garanta que o layout seja elegante usando painéis do tipo card.
   - **Cartão de Crédito**: Renderize os campos de entrada de cartão protegidos pela API do gateway de pagamento. Implemente a validação do lado do cliente utilizando padrões padrão.
-* **Confirmação em Tempo Real (SSE/Transmissão)**: Em vez de fazer polling contínuo da API, utilize o `@adonisjs/transmit-client` ou Server-Sent Events (SSE) para escutar a transmissão de confirmação do webhook do backend. Mude automaticamente o modal de checkout para o estado "Sucesso" quando o evento de confirmação de pagamento for recebido no front-end.
+* **Confirmação em Tempo Real (WebSocket)**: Em vez de fazer polling contínuo da API, utilize **Laravel Reverb + `@laravel/echo-vue`** (`useEcho`) para escutar o evento de confirmação disparado pelo webhook do backend. Mude automaticamente o modal de checkout para o estado "Sucesso" quando o evento de confirmação de pagamento for recebido no front-end.
 
 ## 3. Estilização da UI com `MaxComponentsUi` e SCSS
 * **Estrutura SFC (Single-File Component)**: Todos os componentes de checkout e faturamento devem seguir rigidamente a ordem dos blocos SFC:
@@ -74,5 +74,5 @@ export const useBillingStore = defineStore('billing', () => {
 * **Composition API**: Você deve escrever o código do front-end usando `<script setup lang="ts">`. A Options API é estritamente proibida.
 * **Sem CSS Puro**: Não escreva CSS vanilla; utilize SCSS com variáveis de tema ou UnoCSS.
 * **Layout de Atributos**: Nunca quebre atributos de componentes Vue em múltiplas linhas dentro do `<template>`.
-* **Sem importação direta do .env**: O front-end nunca deve ler chaves de API do gateway diretamente de variáveis de ambiente. Elas devem residir apenas no backend Adonis por questões de segurança.
+* **Sem importação direta do .env**: O front-end nunca deve ler chaves de API do gateway diretamente de variáveis de ambiente. Elas devem residir apenas no backend Laravel por questões de segurança.
 * **Localização Brasileira**: Formate valores monetários usando `Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })` e formate datas usando DayJS ou Luxon em pt-BR.

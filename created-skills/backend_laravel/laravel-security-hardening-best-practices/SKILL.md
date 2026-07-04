@@ -3,48 +3,48 @@ name: laravel-security-hardening-best-practices
 description: Use when designing, reviewing, or debugging Laravel application security, securing Eloquent models (encryption, mass assignment), writing secure controllers, hardening file uploads, configuring security headers, or mitigating OWASP Top 10 vulnerabilities (SQLi, XSS, CSRF, IDOR).
 ---
 
-# Laravel Security Hardening Best Practices
+# Boas Práticas de Hardening de Segurança no Laravel
 
-## Goal
-Establish robust security guidelines and hardening practices for backend development in the Laravel ecosystem of Engeapp. This prevents data leaks, mitigates OWASP Top 10 vulnerabilities, secures integrations, and ensures safe file handling.
+## Objetivo
+Estabelecer diretrizes robustas de segurança e práticas de hardening para o desenvolvimento backend no ecossistema Laravel do Engeapp. Isso previne vazamentos de dados, mitiga vulnerabilidades do OWASP Top 10, protege integrações e garante o manuseio seguro de arquivos.
 
-## Instructions
+## Instruções
 
-### 1. Eloquent Model Security
-- **Encryption of Sensitive Fields**: Use Laravel's built-in `'encrypted'` cast or custom encrypted casting for PII (Personally Identifiable Information) and third-party API keys/tokens. Always hide these columns using `$hidden` in the model.
-- **Mass Assignment Protection**: Do not use `protected $guarded = [];`. Explicitly declare safe attributes in the `$fillable` array.
-- **Strict Loading & Prevention of Lazy Loading**: Enforce strict model safety rules in `AppServiceProvider`.
+### 1. Segurança de Models Eloquent
+- **Criptografia de Campos Sensíveis**: Use o cast `'encrypted'` embutido do Laravel ou casting criptografado customizado para PII (Informações Pessoais Identificáveis) e chaves/tokens de APIs de terceiros. Sempre oculte essas colunas usando `$hidden` no model.
+- **Proteção contra Mass Assignment**: Não use `protected $guarded = [];`. Declare explicitamente os atributos seguros no array `$fillable`.
+- **Strict Loading e Prevenção de Lazy Loading**: Imponha regras estritas de segurança de model no `AppServiceProvider`.
 
-### 2. Preventing SQL Injection (SQLi)
-- **Parameterized Queries**: Always use Eloquent or query builder parameter bindings. Never concatenate user input directly into query strings (e.g., in `whereRaw`, `selectRaw`, `orderByRaw`, `DB::statement`).
-- **Safe Raw Expressions**: If raw SQL is unavoidable, use methods that actually bind parameters: `DB::select('select * from users where id = ?', [$id])` for a raw SELECT, or array bindings on a query builder condition: `->whereRaw('id = ?', [$id])`. Note that `DB::raw()` is only an unescaped SQL fragment — it does **not** accept bindings and does **not** parameterize, so user input must NEVER be passed into it directly.
+### 2. Prevenção de SQL Injection (SQLi)
+- **Consultas Parametrizadas**: Sempre use os bindings de parâmetro do Eloquent ou do query builder. Nunca concatene entrada do usuário diretamente em strings de query (por exemplo, em `whereRaw`, `selectRaw`, `orderByRaw`, `DB::statement`).
+- **Expressões Raw Seguras**: Se o SQL bruto for inevitável, use métodos que de fato façam bind dos parâmetros: `DB::select('select * from users where id = ?', [$id])` para um SELECT bruto, ou bindings em array em uma condição do query builder: `->whereRaw('id = ?', [$id])`. Note que `DB::raw()` é apenas um fragmento de SQL sem escape — ele **não** aceita bindings e **não** parametriza, então a entrada do usuário NUNCA deve ser passada diretamente para ele.
 
-### 3. Mitigating IDOR (Insecure Direct Object References)
-- **Scoped Route Model Binding**: Use scoped route model bindings where a child resource belongs to a parent. E.g., `Route::get('/projects/{project}/documents/{document}', ...)` will automatically ensure the document belongs to the project.
-- **Strict Authorization via Policies & Gates**: Validate permissions on every resource access request. Always use `$this->authorize('view', $model)` or `Gate::authorize()` inside controller actions.
-- **UUIDs/ULIDs for Public Identifiers**: Avoid exposing auto-incrementing integer IDs in URLs. Prefer ULIDs/UUIDs (like `HasUlids` trait) for model primary/route keys.
+### 3. Mitigação de IDOR (Insecure Direct Object References)
+- **Scoped Route Model Binding**: Use scoped route model bindings quando um recurso filho pertence a um pai. Por exemplo, `Route::get('/projects/{project}/documents/{document}', ...)` garantirá automaticamente que o documento pertence ao projeto.
+- **Autorização Estrita via Policies e Gates**: Valide as permissões em cada requisição de acesso a recurso. Sempre use `$this->authorize('view', $model)` ou `Gate::authorize()` dentro das actions do controller.
+- **UUIDs/ULIDs para Identificadores Públicos**: Evite expor IDs inteiros auto-incrementais nas URLs. Prefira ULIDs/UUIDs (como a trait `HasUlids`) para as chaves primárias/de rota dos models.
 
-### 4. Input Sanitization & XSS Prevention
-- **Blade Escaping**: Rely on Blade's double-curly braces `{{ $variable }}` which automatically escapes output using `htmlspecialchars`. Use `{!! $variable !!}` ONLY with verified, sanitized rich text and never with direct user input.
-- **Form Requests**: Filter and sanitize input within dedicated Form Requests. Define strict validation rules (e.g., `email`, `url`, `integer`, `string`, `max`).
+### 4. Sanitização de Entrada e Prevenção de XSS
+- **Escaping do Blade**: Confie nas chaves duplas do Blade `{{ $variable }}`, que escapam automaticamente a saída usando `htmlspecialchars`. Use `{!! $variable !!}` SOMENTE com rich text verificado e sanitizado e nunca com entrada direta do usuário.
+- **Form Requests**: Filtre e sanitize a entrada dentro de Form Requests dedicadas. Defina regras de validação estritas (por exemplo, `email`, `url`, `integer`, `string`, `max`).
 
-### 5. Secure File Uploads
-- **Validation**: Enforce mime-type, extension, and file size checks. E.g., `required|file|mimes:pdf,jpg,png|max:10240`.
-- **Storage**: Never store user-uploaded files in the public directory under their original name. Use `$request->file('doc')->store('homologations')` to automatically generate a secure unique filename.
-- **Non-executable Paths**: Ensure uploaded files are stored in non-executable disks (e.g., S3/MinIO) or that the server configuration prevents executing scripts in the upload folder.
+### 5. Uploads de Arquivo Seguros
+- **Validação**: Imponha verificações de mime-type, extensão e tamanho de arquivo. Por exemplo, `required|file|mimes:pdf,jpg,png|max:10240`.
+- **Armazenamento**: Nunca armazene arquivos enviados pelo usuário no diretório público com seus nomes originais. Use `$request->file('doc')->store('homologations')` para gerar automaticamente um nome de arquivo único e seguro.
+- **Caminhos Não Executáveis**: Garanta que os arquivos enviados sejam armazenados em discos não executáveis (por exemplo, S3/MinIO) ou que a configuração do servidor impeça a execução de scripts na pasta de upload.
 
-### 6. CSRF, CORS & Security Headers
-- **CSRF Token Validation**: Ensure CSRF protection is active for all state-changing requests (POST, PUT, PATCH, DELETE). Only exempt webhooks (like external integration call-backs) under strict URL matching.
-- **Secure Sessions**: Set `'secure' => true` and `'http_only' => true` in `config/session.php`.
-- **CORS Config**: Limit origins, headers, and methods in `config/cors.php` to only those explicitly required.
+### 6. CSRF, CORS e Cabeçalhos de Segurança
+- **Validação de Token CSRF**: Garanta que a proteção CSRF esteja ativa para todas as requisições que alteram estado (POST, PUT, PATCH, DELETE). Isente apenas webhooks (como callbacks de integração externa) sob correspondência estrita de URL.
+- **Sessões Seguras**: Defina `'secure' => true` e `'http_only' => true` em `config/session.php`.
+- **Configuração de CORS**: Limite origens, cabeçalhos e métodos em `config/cors.php` apenas àqueles explicitamente necessários.
 
-### 7. Secure Exception Handling & Logging
-- **Production Safety**: Ensure `app.debug` is `false` in production.
-- **Sanitized Logs**: Mask credentials and secrets in logs. Do not log passwords, tokens, or personal identifiers in plain text. Use structured logging patterns.
+### 7. Tratamento Seguro de Exceções e Logging
+- **Segurança em Produção**: Garanta que `app.debug` seja `false` em produção.
+- **Logs Sanitizados**: Mascare credenciais e segredos nos logs. Não registre senhas, tokens ou identificadores pessoais em texto plano. Use padrões de logging estruturado.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- NEVER use unvalidated input in database queries or file system paths.
-- NEVER leave `app.debug` enabled in production environments.
-- NEVER bypass policies or authorize checks for convenience during database operations or API development.
-- NEVER use raw string concatenation in SQL raw methods (`DB::raw()`, `whereRaw()`, etc.).
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- NUNCA use entrada não validada em queries de banco de dados ou caminhos do sistema de arquivos.
+- NUNCA deixe `app.debug` habilitado em ambientes de produção.
+- NUNCA ignore policies ou verificações de autorização por conveniência durante operações de banco de dados ou desenvolvimento de API.
+- NUNCA use concatenação bruta de strings em métodos SQL raw (`DB::raw()`, `whereRaw()`, etc.).

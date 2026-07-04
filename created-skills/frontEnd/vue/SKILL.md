@@ -9,32 +9,32 @@ metadata:
 
 # Vue
 
-> Based on Vue 3.5. Always use Composition API with `<script setup lang="ts">`.
+> Baseado no Vue 3.5. Sempre use a Composition API com `<script setup lang="ts">`.
 
-## Preferences
+## Preferências
 
-- Prefer TypeScript over JavaScript
-- Prefer `<script setup lang="ts">` over `<script>`
-- For performance, prefer `shallowRef` over `ref` if deep reactivity is not needed
-- Always use Composition API over Options API
-- Discourage using Reactive Props Destructure
+- Prefira TypeScript em vez de JavaScript
+- Prefira `<script setup lang="ts">` em vez de `<script>`
+- Por desempenho, prefira `shallowRef` em vez de `ref` quando a reatividade profunda não for necessária
+- Sempre use a Composition API em vez da Options API
+- Desencoraje o uso do Reactive Props Destructure
 
-## Core
+## Núcleo
 
-| Topic | Description | Reference |
+| Tópico | Descrição | Referência |
 |-------|-------------|-----------|
 | Script Setup & Macros | `<script setup>`, defineProps, defineEmits, defineModel, defineExpose, defineOptions, defineSlots, generics | [script-setup-macros](references/script-setup-macros.md) |
-| Reactivity & Lifecycle | ref, shallowRef, computed, watch, watchEffect, effectScope, lifecycle hooks, composables | [core-new-apis](references/core-new-apis.md) |
+| Reatividade & Ciclo de Vida | ref, shallowRef, computed, watch, watchEffect, effectScope, hooks de ciclo de vida, composables | [core-new-apis](references/core-new-apis.md) |
 
-## Features
+## Recursos
 
-| Topic | Description | Reference |
+| Tópico | Descrição | Referência |
 |-------|-------------|-----------|
-| Built-in Components & Directives | Transition, Teleport, Suspense, KeepAlive, v-memo, custom directives | [advanced-patterns](references/advanced-patterns.md) |
+| Componentes e Diretivas Embutidos | Transition, Teleport, Suspense, KeepAlive, v-memo, diretivas customizadas | [advanced-patterns](references/advanced-patterns.md) |
 
-## Quick Reference
+## Referência Rápida
 
-### Component Template
+### Template de Componente
 
 ```vue
 <script setup lang="ts">
@@ -67,7 +67,7 @@ onMounted(() => {
 </template>
 ```
 
-### Key Imports
+### Principais Imports
 
 ```ts
 // Reactivity
@@ -83,5 +83,5 @@ import { onMounted, onUpdated, onUnmounted, onBeforeMount, onBeforeUpdate, onBef
 import { nextTick, defineComponent, defineAsyncComponent } from 'vue'
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.

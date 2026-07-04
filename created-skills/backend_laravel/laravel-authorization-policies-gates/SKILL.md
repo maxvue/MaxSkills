@@ -5,16 +5,16 @@ description: Use when creating, modifying, or reviewing Laravel authorization lo
 
 # Laravel Authorization Policies and Gates
 
-## Goal
-Establish guidelines, conventions, and standards for implementing authorization logic (policies and gates) in Laravel, protecting routes and controller actions, and exposing user permissions to the Vue SPA front-end via /api endpoints consumed by MaxPinia stores in the Engeapp ecosystem.
+## Objetivo
+Estabelecer diretrizes, convenções e padrões para implementar lógica de autorização (policies e gates) no Laravel, protegendo rotas e ações de controller, e expondo as permissões do usuário para o front-end da SPA Vue via endpoints /api consumidos por stores MaxPinia no ecossistema Engeapp.
 
-## Instructions
+## Instruções
 
-1. **Eloquent Policies**:
-   - Create policies for all primary Eloquent models. Place them in the `app/Policies/` directory and name them following the `{ModelName}Policy` pattern.
-   - Use Laravel's policy auto-discovery where possible by keeping the standard namespace structure.
-   - Implement standard resource methods (`viewAny`, `view`, `create`, `update`, `delete`) and strictly type-hint both the `User` and the target model.
-   - Example Policy structure:
+1. **Policies Eloquent**:
+   - Crie policies para todos os models Eloquent principais. Coloque-as no diretório `app/Policies/` e nomeie seguindo o padrão `{ModelName}Policy`.
+   - Use o auto-discovery de policies do Laravel sempre que possível, mantendo a estrutura de namespace padrão.
+   - Implemente os métodos de recurso padrão (`viewAny`, `view`, `create`, `update`, `delete`) e faça type-hint estrito tanto do `User` quanto do model alvo.
+   - Exemplo de estrutura de Policy:
      ```php
      <?php
 
@@ -26,7 +26,7 @@ Establish guidelines, conventions, and standards for implementing authorization 
      class ProjectPolicy
      {
          /**
-          * Determine whether the user can view the project.
+          * Determina se o usuário pode visualizar o projeto.
           */
          public function view(User $user, Project $project): bool
          {
@@ -34,7 +34,7 @@ Establish guidelines, conventions, and standards for implementing authorization 
          }
 
          /**
-          * Determine whether the user can update the project.
+          * Determina se o usuário pode atualizar o projeto.
           */
          public function update(User $user, Project $project): bool
          {
@@ -43,10 +43,10 @@ Establish guidelines, conventions, and standards for implementing authorization 
      }
      ```
 
-2. **Global Gates**:
-   - Use Gates for action authorization that doesn't map directly to an Eloquent model (e.g., system admin dashboards, access to developer tools).
-   - Register Gates in the `boot` method of the `AppServiceProvider.php` (or a dedicated `AuthServiceProvider.php` if complex).
-   - Example Gate definition:
+2. **Gates Globais**:
+   - Use Gates para autorização de ações que não mapeiam diretamente para um model Eloquent (ex.: dashboards de administração do sistema, acesso a ferramentas de desenvolvedor).
+   - Registre os Gates no método `boot` do `AppServiceProvider.php` (ou um `AuthServiceProvider.php` dedicado, se for complexo).
+   - Exemplo de definição de Gate:
      ```php
      use Illuminate\Support\Facades\Gate;
 
@@ -55,32 +55,32 @@ Establish guidelines, conventions, and standards for implementing authorization 
      });
      ```
 
-3. **Protecting Routes**:
-   - Secure routes using the `can` middleware, referencing the policy ability and passing the route parameter name.
-   - Example web/API routing:
+3. **Protegendo Rotas**:
+   - Proteja as rotas usando o middleware `can`, referenciando a ability da policy e passando o nome do parâmetro da rota.
+   - Exemplo de roteamento web/API:
      ```php
      Route::put('/projects/{project}', [ProjectController::class, 'update'])
          ->middleware('can:update,project');
      ```
 
-4. **Controller-Level Authorization**:
-   - Ensure authorization is explicitly called within controllers before executing operations if route middleware is insufficient.
-   - Use controller helper methods or the `Gate` facade directly:
+4. **Autorização em Nível de Controller**:
+   - Garanta que a autorização seja chamada explicitamente dentro dos controllers antes de executar operações, caso o middleware de rota seja insuficiente.
+   - Use os métodos helper do controller ou a facade `Gate` diretamente:
      ```php
      public function update(Request $request, Project $project)
      {
          $this->authorize('update', $project);
 
-         // Alternatively: Gate::authorize('update', $project);
+         // Alternativamente: Gate::authorize('update', $project);
 
          $project->update($request->validated());
      }
      ```
 
-5. **Vue Integration (via /api + MaxPinia store)**:
-   - Expose authorization permissions to the Vue SPA front-end through a dedicated `/api/...` endpoint (e.g., included in the `/api/auth/me` or `/api/user` payload), consumed by a MaxPinia store.
-   - The backend computes a scoped permission map for the authenticated user and returns it from a controller. Avoid returning the entire database of permissions; scope permissions dynamically to what the user requires.
-   - Example controller returning the permission map:
+5. **Integração com Vue (via /api + store MaxPinia)**:
+   - Exponha as permissões de autorização para o front-end da SPA Vue por meio de um endpoint `/api/...` dedicado (ex.: incluído no payload de `/api/auth/me` ou `/api/user`), consumido por uma store MaxPinia.
+   - O backend calcula um mapa de permissões com escopo para o usuário autenticado e o retorna a partir de um controller. Evite retornar toda a base de permissões; limite as permissões dinamicamente ao que o usuário requer.
+   - Exemplo de controller retornando o mapa de permissões:
      ```php
      // GET /api/auth/me
      public function me(Request $request)
@@ -96,12 +96,12 @@ Establish guidelines, conventions, and standards for implementing authorization 
          ]);
      }
      ```
-   - In the Vue SPA, consume this endpoint via a MaxPinia store (`@maxvue/max-pinia`) and read permissions from the store state (not from page props). Use Ziggy `route()` helpers for Laravel route resolution.
+   - Na SPA Vue, consuma esse endpoint via uma store MaxPinia (`@maxvue/max-pinia`) e leia as permissões a partir do estado da store (e não das props da página). Use os helpers `route()` do Ziggy para resolução de rotas do Laravel.
      ```vue
      <script setup lang="ts">
-     import { useAuthStore } from '@/stores/auth' // @maxvue/max-pinia store
+     import { useAuthStore } from '@/stores/auth' // store @maxvue/max-pinia
 
-     const auth = useAuthStore() // store loads /api/auth/me into its state
+     const auth = useAuthStore() // a store carrega /api/auth/me em seu estado
      </script>
 
      <template>
@@ -111,9 +111,9 @@ Establish guidelines, conventions, and standards for implementing authorization 
      </template>
      ```
 
-6. **Pest Testing**:
-   - Write feature tests to verify security controls and ensure policies and gates behave correctly under different user roles.
-   - Example testing structure with Pest:
+6. **Testes com Pest**:
+   - Escreva feature tests para verificar os controles de segurança e garantir que policies e gates se comportem corretamente sob diferentes papéis de usuário.
+   - Exemplo de estrutura de teste com Pest:
      ```php
      it('allows a developer to view pulse', function () {
          $user = User::factory()->create(['is_developer' => true]);
@@ -132,9 +132,9 @@ Establish guidelines, conventions, and standards for implementing authorization 
      });
      ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- Do NOT hardcode permission or role checking logic directly inside Blade views, Vue views, or controller logic (e.g., `if ($user->role === 'admin')`). Encapsulate all logic inside Policies and Gates.
-- Do NOT expose full, un-scoped permissions arrays in the `/api` endpoint payload. Keep the frontend authorization payload minimal and scoped.
-- Do NOT skip authorization checks in the backend under the assumption that the frontend hides unauthorized UI elements. The backend is the single source of truth for authorization.
-- Do NOT allow default pass-through on policies. Always return explicit booleans or exception states.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.
+- NÃO faça hardcode de lógica de verificação de permissão ou papel diretamente dentro de views Blade, views Vue ou lógica de controller (ex.: `if ($user->role === 'admin')`). Encapsule toda a lógica dentro de Policies e Gates.
+- NÃO exponha arrays completos e sem escopo de permissões no payload do endpoint `/api`. Mantenha o payload de autorização do frontend mínimo e com escopo.
+- NÃO pule verificações de autorização no backend partindo da suposição de que o frontend esconde os elementos de UI não autorizados. O backend é a única fonte de verdade para autorização.
+- NÃO permita pass-through padrão nas policies. Sempre retorne booleanos explícitos ou estados de exceção.

@@ -1,10 +1,10 @@
 ---
 name: vue-auth-session-state-best-practices
-description: Use when implementing, refactoring, reviewing, or debugging authentication baseada em sessão por cookie (Vue 3 + Vue Router 4 + backend AdonisJS) — login/logout, login social, estado do usuário atual via store MaxPinia (@maxvue/max-pinia), guards de rotas protegidas e tratamento de HTTP 401 em interceptors do Axios. Triggers em stores de sessão MaxPinia, guards de rotas protegidas, views de login e interceptors do cliente de API.
+description: Use when implementing, refactoring, reviewing, or debugging authentication baseada em sessão por cookie (Vue 3 + Vue Router 4 + backend Laravel Sanctum SPA) — login/logout, login social, estado do usuário atual via store MaxPinia (@maxvue/max-pinia), guards de rotas protegidas e tratamento de HTTP 401 em interceptors do Axios. Triggers em stores de sessão MaxPinia, guards de rotas protegidas, views de login e interceptors do cliente de API.
 ---
 
 ## Objetivo
-Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin: login/logout via API, recuperação do usuário atual por store MaxPinia, login social por redirecionamento, guards de rotas no Vue Router e tratamento global de HTTP 401 com Axios. Backend é AdonisJS; a autenticação é por sessão em banco (não token), com validade de 30 dias quando `remember` estiver marcado.
+Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin: login/logout via API, recuperação do usuário atual por store MaxPinia, login social por redirecionamento, guards de rotas no Vue Router e tratamento global de HTTP 401 com Axios. Backend é Laravel com **Sanctum (autenticação SPA por sessão + cookie)**; não é token/Bearer. O fluxo exige um GET prévio em `/sanctum/csrf-cookie` para semear o cookie `XSRF-TOKEN` antes do login. A validade da sessão é de 30 dias quando `remember` estiver marcado.
 
 ## Endpoints reais
 - `POST /api/login` — body `{ email, password, remember? }`. Cria a sessão.
@@ -14,7 +14,7 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 - `GET /api/auth/:provider/redirect` — inicia o login social (Google/Facebook).
 - `GET /api/auth/:provider/callback` — callback do provedor, redireciona para `/projects`.
 
-> Rotas são strings (`/api/...`). Os helpers `apiGetRoute` / `apiPostRoute` do `@maxvue/max-use` são **funções assíncronas que JÁ executam a requisição** (`await apiGetRoute('/...')` retorna `response.data`) — não são resolvedores de URL e NÃO devem ser embrulhados em `axios.get(...)`. Para dados de página, prefira a store MaxPinia (que faz GET/save por baixo); use `apiGetRoute`/`apiPostRoute` apenas em chamadas pontuais que não são estado de página (ex.: submit de login). NÃO existe Ziggy, Inertia ou Sanctum aqui (são de Laravel) — não invente esses recursos.
+> Rotas são strings (`/api/...`). Os helpers `apiGetRoute` / `apiPostRoute` do `@maxvue/max-use` são **funções assíncronas que JÁ executam a requisição** (`await apiGetRoute('/...')` retorna `response.data`) — não são resolvedores de URL e NÃO devem ser embrulhados em `axios.get(...)`. Para dados de página, prefira a store MaxPinia (que faz GET/save por baixo); use `apiGetRoute`/`apiPostRoute` apenas em chamadas pontuais que não são estado de página (ex.: submit de login). Aqui o backend é **Laravel Sanctum (SPA)**: a autenticação É por sessão + cookie via Sanctum (não invente token/Bearer). O MaxPinia consome rotas em string (`apiGetRoute('/api/...')`), o que coexiste com o Ziggy do Laravel — não afirme "sem Ziggy".
 
 ## Instruções
 
@@ -26,12 +26,16 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 - Implemente `waitRequest(store)` como helper que recebe a instância da store e retorna uma promessa resolvida quando a primeira requisição de sessão concluir (observando `store.status.server.get.is_requested`). Isso evita race conditions nos guards do router ao recarregar a página.
 
 ## 2. Configuração do Cliente de API & CSRF
-- Autenticação é por SESSÃO via cookie. Configure o Axios para enviar cookies e o token XSRF automaticamente:
+- Autenticação é por SESSÃO via cookie (Laravel Sanctum SPA). Configure o Axios para enviar cookies e o token XSRF automaticamente:
   ```typescript
   axios.defaults.withCredentials = true;
   axios.defaults.withXSRFToken = true;
   ```
-- O backend AdonisJS define o cookie XSRF; com `withXSRFToken = true` o Axios o reenvia. Não há endpoint separado de "csrf-cookie" a buscar antes do login.
+- No Sanctum SPA, faça um GET em `/sanctum/csrf-cookie` **antes** do primeiro POST de mutação (login) para semear o cookie `XSRF-TOKEN`. Com `withXSRFToken = true` o Axios lê esse cookie e o reenvia no header `X-XSRF-TOKEN` automaticamente:
+  ```typescript
+  await axios.get('/sanctum/csrf-cookie');
+  // agora o POST de login enviará o header X-XSRF-TOKEN corretamente
+  ```
 
 ## 3. Interceptors Globais do Axios
 - Intercepte respostas para capturar `401 Unauthorized` globalmente.
@@ -83,7 +87,7 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 - NUNCA use a Options API. Use Composition API com `<script setup lang="ts">`.
 - Não use caminhos fixos (hardcoded) para redirecionamento; use rotas nomeadas (`router.push({ name: 'login' })`).
 - Não consuma `/user/data` com `axios.get` solto — sempre pela store MaxPinia.
-- Não introduza Ziggy, Inertia, Sanctum ou autenticação por token; o modelo é sessão + cookie.
+- Não introduza autenticação por token/Bearer; o modelo é Sanctum SPA (sessão + cookie). Não desative o CSRF nem pule o GET em `/sanctum/csrf-cookie`.
 - Em logout ou 401, limpe estados desatualizados do usuário, contextos e chaves locais.
 - Mantenha atributos de template em uma única linha.
 
@@ -187,12 +191,13 @@ const submit = async (payload: { email: string; password: string; remember: bool
 </script>
 
 <style scoped lang="scss">
+// Sem cores fixas: use tokens/variáveis do tema (presetMaxUno / CSS vars).
 .btn-google {
-    --bg: #ffffff;
-    --border-color: #d1d5db;
-    color: #374151;
+    --bg: var(--surface-0);
+    --border-color: var(--border-base);
+    color: var(--text-default);
     &:hover {
-        background-color: #f9fafb !important;
+        background-color: var(--surface-100) !important;
     }
 }
 </style>

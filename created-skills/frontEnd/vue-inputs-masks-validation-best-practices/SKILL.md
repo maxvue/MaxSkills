@@ -6,7 +6,7 @@ description: Use when implementing, formatting, or validating user inputs with m
 # Boas Práticas de Inputs, Máscaras e Validação no Vue 3
 
 ## Objetivo
-Estabelecer padrões claros e de alta qualidade de desenvolvimento para a aplicação de máscaras e validações de input em formulários no front-end Vue 3 do Engeapp. Isso garante uma interface consistente, tratamento dinâmico de máscaras, validação de cartões de crédito e telefones, e a extração automática do valor bruto sem formatação (unmasked) antes da persistência dos dados via store `@maxvue/max-pinia` no backend AdonisJS.
+Estabelecer padrões claros e de alta qualidade de desenvolvimento para a aplicação de máscaras e validações de input em formulários no front-end Vue 3 do Engeapp. Isso garante uma interface consistente, tratamento dinâmico de máscaras, validação de cartões de crédito e telefones, e a extração automática do valor bruto sem formatação (unmasked) antes da persistência dos dados via store `@maxvue/max-pinia` no backend Laravel 13.
 
 ## Instruções
 
@@ -52,7 +52,7 @@ Para formatar inputs monetários, utilize a configuração nativa de número (`n
   ```
 
 ### 5. Remoção de Máscara e Sanitização de Dados
-Nunca envie caracteres de formatação da máscara para a validação do backend AdonisJS. Sempre faça a sanitização:
+Nunca envie caracteres de formatação da máscara para a validação do backend Laravel (FormRequest / `$request->validate()`). Sempre faça a sanitização — o backend rejeita entradas inválidas com resposta `422` no shape `{ message, errors: { campo: ["..."] } }`:
 - **Usando Vinculações Nativas do Maska**: Use o modificador `.unmasked`:
   ```html
   <input v-model="displayValue" v-maska:rawValue.unmasked="maskPattern" />
@@ -76,7 +76,7 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
   ```
 
 ### 7. Formatação e Validação de Cartões de Crédito
-> **Dependências não incluídas:** `card-validator` e `@polvo-labs/card-type` **não** fazem parte das dependências do alvo (Maxdmin) nem de nenhuma lib Max (`@maxvue/max-components-ui`, `@maxvue/max-use`). Se um componente/helper Max cobrir validação/detecção de bandeira de cartão, prefira-o; caso contrário, adicione esses pacotes explicitamente ao projeto (`npm i card-validator @polvo-labs/card-type`) antes de usar os exemplos abaixo.
+> **Dependências não incluídas:** `card-validator` e `@polvo-labs/card-type` **não** fazem parte das dependências do EngeApp nem de nenhuma lib Max (`@maxvue/max-components-ui`, `@maxvue/max-use`). Se um componente/helper Max cobrir validação/detecção de bandeira de cartão, prefira-o; caso contrário, adicione esses pacotes explicitamente ao projeto (`npm i card-validator @polvo-labs/card-type`) antes de usar os exemplos abaixo.
 
 - **Formatação em Tempo Real**: Máscara padrão para número de cartão: `#### #### #### ####`. Máscara de data de validade: `##/##`.
 - **Validação de Cartão**: Use o pacote `card-validator`:
@@ -95,7 +95,7 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- **Sem Valores Formatados para o Backend**: Nunca persista valores contendo caracteres de formatação de máscara no backend AdonisJS. Sempre grave strings limpas ou floats, ou formato `E.164` para telefones, nos campos da store `@maxvue/max-pinia`.
+- **Sem Valores Formatados para o Backend**: Nunca persista valores contendo caracteres de formatação de máscara no backend Laravel. Sempre grave strings limpas ou floats, ou formato `E.164` para telefones, nos campos da store `@maxvue/max-pinia`.
 - **Sem Save Manual**: Não use `axios`/fetch manual nem submit de formulário para salvar inputs de página. A persistência ocorre pelo auto-save da store MaxPinia.
 - **Sem Formatação/Validação Manual via Expressões Regulares**: Não utilize substituição de strings sob demanda (ad-hoc) ou regex complexos personalizados para validação ou formatação de dados padrão brasileiros ou telefones. Confie inteiramente nos arrays de diretivas do Maska, `libphonenumber-js` ou `card-validator`.
 - **Sem Options API**: Todos os arquivos SFC do Vue devem utilizar estritamente `<script setup lang="ts">` e a Composition API.

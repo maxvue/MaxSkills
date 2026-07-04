@@ -3,65 +3,65 @@ name: laravel-backup-best-practices
 description: Use when configuring, executing, testing, or debugging backups in Laravel, setting up spatie/laravel-backup, managing backup destinations, defining backup schedules, or handling backup failure alerts.
 ---
 
-# Laravel Backup Best Practices
+# Boas Práticas de Backup no Laravel
 
-## Goal
-Establish solid, secure, and automated guidelines for backing up databases and application files within the Laravel ecosystem (specifically for Engeapp), ensuring business continuity and disaster recovery capabilities.
+## Objetivo
+Estabelecer diretrizes sólidas, seguras e automatizadas para backup de bancos de dados e arquivos da aplicação dentro do ecossistema Laravel (especificamente para o Engeapp), garantindo continuidade do negócio e capacidade de recuperação de desastres.
 
-## Instructions
+## Instruções
 
-### 1. Installation & Initial Configuration
-1. **Install Spatie Laravel Backup:**
-   If the package is not installed, install it using Composer:
+### 1. Instalação e Configuração Inicial
+1. **Instale o Spatie Laravel Backup:**
+   Se o pacote não estiver instalado, instale-o usando o Composer:
    ```bash
    composer require spatie/laravel-backup
    ```
-2. **Publish Configuration:**
-   Publish the package configuration file:
+2. **Publique a Configuração:**
+   Publique o arquivo de configuração do pacote:
    ```bash
    php artisan vendor:publish --provider="Spatie\Backup\BackupServiceProvider"
    ```
-   This generates `config/backup.php`.
+   Isso gera o `config/backup.php`.
 
-### 2. Backup Configuration (`config/backup.php`)
-1. **Source Configuration (`backup.source`):**
-   - **Database:** Ensure all relevant database connections are selected (typically `mysql` or `pgsql`).
-   - **Files:** Limit backups to essential files, such as dynamic user uploads (e.g., `storage/app/public`). Exclude `node_modules/`, `vendor/`, `storage/framework/`, and cache directories to reduce file size.
-2. **Destination Configuration (`backup.destination`):**
-   - Configure disks for backup storage. Avoid storing backups only on the same server (`local` disk).
-   - Use external destinations such as AWS S3 (`s3`) or WebDAV (`webdav`).
-   - Retrieve all disk credentials strictly from environment variables (`.env`).
-3. **Retention Policies (`backup.cleanup`):**
-   - Define a clean-up strategy to automatically remove old backups and prevent storage exhaustion.
-   - Recommended policy: Keep daily backups for 7 days, weekly backups for 4 weeks, monthly backups for 4 months, and yearly backups for 2 years.
+### 2. Configuração do Backup (`config/backup.php`)
+1. **Configuração de Origem (`backup.source`):**
+   - **Banco de Dados:** Garanta que todas as conexões de banco relevantes estejam selecionadas (normalmente `mysql` ou `pgsql`).
+   - **Arquivos:** Limite os backups a arquivos essenciais, como uploads dinâmicos de usuários (ex: `storage/app/public`). Exclua `node_modules/`, `vendor/`, `storage/framework/` e diretórios de cache para reduzir o tamanho dos arquivos.
+2. **Configuração de Destino (`backup.destination`):**
+   - Configure discos para armazenamento de backups. Evite armazenar backups apenas no mesmo servidor (disco `local`).
+   - Use destinos externos como AWS S3 (`s3`) ou WebDAV (`webdav`).
+   - Obtenha todas as credenciais de disco estritamente a partir de variáveis de ambiente (`.env`).
+3. **Políticas de Retenção (`backup.cleanup`):**
+   - Defina uma estratégia de limpeza para remover automaticamente backups antigos e evitar o esgotamento do armazenamento.
+   - Política recomendada: Manter backups diários por 7 dias, backups semanais por 4 semanas, backups mensais por 4 meses e backups anuais por 2 anos.
 
-### 3. Backup Scheduling
-1. **Artisan Commands:**
-   - Run clean-up: `php artisan backup:clean`
-   - Run backup: `php artisan backup:run` (or `--only-db` to backup only the database).
-2. **Console Scheduler:**
-   - Register the commands in `routes/console.php` (Laravel 11+) or `app/Console/Kernel.php`:
+### 3. Agendamento de Backup
+1. **Comandos Artisan:**
+   - Executar limpeza: `php artisan backup:clean`
+   - Executar backup: `php artisan backup:run` (ou `--only-db` para fazer backup apenas do banco de dados).
+2. **Scheduler do Console:**
+   - Registre os comandos em `routes/console.php` (Laravel 11+) ou `app/Console/Kernel.php`:
      ```php
      use Illuminate\Support\Facades\Schedule;
 
-     // Clean old backups daily at 1:00 AM
+     // Limpa backups antigos diariamente à 1:00 da manhã
      Schedule::command('backup:clean')->daily()->at('01:00');
 
-     // Run database and file backup daily at 2:00 AM
+     // Executa backup de banco de dados e arquivos diariamente às 2:00 da manhã
      Schedule::command('backup:run')->daily()->at('02:00');
      ```
-   - Alternatively, configure these tasks via **Laravel Totem** dashboard.
+   - Alternativamente, configure essas tarefas pelo dashboard do **Laravel Totem**.
 
-### 4. Logging & Notifications
-1. **Structured Exception Logging:**
-   - Integrate Spatie Backup notifications with notification channels (Mail, Slack, Discord, or Telegram) by configuring `backup.notifications` inside `config/backup.php`.
-   - Ensure Laravel's logging configuration (`config/logging.php`) records backup status and failures using structured context (e.g., including storage disk and backup size).
-2. **Monitoring Health:**
-   - Run `php artisan backup:monitor` periodically or schedule it to ensure backup files are fresh and destinations are accessible.
+### 4. Logs e Notificações
+1. **Log Estruturado de Exceções:**
+   - Integre as notificações do Spatie Backup com canais de notificação (Mail, Slack, Discord ou Telegram) configurando `backup.notifications` dentro de `config/backup.php`.
+   - Garanta que a configuração de logging do Laravel (`config/logging.php`) registre o status e as falhas de backup usando contexto estruturado (ex: incluindo o disco de armazenamento e o tamanho do backup).
+2. **Monitoramento de Saúde:**
+   - Execute `php artisan backup:monitor` periodicamente ou agende-o para garantir que os arquivos de backup estejam atualizados e os destinos acessíveis.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Security:** Do not write or commit credentials, AWS keys, or WebDAV passwords directly into `config/backup.php` or `config/filesystems.php`. Use `.env` and `env()` helpers instead.
-- **Privacy:** Never include sensitive runtime environment files (like `.env`) or private keys (`oauth-private.key`) in the backup zip. Exclude them explicitly in `config/backup.php`.
-- **Location:** Do not store backups in the `public/` directory or any web-accessible path.
-- **Resource Management:** Avoid running full file backups during peak system usage hours. Prefer late-night schedules for full backups.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **Segurança:** Não escreva nem faça commit de credenciais, chaves da AWS ou senhas de WebDAV diretamente em `config/backup.php` ou `config/filesystems.php`. Use o `.env` e os helpers `env()`.
+- **Privacidade:** Nunca inclua arquivos de ambiente sensíveis em tempo de execução (como o `.env`) ou chaves privadas (`oauth-private.key`) no zip de backup. Exclua-os explicitamente em `config/backup.php`.
+- **Localização:** Não armazene backups no diretório `public/` ou em qualquer caminho acessível pela web.
+- **Gerenciamento de Recursos:** Evite executar backups completos de arquivos durante os horários de pico de uso do sistema. Prefira agendamentos na madrugada para backups completos.

@@ -1,6 +1,6 @@
 ---
 name: technical-documentation-best-practices
-description: Use when writing or improving technical documentation — READMEs, API endpoints, UI components, ADRs, changelogs, CONTRIBUTING guides, install/config guides, database schemas, or generating docs from existing code. Inclui documentação TypeScript — anotações JSDoc/TSDoc, geração de referência de API com TypeDoc, validação de JSDoc via ESLint, pipelines de docs em CI/CD, e padrões de doc para controllers/services AdonisJS v6 e composables Vue 3. Provides ready templates, formatting rules, and a quality checklist.
+description: Use when writing or improving technical documentation — READMEs, API endpoints, UI components, ADRs, changelogs, CONTRIBUTING guides, install/config guides, database schemas, or generating docs from existing code. Inclui documentação TypeScript — anotações JSDoc/TSDoc, geração de referência de API com TypeDoc, validação de JSDoc via ESLint, pipelines de docs em CI/CD, e padrões de doc para controllers/services Laravel 13 e composables Vue 3. Provides ready templates, formatting rules, and a quality checklist.
 ---
 
 # Boas Práticas de Documentação Técnica
@@ -29,7 +29,7 @@ Use esta skill quando a tarefa for:
 - Gerar JSDoc ou TSDoc para código TypeScript (funções, classes, interfaces, generics, uniões)
 - Configurar TypeDoc para gerar referência de API e validar JSDoc com ESLint
 - Montar pipeline de CI/CD para geração/validação de documentação
-- Documentar controllers/services AdonisJS v6 e composables Vue 3
+- Documentar controllers/services Laravel 13 e composables Vue 3
 - Criar `CONTRIBUTING.md` e guias de contribuição
 - Documentar schemas de banco de dados
 - Escrever documentação de bibliotecas e SDKs
@@ -135,7 +135,7 @@ NÃO use esta skill quando a tarefa for exclusivamente escrever/corrigir código
 ![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
 ![Licença](https://img.shields.io/badge/licença-MIT-green)
 ![Node](https://img.shields.io/badge/Node-20+-green)
-![AdonisJS](https://img.shields.io/badge/AdonisJS-6-blueviolet)
+![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20)
 ![Testes](https://img.shields.io/badge/testes-passando-brightgreen)
 ```
 
@@ -743,74 +743,88 @@ npm run build
 - [ ] Build passa sem erros
 ```
 
-### JSDoc: service AdonisJS v6 (auth de sessão)
+### PHPDoc: service Laravel 13 (auth de sessão)
 
-```typescript
+```php
+<?php
+
+namespace App\Services;
+
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 /**
- * Serviço para gerenciar a autenticação de usuários
+ * Serviço para gerenciar a autenticação de usuários.
  *
- * @remarks
- * Lida com autenticação baseada em sessão+cookie (guard `web` do AdonisJS),
- * com sessões persistidas em banco (PostgreSQL) e validade de 30 dias.
- * Hashing de senha via scrypt (driver padrão do AdonisJS Hash).
- * Login social via Ally.
+ * Lida com autenticação baseada em sessão+cookie (guarda `web` do Laravel),
+ * com sessões persistidas em banco (MySQL) e validade de 30 dias.
+ * Hashing de senha via bcrypt (`Hash::make`, driver padrão do Laravel).
+ * Login social via Laravel Socialite.
  *
  * Notas de segurança:
- * - Senhas com hash via scrypt (driver padrão do AdonisJS)
+ * - Senhas com hash via bcrypt (`Hash::make` / `Hash::check`)
  * - Sessão emitida via cookie HttpOnly + SameSite; sem tokens no front
  *
  * @example
- * ```typescript
- * const authService = new AuthService()
- * await authService.login(ctx, credentials)
- * ```
+ * $authService = new AuthService();
+ * $authService->login($credentials);
  */
-export class AuthService {
-  /**
-   * Autentica um usuário e inicia a sessão (guard `web`)
-   * @param ctx - HttpContext da requisição AdonisJS
-   * @param credentials - Credenciais de login do usuário
-   * @returns Usuário autenticado
-   * @throws {InvalidCredentialsError} Se as credenciais forem inválidas
-   */
-  async login(ctx: HttpContext, credentials: LoginCredentials): Promise<User> {
-    // Implementação
-  }
+class AuthService
+{
+    /**
+     * Autentica um usuário e inicia a sessão (guarda `web`).
+     *
+     * @param  array{email: string, password: string}  $credentials  Credenciais de login
+     * @return \App\Models\User  Usuário autenticado
+     *
+     * @throws \Illuminate\Auth\AuthenticationException  Se as credenciais forem inválidas
+     */
+    public function login(array $credentials): User
+    {
+        // Implementação
+    }
 }
 ```
 
-### JSDoc: controller AdonisJS v6
+### PHPDoc: controller Laravel 13
 
-```typescript
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use App\Http\Resources\UserResource;
+
 /**
- * Endpoints de API para gerenciamento de usuários
+ * Endpoints de API para gerenciamento de usuários.
  *
- * @remarks
- * Todos os endpoints exigem sessão autenticada (guard `web`); o middleware
+ * Todos os endpoints exigem sessão autenticada (guarda `web`); o middleware
  * `auth` rejeita requisições sem sessão válida. A sessão é transportada via
  * cookie HttpOnly — não há token Bearer/JWT no fluxo padrão.
  * Rate limiting: 100 requisições por minuto por usuário.
  *
  * Notas de segurança:
  * - Todos os endpoints usam HTTPS
- * - Sessões persistidas em DB (PostgreSQL) com validade de 30 dias
+ * - Sessões persistidas em DB (MySQL) com validade de 30 dias
  * - Dados sensíveis são redigidos dos logs
  *
  * @example
- * ```ts
- * // start/routes.ts
- * router.get('/api/users/:id', [UsersController, 'show']).use(middleware.auth())
- * ```
+ * // routes/api.php
+ * Route::get('/users/{user}', [UsersController::class, 'show'])->middleware('auth');
  */
-export default class UsersController {
-  /**
-   * Recupera um usuário pelo ID
-   * @param ctx - HttpContext com params da requisição
-   * @returns Perfil do usuário (senha excluída via serialização do model)
-   */
-  async show({ params }: HttpContext): Promise<UserProfile> {
-    return User.findOrFail(params.id)
-  }
+class UsersController
+{
+    /**
+     * Recupera um usuário pelo ID.
+     *
+     * @param  \App\Models\User  $user  Model resolvido via route model binding
+     * @return \App\Http\Resources\UserResource  Perfil do usuário (senha oculta via `$hidden` do model)
+     */
+    public function show(User $user): UserResource
+    {
+        return new UserResource($user);
+    }
 }
 ```
 

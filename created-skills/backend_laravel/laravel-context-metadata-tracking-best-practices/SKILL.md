@@ -3,18 +3,20 @@ name: laravel-context-metadata-tracking-best-practices
 description: Use when implementing, refactoring, or debugging Laravel Context (Illuminate\Support\Facades\Context) to track request metadata, share state between HTTP requests and queued Jobs, configure context logging, or sanitize context keys in a stateless environment. Triggers on Context::add(), Context::get(), Context::pull(), log context configuration, and sharing request metadata.
 ---
 
-## Goal
-Establish solid guidelines, patterns, and best practices for implementing, debugging, and managing request/job context metadata using Laravel's native Context Facade (`Illuminate\Support\Facades\Context`) within the Engeapp ecosystem.
+# Boas Práticas de Rastreamento de Metadados com Laravel Context
 
-## Instructions
+## Objetivo
+Estabelecer diretrizes sólidas, padrões e boas práticas para implementar, depurar e gerenciar metadados de contexto de request/job usando a Facade nativa Context do Laravel (`Illuminate\Support\Facades\Context`) dentro do ecossistema Engeapp.
 
-### 1. Request Context Initialization via Middleware
-Always capture request-specific metadata in a global or route-specific middleware.
-- **Trace ID:** Look for an incoming `X-Trace-Id` or `X-Request-Id` header. If missing, generate a new UUID.
-- **Auth Info:** Store the authenticated user's ID and role, but ensure it is sanitized and doesn't leak sensitive data.
-- **IP & User Agent:** Store metadata that helps correlate logs.
+## Instruções
 
-Example Middleware:
+### 1. Inicialização do Contexto da Requisição via Middleware
+Sempre capture metadados específicos da requisição em um middleware global ou específico de rota.
+- **Trace ID:** Procure por um header `X-Trace-Id` ou `X-Request-Id` de entrada. Se estiver ausente, gere um novo UUID.
+- **Informações de Autenticação:** Armazene o ID e a role do usuário autenticado, mas garanta que estejam sanitizados e não vazem dados sensíveis.
+- **IP & User Agent:** Armazene metadados que ajudem a correlacionar logs.
+
+Exemplo de Middleware:
 ```php
 namespace App\Http\Middleware;
 
@@ -36,7 +38,7 @@ class CaptureRequestMetadata
 
         $response = $next($request);
 
-        // Optional: Include trace_id in response headers
+        // Opcional: incluir o trace_id nos headers da resposta
         $response->headers->set('X-Trace-Id', Context::get('trace_id'));
 
         return $response;
@@ -44,25 +46,25 @@ class CaptureRequestMetadata
 }
 ```
 
-### 2. Sharing Context with Queued Jobs
-Laravel automatically propagates `Context` data to queued jobs.
-- Rely on native Context propagation for queue jobs.
-- Avoid manually passing trace IDs as job parameters if they are already stored in the Context.
-- When writing queue listeners, use `Context::get('trace_id')` to trace asynchronous processing.
+### 2. Compartilhando o Contexto com Queued Jobs
+O Laravel propaga automaticamente os dados do `Context` para jobs enfileirados.
+- Confie na propagação nativa do Context para jobs de fila.
+- Evite passar manualmente trace IDs como parâmetros do job se eles já estiverem armazenados no Context.
+- Ao escrever listeners de fila, use `Context::get('trace_id')` para rastrear o processamento assíncrono.
 
-### 3. Log Integration & Configuration
-Configure Laravel's log formatter to output context metadata automatically.
-- Define a custom Monolog formatter or use Laravel's default logging configuration to append context.
-- Keep keys flat and descriptive to facilitate log querying in tools like Elasticsearch, AWS CloudWatch, or local log viewers.
+### 3. Integração & Configuração de Logs
+Configure o formatador de log do Laravel para exibir os metadados de contexto automaticamente.
+- Defina um formatador Monolog customizado ou use a configuração de logging padrão do Laravel para anexar o contexto.
+- Mantenha as chaves planas e descritivas para facilitar a consulta de logs em ferramentas como Elasticsearch, AWS CloudWatch ou visualizadores de log locais.
 
-### 4. Memory Management & Laravel Octane Compatibility
-Since Engeapp runs on Laravel Octane, state persistence between requests must be carefully handled.
-- Laravel automatically flushes the `Context` facade state after each request when running Octane.
-- However, if you store state in custom static properties or singletons, you must manually reset them using Octane event listeners (`tick` or request terminators) or avoid them entirely in favor of `Context`.
+### 4. Gerenciamento de Memória & Compatibilidade com Laravel Octane
+Como o Engeapp roda sobre Laravel Octane, a persistência de estado entre requisições deve ser tratada com cuidado.
+- O Laravel limpa automaticamente o estado da facade `Context` após cada requisição ao rodar sobre Octane.
+- No entanto, se você armazenar estado em propriedades estáticas customizadas ou singletons, precisará resetá-los manualmente usando listeners de eventos do Octane (`tick` ou request terminators) ou evitá-los por completo em favor do `Context`.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **NO Sensitive Data:** Never store passwords, API keys, full credit card numbers, or personally identifiable information (PII) directly in the Context.
-- **NO Large Objects:** Do not store heavy Eloquent model instances or massive arrays in the Context. Store IDs (e.g., `user_id`, `project_id`) instead.
-- **Avoid Overwriting:** Ensure third-party libraries or internal packages do not overwrite system keys like `trace_id` by using structured prefixing (e.g., `engeapp:trace_id`) if namespace collision is possible.
-- **Keep it Stateless:** Do not use Context as a replacement for HTTP Session or Cache. It only lasts for the lifecycle of a single request/process execution.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- **SEM Dados Sensíveis:** Nunca armazene senhas, API keys, números completos de cartão de crédito ou informações de identificação pessoal (PII) diretamente no Context.
+- **SEM Objetos Grandes:** Não armazene instâncias pesadas de models Eloquent ou arrays massivos no Context. Armazene IDs (ex.: `user_id`, `project_id`) no lugar.
+- **Evite Sobrescrever:** Garanta que bibliotecas de terceiros ou pacotes internos não sobrescrevam chaves do sistema como `trace_id`, usando prefixação estruturada (ex.: `engeapp:trace_id`) se houver possibilidade de colisão de namespace.
+- **Mantenha-o Stateless:** Não use o Context como substituto da HTTP Session ou do Cache. Ele dura apenas pelo ciclo de vida de uma única execução de requisição/processo.

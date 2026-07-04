@@ -5,34 +5,34 @@ description: Use when creating, reviewing, or debugging integrations with the RD
 
 # Laravel RD Station CRM Integration Best Practices
 
-## Goal
-Establish solid guidelines, patterns, and architectural standards for creating, maintaining, and debugging a resilient, secure, and performant integration between the Engeapp Laravel backend and the RD Station CRM API (including webhooks).
+## Objetivo
+Estabelecer diretrizes sólidas, padrões e standards arquiteturais para criar, manter e depurar uma integração resiliente, segura e performática entre o backend Laravel do Engeapp e a API do RD Station CRM (incluindo webhooks).
 
-## Instructions
+## Instruções
 
-### 1. Integration Class Design (`BaseApi` Extension)
-- Extend the `App\Http\Integrations\BaseApi` class for calling external APIs.
-- Create a dedicated namespace: `App\Http\Integrations\RdStation`.
-- Structure the integration folder with:
-  - `RdStationCrmApi.php` (The main integration class extending `BaseApi`).
-  - `Attributes.json` (Required fields mapping).
-  - `EndPoints.json` (Endpoints mapping, HTTP methods, and rules).
-- Dynamically resolve the active base URL inside `defineComputedBaseUrl()` for sandbox/production environments.
+### 1. Design da Classe de Integração (Extensão de `BaseApi`)
+- Estenda a classe `App\Http\Integrations\BaseApi` para chamar APIs externas.
+- Crie um namespace dedicado: `App\Http\Integrations\RdStation`.
+- Estruture a pasta de integração com:
+  - `RdStationCrmApi.php` (A classe de integração principal que estende `BaseApi`).
+  - `Attributes.json` (Mapeamento dos campos obrigatórios).
+  - `EndPoints.json` (Mapeamento de endpoints, métodos HTTP e regras).
+- Resolva dinamicamente a base URL ativa dentro de `defineComputedBaseUrl()` para os ambientes de sandbox/produção.
 
-### 2. Resilient OAuth2 Authentication Flow
-- Maintain a database table (e.g., `rd_station_oauth_tokens`) to store OAuth2 tokens dynamically: `access_token`, `refresh_token`, and `expires_at`.
-- Override the `getAccessToken()` method in your `RdStationCrmApi` class to:
-  1. Retrieve active token data from the database.
-  2. If the token is expired or close to expiration (e.g., within 5 minutes), fetch a new token using the `refresh_token` flow.
-  3. Update and persist the new token credentials back to the database securely.
-  4. Cache the active `access_token` using Laravel's cache layer with a proper TTL.
+### 2. Fluxo de Autenticação OAuth2 Resiliente
+- Mantenha uma tabela no banco de dados (ex.: `rd_station_oauth_tokens`) para armazenar os tokens OAuth2 dinamicamente: `access_token`, `refresh_token` e `expires_at`.
+- Sobrescreva o método `getAccessToken()` na sua classe `RdStationCrmApi` para:
+  1. Recuperar os dados do token ativo a partir do banco de dados.
+  2. Se o token estiver expirado ou próximo de expirar (ex.: dentro de 5 minutos), obter um novo token usando o fluxo de `refresh_token`.
+  3. Atualizar e persistir as novas credenciais de token de volta ao banco de dados de forma segura.
+  4. Cachear o `access_token` ativo usando a camada de cache do Laravel com um TTL adequado.
 
-### 3. Asynchronous Sync via Horizon & Queues
-- Never execute CRM API calls synchronously during HTTP requests. Always dispatch jobs to the queue.
-- Implement the `ShouldQueue` interface on all sync jobs (e.g., `SyncLeadToRdStationJob`).
-- Handle Rate Limiting (HTTP 429) gracefully:
-  - Catch `RequestException` or HTTP response failures.
-  - Implement exponential backoff retry logic:
+### 3. Sincronização Assíncrona via Horizon & Filas
+- Nunca execute chamadas à API do CRM de forma síncrona durante requisições HTTP. Sempre despache jobs para a fila.
+- Implemente a interface `ShouldQueue` em todos os jobs de sincronização (ex.: `SyncLeadToRdStationJob`).
+- Trate o Rate Limiting (HTTP 429) de forma graciosa:
+  - Capture `RequestException` ou falhas de resposta HTTP.
+  - Implemente lógica de retry com backoff exponencial:
     ```php
     public int $tries = 5;
 
@@ -41,34 +41,34 @@ Establish solid guidelines, patterns, and architectural standards for creating, 
         return [10, 30, 90, 270, 810];
     }
     ```
-- Run synchronization operations inside safe database transactions when updating lead/project status locally.
+- Execute as operações de sincronização dentro de transações de banco de dados seguras ao atualizar o status do lead/projeto localmente.
 
-### 4. Idempotent Webhook Processing
-- Route incoming webhook requests (e.g., opportunity won) to a dedicated `RdStationWebhookController`.
-- Validate the incoming payload using a custom Form Request (`RdStationWebhookRequest`).
-- Ensure transactional safety and idempotency using database transactions and unique constraints:
-  - Check if the project/deal has already been processed or created locally (using the RD Station CRM opportunity ID) before creating new database records.
-  - Wrap lead conversion, client creation, and project/homologation initiation within:
+### 4. Processamento Idempotente de Webhooks
+- Roteie as requisições de webhook recebidas (ex.: oportunidade ganha) para um `RdStationWebhookController` dedicado.
+- Valide o payload recebido usando um Form Request customizado (`RdStationWebhookRequest`).
+- Garanta segurança transacional e idempotência usando transações de banco de dados e constraints únicas:
+  - Verifique se o projeto/negócio já foi processado ou criado localmente (usando o ID da oportunidade do RD Station CRM) antes de criar novos registros no banco de dados.
+  - Envolva a conversão do lead, a criação do cliente e o início do projeto/homologação dentro de:
     ```php
     DB::transaction(function () use ($data) {
-        // ... Check if exists ...
-        // ... Create Client ...
-        // ... Create Project & Homologation ...
+        // ... Verifica se já existe ...
+        // ... Cria o Cliente ...
+        // ... Cria o Projeto & a Homologação ...
     });
     ```
 
-### 5. Mocking and Testing (Pest PHP)
-- Write unit and feature tests using Pest PHP.
-- Do not make real API requests during testing. Mock the RD Station CRM API responses using `Http::fake()`:
+### 5. Mocking e Testes (Pest PHP)
+- Escreva testes unitários e de feature usando Pest PHP.
+- Não faça requisições reais à API durante os testes. Mocke as respostas da API do RD Station CRM usando `Http::fake()`:
   ```php
   Http::fake([
       'api.rd.services/*' => Http::response(['status' => 'success'], 200),
   ]);
   ```
-- Use factories to set up model states (e.g., `Lead` or `Project`) before testing synchronization jobs.
+- Use factories para configurar os estados dos models (ex.: `Lead` ou `Project`) antes de testar os jobs de sincronização.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **NO Static Hardcoding:** Never hardcode credentials, URLs, or client keys. Always retrieve them from `config()` files, which reference `.env` variables.
-- **NO Synchronous API Calls:** Do not make API calls directly from controllers or models; delegate all integration network calls to queue workers.
-- **NO Blind Retries:** Never retry requests infinitely without exponential backoff, otherwise rate limit headers will be exhausted and IP blocking may occur.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.
+- **SEM Hardcoding Estático:** Nunca faça hardcode de credenciais, URLs ou chaves de cliente. Sempre as recupere de arquivos `config()`, que referenciam variáveis do `.env`.
+- **SEM Chamadas Síncronas de API:** Não faça chamadas de API diretamente de controllers ou models; delegue todas as chamadas de rede da integração a queue workers.
+- **SEM Retries Cegos:** Nunca tente requisições infinitamente sem backoff exponencial, caso contrário os headers de rate limit serão esgotados e pode ocorrer bloqueio de IP.

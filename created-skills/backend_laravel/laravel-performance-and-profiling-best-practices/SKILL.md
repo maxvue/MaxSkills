@@ -3,54 +3,54 @@ name: laravel-performance-and-profiling-best-practices
 description: Use when configuring, optimizing, debugging, or reviewing Laravel debugging/profiling tools like Clockwork, Debugbar, LaraDumps, Telescope, Pulse, Log Viewer, and Pail real-time log tailing.
 ---
 
-# Laravel Performance and Profiling Best Practices
+# Boas Práticas de Performance e Profiling no Laravel
 
-## Goal
-Establish standard guidelines for debugging, profiling, inspecting, and optimizing application performance using various tools within the Engeapp Laravel ecosystem, ensuring security, developer productivity, and preventing data leaks.
+## Objetivo
+Estabelecer diretrizes padrão para depuração, profiling, inspeção e otimização de performance da aplicação usando diversas ferramentas dentro do ecossistema Laravel do Engeapp, garantindo segurança, produtividade do desenvolvedor e prevenindo vazamentos de dados.
 
-## Instructions
+## Instruções
 
-### 1. Pulse Performance Monitoring
-- **Security & Auth**: Define custom authorization for production using `Pulse::user()`. Restrict to administrators. Do NOT expose `/pulse` publicly without strict middleware.
-- **Configuration**: Use `redis` ingest driver in high-traffic environments to offload workers. Configure a shorter storage window if database grows quickly.
-- **Recorders & Aggregation**: Create custom recorders for business operations. Identify slow queries (>1000ms) and Redis cache hit/miss rates via the dashboard.
+### 1. Monitoramento de Performance com Pulse
+- **Segurança e Autenticação**: Defina autorização personalizada para produção usando `Pulse::user()`. Restrinja a administradores. NÃO exponha `/pulse` publicamente sem middleware estrito.
+- **Configuração**: Use o driver de ingestão `redis` em ambientes de alto tráfego para desafogar os workers. Configure uma janela de armazenamento menor se o banco de dados crescer rapidamente.
+- **Recorders e Agregação**: Crie recorders personalizados para operações de negócio. Identifique queries lentas (>1000ms) e taxas de hit/miss do cache Redis pelo dashboard.
 
-### 2. Clockwork Profiling
-- **Environment**: Enable ONLY in local/staging (`CLOCKWORK_ENABLE=true`). Set to `false` in production. Do not use in Pest/PHPUnit tests.
-- **Custom Timelines**: Use `clockwork()->startEvent('id', 'desc')` and `clockwork()->endEvent('id')` to measure exact execution times of complex operations. Close in a `finally` block.
-- **Telemetry & Logging**: Monitor Database (N+1 issues), Cache, and Memory usage tabs. Use `clock()->info('Msg')` or `clockwork()->log()` for seamless logging. Do not pass massive binary data.
-- **Cleanup**: Remove temporary `clock()` markers before creating a PR.
+### 2. Profiling com Clockwork
+- **Ambiente**: Habilite APENAS em local/staging (`CLOCKWORK_ENABLE=true`). Defina como `false` em produção. Não use em testes Pest/PHPUnit.
+- **Timelines Personalizadas**: Use `clockwork()->startEvent('id', 'desc')` e `clockwork()->endEvent('id')` para medir os tempos exatos de execução de operações complexas. Feche em um bloco `finally`.
+- **Telemetria e Logging**: Monitore as abas de Database (problemas de N+1), Cache e uso de Memória. Use `clock()->info('Msg')` ou `clockwork()->log()` para logging integrado. Não passe grandes volumes de dados binários.
+- **Limpeza**: Remova os marcadores temporários `clock()` antes de criar um PR.
 
-### 3. LaraDumps Debugging
-- **Primary Tool**: Use `ds()` instead of `dd()`, `dump()`, or `print_r()`. Label and color output.
-- **Features**: Monitor queries (`ds()->queriesOn()`), time (`ds()->time()`), models (`ds()->model()`).
-- **Etiquette**: Remove all `ds()` statements before committing. NEVER commit active `ds(...)` helpers. Use `config/laradumps.php` vars to toggle.
+### 3. Depuração com LaraDumps
+- **Ferramenta Principal**: Use `ds()` em vez de `dd()`, `dump()` ou `print_r()`. Rotule e colora a saída.
+- **Recursos**: Monitore queries (`ds()->queriesOn()`), tempo (`ds()->time()`), models (`ds()->model()`).
+- **Etiqueta**: Remova todas as instruções `ds()` antes de fazer commit. NUNCA faça commit de helpers `ds(...)` ativos. Use as variáveis de `config/laradumps.php` para alternar.
 
 ### 4. Laravel Debugbar CLI
-- Use for inspecting and debugging via CLI without a browser.
-- **Commands**: Locate requests (`debugbar:find`), inspect details (`debugbar:get --collector=time`), inspect queries (`debugbar:queries`), and clear storage (`debugbar:clear`).
-- **Constraint**: Do NOT dry-run `--result` via Debugbar for mutation queries (`INSERT`, `UPDATE`, `DELETE`) in production.
+- Use para inspecionar e depurar via CLI sem um navegador.
+- **Comandos**: Localize requisições (`debugbar:find`), inspecione detalhes (`debugbar:get --collector=time`), inspecione queries (`debugbar:queries`) e limpe o armazenamento (`debugbar:clear`).
+- **Restrição**: NÃO faça dry-run com `--result` via Debugbar para queries de mutação (`INSERT`, `UPDATE`, `DELETE`) em produção.
 
 ### 5. Laravel Telescope
-- **Watchers**: Customize `config/telescope.php`. Set thresholds (`'slow' => 100`). Disable `hydrations` in `ModelWatcher` locally.
-- **Pruning & Security**: Clean data via scheduler (`telescope:prune`). Filter sensitive data (passwords, tokens, CVVs) in `TelescopeServiceProvider`. Restrict production access using Gates. Never commit Telescope dumps.
+- **Watchers**: Personalize o `config/telescope.php`. Defina limites (`'slow' => 100`). Desabilite `hydrations` no `ModelWatcher` localmente.
+- **Pruning e Segurança**: Limpe os dados via scheduler (`telescope:prune`). Filtre dados sensíveis (senhas, tokens, CVVs) no `TelescopeServiceProvider`. Restrinja o acesso em produção usando Gates. Nunca faça commit de dumps do Telescope.
 
 ### 6. Laravel Log Viewer
-- **Securing Access**: Define a custom gate (`viewLogViewer`) in `AppServiceProvider`. Require auth in production.
-- **Configuration**: Exclude framework frames in stack traces and secure sensitive logs via `exclude_files`. Use `log-viewer:clear-cache` to cleanse indexes.
+- **Protegendo o Acesso**: Defina um gate personalizado (`viewLogViewer`) no `AppServiceProvider`. Exija autenticação em produção.
+- **Configuração**: Exclua frames do framework nos stack traces e proteja logs sensíveis via `exclude_files`. Use `log-viewer:clear-cache` para limpar os índices.
 
-### 7. Laravel Pail (Real-Time Log Tailing)
-- **Launching**: Run `php artisan pail` in the terminal to stream new log entries instantly as they occur.
-- **Filtering**:
-  - By exception class: `php artisan pail --filter="App\Exceptions\ServiceIntegrationException"`
-  - By authenticated user: `php artisan pail --user=42`
-  - By message/content: `php artisan pail --message="Failed to send template"`
-- **Verbosity**: `-v` (basic trace), `-vv` (context + stack trace), `-vvv` (full stack traces).
-- **Structured Logs**: When using custom exceptions with contextual arrays (as in `laravel-exception-handling-logging`), Pail parses and displays the structured context beautifully in the terminal.
-- **Etiquette**: Do NOT manually `grep` or `tail` the physical `laravel.log` when Pail can provide a cleaner, filterable stream.
+### 7. Laravel Pail (Tailing de Log em Tempo Real)
+- **Iniciando**: Execute `php artisan pail` no terminal para transmitir novas entradas de log instantaneamente conforme ocorrem.
+- **Filtragem**:
+  - Por classe de exceção: `php artisan pail --filter="App\Exceptions\ServiceIntegrationException"`
+  - Por usuário autenticado: `php artisan pail --user=42`
+  - Por mensagem/conteúdo: `php artisan pail --message="Failed to send template"`
+- **Verbosidade**: `-v` (trace básico), `-vv` (contexto + stack trace), `-vvv` (stack traces completos).
+- **Logs Estruturados**: Ao usar exceções personalizadas com arrays contextuais (como em `laravel-exception-handling-logging`), o Pail faz o parse e exibe o contexto estruturado de forma elegante no terminal.
+- **Etiqueta**: NÃO faça `grep` ou `tail` manual no `laravel.log` físico quando o Pail pode fornecer um stream mais limpo e filtrável.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **No Production Exposure**: Never expose Clockwork, LaraDumps, or Telescope globally in production. Log Viewer and Pulse must be protected by auth gates.
-- **No Sensitive Data Leaks**: Never log or dump sensitive user information, credentials, raw authorization tokens, or payment details. Filter such data appropriately.
-- **Brazilian Portuguese Comments**: All code comments inside PHP examples must be strictly written in Brazilian Portuguese (pt-BR).
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **Sem Exposição em Produção**: Nunca exponha Clockwork, LaraDumps ou Telescope globalmente em produção. O Log Viewer e o Pulse devem ser protegidos por gates de autenticação.
+- **Sem Vazamento de Dados Sensíveis**: Nunca registre ou faça dump de informações sensíveis do usuário, credenciais, tokens de autorização brutos ou detalhes de pagamento. Filtre esses dados adequadamente.
+- **Comentários em Português do Brasil**: Todos os comentários de código dentro dos exemplos PHP devem ser escritos estritamente em Português do Brasil (pt-BR).

@@ -6,188 +6,188 @@ metadata:
   author: laravel
 ---
 
-# Laravel Best Practices
+# Boas Práticas de Laravel
 
-Best practices for Laravel, prioritized by impact. Each rule teaches what to do and why. For exact API syntax, verify with `search-docs`.
+Boas práticas para Laravel, priorizadas por impacto. Cada regra ensina o que fazer e por quê. Para a sintaxe exata da API, verifique com `search-docs`.
 
-## Consistency First
+## Consistência Primeiro
 
-Before applying any rule, check what the application already does. Laravel offers multiple valid approaches — the best choice is the one the codebase already uses, even if another pattern would be theoretically better. Inconsistency is worse than a suboptimal pattern.
+Antes de aplicar qualquer regra, verifique o que a aplicação já faz. O Laravel oferece múltiplas abordagens válidas — a melhor escolha é aquela que o codebase já utiliza, mesmo que outro padrão fosse teoricamente melhor. Inconsistência é pior que um padrão subótimo.
 
-Check sibling files, related controllers, models, or tests for established patterns. If one exists, follow it — don't introduce a second way. These rules are defaults for when no pattern exists yet, not overrides.
+Verifique arquivos irmãos, controllers, models ou testes relacionados em busca de padrões estabelecidos. Se algum existir, siga-o — não introduza uma segunda forma. Estas regras são defaults para quando ainda não existe um padrão, não substituições.
 
-## Quick Reference
+## Referência Rápida
 
-### 1. Database Performance → `rules/db-performance.md`
+### 1. Performance de Banco de Dados → `rules/db-performance.md`
 
-- Eager load with `with()` to prevent N+1 queries
-- Enable `Model::preventLazyLoading()` in development
-- Select only needed columns, avoid `SELECT *`
-- `chunk()` / `chunkById()` for large datasets
-- Index columns used in `WHERE`, `ORDER BY`, `JOIN`
-- `withCount()` instead of loading relations to count
-- `cursor()` for memory-efficient read-only iteration
-- Never query in Blade templates
+- Faça eager load com `with()` para prevenir queries N+1
+- Habilite `Model::preventLazyLoading()` em desenvolvimento
+- Selecione apenas as colunas necessárias, evite `SELECT *`
+- `chunk()` / `chunkById()` para grandes conjuntos de dados
+- Indexe colunas usadas em `WHERE`, `ORDER BY`, `JOIN`
+- `withCount()` em vez de carregar relações para contar
+- `cursor()` para iteração somente-leitura com uso eficiente de memória
+- Nunca faça queries em templates Blade
 
-### 2. Advanced Query Patterns → `rules/advanced-queries.md`
+### 2. Padrões Avançados de Query → `rules/advanced-queries.md`
 
-- `addSelect()` subqueries over eager-loading entire has-many for a single value
-- Dynamic relationships via subquery FK + `belongsTo`
-- Conditional aggregates (`CASE WHEN` in `selectRaw`) over multiple count queries
-- `setRelation()` to prevent circular N+1 queries
-- `whereIn` + `pluck()` over `whereHas` for better index usage
-- Two simple queries can beat one complex query
-- Compound indexes matching `orderBy` column order
-- Correlated subqueries in `orderBy` for has-many sorting (avoid joins)
+- Subqueries com `addSelect()` em vez de eager-loading de um has-many inteiro para um único valor
+- Relacionamentos dinâmicos via FK em subquery + `belongsTo`
+- Agregados condicionais (`CASE WHEN` em `selectRaw`) em vez de múltiplas queries de count
+- `setRelation()` para prevenir queries N+1 circulares
+- `whereIn` + `pluck()` em vez de `whereHas` para melhor uso de índices
+- Duas queries simples podem superar uma query complexa
+- Índices compostos que correspondam à ordem das colunas do `orderBy`
+- Subqueries correlacionadas no `orderBy` para ordenação de has-many (evite joins)
 
-### 3. Security → `rules/security.md`
+### 3. Segurança → `rules/security.md`
 
-- Define `$fillable` or `$guarded` on every model, authorize every action via policies or gates
-- No raw SQL with user input — use Eloquent or query builder
-- `{{ }}` for output escaping, `@csrf` on all POST/PUT/DELETE forms, `throttle` on auth and API routes
-- Validate MIME type, extension, and size for file uploads
-- Never commit `.env`, use `config()` for secrets, `encrypted` cast for sensitive DB fields
+- Defina `$fillable` ou `$guarded` em todos os models, autorize toda ação via policies ou gates
+- Nenhum SQL bruto com entrada do usuário — use Eloquent ou o query builder
+- `{{ }}` para escape de saída, `@csrf` em todos os forms POST/PUT/DELETE, `throttle` nas rotas de autenticação e de API
+- Valide MIME type, extensão e tamanho para uploads de arquivos
+- Nunca faça commit do `.env`, use `config()` para segredos, cast `encrypted` para campos sensíveis do banco
 
 ### 4. Caching → `rules/caching.md`
 
-- `Cache::remember()` over manual get/put
-- `Cache::flexible()` for stale-while-revalidate on high-traffic data
-- `Cache::memo()` to avoid redundant cache hits within a request
-- Cache tags to invalidate related groups
-- `Cache::add()` for atomic conditional writes
-- `once()` to memoize per-request or per-object lifetime
-- `Cache::lock()` / `lockForUpdate()` for race conditions
-- Failover cache stores in production
+- `Cache::remember()` em vez de get/put manual
+- `Cache::flexible()` para stale-while-revalidate em dados de alto tráfego
+- `Cache::memo()` para evitar hits de cache redundantes dentro de uma requisição
+- Cache tags para invalidar grupos relacionados
+- `Cache::add()` para escritas condicionais atômicas
+- `once()` para memoizar por requisição ou por tempo de vida do objeto
+- `Cache::lock()` / `lockForUpdate()` para condições de corrida
+- Failover de stores de cache em produção
 
-### 5. Eloquent Patterns → `rules/eloquent.md`
+### 5. Padrões Eloquent → `rules/eloquent.md`
 
-- Correct relationship types with return type hints
-- Local scopes for reusable query constraints
-- Global scopes sparingly — document their existence
-- Attribute casts in the `casts()` method
-- Cast date columns, use Carbon instances in templates
-- `whereBelongsTo($model)` for cleaner queries
-- Never hardcode table names — use `(new Model)->getTable()` or Eloquent queries
+- Tipos de relacionamento corretos com type hints de retorno
+- Local scopes para restrições de query reutilizáveis
+- Global scopes com parcimônia — documente sua existência
+- Casts de atributos no método `casts()`
+- Faça cast de colunas de data, use instâncias Carbon em templates
+- `whereBelongsTo($model)` para queries mais limpas
+- Nunca escreva nomes de tabela hardcoded — use `(new Model)->getTable()` ou queries Eloquent
 
-### 6. Validation & Forms → `rules/validation.md`
+### 6. Validação & Formulários → `rules/validation.md`
 
-- Form Request classes, not inline validation
-- Array notation `['required', 'email']` for new code; follow existing convention
-- `$request->validated()` only — never `$request->all()`
-- `Rule::when()` for conditional validation
-- `after()` instead of `withValidator()`
+- Classes Form Request, não validação inline
+- Notação de array `['required', 'email']` para código novo; siga a convenção existente
+- Apenas `$request->validated()` — nunca `$request->all()`
+- `Rule::when()` para validação condicional
+- `after()` em vez de `withValidator()`
 
-### 7. Configuration → `rules/config.md`
+### 7. Configuração → `rules/config.md`
 
-- `env()` only inside config files
-- `App::environment()` or `app()->isProduction()`
-- Config, lang files, and constants over hardcoded text
+- `env()` apenas dentro de arquivos de config
+- `App::environment()` ou `app()->isProduction()`
+- Config, arquivos de lang e constantes em vez de texto hardcoded
 
-### 8. Testing Patterns → `rules/testing.md`
+### 8. Padrões de Teste → `rules/testing.md`
 
-- `LazilyRefreshDatabase` over `RefreshDatabase` for speed
-- `assertModelExists()` over raw `assertDatabaseHas()`
-- Factory states and sequences over manual overrides
-- Use fakes (`Event::fake()`, `Exceptions::fake()`, etc.) — but always after factory setup, not before
-- `recycle()` to share relationship instances across factories
+- `LazilyRefreshDatabase` em vez de `RefreshDatabase` por velocidade
+- `assertModelExists()` em vez de `assertDatabaseHas()` bruto
+- Factory states e sequences em vez de overrides manuais
+- Use fakes (`Event::fake()`, `Exceptions::fake()`, etc.) — mas sempre após o setup da factory, não antes
+- `recycle()` para compartilhar instâncias de relacionamento entre factories
 
-### 9. Queue & Job Patterns → `rules/queue-jobs.md`
+### 9. Padrões de Queue & Job → `rules/queue-jobs.md`
 
-- `retry_after` must exceed job `timeout`; use exponential backoff `[1, 5, 10]`
-- `ShouldBeUnique` to prevent duplicates; `ShouldBeUniqueUntilProcessing` for early lock release
-- Always implement `failed()`; with `retryUntil()`, set `$tries = 0`
-- `RateLimited` middleware for external API calls; `Bus::batch()` for related jobs
-- Horizon for complex multi-queue scenarios
+- `retry_after` deve exceder o `timeout` do job; use backoff exponencial `[1, 5, 10]`
+- `ShouldBeUnique` para prevenir duplicatas; `ShouldBeUniqueUntilProcessing` para liberação antecipada do lock
+- Sempre implemente `failed()`; com `retryUntil()`, defina `$tries = 0`
+- Middleware `RateLimited` para chamadas a APIs externas; `Bus::batch()` para jobs relacionados
+- Horizon para cenários complexos de múltiplas filas
 
-### 10. Routing & Controllers → `rules/routing.md`
+### 10. Roteamento & Controllers → `rules/routing.md`
 
-- Implicit route model binding
-- Scoped bindings for nested resources
-- `Route::resource()` or `apiResource()`
-- Methods under 10 lines — extract to actions/services
-- Type-hint Form Requests for auto-validation
+- Route model binding implícito
+- Scoped bindings para recursos aninhados
+- `Route::resource()` ou `apiResource()`
+- Métodos com menos de 10 linhas — extraia para actions/services
+- Type-hint de Form Requests para auto-validação
 
 ### 11. HTTP Client → `rules/http-client.md`
 
-- Explicit `timeout` and `connectTimeout` on every request
-- `retry()` with exponential backoff for external APIs
-- Check response status or use `throw()`
-- `Http::pool()` for concurrent independent requests
-- `Http::fake()` and `preventStrayRequests()` in tests
+- `timeout` e `connectTimeout` explícitos em toda requisição
+- `retry()` com backoff exponencial para APIs externas
+- Verifique o status da resposta ou use `throw()`
+- `Http::pool()` para requisições independentes concorrentes
+- `Http::fake()` e `preventStrayRequests()` em testes
 
 ### 12. Events, Notifications & Mail → `rules/events-notifications.md`, `rules/mail.md`
 
-- Event discovery over manual registration; `event:cache` in production
-- `ShouldDispatchAfterCommit` / `afterCommit()` inside transactions
-- Queue notifications and mailables with `ShouldQueue`
-- On-demand notifications for non-user recipients
-- `HasLocalePreference` on notifiable models
-- `assertQueued()` not `assertSent()` for queued mailables
-- Markdown mailables for transactional emails
+- Descoberta de events em vez de registro manual; `event:cache` em produção
+- `ShouldDispatchAfterCommit` / `afterCommit()` dentro de transações
+- Enfileire notifications e mailables com `ShouldQueue`
+- Notifications on-demand para destinatários que não são usuários
+- `HasLocalePreference` em models notificáveis
+- `assertQueued()` e não `assertSent()` para mailables enfileirados
+- Mailables em Markdown para e-mails transacionais
 
-### 13. Error Handling → `rules/error-handling.md`
+### 13. Tratamento de Erros → `rules/error-handling.md`
 
-- `report()`/`render()` on exception classes or in `bootstrap/app.php` — follow existing pattern
-- `ShouldntReport` for exceptions that should never log
-- Throttle high-volume exceptions to protect log sinks
-- `dontReportDuplicates()` for multi-catch scenarios
-- Force JSON rendering for API routes
-- Structured context via `context()` on exception classes
+- `report()`/`render()` em classes de exception ou em `bootstrap/app.php` — siga o padrão existente
+- `ShouldntReport` para exceptions que nunca devem ser logadas
+- Faça throttle de exceptions de alto volume para proteger os sinks de log
+- `dontReportDuplicates()` para cenários de múltiplos catch
+- Force renderização em JSON para rotas de API
+- Contexto estruturado via `context()` em classes de exception
 
-### 14. Task Scheduling → `rules/scheduling.md`
+### 14. Agendamento de Tarefas → `rules/scheduling.md`
 
-- `withoutOverlapping()` on variable-duration tasks
-- `onOneServer()` on multi-server deployments
-- `runInBackground()` for concurrent long tasks
-- `environments()` to restrict to appropriate environments
-- `takeUntilTimeout()` for time-bounded processing
-- Schedule groups for shared configuration
+- `withoutOverlapping()` em tarefas de duração variável
+- `onOneServer()` em deployments multi-servidor
+- `runInBackground()` para tarefas longas concorrentes
+- `environments()` para restringir aos ambientes apropriados
+- `takeUntilTimeout()` para processamento com limite de tempo
+- Grupos de schedule para configuração compartilhada
 
-### 15. Architecture → `rules/architecture.md`
+### 15. Arquitetura → `rules/architecture.md`
 
-- Single-purpose Action classes; dependency injection over `app()` helper
-- Prefer official Laravel packages and follow conventions, don't override defaults
-- Default to `ORDER BY id DESC` or `created_at DESC`; `mb_*` for UTF-8 safety
-- `defer()` for post-response work; `Context` for request-scoped data; `Concurrency::run()` for parallel execution
+- Classes Action de propósito único; injeção de dependência em vez do helper `app()`
+- Prefira pacotes oficiais do Laravel e siga as convenções, não sobrescreva os defaults
+- Padrão de `ORDER BY id DESC` ou `created_at DESC`; `mb_*` para segurança com UTF-8
+- `defer()` para trabalho pós-resposta; `Context` para dados com escopo de requisição; `Concurrency::run()` para execução paralela
 
 ### 16. Migrations → `rules/migrations.md`
 
-- Generate migrations with `php artisan make:migration`
-- `constrained()` for foreign keys
-- Never modify migrations that have run in production
-- Add indexes in the migration, not as an afterthought
-- Mirror column defaults in model `$attributes`
-- Reversible `down()` by default; forward-fix migrations for intentionally irreversible changes
-- One concern per migration — never mix DDL and DML
+- Gere migrations com `php artisan make:migration`
+- `constrained()` para chaves estrangeiras
+- Nunca modifique migrations que já rodaram em produção
+- Adicione índices na migration, não como algo posterior
+- Espelhe os defaults de colunas em `$attributes` do model
+- `down()` reversível por padrão; migrations de forward-fix para migrations intencionalmente irreversíveis
+- Uma preocupação por migration — nunca misture DDL e DML
 
 ### 17. Collections → `rules/collections.md`
 
-- Higher-order messages for simple collection operations
-- `cursor()` vs. `lazy()` — choose based on relationship needs
-- `lazyById()` when updating records while iterating
-- `toQuery()` for bulk operations on collections
+- Higher-order messages para operações simples de collection
+- `cursor()` vs. `lazy()` — escolha com base nas necessidades de relacionamento
+- `lazyById()` ao atualizar registros durante a iteração
+- `toQuery()` para operações em massa sobre collections
 
 ### 18. Blade & Views → `rules/blade-views.md`
 
-- `$attributes->merge()` in component templates
-- Blade components over `@include`; `@pushOnce` for per-component scripts
-- View Composers for shared view data
-- `@aware` for deeply nested component props
+- `$attributes->merge()` em templates de componentes
+- Componentes Blade em vez de `@include`; `@pushOnce` para scripts por componente
+- View Composers para dados de view compartilhados
+- `@aware` para props de componentes profundamente aninhados
 
-### 19. Conventions & Style → `rules/style.md`
+### 19. Convenções & Estilo → `rules/style.md`
 
-- Follow Laravel naming conventions for all entities
-- Prefer Laravel helpers (`Str`, `Arr`, `Number`, `Uri`, `Str::of()`, `$request->string()`) over raw PHP functions
-- No JS/CSS in Blade, no HTML in PHP classes
-- Code should be readable; comments only for config files
+- Siga as convenções de nomenclatura do Laravel para todas as entidades
+- Prefira helpers do Laravel (`Str`, `Arr`, `Number`, `Uri`, `Str::of()`, `$request->string()`) em vez de funções PHP puras
+- Sem JS/CSS em Blade, sem HTML em classes PHP
+- O código deve ser legível; comentários apenas para arquivos de config
 
-## How to Apply
+## Como Aplicar
 
-Always use a sub-agent to read rule files and explore this skill's content.
+Sempre use um sub-agent para ler os arquivos de regras e explorar o conteúdo desta skill.
 
-1. Identify the file type and select relevant sections (e.g., migration → §16, controller → §1, §3, §5, §6, §10)
-2. Check sibling files for existing patterns — follow those first per Consistency First
-3. Verify API syntax with `search-docs` for the installed Laravel version
+1. Identifique o tipo de arquivo e selecione as seções relevantes (ex.: migration → §16, controller → §1, §3, §5, §6, §10)
+2. Verifique arquivos irmãos em busca de padrões existentes — siga-os primeiro, conforme Consistência Primeiro
+3. Verifique a sintaxe da API com `search-docs` para a versão do Laravel instalada
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.

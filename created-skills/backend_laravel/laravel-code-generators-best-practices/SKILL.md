@@ -10,123 +10,123 @@ description: >-
 
 # Laravel Code Generators & Best Practices
 
-## Goal
+## Objetivo
 
-Establish strict conventions, guidelines, and patterns for creating, modifying, and maintaining the various Laravel backend components in the Engeapp project. This ensures a unified architecture, proper separation of concerns, strong typing, and adherence to modern Laravel (v13+) best practices.
+Estabelecer convenções, diretrizes e padrões rígidos para criar, modificar e manter os diversos componentes de backend do Laravel no projeto Engeapp. Isso garante uma arquitetura unificada, separação de responsabilidades adequada, tipagem forte e aderência às boas práticas do Laravel moderno (v13+).
 
-## Instructions
+## Instruções
 
 ### 1. Models & Migrations
 
 - **Models**:
-  - **Reliese Model Generator**: To generate Eloquent models from the database schema, see the specific rules in [Reliese Models Generator Best Practices](references/reliese-models-generator.md). It explains how to separate Base files (generated) from App files (your business logic).
-  - Include concise class-level PHPDocs in Brazilian Portuguese (pt-BR) and the `@mixin IdeHelper[ModelName]` annotation.
-  - Run `php artisan ide-helper:models -M --nowrite` instead of manually writing auto-generated properties.
-  - Explicitly define `$fillable`, `$hidden`, and `$casts`.
-  - Always declare return types for Eloquent relationships (e.g., `: BelongsTo`).
-  - Use custom casts (e.g., mapping to Spatie Data classes) and register them in `$casts`.
-- **Migration Generation (`kitloong/laravel-migrations-generator`)**:
-  - Ignore temporary/log tables with `--ignore`. Use `--squash` to consolidate legacy schemas.
-  - Run with `--default-index-names --default-fk-names` to enforce defaults.
-- **Migration Creation**:
-  - Always wrap creation logic in `if (Schema::hasTable('table_name')) { return; }`.
-  - Use ULID `char('id', 26)->primary()` for primary keys by default.
-  - Separate foreign keys into their own migration files (`..._add_foreign_keys_to_table.php`) wrapped in a try-catch.
-  - Provide a valid rollback routine in `down()`.
+  - **Reliese Model Generator**: Para gerar models Eloquent a partir do schema do banco de dados, veja as regras específicas em [Reliese Models Generator Best Practices](references/reliese-models-generator.md). Ele explica como separar os arquivos Base (gerados) dos arquivos App (a sua lógica de negócio).
+  - Inclua PHPDocs concisos em nível de classe em Português Brasileiro (pt-BR) e a anotação `@mixin IdeHelper[ModelName]`.
+  - Execute `php artisan ide-helper:models -M --nowrite` em vez de escrever manualmente as propriedades geradas automaticamente.
+  - Defina explicitamente `$fillable`, `$hidden` e `$casts`.
+  - Sempre declare os tipos de retorno para os relacionamentos Eloquent (ex.: `: BelongsTo`).
+  - Use casts customizados (ex.: mapeando para classes do Spatie Data) e registre-os em `$casts`.
+- **Geração de Migrations (`kitloong/laravel-migrations-generator`)**:
+  - Ignore tabelas temporárias/de log com `--ignore`. Use `--squash` para consolidar schemas legados.
+  - Execute com `--default-index-names --default-fk-names` para forçar os padrões.
+- **Criação de Migrations**:
+  - Sempre envolva a lógica de criação em `if (Schema::hasTable('table_name')) { return; }`.
+  - Use ULID `char('id', 26)->primary()` para chaves primárias por padrão.
+  - Separe as chaves estrangeiras em seus próprios arquivos de migration (`..._add_foreign_keys_to_table.php`) envolvidos em um try-catch.
+  - Forneça uma rotina de rollback válida no `down()`.
 - **Seeders & Factories**:
-  - Place factories in `database/factories/` and seeders in `database/seeders/`.
-  - Use the `fake()` helper and define relationships via standard factory bindings.
-  - Define explicit factory states with `$this->state()` and `static` return types.
+  - Coloque as factories em `database/factories/` e os seeders em `database/seeders/`.
+  - Use o helper `fake()` e defina relacionamentos via bindings padrão de factory.
+  - Defina estados explícitos de factory com `$this->state()` e tipos de retorno `static`.
 - **Observers**:
-  - Generate via `php artisan make:observer {Name}Observer --model={Name}` and register in `AppServiceProvider`.
-  - Avoid running heavy logic or external HTTP requests synchronously; dispatch background Jobs (with `afterCommit()`).
-  - Avoid infinite loops during `updated`/`saved` by using `$model->saveQuietly()`.
-- **Custom Casts**:
-  - Implement `Illuminate\Contracts\Database\Eloquent\CastsAttributes`.
-  - Ensure graceful handling of null database values in the `get` method. No database queries inside casts.
+  - Gere via `php artisan make:observer {Name}Observer --model={Name}` e registre no `AppServiceProvider`.
+  - Evite executar lógica pesada ou requisições HTTP externas de forma síncrona; despache Jobs em background (com `afterCommit()`).
+  - Evite loops infinitos durante `updated`/`saved` usando `$model->saveQuietly()`.
+- **Casts Customizados**:
+  - Implemente `Illuminate\Contracts\Database\Eloquent\CastsAttributes`.
+  - Garanta o tratamento gracioso de valores nulos do banco no método `get`. Sem queries ao banco de dados dentro de casts.
 
 ### 2. Controllers
 
 - **API Controllers**:
-  - For detailed patterns on creating and refactoring API Controllers (ensuring thin Controllers, Form Requests, and Resources), consult the reference guide: [API Controller Best Practices](references/api-controller-creator.md).
-  - Keep controllers thin. They should only route requests, call services/actions, and return responses.
-  - Use Form Requests for validation; never use `$request->validate([...])` inside controllers.
-  - Use API Resources (`JsonResource`) or DTOs for responses. Do not return raw models/collections.
+  - Para padrões detalhados sobre criação e refatoração de API Controllers (garantindo Controllers enxutos, Form Requests e Resources), consulte o guia de referência: [API Controller Best Practices](references/api-controller-creator.md).
+  - Mantenha os controllers enxutos. Eles devem apenas rotear requisições, chamar services/actions e retornar respostas.
+  - Use Form Requests para validação; nunca use `$request->validate([...])` dentro dos controllers.
+  - Use API Resources (`JsonResource`) ou DTOs para respostas. Não retorne models/collections brutos.
 - **API Controllers (SPA)**:
   - O front Vue é uma SPA pura servida por rota catch-all; o Laravel **não** renderiza páginas. Os controllers expõem apenas dados em JSON, em `app/Http/Controllers/Api/` (ou na convenção de API do projeto), consumidos no Vue por stores `@maxvue/max-pinia` (MaxPinia).
   - Retorne os dados de página (incluindo dados de sub-page/tabs e itens de menu) como JSON via API Resources/DTOs. **NÃO** renderize páginas no backend nem use wrappers de renderização server-side.
   - "Container pages", "sub-page tabs" e "active menu states" são responsabilidade do front: a navegação e as URLs são resolvidas no Vue Router (com Ziggy via `route()`), e o estado de tab/menu ativo vive na store MaxPinia — o backend só fornece os dados.
-  - Ensure data is eager-loaded (to avoid N+1 queries) and handle fallbacks/redirects when data is missing.
+  - Garanta que os dados sejam carregados via eager-loading (para evitar queries N+1) e trate fallbacks/redirects quando os dados estiverem ausentes.
 
-### 3. Form Requests & Validation Rules
+### 3. Form Requests & Regras de Validação
 
 - **Form Requests**:
-  - Generate via `php artisan make:request`.
-  - Declare return types explicitly: `public function authorize(): bool` and `public function rules(): array`.
-  - Use fluent rule objects in array notation (e.g., `['required', 'email', Rule::unique('users')->ignore($this->route('user'))]`). No pipe-delimited (`|`) strings.
-  - Prepare data inside `prepareForValidation()` and transform afterward via `passedValidation()`.
-- **Custom Validation Rules**:
-  - Generate via `php artisan make:rule RuleName`. Implement `Illuminate\Contracts\Validation\ValidationRule`.
-  - Failure handling uses the `$fail` closure with translation keys (e.g., `$fail('validation.custom.key')->translate();`). Do not return booleans.
-  - Write dedicated unit and feature tests (e.g., Pest) for the rules.
+  - Gere via `php artisan make:request`.
+  - Declare os tipos de retorno explicitamente: `public function authorize(): bool` e `public function rules(): array`.
+  - Use objetos de regra fluentes em notação de array (ex.: `['required', 'email', Rule::unique('users')->ignore($this->route('user'))]`). Nada de strings delimitadas por pipe (`|`).
+  - Prepare os dados dentro de `prepareForValidation()` e transforme-os posteriormente via `passedValidation()`.
+- **Regras de Validação Customizadas**:
+  - Gere via `php artisan make:rule RuleName`. Implemente `Illuminate\Contracts\Validation\ValidationRule`.
+  - O tratamento de falha usa a closure `$fail` com chaves de tradução (ex.: `$fail('validation.custom.key')->translate();`). Não retorne booleanos.
+  - Escreva testes unitários e de feature dedicados (ex.: Pest) para as regras.
 
 ### 4. Enums & DTOs
 
 - **Enums**:
-  - Store in `app/Enums`. Define as backed enums (`: string` or `: int`).
-  - Use the Spatie TypeScript Transformer `#[TypeScript]` attribute for frontend integration.
-  - Run `php artisan typescript:transform` when modifying Enums or DTOs to sync frontend types.
+  - Armazene em `app/Enums`. Defina como backed enums (`: string` ou `: int`).
+  - Use o atributo `#[TypeScript]` do Spatie TypeScript Transformer para integração com o frontend.
+  - Execute `php artisan typescript:transform` ao modificar Enums ou DTOs para sincronizar os tipos do frontend.
 - **Data Transfer Objects (Spatie Laravel Data)**:
-  - To understand how to handle Lazy declarations, DataCollectionOf, DTO validations, and TypeScript typing, consult the full guide: [Data DTO Best Practices](references/data-dto-creator.md).
-  - Keep DTOs in `app/Data/` with the `Data` suffix.
-  - Use PHP 8 Constructor Promotion.
-  - For Eloquent relationships, use `Spatie\LaravelData\Lazy` to avoid N+1 problems. Use `#[DataCollectionOf(RelatedData::class)]` for collections.
-  - Do not include database persistence logic inside DTOs.
+  - Para entender como lidar com declarações Lazy, DataCollectionOf, validações de DTO e tipagem TypeScript, consulte o guia completo: [Data DTO Best Practices](references/data-dto-creator.md).
+  - Mantenha os DTOs em `app/Data/` com o sufixo `Data`.
+  - Use Constructor Promotion do PHP 8.
+  - Para relacionamentos Eloquent, use `Spatie\LaravelData\Lazy` para evitar problemas de N+1. Use `#[DataCollectionOf(RelatedData::class)]` para coleções.
+  - Não inclua lógica de persistência no banco de dados dentro de DTOs.
 
 ### 5. Middleware
 
-- **Creation & Registration**:
-  - Generate via `php artisan make:middleware`.
-  - Inject dependencies via PHP 8 constructor promotion. Keep middleware stateless for Octane compatibility.
-  - Register global, group, or alias middleware in `bootstrap/app.php` (Laravel 13 approach) instead of `Kernel.php`.
+- **Criação & Registro**:
+  - Gere via `php artisan make:middleware`.
+  - Injete dependências via constructor promotion do PHP 8. Mantenha o middleware stateless para compatibilidade com o Octane.
+  - Registre middleware global, de grupo ou de alias em `bootstrap/app.php` (abordagem do Laravel 13) em vez de `Kernel.php`.
 
 ### 6. Events & Broadcasting
 
-- **Creation & Connections**:
-  - Events that use broadcasting must implement `ShouldBroadcast` or `ShouldBroadcastNow`.
-  - Implement `broadcastConnections(): array` returning `['reverb']`.
+- **Criação & Conexões**:
+  - Events que usam broadcasting devem implementar `ShouldBroadcast` ou `ShouldBroadcastNow`.
+  - Implemente `broadcastConnections(): array` retornando `['reverb']`.
 - **Channels & Payloads**:
-  - Define `broadcastOn()` returning an array of Channels (prefer `PrivateChannel`).
-  - Restrict the payload in `broadcastWith()` instead of sending full models.
-  - Authorize private channels in `routes/channels.php` with the `User $user` type and `: bool` returns.
+  - Defina `broadcastOn()` retornando um array de Channels (prefira `PrivateChannel`).
+  - Restrinja o payload em `broadcastWith()` em vez de enviar os models completos.
+  - Autorize private channels em `routes/channels.php` com o tipo `User $user` e retornos `: bool`.
 - **Frontend**:
-  - Use the `useEcho` composable from `@laravel/echo-vue` in the Vue 3 Composition API to automatically handle listening and cleanup.
+  - Use o composable `useEcho` do `@laravel/echo-vue` na Composition API do Vue 3 para tratar automaticamente a escuta e a limpeza (cleanup).
 
 ### 7. Mailables & Notifications
 
 - **Mailables**:
-  - Use the modern syntax: implement `envelope()` and `content()`. Avoid the legacy `build()`.
-  - Inject dependencies in the constructor via property promotion. Use the `SerializesModels` trait.
-  - For asynchronous email, implement `ShouldQueue` and specify a queue (e.g., `public $queue = 'emails';`).
+  - Use a sintaxe moderna: implemente `envelope()` e `content()`. Evite o legado `build()`.
+  - Injete dependências no construtor via property promotion. Use a trait `SerializesModels`.
+  - Para e-mail assíncrono, implemente `ShouldQueue` e especifique uma fila (ex.: `public $queue = 'emails';`).
 - **Notifications**:
-  - Return channels in `via()`. Use `ShouldQueue`.
-  - Define `toDatabase()`, `toMail()`, etc., returning clean serializable arrays or `MailMessage` objects.
+  - Retorne os canais em `via()`. Use `ShouldQueue`.
+  - Defina `toDatabase()`, `toMail()`, etc., retornando arrays serializáveis e limpos ou objetos `MailMessage`.
 
 ### 8. Artisan Commands
 
-- **Creation & Practices**:
-  - For console I/O guides (using Laravel Prompts), dependency injection via the container, and output formatting, consult the dedicated reference: [Artisan Command Creator](references/artisan-command-creator.md).
-- **Definition & Attributes**:
-  - Use PHP 8 attributes for `#[Signature]` and `#[Description]`.
-  - Use `:` to group related commands.
-- **Logic & Execution**:
-  - The `handle()` method must return an `int` exit code (`self::SUCCESS`, `self::FAILURE`, `self::INVALID`).
-  - Keep `handle()` focused on I/O. Extract business logic into Jobs, Services, or Actions.
-  - Use the console helpers (`$this->info()`, `$this->error()`, `$this->table()`, `createProgressBar()`) for formatted user output.
+- **Criação & Práticas**:
+  - Para guias de I/O de console (usando Laravel Prompts), injeção de dependência via container e formatação de saída, consulte a referência dedicada: [Artisan Command Creator](references/artisan-command-creator.md).
+- **Definição & Atributos**:
+  - Use atributos do PHP 8 para `#[Signature]` e `#[Description]`.
+  - Use `:` para agrupar comandos relacionados.
+- **Lógica & Execução**:
+  - O método `handle()` deve retornar um código de saída `int` (`self::SUCCESS`, `self::FAILURE`, `self::INVALID`).
+  - Mantenha o `handle()` focado em I/O. Extraia a lógica de negócio para Jobs, Services ou Actions.
+  - Use os helpers de console (`$this->info()`, `$this->error()`, `$this->table()`, `createProgressBar()`) para saída formatada ao usuário.
 
-## Constraints
+## Restrições
 
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- Do **NOT** use plain PHP functions such as `echo`, `print_r`, `$request->validate()`, inline raw queries, or pipe `|` validations.
-- Keep controllers, routes, and observers thin. Avoid running external APIs synchronously without jobs.
-- Code comments and PHPDocs **MUST** be written in Brazilian Portuguese (pt-BR) per the global user rules.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.
+- **NÃO** use funções PHP simples como `echo`, `print_r`, `$request->validate()`, queries brutas inline ou validações com pipe `|`.
+- Mantenha controllers, rotas e observers enxutos. Evite executar APIs externas de forma síncrona sem jobs.
+- Comentários de código e PHPDocs **DEVEM** ser escritos em Português Brasileiro (pt-BR) conforme as regras globais do usuário.

@@ -3,17 +3,17 @@ name: laravel-task-scheduling-best-practices
 description: Use when creating, configuring, auditing, or debugging Laravel task schedules (Schedule) in routes/console.php, managing cron jobs, preventing overlapping processes, configuring background executions, handling task outputs, logging scheduler errors, optimizing recurrent backend tasks, and configuring/maintaining Studio Totem for task management.
 ---
 
-# Laravel Task Scheduling — Best Practices
+# Agendamento de Tarefas no Laravel — Boas Práticas
 
-## Goal
-Establish solid guidelines and consistent patterns for scheduling, monitoring, concurrency control, and log management of background tasks in Laravel 13 (using the `Schedule` facade in `routes/console.php`) and Studio Totem.
+## Objetivo
+Estabelecer diretrizes sólidas e padrões consistentes para agendamento, monitoramento, controle de concorrência e gerenciamento de logs de tarefas em background no Laravel 13 (usando a facade `Schedule` em `routes/console.php`) e no Studio Totem.
 
-## Instructions
+## Instruções
 
-### 1. Task Registration & Location
-- Always register all scheduled tasks inside `routes/console.php` using the `Illuminate\Support\Facades\Schedule` facade.
-- Do not define complex business logic or database queries inside the scheduler closures in `routes/console.php`.
-- **Preferred Pattern:** Encapsulate the execution logic inside a dedicated Artisan Command (created via `php artisan make:command`) or a Queue Job, and then schedule it using:
+### 1. Registro e Localização das Tarefas
+- Sempre registre todas as tarefas agendadas dentro de `routes/console.php` usando a facade `Illuminate\Support\Facades\Schedule`.
+- Não defina lógica de negócio complexa ou consultas ao banco de dados dentro das closures do scheduler em `routes/console.php`.
+- **Padrão Preferido:** Encapsule a lógica de execução dentro de um Artisan Command dedicado (criado via `php artisan make:command`) ou um Queue Job, e então agende-o usando:
   ```php
   use Illuminate\Support\Facades\Schedule;
 
@@ -21,41 +21,43 @@ Establish solid guidelines and consistent patterns for scheduling, monitoring, c
   Schedule::job(new CleanAbandonedCartsJob)->hourly();
   ```
 
-### 2. Concurrency and Overlapping Prevention
-- For commands that process substantial amounts of data or interface with external APIs, always prevent execution overlap to avoid server resource exhaustion and race conditions:
+### 2. Concorrência e Prevenção de Sobreposição
+- Para comandos que processam quantidades substanciais de dados ou interagem com APIs externas, sempre previna a sobreposição de execução para evitar esgotamento de recursos do servidor e race conditions:
   ```php
   Schedule::command('sync:external-crm')
       ->hourly()
-      ->withoutOverlapping(60); // Define a lock expiration time in minutes
+      ->withoutOverlapping(60); // Define um tempo de expiração do lock em minutos
   ```
-- **Totem:** For sensitive operations via Totem UI, enable the **"Don't Overlap"** setting to apply native `.withoutOverlapping()` logic.
-- Use `runInBackground()` when you have multiple scheduled commands executing at the same time and you want them to execute asynchronously rather than sequentially:
+- **Totem:** Para operações sensíveis via UI do Totem, habilite a configuração **"Don't Overlap"** para aplicar a lógica nativa de `.withoutOverlapping()`.
+- Use `runInBackground()` quando você tiver múltiplos comandos agendados executando ao mesmo tempo e quiser que eles executem de forma assíncrona em vez de sequencial:
   ```php
   Schedule::command('reports:compile')->daily()->runInBackground();
   ```
-- If the application runs in a multi-server load-balanced environment, ensure the command only executes on a single server by utilizing `onOneServer()` (requires a database or redis cache driver as the default cache store).
+- Se a aplicação rodar em um ambiente multi-servidor com balanceamento de carga, garanta que o comando execute apenas em um único servidor utilizando `onOneServer()` (requer um driver de cache de banco de dados ou redis como o cache store padrão).
 
-### 3. Log Management and Output Control
-- **Output Redirection:** Never let the task outputs vanish. Always append standard outputs and error streams to dedicated log files or channel them to custom handlers.
-- **Error Hooks:** Utilize failure and success callback hooks to log anomalies or trigger alerts.
-- **Totem Database Log Cleanup (Retention Policy):** Totem logs every execution status and output in the `totem_task_results` table. Schedule the built-in Totem cleanup command to prevent database bloat:
-  ```bash
-  php artisan totem:cleanup --days=7
+### 3. Gerenciamento de Logs e Controle de Saída
+- **Redirecionamento de Saída:** Nunca deixe as saídas das tarefas desaparecerem. Sempre anexe as saídas padrão e os streams de erro a arquivos de log dedicados ou direcione-os para handlers customizados.
+- **Hooks de Erro:** Utilize os hooks de callback de falha e sucesso para registrar anomalias ou disparar alertas.
+- **Limpeza dos Logs no Banco do Totem (Política de Retenção):** O Totem registra cada status de execução e saída na tabela `totem_task_results`. O Totem **não** fornece nenhum comando de limpeza (apenas `totem:list` e `totem:assets`), então faça a poda com uma pequena deleção agendada para evitar o inchaço do banco de dados:
+  ```php
+  // routes/console.php
+  Schedule::call(fn () => DB::table('totem_task_results')
+      ->where('created_at', '<', now()->subDays(7))->delete())->daily();
   ```
 
-### 4. Execution Conditions & Environments
-- Strictly enforce environment boundaries to prevent destructive tasks or mock updates from executing in production:
+### 4. Condições de Execução e Ambientes
+- Imponha estritamente os limites de ambiente para evitar que tarefas destrutivas ou atualizações mock executem em produção:
   ```php
   Schedule::command('test:reset-sandbox')
       ->daily()
       ->environments(['local', 'staging']);
   ```
-- Use dynamic conditional constraints (`when()` or `skip()`) to determine execution dynamically.
-- **Totem Environment Configurations:** Respect configurations inside `config/totem.php`. Use `.env` variables to toggle parameters across environments (`TOTEM_WEB_MIDDLEWARE`, `TOTEM_WEB_ROUTE_PREFIX`, `TOTEM_TABLE_PREFIX`, `TOTEM_DATABASE_CONNECTION`).
+- Use restrições condicionais dinâmicas (`when()` ou `skip()`) para determinar a execução dinamicamente.
+- **Configurações de Ambiente do Totem:** Respeite as configurações dentro de `config/totem.php`. Use variáveis `.env` para alternar parâmetros entre ambientes (`TOTEM_WEB_MIDDLEWARE`, `TOTEM_WEB_ROUTE_PREFIX`, `TOTEM_TABLE_PREFIX`, `TOTEM_DATABASE_CONNECTION`).
 
-### 5. Totem Dashboard Security and Authentication
-- The Laravel Totem dashboard is served at the route prefix specified by `TOTEM_WEB_ROUTE_PREFIX` (default is `/tasks`).
-- Access must be strictly restricted. Implement route authorization in `AppServiceProvider.php` using `Totem::auth()` and the `viewTotem` gate:
+### 5. Segurança e Autenticação do Dashboard do Totem
+- O dashboard do Laravel Totem é servido no prefixo de rota especificado por `TOTEM_WEB_ROUTE_PREFIX` (o padrão é `/tasks`).
+- O acesso deve ser estritamente restrito. Implemente a autorização da rota em `AppServiceProvider.php` usando `Totem::auth()` e o gate `viewTotem`:
   ```php
   use Studio\Totem\Totem;
   use Illuminate\Support\Facades\Gate;
@@ -68,29 +70,29 @@ Establish solid guidelines and consistent patterns for scheduling, monitoring, c
   });
   ```
 
-### 6. Standard Artisan Command Design & External API Calls
-- Any command registered in Totem or Laravel should define explicit, descriptive signatures.
-- Return standard exit codes (`self::SUCCESS` or `0` for success; `self::FAILURE` or `1` for failures).
-- **Avoiding Blocking:** Commands must not block execution indefinitely. If a command performs HTTP requests to external APIs, define explicit timeouts:
+### 6. Design Padrão de Artisan Command e Chamadas a APIs Externas
+- Qualquer comando registrado no Totem ou Laravel deve definir assinaturas explícitas e descritivas.
+- Retorne exit codes padrão (`self::SUCCESS` ou `0` para sucesso; `self::FAILURE` ou `1` para falhas).
+- **Evitando Bloqueios:** Os comandos não devem bloquear a execução indefinidamente. Se um comando realiza requisições HTTP a APIs externas, defina timeouts explícitos:
   ```php
   use Illuminate\Support\Facades\Http;
   Http::timeout(10)->get('https://api.external.service/data');
   ```
-- For extremely heavy operations, decouple the command from the scheduler by dispatching a queued Job in background.
+- Para operações extremamente pesadas, desacople o comando do scheduler despachando um Job enfileirado em background.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **NEVER** write heavy processing, HTTP requests, or raw database queries directly inside `routes/console.php` closures. Always delegate to an Artisan command or a queue Job.
-- **NEVER** omit `withoutOverlapping()` for cleanups or synchronization tasks that might take longer than their execution interval.
-- **NEVER** run commands without specifying environment boundaries if they modify test data or mock external API integrations.
-- **NEVER** use plain PHP `echo` or standard outputs within scheduler command closures; always utilize structured logging via `Log::channel()`.
-- **NEVER** expose the `/tasks` (or configured prefix) dashboard route to the public. Secure it behind authentication gates.
-- **NEVER** schedule a high-frequency command without configuring a corresponding log cleanup policy (`totem:cleanup`).
-- **DO NOT** execute blocking third-party API calls inside scheduled commands without an explicit HTTP timeout.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **NUNCA** escreva processamento pesado, requisições HTTP ou consultas cruas ao banco de dados diretamente dentro das closures de `routes/console.php`. Sempre delegue a um Artisan command ou a um Job de fila.
+- **NUNCA** omita `withoutOverlapping()` para tarefas de limpeza ou sincronização que possam demorar mais do que seu intervalo de execução.
+- **NUNCA** execute comandos sem especificar limites de ambiente se eles modificam dados de teste ou fazem mock de integrações com APIs externas.
+- **NUNCA** use `echo` puro do PHP ou saídas padrão dentro das closures de comando do scheduler; sempre utilize logging estruturado via `Log::channel()`.
+- **NUNCA** exponha a rota do dashboard `/tasks` (ou o prefixo configurado) ao público. Proteja-a atrás de gates de autenticação.
+- **NUNCA** agende um comando de alta frequência sem configurar uma política de limpeza de logs correspondente (pode `totem_task_results` via uma deleção agendada — o Totem não tem comando `totem:cleanup`).
+- **NÃO** execute chamadas bloqueantes a APIs de terceiros dentro de comandos agendados sem um timeout HTTP explícito.
 
-## Examples
+## Exemplos
 
-### Scheduling in routes/console.php
+### Agendamento em routes/console.php
 ```php
 <?php
 
@@ -98,7 +100,7 @@ use Illuminate\Support\Facades\Schedule;
 use Illuminate\Support\Facades\Log;
 use App\Jobs\CleanupInactiveUsersJob;
 
-// 1. Artisan command scheduled with overlap protection and output logging
+// 1. Comando Artisan agendado com proteção contra sobreposição e logging de saída
 Schedule::command('geckodriver:cleanup-ports')
     ->everyFiveMinutes()
     ->withoutOverlapping(10)
@@ -108,7 +110,7 @@ Schedule::command('geckodriver:cleanup-ports')
         Log::channel('scheduler')->error('Geckodriver ports cleanup task failed.');
     });
 
-// 2. Queue Job scheduled to run on a single server, restricted to production
+// 2. Queue Job agendado para rodar em um único servidor, restrito à produção
 Schedule::job(new CleanupInactiveUsersJob)
     ->dailyAt('02:00')
     ->onOneServer()

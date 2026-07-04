@@ -4,7 +4,7 @@ description: Use when setting up, writing, debugging, or configuring End-to-End 
 ---
 
 ## Objetivo
-Estabelecer diretrizes limpas, manuteníveis e confiáveis para a escrita de testes de ponta a ponta (E2E) usando o Playwright em uma aplicação frontend Vue 3 (integrada com AdonisJS). Isso garante layouts visuais robustos, jornadas de usuário estáveis (como dimensionamento de sistemas fotovoltaicos, visualização de propostas e painéis interativos de IA) e comportamento resiliente sob dependências de APIs de terceiros.
+Estabelecer diretrizes limpas, manuteníveis e confiáveis para a escrita de testes de ponta a ponta (E2E) usando o Playwright em uma aplicação frontend Vue 3 (servida por Laravel 13, com autenticação via Laravel Sanctum). Isso garante layouts visuais robustos, jornadas de usuário estáveis (como dimensionamento de sistemas fotovoltaicos, visualização de propostas e painéis interativos de IA) e comportamento resiliente sob dependências de APIs de terceiros.
 
 ## Instruções
 
@@ -22,7 +22,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3333',
+    baseURL: 'http://localhost:8000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -46,8 +46,10 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:3333',
+    // Sobe o app Laravel (php artisan serve). O Vite dev server roda em paralelo
+    // via `npm run dev` quando os assets não estão buildados.
+    command: 'php artisan serve --port=8000',
+    url: 'http://localhost:8000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
   },
@@ -117,7 +119,7 @@ import { test as setup } from '@playwright/test';
 const authFile = 'playwright/.auth/user.json';
 
 setup('authenticate', async ({ page }) => {
-  await page.goto('http://localhost:3333/login');
+  await page.goto('http://localhost:8000/login');
   await page.locator('input[data-testid="login-email"]').fill('admin@engeapp.com.br');
   await page.locator('input[data-testid="login-password"]').fill('Secret123!');
   await page.locator('button[data-testid="login-submit"]').click();
@@ -131,7 +133,7 @@ setup('authenticate', async ({ page }) => {
 ```
 
 ### 4. Interceptação de API e Mocking (Isolamento de Rede)
-Não faça requisições reais para APIs de produção de terceiros (ex.: provedores de geolocalização/irradiância solar, integrações de pagamento) ou serviços de IA durante a execução dos testes. O backend AdonisJS roteia IA via Vercel AI SDK; nos testes E2E intercepte e simule essas chamadas usando `page.route()`.
+Não faça requisições reais para APIs de produção de terceiros (ex.: provedores de geolocalização/irradiância solar, integrações de pagamento) ou serviços de IA durante a execução dos testes. O backend Laravel roteia IA via `laravel/ai`; nos testes E2E intercepte e simule essas chamadas usando `page.route()`.
 
 **Exemplo: Simulando uma resposta de erro no endpoint de IA (`tests/e2e/proposal-ai.spec.ts`):**
 ```typescript
@@ -139,7 +141,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Proposta Fotovoltaica - Assistente de IA', () => {
   test('deve exibir mensagem de erro amigável quando o endpoint de IA falhar', async ({ page }) => {
-    // Intercepta a rota de IA do backend (Vercel AI SDK) e retorna um status de erro 500
+    // Intercepta a rota de IA do backend (laravel/ai) e retorna um status de erro 500
     await page.route('**/api/ai/generate-copy', async (route) => {
       await route.fulfill({
         status: 500,

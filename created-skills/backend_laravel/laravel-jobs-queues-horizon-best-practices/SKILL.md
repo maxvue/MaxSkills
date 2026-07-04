@@ -11,17 +11,17 @@ description: >-
   integration with the HasAgentAiRequest trait for AI agent Jobs.
 ---
 
-# Laravel Jobs, Queues & Horizon — Best Practices
+# Laravel Jobs, Queues & Horizon — Boas Práticas
 
-## Goal
+## Objetivo
 
-Provide standardized, safe, and resilient guidelines for creating, maintaining, and monitoring asynchronous Jobs in the Laravel framework, with queues supervised by Horizon. This skill ensures that all Jobs in the Engeapp ecosystem follow consistent patterns for retry policies, backoff strategies, timeout management, failure handling, queue assignment, and integration with AI agents.
+Fornecer diretrizes padronizadas, seguras e resilientes para criar, manter e monitorar Jobs assíncronos no framework Laravel, com filas supervisionadas pelo Horizon. Esta skill garante que todos os Jobs no ecossistema Engeapp sigam padrões consistentes de políticas de retry, estratégias de backoff, gerenciamento de timeout, tratamento de falhas, atribuição de fila e integração com agentes de IA.
 
-## Instructions
+## Instruções
 
-### 1. Job Skeleton — Required Structure
+### 1. Esqueleto de Job — Estrutura Obrigatória
 
-Every Job **MUST** follow this minimal skeleton:
+Todo Job **DEVE** seguir este esqueleto mínimo:
 
 ```php
 <?php
@@ -48,57 +48,57 @@ class MyExampleJob implements ShouldQueue
 
     public function handle(): void
     {
-        // Job logic here
+        // Lógica do Job aqui
     }
 
     public function failed(?\Throwable $exception): void
     {
-        // Failure handling here
+        // Tratamento de falha aqui
     }
 }
 ```
 
-**Mandatory properties:**
+**Propriedades obrigatórias:**
 
-| Property | Type | Description | Default |
+| Propriedade | Tipo | Descrição | Padrão |
 |----------|------|-------------|---------|
-| `$tries` | `int` | Maximum number of execution attempts | `3` |
-| `$backoff` | `array<int, int>` | Wait time (seconds) between each retry | `[30, 60, 120]` |
-| `$timeout` | `int` | Maximum execution time in seconds | `120` |
+| `$tries` | `int` | Número máximo de tentativas de execução | `3` |
+| `$backoff` | `array<int, int>` | Tempo de espera (segundos) entre cada retry | `[30, 60, 120]` |
+| `$timeout` | `int` | Tempo máximo de execução em segundos | `120` |
 
-### 2. Retry & Backoff Strategy
+### 2. Estratégia de Retry & Backoff
 
-Choose the retry strategy based on the Job's external dependency:
+Escolha a estratégia de retry com base na dependência externa do Job:
 
-| Scenario | `$tries` | `$backoff` | Rationale |
+| Cenário | `$tries` | `$backoff` | Justificativa |
 |----------|----------|------------|-----------|
-| **WhatsApp API** (rate-limited) | `3` | `[5, 15, 30]` | Short intervals — API recovers quickly |
-| **AI/LLM calls** (Gemini, OpenAI) | `5` | `[60, 120, 300, 600]` | Long intervals — rate limits reset slowly |
-| **Webhook processing** (Trello, EFI) | `3` | `[30, 60, 120]` | Standard — moderate retry window |
-| **Internal tasks** (calculations, sync) | `3` | `[10, 30, 60]` | Fast recovery — no external dependency |
-| **Email/Notification** | `3` | `[15, 30, 60]` | Brief wait for transient SMTP failures |
+| **API WhatsApp** (com rate limit) | `3` | `[5, 15, 30]` | Intervalos curtos — a API se recupera rapidamente |
+| **Chamadas de IA/LLM** (Gemini, OpenAI) | `5` | `[60, 120, 300, 600]` | Intervalos longos — rate limits resetam lentamente |
+| **Processamento de webhook** (Trello, EFI) | `3` | `[30, 60, 120]` | Padrão — janela de retry moderada |
+| **Tarefas internas** (cálculos, sync) | `3` | `[10, 30, 60]` | Recuperação rápida — sem dependência externa |
+| **Email/Notificação** | `3` | `[15, 30, 60]` | Espera breve para falhas transitórias de SMTP |
 
-**Rules:**
-1. **NEVER** set `$tries = 0` — always allow at least 1 attempt.
-2. **ALWAYS** define `$backoff` as an explicit array, not a single integer — this creates **exponential backoff**.
-3. For AI-intensive Jobs, use the pattern from `GeminiContentJob`: `$tries = 5` with `$backoff = [60, 120, 300, 600]`.
+**Regras:**
+1. **NUNCA** defina `$tries = 0` — sempre permita ao menos 1 tentativa.
+2. **SEMPRE** defina `$backoff` como um array explícito, não um único inteiro — isso cria **backoff exponencial**.
+3. Para Jobs intensivos em IA, use o padrão do `GeminiContentJob`: `$tries = 5` com `$backoff = [60, 120, 300, 600]`.
 
-### 3. Timeout Management
+### 3. Gerenciamento de Timeout
 
-The `$timeout` property defines the maximum seconds a single attempt can run before being killed.
+A propriedade `$timeout` define o máximo de segundos que uma única tentativa pode rodar antes de ser encerrada.
 
-**Timeout Guidelines:**
+**Diretrizes de Timeout:**
 
-| Job Type | Recommended `$timeout` | Reference |
+| Tipo de Job | `$timeout` recomendado | Referência |
 |----------|----------------------|-----------|
-| Simple DB operations | `60–120` | `AnalyzeProtocolJob` (120s) |
-| Document processing | `120` | `ProcessDocumentReaderJob` (120s) |
-| AI agent execution (tool-based) | `300–600` | `BrowserAiJob` (dynamic via `timeout()`) |
-| AI computation (heavy) | `400` | `CalculateAiCircuitsJob`, `SupportMessageAiJob` |
-| External API integration | `120–200` | `WebhookWhatsappJobExecuteJob` (200s) |
+| Operações simples de DB | `60–120` | `AnalyzeProtocolJob` (120s) |
+| Processamento de documentos | `120` | `ProcessDocumentReaderJob` (120s) |
+| Execução de agente de IA (baseado em tools) | `300–600` | `BrowserAiJob` (dinâmico via `timeout()`) |
+| Computação de IA (pesada) | `400` | `CalculateAiCircuitsJob`, `SupportMessageAiJob` |
+| Integração com API externa | `120–200` | `WebhookWhatsappJobExecuteJob` (200s) |
 | Deploy/DevOps | `400` | `DeployJob` |
 
-**Dynamic timeout pattern** (use when timeout varies per instance):
+**Padrão de timeout dinâmico** (use quando o timeout varia por instância):
 
 ```php
 public function timeout(): int
@@ -107,59 +107,59 @@ public function timeout(): int
 }
 ```
 
-**Critical Rule:** The Job's `$timeout` **MUST** be less than or equal to the Horizon supervisor's `timeout`. If the supervisor kills the process first, the Job silently disappears without triggering `failed()`.
+**Regra Crítica:** O `$timeout` do Job **DEVE** ser menor ou igual ao `timeout` do supervisor do Horizon. Se o supervisor encerrar o processo primeiro, o Job desaparece silenciosamente sem disparar o `failed()`.
 
-### 4. Queue Assignment
+### 4. Atribuição de Fila
 
-The Engeapp ecosystem uses **5 named queues** managed by Horizon supervisors:
+O ecossistema Engeapp usa **5 filas nomeadas** gerenciadas por supervisores do Horizon:
 
-| Queue | Supervisor | Purpose | Jobs |
+| Fila | Supervisor | Propósito | Jobs |
 |-------|-----------|---------|------|
-| `default` | `general-supervisor` | General-purpose tasks | Most Jobs |
-| `whatsapp` | `whatsapp-supervisor` | WhatsApp message sending | `SendMessageWhatsappJob` |
-| `gemini` | `gemini-supervisor` | AI/LLM processing | `ProcessDocumentReaderJob`, `ExtractFileDataAiJob` |
-| `scout` | `scout-supervisor` | Search index updates | Scout/Meilisearch |
-| `webhooks` | `webhooks-supervisor` | External webhook processing | Webhook Jobs |
+| `default` | `general-supervisor` | Tarefas de propósito geral | Maioria dos Jobs |
+| `whatsapp` | `whatsapp-supervisor` | Envio de mensagens do WhatsApp | `SendMessageWhatsappJob` |
+| `gemini` | `gemini-supervisor` | Processamento de IA/LLM | `ProcessDocumentReaderJob`, `ExtractFileDataAiJob` |
+| `scout` | `scout-supervisor` | Atualizações de índice de busca | Scout/Meilisearch |
+| `webhooks` | `webhooks-supervisor` | Processamento de webhooks externos | Jobs de Webhook |
 
-**How to assign a queue:**
+**Como atribuir uma fila:**
 
 ```php
-// Option 1: In the constructor (preferred for dedicated-queue Jobs)
+// Opção 1: No construtor (preferido para Jobs de fila dedicada)
 public function __construct(public string $message_id)
 {
     $this->onQueue('whatsapp');
 }
 
-// Option 2: At dispatch time (preferred for flexible Jobs)
+// Opção 2: No momento do dispatch (preferido para Jobs flexíveis)
 MyJob::dispatch($data)->onQueue('gemini');
 ```
 
-**Rules:**
-1. All AI/LLM Jobs **MUST** use `->onQueue('gemini')` to prevent blocking the general queue.
-2. WhatsApp Jobs **MUST** use `->onQueue('whatsapp')` — this queue has fixed concurrency (no auto-scaling).
-3. If no queue is specified, Jobs default to the `default` queue.
+**Regras:**
+1. Todos os Jobs de IA/LLM **DEVEM** usar `->onQueue('gemini')` para evitar bloquear a fila geral.
+2. Jobs do WhatsApp **DEVEM** usar `->onQueue('whatsapp')` — esta fila tem concorrência fixa (sem auto-scaling).
+3. Se nenhuma fila for especificada, os Jobs usam a fila `default` por padrão.
 
-### 5. The `failed()` Callback — Failure Handling
+### 5. O Callback `failed()` — Tratamento de Falhas
 
-Every Job that produces visible side-effects **MUST** implement `failed()`:
+Todo Job que produz efeitos colaterais visíveis **DEVE** implementar `failed()`:
 
 ```php
 public function failed(?\Throwable $exception): void
 {
-    // 1. Reset any in-progress flags
+    // 1. Resetar quaisquer flags de "em processamento"
     $model = MyModel::find($this->model_id);
     if ($model) {
         $model->processing = false;
         $model->save();
     }
 
-    // 2. Notify the user via Reverb/WebSocket
+    // 2. Notificar o usuário via Reverb/WebSocket
     SystemOperationEvent::dispatch([
         'type'     => 'operation_failed',
         'model_id' => $this->model_id,
     ], $this->user_id);
 
-    // 3. Update notification status (if applicable)
+    // 3. Atualizar o status da notificação (se aplicável)
     $notification = Notification::find($this->notification_id);
     if ($notification) {
         app(NotificationService::class)->updateNotification($notification, [
@@ -170,7 +170,7 @@ public function failed(?\Throwable $exception): void
         ]);
     }
 
-    // 4. Log for debugging
+    // 4. Log para debugging
     Log::channel('specific_channel')->error('Job failed', [
         'model_id' => $this->model_id,
         'error'    => $exception?->getMessage(),
@@ -178,22 +178,22 @@ public function failed(?\Throwable $exception): void
 }
 ```
 
-**The `failed()` checklist:**
-- [ ] Reset any "processing" flags (`$model->calculating_ai = false`)
-- [ ] Dispatch failure event via Reverb for the frontend
-- [ ] Update notification if one was created at dispatch
-- [ ] Log the error with structured context
+**O checklist do `failed()`:**
+- [ ] Resetar quaisquer flags de "processing" (`$model->calculating_ai = false`)
+- [ ] Disparar evento de falha via Reverb para o frontend
+- [ ] Atualizar a notification se alguma foi criada no dispatch
+- [ ] Logar o erro com contexto estruturado
 
-### 6. Idempotency — Preventing Duplicate Processing
+### 6. Idempotência — Prevenindo Processamento Duplicado
 
-Jobs can be retried. They **MUST** be designed to handle re-execution safely:
+Jobs podem sofrer retry. Eles **DEVEM** ser projetados para lidar com a reexecução de forma segura:
 
 ```php
 public function handle(): void
 {
     $message = SupportMessage::findOrFail($this->message_id);
 
-    // Guard: if already processed, skip silently
+    // Guard: se já processado, pule silenciosamente
     if ($message->message_meta_id) {
         Log::channel('whatsapp')->info('Already sent, skipping retry', [
             'message_id' => $this->message_id,
@@ -201,18 +201,18 @@ public function handle(): void
         return;
     }
 
-    // Proceed with processing...
+    // Prossiga com o processamento...
 }
 ```
 
-**Idempotency patterns:**
-1. **Check-before-act:** Verify if the result already exists before processing (as above).
-2. **Flag-based guard:** Use a boolean column (`$model->transcode`, `$model->calculating_ai`) to detect completion.
-3. **Early return:** If the precondition is already met, `return` immediately without throwing.
+**Padrões de idempotência:**
+1. **Check-before-act:** Verifique se o resultado já existe antes de processar (como acima).
+2. **Guard baseado em flag:** Use uma coluna booleana (`$model->transcode`, `$model->calculating_ai`) para detectar a conclusão.
+3. **Early return:** Se a pré-condição já estiver satisfeita, faça `return` imediatamente sem lançar exception.
 
-### 7. AI Agent Jobs — Integration with `HasAgentAiRequest`
+### 7. Jobs de Agente de IA — Integração com `HasAgentAiRequest`
 
-Jobs that execute AI agents via the Laravel aiSDK **MUST** use the `HasAgentAiRequest` trait:
+Jobs que executam agentes de IA via o aiSDK do Laravel **DEVEM** usar o trait `HasAgentAiRequest`:
 
 ```php
 class MyAiJob implements ShouldQueue
@@ -238,7 +238,7 @@ class MyAiJob implements ShouldQueue
 
     public function isDone(): bool
     {
-        // Verify in the database that the agent's work is complete
+        // Verifica no banco de dados que o trabalho do agente está concluído
         return MyModel::where('id', $this->model_id)
             ->whereNotNull('result_field')
             ->exists();
@@ -246,18 +246,18 @@ class MyAiJob implements ShouldQueue
 }
 ```
 
-**Key rules for AI Jobs:**
-1. **ALWAYS** assign to the `gemini` queue: `$this->onQueue('gemini')`.
-2. **ALWAYS** set `$timeout >= 300` — AI calls are inherently slow.
-3. **ALWAYS** implement `isDone()` with a database check to verify completion.
-4. **ALWAYS** set `$max_calls` to limit the do-while retry loop (default: `5`).
-5. The `HasAgentAiRequest` trait handles **automatic model fallback** (`flash-lite → flash → pro`).
+**Regras-chave para Jobs de IA:**
+1. **SEMPRE** atribua à fila `gemini`: `$this->onQueue('gemini')`.
+2. **SEMPRE** defina `$timeout >= 300` — chamadas de IA são inerentemente lentas.
+3. **SEMPRE** implemente `isDone()` com uma verificação no banco de dados para confirmar a conclusão.
+4. **SEMPRE** defina `$max_calls` para limitar o loop de retry do do-while (padrão: `5`).
+5. O trait `HasAgentAiRequest` trata o **fallback automático de modelo** (`flash-lite → flash → pro`).
 
-### 8. Horizon Configuration — Supervisor Reference
+### 8. Configuração do Horizon — Referência de Supervisores
 
-The current Horizon configuration for production:
+A configuração atual do Horizon para produção:
 
-| Supervisor | Queue | Balance | Min/Max Processes | Timeout | Tries |
+| Supervisor | Fila | Balance | Min/Max Processos | Timeout | Tries |
 |-----------|-------|---------|-------------------|---------|-------|
 | `general-supervisor` | `default` | `auto` (size) | 2 / 20 | 120s | 3 |
 | `webhooks-supervisor` | `webhooks` | `auto` (size) | 1 / 3 | 300s | default |
@@ -265,14 +265,14 @@ The current Horizon configuration for production:
 | `scout-supervisor` | `scout` | `auto` (size) | — / 28 | 120s | 5 |
 | `gemini-supervisor` | `gemini` | `auto` (size) | — / 5 | 600s | 2 |
 
-**Important alignment rules:**
-1. Job `$timeout` **MUST** be ≤ supervisor `timeout`.
-2. Job `$tries` **SHOULD** match or be ≤ supervisor `tries`.
-3. If a Job requires more time than the supervisor allows, configure a dedicated supervisor.
+**Regras importantes de alinhamento:**
+1. O `$timeout` do Job **DEVE** ser ≤ ao `timeout` do supervisor.
+2. O `$tries` do Job **DEVE** corresponder ou ser ≤ ao `tries` do supervisor.
+3. Se um Job requer mais tempo do que o supervisor permite, configure um supervisor dedicado.
 
-### 9. Logging Strategy
+### 9. Estratégia de Logging
 
-Use dedicated log channels for traceability:
+Use canais de log dedicados para rastreabilidade:
 
 ```php
 Log::channel('whatsapp')->info('Message sent', ['id' => $this->message_id]);
@@ -283,33 +283,33 @@ Log::channel('agent_browser')->info('Automation started', ['id' => $automationId
 Log::channel('ai_benchmarks')->info('BENCHMARK', ['model' => $this->model]);
 ```
 
-**Rules:**
-1. **ALWAYS** use a dedicated channel, not the default `Log::info()`.
-2. **ALWAYS** pass structured context arrays, not concatenated strings.
-3. **ALWAYS** log at `info` level for successful operations and `error` for failures.
-4. For AI Jobs, `HasAgentAiRequest` automatically logs to the `gemini` channel — do not duplicate.
+**Regras:**
+1. **SEMPRE** use um canal dedicado, não o `Log::info()` padrão.
+2. **SEMPRE** passe arrays de contexto estruturados, não strings concatenadas.
+3. **SEMPRE** logue no nível `info` para operações bem-sucedidas e `error` para falhas.
+4. Para Jobs de IA, o `HasAgentAiRequest` loga automaticamente no canal `gemini` — não duplique.
 
-### 10. Soft Cancel Pattern
+### 10. Padrão de Soft Cancel
 
-For long-running Jobs, implement a soft cancel check to allow user-initiated cancellation:
+Para Jobs de longa duração, implemente uma verificação de soft cancel para permitir o cancelamento iniciado pelo usuário:
 
 ```php
 public function handle(): void
 {
-    // Check if the user cancelled the operation
+    // Verifica se o usuário cancelou a operação
     if (! $this->project->calculating_ai) {
         return;
     }
 
-    // Proceed with long-running operation...
+    // Prossiga com a operação de longa duração...
 }
 ```
 
-This pattern is used by `CalculateAiCircuitsJob` to allow the user to cancel AI processing from the frontend.
+Este padrão é usado pelo `CalculateAiCircuitsJob` para permitir que o usuário cancele o processamento de IA a partir do frontend.
 
-### 11. Tags for Horizon Monitoring
+### 11. Tags para Monitoramento no Horizon
 
-Use `tags()` to make Jobs searchable in the Horizon dashboard:
+Use `tags()` para tornar os Jobs pesquisáveis no dashboard do Horizon:
 
 ```php
 public function tags(): array
@@ -323,18 +323,18 @@ public function tags(): array
 }
 ```
 
-## Constraints
+## Restrições
 
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-1. **NEVER** create a Job without both `$tries` and `$backoff` properties.
-2. **NEVER** use `$this->delete()` inside `handle()` to suppress errors — let the retry mechanism work.
-3. **NEVER** dispatch Jobs inside database transactions — the transaction may rollback but the Job is already queued.
-4. **NEVER** set `$timeout` higher than the Horizon supervisor's `timeout` for the assigned queue.
-5. **NEVER** pass Eloquent models directly to constructors when the model might be deleted before processing — use IDs instead and `findOrFail()` in `handle()`.
-6. **NEVER** use `sleep()` inside Jobs to throttle API calls — use `$backoff` instead.
-7. **NEVER** forget to implement `failed()` for Jobs that change visible state (UI flags, notifications).
-8. **ALWAYS** make Jobs idempotent — safe to re-run without side effects.
-9. **ALWAYS** use `Log::channel()` with structured context arrays.
-10. **ALWAYS** assign AI Jobs to the `gemini` queue and WhatsApp Jobs to the `whatsapp` queue.
-11. **ALWAYS** align Job `$timeout` with the Horizon supervisor timeout for the target queue.
-12. **ALWAYS** implement soft cancel for user-facing long-running operations.
+- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+1. **NUNCA** crie um Job sem ambas as propriedades `$tries` e `$backoff`.
+2. **NUNCA** use `$this->delete()` dentro de `handle()` para suprimir erros — deixe o mecanismo de retry funcionar.
+3. **NUNCA** faça dispatch de Jobs dentro de transações de banco de dados — a transação pode sofrer rollback, mas o Job já foi enfileirado.
+4. **NUNCA** defina `$timeout` maior que o `timeout` do supervisor do Horizon para a fila atribuída.
+5. **NUNCA** passe models Eloquent diretamente para construtores quando o model possa ser deletado antes do processamento — use IDs no lugar e `findOrFail()` em `handle()`.
+6. **NUNCA** use `sleep()` dentro de Jobs para limitar chamadas de API — use `$backoff` no lugar.
+7. **NUNCA** esqueça de implementar `failed()` para Jobs que alteram estado visível (flags de UI, notificações).
+8. **SEMPRE** torne os Jobs idempotentes — seguros para reexecutar sem efeitos colaterais.
+9. **SEMPRE** use `Log::channel()` com arrays de contexto estruturados.
+10. **SEMPRE** atribua Jobs de IA à fila `gemini` e Jobs do WhatsApp à fila `whatsapp`.
+11. **SEMPRE** alinhe o `$timeout` do Job com o timeout do supervisor do Horizon para a fila de destino.
+12. **SEMPRE** implemente soft cancel para operações de longa duração voltadas ao usuário.

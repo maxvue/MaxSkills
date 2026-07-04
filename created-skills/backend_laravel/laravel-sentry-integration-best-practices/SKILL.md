@@ -3,25 +3,27 @@ name: laravel-sentry-integration-best-practices
 description: Use when integrating, configuring, or debugging Sentry in a Laravel application. Triggers on Sentry SDK installation, configuring Sentry config files, adding custom breadcrumbs, capturing exceptions with Sentry::captureException, and setting up performance APM/tracing.
 ---
 
-# Goal
-Provide solid guidelines and consistent standards for real-time error tracking and Application Performance Monitoring (APM) using Sentry in the Laravel backend of the application.
+# Objetivo
+Fornecer diretrizes sólidas e padrões consistentes para rastreamento de erros em tempo real e Monitoramento de Performance de Aplicações (APM) usando o Sentry no backend Laravel da aplicação.
 
-# Instructions
+# Instruções
 
-### 1. Installation & Initialization
-Install the official Sentry Laravel SDK:
+> **⚠️ O Sentry ainda NÃO faz parte do engeapp:** `sentry/sentry-laravel` não está instalado (não consta no `composer.json`, não existe `config/sentry.php`). Trate esta skill como um guia de integração **a partir do zero** — as seções seguintes (inclusive "manter `sentry/sentry-laravel` ativo nos queue workers") descrevem o estado-alvo após a instalação, e não uma integração já existente. Comece pelo `composer require` abaixo.
+
+### 1. Instalação e Inicialização
+Instale o SDK oficial do Sentry para Laravel:
 ```bash
 composer require sentry/sentry-laravel
 ```
 
-Publish the configuration file:
+Publique o arquivo de configuração:
 ```bash
 php artisan sentry:publish --dsn=YOUR_SENTRY_DSN
 ```
-This command adds the `SENTRY_LARAVEL_DSN` variable to your `.env` file and creates the `config/sentry.php` file.
+Este comando adiciona a variável `SENTRY_LARAVEL_DSN` ao seu arquivo `.env` e cria o arquivo `config/sentry.php`.
 
-### 2. Laravel 11+ Exception Integration
-Integrate Sentry handler into the exception handler setup located in `bootstrap/app.php`:
+### 2. Integração de Exceptions no Laravel 11+
+Integre o handler do Sentry na configuração do exception handler localizada em `bootstrap/app.php`:
 ```php
 use Sentry\Laravel\Integration;
 
@@ -32,8 +34,8 @@ return Application::configure(basePath: dirname(__DIR__))
     })->create();
 ```
 
-### 3. Log Channel Integration
-Configure Sentry as a log channel in `config/logging.php` to capture logs:
+### 3. Integração de Canal de Log
+Configure o Sentry como um canal de log em `config/logging.php` para capturar logs:
 ```php
 'channels' => [
     'stack' => [
@@ -50,21 +52,21 @@ Configure Sentry as a log channel in `config/logging.php` to capture logs:
 ],
 ```
 
-### 4. Environment-Specific Configuration (`.env`)
-Configure Sentry behavior depending on the environment:
+### 4. Configuração Específica por Ambiente (`.env`)
+Configure o comportamento do Sentry dependendo do ambiente:
 ```env
 SENTRY_LARAVEL_DSN="https://key@sentry.io/project"
 SENTRY_TRACES_SAMPLE_RATE=0.1
 SENTRY_PROFILES_SAMPLE_RATE=0.1
 ```
-- In high-traffic **production** environments, keep `SENTRY_TRACES_SAMPLE_RATE` low (e.g., `0.05` to `0.1`) to avoid rate limiting and excessive quotas.
-- In **staging/development**, it can be set to `1.0` (100%) for debugging purposes.
+- Em ambientes de **produção** de alto tráfego, mantenha o `SENTRY_TRACES_SAMPLE_RATE` baixo (ex.: `0.05` a `0.1`) para evitar rate limiting e cotas excessivas.
+- Em **staging/desenvolvimento**, ele pode ser definido como `1.0` (100%) para fins de depuração.
 
-### 5. Context Enrichment
-Enrich exceptions with the authenticated user context, tenant information, or environment tags.
+### 5. Enriquecimento de Contexto
+Enriqueça as exceptions com o contexto do usuário autenticado, informações de tenant ou tags de ambiente.
 
-#### A. Global User Context (Middleware / Service Provider)
-Configure context tracking inside `App\Providers\AppServiceProvider` or a custom `SentryServiceProvider`:
+#### A. Contexto Global do Usuário (Middleware / Service Provider)
+Configure o rastreamento de contexto dentro de `App\Providers\AppServiceProvider` ou de um `SentryServiceProvider` customizado:
 ```php
 use Sentry\State\Scope;
 use function Sentry\configureScope;
@@ -88,8 +90,8 @@ public function boot(): void
 }
 ```
 
-#### B. Dynamic Tags & Extra Metadata
-Add tags to group and filter issues, and extra data for deeper diagnosis:
+#### B. Tags Dinâmicas e Metadados Extras
+Adicione tags para agrupar e filtrar issues, e dados extras para um diagnóstico mais aprofundado:
 ```php
 use Sentry\State\Scope;
 use function Sentry\configureScope;
@@ -101,8 +103,8 @@ configureScope(function (Scope $scope) use ($tenantId, $apiVersion): void {
 });
 ```
 
-### 6. Custom Breadcrumbs
-Record breadcrumbs to trace the events that occurred immediately before the exception:
+### 6. Breadcrumbs Customizados
+Registre breadcrumbs para rastrear os eventos que ocorreram imediatamente antes da exception:
 ```php
 use Sentry\Breadcrumb;
 use function Sentry\addBreadcrumb;
@@ -119,8 +121,8 @@ addBreadcrumb(new Breadcrumb(
 ));
 ```
 
-### 7. Manual Exception Capture
-Use the `Sentry` Facade to capture non-fatal exceptions in `try/catch` blocks:
+### 7. Captura Manual de Exceptions
+Use a Facade `Sentry` para capturar exceptions não-fatais em blocos `try/catch`:
 ```php
 use Sentry\Laravel\Facade as Sentry;
 
@@ -132,23 +134,23 @@ try {
 }
 ```
 
-### 8. Horizon & Queue Monitoring
-Sentry automatically monitors Laravel queues. Ensure the following:
-- Keep `sentry/sentry-laravel` active in queue workers (Octane/Horizon).
-- Customize queue job transaction names so they appear clearly in the Performance tab.
-- In queue jobs, attach the job payload ID or user context during execution.
+### 8. Monitoramento do Horizon e de Filas
+O Sentry monitora automaticamente as filas do Laravel. Garanta o seguinte:
+- Mantenha `sentry/sentry-laravel` ativo nos queue workers (Octane/Horizon).
+- Personalize os nomes das transações dos jobs de fila para que apareçam claramente na aba Performance.
+- Nos jobs de fila, anexe o ID do payload do job ou o contexto do usuário durante a execução.
 
-### 9. Sanitization & Sensitive Data (PII Prevention)
-Prevent sensitive customer data (passwords, bank card details, auth tokens, etc.) from leaking to Sentry.
+### 9. Sanitização e Dados Sensíveis (Prevenção de PII)
+Evite que dados sensíveis do cliente (senhas, detalhes de cartão bancário, tokens de autenticação, etc.) vazem para o Sentry.
 
-#### A. Configure Default Sanitization
-Set `send_default_pii` to `false` in `config/sentry.php`:
+#### A. Configurar Sanitização Padrão
+Defina `send_default_pii` como `false` em `config/sentry.php`:
 ```php
 'send_default_pii' => false,
 ```
 
-#### B. Advanced Request Filter (`before_send` hook)
-Sanitize payloads or query parameters inside `config/sentry.php`:
+#### B. Filtro Avançado de Requisição (hook `before_send`)
+Sanitize payloads ou parâmetros de query dentro de `config/sentry.php`:
 ```php
 'before_send' => function (\Sentry\Event $event): ?\Sentry\Event {
     $request = $event->getRequest();
@@ -167,11 +169,11 @@ Sanitize payloads or query parameters inside `config/sentry.php`:
 },
 ```
 
-# Constraints
-- Do NOT send PII (Personally Identifiable Information) under any circumstances. Ensure credentials, credit card details, and auth tokens are filtered out via `before_send` or by setting `send_default_pii => false`.
-- Do NOT set `traces_sample_rate` to `1.0` in high-traffic production environments. Keep it between `0.01` and `0.20` to prevent rate limiting, high billing, and performance overhead.
-- Do NOT capture common, expected HTTP exceptions such as `ValidationException`, `AuthenticationException`, or `ModelNotFoundException` that are part of standard flow. Configure them in the `dont_report` list of the Exception Handler or under Sentry's `ignore_exceptions` configuration.
-- Do NOT block execution for exception reports. Always verify Sentry calls do not cause critical service degradation if Sentry servers are offline.
+# Restrições
+- NÃO envie PII (Informações de Identificação Pessoal) sob nenhuma circunstância. Garanta que credenciais, detalhes de cartão de crédito e tokens de autenticação sejam filtrados via `before_send` ou definindo `send_default_pii => false`.
+- NÃO defina `traces_sample_rate` como `1.0` em ambientes de produção de alto tráfego. Mantenha-o entre `0.01` e `0.20` para evitar rate limiting, custos elevados e sobrecarga de performance.
+- NÃO capture exceptions HTTP comuns e esperadas, como `ValidationException`, `AuthenticationException` ou `ModelNotFoundException`, que fazem parte do fluxo padrão. Configure-as na lista `dont_report` do Exception Handler ou na configuração `ignore_exceptions` do Sentry.
+- NÃO bloqueie a execução para relatórios de exception. Sempre verifique se as chamadas ao Sentry não causam degradação crítica de serviço caso os servidores do Sentry estejam offline.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill esteja escrito.

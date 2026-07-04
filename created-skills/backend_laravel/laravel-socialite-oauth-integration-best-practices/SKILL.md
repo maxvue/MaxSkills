@@ -3,68 +3,67 @@ name: laravel-socialite-oauth-integration-best-practices
 description: Use when implementing, refactoring, or debugging OAuth authentication via Laravel Socialite. Triggers on Socialite driver config, callback routing, user provisioning, state validation, and OAuth testing.
 ---
 
-# Laravel Socialite OAuth Integration Best Practices
+# Boas Práticas de Integração OAuth com Laravel Socialite
 
-## Goal
-Provide solid guidelines and secure standards for implementing OAuth authentication using Laravel Socialite in this project, covering multiple drivers (e.g., Google, Microsoft Azure AD), secure user provisioning, CSRF prevention, and proper mocking in Pest tests.
+## Objetivo
+Fornecer diretrizes sólidas e padrões seguros para implementar autenticação OAuth usando o Laravel Socialite neste projeto, cobrindo múltiplos drivers (ex: Google, Facebook), provisionamento seguro de usuários, prevenção de CSRF e mocking adequado em testes Pest.
 
-## Instructions
-1. **Driver Configuration (`config/services.php`):**
-   - Define credentials for each provider using environment variables.
-   - Always append `_client_id`, `_client_secret`, and `_redirect` to environment variables.
-   - Example configuration for Google and Azure AD:
+## Instruções
+1. **Configuração do Driver (`config/services.php`):**
+   - Defina as credenciais de cada provedor usando variáveis de ambiente.
+   - Sempre acrescente `_client_id`, `_client_secret` e `_redirect` às variáveis de ambiente.
+   - Exemplo de configuração para Google e Facebook:
      ```php
      'google' => [
          'client_id' => env('GOOGLE_CLIENT_ID'),
          'client_secret' => env('GOOGLE_CLIENT_SECRET'),
          'redirect' => env('GOOGLE_REDIRECT_URI'),
      ],
-     'azure' => [
-         'client_id' => env('AZURE_CLIENT_ID'),
-         'client_secret' => env('AZURE_CLIENT_SECRET'),
-         'redirect' => env('AZURE_REDIRECT_URI'),
-         'tenant' => env('AZURE_TENANT_ID'),
+     'facebook' => [
+         'client_id' => env('FACEBOOK_CLIENT_ID'),
+         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+         'redirect' => env('FACEBOOK_REDIRECT_URI'),
      ],
      ```
 
-2. **OAuth Routing Structure:**
-   - Define named routes for the redirect process and the callback endpoint.
-   - Ensure the callback URL matches the one registered in the OAuth provider dashboard.
-   - Restrict OAuth callback routes to the `web` middleware group to support session state and prevent CSRF attacks.
+2. **Estrutura de Rotas OAuth:**
+   - Defina rotas nomeadas para o processo de redirecionamento e para o endpoint de callback.
+   - Garanta que a URL de callback corresponda à registrada no dashboard do provedor OAuth.
+   - Restrinja as rotas de callback OAuth ao grupo de middleware `web` para dar suporte ao state da sessão e prevenir ataques CSRF.
 
-3. **Secure User Provisioning & Account Hijacking Prevention:**
-   - **Crucial Security Rule:** When an OAuth login payload arrives, do not automatically link the account to an existing user based solely on the email address without verifying if the email has been confirmed by the OAuth provider.
-   - Check if the provider returns a flag indicating email verification (e.g., Google's `email_verified` or verified status).
-   - If the user already exists:
-     - Check if they registered via the same OAuth provider.
-     - If they registered via password or another provider, prompt them to log in first and link the social account in their profile settings, rather than auto-merging (which allows account hijacking if a malicious actor controls a verified domain/email elsewhere).
-   - Use a separate `social_accounts` relation or columns on the `users` table (`oauth_provider`, `oauth_id`) to track linked identities securely.
+3. **Provisionamento Seguro de Usuário e Prevenção de Sequestro de Conta:**
+   - **Regra de Segurança Crucial:** Quando um payload de login OAuth chegar, não vincule automaticamente a conta a um usuário existente com base apenas no endereço de email sem verificar se o email foi confirmado pelo provedor OAuth.
+   - Verifique se o provedor retorna uma flag indicando a verificação do email (ex: o `email_verified` do Google ou o status de verificado).
+   - Se o usuário já existir:
+     - Verifique se ele se registrou pelo mesmo provedor OAuth.
+     - Se ele se registrou via senha ou por outro provedor, solicite que faça login primeiro e vincule a conta social nas configurações de perfil, em vez de fazer a mesclagem automática (que permite sequestro de conta se um agente malicioso controlar um domínio/email verificado em outro lugar).
+   - Use uma relação `social_accounts` separada ou colunas na tabela `users` (`oauth_provider`, `oauth_id`) para rastrear identidades vinculadas de forma segura.
 
-4. **Handling State & CSRF Failures:**
-   - OAuth redirect verification relies on a state parameter to prevent CSRF.
-   - Always wrap the Socialite callback logic in a `try-catch` block to handle `Laravel\Socialite\Two\InvalidStateException` or general Guzzle HTTP exceptions.
-   - Avoid exposing a 500 error page. Redirect the user back to the login screen with a user-friendly error message in the session flash data.
+4. **Tratamento de Falhas de State e CSRF:**
+   - A verificação do redirecionamento OAuth depende de um parâmetro state para prevenir CSRF.
+   - Sempre envolva a lógica de callback do Socialite em um bloco `try-catch` para tratar `Laravel\Socialite\Two\InvalidStateException` ou exceções HTTP gerais do Guzzle.
+   - Evite expor uma página de erro 500. Redirecione o usuário de volta para a tela de login com uma mensagem de erro amigável nos dados de flash da sessão.
 
-5. **API Controllers (SPA):**
-   - Keep controllers thin. Follow [laravel-code-generators-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/laravel-code-generators-best-practices/SKILL.md) conventions.
-   - Inject dependencies via constructor property promotion where appropriate.
-   - Return clean tokens (e.g., Sanctum personal access tokens) for API-based OAuth, ou redirect to the SPA dashboard route (Vue Router) após setar a sessão.
+5. **Controllers de API (SPA):**
+   - Mantenha os controllers enxutos. Siga as convenções de [laravel-code-generators-best-practices](../laravel-code-generators-best-practices/SKILL.md).
+   - Injete dependências via constructor property promotion quando apropriado.
+   - Retorne tokens limpos (ex: personal access tokens do Sanctum) para OAuth baseado em API, ou redirecione para a rota de dashboard da SPA (Vue Router) após setar a sessão.
 
-6. **Pest Testing & Socialite Mocking:**
-   - Never hit external OAuth endpoints during automated tests.
-   - Mock the `Laravel\Socialite\Contracts\Factory` contract using Socialite's built-in facade capabilities or standard mock implementations.
-   - Verify that user creation, session creation, and error states are tested comprehensively.
+6. **Testes Pest e Mocking do Socialite:**
+   - Nunca acesse endpoints OAuth externos durante testes automatizados.
+   - Faça mock do contrato `Laravel\Socialite\Contracts\Factory` usando as capacidades integradas de facade do Socialite ou implementações de mock padrão.
+   - Verifique se a criação de usuário, a criação de sessão e os estados de erro são testados de forma abrangente.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- Do NOT perform auto-linking of OAuth users to existing user accounts without verifying that the email was marked as verified by the provider.
-- Do NOT store raw OAuth client credentials in `config/services.php`; always reference `.env` variables.
-- Do NOT allow `InvalidStateException` to bubble up to a 500 server error; always handle it gracefully and redirect to the login page.
-- Do NOT make actual HTTP requests to the OAuth provider in tests; always mock the Socialite facade.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- NÃO faça vinculação automática de usuários OAuth a contas de usuário existentes sem verificar se o email foi marcado como verificado pelo provedor.
+- NÃO armazene credenciais brutas de cliente OAuth em `config/services.php`; sempre referencie variáveis do `.env`.
+- NÃO permita que a `InvalidStateException` propague até um erro de servidor 500; sempre trate-a de forma elegante e redirecione para a página de login.
+- NÃO faça requisições HTTP reais ao provedor OAuth nos testes; sempre faça mock da facade do Socialite.
 
-## Examples
+## Exemplos
 
-### 1. services.php Configuration
+### 1. Configuração do services.php
 ```php
 // config/services.php
 return [
@@ -75,10 +74,16 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_REDIRECT_URI'),
+    ],
 ];
 ```
 
-### 2. OAuth Route Setup
+### 2. Configuração das Rotas OAuth
 ```php
 // routes/web.php
 use App\Http\Controllers\Auth\OAuthController;
@@ -91,7 +96,7 @@ Route::get('/auth/{provider}/callback', [OAuthController::class, 'handleProvider
     ->name('oauth.callback');
 ```
 
-### 3. Controller Implementation
+### 3. Implementação do Controller
 ```php
 <?php
 
@@ -112,7 +117,7 @@ class OAuthController extends Controller
      */
     public function redirectToProvider(string $provider): RedirectResponse
     {
-        if (! in_array($provider, ['google', 'microsoft'])) {
+        if (! in_array($provider, ['google', 'facebook'])) {
             abort(404, 'Provedor de autenticação não suportado.');
         }
 
@@ -124,7 +129,7 @@ class OAuthController extends Controller
      */
     public function handleProviderCallback(string $provider): RedirectResponse
     {
-        if (! in_array($provider, ['google', 'microsoft'])) {
+        if (! in_array($provider, ['google', 'facebook'])) {
             abort(404, 'Provedor de autenticação não suportado.');
         }
 
@@ -182,7 +187,7 @@ class OAuthController extends Controller
 }
 ```
 
-### 4. Mocking with Pest
+### 4. Mocking com Pest
 ```php
 <?php
 

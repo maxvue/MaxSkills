@@ -3,16 +3,16 @@ name: laravel-reverb-websockets-best-practices
 description: Use when configuring, optimizing, debugging, or deploying the Laravel Reverb WebSocket server, managing connections, setting up Supervisor processes, or tuning performance for real-time applications.
 ---
 
-# Laravel Reverb WebSockets Best Practices
+# Boas Práticas de WebSockets com Laravel Reverb
 
-## Goal
-Standardize the installation, configuration, performance tuning, and production deployment of the native Laravel Reverb WebSocket server for secure (WSS) and highly-scalable real-time operations.
+## Objetivo
+Padronizar a instalação, configuração, ajuste de performance e deploy em produção do servidor WebSocket nativo Laravel Reverb para operações em tempo real seguras (WSS) e altamente escaláveis.
 
-## Instructions
+## Instruções
 
-### 1. Environment Configuration (`.env`)
-Configure the WebSocket environment variables correctly for local development and production.
-Ensure the following variables are defined:
+### 1. Configuração de Ambiente (`.env`)
+Configure corretamente as variáveis de ambiente do WebSocket para desenvolvimento local e produção.
+Garanta que as seguintes variáveis estejam definidas:
 
 ```env
 # Reverb Server Bind Configuration (Internal)
@@ -31,10 +31,10 @@ VITE_REVERB_PORT="${REVERB_PORT}"
 VITE_REVERB_SCHEME="${REVERB_SCHEME}"
 ```
 
-### 2. Reverse Proxy Setup (Nginx)
-To secure the WebSocket connections using TLS (WSS), configure Nginx as a reverse proxy to terminate SSL and forward traffic to the Reverb server.
+### 2. Configuração de Reverse Proxy (Nginx)
+Para proteger as conexões WebSocket usando TLS (WSS), configure o Nginx como um reverse proxy para terminar o SSL e encaminhar o tráfego para o servidor Reverb.
 
-Add the following location block to the server configuration file:
+Adicione o seguinte bloco `location` ao arquivo de configuração do servidor:
 
 ```nginx
 location /app {
@@ -51,10 +51,10 @@ location /app {
 }
 ```
 
-### 3. Process Management (Supervisor)
-In production, the Reverb server process must run continuously. Configure Supervisor to monitor and automatically restart the Reverb command.
+### 3. Gerenciamento de Processos (Supervisor)
+Em produção, o processo do servidor Reverb deve rodar continuamente. Configure o Supervisor para monitorar e reiniciar automaticamente o comando do Reverb.
 
-Create a configuration file at `/etc/supervisor/conf.d/reverb.conf`:
+Crie um arquivo de configuração em `/etc/supervisor/conf.d/reverb.conf`:
 
 ```ini
 [program:reverb]
@@ -70,26 +70,26 @@ stopwaitsecs=60
 minfds=10000
 ```
 
-After creating the file, reload Supervisor:
+Após criar o arquivo, recarregue o Supervisor:
 ```bash
 sudo supervisorctl reread
 sudo supervisorctl update
 sudo supervisorctl start reverb:*
 ```
 
-### 4. Tuning Server Limits (Linux OS)
-WebSocket connections are persistent and consume file descriptors. Under high traffic, default OS limits might restrict performance.
+### 4. Ajuste de Limites do Servidor (SO Linux)
+Conexões WebSocket são persistentes e consomem file descriptors. Sob alto tráfego, os limites padrão do SO podem restringir a performance.
 
-- **Check current limits:** `ulimit -n`
-- **Modify Limits:** Update `/etc/security/limits.conf` to increase limits for the user running Reverb:
+- **Verifique os limites atuais:** `ulimit -n`
+- **Modifique os Limites:** Atualize `/etc/security/limits.conf` para aumentar os limites do usuário que executa o Reverb:
   ```text
   johnattas soft nofile 65536
   johnattas hard nofile 65536
   ```
-- **Systemd Service Limit:** If running Reverb via systemd directly, add `LimitNOFILE=65536` in the service file.
+- **Limite do Serviço Systemd:** Se estiver rodando o Reverb via systemd diretamente, adicione `LimitNOFILE=65536` no arquivo do serviço.
 
-### 5. Scaling and Redis
-For horizontal scaling across multiple servers, enable Redis integration in `config/reverb.php`:
+### 5. Escalonamento e Redis
+Para escalonamento horizontal em múltiplos servidores, habilite a integração com Redis em `config/reverb.php`:
 
 ```php
 'scaling' => [
@@ -103,16 +103,16 @@ For horizontal scaling across multiple servers, enable Redis integration in `con
     ],
 ]
 ```
-Ensure `REVERB_SCALING_ENABLED=true` is set in production `.env` and that Redis is configured as the cache driver.
+Garanta que `REVERB_SCALING_ENABLED=true` esteja definido no `.env` de produção e que o Redis esteja configurado como driver de cache.
 
-### 6. Debugging and Troubleshooting
-- **Verify Port Binding:** `netstat -plnt | grep 9000` or `ss -tulpn | grep 9000`
-- **Check Server Logs:** Inspect `/home/johnattas/GitHub/engeapp/storage/logs/reverb.log` or run `tail -f storage/logs/laravel.log`.
-- **Debugging Handshake Failures:** If connections fail to establish, check browser logs using `browser-logs` or inspect the Network tab for HTTP upgrade failures (403 Forbidden indicates invalid CORS/Origin settings, 502/504 Bad Gateway indicates Nginx configuration or Reverb process issues).
+### 6. Depuração e Troubleshooting
+- **Verifique o Binding da Porta:** `netstat -plnt | grep 9000` ou `ss -tulpn | grep 9000`
+- **Verifique os Logs do Servidor:** Inspecione `/home/johnattas/GitHub/engeapp/storage/logs/reverb.log` ou execute `tail -f storage/logs/laravel.log`.
+- **Depurando Falhas de Handshake:** Se as conexões não se estabelecerem, verifique os logs do navegador usando `browser-logs` ou inspecione a aba Network em busca de falhas de HTTP upgrade (403 Forbidden indica configurações inválidas de CORS/Origin, 502/504 Bad Gateway indica problemas na configuração do Nginx ou no processo do Reverb).
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Do not expose raw Reverb ports** (e.g. 9000) directly to the public internet. Always route traffic through Nginx, Apache, or Caddy.
-- **Never run** `reverb:start` directly in production without a process manager (Supervisor/systemd).
-- **Avoid hardcoding configuration values** inside `config/reverb.php`; always resolve them using the `env()` helper.
-- **Do not ignore CORS configuration.** Ensure `allowed_origins` in `config/reverb.php` includes your production domains, avoiding wildcard `['*']` in highly secure environments if possible.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- **Não exponha portas brutas do Reverb** (ex.: 9000) diretamente à internet pública. Sempre roteie o tráfego através de Nginx, Apache ou Caddy.
+- **Nunca execute** `reverb:start` diretamente em produção sem um gerenciador de processos (Supervisor/systemd).
+- **Evite valores de configuração hardcoded** dentro de `config/reverb.php`; sempre resolva-os usando o helper `env()`.
+- **Não ignore a configuração de CORS.** Garanta que `allowed_origins` em `config/reverb.php` inclua seus domínios de produção, evitando o coringa `['*']` em ambientes altamente seguros sempre que possível.

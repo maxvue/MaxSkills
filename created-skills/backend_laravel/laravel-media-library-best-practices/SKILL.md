@@ -3,19 +3,19 @@ name: laravel-media-library-best-practices
 description: Use when defining, implementing, reviewing, or debugging file uploads and media attachments using Spatie Laravel Media Library. Triggers on model implementing HasMedia, using InteractsWithMedia trait, registering media collections, defining media conversions, uploading files from HTTP requests, and retrieving media URLs.
 ---
 
-# Spatie Laravel Media Library Best Practices
+# Boas Práticas do Spatie Laravel Media Library
 
-## Goal
-Establish clean, performant, and secure standards for managing file uploads and media attachments via Spatie Laravel Media Library in the Engeapp ecosystem.
+## Objetivo
+Estabelecer padrões limpos, performáticos e seguros para gerenciar uploads de arquivos e anexos de mídia via Spatie Laravel Media Library no ecossistema Engeapp.
 
-## Instructions
+## Instruções
 
-### 1. Model Configuration
-When implementing media capabilities on a model:
-- Implement `Spatie\MediaLibrary\HasMedia` interface.
-- Use `Spatie\MediaLibrary\InteractsWithMedia` trait.
-- Always add return type declarations to all media relationships or helper methods.
-- Document any media collections in model docstrings (or in a separate phpDoc file as per project standards).
+### 1. Configuração do Model
+Ao implementar capacidades de mídia em um model:
+- Implemente a interface `Spatie\MediaLibrary\HasMedia`.
+- Use a trait `Spatie\MediaLibrary\InteractsWithMedia`.
+- Sempre adicione declarações de tipo de retorno a todos os relacionamentos de mídia ou métodos auxiliares.
+- Documente qualquer coleção de mídia nos docstrings do model (ou em um arquivo phpDoc separado, conforme os padrões do projeto).
 
 ```php
 namespace App\Models;
@@ -47,23 +47,23 @@ class ProjectContract extends Model implements HasMedia
 }
 ```
 
-### 2. Media Collections Setup
-Define your collections inside `registerMediaCollections()` to enforce constraints:
-- Use `singleFile()` for collections that should only hold one file (e.g., user avatars, main contract files). Old files will be automatically replaced.
-- Enforce mime types at the collection level using `acceptsMimeTypes(['image/jpeg', 'image/png', 'application/pdf'])`.
-- Implement disk selection if needed via `useDisk('s3')` or `useDisk('public')`.
+### 2. Configuração de Coleções de Mídia
+Defina suas coleções dentro de `registerMediaCollections()` para impor restrições:
+- Use `singleFile()` para coleções que devem conter apenas um arquivo (por exemplo, avatares de usuário, arquivos principais de contrato). Os arquivos antigos serão substituídos automaticamente.
+- Imponha os mime types no nível da coleção usando `acceptsMimeTypes(['image/jpeg', 'image/png', 'application/pdf'])`.
+- Implemente a seleção de disco, se necessário, via `useDisk('s3')` ou `useDisk('public')`.
 
-### 3. Asynchronous Image Conversions
-Image processing is resource-intensive. Never run it synchronously on HTTP requests:
-- Always chain `queued()` to `addMediaConversion()` so that they run via background queue jobs rather than blocking the user's request.
-- Define fallback images or default placeholders if conversions are still processing.
+### 3. Conversões de Imagem Assíncronas
+O processamento de imagens é intensivo em recursos. Nunca o execute de forma síncrona em requisições HTTP:
+- Sempre encadeie `queued()` em `addMediaConversion()` para que rodem via jobs de fila em background em vez de bloquear a requisição do usuário.
+- Defina imagens de fallback ou placeholders padrão caso as conversões ainda estejam sendo processadas.
 
-### 4. Controller & Request Validation
-Never trust upload requests without explicit validation. Always validate using Laravel Form Requests.
-- Validate file existence, max size (e.g., `max:10240` for 10MB), and mime types.
-- Inside the Controller, securely attach the file using the media library api.
+### 4. Validação no Controller e na Request
+Nunca confie em requisições de upload sem validação explícita. Sempre valide usando Form Requests do Laravel.
+- Valide a existência do arquivo, o tamanho máximo (por exemplo, `max:10240` para 10MB) e os mime types.
+- Dentro do Controller, anexe o arquivo de forma segura usando a api do media library.
 
-Example Controller implementation:
+Exemplo de implementação de Controller:
 ```php
 namespace App\Http\Controllers;
 
@@ -86,29 +86,29 @@ class ProjectContractController extends Controller
 }
 ```
 
-### 5. Preventing N+1 Query Problems
-Loading media for lists of models can trigger a database query per record to fetch the media.
-- Always eager load media using `with('media')` when querying multiple models.
-- Eager load conversions if you are displaying them immediately.
+### 5. Prevenção de Problemas de Query N+1
+Carregar mídia para listas de models pode disparar uma query no banco por registro para buscar a mídia.
+- Sempre faça eager load da mídia usando `with('media')` ao consultar múltiplos models.
+- Faça eager load das conversões se você for exibi-las imediatamente.
 
 ```php
-// Bad: Triggers N+1 queries for media
+// Ruim: Dispara N+1 queries para a mídia
 $contracts = ProjectContract::all();
 foreach ($contracts as $contract) {
     echo $contract->getFirstMediaUrl('contracts');
 }
 
-// Good: Preloads media database records
+// Bom: Pré-carrega os registros de mídia do banco
 $contracts = ProjectContract::with('media')->get();
 ```
 
-### 6. Cleanup and Orphans
-- Keep your storage clean. When deleting models, ensure their media is cleaned up (this is handled automatically by Spatie's model delete events, but ensure soft deletes are managed properly).
-- Use `php artisan media-library:clean` to remove orphaned files from storage.
+### 6. Limpeza e Órfãos
+- Mantenha seu storage limpo. Ao excluir models, garanta que a mídia deles seja removida (isso é tratado automaticamente pelos eventos de delete do model do Spatie, mas garanta que os soft deletes sejam gerenciados corretamente).
+- Use `php artisan media-library:clean` para remover arquivos órfãos do storage.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Do not** run image conversions synchronously. Always use `queued()` for any conversion.
-- **Do not** upload files without validating them in a Form Request.
-- **Do not** use raw database queries to fetch media URLs. Always use Spatie's API (`getFirstMediaUrl()` or helper methods).
-- **Do not** forget to eager load `media` relation when listing multiple entities that showcase attachments.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- **Não** execute conversões de imagem de forma síncrona. Sempre use `queued()` para qualquer conversão.
+- **Não** faça upload de arquivos sem validá-los em uma Form Request.
+- **Não** use queries brutas no banco para buscar URLs de mídia. Sempre use a API do Spatie (`getFirstMediaUrl()` ou métodos auxiliares).
+- **Não** esqueça de fazer eager load da relação `media` ao listar múltiplas entidades que exibem anexos.

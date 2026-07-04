@@ -4,7 +4,9 @@ description: Use when implementing, configuring, customizing, or debugging inter
 ---
 
 ## Objetivo
-Estabelecer diretrizes consistentes e padrões arquiteturais para a implementação, gerenciamento e manutenção de internacionalização (i18n) e localização em aplicações Vue 3 no ecossistema Engeapp.
+Estabelecer diretrizes consistentes e padrões arquiteturais para a implementação, gerenciamento e manutenção de internacionalização (i18n) e localização em aplicações Vue 3 no ecossistema EngeApp (backend Laravel 13).
+
+> **Dependência não incluída:** o `vue-i18n` **não** consta hoje nas dependências do EngeApp. Instale-o explicitamente antes de aplicar esta skill (`npm i vue-i18n`) — os exemplos abaixo assumem que a lib já foi adicionada ao projeto.
 
 ## Instruções
 Ao implementar ou modificar configurações de múltiplos idiomas, siga as seguintes melhores práticas:
@@ -33,7 +35,7 @@ export function setI18nLanguage(locale: string) {
   // Persistimos o locale ativo apenas no cliente. Isso NAO faz os helpers de
   // @maxvue/max-use (apiGetRoute/apiPostRoute) enviarem Accept-Language — esse
   // mecanismo automatico nao existe no MaxUse. Para negociar o locale com o
-  // backend Adonis, registre o cabecalho explicitamente no init da app via
+  // backend Laravel, registre o cabecalho explicitamente no init da app via
   // setApiRequestConfig, pois so cabecalhos registrados por ali sao enviados:
   //   setApiRequestConfig({ headers: { 'Accept-Language': () => localStorage.getItem('locale') ?? 'pt-BR' } })
   localStorage.setItem('locale', locale);

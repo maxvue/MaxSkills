@@ -3,42 +3,42 @@ name: laravel-vuefinder-media-library-integration
 description: Use when integrating VueFinder file manager with Spatie MediaLibrary in Laravel/Vue 3 projects. Triggers on file upload, delete, rename, move, copy mutations, and database metadata synchronization.
 ---
 
-# Goal
-Ensure real-time synchronization between VueFinder file manager operations (upload, delete, rename, move, copy) and Spatie MediaLibrary database records, keeping the physical storage and the `media` database table perfectly consistent.
+# Objetivo
+Garantir a sincronização em tempo real entre as operações do gerenciador de arquivos VueFinder (upload, delete, rename, move, copy) e os registros no banco de dados do Spatie MediaLibrary, mantendo o armazenamento físico e a tabela `media` do banco de dados perfeitamente consistentes.
 
-# Instructions
-1. **Controller Operations & Action Handling**:
-   - Resolve the project directory and file manager adapters securely.
-   - Use `Ozdemir\VueFinder\VueFinderBuilder` and `VueFinderActionFactory` to handle request execution.
-   - Dispatch synchronization hooks immediately after execution, matching specific actions (`upload`, `delete`, `rename`, `move`, `copy`).
+# Instruções
+1. **Operações do Controller & Tratamento de Ações**:
+   - Resolva o diretório do projeto e os adapters do gerenciador de arquivos de forma segura.
+   - Use `Ozdemir\VueFinder\VueFinderBuilder` e `VueFinderActionFactory` para tratar a execução da request.
+   - Despache os hooks de sincronização imediatamente após a execução, correspondendo às ações específicas (`upload`, `delete`, `rename`, `move`, `copy`).
 
-2. **File Upload Synchronization (`onUpload`)**:
-   - Ensure you prevent duplicates by checking for existing media records with the same file name and `legacy_folder` property.
-   - Create a Spatie Media record directly on the target model utilizing `Media::create()` with essential fields (`uuid`, `collection_name`, `name`, `file_name`, `mime_type`, `disk`, `size`).
-   - Store the path to the physical directory in `custom_properties->legacy_folder`.
-   - Dispatch background jobs or artisan commands to regenerate thumbnails or process document content (e.g. `ProcessMediaDocumentReaderJob`).
+2. **Sincronização de Upload de Arquivo (`onUpload`)**:
+   - Garanta a prevenção de duplicatas verificando registros de media existentes com o mesmo nome de arquivo e a mesma propriedade `legacy_folder`.
+   - Crie um registro de Media do Spatie diretamente no model alvo utilizando `Media::create()` com os campos essenciais (`uuid`, `collection_name`, `name`, `file_name`, `mime_type`, `disk`, `size`).
+   - Armazene o caminho do diretório físico em `custom_properties->legacy_folder`.
+   - Despache jobs em background ou comandos artisan para regenerar thumbnails ou processar o conteúdo do documento (ex.: `ProcessMediaDocumentReaderJob`).
 
-3. **File Deletion Synchronization (`onDelete`)**:
-   - If a directory is deleted, recursively delete all matching media items whose `legacy_folder` matches the deleted folder path prefix.
-   - Use direct database query execution (`toBase()->delete()`) to prevent dispatching Spatie model deletion events, since VueFinder has already physically deleted the files.
+3. **Sincronização de Exclusão de Arquivo (`onDelete`)**:
+   - Se um diretório for excluído, exclua recursivamente todos os itens de media correspondentes cujo `legacy_folder` corresponda ao prefixo do caminho da pasta excluída.
+   - Use execução direta de query no banco de dados (`toBase()->delete()`) para prevenir o disparo de eventos de exclusão de model do Spatie, já que o VueFinder já excluiu fisicamente os arquivos.
 
-4. **File Rename (`onRename`)**:
-   - Retrieve the media record matching the old name and legacy folder.
-   - Update both `$media->file_name` and `$media->name` using `saveQuietly()` to prevent triggering observers.
+4. **Renomear Arquivo (`onRename`)**:
+   - Recupere o registro de media correspondente ao nome antigo e à legacy folder.
+   - Atualize tanto `$media->file_name` quanto `$media->name` usando `saveQuietly()` para prevenir o disparo de observers.
 
-5. **File Relocation / Move (`onMove`)**:
-   - Update the `legacy_folder` custom property of the moved media record to point to the destination folder using `saveQuietly()`.
+5. **Relocação / Mover Arquivo (`onMove`)**:
+   - Atualize a custom property `legacy_folder` do registro de media movido para apontar para a pasta de destino usando `saveQuietly()`.
 
-6. **File Copy (`onCopy`)**:
-   - Replicate the media record inside the destination folder, mapping properties and avoiding duplicates in the target location.
+6. **Copiar Arquivo (`onCopy`)**:
+   - Replique o registro de media dentro da pasta de destino, mapeando as propriedades e evitando duplicatas no local de destino.
 
-7. **Metadata Enrichment (`enrichWithSpatieMetadata`)**:
-   - Enrich VueFinder's index or search JSON responses with Spatie Media library attributes (`media_id`, `data_ai`, `status_ai_process`, `thumbnail`, `document_type`, `tags`, etc.).
+7. **Enriquecimento de Metadados (`enrichWithSpatieMetadata`)**:
+   - Enriqueça as respostas JSON de índice ou busca do VueFinder com os atributos da media library do Spatie (`media_id`, `data_ai`, `status_ai_process`, `thumbnail`, `document_type`, `tags`, etc.).
 
-# Constraints
-- NEVER store temporary files outside the configured storage disks.
-- NEVER trigger default Eloquent model events or MediaLibrary observers during synchronization (use `saveQuietly()` or `toBase()` queries) to avoid circular triggers.
-- DO NOT duplicate media records for identical files in the same virtual folder.
+# Restrições
+- NUNCA armazene arquivos temporários fora dos discos de armazenamento configurados.
+- NUNCA dispare os eventos padrão de model do Eloquent ou os observers do MediaLibrary durante a sincronização (use queries `saveQuietly()` ou `toBase()`) para evitar disparos circulares.
+- NÃO duplique registros de media para arquivos idênticos na mesma pasta virtual.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.

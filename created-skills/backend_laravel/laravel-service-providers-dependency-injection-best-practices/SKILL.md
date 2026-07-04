@@ -3,61 +3,61 @@ name: laravel-service-providers-dependency-injection-best-practices
 description: Use when creating, modifying, or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Service Container, resolving dependencies via dependency injection, or ensuring memory safety and Octane compatibility in singleton bindings.
 ---
 
-# Goal
+# Objetivo
 
-Provide clear, robust guidelines and implementation patterns for registering services via Service Providers and resolving them using dependency injection in Laravel, specifically ensuring compatibility with high-performance stateless environments like Laravel Octane.
+Fornecer diretrizes claras e robustas e padrões de implementação para registrar serviços via Service Providers e resolvê-los usando injeção de dependência no Laravel, garantindo especificamente compatibilidade com ambientes stateless de alta performance como o Laravel Octane.
 
-# Instructions
+# Instruções
 
-### 1. Service Provider Creation and Registration
-- Use Artisan to generate new Service Providers:
+### 1. Criação e Registro de Service Provider
+- Use o Artisan para gerar novos Service Providers:
   ```bash
   php artisan make:provider PaymentServiceProvider --no-interaction
   ```
-- Ensure the new provider is registered in the `bootstrap/providers.php` file (the standard provider registration file for Laravel 11+).
+- Garanta que o novo provider esteja registrado no arquivo `bootstrap/providers.php` (o arquivo padrão de registro de providers do Laravel 11+).
 
-### 2. Choosing the Correct Binding Lifetime
-Choose the appropriate container registration method based on the lifecycle of the object:
-- **`bind`**: Use when a new, distinct instance of the service is required every time it is resolved.
-- **`singleton`**: Use when a single shared instance should be reused across the entire application lifecycle. 
-  - *Caution*: In Laravel Octane, a singleton persists across multiple user requests.
-- **`scoped`**: Use when a single instance is required per request/cycle, but should be discarded and rebuilt on the next request. This is the safest default for services that carry request-specific data.
+### 2. Escolhendo o Tempo de Vida Correto do Binding
+Escolha o método apropriado de registro no container com base no ciclo de vida do objeto:
+- **`bind`**: Use quando uma nova instância distinta do serviço é necessária toda vez que ele é resolvido.
+- **`singleton`**: Use quando uma única instância compartilhada deve ser reutilizada durante todo o ciclo de vida da aplicação.
+  - *Cuidado*: No Laravel Octane, um singleton persiste entre múltiplas requisições de usuário.
+- **`scoped`**: Use quando uma única instância é necessária por requisição/ciclo, mas deve ser descartada e reconstruída na próxima requisição. Este é o padrão mais seguro para serviços que carregam dados específicos da requisição.
 
-### 3. Laravel Octane Memory Safety & Stateless Bindings
-To prevent memory leaks and state pollution across requests in Octane:
-- **Never** inject the `Application` container, the `Request`, the `Session`, or the `Config` repository directly into a singleton's constructor.
-- **Always** resolve request-specific instances lazily using a closure inside the singleton binding, or bind the service as `scoped`:
+### 3. Segurança de Memória no Octane e Bindings Stateless
+Para prevenir vazamentos de memória e poluição de estado entre requisições no Octane:
+- **Nunca** injete o container `Application`, o `Request`, a `Session`, ou o repositório de `Config` diretamente no construtor de um singleton.
+- **Sempre** resolva instâncias específicas de requisição de forma lazy usando uma closure dentro do binding do singleton, ou registre o serviço como `scoped`:
   ```php
-  // Bad: Resolves the request once at application boot and keeps it forever
+  // Ruim: resolve o request uma vez no boot da aplicação e o mantém para sempre
   $this->app->singleton(MyService::class, function ($app) {
       return new MyService($app['request']);
   });
 
-  // Good: Resolves the current request dynamically when the service is consumed
+  // Bom: resolve o request atual dinamicamente quando o serviço é consumido
   $this->app->singleton(MyService::class, function () {
       return new MyService(fn () => request());
   });
 
-  // Good: Registered as scoped, so a new instance is created for each new request
+  // Bom: registrado como scoped, então uma nova instância é criada para cada nova requisição
   $this->app->scoped(MyService::class, function ($app) {
       return new MyService($app['request']);
   });
   ```
-- Do not store state or append data to static properties on services registered as singletons.
+- Não armazene estado nem acrescente dados a propriedades estáticas em serviços registrados como singletons.
 
-### 4. Dependency Injection & PHP 8 Constructor Promotion
-- Always use **Constructor Property Promotion** for clean, readable dependency injection:
+### 4. Injeção de Dependência e Promoção de Construtor do PHP 8
+- Sempre use **Constructor Property Promotion** para injeção de dependência limpa e legível:
   ```php
   public function __construct(
       protected PaymentGateway $gateway,
       protected LoggerInterface $logger,
   ) {}
   ```
-- Ensure all parameters have explicit type declarations and return types.
-- Avoid leaving empty, zero-parameter constructors.
+- Garanta que todos os parâmetros tenham declarações de tipo explícitas e tipos de retorno.
+- Evite deixar construtores vazios, sem parâmetros.
 
-### 5. Writing Container Resolution Tests
-Verify that your bindings resolve correctly from the Service Container using Pest:
+### 5. Escrevendo Testes de Resolução do Container
+Verifique que seus bindings resolvem corretamente a partir do Service Container usando Pest:
 ```php
 use App\Services\PaymentGateway;
 use App\Contracts\PaymentGatewayContract;
@@ -69,9 +69,9 @@ test('it resolves payment gateway contract to payment gateway service', function
 });
 ```
 
-# Examples
+# Exemplos
 
-### Example: A Safe PaymentServiceProvider
+### Exemplo: Um PaymentServiceProvider Seguro
 ```php
 <?php
 
@@ -89,12 +89,12 @@ class PaymentServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Use scoped to ensure that each request gets its own instance,
-        // preventing cross-request token exposure.
+        // Usa scoped para garantir que cada requisição receba sua própria instância,
+        // prevenindo a exposição de token entre requisições.
         $this->app->scoped(PaymentGatewayContract::class, function (Application $app) {
             return new AutentiquePaymentGateway(
                 token: (string) config('services.autentique.token'),
-                // Lazy resolution wrapper for request info if needed
+                // Wrapper de resolução lazy para info da requisição, se necessário
                 requestIp: fn () => request()->ip()
             );
         });
@@ -102,7 +102,7 @@ class PaymentServiceProvider extends ServiceProvider
 }
 ```
 
-### Example: Consuming the Registered Service
+### Exemplo: Consumindo o Serviço Registrado
 ```php
 <?php
 
@@ -113,7 +113,7 @@ use Illuminate\Http\JsonResponse;
 
 class PaymentController extends Controller
 {
-    // PHP 8 Constructor Property Promotion
+    // Constructor Property Promotion do PHP 8
     public function __construct(
         protected PaymentGatewayContract $paymentGateway
     ) {}
@@ -130,12 +130,12 @@ class PaymentController extends Controller
 }
 ```
 
-# Constraints
+# Restrições
 
-- Do **NOT** use `singleton` for any service that processes or holds request-specific data unless dependencies are resolved using closures.
-- Do **NOT** mutate static properties on classes inside the container.
-- Do **NOT** manually instantiate services using `new` inside Controllers or Models if they should be managed and injected by the container.
-- Do **NOT** bypass constructor injection in favor of the `app()` helper inside service classes (prefer proper constructor DI).
+- **NÃO** use `singleton` para qualquer serviço que processe ou mantenha dados específicos de requisição, a menos que as dependências sejam resolvidas usando closures.
+- **NÃO** mute propriedades estáticas em classes dentro do container.
+- **NÃO** instancie serviços manualmente usando `new` dentro de Controllers ou Models se eles devem ser gerenciados e injetados pelo container.
+- **NÃO** contorne a injeção via construtor em favor do helper `app()` dentro de classes de serviço (prefira DI adequada via construtor).
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.

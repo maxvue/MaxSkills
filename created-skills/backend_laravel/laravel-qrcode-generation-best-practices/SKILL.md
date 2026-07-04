@@ -3,15 +3,15 @@ name: laravel-qrcode-generation-best-practices
 description: Use when generating, customizing, rendering, or testing QR Codes in the Laravel backend using endroid/qr-code. Triggers on QR Code generation, SVG/PNG outputs, base64 encoding for APIs/Blade, and adding logos or labels to QR Codes.
 ---
 
-# Laravel QR Code Generation Best Practices
+# Boas Práticas de Geração de QR Code no Laravel
 
-## Goal
-Establish clean standards and guidelines for generating, customizing, rendering, and testing QR Codes using the `endroid/qr-code` package (v6.0) inside the Engeapp Laravel backend.
+## Objetivo
+Estabelecer padrões e diretrizes limpos para gerar, customizar, renderizar e testar QR Codes usando o pacote `endroid/qr-code` (v6.0) dentro do backend Laravel do Engeapp.
 
-## Instructions
+## Instruções
 
-### 1. Basic Generation using the Builder
-Always use the `Builder` constructor with named arguments to construct your QR Code. It internally handles instantiation of the QR Code, Logo, and Label components.
+### 1. Geração Básica usando o Builder
+Sempre use o construtor `Builder` com argumentos nomeados para construir seu QR Code. Ele lida internamente com a instanciação dos componentes QR Code, Logo e Label.
 
 ```php
 use Endroid\QrCode\Builder\Builder;
@@ -30,32 +30,32 @@ $result = (new Builder(
 ))->build();
 ```
 
-### 2. Output & Rendering Options
-Render the generated QR Code based on the delivery requirements (API response, email, or Blade view):
+### 2. Opções de Saída e Renderização
+Renderize o QR Code gerado com base nos requisitos de entrega (resposta de API, e-mail ou view Blade):
 
-* **Base64 Data URI** (Best for embedding directly into HTML `<img>` tags or returning in API payloads):
+* **Data URI em Base64** (Melhor para incorporar diretamente em tags `<img>` do HTML ou retornar em payloads de API):
   ```php
   // Obtém a URI de dados em Base64
   $dataUri = $result->getDataUri(); // Retorna: "data:image/png;base64,..."
   ```
-* **Raw Binary String & Mime Type** (Best for direct file downloads or streaming HTTP responses):
+* **String Binária Crua e Mime Type** (Melhor para downloads diretos de arquivo ou streaming de respostas HTTP):
   ```php
   // Obtém a string binária e o MimeType
   $binary = $result->getString();
   $mimeType = $result->getMimeType(); // Retorna: "image/png"
   ```
-* **File Persistence** (Best for disk storage or caching files):
+* **Persistência em Arquivo** (Melhor para armazenamento em disco ou cache de arquivos):
   ```php
   // Salva o arquivo de imagem gerado no storage
   $result->saveToFile(storage_path('app/public/qrcodes/pix-payment.png'));
   ```
 
-### 3. Logo and Label Customizations
-When adding branding elements or labels to QR Codes, follow these standards:
+### 3. Customizações de Logo e Label
+Ao adicionar elementos de branding ou labels aos QR Codes, siga estes padrões:
 
-* **Logo Placement**: You must set `ErrorCorrectionLevel::High` to ensure the QR code remains readable when covered by the logo.
-* **Punchout**: Optionally enable `logoPunchoutBackground: true` to clear the modules underneath the logo.
-* **Labeling**: Configure alignment and fonts carefully.
+* **Posicionamento do Logo**: Você deve definir `ErrorCorrectionLevel::High` para garantir que o QR code permaneça legível quando coberto pelo logo.
+* **Punchout**: Opcionalmente, habilite `logoPunchoutBackground: true` para limpar os módulos por baixo do logo.
+* **Rotulagem**: Configure o alinhamento e as fontes com cuidado.
 
 ```php
 use Endroid\QrCode\Builder\Builder;
@@ -81,8 +81,8 @@ $result = (new Builder(
 ))->build();
 ```
 
-### 4. Caching & Performance
-QR Code generation is CPU intensive. For static data (e.g. static payment links, customer profile links), cache the Base64 representation or store the generated files directly.
+### 4. Cache e Performance
+A geração de QR Code é intensiva em CPU. Para dados estáticos (ex: links de pagamento estáticos, links de perfil de cliente), cacheie a representação Base64 ou armazene os arquivos gerados diretamente.
 
 ```php
 use Illuminate\Support\Facades\Cache;
@@ -97,8 +97,8 @@ $qrCodeBase64 = Cache::remember("qrcode:payment:{$paymentId}", now()->addDay(), 
 });
 ```
 
-### 5. Writing Tests with Pest PHP
-Ensure that any service or controller generating QR Codes is properly covered by integration/feature tests. Avoid testing third-party logic; instead, assert the structure, formats, and integration points.
+### 5. Escrevendo Testes com Pest PHP
+Garanta que qualquer serviço ou controller que gere QR Codes esteja devidamente coberto por testes de integração/feature. Evite testar a lógica de terceiros; em vez disso, verifique a estrutura, os formatos e os pontos de integração.
 
 ```php
 use Endroid\QrCode\Builder\Builder;
@@ -121,10 +121,10 @@ test('deve gerar um qr code pix valido no formato png', function () {
 });
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-* Do NOT use the legacy v5 `Builder::create()` static factory (removed in v6). Always construct the QR Code via the `Builder` constructor with named arguments (`new Builder(writer: ..., data: ..., ...)`) and call `->build()`.
-* Do NOT use low or medium error correction levels (`ErrorCorrectionLevel::Low`, `ErrorCorrectionLevel::Medium`) when embedding a logo in the QR code. You must use `ErrorCorrectionLevel::High`.
-* Do NOT perform QR Code generation dynamically on every request without caching if the content is static.
-* Do NOT hardcode file paths; always resolve path directories using Laravel helper functions (e.g. `storage_path()`, `public_path()`).
-* Do NOT write PHPUnit-style test cases. Follow the project's Pest PHP testing conventions, writing assertions with the functional `expect()` API.
+## Restrições
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
+* NÃO use a factory estática legada `Builder::create()` da v5 (removida na v6). Sempre construa o QR Code através do construtor `Builder` com argumentos nomeados (`new Builder(writer: ..., data: ..., ...)`) e chame `->build()`.
+* NÃO use níveis de correção de erro baixos ou médios (`ErrorCorrectionLevel::Low`, `ErrorCorrectionLevel::Medium`) ao incorporar um logo no QR code. Você deve usar `ErrorCorrectionLevel::High`.
+* NÃO faça geração de QR Code dinamicamente a cada requisição sem cache, se o conteúdo for estático.
+* NÃO faça hardcode de caminhos de arquivo; sempre resolva os diretórios de caminho usando funções helper do Laravel (ex: `storage_path()`, `public_path()`).
+* NÃO escreva casos de teste no estilo PHPUnit. Siga as convenções de teste Pest PHP do projeto, escrevendo asserções com a API funcional `expect()`.

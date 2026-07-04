@@ -1,6 +1,7 @@
 # CRIAÇÃO OU ATUALIZAÇÃO DE SKILLS PARA A IDE GOOGLE ANTIGRAVITY 2.0
 
 ## INSTRUÇÕES GERAIS SOBRE A CRIAÇÃO DE SKILLS
+0. **Idioma de Conversação Agente↔Humano (regra permanente, sem exceção):** Independentemente do idioma em que o *conteúdo/corpo* da skill é escrito (Inglês em `created-skills/`, Português em `created-skills-pt-br/`), toda skill DEVE declarar em sua seção `## Constraints`/`## Restrições` que o idioma padrão de conversação entre o Agente e o usuário humano é **sempre Português (pt-BR)**, sem exceção. Essa regra é sobre como o agente FALA com o humano ao usar a skill — não sobre o idioma de autoria do arquivo. Toda skill nova ou atualizada por este workflow deve incluir a bullet correspondente (ver Fase 3.1a).
 1. **Idioma Principal e Localização:** Você deve criar ou melhorar as skills obrigatoriamente dentro da subpasta de categoria apropriada (`backend-node/`, `front-end-vue/` ou `general/` para skills transversais) em `created-skills/categoria/nome-da-skill/SKILL.md` utilizando o idioma **Inglês**. *(A categoria `backend-laravel/` foi descontinuada em 2026-06-25 — o stack canônico é AdonisJS + Vue.)*
 2. **Cópia Localizada:** Uma cópia idêntica em estrutura e conteúdo da skill criada ou atualizada deve ser gerada na subpasta correspondente de `created-skills-pt-br/categoria/nome-da-skill/SKILL.md` no idioma **Português Brasileiro**.
 
@@ -30,6 +31,10 @@
      - Pasta `created-skills/` (**EN, original/canônica**): `## Goal`, `## Instructions`, `## Constraints`.
      - Pasta `created-skills-pt-br/` (**PT, espelho traduzido**): `## Objetivo`, `## Instruções`, `## Restrições`.
    - **Atenção:** apenas o corpo e os cabeçalhos das seções são traduzidos no espelho PT. O campo `description` (wake word) permanece **idêntico e em Inglês** nas duas versões (ver Fase 3.2).
+
+1a. **Regra obrigatória de idioma de conversação (Constraints/Restrições):** A seção `## Constraints` (EN) ou `## Restrições` (PT) DEVE conter, sempre como a primeira bullet, a regra de idioma de conversação Agente↔Humano. Use a redação correspondente ao idioma da pasta:
+   - `created-skills/` (EN): `- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.`
+   - `created-skills-pt-br/` (PT): `- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.`
 
 2. **Qualidade da Wake Word (description):** O campo `description` no frontmatter é o campo **MAIS IMPORTANTE** da skill. Ele funciona como gatilho semântico para o roteador do agente decidir quando carregar a skill. Siga estas diretrizes:
 
@@ -71,6 +76,7 @@ Antes de finalizar, execute esta checklist de validação obrigatória:
 - [ ] O arquivo `SKILL.md` possui **YAML Frontmatter** válido com `name` e `description`?
 - [ ] A `description` (wake word) segue as regras de qualidade definidas na Fase 3?
 - [ ] O corpo contém as seções obrigatórias em nível `##` e no idioma da pasta? (EN: `Goal`/`Instructions`/`Constraints`; PT: `Objetivo`/`Instruções`/`Restrições`)
+- [ ] A seção `Constraints`/`Restrições` contém, como primeira bullet, a regra de idioma de conversação Agente↔Humano = Português (pt-BR), sempre, sem exceção (Fase 3.1a)?
 - [ ] A `description` (wake word) está em **Inglês e idêntica** entre a versão EN e a cópia PT?
 - [ ] Os blocos de código (```) estão todos **fechados** (nº par de cercas)?
 - [ ] Se há referências a arquivos auxiliares, os **caminhos relativos** estão corretos?

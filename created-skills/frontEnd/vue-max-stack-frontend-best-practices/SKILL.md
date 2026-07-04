@@ -1,11 +1,11 @@
 ---
 name: vue-max-stack-frontend-best-practices
 description: >-
-  Use when developing the Vue 3 front-end of the Maxdmin project (AdonisJS backend) that uses
+  Use when developing the Vue 3 front-end of the EngeApp project (Laravel 13 backend) that uses
   Vue Router, @maxvue/max-components-ui (MaxComponentsUi), @maxvue/max-use (MaxUse) and
   @maxvue/max-pinia (MaxPinia). Triggers when creating or editing
   components, pages, layouts, Pinia stores, composables, routes or styles; building forms, tables,
-  modals, grids; integrating with the API (axios + MaxPinia stores, /api string paths — no Ziggy/Inertia); or deciding SFC, UnoCSS and SCSS
+  modals, grids; integrating with the API (axios + MaxPinia stores, /api string paths — API calls do not use Ziggy `route()`); or deciding SFC, UnoCSS and SCSS
   conventions. Fires whenever you see Max* components (MaxButton, MaxInputText, MaxModal, MaxTable,
   MaxGrid), `@maxvue/*` imports, `script setup lang=ts` blocks, `defineStore`, `useXxxStore`, or
   UnoCSS classes like `s100`/`flex`, even if the user does not explicitly mention "Max" or "Vue".
@@ -15,13 +15,13 @@ description: >-
   `useCachedApi`, `useRefCachedApi`).
 ---
 
-# Front-end Vue do Ecossistema Max (Maxdmin — alvo da migração do EngeApp)
+# Front-end Vue do Ecossistema Max (EngeApp — Laravel 13)
 
 ## Objetivo
 
-Produzir código front-end consistente, idiomático e alinhado para o projeto **Maxdmin** (backend **AdonisJS v6**), o alvo da migração do EngeApp (Laravel → Node/Adonis). O EngeApp Laravel é apenas a **origem** da migração — o foco e as recomendações desta skill são o stack-alvo. Stack de UI: **Vue 3 (Composition API) + Vue Router + UnoCSS/SCSS** sobre as bibliotecas locais **MaxComponentsUi**, **MaxUse** e **MaxPinia**.
+Produzir código front-end consistente, idiomático e alinhado para o projeto **EngeApp** (backend **Laravel 13** / PHP 8.4 / MySQL). Stack de UI: **Vue 3 (Composition API) + Vue Router + UnoCSS/SCSS** sobre as bibliotecas locais **MaxComponentsUi**, **MaxUse** e **MaxPinia**.
 
-Esta skill é autocontida: ela traz os padrões reais do stack-alvo Maxdmin/Adonis. Quando uma convenção tiver origem no EngeApp Laravel, ela é citada apenas como "na origem era X, no Adonis use Y".
+Esta skill é autocontida: ela traz os padrões reais do stack de front-end sobre o backend Laravel 13.
 
 ## Por que essas convenções importam
 
@@ -136,7 +136,7 @@ Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isVali
 - **Modais/popovers**: `MaxModal` (métodos `toggle()`/`show()`/`hide()` ou store `useModalStore`), `MaxPopover`, `MaxPopoverConfirm`, `MaxPopoverMenu`, `MaxIconConfirm`.
 - **Feedback**: `MaxLoader`, `MaxBadgeComponent`, `MaxToast` (montar uma vez na raiz). Disparo: `Toast.show({ severity: 'success' | 'error' | 'warn', title, message })` (importado de `@maxvue/max-components-ui`).
 - **Títulos/cards**: `MaxTitle1` (título principal — props `h1="Título"` e `h2="Subtítulo"`), `MaxTitle2` (título de seção), `MaxAuthCard`. **Nunca use headings nativos** (`<h1>`, `<h2>`, `<h3>`, `<h4>`) como título — use `MaxTitle1`/`MaxTitle2`.
-- **Ícones**: `MaxIcon` ou prop `icon` por string Iconify — MDI no Maxdmin (`icon="mdi:plus"`). Não importe SVGs avulsos quando há ícone no set.
+- **Ícones**: `MaxIcon` ou prop `icon` por string Iconify — MDI no EngeApp (`icon="mdi:plus"`). Não importe SVGs avulsos quando há ícone no set.
 
 > Se o componente que você imagina não está nesta lista, confira o catálogo do projeto (`resources/components-catalog.md` / `components-catalog`) **antes** de varrer o código-fonte da MaxComponentsUi — a lista acima já cobre os casos comuns e evita exploração desnecessária (e lenta).
 
@@ -225,17 +225,17 @@ export const useUserStore = defineStore('user', () => {
 - Use `meta.layout` (ou equivalente) para diferenciar áreas `guest` e `auth`. A raiz (`App.vue`) decide o layout/shell.
 - Rotas devem ser lazy quando fizer sentido para o bundle.
 
-## 6. Integração com o backend (AdonisJS — Maxdmin)
+## 6. Integração com o backend (Laravel 13)
 
 - **Todo GET ao backend passa por uma store `@maxvue/max-pinia`** (cache + auto-save). Não busque dados com `axios.get` direto em componentes/serviços — defina uma store cacheada (`isCached` + `options.get.route`).
-- Rotas de API são caminhos string com prefixo `/api`: `'/api/projects/${id}'`. **Não existe Ziggy nem `route()`** — Ziggy é nativo do Laravel e foi descontinuado. Os helpers `apiGetRoute`/`apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`/`apiUploadRoute` do `@maxvue/max-use` resolvem para esses caminhos `/api/...`; `goToRoute` para navegação SPA.
+- Rotas de API são caminhos string com prefixo `/api`: `'/api/projects/${id}'`. Os helpers `apiGetRoute`/`apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`/`apiUploadRoute` do `@maxvue/max-use` resolvem para esses caminhos `/api/...`; `goToRoute` para navegação SPA. O Ziggy (`ziggy-js`) existe no projeto Laravel, mas as chamadas de API dos stores usam esses caminhos string diretamente — não o helper `route()`.
 - O axios é configurado para sessão por cookie + XSRF (em `app.ts`):
   ```ts
   axios.defaults.withCredentials = true;
   axios.defaults.withXSRFToken = true;
   ```
 - Há interceptor global: `401` → redireciona para `/login`.
-- Não use Inertia — é um SPA Vue puro servido pelo AdonisJS (rota catch-all).
+- Não use Inertia — é um SPA Vue puro servido pelo Laravel (rota catch-all).
 
 ## 7. Estilização: UnoCSS + SCSS
 
@@ -245,7 +245,7 @@ export const useUserStore = defineStore('user', () => {
 - **Attributify** é válido: `<div s100 flex items-center>` funciona como classe.
 - Estilos globais/tema ficam em `resources/.../Theme/All.scss` (fonte, vars). Não duplique tema dentro de componentes.
 
-## 8. Estrutura de pastas (Maxdmin — `resources/js/`)
+## 8. Estrutura de pastas (EngeApp — `resources/`)
 
 ```
 Pages/  Layouts/  stores/  Theme/  App.vue  app.ts  router.ts
@@ -261,5 +261,5 @@ Stores ficam em `stores/` (auto-importadas). Não há pasta `components/` local 
 - **NÃO** escreva regex próprio para CPF/CNPJ/CEP/telefone — use MaxUse.
 - **NÃO** reimplemente layout/espaçamento em SCSS quando o UnoCSS resolve.
 - **NÃO** use `route()`/Ziggy — não existem neste projeto. Use os helpers do `@maxvue/max-use` (que resolvem para `/api/...`) e, para GETs, stores `@maxvue/max-pinia`.
-- **NÃO** omita `withCredentials`/`withXSRFToken` na configuração do axios do Maxdmin.
+- **NÃO** omita `withCredentials`/`withXSRFToken` na configuração do axios do EngeApp.
 - **NÃO** escreva comentários fora do pt-BR.

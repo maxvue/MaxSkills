@@ -1,79 +1,12 @@
 skills:
 - action: CRIAR
-  nome: adonisjs-instagram-comments-ai-moderation-best-practices
-  resumo: Use when implementing, reviewing, or debugging Instagram and Meta comments
-    moderation, AI sentiment analysis, automated comment replies, or handling comments
-    webhooks in AdonisJS v6. Triggers on files modifying CommentsController, Meta
-    webhook processors, AI agent replies, or BullMQ jobs for comment moderation.
-  status: AGUARDANDO EXECUÇÃO
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-linkedin-api-integration-best-practices
-  resumo: Use when implementing, reviewing, or debugging LinkedIn API integrations,
-    managing LinkedIn OAuth v2 authentication flows, posting text/image/link shares
-    (UGC Posts/Share API), retrieving organization/member profiles, handling LinkedIn
-    webhooks, or processing rate limit responses in AdonisJS v6. Triggers on files
-    modifying LinkedInService, LinkedInController, or LinkedIn OAuth drivers.
-  status: AGUARDANDO EXECUÇÃO
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-lucid-polymorphic-relationships-best-practices
-  resumo: Use when implementing, reviewing, or debugging polymorphic-like relationships
-    (one-to-many or many-to-many morphs) in AdonisJS v6 using Lucid ORM. Triggers
-    on custom morphTo/morphMany resolver getters, storing polymorphic columns (xxxable_type
-    and xxxable_id), resolving dynamic model types using Union Types in TypeScript,
-    or preventing N+1 queries during polymorphic dynamic preloads.
-  status: AGUARDANDO EXECUÇÃO
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-lucid-ulid-primary-keys-best-practices
-  resumo: Use when configuring, reviewing, or implementing ULID as primary keys in
-    AdonisJS Lucid ORM models and database migrations. Triggers on setting up primary
-    key column decorators, generating beforeCreate hooks for ULID generation, creating
-    database migrations with ULID column types, and converting models to use ULIDs.
-  status: AGUARDANDO EXECUÇÃO
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-maxdmin-project-agent-sync-best-practices
-  resumo: Use when designing, implementing, modifying, or debugging the synchronization
-    logic between Maxdmin database resources (projects, instructions, processes, skills)
-    and local project directories. Triggers on files modifying ProjectsController
-    synchronization methods, generating CLAUDE.md or .agents/AGENTS.md files, handling
-    Node fs/promises file writes, validating local paths, or generating structured
-    Markdown content for local AI agents.
-  status: AGUARDANDO EXECUÇÃO
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-meilisearch-sync-bullmq-best-practices
-  resumo: Use when designing, implementing, reviewing, or debugging asynchronous Meilisearch
-    index synchronization patterns in AdonisJS, dispatching indexing jobs via BullMQ
-    from Lucid ORM hooks, or handling search reindexing queue errors.
-  status: AGUARDANDO EXECUÇÃO
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-meta-api-outbound-rate-limiting-best-practices
-  resumo: Use when implementing, reviewing, or debugging outbound API rate limiting,
-    request throttling, or concurrency control for Meta/Instagram Graph APIs using
-    Redis in AdonisJS. Triggers on files modifying MetaService, outbound API client
-    throttling, processing Meta API rate limit headers (x-app-usage, x-business-use-case-usage),
-    or managing dynamic BullMQ job delays.
-  status: AGUARDANDO EXECUÇÃO
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
   nome: adonisjs-middleware-pipeline-best-practices
   resumo: Use when creating, modifying, reviewing, or debugging custom route and global
     HTTP middlewares, configuring the middleware pipeline in start/kernel.ts, managing
     HttpContext modifications, or enforcing multitenancy, authentication, and subscription
     checks at the route layer in AdonisJS v6. Triggers on middleware declaration,
     router.use, kernel.ts, and middleware tests.
-  status: AGUARDANDO EXECUÇÃO
+  status: CONCLUIDA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
@@ -497,95 +430,6 @@ skills:
   workflows:
   - /bug-fix-front-end
 - action: CRIAR
-  nome: adonisjs-image-optimization-sharp-best-practices
-  resumo: Use when implementing, reviewing, or debugging server-side image processing,
-    optimization, compression, or format conversion (e.g., WebP, AVIF, JPEG) using
-    Sharp in AdonisJS v6. Triggers on files modifying ImageService, processing uploads,
-    generating thumbnails, or handling media compression background jobs.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-gemini-file-api-media-integration-best-practices
-  resumo: Use when implementing, reviewing, or debugging media uploads and processing
-    using the Google AI File API with the Gemini SDK in AdonisJS. Triggers on files
-    managing multimodal AI requests, processing large video, audio, or PDF files for
-    Gemini analysis, uploading temp files to the Google File API, monitoring upload
-    state, and cleanup operations.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-editorial-calendar-event-workflow-best-practices
-  resumo: Use when creating, modifying, or reviewing the editorial calendar event
-    lifecycle, managing event states, orchestrating AI copywriter or artwork analyses,
-    implementing publishing services, or handling event queues and commands in AdonisJS.
-    Triggers on CalendarEvent query, event state transitions (draft, approved, scheduled,
-    published, failed), Meta social media publishing, and BullMQ jobs related to publication.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-encryption-sensitive-data-best-practices
-  resumo: Use when encrypting, decrypting, or storing sensitive client credentials,
-    access tokens (Meta Graph, Instagram, WhatsApp), and API keys in the database
-    using AdonisJS v6 Encryption service. Triggers on model hooks, custom setters/getters
-    for credential serialization, and environment key rotation.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-environment-variables-validation-best-practices
-  resumo: Use when configuring, reviewing, or validating environment variables, updating
-    start/env.ts, defining Env.schema schemas, troubleshooting missing or invalid
-    env keys, or configuring environment variable injection across different deployment
-    environments in AdonisJS v6.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-database-replicas-connection-pooling-best-practices
-  resumo: Use when designing, configuring, profiling, or debugging database connections,
-    read/write replica routing, connection pool tuning, or connection timeouts in
-    AdonisJS v6 using Lucid ORM. Triggers on database.ts connection config, replica
-    setup, query routing to read/write nodes, pool size tuning, and database connection
-    timeouts.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: adonisjs-canva-api-integration-best-practices
-  resumo: Use when implementing, configuring, reviewing, or debugging integrations with
-    the Canva API in an AdonisJS application, managing Canva OAuth 2.0 flows, uploading
-    media assets to Canva, exporting or publishing designs created on Canva directly
-    to the social media calendar, or handling Canva webhook notifications for design updates.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: vue-3-dynamic-components-and-keep-alive-caching-best-practices
-  resumo: Use when designing, implementing, or optimizing dynamic component loading using Vue 3 <component :is="...">, rendering asynchronous components with defineAsyncComponent, or managing component caching and lifecycle hooks with <KeepAlive> (e.g., handling onActivated/onDeactivated, cache invalidation, and custom cache keys). Triggers when creating dynamic tab interfaces, multi-step wizards, or dashboard layouts with state retention.
-  status: CONCLUIDA
-  workflows: []
-- action: CRIAR
-  nome: adonisjs-bullmq-multi-tenant-job-isolation-best-practices
-  resumo: Use when implementing, configuring, or debugging multi-tenant job execution,
-    tenant queue isolation, concurrency throttling per tenant, or passing tenant context
-    to BullMQ workers in AdonisJS v6. Triggers on setting up jobs with tenant IDs,
-    managing tenant-specific BullMQ rate limits, and wrapping worker run methods with
-    AsyncLocalStorage for database isolation.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-back-end
-- action: CRIAR
-  nome: vue-i18n-localization-best-practices
-  resumo: Use when implementing, configuring, customizing, or debugging internationalization
-    (i18n) and localization features in Vue 3 applications, managing translation keys,
-    using vue-i18n, formatting dates and currencies locally, or switching locales dynamically.
-  status: CONCLUIDA
-  workflows:
-  - /bug-fix-front-end
-- action: CRIAR
   nome: adonisjs-access-tokens-auth-best-practices
   resumo: Use when configuring, implementing, reviewing, or debugging API authentication
     using Opaque Access Tokens (auth.use('api')) in AdonisJS v6. Triggers on setting
@@ -630,6 +474,17 @@ skills:
   status: CONCLUIDA
   workflows:
   - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-ai-agents-domain-catalog-best-practices
+  resumo: Use when implementing, reviewing, or debugging any domain AI agent of the
+    Maxdmin social-media pipeline (copywriter, copywriter reviewer, theme extractor,
+    strategy manager, event replanner, protocol extractor, graphic editor & art analyst).
+    Catalogo do padrao comum (AgentConfig + system prompt + tools Zod + job BullMQ)
+    e secao por agente com arquivos/tools/models reais. Para padroes transversais
+    use as skills dedicadas (tool-calling, structured-outputs-zod, multi-agent-orchestration,
+    observability).
+  status: CONCLUIDA
+  workflows: []
 - action: CRIAR
   nome: adonisjs-ai-agents-gemini-context-caching-best-practices
   resumo: Use when implementing, reviewing, or configuring Gemini context caching,
@@ -900,10 +755,40 @@ skills:
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
+  nome: adonisjs-bullmq-multi-tenant-job-isolation-best-practices
+  resumo: Use when implementing, configuring, or debugging multi-tenant job execution,
+    tenant queue isolation, concurrency throttling per tenant, or passing tenant context
+    to BullMQ workers in AdonisJS v6. Triggers on setting up jobs with tenant IDs,
+    managing tenant-specific BullMQ rate limits, and wrapping worker run methods with
+    AsyncLocalStorage for database isolation.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
   nome: adonisjs-bullmq-queue-management-best-practices
   resumo: Use when configuring, creating, auditing, or debugging background jobs,
     queues, or workers using BullMQ in an AdonisJS ecosystem. Triggers on Redis connections
     for queues, sandboxed workers, job re...
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-canva-api-integration-best-practices
+  resumo: Use when implementing, configuring, reviewing, or debugging integrations
+    with the Canva API in an AdonisJS application, managing Canva OAuth 2.0 flows,
+    uploading media assets to Canva, exporting or publishing designs created on Canva
+    directly to the social media calendar, or handling Canva webhook notifications
+    for design updates.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-database-replicas-connection-pooling-best-practices
+  resumo: Use when designing, configuring, profiling, or debugging database connections,
+    read/write replica routing, connection pool tuning, or connection timeouts in
+    AdonisJS v6 using Lucid ORM. Triggers on database.ts connection config, replica
+    setup, query routing to read/write nodes, pool size tuning, and database connection
+    timeouts.
   status: CONCLUIDA
   workflows:
   - /bug-fix-back-end
@@ -943,6 +828,34 @@ skills:
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
+  nome: adonisjs-editorial-calendar-event-workflow-best-practices
+  resumo: Use when creating, modifying, or reviewing the editorial calendar event
+    lifecycle, managing event states, orchestrating AI copywriter or artwork analyses,
+    implementing publishing services, or handling event queues and commands in AdonisJS.
+    Triggers on CalendarEvent query, event state transitions (draft, approved, scheduled,
+    published, failed), Meta social media publishing, and BullMQ jobs related to publication.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-encryption-sensitive-data-best-practices
+  resumo: Use when encrypting, decrypting, or storing sensitive client credentials,
+    access tokens (Meta Graph, Instagram, WhatsApp), and API keys in the database
+    using AdonisJS v6 Encryption service. Triggers on model hooks, custom setters/getters
+    for credential serialization, and environment key rotation.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-environment-variables-validation-best-practices
+  resumo: Use when configuring, reviewing, or validating environment variables, updating
+    start/env.ts, defining Env.schema schemas, troubleshooting missing or invalid
+    env keys, or configuring environment variable injection across different deployment
+    environments in AdonisJS v6.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
   nome: adonisjs-events-listeners-best-practices
   resumo: Use when declaring, dispatching, or subscribing to events and listeners
     in AdonisJS v6. Triggers on emitter.emit calls, creating events in app/events,
@@ -955,6 +868,16 @@ skills:
   resumo: Use when configuring global or custom exception handlers in AdonisJS v6,
     defining custom HTTP response formats, handling validation errors, logging info
     or debug data using the AdonisJS Logger (pin...
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-gemini-file-api-media-integration-best-practices
+  resumo: Use when implementing, reviewing, or debugging media uploads and processing
+    using the Google AI File API with the Gemini SDK in AdonisJS. Triggers on files
+    managing multimodal AI requests, processing large video, audio, or PDF files for
+    Gemini analysis, uploading temp files to the Google File API, monitoring upload
+    state, and cleanup operations.
   status: CONCLUIDA
   workflows:
   - /bug-fix-back-end
@@ -1017,6 +940,24 @@ skills:
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
+  nome: adonisjs-image-optimization-sharp-best-practices
+  resumo: Use when implementing, reviewing, or debugging server-side image processing,
+    optimization, compression, or format conversion (e.g., WebP, AVIF, JPEG) using
+    Sharp in AdonisJS v6. Triggers on files modifying ImageService, processing uploads,
+    generating thumbnails, or handling media compression background jobs.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-instagram-comments-ai-moderation-best-practices
+  resumo: Use when implementing, reviewing, or debugging Instagram and Meta comments
+    moderation, AI sentiment analysis, automated comment replies, or handling comments
+    webhooks in AdonisJS v6. Triggers on files modifying CommentsController, Meta
+    webhook processors, AI agent replies, or BullMQ jobs for comment moderation.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
   nome: adonisjs-instagram-meta-token-renewal-best-practices
   resumo: Use when designing, implementing, configuring, or debugging the automatic
     renewal of Meta/Instagram Graph API long-lived access tokens, managing OAuth2
@@ -1041,6 +982,16 @@ skills:
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
+  nome: adonisjs-linkedin-api-integration-best-practices
+  resumo: Use when implementing, reviewing, or debugging LinkedIn API integrations,
+    managing LinkedIn OAuth v2 authentication flows, posting text/image/link shares
+    (UGC Posts/Share API), retrieving organization/member profiles, handling LinkedIn
+    webhooks, or processing rate limit responses in AdonisJS v6. Triggers on files
+    modifying LinkedInService, LinkedInController, or LinkedIn OAuth drivers.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
   nome: adonisjs-lucid-brazilian-data-queries-best-practices
   resumo: Use when writing, optimizing, or reviewing AdonisJS database queries using
     Lucid ORM that involve Brazilian-specific data formats, patterns, or regulations.
@@ -1057,6 +1008,16 @@ skills:
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
+  nome: adonisjs-lucid-polymorphic-relationships-best-practices
+  resumo: Use when implementing, reviewing, or debugging polymorphic-like relationships
+    (one-to-many or many-to-many morphs) in AdonisJS v6 using Lucid ORM. Triggers
+    on custom morphTo/morphMany resolver getters, storing polymorphic columns (xxxable_type
+    and xxxable_id), resolving dynamic model types using Union Types in TypeScript,
+    or preventing N+1 queries during polymorphic dynamic preloads.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
   nome: adonisjs-lucid-soft-deletes-cascade-best-practices
   resumo: Use when implementing, configuring, reviewing, or debugging soft deletes,
     cascading soft deletes, or restoring soft-deleted records and their relationships
@@ -1066,10 +1027,30 @@ skills:
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
+  nome: adonisjs-lucid-ulid-primary-keys-best-practices
+  resumo: Use when configuring, reviewing, or implementing ULID as primary keys in
+    AdonisJS Lucid ORM models and database migrations. Triggers on setting up primary
+    key column decorators, generating beforeCreate hooks for ULID generation, creating
+    database migrations with ULID column types, and converting models to use ULIDs.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
   nome: adonisjs-mail-notifications-best-practices
   resumo: Use when configuring, creating, sending, or debugging transactional emails
     and notifications in an AdonisJS ecosystem. Triggers on mail configuration, mail
     templates, SMTP/SES/Resend drivers, and q...
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-maxdmin-project-agent-sync-best-practices
+  resumo: Use when designing, implementing, modifying, or debugging the synchronization
+    logic between Maxdmin database resources (projects, instructions, processes, skills)
+    and local project directories. Triggers on files modifying ProjectsController
+    synchronization methods, generating CLAUDE.md or .agents/AGENTS.md files, handling
+    Node fs/promises file writes, validating local paths, or generating structured
+    Markdown content for local AI agents.
   status: CONCLUIDA
   workflows:
   - /bug-fix-back-end
@@ -1115,6 +1096,24 @@ skills:
   resumo: Use when configuring, optimizing, or debugging Meilisearch integration in
     an AdonisJS application, including client setup, Lucid ORM hooks for real-time
     document indexing, index settings configurat...
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-meilisearch-sync-bullmq-best-practices
+  resumo: Use when designing, implementing, reviewing, or debugging asynchronous Meilisearch
+    index synchronization patterns in AdonisJS, dispatching indexing jobs via BullMQ
+    from Lucid ORM hooks, or handling search reindexing queue errors.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: adonisjs-meta-api-outbound-rate-limiting-best-practices
+  resumo: Use when implementing, reviewing, or debugging outbound API rate limiting,
+    request throttling, or concurrency control for Meta/Instagram Graph APIs using
+    Redis in AdonisJS. Triggers on files modifying MetaService, outbound API client
+    throttling, processing Meta API rate limit headers (x-app-usage, x-business-use-case-usage),
+    or managing dynamic BullMQ job delays.
   status: CONCLUIDA
   workflows:
   - /bug-fix-back-end
@@ -1376,13 +1375,68 @@ skills:
   status: CONCLUIDA
   workflows: []
 - action: CRIAR
+  nome: laravel-editorial-calendar-event-workflow-best-practices
+  resumo: Use when developing, reviewing, debugging, or maintaining the editorial
+    calendar event lifecycle, event state transitions (planned, planning_approved,
+    script_drafted, script_ready, art_ready, art_analysing, art_rejected, scheduled,
+    published, failed, replanning), orchestrating AI copywriter, copywriter reviewer,
+    graphic editor, or art analyst jobs, or handling publication queues, commands,
+    and schedules in Laravel. Triggers on editing calendar states, managing event
+    job pipelines, and handling social media publishing flows using Laravel Horizon
+    and queues.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: laravel-gemini-file-api-media-integration-best-practices
+  resumo: Use when implementing, reviewing, or debugging media uploads and processing
+    using the Google AI File API with the Gemini SDK in Laravel. Triggers on files
+    managing multimodal AI requests, processing large video, audio, or PDF files for
+    Gemini analysis, uploading temp files to the Google File API, monitoring upload
+    state, and cleanup operations using the google-gemini-php/laravel SDK.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: laravel-meta-graph-api-integration-best-practices
+  resumo: Use when implementing, reviewing, or debugging Meta Graph API integrations
+    in Laravel 13, managing Facebook OAuth flow, retrieving and exchanging short-lived
+    tokens for long-lived Page/User Access Tokens, publishing content (posts, stories,
+    reels) to Facebook Pages or Instagram Business Accounts, handling inbound Webhooks,
+    or managing Meta API rate limits using Redis. Triggers on editing MetaService,
+    FacebookController, InstagramController, or MetaWebhookController.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: laravel-social-media-oauth-token-lifecycle-management-best-practices
+  resumo: Use when designing, implementing, reviewing, or debugging OAuth token lifecycle
+    management for social media integrations (such as Facebook, Instagram, LinkedIn,
+    YouTube, TikTok) in Laravel. Triggers on files modifying social media credential
+    storage, token encryption/decryption, refresh token flows, token expiration checks,
+    handling invalid or revoked token responses, and scheduling token renewal jobs.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
+  nome: laravel-tiktok-api-integration-best-practices
+  resumo: Use when implementing, reviewing, or debugging TikTok API integrations,
+    managing TikTok OAuth v2 authentication flows, uploading and publishing videos
+    using the TikTok Content Posting API, retrieving user profile metrics, handling
+    TikTok webhooks, or processing rate limit responses in Laravel. Triggers on files
+    modifying TikTokService, TikTokController, or TikTok OAuth drivers.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-back-end
+- action: CRIAR
   nome: python-concessionarias-automation-best-practices
   resumo: Use when creating, modifying, reviewing, or debugging Python RPA automation
     scripts (Selenium, requests) for solar utility concessionaires (Cemig, Energisa,
     Equatorial, Coelba) or Sinceti/TRT. Triggers on selenium, anticaptchaofficial,
     Engeapp callbacks (consulta_engeapp, registra.php), barra()/print_dev(), or functions.py.
-    NOTA - As duas versões divergentes (general/ e backend-node/) foram fundidas numa única
-    skill em created-skills/python/ (stack Python/RPA, fora da stack Node/Vue do Maxdmin).
+    NOTA - As duas versões divergentes (general/ e backend-node/) foram fundidas numa
+    única skill em created-skills/python/ (stack Python/RPA, fora da stack Node/Vue
+    do Maxdmin).
   status: CONCLUIDA
   workflows: []
 - action: CRIAR
@@ -1446,6 +1500,16 @@ skills:
     Nx/Turborepo, JS-to-TS migration, module resolution errors, Biome vs ESLint decisions,
     ESM/CJS interop, and debugging tsc. Triggers on tsconfig project references, build
     speed, migration strategy, and complex type errors.
+  status: CONCLUIDA
+  workflows: []
+- action: CRIAR
+  nome: vue-3-dynamic-components-and-keep-alive-caching-best-practices
+  resumo: Use when designing, implementing, or optimizing dynamic component loading
+    using Vue 3 <component :is="...">, rendering asynchronous components with defineAsyncComponent,
+    or managing component caching and lifecycle hooks with <KeepAlive> (e.g., handling
+    onActivated/onDeactivated, cache invalidation, and custom cache keys). Triggers
+    when creating dynamic tab interfaces, multi-step wizards, or dashboard layouts
+    with state retention.
   status: CONCLUIDA
   workflows: []
 - action: CRIAR
@@ -1651,6 +1715,15 @@ skills:
     handling device pixel ratio scaling,...
   status: CONCLUIDA
   workflows: []
+- action: CRIAR
+  nome: vue-i18n-localization-best-practices
+  resumo: Use when implementing, configuring, customizing, or debugging internationalization
+    (i18n) and localization features in Vue 3 applications, managing translation keys,
+    using vue-i18n, formatting dates and currencies locally, or switching locales
+    dynamically.
+  status: CONCLUIDA
+  workflows:
+  - /bug-fix-front-end
 - action: CRIAR
   nome: vue-i18n-localization-best-practices
   resumo: Use when implementing, configuring, customizing, or debugging internationalization
@@ -2063,63 +2136,66 @@ skills:
   workflows:
   - /bug-fix-front-end
 - action: CRIAR
-  nome: adonisjs-ai-agents-domain-catalog-best-practices
-  resumo: Use when implementing, reviewing, or debugging any domain AI agent of the Maxdmin social-media pipeline (copywriter, copywriter reviewer, theme extractor, strategy manager, event replanner, protocol extractor, graphic editor & art analyst). Catalogo do padrao comum (AgentConfig + system prompt + tools Zod + job BullMQ) e secao por agente com arquivos/tools/models reais. Para padroes transversais use as skills dedicadas (tool-calling, structured-outputs-zod, multi-agent-orchestration, observability).
-  status: CONCLUIDA
-  workflows: []
-- action: CRIAR
   nome: adonisjs-ai-agents-copywriter-best-practices
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ai-agents-copywriter-reviewer-best-practices
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ai-agents-event-replanning-best-practices
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ai-agents-graphic-editor-and-art-analyst-best-practices
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ai-agents-protocol-extractor-best-practices
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ai-agents-request-resilience-costs
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agent-cost-analytics-and-budget-control-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agent-cost-analytics-and-budget-control-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ai-agents-strategy-manager-best-practices
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ai-agents-theme-extractor-best-practices
-  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
+  resumo: 'MESCLADA/DESCONTINUADA: conteúdo (arquivos/tools/models reais) incorporado
+    em adonisjs-ai-agents-domain-catalog-best-practices. Skill removida.'
   status: MESCLADA
   workflows:
   - /bug-fix-back-end
 - action: CRIAR
   nome: adonisjs-ziggy-routing-integration-best-practices
   resumo: 'DESCONTINUADA: Ziggy é nativo do Laravel e não existe no projeto-alvo Maxdmin.
-    Skill removida. Geração de URL server-side via router.makeUrl() migrada para
-    adonisjs-best-practices; no frontend usam-se caminhos /api e helpers do @maxvue/max-use.'
+    Skill removida. Geração de URL server-side via router.makeUrl() migrada para adonisjs-best-practices;
+    no frontend usam-se caminhos /api e helpers do @maxvue/max-use.'
   status: DESCONTINUADA
   workflows: []
 - action: CRIAR
@@ -2133,8 +2209,8 @@ skills:
   - /typescript-new-type
 - action: CRIAR
   nome: vue-shadcn-radix-best-practices
-  resumo: 'DESCONTINUADA: shadcn-vue/radix-vue/reka-ui são do projeto Laravel EngeApp e
-    estão fora do escopo do Maxdmin. A UI do alvo usa MaxComponentsUi (PrimeVue).
+  resumo: 'DESCONTINUADA: shadcn-vue/radix-vue/reka-ui são do projeto Laravel EngeApp
+    e estão fora do escopo do Maxdmin. A UI do alvo usa MaxComponentsUi (PrimeVue).
     Skill removida.'
   status: DESCONTINUADA
   workflows: []

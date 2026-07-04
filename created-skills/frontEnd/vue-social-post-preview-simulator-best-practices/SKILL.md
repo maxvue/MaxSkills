@@ -12,7 +12,7 @@ Os simuladores se dividem em duas **variantes de formato**:
 - **(A) Card de feed/timeline:** Facebook, Threads, Instagram (grade de feed), Google Business Profile.
 - **(B) Vídeo/story vertical 9:16:** Instagram Stories, Instagram Reels, TikTok, YouTube Shorts.
 
-Stack-alvo: AdonisJS v6 (Node) + Vue Router (SPA pura) + Vite 8. SEM Inertia, SEM Ziggy, SEM Tailwind. Realtime via AdonisJS Transmit (SSE); persistência em PostgreSQL exposta por `/api/...`.
+Stack-alvo: Laravel 13 (PHP) + Vue Router (SPA pura) + Vite. SEM Inertia, SEM Tailwind. Realtime via **Laravel Reverb** com `@laravel/echo-vue` (`import Echo`/`useEcho`); persistência em MySQL exposta por `/api/...`.
 
 ## Instruções Gerais (todas as variantes)
 

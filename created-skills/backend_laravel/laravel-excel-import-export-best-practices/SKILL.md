@@ -4,20 +4,20 @@ description: >-
   Use when creating, reviewing, or debugging Excel import and export features in Laravel using the Maatwebsite/Laravel-Excel package. Triggers on model imports, exports, chunk reading, queueable imports/exports, validation rules in imports, and custom formatting.
 ---
 
-# Laravel Excel Import & Export — Best Practices
+# Boas Práticas de Importação e Exportação de Excel no Laravel
 
-## Goal
+## Objetivo
 
-Provide standardized, highly performant, and memory-safe guidelines for implementing spreadsheet import and export features in the Laravel framework using the `maatwebsite/excel` package. This skill ensures imports and exports avoid memory exhaustion (OOM), prevent N+1 query patterns, leverage Laravel queues via Horizon, validate raw data correctly, and format outputs according to Brazilian and international standards.
+Fornecer diretrizes padronizadas, de alta performance e seguras em relação a memória para implementar recursos de importação e exportação de planilhas no framework Laravel usando o pacote `maatwebsite/excel`. Esta skill garante que importações e exportações evitem esgotamento de memória (OOM), previnam padrões de query N+1, aproveitem as filas do Laravel via Horizon, validem dados brutos corretamente e formatem as saídas de acordo com os padrões brasileiros e internacionais.
 
-## Instructions
+## Instruções
 
-### 1. Excel Export (Exports) — Required Structure
+### 1. Exportação de Excel (Exports) — Estrutura Obrigatória
 
-When exporting data from a database, **NEVER** load the entire dataset into memory using `FromCollection` unless the collection size is guaranteed to be extremely small (under 100 rows). Instead, use `FromQuery` combined with eager loading.
+Ao exportar dados de um banco de dados, **NUNCA** carregue o conjunto de dados inteiro em memória usando `FromCollection`, a menos que o tamanho da collection seja garantidamente extremamente pequeno (menos de 100 linhas). Em vez disso, use `FromQuery` combinado com eager loading.
 
-#### Standard Export Class Skeleton
-Create export classes using `php artisan make:export ModelExport --model=Model`.
+#### Esqueleto Padrão da Classe de Export
+Crie classes de export usando `php artisan make:export ModelExport --model=Model`.
 
 ```php
 <?php
@@ -43,19 +43,19 @@ class EquipmentsExport implements FromQuery, WithMapping, WithHeadings, WithColu
     ) {}
 
     /**
-     * Define the query for exporting. Eager load relations to prevent N+1 issues.
+     * Define a query para exportação. Faça eager load das relações para evitar problemas de N+1.
      */
     public function query(): Builder
     {
         return Equipment::query()
-            ->with(['client', 'category']) // ALWAYS eager load relations
+            ->with(['client', 'category']) // SEMPRE faça eager load das relações
             ->when($this->filters['client_id'] ?? null, function ($query, $clientId) {
                 $query->where('client_id', $clientId);
             });
     }
 
     /**
-     * Define headings for the export sheet.
+     * Define os cabeçalhos da planilha de exportação.
      * 
      * @return array<int, string>
      */
@@ -72,7 +72,7 @@ class EquipmentsExport implements FromQuery, WithMapping, WithHeadings, WithColu
     }
 
     /**
-     * Map each row from the Eloquent query to the sheet format.
+     * Mapeia cada linha da query Eloquent para o formato da planilha.
      * 
      * @param Equipment $row
      * @return array<int, mixed>
@@ -84,13 +84,13 @@ class EquipmentsExport implements FromQuery, WithMapping, WithHeadings, WithColu
             $row->name,
             $row->category?->name ?? 'N/A',
             $row->client?->name ?? 'N/A',
-            $row->created_at ? Date::dateTimeToExcel($row->created_at) : '', // Excel Date Serial
-            $row->monthly_cost, // Numeric value to be formatted by column formatting
+            $row->created_at ? Date::dateTimeToExcel($row->created_at) : '', // Serial de data do Excel
+            $row->monthly_cost, // Valor numérico a ser formatado pela formatação de coluna
         ];
     }
 
     /**
-     * Format columns explicitly.
+     * Formata as colunas explicitamente.
      * 
      * @return array<string, string>
      */
@@ -98,14 +98,14 @@ class EquipmentsExport implements FromQuery, WithMapping, WithHeadings, WithColu
     {
         return [
             'E' => NumberFormat::FORMAT_DATE_DDMMYYYY,
-            'F' => '"R$"#,##0.00', // Brazilian Real Currency Format
+            'F' => '"R$"#,##0.00', // Formato de moeda em Real brasileiro
         ];
     }
 }
 ```
 
-#### Triggering Exports from Controllers
-Always return the export response:
+#### Disparando Exportações a partir de Controllers
+Sempre retorne a resposta de exportação:
 
 ```php
 use App\Exports\EquipmentsExport;
@@ -119,12 +119,12 @@ public function export(Request $request)
 
 ---
 
-### 2. Excel Import (Imports) — Required Structure
+### 2. Importação de Excel (Imports) — Estrutura Obrigatória
 
-For processing spreadsheets, always use chunk reading and queueable imports to avoid PHP timeouts and high memory usage.
+Para processar planilhas, sempre use leitura em chunks e importações que podem ser enfileiradas (queueable) para evitar timeouts do PHP e alto uso de memória.
 
-#### Standard Import Class Skeleton
-Create import classes using `php artisan make:import ModelImport --model=Model`.
+#### Esqueleto Padrão da Classe de Import
+Crie classes de import usando `php artisan make:import ModelImport --model=Model`.
 
 ```php
 <?php
@@ -159,7 +159,7 @@ class MeasurementsImport implements
     ) {}
 
     /**
-     * Convert heading row keys to camelCase/snake_case keys.
+     * Converte as chaves da linha de cabeçalho para chaves camelCase/snake_case.
      * 
      * @param array<string, mixed> $row
      * @return \Illuminate\Database\Eloquent\Model|null
@@ -174,15 +174,15 @@ class MeasurementsImport implements
     }
 
     /**
-     * Define the size of each chunk to be processed in a queue Job.
+     * Define o tamanho de cada chunk a ser processado em um Job de fila.
      */
     public function chunkSize(): int
     {
-        return 500; // Optimal chunk size for background jobs
+        return 500; // Tamanho ótimo de chunk para jobs em background
     }
 
     /**
-     * Validation rules for each row.
+     * Regras de validação para cada linha.
      * 
      * @return array<string, array<int, string>>
      */
@@ -196,7 +196,7 @@ class MeasurementsImport implements
     }
 
     /**
-     * Custom attribute names for validation errors.
+     * Nomes de atributos personalizados para erros de validação.
      * 
      * @return array<string, string>
      */
@@ -210,7 +210,7 @@ class MeasurementsImport implements
     }
 
     /**
-     * Handle rows that failed validation.
+     * Trata as linhas que falharam na validação.
      * 
      * @param Failure ...$failures
      */
@@ -229,8 +229,8 @@ class MeasurementsImport implements
 }
 ```
 
-#### Dispatching Imports (Async via Queues)
-Do not parse the file in the request lifecycle. Upload it and dispatch a queue job:
+#### Disparando Importações (Assíncrono via Filas)
+Não faça o parse do arquivo dentro do ciclo de vida da requisição. Faça o upload dele e dispare um job de fila:
 
 ```php
 use App\Imports\MeasurementsImport;
@@ -244,7 +244,7 @@ public function import(Request $request)
     $path = $request->file('file')->store('temp-imports');
     $importLogId = Str::uuid()->toString();
 
-    // The import will run in the background (queue) in chunks of 500
+    // A importação rodará em background (fila) em chunks de 500
     (new MeasurementsImport($importLogId))->queue($path)->allOnQueue('default');
 
     return response()->json([
@@ -256,30 +256,30 @@ public function import(Request $request)
 
 ---
 
-### 3. Formatting Helper Reference (Brazilian Standards)
+### 3. Referência de Helpers de Formatação (Padrões Brasileiros)
 
-Spreadsheet columns often hold data using custom formatting (e.g. CPF, CNPJ, currency). Keep raw values in mapping, but assign column formatting masks:
+Colunas de planilha frequentemente contêm dados com formatação personalizada (ex: CPF, CNPJ, moeda). Mantenha os valores brutos no mapeamento, mas atribua máscaras de formatação de coluna:
 
-* **Brazilian Real Currency (R$):**
-  Use format mask: `'"R$"#,##0.00'`
+* **Moeda em Real brasileiro (R$):**
+  Use a máscara de formato: `'"R$"#,##0.00'`
 * **CPF / CNPJ:**
-  If you must output them as formatted strings, sanitize them in `map()`:
+  Se você precisar exibi-los como strings formatadas, sanitize-os no `map()`:
   ```php
-  // CPF formatting
+  // Formatação de CPF
   preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "$1.$2.$3-$4", $rawCpf);
-  // CNPJ formatting
+  // Formatação de CNPJ
   preg_replace("/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/", "$1.$2.$3/$4-$5", $rawCnpj);
   ```
-* **Date Conversion:**
-  Always use `PhpOffice\PhpSpreadsheet\Shared\Date::dateTimeToExcel($date)` when writing date fields, and register `NumberFormat::FORMAT_DATE_DDMMYYYY` as the column format.
+* **Conversão de Data:**
+  Sempre use `PhpOffice\PhpSpreadsheet\Shared\Date::dateTimeToExcel($date)` ao escrever campos de data, e registre `NumberFormat::FORMAT_DATE_DDMMYYYY` como o formato da coluna.
 
 ---
 
-### 4. Testing Imports & Exports with Pest
+### 4. Testando Importações e Exportações com Pest
 
-Always test Excel features using the `Excel` facade double to mock the filesystem.
+Sempre teste os recursos de Excel usando o dublê da facade `Excel` para mockar o sistema de arquivos.
 
-#### Export Test Case
+#### Caso de Teste de Exportação
 ```php
 use App\Exports\EquipmentsExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -291,12 +291,12 @@ test('it can download equipments export file', function () {
 
     $response->assertStatus(200);
     Excel::assertDownloaded('equipments.xlsx', function (EquipmentsExport $export) {
-        return true; // Optionally assert filters or internal state here
+        return true; // Opcionalmente, verifique filtros ou estado interno aqui
     });
 });
 ```
 
-#### Import Test Case
+#### Caso de Teste de Importação
 ```php
 use App\Imports\MeasurementsImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -318,13 +318,13 @@ test('it queues measurements import when uploading file', function () {
 });
 ```
 
-## Constraints
+## Restrições
 
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-1. **NEVER** use `FromCollection` or `ToArray` for exports with over 500 rows. Always implement `FromQuery` to leverage database pagination.
-2. **NEVER** call Eloquent relation properties in the `map()` method without declaring them inside eager loading (e.g., `with()`) in `query()`. This avoids N+1 queries.
-3. **NEVER** run imports directly inside the HTTP Request thread (`(new Import)->import(...)`). Always implement `ShouldQueue` and use `(new Import)->queue(...)` for spreadsheets containing more than 100 rows.
-4. **NEVER** forget to include `SkipsEmptyRows` when importing. Users often upload sheets with blank trailing lines, which triggers validation errors.
-5. **ALWAYS** implement `SkipsOnFailure` or `SkipsOnError` on queueable imports to log and trace import errors, preventing silent failures.
-6. **ALWAYS** convert date timestamps to Excel serialization floats (`Date::dateTimeToExcel`) when exporting dates, matching them with explicit cell formats.
-7. **ALWAYS** test import and export controllers with `Excel::fake()` in Pest.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+1. **NUNCA** use `FromCollection` ou `ToArray` para exportações com mais de 500 linhas. Sempre implemente `FromQuery` para aproveitar a paginação do banco de dados.
+2. **NUNCA** chame propriedades de relação Eloquent no método `map()` sem declará-las dentro do eager loading (ex: `with()`) em `query()`. Isso evita queries N+1.
+3. **NUNCA** execute importações diretamente dentro da thread da requisição HTTP (`(new Import)->import(...)`). Sempre implemente `ShouldQueue` e use `(new Import)->queue(...)` para planilhas contendo mais de 100 linhas.
+4. **NUNCA** esqueça de incluir `SkipsEmptyRows` ao importar. Usuários frequentemente enviam planilhas com linhas em branco no final, o que dispara erros de validação.
+5. **SEMPRE** implemente `SkipsOnFailure` ou `SkipsOnError` em importações enfileiráveis para registrar e rastrear erros de importação, evitando falhas silenciosas.
+6. **SEMPRE** converta timestamps de data para floats de serialização do Excel (`Date::dateTimeToExcel`) ao exportar datas, associando-os a formatos de célula explícitos.
+7. **SEMPRE** teste os controllers de importação e exportação com `Excel::fake()` no Pest.

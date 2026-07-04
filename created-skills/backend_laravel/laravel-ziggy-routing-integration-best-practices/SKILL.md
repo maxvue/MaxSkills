@@ -3,16 +3,16 @@ name: laravel-ziggy-routing-integration-best-practices
 description: Use when configuring, generating, or using Laravel Ziggy routes in the Vue frontend. Triggers on route generation commands (ziggy:generate), TypeScript definition issues with routes, and calling the route() helper in Vue components.
 ---
 
-# Laravel Ziggy Routing Integration Best Practices
+# Boas Práticas de Integração de Rotas com Laravel Ziggy
 
-## Goal
-Provide solid guidelines and consistent patterns for integrating and using strongly-typed Laravel routes in a Vue 3 frontend (Composition API) using Laravel Ziggy. This ensures type safety, autocomplete, and prevents hardcoded URLs in the client application.
+## Objetivo
+Fornecer diretrizes sólidas e padrões consistentes para integrar e usar rotas do Laravel fortemente tipadas em um frontend Vue 3 (Composition API) usando o Laravel Ziggy. Isso garante segurança de tipos, autocomplete e previne URLs fixas no código da aplicação cliente.
 
-## Instructions
+## Instruções
 
-### 1. Backend Route Security & Filtering
-Do not expose private, administrative, or debug routes (e.g., `debugbar`, `horizon`, `telescope`, internal APIs) to the frontend.
-Configure the `config/ziggy.php` file to filter routes using the `except` key:
+### 1. Segurança & Filtragem de Rotas no Backend
+Não exponha rotas privadas, administrativas ou de debug (ex: `debugbar`, `horizon`, `telescope`, APIs internas) ao frontend.
+Configure o arquivo `config/ziggy.php` para filtrar rotas usando a chave `except`:
 
 ```php
 // config/ziggy.php
@@ -22,7 +22,7 @@ return [
         'horizon.*',
         'telescope.*',
         'ignition.*',
-        'admin.*', // Exclude admin panel routes if managed separately
+        'admin.*', // Exclui rotas do painel admin se gerenciadas separadamente
     ],
     'output' => [
         'path' => 'resources/Js/ziggy.js',
@@ -30,17 +30,17 @@ return [
 ];
 ```
 
-### 2. Route & Type Generation
-Whenever routes are added or modified in Laravel, regenerate the Ziggy JS and TypeScript declaration files:
+### 2. Geração de Rotas & Tipos
+Sempre que rotas forem adicionadas ou modificadas no Laravel, regenere os arquivos JS do Ziggy e de declaração TypeScript:
 ```bash
 php artisan ziggy:generate --types
 ```
-This command outputs two files:
-- `resources/Js/ziggy.js`: The JavaScript file containing the list of routes and configuration.
-- `resources/Js/ziggy.d.ts`: The TypeScript definitions mapping the exact names and parameters of your backend routes.
+Este comando gera dois arquivos:
+- `resources/Js/ziggy.js`: O arquivo JavaScript contendo a lista de rotas e a configuração.
+- `resources/Js/ziggy.d.ts`: As definições TypeScript mapeando os nomes exatos e parâmetros das rotas do seu backend.
 
-### 3. TypeScript Compilation Config
-Ensure the compiler knows how to resolve the Ziggy imports and files. Update `tsconfig.json`:
+### 3. Configuração de Compilação TypeScript
+Garanta que o compilador saiba como resolver os imports e arquivos do Ziggy. Atualize o `tsconfig.json`:
 
 ```json
 {
@@ -57,14 +57,14 @@ Ensure the compiler knows how to resolve the Ziggy imports and files. Update `ts
 }
 ```
 
-### 4. Global Typings for route() and apiGetRoute()
-To enable global autocomplete in Vue templates and custom helpers without manually importing `route`, declare global typings in a `Global.d.ts` or `shims-ziggy.d.ts` file inside `resources/Types/`:
+### 4. Tipagens Globais para route() e apiGetRoute()
+Para habilitar o autocomplete global em templates Vue e helpers customizados sem importar manualmente `route`, declare as tipagens globais em um arquivo `Global.d.ts` ou `shims-ziggy.d.ts` dentro de `resources/Types/`:
 
 ```typescript
 import { RouteName, RouteParams } from 'ziggy-js';
 
 declare global {
-    // Enable type autocomplete for the global route() helper
+    // Habilita o autocomplete de tipo para o helper global route()
     function route(): RouteName;
     function route<T extends RouteName>(
         name: T,
@@ -72,7 +72,7 @@ declare global {
         absolute?: boolean
     ): string;
 
-    // Type definition for Engeapp's custom API route helper
+    // Definição de tipo para o helper de rota de API customizado do Engeapp
     function apiGetRoute<T extends RouteName>(
         routeName: T | null,
         data?: RouteParams<T>,
@@ -81,10 +81,10 @@ declare global {
 }
 ```
 
-### 5. Standard Usage in Vue 3 Components (<script setup lang="ts">)
-Inside Vue components, use the composition hook `useRoute` or call the global typed helper.
+### 5. Uso Padrão em Componentes Vue 3 (<script setup lang="ts">)
+Dentro de componentes Vue, use o hook de composição `useRoute` ou chame o helper global tipado.
 
-#### Using `useRoute()` hook (Recommended for reactivity and local scope):
+#### Usando o hook `useRoute()` (Recomendado para reatividade e escopo local):
 ```vue
 <script setup lang="ts">
 import { useRoute } from 'ziggy-js';
@@ -93,12 +93,12 @@ import { ref } from 'vue';
 const route = useRoute();
 const projectId = ref(12);
 
-// route() signature is fully typed and will autocomplete 'projects.show' and validate parameter types
+// A assinatura de route() é totalmente tipada e fará autocomplete de 'projects.show' e validará os tipos dos parâmetros
 const projectUrl = route('projects.show', { id: projectId.value });
 </script>
 ```
 
-#### Using `apiGetRoute()` for Axios/Fetch queries:
+#### Usando `apiGetRoute()` para queries Axios/Fetch:
 ```vue
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
@@ -106,26 +106,26 @@ import { onMounted, ref } from 'vue';
 const listFiles = ref<any[]>([]);
 
 onMounted(async () => {
-    // Autocompletes route names and validates the parameters format
+    // Faz autocomplete dos nomes de rota e valida o formato dos parâmetros
     listFiles.value = await apiGetRoute('datasheet.list.uploaded');
 });
 </script>
 ```
 
-### 6. Passing Eloquent Models as Parameters
-When passing route parameters, always pass the specific property key required by the route placeholder (usually `id` or `uuid`) to match TypeScript bindings, rather than passing the whole model object directly, unless the model type is specifically mapped.
+### 6. Passando Models Eloquent como Parâmetros
+Ao passar parâmetros de rota, sempre passe a chave de propriedade específica exigida pelo placeholder da rota (geralmente `id` ou `uuid`) para casar com as tipagens TypeScript, em vez de passar o objeto do model inteiro diretamente, a menos que o tipo do model esteja especificamente mapeado.
 
 ```typescript
-// Good: Parameter matches type expectations
+// Bom: Parâmetro casa com as expectativas de tipo
 route('project.show', { id: project.id });
 
-// Avoid (unless model classes are typed and mapped in frontend):
+// Evite (a menos que as classes de model estejam tipadas e mapeadas no frontend):
 route('project.show', project);
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **NO HARDCODED URLs:** Never write static strings for Laravel-controlled URLs in frontend components or stores. Always resolve them using `route()` or `apiGetRoute()`.
-- **NO PRIVATE EXPOSURE:** Ensure internal-only routes are filtered out in `config/ziggy.php`.
-- **REGENERATE ON BUILD:** Always run `php artisan ziggy:generate --types` as part of the frontend build pipeline or deployment workflow to keep frontend definitions synchronized with the backend.
-- **TYPE COMPLIANCE:** Never type the route helper parameters as `any` or `string`. Keep the strict binding to `RouteName` for proper compile-time safety.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **SEM URLs FIXAS:** Nunca escreva strings estáticas para URLs controladas pelo Laravel em componentes ou stores do frontend. Sempre resolva-as usando `route()` ou `apiGetRoute()`.
+- **SEM EXPOSIÇÃO PRIVADA:** Garanta que rotas internas sejam filtradas em `config/ziggy.php`.
+- **REGENERE NO BUILD:** Sempre execute `php artisan ziggy:generate --types` como parte do pipeline de build do frontend ou do workflow de deploy para manter as definições do frontend sincronizadas com o backend.
+- **CONFORMIDADE DE TIPOS:** Nunca tipe os parâmetros do helper de rota como `any` ou `string`. Mantenha o binding estrito a `RouteName` para segurança adequada em tempo de compilação.

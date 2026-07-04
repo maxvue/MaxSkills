@@ -4,38 +4,29 @@ description: Use when working with VueUse composables - track mouse position wit
 license: MIT
 ---
 
-# VueUse
+# VueUse (via MaxUse)
 
-Collection of essential Vue Composition utilities. Check VueUse before writing custom composables - most patterns already implemented.
+Coleção de utilitários essenciais da Composition API do Vue. Verifique o VueUse antes de escrever composables customizados - a maioria dos padrões já está implementada.
 
-**Current stable:** VueUse 14.x for Vue 3.5+
+**Versão estável atual:** VueUse 14.x para Vue 3.5+
 
-## Installation
+## Acesso via MaxUse (regra do projeto)
 
-**Vue 3:**
-
-```bash
-pnpm add @vueuse/core
-```
-
-**Nuxt:**
-
-```bash
-pnpm add @vueuse/nuxt @vueuse/core
-```
+No Engeapp (Vue 3 + Vite + Laravel) **não importe `@vueuse/core` diretamente**. O VueUse é reexportado pelo **MaxUse** (`@maxvue/max-use`), que também expõe o objeto `_` (estilo lodash) e os helpers próprios do projeto. Use os mesmos nomes de composable — apenas troque a fonte:
 
 ```ts
-// nuxt.config.ts
-export default defineNuxtConfig({
-  modules: ['@vueuse/nuxt'],
-})
+// ❌ Nunca
+import { useMouse, useLocalStorage } from '@vueuse/core'
+
+// ✅ Sempre (mesmos nomes, fonte MaxUse)
+import { useMouse, useLocalStorage } from '@maxvue/max-use'
 ```
 
-Nuxt module auto-imports composables - no import needed.
+Na prática, o Engeapp registra o MaxUse no `unplugin-auto-import`, então os composables ficam **auto-importados** — na maioria dos componentes você nem escreve o `import` (`useMouse`, `useLocalStorage`, `unrefElement`, `isClient` etc. já estão disponíveis). Se precisar importar explicitamente, importe de `@maxvue/max-use`. Se faltar algo, adicione ao MaxUse encapsulando o VueUse — nunca importe `@vueuse/core` no código de aplicação.
 
-## Categories
+## Categorias
 
-| Category   | Examples                                                   |
+| Categoria  | Exemplos                                                   |
 | ---------- | ---------------------------------------------------------- |
 | State      | useLocalStorage, useSessionStorage, useRefHistory          |
 | Elements   | useElementSize, useIntersectionObserver, useResizeObserver |
@@ -50,106 +41,82 @@ Nuxt module auto-imports composables - no import needed.
 | Time       | useDateFormat, useNow, useTimeAgo                          |
 | Utilities  | useDebounce, useThrottle, useMemoize                       |
 
-## Quick Reference
+## Referência Rápida
 
-Load composable files based on what you need:
+Carregue os arquivos de composables conforme a sua necessidade:
 
-| Working on...        | Load file                                              |
-| -------------------- | ------------------------------------------------------ |
-| Finding a composable | [references/composables.md](references/composables.md) |
-| Specific composable  | `composables/<name>.md`                                |
+| Trabalhando em...        | Carregue o arquivo                                     |
+| ------------------------ | ------------------------------------------------------ |
+| Encontrar um composable  | [references/composables.md](references/composables.md) |
+| Composable específico    | `composables/<name>.md`                                |
 
-## Loading Files
+## Carregando Arquivos
 
-**Consider loading these reference files based on your task:**
+**Considere carregar estes arquivos de referência conforme a sua tarefa:**
 
-- [ ] [references/composables.md](references/composables.md) - if searching for VueUse composables by category or functionality
+- [ ] [references/composables.md](references/composables.md) - se estiver procurando composables do VueUse por categoria ou funcionalidade
 
-**DO NOT load all files at once.** Load only what's relevant to your current task.
+**NÃO carregue todos os arquivos de uma vez.** Carregue apenas o que for relevante para a sua tarefa atual.
 
-## Common Patterns
+## Padrões Comuns
 
-**State persistence:**
+**Persistência de estado:**
 
 ```ts
 const state = useLocalStorage('my-key', { count: 0 })
 ```
 
-**Mouse tracking:**
+**Rastreamento do mouse:**
 
 ```ts
 const { x, y } = useMouse()
 ```
 
-**Debounced ref:**
+**Ref com debounce:**
 
 ```ts
 const search = ref('')
 const debouncedSearch = refDebounced(search, 300)
 ```
 
-**Shared composable (singleton):**
+**Composable compartilhado (singleton):**
 
 ```ts
 const useSharedMouse = createSharedComposable(useMouse)
 ```
 
-## SSR Gotchas
+## Guarda de ambiente (`isClient`)
 
-Many VueUse composables use browser APIs unavailable during SSR.
-
-**Check with `isClient`:**
+O Engeapp é uma SPA (Vue + Vite + Laravel), sem SSR/Nuxt — os composables rodam no navegador. Ainda assim, ao acessar APIs do navegador em código que pode executar cedo demais, você pode guardar com `isClient` (auto-importado via MaxUse; se importar, use `@maxvue/max-use`):
 
 ```ts
-import { isClient } from '@vueuse/core'
+import { isClient } from '@maxvue/max-use'
 
 if (isClient) {
-  // Browser-only code
+  // Código exclusivo do navegador
   const { width } = useWindowSize()
 }
 ```
 
-**Wrap in onMounted:**
+## Refs de Elementos-Alvo
+
+Ao mirar em refs de componentes em vez de elementos do DOM:
 
 ```ts
-const width = ref(0)
+import type { MaybeElementRef } from '@maxvue/max-use'
 
-onMounted(() => {
-  // Only runs in browser
-  const { width: w } = useWindowSize()
-  width.value = w.value
-})
-```
-
-**Use SSR-safe composables:**
-
-```ts
-// These check isClient internally
-const mouse = useMouse() // Returns {x: 0, y: 0} on server
-const storage = useLocalStorage('key', 'default') // Uses default on server
-```
-
-**`@vueuse/nuxt` auto-handles SSR** - composables return safe defaults on server.
-
-## Target Element Refs
-
-When targeting component refs instead of DOM elements:
-
-```ts
-import type { MaybeElementRef } from '@vueuse/core'
-
-// Component ref needs .$el to get DOM element
+// Ref de componente precisa de .$el para obter o elemento do DOM
 const compRef = ref<ComponentInstance>()
-const { width } = useElementSize(compRef) // ❌ Won't work
+const { width } = useElementSize(compRef) // ❌ Não vai funcionar
 
-// Use MaybeElementRef pattern
-import { unrefElement } from '@vueuse/core'
+// Use o padrão MaybeElementRef
+import { unrefElement } from '@maxvue/max-use'
 
-const el = computed(() => unrefElement(compRef)) // Gets .$el
-const { width } = useElementSize(el) // ✅ Works
+const el = computed(() => unrefElement(compRef)) // Obtém o .$el
+const { width } = useElementSize(el) // ✅ Funciona
 ```
 
-**Or access `$el` directly:**
+**Ou acesse `$el` diretamente:**
 
 ```ts
 const compRef = ref<ComponentInstance>()
@@ -160,5 +127,5 @@ onMounted(() => {
 })
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.

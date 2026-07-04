@@ -3,15 +3,15 @@ name: laravel-browser-automation-webdriver
 description: Use when creating, reviewing, or debugging browser automation logic in Laravel backend using Facebook WebDriver, managing browser instances, handling pages, solving selectors, taking element screenshots, or using the custom Browser helper class.
 ---
 
-# Browser Automation with WebDriver in Laravel
+# Automação de Navegador com WebDriver no Laravel
 
-## Goal
-Establish robust patterns, coding conventions, and exception handling guidelines for browser automation using Facebook WebDriver (GeckoDriver/Firefox) in the Laravel backend. This ensures stable web scraping, automatic homologation processes, and reliable interactions with external portals, preventing resource leaks and untraceable failures.
+## Objetivo
+Estabelecer padrões robustos, convenções de código e diretrizes de tratamento de exceções para automação de navegador usando Facebook WebDriver (GeckoDriver/Firefox) no backend Laravel. Isso garante web scraping estável, processos de homologação automáticos e interações confiáveis com portais externos, prevenindo vazamentos de recursos e falhas não rastreáveis.
 
-## Instructions
+## Instruções
 
-### 1. Connection & Lifecycle Management
-*   **Preventing Zombie Processes**: Always wrap your WebDriver interactions in a `try...finally` block. The `$driver->quit()` method **must** be executed to kill the browser instance and GeckoDriver process on the server.
+### 1. Gerenciamento de Conexão e Ciclo de Vida
+*   **Prevenindo Processos Zumbis**: Sempre envolva suas interações com o WebDriver em um bloco `try...finally`. O método `$driver->quit()` **deve** ser executado para encerrar a instância do navegador e o processo GeckoDriver no servidor.
     ```php
     use Facebook\WebDriver\Remote\RemoteWebDriver;
     use Facebook\WebDriver\Remote\DesiredCapabilities;
@@ -19,7 +19,7 @@ Establish robust patterns, coding conventions, and exception handling guidelines
 
     $options = new FirefoxOptions();
     $options->addArguments(['--headless', '--disable-gpu', '--no-sandbox']);
-    $options->setPreference('dom.webdriver.enabled', false); // Help bypass simple anti-bot flags
+    $options->setPreference('dom.webdriver.enabled', false); // Ajuda a contornar flags simples de anti-bot
     $options->setPreference('general.useragent.override', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0');
 
     $capabilities = DesiredCapabilities::firefox();
@@ -28,7 +28,7 @@ Establish robust patterns, coding conventions, and exception handling guidelines
     $driver = null;
     try {
         $driver = RemoteWebDriver::create(config('services.webdriver.url'), $capabilities);
-        // Automation logic here
+        // Lógica de automação aqui
     } catch (\Throwable $e) {
         Log::channel('agent_browser')->error('WebDriver automation failed', [
             'exception' => $e->getMessage(),
@@ -41,53 +41,53 @@ Establish robust patterns, coding conventions, and exception handling guidelines
         }
     }
     ```
-*   **Concurrence and Port Management**: When scaling browser workers, manage concurrent instance limits using Laravel's Redis/Cache Lock system:
+*   **Concorrência e Gerenciamento de Portas**: Ao escalar workers de navegador, gerencie os limites de instâncias concorrentes usando o sistema de Lock do Redis/Cache do Laravel:
     ```php
     use Illuminate\Support\Facades\Cache;
 
-    $lock = Cache::lock('webdriver_instance_limit', 60); // 60 seconds TTL
+    $lock = Cache::lock('webdriver_instance_limit', 60); // TTL de 60 segundos
 
     if ($lock->get()) {
         try {
-            // Run WebDriver process
+            // Executa o processo do WebDriver
         } finally {
             $lock->release();
         }
     }
     ```
 
-### 2. Robust Selectors & Explicit Waits
-*   **NO Hardcoded Sleeps**: Never use `sleep($seconds)` or `usleep()`. It causes slow executions and flaky processes.
-*   **Explicit Waits**: Use `WebDriverWait` to wait dynamically for elements.
+### 2. Seletores Robustos e Esperas Explícitas
+*   **SEM Sleeps Fixos**: Nunca use `sleep($seconds)` ou `usleep()`. Isso causa execuções lentas e processos instáveis (flaky).
+*   **Esperas Explícitas**: Use `WebDriverWait` para aguardar dinamicamente por elementos.
     ```php
     use Facebook\WebDriver\WebDriverBy;
     use Facebook\WebDriver\Support\WebDriverExpectedCondition;
 
-    // Wait until an element is visible (max 10 seconds)
+    // Aguarda até que um elemento esteja visível (máximo de 10 segundos)
     $element = $driver->wait(10)->until(
         WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::cssSelector('#submit-btn'))
     );
     $element->click();
     ```
-*   **Handling State Transitions**: When submitting a form or clicking a link, wait explicitly for the new page state or a success indicator:
+*   **Lidando com Transições de Estado**: Ao enviar um formulário ou clicar em um link, aguarde explicitamente pelo novo estado da página ou por um indicador de sucesso:
     ```php
     $driver->wait(15)->until(
         WebDriverExpectedCondition::titleContains('Protocol Homologated')
     );
     ```
 
-### 3. Capture and Element Screenshots
-*   **Cropping Element Screenshots**: Use PHP GD library to crop an element out of a full-page screenshot. This is essential for Captchas, error audits, and proof of homologation:
+### 3. Captura e Screenshots de Elementos
+*   **Recortando Screenshots de Elementos**: Use a biblioteca PHP GD para recortar um elemento de uma screenshot de página inteira. Isso é essencial para Captchas, auditorias de erros e comprovações de homologação:
     ```php
     use Facebook\WebDriver\WebDriverElement;
 
     public function captureElementScreenshot(RemoteWebDriver $driver, WebDriverElement $element, string $outputPath): void
     {
-        // 1. Take full screenshot
+        // 1. Tira a screenshot completa
         $tempPath = storage_path('app/temp_screenshot.png');
         $driver->takeScreenshot($tempPath);
 
-        // 2. Get Element location and dimensions
+        // 2. Obtém a localização e as dimensões do elemento
         $location = $element->getLocation();
         $size = $element->getSize();
 
@@ -96,35 +96,35 @@ Establish robust patterns, coding conventions, and exception handling guidelines
         $width = $size->getWidth();
         $height = $size->getHeight();
 
-        // 3. Crop using GD
+        // 3. Recorta usando o GD
         $src = imagecreatefrompng($tempPath);
         $dest = imagecreatetruecolor($width, $height);
         
         imagecopy($dest, $src, 0, 0, $x, $y, $width, $height);
         imagepng($dest, $outputPath);
 
-        // 4. Cleanup
+        // 4. Limpeza
         imagedestroy($src);
         imagedestroy($dest);
         @unlink($tempPath);
     }
     ```
 
-### 4. Alert & Dialog Interactions
-*   Handle javascript alerts or confirmations using the `switchTo()->alert()` interface:
+### 4. Interações com Alerts e Diálogos
+*   Trate alerts ou confirmações javascript usando a interface `switchTo()->alert()`:
     ```php
     try {
         $alert = $driver->switchTo()->alert();
         Log::channel('agent_browser')->info('Accepting alert: ' . $alert->getText());
         $alert->accept();
     } catch (\Facebook\WebDriver\Exception\NoAlertOpenException $e) {
-        // No alert was present, continue normal execution
+        // Nenhum alert estava presente, continua a execução normal
     }
     ```
 
-### 5. Logging and Error Audits
-*   **Logging Channel**: All browser automation logs should be directed to the `agent_browser` channel, as defined in `laravel-exception-handling-logging`.
-*   **Save Page HTML on Failure**: In case of selectors failure or timeout, save the page source HTML and screenshot for troubleshooting.
+### 5. Logging e Auditorias de Erro
+*   **Canal de Logging**: Todos os logs de automação de navegador devem ser direcionados ao canal `agent_browser`, conforme definido em `laravel-exception-handling-logging`.
+*   **Salvar o HTML da Página em Caso de Falha**: Em caso de falha de seletores ou timeout, salve o HTML fonte da página e a screenshot para diagnóstico.
     ```php
     catch (\Throwable $e) {
         if ($driver instanceof RemoteWebDriver) {
@@ -136,9 +136,9 @@ Establish robust patterns, coding conventions, and exception handling guidelines
     }
     ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-*   **NEVER** use `sleep()` or `usleep()` for synchronization; always implement explicit `WebDriverWait` with conditions.
-*   **NEVER** forget to close the webdriver sessions in a `finally` block; orphan processes will crash the application server due to memory leaks.
-*   **DO NOT** log user credentials or session payloads in the `agent_browser` log channel.
-*   **DO NOT** hardcode browser binary paths or selenium server URLs; use Laravel config files or `.env` parameters.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
+*   **NUNCA** use `sleep()` ou `usleep()` para sincronização; sempre implemente `WebDriverWait` explícito com condições.
+*   **NUNCA** esqueça de fechar as sessões do webdriver em um bloco `finally`; processos órfãos vão travar o servidor da aplicação devido a vazamentos de memória.
+*   **NÃO** registre credenciais de usuário ou payloads de sessão no canal de log `agent_browser`.
+*   **NÃO** deixe caminhos de binários de navegador ou URLs de servidor selenium fixos no código (hardcode); use arquivos de config do Laravel ou parâmetros do `.env`.

@@ -157,7 +157,7 @@ function increment(): void {
   .card {
     margin-top: 1rem;
     padding: 1rem;
-    border: 1px solid #eaeaea;
+    border: 1px solid var(--border-base);
   }
 }
 </style>

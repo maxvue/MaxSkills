@@ -231,7 +231,7 @@ const formSchema: FormFieldSchema[] = [
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Apenas Composition API**: Nunca utilize a Options API. Sempre use `<script setup lang="ts">`.
 * **TypeScript Obrigatório**: Todos os scripts devem ser totalmente tipados. Use `lang="ts"`.
-* **SCSS Obrigatório**: Todas as estilizações devem ser escritas em SCSS e com escopo local (`scoped`).
+* **Estilização UnoCSS attributify-first**: Prefira UnoCSS attributify (`presetMaxUno`) com tokens de tema e atributos inline; o dimensionamento de campos vem do `MaxGrid` + atributos (`s33`/`s50`/`s100`, `w-max-300`). Use um bloco `<style scoped lang="scss">` apenas para o resíduo que o UnoCSS não cobre — não é obrigatório e não deve reimplementar grid/layout manual. Não imponha "SCSS-only".
 * **Estilo de Parâmetro do Componente em Linha**: Dentro de `<template>`, mantenha todos os atributos/props do componente em uma única linha. Não os divida em várias linhas.
 * **Idioma dos Comentários de Código**: Todos os comentários dentro dos componentes Vue/TS devem ser escritos em Português do Brasil (pt-BR).
 * **Validação Segura**: Sempre use `.safeParse()` do Zod. Não use `.parse()` para evitar exceções não tratadas em tempo de execução.

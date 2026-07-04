@@ -20,8 +20,8 @@
 
 * **Subagente 5 — Controllers e Rotas do AdonisJS:**
     - **Pastas:**
-        - `projects/SocialMediaApp/app/controllers`
-        - `projects/SocialMediaApp/start`
+        - `projects/engeapp/app/controllers`
+        - `projects/SocialM/start`
     - **Critérios de análise:** Padrões de responsabilidade dos controllers, middleware utilizado, agrupamento de rotas, validações de requisição (VineJS).
 
 * **Subagente 6 — Agentes de IA e Comandos Ace do AdonisJS:**

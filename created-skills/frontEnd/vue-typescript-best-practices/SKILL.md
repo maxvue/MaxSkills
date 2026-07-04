@@ -80,9 +80,9 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
   ```
 
 ## 4. Consumo de Tipos Gerados pelo Backend
-- O backend AdonisJS exporta automaticamente modelos Lucid e DTOs como tipos globais (ex: `Brand`, `Client`, `User`, `Projeto`) em um arquivo de definições `.d.ts` gerado.
+- O backend Laravel 13 usa DTOs com **`spatie/laravel-data`** (classes `App\Data\*Data`) e gera as definições TypeScript correspondentes via **`spatie/laravel-typescript-transformer`** (ex.: `Brand`, `Client`, `User`, `Projeto`) em um arquivo `.d.ts` gerado. Prefira os tipos vindos dos DTOs (`Data`) por serem o contrato explícito do payload da API — mais estável que inferir a partir do model Eloquent.
 - Acesse estes tipos globalmente em toda a aplicação frontend. **Não escreva imports manuais** para esses tipos gerados.
-- Evite o uso do tipo `any`. Consulte o arquivo de tipos gerado (`.d.ts`) para identificar os tipos corretos das tabelas e relacionamentos. Não há `_ide_helper_models.php` neste stack (era um artefato do Laravel/IDE Helper).
+- Evite o uso do tipo `any`. Consulte o arquivo de tipos gerado (`.d.ts`) para identificar os tipos corretos das tabelas e relacionamentos. Para auxiliar a tipagem no lado PHP/Eloquent, o projeto TEM `barryvdh/laravel-ide-helper` instalado — os artefatos `_ide_helper.php`/`_ide_helper_models.php` são gerados por `php artisan ide-helper:generate` e `ide-helper:models`, refletindo colunas e relacionamentos dos models.
 - Trate relacionamentos de forma explícita (ex: `Client & { projects?: Project[] }` ou `Client: { projects?: Project[] }`).
 
 ## 5. Stores do Pinia (Setup Stores)
@@ -127,7 +127,7 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
   ```
 
 ## 6. Resolução de Rotas com TypeScript
-- Não existe Ziggy neste projeto (é nativo do Laravel e foi descontinuado). Use os helpers `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use`, que resolvem para caminhos string `/api/...`.
+- O projeto tem `ziggy-js` disponível (é o stack Laravel), mas o fluxo padrão do Max usa **rotas string** `/api/...`: prefira os helpers `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use`, que resolvem para esses caminhos string. As duas abordagens coexistem — não afirme que "não há Ziggy".
 - Respeite as assinaturas de parâmetros esperadas pelo backend. Evite passar objetos não tipados para endpoints que esperam parâmetros específicos.
 
 ## Restrições

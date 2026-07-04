@@ -1,0 +1,34 @@
+{
+  "id": 1,
+  "name": "Meu Projeto Teste",
+  "description": "Um projeto para demonstrar a sincronização de agentes.",
+  "path": "/caminho/do/projeto",
+  "templates": [
+    {
+      "id": 1,
+      "title": "Template Global de Código",
+      "content": "- Use TypeScript sempre que possível.\n- Siga os padrões do ESLint do repositório."
+    }
+  ],
+  "instructions": [
+    {
+      "id": 1,
+      "title": "Instruções do Docker",
+      "content": "Sempre execute os containers locais usando `docker compose up -d`."
+    }
+  ],
+  "processes": [
+    {
+      "id": 1,
+      "title": "Deploy em Staging",
+      "description": "Para realizar o deploy em staging, execute o script `npm run deploy:staging`."
+    }
+  ],
+  "skills": [
+    {
+      "id": 1,
+      "title": "Vue Components Best Practices",
+      "content": "Use components na pasta `components/` e nomeie-os com PascalCase."
+    }
+  ]
+}

@@ -8,50 +8,50 @@ description: >-
   HasStructuredOutput, HasAgentAiRequest, Ai::fakeAgent(), and cost persistence.
 ---
 
-# Laravel AI Agents Ecosystem
+# Ecossistema de Agentes de IA no Laravel
 
-## Goal
+## Objetivo
 
-Consolidate the guidelines, best practices, and architecture for creating, testing, and monitoring AI agents using `laravel/ai` (aiSDK) in the Engeapp ecosystem.
+Consolidar as diretrizes, boas práticas e a arquitetura para criar, testar e monitorar agentes de IA usando `laravel/ai` (aiSDK) no ecossistema Engeapp.
 
-## Instructions
+## Instruções
 
-Because of the breadth and depth of the AI ecosystem, the documentation is modularized. You **MUST** consult the reference files below depending on your current need:
+Devido à amplitude e profundidade do ecossistema de IA, a documentação é modularizada. Você **DEVE** consultar os arquivos de referência abaixo conforme a sua necessidade atual:
 
-### 1. Agent Creation (Agent Creator)
+### 1. Criação de Agentes (Agent Creator)
 
-How to create agent classes (Simple, With Tools, Structured Outputs), apply the required attributes (Provider, Model, Temperature), and manage execution through Jobs and the `HasAgentAiRequest` trait.
-🔗 **Reference:** [Agent Creation](references/agent-creator.md)
+Como criar classes de agente (Simples, Com Tools, Structured Outputs), aplicar os atributos obrigatórios (Provider, Model, Temperature) e gerenciar a execução por meio de Jobs e do trait `HasAgentAiRequest`.
+🔗 **Referência:** [Criação de Agentes](references/agent-creator.md)
 
-### 2. Tools Creation (Tools Creator)
+### 2. Criação de Tools (Tools Creator)
 
-Strict rules for creating tools (Function Calling) in `app/Ai/Tools`, requiring precise schema definitions via `JsonSchema` and standardized JSON-formatted outputs with `try-catch`.
-🔗 **Reference:** [Tools Creation](references/tools-creator.md)
+Regras estritas para criar tools (Function Calling) em `app/Ai/Tools`, exigindo definições de schema precisas via `JsonSchema` e saídas padronizadas em formato JSON com `try-catch`.
+🔗 **Referência:** [Criação de Tools](references/tools-creator.md)
 
 ### 3. Structured Outputs
 
-Best practices for defining and validating JSON returns (`HasStructuredOutput`), ensuring there are no units of measurement in numbers, identifiers are sanitized, and fallbacks are handled correctly.
-🔗 **Reference:** [Structured Outputs](references/structured-outputs.md)
+Boas práticas para definir e validar retornos JSON (`HasStructuredOutput`), garantindo que não haja unidades de medida em números, que identificadores sejam sanitizados e que fallbacks sejam tratados corretamente.
+🔗 **Referência:** [Structured Outputs](references/structured-outputs.md)
 
-### 4. Testing & Validation (Testing Best Practices)
+### 4. Testes & Validação (Testing Best Practices)
 
-Pest PHP patterns for using `Ai::fakeAgent()`, testing asynchronous loops (`isDone()`), and ensuring compliance without invoking the production LLM API.
-🔗 **Reference:** [Agent Testing](references/testing.md)
+Padrões de Pest PHP para usar `Ai::fakeAgent()`, testar loops assíncronos (`isDone()`) e garantir conformidade sem invocar a API de LLM de produção.
+🔗 **Referência:** [Testes de Agentes](references/testing.md)
 
 ### 5. Token Cost Tracking
 
-Guidelines for the database architecture, high-precision decimal types, configuration-driven pricing (avoiding hardcoding), and cost persistence with asynchronous dispatchers (Queues).
-🔗 **Reference:** [Token Cost Tracking](references/token-cost-tracking.md)
+Diretrizes para a arquitetura de banco de dados, tipos decimais de alta precisão, precificação orientada por configuração (evitando hardcoding) e persistência de custos com dispatchers assíncronos (Queues).
+🔗 **Referência:** [Token Cost Tracking](references/token-cost-tracking.md)
 
 ### 6. B2B Health Score (AgentHealthScore)
 
-Specific business rules, mathematical algorithms, area weighting (Business, Experience, Operation), the bonus/penalty matrix, and the temporal decay (recency) of the Health Score agent.
-🔗 **Reference:** [B2B Health Score](references/health-score.md)
+Regras de negócio específicas, algoritmos matemáticos, ponderação de áreas (Business, Experience, Operation), a matriz de bônus/penalidade e o decaimento temporal (recência) do agente Health Score.
+🔗 **Referência:** [B2B Health Score](references/health-score.md)
 
-## Constraints
+## Restrições
 
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **NEVER** make real (non-mocked) calls to the LLM API in automated tests.
-- **ALWAYS** use the required attributes (`Provider`, `Model`, `Temperature`, `MaxTokens`, `Timeout`) on the Agent class.
-- **NEVER** skip validating limits and quotas before the request using `RateLimiter` or Cache.
-- **ALWAYS** produce prompts and end-user-facing responses (such as reports) in Brazilian Portuguese (pt-BR).
+- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- **NUNCA** faça chamadas reais (não mockadas) à API de LLM em testes automatizados.
+- **SEMPRE** use os atributos obrigatórios (`Provider`, `Model`, `Temperature`, `MaxTokens`, `Timeout`) na classe do Agent.
+- **NUNCA** pule a validação de limites e cotas antes da requisição usando `RateLimiter` ou Cache.
+- **SEMPRE** produza prompts e respostas voltadas ao usuário final (como relatórios) em português brasileiro (pt-BR).

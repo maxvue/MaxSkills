@@ -1,12 +1,12 @@
 ---
 name: vue-draggable-next-best-practices
-description: Use when implementing, configuring, reviewing, or debugging interactive drag-and-drop lists, item sorting, and board layouts using vue-draggable-next in Vue 3 components, and saving the sorted order to the AdonisJS backend. Triggers on draggable components, transition-group, event handlers (start, end, change), and syncing order changes.
+description: Use when implementing, configuring, reviewing, or debugging interactive drag-and-drop lists, item sorting, and board layouts using vue-draggable-next in Vue 3 components, and saving the sorted order to the Laravel backend. Triggers on draggable components, transition-group, event handlers (start, end, change), and syncing order changes.
 ---
 
 # Melhores Práticas para Vue Draggable Next
 
 ## Objetivo
-Padronizar a implementação de listas interativas do tipo arrastar e soltar (drag-and-drop) utilizando a biblioteca `vue-draggable-next` no Vue 3 (Composition API, TypeScript, SCSS) e garantir o salvamento em lote otimizado de elementos ordenados no backend AdonisJS utilizando transações.
+Padronizar a implementação de listas interativas do tipo arrastar e soltar (drag-and-drop) utilizando a biblioteca `vue-draggable-next` no Vue 3 (Composition API, TypeScript, SCSS) e garantir o salvamento em lote otimizado de elementos ordenados no backend Laravel utilizando transações (`DB::transaction`).
 
 ## Instruções
 
@@ -40,11 +40,12 @@ Ao criar ou editar componentes Vue (arquivos `.vue`) que exijam reordenação, s
   - **Atenção (list stores)**: NÃO defina as flags `isList`/`is_list` numa store cujo objetivo é persistir a reordenação — o MaxPinia trata `isList` como `isBlocked` e **pula** o auto-save. A store precisa de `isCached` + `options.get`/`options.save` (rotas em string) configurados para que o save ocorra.
   - **Indicador de salvamento**: leia o estado via objeto injetado `status` — `status.server.save.is_requesting` (ou `is_requesting_now`) — não use uma propriedade `isSaving` fabricada. **Nunca use Inertia.js.**
 
-### 2. Implementação no Back-end (AdonisJS)
+### 2. Implementação no Back-end (Laravel)
 Para persistir os itens reordenados de forma eficiente:
 - **Processamento em Lote**: Envie apenas a lista de IDs e seu novo índice de posição para o backend (ex: `[{ id: 10, position: 0 }, { id: 12, position: 1 }]`).
-- **Transações do Banco de Dados**: Envolva a atualização em lote em uma transação via `db.transaction()` do Lucid para garantir persistência atômica e consistente.
-- **Atualizações com Lucid ORM**: Atualize os registros dentro da transação usando o query builder do Lucid.
+- **Validação**: Valide o payload com um FormRequest (ou `$request->validate()`).
+- **Transações do Banco de Dados**: Envolva a atualização em lote em uma transação via `DB::transaction()` para garantir persistência atômica e consistente.
+- **Atualizações com Eloquent**: Atualize os registros dentro da transação usando os models Eloquent (`App\Models\*`).
 
 ---
 
@@ -54,7 +55,7 @@ Para persistir os itens reordenados de forma eficiente:
 ```vue
 <template>
   <div relative p-6 bg-surface text-default rounded-lg>
-    <h2 text-xl font-semibold mb-4>Lista de Tarefas</h2>
+    <MaxTitle1 h2="Lista de Tarefas" mb-4 />
     <draggable v-model="todoItems" ghost-class="ghost-item" drag-class="dragging-item" handle=".drag-handle" @change="handleOrderChange" flex="~ col" gap-2>
       <div v-for="element in todoItems" :key="element.id" flex items-center px-4 py-3 bg-muted border="~ base rounded-md">
         <div class="drag-handle" mr-4 cursor-grab text-muted>
@@ -65,7 +66,7 @@ Para persistir os itens reordenados de forma eficiente:
         <span text-base>{{ element.name }}</span>
       </div>
     </draggable>
-    <div v-if="isSaving" absolute top-4 right-4 px-3 py-1 bg-primary text-white rounded text-xs>
+    <div v-if="todosStore.status.server.save.is_requesting" absolute top-4 right-4 px-3 py-1 bg-primary text-white rounded text-xs>
       Salvando nova ordenação...
     </div>
   </div>
@@ -92,8 +93,8 @@ const todoItems = computed<TodoItem[]>({
   set: (value) => (todosStore.data.items = value),
 })
 
-// Indicador de salvamento exposto pelo objeto `status` injetado pelo MaxPinia.
-const isSaving = computed<boolean>(() => todosStore.status.server.save.is_requesting)
+// Indicador de salvamento: leia direto o objeto `status` injetado pelo MaxPinia
+// (`todosStore.status.server.save.is_requesting`) no template — não fabrique um `isSaving` próprio.
 
 // Reescreve as posições dentro de store.data.items; o MaxPinia detecta a mudança e salva.
 const handleOrderChange = () => {
@@ -152,41 +153,54 @@ export const useTodosStore = defineStore('todos', () => {
 })
 ```
 
-### Backend: Controller AdonisJS (`TodosController.ts`)
-```typescript
-import type { HttpContext } from '@adonisjs/core/http'
-import vine from '@vinejs/vine'
-import db from '@adonisjs/lucid/services/db'
-import Todo from '#models/todo'
+### Backend: FormRequest + Controller Laravel (`ReorderTodosRequest.php` / `TodosController.php`)
+```php
+<?php
 
-const reorderValidator = vine.compile(
-  vine.object({
-    items: vine.array(
-      vine.object({
-        id: vine.number().positive(),
-        position: vine.number().min(0),
-      })
-    ),
-  })
-)
+namespace App\Http\Requests;
 
-export default class TodosController {
-  async reorder({ request, auth }: HttpContext) {
-    const { items } = await request.validateUsing(reorderValidator)
-    const userId = auth.user!.id
+use Illuminate\Foundation\Http\FormRequest;
 
-    await db.transaction(async (trx) => {
-      for (const item of items) {
-        await Todo.query()
-          .useTransaction(trx)
-          .where('id', item.id)
-          .where('user_id', userId)
-          .update({ position: item.position })
-      }
-    })
+class ReorderTodosRequest extends FormRequest
+{
+    public function rules(): array
+    {
+        return [
+            'items' => ['required', 'array'],
+            'items.*.id' => ['required', 'integer', 'min:1'],
+            'items.*.position' => ['required', 'integer', 'min:0'],
+        ];
+    }
+}
+```
 
-    return { message: 'Ordem atualizada com sucesso!' }
-  }
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\ReorderTodosRequest;
+use App\Models\Todo;
+use Illuminate\Support\Facades\DB;
+
+class TodosController extends Controller
+{
+    public function reorder(ReorderTodosRequest $request)
+    {
+        $items = $request->validated()['items'];
+        $userId = $request->user()->id;
+
+        // Transação para persistência atômica e consistente.
+        DB::transaction(function () use ($items, $userId) {
+            foreach ($items as $item) {
+                Todo::where('id', $item['id'])
+                    ->where('user_id', $userId)
+                    ->update(['position' => $item['position']]);
+            }
+        });
+
+        return response()->json(['message' => 'Ordem atualizada com sucesso!']);
+    }
 }
 ```
 
@@ -198,6 +212,6 @@ export default class TodosController {
 - **Proibido Inertia.js**: Nunca importe ou use `@inertiajs/vue3`. A persistência da ordenação é feita pela store `@maxvue/max-pinia` (auto-save debounced para `/api/...`), nunca por `axios.post` manual.
 - **Slot Padrão Obrigatório**: Use o slot default com `v-for` e `:key` única. NÃO use `item-key`/slot `#item` (isso é API do `vuedraggable`, não do `vue-draggable-next`).
 - **Transições de CSS**: Ao envolver o `<draggable>` em transições, use `<transition-group>` dentro do componente ao invés de `<transition>`.
-- **Transação de Banco Obrigatória**: NÃO execute atualizações de posição no AdonisJS sem usar transações de banco de dados (`db.transaction`).
+- **Transação de Banco Obrigatória**: NÃO execute atualizações de posição no Laravel sem usar transações de banco de dados (`DB::transaction`).
 - **Chamada de Componente em Linha Única**: Garanta que a tag de abertura `<draggable>` e todas as suas propriedades fiquem em uma única linha no template HTML/Vue.
 - **Comentários em Português**: Todos os comentários inseridos no código dentro do ecossistema do Engeapp DEVEM estar em português do Brasil (pt-BR).

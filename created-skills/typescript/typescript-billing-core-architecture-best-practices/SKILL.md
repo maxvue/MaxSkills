@@ -4,13 +4,13 @@ description: Use when designing, implementing, reviewing, or debugging core subs
 ---
 
 ## Objetivo
-Garantir a aplicação estrita de arquitetura limpa e princípios de design em TypeScript puro para o mecanismo de faturamento de assinaturas e gateways de pagamento no ecossistema Engeapp, garantindo desacoplamento total de frameworks web (AdonisJS, NestJS) e runtimes de front-end (Vue.js).
+Garantir a aplicação estrita de arquitetura limpa e princípios de design em TypeScript puro para o mecanismo de faturamento de assinaturas e gateways de pagamento no ecossistema Engeapp, garantindo desacoplamento total de frameworks web (Laravel ou qualquer backend consumidor) e runtimes de front-end (Vue.js).
 
 ## Instruções
 
 ## 1. Restrição de TypeScript Puro e Zero-Framework
 * Toda a lógica central de faturamento deve residir em uma biblioteca TypeScript pura dedicada (`billing-core` / `@maxvue/max-banks`).
-* **Sem Importações de Frameworks:** Absolutamente nenhuma importação de `@adonisjs/*`, `vue` ou qualquer outro framework é permitida nos pacotes `core` e `node`.
+* **Sem Importações de Frameworks:** Absolutamente nenhuma importação de framework web (`vue` ou qualquer runtime específico) é permitida nos pacotes `core` e `node`. A biblioteca é agnóstica ao consumidor — no Engeapp, quem consome é o backend Laravel 13.
 * **Sem Acesso a Variáveis de Ambiente:** Dentro da biblioteca, nunca leia `process.env` ou use provedores de configuração globalmente. Todas as configurações, certificados e credenciais devem ser explicitamente injetados pela aplicação consumidora durante a inicialização/boot.
 
 ## 2. Separação de Arquitetura em Camadas
@@ -47,7 +47,7 @@ Garanta a divisão estrita de responsabilidade de código entre os diretórios d
 ## 5. Parser de Webhook e Regras de Idempotência
 * A aplicação consumidora deve confiar no evento de webhook como a fonte da verdade para confirmações de pagamento.
 * Use `parseWebhook` para traduzir payloads específicos de gateways para o formato canônico `CanonicalWebhookEvent` contendo uma `idempotencyKey` única e determinística (por exemplo, combinando o `txid` e o `endToEndId` do gateway).
-* O backend consumidor deve processar esses eventos por meio de um job idempotente (por exemplo, usando BullMQ) consultando a `idempotencyKey` ou ID da transação para evitar cobranças duplas ou créditos duplicados.
+* O backend consumidor deve processar esses eventos por meio de um job idempotente (no Engeapp, uma fila do Laravel gerenciada pelo Laravel Horizon) consultando a `idempotencyKey` ou ID da transação para evitar cobranças duplas ou créditos duplicados.
 
 ## 6. Testes Unitários Isolados
 * Os testes unitários para a lógica do `core` e transições devem ser totalmente isolados.

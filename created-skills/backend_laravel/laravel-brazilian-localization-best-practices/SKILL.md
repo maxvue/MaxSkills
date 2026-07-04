@@ -3,35 +3,35 @@ name: laravel-brazilian-localization-best-practices
 description: Use when validating, formatting, sanitizing, or processing Brazilian documents (CPF, CNPJ, CEP, phone numbers) and when formatting, parsing, or rounding currency (BRL), percentages, decimal numbers, or converting numbers and monetary values into words in Portuguese (pt-BR) on both backend (Laravel) and frontend (Vue 3/MaxUse).
 ---
 
-# Brazilian Localization Best Practices
+# Boas Práticas de Localização Brasileira
 
-## Goal
-Establish standard, precise, and consistent patterns for:
-1. Validating, formatting, and sanitizing Brazilian documents (CPF, CNPJ, CEP, and phone numbers).
-2. Formatting Brazilian currency (BRL), handling precise rounding, and converting numbers/monetary values to words (por extenso) in Portuguese (pt-BR) across backend (Laravel) and frontend (Vue 3).
+## Objetivo
+Estabelecer padrões precisos, consistentes e padronizados para:
+1. Validar, formatar e sanitizar documentos brasileiros (CPF, CNPJ, CEP e números de telefone).
+2. Formatar moeda brasileira (BRL), lidar com arredondamento preciso e converter números/valores monetários por extenso em português (pt-BR) tanto no backend (Laravel) quanto no frontend (Vue 3).
 
-## Instructions
+## Instruções
 
 ### 1. Backend (Laravel / PHP)
 
-#### A. Document Data Sanitization (Database level)
-* Always store only numbers for documents (CPF, CNPJ, CEP) in the database.
-* Use the global helper function `onlyNumbers($value)` to strip formatting and masks before saving.
-* Implement this sanitization in Eloquent Model observers, saving events, or mutators.
+#### A. Sanitização dos Dados de Documentos (nível de Banco de Dados)
+* Sempre armazene apenas números para documentos (CPF, CNPJ, CEP) no banco de dados.
+* Use a função helper global `onlyNumbers($value)` para remover formatação e máscaras antes de salvar.
+* Implemente essa sanitização em observers de Model do Eloquent, eventos de saving ou mutators.
 
-#### B. Document Validation Rules in Requests
-* For Form Requests and controller validations, use the global Laravel Validator rules provided by the `phillarmonic/cpf-cnpj` package:
-  * `cpf` — Validates CPF digit algorithm.
-  * `cnpj` — Validates CNPJ digit algorithm.
-* Example validation signature:
+#### B. Regras de Validação de Documentos nos Requests
+* Para Form Requests e validações de controller, use as regras globais do Validator do Laravel fornecidas pelo pacote `phillarmonic/cpf-cnpj`:
+  * `cpf` — Valida o algoritmo de dígitos do CPF.
+  * `cnpj` — Valida o algoritmo de dígitos do CNPJ.
+* Exemplo de assinatura de validação:
   ```php
   $request->validate([
-      'cpf_cnpj' => 'required|string|cpf', // Use 'cnpj' for CNPJ validation
+      'cpf_cnpj' => 'required|string|cpf', // Use 'cnpj' para validação de CNPJ
   ]);
   ```
 
-#### C. Programmatic Document Validation
-* If you need to programmatically validate a document, use the `Lacus\BrUtils\BrUtils` package:
+#### C. Validação Programática de Documentos
+* Se precisar validar um documento programaticamente, use o pacote `Lacus\BrUtils\BrUtils`:
   ```php
   use Lacus\BrUtils\BrUtils;
 
@@ -39,56 +39,56 @@ Establish standard, precise, and consistent patterns for:
   $isValid = $brUtils->cpf->isValid(onlyNumbers($value)) || $brUtils->cnpj->isValid(onlyNumbers($value));
   ```
 
-#### D. String Formatting Helpers (PHP)
-* Use the global helper functions defined in `StringsHelper.php`:
-  * `onlyNumbers($value)`: Returns only digits.
-  * `formatCPFCNPJ($value)`: Formats string as CPF or CNPJ depending on length.
-  * `formatCPF($value)` / `formatCNPJ($value)`: Formats CPF/CNPJ.
-  * `formatCep($value, $format = '#####-###')`: Formats CEP.
+#### D. Helpers de Formatação de String (PHP)
+* Use as funções helper globais definidas em `StringsHelper.php`:
+  * `onlyNumbers($value)`: Retorna apenas os dígitos.
+  * `formatCPFCNPJ($value)`: Formata a string como CPF ou CNPJ dependendo do comprimento.
+  * `formatCPF($value)` / `formatCNPJ($value)`: Formata CPF/CNPJ.
+  * `formatCep($value, $format = '#####-###')`: Formata CEP.
 
-#### E. Number and Currency Formatting (BRL)
-* Always use `NumberFormatter` from the PHP `intl` extension for formatting values to BRL:
+#### E. Formatação de Números e Moeda (BRL)
+* Sempre use o `NumberFormatter` da extensão `intl` do PHP para formatar valores em BRL:
   ```php
   $formatter = new \NumberFormatter('pt_BR', \NumberFormatter::CURRENCY);
-  $formatted = $formatter->formatCurrency(1250.50, 'BRL'); // Output: R$ 1.250,50
+  $formatted = $formatter->formatCurrency(1250.50, 'BRL'); // Saída: R$ 1.250,50
   ```
-* Alternatively, if using Laravel's `Number` helper utility (Laravel 10+):
+* Alternativamente, se usar o helper `Number` do Laravel (Laravel 10+):
   ```php
   use Illuminate\Support\Number;
   
-  $formatted = Number::currency(1250.50, in: 'BRL', locale: 'pt_BR'); // Output: R$ 1.250,50
+  $formatted = Number::currency(1250.50, in: 'BRL', locale: 'pt_BR'); // Saída: R$ 1.250,50
   ```
 
-#### F. Precision Rounding
-* To prevent cent calculation mismatches (e.g., floating-point inaccuracies), use PHP's `bcmath` extension for mathematical operations or `round()` with explicit precision:
+#### F. Arredondamento de Precisão
+* Para evitar divergências no cálculo de centavos (ex: imprecisões de ponto flutuante), use a extensão `bcmath` do PHP para operações matemáticas ou `round()` com precisão explícita:
   ```php
-  // Math operation using bcmath
+  // Operação matemática usando bcmath
   $sum = bcadd('10.25', '20.35', 2); // '30.60'
   
-  // Safe rounding
+  // Arredondamento seguro
   $rounded = round($value, 2, PHP_ROUND_HALF_UP);
   ```
-* Avoid casting float values directly to integer without proper rounding.
+* Evite converter valores float diretamente para inteiro sem o arredondamento adequado.
 
-#### G. Converting Numbers and Currency to Words (por extenso)
-* Use the `kwn/number-to-words` package integrated into `StringsHelper.php` or instantiate `NumberToWords` for custom conversions:
+#### G. Convertendo Números e Moeda por Extenso
+* Use o pacote `kwn/number-to-words` integrado ao `StringsHelper.php` ou instancie `NumberToWords` para conversões customizadas:
   ```php
   use NumberToWords\NumberToWords;
 
   $numberToWords = new NumberToWords();
   $numberTransformer = $numberToWords->getNumberTransformer('pt_BR');
   
-  // Convert number to words
+  // Converte número por extenso
   $words = $numberTransformer->toWords(1250); // "mil duzentos e cinquenta"
   ```
-* Use the global helper function `nameNumber($number, $gender = 'm')` from `StringsHelper.php` where available to handle masculine/feminine genders (e.g., "um" vs. "uma", "dois" vs. "duas").
+* Use a função helper global `nameNumber($number, $gender = 'm')` do `StringsHelper.php` onde disponível para tratar os gêneros masculino/feminino (ex: "um" vs. "uma", "dois" vs. "duas").
 
 ---
 
 ### 2. Frontend (Vue 3 / TypeScript)
 
-#### A. Input UI Components
-Always use the specialized components from `@maxvue/max-components-ui` inside templates. When using them, keep all attributes/parameters inline in a single line (no multi-line attribute break):
+#### A. Componentes de UI de Input
+Sempre use os componentes especializados de `@maxvue/max-components-ui` dentro dos templates. Ao usá-los, mantenha todos os atributos/parâmetros inline em uma única linha (sem quebra de atributos em múltiplas linhas):
 * **MaxInputCpfCnpj**: Híbrido com máscara e validação automáticas para CPF/CNPJ.
   ```vue
   <MaxInputCpfCnpj v-model="form.cpf_cnpj" label="CPF/CNPJ" required />
@@ -102,9 +102,9 @@ Always use the specialized components from `@maxvue/max-components-ui` inside te
   <MaxInputPhoneMail v-model="form.phone" label="Telefone" required />
   ```
 
-#### B. Document Validation and Formatting helpers (TypeScript)
-Use the `@maxvue/max-use` library helpers for logic and validation:
-* **Validations**:
+#### B. Helpers de Validação e Formatação de Documentos (TypeScript)
+Use os helpers da biblioteca `@maxvue/max-use` para lógica e validação:
+* **Validações**:
   ```ts
   import { isCpf, isCnpj, isCpfCnpj, cepIsValid } from '@maxvue/max-use/validations';
 
@@ -112,21 +112,21 @@ Use the `@maxvue/max-use` library helpers for logic and validation:
       // Documento válido
   }
   ```
-* **Formatters**:
+* **Formatadores**:
   ```ts
   import { formatCpfCnpj, formatCep, formatPhone } from '@maxvue/max-use/format';
 
   const docFormatted = formatCpfCnpj(rawDoc);
   ```
 
-#### C. Formatting Currency (BRL)
-* Reuse the official `formatCurrency` helper from the `MaxUse` library:
+#### C. Formatação de Moeda (BRL)
+* Reutilize o helper oficial `formatCurrency` da biblioteca `MaxUse`:
   ```typescript
-  import { formatCurrency } from '@maxvue/max-use'; // Or relative import from helpers
+  import { formatCurrency } from '@maxvue/max-use'; // Ou import relativo dos helpers
   
-  const price = formatCurrency(1250.50); // Output: "R$ 1.250,50"
+  const price = formatCurrency(1250.50); // Saída: "R$ 1.250,50"
   ```
-* Under the hood, this uses:
+* Por baixo dos panos, isso usa:
   ```typescript
   new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -134,25 +134,25 @@ Use the `@maxvue/max-use` library helpers for logic and validation:
   }).format(value);
   ```
 
-#### D. Currency Inputs and Parsing (Maska)
-* When capturing currency inputs, use `v-maska` to mask the input, and ensure you parse the formatted string back to a numeric float before sending it to the backend:
+#### D. Inputs de Moeda e Parsing (Maska)
+* Ao capturar inputs de moeda, use `v-maska` para mascarar o input e garanta que você faça o parse da string formatada de volta para um float numérico antes de enviá-la ao backend:
   ```typescript
-  // Convert "R$ 1.250,50" or "1.250,50" to float 1250.5
+  // Converte "R$ 1.250,50" ou "1.250,50" para o float 1250.5
   function parseBrlToFloat(value: string): number {
       if (!value) return 0;
       const cleanValue = value
-          .replace(/[^\d,.-]/g, '') // remove "R$" and spaces
-          .replace(/\./g, '')       // remove thousands separator
-          .replace(',', '.');       // replace decimal separator
+          .replace(/[^\d,.-]/g, '') // remove "R$" e espaços
+          .replace(/\./g, '')       // remove o separador de milhar
+          .replace(',', '.');       // substitui o separador decimal
       return parseFloat(cleanValue) || 0;
   }
   ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-* NEVER store formatted documents (e.g., with dots, slashes, or dashes) in the database. Always use `onlyNumbers()`.
-* DO NOT write custom validation algorithms for CPF/CNPJ or CEP. Always reuse `lacus/br-utils`, `phillarmonic/cpf-cnpj` or `@maxvue/max-use`.
-* NEVER break HTML/Vue component attributes into multiple lines inside templates. Maintain single-line tags (inline style).
-* **Do NOT** perform manual string replacements for currency formatting (e.g., `str_replace` or manually concatenating `"R$ "`). Always use `Intl.NumberFormat` on the frontend and `NumberFormatter` or Laravel `Number` helper on the backend.
-* **Do NOT** use float-based additions (`$a + $b`) directly for sensitive financial calculations. Prefer `bcmath` or enforce 2-decimal rounding.
-* **Do NOT** duplicate the `NumberToWords` instance creation unnecessarily; reuse established helpers like `nameNumber()` inside `StringsHelper.php` where applicable.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+* NUNCA armazene documentos formatados (ex: com pontos, barras ou traços) no banco de dados. Sempre use `onlyNumbers()`.
+* NÃO escreva algoritmos de validação customizados para CPF/CNPJ ou CEP. Sempre reutilize `lacus/br-utils`, `phillarmonic/cpf-cnpj` ou `@maxvue/max-use`.
+* NUNCA quebre atributos de componentes HTML/Vue em múltiplas linhas dentro dos templates. Mantenha as tags em linha única (estilo inline).
+* **NÃO** faça substituições manuais de string para formatação de moeda (ex: `str_replace` ou concatenar manualmente `"R$ "`). Sempre use `Intl.NumberFormat` no frontend e `NumberFormatter` ou o helper `Number` do Laravel no backend.
+* **NÃO** use adições baseadas em float (`$a + $b`) diretamente para cálculos financeiros sensíveis. Prefira `bcmath` ou imponha arredondamento de 2 casas decimais.
+* **NÃO** duplique a criação da instância de `NumberToWords` desnecessariamente; reutilize os helpers estabelecidos como `nameNumber()` dentro de `StringsHelper.php` quando aplicável.

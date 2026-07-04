@@ -3,46 +3,47 @@ name: laravel-services-best-practices
 description: Use when creating, refactoring, or reviewing Laravel Service classes, applying Single Responsibility Principle, dependency injection, and standardized error handling. Triggers on Service class creation, business logic encapsulation, and external API integrations.
 ---
 
-# Laravel Services Best Practices
+# Boas Práticas de Services no Laravel
 
-## Goal
-Establish clean, testable, and consistent guidelines for creating and maintaining Service classes in Laravel, ensuring controllers remain thin, business logic is centralized, and dependency injection is properly utilized.
+## Objetivo
+Estabelecer diretrizes limpas, testáveis e consistentes para criar e manter classes de Service no Laravel, garantindo que os controllers permaneçam enxutos, a lógica de negócio seja centralizada e a injeção de dependência seja utilizada corretamente.
 
-## Instructions
+## Instruções
 
-1. **Architecture & File Location**:
-   - Save all service classes in `app/Services/` (e.g., `app/Services/TrelloService.php`).
-   - Use the `App\Services` namespace.
-   - Name files using the `Service` suffix (e.g., `PaymentService.php`).
+1. **Arquitetura e Localização dos Arquivos**:
+   - Salve todas as classes de service em `app/Services/` (ex: `app/Services/TrelloService.php`).
+   - Use o namespace `App\Services`.
+   - Nomeie os arquivos usando o sufixo `Service` (ex: `PaymentService.php`).
+   - **Este é o padrão default do projeto para lógica de domínio** (este codebase usa `app/Services`, não `app/Actions`). Para a distinção entre Services agrupados e classes Action de operação única, veja `laravel-action-classes-best-practices`.
 
-2. **Single Responsibility Principle (SRP)**:
-   - Each Service class should focus on a single domain or closely related set of business actions.
-   - For highly complex operations, use specialized services (e.g., `ProjectDeletionService.php`).
+2. **Princípio da Responsabilidade Única (SRP)**:
+   - Cada classe de Service deve focar em um único domínio ou em um conjunto de ações de negócio intimamente relacionadas.
+   - Para operações altamente complexas, use services especializados (ex: `ProjectDeletionService.php`).
 
-3. **Dependency Injection**:
-   - Inject required dependencies (repositories, other services, API clients) via the constructor.
-   - Use PHP 8 constructor property promotion to declare and assign dependencies.
-   - Never resolve dependencies manually using `app()` or `resolve()` helper functions inside methods if they can be injected.
+3. **Injeção de Dependência**:
+   - Injete as dependências necessárias (repositories, outros services, clients de API) via construtor.
+   - Use o constructor property promotion do PHP 8 para declarar e atribuir as dependências.
+   - Nunca resolva dependências manualmente usando as funções helper `app()` ou `resolve()` dentro dos métodos se elas puderem ser injetadas.
 
-4. **Method Signatures & Data Transfer Objects (DTOs)**:
-   - Avoid passing raw, unvalidated arrays or request objects directly into Service methods.
-   - Use typed Data Transfer Objects (DTOs) for incoming parameters (integrate with `laravel-code-generators-best-practices`).
-   - Define explicit return types (DTO, Model, Collection, array, etc.) for all public methods.
+4. **Assinaturas de Métodos e Data Transfer Objects (DTOs)**:
+   - Evite passar arrays crus e não validados ou objetos de request diretamente para os métodos do Service.
+   - Use Data Transfer Objects (DTOs) tipados para os parâmetros de entrada (integre com `laravel-code-generators-best-practices`).
+   - Defina tipos de retorno explícitos (DTO, Model, Collection, array, etc.) para todos os métodos públicos.
 
-5. **Error Handling & Logging**:
-   - Standardize business logic failures by throwing custom, domain-specific Exceptions rather than returning false or error strings.
-   - Catch infrastructure-level exceptions (e.g., HTTP requests, database deadlocks) and wrap/rethrow them as domain exceptions where appropriate.
-   - Log failures using the `Log` facade with descriptive messages and context arrays, avoiding generic statements.
+5. **Tratamento de Erros e Logging**:
+   - Padronize as falhas de lógica de negócio lançando Exceptions customizadas e específicas do domínio, em vez de retornar false ou strings de erro.
+   - Capture exceções de nível de infraestrutura (ex: requisições HTTP, deadlocks de banco de dados) e as encapsule/relance como exceções de domínio quando apropriado.
+   - Registre as falhas usando a facade `Log` com mensagens descritivas e arrays de contexto, evitando declarações genéricas.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **No Controller/HTTP coupling**: Do not reference HTTP request variables (`request()`), sessions, or redirect helpers inside Service classes.
-- **No View presentation logic**: Services must not render HTML, return JSON responses, or construct UI components.
-- **No static state accumulation**: Avoid declaring public static properties that persist across requests to maintain compatibility with Octane.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **Sem acoplamento a Controller/HTTP**: Não referencie variáveis de request HTTP (`request()`), sessions ou helpers de redirect dentro das classes de Service.
+- **Sem lógica de apresentação de View**: Services não devem renderizar HTML, retornar respostas JSON nem construir componentes de UI.
+- **Sem acúmulo de estado estático**: Evite declarar propriedades públicas estáticas que persistam entre requisições, para manter a compatibilidade com o Octane.
 
-## Examples
+## Exemplos
 
-### Example: Standard Laravel Service implementation
+### Exemplo: Implementação padrão de um Service no Laravel
 ```php
 <?php
 
@@ -57,13 +58,13 @@ use Throwable;
 
 class OrderProcessingService
 {
-    // PHP 8 Constructor Property Promotion
+    // Constructor Property Promotion do PHP 8
     public function __construct(
         protected GatewayService $gateway
     ) {}
 
     /**
-     * Process and finalize a customer order.
+     * Processa e finaliza um pedido de cliente.
      *
      * @param Order $order
      * @param OrderData $data
@@ -73,7 +74,7 @@ class OrderProcessingService
     public function process(Order $order, OrderData $data): Order
     {
         try {
-            // Business logic encapsulation
+            // Encapsulamento da lógica de negócio
             $paymentResult = $this->gateway->charge($order, $data->paymentDetails);
 
             if (!$paymentResult->successful()) {

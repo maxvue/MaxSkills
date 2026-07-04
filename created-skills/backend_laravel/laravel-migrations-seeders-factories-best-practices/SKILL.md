@@ -3,17 +3,17 @@ name: laravel-migrations-seeders-factories-best-practices
 description: Use when creating, modifying, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Triggers on schema definitions, table creation, foreign keys, database seeders, and factory definitions.
 ---
 
-# Goal
-Ensure database migrations, seeders, and model factories in Laravel comply with Engeapp's architecture standards. This promotes database integrity, fast localized testing, and resilient schema updates.
+# Objetivo
+Garantir que migrations, seeders e model factories no Laravel estejam em conformidade com os padrões de arquitetura do Engeapp. Isso promove integridade do banco de dados, testes locais rápidos e atualizações de schema resilientes.
 
-# Instructions
+# Instruções
 
-## 1. Database Migrations
-- **Anonymous Classes:** Always write migrations as anonymous classes:
+## 1. Migrations de Banco de Dados
+- **Classes Anônimas:** Sempre escreva migrations como classes anônimas:
   ```php
   return new class extends Migration { ... };
   ```
-- **Existence Checks:** Check if the table already exists before creating it in the `up()` method to prevent execution failures:
+- **Verificações de Existência:** Verifique se a tabela já existe antes de criá-la no método `up()` para evitar falhas de execução:
   ```php
   public function up(): void
   {
@@ -21,13 +21,13 @@ Ensure database migrations, seeders, and model factories in Laravel comply with 
           return;
       }
       Schema::create('posts', function (Blueprint $table) {
-          $table->char('id', 26)->primary(); // ULID standard
+          $table->char('id', 26)->primary(); // padrão ULID
           // ...
       });
   }
   ```
-- **Primary Keys:** Follow the project standard for primary keys (e.g., ULIDs using `char('id', 26)->primary()`).
-- **Resilient Foreign Keys:** Add foreign keys in separate migration files named like `add_foreign_keys_to_posts_table.php`. Wrap foreign key statements inside a `try/catch` block to make database setups resilient:
+- **Chaves Primárias:** Siga o padrão do projeto para chaves primárias (ex.: ULIDs usando `char('id', 26)->primary()`).
+- **Chaves Estrangeiras Resilientes:** Adicione chaves estrangeiras em arquivos de migration separados, nomeados como `add_foreign_keys_to_posts_table.php`. Envolva as declarações de chave estrangeira em um bloco `try/catch` para tornar as configurações de banco de dados resilientes:
   ```php
   public function up(): void
   {
@@ -45,8 +45,8 @@ Ensure database migrations, seeders, and model factories in Laravel comply with 
   }
   ```
 
-## 2. Database Seeders
-- **Idempotency:** Always write seeders using idempotent methods (e.g., `updateOrCreate` or `firstOrCreate`) to prevent duplicate records when executed repeatedly:
+## 2. Seeders de Banco de Dados
+- **Idempotência:** Sempre escreva seeders usando métodos idempotentes (ex.: `updateOrCreate` ou `firstOrCreate`) para evitar registros duplicados quando executados repetidamente:
   ```php
   public function run(): void
   {
@@ -56,10 +56,10 @@ Ensure database migrations, seeders, and model factories in Laravel comply with 
       );
   }
   ```
-- **Reference & Production Data Sync:** When copying static/reference tables (e.g., cities, equipment brands):
-  - Disable foreign key checks with the DB-agnostic helper `Schema::withoutForeignKeyConstraints(function () { /* ... */ });` — it works on MariaDB (the project's target SGBD) and keeps seeders portable. The equivalent raw form on MariaDB is `DB::statement('SET FOREIGN_KEY_CHECKS=0')` … `=1`, but prefer the helper so you don't leave checks disabled if the closure throws.
-  - Use `truncate()` on target tables before inserting fresh data.
-  - Chunk datasets (e.g., `500` items) during bulk insert to prevent memory limit errors:
+- **Sincronização de Dados de Referência e Produção:** Ao copiar tabelas estáticas/de referência (ex.: cidades, marcas de equipamentos):
+  - Desabilite a verificação de chaves estrangeiras com o helper agnóstico de banco `Schema::withoutForeignKeyConstraints(function () { /* ... */ });` — ele funciona no MySQL (o SGBD alvo do projeto) e mantém os seeders portáveis. A forma raw equivalente no MySQL é `DB::statement('SET FOREIGN_KEY_CHECKS=0')` … `=1`, mas prefira o helper para não deixar as verificações desabilitadas caso a closure lance uma exceção.
+  - Use `truncate()` nas tabelas de destino antes de inserir os novos dados.
+  - Divida os datasets em blocos (ex.: `500` itens) durante a inserção em massa para evitar erros de limite de memória:
     ```php
     foreach ($sourceData->chunk(500) as $chunk) {
         DB::table($table)->insert(
@@ -69,8 +69,8 @@ Ensure database migrations, seeders, and model factories in Laravel comply with 
     ```
 
 ## 3. Model Factories
-- **Structure & Namespace:** Match the factories subdirectory with the Model's folder structure (e.g. `database/factories/Finance/PaymentsFactory.php`).
-- **Model Mapping & Typing:** Declare the `$model` property explicitly and use PHP type hints:
+- **Estrutura e Namespace:** Faça o subdiretório de factories corresponder à estrutura de pastas do Model (ex.: `database/factories/Finance/PaymentsFactory.php`).
+- **Mapeamento e Tipagem do Model:** Declare a propriedade `$model` explicitamente e use type hints do PHP:
   ```php
   namespace Database\Factories\Finance;
 
@@ -90,8 +90,8 @@ Ensure database migrations, seeders, and model factories in Laravel comply with 
       }
   }
   ```
-- **Data Generation:** Use the global `fake()` helper (e.g., `fake()->sentence()`) instead of `$this->faker` when generating values.
-- **Factory States:** Define explicit, type-hinted helper methods for common model states returning `static` and using `$this->state()`:
+- **Geração de Dados:** Use o helper global `fake()` (ex.: `fake()->sentence()`) em vez de `$this->faker` ao gerar valores.
+- **Factory States:** Defina métodos auxiliares explícitos e com type hint para os estados comuns do model, retornando `static` e usando `$this->state()`:
   ```php
   public function paid(): static
   {
@@ -101,12 +101,12 @@ Ensure database migrations, seeders, and model factories in Laravel comply with 
   }
   ```
 
-# Constraints
-- DO NOT define foreign keys directly in table creation migration files. Put them in separate `add_foreign_keys_to_...` files inside `try/catch` blocks.
-- DO NOT run bulk database inserts in seeders without chunking.
-- DO NOT hardcode relationship IDs in seeders or factories. Always use factory relationships (e.g. `User::factory()`).
-- DO NOT use `$this->faker` in new factories; prefer the global `fake()` helper.
-- DO NOT omit void return statements on migration `up`/`down` methods and seeder `run` methods.
+# Restrições
+- NÃO defina chaves estrangeiras diretamente nos arquivos de migration de criação de tabela. Coloque-as em arquivos separados `add_foreign_keys_to_...` dentro de blocos `try/catch`.
+- NÃO execute inserções em massa no banco em seeders sem dividir em blocos (chunking).
+- NÃO fixe (hardcode) IDs de relacionamento em seeders ou factories. Sempre use relacionamentos de factory (ex.: `User::factory()`).
+- NÃO use `$this->faker` em novas factories; prefira o helper global `fake()`.
+- NÃO omita os retornos `void` nos métodos `up`/`down` das migrations e no método `run` dos seeders.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill esteja escrito.

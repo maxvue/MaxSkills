@@ -3,18 +3,18 @@ name: laravel-gemini-php-sdk-best-practices
 description: Use when interacting directly with the Gemini API using the google-gemini-php/laravel SDK, configuring GenerationConfig, utilizing structured outputs (JSON Schemas), handling multimodal inputs (Images, Audio, PDF) using Blob, or managing model calls and exceptions in Laravel.
 ---
 
-# Goal
-Ensure robust, standardized, and high-performance integrations with the Gemini API using the `google-gemini-php/laravel` SDK within the Engeapp backend. This covers structuring queries using the Gemini Facade, defining rigid JSON outputs with native schema helpers, safely handling multimodal inputs via Base64 Blobs, and executing reliable error handling.
+# Objetivo
+Garantir integrações robustas, padronizadas e de alto desempenho com a API Gemini usando o SDK `google-gemini-php/laravel` dentro do backend do Engeapp. Isso abrange a estruturação de consultas usando a Facade do Gemini, a definição de saídas JSON rígidas com helpers nativos de schema, o tratamento seguro de entradas multimodais via Blobs em Base64 e a execução de tratamento de erros confiável.
 
 ---
 
-# Instructions
+# Instruções
 
-### 1. Model Selection & Facade Usage
-Always resolve the Gemini model using the `Gemini` facade to manage model calls.
-- **Primary Model for Fast/Standard operations:** `gemini-2.5-flash` or `gemini-2.5-flash-lite`.
-- **Primary Model for Complex reasoning:** `gemini-2.5-pro` or similar advanced models.
-- **Method:** Use `Gemini::generativeModel(model: 'model-name')` to initiate the generation request.
+### 1. Seleção de Modelo e Uso da Facade
+Sempre resolva o modelo Gemini usando a facade `Gemini` para gerenciar as chamadas de modelo.
+- **Modelo principal para operações Rápidas/Padrão:** `gemini-2.5-flash` ou `gemini-2.5-flash-lite`.
+- **Modelo principal para raciocínio Complexo:** `gemini-2.5-pro` ou modelos avançados similares.
+- **Método:** Use `Gemini::generativeModel(model: 'model-name')` para iniciar a requisição de geração.
 
 ```php
 use Gemini\Laravel\Facades\Gemini;
@@ -23,17 +23,17 @@ $response = Gemini::generativeModel(model: 'gemini-2.5-flash')
     ->generateContent('Your prompt goes here');
 ```
 
-### 2. Structured Outputs (JSON Schemas)
-When reliable JSON outputs are required, leverage structured schemas. Do not rely on prompt phrasing alone; instead, enforce schemas programmatically using `GenerationConfig` and the SDK's native schema definition components.
+### 2. Saídas Estruturadas (JSON Schemas)
+Quando saídas JSON confiáveis forem necessárias, utilize schemas estruturados. Não confie apenas no texto do prompt; em vez disso, imponha os schemas programaticamente usando `GenerationConfig` e os componentes nativos de definição de schema do SDK.
 
-- **Classes to use:**
+- **Classes a usar:**
   - `Gemini\Data\GenerationConfig`
   - `Gemini\Data\Schema`
   - `Gemini\Enums\DataType`
   - `Gemini\Enums\ResponseMimeType`
-- Configure `responseMimeType` as `ResponseMimeType::APPLICATION_JSON`.
-- Build nested structures using `DataType::OBJECT`, `DataType::ARRAY`, `DataType::STRING`, `DataType::NUMBER`, etc.
-- Explicitly list required fields under the `required` parameter.
+- Configure `responseMimeType` como `ResponseMimeType::APPLICATION_JSON`.
+- Construa estruturas aninhadas usando `DataType::OBJECT`, `DataType::ARRAY`, `DataType::STRING`, `DataType::NUMBER`, etc.
+- Liste explicitamente os campos obrigatórios sob o parâmetro `required`.
 
 ```php
 use Gemini\Data\GenerationConfig;
@@ -63,17 +63,17 @@ $result = Gemini::generativeModel(model: 'gemini-2.5-flash')
 $data = json_decode($result->text(), true);
 ```
 
-### 3. Multimodal Inputs (Blobs)
-To analyze local files (PDFs, Images, Audio, Video) without uploading them to public storage, send them directly as Base64-encoded binary data payloads using `Blob`.
+### 3. Entradas Multimodais (Blobs)
+Para analisar arquivos locais (PDFs, Imagens, Áudio, Vídeo) sem enviá-los para um storage público, envie-os diretamente como payloads de dados binários codificados em Base64 usando `Blob`.
 
-- **Classes to use:**
+- **Classes a usar:**
   - `Gemini\Data\Blob`
   - `Gemini\Enums\MimeType`
-- **Supported MimeTypes:**
-  - Documents: `MimeType::APPLICATION_PDF`
-  - Images: `MimeType::IMAGE_JPEG`, `MimeType::IMAGE_PNG`
-  - Audio: `MimeType::AUDIO_MP3`, `MimeType::AUDIO_AAC`, `MimeType::AUDIO_OGG`, `MimeType::AUDIO_FLAC`, `MimeType::AUDIO_AIFF`
-  - Video: `MimeType::VIDEO_MP4`, `MimeType::VIDEO_MPEG`, `MimeType::VIDEO_MOV`, `MimeType::VIDEO_WEBM`
+- **MimeTypes suportados:**
+  - Documentos: `MimeType::APPLICATION_PDF`
+  - Imagens: `MimeType::IMAGE_JPEG`, `MimeType::IMAGE_PNG`
+  - Áudio: `MimeType::AUDIO_MP3`, `MimeType::AUDIO_AAC`, `MimeType::AUDIO_OGG`, `MimeType::AUDIO_FLAC`, `MimeType::AUDIO_AIFF`
+  - Vídeo: `MimeType::VIDEO_MP4`, `MimeType::VIDEO_MPEG`, `MimeType::VIDEO_MOV`, `MimeType::VIDEO_WEBM`
 
 ```php
 use Gemini\Data\Blob;
@@ -92,13 +92,13 @@ $result = Gemini::generativeModel(model: 'gemini-2.5-flash')
     ]);
 ```
 
-### 4. Exception Handling & Logging
-Gemini API calls are susceptible to network latency, rate limits (HTTP 429), or temporary outages (HTTP 503). All operations must be safely wrapped.
+### 4. Tratamento de Exceções e Logging
+As chamadas à API Gemini estão sujeitas a latência de rede, rate limits (HTTP 429) ou indisponibilidades temporárias (HTTP 503). Todas as operações devem ser envolvidas com segurança.
 
-- Wrap calls inside a `try-catch` block catching `\Throwable`.
-- Log details inside the specific `gemini` channel using `Log::channel('gemini')`.
-- Log the exception message, model name, and context.
-- Implement fallbacks or try alternative models in case of critical failures.
+- Envolva as chamadas dentro de um bloco `try-catch` capturando `\Throwable`.
+- Registre os detalhes no canal específico `gemini` usando `Log::channel('gemini')`.
+- Registre a mensagem da exceção, o nome do modelo e o contexto.
+- Implemente fallbacks ou tente modelos alternativos em caso de falhas críticas.
 
 ```php
 use Illuminate\Support\Facades\Log;
@@ -112,17 +112,17 @@ try {
         'trace'   => $e->getTraceAsString(),
     ]);
     
-    // Implement fallback logic or throw a managed exception
+    // Implemente a lógica de fallback ou lance uma exceção tratada
 }
 ```
 
 ---
 
-# Constraints
-- **No API Key Exposure:** Never hardcode the Gemini API key. Ensure configuration is loaded through `config('gemini.api_key')` or standard environment variables.
-- **Memory Efficiency:** Avoid storing massive files in memory. Ensure Base64 payloads are processed and garbage-collected efficiently.
-- **Required Fields in Schema:** When defining structured outputs, always pass the array of required keys to ensure the schema validator guarantees their presence in the final output.
-- **Brazilian Portuguese Comments:** Keep code documentation, model constraints, and inline comments in **Brazilian Portuguese** (`pt-BR`) as per repository guidelines.
+# Restrições
+- **Nenhuma Exposição de API Key:** Nunca deixe a API key do Gemini hardcoded. Garanta que a configuração seja carregada por meio de `config('gemini.api_key')` ou variáveis de ambiente padrão.
+- **Eficiência de Memória:** Evite armazenar arquivos enormes em memória. Garanta que os payloads em Base64 sejam processados e coletados pelo garbage collector de forma eficiente.
+- **Campos Obrigatórios no Schema:** Ao definir saídas estruturadas, sempre passe o array de chaves obrigatórias para garantir que o validador de schema assegure sua presença na saída final.
+- **Comentários em Português Brasileiro:** Mantenha a documentação de código, restrições de modelo e comentários inline em **Português Brasileiro** (`pt-BR`), conforme as diretrizes do repositório.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.

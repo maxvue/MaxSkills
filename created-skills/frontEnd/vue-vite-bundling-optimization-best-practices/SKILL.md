@@ -1,6 +1,6 @@
 ---
 name: vue-vite-bundling-optimization-best-practices
-description: Use when configuring, analyzing, or optimizing the Vite 7 bundler, Rollup build options, code splitting, dynamic imports, or plugins (unplugin-auto-import, unplugin-vue-components, visualizer) in a Vue 3 and AdonisJS application. Triggers on build performance issues, huge bundle size warnings, Vite 7 config changes, and lazy loading strategies.
+description: Use when configuring, analyzing, or optimizing the Vite 7 bundler, Rollup build options, code splitting, dynamic imports, or plugins (laravel-vite-plugin, unplugin-auto-import, unplugin-vue-components, visualizer) in a Vue 3 and Laravel 13 application. Triggers on build performance issues, huge bundle size warnings, Vite 7 config changes, and lazy loading strategies.
 ---
 
 # Melhores Práticas de Otimização de Bundling com Vue & Vite
@@ -61,6 +61,7 @@ Fornecer diretrizes sólidas e padrões arquiteturais para a otimização do pro
 - Certifique-se de que os plugins `unplugin-auto-import` e `unplugin-vue-components` estão configurados para varrer apenas os diretórios necessários (ex.: `resources/js/stores` e demais diretórios de funções/helpers existentes).
 - Utilize a opção `dts` para gerar arquivos de declaração TypeScript (`resources/js/auto-imports.d.ts` para o AutoImport e `resources/js/components.d.ts` para o Components) para manter a verificação de tipos rápida e precisa.
 - Sempre inclua os resolvers nativos ou de bibliotecas (como o `MaxComponentsUiResolver` para os componentes de UI do Engeapp) para permitir que o bundler faça o tree-shaking correto de componentes não utilizados.
+- A integração com o backend é feita pelo **`laravel-vite-plugin`** (presente no `package.json`): registre-o em `plugins` apontando os entrypoints (ex.: `laravel({ input: ['resources/js/app.ts'], refresh: true })`). Ele gera o `manifest.json` que o Blade consome via `@vite(...)`; não configure `base`/manifest manualmente, deixe o plugin cuidar disso.
 
 ### 5. Otimização de Dependências em Desenvolvimento (`optimizeDeps`)
 - Exclua bibliotecas locais do workspace que sejam muito grandes (como `@maxvue/max-components-ui` e `@maxvue/max-use`) do pré-bundling utilizando `optimizeDeps.exclude` ao trabalhar com links simbólicos ou recarregamento rápido (HMR), garantindo que sejam resolvidas corretamente através dos aliases em `resolve.alias`.

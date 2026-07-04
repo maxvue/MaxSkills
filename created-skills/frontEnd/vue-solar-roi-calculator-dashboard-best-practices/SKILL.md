@@ -16,7 +16,7 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
    - **Persistência via MaxPinia**: parâmetros de entrada (custo do sistema, geração, tarifa, inflação, taxa de desconto) e cenários salvos são dados de página. Carregue-os e salve-os por uma store `@maxvue/max-pinia` (rotas string `/api/...`); o salvamento é automático/debounced ao alterar o estado da store. Não faça GET/POST manual nem mantenha esses parâmetros apenas em `ref` locais quando forem persistidos por projeto/proposta. Use `ref` locais apenas para simulações efêmeras de "what-if".
    - Vincule os valores de entrada a propriedades reativas (vindas da store ou `ref` locais para simulação). Use propriedades computadas (`computed`) para valores derivados (como degradação anual, geração anual ajustada e projeções de fluxo de caixa anuais).
    - Projete os valores do fluxo de caixa por até 25 anos. Mantenha os cálculos reativos usando o sistema de reatividade do Vue.
-   - Calcule separadamente os custos de energia usando os componentes de TUSD (Tarifa de Uso do Sistema de Distribuição) e TE (Tarifa de Energia) para tratar os cenários tributários corretos (ICMS, PIS, COFINS) conforme as regras de tarifa de concessionárias expostas pelo backend AdonisJS. As tarifas e regras regulatórias devem ser carregadas via store `@maxvue/max-pinia` (GET para `/api/...`), nunca codificadas no front.
+   - Calcule separadamente os custos de energia usando os componentes de TUSD (Tarifa de Uso do Sistema de Distribuição) e TE (Tarifa de Energia) para tratar os cenários tributários corretos (ICMS, PIS, COFINS) conforme as regras de tarifa de concessionárias expostas pelo backend Laravel 13. As tarifas e regras regulatórias devem ser carregadas via store `@maxvue/max-pinia` (GET para `/api/...`), nunca codificadas no front.
    - Considere a degradação anual dos painéis (tipicamente entre 0,5% e 0,8% ao ano), a inflação da tarifa de energia (tipicamente entre 5% e 10% ao ano) e a taxa de desconto (cálculo de VPL baseado na taxa Selic ou na taxa de atratividade mínima do cliente).
    - Certifique-se de deduzir a depreciação do inversor (custo de substituição) como uma despesa de manutenção (O&M) no ano 10 ou 15.
    - Para simulações de financiamento, implemente as fórmulas das tabelas SAC ou Price em composables locais.
@@ -49,15 +49,15 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
     <!-- Indicadores no Topo -->
     <div class="metrics-grid">
       <div class="metric-card">
-        <h3>VPL (Valor Presente Líquido)</h3>
+        <MaxTitle2 h1="VPL (Valor Presente Líquido)" />
         <p class="value">{{ formattedNpv }}</p>
       </div>
       <div class="metric-card">
-        <h3>TIR (Taxa Interna de Retorno)</h3>
+        <MaxTitle2 h1="TIR (Taxa Interna de Retorno)" />
         <p class="value">{{ formattedIrr }}</p>
       </div>
       <div class="metric-card">
-        <h3>Payback Descontado</h3>
+        <MaxTitle2 h1="Payback Descontado" />
         <p class="value">{{ paybackYears }} Anos</p>
       </div>
     </div>
@@ -80,12 +80,12 @@ Fornecer diretrizes de design, padrões de implementação matemática e melhore
 
         <!-- Tabela Detalhada -->
         <MaxTable :value="cashFlowData" stripedRows>
-          <Column field="year" header="Ano" />
-          <Column field="generation" header="Geração (kWh)" />
-          <Column field="savings" header="Economia" />
-          <Column field="costs" header="Custos O&M" />
-          <Column field="netFlow" header="Fluxo Líquido" />
-          <Column field="cumulative" header="Acumulado" />
+          <MaxTableColumn field="year" header="Ano" />
+          <MaxTableColumn field="generation" header="Geração (kWh)" />
+          <MaxTableColumn field="savings" header="Economia" />
+          <MaxTableColumn field="costs" header="Custos O&M" />
+          <MaxTableColumn field="netFlow" header="Fluxo Líquido" />
+          <MaxTableColumn field="cumulative" header="Acumulado" />
         </MaxTable>
       </div>
     </div>

@@ -3,17 +3,17 @@ name: laravel-multitenancy-data-isolation-best-practices
 description: Use when designing, reviewing, or debugging multi-tenant architectures, data isolation, query scopes, and tenant middleware in Laravel. Triggers on requests involving database filters by tenant id (e.g., solar_company_id, designer_solar_company_id), global Eloquent query scopes, and tenant context resolution.
 ---
 
-# Laravel Multi-tenancy & Data Isolation Best Practices
+# Boas Práticas de Multi-tenancy e Isolamento de Dados no Laravel
 
-## Goal
-Establish robust, secure, and scalable guidelines for multi-tenant data isolation within Laravel applications. Ensure strict separation of client, project, and document data using global Eloquent query scopes, tenant resolution middleware, context managers, and Artisan/Job integration to prevent cross-tenant data leakage.
+## Objetivo
+Estabelecer diretrizes robustas, seguras e escaláveis para o isolamento de dados multi-tenant em aplicações Laravel. Garantir a separação estrita de dados de cliente, projeto e documento usando global query scopes do Eloquent, middleware de resolução de tenant, gerenciadores de contexto e integração com Artisan/Job para prevenir vazamento de dados entre tenants.
 
-## Instructions
+## Instruções
 
-### 1. Tenant Context Management (TenantManager)
-- Define a thread-safe singleton manager or utilize Laravel 11's `Context` facade to hold the active tenant state during the request/process lifecycle.
-- Implement a helper or facade to get/set the active tenant ID (e.g., `UserSolarCompany` ID).
-- Example:
+### 1. Gerenciamento de Contexto de Tenant (TenantManager)
+- Defina um gerenciador singleton thread-safe ou utilize a facade `Context` (Laravel 11+) para manter o estado do tenant ativo durante o ciclo de vida da requisição/processo.
+- Implemente um helper ou facade para obter/definir o ID do tenant ativo (ex: o ID de `UserSolarCompany`).
+- Exemplo:
   ```php
   namespace App\Services;
 
@@ -43,10 +43,10 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
   }
   ```
 
-### 2. Tenant Resolution Middleware
-- Create a middleware to resolve the active tenant from the authenticated user context (`auth()->user()->solar_company_id`) or custom headers.
-- Set the resolved tenant ID in the `TenantManager` at the start of the request lifecycle.
-- Example:
+### 2. Middleware de Resolução de Tenant
+- Crie um middleware para resolver o tenant ativo a partir do contexto do usuário autenticado (`auth()->user()->solar_company_id`) ou de headers customizados.
+- Defina o ID do tenant resolvido no `TenantManager` no início do ciclo de vida da requisição.
+- Exemplo:
   ```php
   namespace App\Http\Middleware;
 
@@ -71,10 +71,10 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
   }
   ```
 
-### 3. Reusable Tenant Traits and Global Scopes
-- Create a reusable trait (e.g., `BelongsToTenant`) to be used in models that require tenant isolation.
-- Automatically register a `TenantScope` and hook into the model's `creating` event to set the `solar_company_id` automatically.
-- Example Trait:
+### 3. Traits Reutilizáveis de Tenant e Global Scopes
+- Crie uma trait reutilizável (ex: `BelongsToTenant`) para ser usada em models que exigem isolamento de tenant.
+- Registre automaticamente um `TenantScope` e conecte-se ao evento `creating` do model para definir o `solar_company_id` automaticamente.
+- Exemplo de Trait:
   ```php
   namespace App\Traits;
 
@@ -101,7 +101,7 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
       }
   }
   ```
-- Example Global Scope (`TenantScope`):
+- Exemplo de Global Scope (`TenantScope`):
   ```php
   namespace App\Scopes;
 
@@ -121,14 +121,14 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
   }
   ```
 
-### 4. Special Scopes (e.g., `designer_solar_company_id` / Projects)
-- If some tables utilize alternative column names (like `designer_solar_company_id` in `Project` models), implement a custom trait (e.g., `BelongsToDesignerTenant`) or dynamically configure the column in the scope.
-- Ensure the scope targets the correct column name on the correct database table to prevent SQL ambiguity during joins.
+### 4. Scopes Especiais (ex: `designer_solar_company_id` / Projetos)
+- Se algumas tabelas utilizam nomes de coluna alternativos (como `designer_solar_company_id` em models `Project`), implemente uma trait customizada (ex: `BelongsToDesignerTenant`) ou configure a coluna dinamicamente no scope.
+- Garanta que o scope aponte para o nome de coluna correto na tabela de banco correta para prevenir ambiguidade de SQL durante joins.
 
-### 5. Tenant Isolation in Jobs and Horizon Queues
-- Since background jobs run in a CLI context without sessions or HTTP request middleware, you must pass the tenant context explicitly to queued jobs.
-- Inject the active tenant ID in the constructor of the job class and set the tenant context in the job's `handle()` method or via job middleware.
-- Example Job:
+### 5. Isolamento de Tenant em Jobs e Filas do Horizon
+- Como os background jobs rodam em um contexto CLI sem sessões ou middleware de requisição HTTP, você deve passar o contexto do tenant explicitamente para os queued jobs.
+- Injete o ID do tenant ativo no construtor da classe do job e defina o contexto do tenant no método `handle()` do job ou via job middleware.
+- Exemplo de Job:
   ```php
   namespace App\Jobs;
 
@@ -155,7 +155,7 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
           TenantManager::setTenantId($this->tenantId);
 
           try {
-              // Perform tenant-isolated database operations
+              // Executa operações de banco isoladas por tenant
           } finally {
               TenantManager::forgetTenant();
           }
@@ -163,9 +163,9 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
   }
   ```
 
-### 6. Validation and Policies
-- Utilize Laravel Form Requests and Policies to double-check that users cannot request or update resources belonging to a different tenant.
-- Example Policy validation:
+### 6. Validação e Policies
+- Utilize Form Requests e Policies do Laravel para verificar novamente que os usuários não podem solicitar ou atualizar recursos pertencentes a um tenant diferente.
+- Exemplo de validação em Policy:
   ```php
   public function update(User $user, Project $project): bool
   {
@@ -173,9 +173,9 @@ Establish robust, secure, and scalable guidelines for multi-tenant data isolatio
   }
   ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **No Hardcoded/Manual Tenant Filtering:** Avoid querying with manual `->where('solar_company_id', ...)` filters. Rely on the `BelongsToTenant` trait and its global scope to prevent developer oversight and data leakage.
-- **Tenant Context Restoration:** Always clear or restore the tenant context at the end of background jobs, Artisan commands, or test executions to avoid memory leaks or context contamination between consecutive jobs (especially under Octane).
-- **Explicit Scope Bypassing:** Restrict bypassing of the tenant scope using `withoutGlobalScope(TenantScope::class)` to system-level operations, administrative dashboards, or explicitly approved cross-tenant console commands. Document all instances of scope bypassing.
-- **Database Schema Constraints:** All tenant-specific tables must have indexed `solar_company_id` (or similar) foreign keys defined as `NOT NULL` with appropriate cascade rules in their migrations.
+## Restrições
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
+- **Sem Filtragem de Tenant Hardcoded/Manual:** Evite fazer queries com filtros manuais `->where('solar_company_id', ...)`. Confie na trait `BelongsToTenant` e no seu global scope para prevenir descuidos de desenvolvedor e vazamento de dados.
+- **Restauração do Contexto de Tenant:** Sempre limpe ou restaure o contexto do tenant ao final de background jobs, comandos Artisan ou execuções de teste, para evitar vazamentos de memória ou contaminação de contexto entre jobs consecutivos (especialmente sob o Octane).
+- **Bypass Explícito de Scope:** Restrinja o bypass do tenant scope usando `withoutGlobalScope(TenantScope::class)` a operações de nível de sistema, dashboards administrativos, ou comandos de console cross-tenant explicitamente aprovados. Documente todas as instâncias de bypass de scope.
+- **Restrições de Schema de Banco:** Todas as tabelas específicas de tenant devem ter chaves estrangeiras `solar_company_id` (ou similar) indexadas, definidas como `NOT NULL` com regras de cascade apropriadas em suas migrations.

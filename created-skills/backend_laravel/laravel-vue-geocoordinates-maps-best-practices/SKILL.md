@@ -3,26 +3,26 @@ name: laravel-vue-geocoordinates-maps-best-practices
 description: Use when working with geographical coordinates (latitude, longitude, UTM, DMS), integrating maps in Vue using vue3-google-map, converting coordinate systems (proj4, utm-latlng), validating coordinate DTOs (CoordinateUTMData, LocationCoordinateData) in Laravel, or troubleshooting mapping/location services.
 ---
 
-# Laravel and Vue Geographical Coordinates & Maps Best Practices
+# Boas Práticas de Coordenadas Geográficas e Mapas em Laravel e Vue
 
-## Goal
-Provide guidelines, code patterns, and validation rules for handling geographical coordinates (Decimal, UTM, DMS) in the Laravel backend and integrating them with interactive maps using `vue3-google-map` and coordinate transformations via `proj4` in the Vue 3 frontend of the Engeapp ecosystem.
+## Objetivo
+Fornecer diretrizes, padrões de código e regras de validação para lidar com coordenadas geográficas (Decimal, UTM, DMS) no backend Laravel e integrá-las com mapas interativos usando `vue3-google-map` e transformações de coordenadas via `proj4` no frontend Vue 3 do ecossistema Engeapp.
 
-## Instructions
+## Instruções
 
-### 1. Laravel Backend: Models & DTOs
-When storing and validating coordinates:
-- **Database Storage**: Coordinates are stored as JSON structures mapped to Eloquent attributes in `LocationCoordinate`. Use Custom Attributes (Mutators/Accessors) via `Illuminate\Database\Eloquent\Casts\Attribute` to marshal JSON fields to PHP objects.
-- **DTO validation**: Use Spatie Laravel Data objects for payload validation:
-  - [CoordinateDecimalData](file:///home/johnattas/GitHub/engeapp/app/Data/Location/CoordinateDecimalData.php) contains `latitude` (float) and `longitude` (float).
-  - [CoordinateUTMData](file:///home/johnattas/GitHub/engeapp/app/Data/Location/CoordinateUTMData.php) contains `zone` (int), `letter_zone` (string), `easting` (float), and `northing` (float).
-  - [CoordinateDMSData](file:///home/johnattas/GitHub/engeapp/app/Data/Location/CoordinateDMSData.php) contains `latitude` and `longitude` mapped to [DmsValueData](file:///home/johnattas/GitHub/engeapp/app/Data/Location/DmsValueData.php).
-- **DMS Orientations (Brazilian Standard)**:
-  - Latitude: `N` (North) or `S` (South).
-  - Longitude: `L` (East - Leste) or `O` (West - Oeste). **Note that `L` and `O` are used instead of `E` and `W`** to align with Brazilian standard terminology defined in [CoordinateOrientationEnum](file:///home/johnattas/GitHub/engeapp/app/Enums/CoordinateOrientationEnum.php).
+### 1. Backend Laravel: Models e DTOs
+Ao armazenar e validar coordenadas:
+- **Armazenamento no Banco de Dados**: As coordenadas são armazenadas como estruturas JSON mapeadas para atributos Eloquent em `LocationCoordinate`. Use Custom Attributes (Mutators/Accessors) via `Illuminate\Database\Eloquent\Casts\Attribute` para converter campos JSON em objetos PHP.
+- **Validação de DTO**: Use objetos Spatie Laravel Data para validação de payloads:
+  - [CoordinateDecimalData](../../projects/engeapp/app/Data/Location/CoordinateDecimalData.php) contém `latitude` (float) e `longitude` (float).
+  - [CoordinateUTMData](../../projects/engeapp/app/Data/Location/CoordinateUTMData.php) contém `zone` (int), `letter_zone` (string), `easting` (float) e `northing` (float).
+  - [CoordinateDMSData](../../projects/engeapp/app/Data/Location/CoordinateDMSData.php) contém `latitude` e `longitude` mapeados para [DmsValueData](../../projects/engeapp/app/Data/Location/DmsValueData.php).
+- **Orientações DMS (Padrão Brasileiro)**:
+  - Latitude: `N` (Norte) ou `S` (Sul).
+  - Longitude: `L` (Leste) ou `O` (Oeste). **Note que `L` e `O` são usados em vez de `E` e `W`** para alinhar com a terminologia do padrão brasileiro definida em [CoordinateOrientationEnum](../../projects/engeapp/app/Enums/CoordinateOrientationEnum.php).
 
-#### Backend Conversion Rules
-To convert DMS (Degrees, Minutes, Seconds) to Decimal Degrees:
+#### Regras de Conversão no Backend
+Para converter DMS (Graus, Minutos, Segundos) em Graus Decimais:
 ```php
 public static function dmsToDecimal(int $degrees, int $minutes, float $seconds, string $orientation): float
 {
@@ -34,14 +34,14 @@ public static function dmsToDecimal(int $degrees, int $minutes, float $seconds, 
 }
 ```
 
-### 2. Vue 3 Frontend: Map Integration & Reactivity
-When building/editing map components:
-- **Component Standard**: Always use Composition API (`<script setup lang="ts">`), SCSS (`<style lang="scss">`), and order blocks: `<template>`, `<script>`, `<style>`.
-- **Map Library**: Use `vue3-google-map`. Load it asynchronously or conditionally render using a mount flag (`isMounted`) to prevent SSR or initialization errors.
-- **GoogleMap component**: Reference [MaxMaps.vue](file:///home/johnattas/GitHub/MaxComponentsUi/src/components/MaxMaps.vue). All attributes in the template should be on a single line.
-- **Reactivity and Marker Dragging**:
-  - Keep coordinates reactive in the component. Watch coordinate changes and update the map center and marker position.
-  - Bind `@dragend` event on `AdvancedMarker` to capture the new coordinates and update the reactive state:
+### 2. Frontend Vue 3: Integração de Mapa e Reatividade
+Ao construir/editar componentes de mapa:
+- **Padrão de Componente**: Sempre use Composition API (`<script setup lang="ts">`), SCSS (`<style lang="scss">`) e ordene os blocos: `<template>`, `<script>`, `<style>`.
+- **Biblioteca de Mapa**: Use `vue3-google-map`. Carregue-a de forma assíncrona ou renderize condicionalmente usando uma flag de montagem (`isMounted`) para prevenir erros de SSR ou de inicialização.
+- **Componente GoogleMap**: Referencie [MaxMaps.vue](../../projects/MaxComponentsUi/src/components/MaxMaps.vue). Todos os atributos no template devem estar em uma única linha.
+- **Reatividade e Arraste do Marcador**:
+  - Mantenha as coordenadas reativas no componente. Observe (watch) as mudanças de coordenadas e atualize o centro do mapa e a posição do marcador.
+  - Vincule o evento `@dragend` no `AdvancedMarker` para capturar as novas coordenadas e atualizar o estado reativo:
     ```ts
     function onDrag(event: any) {
         coordinates.value.latitude = Number(event.latLng.lat().toFixed(7));
@@ -49,28 +49,28 @@ When building/editing map components:
     }
     ```
 
-### 3. Coordinate Conversions in Vue 3 via Proj4
-To convert UTM coordinates (highly used in Brazilian solar plant designs) to Decimal (Latitude/Longitude) on the frontend:
-- **Proj4 Setup**: Define coordinate reference systems (CRS) using `proj4.defs`.
-- **Common Brazilian Projections**:
+### 3. Conversões de Coordenadas no Vue 3 via Proj4
+Para converter coordenadas UTM (muito usadas em projetos de usinas solares brasileiras) para Decimal (Latitude/Longitude) no frontend:
+- **Configuração do Proj4**: Defina os sistemas de referência de coordenadas (CRS) usando `proj4.defs`.
+- **Projeções Brasileiras Comuns**:
   - **SIRGAS 2000 / UTM Zone 23S** (EPSG:31983): `+proj=utm +zone=23 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs`
   - **WGS 84 / UTM Zone 23S** (EPSG:32723): `+proj=utm +zone=23 +south +datum=WGS84 +units=m +no_defs`
-- **Conversion Example**:
+- **Exemplo de Conversão**:
   ```typescript
   import proj4 from 'proj4';
 
-  // Define SIRGAS 2000 / UTM Zone 23S and WGS84 (default lat/long)
+  // Define SIRGAS 2000 / UTM Zone 23S e WGS84 (lat/long padrão)
   proj4.defs("EPSG:31983", "+proj=utm +zone=23 +south +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
 
-  // Convert UTM (Easting, Northing) to Decimal (Longitude, Latitude)
-  // Note: proj4 returns [longitude, latitude]
+  // Converte UTM (Easting, Northing) para Decimal (Longitude, Latitude)
+  // Nota: proj4 retorna [longitude, latitude]
   const [lng, lat] = proj4("EPSG:31983", "WGS84", [easting, northing]);
   ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Do NOT** use `E` (East) or `W` (West) orientations in Brazilian DMS formatting. Use `L` (Leste) and `O` (Oeste).
-- **Do NOT** duplicate coordinate validation rules in controllers. Always delegate coordinate validation to the Spatie Data classes (`CoordinateUTMData`, `CoordinateDecimalData`, `CoordinateDMSData`).
-- **Do NOT** break Vue component template attributes into multiple lines. Keep them in a single line.
-- **Do NOT** use Options API in any map/coordinate components. Always use Composition API with TypeScript.
-- **Do NOT** write inline styles for Map heights or widths. Use SCSS styles or tailwind classes (if requested).
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **NÃO** use orientações `E` (East) ou `W` (West) na formatação DMS brasileira. Use `L` (Leste) e `O` (Oeste).
+- **NÃO** duplique regras de validação de coordenadas nos controllers. Sempre delegue a validação de coordenadas às classes Spatie Data (`CoordinateUTMData`, `CoordinateDecimalData`, `CoordinateDMSData`).
+- **NÃO** quebre os atributos do template do componente Vue em múltiplas linhas. Mantenha-os em uma única linha.
+- **NÃO** use Options API em nenhum componente de mapa/coordenada. Sempre use Composition API com TypeScript.
+- **NÃO** escreva estilos inline para alturas ou larguras de mapa. Use estilos SCSS ou classes tailwind (se solicitado).

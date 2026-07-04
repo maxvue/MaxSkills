@@ -16,21 +16,17 @@ Estruture a caixa de entrada usando um layout de duas colunas otimizado para erg
 - Aplique barras de rolagem personalizadas (`overflow-y-auto`) utilizando classes CSS com estilos modernos.
 - Use `<div>` + SCSS (não existe componente de card genérico no MaxComponentsUi) para criar painéis visualmente premium.
 
-### 2. Ingestão em Tempo Real (Server-Sent Events)
-Integre o `@adonisjs/transmit-client` diretamente para manter a linha de comentários atualizada sem recarregamento manual de página:
-- Instancie o cliente Transmit e escute as atualizações de comentários e mensagens em tempo real:
+### 2. Ingestão em Tempo Real (Laravel Reverb + Echo)
+Use o `@laravel/echo-vue` (Echo já configurado no bootstrap via `configureEcho`, apontando para o Laravel Reverb) para manter a linha de comentários atualizada sem recarregamento manual de página:
+- Assine o canal de moderação com `useEcho` e escute o evento de atualização de comentários/mensagens em tempo real:
   ```typescript
-  import { Transmit } from '@adonisjs/transmit-client'
+  import { useEcho } from '@laravel/echo-vue'
 
-  const transmit = new Transmit({ baseUrl: window.location.origin })
-  const subscription = transmit.subscription(`instagram/moderation/${clientId}`)
-  await subscription.create()
-
-  subscription.onMessage<{ commentId: string; text: string; action: string }>((data) => {
+  const { listen } = useEcho(`instagram.moderation.${clientId}`, 'InstagramCommentUpdated', (data: { commentId: string; text: string; action: string }) => {
     // Atualiza reativamente a store @maxvue/max-pinia (mescla o novo comentário/mensagem na coleção)
   })
   ```
-- **Limpeza:** Sempre chame `subscription.delete()` dentro de `onUnmounted()` para evitar vazamentos de listeners ativos no lado do cliente.
+- **Limpeza:** O `useEcho` faz o unsubscribe automaticamente no `onUnmounted` do componente. Para pausar/retomar manualmente, use os controles `leave()`/`listen()` retornados pelo composable.
 
 ### 3. Sugestões de Respostas Geradas por IA
 Melhore o fluxo de trabalho de moderação utilizando sugestões de IA integradas:
@@ -42,7 +38,7 @@ Melhore o fluxo de trabalho de moderação utilizando sugestões de IA integrada
 Exponha gatilhos de ação rápida para moderação de comentários do Instagram:
 - Implemente botões para ações de **Curtir (Coração)**, **Ocultar/Exibir** e **Excluir** usando `MaxIconButton` com os ícones correspondentes (`mdi:heart-outline`, `mdi:eye-off-outline`, `mdi:trash-can-outline`).
 - Trate os estados de carregamento reativamente usando referências booleanas para cada requisição de ação.
-- **Despache as ações via store `@maxvue/max-pinia`:** mutações na coleção de comentários/mensagens (curtir, ocultar/exibir, excluir) devem alterar o estado da store, que persiste automaticamente no backend AdonisJS (auto-save debounced) através de `apiPostRoute`/`apiGetRoute` resolvendo caminhos string `/api/...`. NÃO faça requisições Axios REST manuais para dados de página.
+- **Despache as ações via store `@maxvue/max-pinia`:** mutações na coleção de comentários/mensagens (curtir, ocultar/exibir, excluir) devem alterar o estado da store, que persiste automaticamente no backend Laravel 13 (auto-save debounced) através de `apiPostRoute`/`apiGetRoute` resolvendo caminhos string `/api/...`. NÃO faça requisições Axios REST manuais para dados de página.
 
 ### 5. Diretrizes de Código e Templates
 - Sempre use a Composition API (`<script setup lang="ts">`) e SCSS (`<style scoped lang="scss">`).
@@ -52,5 +48,5 @@ Exponha gatilhos de ação rápida para moderação de comentários do Instagram
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **PROIBIDO Options API:** Não utilize a Options API do Vue sob nenhuma circunstância.
-- **PROIBIDO Sockets Alternativos:** Não use Pusher, Echo ou Soketi para novas integrações em tempo real no AdonisJS v6. Prefira sempre o `@adonisjs/transmit`.
+- **Realtime padronizado:** Use sempre `@laravel/echo-vue` (`useEcho`) sobre o Laravel Reverb para novas integrações em tempo real. Não instancie `laravel-echo` cru nem misture outros clientes de socket — o Echo já vem configurado no bootstrap da app.
 - **PROIBIDO Desvios de Layout (Layout Shifts):** Garanta que as atualizações de altura do scroll ocorram de forma suave ao carregar novas mensagens ou comentários dinamicamente, preservando a posição de rolagem do usuário caso ele tenha rolado para cima.

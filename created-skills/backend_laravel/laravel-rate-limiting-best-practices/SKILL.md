@@ -3,17 +3,17 @@ name: laravel-rate-limiting-best-practices
 description: Use when configuring, optimizing, or debugging rate limits for HTTP routes, APIs, login endpoints, or queues in Laravel. Triggers on defining rate limiters in bootstrap/app.php, using RateLimiter facade, applying throttle middleware, customizing 429 response, and testing route throttling.
 ---
 
-# Laravel Rate Limiting Best Practices
+# Boas Práticas de Rate Limiting no Laravel
 
-## Goal
-Provide clear guidelines and robust standards for implementing, configuring, and testing request limits (rate limiting) in Laravel 13. This ensures the protection of endpoints (such as logins, payments, and AI requests) against brute-force attacks and abuse, optimizing infrastructure costs and maintaining application stability.
+## Objetivo
+Fornecer diretrizes claras e padrões robustos para implementar, configurar e testar limites de requisições (rate limiting) no Laravel 13. Isso garante a proteção de endpoints (como logins, pagamentos e requisições de IA) contra ataques de brute-force e abuso, otimizando custos de infraestrutura e mantendo a estabilidade da aplicação.
 
-## Instructions
+## Instruções
 
-1. **Defining Rate Limiters in Laravel 13**:
-   - In Laravel v11+, rate limiters are typically defined within `App\Providers\AppServiceProvider.php` (or a dedicated route/security provider) inside the `boot` method using the `RateLimiter::for` method.
-   - Use the `Illuminate\Support\Facades\RateLimiter` facade.
-   - Always group and name rate limiters semantically (e.g., `api`, `login`, `ai-inference`, `payment-transactions`).
+1. **Definindo Rate Limiters no Laravel 13**:
+   - No Laravel v11+, os rate limiters são tipicamente definidos dentro de `App\Providers\AppServiceProvider.php` (ou um provider dedicado de rota/segurança), no método `boot`, usando o método `RateLimiter::for`.
+   - Use a facade `Illuminate\Support\Facades\RateLimiter`.
+   - Sempre agrupe e nomeie os rate limiters semanticamente (ex: `api`, `login`, `ai-inference`, `payment-transactions`).
 
    ```php
    use Illuminate\Cache\RateLimiting\Limit;
@@ -25,9 +25,9 @@ Provide clear guidelines and robust standards for implementing, configuring, and
    });
    ```
 
-2. **Applying the Middleware to Routes**:
-   - Apply rate limiters to routes or route groups using the `throttle` middleware, passing the name of the defined limiter.
-   - Inside `routes/api.php` or `routes/web.php`:
+2. **Aplicando o Middleware às Rotas**:
+   - Aplique rate limiters a rotas ou grupos de rotas usando o middleware `throttle`, passando o nome do limiter definido.
+   - Dentro de `routes/api.php` ou `routes/web.php`:
      ```php
      Route::middleware('throttle:api')->group(function () {
          Route::get('/user', [UserController::class, 'show']);
@@ -36,12 +36,12 @@ Provide clear guidelines and robust standards for implementing, configuring, and
      Route::middleware('throttle:login')->post('/login', [AuthController::class, 'login']);
      ```
 
-3. **Dynamic Throttling & Identification**:
-   - Never use a static limit without user/IP differentiation, otherwise one user could block the entire application.
-   - For authenticated routes, scope by the user ID: `$request->user()?->id`.
-   - For guest routes (like login/password reset), scope by IP address: `$request->ip()`.
-   - For API clients or integrators, scope by API Key or client ID.
-   - Consider dynamic limits based on user roles or subscription tiers:
+3. **Throttling Dinâmico e Identificação**:
+   - Nunca use um limite estático sem diferenciação por usuário/IP, caso contrário um único usuário poderia bloquear a aplicação inteira.
+   - Para rotas autenticadas, escopo pelo ID do usuário: `$request->user()?->id`.
+   - Para rotas de convidado (como login/reset de senha), escopo pelo endereço IP: `$request->ip()`.
+   - Para clientes de API ou integradores, escopo pela API Key ou client ID.
+   - Considere limites dinâmicos com base nos papéis (roles) do usuário ou nos planos de assinatura:
      ```php
      RateLimiter::for('api', function (Request $request) {
          $limit = $request->user()?->isPremium() ? 1000 : 100;
@@ -49,9 +49,9 @@ Provide clear guidelines and robust standards for implementing, configuring, and
      });
      ```
 
-4. **Customizing the 429 Too Many Requests Response**:
-   - Customize the HTTP 429 response to return clean, standardized JSON instead of default Laravel HTML exception pages for API routes.
-   - Set custom response headers and error messages:
+4. **Personalizando a Resposta 429 Too Many Requests**:
+   - Personalize a resposta HTTP 429 para retornar um JSON limpo e padronizado em vez das páginas de exceção HTML padrão do Laravel para rotas de API.
+   - Defina headers de resposta e mensagens de erro customizados:
      ```php
      RateLimiter::for('ai-inference', function (Request $request) {
          return Limit::perMinute(5)
@@ -65,8 +65,8 @@ Provide clear guidelines and robust standards for implementing, configuring, and
      });
      ```
 
-5. **Rate Limiting in Job Queues**:
-   - If jobs interact with external rate-limited APIs (e.g., payment gateways, external AI providers), use the `redis` rate limiter to control queue worker execution:
+5. **Rate Limiting em Filas de Jobs**:
+   - Se os jobs interagem com APIs externas com rate limit (ex: gateways de pagamento, provedores externos de IA), use o rate limiter `redis` para controlar a execução dos workers da fila:
      ```php
      use Illuminate\Support\Facades\Redis;
 
@@ -74,37 +74,37 @@ Provide clear guidelines and robust standards for implementing, configuring, and
          ->allow(10)
          ->every(60)
          ->then(function () {
-             // Process the payment job...
+             // Processa o job de pagamento...
          }, function () {
-             // Release the job back to the queue with a delay
+             // Devolve o job para a fila com um atraso
              return $this->release(30);
          });
      ```
 
-6. **Bypassing Rate Limiting in Local/Testing Environments**:
-   - To prevent blocking automated tests or local development flows, allow disabling rate limits via `.env` configuration or during test execution.
-   - In `AppServiceProvider.php`:
+6. **Contornando o Rate Limiting em Ambientes Locais/de Teste**:
+   - Para evitar bloquear testes automatizados ou fluxos de desenvolvimento local, permita desabilitar os rate limits via configuração no `.env` ou durante a execução dos testes.
+   - Em `AppServiceProvider.php`:
      ```php
      if (app()->runningUnitTests() || config('security.disable_rate_limits')) {
          RateLimiter::for('api', fn () => Limit::none());
      }
      ```
 
-7. **Testing Throttling with Pest**:
-   - Use Pest architecture and feature tests to verify that endpoints are correctly throttled.
-   - Simulate consecutive requests using loops and assert the status code:
+7. **Testando o Throttling com o Pest**:
+   - Use os testes de arquitetura e de feature do Pest para verificar se os endpoints têm o throttle aplicado corretamente.
+   - Simule requisições consecutivas usando loops e verifique o status code:
      ```php
      it('throttles login requests after 5 attempts', function () {
-         // Perform 5 successful requests or failures
+         // Realiza 5 requisições bem-sucedidas ou com falha
          for ($i = 0; $i < 5; $i++) {
              $response = $this->postJson('/api/login', [
                  'email' => 'user@example.com',
                  'password' => 'wrong-password'
              ]);
-             $response->assertStatus(422); // Validation error, but not throttled yet
+             $response->assertStatus(422); // Erro de validação, mas ainda sem throttle
          }
 
-         // The 6th request must be throttled
+         // A 6ª requisição deve ter o throttle aplicado
          $this->postJson('/api/login', [
              'email' => 'user@example.com',
              'password' => 'wrong-password'
@@ -112,16 +112,16 @@ Provide clear guidelines and robust standards for implementing, configuring, and
      });
      ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **No Raw Database Locks**: Do NOT write custom DB queries or lock files to count requests. Always use Laravel's native `RateLimiter` facade or `throttle` middleware.
-- **Never Block Globally**: Do NOT define rate limiters without a unique identifier (like IP or User ID) using `by()`, as it would throttle the route for all users globally.
-- **JSON Response on APIs**: Rate limiters applied to API routes must return JSON responses with standard CORS and retry-after headers, avoiding default HTML error pages.
-- **Handle Cache Failures**: Ensure the cache driver is properly configured (e.g., Redis or database) to support rate limits. Rate limiting using the `array` cache driver does not persist across web requests.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **Sem Locks Crus no Banco de Dados**: NÃO escreva consultas customizadas no banco ou arquivos de lock para contar requisições. Sempre use a facade nativa `RateLimiter` ou o middleware `throttle` do Laravel.
+- **Nunca Bloqueie Globalmente**: NÃO defina rate limiters sem um identificador único (como IP ou User ID) usando `by()`, pois isso aplicaria o throttle da rota para todos os usuários globalmente.
+- **Resposta JSON em APIs**: Rate limiters aplicados a rotas de API devem retornar respostas JSON com headers padrão de CORS e retry-after, evitando as páginas de erro HTML padrão.
+- **Trate Falhas de Cache**: Garanta que o driver de cache esteja corretamente configurado (ex: Redis ou banco de dados) para suportar rate limits. O rate limiting usando o driver de cache `array` não persiste entre as requisições web.
 
-## Examples
+## Exemplos
 
-### Bad Example: Implementing manual count inside a Controller
+### Exemplo Ruim: Implementar contagem manual dentro de um Controller
 ```php
 <?php
 
@@ -138,22 +138,22 @@ class AiController extends Controller
         $key = 'user_ai_limit:' . $request->ip();
         $attempts = Cache::get($key, 0);
 
-        // VIOLATION: Manual rate limiting logic inside controller.
-        // Hard to scale, lacks proper HTTP headers, and skips Laravel standards.
+        // VIOLAÇÃO: lógica de rate limiting manual dentro do controller.
+        // Difícil de escalar, sem headers HTTP adequados e ignora os padrões do Laravel.
         if ($attempts >= 5) {
             return response()->json(['error' => 'Too many requests'], 400);
         }
 
         Cache::put($key, $attempts + 1, now()->addMinutes(1));
 
-        // Process AI request...
+        // Processa a requisição de IA...
     }
 }
 ```
 
-### Good Example: Defining a Rate Limiter in AppServiceProvider and applying Middleware
+### Exemplo Bom: Definir um Rate Limiter no AppServiceProvider e aplicar o Middleware
 ```php
-// 1. Define in AppServiceProvider.php
+// 1. Define em AppServiceProvider.php
 namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
@@ -178,6 +178,6 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 
-// 2. Apply in routes/api.php
+// 2. Aplica em routes/api.php
 Route::middleware('throttle:ai-inference')->post('/ai/generate', [AiController::class, 'generateText']);
 ```

@@ -1,10 +1,10 @@
 ---
 name: vue-uppy-file-upload-best-practices
-description: Use when implementing, configuring, reviewing, or debugging client-side file uploads using Uppy (@uppy/core, @uppy/xhr-upload) in Vue 3 components, and integrating them with AdonisJS backend endpoints. Triggers on Uppy initialization, upload event handlers, drag-and-drop file inputs, upload progress bars, and handling files in Vue forms.
+description: Use when implementing, configuring, reviewing, or debugging client-side file uploads using Uppy (@uppy/core, @uppy/xhr-upload) in Vue 3 components, and integrating them with Laravel 13 backend endpoints. Triggers on Uppy initialization, upload event handlers, drag-and-drop file inputs, upload progress bars, and handling files in Vue forms.
 ---
 
 ## Objetivo
-Fornecer diretrizes sólidas e padrões estruturados para implementar uploads de arquivos robustos, assíncronos e interativos com Uppy no Vue 3 integrado ao AdonisJS.
+Fornecer diretrizes sólidas e padrões estruturados para implementar uploads de arquivos robustos, assíncronos e interativos com Uppy no Vue 3 integrado ao backend Laravel 13.
 
 ## Instruções
 
@@ -41,10 +41,11 @@ function initUppy() {
         // (ou apiRoute('/api/files/upload').routeURL se precisar resolver via a lib).
         endpoint: '/api/files/upload',
         formData: true,
-        fieldName: 'files', // Deve casar com request.files('files') no controller Adonis
+        fieldName: 'files', // Deve casar com $request->file('files') no controller Laravel
         withCredentials: true,
         // @uppy/xhr-upload NÃO lê o cookie XSRF-TOKEN automaticamente (diferente do axios).
-        // É preciso passar o header explicitamente para o Shield aceitar o upload:
+        // No Laravel Sanctum (SPA) é preciso enviar o header explicitamente para o
+        // middleware CSRF/Sanctum aceitar o upload (chame /sanctum/csrf-cookie antes):
         headers: {
             'X-XSRF-TOKEN': decodeURIComponent(
                 document.cookie.match(/(?:^|;\s*)XSRF-TOKEN=([^;]+)/)?.[1] ?? ''
@@ -90,12 +91,13 @@ onBeforeUnmount(() => {
 });
 ```
 
-## 2. Integração com o Backend AdonisJS
-O endpoint padrão do backend do Engeapp é `files/upload`, tratado por `FilesUploadController.upload`.
-- Os arquivos são extraídos do corpo da requisição via `request.files('files')` do AdonisJS.
-- O `fieldName` configurado no `@uppy/xhr-upload` deve casar exatamente com a chave usada em `request.files(...)`. Use `files` em ambos os lados — não use a convenção PHP `files[]`, que não corresponde ao argumento esperado por `request.files('files')` no Adonis.
-- O controller AdonisJS retorna uma resposta JSON contendo os registros dos arquivos criados; esses registros devem ser hidratados na store `@maxvue/max-pinia` correspondente para alimentar a página.
-- O `@uppy/xhr-upload` **não** lê o cookie `XSRF-TOKEN` automaticamente (ao contrário do axios, que faz isso por padrão). Passe o header `X-XSRF-TOKEN` explicitamente na opção `headers` (lendo e decodificando o cookie `XSRF-TOKEN`). Sem isso, todas as requisições serão rejeitadas com 403 pelo Shield. Use `withCredentials: true` além do header explícito.
+## 2. Integração com o Backend Laravel 13
+O endpoint padrão do backend do Engeapp é `POST /api/files/upload`, tratado por um controller Laravel (ex.: `FilesUploadController@upload`).
+- Os arquivos são extraídos da requisição via `$request->file('files')` do Laravel (retorna um array de `Illuminate\Http\UploadedFile` quando `fieldName` envia múltiplos arquivos). Valide com um FormRequest (`'files.*' => 'required|file|max:10240|mimes:pdf,jpg,jpeg,png'`).
+- O `fieldName` configurado no `@uppy/xhr-upload` deve casar exatamente com a chave usada em `$request->file(...)`. Use `files` em ambos os lados.
+- Persistência do binário: use **`spatie/laravel-medialibrary`** — anexe cada arquivo ao model dono com `$model->addMediaFromRequest('files')->toMediaCollection('uploads')` (ou itere sobre `$request->file('files')` com `addMedia(...)`). Deixe a Media Library cuidar de disco, nomes e conversões; não mova arquivos manualmente.
+- O controller retorna uma resposta JSON contendo os registros de mídia criados (ex.: `MediaResource`); esses registros devem ser hidratados na store `@maxvue/max-pinia` correspondente para alimentar a página.
+- Autenticação/CSRF: o app usa **Laravel Sanctum (SPA)**. Garanta que o cookie `XSRF-TOKEN` já exista (chame `GET /sanctum/csrf-cookie` no bootstrap). O `@uppy/xhr-upload` **não** lê o cookie `XSRF-TOKEN` automaticamente (ao contrário do axios). Passe o header `X-XSRF-TOKEN` explicitamente na opção `headers` (lendo e decodificando o cookie `XSRF-TOKEN`). Sem isso, o middleware CSRF do Laravel rejeita a requisição com 419/403. Use `withCredentials: true` além do header explícito.
 
 ## 3. Padrões de UI e UX
 - Forneça indicadores visuais claros para o estado do upload: spinner de carregamento, barra de progresso em porcentagem, ícones de sucesso e mecanismos para tentar novamente em caso de falha.
@@ -106,5 +108,5 @@ O endpoint padrão do backend do Engeapp é `files/upload`, tratado por `FilesUp
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não** insira scripts inline ou lógica de negócio diretamente nos templates Vue. Todos os manipuladores de evento, configurações e callbacks devem residir na tag `<script setup lang="ts">`.
 - **Não** esqueça de destruir e limpar a instância do Uppy no unmount usando `uppy.destroy()`. O esquecimento deste passo causa vazamentos de memória (memory leaks) em Single Page Applications (SPA).
-- **Não** ignore a validação CSRF. O `@uppy/xhr-upload` **requer** o header `X-XSRF-TOKEN` explicitamente — diferente do axios, ele não lê o cookie automaticamente. Leia o cookie `XSRF-TOKEN`, decodifique com `decodeURIComponent` e passe em `headers: { 'X-XSRF-TOKEN': ... }`. Combine com `withCredentials: true`.
+- **Não** ignore a validação CSRF do Laravel (Sanctum SPA). O `@uppy/xhr-upload` **requer** o header `X-XSRF-TOKEN` explicitamente — diferente do axios, ele não lê o cookie automaticamente. Leia o cookie `XSRF-TOKEN`, decodifique com `decodeURIComponent` e passe em `headers: { 'X-XSRF-TOKEN': ... }`. Combine com `withCredentials: true` e garanta o cookie via `GET /sanctum/csrf-cookie`.
 - **Não** trate o resultado do upload apenas com `emit('success')`. Os registros de arquivo retornados são dados de página e devem ser incorporados a uma store `@maxvue/max-pinia`, que cuida do cache e do salvamento.

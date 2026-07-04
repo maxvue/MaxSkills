@@ -3,71 +3,71 @@ name: laravel-pest-testing-best-practices
 description: Use when writing, debugging, or reviewing Unit, Feature, or Architecture tests using Pest PHP. Triggers on test creation, assertions, mocking dependencies, factory usage, database testing setup, asserting code standards, checking architectural boundaries, enforcing naming conventions, preventing architectural violations, or mocking HTTP client calls (Http::fake, Http::sequence, Http::assertSent) for external API integration tests.
 ---
 
-# Laravel Pest Testing & Architecture Best Practices
+# Boas Práticas de Testes com Pest e de Arquitetura no Laravel
 
-## Goal
-Define standard guidelines, patterns, and conventions for writing Unit, Feature, and Architecture tests with Pest PHP in the Engeapp ecosystem, ensuring transaction safety, proper factory usage, clean assertions, and strict architectural boundaries.
+## Objetivo
+Definir diretrizes, padrões e convenções para escrever testes Unit, Feature e de Arquitetura com Pest PHP no ecossistema Engeapp, garantindo segurança transacional, uso adequado de factories, assertions limpas e limites arquiteturais estritos.
 
-## Instructions
-1. **Test Syntax**:
-   - Use the `test('description', function () { ... })` syntax instead of `it('description')` or PHPUnit-style class methods.
-   - Keep descriptions clear, concise, and in Brazilian Portuguese (e.g., `'Client gendler_name retorna Masculino para M'`), matching the Engeapp convention.
-   - Use the Pest v3 functional `arch()` helper to define architecture test suites, e.g., `arch('controllers')->expect(...)`.
+## Instruções
+1. **Sintaxe dos Testes**:
+   - Use a sintaxe `test('description', function () { ... })` em vez de `it('description')` ou métodos de classe no estilo PHPUnit.
+   - Mantenha as descrições claras, concisas e em português brasileiro (ex.: `'Client gendler_name retorna Masculino para M'`), seguindo a convenção do Engeapp.
+   - Use o helper funcional `arch()` do Pest v3 para definir suítes de testes de arquitetura, ex.: `arch('controllers')->expect(...)`.
 
 2. **Assertions (Expectations)**:
-   - Use Pest's fluent API (`expect()`) for all assertions.
-   - Common expectation examples:
+   - Use a API fluente do Pest (`expect()`) para todas as assertions.
+   - Exemplos comuns de expectation:
      - `expect($value)->toBe($expected)`
      - `expect($value)->toBeTrue()` / `expect($value)->toBeFalse()`
      - `expect($value)->toBeInstanceOf(ClassName::class)`
      - `expect($collection)->toHaveCount($count)`
      - `expect($value)->not->toBe($other)`
 
-3. **Database & Isolation**:
-   - **Feature Tests**: All tests inside the `tests/Feature` directory automatically use the `DatabaseTransactions` trait (as configured in `tests/Pest.php`). Do NOT manually add `use DatabaseTransactions` or `use RefreshDatabase` in individual files.
-   - **Unit Tests**: Keep unit tests pure. Do not query the database or depend on database state in `tests/Unit`.
+3. **Banco de Dados & Isolamento**:
+   - **Testes Feature**: Todos os testes dentro do diretório `tests/Feature` usam automaticamente o trait `DatabaseTransactions` (conforme configurado em `tests/Pest.php`). NÃO adicione manualmente `use DatabaseTransactions` ou `use RefreshDatabase` em arquivos individuais.
+   - **Testes Unit**: Mantenha os testes unitários puros. Não consulte o banco de dados nem dependa do estado do banco em `tests/Unit`.
 
-4. **Factories & Model Creation**:
-   - Use Laravel Model Factories to instantiate models.
-   - Use `Model::factory()->make()` for instantiating models in memory when database persistence is not required (e.g., testing accessors/mutators or logic that doesn't read/write to the DB). This speeds up test execution.
-   - Use `Model::factory()->create()` only when the database must be queried, relationships need to be persisted, or model lifecycle hooks (`booted` / `created` / etc.) need to run.
+4. **Factories & Criação de Models**:
+   - Use Laravel Model Factories para instanciar models.
+   - Use `Model::factory()->make()` para instanciar models em memória quando a persistência no banco não for necessária (ex.: testar accessors/mutators ou lógica que não lê/grava no banco). Isso acelera a execução dos testes.
+   - Use `Model::factory()->create()` apenas quando o banco de dados precisar ser consultado, relacionamentos precisarem ser persistidos ou hooks do ciclo de vida do model (`booted` / `created` / etc.) precisarem rodar.
 
-5. **HTTP Requests (Controller Feature Tests)**:
-   - Use Pest/Laravel test request helpers: `$this->get($uri)`, `$this->post($uri, $data)`, `$this->actingAs($user)`.
-   - Always assert the HTTP response status (e.g., `$response->assertOk()`, `$response->assertStatus(200)`, `$response->assertRedirect()`).
+5. **Requisições HTTP (Testes Feature de Controller)**:
+   - Use os helpers de request de teste do Pest/Laravel: `$this->get($uri)`, `$this->post($uri, $data)`, `$this->actingAs($user)`.
+   - Sempre faça assertion do status da resposta HTTP (ex.: `$response->assertOk()`, `$response->assertStatus(200)`, `$response->assertRedirect()`).
 
 6. **Mocking & Fakes**:
-   - Mock external API calls, email sending, jobs, or heavy notifications.
-   - Use standard Laravel Fakes for facades: `Queue::fake()`, `Event::fake()`, `Http::fake()`.
+   - Faça mock de chamadas a APIs externas, envio de emails, jobs ou notificações pesadas.
+   - Use os Fakes padrão do Laravel para facades: `Queue::fake()`, `Event::fake()`, `Http::fake()`.
 
-7. **Architecture Testing (Pest v3)**:
-   - Save architecture tests in the `tests/Architecture` directory or in dedicated test files named like `tests/Feature/ArchitectureTest.php` if appropriate.
-   - **Enforcing Class Inheritance**:
+7. **Testes de Arquitetura (Pest v3)**:
+   - Salve os testes de arquitetura no diretório `tests/Architecture` ou em arquivos de teste dedicados nomeados como `tests/Feature/ArchitectureTest.php`, se apropriado.
+   - **Impondo Herança de Classe**:
      ```php
      arch('controllers')
          ->expect('App\Http\Controllers')
          ->toExtend('App\Http\Controllers\Controller');
      ```
-   - **Enforcing Naming Conventions**:
+   - **Impondo Convenções de Nomenclatura**:
      ```php
      arch('services')
          ->expect('App\Services')
          ->toHaveSuffix('Service');
      ```
-   - **Layer Isolation & Coupling Constraints**:
+   - **Isolamento de Camadas & Restrições de Acoplamento**:
      ```php
      arch('domain')
          ->expect('App\Domain')
          ->not->toUse('App\Http');
      ```
-   - **Strict Dependency & Code Quality Rules**:
+   - **Regras Estritas de Dependência & Qualidade de Código**:
      ```php
      arch('globals')
          ->expect('App')
          ->not->toUse(['dd', 'dump', 'ray', 'var_dump']);
      ```
-   - **Resolving External Dependencies / False Positives**:
-     Exclude third-party classes, models, or vendor code that can cause false positives when testing architecture boundaries using `ignoring()`:
+   - **Resolvendo Dependências Externas / Falsos Positivos**:
+     Exclua classes de terceiros, models ou código de vendor que possam causar falsos positivos ao testar limites de arquitetura usando `ignoring()`:
      ```php
      arch('domain')
          ->expect('App\Domain')
@@ -75,26 +75,26 @@ Define standard guidelines, patterns, and conventions for writing Unit, Feature,
          ->ignoring('App\Infrastructure\Traits\SharedTrait');
      ```
 
-8. **HTTP Client Mocking**:
-   - Always call `Http::preventStrayRequests()` in `beforeEach()` to ensure no real network requests escape. It throws immediately on unmocked calls.
-   - Use `Http::fake(['domain.com/*' => Http::response([...], 200)])` for specific URL patterns. Avoid wildcard `*` — it masks unintended requests.
-   - Use `Http::sequence()` for code that makes multiple requests to the same endpoint (retry logic, paginated APIs):
+8. **Mocking do HTTP Client**:
+   - Sempre chame `Http::preventStrayRequests()` no `beforeEach()` para garantir que nenhuma requisição de rede real escape. Ela lança imediatamente em chamadas não mockadas.
+   - Use `Http::fake(['domain.com/*' => Http::response([...], 200)])` para padrões de URL específicos. Evite o coringa `*` — ele mascara requisições não intencionais.
+   - Use `Http::sequence()` para código que faz múltiplas requisições ao mesmo endpoint (lógica de retry, APIs paginadas):
      ```php
      Http::fake(['api.service.com/send' => Http::sequence()->push('Error', 500)->push(['id' => 'abc'], 200)]);
      ```
-   - Use `Http::failedConnection()` to verify application resilience during outages.
-   - Always assert with `Http::assertSent()`, `Http::assertNotSent()`, or `Http::assertNothingSent()` — verify URL, method, payload, headers, and query params.
-   - For Engeapp `BaseApi`-based integrations: mock the target URLs defined in `EndPoints.json`.
-   - Do NOT use PHPUnit/Mockery mocks to intercept `Http` class methods. Only use native `Http::fake()`.
-   - Do NOT use real credentials, sandbox tokens, or API keys in mocks — use fake placeholders (e.g., `'fake-token'`).
+   - Use `Http::failedConnection()` para verificar a resiliência da aplicação durante quedas.
+   - Sempre faça assertion com `Http::assertSent()`, `Http::assertNotSent()` ou `Http::assertNothingSent()` — verifique URL, método, payload, headers e query params.
+   - Para integrações baseadas no `BaseApi` do Engeapp: faça mock das URLs de destino definidas em `EndPoints.json`.
+   - NÃO use mocks do PHPUnit/Mockery para interceptar métodos da classe `Http`. Use apenas o `Http::fake()` nativo.
+   - NÃO use credenciais reais, tokens de sandbox ou API keys em mocks — use placeholders fake (ex.: `'fake-token'`).
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- Do NOT use PHPUnit-style test classes or method declarations (e.g., `public function test_something()`). Use Pest's functional syntax and `arch()` helper.
-- Do NOT mix `DatabaseTransactions` with `RefreshDatabase` inside test files. Let the global `tests/Pest.php` handle the transactional state for the `Feature` suite.
-- Do NOT query the database inside `tests/Unit`. Use mock objects or `make()` factories instead.
-- Do NOT use standard PHPUnit assertions (like `$this->assertEquals()`) unless absolutely necessary. Prefer Pest's `expect()` API.
-- Do NOT use English for test descriptions, as the project standard uses Portuguese for description texts (e.g., `test('retorna erro se o cpf for invalido', function() { ... })`).
-- Do NOT query the database or mock facades within architecture tests. Keep them purely focused on static analysis and class relationships.
-- Do NOT define architecture tests with empty boundaries or overlapping scopes that could slow down the test runner.
-- Do NOT allow raw SQL or low-level query builders in Controllers; enforce they go through Services or DTOs by checking dependency violations.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- NÃO use classes de teste ou declarações de método no estilo PHPUnit (ex.: `public function test_something()`). Use a sintaxe funcional do Pest e o helper `arch()`.
+- NÃO misture `DatabaseTransactions` com `RefreshDatabase` dentro de arquivos de teste. Deixe o `tests/Pest.php` global cuidar do estado transacional para a suíte `Feature`.
+- NÃO consulte o banco de dados dentro de `tests/Unit`. Use objetos mock ou factories com `make()` no lugar.
+- NÃO use assertions padrão do PHPUnit (como `$this->assertEquals()`) a menos que seja absolutamente necessário. Prefira a API `expect()` do Pest.
+- NÃO use inglês para descrições de teste, pois o padrão do projeto usa português para os textos de descrição (ex.: `test('retorna erro se o cpf for invalido', function() { ... })`).
+- NÃO consulte o banco de dados nem faça mock de facades dentro de testes de arquitetura. Mantenha-os puramente focados em análise estática e relações entre classes.
+- NÃO defina testes de arquitetura com limites vazios ou escopos sobrepostos que possam deixar o test runner mais lento.
+- NÃO permita SQL bruto ou query builders de baixo nível em Controllers; force que passem por Services ou DTOs verificando violações de dependência.

@@ -3,16 +3,16 @@ name: laravel-exception-handling-logging
 description: Use when defining, refactoring, or debugging exception handlers, custom Exceptions, logging structures, and monolog configurations in Laravel. Triggers on custom exception creation, try-catch blocks for API integrations, logging errors or warnings, and error reporting configurations.
 ---
 
-# Exception Handling & Logging in Laravel
+# Tratamento de Exceções & Logging no Laravel
 
-## Goal
-Establish standardized patterns for exception handling and structured logging in the Laravel ecosystem of Engeapp. This ensures external APIs and internal jobs handle errors gracefully without silent failures or log pollution.
+## Objetivo
+Estabelecer padrões padronizados para tratamento de exceções e logging estruturado no ecossistema Laravel do Engeapp. Isso garante que APIs externas e jobs internos tratem erros de forma elegante, sem falhas silenciosas ou poluição de logs.
 
-## Instructions
+## Instruções
 
-### 1. Creating Custom Exceptions
-*   **Artisan Command**: Generate exceptions using `php artisan make:exception {ExceptionName} --no-interaction`.
-*   **Contextual Data**: Add a `context()` method to the exception class to automatically capture relevant state when the exception is reported:
+### 1. Criando Exceptions Customizadas
+*   **Comando Artisan**: Gere exceptions usando `php artisan make:exception {ExceptionName} --no-interaction`.
+*   **Dados Contextuais**: Adicione um método `context()` à classe da exception para capturar automaticamente o estado relevante quando a exception for reportada:
     ```php
     public function context(): array
     {
@@ -22,7 +22,7 @@ Establish standardized patterns for exception handling and structured logging in
         ];
     }
     ```
-*   **Rendering for APIs**: If the exception is expected to be returned via an API response, implement a `render($request)` method:
+*   **Renderização para APIs**: Se a exception deve ser retornada via resposta de API, implemente um método `render($request)`:
     ```php
     public function render($request): \Illuminate\Http\JsonResponse
     {
@@ -33,27 +33,27 @@ Establish standardized patterns for exception handling and structured logging in
         ], 422);
     }
     ```
-*   **Custom Reporting**: Only implement `report()` if you need custom logic (e.g., sending to Slack, Discord, or specific analytics). Otherwise, let Laravel's global exception handler capture and log it.
+*   **Reporting Customizado**: Só implemente `report()` se você precisar de lógica customizada (ex.: enviar para Slack, Discord ou analytics específicos). Caso contrário, deixe o exception handler global do Laravel capturar e logar.
 
-### 2. Structured Logging Practices
-*   **Integration Channels**: Configure and use specific channels in `config/logging.php` for third-party integrations (e.g., `whatsapp`, `gemini`, `autentique`). Avoid logging integration details to the default channel.
-*   **Log Context**: Always pass parameters as context arrays rather than concatenating them into strings. This keeps log analysis tools clean:
+### 2. Práticas de Logging Estruturado
+*   **Canais de Integração**: Configure e use canais específicos em `config/logging.php` para integrações de terceiros (ex.: `whatsapp`, `gemini`, `autentique`). Evite logar detalhes de integração no canal padrão.
+*   **Contexto de Log**: Sempre passe parâmetros como arrays de contexto em vez de concatená-los em strings. Isso mantém as ferramentas de análise de log limpas:
     ```php
-    // Good
+    // Bom
     Log::channel('whatsapp')->error('Failed to send promotional template message', [
         'lead_id' => $lead->id,
         'phone' => $lead->phone,
         'error' => $exception->getMessage()
     ]);
 
-    // Bad
+    // Ruim
     Log::channel('whatsapp')->error("Failed to send template to lead " . $lead->id . " - Error: " . $exception->getMessage());
     ```
-*   **Avoid Sensitive Data**: Do not log authentication tokens, raw credit card details, passwords, or customer credentials.
+*   **Evite Dados Sensíveis**: Não faça log de tokens de autenticação, dados brutos de cartão de crédito, senhas ou credenciais de clientes.
 
-### 3. Graceful Try-Catch Handling in Services
-*   **Defensive Integration**: Always wrap external API calls (e.g., HTTP clients, SDKs) in a try-catch block.
-*   **Avoid Silent Failures**: When catching an error, do not leave the catch block empty. Log the details and throw a descriptive custom exception.
+### 3. Tratamento Elegante com Try-Catch em Services
+*   **Integração Defensiva**: Sempre envolva chamadas a APIs externas (ex.: clientes HTTP, SDKs) em um bloco try-catch.
+*   **Evite Falhas Silenciosas**: Ao capturar um erro, não deixe o bloco catch vazio. Faça log dos detalhes e lance uma exception customizada descritiva.
     ```php
     try {
         $response = Http::timeout(5)->post($url, $payload);
@@ -66,9 +66,9 @@ Establish standardized patterns for exception handling and structured logging in
     }
     ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-*   **NEVER** use empty catch blocks (`catch (\Throwable $e) {}`) that hide errors without logging or reporting.
-*   **DO NOT** log sensitive user data (passwords, auth tokens, full card numbers).
-*   **DO NOT** use default log channels (`single`, `daily`) for specific third-party integration logs; always use/create a dedicated channel.
-*   **DO NOT** write inline comments explaining basic catch blocks; let standard exception and method names express the logic.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+*   **NUNCA** use blocos catch vazios (`catch (\Throwable $e) {}`) que escondem erros sem logar ou reportar.
+*   **NÃO** faça log de dados sensíveis do usuário (senhas, tokens de autenticação, números completos de cartão).
+*   **NÃO** use canais de log padrão (`single`, `daily`) para logs específicos de integrações de terceiros; sempre use/crie um canal dedicado.
+*   **NÃO** escreva comentários inline explicando blocos catch básicos; deixe os nomes padronizados de exceptions e métodos expressarem a lógica.

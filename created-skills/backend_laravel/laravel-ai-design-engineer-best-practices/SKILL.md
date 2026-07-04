@@ -4,80 +4,80 @@ description: >-
   Use when implementing, testing, or refining the AgentDesignEngineer or when working with AI-based solar inverter and module allocation, MPPT configuration, sizing calculations, or validating solar system designs. Triggers on modifications to AgentDesignEngineer, design engineering tools, or sizing validation rules.
 ---
 
-# Laravel AI Design Engineer Best Practices
+# Boas Práticas do Laravel AI Design Engineer
 
-## Goal
+## Objetivo
 
-Provide standardized, rigorous guidelines for designing, implementing, and debugging the `AgentDesignEngineer` and its electrical validation/allocation rules within the Engeapp Laravel backend. This skill ensures that AI agents performing electrical sizing and module-to-inverter allocations comply with physical and electrical constraints.
+Fornecer diretrizes padronizadas e rigorosas para projetar, implementar e depurar o `AgentDesignEngineer` e suas regras de validação/alocação elétrica dentro do backend Laravel do Engeapp. Esta skill garante que os agentes de IA que realizam dimensionamento elétrico e alocações de módulos para inversores cumpram as restrições físicas e elétricas.
 
-## Instructions
+## Instruções
 
-### 1. Agent Mission and Identity
+### 1. Missão e Identidade do Agente
 
-The `AgentDesignEngineer` acts as a Senior Photovoltaic Project Engineer. Its goal is to analyze station data, perform accurate mathematical calculations, and allocate solar modules to inverters safely, efficiently, and in strict compliance with electrical engineering constraints.
+O `AgentDesignEngineer` atua como um Engenheiro Projetista Fotovoltaico Sênior. Seu objetivo é analisar os dados da estação, realizar cálculos matemáticos precisos e alocar módulos solares aos inversores de forma segura, eficiente e em estrita conformidade com as restrições de engenharia elétrica.
 
-### 2. Mandatory Step-by-Step Workflow
+### 2. Fluxo de Trabalho Obrigatório Passo a Passo
 
-All allocation and validation tasks must strictly follow this workflow:
+Todas as tarefas de alocação e validação devem seguir rigorosamente este fluxo de trabalho:
 
 1.  **Coleta (Data Collection):**
-    *   Call the `GetStationData` tool to fetch complete specifications for the station, including all inverters, modules, and current connections.
-2.  **Planejamento (Planning - CRITICAL):**
-    *   Before calling any connection tools, you **must** open a `<planejamento>` XML-like tag.
-    *   Write the sizing mathematical calculations inside this tag:
-        *   Calculate the Minimum and Maximum Voltage limits (number of modules per string) for each inverter model and module combination.
-        *   Calculate the Maximum DC Power capacity (overload limit) of each inverter.
-        *   Outline the distribution strategy (which module groups go to which inverters/MPPTs/Inputs).
+    *   Chame a ferramenta `GetStationData` para buscar as especificações completas da estação, incluindo todos os inversores, módulos e conexões atuais.
+2.  **Planejamento (Planning - CRÍTICO):**
+    *   Antes de chamar qualquer ferramenta de conexão, você **deve** abrir uma tag no estilo XML `<planejamento>`.
+    *   Escreva os cálculos matemáticos de dimensionamento dentro desta tag:
+        *   Calcule os limites de Tensão Mínima e Máxima (número de módulos por string) para cada modelo de inversor e combinação de módulo.
+        *   Calcule a capacidade máxima de Potência CC (limite de sobrecarga) de cada inversor.
+        *   Descreva a estratégia de distribuição (quais grupos de módulos vão para quais inversores/MPPTs/Entradas).
 3.  **Execução (Execution):**
-    *   Use the `ConnectOrMoveModulesToInputs` tool to register connections.
-    *   **Optimization:** Group and send multiple connection changes in a single API/tool call (batching) to maximize speed and prevent overhead.
+    *   Use a ferramenta `ConnectOrMoveModulesToInputs` para registrar as conexões.
+    *   **Otimização:** Agrupe e envie múltiplas alterações de conexão em uma única chamada de API/ferramenta (batching) para maximizar a velocidade e evitar overhead.
 4.  **Correções (Corrections):**
-    *   If any validation error occurs, use `DisconnectModuleFromInput` (supports batching) or move modules using `ConnectOrMoveModulesToInputs`.
+    *   Se ocorrer algum erro de validação, use `DisconnectModuleFromInput` (suporta batching) ou mova os módulos usando `ConnectOrMoveModulesToInputs`.
 5.  **Validação Final (Final Validation):**
-    *   Verify that 100% of the project's modules are connected. No modules should remain unallocated.
+    *   Verifique se 100% dos módulos do projeto estão conectados. Nenhum módulo deve permanecer sem alocação.
 
 ---
 
-### 3. Absolute Sizing and Electrical Rules (Mandatory)
+### 3. Regras Absolutas de Dimensionamento e Elétricas (Obrigatórias)
 
-The following constraints are absolute physical boundaries. Violating them will damage equipment or cause project rejection:
+As restrições a seguir são limites físicos absolutos. Violá-las danificará equipamentos ou causará a rejeição do projeto:
 
-1.  **Exhaustion (Exaustão):** Every single module registered in the station must be connected to an inverter input.
-2.  **Homogeneity (Homogeneidade):** A single MPPT (and all its connected inputs) must only receive modules of the same model (`equipment_id`). Mixing different module models on the same MPPT is strictly forbidden.
-3.  **Minimum Input Voltage Limit (Tensão Mínima):**
-    *   The minimum number of modules in series per string (input) is defined by:
+1.  **Exhaustion (Exaustão):** Cada módulo registrado na estação deve estar conectado a uma entrada de inversor.
+2.  **Homogeneity (Homogeneidade):** Um único MPPT (e todas as suas entradas conectadas) deve receber apenas módulos do mesmo modelo (`equipment_id`). Misturar diferentes modelos de módulo no mesmo MPPT é estritamente proibido.
+3.  **Limite de Tensão Mínima de Entrada (Tensão Mínima):**
+    *   O número mínimo de módulos em série por string (entrada) é definido por:
         $$\text{Min Modules} = \lceil \frac{\text{inverter->range\_vcc\_min}}{\text{module->vmpp}} \rceil$$
-4.  **Maximum Input Voltage Limit (Tensão Máxima):**
-    *   The maximum number of modules in series per string (input) is defined by:
+4.  **Limite de Tensão Máxima de Entrada (Tensão Máxima):**
+    *   O número máximo de módulos em série por string (entrada) é definido por:
         $$\text{Max Modules} = \lfloor \frac{\text{inverter->range\_vcc\_max}}{\text{module->voc}} \rfloor$$
-5.  **Maximum DC Power Limit (maximum_power):**
-    *   The sum of the nominal power of all modules connected to a single inverter must **never** exceed the inverter's maximum input DC power (`maximum_power`).
-6.  **MPPT Symmetry (Golden Rule):**
-    *   Inputs belonging to the same MPPT can either be completely empty (0 modules) OR must contain the exact same number of modules.
-    *   *Example:* If MPPT 1 has Input 1 and Input 2, having 10 modules on Input 1 and 10 modules on Input 2 is **valid**. Having 10 modules on Input 1 and 9 modules on Input 2 is **invalid**.
-7.  **Microinverters Priority:**
-    *   If the station contains microinverters, allocate modules to them first. Only the remaining modules should be allocated to string inverters.
-    *   Always allocate modules to microinverters in descending order of power (highest power first).
+5.  **Limite de Potência CC Máxima (maximum_power):**
+    *   A soma da potência nominal de todos os módulos conectados a um único inversor **nunca** deve exceder a potência CC máxima de entrada do inversor (`maximum_power`).
+6.  **Simetria de MPPT (Regra de Ouro):**
+    *   As entradas pertencentes ao mesmo MPPT podem estar completamente vazias (0 módulos) OU devem conter exatamente o mesmo número de módulos.
+    *   *Exemplo:* Se o MPPT 1 tem a Entrada 1 e a Entrada 2, ter 10 módulos na Entrada 1 e 10 módulos na Entrada 2 é **válido**. Ter 10 módulos na Entrada 1 e 9 módulos na Entrada 2 é **inválido**.
+7.  **Prioridade de Microinversores:**
+    *   Se a estação contém microinversores, aloque os módulos a eles primeiro. Apenas os módulos restantes devem ser alocados aos inversores string.
+    *   Sempre aloque os módulos aos microinversores em ordem decrescente de potência (maior potência primeiro).
 
 ---
 
-### 4. Sizing Optimization Guidelines
+### 4. Diretrizes de Otimização de Dimensionamento
 
-Apply these best practices to improve system efficiency, provided they do not conflict with the mandatory rules:
+Aplique estas boas práticas para melhorar a eficiência do sistema, desde que não entrem em conflito com as regras obrigatórias:
 
-1.  **Older Equipment Compatibility (`old` status):** Group modules and inverters that share the same `old` boolean flag (e.g., connect `old=true` modules to `old=true` inverters).
-2.  **Model Grouping:** Keep modules of the same `equipment_id` grouped together on the same inverter when possible.
-3.  **Voltage Efficiency (Longer Strings):** It is better to use fewer inputs with longer strings (working at higher voltages, ideally between 50% and 80% of `range_vcc_max`) than to spread modules across many short, low-voltage strings.
-    *   *Example:* Distributing 20 modules on a 4-input MPPT is better done using 2 inputs with 10 modules each (leaving 2 inputs empty) than using 4 inputs with 5 modules each.
-4.  **Inter-Inverter Balance (Overload / FDI):** Evenly distribute the overload percentage across all active string inverters. Calculate the overload percentage (FDI) as:
+1.  **Compatibilidade de Equipamentos Antigos (status `old`):** Agrupe módulos e inversores que compartilham a mesma flag booleana `old` (por exemplo, conecte módulos `old=true` a inversores `old=true`).
+2.  **Agrupamento por Modelo:** Mantenha os módulos do mesmo `equipment_id` agrupados no mesmo inversor sempre que possível.
+3.  **Eficiência de Tensão (Strings Mais Longas):** É melhor usar menos entradas com strings mais longas (trabalhando em tensões mais altas, idealmente entre 50% e 80% do `range_vcc_max`) do que espalhar os módulos por muitas strings curtas e de baixa tensão.
+    *   *Exemplo:* Distribuir 20 módulos em um MPPT de 4 entradas é melhor feito usando 2 entradas com 10 módulos cada (deixando 2 entradas vazias) do que usando 4 entradas com 5 módulos cada.
+4.  **Balanceamento Entre Inversores (Sobrecarga / FDI):** Distribua uniformemente o percentual de sobrecarga entre todos os inversores string ativos. Calcule o percentual de sobrecarga (FDI) como:
     $$\text{Overload \%} = \frac{\sum(\text{Nominal Power of Connected Modules})}{\text{Nominal Output CA Power of Inverter}}$$
 
-## Constraints
+## Restrições
 
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-1.  **NEVER** violate the minimum/maximum voltage limits of the inverter's string range.
-2.  **NEVER** exceed the maximum DC input power (`maximum_power`) of any inverter.
-3.  **NEVER** mix modules with different `equipment_id`s on the same MPPT.
-4.  **NEVER** proceed to execute a connection tool without documenting calculations and decisions first in the `<planejamento>` block.
-5.  **NEVER** leave any module unallocated at the end of the process.
-6.  **NEVER** configure unequal numbers of modules on inputs of the same MPPT.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+1.  **NUNCA** viole os limites de tensão mínima/máxima da faixa de string do inversor.
+2.  **NUNCA** exceda a potência CC máxima de entrada (`maximum_power`) de qualquer inversor.
+3.  **NUNCA** misture módulos com `equipment_id`s diferentes no mesmo MPPT.
+4.  **NUNCA** prossiga para executar uma ferramenta de conexão sem antes documentar os cálculos e decisões no bloco `<planejamento>`.
+5.  **NUNCA** deixe nenhum módulo sem alocação ao final do processo.
+6.  **NUNCA** configure números desiguais de módulos em entradas do mesmo MPPT.

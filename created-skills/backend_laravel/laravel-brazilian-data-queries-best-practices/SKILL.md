@@ -3,28 +3,28 @@ name: laravel-brazilian-data-queries-best-practices
 description: Use when designing, implementing, or debugging services that query Brazilian corporate and postal data (CNPJ and CEP). Triggers on third-party API integration (ViaCep, ReceitaWS, BrasilAPI, CepAberto), handling fallback mechanisms, normalizing responses, and caching address or registry data.
 ---
 
-# Laravel Brazilian Data Queries Best Practices
+# Boas Práticas de Consultas a Dados Brasileiros no Laravel
 
-## Goal
-Provide solid guidelines, resilient fallback strategies, error handling patterns, response normalization, and caching mechanisms for integrating Brazilian postal (CEP) and corporate (CNPJ) API queries in Laravel applications within the Engeapp ecosystem.
+## Objetivo
+Fornecer diretrizes sólidas, estratégias de fallback resilientes, padrões de tratamento de erros, normalização de respostas e mecanismos de cache para integrar consultas a APIs postais (CEP) e corporativas (CNPJ) brasileiras em aplicações Laravel dentro do ecossistema Engeapp.
 
-## Instructions
+## Instruções
 
-### 1. CEP (Postal Code) Query Guidelines
+### 1. Diretrizes de Consulta de CEP (Código de Endereçamento Postal)
 
-#### A. Resilient Fallback Strategy
-Always attempt to query CEP services in the following order:
-1. **ViaCEP**: Reliable, free, but can experience latency.
-2. **BrasilAPI**: Fast, aggregates multiple sources under the hood.
-3. **AwesomeAPI**: Free and responsive secondary backup.
+#### A. Estratégia de Fallback Resiliente
+Sempre tente consultar os serviços de CEP na seguinte ordem:
+1. **ViaCEP**: Confiável, gratuito, mas pode apresentar latência.
+2. **BrasilAPI**: Rápido, agrega múltiplas fontes internamente.
+3. **AwesomeAPI**: Backup secundário gratuito e responsivo.
 
-Implement a service or action class (e.g., `GetAddressFromCepAction`) that iterates through these providers when a connection or server error occurs.
+Implemente uma classe de serviço ou action (ex: `GetAddressFromCepAction`) que itere por esses provedores quando ocorrer um erro de conexão ou de servidor.
 
-#### B. Cache Strategy
-To optimize performance and respect API limits:
-- Store successful queries in the cache for **90 days (3 months)**.
-- Use a structured cache key: `brazilian-queries:cep:{cep}`.
-- Example implementation:
+#### B. Estratégia de Cache
+Para otimizar a performance e respeitar os limites das APIs:
+- Armazene consultas bem-sucedidas no cache por **90 dias (3 meses)**.
+- Use uma chave de cache estruturada: `brazilian-queries:cep:{cep}`.
+- Exemplo de implementação:
   ```php
   use Illuminate\Support\Facades\Cache;
   use Illuminate\Support\Facades\Http;
@@ -36,8 +36,8 @@ To optimize performance and respect API limits:
   });
   ```
 
-#### C. Response Normalization
-Regardless of the API used, map the response to a standard structure:
+#### C. Normalização de Respostas
+Independentemente da API utilizada, mapeie a resposta para uma estrutura padrão:
 ```php
 [
     'cep'          => '01001-000',
@@ -51,26 +51,26 @@ Regardless of the API used, map the response to a standard structure:
 
 ---
 
-### 2. CNPJ (Corporate Registry) Query Guidelines
+### 2. Diretrizes de Consulta de CNPJ (Registro Corporativo)
 
-#### A. Fallback Order & Rate Limits
-Query CNPJ services in the following sequence:
-1. **BrasilAPI (CNPJ)**: Main stable option using public Receita Federal data.
-2. **ReceitaWS**: Good fallback, but has a rate limit of 3 queries per minute on the free tier. Ensure you catch and handle 429 status codes.
+#### A. Ordem de Fallback & Limites de Taxa
+Consulte os serviços de CNPJ na seguinte sequência:
+1. **BrasilAPI (CNPJ)**: Opção principal e estável usando dados públicos da Receita Federal.
+2. **ReceitaWS**: Bom fallback, mas possui um limite de taxa de 3 consultas por minuto no plano gratuito. Garanta que você capture e trate códigos de status 429.
 
-#### B. Cache and Local DB Persistence
-- Cache API responses for **90 days (3 months)** using `brazilian-queries:cnpj:{cnpj}`.
-- For business-critical flows, store the registry data permanently in a local `companies` database table. Check this table before performing any external API request.
+#### B. Cache e Persistência em Banco Local
+- Faça cache das respostas da API por **90 dias (3 meses)** usando `brazilian-queries:cnpj:{cnpj}`.
+- Para fluxos críticos de negócio, armazene os dados de registro permanentemente em uma tabela `companies` no banco de dados local. Verifique essa tabela antes de realizar qualquer requisição a uma API externa.
 
-#### C. Response Normalization
-Normalize CNPJ responses to a consistent format:
+#### C. Normalização de Respostas
+Normalize as respostas de CNPJ para um formato consistente:
 ```php
 [
     'cnpj'         => '00.000.000/0001-91',
     'legal_name'   => 'BANCO DO BRASIL SA',
     'trade_name'   => 'BANCO DO BRASIL',
     'status'       => 'ATIVA',
-    'opening_date' => '1808-10-12', // Y-m-d format
+    'opening_date' => '1808-10-12', // formato Y-m-d
     'address'      => [
         'street'       => 'SBS Quadra 1 Bloco G Lote 32',
         'number'       => '32',
@@ -85,10 +85,10 @@ Normalize CNPJ responses to a consistent format:
 
 ---
 
-### 3. Exception Handling & Logging
-- Follow the guidelines in `laravel-exception-handling-logging`.
-- Wrap external HTTP requests in `try/catch` blocks targeting `Illuminate\Http\Client\RequestException` and `Illuminate\Http\Client\ConnectionException`.
-- Log failures using the `Log` facade:
+### 3. Tratamento de Exceções & Logging
+- Siga as diretrizes em `laravel-exception-handling-logging`.
+- Envolva requisições HTTP externas em blocos `try/catch` direcionados a `Illuminate\Http\Client\RequestException` e `Illuminate\Http\Client\ConnectionException`.
+- Registre falhas usando a facade `Log`:
   ```php
   use Illuminate\Support\Facades\Log;
 
@@ -98,11 +98,11 @@ Normalize CNPJ responses to a consistent format:
       'error' => $exception->getMessage()
   ]);
   ```
-- Throw a custom `BrazilianDataQueryException` only when all API providers fail.
+- Lance uma exceção customizada `BrazilianDataQueryException` apenas quando todos os provedores de API falharem.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Do NOT** execute raw cURL requests directly; always use Laravel's `Http` client.
-- **Do NOT** store API endpoints or credentials directly in code; manage them via `config()` values mapped to `.env`.
-- **Do NOT** perform external API requests inside loops. Implement caching or chunking.
-- **Do NOT** ignore the rate limits of free tiers (e.g. ReceitaWS 3 requests/minute). Check status codes and apply delays or fallback immediately.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **NÃO** execute requisições cURL brutas diretamente; sempre use o cliente `Http` do Laravel.
+- **NÃO** armazene endpoints de API ou credenciais diretamente no código; gerencie-os via valores de `config()` mapeados para o `.env`.
+- **NÃO** realize requisições a APIs externas dentro de loops. Implemente cache ou processamento em blocos (chunking).
+- **NÃO** ignore os limites de taxa dos planos gratuitos (ex: ReceitaWS 3 requisições/minuto). Verifique os códigos de status e aplique delays ou fallback imediatamente.

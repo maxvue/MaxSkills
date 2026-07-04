@@ -87,7 +87,7 @@ export function useServerCart() {
 
 > `pinia` dependency required.
 
-> **Stack alvo (Maxdmin/EngeApp):** para dados que sincronizam com a API AdonisJS (`/api/...`), o contrato de store é `@maxvue/max-pinia` (`createMaxPinia`) — cached stores com rota string, GET automático e auto-save com debounce. Use Pinia puro (`defineStore` abaixo) apenas para estado puramente client-side (carrinho efêmero, UI), roteando GET/save de dados via `apiGetRoute`/`apiPostRoute` ou pelas cached stores do max-pinia.
+> **Stack alvo (EngeApp/Laravel 13):** para dados que sincronizam com a API Laravel (`/api/...`), o contrato de store é `@maxvue/max-pinia` (`createMaxPinia`) — cached stores com rota string, GET automático e auto-save com debounce. Use Pinia puro (`defineStore` abaixo) apenas para estado puramente client-side (carrinho efêmero, UI), roteando GET/save de dados via `apiGetRoute`/`apiPostRoute` ou pelas cached stores do max-pinia.
 
 ```ts
 // stores/cart.ts

@@ -15,7 +15,7 @@ Toda skill **deve** conter um arquivo principal `SKILL.md` com as seguintes cara
    - **Goal:** Declaração concisa do que a skill faz.
    - **Instructions:** Passo a passo detalhado para o agente realizar a tarefa.
    - **Examples (Opcional):** Demonstrações de uso de "few-shot".
-   - **Constraints:** Restrições claras sobre o que o agente NÃO deve fazer (regras negativas de segurança).
+   - **Constraints:** Restrições claras sobre o que o agente NÃO deve fazer (regras negativas de segurança). A primeira bullet desta seção é **sempre obrigatória e fixa em todas as skills**: o idioma padrão de conversação Agente↔Humano é **Português (pt-BR), sempre, sem exceção**, independentemente do idioma em que o corpo da skill foi escrito (EN em `created-skills/`, PT em `created-skills-pt-br/`). Essa regra rege como o agente fala com o usuário, não como a skill é redigida.
 
 ## Níveis de Arquitetura de Skills (Divulgação Progressiva)
 

@@ -17,23 +17,23 @@ Para sessões baseadas em SPA, você deve habilitar o envio automático de crede
 - `axios.defaults.withXSRFToken = true;`
 - Defina `axios.defaults.baseURL` apontando para a API do backend.
 
-### 2. Proteção CSRF (AdonisJS Shield)
-A autenticação é baseada em **sessão + cookie (guard `web`)**. O AdonisJS Shield emite automaticamente o cookie `XSRF-TOKEN` em respostas; não existe (e não deve existir) um endpoint dedicado de "csrf-cookie" — esse fluxo é do Sanctum/Laravel e está fora do escopo.
+### 2. Proteção CSRF (Laravel Sanctum SPA)
+A autenticação é baseada em **sessão + cookie via Laravel Sanctum (SPA)**. Neste projeto o Sanctum É o backend — o fluxo de `csrf-cookie` faz parte do escopo, não está fora dele.
 - Habilite `axios.defaults.withXSRFToken = true;` e `axios.defaults.withCredentials = true;` para que o Axios leia o cookie `XSRF-TOKEN` e o reenvie no header `X-XSRF-TOKEN` automaticamente.
-- Como o Adonis serve um catch-all HTML na carga inicial da SPA, o cookie `XSRF-TOKEN` já estará presente; não é necessário nenhum GET prévio para "buscar" o token.
+- Faça um GET em `/sanctum/csrf-cookie` **antes** do primeiro POST de mutação (ex.: login) para semear o cookie `XSRF-TOKEN`. Depois disso o Axios anexa o header `X-XSRF-TOKEN` automaticamente em cada requisição de mutação.
 
 ### 3. Configuração de Interceptadores Globais
 Defina interceptadores globais de requisição e resposta para gerenciar tokens de autenticação, logs e estados de erro HTTP comuns.
 
 #### Interceptador de Requisição
-- A autenticação é por **sessão + cookie** (guard `web`); não anexe header `Authorization`/Bearer nem tokens manualmente — as credenciais viajam via cookie de sessão (`withCredentials`) e o CSRF via `withXSRFToken`.
+- A autenticação é por **sessão + cookie** (Laravel Sanctum SPA); não anexe header `Authorization`/Bearer nem tokens manualmente — as credenciais viajam via cookie de sessão (`withCredentials`) e o CSRF via `withXSRFToken`.
 - Configure os cabeçalhos padrão como `Accept: application/json` e `Content-Type: application/json`.
 
 #### Interceptador de Resposta (Tratamento de Erros)
 Trate os códigos de erro HTTP comuns de forma global para evitar a repetição de try/catch redundantes em cada store:
 - **401 Unauthorized (Não Autorizado)**: Redirecione o usuário para a tela de login (usando a instância do Vue Router) e limpe todas as sessões e stores ativas do Pinia.
 - **403 Forbidden (Proibido)**: Exiba um toast/notificação de aviso utilizando o helper da biblioteca de UI local (`Toast.show` do `@maxvue/max-components-ui`) informando que o acesso foi negado.
-- **422 Unprocessable Entity (Entidade Não Processável)**: Formate os erros de validação (comumente retornados por validadores como o VineJS) e rejeite a Promise com os erros estruturados. **Atenção:** o `apiPostRoute` do `@maxvue/max-use` embrulha o `axios.post` em seu próprio `try/catch` e **engole qualquer erro, retornando `null`** (e `false` para rota inválida) — ou seja, o valor rejeitado pelo interceptador (os erros 422 estruturados) **NÃO** chega a quem chamou `apiPostRoute`. Para receber os erros de validação estruturados em um formulário, inspecione o retorno `null` e leia os erros por outra via, ou use `axios.post` diretamente nesse endpoint específico (não `apiPostRoute`).
+- **422 Unprocessable Entity (Entidade Não Processável)**: Formate os erros de validação do Laravel (FormRequest / `$request->validate()`), cujo shape é `{ message, errors: { campo: ["msg1", ...] } }`, e rejeite a Promise com os erros estruturados. **Atenção:** o `apiPostRoute` do `@maxvue/max-use` embrulha o `axios.post` em seu próprio `try/catch` e **engole qualquer erro, retornando `null`** (e `false` para rota inválida) — ou seja, o valor rejeitado pelo interceptador (os erros 422 estruturados) **NÃO** chega a quem chamou `apiPostRoute`. Para receber os erros de validação estruturados em um formulário, inspecione o retorno `null` e leia os erros por outra via, ou use `axios.post` diretamente nesse endpoint específico (não `apiPostRoute`).
 - **500 Internal Server Error (Erro Interno do Servidor)**: Exiba uma mensagem amigável e genérica via notificação toast (ex: "Erro no servidor. Tente novamente mais tarde.") e registre os detalhes técnicos no console ou sistema de telemetria (nunca exponha stack traces aos usuários em produção).
 
 ### 4. Integração com Pinia Stores
@@ -116,10 +116,11 @@ export default axios;
 ```
 
 ### Login Reativo na Store do Pinia (POST de formulário)
-O `login` é um POST de mutação de estado e usa `apiPostRoute` do `@maxvue/max-use`, que **já executa o POST e retorna `response.data`** (não embrulhe em `axios.post`). O Axios global continua sendo o transporte interno (cookies/CSRF/interceptadores). O cookie `XSRF-TOKEN` do Shield já está presente, então **não há GET prévio de "csrf-cookie"**. Os **dados do usuário autenticado (`/api/user/data`) NÃO são buscados aqui** — eles vêm de uma store MaxPinia (`isCached`/`options.get`), conforme a skill de auth-session.
+O `login` é um POST de mutação de estado e usa `apiPostRoute` do `@maxvue/max-use`, que **já executa o POST e retorna `response.data`** (não embrulhe em `axios.post`). O Axios global continua sendo o transporte interno (cookies/CSRF/interceptadores). Antes do login, faça um GET em `/sanctum/csrf-cookie` para semear o cookie `XSRF-TOKEN` (Sanctum SPA). Os **dados do usuário autenticado (`/api/user/data`) NÃO são buscados aqui** — eles vêm de uma store MaxPinia (`isCached`/`options.get`), conforme a skill de auth-session.
 ```typescript
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
+import axios from '@/Js/bootstrap';
 import { apiPostRoute } from '@maxvue/max-use';
 import router from '@/Js/router';
 
@@ -129,8 +130,9 @@ export const useAuthStore = defineStore('auth', () => {
     async function login(credentials: { email: string; password: string }) {
         loading.value = true;
         try {
-            // POST de autenticação (sessão + cookie via guard web do Adonis).
-            // O Shield já emitiu o cookie XSRF-TOKEN; withXSRFToken o reenvia.
+            // POST de autenticação (Laravel Sanctum SPA: sessão + cookie).
+            // Semeia o cookie XSRF-TOKEN antes do login; withXSRFToken o reenvia.
+            await axios.get('/sanctum/csrf-cookie');
             // apiPostRoute já executa o POST e retorna response.data (não embrulhe em axios.post).
             const data = await apiPostRoute('/api/login', credentials);
 

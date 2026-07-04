@@ -15,6 +15,7 @@ Fornecer boas práticas, detalhes de implementação e restrições para o recor
    - Formate os elementos do template mantendo os atributos na mesma linha (inline), evitando quebras de tag multilinha.
 
 2. **Integração com o Cropper.js**:
+   - **Dependências não incluídas:** `cropperjs` e `compressorjs` **não** fazem parte das dependências do EngeApp nem das libs Max. Instale-os explicitamente antes de usar os exemplos abaixo (`npm i cropperjs compressorjs`).
    - Inicialize o Cropper.js dentro do hook `onMounted` e certifique-se de destruí-lo no hook `onBeforeUnmount` para evitar vazamentos de memória.
    - Use uma referência (`ref`) no elemento `<img>` em vez de selecioná-lo diretamente via query DOM.
    - Configuração de exemplo para o Cropper:
@@ -85,7 +86,7 @@ Fornecer boas práticas, detalhes de implementação e restrições para o recor
    - Use a função utilitária `formatBytes` de `@maxvue/max-use/format` para exibir amigavelmente o tamanho final do arquivo.
 
 6. **Persistência via MaxPinia (obrigatório)**:
-   - NÃO faça upload manual avulso (ex.: `axios.post` direto). Após gerar o `Blob`/`File` recortado, encaminhe a persistência através de uma store `@maxvue/max-pinia`, que cuida do salvamento automático (auto-save/debounced) no backend Adonis.
+   - NÃO faça upload manual avulso (ex.: `axios.post` direto). Após gerar o `Blob`/`File` recortado, encaminhe a persistência através de uma store `@maxvue/max-pinia`, que cuida do salvamento automático (auto-save/debounced) no backend Laravel 13.
    - As rotas são CAMINHOS STRING `/api/...` resolvidos por `apiPostRoute` de `@maxvue/max-use` (não há `route()`/Ziggy).
    - Exemplo do fluxo de persistência:
      ```ts
@@ -110,7 +111,7 @@ Fornecer boas práticas, detalhes de implementação e restrições para o recor
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **PROIBIDO o uso da Options API**: Não utilize de forma alguma a estrutura clássica de options do Vue (`data`, `methods`, etc.). Toda a lógica de estado e funções deve ser construída na `<script setup lang="ts">`.
-- **PROIBIDO o uso de Tailwind CSS**: Evite utilizar classes utilitárias do Tailwind CSS, a menos que solicitado expressamente pelo usuário. Utilize regras de SCSS com escopo fechado (`scoped`).
+- **Estilização via UnoCSS attributify**: Prefira o UnoCSS no modo attributify (`presetMaxUno`) com tokens/variáveis do tema (CSS vars) para layout, espaçamento e cores. Reserve o `<style scoped>` apenas para estrutura específica que os utilitários não cobrem; evite hex hardcoded e não reimplemente em SCSS o que o UnoCSS já resolve.
 - **PROIBIDO manipulação direta do DOM por seletores**: Nunca utilize seletores globais como `document.getElementById` ou `document.querySelector` para obter a imagem. Utilize referências de template do Vue (`ref="imageRef"`).
 - **Gerenciamento e Limpeza**: Sempre destrua a instância do Cropper no hook `onBeforeUnmount` para evitar vazamentos de memória e manter a performance da aplicação.
 - **Comentários em pt-BR**: Todos os comentários no código dentro dos componentes Vue DEVEM ser redigidos em Português do Brasil.

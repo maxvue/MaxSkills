@@ -31,7 +31,7 @@ Usar esta skill quando:
 | Vue | 3.6.0-beta.17 | Composition API + `<script setup lang="ts">` — SEMPRE |
 | TypeScript | Strict mode | Tipagem obrigatória em todo front-end |
 | **@maxvue/max-pinia** | **local** | **State management — camada de cache + auto-save (debounced). TODO GET/save de dados de página passa por stores MaxPinia (sobre Pinia 3). Não usar Pinia puro nem GET/POST manual para dados de página.** |
-| Vue Router | 5 | SPA pura (Adonis serve catch-all HTML) — rotas de API resolvidas por helpers do `@maxvue/max-use` para caminhos string `/api/...` (sem Ziggy) |
+| Vue Router | 5 | SPA pura (Laravel serve catch-all HTML) — Ziggy (`ziggy-js`) está presente no projeto; o MaxPinia resolve rotas de API por helpers do `@maxvue/max-use` para caminhos string `/api/...` (`apiGetRoute`), coexistindo com o Ziggy |
 | PrimeVue | — | Componentes base para UI (base da MaxComponentsUi) |
 | UnoCSS | 66 | Estilização utilitária (sem Tailwind) |
 | Vite | 7 | Bundler + HMR |
@@ -39,12 +39,12 @@ Usar esta skill quando:
 | Unplugin Vue Components | — | Auto-importação de componentes |
 | **@maxvue/max-components-ui** | **local** | **Biblioteca própria de componentes UI (~70 componentes + componentes do PrimeVue inclusos)** |
 | **@maxvue/max-use** | **local** | **Biblioteca própria de composables, helpers, rotas e utilitários** |
-| @adonisjs/transmit-client | via lib | Realtime via SSE (AdonisJS Transmit) — transitivo via `@maxvue/max-components-ui`/`@maxvue/max-use`, não é dependência direta do app |
+| laravel-echo / @laravel/echo-vue | dependência | Realtime via WebSockets (Laravel Reverb) — `laravel-echo` + `@laravel/echo-vue` (`import Echo` / `useEcho`), presentes no `package.json` do app |
 | @vue-flow/core | via lib | Diagramas de fluxo — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
 | @tanstack/vue-virtual | via lib | Virtualização de listas — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
 | floating-vue | via lib | Tooltips e popovers — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
 | lucide-vue-next | via lib | Ícones — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
-| Vitest | — | **Não** é usado pelo app Maxdmin. O app roda testes com **Japa** (`@japa/runner`, script `"test": "node ace test"`). Vitest é o runner apenas das libs Max* (`@maxvue/max-use`, `@maxvue/max-components-ui`), não do front-end do app. |
+| Vitest | — | **Não** é usado pelo backend do app. Os testes de backend rodam com **Pest** (`php artisan test`). Vitest é o runner apenas das libs Max* (`@maxvue/max-use`, `@maxvue/max-components-ui`), não do front-end do app. |
 
 ### Bibliotecas Próprias — Contexto Obrigatório
 
@@ -99,7 +99,7 @@ Código-fonte em: `/home/johnattas/GitHub/MaxUse/src/`
 - `Electrical` — cálculos elétricos fotovoltaicos
 - `Format` — formatação de valores
 
-**Sistema de Rotas (helpers do `@maxvue/max-use`, caminhos `/api/...` — sem Ziggy):**
+**Sistema de Rotas (helpers do `@maxvue/max-use`, caminhos string `/api/...`; coexistem com o Ziggy do projeto):**
 - `apiGetRoute` — GET requests
 - `apiPostRoute` — POST requests
 - `apiPutRoute` — PUT requests
@@ -190,7 +190,7 @@ Procurar por:
 
 #### 1.2 Verificar Erros do Backend
 
-Verificar os logs do servidor AdonisJS (saída do `node ace serve --watch` / logger do Adonis) para identificar se o bug tem origem no backend (erro 500, validação 422, exceção de controller/serviço).
+Verificar os logs do servidor Laravel (`storage/logs/laravel.log` / saída do `php artisan serve`) para identificar se o bug tem origem no backend (erro 500, validação 422, exceção de controller/serviço).
 
 #### 1.3 Verificar Terminal do Vite
 
@@ -301,11 +301,11 @@ Checklist:
 #### Para bugs de MaxUse — Sistema de Rotas
 
 Checklist:
-- [ ] Caminho/rota `/api/...` existe no backend? Verificar na lista de rotas do Adonis
-- [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('/api/recurso', { id: 1 })` — caminho string, não nome estilo Ziggy)
+- [ ] Caminho/rota `/api/...` existe no backend? Verificar com `php artisan route:list`
+- [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('/api/recurso', { id: 1 })` — o MaxPinia usa o caminho string, mesmo com o Ziggy presente no projeto)
 - [ ] `apiPostRoute` — corpo da requisição com dados corretos?
 - [ ] `apiUploadRoute` — arquivo sendo enviado como `FormData`?
-- [ ] Erros de CORS ou autenticação? Auth é sessão + cookie (guard web) — verificar se o cookie de sessão está sendo enviado (`withCredentials`), não procurar Bearer/token
+- [ ] Erros de CORS ou autenticação? Auth é Laravel Sanctum (SPA) via sessão + cookie — verificar se o cookie de sessão está sendo enviado (`withCredentials`) e se o fluxo `/sanctum/csrf-cookie` foi obtido, não procurar Bearer/token
 - [ ] Resposta HTTP sendo tratada (status 200 vs 422 vs 500)?
 
 #### Para bugs de PrimeVue (componentes puros, não Max*)
@@ -417,7 +417,7 @@ Ativar conforme necessário durante o diagnóstico (usar apenas skills que exist
 | Skill | Quando Ativar |
 |-------|---------------|
 | `superpowers:systematic-debugging` | Bugs difíceis que necessitam investigação sistemática em fases |
-| `superpowers:test-driven-development` | Reproduzir o bug com um teste antes de corrigir (app Maxdmin usa Japa/`node ace test`; Vitest só nas libs Max*) |
+| `superpowers:test-driven-development` | Reproduzir o bug com um teste antes de corrigir (backend usa Pest/`php artisan test`; Vitest só nas libs Max*) |
 
 > Para regras específicas de Vue 3 / TypeScript / MaxPinia / MaxComponentsUi / MaxUse, este documento já consolida os checklists; não dependa de skills `@...` que possam não existir no repositório.
 
@@ -426,9 +426,9 @@ Ativar conforme necessário durante o diagnóstico (usar apenas skills que exist
 | Fonte | Uso |
 |-------|-----|
 | Console do navegador (DevTools) | Logs/erros do front-end (`[Vue warn]`, runtime errors) |
-| Logs do servidor AdonisJS | Último erro/exceção do backend (controller/serviço/validação) |
+| Logs do servidor Laravel (`storage/logs/laravel.log`) | Último erro/exceção do backend (controller/serviço/validação) |
 | Aba Network (DevTools) | Inspecionar requisições `/api/...` (status, payload, resposta) |
-| PostgreSQL (psql / cliente) | Verificar dados no banco quando o bug parecer de dados |
+| MySQL (cliente / `php artisan tinker`) | Verificar dados no banco quando o bug parecer de dados |
 | Terminal do Vite | Erros de compilação/HMR |
 
 ### Fluxo de Atualização das Bibliotecas Locais

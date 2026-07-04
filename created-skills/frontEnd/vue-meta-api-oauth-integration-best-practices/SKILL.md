@@ -140,7 +140,7 @@ const connectAccount = async (): Promise<void> => {
   }
 
   try {
-    // Obtém do AdonisJS a URL de redirecionamento de autorização da Meta.
+    // Obtém do Laravel (fluxo OAuth Meta via Socialite + laravel-meta-graph-api) a URL de redirecionamento de autorização da Meta.
     // apiGetRoute executa a requisição e retorna o payload DIRETAMENTE (não { data }), nunca axios.get manual
     const res = await apiGetRoute('/api/social_media/facebook/auth-url');
 

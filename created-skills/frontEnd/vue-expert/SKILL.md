@@ -1,45 +1,45 @@
 ---
 name: vue-expert
-description: Builds Vue 3.6 components with Composition API (`<script setup lang="ts">`), wires them to @maxvue/max-pinia cached stores that fetch/persist data through AdonisJS `/api/...` string routes, composes UI from MaxComponentsUi components, and styles with UnoCSS attributify (presetMaxUno). Use when creating or editing Vue 3 components, pages, composables, cached Pinia stores, vue-router routes or styles in the Maxdmin front-end; consuming the AdonisJS Lucid API; or deciding SFC, state, component and styling conventions.
+description: Builds Vue 3.6 components with Composition API (`<script setup lang="ts">`), wires them to @maxvue/max-pinia cached stores that fetch/persist data through Laravel `/api/...` string routes, composes UI from MaxComponentsUi components, and styles with UnoCSS attributify (presetMaxUno). Use when creating or editing Vue 3 components, pages, composables, cached Pinia stores, vue-router routes or styles in the Maxdmin front-end; consuming the Laravel Eloquent API; or deciding SFC, state, component and styling conventions.
 license: MIT
 metadata:
   version: "2.0.0"
   domain: frontend
-  triggers: Vue 3, Vue 3.6, Composition API, script setup, ref, reactive, computed, watch, vue-router, MaxPinia, max-pinia, cached store, MaxComponentsUi, MaxButton, MaxUse, UnoCSS, presetMaxUno, attributify, apiGetRoute, apiPostRoute, AdonisJS API, Transmit, Vercel AI SDK
+  triggers: Vue 3, Vue 3.6, Composition API, script setup, ref, reactive, computed, watch, vue-router, MaxPinia, max-pinia, cached store, MaxComponentsUi, MaxButton, MaxUse, UnoCSS, presetMaxUno, attributify, apiGetRoute, apiPostRoute, Laravel API, Reverb, laravel/ai
   role: specialist
   scope: implementation
   output-format: code
-  related-skills: vue-max-stack-frontend-best-practices, vue-max-ecosystem-api-reference, vue-unocss-styling-best-practices, typescript-best-practices
+  related-skills: vue-max-stack-frontend-best-practices, vue-max-ecosystem-api-reference, vue-unocss-styling-best-practices, vue-typescript-best-practices
 ---
 
 # Vue Expert
 
-Especialista sênior em Vue 3 para o front-end do **Maxdmin** (backend AdonisJS v6 sobre PostgreSQL). Domínio profundo do sistema de reatividade da Composition API e do ecossistema Max local: **@maxvue/max-pinia** (stores cacheadas), **@maxvue/max-components-ui** (componentes `Max*`), **@maxvue/max-use** (composables/rotas) e **UnoCSS** (`presetMaxUno`, attributify).
+Especialista sênior em Vue 3 para o front-end do **Maxdmin** (backend Laravel 13 sobre MySQL). Domínio profundo do sistema de reatividade da Composition API e do ecossistema Max local: **@maxvue/max-pinia** (stores cacheadas), **@maxvue/max-components-ui** (componentes `Max*`), **@maxvue/max-use** (composables/rotas) e **UnoCSS** (`presetMaxUno`, attributify).
 
-Stack-alvo: **Vue 3.6 + vue-router 5**, sem Nuxt, sem SSR/Fastify. Dados vêm do AdonisJS via caminhos string `/api/...` roteados por stores cacheadas. Realtime via **Transmit**; IA via **Vercel AI SDK**.
+Stack-alvo: **Vue 3.6 + vue-router 5**, sem Nuxt, sem SSR. Dados vêm do Laravel (Eloquent) via caminhos string `/api/...` roteados por stores cacheadas. Realtime via **Laravel Reverb + `@laravel/echo-vue`**; IA via **`laravel/ai`** (Gemini via `google-gemini-php/laravel`).
 
-## Core Workflow
+## Fluxo de Trabalho Principal
 
-1. **Analyze requirements** - Identify component hierarchy, state needs, routing
-2. **Design architecture** - Plan composables, cached stores (max-pinia) e componentes `Max*`
-3. **Implement** - Build components with `<script setup lang="ts">`, reatividade correta e UnoCSS attributify
-4. **Validate** - Run `vue-tsc --noEmit` for type errors; verify reactivity with Vue DevTools. If type errors are found: fix each issue and re-run `vue-tsc --noEmit` until the output is clean before proceeding
-5. **Optimize** - Minimize re-renders, optimize computed properties, lazy load
-6. **Test** - Write component tests with Vue Test Utils and Vitest. If tests fail: inspect failure output, identify whether the root cause is a component bug or an incorrect test assertion, fix accordingly, and re-run until all tests pass
+1. **Analisar requisitos** - Identificar a hierarquia de componentes, necessidades de estado e roteamento
+2. **Projetar a arquitetura** - Planejar composables, stores cacheadas (max-pinia) e componentes `Max*`
+3. **Implementar** - Construir componentes com `<script setup lang="ts">`, reatividade correta e UnoCSS attributify
+4. **Validar** - Rodar `vue-tsc --noEmit` para erros de tipo; verificar a reatividade com o Vue DevTools. Se forem encontrados erros de tipo: corrija cada problema e rode `vue-tsc --noEmit` novamente até que a saída esteja limpa antes de prosseguir
+5. **Otimizar** - Minimizar re-renderizações, otimizar computed properties, fazer lazy load
+6. **Testar** - Escrever testes de componente com Vue Test Utils e Vitest. Se os testes falharem: inspecione a saída da falha, identifique se a causa raiz é um bug do componente ou uma asserção de teste incorreta, corrija de acordo e rode novamente até que todos os testes passem
 
-## Reference Guide
+## Guia de Referência
 
-Load detailed guidance based on context:
+Carregue orientações detalhadas conforme o contexto:
 
-| Topic | Reference | Load When |
+| Tópico | Referência | Carregar Quando |
 |-------|-----------|-----------|
 | Composition API | `references/composition-api.md` | ref, reactive, computed, watch, lifecycle |
-| Components | `references/components.md` | Props, emits, slots, provide/inject, MaxComponentsUi |
-| State Management | `references/state-management.md` | @maxvue/max-pinia cached stores, GET/save via `/api/...` |
-| TypeScript | `references/typescript.md` | Typing props, generic components, type-safe stores |
-| Build Tooling | `references/build-tooling.md` | Vite config, UnoCSS presets, sourcemaps, bundling |
+| Componentes | `references/components.md` | Props, emits, slots, provide/inject, MaxComponentsUi |
+| Gerenciamento de Estado | `references/state-management.md` | stores cacheadas @maxvue/max-pinia, GET/save via `/api/...` |
+| TypeScript | `references/typescript.md` | Tipagem de props, componentes genéricos, stores type-safe |
+| Build Tooling | `references/build-tooling.md` | Config do Vite, presets do UnoCSS, sourcemaps, bundling |
 
-## Quick Example
+## Exemplo Rápido
 
 Componente mínimo demonstrando os padrões preferidos — dados via store cacheada, botão `MaxButton`, UnoCSS attributify:
 
@@ -66,44 +66,44 @@ Componente mínimo demonstrando os padrões preferidos — dados via store cache
 </script>
 ```
 
-## Constraints
+## Restrições
 
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-### MUST DO
-- Use Composition API (NOT Options API) com `<script setup lang="ts">`
-- Use type-safe props with TypeScript
-- Use `ref()` for primitives, `reactive()` for objects
-- Use `computed()` for derived state
-- Use proper lifecycle hooks (onMounted, onUnmounted, etc.)
-- Implement proper cleanup in composables
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+### DEVE FAZER
+- Usar a Composition API (NÃO a Options API) com `<script setup lang="ts">`
+- Usar props type-safe com TypeScript
+- Usar `ref()` para primitivos, `reactive()` para objetos
+- Usar `computed()` para estado derivado
+- Usar os lifecycle hooks corretos (onMounted, onUnmounted, etc.)
+- Implementar a limpeza (cleanup) adequada em composables
 - Rotear **todo GET** de dados por uma store **@maxvue/max-pinia** cacheada (`isCached` + `options.get.route` com path `/api/...`)
 - Usar helpers de rota do `@maxvue/max-use` (`apiGetRoute`/`apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`) para mutações — nunca `fetch()`/`axios.get` cru em componentes/actions
 - Usar componentes `Max*` da MaxComponentsUi no lugar de qualquer controle HTML nativo (`MaxButton`, `MaxInputText`, `MaxInputSelect`…)
 - Usar composables/utilitários do `@maxvue/max-use` (nunca importar `@vueuse/core` ou `lodash` direto)
 - Estilizar com UnoCSS attributify (`presetMaxUno`) + tokens de tema, atributos inline; usar `<div>` (nunca `<section>`)
 
-### MUST NOT DO
-- Use Options API (data, methods, computed as object)
-- Mix Composition API with Options API
-- Mutate props directly
-- Create reactive objects unnecessarily
-- Use watch when computed is sufficient
-- Forget to cleanup watchers and effects
-- Access DOM before onMounted
+### NÃO DEVE FAZER
+- Usar a Options API (data, methods, computed como objeto)
+- Misturar a Composition API com a Options API
+- Mutar props diretamente
+- Criar objetos reativos desnecessariamente
+- Usar watch quando computed for suficiente
+- Esquecer de limpar watchers e effects
+- Acessar o DOM antes de onMounted
 - Usar `pinia` cru (`defineStore` de `'pinia'` com sintaxe de objeto, `createPinia`, `storeToRefs` de `pinia`, `pinia-plugin-persistedstate`) — o stack usa `@maxvue/max-pinia` (setup-style, cacheado)
 - Usar `fetch()`/`axios.get` cru em actions ou componentes para buscar dados
 - Usar `<button>`/`<input>`/`<select>`/`<textarea>`/checkbox nativos em código de aplicação
 - Escrever SCSS/CSS à mão para layout que o UnoCSS resolve; usar `<section>`
-- Usar Ziggy/`route()` (não existem no alvo Adonis), Nuxt, SSR/Fastify ou Prisma
+- Usar Nuxt, SSR ou um ORM de Node (Prisma) — o backend é Laravel/Eloquent. (O Ziggy existe no Laravel, mas o padrão de dados aqui é rota string `/api/...` via store MaxPinia.)
 
-## Output Templates
+## Templates de Saída
 
-When implementing Vue features, provide:
-1. Component file with `<script setup lang="ts">`, componentes `Max*` e UnoCSS attributify
-2. Composable if reusable logic exists
-3. Cached store (`@maxvue/max-pinia`) if global/page data is needed
-4. Brief explanation of reactivity decisions
+Ao implementar funcionalidades Vue, forneça:
+1. Arquivo de componente com `<script setup lang="ts">`, componentes `Max*` e UnoCSS attributify
+2. Composable, se houver lógica reutilizável
+3. Store cacheada (`@maxvue/max-pinia`), se forem necessários dados globais/de página
+4. Breve explicação das decisões de reatividade
 
-## Knowledge Reference
+## Referência de Conhecimento
 
-Vue 3.6 Composition API, vue-router 5, @maxvue/max-pinia (cached stores), @maxvue/max-components-ui, @maxvue/max-use, UnoCSS (presetMaxUno/attributify), Vite, TypeScript, Vitest, Vue Test Utils, AdonisJS Lucid API (`/api/...`), Transmit (realtime), Vercel AI SDK, reactive programming, performance optimization
+Vue 3.6 Composition API, vue-router 5, @maxvue/max-pinia (stores cacheadas), @maxvue/max-components-ui, @maxvue/max-use, UnoCSS (presetMaxUno/attributify), Vite, TypeScript, Vitest, Vue Test Utils, Laravel Eloquent API (`/api/...`), Laravel Reverb + @laravel/echo-vue (realtime), laravel/ai, programação reativa, otimização de performance

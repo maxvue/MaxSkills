@@ -3,22 +3,25 @@ name: laravel-google-calendar-integration-best-practices
 description: Use when integrating, configuring, or debugging Google Calendar API operations in Laravel, including OAuth token management, event scheduling for technical visits, calendar sync, and webhook handling. Triggers on Spatie Google Calendar usage, API requests to Google Calendar, and event sync jobs.
 ---
 
-# Laravel Google Calendar Integration Best Practices
+# Boas Práticas de Integração do Google Calendar com Laravel
 
-## Goal
-Establish clean, secure, and resilient standards for integrating and synchronizing events with the Google Calendar API within the Engeapp Laravel backend. This includes configuring service accounts, managing user-specific OAuth tokens, offloading API communication to background jobs, and handling API exceptions gracefully.
+## Objetivo
+Estabelecer padrões limpos, seguros e resilientes para integrar e sincronizar eventos com a API do Google Calendar dentro do backend Laravel do Engeapp. Isso inclui configurar service accounts, gerenciar tokens OAuth específicos de usuário, transferir a comunicação com a API para background jobs e tratar exceções da API de forma elegante.
 
-## Instructions
+## Instruções
 
-### 1. Installation & Package Selection
-* Default to using the official Google API Client (`google/apiclient`) for low-level or complex multi-tenant OAuth operations.
-* For simple, single-account, or service account-based configurations (e.g., a central corporate calendar), utilize the popular wrapper `spatie/laravel-google-calendar`.
-* Ensure packages are declared in `composer.json` and properly configured.
+> **⚠️ Estado atual no engeapp:** NEM `google/apiclient` NEM `spatie/laravel-google-calendar` estão instalados (não constam no `composer.json`). A lógica de calendário real do projeto vive em serviços próprios: `app/Services/Calendar/EventInsightsService.php`, `app/Services/Calendar/EventPublishingService.php` e `app/Services/Calendar/ThemeScheduleService.php` — comece por eles. As classes de SDK citadas abaixo (`Google\Client`, `Google\Service\Calendar`, etc.) só funcionam **após** rodar `composer require` do pacote correspondente; até lá, trate-as como caminho opcional a ser habilitado explicitamente, não como algo já disponível.
 
-### 2. Secure Credentials Management
-* **Service Account JSON:** Never commit the Google credentials JSON file directly to the repository. Load the JSON content from an environment variable (e.g., `GOOGLE_SERVICE_ACCOUNT_JSON` or `GOOGLE_CALENDAR_AUTH_PROFILES_SERVICE_ACCOUNT_CREDENTIALS_JSON`) or store it in a secure path defined in `.env`.
-* **User OAuth Tokens:** If integrating individual user calendars (OAuth 2.0), store the refresh tokens, access tokens, and expirations in a secure database table.
-  * Always encrypt tokens at rest. Use Laravel's Eloquent cast:
+### 1. Instalação e Seleção do Pacote
+* **Instale primeiro:** os pacotes de SDK abaixo NÃO estão no projeto. Antes de usar qualquer classe `Google\*`, rode `composer require` do pacote escolhido e configure as credenciais.
+* Por padrão, use o Google API Client oficial (`google/apiclient`) para operações OAuth de baixo nível ou complexas multi-tenant — requer `composer require google/apiclient`.
+* Para configurações simples, de conta única, ou baseadas em service account (ex: um calendário corporativo central), utilize o popular wrapper `spatie/laravel-google-calendar` — requer `composer require spatie/laravel-google-calendar`.
+* Garanta que os pacotes estejam declarados no `composer.json` e devidamente configurados.
+
+### 2. Gerenciamento Seguro de Credenciais
+* **JSON da Service Account:** Nunca faça commit do arquivo JSON de credenciais do Google diretamente no repositório. Carregue o conteúdo do JSON a partir de uma variável de ambiente (ex: `GOOGLE_SERVICE_ACCOUNT_JSON` ou `GOOGLE_CALENDAR_AUTH_PROFILES_SERVICE_ACCOUNT_CREDENTIALS_JSON`) ou armazene-o em um caminho seguro definido no `.env`.
+* **Tokens OAuth de Usuário:** Se estiver integrando calendários individuais de usuários (OAuth 2.0), armazene os refresh tokens, access tokens e expirações em uma tabela de banco de dados segura.
+  * Sempre criptografe os tokens em repouso. Use o cast do Eloquent do Laravel:
     ```php
     protected function casts(): array
     {
@@ -29,10 +32,10 @@ Establish clean, secure, and resilient standards for integrating and synchronizi
     }
     ```
 
-### 3. Service Classes Architecture
-* Wrap all Google Calendar interactions inside dedicated Service classes under `App\Services` (e.g., `App\Services\GoogleCalendarService`) complying with `laravel-services-best-practices`.
-* Inject dependencies via the constructor and resolve the Google Client using the Laravel Service Container.
-* Example of dynamic Google Client instantiation for user-specific OAuth:
+### 3. Arquitetura de Classes de Serviço
+* Envolva todas as interações com o Google Calendar dentro de classes de Serviço dedicadas sob `App\Services` (ex: `App\Services\GoogleCalendarService`) em conformidade com `laravel-services-best-practices`.
+* Injete dependências via construtor e resolva o Google Client usando o Service Container do Laravel.
+* Exemplo de instanciação dinâmica do Google Client para OAuth específico de usuário (**requer `composer require google/apiclient` — as classes `Google\*` não existem no projeto até a instalação**):
   ```php
   namespace App\Services;
 
@@ -71,14 +74,14 @@ Establish clean, secure, and resilient standards for integrating and synchronizi
           return $this;
       }
       
-      // Calendar CRUD operations go here
+      // Operações CRUD do calendário vão aqui
   }
   ```
 
-### 4. Background Processing (Queues)
-* Never execute Google Calendar API calls synchronously during HTTP requests (e.g., directly inside a Controller).
-* Dispatch all creation, update, and deletion tasks as queued Jobs implementing `ShouldQueue`, matching `laravel-jobs-queues-horizon-best-practices`.
-* Define an exponential backoff strategy and set max tries on the Job to handle rate limits and temporary network failures:
+### 4. Processamento em Background (Filas)
+* Nunca execute chamadas à API do Google Calendar de forma síncrona durante requisições HTTP (ex: diretamente dentro de um Controller).
+* Despache todas as tarefas de criação, atualização e exclusão como Jobs enfileirados implementando `ShouldQueue`, em conformidade com `laravel-jobs-queues-horizon-best-practices`.
+* Defina uma estratégia de backoff exponencial e configure o número máximo de tentativas no Job para lidar com rate limits e falhas temporárias de rede:
   ```php
   public int $tries = 5;
 
@@ -88,16 +91,16 @@ Establish clean, secure, and resilient standards for integrating and synchronizi
   }
   ```
 
-### 5. Idempotency & Duplicate Prevention
-* To prevent scheduling duplicates, store the `google_event_id` in the local domain database (e.g., inside `technical_visits` or `appointments` table).
-* When syncing, check if a `google_event_id` already exists:
-  * If **exists**: Perform an `update` API call.
-  * If **not exists**: Perform an `insert` API call, and save the returned event ID immediately to the local model.
+### 5. Idempotência e Prevenção de Duplicatas
+* Para prevenir duplicatas de agendamento, armazene o `google_event_id` no banco de dados de domínio local (ex: dentro da tabela `technical_visits` ou `appointments`).
+* Ao sincronizar, verifique se um `google_event_id` já existe:
+  * Se **existir**: Faça uma chamada de API de `update`.
+  * Se **não existir**: Faça uma chamada de API de `insert` e salve o ID do evento retornado imediatamente no model local.
 
-### 6. Exception Handling and Alerting
-* Catch `Google\Service\Exception` and general network exceptions (`GuzzleHttp\Exception\TransferException`) explicitly inside your services/jobs.
-* Handle authentication failures (e.g., token revoked by user) by marking the connection as invalid locally and alerting the user, rather than failing the queue job endlessly.
-* Log API failures with structured context data using standard logging guidelines:
+### 6. Tratamento de Exceções e Alertas
+* Capture `Google\Service\Exception` e exceções gerais de rede (`GuzzleHttp\Exception\TransferException`) explicitamente dentro dos seus serviços/jobs.
+* Trate falhas de autenticação (ex: token revogado pelo usuário) marcando a conexão como inválida localmente e alertando o usuário, em vez de falhar o queue job indefinidamente.
+* Registre falhas de API com dados de contexto estruturados usando as diretrizes padrão de logging:
   ```php
   Log::error('Google Calendar Sync Failed', [
       'user_id' => $user->id,
@@ -106,9 +109,9 @@ Establish clean, secure, and resilient standards for integrating and synchronizi
   ]);
   ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-* **No Synchronous API Calls:** Absolutely no Google Calendar HTTP API requests are allowed during synchronous web requests.
-* **No Plain-Text Tokens:** Do not store plain-text access or refresh tokens in the database.
-* **No hardcoded credentials:** Credentials (client IDs, secrets, service account details) must never be hardcoded in PHP files.
-* **Always Bind IDs:** Always save the Google Calendar event ID to the local database immediately after creation to prevent duplicate event creation on job retries.
+## Restrições
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
+* **Sem Chamadas de API Síncronas:** Absolutamente nenhuma requisição HTTP à API do Google Calendar é permitida durante requisições web síncronas.
+* **Sem Tokens em Texto Puro:** Não armazene access tokens ou refresh tokens em texto puro no banco de dados.
+* **Sem credenciais hardcoded:** Credenciais (client IDs, secrets, detalhes de service account) nunca devem estar hardcoded em arquivos PHP.
+* **Sempre Vincule os IDs:** Sempre salve o ID do evento do Google Calendar no banco de dados local imediatamente após a criação, para prevenir a criação de eventos duplicados em retentativas de job.

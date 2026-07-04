@@ -3,38 +3,38 @@ name: vue-3-dynamic-components-and-keep-alive-caching-best-practices
 description: Use when designing, implementing, or optimizing dynamic component loading using Vue 3 <component :is="...">, rendering asynchronous components with defineAsyncComponent, or managing component caching and lifecycle hooks with <KeepAlive> (e.g., handling onActivated/onDeactivated, cache invalidation, and custom cache keys). Triggers when creating dynamic tab interfaces, multi-step wizards, or dashboard layouts with state retention.
 ---
 
-## Goal
-Provide guidelines, standards, and best practices for implementing dynamic component rendering, asynchronous loading, and screen/tab caching using Vue 3, focusing on performance optimization, proper state retention, and memory management.
+## Objetivo
+Fornecer diretrizes, padrões e boas práticas para implementar renderização dinâmica de componentes, carregamento assíncrono e cache de telas/abas usando Vue 3, com foco em otimização de performance, retenção adequada de estado e gerenciamento de memória.
 
-## Instructions
-1. **Dynamic Rendering with `<component :is="...">`**:
-   - Utilize `<component :is="currentComponent" />` for rendering dynamic component interfaces such as tabs or wizards.
-   - **Performance (shallowRef/markRaw)**: Always wrap dynamically loaded component definitions in `shallowRef` instead of `ref`, or wrap them with `markRaw` when assigning to reactive state. This prevents Vue from deeply observing the component instance (methods, internal state, etc.), which degrades performance and triggers console warnings.
-   - **Strong Typing**: Define mapping objects for components with TypeScript to ensure type safety.
+## Instruções
+1. **Renderização Dinâmica com `<component :is="...">`**:
+   - Utilize `<component :is="currentComponent" />` para renderizar interfaces de componentes dinâmicos, como abas ou wizards.
+   - **Performance (shallowRef/markRaw)**: Sempre encapsule as definições de componentes carregados dinamicamente em `shallowRef` em vez de `ref`, ou aplique `markRaw` ao atribuí-las a um estado reativo. Isso evita que o Vue observe profundamente a instância do componente (métodos, estado interno, etc.), o que degrada a performance e dispara avisos no console.
+   - **Tipagem Forte**: Defina objetos de mapeamento para os componentes com TypeScript para garantir type safety.
 
-2. **Asynchronous Components (`defineAsyncComponent`)**:
-   - Use `defineAsyncComponent` to perform code-splitting on heavy components (e.g., complex editors, preview panel simulators, charts) that are not needed during initial page load.
-   - Configure options such as `loadingComponent` (spinner/skeleton), `errorComponent` (fallback UI), `delay` (prevent flashing loading states), and `timeout` (limit loading times).
+2. **Componentes Assíncronos (`defineAsyncComponent`)**:
+   - Use `defineAsyncComponent` para fazer code-splitting de componentes pesados (ex.: editores complexos, simuladores de painel de preview, gráficos) que não são necessários durante o carregamento inicial da página.
+   - Configure opções como `loadingComponent` (spinner/skeleton), `errorComponent` (UI de fallback), `delay` (evita estados de carregamento piscando) e `timeout` (limita o tempo de carregamento).
 
-3. **State Retention and Caching (`<KeepAlive>`)**:
-   - Wrap `<component :is="...">` inside `<KeepAlive>` to cache instances of deactivated components, preserving their internal DOM state and reactive variables.
-   - **Cache Limits (`max`)**: Always set a `max` attribute (e.g., `<KeepAlive :max="10">`) to limit the number of cached instances and prevent memory leaks.
-   - **Targeted Caching (`include` / `exclude`)**: Use `include` or `exclude` props to specify exactly which components should be cached. Ensure components have a defined `name` option (or are automatically named based on the file name) to match these patterns.
+3. **Retenção de Estado e Cache (`<KeepAlive>`)**:
+   - Envolva `<component :is="...">` dentro de `<KeepAlive>` para armazenar em cache instâncias de componentes desativados, preservando seu estado interno do DOM e variáveis reativas.
+   - **Limites de Cache (`max`)**: Sempre defina o atributo `max` (ex.: `<KeepAlive :max="10">`) para limitar o número de instâncias em cache e evitar vazamentos de memória.
+   - **Cache Direcionado (`include` / `exclude`)**: Use as props `include` ou `exclude` para especificar exatamente quais componentes devem ser cacheados. Garanta que os componentes tenham uma opção `name` definida (ou sejam nomeados automaticamente com base no nome do arquivo) para casar com esses padrões.
 
-4. **Component Lifecycle Hooks (`onActivated` / `onDeactivated`)**:
-   - Use `onActivated` to run code when a cached component is re-inserted into the DOM (e.g., fetching fresh data, starting animations, subscribing to web sockets).
-   - Use `onDeactivated` to clean up resources when the component is cached but removed from the view (e.g., pausing intervals, unsubscribing from event listeners, persisting draft states).
-   - Avoid using `onMounted` or `onUnmounted` for tasks that must execute every time the user navigates back to a cached tab, as these hooks only fire once per component mount/unmount cycle.
+4. **Hooks de Ciclo de Vida do Componente (`onActivated` / `onDeactivated`)**:
+   - Use `onActivated` para executar código quando um componente cacheado é reinserido no DOM (ex.: buscar dados atualizados, iniciar animações, se inscrever em web sockets).
+   - Use `onDeactivated` para limpar recursos quando o componente é cacheado mas removido da visualização (ex.: pausar intervalos, cancelar inscrições de listeners de eventos, persistir estados de rascunho).
+   - Evite usar `onMounted` ou `onUnmounted` para tarefas que devem ser executadas toda vez que o usuário volta para uma aba cacheada, pois esses hooks disparam apenas uma vez por ciclo de mount/unmount do componente.
 
-5. **Composition API & SFC Standards**:
-   - Ensure all components use `<script setup lang="ts">`.
-   - Style via UnoCSS attributify (`presetMaxUno`) with theme tokens (`bg-primary`, `bg-background`, `color-text`, `border-$gray-light`, etc.) applied as inline attributes on the elements — do NOT write `<style scoped lang="scss">` blocks or raw hex colors.
-   - Block order must strictly follow: `<template>`, then `<script>`.
-   - In templates, format component tags with all parameters on a single line (inline layout, do not wrap attributes into multiple lines).
+5. **Padrões da Composition API & SFC**:
+   - Garanta que todos os componentes usem `<script setup lang="ts">`.
+   - Estilize via UnoCSS attributify (`presetMaxUno`) com tokens de tema (`bg-primary`, `bg-background`, `color-text`, `border-$gray-light`, etc.) aplicados como atributos inline nos elementos — NÃO escreva blocos `<style scoped lang="scss">` nem cores hex cruas.
+   - A ordem dos blocos deve seguir estritamente: `<template>`, depois `<script>`.
+   - Nos templates, formate as tags de componente com todos os parâmetros em uma única linha (layout inline, não quebre os atributos em múltiplas linhas).
 
-## Examples
+## Exemplos
 
-### Example 1: Strongly Typed Dynamic Tabs with KeepAlive and shallowRef
+### Exemplo 1: Abas Dinâmicas Fortemente Tipadas com KeepAlive e shallowRef
 ```vue
 <template>
   <div flex flex-col w-full>
@@ -81,11 +81,11 @@ const activeComponent = computed(() => {
 
 > Estado ativo/inativo da aba: use a própria prop `variant` do `MaxButton` (aba ativa = variante sólida padrão; abas inativas = `variant="text"`), em vez de tentar estilizar uma classe interna inventada como `.max-button` — o `MaxButton` renderiza um `<Button>` do PrimeVue e só aplica condicionalmente `.max-button-dashed` / `.icon-button-b`, nunca uma classe `.max-button`. Layout/espaçamento via atributos UnoCSS (attributify) com tokens do tema.
 
-### Example 2: Code Splitting with defineAsyncComponent and Cache Lifecycle Hooks
+### Exemplo 2: Code Splitting com defineAsyncComponent e Hooks de Ciclo de Vida de Cache
 ```vue
 <template>
   <div p-6 bg-background>
-    <h2>Painel Executivo</h2>
+    <MaxTitle1 h2="Painel Executivo" />
     <div mt-4 min-h-75>
       <KeepAlive include="AsyncChartWidget" :max="3">
         <component :is="chartComponent" />
@@ -120,11 +120,11 @@ const chartComponent = shallowRef(AsyncChartWidget);
 </script>
 ```
 
-### Example 3: Inside a Cached Tab Component (AsyncChartWidget.vue)
+### Exemplo 3: Dentro de um Componente de Aba Cacheado (AsyncChartWidget.vue)
 ```vue
 <template>
   <div b="1 solid $gray-light" p-4 rounded-lg>
-    <h3>Relatório de Engajamento</h3>
+    <MaxTitle2>Relatório de Engajamento</MaxTitle2>
     <div>
       <div v-if="loading">Carregando dados atualizados...</div>
       <div v-else>Gráfico renderizado: {{ chartData }}</div>
@@ -171,12 +171,12 @@ onDeactivated(() => {
 </script>
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **Do NOT** use Options API (`data`, `methods`, etc.). All logic must use Composition API (`<script setup lang="ts">`).
-- **Do NOT** wrap dynamic components in standard `ref()` without wrapping the component definition in `markRaw()`, or assigning to a `shallowRef()`. Wrapping large component instances in a deep reactive proxy will cause severe performance degradation and browser warnings.
-- **Do NOT** omit the `max` prop on `<KeepAlive>`. Unbounded caches can lead to browser memory exhaustion, especially on heavy dashboards.
-- **Do NOT** use `onMounted` or `onUnmounted` for actions that must execute every time the user enters or leaves a cached view (e.g., starting pollers, updating data). Use `onActivated` and `onDeactivated` instead.
-- **Do NOT** write `<style scoped lang="scss">` blocks or raw hex colors (e.g. `#007bff`). All styling must use UnoCSS attributify (`presetMaxUno`) via inline attributes on the elements, using theme tokens (`bg-primary`, `bg-background`, `color-white`, `border-$gray-light`) instead of hardcoded colors.
-- **Do NOT** break Vue component tags into multiple lines in the `<template>` section. Keep all attributes inline on a single line.
-- **Do NOT** write code comments in English. All code comments in examples must be written in Brazilian Portuguese (pt-BR).
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+- **NÃO** use a Options API (`data`, `methods`, etc.). Toda a lógica deve usar a Composition API (`<script setup lang="ts">`).
+- **NÃO** encapsule componentes dinâmicos em um `ref()` padrão sem envolver a definição do componente em `markRaw()` ou atribuí-la a um `shallowRef()`. Encapsular instâncias grandes de componentes em um proxy reativo profundo causará severa degradação de performance e avisos no navegador.
+- **NÃO** omita a prop `max` no `<KeepAlive>`. Caches sem limite podem levar ao esgotamento de memória do navegador, especialmente em dashboards pesados.
+- **NÃO** use `onMounted` ou `onUnmounted` para ações que devem ser executadas toda vez que o usuário entra ou sai de uma view cacheada (ex.: iniciar pollers, atualizar dados). Use `onActivated` e `onDeactivated` em vez disso.
+- **NÃO** escreva blocos `<style scoped lang="scss">` nem cores hex cruas (ex.: `#007bff`). Toda a estilização deve usar UnoCSS attributify (`presetMaxUno`) via atributos inline nos elementos, usando tokens de tema (`bg-primary`, `bg-background`, `color-white`, `border-$gray-light`) em vez de cores fixas.
+- **NÃO** quebre as tags de componente Vue em múltiplas linhas na seção `<template>`. Mantenha todos os atributos inline em uma única linha.
+- **NÃO** escreva comentários de código em inglês. Todos os comentários de código nos exemplos devem ser escritos em Português Brasileiro (pt-BR).

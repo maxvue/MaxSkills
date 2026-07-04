@@ -5,31 +5,31 @@ description: Use when creating, reviewing, or debugging Power of Attorney (procu
 
 # laravel-power-of-attorney-generation-best-practices
 
-## Goal
-Provide solid guidelines and structured patterns for creating, formatting, and validating Power of Attorney (procurações) generation logic and formatting client or partner addresses for legal documents in the Laravel backend.
+## Objetivo
+Fornecer diretrizes sólidas e padrões estruturados para criar, formatar e validar a lógica de geração de Procurações (Power of Attorney) e para formatar endereços de clientes ou sócios em documentos legais no backend Laravel.
 
-## Instructions
-1. **Client Type Mapping (PF vs PJ)**:
-   - Always check the client entity type (`entity` field: `PF` or `PJ`).
-   - For `PJ` (Pessoa Jurídica), include company details (CNPJ, address), legal representative name (`partner_name`), representative document (`partner_document`), and representative residence address (`partner_location`).
-   - For `PF` (Pessoa Física), include individual details (CPF, gender-aware pronouns, residence address).
+## Instruções
+1. **Mapeamento do Tipo de Cliente (PF vs PJ)**:
+   - Sempre verifique o tipo da entidade do cliente (campo `entity`: `PF` ou `PJ`).
+   - Para `PJ` (Pessoa Jurídica), inclua os dados da empresa (CNPJ, endereço), o nome do representante legal (`partner_name`), o documento do representante (`partner_document`) e o endereço de residência do representante (`partner_location`).
+   - Para `PF` (Pessoa Física), inclua os dados do indivíduo (CPF, pronomes que consideram o gênero, endereço de residência).
 
-2. **Address Formatting**:
-   - Use the `Location` and `Address` relations to compile clean address strings.
-   - Format standard addresses as: `[Street], [Number], [Complement (if exists)], [Neighborhood], município de [City], CEP: [CEP]`.
-   - Implement safe fallbacks (e.g., using a content helper or 'S/N' for missing house/building numbers).
+2. **Formatação de Endereço**:
+   - Use as relações `Location` e `Address` para compor strings de endereço limpas.
+   - Formate os endereços padrão como: `[Rua], [Número], [Complemento (se existir)], [Bairro], município de [Cidade], CEP: [CEP]`.
+   - Implemente fallbacks seguros (ex: usando um helper de conteúdo ou 'S/N' para números de casa/edifício ausentes).
 
-3. **Status Management**:
-   - Set the initial status of the `ProjectPowerOfAttorneyDocument` to `editing` on creation.
-   - Support standard status transitions in the signature workflow: `editing`, `sent`, `delivered`, `opened`, `viewed`, `signed`.
+3. **Gerenciamento de Status**:
+   - Defina o status inicial do `ProjectPowerOfAttorneyDocument` como `editing` na criação.
+   - Suporte as transições de status padrão no fluxo de assinatura: `editing`, `sent`, `delivered`, `opened`, `viewed`, `signed`.
 
-4. **PDF Generation and Signature Integration**:
-   - Use `Barryvdh\DomPDF\Facade\Pdf` to render HTML templates.
-   - Support two PDF templates: `blank` (for physical/manual signature) and `digital` (with digital signature blocks using legal frameworks like Law 14.063/2020 and validation links).
-   - Format dates dynamically using localized, translated datetime format (e.g. `now()->translatedFormat(...)` in Portuguese).
+4. **Geração de PDF e Integração de Assinatura**:
+   - Use `Barryvdh\DomPDF\Facade\Pdf` para renderizar os templates HTML.
+   - Suporte dois templates de PDF: `blank` (para assinatura física/manual) e `digital` (com blocos de assinatura digital usando frameworks legais como a Lei 14.063/2020 e links de validação).
+   - Formate as datas dinamicamente usando um formato de data/hora localizado e traduzido (ex: `now()->translatedFormat(...)` em português).
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- Do NOT hardcode regional concessionaire details or designer data; always resolve them through relations (e.g., `$project->concessionaire`, `$project->designer`).
-- Do NOT generate HTML with raw, unformatted CPFs or CNPJs; always apply formatting/sanitization helper functions (e.g., `formatCpfCnpj`).
-- Do NOT proceed with PDF generation if crucial client/location fields are null; use validation checks to ensure clean data beforehand.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- NÃO deixe fixos (hardcode) os dados regionais da concessionária ou do projetista (designer); sempre resolva-os através de relações (ex: `$project->concessionaire`, `$project->designer`).
+- NÃO gere HTML com CPFs ou CNPJs crus e não formatados; sempre aplique funções helper de formatação/sanitização (ex: `formatCpfCnpj`).
+- NÃO prossiga com a geração do PDF se campos cruciais de cliente/localização estiverem null; use verificações de validação para garantir dados limpos previamente.

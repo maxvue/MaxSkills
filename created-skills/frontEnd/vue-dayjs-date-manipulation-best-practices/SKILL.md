@@ -5,7 +5,7 @@ description: Use when manipulating, formatting, parsing, or comparing dates and 
 
 # Boas Práticas de Manipulação de Datas com Day.js no Vue 3
 
-> **Atenção — Day.js NÃO é uma dependência de frontend do projeto.** O Maxdmin/Engeapp não possui `dayjs` em `package.json` (ele aparece apenas transitivamente via `@vinejs/vine` no backend) e não há uso de Day.js em `resources/js/`. A ferramenta de datas padrão do frontend é o `@maxvue/max-use` (`useDateFormat`, `useTimeAgo`), que encapsula o `@vueuse/core`. **Prefira essas composables.** Só siga o restante desta skill se houver necessidade real de recursos avançados que o Day.js oferece (timezone, durations, parsing customizado estrito) e, nesse caso, **instale-o explicitamente antes** com `npm i dayjs`. Não trate o Day.js como biblioteca de datas já estabelecida no projeto.
+> **Atenção — o Day.js JÁ É uma dependência de frontend do projeto** (`dayjs ^1.11.21` está em `package.json` do Engeapp). Mesmo assim, para formatação simples e tempo relativo prefira as composables do `@maxvue/max-use` (`useDateFormat`, `useTimeAgo`), que encapsulam o VueUse — elas são a via padrão do frontend. Use o Day.js diretamente quando precisar de recursos avançados (timezone, durations, parsing customizado estrito) que as composables não cobrem.
 
 ## Objetivo
 Estabelecer diretrizes padrão, padrões de código e restrições para a execução segura, reativa e localizada de operações de data e hora no frontend Vue 3 do Engeapp utilizando a biblioteca Day.js. Isso garante consistência, evita desvios de fuso horário entre backend/frontend e fornece padrões de helpers comuns.

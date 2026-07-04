@@ -3,42 +3,42 @@ name: laravel-concessionaires-tariffs-regulation-best-practices
 description: Use when creating, modifying, or querying energy concessionaires (concessionárias), subsidiaries, regional units, electrical regulations (ANEEL rules), or tariff data (group A/B, green/blue tax flags, TUSD/TE distribution tariffs) in Laravel. Triggers on calculations involving power distribution costs, energy concessionaire CRUDs, and regulation data validations.
 ---
 
-# Energy Concessionaires, Tariffs, and Regulation Best Practices
+# Boas Práticas de Concessionárias de Energia, Tarifas e Regulação
 
-## Goal
-Establish clean, consistent, and architecturally sound standards for managing energy concessionaires (distribuidoras), their subsidiaries, local tariffs, and ANEEL (Agência Nacional de Energia Elétrica) regulations in the Laravel backend of Engeapp. This ensures precise financial viability calculations (payback, savings) for solar projects and prevents tax or logic discrepancies.
+## Objetivo
+Estabelecer padrões limpos, consistentes e arquiteturalmente sólidos para o gerenciamento de concessionárias de energia (distribuidoras), suas subsidiárias, tarifas locais e regulações da ANEEL (Agência Nacional de Energia Elétrica) no backend Laravel do Engeapp. Isso garante cálculos precisos de viabilidade financeira (payback, economia) para projetos solares e evita discrepâncias fiscais ou de lógica.
 
-## Instructions
+## Instruções
 
-### 1. Model Structure & Relationships
-Keep the hierarchical mapping of energy concessionaires clear:
-- **ConcessionaireCompany**: Represents the corporate holding company (e.g., Energisa, Equatorial). Uses ULIDs (`HasUlids`), maps to `concessionaires_company`.
-- **ConcessionaireSubsidiary**: Represents regional operating units (e.g., Energisa Sul-Sudeste). Inherits ULIDs, maps to `concessionaires_subsidiaries`. Houses service locations (cities, states), urls, and configuration templates (like signage templates: `placa1`, `placa2`).
-- **ConcessionaireSubsidiaryRegulation**: Defines technical standards, connection classes, voltage and phases. Maps to `concessionaires_subsidiaries_regulations`. Includes relationships to files and data limits.
-- **ConcessionaireSubsidiaryRegulationData**: Granular parameters (breaker limit, conductor cross-sections, phase-neutral voltage). Order results globally by `circuit_breaker` using boot hooks.
+### 1. Estrutura de Models e Relacionamentos
+Mantenha claro o mapeamento hierárquico das concessionárias de energia:
+- **ConcessionaireCompany**: Representa a holding corporativa (ex: Energisa, Equatorial). Usa ULIDs (`HasUlids`), mapeia para `concessionaires_company`.
+- **ConcessionaireSubsidiary**: Representa as unidades operacionais regionais (ex: Energisa Sul-Sudeste). Herda ULIDs, mapeia para `concessionaires_subsidiaries`. Abriga locais de atendimento (cidades, estados), urls e templates de configuração (como templates de placa: `placa1`, `placa2`).
+- **ConcessionaireSubsidiaryRegulation**: Define os padrões técnicos, classes de conexão, tensão e fases. Mapeia para `concessionaires_subsidiaries_regulations`. Inclui relacionamentos com arquivos e limites de dados.
+- **ConcessionaireSubsidiaryRegulationData**: Parâmetros granulares (limite de disjuntor, seções de condutores, tensão fase-neutro). Ordene os resultados globalmente por `circuit_breaker` usando boot hooks.
 
-### 2. DTO & Validation Patterns (Spatie Laravel Data)
-When validating or transferring tariff configuration payloads, use Spatie Laravel Data DTOs:
-- Group tariff structures into distinct categories:
-  - **Group A (High Voltage)**: High-voltage consumers. Require fields for peak tariff (ponta), off-peak tariff (fora de ponta), and demand charges (demanda contratada). Ensure TUSD and TE components are separately validated.
-  - **Group B (Low Voltage)**: Conventional low-voltage consumers (residential, commercial, rural). Require fields for single rate TUSD, TE, and public lighting taxes (COSIP/CIP).
-- Validate Brazilian regulatory fields using strict rules:
-  - Phase configurations (`amount_phases`: 1, 2, or 3).
-  - Volts values (`voltage_phase_neutral`: typically 127V or 220V).
+### 2. Padrões de DTO e Validação (Spatie Laravel Data)
+Ao validar ou transferir payloads de configuração de tarifas, use DTOs do Spatie Laravel Data:
+- Agrupe as estruturas de tarifa em categorias distintas:
+  - **Grupo A (Alta Tensão)**: Consumidores de alta tensão. Exigem campos para tarifa de ponta, tarifa de fora de ponta e cobranças de demanda (demanda contratada). Garanta que os componentes TUSD e TE sejam validados separadamente.
+  - **Grupo B (Baixa Tensão)**: Consumidores convencionais de baixa tensão (residencial, comercial, rural). Exigem campos para TUSD de tarifa única, TE e taxas de iluminação pública (COSIP/CIP).
+- Valide os campos regulatórios brasileiros usando regras estritas:
+  - Configurações de fase (`amount_phases`: 1, 2 ou 3).
+  - Valores de tensão (`voltage_phase_neutral`: tipicamente 127V ou 220V).
 
-### 3. Tariff Calculations & Monetary Representation
-- **No Float for Money**: All tariff calculations (TUSD, TE, demand costs, tax flags) must avoid raw floating-point operations. Use integer values representing cents (R$ 0.01 = 1) or high-precision decimals (e.g., `BCMath` wrapper) up to 4 or 6 decimal places (tariffs in Brazil are defined with 4-6 decimals, e.g., R$ 0,654321 / kWh).
-- **Separate TUSD and TE**: Distribution (TUSD - Tarifa de Uso do Sistema de Distribuição) and Energy (TE - Tarifa de Energia) must be treated as independent components. They have different tax treatments (ICMS, PIS, COFINS) and regulatory compensation rates.
-- **Tax Flags (Bandeiras Tarifárias)**: Implement a service to retrieve or apply active ANEEL tax flags (Verde, Amarela, Vermelha Patamar 1, Vermelha Patamar 2) onto the TE component.
-- **GD Compensation Rules**: Calculations for Distributed Generation (Geração Distribuída) payback must respect active ANEEL regulations (e.g., Lei 14.300 transition rules, TUSD Fio B charge-backs).
+### 3. Cálculos de Tarifa e Representação Monetária
+- **Sem Float para Dinheiro**: Todos os cálculos de tarifa (TUSD, TE, custos de demanda, bandeiras tarifárias) devem evitar operações brutas de ponto flutuante. Use valores inteiros representando centavos (R$ 0,01 = 1) ou decimais de alta precisão (ex: wrapper `BCMath`) com até 4 ou 6 casas decimais (as tarifas no Brasil são definidas com 4-6 decimais, ex: R$ 0,654321 / kWh).
+- **Separe TUSD e TE**: Distribuição (TUSD - Tarifa de Uso do Sistema de Distribuição) e Energia (TE - Tarifa de Energia) devem ser tratados como componentes independentes. Eles têm tratamentos fiscais diferentes (ICMS, PIS, COFINS) e taxas de compensação regulatória diferentes.
+- **Bandeiras Tarifárias**: Implemente um serviço para recuperar ou aplicar as bandeiras tarifárias ativas da ANEEL (Verde, Amarela, Vermelha Patamar 1, Vermelha Patamar 2) sobre o componente TE.
+- **Regras de Compensação de GD**: Cálculos de payback para Geração Distribuída devem respeitar as regulações ativas da ANEEL (ex: regras de transição da Lei 14.300, cobranças do TUSD Fio B).
 
-### 4. Separation of Concerns
-- **No Calculation Logic in Models**: Eloquent models should only represent the database structure and relationships.
-- **Actions / Service Classes**: Place payback calculations, tariff applications, and ANEEL compensation models inside specific service classes (e.g., `App\Services\Financial\PaybackCalculatorService`).
+### 4. Separação de Responsabilidades
+- **Sem Lógica de Cálculo em Models**: Os models Eloquent devem representar apenas a estrutura do banco de dados e os relacionamentos.
+- **Actions / Service Classes**: Coloque cálculos de payback, aplicações de tarifa e modelos de compensação da ANEEL dentro de service classes específicas (ex: `App\Services\Financial\PaybackCalculatorService`).
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **NEVER** use raw floats for database columns storing tariffs or monetary totals. Use `decimal(12, 6)` or `integer` representing cents.
-- **DO NOT** hardcode TUSD/TE rates inside controllers or services. Always fetch them from the database or DTO config arrays associated with the client's `ConcessionaireSubsidiary`.
-- **DO NOT** duplicate calculation logic across controllers. Centralize in Service/Action classes.
-- **NEVER** perform raw database operations without transactions when updating multiple concessionaire tariff settings at once.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **NUNCA** use floats brutos para colunas de banco de dados que armazenam tarifas ou totais monetários. Use `decimal(12, 6)` ou `integer` representando centavos.
+- **NÃO** faça hardcode de taxas TUSD/TE dentro de controllers ou services. Sempre busque-as no banco de dados ou nos arrays de config do DTO associados à `ConcessionaireSubsidiary` do cliente.
+- **NÃO** duplique a lógica de cálculo entre controllers. Centralize em classes Service/Action.
+- **NUNCA** realize operações brutas de banco de dados sem transações ao atualizar múltiplas configurações de tarifa de concessionária de uma só vez.

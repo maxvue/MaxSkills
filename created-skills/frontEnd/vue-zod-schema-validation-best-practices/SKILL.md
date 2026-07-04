@@ -126,11 +126,13 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
           await geradorStore.saveInServer();
           Toast.show({ severity: 'success', title: 'Sucesso', message: 'Gerador cadastrado com sucesso!' });
       } catch (err: any) {
-          // Trata erro de validação retornado pelo backend Adonis/VineJS (HTTP 422)
+          // Trata erro de validação retornado pelo backend Laravel (FormRequest, HTTP 422)
           if (err.response?.status === 422 && err.response?.data?.errors) {
-              // Mapeia erros 422 de validação vindos do backend Adonis/VineJS
-              err.response.data.errors.forEach((e: any) => {
-                  errors.value[e.field] = e.message;
+              // Shape do Laravel: { message, errors: { campo: ["msg1", "msg2"] } }.
+              // Mapeia cada campo pegando a primeira mensagem do array.
+              const laravelErrors = err.response.data.errors as Record<string, string[]>;
+              Object.entries(laravelErrors).forEach(([field, messages]) => {
+                  errors.value[field] = messages[0];
               });
           } else {
               Toast.show({ severity: 'error', title: 'Erro', message: 'Falha ao salvar gerador.' });
@@ -142,17 +144,19 @@ Estabelecer padrões de validação de formulários reativos, análise de payloa
   </script>
   ```
 
-### 4. Tratamento de Erros de Validação da API (Integração com VineJS/AdonisJS)
-- Converta dinamicamente as respostas de erro de validação do backend (HTTP 422) para o estado local de erros do frontend.
-- Os erros do backend geralmente vêm em um formato estruturado:
+### 4. Tratamento de Erros de Validação da API (Integração com Laravel FormRequest)
+- A validação no backend é feita com **Laravel** (FormRequest ou `$request->validate()`). Converta dinamicamente as respostas de erro de validação (HTTP 422) para o estado local de erros do frontend.
+- O Laravel retorna os erros neste formato (chave por campo, cada campo com um array de mensagens):
   ```json
   {
-    "errors": [
-      { "field": "nome", "message": "O nome é obrigatório" }
-  ]
+    "message": "O nome é obrigatório (and 1 more error)",
+    "errors": {
+      "nome": ["O nome é obrigatório"],
+      "potencia_kwp": ["A potência deve ser maior que zero"]
+    }
   }
   ```
-- Mapeie estes erros diretamente para o objeto reativo de erros dentro do bloco `catch` das requisições de API, conforme demonstrado no exemplo acima.
+- Mapeie estes erros para o objeto reativo iterando sobre `errors` (um `Record<string, string[]>`) e pegando a primeira mensagem de cada campo, dentro do bloco `catch` das requisições de API, conforme demonstrado no exemplo acima. NÃO trate `errors` como um array de `{ field, message }` — esse não é o shape do Laravel e quebraria o mapeamento.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

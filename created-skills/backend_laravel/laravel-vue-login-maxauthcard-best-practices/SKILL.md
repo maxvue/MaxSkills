@@ -9,7 +9,7 @@ description: Use ao implementar, refatorar, revisar ou depurar o fluxo de LOGIN 
 
 Padronizar o fluxo de **login** no ecossistema engeapp: backend Laravel 13 (sessão por cookie, Sanctum para SPA, Socialite para login social) e frontend Vue 3.6 (sem Inertia) com **Ziggy + Vue Router + MaxPinia + MaxComponentsUi**. A tela de login usa o componente **`MaxAuthCard`** — um componente puramente visual — e toda a lógica vive em stores e helpers, nunca dentro do card.
 
-Este é o stack do **engeapp/Maxdmin web (Laravel)**. Não é o backend AdonisJS: aqui **existe** Ziggy e Sanctum, e as rotas são **nomeadas** (resolvidas por `route()`), não strings cruas de URL. Para o stack AdonisJS (rotas em string, sem Ziggy/Sanctum) use a skill irmã `vue-auth-session-state-best-practices`.
+Este é o stack do **engeapp (Laravel 13)**: aqui **existe** Ziggy e Sanctum, e as rotas podem ser **nomeadas** (resolvidas por `route()`) além das rotas string usadas pelas cached stores do MaxPinia. Para o padrão de sessão/estado de autenticação no cliente, veja também a skill irmã `vue-auth-session-state-best-practices`.
 
 ## Princípio central do stack
 
@@ -161,8 +161,8 @@ router.beforeEach(async (to, _from, next) => {
 - `laravel-socialite-oauth-integration-best-practices` — drivers, provisionamento, mock em Pest.
 - `laravel-sanctum-api-authentication` — SPA stateful, CSRF, domínios stateful.
 - `laravel-ziggy-routing-integration-best-practices` — geração e uso de rotas nomeadas.
-- `vue-auth-session-state-best-practices` — contraparte **AdonisJS** (rotas em string, sem Ziggy/Sanctum).
-- `vue-max-use-development-best-practices` / `adonisjs-maxpinia-endpoint-patterns-best-practices` — helpers MaxUse/MaxPinia.
+- `vue-auth-session-state-best-practices` — padrão de sessão/estado de autenticação no cliente (Sanctum SPA).
+- `vue-max-use-development-best-practices` / `vue-max-use-usecachedapi-state-cache-best-practices` — helpers MaxUse/MaxPinia.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

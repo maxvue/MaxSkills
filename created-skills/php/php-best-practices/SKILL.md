@@ -10,7 +10,7 @@ metadata:
 
 # PHP Best Practices
 
-Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 51 rules for writing clean, maintainable PHP code.
+Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 53 rules for writing clean, maintainable PHP code.
 
 ## Step 1: Detect PHP Version
 

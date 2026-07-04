@@ -3,41 +3,41 @@ name: laravel-correios-api-integration-best-practices
 description: Use when creating, refactoring, reviewing, or debugging integrations with the official Correios API. Triggers on authentication token management, caching strategies for postal codes (CEP), parcel tracking, shipping rate calculations, and handling Correios network timeouts or authentication failures.
 ---
 
-# Laravel Correios API Integration Best Practices
+# Boas Práticas de Integração com a API dos Correios no Laravel
 
-## Goal
-Establish solid, consistent guidelines for integrating, consuming, and debugging the official Correios API in the Laravel backend of the Engeapp ecosystem. This ensures resilient dynamic authentication token renewal, safe caching of postal codes (CEPs), robust exception handling, and compatibility with stateless execution environments like Laravel Octane.
+## Objetivo
+Estabelecer diretrizes sólidas e consistentes para integrar, consumir e depurar a API oficial dos Correios no backend Laravel do ecossistema Engeapp. Isso garante renovação dinâmica e resiliente de token de autenticação, cache seguro de códigos postais (CEPs), tratamento robusto de exceções e compatibilidade com ambientes de execução stateless como o Laravel Octane.
 
-## Instructions
+## Instruções
 
-### 1. Dynamic Token Management & Octane Compatibility
-*   **Do Not Persist Tokens in Instance State**: Avoid storing the active token inside service properties without validation checks. In stateless environments (Laravel Octane), services registered as singletons persist across requests. Storing a token directly in a property can cause authentication failures if the token expires in the API while remaining in the memory state.
-*   **Cache-Backed Resolution**: Always resolve the token dynamically from the cache. Ensure the cache TTL aligns with the Correios token validity (usually 24 hours).
-*   **Auto-Renewal Flow**: When the token is missing or expired, fetch a new one, store it in the cache, and return it. If the token request fails, throw a custom exception and clear any partial cache values.
+### 1. Gerenciamento Dinâmico de Token & Compatibilidade com Octane
+*   **Não Persista Tokens no Estado da Instância**: Evite armazenar o token ativo dentro de propriedades do serviço sem verificações de validação. Em ambientes stateless (Laravel Octane), serviços registrados como singletons persistem entre requisições. Armazenar um token diretamente em uma propriedade pode causar falhas de autenticação se o token expirar na API enquanto permanece no estado em memória.
+*   **Resolução Baseada em Cache**: Sempre resolva o token dinamicamente a partir do cache. Garanta que o TTL do cache esteja alinhado com a validade do token dos Correios (geralmente 24 horas).
+*   **Fluxo de Auto-Renovação**: Quando o token estiver ausente ou expirado, busque um novo, armazene-o no cache e retorne-o. Se a requisição do token falhar, lance uma exceção customizada e limpe quaisquer valores parciais do cache.
 
-### 2. Caching Strategies for Postal Codes (CEP)
-*   **Avoid Redundant Requests**: Store address details fetched by CEP in the cache for 24 hours (`now()->addHours(24)`) or more, depending on business requirements.
-*   **Cache Decoded Data Only**: Store the raw array representation of the address in the cache. 
-*   **Prevent Runtime Method Errors**: Never invoke the `json()` method directly on data retrieved from the cache. Once cached, the value is returned as a plain array. Ensure you verify the structure before extracting values.
+### 2. Estratégias de Cache para Códigos Postais (CEP)
+*   **Evite Requisições Redundantes**: Armazene os detalhes de endereço obtidos por CEP no cache por 24 horas (`now()->addHours(24)`) ou mais, dependendo dos requisitos de negócio.
+*   **Faça Cache Apenas de Dados Decodificados**: Armazene a representação em array bruto do endereço no cache. 
+*   **Previna Erros de Método em Runtime**: Nunca invoque o método `json()` diretamente sobre dados recuperados do cache. Uma vez em cache, o valor é retornado como um array simples. Garanta que você verifique a estrutura antes de extrair valores.
 
-### 3. Graceful Exception Handling and Logging
-*   **HTTP Client Timeout & Retries**: Always enforce a timeout (e.g., 5 seconds) and consider using retries for temporary network blips:
+### 3. Tratamento Gracioso de Exceções e Logging
+*   **Timeout & Retries do Cliente HTTP**: Sempre imponha um timeout (ex: 5 segundos) e considere usar retries para instabilidades temporárias de rede:
     ```php
     Http::timeout(5)->retry(3, 100)
     ```
-*   **Structured Logging**: Log all connection and API failures to a dedicated log channel (e.g., `Log::channel('correios')`) using a context array. Never concatenate sensitive or dynamic values in the log message string.
-*   **Custom Exceptions**: Avoid silent failures or returning generic empty values. Throw a domain-specific exception (e.g., `CorreiosIntegrationException`) when the API is unreachable, credentials are invalid, or responses are malformed.
+*   **Logging Estruturado**: Registre todas as falhas de conexão e de API em um canal de log dedicado (ex: `Log::channel('correios')`) usando um array de contexto. Nunca concatene valores sensíveis ou dinâmicos na string da mensagem de log.
+*   **Exceções Customizadas**: Evite falhas silenciosas ou o retorno de valores vazios genéricos. Lance uma exceção específica do domínio (ex: `CorreiosIntegrationException`) quando a API estiver inacessível, as credenciais forem inválidas ou as respostas estiverem malformadas.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-*   **NEVER** silence HTTP exceptions or connection failures by returning `null` without logging the error with full context.
-*   **DO NOT** invoke HTTP response methods (like `json()`) on arrays read from the cache.
-*   **DO NOT** store the authentication token in static class properties or instance properties without a mechanism to refresh it when it expires in the cache.
-*   **DO NOT** couple Correios integration services directly to HTTP request variables (`request()`) or view generation logic.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+*   **NUNCA** silencie exceções HTTP ou falhas de conexão retornando `null` sem registrar o erro com contexto completo.
+*   **NÃO** invoque métodos de resposta HTTP (como `json()`) sobre arrays lidos do cache.
+*   **NÃO** armazene o token de autenticação em propriedades estáticas de classe ou propriedades de instância sem um mecanismo para renová-lo quando ele expirar no cache.
+*   **NÃO** acople os serviços de integração dos Correios diretamente a variáveis de requisição HTTP (`request()`) ou à lógica de geração de views.
 
-## Examples
+## Exemplos
 
-### Resilient CorreiosService Implementation
+### Implementação Resiliente do CorreiosService
 
 ```php
 <?php
@@ -65,7 +65,7 @@ class CorreiosService
     }
 
     /**
-     * Resolves the authentication token dynamically, leveraging cache.
+     * Resolve o token de autenticação dinamicamente, aproveitando o cache.
      *
      * @return string
      * @throws CorreiosIntegrationException
@@ -76,7 +76,7 @@ class CorreiosService
 
         if (!$token) {
             $token = $this->fetchNewToken();
-            // Cache the token for 24 hours
+            // Faz cache do token por 24 horas
             Cache::put('correios_api_token', $token, now()->addHours(24));
         }
 
@@ -84,7 +84,7 @@ class CorreiosService
     }
 
     /**
-     * Fetches a new authentication token from Correios API.
+     * Busca um novo token de autenticação da API dos Correios.
      *
      * @return string
      * @throws CorreiosIntegrationException
@@ -128,7 +128,7 @@ class CorreiosService
     }
 
     /**
-     * Consults address details by CEP.
+     * Consulta os detalhes de endereço por CEP.
      *
      * @param string $cep
      * @return array
@@ -136,7 +136,7 @@ class CorreiosService
      */
     public function getCep(string $cep): array
     {
-        // Supposing helpers 'cepIsNotValid' and 'cepOnlyNumber' are available
+        // Supondo que os helpers 'cepIsNotValid' e 'cepOnlyNumber' estejam disponíveis
         if (cepIsNotValid($cep)) {
             return [];
         }

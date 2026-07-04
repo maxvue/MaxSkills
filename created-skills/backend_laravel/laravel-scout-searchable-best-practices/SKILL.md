@@ -3,41 +3,41 @@ name: laravel-scout-searchable-best-practices
 description: Use when creating, modifying, or optimizing Laravel Scout searchable models, customizing toSearchableArray payloads, configuring conditional indexing, handling database relationships indexing (e.g., using touches), or executing search queries with Meilisearch.
 ---
 
-# Goal
-Provide robust guidelines and consistent patterns for implementing and optimizing rapid text search using Laravel Scout with Meilisearch in the Engeapp ecosystem.
+# Objetivo
+Fornecer diretrizes robustas e padrões consistentes para implementar e otimizar busca textual rápida usando Laravel Scout com Meilisearch no ecossistema Engeapp.
 
-# Instructions
-1. **Trait Integration:**
-   - Import and use the `Laravel\Scout\Searchable` trait in the target Eloquent model.
+# Instruções
+1. **Integração da Trait:**
+   - Importe e use a trait `Laravel\Scout\Searchable` no model Eloquent alvo.
 
-2. **Payload Optimization (`toSearchableArray`):**
-   - Customize the payload using the `toSearchableArray()` method.
-   - Do NOT index entire large tables. Include only the fields required for full-text search, filtering, and sorting.
-   - To prevent N+1 database queries when eager loading attributes from relationships, load relationships beforehand when bulk indexing or check if the relation is loaded. Use methods like `$this->relationLoaded('relation')` to check if a relation is loaded, or query specific columns directly if not loaded.
+2. **Otimização do Payload (`toSearchableArray`):**
+   - Customize o payload usando o método `toSearchableArray()`.
+   - NÃO indexe tabelas grandes inteiras. Inclua apenas os campos necessários para busca full-text, filtragem e ordenação.
+   - Para evitar consultas N+1 ao carregar (eager load) atributos de relações, carregue as relações previamente ao indexar em massa ou verifique se a relação está carregada. Use métodos como `$this->relationLoaded('relation')` para verificar se uma relação está carregada, ou consulte colunas específicas diretamente caso não esteja carregada.
 
-3. **Conditional Indexing (`shouldBeSearchable`):**
-   - Implement `shouldBeSearchable()` when models should only be searchable under specific conditions (e.g., only active projects, non-draft support protocols).
+3. **Indexação Condicional (`shouldBeSearchable`):**
+   - Implemente `shouldBeSearchable()` quando os models devem ser pesquisáveis apenas sob condições específicas (ex: apenas projetos ativos, protocolos de suporte que não sejam rascunho).
 
-4. **Relational Synchronization (`$touches`):**
-   - When child model changes affect search results of a parent model, define the `$touches` property on the child model: `protected $touches = ['parentRelation'];`. This ensures the parent model is touched (updating its `updated_at` timestamp) and automatically reindexed by Scout.
+4. **Sincronização Relacional (`$touches`):**
+   - Quando mudanças em um model filho afetam os resultados de busca de um model pai, defina a propriedade `$touches` no model filho: `protected $touches = ['parentRelation'];`. Isso garante que o model pai seja "tocado" (atualizando seu timestamp `updated_at`) e reindexado automaticamente pelo Scout.
 
-5. **Executing Search Queries:**
-   - Execute searches using `Model::search($query)`.
-   - Use pagination: `Model::search($query)->paginate(15)`.
-   - To apply Meilisearch-specific features (filters, facets, sorting), pass a callback as the second argument to `search()`.
+5. **Executando Consultas de Busca:**
+   - Execute buscas usando `Model::search($query)`.
+   - Use paginação: `Model::search($query)->paginate(15)`.
+   - Para aplicar recursos específicos do Meilisearch (filtros, facets, ordenação), passe um callback como segundo argumento para `search()`.
 
-6. **Testing Search & Indexing:**
-   - Use Pest to test searchable behavior.
-   - Use `Mockery` or Scout's fake engines if you need to assert that models were imported or search was triggered without hitting a real Meilisearch instance in unit tests.
+6. **Testando Busca e Indexação:**
+   - Use Pest para testar o comportamento de busca (searchable).
+   - Use `Mockery` ou os fake engines do Scout se precisar afirmar que models foram importados ou que a busca foi acionada sem atingir uma instância real do Meilisearch em testes unitários.
 
-# Constraints
-- Never include large, raw HTML, binary data, or base64 files in the `toSearchableArray()` payload.
-- Never trigger N+1 queries inside `toSearchableArray()`. If you need to access a relationship, ensure it is either eager loaded or retrieve only the specific value using database queries efficiently.
-- Do not use raw database `LIKE` queries when Scout search is available for the resource.
+# Restrições
+- Nunca inclua HTML cru grande, dados binários ou arquivos base64 no payload de `toSearchableArray()`.
+- Nunca dispare consultas N+1 dentro de `toSearchableArray()`. Se precisar acessar uma relação, garanta que ela esteja com eager load ou recupere apenas o valor específico usando consultas de banco de dados de forma eficiente.
+- Não use consultas `LIKE` cruas no banco de dados quando a busca do Scout estiver disponível para o recurso.
 
-# Examples
+# Exemplos
 
-### Searchable Model Implementation
+### Implementação do Model Searchable
 ```php
 <?php
 
@@ -81,7 +81,7 @@ class Project extends Model
 }
 ```
 
-### Pest Integration Test
+### Teste de Integração com Pest
 ```php
 <?php
 
@@ -97,5 +97,5 @@ it('indexa corretamente apenas quando o projeto nao estiver arquivado', function
 });
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

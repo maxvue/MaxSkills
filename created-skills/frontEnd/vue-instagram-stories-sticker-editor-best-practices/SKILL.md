@@ -45,7 +45,7 @@ Padronizar a implementação de um editor visual interativo de stickers para Ins
 
 ### 4. Gerenciamento de Estado e Persistência com MaxPinia
 * Centralizar o estado de UI em uma store `useStickerEditorStore` (sticker ativo, alças, seleção). O estado puramente visual/efêmero pode ser uma store Pinia local.
-* Toda leitura e persistência do payload normalizado (a lista final de stickers do Story) DEVE passar por uma store `@maxvue/max-pinia`, que cuida do GET inicial e do auto-save (debounced) no backend Adonis. Não faça `axios.get`/`axios.post` manual nem salve por submit.
+* Toda leitura e persistência do payload normalizado (a lista final de stickers do Story) DEVE passar por uma store `@maxvue/max-pinia`, que cuida do GET inicial e do auto-save (debounced) no backend Laravel 13. Não faça `axios.get`/`axios.post` manual nem salve por submit.
 * As rotas são caminhos string `/api/...` resolvidos por `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` (sem `route()`/Ziggy). Ex.: `apiGetRoute('/api/stories/{id}/stickers')`.
 * Expor actions limpas na store de UI: `addSticker`, `removeSticker`, `updateStickerPosition` e `selectSticker`; ao mutar a lista normalizada na store MaxPinia, o salvamento ocorre automaticamente.
 * Manter uma separação clara entre o sticker ativo sendo editado (estado da UI) e a lista serializada final dos stickers do Story (persistida via store MaxPinia).

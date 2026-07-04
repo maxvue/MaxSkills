@@ -3,22 +3,22 @@ name: laravel-livekit-server-sdk-best-practices
 description: Use when creating, updating, or debugging LiveKit WebRTC audio/video services, generating access tokens for rooms, managing LiveKit rooms, or handling room events and Webhooks. Triggers on LiveKit SDK integration, AccessToken generation, and RoomServiceClient usage.
 ---
 
-# Laravel LiveKit Server SDK Best Practices
+# Boas Práticas do LiveKit Server SDK no Laravel
 
-## Goal
-Provide solid guidelines and consistent patterns for integrating the LiveKit Server SDK (`agence104/livekit-server-sdk`) into a Laravel backend, covering secure access token generation, room lifecycle management, and robust exception handling.
+## Objetivo
+Fornecer diretrizes sólidas e padrões consistentes para integrar o LiveKit Server SDK (`agence104/livekit-server-sdk`) a um backend Laravel, cobrindo geração segura de access tokens, gerenciamento do ciclo de vida de salas e tratamento robusto de exceções.
 
-## Instructions
+## Instruções
 
-### 1. Setup and Service Integration
-* **Package Installation:** The backend integration must use the `agence104/livekit-server-sdk` composer package.
-* **Environment Configuration:** Configure your `.env` variables with the LiveKit host, key, and secret:
+### 1. Setup e Integração do Serviço
+* **Instalação do Pacote:** A integração do backend deve usar o pacote composer `agence104/livekit-server-sdk`.
+* **Configuração de Ambiente:** Configure suas variáveis `.env` com o host, key e secret do LiveKit:
   ```env
   LIVEKIT_API_KEY=your-api-key
   LIVEKIT_API_SECRET=your-api-secret
   LIVEKIT_WS_URL=wss://your-livekit-server-url
   ```
-  Ensure these keys are mapped in `config/services.php`:
+  Garanta que essas chaves estejam mapeadas em `config/services.php`:
   ```php
   'livekit' => [
       'api_key' => env('LIVEKIT_API_KEY'),
@@ -26,29 +26,29 @@ Provide solid guidelines and consistent patterns for integrating the LiveKit Ser
       'ws_url' => env('LIVEKIT_WS_URL'),
   ],
   ```
-* **Dependency Injection:** Centralize all LiveKit Server operations into a specialized service class (`LiveKitService`), injecting its dependencies via constructor property promotion or config references.
+* **Injeção de Dependência:** Centralize todas as operações do LiveKit Server em uma classe de serviço especializada (`LiveKitService`), injetando suas dependências via constructor property promotion ou referências de config.
 
-### 2. Secure AccessToken Generation
-* **VideoGrants Configuration:** Always generate tokens with strict grants. For standard users:
-  - Call `setRoomJoin()` and `setRoomName($roomName)`.
-  - Call `setCanPublish(true)` to allow publishing tracks (audio/screen).
-  - Call `setCanSubscribe(true)` to allow subscribing to other participants' tracks.
-* **Identity and Display Name:** Always set unique identifiers for `setIdentity()` (e.g., User ID as a string) and `setName()` (e.g., User Display Name) to guarantee auditing and correct state representation in the client.
+### 2. Geração Segura de AccessToken
+* **Configuração dos VideoGrants:** Sempre gere tokens com grants estritos. Para usuários padrão:
+  - Chame `setRoomJoin()` e `setRoomName($roomName)`.
+  - Chame `setCanPublish(true)` para permitir publicar tracks (áudio/tela).
+  - Chame `setCanSubscribe(true)` para permitir assinar as tracks de outros participantes.
+* **Identity e Display Name:** Sempre defina identificadores únicos para `setIdentity()` (ex: o ID do usuário como string) e `setName()` (ex: o nome de exibição do usuário) para garantir auditoria e a representação correta do estado no client.
 
-### 3. Room Management via RoomServiceClient
-* **Client Initialization:** The `RoomServiceClient` requires an HTTP/HTTPS schema for REST calls, whereas the client connection uses WebSocket (`ws://` / `wss://`). Clean the URL before instantiating the client:
+### 3. Gerenciamento de Salas via RoomServiceClient
+* **Inicialização do Client:** O `RoomServiceClient` requer um schema HTTP/HTTPS para chamadas REST, enquanto a conexão do client usa WebSocket (`ws://` / `wss://`). Limpe a URL antes de instanciar o client:
   ```php
   $host = str_replace(['ws://', 'wss://'], ['http://', 'https://'], $wsUrl);
   ```
-* **Operations:** Use the `RoomServiceClient` methods to create (`createRoom`), delete/close (`deleteRoom`), and list participants (`listParticipants`) dynamically on the server.
+* **Operações:** Use os métodos do `RoomServiceClient` para criar (`createRoom`), deletar/encerrar (`deleteRoom`) e listar participantes (`listParticipants`) dinamicamente no servidor.
 
-### 4. Exception Handling & Logging
-* **Robust Wrappers:** Always wrap LiveKit Server REST calls (e.g., `createRoom`, `deleteRoom`, `listParticipants`) in `try-catch` blocks.
-* **Logging Errors:** In case of connection failures or API exceptions, catch the error, log it using Laravel's Log facade with descriptive context, and return a clean, user-friendly exception or error response.
+### 4. Tratamento de Exceções e Logging
+* **Wrappers Robustos:** Sempre envolva as chamadas REST do LiveKit Server (ex: `createRoom`, `deleteRoom`, `listParticipants`) em blocos `try-catch`.
+* **Logging de Erros:** Em caso de falhas de conexão ou exceções da API, capture o erro, registre-o usando a facade Log do Laravel com contexto descritivo e retorne uma exceção ou resposta de erro limpa e amigável ao usuário.
 
-## Examples
+## Exemplos
 
-### LiveKit Service Implementation (`LiveKitService.php`)
+### Implementação do Serviço LiveKit (`LiveKitService.php`)
 ```php
 <?php
 
@@ -165,7 +165,7 @@ class LiveKitService
 }
 ```
 
-### LiveKit Token Generation Controller (`LiveTokenController.php`)
+### Controller de Geração de Token do LiveKit (`LiveTokenController.php`)
 ```php
 <?php
 
@@ -217,10 +217,10 @@ class LiveTokenController extends Controller
 }
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-* **Enforce Strict Access Grants:** Never leave VideoGrants empty or grant wildcard permissions without explicitly specifying the room details (`setRoomJoin`, `setRoomName`).
-* **Clean WS URLs:** Always sanitize the WebSocket URL using a string replacement before instantiating `RoomServiceClient` to avoid connection scheme failures.
-* **Proper Error Logging:** Never suppress errors from the LiveKit Server API. Wrap all calls in `try-catch` blocks and log them using the `Log` facade with descriptive context.
-* **No Direct SDK Instantiation in Controllers:** Controllers must not instantiate `AccessToken` or `RoomServiceClient` directly. They must rely on `LiveKitService` injected via Laravel dependency injection.
-* **Language of Comments:** Code comments and docstrings in code blocks must be written in **Brazilian Portuguese (pt-BR)**.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+* **Imponha Grants de Acesso Estritos:** Nunca deixe os VideoGrants vazios nem conceda permissões curinga (wildcard) sem especificar explicitamente os detalhes da sala (`setRoomJoin`, `setRoomName`).
+* **Limpe as URLs de WS:** Sempre sanitize a URL de WebSocket usando uma substituição de string antes de instanciar o `RoomServiceClient` para evitar falhas de schema de conexão.
+* **Logging Adequado de Erros:** Nunca suprima erros da API do LiveKit Server. Envolva todas as chamadas em blocos `try-catch` e registre-os usando a facade `Log` com contexto descritivo.
+* **Sem Instanciação Direta do SDK nos Controllers:** Os controllers não devem instanciar `AccessToken` ou `RoomServiceClient` diretamente. Eles devem depender do `LiveKitService` injetado via injeção de dependência do Laravel.
+* **Idioma dos Comentários:** Comentários de código e docstrings nos blocos de código devem ser escritos em **português brasileiro (pt-BR)**.

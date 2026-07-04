@@ -3,18 +3,18 @@ name: laravel-slack-notifications-integration
 description: Use when creating, reviewing, or debugging Laravel Slack notifications, configuring Slack Webhook channels, handling Slack notification routing, or custom slack block formatting. Triggers on Slack notification setup, webhooks configuration, or message layout changes.
 ---
 
-# Slack Notifications Integration in Laravel
+# Integração de Notificações do Slack no Laravel
 
-## Goal
-Establish clear guidelines, configuration patterns, and best practices for creating, sending, formatting, and testing Slack notifications within the Laravel backend of the Engeapp ecosystem.
+## Objetivo
+Estabelecer diretrizes claras, padrões de configuração e boas práticas para criar, enviar, formatar e testar notificações do Slack dentro do backend Laravel do ecossistema Engeapp.
 
-## Instructions
+## Instruções
 
-### 1. Configuration Setup
-Always store Slack credentials and default channels securely within the `config/services.php` file. Do not access environment variables directly in application code.
+### 1. Configuração Inicial
+Sempre armazene as credenciais do Slack e os canais padrão de forma segura dentro do arquivo `config/services.php`. Não acesse variáveis de ambiente diretamente no código da aplicação.
 
-- **Standard Slack Notification Config:**
-  Configure the services array in `config/services.php`:
+- **Configuração Padrão de Notificação do Slack:**
+  Configure o array de services em `config/services.php`:
   ```php
   'slack' => [
       'notifications' => [
@@ -24,27 +24,27 @@ Always store Slack credentials and default channels securely within the `config/
   ],
   ```
 
-- **Alternative Incoming Webhook Config:**
-  If the application uses a single incoming webhook URL:
+- **Configuração Alternativa de Incoming Webhook:**
+  Se a aplicação usar uma única URL de incoming webhook:
   ```php
   'slack' => [
       'webhook' => env('SLACK_WEBHOOK_URL'),
   ],
   ```
 
-### 2. Creating a Notification Class
-Generate the notification class using the Artisan CLI:
+### 2. Criando uma Classe de Notificação
+Gere a classe de notificação usando o Artisan CLI:
 ```bash
 php artisan make:notification CriticalErrorSlackAlert
 ```
 
-Implement the notification structure:
-- Implement the `via($notifiable)` method to route through `['slack']`.
-- Implement `toSlack($notifiable)` returning an instance of `Illuminate\Notifications\Messages\SlackMessage`.
-- Implement the `ShouldQueue` interface to ensure notification API calls are executed in background queues.
+Implemente a estrutura da notificação:
+- Implemente o método `via($notifiable)` para rotear através de `['slack']`.
+- Implemente `toSlack($notifiable)` retornando uma instância de `Illuminate\Notifications\Messages\SlackMessage`.
+- Implemente a interface `ShouldQueue` para garantir que as chamadas à API de notificação sejam executadas em filas em background.
 
-### 3. Rich Formatting with Slack Message / Block Kit
-Format Slack notifications to look highly professional by using titles, attachments, fields, and custom colors:
+### 3. Formatação Rica com Slack Message / Block Kit
+Formate as notificações do Slack para parecerem altamente profissionais usando títulos, attachments, fields e cores customizadas:
 
 ```php
 <?php
@@ -90,14 +90,14 @@ class CriticalErrorSlackAlert extends Notification implements ShouldQueue
 }
 ```
 
-### 4. Handling Failures and Resiliency
-- Always queue Slack notifications. Third-party Slack API requests can add latency or temporarily fail due to rate limits or downtime.
-- Set class properties for rate limiting and connection retry policies:
-  - `public int $tries = 3;` — Maximum execution attempts.
-  - `public int $backoff = 60;` — Time in seconds to wait before retrying a failed attempt.
+### 4. Tratando Falhas e Resiliência
+- Sempre enfileire (queue) as notificações do Slack. As requisições à API de terceiros do Slack podem adicionar latência ou falhar temporariamente devido a rate limits ou indisponibilidade.
+- Defina as propriedades de classe para as políticas de rate limiting e retry de conexão:
+  - `public int $tries = 3;` — Número máximo de tentativas de execução.
+  - `public int $backoff = 60;` — Tempo em segundos para aguardar antes de repetir uma tentativa que falhou.
 
-### 5. Testing and Mocking (Pest v3)
-Use Laravel's native `Notification` facade fakes in test suites to assert that Slack notifications are routed correctly without making actual HTTP requests.
+### 5. Testes e Mocking (Pest v3)
+Use os fakes nativos da facade `Notification` do Laravel nas suítes de teste para afirmar que as notificações do Slack são roteadas corretamente sem fazer requisições HTTP reais.
 
 ```php
 <?php
@@ -110,12 +110,12 @@ use Illuminate\Notifications\Slack\SlackMessage;
 it('sends a critical slack notification on process failure', function () {
     Notification::fake();
 
-    // Trigger logic that throws/dispatches error notification
+    // Dispara a lógica que lança/despacha a notificação de erro
     $errorMessage = 'API key expired';
     $file = 'AiAgent.php';
     $line = 42;
 
-    // Simulate sending notification to a custom routing channel
+    // Simula o envio da notificação para um canal de roteamento customizado
     Notification::route('slack', config('services.slack.notifications.channel'))
         ->notify(new CriticalErrorSlackAlert($errorMessage, $file, $line));
 
@@ -129,9 +129,9 @@ it('sends a critical slack notification on process failure', function () {
 });
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **No Hardcoded Values:** Never write webhook URLs, slack tokens, or default channel names directly inside notification classes. Always load them via `config('services.slack...')`.
-- **Always Queue:** Never send Slack notifications synchronously on customer-facing controller requests. Always implement `ShouldQueue`.
-- **Keep Payloads Clean:** Do not dump massive raw trace exception arrays directly into the Slack message text. Format only key error summaries into structured attachment fields.
-- **Use Native Testing Fakes:** Do not use Guzzle or custom HTTP clients to send slack messages directly, and do not write custom HTTP mock hooks in tests when `Notification::fake()` exists.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.
+- **Sem Valores Hardcoded:** Nunca escreva URLs de webhook, tokens do Slack ou nomes de canal padrão diretamente dentro das classes de notificação. Sempre os carregue via `config('services.slack...')`.
+- **Sempre Enfileire:** Nunca envie notificações do Slack de forma síncrona em requisições de controller voltadas ao cliente. Sempre implemente `ShouldQueue`.
+- **Mantenha os Payloads Limpos:** Não despeje arrays gigantescos de trace bruto de exceção diretamente no texto da mensagem do Slack. Formate apenas os resumos-chave de erro em fields de attachment estruturados.
+- **Use os Fakes Nativos de Teste:** Não use Guzzle ou clientes HTTP customizados para enviar mensagens do Slack diretamente, e não escreva hooks de mock HTTP customizados nos testes quando `Notification::fake()` existe.

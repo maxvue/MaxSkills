@@ -43,7 +43,7 @@ Estabelecer diretrizes padronizadas e otimizadas para a criação de componentes
    - Mantenha em `resources/js/services/` ou caminhos específicos do módulo, com o sufixo `Service.ts` (ex: `UserService.ts`).
 2. **Integração:**
    - Use helpers de rotas do `@maxvue/max-use` (ex: `apiGetRoute`, `apiPostRoute`) em vez de chamadas diretas ao Axios.
-   - Passe o caminho da rota como string `/api/...` (ou o nome interno registrado no Adonis). **Não existe Ziggy** — é nativo do Laravel e foi descontinuado.
+   - Passe o caminho da rota como string `/api/...` (o padrão de dados do stack). O backend é Laravel; embora o Ziggy exista no projeto, o padrão adotado pelo MaxPinia/`@maxvue/max-use` é a rota em string, então prefira `/api/...`.
    - **Prefira stores MaxPinia para GETs:** todo GET ao backend deve passar por uma store `@maxvue/max-pinia` (cache + auto-save). A camada `Service` abaixo destina-se a ações não-GET; não crie serviços só para buscar dados que caberiam numa store cacheada.
 3. **Tipagem:**
    - Anote os tipos de retorno explicitamente (ex: `Promise<User[] | null>`).

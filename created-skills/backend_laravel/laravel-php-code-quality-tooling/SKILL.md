@@ -3,25 +3,25 @@ name: laravel-php-code-quality-tooling
 description: Use when formatting, statically analyzing, or automatically refactoring PHP code in the Engeapp backend. Triggers on running Laravel Pint before commits, resolving Larastan/PHPStan type errors, configuring phpstan.neon, running Rector dry-runs, upgrading code to PHP 8.4+ or Laravel 13 conventions, or setting up IDE autocomplete with Barryvdh IDE Helper.
 ---
 
-# Laravel PHP Code Quality Tooling
+# Ferramentas de Qualidade de Código PHP no Laravel
 
-## Goal
-Establish solid guidelines and safe execution patterns for the Engeapp backend PHP code quality pipeline: formatting with Laravel Pint, static analysis with Larastan/PHPStan, automated refactoring with Rector, and IDE autocomplete setup with Barryvdh IDE Helper. These tools form the standard pre-commit and upgrade toolchain.
+## Objetivo
+Estabelecer diretrizes sólidas e padrões de execução seguros para o pipeline de qualidade de código PHP do backend Engeapp: formatação com Laravel Pint, análise estática com Larastan/PHPStan, refatoração automatizada com Rector e configuração de autocomplete de IDE com Barryvdh IDE Helper. Essas ferramentas formam o toolchain padrão de pré-commit e de upgrade.
 
-## Instructions
+## Instruções
 
-### 1. Laravel Pint — Code Formatting
-- **Execution**: Always run before finalizing changes:
+### 1. Laravel Pint — Formatação de Código
+- **Execução**: Sempre execute antes de finalizar as alterações:
   ```bash
   vendor/bin/pint --dirty --format agent
   ```
-- **`--dirty` flag**: Only formats files with uncommitted Git changes. Protects historical commits and avoids mass diffs on unrelated files. Always use it.
-- **Pipeline order**: Run Pint **after** Rector (to clean up formatting irregularities from automated refactoring) and **before** Larastan (to ensure style fixes don't introduce syntax issues).
-- **Style preset**: Follow rules in `pint.json`. Do NOT override unless instructed by the user.
-- **Constraints**: Never run Pint without `--dirty` on the entire codebase. Never commit modified PHP files without running Pint first.
+- **Flag `--dirty`**: Formata apenas arquivos com alterações não commitadas no Git. Protege commits históricos e evita diffs em massa em arquivos não relacionados. Use-a sempre.
+- **Ordem do pipeline**: Execute o Pint **depois** do Rector (para limpar irregularidades de formatação da refatoração automatizada) e **antes** do Larastan (para garantir que correções de estilo não introduzam problemas de sintaxe).
+- **Preset de estilo**: Siga as regras em `pint.json`. NÃO sobrescreva a menos que instruído pelo usuário.
+- **Restrições**: Nunca execute o Pint sem `--dirty` em toda a base de código. Nunca commite arquivos PHP modificados sem executar o Pint primeiro.
 
-### 2. Larastan/PHPStan — Static Analysis
-- **Configuration (`phpstan.neon`)**:
+### 2. Larastan/PHPStan — Análise Estática
+- **Configuração (`phpstan.neon`)**:
   ```neon
   parameters:
       level: 1
@@ -35,24 +35,24 @@ Establish solid guidelines and safe execution patterns for the Engeapp backend P
       ignoreErrors:
           - '#has no type specified in iterable type#'
   ```
-- **Execution**: `vendor/bin/phpstan analyse`
-- **IDE Helper integration**: Do NOT inject PHPDoc annotations directly into model classes. Always generate them to a separate file:
+- **Execução**: `vendor/bin/phpstan analyse`
+- **Integração com IDE Helper**: NÃO injete anotações PHPDoc diretamente nas classes de model. Sempre gere-as em um arquivo separado:
   ```bash
   php artisan ide-helper:models -M --nowrite
   ```
-  Add `@mixin IdeHelperUser` in the model's PHPDoc block so IDEs and Larastan can link to the generated helper.
-- **Relationship generics**: Explicitly type relationship return types:
+  Adicione `@mixin IdeHelperUser` no bloco PHPDoc do model para que IDEs e Larastan consigam vincular ao helper gerado.
+- **Generics de relacionamento**: Tipe explicitamente os tipos de retorno dos relacionamentos:
   ```php
   /** @return HasMany<PlannerCard, $this> */
   public function cards(): HasMany { ... }
   ```
-- **Common fixes**:
-  - Undefined property/method on models → ensure `@mixin IdeHelper[Model]` is present and `_ide_helper_models.php` is up to date.
-  - Type mismatch from `$request->input()` → cast explicitly: `/** @var string $email */ $email = $request->input('email');`
-- **Constraints**: Never downgrade below level `1`. Never add inline `@phpstan-ignore` without first attempting to fix the type structure. If suppression is necessary, add it to `ignoreErrors` in `phpstan.neon` with an exact regex.
+- **Correções comuns**:
+  - Propriedade/método indefinido em models → garanta que `@mixin IdeHelper[Model]` esteja presente e que `_ide_helper_models.php` esteja atualizado.
+  - Incompatibilidade de tipo vinda de `$request->input()` → faça o cast explicitamente: `/** @var string $email */ $email = $request->input('email');`
+- **Restrições**: Nunca rebaixe abaixo do `level` `1`. Nunca adicione `@phpstan-ignore` inline sem primeiro tentar corrigir a estrutura de tipos. Se a supressão for necessária, adicione-a a `ignoreErrors` em `phpstan.neon` com um regex exato.
 
-### 3. Rector — Automated Refactoring
-- **Configuration (`rector.php`)**:
+### 3. Rector — Refatoração Automatizada
+- **Configuração (`rector.php`)**:
   ```php
   return static function (RectorConfig $rectorConfig): void {
       $rectorConfig->paths([__DIR__ . '/app', __DIR__ . '/routes', __DIR__ . '/database', __DIR__ . '/tests']);
@@ -65,33 +65,33 @@ Establish solid guidelines and safe execution patterns for the Engeapp backend P
       ]);
   };
   ```
-- **Execution — always dry-run first**:
+- **Execução — sempre faça dry-run primeiro**:
   ```bash
-  vendor/bin/rector process --dry-run   # read-only check
-  vendor/bin/rector process             # apply changes
+  vendor/bin/rector process --dry-run   # verificação read-only
+  vendor/bin/rector process             # aplica as alterações
   vendor/bin/rector process --clear-cache
   vendor/bin/rector process app/Http/Controllers/UserController.php --dry-run
   ```
-- **Eloquent safety**: Do NOT let Rector add typed properties to models for relations or dynamic attributes. Preserve `@property` and `@mixin` annotations.
-- **Spatie Data DTOs**: Keep constructor property promotion intact — do not allow Rector to decompose constructors that map to TypeScript models.
-- **Octane safety**: Avoid Rector refactorings that introduce `static` properties or static caches inside services or controllers (causes request-to-request memory leaks).
-- **Always run Pint after Rector** to maintain style consistency.
+- **Segurança com Eloquent**: NÃO deixe o Rector adicionar propriedades tipadas a models para relações ou atributos dinâmicos. Preserve as anotações `@property` e `@mixin`.
+- **DTOs do Spatie Data**: Mantenha a constructor property promotion intacta — não permita que o Rector decomponha construtores que mapeiam para models TypeScript.
+- **Segurança com Octane**: Evite refatorações do Rector que introduzam propriedades `static` ou caches estáticos dentro de serviços ou controllers (causa vazamentos de memória entre requisições).
+- **Sempre execute o Pint depois do Rector** para manter a consistência de estilo.
 
-### 4. Barryvdh IDE Helper — Autocomplete Setup
-- **Generate autocomplete metadata** (run after any significant model/facade changes):
+### 4. Barryvdh IDE Helper — Configuração de Autocomplete
+- **Gere os metadados de autocomplete** (execute após quaisquer alterações significativas de model/facade):
   ```bash
-  php artisan ide-helper:generate       # Facade helpers
-  php artisan ide-helper:models -M --nowrite  # Model PHPDocs to separate file
-  php artisan ide-helper:meta           # PhpStorm container bindings
+  php artisan ide-helper:generate       # Helpers de facade
+  php artisan ide-helper:models -M --nowrite  # PHPDocs de model em arquivo separado
+  php artisan ide-helper:meta           # Bindings do container para o PhpStorm
   ```
-- **Unified composer script**: `composer run format` executes Pint, all ide-helper commands, and TypeScript type transformations in one step.
-- **Git**: Ensure `_ide_helper.php`, `_ide_helper_models.php`, and `.phpstorm.meta.php` are in `.gitignore` unless there is a project-specific reason to share them.
-- **Constraints**: NEVER run `php artisan ide-helper:models` without `-M --nowrite`. NEVER commit models populated with autogenerated PHPDoc comments. Always pass `--no-interaction` in automated environments.
+- **Script composer unificado**: `composer run format` executa o Pint, todos os comandos ide-helper e as transformações de tipo TypeScript em uma única etapa.
+- **Git**: Garanta que `_ide_helper.php`, `_ide_helper_models.php` e `.phpstorm.meta.php` estejam no `.gitignore`, a menos que haja uma razão específica do projeto para compartilhá-los.
+- **Restrições**: NUNCA execute `php artisan ide-helper:models` sem `-M --nowrite`. NUNCA commite models populados com comentários PHPDoc autogerados. Sempre passe `--no-interaction` em ambientes automatizados.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- Run tools in this order: **Rector → Pint → Larastan**.
-- Do NOT apply Rector to `bootstrap/cache/`, `storage/`, `vendor/`, or `node_modules/`.
-- Do NOT let Rector alter DTO constructor properties that map to frontend TypeScript models.
-- Do NOT commit any PHP files without running Pint first.
-- All code comments inside PHP examples must be strictly written in Brazilian Portuguese (pt-BR).
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- Execute as ferramentas nesta ordem: **Rector → Pint → Larastan**.
+- NÃO aplique o Rector a `bootstrap/cache/`, `storage/`, `vendor/` ou `node_modules/`.
+- NÃO deixe o Rector alterar propriedades de construtor de DTOs que mapeiam para models TypeScript no frontend.
+- NÃO commite nenhum arquivo PHP sem executar o Pint primeiro.
+- Todos os comentários de código dentro dos exemplos PHP devem ser escritos estritamente em Português Brasileiro (pt-BR).

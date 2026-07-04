@@ -135,15 +135,15 @@ const handleAction = (actionType: string, hideCallback: () => void): void => {
 
   .btn-action, .btn-trigger, .btn-info {
     padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color, #d1d5db);
+    border: 1px solid var(--border-base);
     border-radius: 6px;
-    background-color: var(--bg-primary, #ffffff);
-    color: var(--text-primary, #1f2937);
+    background-color: var(--surface-0);
+    color: var(--text-default);
     cursor: pointer;
     transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: var(--bg-hover, #f3f4f6);
+      background-color: var(--surface-100);
     }
   }
 
@@ -163,11 +163,11 @@ const handleAction = (actionType: string, hideCallback: () => void): void => {
       font-size: 0.875rem;
 
       &:hover {
-        background-color: var(--bg-hover, #f3f4f6);
+        background-color: var(--surface-100);
       }
 
       &.text-danger {
-        color: var(--color-danger, #ef4444);
+        color: var(--danger-500);
       }
     }
   }
@@ -175,7 +175,7 @@ const handleAction = (actionType: string, hideCallback: () => void): void => {
   .popover-loader {
     padding: 0.75rem 1rem;
     font-size: 0.875rem;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-muted);
   }
 
   .popover-details {

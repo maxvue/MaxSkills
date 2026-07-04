@@ -3,47 +3,49 @@ name: laravel-action-classes-best-practices
 description: Use when designing, writing, reviewing, or debugging Action classes (Single Responsibility classes) in a Laravel application. Triggers on files under app/Actions, custom action classes execution, dependency injection within actions, and transactions management inside single-action workflows.
 ---
 
-# Goal
-Ensure that business logic is isolated into clean, testable, and reusable Single Responsibility Action classes within the Laravel application, separating complex workflows from controllers, models, and jobs.
+# Objetivo
+Garantir que a lógica de negócio seja isolada em classes de Ação (Action) de Responsabilidade Única (Single Responsibility) limpas, testáveis e reutilizáveis dentro da aplicação Laravel, separando fluxos de trabalho complexos dos controllers, models e jobs.
 
-# Instructions
-1. **File Location & Naming:**
-   - Store all action classes inside the `app/Actions` directory (create it if it does not exist).
-   - Use PascalCase for the class name and suffix it with `Action` (e.g., `CreateInvoiceAction.php`, `ProcessPaymentAction.php`).
-   - Place them in subdirectories if organized by subdomain (e.g., `app/Actions/Billing/CreateInvoiceAction.php`).
+> **Nota sobre a convenção do projeto:** o código do EngeApp/Maxdmin organiza a lógica de negócio em `app/Services` (lógica de domínio agrupada), e **não** em `app/Actions`. Prefira `laravel-services-best-practices` como padrão para este projeto. Fronteira: uma **Action** é uma única operação discreta e invocável (`execute()`); um **Service** agrupa lógica de domínio coesa entre múltiplos métodos. Só introduza `app/Actions` quando você deliberadamente precisar de uma classe autônoma de operação única e puder justificar a divergência da convenção de Services do projeto.
 
-2. **Single Responsibility & Entry Point:**
-   - Each action must represent a single business transaction or task.
-   - Expose exactly one public method named `execute()`.
-   - Other methods within the class must be `private` or `protected` helpers.
+# Instruções
+1. **Localização e Nomenclatura de Arquivos:**
+   - Armazene todas as classes de ação dentro do diretório `app/Actions` (crie-o caso não exista).
+   - Use PascalCase para o nome da classe e adicione o sufixo `Action` (ex.: `CreateInvoiceAction.php`, `ProcessPaymentAction.php`).
+   - Coloque-as em subdiretórios se organizadas por subdomínio (ex.: `app/Actions/Billing/CreateInvoiceAction.php`).
 
-3. **Dependency Injection:**
-   - Inject static dependencies (services, repository classes, API clients, other actions) via the constructor `__construct()`.
-   - Pass dynamic data (models, scalar values, DTOs) as parameters to the `execute()` method.
+2. **Responsabilidade Única e Ponto de Entrada:**
+   - Cada ação deve representar uma única transação ou tarefa de negócio.
+   - Exponha exatamente um método público chamado `execute()`.
+   - Outros métodos dentro da classe devem ser helpers `private` ou `protected`.
 
-4. **Input Handling (No HTTP Requests):**
-   - Never pass an HTTP Request object (`Illuminate\Http\Request`) to an action.
-   - Extract data in controllers/requests and pass scalar types, Eloquent Models, or Data Transfer Objects (DTOs, like Spatie Data classes) to `execute()`.
+3. **Injeção de Dependência:**
+   - Injete dependências estáticas (services, classes de repositório, clientes de API, outras actions) via construtor `__construct()`.
+   - Passe dados dinâmicos (models, valores escalares, DTOs) como parâmetros para o método `execute()`.
 
-5. **Database Transactions:**
-   - If the action performs multiple write operations (inserts, updates, deletes), wrap the logic in a database transaction using `DB::transaction()` to ensure atomicity.
-   - Rely on `laravel-database-eloquent-best-practices` for database interactions.
+4. **Tratamento de Entrada (Sem HTTP Requests):**
+   - Nunca passe um objeto HTTP Request (`Illuminate\Http\Request`) para uma action.
+   - Extraia os dados nos controllers/requests e passe tipos escalares, Models Eloquent ou Data Transfer Objects (DTOs, como as classes do Spatie Data) para o `execute()`.
 
-6. **Error Handling & Exceptions:**
-   - Throw domain-specific exceptions (e.g., `PaymentFailedException`) when business rules are violated.
-   - Let the caller (Controller, Job, Command) handle how the exception is reported or displayed to the user.
+5. **Transações de Banco de Dados:**
+   - Se a action realiza múltiplas operações de escrita (inserts, updates, deletes), envolva a lógica em uma transação de banco de dados usando `DB::transaction()` para garantir atomicidade.
+   - Baseie-se em `laravel-database-eloquent-best-practices` para as interações com o banco de dados.
 
-7. **Relation to Services:**
-   - Refer to `laravel-services-best-practices` for architectural boundaries. Use *Services* for coordinating multiple domains or when multiple methods are cohesive. Use *Actions* for discrete, single-action business workflows.
+6. **Tratamento de Erros e Exceções:**
+   - Lance exceções específicas do domínio (ex.: `PaymentFailedException`) quando regras de negócio forem violadas.
+   - Deixe o chamador (Controller, Job, Command) tratar como a exceção é reportada ou exibida ao usuário.
 
-# Constraints
-- Do NOT define multiple public entry points or methods in an Action class.
-- Do NOT access session, cookie, or request headers directly inside an Action.
-- Do NOT generate HTML responses or return `JsonResponse` objects from an Action. Return raw data, Models, or DTOs.
-- Do NOT suppress errors with empty `catch` blocks. All exceptions must either be handled, logged, or rethrown.
+7. **Relação com Services:**
+   - Consulte `laravel-services-best-practices` para as fronteiras arquiteturais. Use *Services* para coordenar múltiplos domínios ou quando múltiplos métodos são coesos. Use *Actions* para fluxos de trabalho de negócio discretos e de ação única.
 
-# Examples
-### Action Class Definition
+# Restrições
+- NÃO defina múltiplos pontos de entrada ou métodos públicos em uma classe Action.
+- NÃO acesse session, cookie ou headers da request diretamente dentro de uma Action.
+- NÃO gere respostas HTML nem retorne objetos `JsonResponse` a partir de uma Action. Retorne dados brutos, Models ou DTOs.
+- NÃO suprima erros com blocos `catch` vazios. Todas as exceções devem ser tratadas, logadas ou relançadas.
+
+# Exemplos
+### Definição da Classe Action
 ```php
 <?php
 
@@ -58,13 +60,13 @@ use App\Exceptions\BillingException;
 
 class CreateInvoiceAction
 {
-    // Inject the payment gateway service dependency
+    // Injeta a dependência do serviço de gateway de pagamento
     public function __construct(
         protected PaymentGatewayService $gateway
     ) {}
 
     /**
-     * Executes the invoice creation workflow.
+     * Executa o fluxo de criação de fatura.
      *
      * @param User $user
      * @param InvoiceData $data
@@ -74,14 +76,14 @@ class CreateInvoiceAction
     public function execute(User $user, InvoiceData $data): Invoice
     {
         return DB::transaction(function () use ($user, $data) {
-            // 1. Charge the user via external gateway
+            // 1. Cobra o usuário via gateway externo
             $charge = $this->gateway->charge($user, $data->amount);
 
             if (!$charge->successful()) {
                 throw new BillingException("Payment failed: " . $charge->errorMessage());
             }
 
-            // 2. Create the invoice record
+            // 2. Cria o registro da fatura
             $invoice = $user->invoices()->create([
                 'amount' => $data->amount,
                 'due_at' => $data->dueAt,
@@ -95,7 +97,7 @@ class CreateInvoiceAction
 }
 ```
 
-### Calling the Action in a Controller
+### Chamando a Action em um Controller
 ```php
 <?php
 
@@ -113,10 +115,10 @@ class InvoiceController extends Controller
     ): JsonResponse {
         $user = $request->user();
         
-        // Extract DTO from request
+        // Extrai o DTO a partir da request
         $invoiceData = $request->toDto();
 
-        // Run the action
+        // Executa a action
         $invoice = $createInvoiceAction->execute($user, $invoiceData);
 
         return response()->json([
@@ -127,5 +129,5 @@ class InvoiceController extends Controller
 }
 ```
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.

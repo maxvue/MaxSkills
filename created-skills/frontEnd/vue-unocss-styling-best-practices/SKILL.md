@@ -45,7 +45,7 @@ Estabelecer diretrizes claras, sólidas e padrões consistentes para estilizar c
 ### 5. Classes Utilitárias vs. SCSS Localizado `<style scoped lang="scss">`
 - Dê preferência total às classes utilitárias do UnoCSS para 90% das tarefas de estilo (layout, cores, espaçamento, bordas e tipografia).
 - Utilize o bloco `<style scoped lang="scss">` *apenas* nos seguintes cenários:
-  - Sobrescrita de estilos de bibliotecas de terceiros complexas (como modificações visuais no PrimeVue ou VueFinder).
+  - Sobrescrita de estilos de componentes de terceiros complexos (ex.: ajustes finos em componentes do MaxComponentsUi — que são construídos sobre o PrimeVue e, por isso, expõem classes internas `.p-*` via `:deep(...)` — ou VueFinder). Use os componentes MaxComponentsUi na aplicação; não instancie componentes PrimeVue diretamente.
   - Definição de animações de keyframes complexas não representáveis facilmente na configuração do UnoCSS.
   - Criação de ajustes de layout aninhados muito específicos onde classes utilitárias tornariam a leitura do código confusa.
 - Organize os blocos do componente SFC sempre na ordem obrigatória: `<template>`, `<script setup lang="ts">`, `<style scoped lang="scss">`.

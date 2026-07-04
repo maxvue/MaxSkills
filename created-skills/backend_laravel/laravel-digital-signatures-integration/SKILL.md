@@ -3,31 +3,31 @@ name: laravel-digital-signatures-integration
 description: Use when designing, implementing, or modifying electronic and digital signature integrations (such as Autentique or Clicksign) within the Laravel codebase. It covers document upload/creation, signer configuration, secure webhook handling, and background job processing for signed documents.
 ---
 
-# Laravel Digital Signatures Integration
+# Integração de Assinaturas Digitais no Laravel
 
-## Goal
-Establish secure, robust, and consistent development patterns for integrating electronic and digital signatures via third-party APIs (like Autentique and Clicksign) within the Laravel backend of the Engeapp ecosystem.
+## Objetivo
+Estabelecer padrões de desenvolvimento seguros, robustos e consistentes para integrar assinaturas eletrônicas e digitais via APIs de terceiros dentro do backend Laravel do ecossistema Engeapp. O **Autentique** é a integração real do projeto (pacote `vinicinbgs/autentique-v2` instalado). O **Clicksign** NÃO está instalado no engeapp hoje — é apresentado apenas como padrão de integração opcional/genérico (mesmo tratamento dado a google-calendar/lighthouse): use-o como referência caso venha a ser adotado, instalando primeiro as credenciais/config correspondentes.
 
-## Instructions
+## Instruções
 
-### 1. Configuration Setup
-Always store API credentials in `.env` and load them via `config/services.php`. Never access `env()` directly outside of configuration files.
-Never hardcode API tokens or webhook secrets in service classes or controllers.
+### 1. Configuração Inicial
+Sempre armazene as credenciais de API no `.env` e carregue-as via `config/services.php`. Nunca acesse `env()` diretamente fora dos arquivos de configuração.
+Nunca deixe tokens de API ou segredos de webhook fixos no código (hardcode) em classes de service ou controllers.
 
-### 2. Service Architecture
-Create dedicated Service classes (e.g., `ClicksignService`, `SignatureService`) to encapsulate all API operations.
-- Inject configurations or API clients using constructor property promotion where applicable.
-- For Clicksign, use Laravel's `Http` facade to make API requests. Do not use raw curl or external third-party SDKs.
-- For Autentique, use the provided GraphQL/Document client appropriately.
-- Log failures using a dedicated logging channel (e.g., `autentique`, `clicksign`), specifying clear context.
+### 2. Arquitetura de Service
+Crie classes de Service dedicadas (ex.: `ClicksignService`, `SignatureService`) para encapsular todas as operações da API.
+- Injete configurações ou clientes de API usando constructor property promotion quando aplicável.
+- Para o Clicksign, use a facade `Http` do Laravel para fazer as requisições à API. Não use curl bruto ou SDKs externos de terceiros.
+- Para o Autentique, use apropriadamente o cliente GraphQL/Document fornecido.
+- Registre as falhas usando um canal de logging dedicado (ex.: `autentique`, `clicksign`), especificando um contexto claro.
 
-### 3. Asynchronous Webhook Processing
-**Never process webhooks synchronously** to prevent HTTP timeouts. Always validate the webhook, extract the required payload identifiers, and dispatch a queued job (e.g., `ProcessClicksignWebhookJob`, `ReloadPowerAttorneyStatusJob`) to handle the business logic, status synchronization, or file downloading.
+### 3. Processamento Assíncrono de Webhooks
+**Nunca processe webhooks de forma síncrona** para evitar timeouts HTTP. Sempre valide o webhook, extraia os identificadores necessários do payload e despache um job na fila (ex.: `ProcessClicksignWebhookJob`, `ReloadPowerAttorneyStatusJob`) para lidar com a lógica de negócio, sincronização de status ou download de arquivos.
 
-## Autentique-Specific Instructions
+## Instruções Específicas do Autentique
 
-### Document Creation & Signer Configuration
-When dispatching a document for signatures, use the Autentique Documents client. Define signers clearly, including the delivery method (e.g., WhatsApp).
+### Criação de Documento e Configuração do Signatário
+Ao despachar um documento para assinaturas, use o cliente Documents do Autentique. Defina os signatários de forma clara, incluindo o método de entrega (ex.: WhatsApp).
 
 ```php
 use App\Models\Project\ProjectPowerOfAttorneyDocument;
@@ -63,8 +63,8 @@ class SignatureService
 }
 ```
 
-### Secure Webhook Validation (Autentique)
-Always validate incoming webhook requests against the configured webhook secret. The secret must be compared using constant-time string comparison (`hash_equals`) to prevent timing attacks.
+### Validação Segura de Webhook (Autentique)
+Sempre valide as requisições de webhook recebidas contra o segredo de webhook configurado. O segredo deve ser comparado usando comparação de string em tempo constante (`hash_equals`) para prevenir ataques de timing.
 
 ```php
 private function isValidToken(Request $request, string $secret): bool
@@ -77,16 +77,18 @@ private function isValidToken(Request $request, string $secret): bool
 }
 ```
 
-### Build Linear Signature History
-When retrieving document details, map the array of signatures to a linear history trace to expose progress in real-time to the frontend.
+### Construir Histórico Linear de Assinaturas
+Ao recuperar os detalhes do documento, mapeie o array de assinaturas para um rastro de histórico linear a fim de expor o progresso em tempo real para o frontend.
 
-## Clicksign-Specific Instructions
+## Instruções Específicas do Clicksign (integração opcional — não instalada no engeapp)
 
-### Clicksign Service Methods
-Upload documents, create signers, and add signers to documents using the HTTP facade.
+> Clicksign é apresentado como padrão de integração genérico/aspiracional. Não há SDK nem `config('services.clicksign.*')` no projeto hoje; adote-o somente após instalar as credenciais/config. Os exemplos abaixo servem como referência de arquitetura.
+
+### Métodos do Service Clicksign
+Faça upload de documentos, crie signatários e adicione signatários aos documentos usando a facade HTTP.
 
 ```php
-// Example: Add signer to document
+// Exemplo: Adicionar signatário ao documento
 public function addSignerToDocument(string $documentKey, string $signerKey, string $signAs = 'sign'): array
 {
     $response = Http::withToken($this->token)
@@ -112,9 +114,9 @@ public function addSignerToDocument(string $documentKey, string $signerKey, stri
 }
 ```
 
-### Webhook Handling and Signature Validation (Clicksign)
-- Clicksign sends webhooks using `POST`.
-- The webhook payload authenticity is validated using the `X-Hook-Signature` header (HMAC SHA256 signature of the request body).
+### Tratamento de Webhook e Validação de Assinatura (Clicksign)
+- O Clicksign envia webhooks usando `POST`.
+- A autenticidade do payload do webhook é validada usando o header `X-Hook-Signature` (assinatura HMAC SHA256 do corpo da requisição).
 
 ```php
 public function handle(Request $request): Response
@@ -140,13 +142,13 @@ public function handle(Request $request): Response
 }
 ```
 
-### Resilient Signed Document Download (General/Clicksign)
-Upon receiving a signed status notification, fetch the signed PDF securely and save it using Laravel's `Storage` abstraction. Implement a Queue Job with automatic retries for resilient downloads.
+### Download Resiliente de Documento Assinado (Geral/Clicksign)
+Ao receber uma notificação de status assinado, busque o PDF assinado de forma segura e salve-o usando a abstração `Storage` do Laravel. Implemente um Queue Job com retentativas automáticas para downloads resilientes.
 
-## Constraints
-- **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.
-- **No Synchronous Webhook Processing:** Always delegate webhook payload processing, document downloading, and status checks to background queue jobs.
-- **Strict Webhook Validation:** Never bypass `X-Hook-Signature` (Clicksign) or Token verification (Autentique). Always use `hash_equals()` for constant-time comparison to prevent timing attacks.
-- **Config-Driven Secrets:** Do not hardcode URLs, tokens, or webhook secrets in the code.
-- **Use Laravel HTTP Client (For REST APIs):** Do not use raw PHP `curl_*` commands. Always use Laravel's `Http` facade when communicating via REST.
-- **Dedicated Logging:** All events, errors, and validation failures must be logged into their respective log channels.
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
+- **Sem Processamento Síncrono de Webhook:** Sempre delegue o processamento do payload do webhook, o download de documentos e as verificações de status para jobs em fila em background.
+- **Validação Estrita de Webhook:** Nunca pule a verificação do `X-Hook-Signature` (Clicksign) ou do Token (Autentique). Sempre use `hash_equals()` para comparação em tempo constante a fim de prevenir ataques de timing.
+- **Segredos Baseados em Config:** Não deixe URLs, tokens ou segredos de webhook fixos no código (hardcode).
+- **Use o Cliente HTTP do Laravel (Para APIs REST):** Não use comandos PHP `curl_*` brutos. Sempre use a facade `Http` do Laravel ao se comunicar via REST.
+- **Logging Dedicado:** Todos os eventos, erros e falhas de validação devem ser registrados em seus respectivos canais de log.
