@@ -8,6 +8,8 @@ description: Use when configuring, optimizing, or debugging Redis database conne
 ## Objetivo
 Estabelecer diretrizes sólidas e padrões consistentes para configurar, otimizar, proteger e desenvolver rotinas resilientes baseadas em Redis no backend Laravel do Engeapp.
 
+> Esta skill cobre a camada de **driver/conexão** do Redis. Para a camada de **cache da aplicação** (padrão cache-aside, TTLs, invalidação por Observers), veja `laravel-cache-best-practices`. A convenção de nomenclatura de chaves e a orientação sobre Cache Tags são **únicas e compartilhadas** entre as duas skills (canônicas em `laravel-cache-best-practices`).
+
 ## Instruções
 
 ### 1. Cliente Redis e Configuração
@@ -32,19 +34,19 @@ Exemplo de configuração em `config/database.php`:
 ```
 
 ### 2. Convenção Semântica de Nomenclatura de Chaves
-Para evitar colisões de chaves e garantir visibilidade, use uma convenção de nomenclatura estruturada separada por dois-pontos:
-* **Padrão:** `app_name:domain:resource:identifier`
-* **Exemplo:** `engeapp:payments:charge:123456`
+Use a **mesma convenção estruturada, separada por dois-pontos e com escopo** definida (canonicamente) em `laravel-cache-best-practices` — chaves no formato `domain:resource:identifier` (ex.: `payments:charge:123456`, `model:inverters:45:nominal_power`). Não invente um esquema paralelo.
+* **Prefixo de app:** o `REDIS_PREFIX` configurado em `config/database.php` (ex.: `engeapp_database_`) **já prepende automaticamente** o slug da aplicação a toda chave. Portanto **não** repita o nome do app dentro da chave definida em código — deixe o prefixo por conta da config.
 * **Regra:** Nunca use strings hardcoded para chaves Redis. Defina constantes ou métodos helper na classe de service/model que manipula o recurso.
 
 ```php
 class PaymentService
 {
-    private const REDIS_PREFIX = 'engeapp:payments:charge:';
+    // Sem repetir o nome do app: o REDIS_PREFIX da config já o adiciona.
+    private const KEY_PREFIX = 'payments:charge:';
 
     public function getCacheKey(int $chargeId): string
     {
-        return self::REDIS_PREFIX . $chargeId;
+        return self::KEY_PREFIX . $chargeId;
     }
 }
 ```
@@ -110,17 +112,15 @@ public function getActivePorts(): array
 ```
 
 ### 6. Cache Tags e Invalidação
-Ao fazer cache de resultados estruturados de query do banco de dados, use Cache Tags para que possam ser invalidados seletivamente.
-* **Importante:** O Redis não suporta tags nativamente; o Laravel implementa isso criando chaves de rastreamento adicionais, o que pode consumir muita memória. Evite tags se estiver fazendo cache de milhões de chaves.
-* Faça flush das tags seletivamente em vez de limpar o cache inteiro.
+A orientação sobre Cache Tags é **única e canônica** em `laravel-cache-best-practices` ("Orientação única sobre Cache Tags") — siga-a e não a duplique/contradiga aqui. Resumo aplicável ao Redis: o Redis não suporta tags nativamente; o Laravel as implementa via chaves de rastreamento adicionais, que consomem memória. Use tags apenas para grupos de **cardinalidade moderada** e **evite-as ao cachear milhões de chaves** (prefira invalidação por chave/prefixo). Sempre faça `flush()` **seletivo por tag**, nunca limpe o cache inteiro.
 
 ```php
 use Illuminate\Support\Facades\Cache;
 
-// Armazenando com tags
+// Armazenando com tags (driver Redis/Memcached)
 Cache::tags(['solar-data', 'nasa-power'])->put($cacheKey, $data, now()->addDays(7));
 
-// Invalidando por tag
+// Invalidando por tag (flush seletivo)
 Cache::tags(['solar-data'])->flush();
 ```
 

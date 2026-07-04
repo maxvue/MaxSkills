@@ -55,11 +55,12 @@ O plugin então:
 ### 3. Propriedades de Status Injetadas
 O plugin injeta automaticamente estas propriedades em toda store com `isCached = true`:
 - `status.server.get.is_requesting` — GET em andamento.
-- `status.server.get.is_success` — GET concluído com sucesso.
+- `status.server.get.is_requested` — GET **finalizado** (concluído, com sucesso OU erro; setado no `finally`). É este o flag para aguardar a 1ª carga (padrão `waitRequest` usado nos guards de rota) — não confunda com `is_requesting`/`is_success`.
+- `status.server.get.is_success` — GET concluído **com sucesso**.
 - `status.server.save.is_requesting` — POST/auto-save em andamento.
 - `status.server.save.error` — erro no último save.
 - `status.cache.get.is_success` — dados carregados do cache local.
-- `is_done` — `true` quando o GET ao servidor completou.
+- `is_done` — `true` quando o GET ao servidor teve sucesso (equivale a `status.server.get.is_success`).
 - `is_done_to_show` — `true` quando dados do servidor OU do cache estão prontos para exibição.
 
 ### 4. Métodos de Controle Injetados

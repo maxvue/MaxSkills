@@ -62,6 +62,17 @@ type MyReturnType<T> = T extends (...args: any[]) => infer R ? R : never;
 // Tipos condicionais distributivos
 type ToArray<T> = T extends any ? T[] : never;
 type StrOrNumArray = ToArray<string | number>; // string[] | number[]
+
+// Manipulação recursiva de tipos (cuidado: limite a recursão ~10 níveis)
+type DeepReadonly<T> = T extends (...args: any[]) => any
+  ? T
+  : T extends object
+    ? { readonly [K in keyof T]: DeepReadonly<T[K]> }
+    : T;
+
+// Recursão limitada para evitar "excessive stack depth"
+type NestedArray<T, D extends number = 5> =
+  D extends 0 ? T : T | NestedArray<T, [-1, 0, 1, 2, 3, 4][D]>[];
 ```
 
 ### Tipos Mapeados
@@ -92,6 +103,28 @@ type EventHandler = `on${Capitalize<EventName>}`;
 type Path<T> = T extends object
   ? { [K in keyof T]: K extends string ? `${K}` | `${K}.${Path<T[K]>}` : never; }[keyof T]
   : never;
+
+// Sistemas de eventos type-safe
+type PropEventSource<Type> = {
+  on<Key extends string & keyof Type>(
+    eventName: `${Key}Changed`,
+    callback: (newValue: Type[Key]) => void
+  ): void;
+};
+```
+
+### Inferência de Tipos
+
+```typescript
+// 'satisfies' valida restrições preservando os tipos literais (TS 5.0+)
+const config = {
+  api: "https://api.example.com",
+  timeout: 5000
+} satisfies Record<string, string | number>;
+
+// const assertions para inferência máxima de literais
+const routes = ['/home', '/about', '/contact'] as const;
+type Route = typeof routes[number]; // '/home' | '/about' | '/contact'
 ```
 
 ### Utility Types
@@ -118,6 +151,8 @@ type OrderId = Brand<string, 'OrderId'>;
 
 function processOrder(orderId: OrderId, userId: UserId) { }
 ```
+
+Use para: primitivos de domínio críticos, fronteiras de API, moeda/unidades. Recurso: https://egghead.io/blog/using-branded-types-in-typescript
 
 ### Configuração Estrita
 
@@ -173,4 +208,4 @@ Limitações de escopo:
 - Use esta skill apenas quando a tarefa corresponder claramente ao design de tipos avançados.
 - Não trate a saída como substituto para validação ou testes específicos do ambiente.
 - Para geração de documentação (TypeDoc, JSDoc), use a skill de documentação.
-- Para ferramental, migração, monorepo e resolução de problemas avançados, use a skill de ferramental/monorepo.
+- Para ferramental (Biome vs ESLint), desempenho do compilador tsc, monorepo (Nx/Turborepo/project references), migração JS→TS, module resolution e ESM/CJS, veja a skill typescript-tooling-monorepo-best-practices.

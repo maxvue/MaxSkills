@@ -141,9 +141,8 @@ router.beforeEach(async (to, _from, next) => {
 
 ### Axios / CSRF / 401
 
-- `axios.defaults.withCredentials = true` e `axios.defaults.withXSRFToken = true` (Sanctum SPA stateful seta o cookie XSRF; o Axios o reenvia).
-- Interceptor global de `401`: se não estiver em `/login`, limpa a store e redireciona ao login.
-- No boot, registre o resolver do Ziggy no MaxUse: `setRouteResolver((name, params) => route(name, params))` e use `ZiggyVue` no app. Sem isso, `apiPostRoute`/`apiGetRoute` lançam "Route resolver não configurado".
+- A configuração do Axios (`withCredentials`, `withXSRFToken`) e o interceptor global de resposta (`401/403/422/500`, incluindo o `401` que limpa a store e redireciona ao login quando não se está em `/login`) são **canônicos** na skill `vue-axios-api-integration-best-practices` — não reduplique o bloco aqui; siga-a. Sanctum SPA stateful seta o cookie XSRF e o Axios o reenvia no header `X-XSRF-TOKEN`.
+- Detalhe específico deste stack (Ziggy): no boot, registre o resolver do Ziggy no MaxUse — `setRouteResolver((name, params) => route(name, params))` — e use `ZiggyVue` no app. Sem isso, `apiPostRoute`/`apiGetRoute` lançam "Route resolver não configurado".
 
 ## Checklist de revisão
 

@@ -26,34 +26,16 @@ Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin
 - Implemente `waitRequest(store)` como helper que recebe a instância da store e retorna uma promessa resolvida quando a primeira requisição de sessão concluir (observando `store.status.server.get.is_requested`). Isso evita race conditions nos guards do router ao recarregar a página.
 
 ## 2. Configuração do Cliente de API & CSRF
-- Autenticação é por SESSÃO via cookie (Laravel Sanctum SPA). Configure o Axios para enviar cookies e o token XSRF automaticamente:
-  ```typescript
-  axios.defaults.withCredentials = true;
-  axios.defaults.withXSRFToken = true;
-  ```
-- No Sanctum SPA, faça um GET em `/sanctum/csrf-cookie` **antes** do primeiro POST de mutação (login) para semear o cookie `XSRF-TOKEN`. Com `withXSRFToken = true` o Axios lê esse cookie e o reenvia no header `X-XSRF-TOKEN` automaticamente:
+- A configuração genérica do Axios (`withCredentials`, `withXSRFToken`, `baseURL`, headers) é canônica na skill **`vue-axios-api-integration-best-practices`** — não a reduplique aqui. Autenticação é por SESSÃO via cookie (Laravel Sanctum SPA).
+- Detalhe específico do fluxo de login: no Sanctum SPA, faça um GET em `/sanctum/csrf-cookie` **antes** do primeiro POST de mutação (login) para semear o cookie `XSRF-TOKEN`. Com `withXSRFToken = true` o Axios lê esse cookie e o reenvia no header `X-XSRF-TOKEN` automaticamente:
   ```typescript
   await axios.get('/sanctum/csrf-cookie');
   // agora o POST de login enviará o header X-XSRF-TOKEN corretamente
   ```
 
 ## 3. Interceptors Globais do Axios
-- Intercepte respostas para capturar `401 Unauthorized` globalmente.
-- Em 401, se o usuário não estiver na página `/login`, limpe os estados de sessão (cache da store, chaves locais obsoletas) e redirecione para o login:
-  ```typescript
-  axios.interceptors.response.use(
-      (response) => response,
-      (error) => {
-          if (error?.response?.status === 401) {
-              const currentPath = window.location.pathname;
-              if (currentPath !== '/login') {
-                  router.push({ name: 'login' });
-              }
-          }
-          return Promise.reject(error);
-      }
-  );
-  ```
+- O interceptor de resposta genérico (tratamento de `401/403/422/500`) é definido **uma única vez** na skill `vue-axios-api-integration-best-practices` — veja lá o bloco completo. Não redeclare o interceptor aqui.
+- Comportamento específico de sessão que este fluxo exige do caso **401 Unauthorized**: limpe os estados de sessão (cache da store, chaves locais obsoletas) e redirecione para o login usando rota nomeada (`router.push({ name: 'login' })`), **exceto** quando o usuário já estiver na página de login (evita loop de redirecionamento). Garanta que o interceptor canônico contemple essa limpeza de sessão + guarda de `/login`.
 
 ## 4. Proteção de Rotas com Vue Router Guard
 - Implemente `router.beforeEach` para proteger rotas com base nos metadados (`requiresAuth` ou rotas exclusivas de visitante).

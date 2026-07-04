@@ -55,55 +55,9 @@ Aplicar expertise profunda e prática em TypeScript e JavaScript a problemas do 
 
    **Nota de segurança:** Evite processos watch/serve na validação. Use apenas diagnósticos de execução única.
 
-### Expertise em sistema de tipos avançado
+### Type-level avançado (fora de escopo)
 
-**Branded types para modelagem de domínio**
-
-```typescript
-// Cria tipos nominais para prevenir obsessão por primitivos
-type Brand<K, T> = K & { __brand: T };
-type UserId = Brand<string, 'UserId'>;
-type OrderId = Brand<string, 'OrderId'>;
-
-// Previne mistura acidental de primitivos de domínio
-function processOrder(orderId: OrderId, userId: UserId) { }
-```
-- Use para: Primitivos de domínio críticos, fronteiras de API, moeda/unidades
-- Recurso: https://egghead.io/blog/using-branded-types-in-typescript
-
-**Tipos condicionais avançados**
-
-```typescript
-// Manipulação recursiva de tipos
-type DeepReadonly<T> = T extends (...args: any[]) => any
-  ? T
-  : T extends object
-    ? { readonly [K in keyof T]: DeepReadonly<T[K]> }
-    : T;
-
-// Mágica de tipos de template literal
-type PropEventSource<Type> = {
-  on<Key extends string & keyof Type>
-    (eventName: `${Key}Changed`, callback: (newValue: Type[Key]) => void): void;
-};
-```
-- Use para: APIs de bibliotecas, sistemas de eventos type-safe, validação em tempo de compilação
-- Cuidado com: Erros de profundidade de instanciação de tipos (limite a recursão a 10 níveis)
-
-**Técnicas de inferência de tipos**
-
-```typescript
-// Use 'satisfies' para validação de restrições (TS 5.0+)
-const config = {
-  api: "https://api.example.com",
-  timeout: 5000
-} satisfies Record<string, string | number>;
-// Preserva tipos literais enquanto garante as restrições
-
-// Const assertions para inferência máxima
-const routes = ['/home', '/about', '/contact'] as const;
-type Route = typeof routes[number]; // '/home' | '/about' | '/contact'
-```
+Para programação em nível de tipos — generics, tipos condicionais/mapeados/template literal, branded types, inferência (`satisfies`/`as const`), configuração `strict` do compilador e testes de tipo com `expectTypeOf` — veja a skill **typescript-advanced-types-best-practices**. Esta skill foca no ferramental que envolve esses tipos (desempenho do compilador, monorepo, migração, resolução de módulos).
 
 ### Estratégias de otimização de desempenho
 
@@ -249,23 +203,6 @@ command -v typesync >/dev/null 2>&1 && npx typesync  # Instala pacotes @types fa
 - Trabalhar com Vue/Angular (suporte limitado do Biome)
 - Precisar de linting type-aware (o Biome ainda não tem isso)
 
-### Estratégias de teste de tipos
-
-**Teste de tipos com Vitest (recomendado)**
-
-```typescript
-// em avatar.test-d.ts
-import { expectTypeOf } from 'vitest'
-import type { Avatar } from './avatar'
-
-test('Avatar props are correctly typed', () => {
-  expectTypeOf<Avatar>().toHaveProperty('size')
-  expectTypeOf<Avatar['size']>().toEqualTypeOf<'sm' | 'md' | 'lg'>()
-})
-```
-
-**Quando testar tipos:** Publicação de bibliotecas, funções genéricas complexas, utilitários de nível de tipo, contratos de API.
-
 ### Maestria em depuração
 
 **Ferramentas de depuração via CLI**
@@ -307,19 +244,7 @@ class DomainError extends Error {
 
 ### Melhores práticas atuais
 
-**Strict por padrão**
-
-```json
-{
-  "compilerOptions": {
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
-    "exactOptionalPropertyTypes": true,
-    "noPropertyAccessFromIndexSignature": true
-  }
-}
-```
+**Strict por padrão** — ative o conjunto completo de flags `strict` no tsconfig. Para os valores canônicos e o racional de cada flag, veja a skill typescript-advanced-types-best-practices (seção "Configuração Estrita").
 
 **Abordagem ESM-first**
 - Defina `"type": "module"` no package.json

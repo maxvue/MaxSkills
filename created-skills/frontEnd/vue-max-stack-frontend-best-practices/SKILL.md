@@ -170,7 +170,10 @@ export const useEntidadesStore = defineStore('entidades', () => {
     const data = ref<Entidade[]>([]);
     const isCached = ref(true);
     // GET roteado pela camada de cache do @maxvue/max-pinia — sem axios.get manual.
-    const options = computed(() => ({ get: { route: '/api/entidades' }, key: 'entidades' }));
+    // NÃO passe `key`: o plugin ignora `options.key`. A chave de cache é derivada de
+    // `store.$id` (+ `store.id`/`store.options.id` opcionais) via getKey(). Ver skill
+    // vue-pinia-state-management-best-practices.
+    const options = computed(() => ({ get: { route: '/api/entidades' } }));
 
     // GET automático ao montar; para revalidar use o reload() injetado pelo MaxPinia
     // (params dinâmicos vão via options.get.data reativo). Não invente um load() próprio.
@@ -188,14 +191,15 @@ export const useEntidadesStore = defineStore('entidades', () => {
 
 ### Integração com `@maxvue/max-pinia`
 
-Toda store de dados de página usa o plugin `@maxvue/max-pinia` (anteriormente `piniaWithCache`, hoje `@maxvue/max-pinia`) para cache + auto-save. Exponha `isCached` e a computed `options` (rota string `/api/...` + chave). O contrato do MaxPinia injeta `status.server.get` na store (com `is_requested` e `request()`), usado para aguardar a carga. Em stores de autenticação, exponha `waitRequest` para que guards de rota aguardem os dados do usuário antes de redirecionar:
+Toda store de dados de página usa o plugin `@maxvue/max-pinia` (anteriormente `piniaWithCache`, hoje `@maxvue/max-pinia`) para cache + auto-save. Exponha `isCached` e a computed `options` (apenas a rota string `/api/...`; **não** passe `key` — o plugin ignora `options.key` e deriva a chave de `store.$id` + `store.id`/`store.options.id` via `getKey()`). O contrato do MaxPinia injeta `status.server.get` na store; o flag `is_requested` (GET finalizado, sucesso ou erro) é usado para aguardar a carga. Em stores de autenticação, exponha `waitRequest` para que guards de rota aguardem os dados do usuário antes de redirecionar:
 
 ```ts
 export const useUserStore = defineStore('user', () => {
     const data = ref<User | null>(null);
     const isCached = ref(true);
     // Rota string /api/... resolvida pela camada de cache (sem Ziggy/route()).
-    const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }));
+    // Sem `key`: o plugin ignora options.key e deriva a chave de store.$id.
+    const options = computed(() => ({ get: { route: '/api/user/data' } }));
 
     // Aguarda a carga via contrato MaxPinia: status.server.get.is_requested.
     function waitRequest(this: any): Promise<void> {

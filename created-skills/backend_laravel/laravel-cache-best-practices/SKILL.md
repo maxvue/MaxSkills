@@ -74,13 +74,17 @@ class InverterObserver
 }
 ```
 
-Para entradas relacionadas que devem expirar juntas (ex: todas as páginas cacheadas de uma listagem), marque-as com uma tag na escrita e limpe o grupo inteiro de uma vez. Apenas drivers com suporte a tags (Redis, Memcached) suportam isso.
+#### Orientação única sobre Cache Tags (canônica — referida também por `laravel-redis-integration-best-practices`)
+Para entradas relacionadas que devem expirar juntas (ex: todas as páginas cacheadas de uma listagem), marque-as com uma tag na escrita e limpe o grupo inteiro de uma vez com `flush()` seletivo. Regras:
+- Só drivers com suporte a tags (Redis, Memcached) as aceitam — `file`/`database`/`array` **não**. Verifique o driver antes.
+- No Redis, tags são implementadas via **chaves de rastreamento adicionais**, que consomem memória. Use tags para grupos de **cardinalidade moderada**; **evite** tags ao cachear milhões de chaves. Nesses casos de altíssima cardinalidade, prefira invalidação por chave individual (Observers + `Cache::forget`) ou por prefixo determinístico embutido na própria chave.
+- Faça `flush()` **seletivo por tag**, nunca limpe o cache inteiro.
 
 ```php
 // Agrupa entradas relacionadas sob uma tag para invalidação em bloco
 Cache::tags(['inverters'])->remember('inverters:index:page:1', now()->addMinutes(5), fn () => Inverter::paginate(50));
 
-// Invalida todas as entradas da tag de uma só vez
+// Invalida todas as entradas da tag de uma só vez (flush seletivo)
 Cache::tags(['inverters'])->flush();
 ```
 
