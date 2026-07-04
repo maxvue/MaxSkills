@@ -1,18 +1,6 @@
 ---
 name: vue-max-stack-frontend-best-practices
-description: >-
-  Use when developing the Vue 3 front-end of the EngeApp project (Laravel 13 backend) that uses
-  Vue Router, @maxvue/max-components-ui (MaxComponentsUi), @maxvue/max-use (MaxUse) and
-  @maxvue/max-pinia (MaxPinia). Triggers when creating or editing
-  components, pages, layouts, Pinia stores, composables, routes or styles; building forms, tables,
-  modals, grids; integrating with the API (axios + MaxPinia stores, /api string paths — API calls do not use Ziggy `route()`); or deciding SFC, UnoCSS and SCSS
-  conventions. Fires whenever you see Max* components (MaxButton, MaxInputText, MaxModal, MaxTable,
-  MaxGrid), `@maxvue/*` imports, `script setup lang=ts` blocks, `defineStore`, `useXxxStore`, or
-  UnoCSS classes like `s100`/`flex`, even if the user does not explicitly mention "Max" or "Vue".
-  Also covers the MaxComponentsUi/MaxUse libraries directly: `InputBase` validation wrapper,
-  Brazilian formatters/validators, the merged `_` utility interface, MaxUse route helpers
-  (`apiGetRoute`, `apiPostRoute`, `goToRoute`) and cached composables (`useRefCached`,
-  `useCachedApi`, `useRefCachedApi`).
+description: "Use when developing the Vue 3 front-end of EngeApp (Laravel 13 backend) with Vue Router, MaxComponentsUi, MaxUse and MaxPinia. Triggers on creating or editing components, pages, Pinia stores, composables or routes; building forms, tables, modals, grids; API calls via axios + MaxPinia /api string paths (no Ziggy); Max* components or @maxvue/* imports — even if the user never says \"Max\"."
 ---
 
 # Front-end Vue do Ecossistema Max (EngeApp — Laravel 13)

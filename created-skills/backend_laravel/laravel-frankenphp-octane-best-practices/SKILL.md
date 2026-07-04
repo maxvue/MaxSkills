@@ -1,6 +1,6 @@
 ---
 name: laravel-frankenphp-octane-best-practices
-description: Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP (the server used in engeapp; also RoadRunner/Swoole), and when writing, refactoring, or reviewing PHP code for Octane statelessness. Triggers on Octane config files, FrankenPHP/Caddyfile worker setup, deployment scripts restarting Octane, and on singletons, static properties, container bindings, memory leaks, or shared-state leakage between requests.
+description: "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP (used in engeapp; also RoadRunner/Swoole), and when writing or reviewing PHP for Octane statelessness. Triggers on Octane config, FrankenPHP/Caddyfile worker setup, deploy scripts restarting Octane, and singletons, static properties, memory leaks, or shared-state leakage between requests."
 ---
 
 # Boas Práticas de Laravel Octane (FrankenPHP)

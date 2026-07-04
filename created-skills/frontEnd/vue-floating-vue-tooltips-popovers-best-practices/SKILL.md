@@ -1,6 +1,6 @@
 ---
 name: vue-floating-vue-tooltips-popovers-best-practices
-description: Use when implementing, updating, or debugging plain text hover tooltips and generic third-party floating elements in Vue 3 SFCs using the FloatingVue (floating-vue) library specifically. Triggers on v-tooltip directives, VDropdown/VMenu component configuration, placements, trigger behaviors, and floating interface positioning or lifecycle cleanup. Use this for simple tooltips and floating-vue cases not covered by the internal Max library. For the ecosystem-default rich popovers, action-confirmation prompts (MaxIconConfirm/useConfirmStore), or table/row action menus (MaxPopoverMenu), use vue-max-components-ui-popovers-confirmations-best-practices instead.
+description: "Use when implementing, updating, or debugging plain-text hover tooltips and generic floating elements in Vue 3 SFCs with the FloatingVue (floating-vue) library. Triggers on v-tooltip directives, VDropdown/VMenu config, placements, trigger behaviors, and floating positioning/cleanup. For rich popovers, confirmations or row menus, use vue-max-components-ui-popovers-confirmations-best-practices."
 ---
 
 # Boas Práticas de FloatingVue Tooltips & Popovers no Vue 3

@@ -1,6 +1,6 @@
 ---
 name: python-concessionarias-automation-best-practices
-description: Use when creating, modifying, reviewing, or debugging Python RPA automation scripts (Selenium, requests) for solar utility concessionaires (Cemig, Energisa, Equatorial, Coelba) or Sinceti/TRT. Triggers on files using selenium, anticaptchaofficial/AntiCaptcha solving, Engeapp callbacks (consulta_engeapp, registra.php, normas.php), the barra()/print_dev() helpers, or web scraping utility functions from functions.py.
+description: "Use when creating, modifying, reviewing, or debugging Python RPA scripts (Selenium, requests) for solar utility concessionaires (Cemig, Energisa, Equatorial, Coelba) or Sinceti/TRT. Triggers on selenium, anticaptchaofficial/AntiCaptcha solving, Engeapp callbacks (consulta_engeapp, registra.php, normas.php), barra()/print_dev() helpers, or functions.py scraping utilities."
 ---
 
 # Boas Práticas de Automação (RPA) Python para Concessionárias

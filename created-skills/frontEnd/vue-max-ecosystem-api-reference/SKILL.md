@@ -1,20 +1,6 @@
 ---
 name: vue-max-ecosystem-api-reference
-description: |-
-  Referência de API das libs locais do projeto Vue/Maxdmin — MaxComponentsUi, MaxUse e MaxPinia. Acione
-  SEMPRE que for escrever código Vue neste projeto e precisar de um detalhe concreto, mesmo que o usuário
-  não escreva "Max" nem cite a lib:
-  - Qual componente usar no lugar de um elemento nativo (input, file, select, textarea, button, checkbox,
-    modal, tabela, popover, grid) e suas props, eventos/payload, slots, v-model ou expose — ex.: prop pra
-    esconder header/botão de um modal; qual evento um select emite.
-  - A assinatura exata de um composable, helper ou rota — ordem dos argumentos e o que retorna
-    (useRefCached, useTimeAgo, apiGetRoute).
-  - O equivalente da lib pra um utilitário do VueUse ou lodash (debounce, cloneDeep) que NÃO se deve
-    importar direto de @vueuse/core ou lodash.
-  - Como configurar um store cacheado pra fazer GET numa rota e salvar sozinho (options.get/save/key,
-    reload, saveInServer).
-  Consulta antes de inventar prop, chutar argumento ou importar dependência externa. Só referência de API —
-  para convenções e montar telas, use vue-max-stack-frontend-best-practices.
+description: "Referência de API das libs locais do projeto Vue EngeApp — MaxComponentsUi, MaxUse e MaxPinia. Use ao escrever código Vue e precisar de detalhes concretos: qual componente usar no lugar de um nativo (input, select, modal, tabela, popover), props/eventos/slots/v-model, assinatura de composables e helpers (useRefCached, apiGetRoute) e config de stores cacheadas (get/save/key)."
 ---
 
 # Catálogo de API do Ecossistema Max (MaxComponentsUi · MaxUse · MaxPinia)

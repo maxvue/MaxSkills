@@ -1,6 +1,6 @@
 ---
 name: laravel-social-media-oauth-token-lifecycle-management-best-practices
-description: Use when designing, implementing, reviewing, or debugging OAuth token lifecycle management for social media integrations (such as Facebook, Instagram, LinkedIn, YouTube, TikTok) in Laravel. Triggers on files modifying social media credential storage, token encryption/decryption, refresh token flows, token expiration checks, handling invalid or revoked token responses, and scheduling token renewal jobs.
+description: "Use when designing, implementing, reviewing, or debugging OAuth token lifecycle management for social media integrations (Facebook, Instagram, LinkedIn, YouTube, TikTok) in Laravel. Triggers on social media credential storage, token encryption/decryption, refresh token flows, expiration checks, invalid or revoked token responses, and scheduling token renewal jobs."
 ---
 
 # Boas Práticas de Gerenciamento do Ciclo de Vida de Tokens OAuth de Redes Sociais no Laravel

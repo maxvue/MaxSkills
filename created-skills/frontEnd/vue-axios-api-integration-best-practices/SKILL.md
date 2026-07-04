@@ -1,6 +1,6 @@
 ---
 name: vue-axios-api-integration-best-practices
-description: Use when configuring Axios instances, setting up CSRF cookies, handling global API errors (401, 403, 422, 500), managing request interception, or connecting Vue 3 Pinia stores with the backend API.
+description: "Use when configuring Axios in the Vue 3 EngeApp frontend: global instance setup, Laravel Sanctum SPA CSRF cookies (withCredentials/withXSRFToken, /sanctum/csrf-cookie), request/response interceptors, and global handling of 401/403/422/500 errors. Covers POST/PUT/DELETE mutations and MaxPinia store integration — GET requests must go through a cached MaxPinia store, never Axios directly."
 ---
 
 # Boas Práticas de Integração de API com Axios no Vue 3

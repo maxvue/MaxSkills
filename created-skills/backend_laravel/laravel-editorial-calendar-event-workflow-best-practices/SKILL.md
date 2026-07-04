@@ -1,6 +1,6 @@
 ---
 name: laravel-editorial-calendar-event-workflow-best-practices
-description: Use when developing, reviewing, debugging, or maintaining the editorial calendar event lifecycle, event state transitions (planned, planning_approved, script_drafted, script_ready, art_ready, art_analysing, art_rejected, scheduled, published, failed, replanning), orchestrating AI copywriter, copywriter reviewer, graphic editor, or art analyst jobs, or handling publication queues, commands, and schedules in Laravel. Triggers on editing calendar states, managing event job pipelines, and handling social media publishing flows using Laravel Horizon and queues.
+description: "Use when developing, reviewing, debugging, or maintaining the editorial calendar event lifecycle and state transitions (planned, planning_approved, script_drafted, script_ready, art_ready, art_analysing, scheduled, published, failed, replanning), orchestrating AI copywriter, reviewer, graphic editor and art analyst jobs, or handling publication queues and schedules in Laravel 13 with Horizon."
 ---
 
 # Boas Práticas do Fluxo de Trabalho de Eventos do Calendário Editorial no Laravel

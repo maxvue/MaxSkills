@@ -1,6 +1,6 @@
 ---
 name: technical-documentation-best-practices
-description: Use when writing or improving technical documentation — READMEs, API endpoints, UI components, ADRs, changelogs, CONTRIBUTING guides, install/config guides, database schemas, or generating docs from existing code. Inclui documentação TypeScript — anotações JSDoc/TSDoc, geração de referência de API com TypeDoc, validação de JSDoc via ESLint, pipelines de docs em CI/CD, e padrões de doc para controllers/services Laravel 13 e composables Vue 3. Provides ready templates, formatting rules, and a quality checklist.
+description: "Use when writing or improving technical documentation — READMEs, API endpoints, UI components, ADRs, changelogs, CONTRIBUTING guides, install/config guides, or database schemas. Includes TypeScript docs (JSDoc/TSDoc, TypeDoc, ESLint validation, CI/CD pipelines) and doc patterns for Laravel 13 controllers/services and Vue 3 composables. Provides templates, formatting rules and a quality checklist."
 ---
 
 # Boas Práticas de Documentação Técnica

@@ -1,6 +1,6 @@
 ---
 name: vue-brand-positioning-character-management-best-practices
-description: Use when creating, modifying, styling, or debugging Vue 3 components, pages, or @maxvue/max-pinia stores que lidam com posicionamento de marca, perfis de personagens, configuração de personas de agentes, upload de imagens de referência facial e listas de temas. Aplica-se a formulários com salvamento automático, uploads e listagens nessas áreas, incluindo (mas não limitado a) componentes como TabBrandPositioning, TabCharacters, TabThemes e a store de characters.
+description: "Use quando criar, modificar, estilizar ou depurar componentes, páginas ou stores @maxvue/max-pinia em Vue 3 que lidam com posicionamento de marca, perfis de personagens, personas de agentes, upload de imagens de referência facial e listas de temas. Cobre formulários com salvamento automático, uploads e listagens (TabBrandPositioning, TabCharacters, TabThemes, store de characters)."
 ---
 
 # Boas Práticas de Gerenciamento de Posicionamento de Marca e Personagens em Vue

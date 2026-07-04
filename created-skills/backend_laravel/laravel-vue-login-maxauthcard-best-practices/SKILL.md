@@ -1,6 +1,6 @@
 ---
 name: laravel-vue-login-maxauthcard-best-practices
-description: Use ao implementar, refatorar, revisar ou depurar o fluxo de LOGIN full-stack do ecossistema engeapp (Laravel 13 sem Inertia, com Ziggy + Vue Router + MaxPinia + MaxComponentsUi). Cobre backend (AuthenticatedSessionController, LoginRequest com e-mail OU telefone, sessão em banco, Sanctum CSRF para SPA, rotas nomeadas para o Ziggy) e frontend (componente MaxAuthCard, store de sessão MaxPinia useUser, login via apiPostRoute do MaxUse, guard de rotas no Vue Router, redirecionamento de login social). Inclua login por redes sociais com Laravel Socialite (Google/Facebook). Acione SEMPRE que a tarefa mencionar tela de login, MaxAuthCard, "entrar"/autenticar, login social, guard de autenticação, sessão de usuário ou recuperar o usuário atual neste stack — mesmo que não citem "Laravel" explicitamente.
+description: "Use ao implementar, refatorar, revisar ou depurar o LOGIN full-stack do engeapp (Laravel 13 + Ziggy + Vue Router + MaxPinia + MaxComponentsUi). Cobre backend (AuthenticatedSessionController, LoginRequest por e-mail ou telefone, sessão em banco, Sanctum CSRF, Socialite) e frontend (MaxAuthCard, store useUser, login via apiPostRoute, guard de rotas). Acione em tela de login ou autenticar."
 ---
 
 # Login full-stack (Laravel 13 + Vue 3.6 + MaxAuthCard)

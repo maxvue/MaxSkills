@@ -1,6 +1,6 @@
 ---
 name: vue-complex-modal-forms-autosave-best-practices
-description: Use when designing, building, or refactoring complex modal forms in Vue 3 that integrate auto-saving features, real-time sync state indications (saving, saved, error), or multi-tab layouts using @maxvue/max-components-ui, @maxvue/max-use and @maxvue/max-pinia. Auto-save is delegated to a MaxPinia store (options.save + 300ms debounce, status.server.save), NOT manual watch/setTimeout. Triggers on auto-save modal forms, MaxPinia-backed form state, and complex form validations inside modals.
+description: "Use when designing, building, or refactoring complex modal forms in Vue 3 with auto-save, real-time sync indicators (saving, saved, error), or multi-tab layouts using @maxvue/max-components-ui, max-use and max-pinia. Auto-save is delegated to a MaxPinia store (options.save + 300ms debounce, status.server.save), not manual watch/setTimeout. Triggers on auto-save modal forms and validation."
 ---
 
 # Boas Práticas para Formulários de Modal Complexos e Salvamento Automático em Vue 3

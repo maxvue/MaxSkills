@@ -1,6 +1,6 @@
 ---
 name: vue-expert
-description: Builds Vue 3.6 components with Composition API (`<script setup lang="ts">`), wires them to @maxvue/max-pinia cached stores that fetch/persist data through Laravel `/api/...` string routes, composes UI from MaxComponentsUi components, and styles with UnoCSS attributify (presetMaxUno). Use when creating or editing Vue 3 components, pages, composables, cached Pinia stores, vue-router routes or styles in the Maxdmin front-end; consuming the Laravel Eloquent API; or deciding SFC, state, component and styling conventions.
+description: "Use when creating or editing Vue 3.6 components, pages, composables, cached Pinia stores, vue-router routes or styles in the Maxdmin front-end. Builds Composition API SFCs (script setup lang=ts), wires @maxvue/max-pinia cached stores to Laravel /api string routes, composes UI from MaxComponentsUi, and styles with UnoCSS attributify (presetMaxUno). Covers SFC, state and styling conventions."
 license: MIT
 metadata:
   version: "2.0.0"

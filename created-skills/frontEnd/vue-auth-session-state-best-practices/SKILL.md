@@ -1,6 +1,6 @@
 ---
 name: vue-auth-session-state-best-practices
-description: Use when implementing, refactoring, reviewing, or debugging authentication baseada em sessão por cookie (Vue 3 + Vue Router 4 + backend Laravel Sanctum SPA) — login/logout, login social, estado do usuário atual via store MaxPinia (@maxvue/max-pinia), guards de rotas protegidas e tratamento de HTTP 401 em interceptors do Axios. Triggers em stores de sessão MaxPinia, guards de rotas protegidas, views de login e interceptors do cliente de API.
+description: "Use ao implementar, refatorar, revisar ou depurar autenticação por sessão via cookie (Vue 3 + Vue Router 4 + Laravel Sanctum SPA): login/logout, login social, usuário atual via store MaxPinia (@maxvue/max-pinia), guards de rotas protegidas e tratamento de HTTP 401 em interceptors do Axios. Triggers em stores de sessão, guards, views de login e cliente de API."
 ---
 
 ## Objetivo

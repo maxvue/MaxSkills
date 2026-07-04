@@ -1,6 +1,6 @@
 ---
 name: vue-auto-import-components-best-practices
-description: Use when configuring, modifying, or debugging auto-import configurations in Vue 3 (such as unplugin-auto-import and unplugin-vue-components), resolving missing global type declarations (auto-import.d.ts, components.d.ts), or optimizing IDE support for auto-imported APIs and library components (MaxComponentsUi, MaxUse). Triggers on changes to auto-import configurations, vite.config.ts auto-import setups, and lint errors regarding undeclared globals in Vue files.
+description: "Use when configuring, modifying, or debugging Vue 3 auto-import setups (unplugin-auto-import, unplugin-vue-components), fixing missing global type declarations (auto-import.d.ts, components.d.ts), or improving IDE support for auto-imported APIs and library components (MaxComponentsUi, MaxUse). Triggers on vite.config.ts auto-import config and lint errors about undeclared globals."
 ---
 
 # Boas Práticas de Importação Automática e Resolvers de Componentes no Vue 3

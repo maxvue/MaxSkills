@@ -1,6 +1,6 @@
 ---
 name: vue-dayjs-date-manipulation-best-practices
-description: Use when manipulating, formatting, parsing, or comparing dates and times in the Vue 3 frontend using Day.js. Triggers on date formatting, timezone handling, duration calculation, and date validation.
+description: "Use when manipulating, formatting, parsing, or comparing dates and times in the Vue 3 EngeApp frontend with Day.js (dayjs ^1.11.21). Covers centralized plugin init (utc, timezone, customParseFormat, relativeTime, duration, pt-br locale), timezone-safe backend/frontend alignment, and when to prefer @maxvue/max-use composables (useDateFormat, useTimeAgo) over Day.js directly."
 ---
 
 # Boas Práticas de Manipulação de Datas com Day.js no Vue 3

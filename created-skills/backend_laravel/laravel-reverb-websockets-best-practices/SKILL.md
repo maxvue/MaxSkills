@@ -1,6 +1,6 @@
 ---
 name: laravel-reverb-websockets-best-practices
-description: Use when configuring, optimizing, debugging, or deploying the Laravel Reverb WebSocket server, managing connections, setting up Supervisor processes, or tuning performance for real-time applications.
+description: "Use when configuring, optimizing, debugging, or deploying the Laravel Reverb WebSocket server for real-time features in the EngeApp backend. Covers .env server/public bind variables, Vite client broadcasting vars, Nginx reverse proxy for secure WSS/TLS termination, Supervisor process management, connection handling, and performance tuning for scalable real-time broadcasting."
 ---
 
 # Boas Práticas de WebSockets com Laravel Reverb

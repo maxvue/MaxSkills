@@ -1,6 +1,6 @@
 ---
 name: laravel-meta-graph-api-integration-best-practices
-description: Use when implementing, reviewing, or debugging Meta Graph API integrations in Laravel 13, managing Facebook OAuth flow, retrieving and exchanging short-lived tokens for long-lived Page/User Access Tokens, publishing content (posts, stories, reels) to Facebook Pages or Instagram Business Accounts, handling inbound Webhooks, or managing Meta API rate limits using Redis. Triggers on editing MetaService, FacebookController, InstagramController, or MetaWebhookController.
+description: "Use when implementing, reviewing, or debugging Meta Graph API integrations in Laravel 13 — Facebook OAuth, exchanging short-lived for long-lived Page/User tokens, publishing posts/stories/reels to Facebook Pages or Instagram Business, inbound Webhooks, or Redis rate limiting. Triggers on MetaService, FacebookController, InstagramController, MetaWebhookController."
 ---
 
 ## Objetivo

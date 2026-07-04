@@ -1,6 +1,6 @@
 ---
 name: vue-router-best-practices
-description: Use when designing, debugging, or reviewing any Vue Router concern in the Vue 3 frontend — dynamic routing via import.meta.glob, dynamic layout selection (guest/default), navigation guards with auth and loading states, programmatic navigation with useRouter, reading route params/query with useRoute, or route meta properties. Supersedes vue-router-routing-layouts-best-practices and vue-router-routing-navigation-best-practices.
+description: "Use when designing, debugging, or reviewing any Vue Router concern in the Vue 3 frontend: dynamic routing via import.meta.glob, dynamic layout selection (guest/default), navigation guards with auth and loading state, programmatic navigation with useRouter, reading params/query with useRoute, or route meta properties."
 ---
 
 # Melhores Práticas de Vue Router

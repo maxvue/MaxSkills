@@ -1,6 +1,6 @@
 ---
 name: vue-max-components-ui-popovers-confirmations-best-practices
-description: Use when designing, implementing, styling, or reviewing contextual popovers, dropdown action menus, and quick-action confirmation prompts using the internal MaxComponentsUi library (MaxPopover, MaxPopoverConfirm/MaxIconConfirm, MaxPopoverMenu, useConfirmStore) in Vue 3 SFC templates. This is the ecosystem DEFAULT for rich popovers, confirmations, and table/row action menus. Triggers on setting up popover triggers, handling confirmed events, and managing menu items. For plain text hover tooltips (v-tooltip) or generic third-party floating-vue components (VDropdown/VMenu), use vue-floating-vue-tooltips-popovers-best-practices instead.
+description: "Use when designing, implementing, styling, or reviewing contextual popovers, dropdown menus, and quick-action confirmations with the internal MaxComponentsUi library (MaxPopover, MaxPopoverConfirm/MaxIconConfirm, MaxPopoverMenu, useConfirmStore) in Vue 3 SFCs. Default for rich popovers and row menus. For plain hover tooltips or floating-vue, use vue-floating-vue-tooltips-popovers-best-practices."
 ---
 
 # Melhores Práticas para Popovers & Confirmações do MaxComponentsUi no Vue

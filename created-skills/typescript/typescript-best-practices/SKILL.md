@@ -1,6 +1,6 @@
 ---
 name: typescript-best-practices
-description: Use when reading or writing TypeScript or JavaScript files (.ts, .tsx, .js, tsconfig.json).
+description: "Use when reading, writing, or reviewing TypeScript/JavaScript files (.ts, .tsx, .js, tsconfig.json) in the Maxdmin/EngeApp Vue 3 stack. Covers the no-any hard rule, typing boundary/third-party values, discriminated unions to make illegal states unrepresentable, functional and error-handling idioms, and running the TS Language Server plus project type-check after edits."
 ---
 
 # TypeScript Best Practices

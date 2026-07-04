@@ -1,6 +1,6 @@
 ---
 name: laravel-vuefinder-media-library-integration
-description: Use when integrating VueFinder file manager with Spatie MediaLibrary in Laravel/Vue 3 projects. Triggers on file upload, delete, rename, move, copy mutations, and database metadata synchronization.
+description: "Use when integrating the VueFinder file manager with Spatie MediaLibrary in the Laravel 13 / Vue 3 EngeApp stack. Triggers on upload/delete/rename/move/copy sync hooks, keeping the physical disk and media table consistent via legacy_folder custom properties, saveQuietly()/toBase() to avoid observer loops, and enriching VueFinder JSON with Spatie metadata."
 ---
 
 # Objetivo

@@ -1,6 +1,6 @@
 ---
 name: vue-pinia-state-management-best-practices
-description: Use when creating, modifying, reviewing, or debugging Pinia stores in Vue 3, managing global state, or integrating API data fetching with the @maxvue/max-pinia plugin. ALL GET requests from the frontend MUST go through a MaxPinia store — never fetch data directly in components or services. Triggers on defineStore, isCached ref, options with get/save routes, status.server monitoring, auto-save behavior, reactive state persistence, cross-store dependencies, and store architecture decisions.
+description: "Use when creating, modifying, reviewing, or debugging Pinia stores in Vue 3, managing global state, or integrating API data fetching with the @maxvue/max-pinia plugin. ALL frontend GET requests MUST go through a MaxPinia store — never fetch directly in components. Triggers on defineStore, isCached, options with get/save routes, status.server, auto-save with debounce and offline cache."
 ---
 
 # Boas Práticas de Gerenciamento de Estado com Vue 3, Pinia e MaxPinia
