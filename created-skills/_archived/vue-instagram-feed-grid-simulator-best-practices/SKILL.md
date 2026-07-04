@@ -28,7 +28,7 @@ Padronizar a implementação da interface do usuário para o simulador de grade 
   * **Imagem**: Sem overlay ou ícone simples de imagem.
 
 ### 3. Integração de Arrastar e Soltar (Drag-and-Drop)
-* **VueDraggableNext**: Integre a funcionalidade de ordenação usando a biblioteca `vue-draggable-next`, seguindo as diretrizes descritas na skill [vue-draggable-next-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/vue-draggable-next-best-practices/SKILL.md).
+* **VueDraggableNext**: Integre a funcionalidade de ordenação usando a biblioteca `vue-draggable-next`, seguindo as diretrizes descritas na skill [vue-draggable-next-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/frontEnd/vue-draggable-next-best-practices/SKILL.md).
 * **Vinculação Reativa**: Vincule a lista de posts reativa ao componente utilizando `<draggable v-model="posts" item-key="id" ...>` em uma única linha.
 * **Slot de Item**: Utilize o slot `#item` desestruturando `{ element }` para renderizar os cards de mídia do feed.
 * **Persistência da Ordenação**: Capture o evento `@change` para refletir a nova ordem no estado da store `@maxvue/max-pinia`. NÃO faça requisições `axios` manuais nem chame endpoints de salvamento diretamente: ao mutar o array reativo da store (`store.posts`), o MaxPinia dispara o auto-save (debounced) para `/api/...` automaticamente. Basta mapear os IDs e posições para o estado da store.

@@ -16,10 +16,10 @@
 * **Workflows:**
   - `bug-fix-back-end`
 * **Skills próprias utilizadas:**
-  - [laravel-base-api-integration-patterns](file:///home/johnattas/GitHub/Skills/created-skills/laravel-base-api-integration-patterns) — Utilizará os padrões estruturais de APIs integradas da classe `BaseApi` para chamadas HTTP externas.
-  - [laravel-jobs-queues-horizon-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/laravel-jobs-queues-horizon-best-practices) — Utilizará as boas práticas de Jobs e Horizon para o processamento assíncrono e retentativas das chamadas à API de sincronização.
-  - [laravel-exception-handling-logging](file:///home/johnattas/GitHub/Skills/created-skills/laravel-exception-handling-logging) — Utilizará os padrões de tratamento de erros para monitorar falhas de comunicação ou autenticação OAuth.
-  - [laravel-pest-testing-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/laravel-pest-testing-best-practices) — Utilizará os padrões de escrita de testes para mockar a API do RD Station CRM com Pest PHP.
+  - [laravel-base-api-integration-patterns](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-base-api-integration-patterns) — Utilizará os padrões estruturais de APIs integradas da classe `BaseApi` para chamadas HTTP externas.
+  - [laravel-jobs-queues-horizon-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices) — Utilizará as boas práticas de Jobs e Horizon para o processamento assíncrono e retentativas das chamadas à API de sincronização.
+  - [laravel-exception-handling-logging](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-exception-handling-logging) — Utilizará os padrões de tratamento de erros para monitorar falhas de comunicação ou autenticação OAuth.
+  - [laravel-pest-testing-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-pest-testing-best-practices) — Utilizará os padrões de escrita de testes para mockar a API do RD Station CRM com Pest PHP.
 * **Skills auxiliares:** laravel-specialist
 * **Skills beneficiadas:** Nenhuma no momento.
 * **Benefícios:** Automação total do fluxo comercial-técnico (leads e contratos), eliminação de inserção manual de dados de potência solar e concessionária no CRM, visibilidade em tempo real do pipeline e robustez no processamento de transações e webhooks.

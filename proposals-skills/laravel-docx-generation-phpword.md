@@ -25,8 +25,8 @@
 * **Workflows:**
   - [bug-fix-back-end](file:///home/johnattas/.gemini/config/global_workflows/bug-fix-back-end.md)
 * **Skills próprias utilizadas:**
-  - [laravel-exception-handling-logging](file:///home/johnattas/GitHub/Skills/created-skills/laravel-exception-handling-logging/SKILL.md) — Para capturar e logar de forma estruturada as falhas de processamento de arquivos físicos no disco.
-  - [laravel-media-library-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/laravel-media-library-best-practices/SKILL.md) — Para carregar caminhos de mídias anexadas a models e injetá-las em documentos Word.
+  - [laravel-exception-handling-logging](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md) — Para capturar e logar de forma estruturada as falhas de processamento de arquivos físicos no disco.
+  - [laravel-media-library-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md) — Para carregar caminhos de mídias anexadas a models e injetá-las em documentos Word.
 * **Skills auxiliares:** laravel-specialist, php-best-practices
 * **Skills beneficiadas:** Nenhuma no momento.
 * **Benefícios:** Padronização visual dos relatórios Word gerados pelo sistema, desenvolvimento acelerado por meio de templates reutilizáveis, prevenção de estouro de memória no processamento de arquivos grandes e redução de erros de XML corrompido em variáveis dinâmicas.

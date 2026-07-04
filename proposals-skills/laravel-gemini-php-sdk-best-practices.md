@@ -25,9 +25,9 @@
 * **Workflows:**
   - [bug-fix-back-end](file:///home/johnattas/.gemini/config/global_workflows/bug-fix-back-end.md)
 * **Skills próprias utilizadas:**
-  - [laravel-exception-handling-logging](file:///home/johnattas/GitHub/Skills/created-skills/laravel-exception-handling-logging/SKILL.md) — Utilizará as convenções de logs estruturados e captura centralizada de exceções para tratar falhas de comunicação com as APIs do Gemini.
-  - [laravel-code-generators-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/laravel-code-generators-best-practices/SKILL.md) — Para mapear de forma tipada e segura as intenções, tipos de documentos e statuses de chat de suporte do Engeapp.
+  - [laravel-exception-handling-logging](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md) — Utilizará as convenções de logs estruturados e captura centralizada de exceções para tratar falhas de comunicação com as APIs do Gemini.
+  - [laravel-code-generators-best-practices](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-code-generators-best-practices/SKILL.md) — Para mapear de forma tipada e segura as intenções, tipos de documentos e statuses de chat de suporte do Engeapp.
 * **Skills auxiliares:** laravel-specialist, laravel-best-practices
 * **Skills beneficiadas:**
-  - [laravel-ai-agent-creator](file:///home/johnattas/GitHub/Skills/created-skills/laravel-ai-agent-creator/SKILL.md) — Será beneficiada ao herdar as convenções de mapeamento de arquivos e estruturas de prompts robustas.
+  - [laravel-ai-agent-creator](file:///home/johnattas/GitHub/Skills/created-skills/backend_laravel/laravel-ai-agent-creator/SKILL.md) — Será beneficiada ao herdar as convenções de mapeamento de arquivos e estruturas de prompts robustas.
 * **Benefícios:** Redução significativa de falhas de comunicação com a API do Gemini, prevenção de vazamentos e estouros de memória no upload de grandes volumes de mídias, garantia de respostas em formato JSON perfeitamente parseáveis e facilidade na manutenção e evolução de novos agentes integrados.
