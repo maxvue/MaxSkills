@@ -24,7 +24,7 @@ Estabelecer padrões claros, seguros e robustos de implementação para fluxos d
    - Se o usuário fechar o popup manualmente sem concluir a autorização, resolva o estado graciosamente, limpe o listener e exiba uma notificação amigável para o usuário.
 
 4. **Integração com Stores (MaxPinia)**
-   - Todo GET de dados de página (incluindo a auth-url e as credenciais sociais) deve passar por uma store `@maxvue/max-pinia`, não por `axios.get` manual no componente. Use `apiGetRoute('/api/...')` do `@maxvue/max-use` para resolver os caminhos string da API.
+   - Todo GET de dados de página (incluindo a auth-url e as credenciais sociais) deve passar por uma store `@maxvue/max-pinia`, não por `axios.get` manual no componente. Use `apiGetRoute('nome.da.rota')` do `@maxvue/max-use`, passando o **nome de rota (Ziggy)** pontilhado — o helper resolve o nome para a URL `/api/...` via Ziggy internamente (não passe caminhos string `/api/...`).
    - O callback do OAuth deve disparar uma atualização de estado na store de credenciais sociais (recarregando via store MaxPinia), refletindo o auto-save/cache da camada `@maxvue/max-pinia`.
    - Nunca armazene credenciais brutas ou tokens de acesso confidenciais dentro de stores do lado do cliente ou no LocalStorage. Dependa de sessões do backend (guard web, sessão+cookie) e represente o estado de autorização com flags abstratas como `has_token: boolean`.
 
@@ -141,8 +141,8 @@ const connectAccount = async (): Promise<void> => {
 
   try {
     // Obtém do Laravel (fluxo OAuth Meta via Socialite + laravel-meta-graph-api) a URL de redirecionamento de autorização da Meta.
-    // apiGetRoute executa a requisição e retorna o payload DIRETAMENTE (não { data }), nunca axios.get manual
-    const res = await apiGetRoute('/api/social_media/facebook/auth-url');
+    // apiGetRoute recebe o NOME da rota (Ziggy), executa a requisição e retorna o payload DIRETAMENTE (não { data }), nunca axios.get manual
+    const res = await apiGetRoute('social_media.facebook.auth_url');
 
     // Redireciona o popup em branco para a URL oficial
     popupWindow.location.href = res.url;

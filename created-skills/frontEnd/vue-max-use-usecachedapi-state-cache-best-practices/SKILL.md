@@ -23,7 +23,7 @@ export function useCachedApi<T>(
   } = {}
 ): Ref<T>
 ```
-* **`route_name`**: O caminho do endpoint, sempre como string `/api/...` (ex.: `'/api/clients'`), resolvido pelos helpers do `@maxvue/max-use`. **Não existe Ziggy / `route()`** — use exclusivamente caminhos string. Lembre-se: para GET de dados de página, prefira uma store `@maxvue/max-pinia` (todo GET deve passar por store); use `useRefCachedApi` apenas em casos pontuais.
+* **`route_name`**: O **nome** da rota Ziggy (pontilhado — ex.: `'clients.data'`), resolvido internamente pelos helpers do `@maxvue/max-use` via `route()` do Ziggy (que resolve para a URL `/api/...` real). Ziggy ESTÁ configurado no projeto; passe o **nome** da rota, não um caminho `/api/...`. Lembre-se: para GET de dados de página, prefira uma store `@maxvue/max-pinia` (todo GET deve passar por store); use `useRefCachedApi` apenas em casos pontuais.
 * **`options.defaultValue`**: Crucial para evitar erros de renderização inicial (ex: `defaultValue: []` para listas). Sempre forneça um valor padrão compatível com o tipo.
 * **`options.key`**: Chave personalizada do `localStorage` (padrão: `route_name`). Necessária ao fazer cache de dados para diferentes escopos de contexto (como tenants ou clientes).
 * **`options.sync`**: Padrão é `true`. Se definido como `false`, não executará a requisição GET da API em segundo plano automaticamente na criação.
@@ -33,7 +33,7 @@ export function useCachedApi<T>(
 Ao utilizar `useRefCachedApi` em um arquivo `.vue` ou store do Pinia, você deve aderir às seguintes regras:
 * **Sempre Forneça `defaultValue`**: Omitir ou definir como array/objeto vazio evita erros de referência nula (`null`) no render do template antes que o cache ou a API retornem dados:
   ```typescript
-  const clients = useRefCachedApi<Client[]>('/api/clients', { defaultValue: [] });
+  const clients = useRefCachedApi<Client[]>('clients.data', { defaultValue: [] });
   ```
 * **Tipos do TypeScript**: Defina explicitamente o parâmetro genérico `<T>` para que os templates Vue e as propriedades computadas tenham verificação de tipo precisa.
 * **Composition API**: Deve-se utilizar `<script setup lang="ts">`. O uso de Options API é estritamente proibido.
@@ -44,14 +44,14 @@ Como o `useRefCachedApi` avalia a opção `key` apenas uma vez no momento da cri
 * **Incorreto (Avaliação estática de valor dinâmico)**:
   ```typescript
   // RUIM: options.key é avaliado apenas uma vez; se selectedClient.id mudar, a chave e o cache NÃO são atualizados.
-  const list = useRefCachedApi<Data[]>('/api/data', { 
+  const list = useRefCachedApi<Data[]>('reports.data', { 
     key: `data::${selectedClient.id}`,
     defaultValue: [] 
   });
   ```
 * **Correto (Troca de cache manual via Watch)**:
   ```typescript
-  const list = useRefCachedApi<Data[]>('/api/data', { 
+  const list = useRefCachedApi<Data[]>('reports.data', { 
     defaultValue: [],
     sync: false // Desativa a sincronização automática na criação
   });
@@ -70,7 +70,7 @@ Como o `useRefCachedApi` avalia a opção `key` apenas uma vez no momento da cri
       list.value = localData ? JSON.parse(localData) : [];
 
       // 2. Busca dados novos da API em segundo plano e atualiza o cache
-      apiGetRoute('/api/data', { client_id: newId }).then((data) => {
+      apiGetRoute('reports.data', { client_id: newId }).then((data) => {
         if (data) {
           list.value = data;
           localStorage.setItem(cacheKey, JSON.stringify(data));
@@ -91,7 +91,7 @@ Ao realizar modificações por meio de requisições POST/PUT/DELETE (mutações
   ```typescript
   // Evite: prefira mutar a store @maxvue/max-pinia, que salva automaticamente.
   const addClient = async (newClient: ClientInput) => {
-    const freshClient = await apiPostRoute('/api/clients', newClient);
+    const freshClient = await apiPostRoute('clients.save', newClient);
     if (freshClient) {
       clients.value = [...clients.value, freshClient];
     }

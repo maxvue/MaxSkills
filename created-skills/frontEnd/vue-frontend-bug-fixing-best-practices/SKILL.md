@@ -31,7 +31,7 @@ Usar esta skill quando:
 | Vue | 3.6.0-beta.17 | Composition API + `<script setup lang="ts">` — SEMPRE |
 | TypeScript | Strict mode | Tipagem obrigatória em todo front-end |
 | **@maxvue/max-pinia** | **local** | **State management — camada de cache + auto-save (debounced). TODO GET/save de dados de página passa por stores MaxPinia (sobre Pinia 3). Não usar Pinia puro nem GET/POST manual para dados de página.** |
-| Vue Router | 5 | SPA pura (Laravel serve catch-all HTML) — Ziggy (`ziggy-js`) está presente no projeto; o MaxPinia resolve rotas de API por helpers do `@maxvue/max-use` para caminhos string `/api/...` (`apiGetRoute`), coexistindo com o Ziggy |
+| Vue Router | 5 | SPA pura (Laravel serve catch-all HTML) — Ziggy (`ziggy-js`) está configurado e é usado; as rotas de API são passadas como **nome (Ziggy)** — ex.: `'client.data'` — e os helpers do `@maxvue/max-use` (`apiGetRoute`) resolvem o nome internamente (via `route()`) para a URL `/api/...` |
 | PrimeVue | — | Componentes base para UI (base da MaxComponentsUi) |
 | UnoCSS | 66 | Estilização utilitária (sem Tailwind) |
 | Vite | 7 | Bundler + HMR |
@@ -99,7 +99,7 @@ Código-fonte em: `/home/johnattas/GitHub/MaxUse/src/`
 - `Electrical` — cálculos elétricos fotovoltaicos
 - `Format` — formatação de valores
 
-**Sistema de Rotas (helpers do `@maxvue/max-use`, caminhos string `/api/...`; coexistem com o Ziggy do projeto):**
+**Sistema de Rotas (helpers do `@maxvue/max-use`; recebem o **nome da rota (Ziggy)** — ex.: `'client.data'` — e resolvem internamente para a URL `/api/...`):**
 - `apiGetRoute` — GET requests
 - `apiPostRoute` — POST requests
 - `apiPutRoute` — PUT requests
@@ -217,7 +217,7 @@ Classificar o bug em uma das categorias abaixo para direcionar o diagnóstico:
 | **MaxPinia/Store** | Estado global não sincroniza, store não reativo, ações falhando, auto-save não dispara, cache desatualizado |
 | **MaxComponents** | Componente Max* com props/eventos incorretos, InputBase não valida, MaxTable quebrada |
 | **MaxUse/Helpers** | `_` retornando undefined, composable com estado incorreto, `useRefCached` não persistindo |
-| **MaxUse/Rotas** | `apiGetRoute`/`apiPostRoute` falhando, caminho `/api/...` incorreto, upload com erro |
+| **MaxUse/Rotas** | `apiGetRoute`/`apiPostRoute` falhando, nome de rota (Ziggy) incorreto, upload com erro |
 | **PrimeVue** | Componente PrimeVue puro (não Max*) quebrado, tema incorreto |
 | **CSS/Layout** | Estilos não aplicados, UnoCSS não gerando classes, SCSS com erros, preset Max não carregado |
 | **Roteamento** | Navegação falhando, parâmetros incorretos, guards com problema |
@@ -301,8 +301,8 @@ Checklist:
 #### Para bugs de MaxUse — Sistema de Rotas
 
 Checklist:
-- [ ] Caminho/rota `/api/...` existe no backend? Verificar com `php artisan route:list`
-- [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('/api/recurso', { id: 1 })` — o MaxPinia usa o caminho string, mesmo com o Ziggy presente no projeto)
+- [ ] Nome de rota (Ziggy) existe no backend? Verificar com `php artisan route:list` (coluna Name) — é o nome que o helper resolve para a URL `/api/...`
+- [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('recurso.data', { id: 1 })` — passa-se o **nome** da rota; o helper do MaxUse resolve via Ziggy para o caminho `/api/...`)
 - [ ] `apiPostRoute` — corpo da requisição com dados corretos?
 - [ ] `apiUploadRoute` — arquivo sendo enviado como `FormData`?
 - [ ] Erros de CORS ou autenticação? Auth é Laravel Sanctum (SPA) via sessão + cookie — verificar se o cookie de sessão está sendo enviado (`withCredentials`) e se o fluxo `/sanctum/csrf-cookie` foi obtido, não procurar Bearer/token

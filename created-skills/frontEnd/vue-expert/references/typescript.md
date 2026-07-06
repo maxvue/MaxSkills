@@ -461,7 +461,8 @@ if (!requiredContext) {
 ## Store Typing (@maxvue/max-pinia cached store)
 
 Stores são setup-style e cacheadas. O `data` é tipado; o GET vem da camada de cache (`options.get.route`
-com path `/api/...`) — sem `fetch`/`axios.get` cru. Mutações usam os helpers de rota do `@maxvue/max-use`.
+com o **nome da rota (Ziggy)**, ex.: `'user.data'`) — sem `fetch`/`axios.get` cru. Mutações usam os
+helpers de rota do `@maxvue/max-use`.
 
 ```typescript
 // stores/user.ts
@@ -480,15 +481,15 @@ export const useUserStore = defineStore('user', () => {
   const data = ref<User | null>(null)
   const isCached = ref(true)
 
-  // Rota string /api/... resolvida pela camada de cache (sem Ziggy/route()).
-  const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }))
+  // Nome de rota (Ziggy) resolvido internamente pela camada de cache via route() para /api/...
+  const options = computed(() => ({ get: { route: 'user.data' }, key: 'user' }))
 
   // Getters
   const isAdmin = computed(() => data.value?.role === 'admin')
 
   // Mutação tipada via apiPostRoute (retorna o payload direto, não { data }).
   async function updateProfile(payload: Partial<User>): Promise<User> {
-    const updated = await apiPostRoute('/api/user/save', payload)
+    const updated = await apiPostRoute('user.save', payload)
     data.value = updated
     return updated
   }
@@ -521,12 +522,12 @@ interface User {
 }
 
 async function loadUser(id: number): Promise<User> {
-  // apiGetRoute(routeOrPath, data?, options?) — path string /api/...
-  return (await apiGetRoute('/api/users/data', { id })) as User
+  // apiGetRoute(routeName, data?, options?) — nome de rota (Ziggy), resolve para /api/...
+  return (await apiGetRoute('users.data', { id })) as User
 }
 
 async function createUser(payload: Omit<User, 'id'>): Promise<User> {
-  return (await apiPostRoute('/api/users', payload)) as User
+  return (await apiPostRoute('users.save', payload)) as User
 }
 ```
 

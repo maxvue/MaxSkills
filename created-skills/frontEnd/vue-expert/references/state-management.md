@@ -10,8 +10,9 @@
 ## Contrato mínimo de uma store cacheada
 
 Uma store é setup-style (função) e faz opt-in de cache expondo `isCached: ref(true)` mais um `options`
-(computed) com a rota de GET. A rota é um **path string `/api/...`** (resolvido pela camada de cache; sem
-Ziggy/`route()`). Ao montar, o plugin dispara o GET automaticamente e reidrata `data`.
+(computed) com a rota de GET. A rota é o **nome da rota (Ziggy)** — ex.: `'user.data'` — que a camada de
+cache resolve internamente (via `route()`) para a URL `/api/...`. Ao montar, o plugin dispara o GET
+automaticamente e reidrata `data`.
 
 ```typescript
 // stores/user.ts
@@ -33,8 +34,8 @@ export const useUserStore = defineStore('user', () => {
     // GET automático + cache-first pela camada @maxvue/max-pinia — sem axios.get manual.
     // `save` (opcional) habilita o POST com auto-save debounced (300 ms).
     const options = computed(() => ({
-        get: { route: '/api/user/data' }, // path string /api/... (não Ziggy)
-        save: '/api/user/save',
+        get: { route: 'user.data' }, // nome de rota (Ziggy); resolve para /api/...
+        save: 'user.save',
         key: 'user' // ilustrativo; a chave real é `${$id}.${id|'global'}`
     }));
 
@@ -99,7 +100,7 @@ export const useTodoStore = defineStore('todos', () => {
     const filter = ref<TodoFilter>('all');
 
     // GET automático pela camada de cache; `data` reidrata sozinho ao montar.
-    const options = computed(() => ({ get: { route: '/api/todos' }, key: 'todos' }));
+    const options = computed(() => ({ get: { route: 'todos.data' }, key: 'todos' }));
 
     // Getters = computed sobre `data`.
     const filteredTodos = computed(() => {
@@ -117,7 +118,7 @@ export const useTodoStore = defineStore('todos', () => {
 
     // Mutações via apiPostRoute/apiDeleteRoute (não fetch/axios cru). Retornam o payload direto.
     async function addTodo(title: string): Promise<Todo> {
-        const todo = await apiPostRoute('/api/todos', { title, completed: false });
+        const todo = await apiPostRoute('todos.save', { title, completed: false });
         data.value.push(todo);
         return todo;
     }
@@ -127,12 +128,12 @@ export const useTodoStore = defineStore('todos', () => {
         if (!todo) return;
         // Alterar `data` já dispara o auto-save debounced quando há options.save.
         // Aqui persistimos explicitamente via apiPutRoute para ter a resposta.
-        const updated = await apiPutRoute('/api/todos', { id, completed: !todo.completed });
+        const updated = await apiPutRoute('todos.update', { id, completed: !todo.completed });
         Object.assign(todo, updated);
     }
 
     async function deleteTodo(id: number): Promise<void> {
-        await apiDeleteRoute('/api/todos', { id });
+        await apiDeleteRoute('todos.delete', { id });
         const index = data.value.findIndex((t) => t.id === id);
         if (index > -1) data.value.splice(index, 1);
     }
@@ -166,7 +167,7 @@ Stores de dados críticos (usuário autenticado) expõem um `waitRequest` basead
 export const useUserStore = defineStore('user', () => {
     const data = ref<User | null>(null);
     const isCached = ref(true);
-    const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }));
+    const options = computed(() => ({ get: { route: 'user.data' }, key: 'user' }));
 
     // Aguarda a carga via contrato MaxPinia (status.server.get.is_requested).
     function waitRequest(this: any): Promise<void> {
@@ -214,7 +215,7 @@ interface CartItem {
 export const useCartStore = defineStore('cart', () => {
     const data = ref<CartItem[]>([]);
     const isCached = ref(true);
-    const options = computed(() => ({ get: { route: '/api/cart' }, save: '/api/cart/save', key: 'cart' }));
+    const options = computed(() => ({ get: { route: 'cart.data' }, save: 'cart.save', key: 'cart' }));
 
     const userStore = useUserStore();
     const productStore = useProductStore();
@@ -235,7 +236,7 @@ export const useCartStore = defineStore('cart', () => {
 
     async function checkout(): Promise<void> {
         if (!userStore.data) throw new Error('Usuário precisa estar autenticado para finalizar');
-        await apiPostRoute('/api/checkout', { items: data.value, total: total.value });
+        await apiPostRoute('cart.checkout', { items: data.value, total: total.value });
         data.value = [];
     }
 
@@ -277,8 +278,8 @@ describe('Todo Store', () => {
 | Pattern | Use Case |
 |---------|----------|
 | `isCached: ref(true)` + `options` | Opt-in de cache do `@maxvue/max-pinia` |
-| `options.get.route` (`/api/...`) | GET automático + cache-first (sem axios.get manual) |
-| `options.save` (`/api/...`) | POST com auto-save debounced (300 ms) |
+| `options.get.route` (nome de rota Ziggy) | GET automático + cache-first (sem axios.get manual) |
+| `options.save` (nome de rota Ziggy) | POST com auto-save debounced (300 ms) |
 | `data` (ref) | Estado reidratado pelo plugin |
 | `store.reload()` | Revalidar (refaz o GET) |
 | `store.saveInServer()` | POST imediato (fora do debounce) |

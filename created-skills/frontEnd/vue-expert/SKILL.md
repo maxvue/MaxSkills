@@ -1,6 +1,6 @@
 ---
 name: vue-expert
-description: "Use when creating or editing Vue 3.6 components, pages, composables, cached Pinia stores, vue-router routes or styles in the Maxdmin front-end. Builds Composition API SFCs (script setup lang=ts), wires @maxvue/max-pinia cached stores to Laravel /api string routes, composes UI from MaxComponentsUi, and styles with UnoCSS attributify (presetMaxUno). Covers SFC, state and styling conventions."
+description: "Use when creating or editing Vue 3.6 components, pages, composables, cached Pinia stores, vue-router routes or styles in the Maxdmin front-end. Builds Composition API SFCs (script setup lang=ts), wires @maxvue/max-pinia cached stores to Laravel named (Ziggy) API routes, composes UI from MaxComponentsUi, and styles with UnoCSS attributify (presetMaxUno). Covers SFC, state and styling conventions."
 license: MIT
 metadata:
   version: "2.0.0"
@@ -16,7 +16,7 @@ metadata:
 
 Especialista sênior em Vue 3 para o front-end do **Maxdmin** (backend Laravel 13 sobre MySQL). Domínio profundo do sistema de reatividade da Composition API e do ecossistema Max local: **@maxvue/max-pinia** (stores cacheadas), **@maxvue/max-components-ui** (componentes `Max*`), **@maxvue/max-use** (composables/rotas) e **UnoCSS** (`presetMaxUno`, attributify).
 
-Stack-alvo: **Vue 3.6 + vue-router 5**, sem Nuxt, sem SSR. Dados vêm do Laravel (Eloquent) via caminhos string `/api/...` roteados por stores cacheadas. Realtime via **Laravel Reverb + `@laravel/echo-vue`**; IA via **`laravel/ai`** (Gemini via `google-gemini-php/laravel`).
+Stack-alvo: **Vue 3.6 + vue-router 5**, sem Nuxt, sem SSR. Dados vêm do Laravel (Eloquent) via **nomes de rota (Ziggy)** — ex.: `'user.data'` — roteados por stores cacheadas (o helper resolve o nome para a URL `/api/...`). Realtime via **Laravel Reverb + `@laravel/echo-vue`**; IA via **`laravel/ai`** (Gemini via `google-gemini-php/laravel`).
 
 ## Fluxo de Trabalho Principal
 
@@ -35,7 +35,7 @@ Carregue orientações detalhadas conforme o contexto:
 |-------|-----------|-----------|
 | Composition API | `references/composition-api.md` | ref, reactive, computed, watch, lifecycle |
 | Componentes | `references/components.md` | Props, emits, slots, provide/inject, MaxComponentsUi |
-| Gerenciamento de Estado | `references/state-management.md` | stores cacheadas @maxvue/max-pinia, GET/save via `/api/...` |
+| Gerenciamento de Estado | `references/state-management.md` | stores cacheadas @maxvue/max-pinia, GET/save via nome de rota (Ziggy) |
 | TypeScript | `references/typescript.md` | Tipagem de props, componentes genéricos, stores type-safe |
 | Build Tooling | `references/build-tooling.md` | Config do Vite, presets do UnoCSS, sourcemaps, bundling |
 
@@ -76,7 +76,7 @@ Componente mínimo demonstrando os padrões preferidos — dados via store cache
 - Usar `computed()` para estado derivado
 - Usar os lifecycle hooks corretos (onMounted, onUnmounted, etc.)
 - Implementar a limpeza (cleanup) adequada em composables
-- Rotear **todo GET** de dados por uma store **@maxvue/max-pinia** cacheada (`isCached` + `options.get.route` com path `/api/...`)
+- Rotear **todo GET** de dados por uma store **@maxvue/max-pinia** cacheada (`isCached` + `options.get.route` com o **nome da rota (Ziggy)**, ex.: `'user.data'`)
 - Usar helpers de rota do `@maxvue/max-use` (`apiGetRoute`/`apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`) para mutações — nunca `fetch()`/`axios.get` cru em componentes/actions
 - Usar componentes `Max*` da MaxComponentsUi no lugar de qualquer controle HTML nativo (`MaxButton`, `MaxInputText`, `MaxInputSelect`…)
 - Usar composables/utilitários do `@maxvue/max-use` (nunca importar `@vueuse/core` ou `lodash` direto)
@@ -94,7 +94,7 @@ Componente mínimo demonstrando os padrões preferidos — dados via store cache
 - Usar `fetch()`/`axios.get` cru em actions ou componentes para buscar dados
 - Usar `<button>`/`<input>`/`<select>`/`<textarea>`/checkbox nativos em código de aplicação
 - Escrever SCSS/CSS à mão para layout que o UnoCSS resolve; usar `<section>`
-- Usar Nuxt, SSR ou um ORM de Node (Prisma) — o backend é Laravel/Eloquent. (O Ziggy existe no Laravel, mas o padrão de dados aqui é rota string `/api/...` via store MaxPinia.)
+- Usar Nuxt, SSR ou um ORM de Node (Prisma) — o backend é Laravel/Eloquent. (O Ziggy existe e é usado: as rotas são passadas como **nome** — ex.: `'user.data'` — e os helpers do MaxUse resolvem internamente via `route()` para a URL `/api/...`; você não chama `route()` direto no código de app.)
 
 ## Templates de Saída
 

@@ -1,6 +1,6 @@
 ---
 name: vue-max-stack-frontend-best-practices
-description: "Use when developing the Vue 3 front-end of EngeApp (Laravel 13 backend) with Vue Router, MaxComponentsUi, MaxUse and MaxPinia. Triggers on creating or editing components, pages, composables, API calls or MaxPinia stores; building forms, tables, modals, grids; calling named routes via apiGetRoute/apiPostRoute (Ziggy-resolved); Max* components or @maxvue/* imports — even if the user never says \"Max\"."
+description: "Use when developing the Vue 3 front-end of EngeApp (Laravel 13 backend) with Vue Router, MaxComponentsUi, MaxUse and MaxPinia. Triggers on creating or editing components, pages, composables, API calls or MaxPinia stores; building forms, tables, modals, grids; calling named routes via apiGetRoute (Ziggy-resolved); Max* components or @maxvue/* imports — even if the user never says \"Max\"."
 ---
 
 # Front-end Vue do Ecossistema Max (EngeApp — Laravel 13)
@@ -167,7 +167,8 @@ export const useClientStore = defineStore('project.client', () => {
     const data = ref<Client | null>(null);
     // Rotas são NOMES (Ziggy), NÃO caminhos `/api/...` crus:
     //   get.route = nome do GET · get.data = params da rota · save = nome do POST ·
-    //   enabled = quando buscar · key = chave de cache (LocalForage).
+    //   enabled = quando buscar · key = rótulo de cache (convenção, casa com $id; a chave
+    //   real do LocalForage vem de getKey() = $id + o `id` retornado — ver vue-pinia).
     // O app.ts registra o resolver: setRouteResolver((name, params) => route(name, params)).
     const options = computed(() => ({
         get: { route: 'client.data', data: { project_id: id.value } },

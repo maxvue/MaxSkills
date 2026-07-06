@@ -6,22 +6,22 @@ description: "Use ao implementar, refatorar, revisar ou depurar autenticação p
 ## Objetivo
 Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin: login/logout via API, recuperação do usuário atual por store MaxPinia, login social por redirecionamento, guards de rotas no Vue Router e tratamento global de HTTP 401 com Axios. Backend é Laravel com **Sanctum (autenticação SPA por sessão + cookie)**; não é token/Bearer. O fluxo exige um GET prévio em `/sanctum/csrf-cookie` para semear o cookie `XSRF-TOKEN` antes do login. A validade da sessão é de 30 dias quando `remember` estiver marcado.
 
-## Endpoints reais
-- `POST /api/login` — body `{ email, password, remember? }`. Cria a sessão.
-- `GET /api/user/data` — usuário atual ("me"), protegido por auth. Deve ser consumido via store MaxPinia.
-- `POST /api/logout` — encerra a sessão.
-- `GET /api/auth/providers` — lista de provedores sociais disponíveis.
-- `GET /api/auth/:provider/redirect` — inicia o login social (Google/Facebook).
-- `GET /api/auth/:provider/callback` — callback do provedor, redireciona para `/projects`.
+## Endpoints reais (nome Ziggy → URI de backend)
+- `login` (POST `/api/login`) — body `{ email, password, remember? }`. Cria a sessão.
+- `user.data` (GET `/api/user/data`) — usuário atual ("me"), protegido por auth. Deve ser consumido via store MaxPinia.
+- `logout` (POST `/api/logout`) — encerra a sessão.
+- `social.providers` (GET `/api/auth/providers`) — lista de provedores sociais disponíveis.
+- `social.redirect` (GET `/api/auth/:provider/redirect`) — inicia o login social (Google/Facebook).
+- `social.callback` (GET `/api/auth/:provider/callback`) — callback do provedor, redireciona para `/projects`.
 
-> Rotas são strings (`/api/...`). Os helpers `apiGetRoute` / `apiPostRoute` do `@maxvue/max-use` são **funções assíncronas que JÁ executam a requisição** (`await apiGetRoute('/...')` retorna `response.data`) — não são resolvedores de URL e NÃO devem ser embrulhados em `axios.get(...)`. Para dados de página, prefira a store MaxPinia (que faz GET/save por baixo); use `apiGetRoute`/`apiPostRoute` apenas em chamadas pontuais que não são estado de página (ex.: submit de login). Aqui o backend é **Laravel Sanctum (SPA)**: a autenticação É por sessão + cookie via Sanctum (não invente token/Bearer). O MaxPinia consome rotas em string (`apiGetRoute('/api/...')`), o que coexiste com o Ziggy do Laravel — não afirme "sem Ziggy".
+> Os helpers `apiGetRoute` / `apiPostRoute` do `@maxvue/max-use` recebem o **nome** da rota Ziggy (pontilhado — ex.: `apiGetRoute('user.data')`, `apiPostRoute('login', payload)`), NÃO um caminho `/api/...`. Internamente o helper resolve o nome via `route()` do Ziggy (que resolve para a URL `/api/...` real) e **JÁ executa a requisição** (`await apiGetRoute('user.data')` retorna `response.data`) — não são meros resolvedores de URL e NÃO devem ser embrulhados em `axios.get(...)`. Ziggy ESTÁ configurado no projeto; você não chama `route()` direto no código de app (o helper faz isso). Para dados de página, prefira a store MaxPinia (que faz GET/save por baixo); use `apiGetRoute`/`apiPostRoute` apenas em chamadas pontuais que não são estado de página (ex.: submit de login). Aqui o backend é **Laravel Sanctum (SPA)**: a autenticação É por sessão + cookie via Sanctum (não invente token/Bearer).
 
 ## Instruções
 
 ## 1. Store de Sessão com MaxPinia
 - Todo GET ao backend passa por uma store `@maxvue/max-pinia` (cache + auto-save). O estado do usuário atual (`/api/user/data`) DEVE vir de uma store MaxPinia, nunca de `axios.get` manual espalhado pelas views.
-- Declare a store com Composition API (`defineStore`) e configure o `get` apontando para `/user/data`:
-  `options: computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }))`.
+- Declare a store com Composition API (`defineStore`) e configure o `get` apontando para o nome de rota `user.data`:
+  `options: computed(() => ({ get: { route: 'user.data' }, key: 'user' }))`.
 - O MaxPinia injeta `status`, `reload()` e `clearAll()` na própria instância da store. Leia o estado SEMPRE pela instância (`userStore.status.server.get.is_requested`), nunca via `this` dentro da setup store.
 - Implemente `waitRequest(store)` como helper que recebe a instância da store e retorna uma promessa resolvida quando a primeira requisição de sessão concluir (observando `store.status.server.get.is_requested`). Isso evita race conditions nos guards do router ao recarregar a página.
 
@@ -85,7 +85,8 @@ export const useUserStore = defineStore('user', () => {
     // Estado do usuário autenticado, vindo de GET /user/data via MaxPinia
     const data: Ref<any | null> = ref(null);
     const isCached = ref(true);
-    const options = computed(() => ({ get: { route: '/api/user/data' }, key: 'user' }));
+    // route é o NOME da rota Ziggy (não caminho /api/...); a store chama apiGetRoute internamente.
+    const options = computed(() => ({ get: { route: 'user.data' }, key: 'user' }));
 
     return { data, options, isCached };
 });
@@ -135,7 +136,7 @@ const providers = ref<Array<{ id: string; label: string; icon?: string }>>([]);
 // Carrega os provedores de login social disponíveis.
 // apiGetRoute já executa o GET e retorna response.data (não embrulhe em axios.get).
 onMounted(async () => {
-    const res = await apiGetRoute('/api/auth/providers');
+    const res = await apiGetRoute('social.providers');
     providers.value = res?.providers ?? res ?? [];
 });
 
@@ -154,7 +155,7 @@ const submit = async (payload: { email: string; password: string; remember: bool
         // apiPostRoute executa o POST (cookies/CSRF já incluídos) e retorna response.data.
         // Ele NÃO lança em erro de HTTP: retorna null (erro de rede/servidor, ex.: 401/422)
         // ou false (rota inválida). Por isso ramifique pelo valor de retorno — não use e.response.
-        const res = await apiPostRoute('/api/login', payload);
+        const res = await apiPostRoute('login', payload);
         if (!res || (res as any).errors) {
             error.value = (res as any)?.message
                 ?? 'Falha na autenticação. Verifique suas credenciais.';
@@ -193,7 +194,7 @@ import { apiPostRoute } from '@maxvue/max-use';
 // apiPostRoute executa o POST e já trata o erro (retorna null) — não embrulhe em axios.post.
 async function logout(router: any, userStore: any): Promise<void> {
     try {
-        await apiPostRoute('/api/logout');
+        await apiPostRoute('logout');
     } finally {
         localStorage.removeItem('selected.client.id');
         // O plugin MaxPinia injeta clearAll() (não `clear`) para limpar cache + estado.

@@ -86,7 +86,7 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
 - Trate relacionamentos de forma explícita (ex: `Client & { projects?: Project[] }` ou `Client: { projects?: Project[] }`).
 
 ## 5. Stores do Pinia (Setup Stores)
-- **Dados de página vindos do backend (GET) e salvamento (save) DEVEM passar por uma store `@maxvue/max-pinia`**, que é a camada padrão de cache + auto-save (debounced) do projeto. Não faça `axios.get`/`axios.post` manuais nem salvamento por submit manual para dados de página; o próprio MaxPinia faz o GET e o save usando a instância axios que ele injeta internamente, contra uma **rota string** configurada nas `options` da store (não usa `apiGetRoute`). Reserve `apiGetRoute`/`apiPostRoute` para chamadas pontuais fora do fluxo da store cacheada. Tipifique explicitamente o estado da store.
+- **Dados de página vindos do backend (GET) e salvamento (save) DEVEM passar por uma store `@maxvue/max-pinia`**, que é a camada padrão de cache + auto-save (debounced) do projeto. Não faça `axios.get`/`axios.post` manuais nem salvamento por submit manual para dados de página; o próprio MaxPinia faz o GET e o save usando a instância axios que ele injeta internamente, contra um **nome de rota (Ziggy)** configurado nas `options` da store — que ele resolve internamente para a URL `/api/...` (não usa `apiGetRoute`). Reserve `apiGetRoute`/`apiPostRoute` para chamadas pontuais fora do fluxo da store cacheada. Tipifique explicitamente o estado da store.
   ```typescript
   import { defineStore } from 'pinia';
   import { ref, computed } from 'vue';
@@ -99,8 +99,8 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
       const isCached = ref(true);
 
       const options = computed(() => ({
-          get:  { route: '/api/cliente' }, // GET automático + cache
-          save: '/api/cliente',            // opcional: POST com auto-save debounced
+          get:  { route: 'cliente.data' }, // nome de rota (Ziggy); resolve para /api/...
+          save: 'cliente.save',            // opcional: POST com auto-save debounced
           id:   'cliente',                 // alimenta a chave de cache do localforage
       }));
 
@@ -127,7 +127,7 @@ Sempre estruture os componentes SFC do Vue na seguinte ordem de blocos:
   ```
 
 ## 6. Resolução de Rotas com TypeScript
-- O projeto tem `ziggy-js` disponível (é o stack Laravel), mas o fluxo padrão do Max usa **rotas string** `/api/...`: prefira os helpers `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use`, que resolvem para esses caminhos string. As duas abordagens coexistem — não afirme que "não há Ziggy".
+- O projeto tem `ziggy-js` configurado e em uso (é o stack Laravel). O fluxo padrão do Max passa o **nome da rota (Ziggy)** — ex.: `'cliente.data'` — para os helpers `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use`, que resolvem o nome internamente (via `route()`) para a URL `/api/...`. Você não chama `route()` direto no código de app, mas o Ziggy está lá — não afirme que "não há Ziggy".
 - Respeite as assinaturas de parâmetros esperadas pelo backend. Evite passar objetos não tipados para endpoints que esperam parâmetros específicos.
 
 ## Restrições

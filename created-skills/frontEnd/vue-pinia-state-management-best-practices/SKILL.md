@@ -45,7 +45,7 @@ Sempre escreva stores como Setup Stores com Composition API:
 ### 2. Ativando o MaxPinia (isCached + options)
 Para que o plugin `@maxvue/max-pinia` gerencie a store, é **obrigatório** declarar:
 - `const isCached = ref(true)` — sinal para o plugin interceptar esta store.
-- `const options = computed(() => ({ get: {...}, save: '...' }))` — configura as rotas da API. (Não use `key`: o plugin **nunca** lê `options.key`. A chave de cache é derivada de `store.$id` + `store.id`/`store.options.id` via `getKey()`.)
+- `const options = computed(() => ({ get: {...}, save: '...', key: '...' }))` — configura as rotas da API (por **nome de rota Ziggy**, não caminho `/api/...`). As stores passam `key` no `options` por convenção (ex.: `key: 'project.client'`, casando com o `$id`). A chave real do cache (LocalForage), porém, é derivada por `getKey()` = `store.$id` + o `id` retornado pela store (ou `options.id`) — ver "GET com parâmetros dinâmicos".
 
 O plugin então:
 1. Carrega dados do cache LocalForage imediatamente.
@@ -98,9 +98,10 @@ export const useUserStore = defineStore('user', () => {
   const isCached = ref(true)
   const data = ref<User | null>(null)
 
-  // route é caminho string /api/...; a store chama apiGetRoute internamente. Sem rotas nomeadas estilo Ziggy.
+  // route é o NOME da rota Ziggy (ex.: 'user.data'); a store chama apiGetRoute internamente.
   const options = computed(() => ({
-    get: { route: '/api/user' },
+    get: { route: 'user.data' },
+    key: 'user',
   }))
 
   return { data, isCached, options }
@@ -129,11 +130,12 @@ export const useBrandPositioningStore = defineStore('brand.positioning.store', (
     content_pillars: [],
   })
 
-  // route/save são caminhos string /api/...; a store chama apiGetRoute/apiPostRoute internamente.
+  // route/save são NOMES de rota Ziggy; a store chama apiGetRoute/apiPostRoute internamente.
   // save ativa auto-save com debounce de 300ms ao alterar 'data'
   const options = computed(() => ({
-    get: { route: '/api/brand-positioning' },
-    save: '/api/brand-positioning',
+    get: { route: 'brand.positioning.data' },
+    save: 'brand.positioning.save',
+    key: 'brand.positioning',
   }))
 
   return { isCached, data, options }
@@ -160,15 +162,19 @@ const store = useBrandPositioningStore()
 ```
 
 ### GET com parâmetros dinâmicos
-Para variar a chave de cache por parâmetro dinâmico, defina `options.id` (ou um `id` top-level na store) — NÃO use `key`, que é ignorado. A chave final é `store.$id + '.' + (store.id ?? store.options?.id ?? 'global')`.
+Os parâmetros da rota vão em `options.get.data` (reativos). Para variar a **chave de cache** por parâmetro, exponha um `id` reativo na store (ou `options.id`): o MaxPinia deriva a chave do LocalForage por `getKey()` = `store.$id` + esse `id`. Não tente variar o cache por `options.key` — o plugin não lê esse campo para a chave do cache.
 ```typescript
-const options = computed(() => ({
-  get: {
-    route: '/api/project', // caminho string; a store executa apiGetRoute internamente
-    data: { project_id: projectId.value }, // parâmetros reativos
-  },
-  id: `project-${projectId.value}`, // varia a chave de cache via getKey()
-}))
+export const useProjectDataStore = defineStore('project.data', () => {
+  // `id` entra em getKey() → chave de cache vira 'project.data.<id>'
+  const id = computed(() => projectId.value);
+  const options = computed(() => ({
+    get: {
+      route: 'project.data', // NOME de rota Ziggy; a store executa apiGetRoute internamente
+      data: { project_id: projectId.value }, // parâmetros reativos da rota
+    },
+  }));
+  return { id, options /* ...demais props */ };
+})
 ```
 
 ---

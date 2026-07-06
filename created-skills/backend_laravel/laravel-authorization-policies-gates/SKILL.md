@@ -96,7 +96,7 @@ Estabelecer diretrizes, convenções e padrões para implementar lógica de auto
          ]);
      }
      ```
-   - Na SPA Vue, consuma esse endpoint via uma store MaxPinia (`@maxvue/max-pinia`) e leia as permissões a partir do estado da store (e não das props da página). Use os helpers `route()` do Ziggy para resolução de rotas do Laravel.
+   - Na SPA Vue, consuma esse endpoint via uma store MaxPinia (`@maxvue/max-pinia`) e leia as permissões a partir do estado da store (e não das props da página). A store passa o **nome da rota (Ziggy)** ao `apiGetRoute` do `@maxvue/max-use` (ex.: `apiGetRoute('auth.me')`), que resolve o nome para a URL `/api/...` via Ziggy internamente — no código de app você não chama `route()` diretamente, o helper faz isso.
      ```vue
      <script setup lang="ts">
      import { useAuthStore } from '@/stores/auth' // store @maxvue/max-pinia

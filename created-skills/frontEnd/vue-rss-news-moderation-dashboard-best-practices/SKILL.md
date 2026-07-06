@@ -39,7 +39,7 @@ Imagens externas de feeds RSS são frequentemente instáveis. Sempre implemente 
 ### 3. Feedback Visual Imediato e Micro-animações
 Garanta uma experiência fluida para o usuário fornecendo feedback visual tátil instantâneo nas decisões de moderação:
 - Aplique utilitários de animação do UnoCSS como atributos attributify (ex.: `animate-fade-out` ou `scale-95 duration-200`), ligados dinamicamente via `:class`/`:animate-fade-out` quando um item for aprovado ou arquivado — nunca como strings `class="..."` cruas de Tailwind.
-- Atualize de forma otimista o estado da lista na interface do usuário imediatamente quando um botão de ação for clicado. A persistência NÃO usa Axios cru: toda leitura/gravação de dados de página passa por uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) no backend. Para ações pontuais de comando (aprovar/arquivar), dispare o método da store que resolve o caminho via `apiPostRoute`:
+- Atualize de forma otimista o estado da lista na interface do usuário imediatamente quando um botão de ação for clicado. A persistência NÃO usa Axios cru: toda leitura/gravação de dados de página passa por uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) no backend. Para ações pontuais de comando (aprovar/arquivar), dispare o método da store que passa o **nome da rota (Ziggy)** ao `apiPostRoute`:
   ```typescript
   import { useNewsModerationStore } from '~/stores/newsModeration'
 
@@ -56,7 +56,7 @@ Garanta uma experiência fluida para o usuário fornecendo feedback visual táti
     }
 
     // 2. Persistência via store MaxPinia (sem Axios manual);
-    //    a store resolve a rota string /api/... . Em caso de falha, o rollback é
+    //    a store passa o nome da rota (Ziggy), que resolve para /api/... . Em caso de falha, o rollback é
     //    feito AQUI (no componente), chamando reload() na instância da store.
     try {
       await newsStore.approve(itemId)
@@ -78,29 +78,29 @@ Garanta uma experiência fluida para o usuário fornecendo feedback visual táti
     // Parâmetro de busca reativo: alterá-lo dispara automaticamente novo GET pela store.
     const search = ref('')
 
-    // route é caminho string /api/...; a store chama apiGetRoute internamente.
+    // route é o NOME da rota (Ziggy); a store chama apiGetRoute internamente, que resolve para /api/....
     // options.get.data é reativo — o GET refaz sozinho quando search muda.
     const options = computed(() => ({
-      get: { route: '/api/news/moderation', data: { search: search.value } },
-      id: 'news-moderation',
+      get: { route: 'news.moderation.data', data: { search: search.value } },
+      key: 'news.moderation',
     }))
 
     async function approve(itemId: string) {
       // Chamada imperativa de comando (não é config de store): dispara o POST.
       // Deixe o erro propagar — o rollback (reload) é feito pelo chamador na instância.
-      await apiPostRoute(`/api/news/moderation/${itemId}/approve`)
+      await apiPostRoute('news.moderation.approve', { id: itemId })
     }
 
     return { isCached, items, search, options, approve }
   })
   ```
   > `reload()` é injetado pelo `@maxvue/max-pinia` **na instância** da store (ex.: `newsStore.reload()`); NÃO é uma variável do escopo da setup — referenciá-lo bare dentro da setup lança `ReferenceError`. Use-o a partir do componente.
-  > A chave do cache vem de `options.id` (o `@maxvue/max-pinia` não lê `options.key`).
+  > A store passa `key: 'news.moderation'` no `options` por convenção; a chave real do cache (LocalForage) é derivada de `store.$id` (+ o `id` retornado) via `getKey()` do MaxPinia.
 
 ### 4. Filtragem Híbrida no Lado do Cliente e do Servidor
 Combine a busca instantânea de texto no cliente com a filtragem dinâmica via API no backend:
 - Implemente a filtragem no lado do cliente na lista de notícias carregada atualmente usando uma propriedade computada (`computed`) para obter resultados instantâneos conforme o usuário digita.
-- Utilize debounce nos termos de busca (ex: usando `refDebounced` do MaxUse (`@maxvue/max-use`, que reexporta o VueUse) com atraso de 300ms) antes de pedir uma nova carga ao backend. A busca no servidor é feita pela store MaxPinia (que faz o GET via `apiGetRoute` resolvendo o caminho string `/api/...`), nunca por `axios.get` manual:
+- Utilize debounce nos termos de busca (ex: usando `refDebounced` do MaxUse (`@maxvue/max-use`, que reexporta o VueUse) com atraso de 300ms) antes de pedir uma nova carga ao backend. A busca no servidor é feita pela store MaxPinia (que faz o GET via `apiGetRoute` passando o nome da rota Ziggy, resolvido para `/api/...`), nunca por `axios.get` manual:
   ```typescript
   import { refDebounced } from '@maxvue/max-use'
   import { useNewsModerationStore } from '~/stores/newsModeration'
@@ -111,7 +111,7 @@ Combine a busca instantânea de texto no cliente com a filtragem dinâmica via A
 
   watch(debouncedSearch, (newQuery) => {
     // Atualiza o parâmetro reativo da store (options.get.data). Como ele é reativo,
-    // o @maxvue/max-pinia reexecuta o GET (/api/...) e atualiza o cache automaticamente.
+    // o @maxvue/max-pinia reexecuta o GET (nome de rota → /api/...) e atualiza o cache automaticamente.
     // Se precisar forçar a revalidação, chame newsStore.reload().
     newsStore.search = newQuery
   })
@@ -120,7 +120,7 @@ Combine a busca instantânea de texto no cliente com a filtragem dinâmica via A
 ### 5. Prompt Semântico de IA para Sugestões Editoriais
 Integre sugestões de IA de forma dinâmica na tela de moderação para auxiliar os criadores de conteúdo:
 - Forneça um card inline com ações como "Sugerir Tema Editorial" ou "Gerar Rascunho do Post" ao lado ou dentro da visualização de detalhes da notícia.
-- Envie o título e a prévia do conteúdo do item de notícia para o endpoint de IA no backend, que roteia a geração pelo **Vercel AI SDK** (provider Gemini via Vercel AI SDK), produzindo classificações de tópicos estruturadas, ângulos para publicações ou rascunhos de posts. A chamada parte de um método da store MaxPinia (`apiPostRoute('/api/news/.../ai-suggest')`), não de Axios cru.
+- Envie o título e a prévia do conteúdo do item de notícia para o endpoint de IA no backend, que roteia a geração pelo **Vercel AI SDK** (provider Gemini via Vercel AI SDK), produzindo classificações de tópicos estruturadas, ângulos para publicações ou rascunhos de posts. A chamada parte de um método da store MaxPinia (`apiPostRoute('news.ai_suggest', { id })`, nome de rota Ziggy), não de Axios cru.
 - Renderize os resultados em um card envolto por `MaxLoaderAi`, permitindo a cópia com um clique ou a inserção direta nas ferramentas de agendamento/redação.
 
 ### 6. Sintaxe de Componentes e Diretrizes de Atributos
