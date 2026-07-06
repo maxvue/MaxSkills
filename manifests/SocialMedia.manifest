@@ -9,7 +9,6 @@ backend_laravel/laravel-best-practices
 backend_laravel/laravel-database-eloquent-best-practices
 backend_laravel/laravel-migrations-seeders-factories-best-practices
 backend_laravel/laravel-authorization-policies-gates
-backend_laravel/laravel-sanctum-api-authentication
 backend_laravel/laravel-ziggy-routing-integration-best-practices
 backend_laravel/laravel-exception-handling-logging
 backend_laravel/laravel-services-best-practices

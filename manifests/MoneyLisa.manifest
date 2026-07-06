@@ -35,7 +35,6 @@ backend_laravel/laravel-qrcode-generation-best-practices
 backend_laravel/laravel-rate-limiting-best-practices
 backend_laravel/laravel-redis-integration-best-practices
 backend_laravel/laravel-reverb-websockets-best-practices
-backend_laravel/laravel-sanctum-api-authentication
 backend_laravel/laravel-scout-searchable-best-practices
 backend_laravel/laravel-security-hardening-best-practices
 backend_laravel/laravel-service-providers-dependency-injection-best-practices
@@ -63,12 +62,7 @@ frontEnd/vue-auth-session-state-best-practices
 frontEnd/vue-auto-import-components-best-practices
 frontEnd/vue-unocss-styling-best-practices
 frontEnd/vue-boleto-utils-best-practices
-frontEnd/vue-jsbarcode-generation-best-practices
-frontEnd/vue-emoji-picker-integration-best-practices
-frontEnd/vue-lottie-animations-best-practices
-frontEnd/vue-draggable-next-best-practices
 frontEnd/vue-floating-vue-tooltips-popovers-best-practices
-frontEnd/vue-pdf-viewer-best-practices
 frontEnd/vue-inputs-masks-validation-best-practices
 frontEnd/vue-toast-notifications-toastify-best-practices
 frontEnd/vue-complex-modal-forms-autosave-best-practices

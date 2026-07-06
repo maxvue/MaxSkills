@@ -1601,13 +1601,6 @@ skills:
   status: CONCLUIDA
   workflows: []
 - action: CRIAR
-  nome: vue-code-generators-best-practices
-  resumo: Use when creating, modifying, or reviewing Vue 3 Single-File Components
-    (.vue files), composables, API services, or Pinia stores within the Engeapp project
-    or MaxComponentsUi library. Triggers on r...
-  status: CONCLUIDA
-  workflows: []
-- action: CRIAR
   nome: vue-complex-modal-forms-autosave-best-practices
   resumo: Use when designing, building, or refactoring complex modal forms in Vue
     3 that integrate auto-saving features, input debouncing, real-time sync state
