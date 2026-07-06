@@ -23,12 +23,12 @@ This is critical because composables often register `onMounted` and `onUnmounted
 **Incorrect:**
 ```vue
 <script setup>
-import { useFetch } from './composables/useFetch'
+import { useDadosCache } from './composables/useDadosCache'
 import { useAuth } from './composables/useAuth'
 
 // WRONG: Composable called after await
 const config = await loadConfig()
-const { data } = useFetch(config.apiUrl)  // Lifecycle hooks won't register!
+const { data } = useDadosCache(config.routeName)  // Lifecycle hooks won't register!
 
 // WRONG: Composable called conditionally
 if (someCondition) {
@@ -37,12 +37,12 @@ if (someCondition) {
 
 // WRONG: Composable called in callback
 setTimeout(() => {
-  const { data } = useFetch('/api/delayed')  // No component context!
+  const { data } = useDadosCache('projeto.detalhe')  // No component context!
 }, 1000)
 
 // WRONG: Composable called in loop
-for (const url of urls) {
-  const { data } = useFetch(url)  // Creates multiple instances incorrectly
+for (const routeName of routeNames) {
+  const { data } = useDadosCache(routeName)  // Creates multiple instances incorrectly
 }
 </script>
 ```
@@ -51,30 +51,32 @@ for (const url of urls) {
 ```vue
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useFetch } from './composables/useFetch'
+import { apiGetRoute } from '@maxvue/max-use'
+import { useDadosCache } from './composables/useDadosCache'
 import { useAuth } from './composables/useAuth'
 
 // CORRECT: Call composables synchronously at top level
 const { user, isAuthenticated } = useAuth()
-const apiUrl = ref('/api/default')
-const { data, execute } = useFetch(apiUrl)
+const routeName = ref('projeto.detalhe')
+const { data, execute } = useDadosCache(routeName)
 
 // Handle async config loading differently
 onMounted(async () => {
   const config = await loadConfig()
-  apiUrl.value = config.apiUrl  // Update the ref, composable reacts
+  routeName.value = config.routeName  // Update the ref, composable reacts
 })
 
 // CORRECT: Handle condition inside, not outside
 const showUserData = computed(() => isAuthenticated.value && someCondition)
 
-// CORRECT: For multiple URLs, use a different pattern
-const urls = ref(['/api/a', '/api/b', '/api/c'])
+// CORRECT: For multiple routes, use a different pattern.
+// No engeapp, GETs vão por store MaxPinia ou apiGetRoute (nome Ziggy pontilhado), nunca fetch cru.
+const routeNames = ref(['projeto.lista', 'cliente.lista', 'tarefa.lista'])
 const results = ref([])
 
 // Either fetch in onMounted or use a composable designed for arrays
 onMounted(async () => {
-  results.value = await Promise.all(urls.value.map(url => fetch(url)))
+  results.value = await Promise.all(routeNames.value.map(name => apiGetRoute(name)))
 })
 </script>
 ```
@@ -86,7 +88,8 @@ Composables CAN be called inside lifecycle hooks because Vue maintains the compo
 ```vue
 <script setup>
 import { onMounted } from 'vue'
-import { useEventListener } from '@vueuse/core'
+// No engeapp, composables do VueUse vêm de @maxvue/max-use (reexporta o VueUse), nunca de '@vueuse/core'
+import { useEventListener } from '@maxvue/max-use'
 
 // CORRECT: Called in lifecycle hook - component context is available
 onMounted(() => {
@@ -102,17 +105,17 @@ Top-level await in `<script setup>` is special - Vue's compiler automatically pr
 
 ```vue
 <script setup>
-import { useFetch } from './composables/useFetch'
+import { useDadosCache } from './composables/useDadosCache'
 
 // CORRECT: Top-level await in <script setup> preserves context
 // Vue compiler handles this specially
 const config = await loadConfig()
-const { data } = useFetch(config.apiUrl)  // This works!
+const { data } = useDadosCache(config.routeName)  // This works!
 
 // But nested awaits still break context:
 async function initLater() {
   await delay(1000)
-  const { data } = useFetch('/api/late')  // WRONG: This won't work!
+  const { data } = useDadosCache('projeto.detalhe')  // WRONG: This won't work!
 }
 </script>
 ```

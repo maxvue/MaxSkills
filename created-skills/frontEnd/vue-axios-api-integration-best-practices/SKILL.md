@@ -1,168 +1,78 @@
 ---
 name: vue-axios-api-integration-best-practices
-description: "Use when configuring Axios in the Vue 3 EngeApp frontend: global instance setup, Laravel Sanctum SPA CSRF cookies (withCredentials/withXSRFToken, /sanctum/csrf-cookie), request/response interceptors, and global handling of 401/403/422/500 errors. Covers POST/PUT/DELETE mutations and MaxPinia store integration — GET requests must go through a cached MaxPinia store, never Axios directly."
+description: "Use ao integrar o front Vue 3 do EngeApp com a API Laravel via HTTP. Sem Axios direto: o transporte passa pelos helpers apiGetRoute/apiPostRoute/apiPutRoute/apiDeleteRoute do @maxvue/max-use, que recebem NOMES de rota Ziggy pontilhados e já aplicam headers e withCredentials. GET sempre via store MaxPinia. Sucesso retorna data; erro HTTP retorna null; nome de rota inexistente LANÇA exceção."
 ---
 
-# Boas Práticas de Integração de API com Axios no Vue 3
+# Boas Práticas de Integração de API HTTP no Vue 3 (EngeApp)
 
 ## Objetivo
-Estabelecer a configuração padrão e resiliente do cliente HTTP Axios no Vue 3. O Axios é usado para: configuração global (CSRF, interceptadores, baseURL), requisições POST/PUT/DELETE de formulários, e como transporte interno do `@maxvue/max-pinia`. **Requisições GET ao backend NUNCA devem ser feitas com Axios diretamente em componentes ou serviços — sempre use uma store MaxPinia com `isCached = true` e `options.get`.**
+Padronizar como o front Vue 3 do EngeApp conversa com a API Laravel. **Neste projeto não existe uma camada de configuração global de Axios** (sem `axios.defaults`, sem interceptadores, sem `baseURL`, sem fluxo de `/sanctum/csrf-cookie`). Todo o transporte HTTP passa pelos helpers do `@maxvue/max-use`, que já encapsulam Axios com headers e credenciais corretos. O papel desta skill é ensinar a usar esses helpers e o contrato de retorno deles — não a reconfigurar Axios.
 
-## Instruções
+## Regras fundamentais
 
-### 1. Configuração Global do Axios
-Configure a instância global do Axios no ponto de entrada principal da aplicação (ex: `resources/app.ts` or `resources/Js/bootstrap.ts`).
-Para sessões baseadas em SPA, você deve habilitar o envio automático de credenciais e tokens CSRF:
-- `axios.defaults.withCredentials = true;`
-- `axios.defaults.withXSRFToken = true;`
-- Defina `axios.defaults.baseURL` apontando para a API do backend.
+### 1. Todo GET ao backend passa por uma store MaxPinia
+Nunca faça `axios.get` (ou `apiGetRoute`) direto em um componente. GETs de leitura vão para uma store MaxPinia com `isCached = true` e `options.get.route` apontando para o NOME da rota Ziggy. A store cuida de cache, deduplicação e `status.server.get.is_requested/is_success`. Isso evita requisições repetidas e mantém o estado consistente entre telas.
 
-### 2. Proteção CSRF (Laravel Sanctum SPA)
-A autenticação é baseada em **sessão + cookie via Laravel Sanctum (SPA)**. Neste projeto o Sanctum É o backend — o fluxo de `csrf-cookie` faz parte do escopo, não está fora dele.
-- Habilite `axios.defaults.withXSRFToken = true;` e `axios.defaults.withCredentials = true;` para que o Axios leia o cookie `XSRF-TOKEN` e o reenvie no header `X-XSRF-TOKEN` automaticamente.
-- Faça um GET em `/sanctum/csrf-cookie` **antes** do primeiro POST de mutação (ex.: login) para semear o cookie `XSRF-TOKEN`. Depois disso o Axios anexa o header `X-XSRF-TOKEN` automaticamente em cada requisição de mutação.
+### 2. Mutações (POST/PUT/DELETE) usam os helpers do @maxvue/max-use
+Para enviar formulários e alterar estado no backend, use `apiPostRoute`, `apiPutRoute` ou `apiDeleteRoute`. Eles executam o Axios internamente e retornam `response.data` em sucesso. Não instancie Axios nem chame `axios.post` cru — você perderia os headers e o `withCredentials` que os helpers já injetam.
 
-### 3. Configuração de Interceptadores Globais
-Defina interceptadores globais de requisição e resposta para gerenciar tokens de autenticação, logs e estados de erro HTTP comuns.
+### 3. Rotas são NOMES Ziggy pontilhados, nunca strings de path
+O primeiro argumento dos helpers é o **nome** da rota (ex.: `'login'`, `'social.providers'`, `'profile.update'`, `'planner.card.add.task'`), não um path como `'/api/login'`. O resolvedor é configurado uma única vez em `resources/app.ts` via `setRouteResolver((name, params) => { try { return route(name, params); } catch { return null; } })` (Ziggy). Se você passar um nome que não existe, o resolver Ziggy lança, o wrapper acima devolve `null` e, internamente, `resolveRoute` faz `throw new Error('Rota "…" não encontrada pelo resolver.')`. **Esse throw NÃO é engolido**: em `apiRoute` a resolução acontece fora do `try/catch` do helper, então a exceção **propaga para o seu código** (veja a Regra 4). Ou seja, nome inexistente é um erro de programação que estoura, não um `false` silencioso.
 
-#### Interceptador de Requisição
-- A autenticação é por **sessão + cookie** (Laravel Sanctum SPA); não anexe header `Authorization`/Bearer nem tokens manualmente — as credenciais viajam via cookie de sessão (`withCredentials`) e o CSRF via `withXSRFToken`.
-- Configure os cabeçalhos padrão como `Accept: application/json` e `Content-Type: application/json`.
+### 4. Contrato de retorno dos helpers — e quando eles LANÇAM
+Contrato real de `apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`, em `@maxvue/max-use`:
+- **Sucesso** → retorna `response.data`.
+- **`RouteName` vazio/`null`** → retorna `false` **antes** de qualquer requisição (a guarda `if (!system_options) return false`, que só dispara quando o nome é falsy). Não confunda: isso é "nome ausente", não "nome inexistente".
+- **Nome truthy, mas inexistente no Ziggy** → o helper **lança exceção** (o `throw` de `resolveRoute` propaga, pois a resolução ocorre fora do `try/catch` interno). Se o nome puder vir errado, **envolva a chamada em `try/catch`**.
+- **Erro HTTP (401/403/422/500) ou de rede** → o helper faz `console.error` e retorna `null`.
 
-#### Interceptador de Resposta (Tratamento de Erros)
-Trate os códigos de erro HTTP comuns de forma global para evitar a repetição de try/catch redundantes em cada store:
-- **401 Unauthorized (Não Autorizado)**: Redirecione o usuário para a tela de login (usando a instância do Vue Router) e limpe todas as sessões e stores ativas do Pinia.
-- **403 Forbidden (Proibido)**: Exiba um toast/notificação de aviso utilizando o helper da biblioteca de UI local (`Toast.show` do `@maxvue/max-components-ui`) informando que o acesso foi negado.
-- **422 Unprocessable Entity (Entidade Não Processável)**: Formate os erros de validação do Laravel (FormRequest / `$request->validate()`), cujo shape é `{ message, errors: { campo: ["msg1", ...] } }`, e rejeite a Promise com os erros estruturados. **Atenção:** o `apiPostRoute` do `@maxvue/max-use` embrulha o `axios.post` em seu próprio `try/catch` e **engole qualquer erro, retornando `null`** (e `false` para rota inválida) — ou seja, o valor rejeitado pelo interceptador (os erros 422 estruturados) **NÃO** chega a quem chamou `apiPostRoute`. Para receber os erros de validação estruturados em um formulário, inspecione o retorno `null` e leia os erros por outra via, ou use `axios.post` diretamente nesse endpoint específico (não `apiPostRoute`).
-- **500 Internal Server Error (Erro Interno do Servidor)**: Exiba uma mensagem amigável e genérica via notificação toast (ex: "Erro no servidor. Tente novamente mais tarde.") e registre os detalhes técnicos no console ou sistema de telemetria (nunca exponha stack traces aos usuários em produção).
+Atenção: `apiGetRoute` **não tem** a guarda de `false` — nome falsy nele cai no `catch` e vira `null`; nome inexistente também lança. Como GET no projeto vai sempre via store MaxPinia (Regra 1), isso raramente aparece no seu código.
 
-### 4. Integração com Pinia Stores
-Ao fazer requisições HTTP dentro das ações do Pinia, siga estas diretrizes:
-- Mantenha variáveis de estado reativo para `loading` (booleano) e opcionalmente `error` (string ou objeto).
-- Defina `loading.value = true` antes de iniciar a requisição e resete-o no bloco `finally`.
-- Para erros padrão tratados pelo interceptador global, não é necessário usar blocos try-catch manuais nas ações do Pinia, a menos que você precise de um comportamento customizado específico.
+Portanto, para as mutações: **ramifique pelo valor de retorno** (`response.data` = ok; `null`/`false` = falha, mostre mensagem ao usuário) **e** proteja-se do `throw` de rota inexistente com `try/catch` quando o nome não for uma constante confiável. Não há interceptador global de resposta. Erros de validação 422 detalhados (`{ message, errors }`) **não** chegam ao chamador — o helper os engole no `null`. Se um formulário precisar do corpo do 422, esse endpoint teria de usar `axios.post` direto (exceção pontual, hoje não usada no projeto).
 
----
+### 5. Headers e credenciais já são responsabilidade dos helpers
+Não configure `Accept`, `Content-Type`, `X-Requested-With` nem `withCredentials` manualmente para chamadas normais. `apiPostRoute` já envia esses headers, mescla `getConfiguredHeaders()` e usa `withCredentials` (padrão `true`, definido em `@maxvue/max-use`). A autenticação é por sessão + cookie; não anexe `Authorization: Bearer` para chamadas de API comuns.
 
-## Examples
+### 6. CSRF manual só para widgets de upload de terceiros
+O único lugar onde um token CSRF é anexado à mão é a configuração de bibliotecas externas de upload (ex.: VueFinder), onde se passa `'XSRF-TOKEN': system.token` / `'X-CSRF-TOKEN': system.token` e `baseUrl: system.base_url`, lendo do store `useSystemStore` (`token`, `base_url`). Isso é exceção para libs que fazem seu próprio HTTP — **não** é o fluxo das chamadas de API do app.
 
-### Bootstrap do Axios e Interceptadores (`resources/Js/bootstrap.ts`)
+## Exemplo real — login (POST de mutação)
+
+Trecho fiel a `resources/Stores/UserStores/useLogin.Store.ts`. O login é um POST via `apiPostRoute` usando o nome de rota `'login'`; em sucesso a página é recarregada (`location.reload()`), em falha exibe-se um toast. Note: sem `csrf-cookie`, sem `router.push`, sem `axios`.
+
 ```typescript
-import axios from 'axios';
-import router from '@/Js/router';
-import { Toast } from '@maxvue/max-components-ui';
+// Submete o formulário de login.
+const submit = async () => {
+    loading.value = true;
+    error.value = '';
 
-// Habilita o compartilhamento de cookies e a vinculação automática do header XSRF
-axios.defaults.withCredentials = true;
-axios.defaults.withXSRFToken = true;
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || '/';
-axios.defaults.headers.common['Accept'] = 'application/json';
+    // NOME de rota Ziggy 'login' (não um path '/api/login').
+    const result_api = await apiPostRoute('login', {
+        method: method.value,
+        email: email.value,
+        password: password.value,
+        remember: remember.value,
+        phone_number: phone_number.value
+    });
 
-// Interceptador de resposta
-axios.interceptors.response.use(
-    (response) => response,
-    (error) => {
-        const { response } = error;
-
-        if (response) {
-            const status = response.status;
-            const data = response.data;
-
-            switch (status) {
-                case 401:
-                    // Não autorizado: Redireciona para o login e limpa o estado
-                    router.push({ name: 'login' });
-                    break;
-                case 403:
-                    // Proibido: Exibe toast de aviso
-                    Toast.show({
-                        title: 'Acesso Negado',
-                        message: 'Você não tem permissão para realizar esta ação.',
-                        severity: 'warning'
-                    });
-                    break;
-                case 422:
-                    // Erro de validação: Retorna os erros formatados para o componente
-                    return Promise.reject(data.errors || data);
-                case 500:
-                    // Erro no servidor: Exibe toast amigável de erro
-                    Toast.show({
-                        title: 'Erro de Servidor',
-                        message: 'Ocorreu um erro no servidor. Tente novamente mais tarde.',
-                        severity: 'error'
-                    });
-                    break;
-                default:
-                    Toast.show({
-                        title: 'Erro na Requisição',
-                        message: data?.message || 'Algo deu errado. Verifique sua conexão.',
-                        severity: 'error'
-                    });
-            }
-        } else {
-            // Erro de rede ou CORS
-            Toast.show({
-                title: 'Erro de Rede',
-                message: 'Não foi possível conectar ao servidor. Verifique sua conexão.',
-                severity: 'error'
-            });
-        }
-
-        return Promise.reject(error);
-    }
-);
-
-export default axios;
-```
-
-### Login Reativo na Store do Pinia (POST de formulário)
-O `login` é um POST de mutação de estado e usa `apiPostRoute` do `@maxvue/max-use`, que **já executa o POST e retorna `response.data`** (não embrulhe em `axios.post`). O Axios global continua sendo o transporte interno (cookies/CSRF/interceptadores). Antes do login, faça um GET em `/sanctum/csrf-cookie` para semear o cookie `XSRF-TOKEN` (Sanctum SPA). Os **dados do usuário autenticado (`/api/user/data`) NÃO são buscados aqui** — eles vêm de uma store MaxPinia (`isCached`/`options.get`), conforme a skill de auth-session.
-```typescript
-import { defineStore } from 'pinia';
-import { ref } from 'vue';
-import axios from '@/Js/bootstrap';
-import { apiPostRoute } from '@maxvue/max-use';
-import router from '@/Js/router';
-
-export const useAuthStore = defineStore('auth', () => {
-    const loading = ref(false);
-
-    async function login(credentials: { email: string; password: string }) {
-        loading.value = true;
-        try {
-            // POST de autenticação (Laravel Sanctum SPA: sessão + cookie).
-            // Semeia o cookie XSRF-TOKEN antes do login; withXSRFToken o reenvia.
-            await axios.get('/sanctum/csrf-cookie');
-            // apiPostRoute já executa o POST e retorna response.data (não embrulhe em axios.post).
-            const data = await apiPostRoute('/api/login', credentials);
-
-            // IMPORTANTE: apiPostRoute NUNCA lança — em falha (401/422) ele retorna
-            // null (ou false para rota inválida). Portanto NÃO confie em catch:
-            // guarde o redirecionamento no valor de retorno.
-            if (!data) {
-                // exiba o erro de login / interrompa o fluxo
-                return;
-            }
-
-            // Os dados do usuário são carregados pela store MaxPinia correspondente,
-            // não por axios.get manual aqui.
-            router.push({ name: 'dashboard' });
-        } finally {
-            loading.value = false;
-        }
+    // 'login' é um nome de rota constante e válido, então aqui basta ramificar pelo retorno:
+    // sucesso = response.data (truthy); erro HTTP/rede = null; nome vazio = false.
+    // (Se o nome pudesse vir errado/inexistente, seria preciso try/catch — o helper LANÇA nesse caso.)
+    if (result_api) location.reload();
+    else {
+        showToast('Não foi possível realizar o login. <br>Verifique os dados e tente novamente.', 'error');
+        error.value = 'Usuário ou senha inválidos.';
     }
 
-    return { loading, login };
-});
+    loading.value = false;
+};
 ```
-
----
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- **GETs ao backend NUNCA via Axios direto em componentes ou serviços** — sempre use uma store MaxPinia com `isCached = true` e `options.get`. O `@maxvue/max-pinia` usa Axios internamente para esses GETs.
-- **NÃO** instancie novos clientes Axios dentro de componentes ou stores do Pinia. Utilize sempre a instância globalmente configurada do Axios.
-- **NÃO** ignore o fluxo de redirecionamento do erro 401. Qualquer resposta 401 deve obrigatoriamente invalidar a sessão do usuário e redirecionar para a tela de login.
-- **NÃO** exiba erros brutos do banco de dados ou detalhes internos do backend para o usuário final. Mapeie sempre erros 500 para mensagens limpas e seguras.
-- **NÃO** insira credenciais, chaves de API ou segredos diretamente nos arquivos de configuração do frontend. Utilize variáveis de ambiente via `import.meta.env`.
-- **NÃO** escreva blocos try/catch individuais em todas as stores apenas para exibir mensagens de erro genéricas; confie no interceptador global centralizado para esta finalidade.
+- **Idioma:** comunique-se com o usuário humano sempre em Português (pt-BR), independentemente do idioma do corpo desta skill.
+- **GET ao backend NUNCA via Axios direto** em componentes ou serviços — sempre store MaxPinia com `isCached = true` e `options.get`.
+- **NÃO** configure `axios.defaults`, `baseURL`, interceptadores globais nem fluxo `/sanctum/csrf-cookie`: nada disso existe neste projeto e não deve ser introduzido para chamadas de API.
+- **NÃO** passe strings de path (`'/api/...'`) para os helpers — apenas NOMES de rota Ziggy pontilhados.
+- **Ramifique o fluxo pelo retorno** (`response.data` = ok; `null`/`false` = falha), **mas** lembre que um nome de rota inexistente **LANÇA** exceção (o `throw` de `resolveRoute` propaga); envolva em `try/catch` quando o nome não for uma constante confiável.
+- **NÃO** anexe headers de auth/CSRF manualmente em chamadas de API comuns — só para widgets de upload de terceiros, lendo de `useSystemStore`.
+- **NÃO** exponha erros brutos do backend ao usuário final; exiba mensagens limpas via `showToast` / `Toast.show` do `@maxvue/max-components-ui`.

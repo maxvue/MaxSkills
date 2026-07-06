@@ -14,7 +14,7 @@ Estabelecer diretrizes limpas, testáveis e consistentes para criar e manter cla
    - Salve todas as classes de service em `app/Services/` (ex: `app/Services/TrelloService.php`).
    - Use o namespace `App\Services`.
    - Nomeie os arquivos usando o sufixo `Service` (ex: `PaymentService.php`).
-   - **Este é o padrão default do projeto para lógica de domínio** (este codebase usa `app/Services`, não `app/Actions`). Para a distinção entre Services agrupados e classes Action de operação única, veja `laravel-action-classes-best-practices`.
+   - **Este é o padrão default do projeto para lógica de domínio**: o codebase usa `app/Services` (não há camada `app/Actions`). Concentre a lógica de negócio em Services; não crie classes Action de operação única.
 
 2. **Princípio da Responsabilidade Única (SRP)**:
    - Cada classe de Service deve focar em um único domínio ou em um conjunto de ações de negócio intimamente relacionadas.
@@ -27,7 +27,7 @@ Estabelecer diretrizes limpas, testáveis e consistentes para criar e manter cla
 
 4. **Assinaturas de Métodos e Data Transfer Objects (DTOs)**:
    - Evite passar arrays crus e não validados ou objetos de request diretamente para os métodos do Service.
-   - Use Data Transfer Objects (DTOs) tipados para os parâmetros de entrada (integre com `laravel-code-generators-best-practices`).
+   - Use Data Transfer Objects (DTOs) tipados para os parâmetros de entrada. No projeto os DTOs ficam em `app/Data/` (namespace `App\Data`, ex.: `App\Data\OrderData`).
    - Defina tipos de retorno explícitos (DTO, Model, Collection, array, etc.) para todos os métodos públicos.
 
 5. **Tratamento de Erros e Logging**:

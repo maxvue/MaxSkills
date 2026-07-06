@@ -21,7 +21,7 @@ O Engeapp possui classes wrapper para o Anti-Captcha em `App\Classes\Anticaptcha
 - **`App\Classes\Anticaptcha\Anticaptcha`**: Use o helper estático `image(string $path, array $options = [])` para tarefas rápidas de ImageToText. Ele cuida da instanciação, criação da tarefa e polling automaticamente.
 - **`App\Classes\Anticaptcha\ImageToText`**: Instanciação direta para CAPTCHAs visuais mais customizados.
   - Defina o arquivo de imagem usando `$api->setFile($filePath)`.
-  - Defina flags opcionais (ex.: `$api->phrase = true`, `$api->numeric = 1` para apenas números, `$api->case = true` para diferenciar maiúsculas/minúsculas).
+  - Defina flags opcionais booleanas (ex.: `$api->phrase = true`, `$api->numeric = true` para exigir apenas dígitos, `$api->case = true` para diferenciar maiúsculas/minúsculas). Para restringir tamanho use os inteiros `$api->minLength` / `$api->maxLength`.
   - Chame `$api->createTask()` para submeter.
   - Chame `$api->waitForResult()` para fazer polling da solução.
   - Recupere o texto resolvido com `$api->getTaskSolution()`.
@@ -55,7 +55,7 @@ if (!file_exists($imagePath)) {
 
 // Resolve usando o helper estático com opções customizadas (apenas números, diferencia maiúsculas/minúsculas)
 $solution = Anticaptcha::image($imagePath, [
-    'numeric' => 1,
+    'numeric' => true,
     'case' => true,
 ]);
 
@@ -81,7 +81,7 @@ if (!$api->setFile($imagePath)) {
 
 // Configura as opções
 $api->phrase = false;
-$api->numeric = 1; // 1 = apenas números
+$api->numeric = true; // flag booleana: exige que a solução contenha apenas dígitos
 $api->minLength = 4;
 $api->maxLength = 6;
 

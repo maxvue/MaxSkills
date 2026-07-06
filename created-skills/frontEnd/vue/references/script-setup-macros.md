@@ -37,19 +37,18 @@ const props = defineProps<{
   items: string[]
 }>()
 
-// With defaults (Vue 3.5+)
-const { title, count = 0 } = defineProps<{
-  title: string
-  count?: number
-}>()
-
-// With defaults (Vue 3.4 and below)
+// Com defaults — padrão adotado no engeapp (evite o Reactive Props Destructure)
 const props = withDefaults(defineProps<{
   title: string
   items?: string[]
 }>(), {
-  items: () => []  // Use factory for arrays/objects
+  items: () => []  // Use factory para arrays/objects
 })
+// Acesse via props.title, props.items
+
+// OBS.: o Reactive Props Destructure (const { title, count = 0 } = defineProps<...>(),
+// Vue 3.5+) existe, mas NO ENGEAPP É DESENCORAJADO. O código real usa
+// `const props = defineProps<{...}>()` e acessa `props.x`. Mantenha esse padrão.
 ```
 
 ## defineEmits
@@ -192,9 +191,13 @@ import { myDirective as vMyDirective } from './directives'
 
 Use `await` directly in `<script setup>`. The component becomes async and must be used with `<Suspense>`.
 
+No engeapp o dado vem de uma store MaxPinia ou de `apiGetRoute` (nome de rota Ziggy), nunca de `fetch('/api/...')`:
+
 ```vue
 <script setup lang="ts">
-const data = await fetch('/api/data').then(r => r.json())
+import { apiGetRoute } from '@maxvue/max-use'
+// nome de rota Ziggy pontilhado + params; a resolução é feita pelo resolvedor em app.ts
+const data = await apiGetRoute('project.station.elements', { station_id })
 </script>
 ```
 

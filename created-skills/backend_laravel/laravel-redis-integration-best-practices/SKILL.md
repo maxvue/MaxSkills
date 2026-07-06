@@ -1,6 +1,6 @@
 ---
 name: laravel-redis-integration-best-practices
-description: Use when configuring, optimizing, or debugging Redis database connections, queues, sessions, cache stores, pub/sub channels, or distributed locks in Laravel. Triggers on Redis facade usage, phpredis/predis config, cache tags, connection exceptions, and Horizon queue backend configurations.
+description: "Use ao configurar, otimizar ou depurar conexões Redis no backend Laravel do engeapp: cliente phpredis, prefixo/nomenclatura de chaves, controle de concorrência com operações atômicas (HSETNX em geckodriver_ports), pipelines, fallback resiliente a RedisException, cache tags (apenas em store Redis) e filas/Horizon. Aciona no uso do facade Redis, config de database.php e cache tags."
 ---
 
 # Boas Práticas de Integração com Redis no Laravel
@@ -14,22 +14,22 @@ Estabelecer diretrizes sólidas e padrões consistentes para configurar, otimiza
 
 ### 1. Cliente Redis e Configuração
 * **Cliente Padrão:** Sempre use `phpredis` como cliente padrão (por ser implementado em C e oferecer performance muito superior ao `predis`).
-* **Conexões Persistentes:** Garanta que `REDIS_PERSISTENT` esteja habilitado em ambientes de produção para evitar o overhead de estabelecer uma nova conexão a cada requisição.
-* **Timeout e Read Timeout:** Defina valores razoáveis para `timeout` e `read_timeout` (ex: 1.5s a 2.0s) para evitar que uma instância lenta do Redis bloqueie os web workers.
+* **Conexões Persistentes:** A config real usa `'persistent' => env('REDIS_PERSISTENT', false)`. Em produção, habilite `REDIS_PERSISTENT=true` no `.env` para evitar o overhead de abrir uma nova conexão a cada requisição — não altere o default do arquivo.
+* **Timeout e Read Timeout (sugestão, não presente hoje):** o `config/database.php` atual do engeapp **não** define `timeout`/`read_timeout`. Caso observe web workers bloqueados por uma instância lenta do Redis, considere adicionar essas chaves com valores razoáveis (ex.: 1.5s a 2.0s).
 
-Exemplo de configuração em `config/database.php`:
+Estrutura real em `config/database.php` (a partir da linha 192) — o exemplo abaixo reflete o arquivo do projeto e marca como comentário o que seria um acréscimo sugerido, não algo já configurado:
 ```php
 'redis' => [
     'client' => env('REDIS_CLIENT', 'phpredis'),
 
     'options' => [
-        'cluster' => env('REDIS_CLUSTER', 'redis'),
-        'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
-        'persistent' => env('REDIS_PERSISTENT', true),
-        'timeout' => 1.5,
-        'read_timeout' => 1.5,
+        'cluster'    => env('REDIS_CLUSTER', 'redis'),
+        'prefix'     => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
+        'persistent' => env('REDIS_PERSISTENT', false), // habilite via .env em produção
+        // 'timeout'      => 1.5, // sugestão de best-practice — NÃO existe hoje no projeto
+        // 'read_timeout' => 1.5, // sugestão de best-practice — NÃO existe hoje no projeto
     ],
-    // ... configuração das conexões ...
+    // ... configuração das conexões (default, cache, etc.) ...
 ],
 ```
 
@@ -51,25 +51,49 @@ class PaymentService
 }
 ```
 
-### 3. Locks Distribuídos para Controle de Concorrência
-Sempre use locks distribuídos para lógica de negócio crítica (ex: processamento de pagamentos, atualizações de estoque, criação concorrente de tickets) para evitar condições de corrida.
-* Use `Cache::lock($name, $seconds)`, que utiliza o driver de lock do Redis.
-* Utilize `block($seconds, callable)` para aguardar pelo lock se ele estiver atualmente em uso.
-* Envolva a lógica em um bloco `try/finally` ou passe uma closure para `block()` para garantir que o lock seja sempre liberado.
+### 3. Controle de Concorrência com Operações Atômicas do Redis
+Para lógica de negócio crítica (ex.: alocar um recurso escasso, evitar processamento duplicado) use operações atômicas do Redis para evitar condições de corrida.
+
+**Padrão real do projeto — alocação atômica de porta via `HSETNX`.** Em `app/Classes/Browser.php` (linha ~37) o engeapp reserva uma porta livre para o GeckoDriver percorrendo um intervalo e usando `Redis::hsetnx()`, que só grava o campo se ele ainda não existir (retorna `true` uma única vez por chave, mesmo sob concorrência). Esse é o mecanismo de lock/reserva efetivamente usado no código:
+
+```php
+use Illuminate\Support\Facades\Redis;
+
+$port = null;
+// Percorre o intervalo de portas até conseguir reservar uma atomicamente
+for ($p = 44500; $p <= 44599; $p++) {
+    // hsetnx só grava (e retorna true) se o campo ainda não existir — atômico
+    if (Redis::hsetnx('geckodriver_ports', $p, now()->timestamp)) {
+        $port = $p;
+
+        break;
+    }
+}
+
+if ( ! $port) {
+    throw new Exception('Nenhuma porta disponível para o GeckoDriver.');
+}
+
+// ... ao terminar, libere o recurso:
+// Redis::hdel('geckodriver_ports', $port);
+```
+
+**Alternativa Laravel-native (`Cache::lock`) — ainda não usada no projeto.** Para regiões críticas mais genéricas, o Laravel oferece locks atômicos via `Cache::lock()`. No engeapp o store de cache padrão é `database` (ver Seção 6); o lock usa a `lock_connection` do store Redis (`config/cache.php`, store `redis`). Se for adotar, aponte para uma conexão Redis e sempre libere o lock em `finally`/closure:
 
 ```php
 use Illuminate\Support\Facades\Cache;
 
-$lock = Cache::lock('payment_lock_user_' . $userId, 10);
+// Requer um store com lock via Redis (ex.: Cache::store('redis')->lock(...))
+$lock = Cache::store('redis')->lock('payment_lock_user_' . $userId, 10);
 
 try {
-    // Bloqueia por até 5 segundos aguardando pelo lock
+    // Bloqueia por até 5 segundos aguardando o lock
     $lock->block(5, function () use ($paymentData) {
         // Lógica crítica de transação/pagamento aqui
     });
 } catch (\Illuminate\Contracts\Cache\LockTimeoutException $e) {
     // Trata a falha de aquisição do lock de forma elegante
-    throw new PaymentProcessingException('Process already in execution. Please try again in a few seconds.', 429);
+    throw new PaymentProcessingException('Processo já em execução. Tente novamente em alguns segundos.', 429);
 }
 ```
 
@@ -112,16 +136,23 @@ public function getActivePorts(): array
 ```
 
 ### 6. Cache Tags e Invalidação
-A orientação sobre Cache Tags é **única e canônica** em `laravel-cache-best-practices` ("Orientação única sobre Cache Tags") — siga-a e não a duplique/contradiga aqui. Resumo aplicável ao Redis: o Redis não suporta tags nativamente; o Laravel as implementa via chaves de rastreamento adicionais, que consomem memória. Use tags apenas para grupos de **cardinalidade moderada** e **evite-as ao cachear milhões de chaves** (prefira invalidação por chave/prefixo). Sempre faça `flush()` **seletivo por tag**, nunca limpe o cache inteiro.
+A orientação sobre Cache Tags é **única e canônica** em `laravel-cache-best-practices` ("Orientação única sobre Cache Tags") — siga-a e não a duplique/contradiga aqui.
+
+> **Estado real do projeto:** o engeapp roda com `CACHE_STORE=database` por padrão (`config/cache.php` linha 18 e `.env.example` linha 45), driver que **NÃO suporta cache tags**. Não há nenhum uso de `Cache::tags()` no código hoje. O exemplo abaixo só é válido se a chamada apontar explicitamente para um store baseado em Redis/Memcached (`Cache::store('redis')`); usar tags no store `database`/`file` lança exceção.
+
+Resumo aplicável ao Redis: o Redis não suporta tags nativamente; o Laravel as implementa via chaves de rastreamento adicionais, que consomem memória. Use tags apenas para grupos de **cardinalidade moderada** e **evite-as ao cachear milhões de chaves** (prefira invalidação por chave/prefixo). Sempre faça `flush()` **seletivo por tag**, nunca limpe o cache inteiro.
 
 ```php
 use Illuminate\Support\Facades\Cache;
 
-// Armazenando com tags (driver Redis/Memcached)
-Cache::tags(['solar-data', 'nasa-power'])->put($cacheKey, $data, now()->addDays(7));
+// Só funciona em um store que suporte tags (Redis/Memcached) — NÃO no store 'database' padrão do projeto.
+$redisCache = Cache::store('redis');
+
+// Armazenando com tags
+$redisCache->tags(['solar-data', 'nasa-power'])->put($cacheKey, $data, now()->addDays(7));
 
 // Invalidando por tag (flush seletivo)
-Cache::tags(['solar-data'])->flush();
+$redisCache->tags(['solar-data'])->flush();
 ```
 
 ### 7. Ajuste do Horizon e das Filas

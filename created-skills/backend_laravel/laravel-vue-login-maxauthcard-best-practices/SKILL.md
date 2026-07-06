@@ -93,19 +93,37 @@ const social = (provider: string) => {
 };
 ```
 
-Carregue os provedores no mount e mapeie para o formato do card:
+Carregue os provedores no mount e mapeie para o formato do card. No **mesmo** `onMounted`, leia o `?error=` deixado pelo redirect do callback social (fecha o ciclo de feedback do erro):
 
 ```ts
 const PROVIDER_MAP = {
   google:   { label: 'Google',   icon: 'mdi:google',   class: 'btn-google' },
   facebook: { label: 'Facebook', icon: 'mdi:facebook', class: 'btn-facebook' },
 };
-onMounted(async () => {
+
+// As CHAVES devem casar 1:1 com os códigos do SocialiteController.
+const SOCIAL_ERROR_MESSAGES = {
+  invalid_provider: 'Provedor de login inválido.',
+  oauth_failed:     'Não foi possível autenticar com o provedor. Tente novamente.',
+  no_email:         'Sua conta social não forneceu um e-mail. Use e-mail e senha.',
+};
+
+const loadProviders = async () => {
   const ids = await apiGetRoute('social.providers');        // ['google', ...]
   providers.value = (ids ?? []).filter(id => PROVIDER_MAP[id])
     .map(id => ({ id, ...PROVIDER_MAP[id] }));
-});
+};
+
+// Lê o ?error= da URL (redirect do backend) e exibe a mensagem no card.
+const loadUrlError = () => {
+  const code = new URLSearchParams(window.location.search).get('error');
+  if (code && SOCIAL_ERROR_MESSAGES[code]) error.value = SOCIAL_ERROR_MESSAGES[code];
+};
+
+// Na página: onMounted(() => { login.loadProviders(); login.loadUrlError(); });
 ```
+
+> O fluxo do erro social é **backend redireciona para `/login?error=<código>` → frontend lê com `loadUrlError()` → card mostra a mensagem**. Se os códigos do controller e as chaves de `SOCIAL_ERROR_MESSAGES` divergirem, ou se o backend redirecionar para `/` em vez de `/login`, o usuário nunca vê o erro.
 
 ### Usuário atual via store MaxPinia
 
@@ -120,7 +138,9 @@ export const useUserStore = defineStore('user', () => {
     save: 'user.save',             // auto-save ao alterar data
     key: 'user',
   }));
-  // waitRequest(): resolve quando a 1ª busca de sessão concluir (evita race no guard)
+  // waitRequest(): resolve quando a 1ª busca de sessão concluir COM SUCESSO — observa
+  // status.server.get.is_success (NÃO is_requested); só is_success garante user.data populado
+  // antes de o guard checar user.data?.id (evita race no reload).
   return { data, isCached, options, waitRequest };
 });
 ```
@@ -152,7 +172,8 @@ router.beforeEach(async (to, _from, next) => {
 - [ ] `MaxAuthCard` sem nenhuma lógica de HTTP/store; só emite `submit`/`social`.
 - [ ] Login via `apiPostRoute('login', ...)`; social via `window.location.href = route('social.redirect', { provider })`.
 - [ ] `user.data` vem da store MaxPinia (`get: { route: 'user.data' }`), não de axios solto.
-- [ ] Guard usa `await user.waitRequest()` antes de checar `user.data?.id`.
+- [ ] Guard usa `await user.waitRequest()` antes de checar `user.data?.id`; `waitRequest` observa `status.server.get.is_success` (não `is_requested`).
+- [ ] Erro social: backend redireciona para `/login?error=<código>`; frontend chama `loadUrlError()` no mount; códigos (`invalid_provider`/`oauth_failed`/`no_email`) casam com `SOCIAL_ERROR_MESSAGES`.
 - [ ] Axios com `withCredentials`/`withXSRFToken` e interceptor de 401; resolver do Ziggy registrado no MaxUse.
 
 ## Skills relacionadas (não duplicar — referenciar)

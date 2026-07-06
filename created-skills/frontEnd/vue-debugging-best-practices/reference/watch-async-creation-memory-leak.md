@@ -24,6 +24,7 @@ Always manually stop watchers that are created asynchronously, or restructure yo
 ```vue
 <script setup>
 import { ref, watch, watchEffect, onMounted } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const data = ref(null)
 
@@ -47,7 +48,7 @@ onMounted(async () => {
 })
 
 // BAD: Watcher in Promise callback
-fetch('/api/config').then(() => {
+apiGetRoute('app.config').then(() => {
   watch(data, () => {
     // Leaks memory!
   })

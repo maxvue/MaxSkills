@@ -1,6 +1,6 @@
 ---
 name: laravel-livekit-server-sdk-best-practices
-description: Use when creating, updating, or debugging LiveKit WebRTC audio/video services, generating access tokens for rooms, managing LiveKit rooms, or handling room events and Webhooks. Triggers on LiveKit SDK integration, AccessToken generation, and RoomServiceClient usage.
+description: Use ao criar, atualizar ou depurar serviços de áudio/vídeo WebRTC com o LiveKit Server SDK (agence104/livekit-server-sdk) no Laravel — gerar AccessToken JWT com VideoGrant para salas e gerenciar salas via RoomServiceClient (createRoom com RoomCreateOptions, deleteRoom, listParticipants) com tratamento de exceções. Acione em LiveKitService, geração de token e RoomServiceClient.
 ---
 
 # Boas Práticas do LiveKit Server SDK no Laravel
@@ -41,6 +41,7 @@ Fornecer diretrizes sólidas e padrões consistentes para integrar o LiveKit Ser
   $host = str_replace(['ws://', 'wss://'], ['http://', 'https://'], $wsUrl);
   ```
 * **Operações:** Use os métodos do `RoomServiceClient` para criar (`createRoom`), deletar/encerrar (`deleteRoom`) e listar participantes (`listParticipants`) dinamicamente no servidor.
+* **Assinatura de `createRoom`:** O SDK declara `createRoom(RoomCreateOptions $createOptions): Room`. **Nunca** passe um array — isso causa `TypeError`. Construa as opções via fluent setters: `(new RoomCreateOptions)->setName($roomName)->setMaxParticipants($maxParticipants)`.
 
 ### 4. Tratamento de Exceções e Logging
 * **Wrappers Robustos:** Sempre envolva as chamadas REST do LiveKit Server (ex: `createRoom`, `deleteRoom`, `listParticipants`) em blocos `try-catch`.
@@ -56,6 +57,7 @@ namespace App\Services;
 
 use Agence104\LiveKit\AccessToken;
 use Agence104\LiveKit\AccessTokenOptions;
+use Agence104\LiveKit\RoomCreateOptions;
 use Agence104\LiveKit\RoomServiceClient;
 use Agence104\LiveKit\VideoGrant;
 use Exception;
@@ -134,16 +136,40 @@ class LiveKitService
     {
         try {
             $client = $this->getRoomServiceClient();
-            return $client->createRoom([
-                'name' => $roomName,
-                'max_participants' => $maxParticipants,
-            ]);
+
+            // A SDK exige um objeto RoomCreateOptions — passar array causa TypeError.
+            $options = (new RoomCreateOptions())
+                ->setName($roomName)
+                ->setMaxParticipants($maxParticipants);
+
+            return $client->createRoom($options);
         } catch (Exception $e) {
             Log::error('Erro ao criar sala no LiveKit Server', [
                 'room_name' => $roomName,
                 'exception' => $e->getMessage(),
             ]);
             throw $e;
+        }
+    }
+
+    /**
+     * Lista os participantes ativos de uma sala no servidor LiveKit.
+     *
+     * @param string $roomName Nome/Slug da sala.
+     * @return array<int, mixed> Lista de participantes ativos.
+     */
+    public function listParticipants(string $roomName): array
+    {
+        try {
+            $client = $this->getRoomServiceClient();
+            return $client->listParticipants($roomName);
+        } catch (Exception $e) {
+            Log::error('Erro ao listar participantes no LiveKit Server', [
+                'room_name' => $roomName,
+                'exception' => $e->getMessage(),
+            ]);
+
+            return [];
         }
     }
 

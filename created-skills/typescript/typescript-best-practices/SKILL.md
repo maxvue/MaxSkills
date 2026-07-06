@@ -9,7 +9,7 @@ Follows type-first, functional, and error handling patterns from CLAUDE.md. This
 
 ## Pair with Vue Best Practices
 
-When working with Vue components (`.vue`, `.ts` files no target Maxdmin/EngeApp), use `vue-typescript-best-practices` e `vue-best-practices` em conjunto com esta skill. O target deste projeto é Vue 3 — não React.
+Ao trabalhar com componentes Vue (arquivos `.vue` e `.ts` do EngeApp), use `vue-typescript-best-practices` e `vue-best-practices` em conjunto com esta skill. O alvo deste projeto é Vue 3 — não React.
 
 ## No `any` — hard rule
 
@@ -94,17 +94,7 @@ function processStatus(status: Status): string {
 - **Refer to the API implementation** when defining or refining types to ensure they match the actual data structure — before adding a cast, first consider whether the type should be refined instead.
 - **Derive union types from constants** (`as const` + `typeof`/`keyof`) so type and values can't drift.
 - **`readonly` / immutability where mutation isn't intended** — component props, shared constants, exported config. Prefer `readonly T[]` / `ReadonlyArray<T>` for inputs you don't mutate.
-- **Type async and error states explicitly** (a discriminated union or the data layer's typed result) — never leave loading/error/empty implicit.
-- For exhaustive matching over a discriminated union, `ts-pattern`'s `.exhaustive()` is an alternative to the `never`-check switch above, turning a new variant into a compile error:
-  ```ts
-  import { match, P } from "ts-pattern";
-
-  const label = match(status)
-    .with({ type: "loading" }, () => "Carregando…")
-    .with({ type: "error", error: P.select() }, (error) => `Erro: ${error.message}`)
-    .with({ type: "success", data: P.select() }, (data) => data.title)
-    .exhaustive();
-  ```
+- **Type async and error states explicitly** (a discriminated union or the data layer's typed result) — never leave loading/error/empty implicit. Para casamento exaustivo sobre uma união discriminada, use o `switch` com `never`-check mostrado acima (nenhuma lib de pattern-matching está instalada no stack).
 
 ## Null and Undefined
 
@@ -114,58 +104,13 @@ function processStatus(status: Status): string {
 - **Avoid non-strict null comparisons** (`X != null`) when `X` can never be `null` — use a strict check or narrow the type.
 - **Check actual nullability against the API implementation** — find the endpoint and confirm whether the field can really be null.
 
-## Runtime Validation with Zod
+## Contratos de Dados na Fronteira
 
-- Define schemas as single source of truth; infer TypeScript types with `z.infer<>`. Avoid duplicating types and schemas.
-- Use `safeParse` for user input where failure is expected; use `parse` at trust boundaries where invalid data is a bug.
-- Compose schemas with `.extend()`, `.pick()`, `.omit()`, `.merge()` for DRY definitions.
-- Add `.transform()` for data normalization at parse time (trim strings, parse dates).
+O stack (engeapp) NÃO usa validadores de runtime como Zod — nenhuma lib desse tipo está instalada. Os tipos de domínio vêm gerados a partir do backend: DTOs em `spatie/laravel-data` (^4.23) convertidos em tipos TS por `spatie/laravel-typescript-transformer` (^3.2). Esses tipos gerados são a fonte de verdade dos contratos de API.
 
-```ts
-import { z } from "zod";
-
-const UserSchema = z.object({
-  id: z.uuid(),
-  email: z.email(),
-  name: z.string().min(1),
-  createdAt: z.string().transform((s) => new Date(s)),
-});
-
-type User = z.infer<typeof UserSchema>;
-
-// Strict parsing at trust boundaries — throws if API contract violated
-export async function fetchUser(id: string): Promise<User> {
-  const response = await fetch(`/api/users/${id}`);
-  if (!response.ok) {
-    throw new Error(`fetch user ${id} failed: ${response.status}`);
-  }
-  return UserSchema.parse(await response.json());
-}
-
-// Caller handles both success and error from user input
-const result = UserSchema.safeParse(formData);
-if (!result.success) {
-  setErrors(z.flattenError(result.error).fieldErrors);
-  return;
-}
-```
-
-## Optional: type-fest
-
-For advanced type utilities beyond TypeScript builtins, consider [type-fest](https://github.com/sindresorhus/type-fest):
-
-- `Opaque<T, Token>` - cleaner branded types than manual `& { __brand }` pattern
-- `PartialDeep<T>` - recursive partial for nested objects
-- `ReadonlyDeep<T>` - recursive readonly for immutable data
-- `SetRequired<T, K>` / `SetOptional<T, K>` - targeted field modifications
-- `Simplify<T>` - flatten complex intersection types in IDE tooltips
-
-```ts
-import type { Opaque, PartialDeep } from 'type-fest';
-
-type UserId = Opaque<string, 'UserId'>;
-type UserPatch = PartialDeep<User>;
-```
+- Consuma e componha os tipos gerados; não os redeclare manualmente (veja "Type Modeling").
+- Para dados vindos de fora do contrato (entrada não confiável, valores de terceiros), trate como `unknown` e estreite com um type guard antes de usar — sem validador de runtime.
+- Não introduza uma biblioteca de validação de schema sem alinhar com o time; a arquitetura atual deriva os tipos do backend, não de schemas no front.
 
 ## TypeScript Migration
 
@@ -173,7 +118,12 @@ When touching existing JavaScript files, propose converting them to TypeScript f
 
 ## Verify Before Done
 
-Run the project type-check when finished (`npm run typecheck`, i.e. `tsc --noEmit -p tsconfig.json`).
+Rode o type-check do projeto ao terminar, usando o script real de cada projeto (nunca `tsc` cru):
+
+- **engeapp:** `npm run typecheck:tsgo` (`tsgo --noEmit`, via `@typescript/native-preview`).
+- **MaxUse / MaxComponentsUi / MaxPinia:** `npm run type-check` (`vue-tsc --noEmit`); MaxUse e MaxComponentsUi também expõem `npm run typecheck:tsgo`.
+
+Confira o `package.json` do projeto em que está editando para o nome exato do script.
 
 ## Constraints
 - **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

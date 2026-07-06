@@ -6,61 +6,71 @@
 
 ### Basic Configuration
 
-```typescript
-// vite.config.ts
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import { fileURLToPath, URL } from 'node:url'
+O EngeApp mantém o código-fonte em `resources/` (não `src/`). Aliases reais:
 
-export default defineConfig({
-  plugins: [vue()],
+```typescript
+// vite.config.ts (trecho real — resolve.alias)
+import path from 'path'
+
+export default defineConfig(() => ({
   resolve: {
+    dedupe: ['pinia', 'vue', 'vue-router'],
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '@components': fileURLToPath(new URL('./src/components', import.meta.url)),
-      '@composables': fileURLToPath(new URL('./src/composables', import.meta.url)),
-      '@stores': fileURLToPath(new URL('./src/stores', import.meta.url))
+      '@': path.resolve(__dirname, './resources'),
+      '@stores': path.resolve(__dirname, './resources/Stores'),
+      '@components': path.resolve(__dirname, './resources/Vue/Components'),
+      '@pages': path.resolve(__dirname, './resources/Vue/Pages'),
+      '@sections': path.resolve(__dirname, './resources/Vue/Sections'),
+      '@layouts': path.resolve(__dirname, './resources/Vue/Layouts'),
+      '@functions': path.resolve(__dirname, './resources/Functions'),
+      '@theme': path.resolve(__dirname, './resources/Theme')
     }
   }
-})
+}))
 ```
 
 ### Essential Plugins
 
 ```typescript
-// vite.config.ts
-import { defineConfig } from 'vite'
+// vite.config.ts (trecho real — simplificado)
+import laravel from 'laravel-vite-plugin'
 import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
-import VueDevTools from 'vite-plugin-vue-devtools'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import { defineConfig } from 'vite'
+import { maxUseAutoImport } from '@maxvue/max-use'
+import { MaxComponentsUiResolver } from '@maxvue/max-components-ui/resolver'
 
-export default defineConfig({
+export default defineConfig(() => ({
   plugins: [
-    vue(),
+    // Integração Laravel + Vite (mesma origem; entradas em resources/).
+    laravel({ input: ['@/Theme/All.scss', '@/app.ts'], refresh: true }),
 
     // UnoCSS (presetMaxUno + attributify) — ver uno.config.ts
     UnoCSS(),
 
-    // Vue DevTools integration
-    VueDevTools(),
+    vue(),
 
-    // Auto-import components — os Max* de @maxvue/max-components-ui são auto-resolvidos.
-    Components({
-      dirs: ['src/components'],
-      dts: 'src/components.d.ts'
+    // Auto-import de Vue APIs + composables/helpers do MaxUse + defineStore do pinia.
+    AutoImport({
+      imports: ['vue', ...(Array.isArray(maxUseAutoImport) ? maxUseAutoImport : [maxUseAutoImport]),
+        { pinia: ['defineStore'] }, { '@maxvue/max-pinia': ['useAsyncStatus'] }, { axios: [['default', 'axios']] }],
+      dts: './auto-import.d.ts',
+      vueTemplate: true,
+      dirs: ['./resources/Functions/**', './resources/Helpers/**', './resources/Types/**', './resources/Stores/**']
     }),
 
-    // Auto-import Vue APIs, vue-router, stores e composables do MaxUse.
-    AutoImport({
-      imports: ['vue', 'vue-router', 'pinia'],
-      dts: 'src/auto-imports.d.ts',
-      dirs: ['src/composables', 'src/stores'],
-      vueTemplate: true
+    // Auto-import de componentes — os Max* são resolvidos por MaxComponentsUiResolver.
+    Components({
+      dirs: ['./resources/Vue', './resources/components'],
+      extensions: ['vue', 'js', 'ts', 'store.ts'],
+      deep: true,
+      dts: './auto-import-components.d.ts',
+      resolvers: [MaxComponentsUiResolver() as any]
     })
   ]
-})
+}))
 ```
 
 > UnoCSS usa `presetMaxUno()` (de `@maxvue/max-components-ui/preset`), `presetWind3()`,
@@ -69,64 +79,46 @@ export default defineConfig({
 
 ### Environment Variables
 
+O EngeApp é um SPA Vue **servido pelo Laravel na mesma origem** (via `laravel-vite-plugin`). Não há
+backend Node nem proxy `/api` → `localhost:3000`: a API vive na própria origem e as chamadas usam **nomes
+de rota (Ziggy)** resolvidos pelos helpers do `@maxvue/max-use` — não existe `VITE_API_URL`.
+
 ```typescript
-// .env
-VITE_API_URL=https://api.example.com
-VITE_APP_TITLE=My App
+// Variáveis realmente usadas (definidas no vite.config.ts / .env)
+VITE_HOST=dev.engeapp.com.br   // host de dev com HTTPS local
 
-// .env.development
-VITE_API_URL=http://localhost:3000
-
-// .env.production
-VITE_API_URL=https://api.production.com
+// Injetadas via `define` no vite.config.ts a partir do package.json:
+import.meta.env.VITE_APP_VERSION   // versão do app
+import.meta.env.VITE_APP_SANDBOX   // true quando host === dev.engeapp.com.br
 ```
 
 ```typescript
-// Usage in code
-const apiUrl = import.meta.env.VITE_API_URL
+// Uso em código
 const isDev = import.meta.env.DEV
 const isProd = import.meta.env.PROD
-const mode = import.meta.env.MODE
-
-// Type declarations (env.d.ts)
-/// <reference types="vite/client" />
-interface ImportMetaEnv {
-  readonly VITE_API_URL: string
-  readonly VITE_APP_TITLE: string
-}
+const version = import.meta.env.VITE_APP_VERSION
 ```
 
-```typescript
-// vite.config.ts - Define global constants
-export default defineConfig({
-  define: {
-    __APP_VERSION__: JSON.stringify(process.env.npm_package_version),
-    __BUILD_TIME__: JSON.stringify(new Date().toISOString())
-  }
-})
-```
+### Dev Server (Laravel + HTTPS local)
 
-### Dev Server Proxy
+O dev server roda sob o host customizado com TLS local; sem proxy `/api` (mesma origem do Laravel).
 
 ```typescript
-// vite.config.ts
-export default defineConfig({
+// vite.config.ts (trecho real — simplificado)
+const customHost = process.env.VITE_HOST || 'dev.engeapp.com.br'
+
+export default defineConfig(() => ({
   server: {
-    port: 5173,
-    host: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '')
-      },
-      '/ws': {
-        target: 'ws://localhost:3000',
-        ws: true
-      }
-    }
+    host: customHost,
+    allowedHosts: true,
+    cors: { origin: `https://${customHost}` },
+    hmr: { host: customHost },
+    https: fs.existsSync('dev.engeapp.com.br.key') ? {
+      key: fs.readFileSync('dev.engeapp.com.br.key'),
+      cert: fs.readFileSync('dev.engeapp.com.br.crt')
+    } : undefined
   }
-})
+}))
 ```
 
 ---
@@ -215,15 +207,16 @@ export default defineConfig({
 
 ### Tree Shaking Best Practices
 
-```typescript
-// Good: Named imports enable tree shaking
-import { ref, computed, watch } from 'vue'
-import { storeToRefs } from 'pinia'
-import { format, parseISO } from 'date-fns'
+No EngeApp não se importa `date-fns` nem `@vueuse/core`/`lodash` crus: datas usam `dayjs` **via**
+`@maxvue/max-use` (`useDateFormat`, `useTimeAgo`) e utilitários vêm do próprio MaxUse. Imports nomeados
+ainda ajudam o tree-shaking nas libs que você de fato usar.
 
-// Bad: Namespace imports include everything
-import * as Vue from 'vue'
-import * as dateFns from 'date-fns'
+```typescript
+// Bom: imports nomeados permitem tree shaking (MaxUse é auto-importado no projeto)
+import { useDateFormat, useTimeAgo } from '@maxvue/max-use'
+
+// Ruim: imports de namespace trazem tudo
+import * as maxUse from '@maxvue/max-use'
 ```
 
 ```typescript
@@ -282,8 +275,8 @@ export default defineConfig({
           // Ecossistema Max (UI + composables + stores cacheadas)
           'max': ['@maxvue/max-components-ui', '@maxvue/max-use', '@maxvue/max-pinia'],
 
-          // Utility libraries
-          'utils': ['date-fns', 'axios']
+          // Utility libraries realmente usadas no projeto (datas via dayjs; HTTP via axios)
+          'utils': ['dayjs', 'axios']
         }
       }
     }
@@ -425,10 +418,10 @@ export default defineConfig({
     cssCodeSplit: false
   },
 
-  // Optimize dependency pre-bundling
+  // Optimize dependency pre-bundling.
+  // No EngeApp as libs Max locais são EXCLUÍDAS do pre-bundle (resolvidas por alias para o source):
   optimizeDeps: {
-    include: ['vue', 'vue-router', 'pinia', 'axios'],
-    exclude: ['your-local-package']
+    exclude: ['@maxvue/max-components-ui', '@maxvue/max-use']
   }
 })
 ```

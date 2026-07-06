@@ -38,10 +38,12 @@ Estabelecer diretrizes sólidas e padrões consistentes para agendamento, monito
 ### 3. Gerenciamento de Logs e Controle de Saída
 - **Redirecionamento de Saída:** Nunca deixe as saídas das tarefas desaparecerem. Sempre anexe as saídas padrão e os streams de erro a arquivos de log dedicados ou direcione-os para handlers customizados.
 - **Hooks de Erro:** Utilize os hooks de callback de falha e sucesso para registrar anomalias ou disparar alertas.
-- **Limpeza dos Logs no Banco do Totem (Política de Retenção):** O Totem registra cada status de execução e saída na tabela `totem_task_results`. O Totem **não** fornece nenhum comando de limpeza (apenas `totem:list` e `totem:assets`), então faça a poda com uma pequena deleção agendada para evitar o inchaço do banco de dados:
+- **Limpeza dos Logs no Banco do Totem (Política de Retenção):** O Totem registra cada status de execução e saída na tabela `task_results` (o nome pode ganhar prefixo se `TOTEM_TABLE_PREFIX` estiver definido; no engeapp está vazio, então é `task_results`).
+- **Prefira o auto-cleanup nativo por tarefa.** Cada tarefa do Totem tem os campos `auto_cleanup_num` e `auto_cleanup_type` (colunas na tabela `tasks`, editáveis pela própria UI do Totem no formulário da tarefa). O método `Task::autoCleanup()` roda automaticamente após cada execução: com `auto_cleanup_num > 0` ele poda a `task_results` daquela tarefa, ou mantendo apenas os N resultados mais recentes (`auto_cleanup_type = 'results'`), ou apagando resultados mais antigos que N dias (qualquer outro `auto_cleanup_type`). Configure essa retenção por tarefa na UI em vez de agendar deleções manuais — isso mantém a poda vinculada à tarefa e limitada ao seu próprio histórico.
+- **Poda manual só como fallback.** O Totem **não** expõe comando artisan de limpeza (registra apenas `schedule:list` e `totem:assets`). Portanto, use uma deleção agendada apenas para schedules que NÃO passam pelo Totem (registrados direto em `routes/console.php`), ou para uma varredura global de segurança:
   ```php
-  // routes/console.php
-  Schedule::call(fn () => DB::table('totem_task_results')
+  // routes/console.php — fallback para o que não é gerenciado pelo Totem
+  Schedule::call(fn () => DB::table('task_results')
       ->where('created_at', '<', now()->subDays(7))->delete())->daily();
   ```
 
@@ -85,9 +87,9 @@ Estabelecer diretrizes sólidas e padrões consistentes para agendamento, monito
 - **NUNCA** escreva processamento pesado, requisições HTTP ou consultas cruas ao banco de dados diretamente dentro das closures de `routes/console.php`. Sempre delegue a um Artisan command ou a um Job de fila.
 - **NUNCA** omita `withoutOverlapping()` para tarefas de limpeza ou sincronização que possam demorar mais do que seu intervalo de execução.
 - **NUNCA** execute comandos sem especificar limites de ambiente se eles modificam dados de teste ou fazem mock de integrações com APIs externas.
-- **NUNCA** use `echo` puro do PHP ou saídas padrão dentro das closures de comando do scheduler; sempre utilize logging estruturado via `Log::channel()`.
+- **NUNCA** use `echo` puro do PHP ou saídas padrão dentro das closures de comando do scheduler; sempre utilize logging estruturado via `Log::channel()` apontando para um canal **existente** em `config/logging.php` (ex.: `jobs` ou `automations`). Não invente canais: `Log::channel('scheduler')` lança `InvalidArgumentException` em runtime porque esse canal não existe no engeapp. Se precisar de um canal dedicado, crie-o antes em `config/logging.php`.
 - **NUNCA** exponha a rota do dashboard `/tasks` (ou o prefixo configurado) ao público. Proteja-a atrás de gates de autenticação.
-- **NUNCA** agende um comando de alta frequência sem configurar uma política de limpeza de logs correspondente (pode `totem_task_results` via uma deleção agendada — o Totem não tem comando `totem:cleanup`).
+- **NUNCA** agende um comando de alta frequência sem configurar uma política de retenção de logs correspondente. Para tarefas gerenciadas pelo Totem, prefira o auto-cleanup nativo por tarefa (`auto_cleanup_num`/`auto_cleanup_type`, configurável na UI); para o restante, use uma deleção agendada na `task_results` (o Totem não tem comando `totem:cleanup`).
 - **NÃO** execute chamadas bloqueantes a APIs de terceiros dentro de comandos agendados sem um timeout HTTP explícito.
 
 ## Exemplos
@@ -107,7 +109,7 @@ Schedule::command('geckodriver:cleanup-ports')
     ->runInBackground()
     ->appendOutputTo(storage_path('logs/geckodriver-cleanup.log'))
     ->onFailure(function () {
-        Log::channel('scheduler')->error('Geckodriver ports cleanup task failed.');
+        Log::channel('jobs')->error('Geckodriver ports cleanup task failed.');
     });
 
 // 2. Queue Job agendado para rodar em um único servidor, restrito à produção

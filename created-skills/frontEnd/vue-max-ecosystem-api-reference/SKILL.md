@@ -34,7 +34,7 @@ uma vez):
 
 | Biblioteca | Pacote | O que consultar | Arquivo |
 |-----------|--------|-----------------|---------|
-| **MaxComponentsUi** | `@maxvue/max-components-ui` | Todos os 70 componentes `Max*` — props, v-model, emits, slots, expose, exemplo; e as stores/helpers públicos (useConfirmStore, toast, etc.) | [references/maxcomponentsui.md](references/maxcomponentsui.md) |
+| **MaxComponentsUi** | `@maxvue/max-components-ui` | Todos os 68 componentes `Max*` — props, v-model, emits, slots, expose, exemplo; e as stores/helpers públicos (useConfirmStore, toast, etc.) | [references/maxcomponentsui.md](references/maxcomponentsui.md) |
 | **MaxUse** | `@maxvue/max-use` | Composables (useRefCached…), rotas (`apiGetRoute`, `goToRoute`…), helpers de data/browser, o objeto `_` e o re-export do VueUse | [references/maxuse.md](references/maxuse.md) |
 | **MaxPinia** | `@maxvue/max-pinia` | Contrato do store cacheado: `isCached`, `options.get/save/key`, `status`, métodos injetados (`reload`, `clearAll`, `saveInServer`), ciclo de vida | [references/maxpinia.md](references/maxpinia.md) |
 

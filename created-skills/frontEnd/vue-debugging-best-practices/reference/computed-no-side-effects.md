@@ -24,6 +24,7 @@ Computed properties are designed to declaratively describe how to derive a value
 ```vue
 <script setup>
 import { ref, computed } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const items = ref([])
 const count = ref(0)
@@ -37,8 +38,8 @@ const doubledCount = computed(() => {
 
 // BAD: Makes async request
 const userData = computed(async () => {
-  const response = await fetch('/api/user')  // Side effect - API call!
-  return response.json()
+  const response = await apiGetRoute('usuario.atual')  // Side effect - API call!
+  return response
 })
 
 // BAD: Modifies DOM
@@ -59,6 +60,7 @@ const processedData = computed(() => {
 ```vue
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const items = ref([])
 const count = ref(0)
@@ -69,10 +71,9 @@ const doubledCount = computed(() => {
   return count.value * 2
 })
 
-// GOOD: Use lifecycle hook for initial fetch
+// GOOD: Use lifecycle hook for initial fetch (apiGetRoute = nome de rota Ziggy pontilhado)
 onMounted(async () => {
-  const response = await fetch('/api/user')
-  userData.value = await response.json()
+  userData.value = await apiGetRoute('usuario.atual')
 })
 
 // GOOD: Pure filtering

@@ -13,7 +13,11 @@ Código de referência do frontend de login do engeapp. Sem Inertia. Vue Router 
 
 <script setup lang="ts">
   const login = useLoginStore();
-  onMounted(login.loadProviders);
+  // No mount: carrega os provedores E lê o ?error= deixado pelo redirect social.
+  onMounted(() => {
+    login.loadProviders();
+    login.loadUrlError();
+  });
 </script>
 ```
 
@@ -87,7 +91,22 @@ export const useLoginStore = defineStore('login', () => {
       .map((id) => ({ id, ...PROVIDER_MAP[id] }));
   };
 
-  return { loading, value, password, remember, error, providers, submit, social, loadProviders };
+  // Mensagens exibidas quando o callback social redireciona com ?error=.
+  // As CHAVES devem casar 1:1 com os códigos do SocialiteController (invalid_provider,
+  // oauth_failed, no_email). Divergir aqui = card silencioso.
+  const SOCIAL_ERROR_MESSAGES: Record<string, string> = {
+    invalid_provider: 'Provedor de login inválido.',
+    oauth_failed:     'Não foi possível autenticar com o provedor. Tente novamente.',
+    no_email:         'Sua conta social não forneceu um e-mail. Use e-mail e senha.',
+  };
+
+  // Lê ?error= da URL (deixado pelo redirect do backend) e popula error para o card exibir.
+  const loadUrlError = () => {
+    const code = new URLSearchParams(window.location.search).get('error');
+    if (code && SOCIAL_ERROR_MESSAGES[code]) error.value = SOCIAL_ERROR_MESSAGES[code];
+  };
+
+  return { loading, value, password, remember, error, providers, submit, social, loadProviders, loadUrlError };
 });
 ```
 
@@ -109,13 +128,15 @@ export const useUserStore = defineStore('user', () => {
     key:  'user',
   }));
 
-  // Resolve quando a 1ª busca de sessão concluir — evita race no guard ao recarregar.
+  // Resolve quando a 1ª busca de sessão concluir COM SUCESSO — evita race no guard ao recarregar.
+  // Use is_success (não is_requested): is_requested vira true assim que a requisição é
+  // registrada, antes de concluir; só is_success garante que user.data já foi populado.
   function waitRequest(this: any): Promise<void> {
     return new Promise((resolve) => {
-      if (this?.status?.server?.get?.is_requested) return resolve();
+      if (this?.status?.server?.get?.is_success) return resolve();
       const stop = watch(
-        () => this?.status?.server?.get?.is_requested,
-        (done) => { if (done) { stop(); resolve(); } },
+        () => this?.status?.server?.get?.is_success,
+        (isSuccess) => { if (isSuccess) { stop(); resolve(); } },
       );
     });
   }

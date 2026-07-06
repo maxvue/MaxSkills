@@ -1,108 +1,101 @@
 ---
 name: laravel-brazilian-data-queries-best-practices
-description: Use when designing, implementing, or debugging services that query Brazilian corporate and postal data (CNPJ and CEP). Triggers on third-party API integration (ViaCep, ReceitaWS, BrasilAPI, CepAberto), handling fallback mechanisms, normalizing responses, and caching address or registry data.
+description: Use ao projetar, implementar ou depurar serviços que consultam dados brasileiros de CNPJ e CEP no engeapp. Cobre ApiCnpjService (fallback ReceitaWS→OpenCNPJ→CnpjAberto) e ApiCepService (CepAberto→ViaCep→OpenCep→BrasilAPI→AwesomeAPI→apicep→BrasilAberto), com cache, normalização e resolução de CEP contra o banco local (models Cep/City/State).
 ---
 
-# Boas Práticas de Consultas a Dados Brasileiros no Laravel
+# Boas Práticas de Consultas a Dados Brasileiros no Laravel (engeapp)
 
 ## Objetivo
-Fornecer diretrizes sólidas, estratégias de fallback resilientes, padrões de tratamento de erros, normalização de respostas e mecanismos de cache para integrar consultas a APIs postais (CEP) e corporativas (CNPJ) brasileiras em aplicações Laravel dentro do ecossistema Engeapp.
+Padronizar a implementação e a manutenção dos serviços que consultam dados postais (CEP) e corporativos (CNPJ) brasileiros no engeapp, mantendo fidelidade ao código real: `app/Services/ApiCepService.php` e `app/Services/ApiCnpjService.php`. Ambos usam o cliente `Http` do Laravel, cache e cadeias de fallback entre múltiplos provedores.
 
-## Instruções
+Leia os dois serviços antes de alterar comportamento — eles são a fonte da verdade. Esta skill descreve as convenções que eles seguem e por quê.
 
-### 1. Diretrizes de Consulta de CEP (Código de Endereçamento Postal)
+## 1. Consulta de CNPJ — `ApiCnpjService`
 
-#### A. Estratégia de Fallback Resiliente
-Sempre tente consultar os serviços de CEP na seguinte ordem:
-1. **ViaCEP**: Confiável, gratuito, mas pode apresentar latência.
-2. **BrasilAPI**: Rápido, agrega múltiplas fontes internamente.
-3. **AwesomeAPI**: Backup secundário gratuito e responsivo.
+### A. Cadeia de fallback (ordem real)
+`getData(string $cnpj)` tenta os provedores nesta ordem, parando no primeiro sucesso (usa `??`):
+1. **ReceitaWS** (`tryReceitaWS`) — provedor principal. Usa `Http::withToken(env('RECEITA_WS_TOKEN'))` quando há token (endpoint `/days/30`), senão `Http::get` no endpoint público. Trata "Quota Exceeded" disfarçada de 200 retornando `null` para cair no próximo provedor.
+2. **OpenCNPJ** (`tryOpenCnpj`) — `https://api.opencnpj.org/{cnpj}`, sem token.
+3. **CnpjAberto** (`tryCnpjAberto`) — `https://cnpjaberto.com.br/api/cnpj/{cnpj}` com `Http::withToken(env('CNP_JABERTO_TOKEN'))` e headers `Origin`/`Referer` = `config('app.url')`.
 
-Implemente uma classe de serviço ou action (ex: `GetAddressFromCepAction`) que itere por esses provedores quando ocorrer um erro de conexão ou de servidor.
+Não use BrasilAPI para CNPJ: o projeto não a utiliza nessa consulta.
 
-#### B. Estratégia de Cache
-Para otimizar a performance e respeitar os limites das APIs:
-- Armazene consultas bem-sucedidas no cache por **90 dias (3 meses)**.
-- Use uma chave de cache estruturada: `brazilian-queries:cep:{cep}`.
-- Exemplo de implementação:
-  ```php
-  use Illuminate\Support\Facades\Cache;
-  use Illuminate\Support\Facades\Http;
+### B. Cache (não há persistência em banco para CNPJ)
+- Chave: `"cnpj-api-:{$cnpj}:profile"`.
+- Só grava em caso de sucesso: `Cache::put($cacheKey, $cnpj_data, now()->addMonths(3))` — TTL de **3 meses**.
+- No começo, `getData` faz `Cache::has`/`Cache::get` da mesma chave.
+- **Não existe tabela `companies`.** O serviço de CNPJ não persiste em banco — apenas cacheia. Dados de empresas do domínio moram em outras tabelas (ex.: `solar_company`), fora do escopo deste serviço.
 
-  $cepClean = preg_replace('/[^0-9]/', '', $cep);
+### C. Contrato de retorno e normalização
+`getData` sempre retorna um array com `status`:
+- Sucesso: `['status' => 'done', 'content' => $content]`.
+- Falha total ou CNPJ inválido: `['status' => 'fail', 'error' => '...', 'content' => null]`.
 
-  $address = Cache::remember("brazilian-queries:cep:{$cepClean}", now()->addMonths(3), function () use ($cepClean) {
-      return $this->queryCepWithFallbacks($cepClean);
-  });
-  ```
-
-#### C. Normalização de Respostas
-Independentemente da API utilizada, mapeie a resposta para uma estrutura padrão:
+`OpenCNPJ` e `CnpjAberto` normalizam a resposta para o mesmo formato pt-BR que a ReceitaWS devolve, com as chaves:
 ```php
 [
-    'cep'          => '01001-000',
-    'street'       => 'Praça da Sé',
-    'neighborhood' => 'Sé',
-    'city'         => 'São Paulo',
-    'state'        => 'SP',
-    'ibge_code'    => '3550308',
+    'nome'     => '...', // razão social
+    'fantasia' => '...', // nome fantasia
+    'telefone' => '(DDD) numero',
+    'email'    => '...',
+    'status'   => 'OK',
 ]
 ```
+Ao ler o resultado, consuma `['content']` no formato acima — não invente chaves em inglês (`legal_name`, `trade_name`, etc.).
 
----
+## 2. Consulta de CEP — `ApiCepService`
 
-### 2. Diretrizes de Consulta de CNPJ (Registro Corporativo)
+### A. Cadeia de fallback (ordem real)
+O construtor monta `$api_data_get` e `get()` itera na ordem, parando quando um `City` é resolvido:
+1. **CepAberto** — `https://www.cepaberto.com/api/v3/cep?cep=...`, header `Authorization: Token token=` `config('api.cepaberto_token')`.
+2. **ViaCep** — `https://viacep.com.br/ws/{cep}/json/`.
+3. **OpenCep** — `https://opencep.com/v1/{cep}`.
+4. **Brasil Api** — `https://brasilapi.com.br/api/cep/v1/{cep}`.
+5. **Awesome Api** — `https://cep.awesomeapi.com.br/json/{cep}`.
+6. **apicep** — `https://cdn.apicep.com/file/apicep/{cep_formatado}.json` (rotulado internamente também como "Awesome Api").
+7. **BrasilAberto** — `https://api.brasilaberto.com/v2/zipcode/{cep}`, `token` = `config('api.brasil_aberto_token')`.
 
-#### A. Ordem de Fallback & Limites de Taxa
-Consulte os serviços de CNPJ na seguinte sequência:
-1. **BrasilAPI (CNPJ)**: Opção principal e estável usando dados públicos da Receita Federal.
-2. **ReceitaWS**: Bom fallback, mas possui um limite de taxa de 3 consultas por minuto no plano gratuito. Garanta que você capture e trate códigos de status 429.
+### B. Resolução via banco antes das APIs
+`get(bool $force = false)` prioriza o banco local antes de sair para a rede (quando `$force` é falso):
+1. `getCity()` (tenta resolver a partir do estado/cidade já conhecidos).
+2. Busca na tabela de CEPs: `Cep::where('cep', $this->cep)->whereNotNull('city_id')->first()`.
+3. Só então percorre `$api_data_get`.
+4. Fallback final: infere a cidade por faixa `City::where('cep_start','<=',$cep)->where('cep_end','>=',$cep)` quando há exatamente uma.
 
-#### B. Cache e Persistência em Banco Local
-- Faça cache das respostas da API por **90 dias (3 meses)** usando `brazilian-queries:cnpj:{cnpj}`.
-- Para fluxos críticos de negócio, armazene os dados de registro permanentemente em uma tabela `companies` no banco de dados local. Verifique essa tabela antes de realizar qualquer requisição a uma API externa.
+O CEP é limpo/validado no construtor (`getCepOnlyNumber`, `checkCepValid`, `mb_str_pad(...,8,'0')`). Os models envolvidos são `App\Models\Lists\{Cep, City, State}`.
 
-#### C. Normalização de Respostas
-Normalize as respostas de CNPJ para um formato consistente:
+### C. Cache
+- `getApi($item)` usa `Cache::remember($cache_key, now()->addMonths(8), ...)` — TTL de **8 meses**.
+- Chave: `'cache_cep_apis' . $url . '-' . $item['name'] . '_cep_' . $this->cep`.
+- Em erro de rede/HTTP o closure captura `Throwable`/`failed()` e retorna `false` (o `false` também fica cacheado). Respostas com 2 campos úteis ou menos são descartadas (`count($limpo) <= 2`).
+
+### D. Contrato de retorno e normalização
+`getValues()` retorna sempre este array (mesmo vazio quando nada resolve):
 ```php
 [
-    'cnpj'         => '00.000.000/0001-91',
-    'legal_name'   => 'BANCO DO BRASIL SA',
-    'trade_name'   => 'BANCO DO BRASIL',
-    'status'       => 'ATIVA',
-    'opening_date' => '1808-10-12', // formato Y-m-d
-    'address'      => [
-        'street'       => 'SBS Quadra 1 Bloco G Lote 32',
-        'number'       => '32',
-        'complement'   => 'Lote 32',
-        'neighborhood' => 'Asa Sul',
-        'city'         => 'Brasília',
-        'state'        => 'DF',
-        'cep'          => '70070-110',
-    ]
+    'cep'          => '...',
+    'cep_value'    => '...',
+    'street'       => '...',
+    'neighborhood' => '...',
+    'city'         => City|null,   // model Eloquent, não string
+    'city_id'      => int|null,
+    'state'        => State|null,  // model Eloquent
+    'uf'           => 'SP',
+    'latitude'     => '...',
+    'longitude'    => '...',
+    'state_name'   => '...',
+    'city_name'    => '...',
 ]
 ```
+Não há chave `ibge_code`. `setData()` faz o mapeamento resiliente de campos vindos de cada provedor (`logradouro`/`street`, `bairro`/`neighborhood`, `localidade`/`cidade`/`city`, `uf`/`UF`/`estado`, etc.) via `getFirstContent`, resolvendo por fim `State` e `City` no banco.
 
----
-
-### 3. Tratamento de Exceções & Logging
-- Siga as diretrizes em `laravel-exception-handling-logging`.
-- Envolva requisições HTTP externas em blocos `try/catch` direcionados a `Illuminate\Http\Client\RequestException` e `Illuminate\Http\Client\ConnectionException`.
-- Registre falhas usando a facade `Log`:
-  ```php
-  use Illuminate\Support\Facades\Log;
-
-  Log::warning("CEP API provider failed. Attempting fallback.", [
-      'provider' => 'viacep',
-      'cep' => $cep,
-      'error' => $exception->getMessage()
-  ]);
-  ```
-- Lance uma exceção customizada `BrazilianDataQueryException` apenas quando todos os provedores de API falharem.
+## 3. Tratamento de Erros
+- Ambos os serviços tratam falhas retornando estruturas, **não** lançando exceção customizada: CNPJ devolve `['status' => 'fail', ...]`; CEP captura `Throwable` no closure e devolve array vazio/valores nulos. Não existe `BrazilianDataQueryException` no projeto — não a invente.
+- Siga `laravel-exception-handling-logging` para logging adicional.
+- Sempre use o cliente `Http` do Laravel (nunca cURL bruto).
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- **NÃO** execute requisições cURL brutas diretamente; sempre use o cliente `Http` do Laravel.
-- **NÃO** armazene endpoints de API ou credenciais diretamente no código; gerencie-os via valores de `config()` mapeados para o `.env`.
-- **NÃO** realize requisições a APIs externas dentro de loops. Implemente cache ou processamento em blocos (chunking).
-- **NÃO** ignore os limites de taxa dos planos gratuitos (ex: ReceitaWS 3 requisições/minuto). Verifique os códigos de status e aplique delays ou fallback imediatamente.
+- **Idioma:** comunique-se com o humano sempre em Português (pt-BR), independentemente do idioma do corpo desta skill. Comentários de código em pt-BR.
+- **Tokens/endpoints:** CEP usa `config('api.*')` (ex.: `cepaberto_token`, `brasil_aberto_token`); CNPJ usa `env()` diretamente (`RECEITA_WS_TOKEN`, `CNP_JABERTO_TOKEN`). Ao adicionar provedor, prefira `config()`.
+- **Não** faça requisições a APIs de CNPJ/CEP dentro de loops sobre registros; confie no cache e nas resoluções via banco (models `Cep`/`City`).
+- **Não** ignore limites de plano gratuito (ReceitaWS) — o tratamento de "Quota" já cai para o próximo provedor; preserve esse comportamento.

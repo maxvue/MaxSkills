@@ -150,10 +150,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use Throwable;
 
@@ -174,35 +174,41 @@ class SocialiteController extends Controller
 
     public function redirect(string $provider): RedirectResponse
     {
-        abort_unless(in_array($provider, self::PROVIDERS, true), 404);
+        // Provider fora da allowlist volta ao login com código de erro (não abort 404).
+        if (! in_array($provider, self::PROVIDERS, true)) {
+            return redirect('/login?error=invalid_provider');
+        }
         return Socialite::driver($provider)->redirect();
     }
 
     public function callback(string $provider): RedirectResponse
     {
-        abort_unless(in_array($provider, self::PROVIDERS, true), 404);
+        if (! in_array($provider, self::PROVIDERS, true)) {
+            return redirect('/login?error=invalid_provider');
+        }
 
         try {
             $social = Socialite::driver($provider)->user();
         } catch (Throwable $e) {
-            return redirect('/?error=oauth_error');
+            return redirect('/login?error=oauth_failed');
         }
 
         if (! $social->getEmail()) {
-            return redirect('/?error=no_email');
+            return redirect('/login?error=no_email');
         }
 
-        $user = User::firstOrCreate(
-            ['email' => $social->getEmail()],
-            [
-                'name'              => $social->getName() ?? $social->getNickname() ?? 'Usuário',
-                'password'          => bcrypt(Str::random(32)), // conta social: senha aleatória
-                'email_verified_at' => now(),
-            ]
-        );
+        // Find-or-create por e-mail. No engeapp o create é manual (via createUserFromSocial):
+        // cria também a UserSolarCompany vinculada, gera senha aleatória e usa setRawAttributes
+        // para incluir phone_number=null no INSERT (contorna o mutator e a constraint UNIQUE).
+        $user = User::where('email', $social->getEmail())->first();
+        if (! $user) {
+            $user = $this->createUserFromSocial($social);
+            event(new Registered($user));
+        }
 
-        Auth::login($user, true);
-        return redirect()->intended('/');
+        Auth::login($user);
+        request()->session()->regenerate(); // previne session fixation
+        return redirect('/');
     }
 }
 ```
@@ -234,6 +240,7 @@ class SocialiteController extends Controller
 
 - Esquecer `session()->regenerate()` após login (session fixation).
 - Nomear a rota de login diferente de `login` e quebrar `route('login')` no frontend.
-- Não validar o `provider` do social contra allowlist (rota aceita qualquer string → erro 500 do Socialite).
+- Não validar o `provider` do social contra allowlist (rota aceita qualquer string → erro 500 do Socialite). Fora da allowlist, o engeapp redireciona para `/login?error=invalid_provider`.
+- Divergir os códigos de erro do redirect (`invalid_provider`, `oauth_failed`, `no_email`) das chaves de `SOCIAL_ERROR_MESSAGES` no `useLogin.Store.ts`, ou redirecionar para `/` em vez de `/login` — o card nunca mostra a mensagem. Sempre redirecione para `/login?error=<código mapeado no store>`.
 - Criar usuário social sem `password` (a coluna é NOT NULL) — gere senha aleatória.
 - Confiar só em `email` no login quando o usuário entrou por telefone — trate ambos no `LoginRequest`.

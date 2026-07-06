@@ -11,10 +11,11 @@ Garantir integrações robustas, padronizadas e de alto desempenho com a API Gem
 # Instruções
 
 ### 1. Seleção de Modelo e Uso da Facade
-Sempre resolva o modelo Gemini usando a facade `Gemini` para gerenciar as chamadas de modelo.
-- **Modelo principal para operações Rápidas/Padrão:** `gemini-2.5-flash` ou `gemini-2.5-flash-lite`.
-- **Modelo principal para raciocínio Complexo:** `gemini-2.5-pro` ou modelos avançados similares.
+Sempre resolva o modelo Gemini usando a facade `Gemini` para gerenciar as chamadas de modelo. O projeto usa tanto a família 2.5 quanto a 3.x — prefira a 3.x para novos fluxos e mantenha a 2.5 como fallback estável.
+- **Modelo principal para operações Rápidas/Padrão:** `gemini-3.1-flash-lite` ou `gemini-3.5-flash` (fallback: `gemini-2.5-flash` / `gemini-2.5-flash-lite`).
+- **Modelo principal para raciocínio Complexo:** `gemini-3.1-pro-preview` (fallback: `gemini-2.5-pro`).
 - **Método:** Use `Gemini::generativeModel(model: 'model-name')` para iniciar a requisição de geração.
+- **Fallback em cascata:** Ao lidar com sobrecarga (503), itere sobre uma lista ordenada de modelos, misturando famílias 3.x e 2.5, como em `GeminiDocumentService::FALLBACK_MODELS`.
 
 ```php
 use Gemini\Laravel\Facades\Gemini;
@@ -124,5 +125,5 @@ try {
 - **Campos Obrigatórios no Schema:** Ao definir saídas estruturadas, sempre passe o array de chaves obrigatórias para garantir que o validador de schema assegure sua presença na saída final.
 - **Comentários em Português Brasileiro:** Mantenha a documentação de código, restrições de modelo e comentários inline em **Português Brasileiro** (`pt-BR`), conforme as diretrizes do repositório.
 
-## Restrições
+## Idioma da conversa
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.

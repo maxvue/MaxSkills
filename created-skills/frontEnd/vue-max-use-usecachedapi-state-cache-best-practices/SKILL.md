@@ -8,9 +8,11 @@ Otimizar o gerenciamento de estado do frontend Vue 3 utilizando o `useRefCachedA
 
 ## Instruções
 
-## 1. Assinatura do Composable & Opções
-O composable é importado de `@maxvue/max-use` e possui a seguinte assinatura:
+### 1. Assinatura do Composable & Opções
+O composable é importado de `@maxvue/max-use` e possui a seguinte assinatura real:
 ```typescript
+export type ToRefCachedApi<T> = T extends Ref ? T : Ref<T>;
+
 export function useCachedApi<T>(
   route_name: string,
   options: {
@@ -21,15 +23,16 @@ export function useCachedApi<T>(
     sync?: boolean;
     watch?: boolean;
   } = {}
-): Ref<T>
+): ToRefCachedApi<T>
 ```
+> O retorno é `ToRefCachedApi<T>`, que resolve para `Ref<T>` quando `T` não é uma `Ref` (e mantém o próprio tipo quando `T` já é uma `Ref`). Na prática você usa como uma `Ref<T>` comum. Os parâmetros da rota podem ser passados em `options.data` ou no alias `options.data_get`.
 * **`route_name`**: O **nome** da rota Ziggy (pontilhado — ex.: `'clients.data'`), resolvido internamente pelos helpers do `@maxvue/max-use` via `route()` do Ziggy (que resolve para a URL `/api/...` real). Ziggy ESTÁ configurado no projeto; passe o **nome** da rota, não um caminho `/api/...`. Lembre-se: para GET de dados de página, prefira uma store `@maxvue/max-pinia` (todo GET deve passar por store); use `useRefCachedApi` apenas em casos pontuais.
 * **`options.defaultValue`**: Crucial para evitar erros de renderização inicial (ex: `defaultValue: []` para listas). Sempre forneça um valor padrão compatível com o tipo.
 * **`options.key`**: Chave personalizada do `localStorage` (padrão: `route_name`). Necessária ao fazer cache de dados para diferentes escopos de contexto (como tenants ou clientes).
 * **`options.sync`**: Padrão é `true`. Se definido como `false`, não executará a requisição GET da API em segundo plano automaticamente na criação.
 * **`options.watch`**: Padrão é `true`. Se `true`, qualquer alteração no `Ref` retornado será monitorada e persistida automaticamente de volta no `localStorage`.
 
-## 2. Boas Práticas para Vue 3 SFC & TypeScript
+### 2. Boas Práticas para Vue 3 SFC & TypeScript
 Ao utilizar `useRefCachedApi` em um arquivo `.vue` ou store do Pinia, você deve aderir às seguintes regras:
 * **Sempre Forneça `defaultValue`**: Omitir ou definir como array/objeto vazio evita erros de referência nula (`null`) no render do template antes que o cache ou a API retornem dados:
   ```typescript
@@ -39,7 +42,7 @@ Ao utilizar `useRefCachedApi` em um arquivo `.vue` ou store do Pinia, você deve
 * **Composition API**: Deve-se utilizar `<script setup lang="ts">`. O uso de Options API é estritamente proibido.
 * **Atributos de Elementos HTML em Linha Única**: No bloco `<template>`, formate os elementos em linha (mantenha todos os atributos na mesma linha, sem quebras de linha múltiplas).
 
-## 3. Chaves de Cache Dinâmicas e Isolamento (Multi-tenant/Cliente)
+### 3. Chaves de Cache Dinâmicas e Isolamento (Multi-tenant/Cliente)
 Como o `useRefCachedApi` avalia a opção `key` apenas uma vez no momento da criação (não reativamente), se o tenant ou cliente ativo mudar, você deve gerenciar manualmente o carregamento e a atualização do cache dentro de um `watch`:
 * **Incorreto (Avaliação estática de valor dinâmico)**:
   ```typescript
@@ -81,7 +84,7 @@ Como o `useRefCachedApi` avalia a opção `key` apenas uma vez no momento da cri
   );
   ```
 
-## 4. Invalidação de Cache e Atualizações Pós-Mutação
+### 4. Invalidação de Cache e Atualizações Pós-Mutação
 Ao realizar modificações por meio de requisições POST/PUT/DELETE (mutações), o cache local torna-se obsoleto.
 
 > **Mutações pertencem ao MaxPinia.** Criar/editar/excluir dados de página é responsabilidade de uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) e revalida o estado. NÃO escreva `apiPostRoute`/`apiPutRoute` manuais nem manipule `localStorage` à mão para persistir mutações. Altere o estado da store e o salvamento ocorre automaticamente. O `useRefCachedApi` cobre apenas leituras pontuais (GET com cache) fora do fluxo de store.
@@ -98,7 +101,7 @@ Ao realizar modificações por meio de requisições POST/PUT/DELETE (mutações
   };
   ```
 
-## 5. Serialização Segura
+### 5. Serialização Segura
 Se os dados contiverem objetos complexos, garanta que sejam serializáveis antes de colocá-los no ref (sem referências circulares, métodos ou objetos Vue Raw). Use `JSON.parse(JSON.stringify(value))` se for necessário limpar, embora o composable faça isso internamente na resposta da API.
 
 ## Restrições

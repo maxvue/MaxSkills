@@ -1,144 +1,109 @@
 ---
 name: laravel-browser-automation-webdriver
-description: Use when creating, reviewing, or debugging browser automation logic in Laravel backend using Facebook WebDriver, managing browser instances, handling pages, solving selectors, taking element screenshots, or using the custom Browser helper class.
+description: Use ao criar, revisar ou depurar automação de navegador no backend engeapp com a classe App\Classes\Browser (php-webdriver + Firefox/geckodriver). Cobre o ciclo de vida por instância (spawn de geckodriver, portas dinâmicas 44500-44599 em hash Redis, teardown no __destruct), a API real do helper (getElement, resolveSelector, screenshot com GD, aceptDialog, selects) e o log agent_browser.
 ---
 
-# Automação de Navegador com WebDriver no Laravel
+# Automação de Navegador com WebDriver no engeapp
 
 ## Objetivo
-Estabelecer padrões robustos, convenções de código e diretrizes de tratamento de exceções para automação de navegador usando Facebook WebDriver (GeckoDriver/Firefox) no backend Laravel. Isso garante web scraping estável, processos de homologação automáticos e interações confiáveis com portais externos, prevenindo vazamentos de recursos e falhas não rastreáveis.
+Padrões fiéis à implementação real de automação de navegador do backend engeapp, centrada na classe `App\Classes\Browser` sobre `php-webdriver/webdriver` (Facebook WebDriver) dirigindo **Firefox via geckodriver**. Serve web scraping, homologação de projetos e interações com portais externos. O foco é evitar o vazamento característico deste stack: **processo geckodriver órfão + porta Redis presa**.
+
+## Arquitetura real (leia antes de mexer)
+
+Não existe um servidor Selenium único nem `config('services.webdriver.url')`. Cada instância de `Browser` sobe **seu próprio** processo geckodriver:
+
+*   O construtor procura uma porta livre no intervalo `44500..44599` gravando num hash Redis `geckodriver_ports` com `Redis::hsetnx('geckodriver_ports', $p, ...)`. Se nenhuma porta estiver livre, lança `Exception`.
+*   Inicia o driver com `Symfony\Component\Process\Process::fromShellCommandline("geckodriver --port {$port}")` e registra `pid`+`time` no hash Redis.
+*   Faz `sleep(2)` **de propósito** para o geckodriver terminar de subir antes de conectar.
+*   Conecta em `http://127.0.0.1:{$port}/` (host fixo local — o driver é sempre local à instância).
+*   Guarda `WebDriverWait($this->driver, 10)` em `$this->wait`.
+
+> Observação: `config('app.webdriver_host')` e `config('app.webdriver_port')` existem em `config/app.php`, mas a classe `Browser` atual **não** os consome (usa `127.0.0.1` + porta dinâmica). Não escreva código assumindo que essas chaves controlam a conexão.
+
+### Ciclo de vida e teardown
+O teardown é feito no `__destruct()`, não em `try/finally` do chamador. Ele: chama `quit()` (fecha a sessão), faz `geckoProcess->stop(3, 9)` (SIGTERM→SIGKILL) e `Redis::hdel('geckodriver_ports', $port)`. Por isso, **descarte a instância** (`unset`/fim de escopo) para liberar porta e processo.
+
+*   Nos serviços que orquestram vários passos (ex.: `App\Services\Browser\BrowserPlaybookExecutor`), há também um `finally { $this->browser->quit(); }` explícito para fechar a sessão cedo, além do `__destruct`.
+*   Portas/processos que travam (crash, kill abrupto) são varridos pelo command `geckodriver:cleanup-ports` (`App\Console\Commands\CleanupGeckodriverPorts`): itera o hash Redis, e para entradas com mais de 5 min faz `kill -9 {pid}` + `fuser -k -n tcp {port}` + `Redis::hdel`. Agende-o para não esgotar o pool de 100 portas.
 
 ## Instruções
 
-### 1. Gerenciamento de Conexão e Ciclo de Vida
-*   **Prevenindo Processos Zumbis**: Sempre envolva suas interações com o WebDriver em um bloco `try...finally`. O método `$driver->quit()` **deve** ser executado para encerrar a instância do navegador e o processo GeckoDriver no servidor.
-    ```php
-    use Facebook\WebDriver\Remote\RemoteWebDriver;
-    use Facebook\WebDriver\Remote\DesiredCapabilities;
-    use Facebook\WebDriver\Firefox\FirefoxOptions;
+### 1. Instanciar o Browser
+Use o construtor do helper — não monte `RemoteWebDriver` cru. As `FirefoxOptions` já vêm configuradas na classe (`binary` `/usr/bin/firefox`, `--window-size=1920,1080`, preferências de download de PDF e anti-detecção `dom.webdriver.enabled=false`/`useAutomationExtension=false`).
 
-    $options = new FirefoxOptions();
-    $options->addArguments(['--headless', '--disable-gpu', '--no-sandbox']);
-    $options->setPreference('dom.webdriver.enabled', false); // Ajuda a contornar flags simples de anti-bot
-    $options->setPreference('general.useragent.override', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0');
+```php
+use App\Classes\Browser;
 
-    $capabilities = DesiredCapabilities::firefox();
-    $capabilities->setCapability(FirefoxOptions::CAPABILITY, $options);
+// Abre já numa URL (opcional); sem URL, navegue depois com openUrl()
+$browser = new Browser('https://portal.exemplo.com');
+// ... automação ...
+// Não precisa fechar manualmente: o __destruct cuida de quit + stop + hdel.
+// Para liberar cedo em serviços longos:
+$browser->quit();
+```
 
-    $driver = null;
-    try {
-        $driver = RemoteWebDriver::create(config('services.webdriver.url'), $capabilities);
-        // Lógica de automação aqui
-    } catch (\Throwable $e) {
-        Log::channel('agent_browser')->error('WebDriver automation failed', [
-            'exception' => $e->getMessage(),
-            'trace' => $e->getTraceAsString(),
-        ]);
-        throw $e;
-    } finally {
-        if ($driver instanceof RemoteWebDriver) {
-            $driver->quit();
-        }
-    }
-    ```
-*   **Concorrência e Gerenciamento de Portas**: Ao escalar workers de navegador, gerencie os limites de instâncias concorrentes usando o sistema de Lock do Redis/Cache do Laravel:
-    ```php
-    use Illuminate\Support\Facades\Cache;
+*   **Headless**: no código atual a flag `-headless` está **comentada** (Firefox roda com janela). Se precisar headless, a flag correta do Firefox é `-headless` (traço único) — **não** `--headless`, `--disable-gpu` ou `--no-sandbox`, que são flags de Chrome/Chromium e não se aplicam ao Firefox.
 
-    $lock = Cache::lock('webdriver_instance_limit', 60); // TTL de 60 segundos
+### 2. Seletores e busca de elementos
+Resolva o tipo de seletor com `resolveSelector($type, $value)`, que faz `match` de `id | name | css | xpath | class` para o `WebDriverBy` correspondente (default: `id`). Busque com `getElement()`.
 
-    if ($lock->get()) {
-        try {
-            // Executa o processo do WebDriver
-        } finally {
-            $lock->release();
-        }
-    }
-    ```
+```php
+$by = $browser->resolveSelector('css', '#submit-btn');
 
-### 2. Seletores Robustos e Esperas Explícitas
-*   **SEM Sleeps Fixos**: Nunca use `sleep($seconds)` ou `usleep()`. Isso causa execuções lentas e processos instáveis (flaky).
-*   **Esperas Explícitas**: Use `WebDriverWait` para aguardar dinamicamente por elementos.
-    ```php
-    use Facebook\WebDriver\WebDriverBy;
-    use Facebook\WebDriver\Support\WebDriverExpectedCondition;
+// time_out = 0 → findElement direto (pode lançar NoSuchElement)
+// time_out > 0 → retry loop: faz (time_out*2) tentativas com sleep(0.5) entre elas,
+//                retornando null se não achar dentro do tempo.
+$element = $browser->getElement($by, 10);
 
-    // Aguarda até que um elemento esteja visível (máximo de 10 segundos)
-    $element = $driver->wait(10)->until(
-        WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::cssSelector('#submit-btn'))
-    );
+if ($element) {
     $element->click();
-    ```
-*   **Lidando com Transições de Estado**: Ao enviar um formulário ou clicar em um link, aguarde explicitamente pelo novo estado da página ou por um indicador de sucesso:
-    ```php
-    $driver->wait(15)->until(
-        WebDriverExpectedCondition::titleContains('Protocol Homologated')
-    );
-    ```
+}
+```
 
-### 3. Captura e Screenshots de Elementos
-*   **Recortando Screenshots de Elementos**: Use a biblioteca PHP GD para recortar um elemento de uma screenshot de página inteira. Isso é essencial para Captchas, auditorias de erros e comprovações de homologação:
-    ```php
-    use Facebook\WebDriver\WebDriverElement;
+Atalhos por tipo: `elementById`, `elementByName`, `elementByCss`, `elementByClass`, `elementsByClass` (retorna array), e `elementByIdExist($id, $delay)` (polling booleano). Para `<select>`, use `selectByVisibleText($element, $texto)` ou variantes `selectByVisibleTextById/ByName/ByClass/ByCss`. Textos/valores: `getText($element)`, `getValue($element)`.
 
-    public function captureElementScreenshot(RemoteWebDriver $driver, WebDriverElement $element, string $outputPath): void
-    {
-        // 1. Tira a screenshot completa
-        $tempPath = storage_path('app/temp_screenshot.png');
-        $driver->takeScreenshot($tempPath);
+> Esperas: o projeto **não** usa `WebDriverExpectedCondition` nem `$driver->wait(...)->until(...)`. A convenção efetiva é **polling por retry** dentro de `getElement()` (via `time_out`) e esperas por tempo no executor (ver abaixo). Siga esse padrão para manter consistência com o código existente.
 
-        // 2. Obtém a localização e as dimensões do elemento
-        $location = $element->getLocation();
-        $size = $element->getSize();
+### 3. Esperas por tempo — permitidas e usadas por design
+Este stack usa `sleep()`/`usleep()` deliberadamente; não são proibidos:
 
-        $x = $location->getX();
-        $y = $location->getY();
-        $width = $size->getWidth();
-        $height = $size->getHeight();
+*   `Browser::__construct` usa `sleep(2)` para o geckodriver inicializar.
+*   `Browser::getElement` e `elementByIdExist` usam `sleep(0.5)` nos loops de retry.
+*   `BrowserPlaybookExecutor` usa `usleep($step->wait_before_ms * 1000)` e `usleep($step->wait_after_ms * 1000)` como **recurso configurável** de cada passo, e `actionWait`/`actionDownload` também dependem de `usleep`.
 
-        // 3. Recorta usando o GD
-        $src = imagecreatefrompng($tempPath);
-        $dest = imagecreatetruecolor($width, $height);
-        
-        imagecopy($dest, $src, 0, 0, $x, $y, $width, $height);
-        imagepng($dest, $outputPath);
+Prefira `getElement($by, $timeout)` (polling por elemento) quando o objetivo é aguardar um elemento aparecer; use `usleep`/`sleep` para pausas fixas de sincronização quando não há elemento-alvo claro (transições, downloads).
 
-        // 4. Limpeza
-        imagedestroy($src);
-        imagedestroy($dest);
-        @unlink($tempPath);
-    }
-    ```
+### 4. Screenshots com GD (página inteira ou recorte de elemento)
+Use `Browser::screenshot()`. Assinatura real:
 
-### 4. Interações com Alerts e Diálogos
-*   Trate alerts ou confirmações javascript usando a interface `switchTo()->alert()`:
-    ```php
-    try {
-        $alert = $driver->switchTo()->alert();
-        Log::channel('agent_browser')->info('Accepting alert: ' . $alert->getText());
-        $alert->accept();
-    } catch (\Facebook\WebDriver\Exception\NoAlertOpenException $e) {
-        // Nenhum alert estava presente, continua a execução normal
-    }
-    ```
+```php
+public function screenshot(
+    RemoteWebElement|string|null $element_or_file_name = null,
+    $x_adjust = 0, $y_adjust = 0, $w = null, $h = null
+) : ?string
+```
 
-### 5. Logging e Auditorias de Erro
-*   **Canal de Logging**: Todos os logs de automação de navegador devem ser direcionados ao canal `agent_browser`, conforme definido em `laravel-exception-handling-logging`.
-*   **Salvar o HTML da Página em Caso de Falha**: Em caso de falha de seletores ou timeout, salve o HTML fonte da página e a screenshot para diagnóstico.
-    ```php
-    catch (\Throwable $e) {
-        if ($driver instanceof RemoteWebDriver) {
-            $html = $driver->getPageSource();
-            Storage::put('webdriver/failures/' . now()->timestamp . '.html', $html);
-            $driver->takeScreenshot(storage_path('app/webdriver/failures/' . now()->timestamp . '.png'));
-        }
-        throw $e;
-    }
-    ```
+*   Passe uma **string** para nomear o arquivo (screenshot da página inteira): `$browser->screenshot("step-1-before")`.
+*   Passe um **RemoteWebElement** para recortar aquele elemento via `imagecrop` do GD: `$browser->screenshot($element)`. Retorna o caminho do PNG em `sys_get_temp_dir()`.
+*   `$x_adjust`/`$y_adjust` deslocam a origem; `$w`/`$h` aceitam número absoluto ou string com `+`/`-` (ex.: `'+20'`) para ajustar largura/altura relativas ao elemento. Requer a extensão GD (a classe loga erro no canal `agent_browser` e retorna `null` se ausente).
+
+Screenshots de elemento são usadas para Captchas, auditoria de erros e comprovação de homologação (ver `BrowserGetImage`, que devolve `file_path` + `base64`).
+
+### 5. Alerts e diálogos
+Use `aceptDialog()` — ele encapsula `switchTo()->alert()`, loga o texto no canal `agent_browser` e aceita o diálogo, retornando `bool`. Erros são capturados e logados como warning ("Continuando..."), então não interrompem o fluxo.
+
+```php
+$browser->aceptDialog();
+```
+
+### 6. Logging e auditoria de falhas
+*   **Canal**: todos os logs de automação vão para o canal `agent_browser` (definido em `config/logging.php`, `storage/logs/agent_browser.log`). A própria classe `Browser` já loga início, inicialização do wait e erros de screenshot nesse canal.
+*   **Em caso de falha de passo**, capture evidência: tire `screenshot()` e, se útil, `$browser->driver->getPageSource()` para diagnóstico. `BrowserPlaybookExecutor` registra a falha via `$execution->markFailed($order, $error)` e anexa screenshots com `$execution->addScreenshot($path)`.
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
-*   **NUNCA** use `sleep()` ou `usleep()` para sincronização; sempre implemente `WebDriverWait` explícito com condições.
-*   **NUNCA** esqueça de fechar as sessões do webdriver em um bloco `finally`; processos órfãos vão travar o servidor da aplicação devido a vazamentos de memória.
-*   **NÃO** registre credenciais de usuário ou payloads de sessão no canal de log `agent_browser`.
-*   **NÃO** deixe caminhos de binários de navegador ou URLs de servidor selenium fixos no código (hardcode); use arquivos de config do Laravel ou parâmetros do `.env`.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo desta skill esteja escrito. Comentários de código em pt-BR.
+- **NÃO** invente `config('services.webdriver.url')` nem um servidor Selenium remoto: a conexão é sempre `http://127.0.0.1:{porta_dinâmica}/` com geckodriver local por instância.
+- **NÃO** use flags de Chrome (`--headless`, `--disable-gpu`, `--no-sandbox`) no Firefox; a flag de headless é `-headless`.
+- **NÃO** substitua o padrão de polling (`getElement` com `time_out`) por `WebDriverExpectedCondition`/`wait()->until()` — mantenha a convenção do projeto.
+- **NÃO** confie só em `quit()`: o vazamento crítico é o **processo geckodriver órfão + porta Redis presa**. Garanta o descarte da instância (dispara `__destruct`) e mantenha `geckodriver:cleanup-ports` agendado.
+- **NÃO** registre credenciais ou payloads de sessão no canal `agent_browser`.

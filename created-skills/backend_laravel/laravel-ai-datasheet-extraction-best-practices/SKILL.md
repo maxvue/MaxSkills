@@ -43,6 +43,11 @@ Fornecer diretrizes estruturadas e padrões consistentes para extração, valida
 ### 5. Definição de Schema usando `JsonSchema`
 Todas as definições de schema em `AgentDatasheetReader::schema()` devem definir tipos estritos com anotações de descrição.
 
+O schema retornado tem, no nível de topo, os campos `type_equipment` (string), `inverters` (array) e `modules` (array).
+
+#### Campo Raiz de Discriminação (`type_equipment`)
+- `type_equipment`: String obrigatória (`->string()->required()`) que discrimina o tipo de equipamento do datasheet. Ex: `"inverter"` ou `"module"`. É o primeiro campo do schema e define se a extração deve popular o array `inverters` ou `modules`.
+
 #### Schema de Marca (`brand`)
 Um objeto contendo:
 - `name`: Nome comum do fabricante, tipicamente uma palavra (ex: "Jinko", "Deye").

@@ -57,7 +57,7 @@ Fornecer diretrizes estritas, padrões arquiteturais e convenções de código p
 
 ## 4. Envios de Saída — SDK netflie (caminho principal)
 * **Use o SDK instalado:** Mensagens de saída DEVEM passar pelo SDK `netflie/whatsapp-cloud-api` (`^2.2`) instalado, não por chamadas manuais `Http::withHeaders(...)`. Isso espelha os controllers reais em `app/Http/Controllers/Api/Whatsapp/Sends/`, que importam `Netflie\WhatsAppCloudApi\...`.
-* **Instancie com config, nunca com tokens hardcoded:** O construtor recebe um array associativo (`from_phone_number_id`, `access_token`, `business_id`). Leia o phone number id do canal e o token de `config()`:
+* **Instancie com config, nunca com tokens hardcoded:** O construtor recebe um array associativo com apenas dois campos (`from_phone_number_id`, `access_token`). Leia o phone number id do canal (`$channel->meta_number`) e o token de `config()`:
   ```php
   use Netflie\WhatsAppCloudApi\WhatsAppCloudApi;
   use Netflie\WhatsAppCloudApi\Message\Template\Component;
@@ -97,6 +97,4 @@ Fornecer diretrizes estritas, padrões arquiteturais e convenções de código p
 * **NÃO** tente reenviar mensagens que já contenham um `message_meta_id` válido, para evitar enviar duplicatas aos usuários.
 * **NÃO** faça log de tokens de autenticação brutos ou client secrets. Garanta que sejam lidos dos arquivos `config()` e armazenados com segurança no `.env`.
 * **NÃO** use os arquivos de log padrão da aplicação (`laravel.log`) para integrações do WhatsApp. Sempre use o canal de log `whatsapp`.
-
-## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
+* **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.

@@ -52,19 +52,27 @@ Estabelecer diretrizes sólidas e padrões de execução seguros para o pipeline
 - **Restrições**: Nunca rebaixe abaixo do `level` `1`. Nunca adicione `@phpstan-ignore` inline sem primeiro tentar corrigir a estrutura de tipos. Se a supressão for necessária, adicione-a a `ignoreErrors` em `phpstan.neon` com um regex exato.
 
 ### 3. Rector — Refatoração Automatizada
-- **Configuração (`rector.php`)**:
+- **Configuração (`rector.php`)**: O projeto usa uma configuração minimalista e deliberadamente enxuta — apenas os `paths` a varrer e uma única regra `RemoveFuncCallRector` para remover chamadas `ds()` (debug do Laravel Debugbar) esquecidas. NÃO há `SetList` nem bloco `skip()`. Mantenha assim, a menos que o usuário peça explicitamente para ampliar o escopo:
   ```php
+  use Rector\Config\RectorConfig;
+  use Rector\Removing\Rector\FuncCall\RemoveFuncCallRector;
+
   return static function (RectorConfig $rectorConfig): void {
-      $rectorConfig->paths([__DIR__ . '/app', __DIR__ . '/routes', __DIR__ . '/database', __DIR__ . '/tests']);
-      $rectorConfig->ruleWithConfiguration(RemoveFuncCallRector::class, ['ds']);
-      $rectorConfig->sets([SetList::DEAD_CODE, SetList::CODE_QUALITY, SetList::TYPE_DECLARATION]);
-      $rectorConfig->skip([
-          __DIR__ . '/_ide_helper.php',
-          __DIR__ . '/_ide_helper_models.php',
-          Rector\TypeDeclaration\Rector\Property\TypedPropertyFromAssignsRector::class,
+      // 1. Defina as pastas onde o Rector vai procurar o ds()
+      $rectorConfig->paths([
+          __DIR__ . '/app',
+          __DIR__ . '/routes',
+          __DIR__ . '/database',
+          __DIR__ . '/tests',
+      ]);
+
+      // 2. Regra que remove chamadas da função ds()
+      $rectorConfig->ruleWithConfiguration(RemoveFuncCallRector::class, [
+          'ds',
       ]);
   };
   ```
+- **Ampliando com cautela**: Se for adicionar `SetList` (ex.: `DEAD_CODE`, `CODE_QUALITY`, `TYPE_DECLARATION`), faça-o de forma incremental e sempre com `--dry-run` antes, pois estes sets alteram tipagem e podem conflitar com anotações `@property`/`@mixin` dos models. Isso é uma orientação genérica — não reflete a config atual do projeto.
 - **Execução — sempre faça dry-run primeiro**:
   ```bash
   vendor/bin/rector process --dry-run   # verificação read-only

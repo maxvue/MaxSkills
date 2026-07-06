@@ -1,6 +1,6 @@
 ---
 name: typescript-tooling-monorepo-best-practices
-description: Use when solving real-world TypeScript/JavaScript tooling and architecture problems — compiler/type performance optimization, monorepo configuration with Nx/Turborepo, JS-to-TS migration, module resolution errors, Biome vs ESLint decisions, ESM/CJS interop, and debugging tsc. Triggers on tsconfig project references, build speed, migration strategy, and complex type errors.
+description: "Use ao resolver problemas reais de ferramental TypeScript/JavaScript — desempenho do compilador (tsc lento), project references com composite por pacote, migração de JS para TS, erros de resolução de módulos, interop ESM/CJS e depuração de tsc. Foca no stack real: ESM-first, moduleResolution bundler, ESLint + typescript-eslint e Vitest. Aciona em tsconfig, velocidade de build e erros de tipo."
 ---
 
 # Boas Práticas de Ferramental, Monorepo e Migração em TypeScript
@@ -37,7 +37,9 @@ Aplicar expertise profunda e prática em TypeScript e JavaScript a problemas do 
    - Combine o estilo de import (absoluto vs relativo)
    - Respeite a configuração existente de baseUrl/paths
    - Prefira os scripts existentes do projeto a ferramentas cruas
-   - Em monorepos, considere project references antes de mudanças amplas no tsconfig
+   - Considere project references antes de mudanças amplas no tsconfig
+
+   > **Realidade dos projetos de referência (engeapp, MaxUse, MaxPinia, MaxComponentsUi):** são pacotes npm **separados**, não um monorepo gerenciado — não há `turbo.json`/`nx.json`/`pnpm-workspace.yaml`/`lerna.json`. As libs `Max*` publicáveis definem `composite: true` **por pacote** no próprio `tsconfig.json`; o app engeapp usa `moduleResolution: "bundler"` sem `composite`. O ferramental real é **ESLint + typescript-eslint + Vitest** (nenhum projeto usa Biome). As seções sobre monorepo (Nx/Turborepo) e Biome abaixo são **orientação genérica** — aplique-as apenas se o projeto atual realmente adotar essas ferramentas.
 
 2. Identifique a categoria específica do problema e o nível de complexidade.
 
@@ -164,44 +166,58 @@ command -v typesync >/dev/null 2>&1 && npx typesync  # Instala pacotes @types fa
 | Lerna | Nx/Turborepo | Precisa de cache, builds paralelos | Alto (1 semana) |
 | CJS | ESM | Node 18+, ferramental moderno | Alto (varia) |
 
-### Gerenciamento de monorepo
+### Project references e múltiplos pacotes
 
-**Matriz de decisão Nx vs Turborepo**
-- Escolha **Turborepo** se: Estrutura simples, precisa de velocidade, <20 pacotes
-- Escolha **Nx** se: Dependências complexas, precisa de visualização, plugins necessários
-- Desempenho: Nx frequentemente tem melhor desempenho em monorepos grandes (>50 pacotes)
+> Orientação genérica. Nos projetos de referência **não há monorepo gerenciado** (sem Nx/Turborepo). Cada lib publicável (`MaxUse`, `MaxPinia`, `MaxComponentsUi`) é um pacote independente que ativa `composite: true` no **seu próprio** `tsconfig.json`.
 
-**Configuração de monorepo TypeScript**
+**Configuração correta de `composite` (por pacote referenciado)**
 
-```json
-// tsconfig.json raiz
+O padrão do TypeScript é definir `composite: true` **em cada pacote referenciado**, não em um tsconfig raiz agregador. É assim que as libs `Max*` fazem:
+
+```jsonc
+// packages/ui/tsconfig.json (cada pacote referenciado)
 {
-  "references": [
-    { "path": "./packages/core" },
-    { "path": "./packages/ui" },
-    { "path": "./apps/web" }
-  ],
   "compilerOptions": {
     "composite": true,
     "declaration": true,
-    "declarationMap": true
+    "declarationMap": true,
+    "moduleResolution": "bundler"
   }
 }
 ```
 
-### Ferramental moderno: Biome vs ESLint
+Um tsconfig raiz opcional apenas **agrega** as referências, sem `composite` próprio:
 
-**Use Biome quando:**
-- Velocidade é crítica (frequentemente mais rápido que setups tradicionais)
-- Quiser uma única ferramenta para lint + format
-- Projeto TypeScript-first
-- Estiver ok com 64 regras TS vs 100+ no typescript-eslint
+```jsonc
+// tsconfig.json raiz (apenas agrega — não compila código próprio)
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/ui" },
+    { "path": "./apps/web" }
+  ]
+}
+```
 
-**Permaneça com ESLint quando:**
-- Precisar de regras/plugins específicos
-- Tiver regras customizadas complexas
-- Trabalhar com Vue/Angular (suporte limitado do Biome)
+Compile a árvore com `tsc --build` (ou `tsc -b`), que respeita as referências e a ordem de dependência.
+
+**Se algum dia adotar um runner de monorepo (genérico, não usado hoje):**
+- **Turborepo** para estrutura simples, foco em velocidade, poucos pacotes
+- **Nx** para dependências complexas, grafo/visualização e plugins
+
+### Ferramental moderno: ESLint (real) vs Biome (genérico)
+
+> **Nos projetos de referência o padrão é ESLint + typescript-eslint** (com `eslint-plugin-vue` nos pacotes Vue e `@stylistic/eslint-plugin`); nenhum usa Biome. Mantenha ESLint ao trabalhar neles.
+
+**Permaneça com ESLint quando (caso destes projetos):**
+- Trabalhar com Vue (suporte limitado do Biome; usa-se `eslint-plugin-vue`)
+- Precisar de regras/plugins específicos ou regras customizadas
 - Precisar de linting type-aware (o Biome ainda não tem isso)
+
+**Biome só faria sentido (genérico) quando:**
+- Velocidade for crítica e você quiser uma única ferramenta lint + format
+- Projeto TypeScript-first sem Vue e sem necessidade das regras acima
 
 ### Maestria em depuração
 
@@ -275,10 +291,9 @@ Testes lentos? -> Vitest com threads, evite verificação de tipos nos testes
 Language server lento? -> Exclua node_modules, limite arquivos no tsconfig
 ```
 
-## Restrições
+## Checklist de revisão de código
 
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-Checklist de revisão de código — foco nestes aspectos específicos do domínio.
+Foco nestes aspectos específicos do domínio ao revisar TypeScript.
 
 Segurança de tipos:
 - [ ] Sem tipos `any` implícitos (use `unknown` ou tipos adequados)
@@ -321,6 +336,10 @@ Organização de código:
 - [ ] Tipos compartilhados em módulos dedicados
 - [ ] Evite augmentation global de tipos quando possível
 - [ ] Uso adequado de arquivos de declaração (.d.ts)
+
+## Restrições
+
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 
 Limitações de escopo:
 - Use esta skill apenas quando a tarefa corresponder claramente ao escopo descrito acima.

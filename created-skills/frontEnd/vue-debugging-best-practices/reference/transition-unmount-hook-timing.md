@@ -109,7 +109,8 @@ export default {
     const abortController = new AbortController()
 
     onMounted(() => {
-      fetch('/api/data', { signal: abortController.signal })
+      // Demonstra AbortController (API do fetch). No engeapp, GETs vão via store MaxPinia / apiGetRoute.
+      fetch('https://exemplo.com/dados', { signal: abortController.signal })
         .then(handleData)
         .catch(err => {
           if (err.name !== 'AbortError') {

@@ -1,88 +1,127 @@
 ---
 name: laravel-authorization-policies-gates
-description: Use when creating, modifying, or reviewing Laravel authorization logic, including Policies, Gates, role-based access control, route protection, and exposing user permissions to the Vue SPA front-end via /api endpoints consumed by MaxPinia stores. Triggers on gate definitions, policy classes, authorize calls, and 'can' middleware.
+description: Use ao criar, alterar ou revisar autorização no Laravel 13 do engeapp com spatie/laravel-permission. Cobre roles/permissões nomeadas (HasRoles, hasRole/hasPermissionTo), permissões registradas como gates, Policies com escopo multi-tenant (allowedSolarCompanyIds), Gates ad-hoc (viewPulse), middleware can:permissao.nomeada e exposição das permissões à SPA Vue via store MaxPinia.
 ---
 
 # Laravel Authorization Policies and Gates
 
 ## Objetivo
-Estabelecer diretrizes, convenções e padrões para implementar lógica de autorização (policies e gates) no Laravel, protegendo rotas e ações de controller, e expondo as permissões do usuário para o front-end da SPA Vue via endpoints /api consumidos por stores MaxPinia no ecossistema Engeapp.
+Padronizar a autorização do backend engeapp (Laravel 13 / PHP 8.4). O RBAC real do projeto é o **spatie/laravel-permission** (`"spatie/laravel-permission": "^8.1"`): o `User` usa o trait `HasRoles`, as permissões têm nomes pontilhados em pt (ex.: `projeto.ver`, `projeto.criar`, `documento.enviar`, `usuario.gerenciar`) e o Spatie as registra automaticamente como gates — por isso funcionam em `can:...`. Policies acrescentam escopo multi-tenant. Gates ad-hoc cobrem apenas casos que não mapeiam para um model nem para uma permissão nomeada.
 
 ## Instruções
 
-1. **Policies Eloquent**:
-   - Crie policies para todos os models Eloquent principais. Coloque-as no diretório `app/Policies/` e nomeie seguindo o padrão `{ModelName}Policy`.
-   - Use o auto-discovery de policies do Laravel sempre que possível, mantendo a estrutura de namespace padrão.
-   - Implemente os métodos de recurso padrão (`viewAny`, `view`, `create`, `update`, `delete`) e faça type-hint estrito tanto do `User` quanto do model alvo.
-   - Exemplo de estrutura de Policy:
+1. **RBAC com spatie/laravel-permission (mecanismo primário)**:
+   - O `User` já inclui `use Spatie\Permission\Traits\HasRoles;`. NÃO reimplemente checagem de role/permissão manualmente.
+   - Verifique acesso com `hasRole()` / `hasPermissionTo()`:
+     ```php
+     if ($user->hasRole('global_admin')) {
+         return true;
+     }
+
+     return $user->hasPermissionTo('projeto.criar');
+     ```
+   - As permissões são criadas por seeders/migrations do Spatie e o pacote as registra como gates. Assim, um nome de permissão como `projeto.ver` já é utilizável em `Gate::allows('projeto.ver')`, `$user->can('projeto.ver')` e no middleware `can:projeto.ver`.
+   - Use nomes de permissão pontilhados em pt-BR (`recurso.acao`), seguindo o padrão existente no projeto.
+
+2. **Policies com escopo multi-tenant**:
+   - Coloque policies em `app/Policies/`, nome `{ModelName}Policy` (auto-discovery do Laravel). Exemplos reais: `ProjectPolicy`, `ClientPolicy`.
+   - Type-hint estrito do `User` e do model. Dentro da policy, combine role global + permissão nomeada + escopo de tenant. O tenant é resolvido por `User::allowedSolarCompanyIds()`.
+   - Espelhe a `ProjectPolicy` real:
      ```php
      <?php
 
      namespace App\Policies;
 
+     use App\Models\Project\Project;
      use App\Models\User;
-     use App\Models\Project;
 
      class ProjectPolicy
      {
-         /**
-          * Determina se o usuário pode visualizar o projeto.
-          */
-         public function view(User $user, Project $project): bool
+         public function view(User $user, Project $project) : bool
          {
-             return $user->id === $project->user_id || $user->is_developer;
+             if ($user->hasRole('global_admin')) {
+                 return true;
+             }
+
+             return $this->belongsToTenant($user, $project);
+         }
+
+         public function create(User $user) : bool
+         {
+             return $user->hasPermissionTo('projeto.criar');
+         }
+
+         public function uploadDocument(User $user, Project $project) : bool
+         {
+             if ($user->hasRole('global_admin')) {
+                 return $user->hasPermissionTo('documento.enviar');
+             }
+
+             return $this->belongsToTenant($user, $project) && $user->hasPermissionTo('documento.enviar');
          }
 
          /**
-          * Determina se o usuário pode atualizar o projeto.
+          * Resolve o tenant via o cliente do projeto. Projeto órfão (sem cliente) nega por padrão.
           */
-         public function update(User $user, Project $project): bool
+         private function belongsToTenant(User $user, Project $project) : bool
          {
-             return $user->id === $project->user_id;
+             $solarCompanyId = $project->client?->solar_company_id;
+
+             if ($solarCompanyId === null) {
+                 return false;
+             }
+
+             return in_array($solarCompanyId, $user->allowedSolarCompanyIds(), true);
          }
      }
      ```
+   - Por que: role global é atalho de bypass; a permissão nomeada expressa a capacidade; `belongsToTenant` impede que um usuário acesse dados de outra empresa solar. Nunca compare `$user->id === $model->user_id` como regra de autorização — não é o padrão do projeto.
 
-2. **Gates Globais**:
-   - Use Gates para autorização de ações que não mapeiam diretamente para um model Eloquent (ex.: dashboards de administração do sistema, acesso a ferramentas de desenvolvedor).
-   - Registre os Gates no método `boot` do `AppServiceProvider.php` (ou um `AuthServiceProvider.php` dedicado, se for complexo).
-   - Exemplo de definição de Gate:
+3. **Gates ad-hoc (só quando não há model nem permissão nomeada)**:
+   - Use Gates apenas para acessos que não mapeiam para um model Eloquent nem para uma permissão do Spatie — tipicamente painéis de dev/observabilidade.
+   - Registre no `boot()` do `AppServiceProvider`. Exemplos reais do projeto:
      ```php
-     use Illuminate\Support\Facades\Gate;
+     $allowedEmails = ['gd@homelifesolar.com.br'];
 
-     Gate::define('viewPulse', function (User $user) {
-         return $user->is_developer || in_array($user->email, ['gd@homelifesolar.com.br']);
-     });
+     Gate::define('viewPulse', fn ($user) => $user->is_developer || in_array($user->email, $allowedEmails));
+     Gate::define('viewTotem', fn ($user) => $user->is_developer || in_array($user->email, $allowedEmails));
      ```
+   - Também existem `viewHorizon` (`HorizonServiceProvider`) e `viewTelescope` (`TelescopeServiceProvider`). Prefira permissão nomeada do Spatie sempre que a ação for de negócio.
 
-3. **Protegendo Rotas**:
-   - Proteja as rotas usando o middleware `can`, referenciando a ability da policy e passando o nome do parâmetro da rota.
-   - Exemplo de roteamento web/API:
+4. **Protegendo rotas — middleware `can` com permissão NOMEADA**:
+   - A convenção real do engeapp é `can:<permissao.nomeada>`, **sem** parâmetro de model. Não use `can:update,project`.
+   - Exemplos reais (`routes/web/Web.Integrador.Routes.php`, `routes/web/Web.AdminUser.Routes.php`):
      ```php
-     Route::put('/projects/{project}', [ProjectController::class, 'update'])
-         ->middleware('can:update,project');
-     ```
+     Route::get('dashboard', [IntegradorDashboardController::class, 'dashboard'])
+         ->middleware('can:projeto.ver')->name('dashboard');
 
-4. **Autorização em Nível de Controller**:
-   - Garanta que a autorização seja chamada explicitamente dentro dos controllers antes de executar operações, caso o middleware de rota seja insuficiente.
-   - Use os métodos helper do controller ou a facade `Gate` diretamente:
+     Route::post('clients', [IntegradorClientController::class, 'store'])
+         ->middleware('can:projeto.criar')->name('clients.store');
+
+     // Grupo inteiro protegido por uma permissão:
+     Route::middleware(['auth', 'verified', 'can:usuario.gerenciar'])
+         ->prefix('admin')->name('admin.')
+         ->group(function () : void {
+             // rotas de administração de usuários
+         });
+     ```
+   - Para autorizar contra uma Policy de um model específico, faça no controller (ver abaixo), não no middleware de rota.
+
+5. **Autorização em nível de controller**:
+   - Quando precisar da Policy (checagem por instância de model, com escopo de tenant), chame explicitamente no controller:
      ```php
      public function update(Request $request, Project $project)
      {
-         $this->authorize('update', $project);
-
-         // Alternativamente: Gate::authorize('update', $project);
+         $this->authorize('view', $project); // dispara ProjectPolicy::view
 
          $project->update($request->validated());
      }
      ```
+   - Alternativa: `Gate::authorize('view', $project);`. Use middleware `can:permissao.nomeada` para permissões grosseiras e a Policy no controller para regras por instância/tenant.
 
-5. **Integração com Vue (via /api + store MaxPinia)**:
-   - Exponha as permissões de autorização para o front-end da SPA Vue por meio de um endpoint `/api/...` dedicado (ex.: incluído no payload de `/api/auth/me` ou `/api/user`), consumido por uma store MaxPinia.
-   - O backend calcula um mapa de permissões com escopo para o usuário autenticado e o retorna a partir de um controller. Evite retornar toda a base de permissões; limite as permissões dinamicamente ao que o usuário requer.
-   - Exemplo de controller retornando o mapa de permissões:
+6. **Expondo permissões para a SPA Vue (via /api + store MaxPinia)**:
+   - O backend calcula um mapa de permissões com escopo para o usuário autenticado e o retorna de um controller. Não exponha a base inteira de permissões — limite ao que a tela precisa.
      ```php
-     // GET /api/auth/me
      public function me(Request $request)
      {
          $user = $request->user();
@@ -90,51 +129,66 @@ Estabelecer diretrizes, convenções e padrões para implementar lógica de auto
          return response()->json([
              'user' => $user,
              'can' => [
-                 'viewPulse' => $user?->can('viewPulse') ?? false,
-                 'createProject' => $user?->can('create', Project::class) ?? false,
+                 'projeto.criar'   => $user?->can('projeto.criar') ?? false,
+                 'documento.enviar' => $user?->can('documento.enviar') ?? false,
              ],
          ]);
      }
      ```
-   - Na SPA Vue, consuma esse endpoint via uma store MaxPinia (`@maxvue/max-pinia`) e leia as permissões a partir do estado da store (e não das props da página). A store passa o **nome da rota (Ziggy)** ao `apiGetRoute` do `@maxvue/max-use` (ex.: `apiGetRoute('auth.me')`), que resolve o nome para a URL `/api/...` via Ziggy internamente — no código de app você não chama `route()` diretamente, o helper faz isso.
+     > Nota: em `routes/api.php` a rota de usuário está comentada; o endpoint acima é ilustrativo — ajuste o nome de rota real ao ligar o recurso.
+   - No front-end, todo GET passa por uma **store MaxPinia** (`@maxvue/max-pinia`); nunca faça fetch direto no componente e nunca leia permissões de props de página. O contrato real da store: `isCached` (`ref`), `options` computado com `get.route` recebendo o **nome de rota Ziggy pontilhado** (o `apiGetRoute`/plugin resolve para `/api/...` via Ziggy), `save`, `key`, e o estado do servidor em `status.server.get.is_requested` / `is_success`. Espelhe o formato das stores existentes:
+     ```ts
+     export const useAuthStore = defineStore('auth', () => {
+         const isCached = ref(true);
+         // options.get.route é o NOME Ziggy pontilhado, resolvido internamente para /api/...
+         const options = computed(() => ({ get: { route: 'auth.me' }, save: 'auth.save', key: 'auth' }));
+         const data = ref<{ can?: Record<string, boolean> } | null>(null);
+
+         return { options, isCached, data };
+     });
+     ```
      ```vue
      <script setup lang="ts">
-     import { useAuthStore } from '@/stores/auth' // store @maxvue/max-pinia
-
-     const auth = useAuthStore() // a store carrega /api/auth/me em seu estado
+     const auth = useAuthStore(); // a store carrega o payload em seu estado cacheado
      </script>
 
      <template>
-       <button v-if="auth.can.createProject" @click="openModal">
+       <MaxButton v-if="auth.data?.can?.['projeto.criar']" @click="openModal">
          Novo Projeto
-       </button>
+       </MaxButton>
      </template>
      ```
+   - Use componentes `Max*` de `@maxvue/max-components-ui` (ex.: `MaxButton`), nunca `<button>` nativo, e composables de `@maxvue/max-use` no lugar de vueuse/lodash crus.
 
-6. **Testes com Pest**:
-   - Escreva feature tests para verificar os controles de segurança e garantir que policies e gates se comportem corretamente sob diferentes papéis de usuário.
-   - Exemplo de estrutura de teste com Pest:
+7. **Testes com Pest**:
+   - Escreva feature tests cobrindo roles/permissões do Spatie e Gates.
      ```php
-     it('allows a developer to view pulse', function () {
+     it('permite quem tem a permissão projeto.criar', function () {
+         $user = User::factory()->create();
+         $user->givePermissionTo('projeto.criar');
+
+         expect($user->can('projeto.criar'))->toBeTrue();
+     });
+
+     it('nega dashboard do integrador sem projeto.ver', function () {
+         $user = User::factory()->create();
+
+         $this->actingAs($user)
+             ->get(route('integrador.dashboard'))
+             ->assertForbidden();
+     });
+
+     it('permite viewPulse a um developer', function () {
          $user = User::factory()->create(['is_developer' => true]);
 
          expect(Gate::forUser($user)->allows('viewPulse'))->toBeTrue();
      });
-
-     it('denies a regular user from updating another user project', function () {
-         $owner = User::factory()->create();
-         $otherUser = User::factory()->create();
-         $project = Project::factory()->create(['user_id' => $owner->id]);
-
-         $this->actingAs($otherUser)
-             ->put(route('projects.update', $project), ['name' => 'New Name'])
-             ->assertForbidden();
-     });
      ```
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.
-- NÃO faça hardcode de lógica de verificação de permissão ou papel diretamente dentro de views Blade, views Vue ou lógica de controller (ex.: `if ($user->role === 'admin')`). Encapsule toda a lógica dentro de Policies e Gates.
-- NÃO exponha arrays completos e sem escopo de permissões no payload do endpoint `/api`. Mantenha o payload de autorização do frontend mínimo e com escopo.
-- NÃO pule verificações de autorização no backend partindo da suposição de que o frontend esconde os elementos de UI não autorizados. O backend é a única fonte de verdade para autorização.
-- NÃO permita pass-through padrão nas policies. Sempre retorne booleanos explícitos ou estados de exceção.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), independentemente do idioma do corpo desta skill. Comentários de código em pt-BR.
+- Prefira **roles/permissões nomeadas do Spatie** (`hasRole`/`hasPermissionTo`, `can:permissao.nomeada`) à checagem manual. NÃO escreva `if ($user->role === 'admin')` nem `$user->id === $model->user_id` como regra de autorização.
+- NÃO use `can:ability,model` no middleware de rota (não é a convenção do projeto); use `can:permissao.nomeada` na rota e a Policy no controller para regras por instância/tenant.
+- NÃO exponha arrays completos e sem escopo de permissões no payload `/api`. Mantenha o mapa `can` mínimo e com escopo ao usuário.
+- NÃO pule verificação no backend supondo que o front esconde a UI. O backend é a única fonte de verdade; toda Policy deve resolver o escopo de tenant via `allowedSolarCompanyIds()` quando aplicável.
+- NÃO deixe pass-through implícito nas policies: retorne booleanos explícitos (projeto órfão/sem tenant nega por padrão).

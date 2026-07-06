@@ -1,6 +1,6 @@
 ---
 name: vue-toast-notifications-toastify-best-practices
-description: Use when setting up, configuring, or triggering toast notifications in Vue 3 components, composables, or API interceptors using the vue3-toastify library. Triggers on success, error, warning toasts, custom toast configurations, and async promise-based toasts.
+description: Use ao disparar notificações toast em componentes Vue 3 do engeapp com vue3-toastify (auto-mount, opções passadas por chamada; sem registro global). Prefira o Toast/MaxToast nativo do @maxvue/max-components-ui e use toastify só para extras (HTML, loading dinâmico). Cobre toasts de sucesso/erro/aviso e resolução do save MaxPinia via status reativo.
 ---
 
 # Boas Práticas para Notificações Toast com vue3-toastify no Vue 3
@@ -16,20 +16,23 @@ Estabelecer um padrão robusto e consistente para implementar, configurar e disp
 > Toast.show({ title: 'Projeto salvo com sucesso!', severity: 'success' });
 > ```
 
-### 1. Instalação e Configuração Global
-Garanta que `vue3-toastify` está instalado e configure-o globalmente na inicialização da aplicação Vue (`app.ts` ou `main.ts`):
+### 1. Montagem: `<MaxToast />` global + auto-mount do toastify
+No engeapp, o container de toast do app é o `<MaxToast />` (do `@maxvue/max-components-ui`), renderizado uma vez no `App.vue`. O `resources/app.ts` **não** registra `app.use(Vue3Toastify, …)` nem monta `<ToastContainer />` — ele registra apenas `ZiggyVue`, `pinia`, `VueFinder`, `MaxComponentsUi` e o `router`. Não adicione um registro global do `Vue3Toastify`: isso criaria uma segunda pilha de notificações concorrente com o `<MaxToast />`.
+
+Quando você usa `vue3-toastify`, importe `{ toast }` e chame-o direto no componente. A lib faz **auto-mount preguiçoso**: na primeira chamada `toast(...)` ela injeta seu próprio container no DOM, sem precisar de `app.use`. É exatamente assim que o projeto já usa (ver `PayPage.vue`, `PaymentBoleto.vue`, `ChatMessageContacts.vue`) — sempre passando as opções por chamada:
 
 ```typescript
-import Vue3Toastify, { type ToastContainerOptions } from 'vue3-toastify';
-import 'vue3-toastify/dist/index.css';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css'; // importe o CSS uma vez, junto do toast
 
-app.use(Vue3Toastify, {
-  autoClose: 3000,
-  position: 'top-right',
-  theme: 'colored',
-  clearOnUrlChange: false,
-} as ToastContainerOptions);
+toast('Ação realizada!', {
+  theme: 'auto',
+  type: 'success',
+  autoClose: 1700,
+  closeOnClick: false,
+});
 ```
+> Como não há configuração global, **as opções (theme, type, autoClose, position…) devem ir em cada chamada**. Mantenha esses valores consistentes entre componentes para não divergir o visual.
 
 ### 2. Disparos Padrão de Toasts
 Importe `{ toast }` de `vue3-toastify` para disparar notificações. Sempre especifique o tipo e utilize mensagens descritivas em português do Brasil (pt-BR).

@@ -1,6 +1,6 @@
 ---
 name: frontend-design-best-practices
-description: Use when building new UI or reshaping existing screens and you want distinctive, intentional visual design instead of templated defaults. Covers aesthetic direction, typography, color, spatial composition, motion, and translating design intent into production-grade, accessible code.
+description: Use ao construir nova UI ou remodelar telas do engeapp (Vue 3 + UnoCSS attributify presetMaxUno + componentes @maxvue/max-components-ui) buscando design intencional e distinto em vez de padrões genéricos. Cobre direção estética, tipografia, cor, composição espacial, movimento e a tradução da intenção de design em código acessível de produção.
 ---
 
 # Design de Frontend (Distinto, de Nível de Produção)
@@ -22,47 +22,16 @@ Esta skill prioriza **sistemas de design intencionais**, não frameworks padrão
 
 ### 1. Honre o Mandato Central de Design
 
-Toda saída deve satisfazer **os quatro**:
+Toda saída deve satisfazer **os quatro**, porque juntos separam design intencional de template:
 
 1. **Direção Estética Intencional** — Uma postura de design explícita e nomeada (ex.: *brutalismo editorial*, *minimalismo de luxo*, *retrofuturista*, *utilitarismo industrial*).
-2. **Correção Técnica** — Código HTML/CSS/JS ou de framework real e funcional, não mockups.
+2. **Correção Técnica** — Código de framework real e funcional, não mockups.
 3. **Memorabilidade Visual** — Pelo menos um elemento que o usuário lembrará 24 horas depois.
 4. **Contenção Coesa** — Nenhuma decoração aleatória. Cada floreio deve servir à tese estética.
 
-### 2. Avalie com o Índice de Viabilidade e Impacto de Design (DFII)
+### 2. Execute a Fase Obrigatória de Pensamento de Design
 
-Antes de construir, avalie a direção de design usando o DFII.
-
-**Dimensões do DFII (1–5):**
-
-| Dimensão                       | Pergunta                                                          |
-| ------------------------------ | ---------------------------------------------------------------- |
-| **Impacto Estético**           | Quão visualmente distinta e memorável é essa direção?            |
-| **Adequação ao Contexto**      | Essa estética combina com o produto, o público e o propósito?    |
-| **Viabilidade de Implementação** | Isso pode ser construído de forma limpa com a tecnologia disponível? |
-| **Segurança de Desempenho**    | Permanecerá rápido e acessível?                                  |
-| **Risco de Consistência**      | Isso pode ser mantido em telas/componentes?                      |
-
-**Fórmula de Pontuação:**
-
-```
-DFII = (Impacto + Adequação + Viabilidade + Desempenho) − Risco de Consistência
-```
-
-**Faixa:** `-5 → +15`
-
-**Interpretação:**
-
-| DFII      | Significado | Ação                          |
-| --------- | ----------- | ----------------------------- |
-| **12–15** | Excelente   | Execute plenamente            |
-| **8–11**  | Forte       | Prossiga com disciplina       |
-| **4–7**   | Arriscado   | Reduza o escopo ou os efeitos |
-| **≤ 3**   | Fraco       | Repense a direção estética    |
-
-### 3. Execute a Fase Obrigatória de Pensamento de Design
-
-Antes de escrever código, defina explicitamente:
+Antes de escrever código, defina explicitamente — isso evita que a estética seja escolhida por acaso:
 
 **Propósito**
 
@@ -81,7 +50,7 @@ Antes de escrever código, defina explicitamente:
 * Maximalista / Caótico
 * Minimalista / Severo
 
-Não misture mais que **dois**.
+Não misture mais que **dois** tons, para não diluir a identidade.
 
 **Âncora de Diferenciação** — responda:
 
@@ -89,7 +58,15 @@ Não misture mais que **dois**.
 
 Essa âncora deve estar visível na UI final.
 
-### 4. Aplique as Regras de Execução Estética
+**Antes de construir, faça um sanity check da direção** (mentalmente, sem pontuação cerimonial):
+
+* É visualmente distinta e adequada ao produto, ao público e ao propósito?
+* Dá para construir de forma limpa com a stack disponível (Vue 3 + UnoCSS + Max*)?
+* Permanece rápida e acessível, e se mantém consistente entre telas/componentes?
+
+Se qualquer resposta for "não", reduza o escopo dos efeitos ou repense a direção antes de codar.
+
+### 3. Aplique as Regras de Execução Estética
 
 **Tipografia**
 
@@ -100,7 +77,7 @@ Essa âncora deve estar visível na UI final.
 **Cor & Tema**
 
 * Comprometa-se com uma **história de cor dominante**
-* Use variáveis CSS exclusivamente
+* Use variáveis CSS e tokens do sistema de design Max
 * Prefira um tom dominante, um destaque, um sistema neutro
 * Evite paletas equilibradas de forma uniforme
 
@@ -124,67 +101,68 @@ Essa âncora deve estar visível na UI final.
 * Bordas ou divisórias personalizadas
 * Sombras com intenção narrativa (não padrões)
 
-### 5. Atenda aos Padrões de Implementação
+### 4. Atenda aos Padrões de Implementação
 
 **Requisitos de Código**
 
 * Limpo, legível e modular
-* Sem estilos mortos
-* Sem animações não utilizadas
-* HTML semântico — **mas nunca use `<section>`**: use sempre `<div>` no lugar de `<section>` (e de outras tags seccionais) para agrupar conteúdo
-* **Atributos sempre inline**: mantenha todos os atributos de uma tag (componente, `div` ou qualquer elemento) em uma única linha, por mais atributos que tenha — nunca quebre atributos em múltiplas linhas
-* Acessível por padrão (contraste, foco, teclado)
+* Sem estilos mortos nem animações não utilizadas
+* HTML semântico e acessível por padrão (contraste, foco, teclado)
+* **Convenção de novo código: prefira `<div>` a `<section>`** para agrupar conteúdo. Observação: o codebase atual ainda tem `<section>` em telas antigas (ex.: `resources/Vue/Site/Pages/SiteHome.vue`); não é preciso migrá-las, mas siga a convenção `<div>` ao escrever/reformar código.
+* **Atributos sempre inline**: mantenha todos os atributos de uma tag (componente, `div` ou qualquer elemento) em uma única linha, por mais atributos que tenha — nunca quebre atributos em múltiplas linhas.
 
-**Orientação de Framework**
+**Orientação de Framework — Max stack (engeapp: Laravel 13 no backend + frontend Vue 3 com tooling Node/Vite)**
 
-* **HTML/CSS**: Prefira recursos nativos, CSS moderno. Use `<div>` no lugar de `<section>`.
-* **Vue 3 + UnoCSS (attributify, `presetMaxUno`)**: Componentes `<script setup>`, estilos via atributos UnoCSS e componentes Max (`@maxvue/max-components-ui`). Sem Tailwind. Atributos sempre inline (uma linha por tag); nunca `<section>` — sempre `<div>`. **Nunca use inputs/botões nativos** (`<input>`/`<button>`/`<select>`/`<textarea>`) em código de app — use sempre os componentes MaxComponentsUi (`MaxInputText`, `MaxButton`, `MaxIconButton`, etc.). **Nunca use headings nativos** (`<h1>`/`<h2>`/`<h3>`/`<h4>`) — use `MaxTitle1`/`MaxTitle2`. **Formulários usam `MaxGrid`** (nunca `MaxGridCols`), com campos dimensionados por atributos (`s-30`, `w-max-300`, `h-min-50`, `w-min-10rem`). **Não importe `@vueuse/core` nem `lodash`** — use os composables/utilitários do MaxUse (`@maxvue/max-use`).
-* **Animação**: CSS/transições nativas primeiro; bibliotecas de motion apenas quando justificado
+* Construa UI em **Vue 3** com **`<script setup>`**, estilos via **UnoCSS attributify** (`presetMaxUno`) e componentes **`@maxvue/max-components-ui`**. Sem Tailwind, sem ShadCN, sem React.
+* **Nunca use inputs/botões nativos** (`<input>`/`<button>`/`<select>`/`<textarea>`) em código de app — use sempre os componentes MaxComponentsUi (`MaxInputText`, `MaxButton`, `MaxIconButton`, etc.).
+* **Nunca use headings nativos** (`<h1>`…`<h4>`) — use `MaxTitle1`/`MaxTitle2`.
+* **Formulários usam `MaxGrid`** (nunca `MaxGridCols`), com campos dimensionados por atributos (`s-30`, `w-max-300`, `h-min-50`, `w-min-10rem`).
+* **Não importe `@vueuse/core` nem `lodash`** — use os composables/utilitários do MaxUse (`@maxvue/max-use`).
+* **Animação**: CSS/transições nativas primeiro; bibliotecas de motion apenas quando justificado.
 
 **Correspondência de Complexidade**
 
-* Design maximalista → código complexo (animações, camadas)
-* Design minimalista → espaçamento e tipografia extremamente precisos
-* Incompatibilidade = falha.
+* Design maximalista → código complexo (animações, camadas).
+* Design minimalista → espaçamento e tipografia extremamente precisos.
+* Incompatibilidade entre ambição e código = falha.
 
-### 6. Entregue a Estrutura de Saída Exigida
+### 5. Entregue a Estrutura de Saída Exigida
 
 Ao gerar trabalho de frontend:
 
 **Resumo da Direção de Design**
 
 * Nome da estética
-* Pontuação DFII
 * Inspiração-chave (conceitual, não plágio visual)
 
 **Snapshot do Sistema de Design**
 
 * Fontes (com justificativa)
-* Variáveis de cor
+* Variáveis/tokens de cor
 * Ritmo de espaçamento
 * Filosofia de movimento
 
 **Implementação**
 
 * Código completo e funcional
-* Comentários apenas onde a intenção não é óbvia
+* Comentários apenas onde a intenção não é óbvia (em pt-BR)
 
 **Destaque de Diferenciação** — declare explicitamente:
 
 > "Isto evita UI genérica fazendo X em vez de Y."
 
-### 7. Execute o Checklist do Operador
+### 6. Execute o Checklist do Operador
 
 Antes de finalizar a saída:
 
 * [ ] Direção estética clara declarada
-* [ ] DFII ≥ 8
-* [ ] Uma âncora de design memorável
+* [ ] Uma âncora de design memorável e visível
 * [ ] Sem fontes/cores/layouts genéricos
 * [ ] Código compatível com a ambição de design
+* [ ] Regras do Max stack respeitadas (Max*, sem nativos, sem vueuse/lodash)
 * [ ] Acessível e performático
 
-### 8. Faça Perguntas Esclarecedoras (se necessário)
+### 7. Faça Perguntas Esclarecedoras (se necessário)
 
 1. Para quem é isto, emocionalmente?
 2. Isto deve parecer confiável, empolgante, calmo ou provocativo?
@@ -210,11 +188,3 @@ Antes de finalizar a saída:
 * Decoração sem intenção
 
 Se o design pudesse ser confundido com um template → recomece.
-
-## Exemplos
-
-**Notas de stack (EngeApp / Node):**
-
-* Construa UI em **Vue 3** com **UnoCSS attributify** (`presetMaxUno`) e componentes **`@maxvue/max-components-ui`** — nunca Tailwind/ShadCN/React.
-* Dados de página: todo GET/save passa por store **`@maxvue/max-pinia`** (auto-save debounced); não faça `axios.get/post` manual nos componentes de UI.
-* Variáveis de cor e tokens devem casar com o sistema de design Max para manter consistência entre telas.

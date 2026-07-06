@@ -70,6 +70,7 @@ const status = ref('no')
 ```html
 <script setup>
 import { ref } from 'vue'
+import { apiPostRoute } from '@maxvue/max-use'
 
 const isActive = ref(false)
 
@@ -79,10 +80,8 @@ async function submitForm() {
     status: isActive.value ? 'yes' : 'no'
   }
 
-  await fetch('/api/update', {
-    method: 'POST',
-    body: JSON.stringify(payload)
-  })
+  // No engeapp, mutações vão via apiPostRoute (nome de rota Ziggy pontilhado), não fetch cru
+  await apiPostRoute('registro.update', payload)
 }
 </script>
 

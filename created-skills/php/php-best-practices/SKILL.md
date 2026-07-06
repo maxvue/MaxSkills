@@ -1,16 +1,13 @@
 ---
 name: php-best-practices
-description: PHP 8.x modern patterns, PSR standards, and SOLID principles. Use when reviewing PHP code, checking type safety, auditing code quality, or ensuring PHP best practices. Triggers on "review PHP", "check PHP code", "audit PHP", or "PHP best practices".
-license: MIT
+description: PHP 8.x modern patterns, PSR standards, and SOLID principles for the Laravel 13 / PHP 8.4 backend. Use when reviewing PHP code, checking type safety, auditing code quality, or ensuring PHP best practices. Triggers on "review PHP", "check PHP code", "audit PHP", or "PHP best practices".
 metadata:
-  author: php-community
-  version: "2.1.0"
   phpVersion: "8.0 - 8.5"
 ---
 
 # PHP Best Practices
 
-Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 53 rules for writing clean, maintainable PHP code.
+Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 51 rules for writing clean, maintainable PHP code.
 
 ## Step 1: Detect PHP Version
 

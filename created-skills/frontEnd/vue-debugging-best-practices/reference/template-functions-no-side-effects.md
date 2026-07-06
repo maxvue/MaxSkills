@@ -46,6 +46,7 @@ Template expressions including function calls are evaluated whenever the compone
 
 <script setup>
 import { ref } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const count = ref(0)
 const items = ref([/* large array */])
@@ -58,8 +59,8 @@ function incrementAndGet() {
 
 // BAD: Async operation in template
 async function fetchUserName() {
-  const res = await fetch('/api/user')  // Side effect!
-  return (await res.json()).name
+  const user = await apiGetRoute('usuario.atual')  // Side effect!
+  return user.name
 }
 
 // BAD: Logging is a side effect
@@ -109,6 +110,7 @@ function getRandomGreeting() {
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const count = ref(0)
 const userName = ref('')
@@ -120,10 +122,10 @@ function increment() {
   count.value++
 }
 
-// Fetch data in lifecycle hook
+// Fetch data in lifecycle hook (apiGetRoute = nome de rota Ziggy pontilhado)
 onMounted(async () => {
-  const res = await fetch('/api/user')
-  userName.value = (await res.json()).name
+  const user = await apiGetRoute('usuario.atual')
+  userName.value = user.name
 })
 
 // Pure function - same input, same output

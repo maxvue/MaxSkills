@@ -1,6 +1,6 @@
 ---
 name: vue-inputs-masks-validation-best-practices
-description: Use when implementing, formatting, or validating user inputs with masks in Vue 3 components using the Maska library (v3) and libphonenumber-js, plus the optional (install-on-demand) card-validator and @polvo-labs/card-type packages. Triggers on setting up phone, CPF, CNPJ, currency, zip code (CEP), vehicle plate, credit card inputs, handling dynamic masks, and validation/unmasking.
+description: Use ao implementar, formatar ou validar inputs com máscaras em componentes Vue 3 do EngeApp usando Maska v3 e libphonenumber-js, além de card-validator e @polvo-labs/card-type (ambos já instalados no projeto). Acione ao configurar telefone, CPF, CNPJ, moeda, CEP, placa de veículo e cartão de crédito, tratar máscaras dinâmicas e fazer validação/unmask antes de persistir na store @maxvue/max-pinia.
 ---
 
 # Boas Práticas de Inputs, Máscaras e Validação no Vue 3
@@ -76,7 +76,7 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
   ```
 
 ### 7. Formatação e Validação de Cartões de Crédito
-> **Dependências não incluídas:** `card-validator` e `@polvo-labs/card-type` **não** fazem parte das dependências do EngeApp nem de nenhuma lib Max (`@maxvue/max-components-ui`, `@maxvue/max-use`). Se um componente/helper Max cobrir validação/detecção de bandeira de cartão, prefira-o; caso contrário, adicione esses pacotes explicitamente ao projeto (`npm i card-validator @polvo-labs/card-type`) antes de usar os exemplos abaixo.
+> **Dependências já instaladas:** `card-validator` (`^10.0.4`) e `@polvo-labs/card-type` (`^0.0.3`) já constam no `package.json` do EngeApp — importe-os direto, sem `npm i`. Se algum componente/helper Max cobrir a validação/detecção de bandeira, prefira-o; caso contrário, use esses pacotes conforme os exemplos abaixo.
 
 - **Formatação em Tempo Real**: Máscara padrão para número de cartão: `#### #### #### ####`. Máscara de data de validade: `##/##`.
 - **Validação de Cartão**: Use o pacote `card-validator`:

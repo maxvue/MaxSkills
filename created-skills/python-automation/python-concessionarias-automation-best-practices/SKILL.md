@@ -26,7 +26,7 @@ Sempre importe e use os wrappers padrão de [functions.py](file:///home/johnatta
 - Implemente loops de retentativa (até ~3 tentativas) para envio de formulários críticos.
 
 ### 3. Resolução de Captchas (API AntiCaptcha)
-- **Imagem:** `captha_imagem(By, locator)` — remova o arquivo temporário gerado via `os.remove()` imediatamente após resolver, evitando lixo em disco.
+- **Imagem:** `captha_imagem(by, by_value)` — retorna apenas a string da solução; o helper já tira o screenshot em arquivo temporário e o apaga com `os.remove()` internamente, então **não** tente remover o arquivo pelo chamador (o nome não é exposto).
 - **ReCaptcha v2:** `captha_gRecaptcha(By, locator, url)` — passe a sitekey e a URL corretas.
 - **Erros:** se a API falhar, registre log detalhado e aborte/refaça a etapa. Nunca submeta formulários com captcha vazio/inválido.
 - **Chaves:** nunca faça hardcode da chave do AntiCaptcha — carregue de variáveis de ambiente ou de payloads de inicialização do backend.
@@ -58,7 +58,7 @@ Sempre importe e use os wrappers padrão de [functions.py](file:///home/johnatta
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não ignore os helpers de `functions.py`** — não escreva loops manuais de espera/clique; eles já tratam espera e erros.
 - **Sem esperas estáticas indiscriminadas** — não use `time.sleep()` para checar presença de elemento.
-- **Sem lixo temporário** — exclua prints/captchas locais logo após o uso.
+- **Sem lixo temporário** — exclua screenshots/prints locais que você mesmo gerar logo após o uso (o captcha de imagem já se autolimpa em `captha_imagem`).
 - **Sem renomeação de download incompleto** — verifique `.crdownload`/`.part` antes.
 - **Proibido credenciais/chaves fixas no código.**
 - **Sem escrita direta no banco** — toda atualização de estado vai ao backend Laravel via callback HTTP.

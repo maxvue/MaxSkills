@@ -1,6 +1,6 @@
 ---
 name: vue-unocss-styling-best-practices
-description: Use when designing, styling, or editing Vue 3 component templates, styles, and layouts in Engeapp, as well as implementing or configuring dark mode styling and theme preferences. Triggers on UnoCSS class usage, Tailwind/Wind3 utilities, custom styling rules, CSS/SCSS writing, dark mode toggling, system preferences detection, and edits in uno.config.ts.
+description: Use ao projetar, estilizar ou editar templates, estilos e layouts de componentes Vue 3 no Engeapp com UnoCSS + presetMaxUno. Aciona em classes/atributos utilitários, atalhos de cor e espaçamento do tema, atributos semânticos do params.scss, uso de Wind3/PrimeVue via :deep, blocos style scoped lang scss, edições em uno.config.ts e no modo escuro (.dark) via useColorMode/useDark do @maxvue/max-use.
 ---
 
 # Melhores Práticas de Estilização com Vue 3 e UnoCSS
@@ -13,15 +13,18 @@ Estabelecer diretrizes claras, sólidas e padrões consistentes para estilizar c
 ### 1. Integração do UnoCSS e Preset de Tema
 - O Engeapp utiliza um preset customizado chamado `presetMaxUno` (importado de `@maxvue/max-components-ui/preset`), juntamente com `presetWind3()`, `presetAttributify()` e `presetIcons()`.
 - O `presetMaxUno` compila as variáveis do tema (como `--pink-X`, `--red-X`, `--blue-X`, `--emerald-X`, etc.) no elemento raiz (:root) do documento.
-- Não insira cores hexadecimais ou variáveis CSS manualmente no HTML. Use classes utilitárias mapeadas diretamente para as cores do tema:
-  - `bg-emerald-700` ou `text-blue-600`
+- Não insira cores hexadecimais ou variáveis CSS manualmente no HTML. Use as classes utilitárias que o `presetMaxUno` mapeia para as `var(--...)` do tema. Atenção às duas famílias distintas de regra (confira em `presetMaxUno.ts`):
+  - **Cor de texto:** escreva o token **sem** o prefixo `text-` — a regra `^(red|green|blue|emerald|orange|amber|cyan|pink|yellow|gray|background)-(\d+)$` casa `blue-600`, `red-700` etc. e emite `color: var(--blue-600)`. `text-blue-600` **não** casa essa regra e cai no `presetWind3` (paleta Tailwind, não o tema); evite-o para cores do tema.
+  - **Cor de fundo:** o shortcut `^bg-(.+)$` aceita qualquer token do tema, incluindo os semânticos — `bg-emerald-700`, `bg-primary-600`, `bg-background-0` compilam para `background-color: var(--emerald-700)` etc.
   - Atalhos personalizados como `fs-1.2` ou `font-size-1.2` para definir o tamanho da fonte (compila para `font-size: 1.2rem !important`)
   - Atalhos utilitários para altura/largura como `h-full`, `h-flex`, `w-full`, `w-flex` (compila para `100% !important`)
   - Atalhos personalizados de margem e preenchimento (ex: `p-10`, `m-20`) processados pelo `presetMaxUno`.
 
-### 2. Uso do Preset Attributify para Atributos Comuns de Layout
-- O Engeapp utiliza o `presetAttributify()` para suportar atributos semânticos de estilização diretamente nas tags HTML, evitando classes sobrecarregadas.
-- Sempre que aplicável, utilize essas propriedades predefinidas em formato de atributo em vez de escrever classes complexas. Exemplos:
+### 2. Atributos Semânticos do Tema (params.scss) vs. presetAttributify
+- Distinga duas coisas que parecem iguais no template mas têm origens diferentes:
+  - **Atributos semânticos do tema:** `danger`, `cancel`, `confirm`, `transparent`, `white`, `noborder`, `no-padding`, `no-gap`, `grid-center`, `pointer`, `denied`, `absolute`, `relative`, `upper`, `lower`, `full`, `flex`, alinhamentos de grid (`left`, `right`, `center`, `start`, `end`, `center-start`, etc.). Estes **não** vêm do `presetAttributify`: são seletores de atributo CSS puros escritos à mão em `@maxvue/max-components-ui` (`src/themes/params.scss`, ex.: `[pointer] {cursor: pointer !important;}`, `[danger] {background-color: var(--red-700) !important;}`), injetados no CSS pelo preflight do `presetMaxUno`. Por isso funcionam mesmo sem o presetAttributify.
+  - **presetAttributify:** apenas permite **escrever utilitários UnoCSS em forma de atributo** (ex.: `bg-red-500`, `p-4`). Não é ele que define os atributos semânticos acima.
+- Prefira os atributos semânticos do tema em vez de reconstruir o mesmo efeito com classes complexas. Exemplos:
   - `danger`, `cancel`, `confirm`, `transparent` para estilização de tipos de botões.
   - `noborder` para remover rapidamente bordas e contornos.
   - `no-padding`, `no-gap`, `no-row-gap`, `no-column-gap` para redefinição de espaçamento.
@@ -54,10 +57,16 @@ Estabelecer diretrizes claras, sólidas e padrões consistentes para estilizar c
 - Dentro do bloco `<template>`, mantenha todos os atributos e props de um componente Vue em uma **única linha (estilo inline)**. Não quebre os atributos em múltiplas linhas, mesmo que a linha fique longa.
 - Exemplo: `<MaxButton danger pointer label="Remover Item" @click="handleDelete" />`
 
+### 7. Modo Escuro (.dark) e Tokens do Tema
+- O tema já traz o modo escuro pronto: `@maxvue/max-components-ui/src/themes/colors.scss` define um bloco `.dark { ... }` que **remapeia as mesmas `var(--...)`** (ex.: `--pink`, `--blue-600`, `--background-0`) para os valores escuros. Você não escreve cores de dark mode à mão.
+- Como todas as classes/atributos do `presetMaxUno` apontam para essas `var(--...)`, ao ativar o escopo `.dark` a UI inteira troca de paleta automaticamente — desde que você tenha usado tokens do tema (Seção 1) e não hexadecimais fixos.
+- Para alternar o tema, use os composables reexportados por `@maxvue/max-use` (que envolvem o VueUse): `useColorMode`, `useDark` e `usePreferredDark` (detecção de `prefers-color-scheme`). Não importe VueUse cru — o padrão do projeto é sempre passar pelo `@maxvue/max-use`.
+- Reforço da regra de ouro: só a estilização baseada em tokens do tema participa do dark mode. Qualquer cor hex/inline fica presa no claro e quebra o contraste no escuro.
+
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Não quebre os atributos de componentes em várias linhas** nos templates Vue.
-- **Não escreva cores hexadecimais manualmente** no HTML ou em CSS inline. Utilize sempre os tokens que realmente existem no tema do `presetMaxUno` — escalas numéricas (`bg-background-0`, `bg-red-700`, `bg-emerald-700`, `text-blue-600`, `text-primary-600`, etc.) ou os vars semânticos existentes (`--primary`, `--secondary`, `--success`, `--danger`, `--error`, `--info`, `--warn`, `--text`, `--white`).
+- **Não escreva cores hexadecimais manualmente** no HTML ou em CSS inline. Utilize sempre os tokens que realmente existem no tema do `presetMaxUno`: para fundo, `bg-<token>` (`bg-background-0`, `bg-red-700`, `bg-emerald-700`, `bg-primary-600`); para texto, o token **sem** `text-` (`blue-600`, `red-700`, `background-900`). Evite `text-<cor>-<shade>`, pois cai na paleta Wind3/Tailwind e não nas `var(--...)` do tema. Os vars semânticos base do tema (`--primary`, `--secondary`, `--success`, `--danger`, `--error`, `--info`, `--warn`, `--text`, `--white`) também existem e podem ser consumidos via `bg-<nome>` ou dentro do SCSS.
 - **Não crie regras CSS em folhas de estilo globais** quando puderem ser resolvidas por meio de utilitários UnoCSS ou SCSS local (`<style scoped lang="scss">`).
 - **Não utilize Options API** sob nenhuma circunstância; sempre implemente a Composition API `<script setup lang="ts">` usando TypeScript.
 - **Mantenha todos os comentários em Português do Brasil (pt-BR)** dentro dos arquivos SFC de código, respeitando as regras globais do projeto.

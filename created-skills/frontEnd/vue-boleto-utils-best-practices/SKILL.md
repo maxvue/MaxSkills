@@ -38,14 +38,14 @@ interface Boleto {
 ### 2. Fluxo de Validação de Input de Formulário
 Ao construir campos de formulário para capturar informações de boleto:
 1. **Sanitizar Entrada:** Sempre remova caracteres não numéricos antes de enviar o código para `validarBoleto` (ex: `code.replace(/\D/g, '')`).
-2. **Tratar Entrada Incompleta:** Não execute a validação em entradas muito curtas. Aguarde até que o comprimento limpo seja de pelo menos 40 caracteres (códigos de barras padrão possuem 44 dígitos, linhas digitáveis possuem 47 ou 48).
+2. **Tratar Entrada Incompleta:** Não execute a validação em entradas muito curtas. A lib só aceita os comprimentos exatos 44, 46, 47 ou 48 e rejeita qualquer outro; portanto aguarde até que o comprimento limpo seja de pelo menos 44 caracteres (código de barras = 44; linha digitável = 46 [cartão de crédito], 47 [bancário/cobrança] ou 48 [convênio/arrecadação]).
 3. **Tratar Erros de Tempo de Execução:** Envolva a chamada de `validarBoleto` em um bloco `try/catch`, pois a biblioteca pode lançar erros internos para entradas muito malformadas.
 4. **Preferir Composition API & TypeScript:** Encapsule a lógica de validação dentro de composables Vue reutilizáveis (`useBoleto`) para permitir que vários componentes compartilhem a lógica.
 
 ### 3. Ordem dos Blocos SFC
 Sempre estruture componentes nesta ordem exata:
 1. `<template>`
-2. `<script lang="ts">` ou `<script setup lang="ts">`
+2. `<script setup lang="ts">` (Composition API com `<script setup>` é o padrão do projeto — não use Options API)
 3. `<style lang="scss">` ou `<style scoped lang="scss">`
 
 Mantenha os atributos dos elementos do template em linha única para evitar poluição visual de múltiplas linhas.
@@ -72,7 +72,8 @@ export function useBoleto() {
   const validation = computed<ResultadoValidacao>(() => {
     const cleanCode = boletoCode.value.replace(/\D/g, '');
 
-    if (cleanCode.length < 40) {
+    // A lib só valida comprimentos 44, 46, 47 ou 48; abaixo de 44 é sempre incompleto.
+    if (cleanCode.length < 44) {
       return { sucesso: false, mensagem: 'Código incompleto' };
     }
 
@@ -106,7 +107,7 @@ export function useBoleto() {
 ```vue
 <template>
   <div class="boleto-field">
-    <MaxInputText v-model="boletoCode" label="Linha Digitável / Código de Barras" placeholder="00000.00000 00000.000000..." :error="error" mono @update:model-value="validate" />
+    <MaxInputText v-model="boletoCode" label="Linha Digitável / Código de Barras" placeholder="00000.00000 00000.000000..." :error="error" @update:model-value="validate" />
 
     <div v-if="isValid && details" class="boleto-field__details">
       <div class="detail-row"><span>Valor:</span> <strong>R$ {{ details.valor.toFixed(2) }}</strong></div>
@@ -149,7 +150,8 @@ const validate = () => {
     return;
   }
 
-  if (cleanCode.length < 40) {
+  // A lib só valida comprimentos 44, 46, 47 ou 48; abaixo de 44 é sempre incompleto.
+  if (cleanCode.length < 44) {
     error.value = 'Código incompleto. Continue digitando...';
     isValid.value = false;
     details.value = null;

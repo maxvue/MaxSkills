@@ -12,8 +12,8 @@ Estabelecer diretrizes robustas de segurança e práticas de hardening para o de
 
 ### 1. Segurança de Models Eloquent
 - **Criptografia de Campos Sensíveis**: Use o cast `'encrypted'` embutido do Laravel ou casting criptografado customizado para PII (Informações Pessoais Identificáveis) e chaves/tokens de APIs de terceiros. Sempre oculte essas colunas usando `$hidden` no model.
-- **Proteção contra Mass Assignment**: Não use `protected $guarded = [];`. Declare explicitamente os atributos seguros no array `$fillable`.
-- **Strict Loading e Prevenção de Lazy Loading**: Imponha regras estritas de segurança de model no `AppServiceProvider`.
+- **Proteção contra Mass Assignment**: Para models novos ou que recebem entrada direta do usuário, prefira declarar explicitamente os atributos seguros no array `$fillable` — isso limita a superfície de mass assignment ao mínimo necessário. Realidade do engeapp: `protected $guarded = [];` é uma convenção amplamente adotada (36 models usam `guarded = []` contra 92 com `$fillable`), então NÃO exija `$fillable` de forma cega. Quando o model usa `guarded = []`, o controle compensatório obrigatório é validar/filtrar a entrada em um Form Request dedicado (ver secao 4), nunca passar `$request->all()` sem validação prévia para `create`/`update`.
+- **Strict Loading e Prevenção de Lazy Loading** (opt-in, não configurado hoje): O engeapp NÃO configura `Model::shouldBeStrict()` / `preventLazyLoading()` / `preventSilentlyDiscardingAttributes()` no `AppServiceProvider` atualmente. Se decidir adotar esse hardening, ative-o no `boot()` do `AppServiceProvider` (idealmente apenas fora de produção via `!app()->isProduction()`) — isso ajuda a detectar N+1 e atribuições silenciosamente descartadas em desenvolvimento. Trate como recomendação genérica opcional, não como estado atual do projeto.
 
 ### 2. Prevenção de SQL Injection (SQLi)
 - **Consultas Parametrizadas**: Sempre use os bindings de parâmetro do Eloquent ou do query builder. Nunca concatene entrada do usuário diretamente em strings de query (por exemplo, em `whereRaw`, `selectRaw`, `orderByRaw`, `DB::statement`).

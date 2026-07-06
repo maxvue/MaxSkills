@@ -22,16 +22,28 @@ Fornecer diretrizes, configurações e estratégias para executar, fazer deploy 
    - O FrankenPHP é o servidor efetivamente usado no engeapp (`.env` define `OCTANE_SERVER=frankenphp`, sobrescrevendo o default `roadrunner` do `config/octane.php`). Inicie-o com:
      `php artisan octane:start --server=frankenphp --workers=4 --max-requests=10000`
      (com `OCTANE_SERVER=frankenphp` no `.env`, a flag `--server` é opcional). O script de dev do projeto usa `php artisan octane:start --port=4003 --admin-port=4004` — a flag `--admin-port` é específica do FrankenPHP e expõe o endpoint de administração/reload do worker.
-   - Ao executar o FrankenPHP atrás do Caddy (ou seu servidor Caddy embutido), configure o Caddyfile para rotear o tráfego para o script worker do Octane e para servir assets estáticos (CSS, JS, imagens) diretamente sem passar pelo worker PHP.
-   - Exemplo de roteamento no Caddyfile:
+   - **Não escreva o Caddyfile à mão.** O próprio Octane gera e gerencia o Caddyfile a partir do stub `vendor/laravel/octane/src/Commands/stubs/Caddyfile`, parametrizado por variáveis de ambiente (`CADDY_SERVER_WORKER_DIRECTIVE`, `APP_PUBLIC_PATH`, `CADDY_SERVER_ADMIN_PORT` etc.). O engeapp NÃO possui Caddyfile manual — controle os workers pelas flags de CLI (`--workers`, `--max-requests`, `--admin-port`) e pelas variáveis de ambiente, não editando o Caddyfile.
+   - Estrutura real gerada pelo Octane (referência, para entender o que a ferramenta produz): os workers do FrankenPHP são declarados no **bloco global** (`frankenphp { worker { ... } }`), e o bloco do site usa a diretiva `php_server` para rotear e servir assets estáticos. Um subdiretivo `frankenphp { num_workers N }` dentro do bloco do site NÃO é sintaxe válida.
      ```caddyfile
-     example.com {
-         root * /home/forge/example.com/public
-         file_server
-         
-         # Roteia todas as requisições para o worker do FrankenPHP
+     {
+         # Bloco GLOBAL: workers do FrankenPHP são declarados aqui
          frankenphp {
-             num_workers 4
+             worker {
+                 file "{$APP_PUBLIC_PATH}/frankenphp-worker.php"
+                 {$CADDY_SERVER_WORKER_DIRECTIVE}
+             }
+         }
+     }
+
+     {$CADDY_SERVER_SERVER_NAME} {
+         route {
+             root * "{$APP_PUBLIC_PATH}"
+             encode zstd br gzip
+             php_server {
+                 index frankenphp-worker.php
+                 try_files {path} frankenphp-worker.php
+                 resolve_root_symlink
+             }
          }
      }
      ```

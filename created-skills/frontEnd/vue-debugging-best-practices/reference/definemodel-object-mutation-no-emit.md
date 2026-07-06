@@ -126,13 +126,13 @@ function updateBothCorrect() {
 </script>
 ```
 
-## Alternative: VueUse's useVModel with Deep Option
+## Alternative: useVModel with Deep Option
 
-For complex objects, consider VueUse:
+Para objetos complexos, considere `useVModel`. No engeapp ele vem de `@maxvue/max-use` (reexporta o VueUse), nunca de `@vueuse/core`:
 
 ```vue
 <script setup>
-import { useVModel } from '@vueuse/core'
+import { useVModel } from '@maxvue/max-use'
 
 const props = defineProps<{ modelValue: { name: string } }>()
 const emit = defineEmits(['update:modelValue'])

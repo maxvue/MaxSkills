@@ -1,172 +1,114 @@
 ---
 name: vue-meta-api-oauth-integration-best-practices
-description: Use when building, refactoring, or debugging client-side social media OAuth integration flows in Vue 3 (Facebook, Instagram, WhatsApp), handling connection popups, listener events via postMessage, or managing social connection state. Triggers on window.open for OAuth, window.addEventListener('message'), and social account authorization UI.
+description: Use ao construir, refatorar ou depurar a UI de credenciais das APIs oficiais da Meta (Instagram e Página do Facebook) no front-end Vue 3 do engeapp (SocialMedia/TabCredentials.vue). Cobre entrada MANUAL de external_account_id e token via MaxInputText/MaxButton, salvamento pela store Pinia comum useSocialMediaCredentials (load/save via axios + route Ziggy) e o indicador has_token.
 ---
 
 ## Objetivo
-Estabelecer padrões claros, seguros e robustos de implementação para fluxos de integração OAuth de mídias sociais no lado do cliente (especificamente o Login da Meta) usando popups centralizados, callbacks baseados em eventos com `window.postMessage` e sincronização de estado adequada no Vue 3.
+Padronizar a tela de **credenciais de redes sociais** do engeapp: o gestor **digita manualmente** o identificador da conta (Page ID do Facebook ou Instagram User ID) e **cola o token de acesso** obtido no painel da Meta, salvando via botão. Não existe fluxo OAuth de popup/redirect no front-end — a autorização é feita fora da aplicação e apenas as credenciais resultantes são armazenadas pelo backend.
+
+Arquivos reais que esta skill descreve:
+- `resources/Vue/Sections/SocialMedia/TabCredentials.vue` — a tela.
+- `resources/Stores/calendar/useSocialMediaCredentials.Store.ts` — a store.
 
 ## Instruções
 
-1. **Criação da Janela Popup e Prevenção de Bloqueios**
-   - Os navegadores modernos bloqueiam o `window.open` a menos que ele seja executado dentro de um ciclo de evento de interação direta do usuário (como um manipulador `@click`).
-   - Se a URL de autorização OAuth precisar ser recuperada de forma assíncrona a partir da API do backend, NÃO faça a requisição da API primeiro. Em vez disso, abra um popup temporário em branco (`window.open('about:blank', ...)`) dentro do manipulador de clique imediatamente. Depois, atribua a URL de autorização obtida ao `popup.location.href` assim que a resposta da API retornar.
-   - Sempre centralize o popup na tela ativa do usuário. Use a largura da tela, a altura da tela, o zoom do sistema e os deslocamentos de monitores duplos para calcular as coordenadas precisas.
+1. **Modelo mental: entrada manual, não OAuth client-side**
+   - NÃO implemente `window.open`, `about:blank`, `window.postMessage`, `addEventListener('message')` nem polling de `popup.closed`. Nenhum desses padrões existe na seção SocialMedia e não há rota de `auth_url`.
+   - Cada API do catálogo (Facebook, Instagram) é representada por um `SocialMediaCredentialItem` com `external_account_id` (o ID da conta) e `has_token` (flag). O gestor edita esses valores num formulário e clica em Salvar.
 
-2. **Segurança nos Listeners de postMessage (Prevenindo XSS)**
-   - Registre o manipulador de callback usando `window.addEventListener('message', handleCallback)`.
-   - **Validação Crucial**: Sempre verifique se o `event.origin` corresponde estritamente ao domínio de backend da API confiável ou à origem da aplicação (`import.meta.env.VITE_API_URL` ou similar). Nunca confie em comunicações de origens arbitrárias (`*`).
-   - Valide a estrutura do payload da mensagem (`event.data`) antes de executar mutações ou atualizações na store. Um payload de evento padrão deve ter um formato reconhecível: `{ type: 'META_OAUTH_RESPONSE', status: 'success' | 'error', data: any }`.
-   - Remova o listener (`window.removeEventListener('message', handleCallback)`) imediatamente após o sucesso da autenticação, falha ou quando o componente Vue for desmontado (`onUnmounted`).
+2. **Store: Pinia de composição comum (NÃO MaxPinia)**
+   - A credencial é gerida por `useSocialMediaCredentialsStore` — uma store `defineStore` de composição comum que usa `axios` diretamente com o helper Ziggy `route()`. Ela **não** é `@maxvue/max-pinia`: não tem `isCached`, `options.get.route/save`, `status.server` nem `reload()`.
+   - Ela expõe exatamente `items`, `loading`, `load()` e `save(payload)`:
+     - `load()` → `axios.get(route('social_media.credentials.data'))`, preenche `items` com `data.items`.
+     - `save(payload)` → `axios.post(route('social_media.credentials.save'), payload)` e atualiza o item local (`external_account_id`, `is_active`, e liga `has_token` quando um novo `access_token` foi enviado).
+   - Para recarregar dados, chame `load()`, não `reload()` (que não existe). Os nomes de rota são `social_media.credentials.data` (GET) e `social_media.credentials.save` (POST) — nomes Ziggy pontilhados resolvidos por `route()`.
 
-3. **Monitoramento do Ciclo de Vida e Fechamento Manual**
-   - Implemente um temporizador de verificação com `setInterval` monitorando o `popup.closed` a cada 500ms.
-   - Se o usuário fechar o popup manualmente sem concluir a autorização, resolva o estado graciosamente, limpe o listener e exiba uma notificação amigável para o usuário.
+3. **Segurança do token: nunca trafegue de volta ao cliente**
+   - O backend nunca devolve o token salvo. A store só conhece `has_token: boolean` para indicar se já há um token configurado.
+   - No formulário, o campo de token começa **vazio** a cada carregamento. Envie `access_token` somente quando o gestor digitar um novo valor; caso contrário mande `null` para preservar o token existente no backend.
+   - Nunca persista o token em LocalStorage nem em estado global. Após salvar, limpe o campo local (`access_token = ''`).
 
-4. **Integração com Stores (MaxPinia)**
-   - Todo GET de dados de página (incluindo a auth-url e as credenciais sociais) deve passar por uma store `@maxvue/max-pinia`, não por `axios.get` manual no componente. Use `apiGetRoute('nome.da.rota')` do `@maxvue/max-use`, passando o **nome de rota (Ziggy)** pontilhado — o helper resolve o nome para a URL `/api/...` via Ziggy internamente (não passe caminhos string `/api/...`).
-   - O callback do OAuth deve disparar uma atualização de estado na store de credenciais sociais (recarregando via store MaxPinia), refletindo o auto-save/cache da camada `@maxvue/max-pinia`.
-   - Nunca armazene credenciais brutas ou tokens de acesso confidenciais dentro de stores do lado do cliente ou no LocalStorage. Dependa de sessões do backend (guard web, sessão+cookie) e represente o estado de autorização com flags abstratas como `has_token: boolean`.
+4. **UI: apenas componentes Max, atributos inline**
+   - Use `MaxInputText` para o ID da conta e para o token (`type="password"`), `MaxInputSwitch` para `is_active` e `MaxButton` com `:action` + `:loading` para salvar. Nada de `<input>`/`<button>` nativos nem PrimeVue cru.
+   - Feedback via `Toast.show({ severity, title, message })` de `@maxvue/max-components-ui`.
+   - O rótulo/placeholder do identificador muda conforme a plataforma (Page ID para Facebook, Instagram User ID para Instagram). Comentários de código em pt-BR.
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- NÃO busque URLs de autorização na API antes de abrir a janela popup, caso contrário, os bloqueadores de popup do navegador serão ativados.
-- NÃO aceite mensagens de origens curinga (`*`) nos listeners de `postMessage`.
-- NÃO armazene ou exponha credenciais brutas ou tokens de autorização confidenciais no estado do lado do cliente.
-- NÃO deixe listeners ou intervalos ativos quando o componente for desmontado.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), sem exceção.
+- NÃO invente fluxo OAuth de popup/redirect no front-end (`window.open`, `postMessage`, `auth_url`): ele não existe neste projeto.
+- NÃO trate a store de credenciais como MaxPinia; use `load()`/`save()` (axios + `route()`).
+- NÃO exponha nem armazene o token de acesso no cliente; dependa de `has_token` e da sessão do backend.
+- NÃO use inputs/botões nativos ou PrimeVue cru; use `MaxInputText`, `MaxInputSwitch`, `MaxButton`, `Toast`.
 
-# Exemplos
+# Exemplo
+
+Formulário fiel a `TabCredentials.vue`: carrega via store, edita manualmente, salva enviando o token só quando preenchido.
 
 ```vue
 <template>
-  <div class="oauth-integration">
-    <!-- Componentes de botão formatados em uma única linha, mantendo atributos inline -->
-    <MaxButton id="btn-meta-connect" icon="mdi:facebook" label="Conectar Página do Facebook" :action="connectAccount" :loading="loading" />
-  </div>
+    <div class="social-credentials">
+        <template v-for="form in forms" :key="form.event_api_id">
+            <MaxTitle2 :icon="form.icon" :title="form.api_name" :subtitle="form.has_token ? 'Conta conectada.' : 'Nenhuma credencial configurada ainda.'" />
+
+            <MaxGrid p0>
+                <MaxInputText s50 :id="`cred-account-${form.event_api_id}`" :label="accountLabel(form.api_name)" v-model="form.external_account_id" no-message />
+                <MaxInputText s50 :id="`cred-token-${form.event_api_id}`" type="password" label="Token de Acesso" v-model="form.access_token" :placeholder="form.has_token ? 'Token já configurado — deixe em branco para manter' : 'Cole o token de acesso da Meta'" no-message />
+                <MaxInputSwitch s50 :id="`cred-active-${form.event_api_id}`" v-model="form.is_active" :question="`Canal ${form.is_active ? 'ativado' : 'desativado'}`" />
+
+                <div s50 style="text-align: right;">
+                    <MaxButton :id="`btn-save-cred-${form.event_api_id}`" icon="mdi:content-save-outline" label="Salvar" :action="() => saveForm(form)" :loading="form.saving" />
+                </div>
+            </MaxGrid>
+        </template>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onUnmounted } from 'vue';
-import { Toast } from '@maxvue/max-components-ui';
-import { apiGetRoute } from '@maxvue/max-use';
+    import { Toast } from '@maxvue/max-components-ui';
+    import type { SocialMediaCredentialItem } from '@/Stores/calendar/useSocialMediaCredentials.Store';
 
-// Store MaxPinia auto-importada (definida em stores/)
-const credentialsStore = useSocialMediaCredentialsStore();
-const loading = ref(false);
-
-let popupWindow: Window | null = null;
-let pollTimer: number | null = null;
-
-// Origem confiável para validação de segurança do postMessage
-const TRUSTED_ORIGIN = import.meta.env.VITE_API_URL || window.location.origin;
-
-/**
- * Calcula a posição e abre a janela popup centralizada na tela ativa.
- */
-const openCenteredPopup = (url: string, title: string, w = 600, h = 650): Window | null => {
-  const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screenX;
-  const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screenY;
-
-  const width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-  const height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
-  const systemZoom = width / window.screen.width;
-  const left = (width - w) / 2 / systemZoom + dualScreenLeft;
-  const top = (height - h) / 2 / systemZoom + dualScreenTop;
-
-  const newWindow = window.open(
-    url,
-    title,
-    `scrollbars=yes,width=${w / systemZoom},height=${h / systemZoom},top=${top},left=${left}`
-  );
-
-  if (window.focus && newWindow) newWindow.focus();
-  return newWindow;
-};
-
-/**
- * Limpa todos os recursos de escuta e monitoramento.
- */
-const cleanup = (): void => {
-  if (pollTimer) {
-    clearInterval(pollTimer);
-    pollTimer = null;
-  }
-  window.removeEventListener('message', handleMessage);
-  loading.value = false;
-  popupWindow = null;
-};
-
-/**
- * Trata as mensagens recebidas via postMessage a partir da janela filha.
- */
-const handleMessage = async (event: MessageEvent): Promise<void> => {
-  // Validação estrita de segurança da origem da mensagem (evita ataques XSS)
-  if (event.origin !== TRUSTED_ORIGIN) {
-    return;
-  }
-
-  const { type, status, data } = event.data || {};
-  if (type !== 'META_OAUTH_RESPONSE') return;
-
-  cleanup();
-
-  if (status === 'success') {
-    try {
-      // Recarrega as credenciais de mídias sociais via store MaxPinia (cache/auto-save)
-      await credentialsStore.reload();
-      Toast.show({ severity: 'success', title: 'Sucesso', message: 'Conta conectada com sucesso!' });
-    } catch {
-      Toast.show({ severity: 'error', title: 'Erro', message: 'Erro ao carregar credenciais atualizadas.' });
+    interface CredentialForm extends SocialMediaCredentialItem {
+        access_token: string;
+        saving: boolean;
     }
-  } else {
-    Toast.show({ severity: 'error', title: 'Erro de Autenticação', message: data?.error || 'A autorização falhou.' });
-  }
-};
 
-/**
- * Inicia o fluxo de autenticação Meta Login.
- */
-const connectAccount = async (): Promise<void> => {
-  loading.value = true;
+    // Store Pinia comum auto-importada (axios + route Ziggy), NÃO MaxPinia
+    const credentials = useSocialMediaCredentialsStore();
+    const forms = ref<CredentialForm[]>([]);
 
-  // Abre janela popup em branco imediatamente para evitar bloqueador de popups do navegador
-  popupWindow = openCenteredPopup('about:blank', 'auth-popup');
+    /** Estado editável local a partir dos itens carregados (token sempre vazio). */
+    const buildForms = (): void => {
+        forms.value = credentials.items.map(item => ({ ...item, access_token: '', saving: false }));
+    };
 
-  if (!popupWindow) {
-    loading.value = false;
-    Toast.show({ severity: 'warning', title: 'Popup Bloqueado', message: 'Por favor, habilite a exibição de popups para este site.' });
-    return;
-  }
+    /** Rótulo do identificador da conta conforme a plataforma. */
+    const accountLabel = (apiName: string): string => {
+        return apiName.toLowerCase() === 'facebook' ? 'ID da Página (Page ID)' : 'ID da Conta (Instagram User ID)';
+    };
 
-  try {
-    // Obtém do Laravel (fluxo OAuth Meta via Socialite + laravel-meta-graph-api) a URL de redirecionamento de autorização da Meta.
-    // apiGetRoute recebe o NOME da rota (Ziggy), executa a requisição e retorna o payload DIRETAMENTE (não { data }), nunca axios.get manual
-    const res = await apiGetRoute('social_media.facebook.auth_url');
+    /** Salva a credencial; envia o token só quando o gestor digitou um novo valor. */
+    const saveForm = async (form: CredentialForm): Promise<void> => {
+        form.saving = true;
+        try {
+            await credentials.save({
+                event_api_id:        form.event_api_id,
+                external_account_id: form.external_account_id,
+                access_token:        form.access_token || null,
+                is_active:           form.is_active
+            });
+            form.access_token = '';                        // nunca mantém o token no cliente
+            if ( ! form.has_token) form.has_token = true;
+            Toast.show({ severity: 'success', title: 'Salvo!', message: `Credencial do ${form.api_name} atualizada.` });
+        } catch {
+            Toast.show({ severity: 'error', title: 'Erro', message: 'Não foi possível salvar a credencial.' });
+        } finally {
+            form.saving = false;
+        }
+    };
 
-    // Redireciona o popup em branco para a URL oficial
-    popupWindow.location.href = res.url;
-
-    // Inicia a escuta de mensagens do popup de callback
-    window.addEventListener('message', handleMessage);
-
-    // Verifica se a janela foi fechada manualmente pelo usuário
-    pollTimer = window.setInterval(() => {
-      if (popupWindow && popupWindow.closed) {
-        cleanup();
-        Toast.show({ severity: 'warning', title: 'Cancelado', message: 'A conexão com a conta foi cancelada pelo usuário.' });
-      }
-    }, 500);
-
-  } catch (error) {
-    if (popupWindow) popupWindow.close();
-    cleanup();
-    Toast.show({ severity: 'error', title: 'Erro', message: 'Não foi possível iniciar o login da Meta.' });
-  }
-};
-
-onUnmounted(() => {
-  cleanup();
-});
+    onMounted(async () => {
+        await credentials.load();                          // recarrega via load(), não reload()
+        buildForms();
+    });
 </script>
 ```

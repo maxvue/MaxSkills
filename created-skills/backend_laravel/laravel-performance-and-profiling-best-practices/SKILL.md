@@ -17,8 +17,20 @@ Estabelecer diretrizes padrão para depuração, profiling, inspeção e otimiza
 
 ### 2. Profiling com Clockwork
 - **Ambiente**: Habilite APENAS em local/staging (`CLOCKWORK_ENABLE=true`). Defina como `false` em produção. Não use em testes Pest/PHPUnit.
-- **Timelines Personalizadas**: Use `clockwork()->startEvent('id', 'desc')` e `clockwork()->endEvent('id')` para medir os tempos exatos de execução de operações complexas. Feche em um bloco `finally`.
-- **Telemetria e Logging**: Monitore as abas de Database (problemas de N+1), Cache e uso de Memória. Use `clock()->info('Msg')` ou `clockwork()->log()` para logging integrado. Não passe grandes volumes de dados binários.
+- **Timelines Personalizadas**: A API de timeline do `itsgoingd/clockwork` ^5.x é fluente. Crie o evento com `clock()->event('descrição', $data)` e meça com `->begin()` / `->end()`, ou passe um closure para `->run(fn () => ...)` que abre e fecha o evento automaticamente (fecha mesmo em exceção). Não use `clockwork()->startEvent()`/`endEvent()` — esses métodos não existem nesta versão.
+  ```php
+  // Medição manual: garanta o ->end() num finally
+  $evento = clock()->event('Processamento do boleto')->begin();
+  try {
+      // ...operação complexa...
+  } finally {
+      $evento->end();
+  }
+
+  // Ou deixe o Clockwork cuidar do begin/end via closure
+  $resultado = clock()->event('Processamento do boleto')->run(fn () => processarBoleto());
+  ```
+- **Telemetria e Logging**: Monitore as abas de Database (problemas de N+1), Cache e uso de Memória. Use `clock()->info('Msg')` ou `clock()->log('info', 'Msg', $context)` para logging integrado. O helper global é `clock()`; `clockwork()` NÃO é uma função registrada na integração Laravel. Não passe grandes volumes de dados binários.
 - **Limpeza**: Remova os marcadores temporários `clock()` antes de criar um PR.
 
 ### 3. Depuração com LaraDumps

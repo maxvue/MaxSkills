@@ -48,9 +48,10 @@ setTimeout(() => {
 ```vue
 <script setup>
 import { provide } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
-const response = await fetch('/api/config')
-const config = await response.json()
+// No engeapp, GETs vão via apiGetRoute (nome de rota Ziggy pontilhado), não fetch cru
+const config = await apiGetRoute('app.config')
 
 // WRONG: This is after an await, setup context may be lost
 provide('config', config) // May not work reliably

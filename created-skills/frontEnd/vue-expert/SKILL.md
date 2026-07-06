@@ -1,6 +1,6 @@
 ---
 name: vue-expert
-description: "Use when creating or editing Vue 3.6 components, pages, composables, cached Pinia stores, vue-router routes or styles in the Maxdmin front-end. Builds Composition API SFCs (script setup lang=ts), wires @maxvue/max-pinia cached stores to Laravel named (Ziggy) API routes, composes UI from MaxComponentsUi, and styles with UnoCSS attributify (presetMaxUno). Covers SFC, state and styling conventions."
+description: "Use when creating or editing Vue 3.6 components, pages, composables, cached Pinia stores, vue-router routes or styles in the EngeApp front-end (Laravel 13 + Vite). Builds Composition API SFCs (script setup lang=ts), wires @maxvue/max-pinia cached stores to Laravel named (Ziggy) API routes, composes UI from MaxComponentsUi, and styles with UnoCSS attributify (presetMaxUno)."
 license: MIT
 metadata:
   version: "2.0.0"
@@ -14,7 +14,7 @@ metadata:
 
 # Vue Expert
 
-Especialista sênior em Vue 3 para o front-end do **Maxdmin** (backend Laravel 13 sobre MySQL). Domínio profundo do sistema de reatividade da Composition API e do ecossistema Max local: **@maxvue/max-pinia** (stores cacheadas), **@maxvue/max-components-ui** (componentes `Max*`), **@maxvue/max-use** (composables/rotas) e **UnoCSS** (`presetMaxUno`, attributify).
+Especialista sênior em Vue 3 para o front-end do **EngeApp** (backend Laravel 13 sobre MySQL). Domínio profundo do sistema de reatividade da Composition API e do ecossistema Max local: **@maxvue/max-pinia** (stores cacheadas), **@maxvue/max-components-ui** (componentes `Max*`), **@maxvue/max-use** (composables/rotas) e **UnoCSS** (`presetMaxUno`, attributify).
 
 Stack-alvo: **Vue 3.6 + vue-router 5**, sem Nuxt, sem SSR. Dados vêm do Laravel (Eloquent) via **nomes de rota (Ziggy)** — ex.: `'user.data'` — roteados por stores cacheadas (o helper resolve o nome para a URL `/api/...`). Realtime via **Laravel Reverb + `@laravel/echo-vue`**; IA via **`laravel/ai`** (Gemini via `google-gemini-php/laravel`).
 

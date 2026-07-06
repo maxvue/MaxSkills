@@ -75,12 +75,14 @@ export default {
 <!-- CORRECT: Composition API with SSR awareness -->
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const user = ref(null)
 const windowWidth = ref(0)
 
-// This runs on both server and client (during setup)
-user.value = await useFetch('/api/user')
+// This runs on both server and client (during setup).
+// No engeapp, GETs vão via apiGetRoute (nome de rota Ziggy pontilhado), não fetch cru.
+user.value = await apiGetRoute('usuario.atual')
 
 // These only run on client
 onMounted(() => {

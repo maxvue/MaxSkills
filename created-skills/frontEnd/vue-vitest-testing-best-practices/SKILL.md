@@ -72,6 +72,7 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
   `createMaxPinia` e `useAsyncStatus` são os únicos exports de `@maxvue/max-pinia`.
 - **Isolamento de rede — injete o axios mockado, não `createTestingPinia`:** O MaxPinia executa o GET (auto-GET) e o save **dentro do plugin** (via `axios`, disparado por watchers), e **não** dentro de actions da store. Portanto, `createTestingPinia({ stubActions: true })` do `@pinia/testing` **não** intercepta essas requisições — as chamadas reais aconteceriam mesmo assim. Prefira injetar uma instância de `axios` mockada em `createMaxPinia({ axios })` (como acima) ou interceptar no nível da rede (MSW). Só use `@pinia/testing` após adicioná-lo como devDependency do projeto (ele não é dependência do projeto-alvo).
 - **Opt-in de cache e estado de carga:** `isCached`/`is_cached` é um flag de **entrada** que a store declara para ativar o plugin de cache (o plugin faz `if (!store.isCached && !store.is_cached) return {};`), **não** um flag de saída de "dados carregados". Para saber se os dados chegaram, use `store.status.server.get.is_success` ou `store.is_done`. Os dados do GET sempre chegam em `store.data`.
+- **`reload()` não aguarda o GET interno — esvazie as promises:** internamente o plugin dispara `axios.get(...).then(...)` **sem** aguardar essa promise; o `.then` que escreve em `store.data` e marca `is_success` roda num microtask não aguardado. Assim, `await store.reload()` pode resolver **antes** de os dados chegarem. Sempre chame `flushPromises()` (de `@vue/test-utils`) ou `vi.waitFor(...)` após o `await store.reload()`, antes de assertar sobre `store.data`/status — caso contrário o teste fica flaky.
 - **Testes Isolados:** Teste as ações da store invocando-as diretamente e inspecionando o estado mutado:
   ```typescript
   const store = useMyStore();
@@ -96,7 +97,7 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
       }
   }));
   ```
-- **Mock dos helpers de rota:** Mocke as importações de `@maxvue/max-use` (`apiGetRoute`/`apiPostRoute`) quando as rotas forem necessárias (não existe Ziggy/`route` global neste projeto):
+- **Mock dos helpers de rota:** As rotas do front são NOMES Ziggy pontilhados (ex.: `'user.data'`, `'client.save'`) resolvidos por `apiGetRoute`/`apiPostRoute` de `@maxvue/max-use` (o Ziggy está configurado no engeapp). Nos testes, mocke essas importações para não depender do mapa de rotas Ziggy nem disparar requisições reais:
   ```typescript
   import * as maxUse from '@maxvue/max-use';
   
@@ -104,7 +105,9 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
       const actual = await importOriginal();
       return {
           ...(actual as object),
-          goToRoute: vi.fn()
+          // apiGetRoute/apiPostRoute recebem NOMES Ziggy pontilhados (ex.: 'user.data')
+          apiGetRoute: vi.fn().mockResolvedValue({ data: [] }),
+          apiPostRoute: vi.fn().mockResolvedValue({ data: {} })
       };
   });
   ```
@@ -112,7 +115,7 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
 ### 5. Idioma do Código e Comentários
 - **Regra Crucial:** Todos os comentários dentro dos arquivos de teste DEVEM ser escritos em **Português do Brasil (pt-BR)** para alinhar com os padrões do projeto Engeapp.
 
-## Examples
+## Exemplos
 Consulte o diretório `examples/` para ver implementações detalhadas:
 - [Exemplo de Teste de Componente](examples/component-test-example.md) — Demonstra testes em um componente Vue 3 com props, emissões e stubs.
 - [Exemplo de Teste de Store](examples/store-test-example.md) — Demonstra testes em uma store Pinia com simulação de ações e estado.

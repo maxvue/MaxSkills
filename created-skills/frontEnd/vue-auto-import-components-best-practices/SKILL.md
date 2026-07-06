@@ -1,20 +1,22 @@
 ---
 name: vue-auto-import-components-best-practices
-description: "Use when configuring, modifying, or debugging Vue 3 auto-import setups (unplugin-auto-import, unplugin-vue-components), fixing missing global type declarations (auto-import.d.ts, components.d.ts), or improving IDE support for auto-imported APIs and library components (MaxComponentsUi, MaxUse). Triggers on vite.config.ts auto-import config and lint errors about undeclared globals."
+description: "Use ao configurar, modificar ou depurar o auto-import do front do engeapp (Vue 3) via unplugin-auto-import e unplugin-vue-components no vite.config.ts, corrigir declarações de tipo geradas (auto-import.d.ts, auto-import-components.d.ts) registradas no tsconfig.json, ou depurar erros 'Cannot find name ref' e componentes Max* não resolvidos pelo MaxComponentsUiResolver."
 ---
 
 # Boas Práticas de Importação Automática e Resolvers de Componentes no Vue 3
 
 ## Objetivo
-Estabelecer configurações limpas e otimizadas para `unplugin-auto-import` e `unplugin-vue-components` em aplicações Vue 3, garantindo geração fluida de tipos TypeScript, integração com ESLint e suporte robusto para as bibliotecas do monorepo `MaxUse` e `MaxComponentsUi`.
+Manter a configuração de `unplugin-auto-import` e `unplugin-vue-components` no front do engeapp (Vue 3 sobre Laravel), garantindo geração correta dos tipos TypeScript (`auto-import.d.ts` e `auto-import-components.d.ts`) e suporte às bibliotecas `@maxvue/max-use` e `@maxvue/max-components-ui`. No engeapp o código-fonte do front vive em `./resources/` (não em `src/`), e as globais são resolvidas por declarações `.d.ts` registradas no `tsconfig.json` — o projeto NÃO usa o bloco `eslintrc` do auto-import.
 
 ## Instruções
 
 ### 1. Configuração do Vite (`vite.config.ts`)
 Configure os plugins de importação automática no seu arquivo do Vite usando os resolvers e diretórios de varredura corretos:
 
-*   **unplugin-auto-import**: Configurado para importar APIs padrão do Vue, `defineStore` do Pinia, Axios e as funções customizadas de `@maxvue/max-use`.
-*   **unplugin-vue-components**: Configurado para escanear recursivamente as pastas de componentes e usar o resolver customizado `MaxComponentsUiResolver` para a biblioteca de UI.
+*   **unplugin-auto-import**: importa as APIs padrão do Vue, `defineStore` do Pinia, `useAsyncStatus` de `@maxvue/max-pinia`, o `default` do `axios` como `axios` e o array de import-sources de `@maxvue/max-use` (via spread de `maxUseAutoImport`). Varre `./resources/Functions/**`, `./resources/Helpers/**`, `./resources/Types/**` e `./resources/Stores/**`.
+*   **unplugin-vue-components**: escaneia recursivamente `./resources/Vue` e `./resources/components` e usa o resolver customizado `MaxComponentsUiResolver` para os componentes `Max*` da biblioteca de UI.
+
+Bloco real usado no engeapp (fiel ao `vite.config.ts` do projeto):
 
 ```typescript
 import { defineConfig } from 'vite';
@@ -24,7 +26,7 @@ import Components from 'unplugin-vue-components/vite';
 import { maxUseAutoImport } from '@maxvue/max-use';
 import { MaxComponentsUiResolver } from '@maxvue/max-components-ui/resolver';
 
-export default defineConfig({
+export default defineConfig(() => ({
   plugins: [
     vue(),
     AutoImport({
@@ -32,86 +34,60 @@ export default defineConfig({
         'vue',
         // maxUseAutoImport é um ARRAY de import-sources: faça spread dele nos imports
         ...(Array.isArray(maxUseAutoImport) ? maxUseAutoImport : [maxUseAutoImport]),
-        { pinia: ['defineStore'] }
+        { pinia: ['defineStore'] },
+        { '@maxvue/max-pinia': ['useAsyncStatus'] },
+        { axios: [['default', 'axios']] }
       ],
       ignore: ['toRef', 'toRefs'],
       dts: './auto-import.d.ts',
       vueTemplate: true,
       viteOptimizeDeps: true,
-      dirs: [
-        './src/Functions/**',
-        './src/Helpers/**',
-        './src/Types/**',
-        './src/Stores/**'
-      ],
-      // Gera arquivo de variáveis globais para o ESLint evitar erros de validação
-      eslintrc: {
-        enabled: true,
-        filepath: './.eslintrc-auto-import.json',
-        globalsPropValue: true
-      }
+      defaultExportByFilename: false,
+      injectAtEnd: true,
+      dirsScanOptions: {
+        types: true
+      },
+      dirs: ['./resources/Functions/**', './resources/Helpers/**', './resources/Types/**', './resources/Stores/**']
     }),
     Components({
-      dirs: ['./src/Vue', './src/components'],
-      extensions: ['vue', 'js', 'ts'],
+      dirs: ['./resources/Vue', './resources/components'],
+      extensions: ['vue', 'js', 'ts', 'store.ts'],
+      directoryAsNamespace: false,
       deep: true,
       dts: './auto-import-components.d.ts',
       syncMode: 'overwrite',
       directives: true,
-      resolvers: [
-        MaxComponentsUiResolver() as any
-      ]
+      resolvers: [MaxComponentsUiResolver() as any]
     })
   ]
-});
+}));
 ```
 
-### 2. Integração com TypeScript (`tsconfig.frontend.json`)
-Certifique-se de que os arquivos autogerados de declaração de tipos (`auto-import.d.ts` e `auto-import-components.d.ts`) estejam registrados na configuração do TypeScript para que a IDE consiga resolver as variáveis e componentes globais:
+> As globais NÃO são geradas via bloco `eslintrc` do auto-import. O engeapp não possui `.eslintrc-auto-import.json`; a resolução das globais acontece pelos `.d.ts` registrados no `tsconfig.json` (ver Seção 2). Não adicione o bloco `eslintrc` ao copiar esta config.
+
+### 2. Integração com TypeScript (`tsconfig.json`)
+Os arquivos autogerados de declaração de tipos (`auto-import.d.ts` e `auto-import-components.d.ts`) precisam estar registrados no `include` do `tsconfig.json` (é o `tsconfig` do front no engeapp — não existe `tsconfig.frontend.json`) para que a IDE resolva as variáveis e componentes globais. No projeto real ambos já constam do `include`:
 
 ```json
 {
-  "compilerOptions": {
-    // ... outras configurações do compilador
-  },
   "include": [
-    "./src/**/*.vue",
-    "./src/**/*.ts",
+    "./resources/**/*.vue",
+    "./resources/**/*.ts",
+    "./resources/**/*.tsx",
+    "./resources/Types/**/*.d.ts",
     "./auto-import.d.ts",
-    "./auto-import-components.d.ts"
+    "./auto-import-components.d.ts",
+    "./*.config.ts"
   ]
 }
 ```
 
-### 3. Integração com ESLint (Flat Config: `eslint.config.js`)
-Para evitar erros de variáveis indefinidas (ex: "ref is not defined") nos arquivos examinados pelo ESLint, importe as configurações globais autogeradas de `.eslintrc-auto-import.json`:
-
-```javascript
-import fs from 'fs';
-import path from 'path';
-
-// Carrega as variáveis globais do auto-import se o arquivo existir
-const autoImportGlobals = fs.existsSync('./.eslintrc-auto-import.json')
-  ? JSON.parse(fs.readFileSync('./.eslintrc-auto-import.json', 'utf-8'))
-  : { globals: {} };
-
-export default [
-  {
-    languageOptions: {
-      globals: {
-        ...autoImportGlobals.globals
-      }
-    }
-    // ... restante das configurações do ESLint
-  }
-];
-```
-
-### 4. Resolução de Problemas Comuns (Troubleshooting)
+### 3. Resolução de Problemas Comuns (Troubleshooting)
 Se a IDE apresentar erros como "Cannot find name 'ref'" ou se os componentes customizados não renderizarem:
-1.  **Regenerar as Declarações**: Execute `npm run dev` ou force um rebuild do Vite para atualizar os arquivos `auto-import.d.ts` e `auto-import-components.d.ts`.
-2.  **Verificar os Caminhos no Include**: Confirme se `tsconfig.frontend.json` inclui os arquivos `.d.ts` na seção `include`.
-3.  **Verificar o Registro do Resolver**: Certifique-se de que o resolver `MaxComponentsUiResolver` está listado no array `resolvers` do plugin `Components`.
+1.  **Regenerar as Declarações**: Execute o dev server do Vite (ou force um rebuild) para atualizar os arquivos `auto-import.d.ts` e `auto-import-components.d.ts`.
+2.  **Verificar os Caminhos no Include**: Confirme se o `tsconfig.json` inclui `./auto-import.d.ts` e `./auto-import-components.d.ts` na seção `include`.
+3.  **Verificar os `dirs` de varredura**: Confirme que os `dirs` do auto-import apontam para `./resources/...` (e não `./src/...`); caso contrário Helpers, Stores e Types não serão importados.
+4.  **Verificar o Registro do Resolver**: Certifique-se de que o resolver `MaxComponentsUiResolver` está listado no array `resolvers` do plugin `Components`.
 
 ## Examples
 

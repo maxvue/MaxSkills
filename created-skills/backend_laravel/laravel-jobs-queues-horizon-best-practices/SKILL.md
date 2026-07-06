@@ -254,7 +254,7 @@ A configuração atual do Horizon para produção:
 | `general-supervisor` | `default` | `auto` (size) | 2 / 20 | 120s | 3 |
 | `webhooks-supervisor` | `webhooks` | `auto` (size) | 1 / 3 | 300s | default |
 | `whatsapp-supervisor` | `whatsapp` | `false` (fixed) | 5 / 10 | 60s | 5 |
-| `scout-supervisor` | `scout` | `auto` (size) | — / 28 | 120s | 5 |
+| `scout-supervisor` | `scout` | `auto` (size) | 8 / 20 | 120s | 5 |
 | `gemini-supervisor` | `gemini` | `auto` (size) | — / 5 | 600s | 2 |
 
 **Regras importantes de alinhamento:**

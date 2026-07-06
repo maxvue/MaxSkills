@@ -150,11 +150,13 @@ export default {
 }
 ```
 
-## VueUse Alternative
+## Alternativa via @maxvue/max-use (VueUse)
+
+No engeapp, os composables do VueUse são consumidos SEMPRE via `@maxvue/max-use` (que reexporta o VueUse); nunca importe direto de `@vueuse/core`.
 
 ```javascript
-// VueUse provides cleanup-aware composables
-import { useEventListener, useIntervalFn } from '@vueuse/core'
+// @maxvue/max-use reexporta os composables cleanup-aware do VueUse
+import { useEventListener, useIntervalFn } from '@maxvue/max-use'
 
 export default {
   setup() {
@@ -169,4 +171,4 @@ export default {
 
 ## Reference
 - [Vue.js Lifecycle Hooks](https://vuejs.org/guide/essentials/lifecycle.html)
-- [VueUse - useEventListener](https://vueuse.org/core/useEventListener/)
+- [VueUse - useEventListener](https://vueuse.org/core/useEventListener/) (no engeapp, importe via `@maxvue/max-use`)

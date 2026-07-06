@@ -34,7 +34,9 @@ import { createMaxPinia } from '@maxvue/max-pinia';
 const pinia = createPinia();
 
 pinia.use(createMaxPinia({
-    cacheName: 'app',
+    cacheName: 'pinia',
+    // resolve nomes de rota Ziggy pontilhados em URL — engeapp
+    resolveRoute:    (name, params) => route(name, params),
     // adapters opcionais — específicos do seu app
     getSessionToken: () => useSystemStore().session_token,
     isAppStarted:    () => useSystemStore().started,
@@ -52,12 +54,17 @@ pinia.use(createMaxPinia({
 
 | Campo | Tipo | Default | Descrição |
 |---|---|---|---|
-| `cacheName` | `string` | `'pinia'` | Nome do banco localforage (`localforage.config({ name, storeName: 'max-pinia-cache' })`). |
+| `cacheName` | `string` | `'pinia'` | Nome do banco localforage (`localforage.config({ name, storeName })`). |
+| `storeName` | `string` | `'max-pinia-cache'` | Nome do object store do localforage. Apps migrando de um plugin anterior apontam para o storeName antigo para preservar o cache já existente (o engeapp usa `'pinia-with-cache-plugin'`). |
+| `resolveRoute` | `(route: string, params?) => string` | `buildUrl` (trata a rota como URL literal e anexa `params` como query string) | Converte a `route`/`save` do store numa URL final. É o gancho que permite usar **nomes de rota** em vez de caminhos literais. No engeapp é `(name, params) => route(name, params)` (Ziggy), então `options.get.route` recebe um **nome de rota Ziggy pontilhado** (ex.: `'client.data'`), não um path. |
 | `axios` | `AxiosInstance` | axios global (lazy) | Instância axios a usar. |
 | `getSessionToken` | `() => string \| null \| undefined` | `() => null` | Token CSRF/session enviado no header `X-CSRF-TOKEN` dos POSTs. |
 | `isAppStarted` | `() => boolean` | `() => true` | Gate para exibir loading. |
 | `loading` | `LoadingAdapter` | `{}` | Adapter de UI de loading `{ start?, stop?, update? }` (todos opcionais). |
+| `onActivity` | `() => void` | — | Hook chamado a cada atividade do store (load/save em cache ou servidor). No engeapp reinicia o timer de inatividade. |
 | `requestTimeout` | `number` | `15000` | Timeout das requisições (ms), aplicado a GET e POST. |
+
+> **Como o nome de rota vira URL:** o plugin nunca chama `axios.get(options.get.route)` diretamente — ele passa a string por `resolveRoute(route_name, params)` (`plugin.ts:236` no GET, `:422` no POST). Se você não fornecer `resolveRoute`, o default `buildUrl` trata a string como URL literal. Com `resolveRoute: route` (Ziggy), a string DEVE ser um nome de rota registrado, senão Ziggy lança `route ... is not defined`.
 
 ## Contrato do store (isCached + options)
 
@@ -75,7 +82,7 @@ Ou seja, a store deve expor `isCached` (ou `is_cached`) como ref verdadeira. Al�
 
 - **Rota** — via `getRouteName()`, resolvida (primeiro não-nulo) dentre:
   `options.get.route`, `options.get.get`, `options.get`, `options.get_route`, `options.route_get`, `options.route`.
-  A rota é uma **string de path plano** (ex.: `'/user/data'`). `options.get` pode ser um objeto `{ route }` ou a própria string.
+  A rota é uma **string passada a `resolveRoute`**. No engeapp isso é um **nome de rota Ziggy pontilhado** (ex.: `'client.data'`), NÃO um path como `'/user/data'` — Ziggy resolve o nome para a URL. `options.get` pode ser um objeto `{ route }` ou a própria string.
 - **Params/query** — via `getRouteData()`: `store.get_data` ?? `store.data_get` ?? `store.options?.get?.data` ?? `{}`. Cada valor é desembrulhado (`.value ?? valor`) e anexado como query string por `buildUrl(url, params)`.
 - **Não há `immediate` explícito**: o GET dispara automaticamente no boot via `loadInCache()` (que chama `loadInServer()`), no watcher `immediate: true` de `[store.id, store.enabled, store.options?.enabled]`.
 
@@ -83,7 +90,7 @@ Ou seja, a store deve expor `isCached` (ou `is_cached`) como ref verdadeira. Al�
 
 - **Rota** — via `postRouteName()`, resolvida dentre:
   `options.save`, `options.post`, `options.route_post`, `options.post_route`, `options.save_route`, `options.route_save`, e também os aliases de topo `save`, `post`, `route_post`, `post_route`, `save_route`, `route_save`.
-  Path plano (string), ex.: `'/user/save'`.
+  Também passa por `resolveRoute` — no engeapp um **nome de rota Ziggy pontilhado** (ex.: `'client.save'`), não um path.
 - **Payload** — via `getPostData()`: `store.getSaveData` ?? resolver sobre `post_data`, `data_post`, `options.post.data`, `options.post_data`, `options.data_post`, `saveData`, `data_save`, `options.save.data`, `options.saveData`, `options.data_save`. Pode ser função (é chamada) e cada campo é desembrulhado com `toValue`. Se nada disso existir, envia `{ ...store.data }`.
 - **Debounce**: `watchDebounced(() => countChanges.value, () => saveInServer(), { debounce: 300 })` — confirmado **300 ms** (constante literal em `plugin.ts`).
 
@@ -170,7 +177,7 @@ interface OperationStatus {
 Sequência exata a partir do boot do plugin (função `maxPiniaPlugin`):
 
 1. **Guard**: se `!store.isCached && !store.is_cached`, retorna `{}` (não injeta nada).
-2. **Setup**: configura localforage (`name: cacheName`, `storeName: 'max-pinia-cache'`), captura `default_value = cloneDeep(store.data)` e zera `store.data = {}`. Cria `status` e todos os watchers de pulso (500 ms) e o watcher que emite `status-updated`.
+2. **Setup**: configura localforage (`name: cacheName`, `storeName: config.storeName ?? 'max-pinia-cache'`), captura `default_value = cloneDeep(store.data)` e zera `store.data = {}`. Cria `status` e todos os watchers de pulso (500 ms) e o watcher que emite `status-updated`.
 3. **Boot watcher** (`watch([store.id, store.enabled, store.options?.enabled], ..., { immediate: true })`): no primeiro run, pausa o save, aplica `setDefaultData()`, retoma o save, reseta `status` e — se `enabled !== false` — chama **`loadInCache()`**.
 4. **Cache-first** (`loadInCache`): lê a chave via `localforage.getItem(key)`.
    - Se há `data_cache.data`, reidrata `store.data` (com `pauseSave`/`resumeSave`), reidrata as chaves de `includeInCache`. Se `only_cache` está ligado, para aqui.
@@ -215,14 +222,14 @@ Contrato mínimo real (o plugin só precisa de `data`, `isCached` e uma rota de 
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
 
-export const useUserStore = defineStore('user', () => {
+export const useClientStore = defineStore('project.client', () => {
     const data = ref(null);
     const isCached = ref(true);
 
     const options = computed(() => ({
-        get:  { route: '/user/data' },  // GET automático + cache-first
-        save: '/user/save',             // opcional: POST com auto-save (debounce 300ms)
-        key:  'user',                   // ilustrativo; a chave real é `${$id}.${id|'global'}`
+        get:  { route: 'client.data' }, // nome de rota Ziggy → GET automático + cache-first
+        save: 'client.save',            // opcional: nome de rota Ziggy → POST com auto-save (debounce 300ms)
+        key:  'project.client',         // ilustrativo; a chave real é `${$id}.${id|'global'}`
     }));
 
     return { data, options, isCached };
@@ -232,7 +239,7 @@ export const useUserStore = defineStore('user', () => {
 Uso do status/métodos injetados no componente:
 
 ```ts
-const store = useUserStore();
+const store = useClientStore();
 store.status.server.get.is_requesting; // carregando do servidor
 store.is_done_to_show;                 // pronto para renderizar (cache ou server)
 store.reload();                        // refaz o GET

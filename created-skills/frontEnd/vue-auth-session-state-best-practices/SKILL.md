@@ -1,205 +1,223 @@
 ---
 name: vue-auth-session-state-best-practices
-description: "Use ao implementar, refatorar, revisar ou depurar autenticação por sessão via cookie (Vue 3 + Vue Router 4 + Laravel Sanctum SPA): login/logout, login social, usuário atual via store MaxPinia (@maxvue/max-pinia), guards de rotas protegidas e tratamento de HTTP 401 em interceptors do Axios. Triggers em stores de sessão, guards, views de login e cliente de API."
+description: "Use ao implementar, refatorar, revisar ou depurar autenticação por sessão + cookie no engeapp (Vue 3 + Vue Router): login por e-mail OU telefone na store useLogin (apiPostRoute), usuário atual na store useUser (@maxvue/max-pinia), login social por redirect Ziggy, guard de rotas com user.waitRequest e logout full-page em /logout. Triggers em stores de sessão, guard do router e view de Login."
 ---
 
 ## Objetivo
-Padronizar o fluxo de autenticação por sessão (cookie) no frontend do Maxdmin: login/logout via API, recuperação do usuário atual por store MaxPinia, login social por redirecionamento, guards de rotas no Vue Router e tratamento global de HTTP 401 com Axios. Backend é Laravel com **Sanctum (autenticação SPA por sessão + cookie)**; não é token/Bearer. O fluxo exige um GET prévio em `/sanctum/csrf-cookie` para semear o cookie `XSRF-TOKEN` antes do login. A validade da sessão é de 30 dias quando `remember` estiver marcado.
+Padronizar o fluxo de autenticação por sessão (cookie) no frontend do engeapp: login via `apiPostRoute`, logout por navegação full-page, recuperação do usuário atual por store MaxPinia, login social por redirecionamento OAuth e guard de rotas no Vue Router. O backend é autenticação **por sessão + cookie**; não é token/Bearer. A sessão dura 30 dias quando `remember` estiver marcado.
 
 ## Endpoints reais (nome Ziggy → URI de backend)
-- `login` (POST `/api/login`) — body `{ email, password, remember? }`. Cria a sessão.
-- `user.data` (GET `/api/user/data`) — usuário atual ("me"), protegido por auth. Deve ser consumido via store MaxPinia.
-- `logout` (POST `/api/logout`) — encerra a sessão.
-- `social.providers` (GET `/api/auth/providers`) — lista de provedores sociais disponíveis.
-- `social.redirect` (GET `/api/auth/:provider/redirect`) — inicia o login social (Google/Facebook).
-- `social.callback` (GET `/api/auth/:provider/callback`) — callback do provedor, redireciona para `/projects`.
+As rotas deste projeto **não** têm prefixo `/api`. Use sempre o nome Ziggy, nunca a URI fixa.
+- `login` (POST `/login_request`) — cria a sessão. Body real: `{ method, email, password, remember, phone_number }` (login por e-mail **ou** telefone — ver Seção 1).
+- `user.data` (GET `/user/data`) — usuário atual ("me"), protegido por `auth`. Consumido pela store `useUser`.
+- `user.save` (POST `/user/save`) — save da store `useUser`.
+- `logout` (POST `/logout`) e `logout.post` (GET `/logout`) — encerram a sessão. **Na prática o app faz logout por navegação full-page** (`window.location.href = '/logout'`, GET), não por `apiPostRoute` — ver Seção 4.
+- `social.providers` (GET `/auth/providers`) — retorna um **array de strings** (ids de provedor, ex.: `['google']`).
+- `social.redirect` (GET `/auth/{provider}/redirect`) — inicia o login social; é uma navegação full-page do navegador.
+- `social.callback` (GET `/auth/{provider}/callback`) — callback do provedor; ao autenticar, o backend faz `redirect('/')` (raiz = rota `board`), **não** para `/projects`.
 
-> Os helpers `apiGetRoute` / `apiPostRoute` do `@maxvue/max-use` recebem o **nome** da rota Ziggy (pontilhado — ex.: `apiGetRoute('user.data')`, `apiPostRoute('login', payload)`), NÃO um caminho `/api/...`. Internamente o helper resolve o nome via `route()` do Ziggy (que resolve para a URL `/api/...` real) e **JÁ executa a requisição** (`await apiGetRoute('user.data')` retorna `response.data`) — não são meros resolvedores de URL e NÃO devem ser embrulhados em `axios.get(...)`. Ziggy ESTÁ configurado no projeto; você não chama `route()` direto no código de app (o helper faz isso). Para dados de página, prefira a store MaxPinia (que faz GET/save por baixo); use `apiGetRoute`/`apiPostRoute` apenas em chamadas pontuais que não são estado de página (ex.: submit de login). Aqui o backend é **Laravel Sanctum (SPA)**: a autenticação É por sessão + cookie via Sanctum (não invente token/Bearer).
+> Os helpers `apiGetRoute` / `apiPostRoute` (`@maxvue/max-use`) recebem o **nome** Ziggy pontilhado (ex.: `apiGetRoute('social.providers')`, `apiPostRoute('login', payload)`) e **já executam** a requisição (retornam `response.data`, ou valor falsy em falha) — não os embrulhe em `axios`. Para links/navegação de página use rota nomeada do Vue Router; para gerar a **URL** de um redirect OAuth full-page use `route('social.redirect', { provider })` do Ziggy diretamente (Ziggy ESTÁ configurado). Autenticação é por **sessão + cookie** — não invente token/Bearer.
 
 ## Instruções
 
-## 1. Store de Sessão com MaxPinia
-- Todo GET ao backend passa por uma store `@maxvue/max-pinia` (cache + auto-save). O estado do usuário atual (`/api/user/data`) DEVE vir de uma store MaxPinia, nunca de `axios.get` manual espalhado pelas views.
-- Declare a store com Composition API (`defineStore`) e configure o `get` apontando para o nome de rota `user.data`:
-  `options: computed(() => ({ get: { route: 'user.data' }, key: 'user' }))`.
-- O MaxPinia injeta `status`, `reload()` e `clearAll()` na própria instância da store. Leia o estado SEMPRE pela instância (`userStore.status.server.get.is_requested`), nunca via `this` dentro da setup store.
-- Implemente `waitRequest(store)` como helper que recebe a instância da store e retorna uma promessa resolvida quando a primeira requisição de sessão concluir (observando `store.status.server.get.is_requested`). Isso evita race conditions nos guards do router ao recarregar a página.
+## 1. Store de login (`useLogin.Store.ts`)
+A view de login não contém lógica: toda ela vive numa store MaxPinia dedicada. Faça a view apenas instanciar a store (`const login = useLoginStore()`) e delegar via `v-model`/eventos.
+- O login é por **e-mail OU telefone**. Mantenha `value` (entrada única) e derive `email`/`phone_number` por computeds, detectando `method` num `watch(value)`: contém `@` → `email`; contém dígitos → `phone`; vazio → `''`. Quando `method === 'email'`, `phone_number` é `''`; quando é `'phone'`, `email` cai para um placeholder (`'undefined@enge.tec.br'`).
+- `submit()` faz `apiPostRoute('login', { method, email, password, remember, phone_number })`. `apiPostRoute` retorna valor falsy em falha (não lança) — ramifique pelo retorno: em sucesso, `location.reload()` (recarrega para reidratar a sessão); em falha, exiba toast e mensagem de erro.
+- Os provedores voltam do backend como **array de strings**. Mapeie-os por um `PROVIDER_MAP` local (`{ google: { label, icon, class }, facebook: {...} }`), filtrando os ids conhecidos: `ids.filter(id => PROVIDER_MAP[id]).map(id => ({ id, ...PROVIDER_MAP[id] }))`.
+- `social(provider)` inicia o OAuth com navegação real: `window.location.href = route('social.redirect', { provider })`.
+- `loadUrlError()` lê `?error=` da URL (o redirect social devolve códigos como `invalid_provider`, `oauth_failed`, `no_email`) e mostra a mensagem correspondente no card.
 
-## 2. Configuração do Cliente de API & CSRF
-- A configuração genérica do Axios (`withCredentials`, `withXSRFToken`, `baseURL`, headers) é canônica na skill **`vue-axios-api-integration-best-practices`** — não a reduplique aqui. Autenticação é por SESSÃO via cookie (Laravel Sanctum SPA).
-- Detalhe específico do fluxo de login: no Sanctum SPA, faça um GET em `/sanctum/csrf-cookie` **antes** do primeiro POST de mutação (login) para semear o cookie `XSRF-TOKEN`. Com `withXSRFToken = true` o Axios lê esse cookie e o reenvia no header `X-XSRF-TOKEN` automaticamente:
-  ```typescript
-  await axios.get('/sanctum/csrf-cookie');
-  // agora o POST de login enviará o header X-XSRF-TOKEN corretamente
-  ```
+## 2. Store de sessão (`useUser.Store.ts`)
+- O estado do usuário atual DEVE vir de uma store `@maxvue/max-pinia`, nunca de `axios.get` solto pelas views.
+- Declare com Composition API e configure `options` com o nome de rota: `const options = computed(() => ({ get: { route: 'user.data' }, save: 'user.save', key: 'user' }))`. `isCached` habilita cache offline. Atenção: `options.key` é um campo herdado e **não** define a chave de cache do MaxPinia — a chave real é `getKey()` = `$id + '.' + (id ?? options.id ?? 'global')`. Mantenha o campo como está no código real, mas não confie nele como chave de cache.
+- O MaxPinia injeta `status`, `reload()` e `clearAll()` na instância. Dentro da setup store, os métodos que precisam ler `status` usam `this` (a store é chamada como `user.waitRequest()`), pois `status` é injetado na instância, não é uma variável do closure.
+- Exponha `waitRequest()` como **método da store** (retornado no `return`) que resolve quando a primeira requisição de sessão **concluir com sucesso** — observe `this?.status?.server?.get?.is_success` (é o sinal de "dados carregados"; `is_requested` resolveria antes de haver dados). Isso evita race conditions no guard do router ao recarregar a página.
 
-## 3. Interceptors Globais do Axios
-- O interceptor de resposta genérico (tratamento de `401/403/422/500`) é definido **uma única vez** na skill `vue-axios-api-integration-best-practices` — veja lá o bloco completo. Não redeclare o interceptor aqui.
-- Comportamento específico de sessão que este fluxo exige do caso **401 Unauthorized**: limpe os estados de sessão (cache da store, chaves locais obsoletas) e redirecione para o login usando rota nomeada (`router.push({ name: 'login' })`), **exceto** quando o usuário já estiver na página de login (evita loop de redirecionamento). Garanta que o interceptor canônico contemple essa limpeza de sessão + guarda de `/login`.
+## 3. CSRF e headers
+- Este projeto **não** tem camada global de Axios (`axios.defaults`, interceptadores, `baseURL`) nem fluxo de `/sanctum/csrf-cookie`. Todo transporte HTTP das chamadas de app passa pelos helpers do `@maxvue/max-use` (`apiGetRoute`/`apiPostRoute`), que já injetam headers e `withCredentials` — ver skill **`vue-axios-api-integration-best-practices`**. Não faça GET em `/sanctum/csrf-cookie` nem configure `withXSRFToken`: nada disso existe aqui.
+- O token CSRF vem da meta tag `csrf-token` renderizada no blade (`resources/Views/site.blade.php`). Para chamadas normais de API, **não** anexe o header CSRF à mão — os helpers cuidam disso.
+- O único lugar onde um token CSRF é anexado manualmente é a configuração de bibliotecas externas de upload (ex.: VueFinder), passando `'X-CSRF-TOKEN': system.token` e `withCredentials: true`, lendo de `useSystemStore` (`token`, `base_url`). É exceção para libs que fazem HTTP próprio — não é o fluxo do login nem das chamadas de API do app.
 
-## 4. Proteção de Rotas com Vue Router Guard
-- Implemente `router.beforeEach` para proteger rotas com base nos metadados (`requiresAuth` ou rotas exclusivas de visitante).
-- Aguarde a validação inicial da sessão com `await waitRequest(userStore)` antes de decidir o redirecionamento.
-- Avalie o status de autenticação pelo estado da store (dados do usuário) e por eventual 401 da última requisição:
-  ```typescript
-  const serverIs401 = userStore.status?.server?.get?.error?.response?.status === 401;
-  const isAuthenticated = !!userStore.data?.id && !serverIs401;
-  ```
-- Redirecione para o login se a rota exigir autenticação e o usuário não estiver autenticado.
-- Redirecione usuários autenticados que tentem acessar rotas exclusivas de visitante (`login`, `forgot_password`, `reset_password`) para a área principal (por exemplo, `projects`).
+## 4. Encerramento de sessão (logout) e 401
+- **Não existem interceptadores de Axios neste projeto** (não há handler global de `401/403/422/500`). Não invente um. A validação de sessão e o redirecionamento para o login são feitos pelo **guard do Vue Router** (Seção 5), que aguarda `user.waitRequest()` e redireciona quando `!user.data?.id`.
+- **Logout real:** é uma **navegação full-page** para `/logout` (GET), disparada no menu do usuário (`resources/Vue/Layouts/PageLayout/TopMenu/UserSection.vue`): `window.location.href = '/logout'`. O backend encerra a sessão e redireciona. Não há `apiPostRoute('logout')` + `router.push` + `clearAll()` no código real; a navegação full-page já reidrata o estado ao recarregar a aplicação na tela de login.
+- Orientação genérica (não é código existente no projeto): se algum dia for preciso reagir a um `401` de forma programática, prefira centralizar no guard/na store e limpar cache com `clearAll()` antes de redirecionar por rota nomeada, evitando loop na própria tela de login.
 
-## 5. Login Social
-- Carregue a lista de provedores de `GET /api/auth/providers` e renderize um botão por provedor.
-- O botão deve REDIRECIONAR o navegador (full page) para `/api/auth/:provider/redirect` — não use XHR/fetch, pois o fluxo OAuth depende de navegação real:
-  ```typescript
-  function loginWith(provider: string): void {
-      window.location.href = `/api/auth/${provider}/redirect`;
-  }
-  ```
-- Após o callback do provedor, o backend redireciona para `/projects`.
+## 5. Proteção de Rotas com Vue Router Guard
+- O guard real usa `router.beforeEach` e decide por `to.meta` (`public`, `requiresAuth`, com default `true`).
+- Aguarde a validação inicial da sessão com `await user.waitRequest()` antes de decidir.
+- Avalie autenticação pelos dados da store: `const isAuthenticated = !!user.data?.id`.
+- Redirecione para `{ name: 'login' }` quando a rota exigir auth e o usuário não estiver autenticado; e usuários autenticados que caírem em `login` vão para `{ name: 'board' }` (a rota `board` é a raiz `/` — **não existe** rota `projects`).
+- Guards de permissão de UX (ex.: rotas `integrador_*`, `menu_roles`, `menus_admin`) leem `user.data?.permissions` e redirecionam para `{ name: 'board' }` quando falta permissão. A segurança real fica no backend.
 
-## 6. Estrutura SFC (Views)
-- Ordem padrão de blocos SFC: `<template>`, `<script setup lang="ts">`, `<style lang="scss">` (scoped quando apropriado).
-- Toda a lógica em TypeScript (`lang="ts"`) e toda a estilização em SCSS (`lang="scss"`).
-- No `<template>`, chame componentes Vue de forma linear (inline), sem quebrar atributos em múltiplas linhas.
-- Comentários estritamente em Português do Brasil (pt-BR).
+## 6. Estrutura da View de Login
+- A view (`resources/Vue/Sections/Auth/Login.vue`) usa `<MaxAuthCard>` de `@maxvue/max-components-ui` com `identifier`, `v-model:email`/`:password`/`:remember`, `:providers`, `:forgot-to`/`:register-to` (objetos de rota/query) e eventos `@submit`/`@social` ligados aos métodos da store. Nada de `<input>`/`<button>` nativos.
+- `onMounted` só dispara `login.loadProviders()` e `login.loadUrlError()`.
+- Componentes chamados de forma linear (inline) no `<template>`; toda lógica em `<script setup lang="ts">`; estilos em `<style scoped lang="scss">`. Comentários em pt-BR.
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- NUNCA use a Options API. Use Composition API com `<script setup lang="ts">`.
-- Não use caminhos fixos (hardcoded) para redirecionamento; use rotas nomeadas (`router.push({ name: 'login' })`).
-- Não consuma `/user/data` com `axios.get` solto — sempre pela store MaxPinia.
-- Não introduza autenticação por token/Bearer; o modelo é Sanctum SPA (sessão + cookie). Não desative o CSRF nem pule o GET em `/sanctum/csrf-cookie`.
-- Em logout ou 401, limpe estados desatualizados do usuário, contextos e chaves locais.
-- Mantenha atributos de template em uma única linha.
+- **Idioma:** comunique-se com o humano sempre em Português (pt-BR), independentemente do idioma do corpo desta skill.
+- NUNCA use a Options API. Use `<script setup lang="ts">`.
+- Não hardcode URIs `/api/...` nem caminhos fixos para navegação: use nomes Ziggy (`route()`, `apiGetRoute`/`apiPostRoute`) e rotas nomeadas do router (`router.push({ name: 'login' })`).
+- Não consuma `/user/data` com `axios.get` solto — sempre pela store `useUser`.
+- Não introduza token/Bearer; o modelo é sessão + cookie. Não configure `axios.defaults`, interceptadores nem fluxo `/sanctum/csrf-cookie` — nada disso existe no projeto.
+- Não anexe headers de CSRF manualmente em chamadas normais de API (só em widgets de upload de terceiros, lendo de `useSystemStore`).
+- Logout é navegação full-page para `/logout`; não o reescreva como POST via `apiPostRoute`.
+- Sem camada `services/` no front; sem `vueuse`/`lodash`/PrimeVue crus (use `@maxvue/max-use` e `Max*`).
 
 # Examples
 
-### Exemplo 1: Store de Sessão MaxPinia (useUser.Store.ts)
+### Exemplo 1: Store de sessão (`useUser.Store.ts`)
 ```typescript
-import { ref, computed, watch, type Ref } from 'vue';
-import { defineStore } from 'pinia';
-
 // `status`, `reload()` e `clearAll()` são injetados pelo plugin MaxPinia na instância da store.
 export const useUserStore = defineStore('user', () => {
-    // Estado do usuário autenticado, vindo de GET /user/data via MaxPinia
-    const data: Ref<any | null> = ref(null);
-    const isCached = ref(true);
-    // route é o NOME da rota Ziggy (não caminho /api/...); a store chama apiGetRoute internamente.
-    const options = computed(() => ({ get: { route: 'user.data' }, key: 'user' }));
+    // Dados do usuário autenticado, vindos de GET user.data via MaxPinia
+    const data: Ref<User | null> = ref(null);
+    const isCached: Ref = ref(true);
+    // route é o NOME Ziggy (não caminho); a store executa a requisição internamente.
+    const options = computed(() => ({ get: { route: 'user.data' }, save: 'user.save', key: 'user' }));
 
-    return { data, options, isCached };
-});
+    /**
+     * Aguarda a primeira requisição de sessão concluir COM SUCESSO.
+     * Evita race condition no guard do Vue Router ao recarregar a página.
+     * Usa `this` porque `status` é injetado na instância pelo MaxPinia.
+     */
+    function waitRequest(this: any): Promise<void> {
+        return new Promise((resolve) => {
+            if (this?.status?.server?.get?.is_success) return resolve();
 
-/**
- * Aguarda a primeira requisição de dados do usuário concluir.
- * Evita race condition nos route guards do Vue Router ao recarregar.
- * Recebe a instância da store e lê `store.status` (injetado pelo MaxPinia) —
- * nunca use `this` dentro da setup store.
- */
-export function waitRequest(store: ReturnType<typeof useUserStore>): Promise<void> {
-    return new Promise((resolve) => {
-        if (store.status?.server?.get?.is_requested) return resolve();
-
-        const unwatch = watch(
-            () => store.status?.server?.get?.is_requested,
-            (isRequested) => {
-                if (isRequested) {
-                    unwatch();
-                    resolve();
+            const unwatch = watch(
+                () => this?.status?.server?.get?.is_success,
+                (isSuccess) => {
+                    if (isSuccess) {
+                        unwatch();
+                        resolve();
+                    }
                 }
-            }
-        );
-    });
-}
+            );
+        });
+    }
+
+    return { data, options, isCached, waitRequest };
+});
 ```
 
-### Exemplo 2: View de Login (LoginPage.vue)
+### Exemplo 2: Store de login (`useLogin.Store.ts`)
+```typescript
+export const useLoginStore = defineStore('login', () => {
+    const loading: Ref<boolean> = ref(false);
+    const value: Ref<string> = ref('');   // entrada única: e-mail ou telefone
+    const method: Ref<string> = ref('');
+    const password: Ref<string> = ref('');
+    const remember: Ref<boolean> = ref(true);
+    const error: Ref<string> = ref('');
+
+    // Provedores voltam do backend como array de strings; mapeados para o card.
+    const PROVIDER_MAP: Record<string, { label: string; icon: string; class: string }> = {
+        google:   { label: 'Google',   icon: 'mdi:google',   class: 'btn-google' },
+        facebook: { label: 'Facebook', icon: 'mdi:facebook', class: 'btn-facebook' }
+    };
+    const providers: Ref<Array<{ id: string; label: string; icon: string; class: string }>> = ref([]);
+
+    // Deriva e-mail/telefone a partir da entrada única
+    const email = computed(() => (method.value === 'email' ? value.value : 'undefined@enge.tec.br'));
+    const phone_number = computed(() => (method.value === 'phone' ? value.value : ''));
+
+    // Detecta o método pela forma da entrada
+    watch(value, () => {
+        const current = value.value ?? '';
+        if (current.includes('@')) method.value = 'email';
+        else if (/[0-9]/.test(current)) method.value = 'phone';
+        else if (current.length === 0) method.value = '';
+    });
+
+    // apiPostRoute executa o POST e retorna falsy em falha (não lança).
+    const submit = async () => {
+        loading.value = true;
+        error.value = '';
+        const result = await apiPostRoute('login', {
+            method: method.value,
+            email: email.value,
+            password: password.value,
+            remember: remember.value,
+            phone_number: phone_number.value
+        });
+
+        if (result) location.reload();
+        else {
+            showToast('Não foi possível realizar o login. <br>Verifique os dados e tente novamente.', 'error');
+            error.value = 'Usuário ou senha inválidos.';
+        }
+        loading.value = false;
+    };
+
+    const loadProviders = async () => {
+        const ids = await apiGetRoute('social.providers'); // array de strings
+        providers.value = (ids ?? [])
+            .filter((id: string) => PROVIDER_MAP[id])
+            .map((id: string) => ({ id, ...PROVIDER_MAP[id] }));
+    };
+
+    // Login social: navegação full-page; URL gerada pelo Ziggy.
+    const social = (provider: string) => {
+        window.location.href = route('social.redirect', { provider });
+    };
+
+    const SOCIAL_ERROR_MESSAGES: Record<string, string> = {
+        invalid_provider: 'Provedor de login inválido.',
+        oauth_failed: 'Não foi possível autenticar com o provedor. Tente novamente.',
+        no_email: 'Sua conta social não forneceu um e-mail. Use e-mail e senha.'
+    };
+    const loadUrlError = () => {
+        const code = new URLSearchParams(window.location.search).get('error');
+        if (code && SOCIAL_ERROR_MESSAGES[code]) error.value = SOCIAL_ERROR_MESSAGES[code];
+    };
+
+    return { email, value, phone_number, method, password, remember, loading, error, submit, providers, loadProviders, social, loadUrlError };
+});
+```
+
+### Exemplo 3: View de login (`Login.vue`)
 ```vue
 <template>
-  <MaxAuthCard title="Maxdmin" subtitle="Acesse sua conta" icon="mdi:lock-outline" :providers="providers" :loading="loading" :error="error" :forgot-to="{ name: 'forgot_password' }" @submit="submit" @social="loginWith" />
+    <div class="container-div-center-main-div">
+        <MaxAuthCard identifier="email-phone" :loading="login.loading" :error="login.error" v-model:email="login.value" v-model:password="login.password" v-model:remember="login.remember" :providers="login.providers" :forgot-to="{ query: { sub_page: 'forgot-password' } }" :register-to="{ query: { sub_page: 'register' } }" @submit="login.submit" @social="login.social">
+            <template #header>
+                <div flex justify-center s100><Logo p /></div>
+            </template>
+        </MaxAuthCard>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRouter } from 'vue-router';
-import { apiPostRoute, apiGetRoute } from '@maxvue/max-use';
-import { useUserStore } from '@/Stores/UserStores/useUser.Store';
+    // A view não tem lógica: instancia a store e delega tudo.
+    const login = useLoginStore();
 
-const router = useRouter();
-const userStore = useUserStore();
-
-const loading = ref(false);
-const error = ref('');
-const providers = ref<Array<{ id: string; label: string; icon?: string }>>([]);
-
-// Carrega os provedores de login social disponíveis.
-// apiGetRoute já executa o GET e retorna response.data (não embrulhe em axios.get).
-onMounted(async () => {
-    const res = await apiGetRoute('social.providers');
-    providers.value = res?.providers ?? res ?? [];
-});
-
-// Redireciona o navegador para o fluxo OAuth do provedor (navegação real)
-const loginWith = (provider: string): void => {
-    window.location.href = `/api/auth/${provider}/redirect`;
-};
-
-// Efetua a submissão das credenciais via sessão por cookie
-const submit = async (payload: { email: string; password: string; remember: boolean }): Promise<void> => {
-    if (loading.value) return;
-    loading.value = true;
-    error.value = '';
-
-    try {
-        // apiPostRoute executa o POST (cookies/CSRF já incluídos) e retorna response.data.
-        // Ele NÃO lança em erro de HTTP: retorna null (erro de rede/servidor, ex.: 401/422)
-        // ou false (rota inválida). Por isso ramifique pelo valor de retorno — não use e.response.
-        const res = await apiPostRoute('login', payload);
-        if (!res || (res as any).errors) {
-            error.value = (res as any)?.message
-                ?? 'Falha na autenticação. Verifique suas credenciais.';
-            return;
-        }
-
-        // Limpa chaves locais obsoletas e recarrega o usuário pela store MaxPinia
-        localStorage.removeItem('selected.client.id');
-        userStore.reload();
-
-        router.push({ name: 'projects' });
-    } finally {
-        loading.value = false;
-    }
-};
+    onMounted(() => {
+        login.loadProviders();
+        login.loadUrlError();
+    });
 </script>
-
-<style scoped lang="scss">
-// Sem cores fixas: use tokens/variáveis do tema (presetMaxUno / CSS vars).
-.btn-google {
-    --bg: var(--surface-0);
-    --border-color: var(--border-base);
-    color: var(--text-default);
-    &:hover {
-        background-color: var(--surface-100) !important;
-    }
-}
-</style>
 ```
 
-### Exemplo 3: Logout
+### Exemplo 4: Guard do router e logout
 ```typescript
-import { apiPostRoute } from '@maxvue/max-use';
+// Guard: aguarda a sessão e decide pela store MaxPinia.
+router.beforeEach(async (to, from, next) => {
+    const user = useUserStore();
+    const requiresAuth = to.meta.public ? false : (to.meta.requiresAuth ?? true);
+    await user.waitRequest();
+    const isAuthenticated = !!user.data?.id;
 
-// Encerra a sessão no backend e limpa o estado local.
-// apiPostRoute executa o POST e já trata o erro (retorna null) — não embrulhe em axios.post.
-async function logout(router: any, userStore: any): Promise<void> {
-    try {
-        await apiPostRoute('logout');
-    } finally {
-        localStorage.removeItem('selected.client.id');
-        // O plugin MaxPinia injeta clearAll() (não `clear`) para limpar cache + estado.
-        if (typeof userStore.clearAll === 'function') await userStore.clearAll();
-        router.push({ name: 'login' });
-    }
+    if (requiresAuth && !isAuthenticated) return next({ name: 'login' });
+    if (to.name === 'login' && isAuthenticated) return next({ name: 'board' }); // raiz '/', não 'projects'
+    next();
+});
+
+// Logout real (menu do usuário): navegação full-page, o backend encerra a sessão.
+// Não há apiPostRoute('logout') nem router.push no código real.
+function logout() {
+    window.location.href = '/logout';
 }
 ```

@@ -1,185 +1,139 @@
 ---
 name: laravel-trello-api-integration
-description: Use when creating, maintaining, or debugging integrations with the Trello API (TrelloService), handling authentication (key, token), processing webhooks, fetching boards/lists/cards/attachments, or managing cards inside the Engeapp ecosystem.
+description: Use ao criar, manter ou depurar a integração com a API do Trello no engeapp (App\Services\TrelloService), lendo credenciais de config/api.php (trello_key/trello_token/trello_secret via env TRELLO_KEY/TRELLO_TOKEN/TRELLO_SECRET), buscando boards/lists/cards/anexos, tratando o webhook via ProcessTrelloWebhookJob e rodando os commands trello:register-webhook e sync:cards-trello. Log no canal trello.
 ---
 
-# Boas Práticas de Integração com a API do Trello no Laravel
+# Integração com a API do Trello no Laravel (engeapp)
 
 ## Objetivo
-Padronizar e gerenciar de forma robusta a integração com a API do Trello (via `TrelloService`), garantindo processamento resiliente de webhooks, cache inteligente de requisições, logging específico e comandos Artisan apropriados dentro do ecossistema de backend do Engeapp.
+Padronizar a integração com a API do Trello via `App\Services\TrelloService`, cobrindo credenciais, leitura de boards/lists/cards/anexos, recebimento de webhook e os commands Artisan reais do projeto.
+
+> **Estado atual (Fase 1 desativada):** No engeapp, os métodos de rede do `TrelloService` (`getData`, `putData`, `postData`) e vários fluxos (`getFileForAttachment`, `syncMediaForAttachment`, `ProcessTrelloWebhookJob::handle`, `SyncToTrelloJob::handle`, `SyncCardTrello::handle`) estão com o corpo comentado e retornam cedo com o marcador `// [Trello API] Execução cancelada na Fase 1`. A arquitetura (classes, assinaturas, credenciais) já existe e é a verdade-base desta skill; ao reativar, **descomente** os corpos existentes em vez de reescrever do zero.
 
 ## Instruções
 
-1. **Localização e Injeção do Serviço**:
-   - Crie e mantenha o serviço de integração do Trello dentro de `app/Services/TrelloService.php`.
-   - Use o namespace `App\Services`.
-   - Injete as dependências necessárias (ex: HTTP Client, Cache) via construtor usando Constructor Property Promotion do PHP 8.
+1. **Serviço e credenciais**:
+   - O serviço vive em `app/Services/TrelloService.php`, namespace `App\Services`. `baseUrl` = `https://api.trello.com/1/`.
+   - As credenciais são lidas no construtor a partir de `config/api.php`:
+     - `config('api.trello_key')` → env `TRELLO_KEY`
+     - `config('api.trello_token')` → env `TRELLO_TOKEN`
+     - `config('api.trello_secret')` → env `TRELLO_SECRET` (usado apenas se/quando verificação de assinatura for adicionada; hoje não é consumido)
+   - **Não existe** `config('services.trello.*)` nem `config/trello.php`. Não use os nomes `TRELLO_API_KEY`/`TRELLO_API_TOKEN`/`TRELLO_BOARD_ID` — eles não existem no projeto.
+   - Chame `env()` apenas dentro de `config/api.php`; no código, use `config('api.*')`.
 
-2. **Configuração e Credenciais**:
-   - Carregue as credenciais da API do Trello (Key, Token e Board ID padrão) através de `config/services.php` ou `config/trello.php`.
-   - Recupere os valores do `.env` usando as variáveis de ambiente: `TRELLO_API_KEY`, `TRELLO_API_TOKEN` e `TRELLO_BOARD_ID`.
-   - Evite usar o helper `env()` fora dos arquivos de configuração.
+2. **Board padrão (sem config)**:
+   - Não há chave de config para o board. O board padrão é o **default do parâmetro** dos métodos: `'66e9d8c95de15659b72aac72'` (veja `getListsForBoard`, `getCardsForBoard`, `getCard`).
+   - Ao precisar de outro board, passe o id explicitamente; não invente `config('...board_id')`.
 
-3. **Rate Limiting da API e Estratégia de Cache**:
-   - Evite o esgotamento do rate limit da API armazenando em cache operações de leitura (como boards, lists, cards e attachments) que não exigem estado em tempo real.
-   - Use `Cache::remember` com um TTL padrão de 45 minutos (2700 segundos).
-   - Construa chaves de cache consistentes, por exemplo: `trello:board:{board_id}:lists` ou `trello:card:{card_id}`.
-   - Limpe ou invalide chaves de cache específicas ao mutar os recursos (ex: após atualizar ou deletar um card via API).
+3. **Requisições e autenticação**:
+   - Leituras passam por `getData(string $route, array $others = [])`, que injeta `key` e `token` como query params (`['key' => $this->key, 'token' => $this->token, ...$others]`) e faz `Http::get($this->baseUrl . $route, $data)`.
+   - Mutações passam por `putData`/`postData`, que injetam `key`/`token` no payload.
+   - O download de anexo (`getFileForAttachment`/`syncMediaForAttachment`) usa header OAuth: `Authorization: OAuth oauth_consumer_key="{key}", oauth_token="{token}"`.
+   - Métodos públicos reais: `getCardsData`, `getListForCard`, `getListsForBoard`, `getList`, `getAttachmentsForCard`, `getAttachmentForCard`, `getFileForAttachment`, `syncMediaForAttachment`, `getMembersForCard`, `getCardsForBoard`, `getCard`, `getActionsOnCard`, `getCheckList`, `updateCardData`, `moveCardList`, `archiveCard`, `addComment`, `updateCheckItemState`, `registerWebhook`.
 
-4. **Tratamento Robusto de Exceções e Logging**:
-   - Capture falhas de requisição da API do Trello usando o `throw()` do HTTP Client ou verificando `$response->failed()`.
-   - Lance exceções de domínio customizadas (ex: `TrelloApiException`) quando as requisições à API falharem.
-   - Registre operações, erros e conteúdos de payload específicos do Trello usando o canal de log `trello` (`storage/logs/trello.log`).
+4. **Tratamento de erros e logging**:
+   - O padrão real é `try/catch (\Throwable)` e **retornar vazio/null** (`return []` / `return null`) — não há exceção de domínio como `TrelloApiException` no projeto. Não referencie classes de exceção inexistentes.
+   - **Onde há log e onde não há:** apenas as mutações `putData`/`postData` registram no canal `trello` (`Log::channel('trello')->error('Erro no putData/postData do Trello', ...)`) dentro do catch. O `getData` (leituras) tem catch **silencioso** — só `return []`, sem log. Ao reativar/estender, mantenha esse contrato ou adicione log conscientemente; não presuma que `getData` já loga.
+   - O canal `trello` está definido em `config/logging.php` (path `storage_path('logs/trello.log')`). Use-o para toda operação, erro e payload do Trello.
 
-5. **Webhooks e Jobs Assíncronos**:
-   - **Verifique a assinatura do webhook ANTES de disparar qualquer job**: o Trello assina cada callback com o header `X-Trello-Webhook`, calculado como `base64(HMAC-SHA1(requestBody + callbackURL, apiSecret))`. Recalcule-o com o secret da aplicação e compare usando `hash_equals` (tempo constante). Rejeite com `401` em caso de divergência ou header ausente — nunca processe um payload não verificado.
-   - Processe os payloads de webhook recebidos do Trello de forma assíncrona usando jobs em fila (ex: `App\Jobs\ProcessTrelloWebhookJob`).
-   - Enfileire as mutações de saída (ex: criar um card ou enviar um attachment) usando jobs (ex: `App\Jobs\SyncToTrelloJob`) para evitar bloquear a thread da requisição HTTP.
-   - Garanta que os jobs implementem a interface `ShouldQueue` e sigam os padrões do Horizon (ex: lógica de retry, timeouts e máximo de tentativas).
+5. **Webhook (recebimento)**:
+   - Rota (não nomeada): `Route::match(['head', 'post'], '/webhooks/trello', [TrelloWebhookController::class, 'handle'])` em `routes/api.php` → URL pública `/api/webhooks/trello`.
+   - `App\Http\Controllers\Api\TrelloWebhookController@handle`: se `$request->isMethod('HEAD')` responde `200` vazio (o Trello confirma o webhook com HEAD ao registrar); caso contrário, despacha `ProcessTrelloWebhookJob::dispatch($request->all())` e retorna `'OK'` 200 imediatamente, para não bloquear a resposta.
+   - **Atenção (segurança):** o controller atual **não** verifica assinatura do webhook. Se for endurecer a integração, o Trello assina cada callback no header `X-Trello-Webhook` como `base64(HMAC-SHA1(requestBody + callbackURL, secret))` e o secret disponível é `config('api.trello_secret')`; compare com `hash_equals()`. Isso é orientação genérica de hardening — **não está implementado hoje**, não descreva como se estivesse.
 
-6. **Comandos Artisan**:
-   - Implemente comandos Artisan para ações administrativas (ex: `RegisterTrelloWebhookCommand` e `SyncCardTrelloCommand`).
-   - Siga as convenções padrão do Artisan do Laravel (ex: usar flags `--force`, saída de console estruturada e strings de descrição claras).
+6. **Jobs assíncronos**:
+   - `App\Jobs\ProcessTrelloWebhookJob` (recebe o payload do webhook) e `App\Jobs\SyncToTrelloJob` (recebe `string $action, array $data` para mutações de saída como `updateCard`/`moveCardList`).
+   - Ambos usam `implements ShouldQueue` + `use Queueable` (estilo Laravel 12/13). Não há propriedades de retry/timeout customizadas no código atual — não invente configuração de Horizon que não existe.
+
+7. **Commands Artisan (nomes reais)**:
+   - `App\Console\Commands\RegisterTrelloWebhook` — signature `trello:register-webhook {board?}`, definido via atributos `#[Signature(...)]` / `#[Description(...)]`. Monta o callback como `config('app.url') . '/api/webhooks/trello'` e chama `$trelloService->registerWebhook(...)`.
+   - `App\Console\Commands\SyncCardTrello` — signature `sync:cards-trello {--limit=} {--clear} {--no-file}` (carga massiva de cards para o Planner). Usa `$signature`/`$description` como propriedades.
+   - **Não** existem classes com sufixo `Command` (`RegisterTrelloWebhookCommand`/`SyncCardTrelloCommand`).
+
+8. **Cache (onde realmente existe)**:
+   - O `TrelloService` **não usa Cache** em nenhum método. Não descreva cache dentro do serviço nem chaves como `trello:card:{id}`.
+   - O único cache real está no command `SyncCardTrello`, que faz **quatro** `Cache::remember`, todas com TTL de 45 min (`now()->addMinutes(45)`) e chave em notação por ponto:
+     - `'trello.all_cards.board'` → `$trelloService->getCardsForBoard()`
+     - `'trello.card.actions.' . $card->trello_id` → `$trelloService->getActionsOnCard(...)`
+     - `'trello.checklist.' . $check_list_id` → `$trelloService->getCheckList(...)`
+     - `'trello.card.attachments.' . $card->trello_id` → `$trelloService->getAttachmentsForCard(...)`
+   - Se precisar cachear leituras, siga esse padrão (chave única por ponto + TTL de 45 min) no chamador, nunca dentro do serviço.
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill está escrito.
-- **Sem Mutações Síncronas em Controllers**: Não realize operações de escrita (criar/atualizar/deletar card) no Trello de forma síncrona dentro de HTTP Controllers. Delegue-as a Jobs em fila.
-- **Sem API Keys ou Secrets Hardcoded**: Secrets nunca devem ser armazenados diretamente em repositórios de código; sempre leia a partir de arquivos de configuração.
-- **Sem Saída Bruta de Exceções**: Nunca exiba exceções brutas ou tracebacks detalhados da API do Trello para o usuário final. Capture-os, registre no canal `trello` e retorne uma mensagem de erro limpa voltada ao usuário.
-- **Sem URLs de Webhook Hardcoded**: As URLs de callback dos webhooks devem ser geradas dinamicamente usando rotas nomeadas (ex: `route('trello.webhook')`) e devem tratar a resolução de SSL/HTTPS.
-- **Validação Estrita da Assinatura do Webhook**: Nunca processe um webhook do Trello sem verificar o header `X-Trello-Webhook` (`base64(HMAC-SHA1(requestBody + callbackURL, apiSecret))`). Sempre compare com `hash_equals()` para comparação em tempo constante e rejeite requisições não verificadas com `401` antes de disparar qualquer job.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), independentemente do idioma do corpo desta skill. Comentários de código em pt-BR.
+- **Sem mutações síncronas em controllers**: não faça escrita (criar/atualizar/mover/arquivar card) direto no controller HTTP; delegue a `SyncToTrelloJob` (ou outro job em fila).
+- **Sem secrets hardcoded**: leia sempre de `config('api.*')`; nunca coloque key/token/secret no código.
+- **Callback do webhook**: monte a URL a partir de `config('app.url')` + `/api/webhooks/trello` (padrão do `RegisterTrelloWebhook`), pois a rota não é nomeada — não use `route('trello.webhook')`.
+- **Não fabrique**: não referencie `config/services.php`/`config/trello.php`, envs `_API_`, `TrelloApiException`, verificação de assinatura ativa ou cache no serviço — nada disso existe no engeapp.
 
 ## Exemplos
 
-### Exemplo: Verificação da assinatura do webhook (antes de disparar o job)
-O Trello assina cada callback com o header `X-Trello-Webhook`, calculado como `base64(HMAC-SHA1(requestBody + callbackURL, apiSecret))`. Verifique-o com `hash_equals` e só então dispare o job em fila.
-
+### Recebimento do webhook (real, `TrelloWebhookController`)
 ```php
-public function handle(Request $request): Response
+public function handle(Request $request)
 {
-    $signature = $request->header('X-Trello-Webhook');
-    $secret = config('services.trello.secret'); // TRELLO_API_SECRET
-
-    // O Trello envia um HEAD/GET vazio para confirmar o webhook no registro.
-    if ($request->isMethod('head') || $request->isMethod('get')) {
+    // O Trello envia um HEAD ao registrar o webhook, só para validar a URL.
+    if ($request->isMethod('HEAD')) {
         return response('', 200);
     }
 
-    if (empty($signature) || empty($secret)) {
-        return response('Unauthorized', 401);
-    }
+    $payload = $request->all();
 
-    $callbackUrl = route('trello.webhook'); // deve corresponder ao callbackURL registrado
-    $computed = base64_encode(hash_hmac('sha1', $request->getContent() . $callbackUrl, $secret, true));
+    // Despacha o job e responde 200 imediatamente (não bloqueia a requisição).
+    \App\Jobs\ProcessTrelloWebhookJob::dispatch($payload);
 
-    if (! hash_equals($computed, $signature)) {
-        Log::channel('trello')->warning('Invalid Trello webhook signature.');
-        return response('Unauthorized', 401);
-    }
-
-    ProcessTrelloWebhookJob::dispatch($request->json()->all());
-
-    return response('Webhook processed successfully', 200);
+    return response('OK', 200);
 }
 ```
 
-### Exemplo: Implementação do TrelloService
+### Padrão de leitura do serviço (real, `TrelloService`)
 ```php
-<?php
-
-namespace App\Services;
-
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
-use App\Exceptions\TrelloApiException;
-use Throwable;
-
 class TrelloService
 {
+    protected string $baseUrl = 'https://api.trello.com/1/';
     protected string $key;
     protected string $token;
-    protected string $baseUrl = 'https://api.trello.com/1';
 
     public function __construct()
     {
-        $this->key = config('services.trello.key');
-        $this->token = config('services.trello.token');
-
-        if (empty($this->key) || empty($this->token)) {
-            Log::channel('trello')->error('Trello API key or token is not configured.');
-        }
+        $this->key = config('api.trello_key');
+        $this->token = config('api.trello_token');
     }
 
-    /**
-     * Busca os detalhes de um card por ID com cache.
-     *
-     * @param string $cardId
-     * @return array
-     * @throws TrelloApiException
-     */
-    public function getCard(string $cardId): array
+    // Board padrão é o DEFAULT do parâmetro — não vem de config.
+    public function getCardsForBoard(string $board_id = '66e9d8c95de15659b72aac72') : array
     {
-        $cacheKey = "trello:card:{$cardId}";
-
-        return Cache::remember($cacheKey, now()->addMinutes(45), function () use ($cardId) {
-            try {
-                $response = Http::get("{$this->baseUrl}/cards/{$cardId}", [
-                    'key' => $this->key,
-                    'token' => $this->token,
-                ]);
-
-                if ($response->failed()) {
-                    throw new TrelloApiException("Failed to fetch Trello card: {$cardId}. HTTP Status: " . $response->status());
-                }
-
-                return $response->json();
-            } catch (Throwable $e) {
-                Log::channel('trello')->error("Error fetching card {$cardId}", [
-                    'message' => $e->getMessage(),
-                    'trace' => $e->getTraceAsString(),
-                ]);
-
-                throw new TrelloApiException("Trello communication failure.", 0, $e);
-            }
-        });
+        return $this->getData('boards/' . $board_id . '/cards');
     }
 
-    /**
-     * Cria um card em uma list.
-     *
-     * @param string $listId
-     * @param array $data
-     * @return array
-     * @throws TrelloApiException
-     */
-    public function createCard(string $listId, array $data): array
+    private function getData(string $route, array $others = []) : array
     {
+        $data = [
+            'key'   => $this->key,
+            'token' => $this->token,
+            ...$others,
+        ];
+
         try {
-            $response = Http::post("{$this->baseUrl}/cards", array_merge($data, [
-                'idList' => $listId,
-                'key' => $this->key,
-                'token' => $this->token,
-            ]));
-
-            if ($response->failed()) {
-                throw new TrelloApiException("Failed to create Trello card. HTTP Status: " . $response->status());
-            }
-
-            $card = $response->json();
-
-            // Limpa o cache de cards do board para manter as lists sincronizadas
-            Cache::forget("trello:board:" . config('services.trello.board_id') . ":cards");
-
-            return $card;
-        } catch (Throwable $e) {
-            Log::channel('trello')->error("Error creating card in list {$listId}", [
-                'data' => $data,
-                'message' => $e->getMessage(),
-            ]);
-
-            throw new TrelloApiException("Failed to perform Trello card creation.", 0, $e);
+            $response = Http::withHeaders([])->get($this->baseUrl . $route, $data);
         }
+        // Atenção: no getData REAL o catch é SILENCIOSO (só return []). Quem loga no canal
+        // `trello` são apenas putData/postData (mutações). Não adicione log aqui achando que existe.
+        catch (\Throwable $e) {
+            return [];
+        }
+
+        return toArray($response?->json());
     }
 }
+```
+
+### Cache de leitura no chamador (real, `SyncCardTrello`)
+```php
+// TTL de 45 min, chave única — o cache fica no command, nunca dentro do TrelloService.
+$trello_cards = Cache::remember(
+    'trello.all_cards.board',
+    now()->addMinutes(45),
+    static fn () => $trelloService->getCardsForBoard(),
+);
 ```

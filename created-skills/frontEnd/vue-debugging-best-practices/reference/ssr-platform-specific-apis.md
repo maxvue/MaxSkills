@@ -157,12 +157,19 @@ Use libraries that abstract platform differences:
 
 ```javascript
 // Fetch - works in both Node.js 18+ and browsers
-const response = await fetch('/api/data')
+const response = await fetch('https://exemplo.com/data')
 
 // For older Node.js, use node-fetch or axios
 import axios from 'axios'
-const { data } = await axios.get('/api/data')
+const { data } = await axios.get('https://exemplo.com/data')
 ```
+
+> No engeapp (SPA Vue 3 + Laravel, sem SSR), toda chamada à própria API passa por `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` com NOME de rota Ziggy pontilhado — nunca `fetch`/`axios` cru para `/api`:
+>
+> ```javascript
+> import { apiGetRoute } from '@maxvue/max-use'
+> const data = await apiGetRoute('app.dados')
+> ```
 
 ```javascript
 // Universal cookie handling
@@ -199,8 +206,9 @@ export function loadConfig() {
   return JSON.parse(fs.readFileSync('./config.json'))
 }
 
-// app.js - Universal code uses API instead
-const config = await fetch('/api/config').then(r => r.json())
+// app.js - Universal code uses the API instead
+// (no engeapp: import { apiGetRoute } from '@maxvue/max-use'; await apiGetRoute('app.config'))
+const config = await apiGetRoute('app.config')
 ```
 
 ## Environment Detection Utility

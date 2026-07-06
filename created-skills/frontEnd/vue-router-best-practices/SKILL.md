@@ -1,122 +1,116 @@
 ---
 name: vue-router-best-practices
-description: "Use when designing, debugging, or reviewing any Vue Router concern in the Vue 3 frontend: dynamic routing via import.meta.glob, dynamic layout selection (guest/default), navigation guards with auth and loading state, programmatic navigation with useRouter, reading params/query with useRoute, or route meta properties."
+description: "Use ao projetar, depurar ou revisar Vue Router no frontend Vue 3 do engeapp: registro dinâmico de páginas via import.meta.glob de resources/Vue/Pages, layouts default/guest/site, rotas dinâmicas registradas manualmente (integrador_client_show/:id), guards beforeEach com callback next(), useUserStore.waitRequest, useLoadingStore, navegação com useRouter e leitura de params com useRoute."
 ---
 
 # Melhores Práticas de Vue Router
 
 ## Objetivo
-Estabelecer padrões de desenvolvimento para toda a configuração de Vue Router no frontend Vue 3: registro automático de rotas, layouts dinâmicos, navegação programática, acesso a parâmetros de rota e guards de navegação globais com gerenciamento de autenticação e estado de carregamento.
+Estabelecer padrões para o Vue Router (`vue-router` ^5.1.0) no frontend Vue 3 do engeapp: registro automático de páginas via `import.meta.glob`, rotas dinâmicas registradas manualmente, layouts, navegação programática, leitura de params/query e guards globais de autenticação e carregamento. Toda a verdade-base está em `resources/Js/router.ts` e `resources/App.vue`.
 
 ## Instruções
 
-### 1. Arquitetura de Roteamento Dinâmico Automático
-O frontend registra as páginas de forma dinâmica utilizando o `import.meta.glob` do Vite:
-- Todos os arquivos de página Vue devem residir em `resources/Js/Pages/**/*.vue`.
-- Os componentes de página devem seguir a convenção PascalCase com o sufixo `Page` (ex: `SettingsPage.vue`, `ProjectDetailPage.vue`).
-- Os nomes e caminhos das rotas são gerados transformando o nome do arquivo:
-  - Remove a extensão do arquivo (`.vue`).
-  - Remove o sufixo `Page` do final, se presente.
-  - Converte o resultado para `snake_case` (ex: `EditProfilePage.vue` → `edit_profile`, caminho `/edit_profile`).
-  - `BoardPage.vue` é especial: mapeia para o caminho raiz `/` e registra `/board` como alias.
-  - `home` mapeia diretamente para `/`.
+### 1. Registro Dinâmico de Páginas
+O `router.ts` registra as páginas automaticamente com `import.meta.glob`:
+- Todas as páginas ficam em `resources/Vue/Pages/**/*.vue` (o diretório real é `Vue/Pages`, NÃO `Js/Pages`).
+- Cada arquivo vira uma rota transformando o nome do arquivo:
+  - Remove a extensão e o sufixo `Page` do final.
+  - Converte para `snake_case` (ex.: `AdminCompaniesPage.vue` → nome `admin_companies`, caminho `/admin_companies`).
+  - `BoardPage.vue` é especial: nome `board`, caminho raiz `/` e alias `/board`.
+  - O fallback `|| 'home'` no `snakeCase` só existe como guarda para nomes vazios; NÃO há página `Home` e nenhuma rota `home` é registrada na prática.
+- `meta` gerado no glob: `layout` é `'guest'` apenas para `login`, senão `'default'`; `requiresAuth` é `false` apenas para `login`, senão `true`.
 
-### 2. Gerenciamento de Layouts Dinâmicos
-- Os metadados de cada rota devem definir um template de layout (`meta: { layout }`).
-- Layouts disponíveis: `'default'` (páginas autenticadas) e `'guest'` (páginas públicas como login/registro).
-- O `App.vue` raiz seleciona o layout com um booleano simples `isGuestRoute` derivado de `route.meta.layout === 'guest'`: rotas guest renderizam o `<RouterView>` puro, todas as demais são envolvidas por `<PageLayout>`.
+```typescript
+const pages = import.meta.glob('../Vue/Pages/**/*.vue');
+const name = snakeCase(path.split('/').pop()?.replace(/\.\w+$/, '').replace(/Page$/, '') || 'home');
+const routePath = name === 'board' ? '/' : `/${name}`;
+```
+
+### 2. Rotas Dinâmicas e Site Público (registro manual)
+Rotas com parâmetro de path NÃO saem do glob — são excluídas via `DYNAMIC_ROUTES` e registradas à mão:
+- A única rota dinâmica real é `integrador_client_show`, com `path: '/integrador_client_show/:id'` (param `:id`). Ela está no `Set DYNAMIC_ROUTES` para ser filtrada do glob e recadastrada com o path parametrizado.
+- O bloco `/site` é registrado manualmente com layout próprio de marketing: rotas nomeadas `site.home`, `site.prices`, `site.posts`, `site.post` (`publicacoes/:slug`), todas com `meta: { public: true, layout: 'site' }`.
+- Para criar uma nova rota com parâmetro de path, adicione o nome ao `DYNAMIC_ROUTES` e faça o `routes.push` manual — não confie no glob para paths com `:param`.
+
+### 3. Seleção de Layout no App.vue
+O `resources/App.vue` NÃO usa um booleano `isGuestRoute`. Ele escolhe o que renderizar em cascata de `v-if`, e só renderiza qualquer coisa quando `route.name` existe:
+- `route.meta?.layout === 'site'` → `<RouterView />` puro (site de marketing).
+- `system?.page` em (`'Pay'`, `'Page'`, `'contatos'`, `'Contract'`, `'Wire'`, `'SolarCompanySubdomain'`) → `<RouterView />` puro (páginas fora do shell do app).
+- `user.status?.server?.get?.is_success && !system?.user?.data?.id` → `<RouterView />` puro (sessão resolvida, sem usuário logado — telas guest como login).
+- `user.status?.server?.get?.is_success && system?.user?.data?.id` → `<PageLayout><RouterView /></PageLayout>` (usuário autenticado, shell completo).
+- Enquanto nada disso resolve, exibe `<LoadScreen />`. Fora do `route.name`, sempre há `<MaxPopoverConfirm />` e `<MaxToast />`.
+
+Os três valores de `layout` que existem no projeto são `'default'`, `'guest'` (só `login`) e `'site'` (bloco `/site`). Não invente outros.
 
 ```vue
 <template>
-  <!-- Rotas de guest (login/register) — sem layout -->
-  <RouterView v-if="isGuestRoute" />
-
-  <!-- Rotas autenticadas — com layout completo -->
-  <PageLayout v-else>
-    <RouterView />
-  </PageLayout>
+    <div v-if="route.name">
+        <div v-if="route.meta?.layout === 'site'"><RouterView /></div>
+        <div v-else-if="system?.page === 'Pay' || system?.page === 'Page' || system?.page === 'contatos' || system?.page === 'Contract' || system?.page === 'Wire' || system?.page === 'SolarCompanySubdomain'"><RouterView /></div>
+        <div v-else-if="user.status?.server?.get?.is_success && !system?.user?.data?.id"><RouterView /></div>
+        <div v-else-if="user.status?.server?.get?.is_success && system?.user?.data?.id"><PageLayout><RouterView /></PageLayout></div>
+        <LoadScreen />
+    </div>
+    <MaxPopoverConfirm />
+    <MaxToast />
 </template>
-
-<script setup lang="ts">
-import { useRoute } from 'vue-router';
-
-const route = useRoute();
-
-const isGuestRoute = computed(() => {
-    return route.meta?.layout === 'guest';
-});
-</script>
 ```
 
-### 3. Guards de Navegação — Autenticação e Estados de Carregamento
-Os guards globais são configurados em `resources/Js/router.ts`.
+### 4. Guards de Navegação — Autenticação e Carregamento
+Os guards globais ficam em `resources/Js/router.ts`. O projeto usa o **callback `next()`** (assinatura `(to, from, next)`), NÃO o controle por valor de retorno — mantenha esse padrão.
 
-- **Estado de carregamento:** Acione `loading.start()` em `beforeEach` e `loading.end()` em `afterEach` via `useLoadingStore()`.
-- **Resolução de sessão:** Sempre `await user.waitRequest()` antes de verificar `user.data?.id` para evitar race conditions durante a carga inicial do SPA.
-- **Controle de acesso:** As rotas requerem autenticação por padrão (`meta.requiresAuth ?? true`). Use `meta.public: true` para marcar rotas públicas explicitamente.
+- **Carregamento:** `loading.start({ message: 'Acessando dados da página...', key: 'router' })` no `beforeEach`; `loading.end('router')` no `afterEach`, ambos via `useLoadingStore()` (checado com `if (loading)`).
+- **Resolução de sessão:** sempre `await user.waitRequest()` antes de checar `user.data?.id`, evitando race na carga inicial do SPA.
+- **Autenticação:** derive apenas de `!!user.data?.id`. NÃO existe checagem de status 401 em `user.status.server.get.error.response.status` — não invente esse caminho.
+- **Regra guest:** apenas `to.name === 'login'` com usuário autenticado redireciona; o destino é `{ name: 'board' }` (não existe rota `clients`, `register`, `forgot_password`, `reset_password` nem `home`).
+- **Guards de UX por permissão:** rotas cujo nome começa com `integrador_` exigem `projeto.ver`; `menu_roles`, `admin_companies` e `menus_admin` exigem `usuario.gerenciar`. São guards defensivos de UX — a segurança real fica no backend. Sem a permissão, redireciona para `{ name: 'board' }`.
 
 ```typescript
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to, from, next) => {
     const loading = useLoadingStore();
-    if (loading) {
-        loading.start({ message: 'Acessando dados da página...', key: 'router' });
-    }
+    if (loading) loading.start({ message: 'Acessando dados da página...', key: 'router' });
 
     const user = useUserStore();
     const requiresAuth = to.meta.public ? false : (to.meta.requiresAuth ?? true);
     await user.waitRequest();
-    // Se o servidor retornou 401, o dado em user.data pode ser cache antigo — não considerar autenticado.
-    const serverIs401 = user.status?.server?.get?.error?.response?.status === 401;
-    const isAuthenticated = !!user.data?.id && !serverIs401;
+    const isAuthenticated = !!user.data?.id;
 
-    // Vue Router v5: controle de fluxo por RETORNO (o callback `next()` está obsoleto).
-    if (requiresAuth && !isAuthenticated) {
-        return { name: 'login' };
-    }
-    const guestOnlyRoutes = ['login', 'register', 'forgot_password', 'reset_password', 'home'];
-    if ((guestOnlyRoutes.includes(to.name as string) || !to.name) && isAuthenticated) {
-        return { name: 'clients' };
-    }
+    if (requiresAuth && !isAuthenticated) return next({ name: 'login' });
+    if (to.name === 'login' && isAuthenticated) return next({ name: 'board' });
 
-    return true;
+    // Guards de UX por permissão (a segurança real fica no backend)
+    const routeName = typeof to.name === 'string' ? to.name : '';
+    const permissions: string[] = user.data?.permissions ?? [];
+    if (routeName.startsWith('integrador_') && isAuthenticated && !permissions.includes('projeto.ver')) return next({ name: 'board' });
+    if (['menu_roles', 'admin_companies', 'menus_admin'].includes(routeName) && isAuthenticated && !permissions.includes('usuario.gerenciar')) return next({ name: 'board' });
+
+    next();
 });
 
 router.afterEach(() => {
     const loading = useLoadingStore();
-    if (loading) {
-        loading.end('router');
-    }
+    if (loading) loading.end('router');
 });
 ```
 
-### 4. Navegação Programática
-Sempre use `useRouter` do `vue-router` para navegação programática dentro do `<script setup lang="ts">`.
-- Navegue pelo **nome** da rota, nunca por caminhos estáticos.
-- Forneça tipagens TypeScript explícitas para payloads de parâmetros complexos.
+### 5. Navegação Programática
+Use `useRouter` do `vue-router` dentro do `<script setup lang="ts">` e navegue pelo **nome** da rota, nunca por caminho estático.
+- Nomes válidos vêm dos arquivos em `Vue/Pages` (ex.: `board`, `login`, `integrador_clients`) ou das rotas registradas manualmente (`integrador_client_show`, `site.home`, `site.prices`, `site.posts`, `site.post`).
+- A única rota com param de path é `integrador_client_show`, cujo param é `:id`.
 
 ```typescript
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-// Navegar para uma rota nomeada
-const navigateToClients = () => {
-    router.push({ name: 'clients' });
-};
+const irParaClientes = () => router.push({ name: 'integrador_clients' });
 
-// Navegar para uma rota com parâmetro dinâmico + query params
-const navigateToWorkspace = (clientId: string) => {
-    router.push({
-        name: 'client.workspace',
-        params: { clientId },
-        query: { tab: 'calendar' }
-    });
-};
+// Rota com parâmetro de path :id
+const abrirCliente = (id: string) => router.push({ name: 'integrador_client_show', params: { id } });
 ```
 
-### 5. Leitura de Parâmetros e Consultas de Rota
-Use `useRoute` para acessar params, caminho atual ou query string dentro dos componentes.
-- Converta explicitamente os tipos de params/query quando a tipagem estrita for necessária.
+### 6. Leitura de Parâmetros e Query
+Use `useRoute` para acessar `params` e `query`, convertendo os tipos quando necessário.
 
 ```typescript
 import { useRoute } from 'vue-router';
@@ -124,23 +118,25 @@ import { computed } from 'vue';
 
 const route = useRoute();
 
-// Parâmetros de rota (ex: /project/:id)
-const projectId = computed<string>(() => route.params.id as string);
+// Param de path (ex.: /integrador_client_show/:id)
+const clientId = computed<string>(() => route.params.id as string);
 
-// Parâmetros de consulta (ex: ?status=active)
+// Query (ex.: ?status=active)
 const filterStatus = computed<string>(() => (route.query.status as string) || 'all');
 ```
 
-### 6. Ordem de Blocos SFC e Formatação de Atributos
+### 7. Ordem de Blocos SFC e Formatação
 - Ordem dos blocos SFC: `<template>` → `<script setup lang="ts">` → `<style lang="scss">`.
-- Mantenha todos os atributos de elementos na mesma linha — não quebre em múltiplas linhas.
-- Todos os comentários de código devem ser escritos em português brasileiro (pt-BR).
+- Mantenha os atributos de elementos na mesma linha — não quebre em múltiplas linhas.
+- Comentários de código sempre em português brasileiro (pt-BR).
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- NÃO registre rotas estáticas manualmente em `router.ts` sem aprovação explícita — confie no mapeamento glob dinâmico.
-- NÃO ignore o `await user.waitRequest()` nos guards de navegação.
-- NÃO referencie rotas por caminhos de URL estáticos — sempre use `name`.
+- **Idioma:** comunique-se com o usuário humano em Português (pt-BR), sempre, independentemente do idioma do corpo desta skill.
+- Páginas do app ficam em `resources/Vue/Pages`; NÃO use `resources/Js/Pages` (não existe).
+- NÃO registre páginas estáticas simples manualmente — confie no glob. Registro manual é só para rotas com param de path (via `DYNAMIC_ROUTES`) e para o bloco `/site`.
+- NÃO ignore `await user.waitRequest()` nos guards.
+- NÃO referencie rotas por caminho de URL — sempre use `name`.
+- NÃO derive autenticação de status HTTP 401; use `!!user.data?.id`.
+- NÃO troque o callback `next()` por controle de fluxo por retorno — este projeto usa `next()`.
 - NÃO formate atributos de componentes Vue em múltiplas linhas no `<template>`.
-- NÃO escreva comentários de código em outro idioma além do pt-BR.
-- NÃO remova nem altere `meta: { layout, requiresAuth }` ao criar novas páginas — padrão: layout `default` e `requiresAuth: true`.
+- NÃO escreva comentários de código fora do pt-BR.

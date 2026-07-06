@@ -1,63 +1,62 @@
 ---
 name: laravel-api-integration-patterns
-description: Use when creating, debugging, extending external HTTP API integrations, or implementing HTTP idempotency mechanisms. Triggers on setting up new API connectors, Attributes.json or EndPoints.json, configuring OAuth2 caching, and designing safe API mutations (especially payments and integrations).
+description: Use ao criar, depurar ou estender integrações de API HTTP externas construídas sobre a classe BaseApi do Engeapp. Cobre a estrutura de pasta do connector, Attributes.json e EndPoints.json, chamadas mágicas encadeadas, cache de requisições (withCache/withoutCache/clearCache) e cache de token OAuth2 via getAccessToken.
 ---
 
 # Padrões de Integração de API do Laravel
 
 ## Objetivo
-Padronizar a criação, modificação e depuração de integrações de API HTTP externas construídas sobre a classe nativa `BaseApi` do Engeapp, além de estabelecer diretrizes limpas e confiáveis para implementar idempotência de requisições de API usando locks distribuídos com Redis/Cache e cache de respostas.
+Padronizar a criação, modificação e depuração de integrações de API HTTP externas construídas sobre a classe `BaseApi` (`app/Http/Integrations/BaseApi.php`) do Engeapp, incluindo definição de atributos/endpoints via JSON, chamadas mágicas encadeadas, cache de requisições e cache de token OAuth2.
 
 ## Instruções
 
 ### 1. Entenda a Arquitetura
-Todas as integrações de API externas no Engeapp devem herdar de `BaseApi`. Cada integração deve residir em sua própria pasta (ex: `app/Http/Integrations/MyService/`) contendo:
-- `Connector.php` (A classe PHP que estende `BaseApi`)
-- `Attributes.json` (Definição de validação de atributos)
-- `EndPoints.json` (Estrutura aninhada de endpoints e configuração de execução)
+O padrão preferencial para novas integrações de API externas no Engeapp é herdar de `BaseApi`, pois isso dá cache de requisição/token, validação de atributos e roteamento de endpoints por JSON de graça. Cada integração baseada em `BaseApi` reside em sua própria pasta (ex.: `app/Http/Integrations/WhapiCloud/`) contendo:
+- O connector PHP que estende `BaseApi` (ex.: `Whapi.php`).
+- `Attributes.json` (definição/validação dos atributos).
+- `EndPoints.json` (estrutura aninhada de endpoints e configuração de execução).
+
+Exceção documentada: nem toda integração de pagamento segue esse padrão. `app/Http/Integrations/Efi/Efi.php` NÃO estende `BaseApi` — usa um `EndPointsTrait` próprio e chama `Http` diretamente por causa das exigências de certificado/mTLS e do fluxo específico da Efí. Ao trabalhar em uma integração existente, verifique primeiro se ela usa `BaseApi` ou um trait dedicado antes de aplicar estes padrões.
 
 ### 2. Criando os Atributos (Attributes.json)
 - Defina todas as propriedades de query, path e body que serão enviadas para a API.
-- Para cada atributo, especifique seu `type`, uma `description` explicando seu propósito, e se ele é `required` (booleano).
+- Para cada atributo, especifique seu `type`, uma `description` explicando seu propósito e se ele é `required` (booleano). `BaseApi::checkAttributes()` só bloqueia a requisição quando um atributo `required` está ausente do payload.
 
 ### 3. Definindo os Endpoints (EndPoints.json)
 - Mapeie seus endpoints de API em um objeto JSON hierárquico.
-- Todo endpoint executável deve definir: `end_point`, `method`, `description` e `attributes` (um objeto agrupando parâmetros em `query`, `path` ou `body`). Placeholders em `end_point` DEVEM ser listados em `path`.
+- Todo endpoint executável deve definir: `end_point`, `method` e `attributes` (um objeto agrupando parâmetros em `query`, `path` ou `body`). Placeholders `{...}` em `end_point` DEVEM ser listados em `path`, pois `checkAttributes()` substitui `{chave}` pelo valor de `data_array[chave]`.
+- Um nó pode definir `base_url` próprio para sobrepor o `base_url` do connector naquele endpoint.
 
-### 4. Implementando a Classe Connector (Connector.php)
-- Crie uma classe que estende `BaseApi` sob o namespace `App\Http\Integrations\YourIntegrationName`.
-- Defina a propriedade `$base_url` ou um array `$bases_url`.
-- Implemente `getAccessToken()` para retornar o bearer token ou a estrutura OAuth2.
-- Utilize cadeias de chamadas mágicas como `$connector->group()->endpoint($payload)` para chamar endpoints especificados em `EndPoints.json`.
+### 4. Implementando o Connector
+- Crie uma classe que estende `BaseApi` sob o namespace `App\Http\Integrations\SuaIntegracao`.
+- Defina a propriedade `$base_url` diretamente, ou preencha `$bases_url` com as chaves `production` e `development` — `BaseApi::defineComputedBaseUrl()` escolhe a URL conforme `App()->isProduction()`.
+- Sobrescreva `getAccessToken()` para retornar o token (string), `null`, ou a estrutura OAuth2. Ex.: `Whapi::getAccessToken()` retorna `config('app.whapi_token')`.
+- Chame endpoints via cadeias mágicas: `$connector->grupo()->endpoint($payload)`. O `__call` acumula os nomes em `$calls`, faz merge do payload em `$data_array`, resolve o endpoint em `searchEndPoint()` e dispara a requisição quando exatamente um endpoint casa.
+- Métodos utilitários da resposta: `->json()`, `->array()`, `->object()`, `->collect()`, `->response()`, `->successful()`, `->failed()`, `->ok()`, `->serverError()`. Use `->clearApi()` para resetar o estado acumulado entre chamadas.
 
-### 5. Autenticação, Cache e Cache de Token
-- Para fluxos OAuth2, defina o array da propriedade `$OAuth2` ou implemente lógica de token customizada dentro de `getAccessToken()`. O token será automaticamente cacheado usando a facade Cache do Laravel.
-- `BaseApi` fornece métodos fluentes para configurar o cache de requisições: `$api->withCache(seconds)`, `$api->withoutCache()`, `$api->clearCache()`.
+### 5. Autenticação e Cache de Token (OAuth2)
+- Para fluxos OAuth2, defina a propriedade `$OAuth2` (array com `[0]`=usuário, `[1]`=senha do basic auth, além de `end_point`, `body` e `token_response_key`). Se `$OAuth2` for `null` e não houver `$token`, `getAccessToken()` retorna `null` (requisição sem bearer).
+- `getAccessToken()` cacheia o token pela facade `Cache` sob a chave `('production:'|'sandbox:') . $this->url`, com TTL de 600 segundos (`Cache::remember`). Em falha de autenticação, retorna um array com `body`, `headers`, `status`, `code`, `json` e `response`.
 
-### 6. Implementação de Idempotência de API
-Implemente um `IdempotentRequestMiddleware` para mutações de API seguras:
-1. **Recupere a Chave de Idempotência:** Extraia dos headers `Idempotency-Key` ou `X-Idempotency-Key`.
-2. **Lock Distribuído Atômico:** Adquira um lock de cache usando `idempotency:lock:{key}` com um TTL curto. Retorne `409 Conflict` se não conseguir adquirir.
-3. **Consulta ao Cache:** Verifique se `idempotency:response:{key}` existe. Se encontrado, libere o lock e retorne a resposta cacheada com o header `Original-Response: true`.
-4. **Execução da Requisição:** Permita que a requisição prossiga.
-5. **Serialização do Cache de Resposta:** Cacheie o status code, o conteúdo e os headers das respostas bem-sucedidas (HTTP 2xx) por um período duradouro.
-6. **Liberação do Lock:** Libere o lock distribuído em um bloco `finally`.
+### 6. Cache de Requisições
+`BaseApi` cacheia respostas por requisição. Métodos fluentes para controlar:
+- `withCache(int $seconds)` / `enableCache()` / `cache(bool, int)` / `cacheTtl()` / `cacheMinutes()` / `cacheHours()` / `cacheTime()` — habilitam e ajustam o TTL (padrão 120s quando `seconds` não é informado; padrão base da classe é `cache_seconds = 60000`).
+- `withoutCache()` / `disableCache()` — desabilitam o cache da requisição.
+- `clearCache()` — marca para dar `Cache::forget` na chave antes de refazer a requisição.
 
-### 7. Diretrizes de Serialização de Resposta
-Armazene um payload simplificado no cache em vez do objeto `Response` inteiro: `status`, `content` e `headers` filtrados (excluindo cookies).
+A chave de cache é construída em `setCacheKey()` a partir de `url + ':data:' + json(data_array ordenado) + ':token:' + token`, isolando cada combinação de endpoint, payload e token.
 
-### 8. Testando a Idempotência (Pest)
-Os testes de feature devem cobrir:
-1. **Caminho de Sucesso:** Envie uma requisição com uma chave, verifique o processamento bem-sucedido e envie-a novamente para verificar que a resposta cacheada é retornada.
-2. **Conflito de Requisição Concorrente:** Simule (mock) o lock para simular uma requisição concorrente e verifique um `409 Conflict`.
-3. **Cache Expirado:** Verifique que as requisições são processadas do zero quando o TTL expira.
+### 7. Serialização da Resposta em Cache
+Ao cachear (`request()`, quando `with_cache` é verdadeiro), `BaseApi` NÃO guarda o objeto `Response` cru. Guarda um array com exatamente três chaves:
+- `body`  — `$response->body()`
+- `status` — `$response->status()`
+- `headers` — `$response->headers()`
+
+Na leitura, `getToCache()` reconstrói um `Illuminate\Http\Client\Response` a partir de um `GuzzleHttp\Psr7\Response($status, $headers, $body)`. Não há filtragem de cookies nem qualquer outro campo além desses três. Ao estender o mecanismo, preserve exatamente esse contrato (`body`/`status`/`headers`), senão `getToCache()` quebra.
 
 ## Restrições
-- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
-- **NÃO** defina métodos de requisição de API manualmente usando `Http::get` ou `Http::post` dentro da classe connector, a menos que esteja implementando agregação de alto nível.
-- **NÃO** pule a definição dos atributos `path` em `EndPoints.json` se a URL contiver chaves (curly braces).
-- **NÃO** escreva SQL inline nem instancie models em connectors.
-- **Nunca** cacheie respostas de erro (HTTP 4xx ou 5xx).
-- **Nunca** cacheie o objeto Response cru do PHP diretamente, para evitar problemas de serialização.
-- **Não** armazene chaves de idempotência no cache para sempre. Sempre defina um TTL (recomendado 24 horas).
-- **Não** contorne o locking; a aquisição do lock deve preceder a consulta ao cache para prevenir condições de corrida.
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito. Comentários de código em pt-BR.
+- **NÃO** defina métodos de requisição manualmente com `Http::get`/`Http::post` dentro de um connector que estende `BaseApi` — deixe o roteamento por `EndPoints.json` e `request()` cuidar disso. (Chamada direta a `Http` só é aceitável em integrações que deliberadamente não usam `BaseApi`, como `Efi`.)
+- **NÃO** omita os atributos `path` em `EndPoints.json` quando a URL contiver chaves `{...}`; sem isso o placeholder não é substituído.
+- **NÃO** escreva SQL inline nem instancie models dentro de connectors.
+- **Nunca** cacheie o objeto `Response` cru; guarde apenas o array `body`/`status`/`headers` conforme a Seção 7, para evitar problemas de serialização.

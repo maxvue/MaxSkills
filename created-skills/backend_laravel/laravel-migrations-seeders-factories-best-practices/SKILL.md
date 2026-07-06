@@ -108,5 +108,5 @@ Garantir que migrations, seeders e model factories no Laravel estejam em conform
 - NÃO use `$this->faker` em novas factories; prefira o helper global `fake()`.
 - NÃO omita os retornos `void` nos métodos `up`/`down` das migrations e no método `run` dos seeders.
 
-## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill esteja escrito.
+## Idioma
+- Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill esteja escrito.

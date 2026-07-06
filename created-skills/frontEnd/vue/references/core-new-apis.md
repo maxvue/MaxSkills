@@ -92,19 +92,21 @@ watch(source, callback, { once: true })
 
 Runs immediately and auto-tracks dependencies.
 
+O conceito central aqui é `onWatcherCleanup` (Vue 3.5+): limpar recursos ao re-executar ou desmontar. No engeapp a requisição em si vai por `apiGetRoute` (nome de rota Ziggy) ou store MaxPinia, nunca `fetch('/api/...')`.
+
 ```ts
 import { ref, watchEffect, onWatcherCleanup } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const id = ref(1)
 
 watchEffect(async () => {
-  const controller = new AbortController()
-  
-  // Cleanup on re-run or unmount (Vue 3.5+)
-  onWatcherCleanup(() => controller.abort())
-  
-  const res = await fetch(`/api/${id.value}`, { signal: controller.signal })
-  data.value = await res.json()
+  let cancelado = false
+  // Limpa ao re-executar ou desmontar (Vue 3.5+)
+  onWatcherCleanup(() => { cancelado = true })
+
+  const res = await apiGetRoute('project.station.elements', { station_id: id.value })
+  if (!cancelado) data.value = res
 })
 
 // Pause/resume (Vue 3.5+)
@@ -189,58 +191,49 @@ Composables are functions that encapsulate stateful logic using Composition API.
 
 - Start with `use`: `useMouse`, `useFetch`, `useCounter`
 
-### Pattern
+> No engeapp NÃO reescreva composables utilitários já existentes no `@maxvue/max-use` (ele encapsula o VueUse). Para mouse/pointer, DOM, datas etc. importe do MaxUse — ex.: `useMouseInElement` é usado em `resources/Vue/Sections/Dashboard/Sections/DataTable/ListCardItem.vue`. Escreva composables próprios apenas para lógica de domínio que não existe no MaxUse.
 
 ```ts
-// composables/useMouse.ts
-import { ref, onMounted, onUnmounted } from 'vue'
+// Prefira o MaxUse a reimplementar listeners de mouse à mão
+import { useMouseInElement } from '@maxvue/max-use'
+const { isOutside } = useMouseInElement(cardElement)
+```
 
-export function useMouse() {
-  const x = ref(0)
-  const y = ref(0)
+### Pattern (para lógica de domínio própria)
 
-  const update = (e: MouseEvent) => {
-    x.value = e.pageX
-    y.value = e.pageY
-  }
+```ts
+// composables/useContador.ts — exemplo de lógica que não vem do MaxUse
+import { ref } from 'vue'
 
-  onMounted(() => window.addEventListener('mousemove', update))
-  onUnmounted(() => window.removeEventListener('mousemove', update))
+export function useContador(inicial = 0) {
+  const count = ref(inicial)
+  const increment = () => count.value++
+  const reset = () => { count.value = inicial }
 
-  return { x, y }
+  return { count, increment, reset }
 }
 ```
 
 ### Accept Reactive Input
 
-Use `toValue()` (Vue 3.3+) to normalize refs, getters, or plain values.
+Use `toValue()` (Vue 3.3+) para normalizar refs, getters ou valores simples num composable de domínio.
+
+> NÃO escreva um `useFetch` caseiro no engeapp. Data-fetching é responsabilidade das stores MaxPinia (todo GET) e de `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` — veja as skills `vue-pinia-state-management-best-practices` e `vue-max-use-usecachedapi-state-cache-best-practices`. O exemplo abaixo mostra apenas o padrão `toValue`/`MaybeRefOrGetter` com um parâmetro reativo qualquer.
 
 ```ts
-import { ref, watchEffect, toValue, type MaybeRefOrGetter } from 'vue'
+import { computed, toValue, type MaybeRefOrGetter } from 'vue'
 
-export function useFetch(url: MaybeRefOrGetter<string>) {
-  const data = ref(null)
-  const error = ref(null)
-
-  watchEffect(async () => {
-    data.value = null
-    error.value = null
-    
-    try {
-      const res = await fetch(toValue(url))
-      data.value = await res.json()
-    } catch (e) {
-      error.value = e
-    }
-  })
-
-  return { data, error }
+// Aceita ref, getter ou valor simples e normaliza com toValue
+export function usePrecoFormatado(valor: MaybeRefOrGetter<number>) {
+  return computed(() => toValue(valor).toLocaleString('pt-BR', {
+    style: 'currency', currency: 'BRL',
+  }))
 }
 
-// Usage - all work:
-useFetch('/api/users')
-useFetch(urlRef)
-useFetch(() => `/api/users/${props.id}`)
+// Usos — todos funcionam:
+usePrecoFormatado(10)
+usePrecoFormatado(valorRef)
+usePrecoFormatado(() => props.total)
 ```
 
 ### Return Refs (Not Reactive)

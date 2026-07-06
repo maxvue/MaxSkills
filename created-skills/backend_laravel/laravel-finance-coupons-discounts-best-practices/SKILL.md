@@ -16,11 +16,13 @@ Sempre use o método estático `FinanceDiscountCoupons::getCouponByCode($code, $
 - **Expiração:** Verifique se o horário atual é posterior à data de expiração (`expiration`).
 - **Limite Global de Uso:** A contagem total de usos (`count_use` via `uses()->count()`) não deve exceder a quantidade total permitida do cupom (`amount`).
 - **Limite por Empresa/Integrador:** Verifique se a contagem de usos da empresa solar excede o limite máximo permitido por integrador (`limit_use`).
-- **Restrições de Público:** Se `reference_use` estiver definido, verifique se ele corresponde ao ID da empresa solar ou ao ID do cliente.
+- **Restrições de Público:** `reference_use` tem cast `object` (coluna `json` na migration `finance_discounts_coupons`) e guarda a estrutura `{ value: ... }`. Se estiver definido, compare a **chave aninhada** `reference_use['value']` com o `solar_company->id` **ou** o `project->client->id` — nunca compare o objeto cru, sob pena de o cupom nunca casar. Quando `reference_use` é vazio o cupom é público (ver `getIsPublicAttribute`).
 
-### 2. Aplicação Segura & Concorrência (Condições de Corrida)
+### 2. Aplicação Segura & Concorrência (Condições de Corrida) — MELHORIA PROPOSTA
+> **Estado atual do código:** o fluxo real `ProjectsInvoiceExecuteController::createPayment` **não** usa transação nem lock. Ele apenas chama `FinanceDiscountCoupons::getCouponByCode(...)` e, se houver cupom, faz `$payment->coupons()->create([...])`. As recomendações abaixo são um **hardening proposto**, não o padrão vigente — aplique-as ao endurecer o checkout, não presuma que já existem.
+
 Quando um cupom é aplicado durante o checkout, condições de corrida podem permitir que um cupom seja usado além de seus limites se múltiplas requisições ocorrerem simultaneamente.
-- **Transações de Banco de Dados:** Sempre envolva a criação do pagamento, a validação do cupom e o registro de uso do cupom dentro de uma transação de banco de dados:
+- **Transações de Banco de Dados:** Envolva a criação do pagamento, a validação do cupom e o registro de uso do cupom dentro de uma transação de banco de dados:
   ```php
   use Illuminate\Support\Facades\DB;
 
@@ -37,7 +39,9 @@ Quando um cupom é aplicado durante o checkout, condições de corrida podem per
   ```
 - **Pessimistic Locking:** Use `.lockForUpdate()` ao consultar o cupom para bloquear checkouts concorrentes de lerem contagens de uso obsoletas.
 
-### 3. Cálculos de Desconto com Precisão (BRL)
+### 3. Cálculos de Desconto com Precisão (BRL) — MELHORIA PROPOSTA
+> **Estado atual do código:** o cálculo real usa **float puro**, não BCMath. Em `EfiPaymentExecute` (`$value_coupon = ($total * $coupon->info->value) / 100; $total -= $value_coupon;`) e em `ProjectsInvoiceExecuteController`, os valores são tratados como `(float)`. A abordagem BCMath abaixo é uma **melhoria proposta** para eliminar imprecisões de centavo; ela não espelha o padrão vigente. Note também que no fluxo Efí o percentual e o tipo vêm da relação `$coupon->info` (`$coupon->info->value`, `$coupon->info->type_discount`).
+
 Para prevenir diferenças de arredondamento de centavos ao aplicar valores de desconto (fixos ou percentuais):
 - **Evite Float:** Não use cálculos com float puro para operações financeiras.
 - **Verificação de Tipo:** Distinga claramente entre descontos percentuais (`type_discount === 'percent'`) e descontos de valor fixo (`type_discount === 'value'`).

@@ -12,9 +12,9 @@ Fornecer diretrizes claras e robustas e padrões de implementação para registr
 ### 1. Criação e Registro de Service Provider
 - Use o Artisan para gerar novos Service Providers:
   ```bash
-  php artisan make:provider PaymentServiceProvider --no-interaction
+  php artisan make:provider SignatureServiceProvider --no-interaction
   ```
-- Garanta que o novo provider esteja registrado no arquivo `bootstrap/providers.php` (o arquivo padrão de registro de providers do Laravel 11+).
+- Garanta que o novo provider esteja registrado no arquivo `bootstrap/providers.php` (o arquivo padrão de registro de providers do Laravel 11+). No engeapp esse arquivo lista os providers reais do projeto (`AppServiceProvider`, `HorizonServiceProvider`, `SignatureServiceProvider`, `TelescopeServiceProvider`, `TypeScriptTransformerServiceProvider`).
 
 ### 2. Escolhendo o Tempo de Vida Correto do Binding
 Escolha o método apropriado de registro no container com base no ciclo de vida do objeto:
@@ -57,75 +57,85 @@ Para prevenir vazamentos de memória e poluição de estado entre requisições 
 - Evite deixar construtores vazios, sem parâmetros.
 
 ### 5. Escrevendo Testes de Resolução do Container
-Verifique que seus bindings resolvem corretamente a partir do Service Container usando Pest:
+Verifique que seus bindings resolvem corretamente a partir do Service Container usando Pest. Exemplo baseado no binding real do `SignatureServiceProvider` (serviço de assinatura digital Autentique):
 ```php
-use App\Services\PaymentGateway;
-use App\Contracts\PaymentGatewayContract;
+use vinicinbgs\Autentique\Documents;
 
-test('it resolves payment gateway contract to payment gateway service', function () {
-    $service = app(PaymentGatewayContract::class);
-    
-    expect($service)->toBeInstanceOf(PaymentGateway::class);
+test('resolve o cliente de assinatura Autentique a partir do container', function () {
+    $service = app(Documents::class);
+
+    expect($service)->toBeInstanceOf(Documents::class);
 });
 ```
 
 # Exemplos
 
-### Exemplo: Um PaymentServiceProvider Seguro
+### Exemplo: O SignatureServiceProvider real do engeapp
+Este é o provider real do projeto. Ele registra o cliente de assinatura digital (Autentique) com `bind`, resolvendo o token de config de forma lazy dentro da closure — nova instância a cada resolução, sem estado compartilhado entre requisições:
 ```php
 <?php
 
 namespace App\Providers;
 
-use App\Contracts\PaymentGatewayContract;
-use App\Services\AutentiquePaymentGateway;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Contracts\Foundation\Application;
 
-class PaymentServiceProvider extends ServiceProvider
+class SignatureServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
      */
-    public function register(): void
+    public function register() : void
     {
-        // Usa scoped para garantir que cada requisição receba sua própria instância,
-        // prevenindo a exposição de token entre requisições.
-        $this->app->scoped(PaymentGatewayContract::class, function (Application $app) {
-            return new AutentiquePaymentGateway(
-                token: (string) config('services.autentique.token'),
-                // Wrapper de resolução lazy para info da requisição, se necessário
-                requestIp: fn () => request()->ip()
-            );
-        });
+        // bind: cada resolução cria uma nova instância; o token é lido dentro da closure.
+        $this->app->bind(
+            \vinicinbgs\Autentique\Documents::class,
+            fn () => new \vinicinbgs\Autentique\Documents((string) config('services.autentique.token'))
+        );
+    }
+
+    /**
+     * Bootstrap services.
+     */
+    public function boot() : void
+    {
+        //
     }
 }
 ```
 
-### Exemplo: Consumindo o Serviço Registrado
+### Exemplo: Variante `scoped` para dados específicos da requisição
+Quando um serviço precisa de dados da requisição atual (ex.: IP), prefira `scoped` para que cada requisição do Octane receba a própria instância. Substitua `ExampleService` pelo seu contrato/classe real:
+```php
+$this->app->scoped(ExampleService::class, function (\Illuminate\Contracts\Foundation\Application $app) {
+    return new ExampleService(
+        token: (string) config('services.autentique.token'),
+        // Resolução lazy da info da requisição, evitando capturar o Request no boot.
+        requestIp: fn () => request()->ip()
+    );
+});
+```
+
+### Exemplo: Consumindo o Serviço Registrado via DI
 ```php
 <?php
 
 namespace App\Http\Controllers;
 
-use App\Contracts\PaymentGatewayContract;
+use vinicinbgs\Autentique\Documents;
 use Illuminate\Http\JsonResponse;
 
-class PaymentController extends Controller
+class SignatureController extends Controller
 {
-    // Constructor Property Promotion do PHP 8
+    // Constructor Property Promotion do PHP 8 — o container injeta o binding automaticamente.
     public function __construct(
-        protected PaymentGatewayContract $paymentGateway
+        protected Documents $documents
     ) {}
 
-    public function process(): JsonResponse
+    public function show(string $documentId) : JsonResponse
     {
-        $result = $this->paymentGateway->charge(100.00);
-
-        return response()->json([
-            'success' => $result->isSuccess(),
-            'transaction_id' => $result->getTransactionId(),
-        ]);
+        return response()->json(
+            $this->documents->getById($documentId)
+        );
     }
 }
 ```

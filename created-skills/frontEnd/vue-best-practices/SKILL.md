@@ -20,8 +20,7 @@ Use esta skill como um conjunto de instruções. Siga o fluxo de trabalho na ord
 ## 1) Confirme a arquitetura antes de programar (obrigatório)
 
 - Stack padrão: Vue 3 + Composition API + `<script setup lang="ts">`.
-- Se o projeto usa explicitamente a Options API, carregue a skill `vue-options-api-best-practices`, se disponível.
-- Se o projeto usa explicitamente JSX, carregue a skill `vue-jsx-best-practices`, se disponível.
+- Só use Options API ou JSX se o projeto exigir explicitamente; caso contrário, mantenha `<script setup>` com TypeScript. Estas boas práticas assumem Composition API.
 
 ### 1.1 Referências centrais de leitura obrigatória (obrigatório)
 

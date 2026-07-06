@@ -258,23 +258,21 @@ export function useCounter(initialValue = 0): UseCounterReturn {
   }
 }
 
-// composables/useFetch.ts
-interface UseFetchOptions<T> {
-  immediate?: boolean
-  transform?: (data: unknown) => T
-}
-
-interface UseFetchReturn<T> {
+// composables/useLoadResource.ts
+// NUNCA use fetch()/axios.get cru. Todo GET passa por uma store cacheada @maxvue/max-pinia;
+// mutações e chamadas pontuais usam os helpers de rota (nome Ziggy) do @maxvue/max-use.
+interface UseLoadResourceReturn<T> {
   data: Ref<T | null>
   error: Ref<Error | null>
   loading: Ref<boolean>
   execute: () => Promise<void>
 }
 
-export function useFetch<T = unknown>(
-  url: string,
-  options: UseFetchOptions<T> = {}
-): UseFetchReturn<T> {
+// apiGetRoute é auto-importado (maxUseAutoImport); tipe o retorno com o genérico T.
+export function useLoadResource<T = unknown>(
+  routeName: string,
+  params: Record<string, unknown> = {}
+): UseLoadResourceReturn<T> {
   const data = ref<T | null>(null)
   const error = ref<Error | null>(null)
   const loading = ref(false)
@@ -284,9 +282,8 @@ export function useFetch<T = unknown>(
     error.value = null
 
     try {
-      const response = await fetch(url)
-      const json = await response.json()
-      data.value = options.transform ? options.transform(json) : json
+      // apiGetRoute(routeName, data?) — resolve o nome Ziggy para /api/... e executa o GET.
+      data.value = (await apiGetRoute(routeName, params)) as T
     } catch (e) {
       error.value = e as Error
     } finally {
@@ -294,21 +291,18 @@ export function useFetch<T = unknown>(
     }
   }
 
-  if (options.immediate !== false) {
-    execute()
-  }
-
   return { data, error, loading, execute }
 }
 
-// Usage
+// Uso — preferir sempre uma store cacheada; este wrapper serve a chamadas pontuais tipadas.
 <script setup lang="ts">
 interface User {
   id: number
   name: string
 }
 
-const { data, error, loading } = useFetch<User>('/api/user')
+const { data, error, loading, execute } = useLoadResource<User>('user.data')
+execute()
 </script>
 ```
 
@@ -464,11 +458,11 @@ Stores são setup-style e cacheadas. O `data` é tipado; o GET vem da camada de 
 com o **nome da rota (Ziggy)**, ex.: `'user.data'`) — sem `fetch`/`axios.get` cru. Mutações usam os
 helpers de rota do `@maxvue/max-use`.
 
-```typescript
-// stores/user.ts
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+No projeto, `defineStore`, `ref`, `computed` e os helpers `apiGetRoute`/`apiPostRoute` são
+auto-importados (config `AutoImport` do Vite) — não os importe manualmente nas stores reais.
 
+```typescript
+// resources/Stores/User/useUser.Store.ts
 interface User {
   id: number
   name: string

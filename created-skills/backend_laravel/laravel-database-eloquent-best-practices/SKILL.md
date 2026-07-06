@@ -51,7 +51,7 @@ Estabelecer diretrizes robustas e padrões estruturados para otimizar consultas 
 - **Processamento Paralelo**: Use `Concurrency::run` para executar um array de closures em paralelo. Use `Concurrency::defer` para tarefas fire-and-forget.
 - **Drivers**: Especifique explicitamente o driver (`process`, `fork`, `sync`) via `Concurrency::driver()`.
 - **Timeouts**: Sempre imponha timeouts estritos em tarefas concorrentes (`timeout: 10`).
-- **Tratamento de Exceções**: Envolva os blocos em `try-catch` capturando `Illuminate\Concurrency\Exceptions\ExecutionException`.
+- **Tratamento de Exceções**: Envolva os blocos em `try-catch` capturando `\Throwable`. NÃO existe uma classe de exceção dedicada de concorrência no Laravel 13: o `ProcessDriver` lança um `\Exception` genérico (falha de processo/exit code) ou relança a própria classe de exceção serializada da closure filha. Portanto capture `\Throwable` (ou `\Exception`) e inspecione a mensagem/tipo real, não uma `ExecutionException`.
 - **Gerenciamento de Estado**: Não altere propriedades de classe ou singletons dentro das closures. Closures serializam variáveis; mantenha os escopos importados pequenos (passe IDs escalares, não models Eloquent).
 - **Restrições**: NUNCA modifique variáveis estáticas ou o estado de configuração da app dentro das closures. NUNCA execute transações de banco de dados envolvendo uma chamada `Concurrency::run`.
 

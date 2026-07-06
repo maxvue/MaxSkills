@@ -36,15 +36,15 @@ Para simular de forma fidedigna a interface do WhatsApp:
   - O WhatsApp suporta a exibição de até 3 botões de resposta rápida.
   - Limite máximo de 20 caracteres por texto de botão.
 - **Botões de Chamada para Ação (CTA):** Renderizados dentro ou acoplados à parte inferior do balão.
-  - Suporte a dois tipos de botão: "Visitar Site" (com ícone `mdi:open-in-new`) e "Ligar para Telefone" (com ícone `mdi:phone`).
+  - Suporte a dois tipos de botão: "Visitar Site" e "Ligar para Telefone". Use ícones do Iconify aceitos por `MaxButton`/`Icon` — pode ser um nome curto (ex.: `icon="open-in-new"`, `icon="phone"`) ou o nome completo de uma coleção (ex.: `icon="material-symbols:call"`). Não fixe o prefixo `mdi:`; o projeto usa coleções variadas.
   - O WhatsApp suporta a exibição de até 2 botões de CTA.
   - Limite máximo de 20 caracteres por texto de botão.
 - **Mensagens de Lista (List Messages):** Renderizadas como um botão clicável interativo (ex: "Ver opções" ou "Selecionar itens").
   - Limite máximo de 24 caracteres para o texto do botão.
   - Limite a lista pop-up de opções a no máximo 10 linhas (divididas em seções opcionais).
 
-### 4. Validações no Frontend (Zod e Limites da Meta)
-Implemente contadores de caracteres ativos e estados de validação no formulário de edição usando validação Zod ou propriedades computadas (`computed`). Notifique o usuário com mensagens de erro ou atenção do `InputBase` quando os limites forem excedidos:
+### 4. Validações no Frontend (Limites da Meta)
+Implemente contadores de caracteres ativos e estados de validação no formulário de edição usando propriedades computadas (`computed`) sobre o estado dos inputs. Não introduza bibliotecas de schema (ex.: Zod) — elas não fazem parte do stack do engeapp; a validação é feita com `computed` e com os estados/mensagens dos inputs do `MaxComponentsUi` (ex.: `InputBase`). Notifique o usuário com mensagens de erro ou atenção do input quando os limites forem excedidos:
 - **Texto do Corpo:** Máximo de 1024 caracteres.
 - **Texto do Cabeçalho (caso não seja mídia):** Máximo de 60 caracteres.
 - **Texto do Rodapé:** Máximo de 60 caracteres.
@@ -54,5 +54,6 @@ Implemente contadores de caracteres ativos e estados de validação no formulár
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NÃO** ignore as regras da Composition API. Nunca utilize a Options API.
 - **NÃO** utilize cores de tema hardcoded. Utilize variáveis CSS ou tokens do UnoCSS que respondam corretamente ao alternador global de modo escuro/claro do sistema.
-- **NÃO** realize requisições à API da Meta diretamente dentro dos componentes visuais. Todo GET de dados de página e todo salvamento de template devem passar por uma store `@maxvue/max-pinia` (MaxPinia), que cuida do cache e do auto-save/debounced para o backend — não faça `axios.get/post` manuais nem salvamentos por submit. As rotas são caminhos string `/api/...` resolvidos por `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` (sem `route()`/Ziggy). Exponha o estado da store através de composables limpos para os componentes visuais.
-- **NÃO** quebre atributos de layout no `<template>` em várias linhas. Mantenha todos os atributos inline em uma única linha (ex: `<MaxButton severity="secondary" icon="mdi:close" label="Cancelar" />`).
+- **NÃO** realize requisições à API da Meta diretamente dentro dos componentes visuais. Todo GET de dados de página e todo salvamento de template devem passar por uma store `@maxvue/max-pinia` (MaxPinia), que cuida do cache e do auto-save/debounced para o backend — não faça `axios.get/post` manuais nem salvamentos por submit. As rotas são sempre **NOMES de rota Ziggy pontilhados** (Ziggy está configurado no projeto), nunca strings de path `/api/...`. Nas stores, as rotas vão em `options.get.route` e `options.save` (ex.: `get: { route: 'support.whatsapp.templates' }`, `save: 'support.whatsapp.template.save'`, `key: '...'`; lembre que `options.key` é a chave de identificação da store, não a chave de cache). Para chamadas imperativas pontuais fora da store, use `apiGetRoute`/`apiPostRoute` do `@maxvue/max-use` passando o nome da rota (ex.: `apiPostRoute('support.whatsapp.send.message.template', send_data)`). Exponha o estado da store através de composables limpos para os componentes visuais.
+- **NÃO** ligue ações de botão fora do padrão do projeto. Botões do `MaxComponentsUi` recebem o handler pela prop `:action` (ou `@click`), não devem ficar sem handler. Ex.: `<MaxButton label="Cancelar" icon="close" severity="danger" light :action="cancelar" />`.
+- **NÃO** quebre atributos de layout no `<template>` em várias linhas. Mantenha todos os atributos inline em uma única linha (ex.: `<MaxButton label="Cancelar" icon="close" severity="danger" light :action="cancelar" />`).

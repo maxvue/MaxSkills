@@ -1,9 +1,9 @@
 ---
 name: laravel-best-practices
-description: "Apply whenever writing, reviewing, or refactoring Laravel 13 / PHP 8.4 code: controllers, models, migrations, form requests, policies, jobs, scheduled commands, service classes, and Eloquent queries. Triggers on N+1 and query performance, caching, authorization and security, validation, error handling, queues, routes, and architectural decisions. Also use for Laravel code reviews and refactoring."
+description: "Aplique ao escrever, revisar ou refatorar código Laravel 13 / PHP 8.4: controllers, models, migrations, form requests, policies, jobs, comandos agendados, service classes e queries Eloquent. Aciona em performance de queries e N+1, cache, autorização e segurança, validação, tratamento de erros, filas, rotas e decisões de arquitetura. Também para code reviews e refatoração Laravel."
 license: MIT
 metadata:
-  author: laravel
+  author: engeapp
 ---
 
 # Boas Práticas de Laravel
@@ -183,7 +183,7 @@ Verifique arquivos irmãos, controllers, models ou testes relacionados em busca 
 
 ## Como Aplicar
 
-Sempre use um sub-agent para ler os arquivos de regras e explorar o conteúdo desta skill.
+Prefira delegar a leitura dos arquivos de regras a um sub-agent quando forem muitos arquivos ou §, para não inflar o contexto principal — carregue no fluxo principal apenas as regras da(s) seção(ões) que a tarefa exige.
 
 1. Identifique o tipo de arquivo e selecione as seções relevantes (ex.: migration → §16, controller → §1, §3, §5, §6, §10)
 2. Verifique arquivos irmãos em busca de padrões existentes — siga-os primeiro, conforme Consistência Primeiro

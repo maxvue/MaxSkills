@@ -116,7 +116,7 @@ type PropEventSource<Type> = {
 ### Inferência de Tipos
 
 ```typescript
-// 'satisfies' valida restrições preservando os tipos literais (TS 5.0+)
+// 'satisfies' valida restrições preservando os tipos literais (TS 4.9+)
 const config = {
   api: "https://api.example.com",
   timeout: 5000
@@ -170,18 +170,22 @@ Use para: primitivos de domínio críticos, fronteiras de API, moeda/unidades. R
 
 ### Teste de Tipos
 
+Valide tipos no nível do compilador com um helper de asserção — não exige runner nem execução em runtime, apenas `tsc`:
+
 ```typescript
 type AssertEqual<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
 
-// Com Vitest
-import { expectTypeOf } from 'vitest';
-expectTypeOf<UserId>().toEqualTypeOf<Brand<string, 'UserId'>>();
+// Erro de compilação se o tipo divergir do esperado
+const _check: AssertEqual<UserId, Brand<string, 'UserId'>> = true;
 ```
+
+O Vitest está disponível nos projetos Max*/engeapp (é o runner de testes), mas o helper `expectTypeOf` NÃO é usado hoje em nenhuma fonte própria. Se optar por testes de tipo com Vitest, ele é a via oficial (`import { expectTypeOf } from 'vitest'`); caso contrário, prefira o helper `AssertEqual` acima, que já cobre a validação em build.
 
 ## Restrições
 
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-Boas práticas:
+
+## Boas práticas
 
 1. Use `unknown` em vez de `any` — force a verificação de tipos nas fronteiras.
 2. Prefira `interface` para formatos de objetos (melhores mensagens de erro).
@@ -192,9 +196,9 @@ Boas práticas:
 7. Documente tipos complexos com JSDoc.
 8. Ative o modo `strict` em todos os projetos TypeScript.
 9. Evite referências de tipo circulares e tipos condicionais profundamente aninhados.
-10. Use `expectTypeOf` do Vitest para testar definições de tipo.
+10. Teste definições de tipo com um helper `AssertEqual` validado por `tsc` (ou `expectTypeOf` do Vitest, se adotar testes de tipo no projeto).
 
-Armadilhas comuns a evitar:
+## Armadilhas comuns a evitar
 
 1. Uso excessivo de `any` — anula o propósito do TypeScript.
 2. Ignorar as verificações estritas de null — leva a erros em runtime.
@@ -203,7 +207,7 @@ Armadilhas comuns a evitar:
 5. Esquecer `readonly` em estruturas imutáveis.
 6. Faltar `await` em funções assíncronas — retorna `Promise<T>`, não `T`.
 
-Limitações de escopo:
+## Limitações de escopo
 
 - Use esta skill apenas quando a tarefa corresponder claramente ao design de tipos avançados.
 - Não trate a saída como substituto para validação ou testes específicos do ambiente.

@@ -59,7 +59,7 @@ Fornecer diretrizes e convenções claras para implementar atalhos de teclado gl
    - Restaure o foco para o elemento de ativação assim que a sobreposição for fechada.
 
 5. **Padrões de Acessibilidade WAI-ARIA**:
-   - Garanta que componentes interativos (ex: navegação em listas, dropdowns personalizados) suportem os modelos padrão de interação por teclado (teclas direcionais para navegar, Space/Enter to select).
+   - Garanta que componentes interativos (ex: navegação em listas, dropdowns personalizados) suportem os modelos padrão de interação por teclado (teclas direcionais para navegar, Space/Enter para selecionar).
    - Adicione `tabindex="0"` para tornar elementos não interativos personalizados focáveis quando necessário.
 
 ## Restrições

@@ -1,54 +1,126 @@
 ---
 name: laravel-user-impersonation-best-practices
-description: Use when implementing, configuring, reviewing, or securing user impersonation features using lab404/laravel-impersonate. Triggers on login-as actions, impersonation session validation, audit logging for impersonation events, and Vue SPA status helpers via /api endpoints / MaxPinia store.
+description: Use ao implementar, revisar, depurar ou proteger o "login como outro usuário" (impersonação) no engeapp com lab404/laravel-impersonate. Cobre backend (UserExecuteController::makeImpersonate/leaveImpersonation/statusImpersonation, coluna can_impersonate, rotas user.impersonate.start/end/status) e frontend Vue (store useUser expondo isImpersonated via apiGetRoute e banner de retorno).
 ---
 
 # Objetivo
-Fornecer diretrizes sólidas, seguras e auditadas para implementar a impersonação de usuário (login-as) usando o pacote `lab404/laravel-impersonate` dentro do ecossistema Engeapp/Laravel, garantindo conformidade com padrões de segurança, auditoria detalhada (LGPD) e comunicação com o frontend.
+Diretrizes seguras para a impersonação de usuário (login-as) no engeapp usando o pacote `lab404/laravel-impersonate`, fiéis à implementação real: verificação por coluna no banco, rotas nomeadas (Ziggy) e estado exposto ao frontend Vue por rota dedicada consumida via `apiGetRoute`.
+
+# Contexto real do projeto (verdade-base)
+- Model `app/Models/User.php` usa o trait `Lab404\Impersonate\Models\Impersonate`. O projeto NÃO sobrescreve `canImpersonate()`/`canBeImpersonated()` — herda os defaults `true` do trait. O controle de acesso é feito pela coluna booleana `can_impersonate` (cast `boolean`), verificada no controller.
+- Colunas booleanas relevantes do model: `can_impersonate`, `is_developer`, `is_validated`, `is_technical_manager`. Não existe `is_admin` nem coluna `status`.
+- Controller: `app/Http/Controllers/User/UserExecuteController.php`.
+- Rotas: `routes/web/Web.User.Route.php`.
+- Store frontend: `resources/Stores/UserStores/useUser.Store.ts`.
+- Banner/UI: `resources/Vue/Layouts/PageLayout/TopMenu/UserSection.vue`.
 
 # Instruções
 
-### 1. Configuração dos Guards no Model
-Sempre implemente os seguintes métodos de autorização no model `User` para garantir a aplicação estrita de papéis e prevenir escalonamento de privilégios:
-* **`canImpersonate(): bool`**: Retorna true somente se o usuário tiver o privilégio no banco de dados (ex: coluna `$this->can_impersonate` definida como true ou uma flag de developer).
-* **`canBeImpersonated(): bool`**: Retorna false para usuários de alto privilégio (como developers, administradores de sistema ou super-usuários específicos) quando verificado por um usuário normal. Além disso, verifique se o usuário impersonado não é o mesmo que o impersonador.
-
+### 1. Rotas nomeadas (Ziggy)
+Use os nomes de rota existentes; não crie endpoints string paralelos.
 ```php
-/**
- * Verifica se o usuário atual pode impersonar outros.
- */
-public function canImpersonate(): bool
-{
-    return (bool) $this->can_impersonate || (bool) $this->is_developer;
-}
+// routes/web/Web.User.Route.php
+Route::post('user/impersonate/start', [UserExecuteController::class, 'makeImpersonate'])->name('user.impersonate.start');
+Route::post('user/impersonate/end',   [UserExecuteController::class, 'leaveImpersonation'])->name('user.impersonate.end');
+Route::get('user/impersonate/status', [UserExecuteController::class, 'statusImpersonation'])->name('user.impersonate.status');
+```
+As três ficam dentro do grupo autenticado já existente no arquivo. Mantenha esse contrato: o frontend depende desses nomes.
+
+### 2. Controller — padrão do projeto
+O engeapp verifica a permissão pela COLUNA `can_impersonate` diretamente no controller (não usa `abort(403)` nem os métodos de guard do model). Respostas são `response()->json(bool)`. Ao mexer nesse fluxo, siga o mesmo padrão:
+```php
+// app/Http/Controllers/User/UserExecuteController.php
 
 /**
- * Verifica se o usuário atual pode ser impersonado.
+ * Inicia a impersonação: loga temporariamente como outro usuário.
  */
-public function canBeImpersonated(): bool
+public function makeImpersonate(Request $request): JsonResponse
 {
-    // Não permite impersonar developers ou super administradores
-    if ($this->is_developer || $this->is_admin) {
-        return false;
+    $admin = Auth::user();
+    if (! $admin) {
+        return response()->json(false);
     }
 
-    return $this->status === 'active';
+    // Permissão vem da coluna booleana can_impersonate (não de canImpersonate()).
+    if ($admin?->can_impersonate) {
+        $user = User::findOrFail($request->input('user_id') ?? $request->input('id'));
+
+        // Bloqueia auto-impersonação.
+        if ($user->id !== $admin->id) {
+            $admin->impersonate($user);
+
+            return response()->json(true);
+        }
+    }
+
+    return response()->json(false);
+}
+
+/**
+ * Encerra a impersonação e retorna ao admin original.
+ */
+public function leaveImpersonation(): JsonResponse
+{
+    $user = Auth::user();
+    $user?->leaveImpersonation();
+
+    return response()->json(true);
+}
+
+/**
+ * Retorna se a sessão atual está impersonada (bool).
+ */
+public function statusImpersonation(): JsonResponse
+{
+    return response()->json(Auth::user()?->isImpersonated());
 }
 ```
+Notas fiéis à implementação:
+- `makeImpersonate` aceita tanto `user_id` quanto `id` no corpo.
+- A permissão é a coluna `can_impersonate`; `is_developer` NÃO participa dessa checagem.
+- Nunca retorne dados sensíveis no `status` — apenas o booleano de `isImpersonated()`.
 
-### 2. Log de Auditoria e Tratamento de Eventos (Conformidade com a LGPD)
-A impersonação de usuário contorna as credenciais de login padrão. Portanto, cada simulação de sessão deve ser minuciosamente auditada.
-Crie event listeners para os eventos do pacote e registre-os em um arquivo seguro ou em um log de banco de dados:
-* **`Lab404\Impersonate\Events\TakeImpersonation`**: Disparado quando a impersonação começa.
-* **`Lab404\Impersonate\Events\LeaveImpersonation`**: Disparado quando a impersonação termina.
+### 3. Frontend — estado via rota dedicada + `apiGetRoute` (Vue SPA + MaxPinia)
+NÃO há endpoint `/api/auth/me` expondo `is_impersonating`. O estado é obtido por uma rota nomeada dedicada, consumida na store `useUser` via `apiGetRoute` (Ziggy resolve o nome pontilhado). Mantenha esse caminho.
 
-Registre a seguinte estrutura usando `Log::info()` ou um canal de log `security` dedicado:
-* ID e Email do Impersonador
-* ID e Email do Impersonado
-* Endereço IP e User-Agent
-* Timestamp
+Na store `resources/Stores/UserStores/useUser.Store.ts`, o flag é um `computedAsync` que só consulta a API quando já há usuário carregado e o GET da store teve sucesso:
+```ts
+// resources/Stores/UserStores/useUser.Store.ts
+const isImpersonated = computedAsync(
+    async () => {
+        const status_server = getStatus();
+        // Só busca o status quando o usuário já está carregado (contrato MaxPinia: status.get.is_success).
+        if (data?.value?.id && status_server?.get?.is_success)
+            return await apiGetRoute('user.impersonate.status');
 
-Exemplo de Listener:
+        return false;
+    },
+    false /* estado inicial */
+);
+// ...
+return { data, options, waitRequest, departments_id, isImpersonated, isCached };
+```
+
+No layout, mostre o banner/botão de retorno quando `isImpersonated` for verdadeiro e chame a rota de fim via `apiPostRoute`:
+```vue
+<!-- resources/Vue/Layouts/PageLayout/TopMenu/UserSection.vue -->
+<div v-if="system.user?.isImpersonated" class="impersonated-btn" @click.stop="endImpersonate">
+    <!-- rótulo "SAIR / (RETORNAR)" -->
+</div>
+```
+```ts
+const endImpersonate = async () => {
+    const result_api = await apiPostRoute('user.impersonate.end');
+    if (result_api) window.location.href = '/dashboard';
+};
+```
+Regras:
+- Rotas por NOME pontilhado (`user.impersonate.status`, `user.impersonate.end`) via `apiGetRoute`/`apiPostRoute` — nunca strings `/api/...`.
+- Após encerrar, o projeto força um reload navegando para `/dashboard`, garantindo estado limpo da sessão.
+- Todo GET de status passa pela store (contrato MaxPinia); componentes não fazem fetch direto.
+
+### 4. Auditoria de eventos (LGPD) — recomendação, ainda não implementada
+O pacote dispara `Lab404\Impersonate\Events\TakeImpersonation` (início) e `Lab404\Impersonate\Events\LeaveImpersonation` (fim). O engeapp ainda NÃO registra listeners para eles. Recomenda-se adicionar auditoria, pois a impersonação contorna o login padrão:
 ```php
 namespace App\Listeners;
 
@@ -59,7 +131,8 @@ class LogImpersonationStart
 {
     public function handle(TakeImpersonation $event): void
     {
-        Log::channel('security')->info('User impersonation started', [
+        // $event->impersonator e $event->impersonated são instâncias de User.
+        Log::channel('security')->info('Impersonação iniciada', [
             'impersonator_id'   => $event->impersonator->id,
             'impersonator_mail' => $event->impersonator->email,
             'impersonated_id'   => $event->impersonated->id,
@@ -70,105 +143,54 @@ class LogImpersonationStart
     }
 }
 ```
+Registre um listener análogo para `LeaveImpersonation` e configure um canal de log `security` dedicado.
 
-Registre esses listeners no seu `EventServiceProvider` ou `AppServiceProvider`.
-
-### 3. Actions de Controller e Segurança de Rotas
-Sempre proteja os controllers de impersonação e verifique os guards explicitamente:
-* Agrupe as rotas de impersonação atrás dos middlewares `auth` e `verified`.
-* Verifique `$impersonator->canImpersonate()` e `$impersonated->canBeImpersonated()` dentro da lógica da action, lançando uma exceção HTTP `403` se não autorizado.
-
+### 5. Testes (Pest)
+Cubra as restrições reais de autorização. Como o controller responde `json(bool)` (não 403), os testes verificam o corpo/booleano e a troca de identidade:
 ```php
-public function startImpersonation(Request $request): JsonResponse
-{
-    $admin = Auth::user();
-    
-    if (!$admin || !$admin->canImpersonate()) {
-        abort(403, 'Unauthorized action.');
-    }
-
-    $targetUser = User::findOrFail($request->input('user_id'));
-
-    if (!$targetUser->canBeImpersonated()) {
-        abort(403, 'Target user cannot be impersonated.');
-    }
-
-    $admin->impersonate($targetUser);
-
-    return response()->json(['success' => true]);
-}
-```
-
-### 4. Compartilhar o Estado de Impersonação com o Frontend (Vue SPA via /api + MaxPinia)
-Para evitar confusão do admin e sequestros de sessão, o frontend deve exibir claramente que a sessão é simulada. Como isto é uma API Laravel + SPA Vue Router, o estado de impersonação é exposto através de um endpoint `/api/...` e consumido por uma store MaxPinia (`@maxvue/max-pinia`), nunca através de dados compartilhados de template no lado do servidor.
-
-* Exponha `is_impersonating` e os dados do impersonador no endpoint de payload de auth (ex: inclua no `/api/auth/me`). Sempre derive isso no lado do servidor a partir da sessão de impersonação validada, nunca de uma flag fornecida pelo cliente:
-
-```php
-// controller GET /api/auth/me
-public function me(Request $request): JsonResponse
-{
-    $user = $request->user();
-
-    return response()->json([
-        'user' => $user,
-        // Segurança: lê diretamente da sessão de impersonação do lab404,
-        // para que a flag só possa ser true quando existe uma sessão real.
-        'is_impersonating' => $user?->isImpersonated() ?? false,
-        'impersonator' => $user?->isImpersonated()
-            ? [
-                'id'   => $user->getImpersonatorId(),
-                'name' => 'Administrator', // Ou buscar no model do usuário original
-              ]
-            : null,
-    ]);
-}
-```
-
-* Na SPA Vue, a store de auth do MaxPinia carrega `/api/auth/me` e expõe `is_impersonating` + `impersonator` como estado reativo.
-* Renderize um banner global fixo (sticky) sempre que o `is_impersonating` da store for `true`, exibindo o administrador original.
-* O banner fornece um botão "voltar ao usuário original" que chama a rota que encerra a impersonação (`Route::post('user/impersonate/end')`) e então atualiza o estado da store.
-
-### 5. Boas Práticas de Teste
-Escreva testes de feature robustos com o Pest para validar as restrições de autorização:
-* Verifique que um usuário não autorizado recebe `403` ao iniciar a impersonação.
-* Verifique que um administrador consegue iniciar a impersonação e que o usuário autenticado atual muda para o usuário alvo.
-* Verifique que sair da impersonação restaura a sessão para o administrador original.
-
-```php
-test('unauthorized users cannot impersonate others', function () {
-    $user = User::factory()->create(['can_impersonate' => false]);
+test('usuário sem can_impersonate não consegue impersonar', function () {
+    $user   = User::factory()->create(['can_impersonate' => false]);
     $target = User::factory()->create();
 
     $this->actingAs($user)
         ->postJson(route('user.impersonate.start'), ['user_id' => $target->id])
-        ->assertStatus(403);
+        ->assertOk()
+        ->assertExactJson(false); // controller retorna json(false), não 403
 });
 
-test('administrator can impersonate and then leave impersonation', function () {
-    $admin = User::factory()->create(['can_impersonate' => true]);
+test('admin impersona e depois retorna ao usuário original', function () {
+    $admin  = User::factory()->create(['can_impersonate' => true]);
     $target = User::factory()->create();
 
-    // Inicia a impersonação
     $this->actingAs($admin)
         ->postJson(route('user.impersonate.start'), ['user_id' => $target->id])
-        ->assertOk();
+        ->assertOk()
+        ->assertExactJson(true);
 
     expect(auth()->user()->id)->toBe($target->id);
 
-    // Sai da impersonação
-    $this->postJson(route('user.impersonate.end'))
-        ->assertOk();
+    $this->postJson(route('user.impersonate.end'))->assertOk();
 
     expect(auth()->user()->id)->toBe($admin->id);
+});
+
+test('admin não pode impersonar a si mesmo', function () {
+    $admin = User::factory()->create(['can_impersonate' => true]);
+
+    $this->actingAs($admin)
+        ->postJson(route('user.impersonate.start'), ['user_id' => $admin->id])
+        ->assertOk()
+        ->assertExactJson(false);
 });
 ```
 
 # Restrições
-* **Sem Impersonações Aninhadas**: Nunca permita que um impersonador impersone outro usuário recursivamente.
-* **Sem Armazenamento Persistente de Sessão em Cookies**: Não armazene a senha/hash do administrador em texto puro dentro de localstorage/cookies. Confie exclusivamente nos session drivers do Laravel.
-* **Guards de Model Estritos**: Nunca contorne as regras de nível de model (`canImpersonate`/`canBeImpersonated`) mesmo que o controller tenha verificação customizada.
-* **Siga a Regra de Localização do PHPDoc**: Não escreva PHPDoc específico do model inline dentro dos models; mantenha-os em arquivos separados de IDE Helper.
+- **Fonte de permissão única:** autorize por `can_impersonate` no controller; não invente `is_admin`/`status` — essas colunas não existem no model.
+- **Sem impersonação aninhada:** um usuário impersonado não deve iniciar outra impersonação.
+- **Sem segredos no cliente:** confie nos session drivers do Laravel; nunca guarde hash/credencial do admin em localStorage/cookies.
+- **Rotas por nome:** frontend sempre via `apiGetRoute`/`apiPostRoute` com nomes pontilhados; nada de strings `/api/...`.
+- **Status enxuto:** `statusImpersonation` retorna apenas o booleano; não vaze dados do impersonador.
+- **Comentários em pt-BR** no código.
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), independentemente do idioma do conteúdo desta skill.

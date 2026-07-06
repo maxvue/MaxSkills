@@ -40,7 +40,7 @@ Padrões de Pest PHP para usar `Ai::fakeAgent()`, testar loops assíncronos (`is
 
 ### 5. Token Cost Tracking
 
-Diretrizes para a arquitetura de banco de dados, tipos decimais de alta precisão, precificação orientada por configuração (evitando hardcoding) e persistência de custos com dispatchers assíncronos (Queues).
+Cálculo SÍNCRONO de custo dentro do trait `HasAgentAiRequest` (`calculatePrice()`/`getTablePrice()`), preços fixos por modelo no próprio código, tabela `agents_ai_cost` (morph `costable`, `decimal(10,6)`) e persistência via `saveAiCost()` chamado no Job.
 🔗 **Referência:** [Token Cost Tracking](references/token-cost-tracking.md)
 
 ### 6. B2B Health Score (AgentHealthScore)

@@ -35,7 +35,7 @@ Fornecer diretrizes, padrões de design e exemplos claros para a implementação
    - Passe um array de itens para a prop `items` (ou `model`). Cada item deve possuir:
      - `label`: O texto de exibição.
      - `icon` ou `i`: Identificador do ícone.
-     - `route`: Caminho string opcional (ex.: `/reports/proposals`) para navegação via `goToRoute` (importado de `@maxvue/max-use`). Não use rotas nomeadas.
+     - `route`: **NOME** de rota opcional (ex.: `'new_project'`, `'equipments.list.equipments'`) usado para navegação via `goToRoute` (de `@maxvue/max-use`). O `goToRoute` resolve exclusivamente por nome (Ziggy/Vue Router) — NUNCA passe path string tipo `/reports/proposals`, pois seria interpretado como nome de rota inexistente e a navegação falharia. O `data` do item é repassado como params/query.
      - `action`: Função de callback opcional que recebe `{ event, data }`.
      - `data`: Payload de dados associados ao item.
    - Personalize o botão de gatilho com o slot `#button` ou deixe renderizar o `MaxButton` padrão do componente.
@@ -124,7 +124,7 @@ interface MenuItem {
   label: string;
   icon?: string;
   action?: (payload: { event: any, data: any }) => void;
-  route?: string;
+  route?: string; // NOME de rota (Ziggy/Vue Router), não path string
   data?: any;
 }
 
@@ -139,9 +139,11 @@ const menuItems = ref<MenuItem[]>([
     data: { id: 123 }
   },
   {
-    label: 'Visualizar Relatórios',
+    // route é o NOME da rota; goToRoute resolve por nome e repassa data como params/query
+    label: 'Visualizar Projeto',
     icon: 'iconoir:reports',
-    route: '/reports/proposals'
+    route: 'project',
+    data: { id: 123 }
   }
 ]);
 </script>

@@ -20,7 +20,7 @@ REVERB_SERVER_HOST="0.0.0.0"
 REVERB_SERVER_PORT=9000
 
 # Reverb Public Access Configuration (Client-facing)
-REVERB_HOST="engeapp.test"
+REVERB_HOST="dev.engeapp.com.br"
 REVERB_PORT=443
 REVERB_SCHEME=https
 
@@ -54,18 +54,18 @@ location /app {
 ### 3. Gerenciamento de Processos (Supervisor)
 Em produção, o processo do servidor Reverb deve rodar continuamente. Configure o Supervisor para monitorar e reiniciar automaticamente o comando do Reverb.
 
-Crie um arquivo de configuração em `/etc/supervisor/conf.d/reverb.conf`:
+Crie um arquivo de configuração em `/etc/supervisor/conf.d/reverb.conf`. Substitua `/caminho/para/app` pelo caminho real de deploy da aplicação (ex.: `/var/www/engeapp`) e `www-data` pelo usuário do processo em produção:
 
 ```ini
 [program:reverb]
 process_name=%(program_name)s_%(process_num)02d
-command=php /home/johnattas/GitHub/engeapp/artisan reverb:start
+command=php /caminho/para/app/artisan reverb:start
 autostart=true
 autorestart=true
-user=johnattas
+user=www-data
 numprocs=1
 redirect_stderr=true
-stdout_logfile=/home/johnattas/GitHub/engeapp/storage/logs/reverb.log
+stdout_logfile=/caminho/para/app/storage/logs/reverb.log
 stopwaitsecs=60
 minfds=10000
 ```
@@ -83,8 +83,9 @@ Conexões WebSocket são persistentes e consomem file descriptors. Sob alto trá
 - **Verifique os limites atuais:** `ulimit -n`
 - **Modifique os Limites:** Atualize `/etc/security/limits.conf` para aumentar os limites do usuário que executa o Reverb:
   ```text
-  johnattas soft nofile 65536
-  johnattas hard nofile 65536
+  # Substitua "www-data" pelo usuário que executa o Reverb em produção
+  www-data soft nofile 65536
+  www-data hard nofile 65536
   ```
 - **Limite do Serviço Systemd:** Se estiver rodando o Reverb via systemd diretamente, adicione `LimitNOFILE=65536` no arquivo do serviço.
 
@@ -93,7 +94,7 @@ Para escalonamento horizontal em múltiplos servidores, habilite a integração 
 
 ```php
 'scaling' => [
-    'enabled' => env('REVERB_SCALING_ENABLED', true),
+    'enabled' => env('REVERB_SCALING_ENABLED', false),
     'channel' => env('REVERB_SCALING_CHANNEL', 'reverb'),
     'server' => [
         'url' => env('REDIS_URL'),
@@ -103,11 +104,11 @@ Para escalonamento horizontal em múltiplos servidores, habilite a integração 
     ],
 ]
 ```
-Garanta que `REVERB_SCALING_ENABLED=true` esteja definido no `.env` de produção e que o Redis esteja configurado como driver de cache.
+No engeapp o padrão é `env('REVERB_SCALING_ENABLED', false)` — ou seja, scaling desligado por padrão, adequado a instância única. Só defina `REVERB_SCALING_ENABLED=true` no `.env` quando houver **mais de uma** instância do Reverb e um Redis provisionado e acessível; caso contrário, habilitar sem Redis quebra o servidor. Ao ligar, garanta também que o Redis esteja configurado como driver de cache/broadcasting.
 
 ### 6. Depuração e Troubleshooting
 - **Verifique o Binding da Porta:** `netstat -plnt | grep 9000` ou `ss -tulpn | grep 9000`
-- **Verifique os Logs do Servidor:** Inspecione `/home/johnattas/GitHub/engeapp/storage/logs/reverb.log` ou execute `tail -f storage/logs/laravel.log`.
+- **Verifique os Logs do Servidor:** Inspecione o `stdout_logfile` configurado no Supervisor (ex.: `storage/logs/reverb.log`) ou execute `tail -f storage/logs/laravel.log`.
 - **Depurando Falhas de Handshake:** Se as conexões não se estabelecerem, verifique os logs do navegador usando `browser-logs` ou inspecione a aba Network em busca de falhas de HTTP upgrade (403 Forbidden indica configurações inválidas de CORS/Origin, 502/504 Bad Gateway indica problemas na configuração do Nginx ou no processo do Reverb).
 
 ## Restrições
@@ -115,4 +116,4 @@ Garanta que `REVERB_SCALING_ENABLED=true` esteja definido no `.env` de produçã
 - **Não exponha portas brutas do Reverb** (ex.: 9000) diretamente à internet pública. Sempre roteie o tráfego através de Nginx, Apache ou Caddy.
 - **Nunca execute** `reverb:start` diretamente em produção sem um gerenciador de processos (Supervisor/systemd).
 - **Evite valores de configuração hardcoded** dentro de `config/reverb.php`; sempre resolva-os usando o helper `env()`.
-- **Não ignore a configuração de CORS.** Garanta que `allowed_origins` em `config/reverb.php` inclua seus domínios de produção, evitando o coringa `['*']` em ambientes altamente seguros sempre que possível.
+- **Atenção à configuração de CORS.** Hoje o engeapp usa `allowed_origins => ['*']` em `config/reverb.php` (intencional, aceita qualquer origem). Isso é aceitável em dev; em produção altamente sensível, prefira restringir `allowed_origins` aos domínios reais (ex.: `['dev.engeapp.com.br', 'engeapp.com.br']`). Não trate o `['*']` atual como bug a ser "corrigido" sem antes confirmar o requisito de segurança com o time.

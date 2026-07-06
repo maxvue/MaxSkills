@@ -21,7 +21,11 @@ import { createMaxPinia } from '@maxvue/max-pinia'
 const pinia = createPinia()
 
 pinia.use(createMaxPinia({
-  cacheName: 'engeapp-cache', // nome do banco LocalForage
+  cacheName: 'pinia', // nome do banco LocalForage
+  storeName: 'pinia-with-cache-plugin', // mantido para preservar o cache já existente dos usuários
+  // resolveRoute é COMO o plugin transforma o NOME de rota (options.get.route/save) em URL.
+  // No engeapp é o route() do Ziggy — é isto que a store usa internamente (via axios), NÃO apiGetRoute.
+  resolveRoute: (name, params) => route(name, params),
   getSessionToken: () => useSystemStore().session_token, // token CSRF/sessão enviado em cada requisição
   isAppStarted: () => useSystemStore().started, // evita carregamentos prematuros antes do app inicializar
   loading: {
@@ -31,6 +35,8 @@ pinia.use(createMaxPinia({
   },
 }))
 ```
+
+> **Como a store resolve a rota:** internamente o plugin faz `axios.get(cfg.resolveRoute(nomeRota, dados))` no GET e `axios.post(cfg.resolveRoute(nomeRota), ...)` no save. Ele **não** chama `apiGetRoute`/`apiPostRoute` — esses helpers de `@maxvue/max-use` são para uso direto em componentes/composables, nunca dentro da store. A store só conhece o `resolveRoute` injetado aqui (o `route()` do Ziggy).
 
 ---
 
@@ -64,9 +70,9 @@ O plugin injeta automaticamente estas propriedades em toda store com `isCached =
 - `is_done_to_show` — `true` quando dados do servidor OU do cache estão prontos para exibição.
 
 ### 4. Métodos de Controle Injetados
-- `reload()` — limpa o estado anterior e força novo GET ao servidor.
+- `reload()` — refaz o GET ao servidor (`loadInServer`) e, ao concluir com sucesso, sobrescreve `data` com a resposta e chama `afterReload` se existir. **Não** limpa/reseta o estado antes do GET — o `data` antigo permanece visível até a nova resposta chegar.
 - `cancelLoad(retryInSeconds?)` — aborta o GET ativo.
-- `clearAll()` — limpa TODO o cache LocalForage (de todas as stores, via `localforage.clear()`); **não** reseta o estado reativo desta store. Para limpar apenas o estado da store, use `setDefaultData`/`reload`.
+- `clearAll()` — limpa TODO o cache LocalForage (de todas as stores, via `localforage.clear()`); **não** reseta o estado reativo desta store. O reset do `data` para o `default_value` é interno e acontece apenas quando `store.id`/`enabled` muda (o plugin reexecuta a carga). Não há método público para resetar só o estado reativo — se precisar de dados frescos do servidor, use `reload()`.
 - `saveInServer()` — força POST imediato sem esperar o debounce.
 - `saveInCache()` — persiste imediatamente no LocalForage.
 
@@ -98,7 +104,7 @@ export const useUserStore = defineStore('user', () => {
   const isCached = ref(true)
   const data = ref<User | null>(null)
 
-  // route é o NOME da rota Ziggy (ex.: 'user.data'); a store chama apiGetRoute internamente.
+  // route é o NOME da rota Ziggy (ex.: 'user.data'); o plugin resolve via cfg.resolveRoute (route() do Ziggy) e faz o GET com axios.
   const options = computed(() => ({
     get: { route: 'user.data' },
     key: 'user',
@@ -130,7 +136,7 @@ export const useBrandPositioningStore = defineStore('brand.positioning.store', (
     content_pillars: [],
   })
 
-  // route/save são NOMES de rota Ziggy; a store chama apiGetRoute/apiPostRoute internamente.
+  // route/save são NOMES de rota Ziggy; o plugin resolve via cfg.resolveRoute e faz GET/POST com axios (não usa apiGetRoute/apiPostRoute).
   // save ativa auto-save com debounce de 300ms ao alterar 'data'
   const options = computed(() => ({
     get: { route: 'brand.positioning.data' },
@@ -169,7 +175,7 @@ export const useProjectDataStore = defineStore('project.data', () => {
   const id = computed(() => projectId.value);
   const options = computed(() => ({
     get: {
-      route: 'project.data', // NOME de rota Ziggy; a store executa apiGetRoute internamente
+      route: 'project.data', // NOME de rota Ziggy; o plugin resolve via cfg.resolveRoute e faz o GET com axios
       data: { project_id: projectId.value }, // parâmetros reativos da rota
     },
   }));

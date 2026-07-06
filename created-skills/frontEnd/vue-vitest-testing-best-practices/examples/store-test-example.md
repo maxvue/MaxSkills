@@ -23,7 +23,10 @@ export const useUserStore = defineStore('user', () => {
 
   const options = {
     get: {
-      route: '/api/users',
+      // route é um NOME de rota Ziggy pontilhado (resolvido pelo MaxPinia),
+      // NÃO um caminho '/api/...'. Nas stores reais do engeapp: 'user.data',
+      // 'client.data', 'stats.data', etc.
+      route: 'user.data',
     },
   };
 
@@ -42,6 +45,7 @@ export const useUserStore = defineStore('user', () => {
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { createPinia, setActivePinia } from 'pinia';
 import { createMaxPinia } from '@maxvue/max-pinia';
+import { flushPromises } from '@vue/test-utils';
 import { useUserStore } from './useUserStore';
 
 // Instância de axios mockada injetada no plugin MaxPinia.
@@ -75,13 +79,19 @@ describe('useUserStore (MaxPinia)', () => {
       { id: 2, name: 'Maria Souza', email: 'maria@engeapp.com' },
     ];
 
-    // A camada MaxPinia resolve options.get.route ('/api/users') e chama axios.get.
+    // A camada MaxPinia resolve o nome Ziggy de options.get.route ('user.data') e chama axios.get.
     mockedAxios.get.mockResolvedValue({ data: mockUsers });
 
     const store = useUserStore();
 
     // reload() força o refetch pelo auto-GET declarado em options.get.route.
+    // ATENÇÃO: internamente o MaxPinia dispara `axios.get(...).then(...)` SEM
+    // aguardar essa promise (o `.then` que escreve em `store.data` e marca
+    // `is_success` roda num microtask não aguardado). Logo, `await store.reload()`
+    // pode resolver ANTES de os dados chegarem. Esvazie as promises pendentes
+    // com `flushPromises()` antes de assertar, senão o teste fica flaky.
     await store.reload();
+    await flushPromises();
 
     // Os dados sempre chegam em `store.data`; o carregamento é rastreado
     // por `status.server.get.is_success` (ou `store.is_done`).
@@ -103,4 +113,4 @@ describe('useUserStore (MaxPinia)', () => {
 });
 ```
 
-> **Nota:** O teste valida o comportamento da store pelo estado carregado em `store.data`, pelos flags de status do MaxPinia (`status.server.get.is_success` / `store.is_done`) e pelo `reload()`. O isolamento é feito injetando uma instância de `axios` mockada em `createMaxPinia({ axios })`, pois o GET/save do MaxPinia é executado dentro do plugin — não em actions da store. `isCached: true` é um flag de **entrada** (opt-in) que a store declara para ativar o plugin de cache; não é uma flag de saída que indica "dados carregados".
+> **Nota:** O teste valida o comportamento da store pelo estado carregado em `store.data`, pelos flags de status do MaxPinia (`status.server.get.is_success` / `store.is_done`) e pelo `reload()`. O isolamento é feito injetando uma instância de `axios` mockada em `createMaxPinia({ axios })`, pois o GET/save do MaxPinia é executado dentro do plugin — não em actions da store. `isCached: true` é um flag de **entrada** (opt-in) que a store declara para ativar o plugin de cache; não é uma flag de saída que indica "dados carregados". Como o plugin dispara o `axios.get(...).then(...)` sem aguardar a promise interna, sempre chame `flushPromises()` (ou `vi.waitFor(...)`) após `await store.reload()` antes de assertar sobre `store.data`/status — do contrário o teste pode ser flaky.

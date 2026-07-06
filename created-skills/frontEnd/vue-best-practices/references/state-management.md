@@ -87,7 +87,7 @@ export function useServerCart() {
 
 > `pinia` dependency required.
 
-> **Stack alvo (EngeApp/Laravel 13):** para dados que sincronizam com a API Laravel (`/api/...`), o contrato de store é `@maxvue/max-pinia` (`createMaxPinia`) — cached stores com rota string, GET automático e auto-save com debounce. Use Pinia puro (`defineStore` abaixo) apenas para estado puramente client-side (carrinho efêmero, UI), roteando GET/save de dados via `apiGetRoute`/`apiPostRoute` ou pelas cached stores do max-pinia.
+> **Stack alvo (EngeApp/Laravel 13 + Vue 3 SPA):** para dados que sincronizam com o backend, o contrato de store é `@maxvue/max-pinia` (cached store). A rota é sempre um **nome de rota Ziggy pontilhado** passado como string — nunca um path `/api/...`. Ex.: `options.get.route = 'client.data'`, `options.save = 'client.save'`. GETs avulsos usam `apiGetRoute('concessionaire.list.all.subsidiaries')` e mutações usam `apiPostRoute(...)`. Use `defineStore` do Pinia puro (abaixo) apenas para estado puramente client-side (carrinho efêmero, UI); qualquer dado servidor deve trafegar por nome de rota Ziggy via cached store MaxPinia ou `apiGetRoute`/`apiPostRoute`. Detalhes do contrato MaxPinia (`isCached`, `options` com `get.route`/`save`/`key`, `getKey()`) estão na skill `vue-max-stack-frontend-best-practices`.
 
 ```ts
 // stores/cart.ts

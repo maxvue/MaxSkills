@@ -34,24 +34,24 @@ Usar esta skill quando:
 | Vue Router | 5 | SPA pura (Laravel serve catch-all HTML) — Ziggy (`ziggy-js`) está configurado e é usado; as rotas de API são passadas como **nome (Ziggy)** — ex.: `'client.data'` — e os helpers do `@maxvue/max-use` (`apiGetRoute`) resolvem o nome internamente (via `route()`) para a URL `/api/...` |
 | PrimeVue | — | Componentes base para UI (base da MaxComponentsUi) |
 | UnoCSS | 66 | Estilização utilitária (sem Tailwind) |
-| Vite | 7 | Bundler + HMR |
+| Vite | 8 (`^8.0.14`) | Bundler + HMR |
 | Unplugin Auto Import | — | Auto-importação de composables e helpers |
 | Unplugin Vue Components | — | Auto-importação de componentes |
 | **@maxvue/max-components-ui** | **local** | **Biblioteca própria de componentes UI (~70 componentes + componentes do PrimeVue inclusos)** |
 | **@maxvue/max-use** | **local** | **Biblioteca própria de composables, helpers, rotas e utilitários** |
 | laravel-echo / @laravel/echo-vue | dependência | Realtime via WebSockets (Laravel Reverb) — `laravel-echo` + `@laravel/echo-vue` (`import Echo` / `useEcho`), presentes no `package.json` do app |
-| @vue-flow/core | via lib | Diagramas de fluxo — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
-| @tanstack/vue-virtual | via lib | Virtualização de listas — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
-| floating-vue | via lib | Tooltips e popovers — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
-| lucide-vue-next | via lib | Ícones — transitivo via `@maxvue/max-components-ui`, não é dependência direta do app |
-| Vitest | — | **Não** é usado pelo backend do app. Os testes de backend rodam com **Pest** (`php artisan test`). Vitest é o runner apenas das libs Max* (`@maxvue/max-use`, `@maxvue/max-components-ui`), não do front-end do app. |
+| @vue-flow/core | `^1.48.2` | Diagramas de fluxo — **dependência direta** do app (`dependencies` do `package.json`) |
+| @tanstack/vue-virtual | `^3.13.26` | Virtualização de listas — **dependência direta** do app |
+| floating-vue | `^5.2.2` | Tooltips e popovers — **dependência direta** do app |
+| lucide-vue-next / lucide | `^1.0.0` / `^1.17.0` | Ícones — **dependências diretas** do app (além de `@iconify/vue`, `@kalimahapps/vue-icons`) |
+| Vitest | `^4.1.7` (devDep) | Consta como `devDependency` do app, mas o front-end (`resources/`) **não tem `vitest.config` nem specs** — na prática não há suíte de testes de front rodando aqui. Testes de backend rodam com **Pest** (`php artisan test`). Vitest é o runner efetivo das libs Max* (`@maxvue/max-use`, `@maxvue/max-components-ui`). Não invente que existe teste de front. |
 
 ### Bibliotecas Próprias — Contexto Obrigatório
 
-#### `@maxvue/max-components-ui` (link local: `file:../MaxComponentsUi`)
+#### `@maxvue/max-components-ui` (link local: `file:./storage/libs/MaxComponentsUi`)
 
 Biblioteca de **componentes UI** construída sobre PrimeVue com estilos e comportamentos customizados.
-Código-fonte em: `/home/johnattas/GitHub/MaxComponentsUi/src/`
+Código-fonte em: `storage/libs/MaxComponentsUi/src/` (dentro do próprio projeto engeapp)
 
 **Componentes principais (~70 total):**
 - **Inputs:** `MaxInputText`, `MaxInputNumber`, `MaxInputSelect`, `MaxInputAutoComplete`, `MaxInputAutoCompleteApi`, `MaxInputCep`, `MaxInputCpfCnpj`, `MaxInputDatePicker`, `MaxInputCheckbox`, `MaxInputRadio`, `MaxInputSwitch`, `MaxInputToggle`, `MaxInputTextArea`, `MaxInputSearch`, `MaxInputPhoneMail`, `MaxInputCoordinateDecimalLat/Lng`
@@ -76,10 +76,12 @@ Código-fonte em: `/home/johnattas/GitHub/MaxComponentsUi/src/`
 - `src/prime/` — configurações PrimeVue
 - `src/presetMaxUno.ts` — preset UnoCSS da biblioteca
 
-#### `@maxvue/max-use` (link local: `file:../MaxUse`)
+#### `@maxvue/max-use` (link local: `file:./storage/libs/MaxUse`)
 
 Biblioteca de **composables, helpers e utilitários** que unifica helpers próprios, VueUse e Lodash.
-Código-fonte em: `/home/johnattas/GitHub/MaxUse/src/`
+Código-fonte em: `storage/libs/MaxUse/src/` (dentro do próprio projeto engeapp)
+
+> **Obs.:** o MaxPinia também é link local (`file:./storage/libs/MaxPinia`), com código-fonte em `storage/libs/MaxPinia/src/`.
 
 **Composables próprios:**
 - `useDefaultReset` — reset de estado para valores padrão
@@ -117,6 +119,8 @@ Todas as funções do `@vueuse/core` são re-exportadas e disponíveis via auto-
 
 ## Estrutura de Pastas do Front-End
 
+> Confira a árvore real com `ls resources/` antes de assumir caminhos; a lista abaixo reflete o estado atual.
+
 ```
 resources/
 ├── Vue/
@@ -124,51 +128,58 @@ resources/
 │   ├── Layouts/       # Layouts de página
 │   ├── Pages/         # Páginas/views
 │   ├── Sections/      # Seções de funcionalidades (subpastas por domínio)
+│   ├── Site/          # Área/páginas do site
 │   └── Structure/     # Componentes estruturais
 ├── Stores/            # Stores @maxvue/max-pinia (organizados por domínio)
+│   ├── calendar/
 │   ├── Client/
 │   ├── Component/
 │   ├── Concessionaire/
 │   ├── Equipments/
+│   ├── Integrador/
 │   ├── List/
 │   ├── Location/
 │   ├── Planner/
 │   ├── Project/
+│   ├── Promotion/
 │   ├── Setting/
+│   ├── Solar_company/
+│   ├── Statistics/
 │   ├── Support/
-│   ├── UserStores/
-│   ├── _Plugins/      # Plugins do MaxPinia/Pinia
-│   └── calendar/
+│   └── UserStores/
 ├── Types/             # Tipos TypeScript / DTOs (gerados do backend)
 │   ├── generated.d.ts # DTOs gerados automaticamente — NÃO EDITAR MANUALMENTE
 │   ├── Global.d.ts
 │   ├── Electrical.d.ts
 │   ├── Menu.d.ts
 │   └── Settings.d.ts
-├── Functions/         # Composables e funções do projeto (2 arquivos)
-├── Helpers/           # Helpers do projeto (34 arquivos + subpastas)
-│   ├── Composables/   # Composables específicos do projeto
+├── Helpers/           # Helpers do projeto (arquivos .ts + subpastas Chat/ e Locales/)
 │   ├── Chat/          # Helpers de chat
 │   └── Locales/       # i18n / localização
+├── Js/                # (ver "Pastas a Ignorar")
+├── Theme/             # (ver "Pastas a Ignorar")
+├── Views/ e views/    # (ver "Pastas a Ignorar")
 ├── App.vue            # Componente raiz (NÃO MODIFICAR sem aprovação)
 ├── app.ts             # Entry point (NÃO MODIFICAR sem aprovação)
 └── env.d.ts           # Declarações de tipos globais
 ```
 
-### Bibliotecas Próprias (código-fonte fora do projeto)
+### Bibliotecas Próprias (código-fonte dentro do projeto, via link local)
+
+As libs Max* são linkadas via `file:` a partir de `storage/libs/` do próprio engeapp:
 
 ```
-/home/johnattas/GitHub/MaxComponentsUi/   # @maxvue/max-components-ui
-/home/johnattas/GitHub/MaxUse/            # @maxvue/max-use
+storage/libs/MaxComponentsUi/   # @maxvue/max-components-ui
+storage/libs/MaxUse/            # @maxvue/max-use
+storage/libs/MaxPinia/          # @maxvue/max-pinia
 ```
 
-> **IMPORTANTE:** Bugs podem se originar nestas bibliotecas. Se o stack trace apontar para `node_modules/@maxvue/`, investigar o código-fonte nos caminhos acima.
+> **IMPORTANTE:** Bugs podem se originar nestas bibliotecas. Se o stack trace apontar para `node_modules/@maxvue/`, investigar o código-fonte em `storage/libs/<Lib>/src/`.
 
 ### Pastas a Ignorar na Investigação
 
-- `resources/Brain/`
 - `resources/Theme/`
-- `resources/Views/`
+- `resources/Views/` e `resources/views/`
 - `resources/Js/`
 
 ## Instruções
@@ -281,7 +292,7 @@ Checklist:
 - [ ] Eventos customizados do componente estão com a assinatura correta?
 - [ ] O bug é no componente Max* ou no PrimeVue subjacente? Verificar se o problema persiste usando o PrimeVue puro
 
-> **Regra:** Se o bug está no código-fonte da biblioteca, corrigir em `/home/johnattas/GitHub/MaxComponentsUi/src/`. Depois rodar `npm run build` na lib e reiniciar `npm run dev` no EngeApp.
+> **Regra:** Se o bug está no código-fonte da biblioteca, corrigir em `storage/libs/MaxComponentsUi/src/`. Depois rodar `npm run build` na lib e reiniciar `npm run dev` no EngeApp.
 
 #### Para bugs de MaxUse — Helpers e Composables (`@maxvue/max-use`)
 
@@ -296,7 +307,7 @@ Checklist:
 - [ ] Helpers de `Validations` — regras de CPF/CNPJ/CEP validando corretamente?
 - [ ] Helpers de `Format` — formatação de moeda/número/data correta?
 
-> **Regra:** Se o bug está no código-fonte da biblioteca, corrigir em `/home/johnattas/GitHub/MaxUse/src/`. Depois rodar `npm run build` na lib e reiniciar `npm run dev` no EngeApp.
+> **Regra:** Se o bug está no código-fonte da biblioteca, corrigir em `storage/libs/MaxUse/src/`. Depois rodar `npm run build` na lib e reiniciar `npm run dev` no EngeApp.
 
 #### Para bugs de MaxUse — Sistema de Rotas
 
@@ -405,7 +416,7 @@ Checklist:
 
 - [ ] Bug original não reproduz mais
 - [ ] Nenhum novo warning do Vue no console
-- [ ] Nenhum erro TypeScript novo (`npm run build` ou verificar IDE)
+- [ ] Nenhum erro TypeScript novo — rodar `npm run typecheck:tsgo` (= `tsgo --noEmit`); NÃO usar `npm run build` (que é só `vite build`, sem type-check dedicado). Alternativamente, verificar a IDE. Lint: `npm run lint` (= `eslint resources/ --fix`)
 - [ ] Componentes relacionados continuam funcionando
 - [ ] HMR recarregou corretamente (ou reiniciar `npm run dev` se necessário)
 - [ ] Executar lint do ESLint se aplicável
@@ -437,12 +448,12 @@ Quando o bug for corrigido no código-fonte de uma biblioteca própria:
 
 ```bash
 # 1. Corrigir o código-fonte na lib
-# Em MaxComponentsUi/src/ ou MaxUse/src/
+# Em storage/libs/MaxComponentsUi/src/, storage/libs/MaxUse/src/ ou storage/libs/MaxPinia/src/
 
-# 2. Rebuildar a lib
-cd /home/johnattas/GitHub/MaxComponentsUi && npm run build
+# 2. Rebuildar a lib (a partir da raiz do engeapp)
+cd storage/libs/MaxComponentsUi && npm run build
 # ou
-cd /home/johnattas/GitHub/MaxUse && npm run build
+cd storage/libs/MaxUse && npm run build
 
 # 3. Reiniciar o dev server do EngeApp
 # (parar e reiniciar npm run dev no engeapp)

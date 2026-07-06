@@ -1,135 +1,135 @@
 ---
 name: vue-rss-news-moderation-dashboard-best-practices
-description: Use when implementing, modifying, styling, or debugging RSS news moderation dashboard components or views in Vue 3 (EngeApp). Triggers on news items filter, approve/disapprove actions, tab/category navigation, search queries for news, and UI/UX improvements on TabNewsItems component.
+description: Use ao implementar, estilizar ou depurar o painel de moderação de notícias RSS (TabNewsItems.vue) do EngeApp em Vue 3. Cobre a store Pinia useSocialMediaNewsStore (axios + rotas Ziggy news.index/approve/reprove/refresh/agent.keywords), abas pendente/arquivada via prop archived, agrupamento por palavra-chave, aprovar criando Tema editorial e feedback via Toast.
 ---
 
 ## Objetivo
-Padronizar a arquitetura, a experiência do usuário (UX) e a implementação técnica do painel de moderação de notícias RSS (`TabNewsItems`) no Vue 3, garantindo o carregamento resiliente de recursos externos, transições suaves de estado, feedback imediato das ações, filtragem de busca no cliente/servidor e integração semântica com IA.
+Padronizar a arquitetura e a UX do painel de moderação de notícias RSS do EngeApp — o componente `resources/Vue/Sections/SocialMedia/TabNewsItems.vue` e sua store `resources/Stores/calendar/useSocialMediaNews.Store.ts`. As notícias são importadas do Google News RSS (comando `social-media:fetch-news`), entram como `pending`, e o gestor aprova (gerando um Tema editorial) ou arquiva cada uma.
+
+Grave a verdade-base do fluxo antes de mexer, porque a implementação é enxuta e específica: cards de texto puro (sem imagens), abas controladas pelo pai via prop, store Pinia pura com axios, e feedback via `Toast`. Não invente imagens, busca de texto, animação otimista nem cache MaxPinia — nada disso existe aqui.
+
+## Verdade-base do fluxo (confirme sempre no código)
+
+- **Componente:** `TabNewsItems.vue`, `<script setup lang="ts">`. Recebe `defineProps<{ archived?: boolean }>()` e emite `theme-created`. O pai (página) decide qual aba renderizar passando `archived`; o componente NÃO tem abas internas nem `ref` de status.
+- **Status reais:** `type NewsStatus = 'pending' | 'approved' | 'reproved'`. A aba "arquivadas" mostra os `reproved`. Não existe status `archived`, e não há aba de `approved` — aprovar remove o item da lista e cria um `SocialMediaTheme`.
+- **Store:** `useSocialMediaNewsStore`, `defineStore('social.media.news.store', ...)`. É **Pinia pura** (setup store), sem `isCached`, sem `options`, sem auto-save. Faz `axios` direto contra nomes de rota Ziggy resolvidos por `route()`.
+- **Cards:** texto puro — `source`, `published_at`, `title`, `keywords`, `description`, mais link externo (`item.url`). Não há `<img>`, `imageUrl`, fallback de imagem nem `handleImageError`. A interface `SocialMediaNewsItem` não tem campo de imagem.
+- **Backend:** EngeApp é **Laravel 13**; a geração/IA usa o pacote `laravel/ai`. Não existe Vercel AI SDK aqui, nem card inline "Sugerir Tema" — o Tema nasce como efeito de `approve`.
 
 ## Instruções
 
-### 1. Navegação por Abas e Filtragem de Status
-Organize o fluxo de trabalho de moderação usando uma estrutura de abas baseada em status:
-- Implemente abas para os estados **Pendente**, **Aprovado** e **Arquivado**.
-- Vincule o estado da aba ativa reativamente para disparar a filtragem:
-  ```typescript
-  type ModerationStatus = 'pending' | 'approved' | 'archived'
-  const activeStatus = ref<ModerationStatus>('pending')
-  ```
-- Anime os indicadores de aba ativa com transições suaves de deslizamento usando transições CSS/UnoCSS (ex: `transition-all duration-300 ease-in-out`).
+### 1. Abas controladas pela prop `archived`
+Não crie abas internas nem um `activeStatus = ref()`. O componente é uma "view" de uma lista; o pai troca de aba re-renderizando com outra prop:
 
-### 2. Tratamento Resiliente de Imagens (Padrão de Fallback)
-Imagens externas de feeds RSS são frequentemente instáveis. Sempre implemente o tratamento de fallback para imagens:
-- Use um marcador de posição (placeholder) de fallback padrão quando a imagem do item RSS estiver ausente, falhar ao carregar ou retornar um erro/404.
-- Crie um manipulador de erro de carregamento de imagem para alternar para o fallback reativamente:
-  ```html
-  <!-- Estilize via atributos attributify do UnoCSS (presetMaxUno) + tokens de tema, não via class="..." cru -->
-  <img :src="item.imageUrl || defaultFallbackUrl" @error="handleImageError" w-full h-48 object-cover rounded-lg />
-  ```
-  ```typescript
-  const defaultFallbackUrl = '/images/news-fallback.jpg'
-  const handleImageError = (event: Event) => {
-    const target = event.target as HTMLImageElement
-    if (target.src !== defaultFallbackUrl) {
-      target.src = defaultFallbackUrl
-    }
-  }
-  ```
+```typescript
+const props = defineProps<{ archived?: boolean }>();
 
-### 3. Feedback Visual Imediato e Micro-animações
-Garanta uma experiência fluida para o usuário fornecendo feedback visual tátil instantâneo nas decisões de moderação:
-- Aplique utilitários de animação do UnoCSS como atributos attributify (ex.: `animate-fade-out` ou `scale-95 duration-200`), ligados dinamicamente via `:class`/`:animate-fade-out` quando um item for aprovado ou arquivado — nunca como strings `class="..."` cruas de Tailwind.
-- Atualize de forma otimista o estado da lista na interface do usuário imediatamente quando um botão de ação for clicado. A persistência NÃO usa Axios cru: toda leitura/gravação de dados de página passa por uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) no backend. Para ações pontuais de comando (aprovar/arquivar), dispare o método da store que passa o **nome da rota (Ziggy)** ao `apiPostRoute`:
-  ```typescript
-  import { useNewsModerationStore } from '~/stores/newsModeration'
+const items     = computed<SocialMediaNewsItem[]>(() => props.archived ? store.archived : store.pending);
+const isLoading = computed(() => props.archived ? store.loadingArchived : store.loadingPending);
+```
 
-  const newsStore = useNewsModerationStore()
+Carregue no `onMounted` chamando `reload()`, que despacha `store.loadPending()` ou `store.loadArchived()` conforme a prop. O painel de palavras-chave e as ações de moderação só aparecem quando `!archived`.
 
-  const approveItem = async (itemId: string) => {
-    // 1. Atualização otimista da UI: desliza/esmaece o item
-    const index = newsStore.items.findIndex(item => item.id === itemId)
-    if (index !== -1) {
-      newsStore.items[index].isLeaving = true
-      setTimeout(() => {
-        newsStore.items.splice(index, 1)
-      }, 300) // deve corresponder à duração da animação
+### 2. Store Pinia pura com axios + rotas Ziggy
+Toda leitura/gravação deste fluxo usa `axios` diretamente com **nomes de rota Ziggy** via `route(...)` (Ziggy está configurado). Esta store NÃO usa `@maxvue/max-pinia`, `isCached`, `apiGetRoute` nem `apiPostRoute` — replicar o padrão MaxPinia aqui está errado.
+
+```typescript
+export const useSocialMediaNewsStore = defineStore('social.media.news.store', () => {
+    const pending  = ref<SocialMediaNewsItem[]>([]);
+    const archived = ref<SocialMediaNewsItem[]>([]);
+    const loadingPending  = ref(false);
+    const loadingArchived = ref(false);
+    const processingId    = ref<string | null>(null);
+
+    async function loadPending(): Promise<void> {
+        loadingPending.value = true;
+        try {
+            const { data } = await axios.get(route('news.index'), { params: { status: 'pending' } });
+            pending.value = data;
+        } finally {
+            loadingPending.value = false;
+        }
     }
 
-    // 2. Persistência via store MaxPinia (sem Axios manual);
-    //    a store passa o nome da rota (Ziggy), que resolve para /api/... . Em caso de falha, o rollback é
-    //    feito AQUI (no componente), chamando reload() na instância da store.
+    async function approve(id: string): Promise<{ theme: any }> {
+        processingId.value = id;
+        try {
+            const { data } = await axios.post(route('news.approve', { news: id }));
+            pending.value = pending.value.filter(n => n.id !== id); // remoção real fica na store
+            return data; // { theme }
+        } finally {
+            processingId.value = null;
+        }
+    }
+    // reprove → route('news.reprove', { news: id })
+    // saveKeywords → route('news.agent.keywords', { agent: agentId }) via axios.patch
+    // refresh → route('news.refresh')
+    return { pending, archived, loadingPending, loadingArchived, processingId,
+             loadPending, loadArchived, approve, reprove, saveKeywords, refresh };
+});
+```
+
+Rotas Ziggy reais usadas: `news.index` (com `params.status`), `news.approve` (param `news`), `news.reprove` (param `news`), `news.agent.keywords` (param `agent`, `PATCH`), `news.refresh`.
+
+### 3. Ação de moderação: sem otimismo com timeout, remoção na store
+Não faça `items[index].isLeaving = true` + `splice` + `setTimeout(300)` nem rollback via `reload()` — nada disso existe. O padrão real é: o handler do componente chama o método da store (que faz o axios e já remove o item da lista com `filter`), e o feedback vem de `Toast`. O loading por item é derivado de `store.processingId === item.id`.
+
+```typescript
+async function handleApprove(id: string): Promise<void> {
     try {
-      await newsStore.approve(itemId)
-    } catch {
-      await newsStore.reload() // reload só é acessível na instância da store
+        const result = await store.approve(id);
+        themesStore.themes.unshift(result.theme); // aprovar CRIA um Tema editorial
+        Toast.show({ severity: 'success', title: 'Tema criado!', message: 'A notícia foi aprovada e um tema pendente foi criado.' });
+        emit('theme-created');
+    } catch (e) {
+        console.error('[handleApprove] erro ao aprovar notícia:', e);
+        Toast.show({ severity: 'error', title: 'Erro', message: 'Não foi possível aprovar a notícia.' });
     }
-  }
-  ```
-  A store é uma SETUP store do `@maxvue/max-pinia` (`isCached` + `options`). O comando de aprovar usa `apiPostRoute` do `@maxvue/max-use` (chamada imperativa — executa a requisição e retorna o payload direto). O `reload()` é injetado pelo `@maxvue/max-pinia` **na instância** da store, não é uma variável do escopo da setup — então o rollback é feito pelo chamador via `newsStore.reload()` (como acima), e não dentro da setup:
-  ```typescript
-  // stores/newsModeration.ts
-  import { defineStore } from 'pinia'
-  import { ref, computed } from 'vue'
-  import { apiPostRoute } from '@maxvue/max-use'
+}
+```
 
-  export const useNewsModerationStore = defineStore('news.moderation', () => {
-    const isCached = ref(true)
-    const items = ref<any[]>([])
-    // Parâmetro de busca reativo: alterá-lo dispara automaticamente novo GET pela store.
-    const search = ref('')
+`handleReprove(id)` chama `store.reprove(id)` (move para `archived`) e mostra `Toast`. Nos botões, ligue o loading a `store.processingId === item.id` e as ações via `:action`:
 
-    // route é o NOME da rota (Ziggy); a store chama apiGetRoute internamente, que resolve para /api/....
-    // options.get.data é reativo — o GET refaz sozinho quando search muda.
-    const options = computed(() => ({
-      get: { route: 'news.moderation.data', data: { search: search.value } },
-      key: 'news.moderation',
-    }))
+```html
+<MaxButton icon="mdi:check-circle-outline" label="Aprovar · Criar Tema" size="small" :loading="store.processingId === item.id" :action="() => handleApprove(item.id)" />
+```
 
-    async function approve(itemId: string) {
-      // Chamada imperativa de comando (não é config de store): dispara o POST.
-      // Deixe o erro propagar — o rollback (reload) é feito pelo chamador na instância.
-      await apiPostRoute('news.moderation.approve', { id: itemId })
-    }
+### 4. Agrupamento por palavra-chave (não é busca de texto)
+Não existe input de busca, `refDebounced`, filtro `computed` por texto digitado nem parâmetro `search` reativo na store. A organização real é por **palavras-chave** do agente: `displayGroups` ordena as notícias por data e as agrupa segundo `agentStore.data?.news_keywords`, com um grupo "Outros" para o restante. Na aba arquivada, tudo vai num grupo único.
 
-    return { isCached, items, search, options, approve }
-  })
-  ```
-  > `reload()` é injetado pelo `@maxvue/max-pinia` **na instância** da store (ex.: `newsStore.reload()`); NÃO é uma variável do escopo da setup — referenciá-lo bare dentro da setup lança `ReferenceError`. Use-o a partir do componente.
-  > A store passa `key: 'news.moderation'` no `options` por convenção; a chave real do cache (LocalForage) é derivada de `store.$id` (+ o `id` retornado) via `getKey()` do MaxPinia.
+```typescript
+const displayGroups = computed<NewsGroup[]>(() => {
+    const sorted = sortByDate(items.value);
+    if (props.archived || !sorted.length) return [{ keyword: null, label: '', items: sorted }];
+    const keywords = agentStore.data?.news_keywords ?? [];
+    // ...agrupa por keyword incluída em item.keywords, dedup por id, resto em "Outros"
+});
+```
 
-### 4. Filtragem Híbrida no Lado do Cliente e do Servidor
-Combine a busca instantânea de texto no cliente com a filtragem dinâmica via API no backend:
-- Implemente a filtragem no lado do cliente na lista de notícias carregada atualmente usando uma propriedade computada (`computed`) para obter resultados instantâneos conforme o usuário digita.
-- Utilize debounce nos termos de busca (ex: usando `refDebounced` do MaxUse (`@maxvue/max-use`, que reexporta o VueUse) com atraso de 300ms) antes de pedir uma nova carga ao backend. A busca no servidor é feita pela store MaxPinia (que faz o GET via `apiGetRoute` passando o nome da rota Ziggy, resolvido para `/api/...`), nunca por `axios.get` manual:
-  ```typescript
-  import { refDebounced } from '@maxvue/max-use'
-  import { useNewsModerationStore } from '~/stores/newsModeration'
+O painel de palavras-chave (aba pendente) permite adicionar/remover chips localmente e persistir via `store.saveKeywords(agentId, localKeywords)` (rota `news.agent.keywords`), com `keywordsDirty` controlando o botão "Salvar".
 
-  const newsStore = useNewsModerationStore()
-  const searchInput = ref('')
-  const debouncedSearch = refDebounced(searchInput, 300)
+### 5. Importação e atualização em tempo real (Echo)
+Para reimportar notícias, chame `store.refresh()` (dispara o job de importação no backend) e informe o usuário com `Toast` de que a atualização virá automaticamente. A chegada das novas notícias é notificada por WebSocket com `useEcho` de `@laravel/echo-vue`, no canal `live.company.${companyId}`, evento `SocialMediaNewsImported`; ao receber, recarregue com `store.loadPending()` e mostre `Toast` com a contagem.
 
-  watch(debouncedSearch, (newQuery) => {
-    // Atualiza o parâmetro reativo da store (options.get.data). Como ele é reativo,
-    // o @maxvue/max-pinia reexecuta o GET (nome de rota → /api/...) e atualiza o cache automaticamente.
-    // Se precisar forçar a revalidação, chame newsStore.reload().
-    newsStore.search = newQuery
-  })
-  ```
+```typescript
+useEcho(`live.company.${companyId}`, 'SocialMediaNewsImported', (payload: { count: number }) => {
+    store.loadPending();
+    Toast.show({ severity: 'success', title: 'Notícias atualizadas!', message: `${payload.count} nova(s) notícia(s) importada(s).` });
+});
+```
 
-### 5. Prompt Semântico de IA para Sugestões Editoriais
-Integre sugestões de IA de forma dinâmica na tela de moderação para auxiliar os criadores de conteúdo:
-- Forneça um card inline com ações como "Sugerir Tema Editorial" ou "Gerar Rascunho do Post" ao lado ou dentro da visualização de detalhes da notícia.
-- Envie o título e a prévia do conteúdo do item de notícia para o endpoint de IA no backend, que roteia a geração pelo **Vercel AI SDK** (provider Gemini via Vercel AI SDK), produzindo classificações de tópicos estruturadas, ângulos para publicações ou rascunhos de posts. A chamada parte de um método da store MaxPinia (`apiPostRoute('news.ai_suggest', { id })`, nome de rota Ziggy), não de Axios cru.
-- Renderize os resultados em um card envolto por `MaxLoaderAi`, permitindo a cópia com um clique ou a inserção direta nas ferramentas de agendamento/redação.
-
-### 6. Sintaxe de Componentes e Diretrizes de Atributos
-- Sempre use a Composition API do Vue 3 (`<script setup lang="ts">`) and SCSS escopados (`<style scoped lang="scss">`).
-- Mantenha todos os atributos do template HTML em uma única linha (sem quebras de linha para múltiplos atributos de um elemento ou componente no template).
-  - *Exemplo:* `<MaxButton class="btn-primary" :loading="isSubmitting" @click="submit" />`
+### 6. Componentes, estilo e atributos
+- Use apenas `Composition API` (`<script setup lang="ts">`).
+- Componentes da UI vêm de `@maxvue/max-components-ui` (`MaxButton`, `MaxIcon`, `Toast`); tooltips via diretiva `v-tooltip.top`. Não use PrimeVue cru nem `<button>` nativo para ações de UI padronizadas (o input inline de keyword e os micro-botões de chip são exceções intencionais já presentes no arquivo).
+- O estilo real é `<style lang="scss">` **NÃO escopado**, com classes CSS nomeadas (`news-card`, `news-grid`, `news-keyword-chip`, ...) usadas via `class="..."` no template, e tokens de tema `var(--background-*)`, `var(--primary-color)`, `var(--text-color)`. Não converta para UnoCSS attributify nem imponha `scoped` — isso contradiz o componente que a skill documenta.
+- Mantenha os atributos de cada elemento/componente do template em uma única linha.
+- Comentários de código em pt-BR.
 
 ## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- **PROIBIDO Options API:** Não utilize a Options API sob nenhuma circunstância.
-- **PROIBIDO Pré-visualizações em Branco:** Não permita que falhas no carregamento de imagens externas de RSS causem espaços vazios ou ícones de imagens quebradas; o uso de imagens de fallback é obrigatório.
-- **PROIBIDO UI de Bloqueio Síncrono:** Nunca congele a tela de moderação ou bloqueie outras interações enquanto aguarda a resposta das APIs de aprovação/arquivamento. Use atualizações otimistas da UI e loaders localizados.
+- **Idioma:** Comunique-se com o humano sempre em Português (pt-BR), independentemente do idioma do corpo da skill.
+- **PROIBIDO Options API.**
+- **PROIBIDO inventar recursos ausentes:** não adicione imagens/fallback, busca de texto com debounce, animação otimista com `setTimeout`, cache MaxPinia (`isCached`/`options`) ou Vercel AI SDK — nada disso existe neste fluxo.
+- **PROIBIDO UI de bloqueio síncrono:** nunca congele a tela durante aprovar/arquivar/importar; use os loaders localizados (`store.processingId`, `store.loadingPending/loadingArchived`, `refreshing`, `savingKeywords`) e feedback via `Toast`.
+- **Estados vazios/carregando:** sempre trate `isLoading` e lista vazia com mensagens próprias (pendentes vs. arquivadas), como no componente real.
+</content>
+</invoke>

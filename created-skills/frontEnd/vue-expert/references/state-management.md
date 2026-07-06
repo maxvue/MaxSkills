@@ -1,6 +1,6 @@
 # State Management with @maxvue/max-pinia (cached stores)
 
-> No Maxdmin, **todo estado de dados de página passa por uma store cacheada `@maxvue/max-pinia`**. Não use
+> No EngeApp, **todo estado de dados de página passa por uma store cacheada `@maxvue/max-pinia`**. Não use
 > `pinia` cru: nada de `defineStore` em sintaxe de objeto, `createPinia` no componente, `storeToRefs` de
 > `'pinia'` para dados de servidor, nem `pinia-plugin-persistedstate`. O cache offline (localforage), o GET
 > automático ao montar e o auto-save debounced já vêm do plugin `@maxvue/max-pinia`. Nunca faça
@@ -14,11 +14,11 @@ Uma store é setup-style (função) e faz opt-in de cache expondo `isCached: ref
 cache resolve internamente (via `route()`) para a URL `/api/...`. Ao montar, o plugin dispara o GET
 automaticamente e reidrata `data`.
 
-```typescript
-// stores/user.ts
-import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
+No projeto real, `defineStore`, `ref`, `computed`, `watch` e os helpers `apiPostRoute`/`apiPutRoute`/
+`apiDeleteRoute` são auto-importados (config `AutoImport` do Vite) — não os importe nas stores.
 
+```typescript
+// resources/Stores/User/useUser.Store.ts
 interface User {
     id: number;
     name: string;
@@ -82,10 +82,7 @@ use os helpers de rota do `@maxvue/max-use`, que executam a requisição e retor
 (não `{ data }`).
 
 ```typescript
-// stores/todos.ts
-import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
-
+// resources/Stores/Todo/useTodo.Store.ts (defineStore/ref/computed/helpers auto-importados)
 interface Todo {
     id: number;
     title: string;
@@ -203,10 +200,7 @@ router.beforeEach(async (to) => {
 Uma store cacheada pode consumir outra normalmente (as demais stores também são cacheadas).
 
 ```typescript
-// stores/cart.ts
-import { defineStore } from 'pinia';
-import { ref, computed } from 'vue';
-
+// resources/Stores/Cart/useCart.Store.ts (defineStore/ref/computed/helpers auto-importados)
 interface CartItem {
     productId: number;
     quantity: number;

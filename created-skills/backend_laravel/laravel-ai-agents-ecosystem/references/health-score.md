@@ -22,9 +22,18 @@ Past problems or wins fade in impact over time. The factor is applied by calcula
 *Use the data trend in the text report to justify the reasoning.*
 
 ### 3. Mathematical Guidelines (Penalties/Bonuses)
-- **Business**: Critical drop (-35); Moderate drop (-15); Active default (-30); Significant growth (+15).
-- **Experience**: Cancellation threat / very hostile tone (-30); Excessive effort (-20); Explicit praise (+10).
-- **Operation**: Technical crisis under our responsibility (-25); Technical recovery or masterful solution (+15).
+Cada área inicia em 100; some/subtraia os itens da própria área e faça clamp em 0–100.
+Espelhe EXATAMENTE o bloco `<LOGICA_DE_CALCULO>` do prompt de `app/Ai/Agents/AgentHealthScore.php`:
+
+- **Business (`negocios`)** — Penalidades: Churn Silencioso (Ghosting) / Queda Crítica >50% (-35);
+  Queda Leve de Volume 20–50% (-15); Inadimplência Atual (-30); Atrasos Recorrentes (-10).
+  Bônus: Expansão / Growth >20% (+15).
+- **Experience (`experiencia`)** — Penalidades: Tom Hostil / Ameaça de Cancelamento (-30);
+  Alto Esforço / Efeito Ping-Pong (-20); Gargalo no Suporte (-10);
+  Ansiedade / Urgência Constante (-10). Bônus: Paradoxo da Recuperação / Service Recovery (+15);
+  Advocacy / Promotor da Marca (+10).
+- **Operation (`operacao`)** — Penalidades: Crise Técnica sob nossa responsabilidade (-25);
+  Atrito de Escopo / Scope Creep (-15). Bônus: Paradoxo da Recuperação técnico (+15).
 
 ### 4. Insufficient Data Condition
 If any area lacks billable information during data collection, assign a value of **5** and make clear in the text that this number does not represent a failure, but rather a lack of metrics.

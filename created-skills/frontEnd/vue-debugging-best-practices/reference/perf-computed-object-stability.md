@@ -111,7 +111,8 @@ count.value = 4  // Logs again! New object reference
 
 ```javascript
 import { ref, computed } from 'vue'
-import { isEqual } from 'lodash-es'  // For deep comparison
+// No engeapp, helpers utilitários vêm de @maxvue/max-use (nunca lodash direto)
+import { isEqual } from '@maxvue/max-use'  // Comparação profunda
 
 const filters = ref({ category: 'all', sortBy: 'date', page: 1 })
 

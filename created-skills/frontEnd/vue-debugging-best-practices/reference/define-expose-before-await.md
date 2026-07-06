@@ -33,8 +33,8 @@ function increment() {
 }
 
 // WRONG: await before defineExpose
-const response = await fetch('/api/data')
-data.value = await response.json()
+// No engeapp, GETs vão via apiGetRoute (nome de rota Ziggy pontilhado), não fetch cru
+data.value = await apiGetRoute('componente.dados')
 
 // BROKEN: This won't work - called after await!
 defineExpose({
@@ -76,6 +76,7 @@ onMounted(() => {
 <!-- ChildComponent.vue -->
 <script setup>
 import { ref } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const data = ref(null)
 const count = ref(0)
@@ -92,8 +93,7 @@ defineExpose({
 })
 
 // Now safe to use await
-const response = await fetch('/api/data')
-data.value = await response.json()
+data.value = await apiGetRoute('componente.dados')
 </script>
 
 <template>
@@ -105,6 +105,7 @@ data.value = await response.json()
 <!-- Alternative: Separate async logic from expose -->
 <script setup>
 import { ref, onMounted } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const data = ref(null)
 const loading = ref(true)
@@ -115,8 +116,7 @@ function getData() {
 
 async function refreshData() {
   loading.value = true
-  const response = await fetch('/api/data')
-  data.value = await response.json()
+  data.value = await apiGetRoute('componente.dados')
   loading.value = false
 }
 
@@ -144,6 +144,7 @@ onMounted(() => {
 <!-- If you must use top-level await, define expose first -->
 <script setup>
 import { ref } from 'vue'
+import { apiGetRoute } from '@maxvue/max-use'
 
 const user = ref(null)
 const posts = ref([])
@@ -157,12 +158,12 @@ defineExpose({
 
 // Now safe to await
 async function loadData() {
-  const [userRes, postsRes] = await Promise.all([
-    fetch('/api/user'),
-    fetch('/api/posts')
+  const [userData, postsData] = await Promise.all([
+    apiGetRoute('usuario.atual'),
+    apiGetRoute('post.lista')
   ])
-  user.value = await userRes.json()
-  posts.value = await postsRes.json()
+  user.value = userData
+  posts.value = postsData
 }
 
 // Top-level await after defineExpose is safe

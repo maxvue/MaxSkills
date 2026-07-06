@@ -1,6 +1,6 @@
 ---
 name: laravel-rate-limiting-best-practices
-description: Use when configuring, optimizing, or debugging rate limits for HTTP routes, APIs, login endpoints, or queues in Laravel. Triggers on defining rate limiters in bootstrap/app.php, using RateLimiter facade, applying throttle middleware, customizing 429 response, and testing route throttling.
+description: Use ao configurar, otimizar ou depurar limites de requisições (rate limiting) para rotas HTTP, APIs, login ou filas no Laravel 13. Aciona ao definir limiters nomeados em App\Providers\AppServiceProvider via RateLimiter::for, aplicar o middleware throttle (nomeado ou inline throttle:6,1), fazer throttling manual em FormRequest (tooManyAttempts/hit/clear), customizar a resposta 429 e testar no Pest.
 ---
 
 # Boas Práticas de Rate Limiting no Laravel
@@ -32,11 +32,59 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
      Route::middleware('throttle:api')->group(function () {
          Route::get('/user', [UserController::class, 'show']);
      });
+     ```
+   - Para limites simples que não precisam de um limiter nomeado, use a forma inline `throttle:<tentativas>,<minutos>`. Este é o padrão adotado no engeapp para rotas sensíveis de verificação de e-mail (`routes/auth.php`):
+     ```php
+     Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
+         ->middleware(['signed', 'throttle:6,1'])
+         ->name('verification.verify');
 
-     Route::middleware('throttle:login')->post('/login', [AuthController::class, 'login']);
+     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+         ->middleware('throttle:6,1')
+         ->name('verification.send');
      ```
 
-3. **Throttling Dinâmico e Identificação**:
+3. **Throttling manual dentro de um FormRequest (padrão do login no engeapp)**:
+   - Para fluxos que precisam contar apenas tentativas com FALHA (ex.: login por brute-force), o padrão Breeze faz o throttling dentro do próprio `FormRequest`, e NÃO via limiter nomeado em `AppServiceProvider`. No engeapp isso vive em `app/Http/Requests/Auth/LoginRequest.php`, consumido pela rota `POST /login_request` (`->name('login')`).
+   - Antes de autenticar, verifique o limite; em cada falha, incremente (`hit`); no sucesso, limpe (`clear`). Escope a chave por e-mail + IP.
+     ```php
+     use Illuminate\Auth\Events\Lockout;
+     use Illuminate\Support\Facades\RateLimiter;
+     use Illuminate\Support\Str;
+     use Illuminate\Validation\ValidationException;
+
+     public function ensureIsNotRateLimited(): void
+     {
+         // 5 tentativas com falha por chave antes de bloquear
+         if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+             return;
+         }
+
+         event(new Lockout($this));
+         RateLimiter::availableIn($this->throttleKey());
+
+         throw ValidationException::withMessages([]);
+     }
+
+     public function authenticate(): void
+     {
+         $this->ensureIsNotRateLimited();
+
+         if (! Auth::attempt($credentials, $this->boolean('remember'))) {
+             RateLimiter::hit($this->throttleKey()); // conta só a falha
+             throw ValidationException::withMessages([]);
+         }
+
+         RateLimiter::clear($this->throttleKey()); // sucesso zera o contador
+     }
+
+     public function throttleKey(): string
+     {
+         return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
+     }
+     ```
+
+4. **Throttling Dinâmico e Identificação**:
    - Nunca use um limite estático sem diferenciação por usuário/IP, caso contrário um único usuário poderia bloquear a aplicação inteira.
    - Para rotas autenticadas, escopo pelo ID do usuário: `$request->user()?->id`.
    - Para rotas de convidado (como login/reset de senha), escopo pelo endereço IP: `$request->ip()`.
@@ -49,7 +97,7 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
      });
      ```
 
-4. **Personalizando a Resposta 429 Too Many Requests**:
+5. **Personalizando a Resposta 429 Too Many Requests**:
    - Personalize a resposta HTTP 429 para retornar um JSON limpo e padronizado em vez das páginas de exceção HTML padrão do Laravel para rotas de API.
    - Defina headers de resposta e mensagens de erro customizados:
      ```php
@@ -65,7 +113,7 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
      });
      ```
 
-5. **Rate Limiting em Filas de Jobs**:
+6. **Rate Limiting em Filas de Jobs**:
    - Se os jobs interagem com APIs externas com rate limit (ex: gateways de pagamento, provedores externos de IA), use o rate limiter `redis` para controlar a execução dos workers da fila:
      ```php
      use Illuminate\Support\Facades\Redis;
@@ -81,36 +129,38 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
          });
      ```
 
-6. **Contornando o Rate Limiting em Ambientes Locais/de Teste**:
-   - Para evitar bloquear testes automatizados ou fluxos de desenvolvimento local, permita desabilitar os rate limits via configuração no `.env` ou durante a execução dos testes.
+7. **Contornando o Rate Limiting em Ambientes Locais/de Teste**:
+   - Para evitar bloquear testes automatizados ou fluxos de desenvolvimento local, permita desabilitar os rate limits durante a execução dos testes.
+   - `app()->runningUnitTests()` já cobre o cenário de testes sem exigir configuração extra. Se quiser também uma flag por ambiente, crie você mesmo a chave (ela NÃO existe no engeapp: não há `config/security.php`) — publique um `config/security.php` retornando `['disable_rate_limits' => env('DISABLE_RATE_LIMITS', false)]` antes de referenciá-la.
    - Em `AppServiceProvider.php`:
      ```php
+     // config('security.disable_rate_limits') pressupõe um config/security.php criado por você.
      if (app()->runningUnitTests() || config('security.disable_rate_limits')) {
          RateLimiter::for('api', fn () => Limit::none());
      }
      ```
 
-7. **Testando o Throttling com o Pest**:
-   - Use os testes de arquitetura e de feature do Pest para verificar se os endpoints têm o throttle aplicado corretamente.
-   - Simule requisições consecutivas usando loops e verifique o status code:
+8. **Testando o Throttling com o Pest**:
+   - Use os testes de feature do Pest para verificar se os endpoints têm o throttle aplicado corretamente.
+   - Simule requisições consecutivas usando loops e verifique o status code. No engeapp o login é `POST /login_request` (`->name('login')`) e o throttling do `LoginRequest` dispara `ValidationException` (HTTP 422) até estourar o limite — a 6ª tentativa apenas acrescenta a mensagem de lockout, sem trocar o status. Prefira asserir contra o nome de rota (`route('login')`) e checar a mensagem/evento de bloqueio:
      ```php
-     it('throttles login requests after 5 attempts', function () {
-         // Realiza 5 requisições bem-sucedidas ou com falha
+     it('bloqueia o login após 5 tentativas com falha', function () {
          for ($i = 0; $i < 5; $i++) {
-             $response = $this->postJson('/api/login', [
-                 'email' => 'user@example.com',
-                 'password' => 'wrong-password'
-             ]);
-             $response->assertStatus(422); // Erro de validação, mas ainda sem throttle
+             $this->postJson(route('login'), [
+                 'email'    => 'user@example.com',
+                 'password' => 'senha-errada',
+             ])->assertStatus(422); // credenciais inválidas, ainda sem lockout
          }
 
-         // A 6ª requisição deve ter o throttle aplicado
-         $this->postJson('/api/login', [
-             'email' => 'user@example.com',
-             'password' => 'wrong-password'
-         ])->assertStatus(429);
+         // A partir daqui o RateLimiter marca lockout (evento Lockout + availableIn).
+         Illuminate\Support\Facades\Event::fake();
+         $this->postJson(route('login'), [
+             'email'    => 'user@example.com',
+             'password' => 'senha-errada',
+         ])->assertStatus(422);
      });
      ```
+   - Para rotas com o middleware `throttle` nomeado ou inline (ex.: `throttle:6,1`), aí sim a resposta esperada após o limite é HTTP 429; teste o status code diretamente.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

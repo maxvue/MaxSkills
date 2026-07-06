@@ -8,7 +8,7 @@ Estabelecer convenções rígidas de arquitetura, estilização, testes e regist
 
 ## Instruções
 
-## 1. Estrutura SFC (Single-File Component) e Convenções de Código
+### 1. Estrutura SFC (Single-File Component) e Convenções de Código
 * **Composition API**: É estritamente obrigatório utilizar a Composition API (`<script setup lang="ts">`). A Options API é proibida.
 * **Estilização**: Use sempre `<style lang="scss">` ou `<style scoped lang="scss">`. CSS puro não é permitido.
 * **Ordem dos Blocos**: Mantenha as seções do SFC exatamente nesta ordem:
@@ -22,7 +22,7 @@ Estabelecer convenções rígidas de arquitetura, estilização, testes e regist
   - Dentro do bloco `<template>`, mantenha **sempre** todos os atributos/parâmetros de uma tag (componente, `div` ou qualquer elemento) em **uma única linha** (estilo inline), por mais atributos que tenha. **Nunca** quebre atributos em várias linhas. Ex.: `<MaxModal ref="cardModal" no-button class="card-modal">` — e nunca a forma quebrada com `ref`, `no-button` e `class` cada um em sua própria linha.
   - **Nunca use `<section>`**: use sempre `<div>` no lugar de `<section>` (e de outras tags seccionais) para agrupar conteúdo.
 
-## 2. Componentes de Entrada de Formulário e `InputBase`
+### 2. Componentes de Entrada de Formulário e `InputBase`
 * Todos os componentes que funcionam como inputs de formulário devem ser encapsulados usando o componente `<InputBase>` como o elemento externo mais abrangente.
 * O `<InputBase>` gerencia:
   - Layouts de labels flutuantes (`FloatLabel`) e campos com ícone (`IconField`/`InputIcon`).
@@ -31,12 +31,12 @@ Estabelecer convenções rígidas de arquitetura, estilização, testes e regist
   - Modos de label em linha (inline) e ícones personalizados.
 * Certifique-se de repassar as propriedades de validação (`error`, `done`, `caution` e `required`) corretamente do seu componente para o componente interno `<InputBase>`.
 
-## 3. Extensão de Componentes PrimeVue
+### 3. Extensão de Componentes PrimeVue
 * Ao criar wrappers para componentes PrimeVue 4, integre-os ao preset de tema personalizado (`MaxStyle`) e utilize as variáveis de estilo padrão do tema.
 * Utilize variáveis CSS derivadas do tema (`var(--max-primary-500)`, `var(--background-300)`, `var(--blue-600)`) dentro dos seus blocos SCSS em vez de usar cores hexadecimais estáticas (hardcoded).
 * Integre classes utilitárias do UnoCSS (`virtual:uno.css`) para gerenciar layout, espaçamentos e configurações de flexbox quando apropriado.
 
-## 4. Especificações de Testes (Vitest)
+### 4. Especificações de Testes (Vitest)
 * Todos os arquivos de componentes devem possuir testes unitários correspondentes dentro da pasta `tests/components/` (ex: `tests/components/MaxInputText.test.ts`).
 * **Configuração dos Testes**:
   - Faça o mock do Pinia globalmente nos testes utilizando `setActivePinia(createPinia())` dentro do gancho `beforeEach`.
@@ -47,7 +47,7 @@ Estabelecer convenções rígidas de arquitetura, estilização, testes e regist
   - Garanta que atualizações externas de `modelValue` refletem no valor do elemento de entrada de forma reativa.
   - Valide os comportamentos de formulário (ex: acionar erro de campo obrigatório ao disparar `blur` com o campo vazio, e validar se as props `done` ou `error` são propagadas corretamente no componente filho `<InputBase>`).
 
-## 5. Registro de Componentes e Auto-Import (Resolver)
+### 5. Registro de Componentes e Auto-Import (Resolver)
 * As aplicações consumidoras dependem do arquivo `src/components-manifest.json` para resolver e auto-importar componentes dinamicamente.
 * Sempre que um componente em `src/components/` for adicionado, renomeado ou excluído, você **deve** atualizar o manifesto.
 * Execute o script gerador do resolver com o seguinte comando:

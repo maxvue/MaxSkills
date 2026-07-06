@@ -1,6 +1,6 @@
 ---
 name: technical-documentation-best-practices
-description: "Use when writing or improving technical documentation — READMEs, API endpoints, UI components, ADRs, changelogs, CONTRIBUTING guides, install/config guides, or database schemas. Includes TypeScript docs (JSDoc/TSDoc, TypeDoc, ESLint validation, CI/CD pipelines) and doc patterns for Laravel 13 controllers/services and Vue 3 composables. Provides templates, formatting rules and a quality checklist."
+description: "Use when writing or improving technical documentation — READMEs, API endpoints, UI components, ADRs, changelogs, CONTRIBUTING, install/config guides or database schemas. Includes TypeScript docs (JSDoc/TSDoc, TypeDoc, ESLint, CI/CD) and doc patterns for Laravel 13 controllers/services and Vue 3 MaxPinia stores (rotas por nome Ziggy pontilhado). Provides templates and a quality checklist."
 ---
 
 # Boas Práticas de Documentação Técnica
@@ -444,7 +444,7 @@ Requer sessão autenticada (guard `web`, cookie de sessão). O front consome est
 | `pagina`   | `int`    | Não         | Número da página (padrão: 1) |
 | `limite`   | `int`    | Não         | Itens por página (padrão: 15) |
 
-> O consumo no front passa por uma store `@maxvue/max-pinia` (caminho string resolvido por `apiGetRoute`/`apiPostRoute` para `/api/...`), nunca por `axios.get`/`axios.post` manual. Alterações de dados são persistidas via auto-save (debounced) da store.
+> O consumo no front passa por uma store `@maxvue/max-pinia` — configure `options.get.route`/`options.save` com o **nome de rota Ziggy pontilhado** (ex.: `'client.data'`, `'client.save'`), que o Ziggy resolve para a URL final. Chamadas avulsas usam `apiGetRoute`/`apiPostRoute` recebendo esse **nome de rota** (ex.: `apiGetRoute('project.request.python', { id })`), nunca uma string de caminho `/api/...` e nunca `axios.get`/`axios.post` manual. Alterações de dados são persistidas via auto-save (debounced) da store.
 
 ### Body (JSON)
 
@@ -828,32 +828,56 @@ class UsersController
 }
 ```
 
-### JSDoc: composable Vue 3 (GET via store MaxPinia)
+### JSDoc: store MaxPinia (GET/auto-save via nome de rota Ziggy)
+
+No engeapp o GET vai direto pela store `@maxvue/max-pinia` consumida no componente — não há um composable que reembale a store em `{ data, isLoading, error }`. Documente a própria store e seu contrato real: `options.get.route` (nome de rota Ziggy pontilhado), `options.save` (nome de rota), `options.key`, `isCached`, e o estado `status.server.get`.
+
+> **Atenção ao significado dos flags** (`projects/MaxPinia/src/plugin.ts`): o GET **em andamento** é `status.server.get.is_requesting` (setado `true` ao iniciar, `false` ao concluir). `status.server.get.is_requested` NÃO é loading — inicia `false` e vira `true` só depois que a requisição termina (com sucesso OU erro). `status.server.get.is_success` vira `true` apenas quando o GET conclui com sucesso. Para exibir spinner/loading, use `is_requesting` (é assim que os componentes reais fazem, ex.: `MakeDocuments.vue`).
 
 ```typescript
 /**
- * Composable para acessar dados paginados de usinas via store MaxPinia
+ * Store MaxPinia para os dados do cliente do projeto.
  *
  * @remarks
- * O GET ao backend é feito pela store `@maxvue/max-pinia` (cache +
- * salvamento automático debounced); o composable não faz requisições manuais.
- * A rota é um caminho string `/api/...` resolvido por `apiGetRoute`.
+ * O GET e o auto-save (debounced) são feitos pela própria store
+ * `@maxvue/max-pinia`; componentes NÃO fazem requisições manuais.
+ * As rotas em `options` são **nomes de rota Ziggy pontilhados**
+ * (`'client.data'`, `'client.save'`) que o Ziggy resolve para a URL
+ * final — nunca um caminho string `/api/...`. Para loading consuma
+ * `store.status.server.get.is_requesting` (true enquanto o GET corre);
+ * `is_requested` só fica true APÓS concluir e `is_success` só em sucesso.
+ * A leitura fica em `store.data`.
  *
  * @example
  * ```vue
  * <script setup lang="ts">
- * const { data, isLoading, error } = usePaginatedUsinas({ page: 1, limit: 10 })
+ * const client = useClientStore()
+ * // client.data                             -> dados carregados pela store
+ * // client.status.server.get.is_requesting  -> GET em andamento (loading)
+ * // client.status.server.get.is_requested   -> GET finalizado (sucesso ou erro)
+ * // client.status.server.get.is_success     -> GET concluído com sucesso
  * </script>
  * ```
  *
- * @param options - Opções de paginação e filtro
- * @returns Refs reativas com itens, estado de carregamento e erro
+ * @returns Store reativa: `id`, `data`, `options` (`get.route`/`save`/`key`),
+ *   `isCached`, `enabled` e demais refs de estado.
  */
-export function usePaginatedUsinas(
-  options: PaginationOptions
-): UsePaginatedResult<Usina> {
-  // Implementação via store @maxvue/max-pinia
-}
+export const useClientStore = defineStore('project.client', () => {
+  const project = useProjectStore()
+  const isCached = ref(true)
+  // `id` alimenta getKey() (=$id+id) e habilita o GET; precisa ser retornado
+  const id = computed(() => project.id ?? null)
+  const enabled = computed(() => !!id.value)
+  // options com NOMES de rota Ziggy pontilhados (get.route, save) + key
+  const options = computed(() => ({
+    get: { route: 'client.data', data: { project_id: id.value } },
+    enabled: enabled.value,
+    save: 'client.save',
+    key: 'project.client',
+  }))
+  const data = ref<Client | null>(null)
+  return { options, isCached, enabled, id, data }
+})
 ```
 
 ### JSDoc: função utilitária (com `@see` e nota de desempenho)

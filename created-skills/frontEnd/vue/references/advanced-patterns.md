@@ -156,7 +156,10 @@ Suspense waits for:
 ```vue
 <!-- AsyncComponent.vue -->
 <script setup lang="ts">
-const data = await fetch('/api/data').then(r => r.json())
+// No engeapp o await de topo resolve via apiGetRoute (nome de rota Ziggy) ou store MaxPinia,
+// nunca fetch('/api/...') cru.
+import { apiGetRoute } from '@maxvue/max-use'
+const data = await apiGetRoute('project.station.elements', { station_id })
 </script>
 ```
 

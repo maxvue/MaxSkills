@@ -1,87 +1,75 @@
 ---
 name: laravel-meta-graph-api-integration-best-practices
-description: "Use when implementing, reviewing, or debugging Meta Graph API integrations in Laravel 13 — Facebook OAuth, exchanging short-lived for long-lived Page/User tokens, publishing posts/stories/reels to Facebook Pages or Instagram Business, inbound Webhooks, or Redis rate limiting. Triggers on MetaService, FacebookController, InstagramController, MetaWebhookController."
+description: "Use ao implementar, revisar ou depurar integrações com a Graph API da Meta (Facebook/Instagram) no engeapp (Laravel 13): publicação de fotos, reels e carrosséis via containers de mídia, comentários e insights, e webhooks de entrada. Acione em MetaService, MetaRequestTrait, PublishHandler/CommentHandler/MediaHandler, MetaWebhookController, MetaWebhookJob e SocialMediaCredential."
 ---
 
 ## Objetivo
-Fornecer diretrizes arquiteturais sólidas, seguras e resilientes para integrar as APIs Meta Graph (Facebook e Instagram) usando Laravel 13. Esta skill ajuda a implementar o ciclo de vida de troca de tokens, publicação assíncrona de mídia, validação segura de webhooks e padrões de rate limiting.
+Fornecer diretrizes arquiteturais para integrar a Graph API da Meta (Facebook e Instagram) no engeapp usando Laravel 13, fiéis ao módulo real em `App\Services\SocialMedia\Meta`. Cobre a façade de serviço, a camada de transporte HTTP, os fluxos de publicação assíncrona de mídia e a validação de webhooks de entrada.
 
 ## Instruções
 
 ### 1. Estrutura Arquitetural
-- **Padrão Service Façade:** Encapsule a comunicação com a API dentro de um serviço central (ex: `MetaService`). Vincule cada instância a um model de credencial de token apoiado por banco de dados (ex: `SocialMediaCredential`).
-- **Separação de Responsabilidades:** Delegue tarefas específicas a handlers dentro do namespace do serviço:
-  - `PublishHandler`: Upload de mídia, criação de contêiner e publicação.
-  - `CommentHandler`: Recuperar, responder, ocultar ou deletar comentários.
-  - `MediaHandler`: Buscar detalhes de posts, insights e deletar conteúdo.
-- **Camada de Transporte HTTP:** Use uma trait (ex: `MetaRequestTrait`) que encapsula o cliente `Http` do Laravel 13. Esta trait deve:
-  - Construir dinamicamente URLs versionadas com base em variáveis de config (ex: `https://graph.facebook.com/v24.0/`).
-  - Alternar dinamicamente as base URLs entre o Graph padrão do Facebook/Instagram (`graph.facebook.com`) e a Instagram Login API (`graph.instagram.com`).
-  - Anexar o token usando `withToken()`.
-  - Registrar falhas com `Log::warning()` ou `Log::error()` e normalizar respostas de erro (ex: retornar `['error' => $message]` em vez de lançar exceções diretamente para os handlers).
+- **Padrão Service Façade:** Encapsule a comunicação com a API dentro de `MetaService` (`app/Services/SocialMedia/Meta/MetaService.php`). Cada instância é amarrada a uma credencial persistida (`App\Models\Calendar\SocialMediaCredential`) ou ao token global de config.
+- **Handlers por responsabilidade:** O `MetaService` expõe três handlers públicos em `app/Services/SocialMedia/Meta/Handlers/`:
+  - `PublishHandler` (`$service->publish`): criação de container, publicação e posts de Página.
+  - `CommentHandler` (`$service->comment`): recuperar, responder, ocultar ou deletar comentários.
+  - `MediaHandler` (`$service->media`): dados da postagem, insights e remoção quando suportada.
+- **Camada de Transporte HTTP:** Use a trait `MetaRequestTrait` (`MetaRequestTrait.php`) que encapsula o cliente `Http` do Laravel. Ela:
+  - Monta a URL versionada em `buildUrl()`: `$this->base_url . 'v' . $version . '/' . $endpoint` (ex.: `https://graph.facebook.com/v24.0/...`).
+  - Alterna a `base_url` conforme o prefixo do token: tokens do Instagram Login (prefixo `IG`) usam `https://graph.instagram.com/`; tokens Graph clássico (prefixo `EAA`) usam `https://graph.facebook.com/`.
+  - Autentica via `Http::withToken($this->token)->acceptJson()`.
+  - Normaliza erros: retorna sempre um array; em falha de transporte ou credencial ausente devolve `['error' => ...]` e registra via `Log::error()`/`Log::warning()`, sem lançar exceção para os handlers.
 
-### 2. Ciclo de Vida e Troca de Token OAuth
-- **Troca de Token de Curta para Longa Duração:** Quando um usuário autoriza via OAuth, troque o User Access Token de curta duração (válido por ~2 horas) por um User Access Token de longa duração (válido por ~60 dias) usando o endpoint `/oauth/access_token`:
-  ```php
-  Http::get('https://graph.facebook.com/' . $version . '/oauth/access_token', [
-      'grant_type' => 'fb_exchange_token',
-      'client_id' => config('services.facebook.client_id'),
-      'client_secret' => config('services.facebook.client_secret'),
-      'fb_exchange_token' => $shortLivedToken,
-  ]);
-  ```
-- **Page Access Tokens:** Recupere Page Access Tokens de longa duração (que não expiram) usando o endpoint `/accounts` com o User Access Token de longa duração:
-  ```php
-  Http::withToken($longLivedUserToken)->get("https://graph.facebook.com/{$version}/me/accounts");
-  ```
-- **Segurança do Token:** Armazene os access tokens de forma segura no banco de dados. Criptografe-os usando os serviços de criptografia do Laravel e nunca exponha tokens crus para o frontend cliente em respostas de API.
+### 2. Origem do Token e da Versão
+O módulo **consome um access token já persistido** — não há fluxo OAuth de troca de token curto→longo, nem Socialite, nem chamadas a `/oauth/access_token` ou `/me/accounts` no projeto. Resolva o token assim:
+- **Token global (single-tenant):** `config('api.meta_token')` (env `META_TOKEN`, em `config/api.php`).
+- **Versão da Graph API:** `config('api.meta_graph_version', '24.0')` (env `META_GRAPH_VERSION`).
+- **Por credencial:** `MetaService::forCredential(SocialMediaCredential $credential)` usa `$credential->access_token` e `$credential->external_account_id`.
+- **Por empresa:** `MetaService::forCompany(string $solarCompanyId, string $apiName)` resolve a credencial ativa (`is_active`) da empresa para a API do catálogo `EventApi` (ex.: `"Instagram"`) e recai sobre `config('api.meta_token')` quando não há credencial cadastrada; retorna `null` se nenhuma autenticação estiver disponível.
+- **Segurança do Token:** Armazene access tokens no banco (`SocialMediaCredential->access_token`) e nunca exponha tokens crus ao frontend. Não coloque tokens em `.env` versionado nem hardcode no código.
 
-### 3. Fluxos de Publicação de Mídia
-- **Instagram (Processo Assíncrono de 2 Etapas):**
-  1. **Criar Contêiner de Mídia:** Submeta a mídia (`image_url` ou `video_url` com `media_type => 'REELS'`) e a legenda para `{ig-user-id}/media`.
-  2. **Verificar Status de Processamento:** Para itens de vídeo/carrossel, faça polling do status do contêiner em `{container-id}` (campos `status_code`) até que ele mude para `FINISHED`. Trate erros se ele transicionar para `ERROR`.
-  3. **Publicar Contêiner:** Despachado para `{ig-user-id}/media_publish` usando o `creation_id` obtido na etapa 1.
-- **Carrosséis do Instagram:**
-  1. Crie itens de carrossel individuais (contêineres) com `is_carousel_item => true` (sem legenda).
-  2. Espere que todos os contêineres de item transicionem para `FINISHED`.
-  3. Crie um contêiner pai em `{ig-user-id}/media` com `media_type => 'CAROUSEL'`, `children` como uma string de IDs de contêineres filhos separados por vírgula, e a legenda.
-  4. Publique o ID do contêiner pai via `/media_publish`.
-- **Páginas do Facebook (Post Direto):**
-  - Publique fotos diretamente via `{page-id}/photos` usando o parâmetro `url`.
-  - Publique posts de link/texto via `{page-id}/feed` usando os parâmetros `message` e `link`.
+> Se um fluxo OAuth de autorização (Socialite/troca de token) vier a ser necessário, ele **ainda não existe** neste projeto — trate-o como novo recurso a ser construído, não como padrão vigente.
 
-### 4. Configuração e Validação de Webhook
-- **Verificação de Challenge (GET):** Responda ao handshake de verificação da Meta checando o `hub.verify_token` e retornando o `hub.challenge` cru como um inteiro:
+### 3. Fluxos de Publicação de Mídia (`PublishHandler`)
+- **Instagram — imagem única:** `createImageContainer($imageUrl, $caption)` faz `POST {ig-user-id}/media` com `image_url`/`caption`; depois `publishContainer($creationId)` em `{ig-user-id}/media_publish`.
+- **Instagram — Reels:** `createReelsContainer($videoUrl, $caption)` faz `POST {ig-user-id}/media` com `media_type => 'REELS'` e `video_url`. Antes de publicar, faça polling via `getContainerStatus($containerId)` (`GET {container-id}` com `fields => 'status_code,status'`) até `status_code` chegar a `FINISHED`; trate `ERROR`.
+- **Instagram — carrossel:**
+  1. `createCarouselItem($imageUrl)` para cada filho (`is_carousel_item => true`, sem legenda).
+  2. Aguarde todos os filhos ficarem `FINISHED`.
+  3. `createCarouselContainer($childrenIds, $caption)` monta o container-pai (`media_type => 'CAROUSEL'`, `children` = IDs separados por vírgula).
+  4. `publishContainer($creationId)` publica o pai.
+- **Página do Facebook (post direto):**
+  - `publishFacebookPhoto($imageUrl, $message)`: `POST {page-id}/photos` com `url` (e `message` opcional).
+  - `publishFacebookFeed($message, $link)`: `POST {page-id}/feed` com `message` (e `link` opcional).
+- Todo payload usa `array_filter(...)` para omitir campos nulos (ex.: legenda ausente).
+
+### 4. Configuração e Validação de Webhook (`MetaWebhookController`)
+Controller real: `app/Http/Controllers/Api/SocialMedia/MetaWebhookController.php` (método único `index`).
+- **Verificação de Challenge (GET):** Confira o token contra `config('api.meta_webhook_token')` (env `META_WEBHOOK_TOKEN`, definido em `config/api.php`) — **não** existe `config('services.facebook.webhook_verify_token')`. Retorne o `hub_challenge` como inteiro, ou `403` em token inválido:
   ```php
-  if ($request->input('hub_verify_token') === config('services.facebook.webhook_verify_token')) {
-      return response((int) $request->input('hub_challenge'), 200);
+  if ($request->isMethod('get') && $request->has('hub_challenge')) {
+      $token = config('api.meta_webhook_token');
+
+      if ($request->input('hub_verify_token') === $token) {
+          return response((int) $request->input('hub_challenge'), 200);
+      }
+
+      return response('Token inválido', 403);
   }
   ```
 - **Tratamento de Eventos (POST):**
-  - Persista o payload cru em uma tabela de banco de dados (ex: `Webhook`) para fins de auditoria.
-  - Despache instantaneamente um Job em background (ex: `MetaWebhookJob::dispatch($webhookId)->onQueue('webhooks')`) para lidar com o processamento.
-  - Retorne uma resposta rápida (`200 OK` ou `response()->json(false)`) para a Meta a fim de prevenir penalidades de timeout e loops de retentativa.
+  - Persista o payload cru no model `App\Models\Webhook\Webhook` para auditoria (`payload`, `parameters`, `ip`, `route_name`).
+  - Despache o processamento para a fila: `MetaWebhookJob::dispatch($webhook->id)->onQueue('webhooks')`.
+  - Responda de imediato com `response()->json(false)` para não estourar o timeout da Meta e evitar loops de retentativa.
 
-### 5. Proteção de Rate Limiting
-- Os limites da API Meta são calculados por App ou por Page. Implemente a proteção de rate limiting usando o wrapper de cache Redis do Laravel antes de fazer requisições:
-  ```php
-  use Illuminate\Support\Facades\Redis;
-
-  // Exemplo: Restringe a 200 chamadas por página por hora
-  Redis::throttle("meta-api:{$pageId}")
-      ->allow(200)
-      ->every(3600)
-      ->then(function () use ($endpoint, $payload) {
-          return $this->sendRequest($endpoint, $payload);
-      }, function () {
-          // Devolve o job para a fila com backoff
-          throw new RateLimitExceededException();
-      });
-  ```
+### 5. Rate Limiting (orientação genérica — sem implementação no projeto)
+Os limites da Graph API são por App ou por Página. **Este módulo ainda não implementa proteção de rate limiting** (não há `Redis::throttle` nem exceção dedicada no código). Ao adicionar, siga o padrão da stack real:
+- Trate a resposta de erro da Meta (códigos de rate limit) já normalizada pela `MetaRequestTrait` (`['error' => ...]`) e reprograme o job com backoff usando os mecanismos nativos de fila do Laravel (`release()`/`backoff`).
+- Se optar por um throttle proativo com Redis, baseie-o no cliente Redis já usado no projeto e defina a exceção/estratégia explicitamente — não presuma classes existentes.
 
 ## Restrições
-- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
-- **Nunca Faça Hardcode de Segredos:** Nunca faça hardcode de credenciais, access tokens, app IDs ou segredos de webhook. Sempre obtenha-os de arquivos `config()` apoiados por variáveis `.env` seguras.
-- **Processamento Assíncrono de Webhook:** Nunca faça operações pesadas de payload (ex: análise, respostas de comentários, requisições a APIs externas) dentro da thread da requisição de webhook. Sempre transfira para uma fila.
-- **Requisições Idempotentes:** Use operações transacionais e logs ao despachar jobs de publicação para prevenir posts duplicados em caso de quedas temporárias de rede.
-- **Transparência de Erros:** Garanta que todas as exceções do cliente HTTP sejam registradas com contexto (endpoint, payload e mensagens de erro), mas não subam sem tratamento para as camadas de controller. Envolva-as em respostas de array previsíveis.
+- **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR), independentemente do idioma do corpo desta skill.
+- **Nunca Faça Hardcode de Segredos:** Nunca faça hardcode de access tokens, app IDs ou tokens de webhook. Obtenha-os sempre de `config()` (`config/api.php`) apoiado por `.env`.
+- **Processamento Assíncrono de Webhook:** Nunca execute operações pesadas (parsing, respostas de comentário, chamadas externas) na thread da requisição de webhook. Sempre delegue à fila (`MetaWebhookJob` em `->onQueue('webhooks')`).
+- **Transparência de Erros:** Registre exceções do cliente HTTP com contexto (endpoint, método, mensagem), mas não as propague sem tratamento aos controllers — devolva o array previsível `['error' => ...]`, como faz a `MetaRequestTrait`.
+- **Comentários de código em pt-BR.**

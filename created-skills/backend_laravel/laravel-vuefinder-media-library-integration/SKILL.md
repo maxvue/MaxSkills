@@ -14,7 +14,9 @@ Garantir a sincronização em tempo real entre as operações do gerenciador de 
 
 2. **Sincronização de Upload de Arquivo (`onUpload`)**:
    - Garanta a prevenção de duplicatas verificando registros de media existentes com o mesmo nome de arquivo e a mesma propriedade `legacy_folder`.
-   - Crie um registro de Media do Spatie diretamente no model alvo utilizando `Media::create()` com os campos essenciais (`uuid`, `collection_name`, `name`, `file_name`, `mime_type`, `disk`, `size`).
+   - Crie um registro de Media do Spatie diretamente no model alvo (`model_type` = `Project::class`, `model_id` = id do projeto) usando `Media::create()`. Preencha `uuid`, `collection_name` (`'documents'`), `name`, `file_name`, `mime_type`, `disk`, `conversions_disk` (mesmo disk do projeto) e `size`. `conversions_disk` é obrigatório para a regeneração de conversões não quebrar.
+   - Calcule `order_column` como `($project->media()->max('order_column') ?? 0) + 1` para manter a ordenação; sem isso os registros ficam sem ordem definida.
+   - Inicialize os campos JSON exigidos pelo schema do Spatie: `manipulations`, `generated_conversions` e `responsive_images` como arrays vazios.
    - Armazene o caminho do diretório físico em `custom_properties->legacy_folder`.
    - Despache jobs em background ou comandos artisan para regenerar thumbnails ou processar o conteúdo do documento (ex.: `ProcessMediaDocumentReaderJob`).
 
@@ -40,5 +42,5 @@ Garantir a sincronização em tempo real entre as operações do gerenciador de 
 - NUNCA dispare os eventos padrão de model do Eloquent ou os observers do MediaLibrary durante a sincronização (use queries `saveQuietly()` ou `toBase()`) para evitar disparos circulares.
 - NÃO duplique registros de media para arquivos idênticos na mesma pasta virtual.
 
-## Restrições
-- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.
+## Idioma
+- Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o próprio conteúdo/corpo desta skill está escrito.

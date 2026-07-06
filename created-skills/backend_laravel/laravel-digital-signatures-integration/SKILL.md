@@ -21,6 +21,19 @@ Crie classes de Service dedicadas (ex.: `ClicksignService`, `SignatureService`) 
 - Para o Autentique, use apropriadamente o cliente GraphQL/Document fornecido.
 - Registre as falhas usando um canal de logging dedicado (ex.: `autentique`, `clicksign`), especificando um contexto claro.
 
+**Registre o cliente `Documents` no container.** O construtor de `vinicinbgs\Autentique\Documents` recebe o token por argumento (`__construct(string $token = null, ...)`); sem esse argumento o token fica `null` e a API lança `EmptyTokenException`. Por isso, injetar `Documents` direto no service (via property promotion) só funciona porque há um binding explícito no service provider passando o token da config. Sempre registre esse binding antes de depender da injeção:
+
+```php
+// app/Providers/SignatureServiceProvider.php
+public function register(): void
+{
+    $this->app->bind(
+        \vinicinbgs\Autentique\Documents::class,
+        fn () => new \vinicinbgs\Autentique\Documents((string) config('services.autentique.token'))
+    );
+}
+```
+
 ### 3. Processamento Assíncrono de Webhooks
 **Nunca processe webhooks de forma síncrona** para evitar timeouts HTTP. Sempre valide o webhook, extraia os identificadores necessários do payload e despache um job na fila (ex.: `ProcessClicksignWebhookJob`, `ReloadPowerAttorneyStatusJob`) para lidar com a lógica de negócio, sincronização de status ou download de arquivos.
 
@@ -64,18 +77,36 @@ class SignatureService
 ```
 
 ### Validação Segura de Webhook (Autentique)
-Sempre valide as requisições de webhook recebidas contra o segredo de webhook configurado. O segredo deve ser comparado usando comparação de string em tempo constante (`hash_equals`) para prevenir ataques de timing.
+O Autentique autentica o webhook por Bearer token no header `Authorization`. A validação é **condicional ao segredo estar configurado** (`config('services.autentique.webhook_secret')`): se o segredo existir, exija e valide o token; se estiver vazio, o webhook é aceito sem validação de token (comportamento real do `AutentiqueWebhookController`). Quando o token for exigido e inválido, responda **403** (não 401). Compare o segredo com `hash_equals` para prevenir ataques de timing.
 
 ```php
+public function handle(Request $request): JsonResponse
+{
+    $secret = (string) config('services.autentique.webhook_secret');
+
+    // Só valida o token quando há segredo configurado
+    if ($secret && ! $this->isValidToken($request, $secret)) {
+        Log::channel('autentique')->warning('Webhook Autentique: token de autenticação inválido', [
+            'ip' => $request->ip(),
+        ]);
+
+        return response()->json(['error' => 'Token inválido'], 403);
+    }
+
+    // ... extrai event.type / document.id e despacha o job (ver abaixo)
+}
+
 private function isValidToken(Request $request, string $secret): bool
 {
     $token = $request->bearerToken();
-    if (!$token) {
+    if (! $token) {
         return false;
     }
     return hash_equals($secret, $token);
 }
 ```
+
+Após validar, extraia o tipo de evento e o `document.id` do payload (o controller lê tanto `event.data.document.id` quanto os formatos alternativos `data.document.id`/`document.id`), localize o `ProjectPowerOfAttorneyDocument` por `uuid_doc` e despache `ReloadPowerAttorneyStatusJob::dispatch($powerOfAttorney->id)` para sincronizar o status de forma assíncrona.
 
 ### Construir Histórico Linear de Assinaturas
 Ao recuperar os detalhes do documento, mapeie o array de assinaturas para um rastro de histórico linear a fim de expor o progresso em tempo real para o frontend.
@@ -148,7 +179,7 @@ Ao receber uma notificação de status assinado, busque o PDF assinado de forma 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
 - **Sem Processamento Síncrono de Webhook:** Sempre delegue o processamento do payload do webhook, o download de documentos e as verificações de status para jobs em fila em background.
-- **Validação Estrita de Webhook:** Nunca pule a verificação do `X-Hook-Signature` (Clicksign) ou do Token (Autentique). Sempre use `hash_equals()` para comparação em tempo constante a fim de prevenir ataques de timing.
+- **Validação Estrita de Webhook:** Sempre que houver segredo configurado, valide o webhook antes de processá-lo — `X-Hook-Signature` (Clicksign) ou Bearer token (Autentique). No Autentique a validação é condicional: só ocorre quando `services.autentique.webhook_secret` está definido, e a resposta a token inválido é 403. Sempre use `hash_equals()` para comparação em tempo constante a fim de prevenir ataques de timing.
 - **Segredos Baseados em Config:** Não deixe URLs, tokens ou segredos de webhook fixos no código (hardcode).
 - **Use o Cliente HTTP do Laravel (Para APIs REST):** Não use comandos PHP `curl_*` brutos. Sempre use a facade `Http` do Laravel ao se comunicar via REST.
 - **Logging Dedicado:** Todos os eventos, erros e falhas de validação devem ser registrados em seus respectivos canais de log.
