@@ -21,14 +21,27 @@ Status finitos (`SubscriptionStatus`):
 Eventos (`SubscriptionEvent`): `start_trial`, `payment_confirmed`,
 `payment_failed`, `grace_expired`, `cancel`.
 
+Tabela de transições propostas (status atual + evento → status resultante):
+
+| Status atual | Evento              | Status resultante |
+|---------------|---------------------|--------------------|
+| `incomplete`  | `payment_confirmed` | `active`           |
+| `incomplete`  | `start_trial`       | `trialing`         |
+| `trialing`    | `payment_confirmed` | `active`           |
+| `active`      | `payment_failed`    | `past_due`         |
+| `past_due`    | `payment_confirmed` | `active`           |
+| `past_due`    | `grace_expired`     | `grace`            |
+| qualquer não-`canceled` | `cancel`  | `canceled`         |
+
 Auxiliares de transição:
 
-- `canTransition(status, event): boolean` — valida se o par status+evento é legal.
+- `canTransition(status, event): boolean` — valida se o par status+evento é legal
+  segundo a tabela acima.
 - `transition(status, event): SubscriptionStatus` — aplica a transição; lança
   `InvalidTransitionError` quando o par é inválido.
 - `grantsAccess(status: SubscriptionStatus): boolean` — decide se o estado concede
-  acesso. Regra proposta: `active`, `trialing` e `past_due` concedem; `grace`,
-  `incomplete` e `canceled` não.
+  acesso. Regra proposta: `active`, `trialing`, `past_due` e `grace` concedem
+  (a suspensão de fato só ocorre em `canceled`); `incomplete` e `canceled` não.
 
 Nunca permita transição de saída a partir de `canceled`.
 
@@ -60,6 +73,9 @@ export interface Money {
 ## Webhook canônico e idempotência
 
 `parseWebhook` traduz o payload bruto de cada provedor para um
-`CanonicalWebhookEvent` que carrega uma `idempotencyKey` única e determinística
-(ex.: combinação de `txid` + `endToEndId`). O consumidor usa essa chave para
-processar cada evento uma única vez, evitando cobrança/crédito duplicados.
+`CanonicalWebhookEvent` que carrega uma `idempotencyKey` única e determinística,
+igual ao `endToEndId` do Pix, com fallback para o `txid` e, na ausência de
+ambos, `'unknown'` — sem prefixo (mesma regra da skill irmã
+`typescript-max-banks-efi-gateway-best-practices`). O consumidor usa essa
+chave para processar cada evento uma única vez, evitando cobrança/crédito
+duplicados.

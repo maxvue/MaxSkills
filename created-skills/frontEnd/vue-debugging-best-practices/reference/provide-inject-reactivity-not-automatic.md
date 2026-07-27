@@ -13,7 +13,6 @@ tags: [vue3, provide-inject, reactivity, composition-api, options-api]
 ## Task Checklist
 
 - [ ] Always wrap primitive values in `ref()` before providing
-- [ ] Use `computed()` in Options API `provide()` for reactive data
 - [ ] Never destructure refs when providing - pass the ref directly
 - [ ] Understand that provided refs are NOT auto-unwrapped in injectors
 
@@ -80,46 +79,6 @@ const count = inject('count')
   <!-- Access .value in script, auto-unwrapped in template -->
   <div>Count: {{ count }}</div>
 </template>
-```
-
-## Options API: Use computed() for Reactivity
-
-In Options API, the `provide` option with plain properties is NOT reactive:
-
-**Wrong - Options API without computed:**
-```js
-export default {
-  data() {
-    return {
-      message: 'Hello'
-    }
-  },
-  // WRONG: This is NOT reactive
-  provide() {
-    return {
-      message: this.message // Provides 'Hello' as a static string
-    }
-  }
-}
-```
-
-**Correct - Use computed() in Options API:**
-```js
-import { computed } from 'vue'
-
-export default {
-  data() {
-    return {
-      message: 'Hello'
-    }
-  },
-  provide() {
-    return {
-      // CORRECT: Wrap in computed for reactivity
-      message: computed(() => this.message)
-    }
-  }
-}
 ```
 
 ## Understanding Ref Behavior in Inject
@@ -217,8 +176,7 @@ If your injected value isn't updating:
 
 1. Check if you provided `ref.value` instead of `ref`
 2. Check if you destructured a reactive object
-3. In Options API, ensure you used `computed()`
-4. Use Vue DevTools to inspect the provided values
+3. Use Vue DevTools to inspect the provided values
 
 ## Reference
 - [Vue.js Provide/Inject - Working with Reactivity](https://vuejs.org/guide/components/provide-inject.html#working-with-reactivity)

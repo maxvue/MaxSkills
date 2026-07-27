@@ -12,6 +12,8 @@ tags: [vue3, watch, watchers, async, cleanup, race-condition, abort]
 
 Always use `onWatcherCleanup` or the `onCleanup` callback parameter to cancel pending async operations when the watcher re-runs or the component unmounts.
 
+> No engeapp, requisições passam por `apiGetRoute` (`@maxvue/max-use`, nome de rota Ziggy pontilhado), nunca `fetch`/`axios` cru para `/api/...`. `apiGetRoute` não aceita `AbortSignal`, então o padrão `AbortController` abaixo não é aplicável a ela — use o **Invalidation Flag Pattern** (seção mais abaixo) como forma real de descartar respostas obsoletas.
+
 ## Task Checklist
 
 - [ ] Use `onWatcherCleanup()` or `onCleanup` parameter in async watchers
@@ -30,8 +32,8 @@ const results = ref([])
 // BAD: Race condition - slow request for "a" can finish after fast request for "ab"
 watch(searchQuery, async (query) => {
   if (query) {
-    const response = await fetch(`/api/search?q=${query}`)
-    results.value = await response.json()  // May overwrite newer results!
+    // No engeapp: apiGetRoute (@maxvue/max-use), nunca fetch cru
+    results.value = await apiGetRoute('search.index', { q: query })  // May overwrite newer results!
   }
 })
 

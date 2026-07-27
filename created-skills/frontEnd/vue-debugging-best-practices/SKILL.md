@@ -1,12 +1,12 @@
 ---
 name: vue-debugging-best-practices
-description: Use when diagnosing or fixing Vue 3 issues — reactivity bugs, refs not updating from missing .value or ref unwrapping in collections, watcher timing and stale data, template refs becoming null, lifecycle hook problems, hydration/SSR mismatches, and async/component runtime errors and warnings.
+description: Use when diagnosing or fixing Vue 3 issues — reactivity bugs, refs not updating from missing .value or ref unwrapping in collections, watcher timing and stale data, template refs becoming null, lifecycle hook problems, and async/component runtime errors and warnings.
 ---
 
 # Boas Práticas de Depuração no Vue 3
 
 ## Objetivo
-Diagnosticar e corrigir problemas de runtime, avisos, falhas assíncronas e bugs de SSR/hidratação no Vue 3. Use como um roteador: associe o sintoma observado ao guia de referência específico que explica a causa e a correção. Para convenções de desenvolvimento e pegadinhas mais amplas, consulte também `vue-best-practices`.
+Diagnosticar e corrigir problemas de runtime, avisos e falhas assíncronas no Vue 3. Use como um roteador: associe o sintoma observado ao guia de referência específico que explica a causa e a correção. Para convenções de desenvolvimento e pegadinhas mais amplas, consulte também `vue`.
 
 ## Instruções
 Identifique a categoria do sintoma abaixo e abra o guia de referência correspondente para a causa detalhada e a correção.
@@ -25,7 +25,7 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 - Getter de computed dispara mutações ou requisições inesperadamente → Veja [computed-no-side-effects](reference/computed-no-side-effects.md)
 - Mutar valores de computed faz as mudanças desaparecerem → Veja [computed-return-value-readonly](reference/computed-return-value-readonly.md)
 - Valor de computed nunca atualiza após lógica condicional → Veja [computed-conditional-dependencies](reference/computed-conditional-dependencies.md)
-- Ordenar ou inverter arrays quebra o estado original → Veja [computed-array-mutation](reference/computed-array-mutation.md)
+- Ordenar ou inverter arrays quebra o estado original (também em métodos usados em v-for) → Veja [computed-array-mutation](reference/computed-array-mutation.md)
 - Passar parâmetros para propriedades computed falha → Veja [computed-no-parameters](reference/computed-no-parameters.md)
 
 ### Watchers
@@ -41,7 +41,6 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 - Componente filho lança erro "component not found" → Veja [local-components-not-in-descendants](reference/local-components-not-in-descendants.md)
 - Listener de clique não dispara em componente customizado → Veja [click-events-on-components](reference/click-events-on-components.md)
 - Pai não consegue acessar dados de ref do filho em script setup → Veja [component-ref-requires-defineexpose](reference/component-ref-requires-defineexpose.md)
-- Parsing de template HTML quebra a sintaxe de componente Vue → Veja [in-dom-template-parsing-caveats](reference/in-dom-template-parsing-caveats.md)
 - Componente errado renderiza por colisões de nomes → Veja [component-naming-conflicts](reference/component-naming-conflicts.md)
 - Estilos do pai não se aplicam a componente multi-raiz → Veja [multi-root-component-class-attrs](reference/multi-root-component-class-attrs.md)
 
@@ -61,13 +60,12 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 - Misturar v-if com v-for causa bugs de precedência e quebra na migração → Veja [no-v-if-with-v-for](reference/no-v-if-with-v-for.md)
 - Chamadas de função no template que mutam estado causam bugs imprevisíveis de re-render → Veja [template-functions-no-side-effects](reference/template-functions-no-side-effects.md)
 - Componentes filhos em loops mostrando dados undefined → Veja [v-for-component-props](reference/v-for-component-props.md)
-- Ordem do array mudando após ordenar ou inverter → Veja [v-for-computed-reverse-sort](reference/v-for-computed-reverse-sort.md)
 - Itens de lista desaparecendo ou trocando de estado inesperadamente → Veja [v-for-key-attribute](reference/v-for-key-attribute.md)
 - Erros de off-by-one ao iterar sobre intervalos → Veja [v-for-range-starts-at-one](reference/v-for-range-starts-at-one.md)
 - v-show ou v-else não funcionando em elementos template → Veja [v-show-template-limitation](reference/v-show-template-limitation.md)
 
 ### Template Refs
-- Ref vira null quando o elemento é ocultado condicionalmente → Veja [template-ref-null-with-v-if](reference/template-ref-null-with-v-if.md)
+- Ref vira null quando o elemento é ocultado condicionalmente → Veja [ts-template-ref-null-handling](reference/ts-template-ref-null-handling.md)
 - Índices do array de refs não batem com o array de dados em loops → Veja [template-ref-v-for-order](reference/template-ref-v-for-order.md)
 - Renomear template refs quebra silenciosamente no código → Veja [use-template-ref-vue35](reference/use-template-ref-vue35.md)
 
@@ -79,7 +77,7 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 - Mudanças em propriedade de objeto não sincronizam com o pai → Veja [definemodel-object-mutation-no-emit](reference/definemodel-object-mutation-no-emit.md)
 - Busca/validação em tempo real quebrada para entrada chinesa/japonesa → Veja [v-model-ime-composition](reference/v-model-ime-composition.md)
 - Input numérico retorna string vazia em vez de zero → Veja [v-model-number-modifier-behavior](reference/v-model-number-modifier-behavior.md)
-- Valores de checkbox customizados não enviados nos formulários → Veja [checkbox-true-false-value-form-submission](reference/checkbox-true-false-value-form-submission.md)
+- Estado de checkbox precisa ser transformado antes de enviar via apiPostRoute → Veja [checkbox-true-false-value-form-submission](reference/checkbox-true-false-value-form-submission.md)
 
 ### Eventos e Modificadores
 - Encadear múltiplos modificadores de evento produz resultados inesperados → Veja [event-modifier-order-matters](reference/event-modifier-order-matters.md)
@@ -91,7 +89,6 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 - Vazamentos de memória por listeners de evento não removidos → Veja [cleanup-side-effects](reference/cleanup-side-effects.md)
 - Acesso ao DOM falha antes de o componente montar → Veja [lifecycle-dom-access-timing](reference/lifecycle-dom-access-timing.md)
 - Leituras do DOM retornam valores obsoletos após mudanças de estado → Veja [dom-update-timing-nexttick](reference/dom-update-timing-nexttick.md)
-- Renderização SSR difere da hidratação no cliente → Veja [lifecycle-ssr-awareness](reference/lifecycle-ssr-awareness.md)
 - Hooks de ciclo de vida registrados assincronamente nunca rodam → Veja [lifecycle-hooks-synchronous-registration](reference/lifecycle-hooks-synchronous-registration.md)
 
 ### Slots
@@ -169,18 +166,11 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 
 ### Teleport
 - Elemento alvo do Teleport não encontrado no DOM → Veja [teleport-target-must-exist](reference/teleport-target-must-exist.md)
-- Conteúdo teleportado quebra a hidratação SSR → Veja [teleport-ssr-hydration](reference/teleport-ssr-hydration.md)
 - Estilos com escopo não se aplicam ao conteúdo teleportado → Veja [teleport-scoped-styles-limitation](reference/teleport-scoped-styles-limitation.md)
 
 ### Suspense
 - Necessidade de tratar erros assíncronos de componentes em Suspense → Veja [suspense-no-builtin-error-handling](reference/suspense-no-builtin-error-handling.md)
-- Usar Suspense com renderização no servidor → Veja [suspense-ssr-hydration-issues](reference/suspense-ssr-hydration-issues.md)
 - UI de loading/erro de componente assíncrono ignorada sob Suspense → Veja [async-component-suspense-control](reference/async-component-suspense-control.md)
-
-### SSR
-- HTML difere entre renderizações do servidor e do cliente → Veja [ssr-hydration-mismatch-causes](reference/ssr-hydration-mismatch-causes.md)
-- Estado de usuário vaza entre requisições por stores singleton compartilhadas → Veja [state-ssr-cross-request-pollution](reference/state-ssr-cross-request-pollution.md)
-- APIs apenas de navegador quebram a renderização no servidor em código universal → Veja [ssr-platform-specific-apis](reference/ssr-platform-specific-apis.md)
 
 ### Performance
 - Filhos de lista re-renderizam desnecessariamente porque o pai passa props instáveis → Veja [perf-props-stability-update-optimization](reference/perf-props-stability-update-optimization.md)
@@ -204,10 +194,9 @@ Identifique a categoria do sintoma abaixo e abra o guia de referência correspon
 ### Configuração do App
 - Métodos de configuração do app não funcionando após a chamada de mount → Veja [configure-app-before-mount](reference/configure-app-before-mount.md)
 - Encadear config do app a partir de mount() falha porque mount retorna a instância do componente → Veja [mount-return-value](reference/mount-return-value.md)
-- Auto-registro de componentes baseado em require.context falha no Vite → Veja [dynamic-component-registration-vite](reference/dynamic-component-registration-vite.md)
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - Trate cada guia de referência como a fonte de verdade para o seu sintoma específico; não adivinhe uma correção quando existe um guia correspondente.
 - Associe pelo sintoma de runtime observado (erro, aviso, valor obsoleto, divergência), não apenas pelo nome da API.
-- Para convenções de desenvolvimento e pegadinhas não relacionadas a depuração, recorra a `vue-best-practices` em vez de duplicar a orientação aqui.
+- Para convenções de desenvolvimento e pegadinhas não relacionadas a depuração, recorra a `vue` em vez de duplicar a orientação aqui.

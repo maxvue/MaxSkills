@@ -58,7 +58,7 @@ try {
     ]);
 }
 
-// Multi-catch for same handling (PHP 8.0+)
+// Multi-catch for same handling (PHP 7.1+)
 try {
     $data = $api->fetch($endpoint);
 } catch (ConnectionException | TimeoutException $e) {
@@ -85,5 +85,5 @@ try {
 - **No Hidden Bugs**: Unexpected exceptions bubble up instead of being silently swallowed
 - **Appropriate Responses**: Different errors get different handling (404 vs 500 vs retry)
 - **Better Debugging**: When something breaks, you see the actual error
-- **Multi-Catch**: PHP 8.0+ `catch (A | B $e)` groups exceptions with same handling
+- **Multi-Catch**: PHP 7.1+ `catch (A | B $e)` groups exceptions with same handling
 - **Preserve Context**: Use `previous: $e` when re-throwing to keep the full chain

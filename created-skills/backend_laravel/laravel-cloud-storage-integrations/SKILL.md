@@ -20,18 +20,17 @@ Configurar, integrar, testar e manter armazenamento remoto de forma segura no en
 * **Seafile/WebDAV (caso real):** Não crie um disco chamado `webdav`. Registre o driver customizado uma única vez em um Service Provider com `Storage::extend('seafile', ...)`, encapsulando `league/flysystem-webdav` (`WebDAVAdapter`) sobre `Sabre\DAV\Client`. Nos discos, use `driver => 'seafile'` e um `root` próprio; mantenha as credenciais em `config('filesystems.seafile')`, nunca por disco.
 * **S3/MinIO/R2 (genérico):** Se algum dia forem adotados, use o driver nativo `s3`. Para MinIO local, `AWS_USE_PATH_STYLE_ENDPOINT` = `true`; para Cloudflare R2, `false`. Não trate o bloco `s3` atual como integração ativa.
 
-### 2. Processamento de Arquivos Grandes e Streams
-* **Nunca** carregue arquivos grandes inteiros na memória com `file_get_contents()` ou `Storage::get()`.
-* **Uploads:** Use stream resources — `Storage::disk('projects')->writeStream('caminho', $streamLocal)` — ou `putFile()`.
-* **Downloads:** Faça stream do arquivo remoto para um arquivo local com `Storage::disk($disk)->readStream()`.
+### 2. Processamento de Arquivos Grandes e Cópia Local
+* **Padrão real do projeto:** use as helpers globais `resolveLocalDiskPath($diskName, $fileName)` e `saveToRemoteDisk($diskName, $relativePath, $content)` de `app/Helpers/FilesHelpers.php` em vez de chamar `->path()`/`file_get_contents()`/`file_put_contents()` diretamente ou reimplementar download temporário. Elas já fazem o branch por driver (`local` vs remoto), cache estático por requisição (`$_resolvedDiskPaths`) e limpeza (`cleanupResolvedDiskPaths()`).
+* O caminho real para disco remoto hoje lê o conteúdo inteiro via `Storage::disk($diskName)->get($fileName)` (é assim que `resolveLocalDiskPath()` e `App\Classes\PdfEdit` — linhas 89-94 — funcionam). `readStream()`/`writeStream()` são recomendação genérica de streaming para arquivos muito grandes, ainda não adotada no código — não os apresente como padrão vigente do projeto.
 
 ### 3. Incompatibilidade de path() em discos remotos
-* Enquanto um disco usa `driver => 'local'` (como o `projects` hoje), `Storage::disk(...)->path()` funciona — e o código depende disso (ex.: `Project::getPathAttribute()`, `hash_file`, `pathinfo`).
-* Ao migrar um disco para `driver => 'seafile'` (WebDAV), `path()` deixa de fazer sentido e lançará exceção — o adapter remoto não mapeia caminhos locais. Antes de migrar, substitua cada `->path()` por uma cópia temporária local: baixe via `readStream()` para um diretório temporário, processe (ex.: geração de PDF, hashing) e limpe depois.
+* Enquanto um disco usa `driver => 'local'` (como o `projects` hoje), `Storage::disk(...)->path()` funciona — e o código depende disso: `Project::getPathAttribute()` (`app/Models/Project/Project.php:414`), `hash_file('sha512', ...->path($file))` (linha 503) e `pathinfo(...->path($file), PATHINFO_EXTENSION)` (linha 526) são os 3 call sites reais a revisar antes de migrar.
+* Ao migrar um disco para `driver => 'seafile'` (WebDAV), `path()` **não lança exceção** — todos os discos têm `'throw' => false` em `config/filesystems.php`, e o adapter (`FilesystemAdapter::path()`) apenas devolve `$this->prefixer->prefixPath($path)` sem checar o driver. O resultado é um caminho prefixado sem sentido para o WebDAVAdapter: um bug silencioso, mais perigoso que uma exceção. Antes de migrar, substitua cada `->path()` pelas helpers da seção 2 (`resolveLocalDiskPath()` para leitura, `saveToRemoteDisk()` para escrita).
 
 ### 4. Segurança de Arquivos e URLs Temporárias
 * Mantenha arquivos de projeto privados por padrão (os discos de projeto vivem em `app/private/...`).
-* Se e quando usar S3, conceda acesso a documentos sensíveis via `temporaryUrl()` (URLs pré-assinadas), nunca tornando o bucket público. WebDAV/Seafile não oferece URL pré-assinada — sirva o arquivo pela aplicação após autorizar.
+* `temporaryUrl()` já é usado hoje em disco arbitrário: `File::getTempUrlAttribute()` (`app/Models/File/File.php:326`) chama `Storage::disk($this->disk)->temporaryUrl($this->relative_path, now()->addMinutes(10))`, o que funciona em discos locais com `'serve' => true` (ex.: os discos `image` e `images` em `config/filesystems.php`). Atenção ao migrar esse disco para `driver => 'seafile'`: o `WebDAVAdapter` não implementa `temporaryUrl()`, quebrando esse acessor — nesse caso, sirva o arquivo pela aplicação após autorização em vez de gerar URL pré-assinada.
 
 ### 5. Tratamento de Exceções, Logging e Testes
 * **Resiliência:** Falhas de rede e timeouts são comuns em WebDAV. Envolva operações de storage em try-catch e registre contexto de erro descritivo.
@@ -44,8 +43,4 @@ Configurar, integrar, testar e manter armazenamento remoto de forma segura no en
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), independentemente do idioma do corpo desta skill.
-* **SEM Credenciais no Controle de Versão:** Nunca deixe credenciais Seafile/AWS hardcoded. Use `env()`/`config()`, centralizadas em `config('filesystems.seafile')`.
 * **SEM Storage Local em Produção para Arquivos de Usuário:** O alvo é migrar arquivos de projeto para Seafile. Evite deixar assets de usuário apenas em `local`/`public` a longo prazo.
-* **SEM Chamadas de Rede Reais em Testes:** Mocke o filesystem com `Storage::fake()`.
-* **path() em disco remoto:** Não chame `->path()` em discos `driver => 'seafile'`; resolva via arquivo temporário local a partir de `readStream()`.
-* **NUNCA carregue arquivos grandes inteiros na memória:** Sempre use `readStream()`/`writeStream()`.

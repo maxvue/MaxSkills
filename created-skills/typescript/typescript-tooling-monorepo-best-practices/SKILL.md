@@ -13,14 +13,6 @@ Aplicar expertise profunda e prática em TypeScript e JavaScript a problemas do 
 
 ### Quando acionado
 
-0. Se o problema exigir expertise ultra-específica, recomende a troca e pare:
-   - Internos profundos de bundlers webpack/vite/rollup → um especialista de build dedicado
-   - Migração ESM/CJS complexa ou análise de dependências circulares → um especialista de módulos dedicado
-   - Profiling de desempenho de tipos ou internos do compilador → um especialista de tipos dedicado
-
-   Exemplo de saída:
-   "Isto requer expertise profunda em bundlers. Por favor, acione um especialista de build dedicado. Parando aqui."
-
 1. Analise a configuração do projeto de forma abrangente. **Use as ferramentas internas primeiro (Read, Grep, Glob) para melhor desempenho. Comandos de shell são alternativas.**
 
    ```bash
@@ -39,7 +31,15 @@ Aplicar expertise profunda e prática em TypeScript e JavaScript a problemas do 
    - Prefira os scripts existentes do projeto a ferramentas cruas
    - Considere project references antes de mudanças amplas no tsconfig
 
-   > **Realidade dos projetos de referência (engeapp, MaxUse, MaxPinia, MaxComponentsUi):** são pacotes npm **separados**, não um monorepo gerenciado — não há `turbo.json`/`nx.json`/`pnpm-workspace.yaml`/`lerna.json`. As libs `Max*` publicáveis definem `composite: true` **por pacote** no próprio `tsconfig.json`; o app engeapp usa `moduleResolution: "bundler"` sem `composite`. O ferramental real é **ESLint + typescript-eslint + Vitest** (nenhum projeto usa Biome). As seções sobre monorepo (Nx/Turborepo) e Biome abaixo são **orientação genérica** — aplique-as apenas se o projeto atual realmente adotar essas ferramentas.
+   > **Realidade dos projetos de referência (engeapp, MaxUse, MaxPinia, MaxComponentsUi)** — vale para toda esta skill, não é repetida adiante:
+   > - São pacotes npm **separados**, não um monorepo gerenciado: não há `turbo.json`/`nx.json`/`pnpm-workspace.yaml`/`lerna.json`.
+   > - As libs `Max*` publicáveis definem `composite: true` **por pacote** no próprio `tsconfig.json`; o app engeapp usa `moduleResolution: "bundler"` sem `composite`.
+   > - Todos usam **TypeScript ^6.0.3** e **vue-tsc ^3.3.2**. Nenhum tsconfig declara `baseUrl` (MaxUse e MaxComponentsUi o mantêm comentado; engeapp e MaxPinia nunca o declararam) porque o TS 6 emite **TS5101** para essa opção — use só `paths`.
+   > - Lint: **ESLint + typescript-eslint** em engeapp, MaxUse e MaxComponentsUi (têm `eslint.config.js` e script `lint`). **MaxPinia não tem ESLint algum** — só TypeScript + Vitest.
+   > - Testes: Vitest em MaxUse, MaxPinia e MaxComponentsUi. O **engeapp não tem script `test`**.
+   > - **Nenhum** projeto usa Biome, Nx ou Turborepo. Onde essas ferramentas aparecerem abaixo, são **orientação genérica/hipotética** — só se aplicam se o projeto atual realmente as adotar.
+   >
+   > Referências desta skill: `references/tsconfig-strict.json` (tsconfig estrito de partida, já sem `baseUrl`) e `references/typescript-cheatsheet.md` (declarações de módulo/ambient e essenciais de tsconfig).
 
 2. Identifique a categoria específica do problema e o nível de complexidade.
 
@@ -47,13 +47,26 @@ Aplicar expertise profunda e prática em TypeScript e JavaScript a problemas do 
 
 4. Valide minuciosamente:
 
+   Use os **scripts reais** de cada projeto (nenhum define um script `typecheck` puro):
+
    ```bash
-   # Abordagem de falha rápida (evite processos de longa duração)
-   npm run -s typecheck || npx tsc --noEmit
-   npm test -s || npx vitest run --reporter=basic --no-watch
+   # MaxUse, MaxPinia, MaxComponentsUi: verificação de tipos inclui os SFCs .vue
+   npm run -s type-check            # vue-tsc --noEmit
+
+   # engeapp, MaxUse, MaxComponentsUi: verificação rápida com o compilador nativo
+   npm run -s typecheck:tsgo        # tsgo --noEmit (@typescript/native-preview)
+
+   # Testes: MaxUse, MaxPinia, MaxComponentsUi (o engeapp não tem script `test`)
+   npm run -s test                  # vitest run
+
+   # Lint: engeapp, MaxUse, MaxComponentsUi (MaxPinia não tem ESLint)
+   npm run -s lint
+
    # Apenas se necessário e se o build afeta saídas/config
    npm run -s build
    ```
+
+   **Nunca valide com `npx tsc --noEmit` um projeto que tenha SFCs:** os `include` do engeapp (`./resources/**/*.vue`), do MaxUse e do MaxComponentsUi (`src/**/*.vue`) abrangem `*.vue` e o `tsc` não checa templates/SFC. Use `vue-tsc` (`type-check`) ou `tsgo` (`typecheck:tsgo`). (O MaxPinia não tem nenhum `.vue` em `src/`, mas o script `type-check` dele também roda `vue-tsc`.)
 
    **Nota de segurança:** Evite processos watch/serve na validação. Use apenas diagnósticos de execução única.
 
@@ -152,23 +165,22 @@ type NestedArray<T, D extends number = 5> =
 # 3. Adicione tipos arquivo por arquivo com assistência de IA
 # 4. Ative os recursos do modo strict um a um
 
-# Ajudantes automatizados (se instalados/necessários)
-command -v ts-migrate >/dev/null 2>&1 && npx ts-migrate migrate . --sources 'src/**/*.js'
-command -v typesync >/dev/null 2>&1 && npx typesync  # Instala pacotes @types faltantes
+# Ajudantes automatizados — nenhum está instalado nos projetos de referência.
+# Rode-os sob demanda (npx baixa o pacote) e só com aval explícito do usuário:
+# npx -y ts-migrate migrate . --sources 'src/**/*.js'
+# npx -y typesync   # Instala pacotes @types faltantes
 ```
 
 **Decisões de migração de ferramentas**
 
 | De | Para | Quando | Esforço de Migração |
 |------|-----|------|-----------------|
-| ESLint + Prettier | Biome | Precisa de muito mais velocidade, ok com menos regras | Baixo (1 dia) |
 | TSC para linting | Apenas type-check | Tem 100+ arquivos, precisa de feedback mais rápido | Médio (2-3 dias) |
-| Lerna | Nx/Turborepo | Precisa de cache, builds paralelos | Alto (1 semana) |
 | CJS | ESM | Node 18+, ferramental moderno | Alto (varia) |
 
 ### Project references e múltiplos pacotes
 
-> Orientação genérica. Nos projetos de referência **não há monorepo gerenciado** (sem Nx/Turborepo). Cada lib publicável (`MaxUse`, `MaxPinia`, `MaxComponentsUi`) é um pacote independente que ativa `composite: true` no **seu próprio** `tsconfig.json`.
+Cada lib publicável (`MaxUse`, `MaxPinia`, `MaxComponentsUi`) é um pacote independente que ativa `composite: true` no **seu próprio** `tsconfig.json`.
 
 **Configuração correta de `composite` (por pacote referenciado)**
 
@@ -202,22 +214,14 @@ Um tsconfig raiz opcional apenas **agrega** as referências, sem `composite` pr�
 
 Compile a árvore com `tsc --build` (ou `tsc -b`), que respeita as referências e a ordem de dependência.
 
-**Se algum dia adotar um runner de monorepo (genérico, não usado hoje):**
-- **Turborepo** para estrutura simples, foco em velocidade, poucos pacotes
-- **Nx** para dependências complexas, grafo/visualização e plugins
+### Ferramental de lint
 
-### Ferramental moderno: ESLint (real) vs Biome (genérico)
+O padrão é **ESLint + typescript-eslint** (com `eslint-plugin-vue` nos pacotes Vue e `@stylistic/eslint-plugin`) em engeapp, MaxUse e MaxComponentsUi; MaxPinia não tem ESLint e é validado só por `vue-tsc` + Vitest.
 
-> **Nos projetos de referência o padrão é ESLint + typescript-eslint** (com `eslint-plugin-vue` nos pacotes Vue e `@stylistic/eslint-plugin`); nenhum usa Biome. Mantenha ESLint ao trabalhar neles.
-
-**Permaneça com ESLint quando (caso destes projetos):**
-- Trabalhar com Vue (suporte limitado do Biome; usa-se `eslint-plugin-vue`)
-- Precisar de regras/plugins específicos ou regras customizadas
-- Precisar de linting type-aware (o Biome ainda não tem isso)
-
-**Biome só faria sentido (genérico) quando:**
-- Velocidade for crítica e você quiser uma única ferramenta lint + format
-- Projeto TypeScript-first sem Vue e sem necessidade das regras acima
+**Permaneça com ESLint** ao trabalhar nestes projetos:
+- Vue exige `eslint-plugin-vue` para checar SFCs
+- Regras/plugins específicos e regras customizadas
+- Linting type-aware
 
 ### Maestria em depuração
 
@@ -234,28 +238,11 @@ grep "Module resolution" resolution.log
 
 # Depurar desempenho de verificação de tipos (use --incremental false para um trace limpo)
 npx tsc --generateTrace trace --incremental false
-# Analisar o trace (se instalado)
-command -v @typescript/analyze-trace >/dev/null 2>&1 && npx @typescript/analyze-trace trace
+# Analisar o trace (pacote @typescript/analyze-trace; não instalado nos projetos — npx baixa sob demanda)
+npx -y @typescript/analyze-trace trace
 
 # Análise de uso de memória
 node --max-old-space-size=8192 node_modules/typescript/lib/tsc.js
-```
-
-**Classes de erro customizadas**
-
-```typescript
-// Classe de erro adequada com preservação de stack
-class DomainError extends Error {
-  constructor(
-    message: string,
-    public code: string,
-    public statusCode: number
-  ) {
-    super(message);
-    this.name = 'DomainError';
-    Error.captureStackTrace(this, this.constructor);
-  }
-}
 ```
 
 ### Melhores práticas atuais
@@ -275,11 +262,12 @@ class DomainError extends Error {
 "Qual ferramenta devo usar?"
 
 ```
-Apenas verificação de tipos? -> tsc
-Verificação de tipos + velocidade de linting crítica? -> Biome
+Verificação de tipos em projeto Vue? -> vue-tsc (script type-check)
+Verificação de tipos rápida (engeapp/MaxUse/MaxComponentsUi)? -> tsgo (script typecheck:tsgo)
 Verificação de tipos + linting abrangente? -> ESLint + typescript-eslint
-Teste de tipos? -> Vitest expectTypeOf
-Ferramenta de build? -> Projeto com <10 pacotes? Turborepo. Senão? Nx
+Teste de tipos? -> hoje nenhum projeto usa `expectTypeOf`; prefira o helper `AssertEqual`
+                   (typescript-advanced-types-best-practices). Vitest `expectTypeOf` é a via
+                   oficial se optar por testes de tipo no runner.
 ```
 
 "Como corrijo este problema de desempenho?"
@@ -295,28 +283,10 @@ Language server lento? -> Exclua node_modules, limite arquivos no tsconfig
 
 Foco nestes aspectos específicos do domínio ao revisar TypeScript.
 
-Segurança de tipos:
-- [ ] Sem tipos `any` implícitos (use `unknown` ou tipos adequados)
-- [ ] Verificações estritas de null ativadas e tratadas corretamente
-- [ ] Asserções de tipo (`as`) justificadas e mínimas
-- [ ] Restrições genéricas definidas adequadamente
-- [ ] Uniões discriminadas para tratamento de erros
-- [ ] Tipos de retorno declarados explicitamente para APIs públicas
-
-Boas práticas de TypeScript:
-- [ ] Prefira `interface` a `type` para formatos de objetos (melhores mensagens de erro)
-- [ ] Use const assertions para tipos literais
-- [ ] Aproveite type guards e predicados
-- [ ] Evite ginástica de tipos quando houver solução mais simples
-- [ ] Tipos de template literal usados apropriadamente
-- [ ] Branded types para primitivos de domínio
-
 Considerações de desempenho:
 - [ ] A complexidade de tipos não causa compilação lenta
 - [ ] Sem profundidade excessiva de instanciação de tipos
 - [ ] Evite tipos mapeados complexos em caminhos quentes (hot paths)
-- [ ] Use `skipLibCheck: true` no tsconfig
-- [ ] Project references configuradas para monorepos
 
 Sistema de módulos:
 - [ ] Padrões consistentes de import/export
@@ -324,18 +294,6 @@ Sistema de módulos:
 - [ ] Uso adequado de barrel exports (evite over-bundling)
 - [ ] Compatibilidade ESM/CJS tratada corretamente
 - [ ] Imports dinâmicos para code splitting
-
-Padrões de tratamento de erros:
-- [ ] Result types ou uniões discriminadas para erros
-- [ ] Classes de erro customizadas com herança adequada
-- [ ] Fronteiras de erro type-safe
-- [ ] Cases de switch exaustivos com o tipo `never`
-
-Organização de código:
-- [ ] Tipos co-localizados com a implementação
-- [ ] Tipos compartilhados em módulos dedicados
-- [ ] Evite augmentation global de tipos quando possível
-- [ ] Uso adequado de arquivos de declaração (.d.ts)
 
 ## Restrições
 
@@ -346,24 +304,3 @@ Limitações de escopo:
 - Sempre valide que as mudanças não quebram a funcionalidade existente antes de considerar o problema resolvido.
 - Não trate a saída como substituto para validação, testes ou revisão especializada específicos do ambiente.
 - Pare e peça esclarecimentos se entradas obrigatórias, permissões, limites de segurança ou critérios de sucesso estiverem faltando.
-
-## Exemplos
-
-Recursos especializados para estudo mais profundo:
-
-Desempenho:
-- [TypeScript Wiki Performance](https://github.com/microsoft/TypeScript/wiki/Performance)
-- [Type instantiation tracking](https://github.com/microsoft/TypeScript/pull/48077)
-
-Padrões avançados:
-- [Type Challenges](https://github.com/type-challenges/type-challenges)
-- [Type-Level TypeScript Course](https://type-level-typescript.com)
-
-Ferramentas:
-- [Biome](https://biomejs.dev) - Linter/formatter rápido
-- [TypeStat](https://github.com/JoshuaKGoldberg/TypeStat) - Correção automática de tipos TypeScript
-- [ts-migrate](https://github.com/airbnb/ts-migrate) - Kit de ferramentas de migração
-
-Testes:
-- [Vitest Type Testing](https://vitest.dev/guide/testing-types)
-- [tsd](https://github.com/tsdjs/tsd) - Teste de tipos standalone

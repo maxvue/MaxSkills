@@ -1,6 +1,6 @@
 # Backend Laravel 13 — Login (sessão + Socialite)
 
-Código de referência para o fluxo de login do ecossistema engeapp. Sessão por cookie (guard `web`), Sanctum para a SPA, Socialite para login social. Rotas **nomeadas** (o Ziggy expõe ao frontend).
+Código de referência para o fluxo de login do ecossistema engeapp. Autenticação **por sessão + cookie** (guard `web`, `SESSION_DRIVER=database`), Socialite para login social. Rotas **nomeadas** (o Ziggy expõe ao frontend). **Não** há Sanctum SPA stateful, `withXSRFToken` no Axios nem endpoint `/sanctum/csrf-cookie` neste projeto — a proteção CSRF vem do cookie de sessão + meta tag `csrf-token` do blade.
 
 ## 1. Rotas — `routes/auth.php`
 
@@ -25,18 +25,67 @@ Route::middleware('auth')->group(function () {
 
 > O endpoint `user.data` / `user.save` (store MaxPinia) vive nas rotas de usuário do app, não aqui.
 
-## 2. `LoginRequest` — e-mail OU telefone + rate limiting
+## 2. Divisão de responsabilidade: controller converte o telefone, request autentica
+
+Ponto central (fiel ao código real): o **controller** converte o telefone para o formato
+internacional e faz o `merge` ANTES de chamar `$request->authenticate()`. O `LoginRequest`
+apenas autentica, escolhendo a credencial por **sentinelas** que o frontend envia quando o
+campo não se aplica (`email = 'undefined@enge.tec.br'` quando o usuário entrou por telefone;
+`phone_number = 'undefined'`/`null` quando entrou por e-mail — ver `useLogin.Store.ts`).
+
+`app/Http/Controllers/Auth/AuthenticatedSessionController.php`
+
+```php
+namespace App\Http\Controllers\Auth;
+
+use App\Classes\PhoneClass; // namespace real: App\Classes (NÃO App\Support)
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class AuthenticatedSessionController extends Controller
+{
+    public function store(LoginRequest $request): RedirectResponse
+    {
+        // Converte o telefone para o formato internacional ANTES de autenticar.
+        $phone_number = $request->input('phone_number')
+            ? PhoneClass::getInternationalPhoneNumber($request->input('phone_number'))
+            : null;
+
+        $request->merge(['phone_number' => $phone_number]);
+        $request->authenticate();
+
+        $request->session()->regenerate(); // previne session fixation
+
+        return redirect('/');
+    }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        Auth::guard('web')->logout();       // guard web (sessão), não token
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
+}
+```
+
+## 3. `LoginRequest` — e-mail OU telefone + rate limiting
 
 `app/Http/Requests/Auth/LoginRequest.php`
 
 ```php
 namespace App\Http\Requests\Auth;
 
-use App\Support\PhoneClass;
+use App\Classes\PhoneClass; // namespace real: App\Classes (NÃO App\Support)
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
@@ -50,35 +99,52 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'        => ['nullable', 'string', 'email'],
-            'phone_number' => ['nullable', 'string'],
-            'password'     => ['required', 'string'],
+            'email'    => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
         ];
     }
 
     /**
      * Autentica por e-mail OU telefone internacional.
+     * O telefone já chega convertido (o controller fez o merge).
      */
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
-        $password = $this->input('password');
-        $remember = $this->boolean('remember');
+        // E-mail é ignorado se for a sentinela 'undefined@enge.tec.br' ou inválido.
+        $validator = Validator::make(
+            ['email' => $this->input('email')],
+            ['email' => 'required|email'],
+        );
 
-        // Decide a credencial: e-mail tem prioridade; senão, telefone internacional.
-        if ($this->filled('email')) {
-            $credentials = ['email' => $this->input('email'), 'password' => $password];
-        } else {
-            $intl = PhoneClass::getInternationalPhoneNumber($this->input('phone_number'));
-            $credentials = ['international_phone_number' => $intl, 'password' => $password];
+        $email = ! $validator->fails() && $this->input('email') !== 'undefined@enge.tec.br'
+            ? $this->input('email')
+            : null;
+
+        // Telefone é ignorado se for a sentinela 'undefined' ou null.
+        $phone = $this->input('phone_number') !== 'undefined' && $this->input('phone_number') !== null
+            ? $this->input('phone_number')
+            : null;
+
+        if (! $email && ! $phone) {
+            throw ValidationException::withMessages([]);
         }
 
-        if (! Auth::attempt($credentials, $remember)) {
+        // Telefone tem prioridade quando presente; senão, e-mail.
+        $credentials = $phone !== null
+            ? [
+                'international_phone_number' => PhoneClass::getInternationalPhoneNumber($phone),
+                'password'                   => $this->input('password'),
+            ]
+            : [
+                'email'    => $email,
+                'password' => $this->input('password'),
+            ];
+
+        if (! Auth::attempt($credentials, $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
-            throw ValidationException::withMessages([
-                'email' => __('auth.failed'),
-            ]);
+            throw ValidationException::withMessages([]);
         }
 
         RateLimiter::clear($this->throttleKey());
@@ -91,52 +157,14 @@ class LoginRequest extends FormRequest
         }
 
         event(new Lockout($this));
-        $seconds = RateLimiter::availableIn($this->throttleKey());
+        RateLimiter::availableIn($this->throttleKey());
 
-        throw ValidationException::withMessages([
-            'email' => __('auth.throttle', [
-                'seconds' => $seconds,
-                'minutes' => ceil($seconds / 60),
-            ]),
-        ]);
+        throw ValidationException::withMessages([]);
     }
 
     public function throttleKey(): string
     {
-        $id = $this->input('email') ?: $this->input('phone_number');
-        return Str::transliterate(Str::lower($id) . '|' . $this->ip());
-    }
-}
-```
-
-## 3. `AuthenticatedSessionController`
-
-`app/Http/Controllers/Auth/AuthenticatedSessionController.php`
-
-```php
-namespace App\Http\Controllers\Auth;
-
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
-class AuthenticatedSessionController extends Controller
-{
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
-        $request->session()->regenerate(); // previne session fixation
-        return redirect()->intended('/');
-    }
-
-    public function destroy(Request $request): RedirectResponse
-    {
-        Auth::guard('web')->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 }
 ```
@@ -234,7 +262,7 @@ class SocialiteController extends Controller
 
 - **Sessão:** `SESSION_DRIVER=database`, tabela `sessions` (id, user_id, ip_address, user_agent, payload, last_activity). `config/session.php`: `same_site = lax`, `http_only = true`, `secure` conforme ambiente.
 - **User model:** estende `Authenticatable`, usa `HasUlids`, cast `'password' => 'hashed'`, colunas `email` (unique), `phone_number` / `international_phone_number` (unique). `email`, `phone_number` no `$fillable`; `password`/`remember_token` no `$hidden`.
-- **CSRF/SPA stateful:** o engeapp usa Sanctum com domínios stateful + `withXSRFToken` no Axios. Detalhes na skill `laravel-sanctum-api-authentication`. Não há endpoint separado obrigatório de `csrf-cookie` quando o cookie XSRF já é emitido pela sessão; se optar pelo fluxo Sanctum clássico, busque `GET /sanctum/csrf-cookie` antes do primeiro POST.
+- **CSRF (sem Sanctum SPA stateful):** o engeapp **não** usa Sanctum stateful, `withXSRFToken` no Axios nem `GET /sanctum/csrf-cookie`. A autenticação é sessão + cookie no guard `web`. A cadeia real de CSRF: `csrf_token()` é serializado no payload de `user.data` (`UserDataControler.php`) → store MaxPinia `useUser` → `useSystemStore.token`/`headerRequests` (header `X-CSRF-TOKEN` + `withCredentials`). A meta tag `csrf-token` existe nos blades, mas o front não a lê. Os helpers do `@maxvue/max-use` (`apiGetRoute`/`apiPostRoute`) já injetam headers e `withCredentials` — não anexe o header CSRF à mão nas chamadas de API. A única exceção com header manual (`XSRF-TOKEN`) são os widgets de upload que fazem HTTP próprio (`FileManager.vue`, `FilesCss.vue`).
 
 ## Armadilhas
 

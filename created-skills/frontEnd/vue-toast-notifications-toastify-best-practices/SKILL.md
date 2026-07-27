@@ -10,16 +10,16 @@ Estabelecer um padrão robusto e consistente para implementar, configurar e disp
 
 ## Instruções
 
-> **Escopo (toast nativo do ecossistema Max):** O `@maxvue/max-components-ui` já fornece um sistema de toast de primeira parte — o helper global `Toast` (`Toast.show({ title, severity })`, `Toast.add(payload)`, `Toast.hide(id)`, `Toast.clear()`), o componente `MaxToast.vue` e a `useToast.Store`. Pela house rule "usar componentes/composables Max* em vez de equivalentes de terceiros", **prefira o `Toast` nativo do Max** para evitar duas pilhas de notificação paralelas no mesmo app. Só adote `vue3-toastify` quando precisar de um recurso que o toast Max não cobre (ex.: `toast.promise`/estados de loading dinâmicos, HTML arbitrário) — e, nesse caso, não registre um segundo container de toast concorrente. Exemplo nativo:
+> **Escopo (toast nativo do ecossistema Max):** O `@maxvue/max-components-ui` já fornece um sistema de toast de primeira parte — o helper global `Toast` (`Toast.show({ title, severity })`, `Toast.add(payload)`, `Toast.hide(id)`, `Toast.clear()`), o componente `MaxToast.vue` e a `useToast.Store`. Pela house rule "usar componentes/composables Max* em vez de equivalentes de terceiros", **prefira o `Toast` nativo do Max** e reserve `vue3-toastify` para recursos que ele não cobre (ex.: `toast.promise`/estados de loading dinâmicos, HTML arbitrário) — nunca registre um segundo container de toast concorrente com o `<MaxToast />`. Exemplo nativo:
 > ```typescript
 > import { Toast } from '@maxvue/max-components-ui';
 > Toast.show({ title: 'Projeto salvo com sucesso!', severity: 'success' });
 > ```
 
 ### 1. Montagem: `<MaxToast />` global + auto-mount do toastify
-No engeapp, o container de toast do app é o `<MaxToast />` (do `@maxvue/max-components-ui`), renderizado uma vez no `App.vue`. O `resources/app.ts` **não** registra `app.use(Vue3Toastify, …)` nem monta `<ToastContainer />` — ele registra apenas `ZiggyVue`, `pinia`, `VueFinder`, `MaxComponentsUi` e o `router`. Não adicione um registro global do `Vue3Toastify`: isso criaria uma segunda pilha de notificações concorrente com o `<MaxToast />`.
+No engeapp, o container de toast do app é o `<MaxToast />` (do `@maxvue/max-components-ui`), renderizado uma vez no `App.vue`. O `resources/app.ts` **não** registra `app.use(Vue3Toastify, …)` nem monta `<ToastContainer />` — ele registra `ZiggyVue`, `vaporInteropPlugin`, `pinia`, `MaxComponentsUi` e o `router` (VueFinder NÃO é registrado globalmente — o `FileManager.vue` provê `VueFinderOptions` localmente).
 
-Quando você usa `vue3-toastify`, importe `{ toast }` e chame-o direto no componente. A lib faz **auto-mount preguiçoso**: na primeira chamada `toast(...)` ela injeta seu próprio container no DOM, sem precisar de `app.use`. É exatamente assim que o projeto já usa (ver `PayPage.vue`, `PaymentBoleto.vue`, `ChatMessageContacts.vue`) — sempre passando as opções por chamada:
+Quando você usa `vue3-toastify`, importe `{ toast }` e chame-o direto no componente. A lib faz **auto-mount preguiçoso**: na primeira chamada `toast(...)` ela injeta seu próprio container no DOM, sem precisar de `app.use`. É assim que os consumidores reais do projeto chamam o toast (ver `CheckoutBoleto.vue`, `CheckoutPix.vue`, `TrtPaymentScheduleModal.vue`) — sempre passando as opções por chamada. Nenhum desses consumidores importa hoje o CSS do toastify; a importação abaixo é uma boa prática recomendada por esta skill, não um padrão já existente no projeto:
 
 ```typescript
 import { toast } from 'vue3-toastify';
@@ -105,33 +105,12 @@ toast('Ação realizada!', {
 });
 ```
 
-### 5. Tratamento Centralizado de Erros → Toast
-Para exibir toasts automáticos em erros HTTP, NÃO registre um `axios.interceptors.response` próprio nesta (nem em qualquer) skill. A aplicação já possui **um único cliente HTTP compartilhado** (o mesmo usado por `@maxvue/max-use`/`@maxvue/max-pinia`); o mapeamento de status → toast deve viver ali, em um só lugar.
+### 5. Tratamento de Erros HTTP → Toast
+Hoje **não existe** nenhum interceptor `axios.interceptors.response` nem instância axios compartilhada configurada no projeto: tanto `@maxvue/max-use` (`apiGetRoute`/`apiPostRoute`) quanto `@maxvue/max-pinia` (`plugin.ts`, axios default carregado sob demanda) usam a instância padrão do `axios` e tratam o erro localmente (`console.error` + retorno `null` / `status.server.save.is_error`), sem repassar o erro para um ponto central.
 
-> **Atenção (ponto único):** Registrar um segundo interceptor que trate 401/422/500 em paralelo gera toasts duplicados e lógica conflitante. As skills `vue-tenant-client-context` e `vue-sentry` também tocam o ciclo de resposta — todas apenas reusam o cliente compartilhado, sem adicionar interceptores próprios.
-
-O mapeamento centralizado (definido uma única vez, no setup do cliente HTTP compartilhado) deve seguir este formato:
-```typescript
-import { toast } from 'vue3-toastify';
-
-// Handler registrado UMA vez no cliente HTTP compartilhado da aplicação (não em cada skill).
-function mapHttpErrorToToast(error: any): void {
-  if (error?.response) {
-    const status = error.response.status;
-    const message = error.response.data?.message || 'Ocorreu um erro inesperado.';
-
-    if (status === 422) {
-      toast.warning(`Erro de validação: ${message}`);
-    } else if (status === 500) {
-      toast.error(`Erro no servidor: ${message}`);
-    } else if (status === 401) {
-      toast.error('Sessão expirada. Por favor, faça login novamente.');
-    }
-  } else {
-    toast.error('Erro de rede. Verifique sua conexão com a internet.');
-  }
-}
-```
+Na prática, isso significa:
+- Dispare os toasts de erro HTTP **no ponto de chamada**, checando o retorno `null` de `apiGetRoute`/`apiPostRoute` ou o estado `status.server.save.is_error`/`status.server.get.is_success` da store MaxPinia — não existe hoje um lugar único onde "basta" mapear status → toast.
+- Se você registrar um `axios.interceptors.response` na instância default do `axios`, ele afetará **simultaneamente** `@maxvue/max-use`, `@maxvue/max-pinia` e todos os componentes com `import axios from 'axios'` direto, podendo duplicar toasts sobre erros que essas camadas já tratam localmente.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

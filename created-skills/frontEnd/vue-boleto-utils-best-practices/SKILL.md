@@ -1,6 +1,6 @@
 ---
 name: vue-boleto-utils-best-practices
-description: Use when validating, formatting, parsing, or handling bank slip data (boletos) in the frontend Vue 3 application using the @mrmgomes/boleto-utils library. Triggers on validation of digit lines (linha digitável) or barcodes, extraction of expiration dates, calculating slip values, and formatting inputs for boleto payments.
+description: "Use when validating, formatting, parsing, or handling bank slip data (boletos) in the frontend Vue 3 application using the @mrmgomes/boleto-utils library. Triggers on validation of digit lines (linha digitável) or barcodes, extraction of expiration dates, calculating slip values, and formatting inputs for boleto payments."
 ---
 
 # Boas Práticas para Vue Boleto Utils
@@ -23,7 +23,7 @@ import { validarBoleto } from '@mrmgomes/boleto-utils';
 interface Boleto {
     sucesso: boolean;
     mensagem: string;
-    tipoCodigoInput: 'CODIGO_DE_BARRAS' | 'LINHA_DIGITAVEL';
+    tipoCodigoInput: string; // o .d.ts real tipa como string solto; a union 'CODIGO_DE_BARRAS' | 'LINHA_DIGITAVEL' (TipoCodigoInput) só é usada como retorno de identificarTipoCodigo, não neste campo
     tipoBoleto: 'ARRECADACAO_PREFEITURA' | 'CONVENIO_SANEAMENTO' | 'CONVENIO_ENERGIA_ELETRICA_E_GAS' | 'CONVENIO_TELECOMUNICACOES' | 'ARRECADACAO_ORGAOS_GOVERNAMENTAIS' | 'OUTROS' | 'ARRECADACAO_TAXAS_DE_TRANSITO' | 'BANCO';
     codigoBarras: string;
     linhaDigitavel: string;
@@ -33,22 +33,25 @@ interface Boleto {
 }
 ```
 
-> **Atenção aos tipos:** o `boleto-utils.d.ts` que a lib publica está incorreto — declara `vencimentoApos22022025: string`, mas o runtime (`boleto-utils.js`) na verdade atribui `vencimentoComNovoFator2025` e ambos os campos de vencimento são objetos `Date` do JS (as funções internas fazem `return dataBoleto.toDate()`), não strings. Confie no runtime, não no nome do tipo (faça cast quando necessário).
+> **Atenção aos tipos:** o `boleto-utils.d.ts` que a lib publica está incorreto — declara `vencimentoApos22022025: string` (e não inclui `vencimentoComNovoFator2025`), mas o runtime (`boleto-utils.js`) na verdade atribui `vencimentoComNovoFator2025` e ambos os campos de vencimento são objetos `Date` do JS (as funções internas fazem `return dataBoleto.toDate()`), não strings. Como o `.d.ts` publicado não bate com o runtime, o `vue-tsc` do projeto rejeita o uso direto desses campos — resolva isso com uma augmentation local de módulo no projeto, por exemplo em um `.d.ts` próprio:
+> ```typescript
+> declare module '@mrmgomes/boleto-utils' {
+>   interface Boleto {
+>     vencimento: Date;
+>     vencimentoComNovoFator2025: Date;
+>   }
+> }
+> ```
+> Confie no runtime, não no `.d.ts` publicado pela lib.
 
 ### 2. Fluxo de Validação de Input de Formulário
 Ao construir campos de formulário para capturar informações de boleto:
 1. **Sanitizar Entrada:** Sempre remova caracteres não numéricos antes de enviar o código para `validarBoleto` (ex: `code.replace(/\D/g, '')`).
-2. **Tratar Entrada Incompleta:** Não execute a validação em entradas muito curtas. A lib só aceita os comprimentos exatos 44, 46, 47 ou 48 e rejeita qualquer outro; portanto aguarde até que o comprimento limpo seja de pelo menos 44 caracteres (código de barras = 44; linha digitável = 46 [cartão de crédito], 47 [bancário/cobrança] ou 48 [convênio/arrecadação]).
+2. **Tratar Entrada Incompleta:** Não execute a validação em entradas muito curtas. A lib normaliza internamente 36 dígitos (linha digitável de cartão de crédito Itaú, +11 zeros) e 46 dígitos (+1 zero) para 47 antes de validar; depois disso ela só aceita os comprimentos 36, 44, 46, 47 ou 48 e retorna `sucesso: false` para qualquer outro comprimento — inclusive 45 (código de barras = 44; linha digitável = 36/46 [cartão de crédito], 47 [bancário/cobrança] ou 48 [convênio/arrecadação]). O guard `cleanCode.length < 36` é apenas um heurístico de "ainda digitando" para não disparar erro cedo demais; ele NÃO garante validade — comprimentos como 45 continuam inválidos e serão rejeitados pela própria lib, que reporta a mensagem correspondente em `retorno.mensagem`.
 3. **Tratar Erros de Tempo de Execução:** Envolva a chamada de `validarBoleto` em um bloco `try/catch`, pois a biblioteca pode lançar erros internos para entradas muito malformadas.
 4. **Preferir Composition API & TypeScript:** Encapsule a lógica de validação dentro de composables Vue reutilizáveis (`useBoleto`) para permitir que vários componentes compartilhem a lógica.
 
-### 3. Ordem dos Blocos SFC
-Sempre estruture componentes nesta ordem exata:
-1. `<template>`
-2. `<script setup lang="ts">` (Composition API com `<script setup>` é o padrão do projeto — não use Options API)
-3. `<style lang="scss">` ou `<style scoped lang="scss">`
-
-Mantenha os atributos dos elementos do template em linha única para evitar poluição visual de múltiplas linhas.
+> Para ordem dos blocos SFC, Composition API e demais convenções gerais de estilo, ver a skill `vue-eslint-stylelint-quality-standards`.
 
 ---
 
@@ -72,8 +75,8 @@ export function useBoleto() {
   const validation = computed<ResultadoValidacao>(() => {
     const cleanCode = boletoCode.value.replace(/\D/g, '');
 
-    // A lib só valida comprimentos 44, 46, 47 ou 48; abaixo de 44 é sempre incompleto.
-    if (cleanCode.length < 44) {
+    // Heurístico de "ainda digitando" (ver Seção 2, item 2, para os comprimentos aceitos).
+    if (!([36, 44, 46, 47, 48].includes(cleanCode.length))) {
       return { sucesso: false, mensagem: 'Código incompleto' };
     }
 
@@ -107,31 +110,30 @@ export function useBoleto() {
 ```vue
 <template>
   <div class="boleto-field">
-    <MaxInputText v-model="boletoCode" label="Linha Digitável / Código de Barras" placeholder="00000.00000 00000.000000..." :error="error" @update:model-value="validate" />
+    <MaxInputText v-model="boletoCode" label="Linha Digitável / Código de Barras" placeholder="00000.00000 00000.000000..." :error="errorMessage" />
 
-    <div v-if="isValid && details" class="boleto-field__details">
-      <div class="detail-row"><span>Valor:</span> <strong>R$ {{ details.valor.toFixed(2) }}</strong></div>
-      <div class="detail-row"><span>Vencimento:</span> <strong>{{ formatDate(details.vencimentoComNovoFator2025 || details.vencimento) }}</strong></div>
-      <div class="detail-row"><span>Tipo:</span> <strong>{{ details.tipoBoleto }}</strong></div>
+    <div v-if="isValid && boletoData" class="boleto-field__details">
+      <div class="detail-row"><span>Valor:</span> <strong>R$ {{ boletoData.valor.toFixed(2) }}</strong></div>
+      <div class="detail-row"><span>Vencimento:</span> <strong>{{ formatDate(boletoData.vencimentoComNovoFator2025 || boletoData.vencimento) }}</strong></div>
+      <div class="detail-row"><span>Tipo:</span> <strong>{{ boletoData.tipoBoleto }}</strong></div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { validarBoleto, type Boleto } from '@mrmgomes/boleto-utils';
+import { watch } from 'vue';
+import { useBoleto } from '@/composables/useBoleto';
 // MaxInputText é auto-importado via unplugin-vue-components (presetMaxUno / @maxvue/max-components-ui).
 
-// Definição das propriedades e eventos
+// O componente consome o composable useBoleto — toda a lógica de sanitização,
+// guard de comprimento e try/catch vive lá (fonte única de verdade), evitando
+// reimplementar a validação aqui.
 const emit = defineEmits<{
   (e: 'valid', payload: { code: string; value: number; vencimento: Date }): void;
   (e: 'invalid', message: string): void;
 }>();
 
-const boletoCode = ref<string>('');
-const error = ref<string>('');
-const isValid = ref<boolean>(false);
-const details = ref<Boleto | null>(null);
+const { boletoCode, isValid, errorMessage, boletoData } = useBoleto();
 
 // Formata o objeto Date (retornado pela lib) para exibição local em pt-BR
 const formatDate = (date: Date | null | undefined): string => {
@@ -139,92 +141,23 @@ const formatDate = (date: Date | null | undefined): string => {
   return date.toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 };
 
-// Executa a validação e atualiza os estados reativos
-const validate = () => {
-  const cleanCode = boletoCode.value.replace(/\D/g, '');
-  
-  if (cleanCode.length === 0) {
-    error.value = '';
-    isValid.value = false;
-    details.value = null;
-    return;
+// Reage às mudanças do estado derivado do composable para emitir os eventos.
+watch([isValid, boletoData, errorMessage], () => {
+  if (isValid.value && boletoData.value) {
+    emit('valid', {
+      code: boletoCode.value.replace(/\D/g, ''),
+      value: boletoData.value.valor,
+      vencimento: boletoData.value.vencimentoComNovoFator2025 || boletoData.value.vencimento
+    });
+  } else if (errorMessage.value) {
+    emit('invalid', errorMessage.value);
   }
-
-  // A lib só valida comprimentos 44, 46, 47 ou 48; abaixo de 44 é sempre incompleto.
-  if (cleanCode.length < 44) {
-    error.value = 'Código incompleto. Continue digitando...';
-    isValid.value = false;
-    details.value = null;
-    emit('invalid', error.value);
-    return;
-  }
-
-  try {
-    const result = validarBoleto(cleanCode);
-    if (result.sucesso) {
-      error.value = '';
-      isValid.value = true;
-      details.value = result;
-      emit('valid', {
-        code: cleanCode,
-        value: result.valor,
-        vencimento: result.vencimentoComNovoFator2025 || result.vencimento
-      });
-    } else {
-      error.value = result.mensagem || 'Código de boleto inválido';
-      isValid.value = false;
-      details.value = null;
-      emit('invalid', error.value);
-    }
-  } catch (err: any) {
-    error.value = err.message || 'Erro de validação';
-    isValid.value = false;
-    details.value = null;
-    emit('invalid', error.value);
-  }
-};
+});
 </script>
-
-<style scoped lang="scss">
-// O input em si é o MaxInputText (label, foco e estado de erro já vêm do
-// componente de tema). Aqui estilizamos apenas o bloco de detalhes,
-// usando tokens reais do tema Max — sem cores hexadecimais estáticas.
-// (Preferencialmente, prefira UnoCSS attributify / presetMaxUno a este bloco SCSS.)
-.boleto-field {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 1rem;
-
-  &__details {
-    margin-top: 0.75rem;
-    padding: 0.75rem;
-    background-color: var(--max-surface-400);
-    border: 1px solid var(--max-inputtext-border-color);
-    border-radius: var(--max-inputtext-border-radius);
-    font-size: 0.875rem;
-    color: var(--max-surface-900);
-
-    .detail-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.25rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-</style>
 ```
 
 ---
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-* **Sempre sanitizar entradas:** Nunca envie espaços de formatação, pontos ou traços diretamente para `@mrmgomes/boleto-utils`.
-* **Envolver a validação em try/catch:** A biblioteca pode lançar exceções não tratadas em tempo de execução para números extremamente malformados.
-* **Ordenação de componentes:** Componentes Vue devem seguir a ordem `<template>`, `<script setup lang="ts">` e `<style lang="scss">` sem exceções.
-* **Atributos de template em linha única:** Dentro de templates, formate elementos Vue mantendo todos os parâmetros/atributos em linha única.
 * **Comentários em Português Brasileiro:** Dentro de arquivos de código do projeto (ex: componentes Vue ou Composables criados para o Engeapp), escreva os comentários de código no idioma **Português do Brasil (pt-BR)**.

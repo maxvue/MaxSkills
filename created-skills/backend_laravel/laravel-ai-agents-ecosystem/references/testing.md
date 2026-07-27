@@ -3,6 +3,8 @@
 ## Goal
 Patterns and best practices for writing unit and integration tests for AI Agents in Laravel with Pest PHP. The objective is to ensure the logical behavior of agents without incurring unnecessary costs from real API calls to external providers.
 
+> **Nota de aderência:** os helpers `Ai::fakeAgent()`, `Ai::assertAgentWasPrompted()` e `Ai::assertAgentNeverPrompted()` existem de fato na lib `laravel/ai` (`vendor/laravel/ai/src/Concerns/InteractsWithFakeAgents.php`). Porém, no momento, NENHUM teste do engeapp em `tests/` os utiliza — trate este arquivo como padrão recomendado a adotar, não como convenção já estabelecida no repositório.
+
 ## Instructions
 
 ### 1. Faking the LLM

@@ -8,7 +8,7 @@ description: "Use ao configurar, otimizar ou depurar conexões Redis no backend 
 ## Objetivo
 Estabelecer diretrizes sólidas e padrões consistentes para configurar, otimizar, proteger e desenvolver rotinas resilientes baseadas em Redis no backend Laravel do Engeapp.
 
-> Esta skill cobre a camada de **driver/conexão** do Redis. Para a camada de **cache da aplicação** (padrão cache-aside, TTLs, invalidação por Observers), veja `laravel-cache-best-practices`. A convenção de nomenclatura de chaves e a orientação sobre Cache Tags são **únicas e compartilhadas** entre as duas skills (canônicas em `laravel-cache-best-practices`).
+> Esta skill cobre a camada de **driver/conexão** do Redis. Para a camada de **cache da aplicação** (padrão cache-aside, TTLs, invalidação por Observers), veja `laravel-cache-best-practices`. A convenção de nomenclatura de chaves é **única e compartilhada** entre as duas skills (canônica em `laravel-cache-best-practices`).
 
 ## Instruções
 
@@ -34,19 +34,19 @@ Estrutura real em `config/database.php` (a partir da linha 192) — o exemplo ab
 ```
 
 ### 2. Convenção Semântica de Nomenclatura de Chaves
-Use a **mesma convenção estruturada, separada por dois-pontos e com escopo** definida (canonicamente) em `laravel-cache-best-practices` — chaves no formato `domain:resource:identifier` (ex.: `payments:charge:123456`, `model:inverters:45:nominal_power`). Não invente um esquema paralelo.
+Use um dos três formatos canônicos definidos em `laravel-cache-best-practices` — `api:{provider}:{endpoint}:{id}`, `model:{table}:{id}:{attr}` ou `app:{context}:{id}` (ex.: `model:inverters:45:nominal_power`). Não invente um esquema paralelo.
 * **Prefixo de app:** o `REDIS_PREFIX` configurado em `config/database.php` (ex.: `engeapp_database_`) **já prepende automaticamente** o slug da aplicação a toda chave. Portanto **não** repita o nome do app dentro da chave definida em código — deixe o prefixo por conta da config.
-* **Regra:** Nunca use strings hardcoded para chaves Redis. Defina constantes ou métodos helper na classe de service/model que manipula o recurso.
+* **Regra:** Nunca use strings hardcoded para chaves Redis. Defina constantes ou métodos helper na classe de service/model que manipula o recurso. **Dívida técnica documentada:** o código real hoje viola essa regra — `geckodriver_ports` (`app/Classes/Browser.php:37,53,109` e `app/Console/Commands/CleanupGeckodriverPorts.php:30,43,59`) e `'trt-payment-schedule:'` (`TrtPaymentSchedulingService.php:109`) são strings literais inline, sem constante/helper. Não replique esse padrão em código novo.
 
 ```php
-class PaymentService
+class TrtPaymentSchedulingService
 {
     // Sem repetir o nome do app: o REDIS_PREFIX da config já o adiciona.
-    private const KEY_PREFIX = 'payments:charge:';
+    private const KEY_PREFIX = 'app:trt_payment_schedule:';
 
-    public function getCacheKey(int $chargeId): string
+    public function getCacheKey(int $projectId): string
     {
-        return self::KEY_PREFIX . $chargeId;
+        return self::KEY_PREFIX . $projectId;
     }
 }
 ```
@@ -78,57 +78,54 @@ if ( ! $port) {
 // Redis::hdel('geckodriver_ports', $port);
 ```
 
-**Alternativa Laravel-native (`Cache::lock`) — ainda não usada no projeto.** Para regiões críticas mais genéricas, o Laravel oferece locks atômicos via `Cache::lock()`. No engeapp o store de cache padrão é `database` (ver Seção 6); o lock usa a `lock_connection` do store Redis (`config/cache.php`, store `redis`). Se for adotar, aponte para uma conexão Redis e sempre libere o lock em `finally`/closure:
+**Padrão real do projeto — lock atômico Laravel-native (`Cache::lock`).** Para regiões críticas mais genéricas, o Laravel oferece locks atômicos via `Cache::lock()`, e o engeapp já os usa. Em `app/Services/Finance/TrtPaymentSchedulingService.php`, o método `schedule()` (assinatura na linha 105) adquire `Cache::lock('trt-payment-schedule:' . $project->id . ':' . $index, 120)` na linha 109 com `$lock->get()` para impedir o duplo-envio de pagamento TRT (que pagaria o mesmo boleto duas vezes). O lock funciona no store de cache padrão do projeto — `database` — porque esse store suporta locks atômicos via sua `lock_connection` (`config/cache.php:45`); **não** é preciso forçar `Cache::store('redis')`. Sempre libere o lock em `finally`:
 
 ```php
 use Illuminate\Support\Facades\Cache;
 
-// Requer um store com lock via Redis (ex.: Cache::store('redis')->lock(...))
-$lock = Cache::store('redis')->lock('payment_lock_user_' . $userId, 10);
+// Lock no store default (database) — TTL alto para não expirar durante a chamada externa.
+$lock = Cache::lock('trt-payment-schedule:' . $project->id . ':' . $index, 120);
+
+if ( ! $lock->get()) {
+    // Já existe operação em andamento para este item — aborta sem duplicar o envio.
+    return ['state' => 'error', 'message' => 'Já existe uma operação de pagamento em andamento para este item.'];
+}
 
 try {
-    // Bloqueia por até 5 segundos aguardando o lock
-    $lock->block(5, function () use ($paymentData) {
-        // Lógica crítica de transação/pagamento aqui
-    });
-} catch (\Illuminate\Contracts\Cache\LockTimeoutException $e) {
-    // Trata a falha de aquisição do lock de forma elegante
-    throw new PaymentProcessingException('Processo já em execução. Tente novamente em alguns segundos.', 429);
+    // Lógica crítica: revalida o estado fresco e executa o pagamento.
+} finally {
+    $lock->release();
 }
 ```
 
+> Use o store default a menos que tenha um motivo concreto para isolar a conexão de lock.
+
 ### 4. Pipelines do Redis para Operações em Lote
-Ao ler ou escrever múltiplas chaves, use `Redis::pipeline()` para enviar comandos em um único lote, reduzindo o tempo de ida e volta (RTT).
-
-```php
-use Illuminate\Support\Facades\Redis;
-
-$results = Redis::pipeline(function ($pipe) use ($geckodriverPorts) {
-    foreach ($geckodriverPorts as $port => $timestamp) {
-        $pipe->hset('geckodriver_ports', $port, $timestamp);
-    }
-});
-```
+Para lotes grandes de comandos, considere `Redis::pipeline()` — envia os comandos em um único lote, reduzindo o tempo de ida e volta (RTT). Hoje não há uso de `pipeline()` no engeapp; o padrão real (seção 3) escreve o hash `geckodriver_ports` campo-a-campo (`hsetnx`/`hset`/`hdel`).
 
 ### 5. Failbacks de Conexão Resilientes e Tratamento de Exceções
-Quedas de conexão com o Redis não devem derrubar a aplicação inteira (a menos que seja uma dependência rígida, como sessão ou rate-limiting).
+Quedas de conexão com o Redis não devem derrubar a aplicação inteira (a menos que seja uma dependência rígida, como sessão ou rate-limiting) — mas também não devem passar despercebidas.
 * Capture `RedisException` ou exceções gerais dos drivers de cache.
 * Implemente uma query de fallback no banco de dados ou valores padrão caso o servidor Redis fique offline.
+* **Sempre reporte ao degradar:** `app/Helpers/ExceptionsHelper.php` documenta explicitamente que `RedisException` (assim como `PDOException`) é excluída da lista de exceções transitórias e **deve** ser reportada — queda de Redis é crítica de verdade. Não basta `Log::error`; chame também `report($e)`.
 
 ```php
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 use RedisException;
 
+// Padrão sugerido — não é o código exato de nenhuma classe do engeapp hoje.
 public function getActivePorts(): array
 {
     try {
         return Redis::hgetall('geckodriver_ports') ?: [];
     } catch (RedisException $e) {
-        Log::error('Redis connection failure in CleanupGeckodriverPorts', [
+        report($e); // RedisException não é transitória (ExceptionsHelper.php) — sempre reporte
+
+        Log::error('Redis connection failure ao buscar portas ativas', [
             'exception' => $e->getMessage()
         ]);
-        
+
         // Opção de fallback (ex: ler de uma fonte persistente alternativa ou retornar vazio)
         return [];
     }
@@ -136,29 +133,24 @@ public function getActivePorts(): array
 ```
 
 ### 6. Cache Tags e Invalidação
-A orientação sobre Cache Tags é **única e canônica** em `laravel-cache-best-practices` ("Orientação única sobre Cache Tags") — siga-a e não a duplique/contradiga aqui.
 
-> **Estado real do projeto:** o engeapp roda com `CACHE_STORE=database` por padrão (`config/cache.php` linha 18 e `.env.example` linha 45), driver que **NÃO suporta cache tags**. Não há nenhum uso de `Cache::tags()` no código hoje. O exemplo abaixo só é válido se a chamada apontar explicitamente para um store baseado em Redis/Memcached (`Cache::store('redis')`); usar tags no store `database`/`file` lança exceção.
-
-Resumo aplicável ao Redis: o Redis não suporta tags nativamente; o Laravel as implementa via chaves de rastreamento adicionais, que consomem memória. Use tags apenas para grupos de **cardinalidade moderada** e **evite-as ao cachear milhões de chaves** (prefira invalidação por chave/prefixo). Sempre faça `flush()` **seletivo por tag**, nunca limpe o cache inteiro.
+> **Estado real do projeto:** o engeapp roda com `CACHE_STORE=database` por padrão (`config/cache.php` linha 18 e `.env.example` linha 45). Não há nenhum uso de `Cache::tags()` no código hoje. O exemplo abaixo só é válido se a chamada apontar explicitamente para um store baseado em Redis/Memcached (ver Restrições). A orientação de fundo sobre Cache Tags é canônica em `laravel-cache-best-practices` — siga-a de lá.
 
 ```php
 use Illuminate\Support\Facades\Cache;
 
-// Só funciona em um store que suporte tags (Redis/Memcached) — NÃO no store 'database' padrão do projeto.
 $redisCache = Cache::store('redis');
 
-// Armazenando com tags
-$redisCache->tags(['solar-data', 'nasa-power'])->put($cacheKey, $data, now()->addDays(7));
+// Armazenando com tags (exemplo hipotético/ilustrativo — sem domínio real correspondente hoje)
+$redisCache->tags(['example-domain', 'example-resource'])->put($cacheKey, $data, now()->addDays(7));
 
 // Invalidando por tag (flush seletivo)
-$redisCache->tags(['solar-data'])->flush();
+$redisCache->tags(['example-domain'])->flush();
 ```
 
 ### 7. Ajuste do Horizon e das Filas
-* Certifique-se de que a configuração de conexão em `horizon.php` corresponda à conexão persistente padrão.
 * Evite despachar payloads enormes em jobs. Em vez disso, armazene o ID do Model no payload do job e busque os dados atualizados no banco de dados/cache dentro do job.
-* Configure a conexão de fila do redis com um `retry_after` suficientemente alto (maior que o seu job de execução mais longa).
+* Para configuração de conexão/`retry_after` do Horizon, veja `laravel-jobs-queues-horizon-best-practices`.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

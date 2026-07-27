@@ -13,8 +13,7 @@ backend_laravel/laravel-brazilian-payments-integration
 backend_laravel/laravel-browser-automation-webdriver
 backend_laravel/laravel-cache-best-practices
 backend_laravel/laravel-cloud-storage-integrations
-backend_laravel/laravel-concessionaires-tariffs-regulation-best-practices
-backend_laravel/laravel-database-eloquent-best-practices
+backend_laravel/laravel-concessionaires-connection-regulation-best-practices
 backend_laravel/laravel-digital-signatures-integration
 backend_laravel/laravel-editorial-calendar-event-workflow-best-practices
 backend_laravel/laravel-electrical-calculations-dimensioning-best-practices

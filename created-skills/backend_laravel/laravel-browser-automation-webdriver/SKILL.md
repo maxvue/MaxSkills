@@ -1,6 +1,6 @@
 ---
 name: laravel-browser-automation-webdriver
-description: Use ao criar, revisar ou depurar automação de navegador no backend engeapp com a classe App\Classes\Browser (php-webdriver + Firefox/geckodriver). Cobre o ciclo de vida por instância (spawn de geckodriver, portas dinâmicas 44500-44599 em hash Redis, teardown no __destruct), a API real do helper (getElement, resolveSelector, screenshot com GD, aceptDialog, selects) e o log agent_browser.
+description: "Use ao criar, revisar ou depurar automação de navegador no backend engeapp com a classe App\\Classes\\Browser (php-webdriver + Firefox/geckodriver). Cobre o ciclo de vida por instância (spawn de geckodriver, portas dinâmicas 44500-44599 em hash Redis, teardown no __destruct), a API real do helper (getElement, resolveSelector, screenshot com GD, aceptDialog, selects) e o log agent_browser."
 ---
 
 # Automação de Navegador com WebDriver no engeapp
@@ -51,8 +51,8 @@ Resolva o tipo de seletor com `resolveSelector($type, $value)`, que faz `match` 
 $by = $browser->resolveSelector('css', '#submit-btn');
 
 // time_out = 0 → findElement direto (pode lançar NoSuchElement)
-// time_out > 0 → retry loop: faz (time_out*2) tentativas com sleep(0.5) entre elas,
-//                retornando null se não achar dentro do tempo.
+// time_out > 0 → CONTADOR DE TENTATIVAS: faz (time_out*2) tentativas consecutivas,
+//                retornando null se nenhuma encontrar o elemento.
 $element = $browser->getElement($by, 10);
 
 if ($element) {
@@ -60,15 +60,19 @@ if ($element) {
 }
 ```
 
-Atalhos por tipo: `elementById`, `elementByName`, `elementByCss`, `elementByClass`, `elementsByClass` (retorna array), e `elementByIdExist($id, $delay)` (polling booleano). Para `<select>`, use `selectByVisibleText($element, $texto)` ou variantes `selectByVisibleTextById/ByName/ByClass/ByCss`. Textos/valores: `getText($element)`, `getValue($element)`.
+> **Armadilha:** `$time_out` NÃO é segundos de espera. `getElement` chama `sleep(0.5)` (Browser.php:136) no `catch` do loop, mas `sleep()` espera um `int` — `0.5` é truncado para `0`, então cada tentativa dorme ~0s (e emite deprecation de conversão implícita float→int em PHP 8.1+). Ou seja, `getElement($by, 10)` faz 20 tentativas em milissegundos, não espera ~10s. Trate `$time_out` como contador de tentativas, não como tempo; para espera real, use `usleep()` explícito ou aceite que `time_out` alto só aumenta o número de retries, não a duração.
+
+Atalhos por tipo: `elementById`, `elementByName`, `elementByCss`, `elementByClass`, `elementsByClass` (retorna array). Para `<select>`, use `selectByVisibleText($element, $texto)` ou variantes `selectByVisibleTextById/ByName/ByClass/ByCss`. Textos/valores: `getText($element)`, `getValue($element)`.
+
+> **`elementByIdExist($id, $delay)` está quebrado — não o recomende como polling booleano confiável.** `elementById` delega a `getElement` com `time_out > 0` (que retorna `null` quando não acha), mas `elementById` declara retorno NÃO-nulável `: RemoteWebElement`. Elemento ausente gera `TypeError` (subclasse de `Error`, não `Exception`) — e o `catch (Exception $e)` de `elementByIdExist` não o captura, propagando um fatal em vez de retornar `false`. Prefira `getElement($by, $n) !== null`, ou `elementById($id, 0)` dentro de `try/catch (Throwable $e)`.
 
 > Esperas: o projeto **não** usa `WebDriverExpectedCondition` nem `$driver->wait(...)->until(...)`. A convenção efetiva é **polling por retry** dentro de `getElement()` (via `time_out`) e esperas por tempo no executor (ver abaixo). Siga esse padrão para manter consistência com o código existente.
 
 ### 3. Esperas por tempo — permitidas e usadas por design
 Este stack usa `sleep()`/`usleep()` deliberadamente; não são proibidos:
 
-*   `Browser::__construct` usa `sleep(2)` para o geckodriver inicializar.
-*   `Browser::getElement` e `elementByIdExist` usam `sleep(0.5)` nos loops de retry.
+*   `Browser::__construct` usa `sleep(2)` (inteiro) para o geckodriver inicializar — essa espera funciona como esperado.
+*   `Browser::getElement` e `elementByIdExist` chamam `sleep(0.5)` nos loops de retry, mas por `sleep()` truncar float para int, isso dorme ~0s na prática — não conte com essa chamada para introduzir espera real entre tentativas (ver armadilha na seção 2).
 *   `BrowserPlaybookExecutor` usa `usleep($step->wait_before_ms * 1000)` e `usleep($step->wait_after_ms * 1000)` como **recurso configurável** de cada passo, e `actionWait`/`actionDownload` também dependem de `usleep`.
 
 Prefira `getElement($by, $timeout)` (polling por elemento) quando o objetivo é aguardar um elemento aparecer; use `usleep`/`sleep` para pausas fixas de sincronização quando não há elemento-alvo claro (transições, downloads).
@@ -102,8 +106,4 @@ $browser->aceptDialog();
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo desta skill esteja escrito. Comentários de código em pt-BR.
-- **NÃO** invente `config('services.webdriver.url')` nem um servidor Selenium remoto: a conexão é sempre `http://127.0.0.1:{porta_dinâmica}/` com geckodriver local por instância.
-- **NÃO** use flags de Chrome (`--headless`, `--disable-gpu`, `--no-sandbox`) no Firefox; a flag de headless é `-headless`.
-- **NÃO** substitua o padrão de polling (`getElement` com `time_out`) por `WebDriverExpectedCondition`/`wait()->until()` — mantenha a convenção do projeto.
-- **NÃO** confie só em `quit()`: o vazamento crítico é o **processo geckodriver órfão + porta Redis presa**. Garanta o descarte da instância (dispara `__destruct`) e mantenha `geckodriver:cleanup-ports` agendado.
 - **NÃO** registre credenciais ou payloads de sessão no canal `agent_browser`.

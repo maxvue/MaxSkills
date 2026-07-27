@@ -4,7 +4,8 @@
 >
 > **Regra de ouro**: MaxUse **re-exporta todo o VueUse** (auto-import) — use os composables do VueUse a
 > partir de `@maxvue/max-use`, nunca de `@vueuse/core`. E os utilitários lodash-style vêm do objeto `_`
-> (precedência: helpers próprios > VueUse > Lodash), nunca `import 'lodash'` direto.
+> — ver a seção "O objeto `_`" abaixo para a ordem real de precedência (Lodash vence em colisão de nome),
+> nunca `import 'lodash'` direto.
 >
 > Muitos "nomes" abaixo são aliases: `useRefCachedApi` → `useCachedApi`; `useTimeAgo` → `timeAgo`;
 > `refAutoReset` (MaxUse) → `useDefaultReset`; `watchTrue` → `whenever` (VueUse).
@@ -329,22 +330,26 @@ import { useMouse, useDark, useToggle, watchDebounced } from '@maxvue/max-use'
 O script `src/scripts/buildAutoImport.ts` gera `Helpers/autoImportData.json` (consumido por `maxUseAutoImport`) com a lista de nomes de valor (helpers próprios + VueUse + `'_'` + `'vueUse'`) e os nomes de tipo do VueUse/`@vueuse/shared`, prontos para o `unplugin-auto-import`.
 
 ### O objeto `_` (estilo Lodash)
-Definido no fim de `src/index.ts` e exportado (`export const _`). É a agregação de três camadas com **precedência: helpers próprios > VueUse > Lodash**:
+Definido no fim de `src/index.ts` e exportado (`export const _`). É a agregação de três camadas — mas a
+ordem real de precedência é **helpers próprios < VueUse < Lodash**, porque o Lodash **não é filtrado**
+e entra por último no spread:
 
 ```ts
 const ownHelpers = { ...Composables, ...Routes, ...Browser, ...Dates, ...Iterables,
   ...Math, ...Objects, ...Strings, ...Types, ...Validations, ...Electrical, ...Format }
 // VueUse filtrado: só entram chaves que NÃO existem em ownHelpers (e nunca 'vueUse')
-// Lodash filtrado: todas as chaves do lodash-es
+// Lodash NÃO é filtrado: todas as chaves do lodash-es entram por último e sobrescrevem
 export const _ = { ...ownHelpers, ...filteredVueUse, ...filteredLodash }
 ```
 
 Regra de resolução de nome ao acessar `_.x`:
-1. Se `x` é um helper próprio da MaxUse → usa o próprio.
-2. Senão, se `x` existe no VueUse → usa o do VueUse.
-3. Senão → cai no Lodash (`lodash-es`).
+1. Se `x` existe no Lodash → **o Lodash vence**, mesmo que exista homônimo próprio da MaxUse.
+2. Senão, se `x` existe no VueUse (e não em ownHelpers) → usa o do VueUse.
+3. Senão → usa o helper próprio da MaxUse.
 
-Como o spread final é `{...ownHelpers, ...filteredVueUse, ...filteredLodash}` e `filteredVueUse`/`filteredLodash` já foram filtrados para não sobrescrever camadas anteriores, o próprio helper sempre vence, depois VueUse, depois Lodash.
+Como o spread final é `{...ownHelpers, ...filteredVueUse, ...filteredLodash}`, e apenas o VueUse é
+filtrado (`filteredVueUse` só inclui chaves ausentes de `ownHelpers`), o Lodash entra por último sem
+filtro e **sobrescreve qualquer homônimo** — inclusive helpers próprios.
 
 **Exemplo**
 ```ts
@@ -352,12 +357,17 @@ import { _ } from '@maxvue/max-use'
 
 _.debounce(fn, 300)      // Lodash (não há homônimo próprio nem no VueUse)
 _.cloneDeep(obj)         // Lodash
-_.groupBy(lista, 'tipo') // helper PRÓPRIO da MaxUse (Iterables) — vence o Lodash
-_.now()                  // helper próprio (Dates) — retorna Date.now()
-_.isObject(x)            // helper próprio (Types)
+_.groupBy(lista, 'tipo') // Lodash-es (não a versão própria de MaxUse/Iterables) — Lodash vence a colisão
+_.size(x)                // Lodash-es (não a versão própria de MaxUse) — mesma colisão
 ```
 
-Atenção: onde MaxUse e Lodash têm o mesmo nome (`groupBy`, `orderBy`, `sortBy`, `uniq`, `sample`, `shuffle`, `chunk`, `sumBy`, `countBy`, `keyBy`, `first`, `last`, `get`, `set`, `now`, `isObject`, etc.), `_` usa a **versão MaxUse**. Para forçar a versão Lodash, importe do Lodash diretamente (fora do escopo de `_`).
+Atenção: onde MaxUse e Lodash têm o mesmo nome (`groupBy`, `size`, `filter`, `first`, `last`, `get`,
+`set`, `now`, `isObject`, `uniq`, `chunk`, `sample`, `shuffle`, `sumBy`, `countBy`, `keyBy`, `orderBy`,
+`sortBy`, `truncate`, `capitalize`, `camelCase`, etc.), acessar via `_` resolve para o **Lodash**, não
+para a versão MaxUse. Para obter a semântica MaxUse desses nomes colidentes, use o **import nomeado**
+(ex.: `import { groupBy, size } from '@maxvue/max-use'`), não `_.groupBy`/`_.size`. Alguns nomes (`now`,
+`get`, `set`, `isObject`) são reexportados explicitamente pelo `index.ts` para resolver ambiguidade nos
+**imports nomeados** — isso não muda a precedência dentro do objeto `_`.
 
 ---
 
@@ -368,19 +378,17 @@ Top-level de `src/index.ts` (`import { ... } from '@maxvue/max-use'`):
 - **Namespace**: `vueUse` (`export * as vueUse from '@vueuse/core'`).
 - **Composables** (`export * from './Composables'`): `useRefCached` (+aliases `useRefStorage`/`useCached`/`useSharedCache`/`useStorage`), `useCachedApi`/`useRefCachedApi` (+`useSharedCacheApi`/`useInCacheApi`), `useDateFormat`/`dateFormat`, `timeAgo`/`useTimeAgo`, `watchTrue`, `watchIfValid` (+aliases), `watchDebounceIfValid` (+aliases), `useDefaultReset`/`refAutoReset`, e os tipos `ToRefCached`, `ToRefCachedApi`, `DefaultReset`.
 - **Routes** (`export * from './Routes'`): `setRouteResolver`, `setApiRequestConfig`, `resolveRoute`, `hasRoute`, `getConfiguredHeaders`, `getWithCredentials`, `resetConfig`, tipos `RouteResolver`/`ApiRequestConfig`; `apiGetRoute`, `apiPostRoute`, `apiPutRoute`, `apiDeleteRoute`, `apiUploadRoute`, `apiRoute`; `getRoute`/`getRouteByName`; `goToRoute`/`goToRouteByName`/`setLibraryRouter`; `getCachedApi`; `getCachedApiIDB` (+`deleteFromIDB`, `clearCacheIDB`); `postCachedApiIDB`.
-- **Helpers modulares** (`export * from ...`): `Browser`, `Dates`, `Iterables`, `Math`, `Objects`, `Strings`, `Types`, `Validations`, `Electrical`, `Format`, `VueUse` (VueUse completo).
+- **Helpers modulares** (`export * from ...`): `Browser`, `Dates`, `Iterables`, `Math`, `Objects`, `Strings`, `Types`, `Validations`, `Electrical`, `Format`, `VueUse` (VueUse completo) — ver tabelas detalhadas abaixo (Iteráveis, Math, Objetos, Strings, Types, Validações).
 - **Re-exports explícitos (desambiguação)**: `refAutoReset`, `useCached`, `useStorage`, `useTimeAgo`, `useDateFormat` (de Composables); `now` (de Dates); `get`, `set` (de Objects); `isObject` (de Types).
 - **Auto-import**: `maxUseItems` (função → `string[]` com todos os nomes) e `maxUseAutoImport` (JSON gerado para `unplugin-auto-import`).
-- **O objeto `_`**: `export const _` (own > VueUse > Lodash).
-
-Módulos de Helpers existentes mas **fora do escopo detalhado desta referência** (também exportados no top-level): `Iterables` (chunk, groupBy, orderBy, sortBy, uniq, sample, shuffle, sumBy, countBy, keyBy, first, last, findLast, filter, filterBy, size, etc.), `Math` (average, median, roundUp, roundDown), `Objects` (deepClone, deepMerge, diff, get, set, unset, isEqual, mapValues, renameKeys, keyExists, manipulations), `Strings` (cases, converters, filters, manipulations, masks, random), `Types` (isArray, isNumber, isObject, isBlank, hasContent, canIterate), `Validations` (isEmail, cepIsValid, documents (CPF/CNPJ), phone, isValid/isNotValid/isNotEmpty), `Electrical` (wireSize), `Format` (bytes, currency).
+- **O objeto `_`**: `export const _` — ver ordem real de precedência na seção "O objeto `_`" acima.
 
 
 ---
 
 # Helpers utilitários (acessíveis também via `_`)
 
-> **Nota:** Todas as funções abaixo também são acessíveis através do objeto agregador `_` (ex.: `_.isCpf(...)`, `_.orderBy(...)`, `_.formatCurrency(...)`), a menos que haja colisão de nome com VueUse/Lodash (nesse caso o helper próprio da MaxUse tem prioridade). Os objetos de namespace (`_.Obj`, `_.Str`, `_.StrFilter`, `_.StrCase`, `_.validate`, `_.format`, `_.electrical`) também estão disponíveis. Praticamente todos os parâmetros aceitam `MaybeRefOrGetter` (valores reativos do Vue), resolvidos internamente via `toValue`.
+> **Nota:** Todas as funções abaixo também são acessíveis através do objeto agregador `_` (ex.: `_.isCpf(...)`, `_.formatCurrency(...)`), mas cuidado com colisão de nome com Lodash — ver a ordem real de precedência na seção "O objeto `_`" acima (Lodash vence a colisão; para a semântica MaxUse de nomes colidentes, prefira o import nomeado). Os objetos de namespace (`_.Obj`, `_.Str`, `_.StrFilter`, `_.StrCase`, `_.validate`, `_.format`, `_.electrical`) também estão disponíveis. Praticamente todos os parâmetros aceitam `MaybeRefOrGetter` (valores reativos do Vue), resolvidos internamente via `toValue`.
 
 ## Helpers de Iteráveis (Iterables)
 
@@ -543,7 +551,7 @@ Módulos de Helpers existentes mas **fora do escopo detalhado desta referência*
 
 ## VueUse (re-exports) — nota
 
-A pasta `Helpers/VueUse/` **não contém helpers próprios**: `index.ts` apenas re-exporta ~330 funções/composables de `@vueuse/core` individualmente (ex.: `useLocalStorage`, `useDebounceFn`, `clamp`, `useToggle`, `refDebounced`, `watchDebounced`, etc.), além do namespace `vueUse` e dos tipos. Todas ficam disponíveis via `_` **desde que não colidam** com um helper próprio da MaxUse (que tem prioridade — ex.: `refAutoReset`, `isObject`, `get`, `set`, `now` são resolvidos pela MaxUse). Como são apenas repasses da biblioteca VueUse, não estão documentadas função a função aqui.
+A pasta `Helpers/VueUse/` **não contém helpers próprios**: `index.ts` apenas re-exporta ~330 funções/composables de `@vueuse/core` individualmente (ex.: `useLocalStorage`, `useDebounceFn`, `clamp`, `useToggle`, `refDebounced`, `watchDebounced`, etc.), além do namespace `vueUse` e dos tipos. No objeto `_`, o VueUse só entra quando não colide com um helper próprio da MaxUse (ver ordem de precedência na seção "O objeto `_`" acima). Como são apenas repasses da biblioteca VueUse, não estão documentadas função a função aqui.
 
 ## Locales — nota
 

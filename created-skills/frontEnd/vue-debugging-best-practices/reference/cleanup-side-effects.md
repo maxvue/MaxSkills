@@ -10,7 +10,7 @@ tags: [vue3, lifecycle, memory-leak, event-listeners, intervals, cleanup]
 
 **Impact: HIGH** - Failing to clean up event listeners, intervals, timeouts, and subscriptions when a component unmounts causes memory leaks and ghost handlers that continue running, leading to performance degradation and subtle bugs in Single Page Applications.
 
-When using custom events, timers, WebSocket connections, or third-party libraries, always clean up in `onUnmounted` (Composition API) or `unmounted` (Options API).
+When using custom events, timers, WebSocket connections, or third-party libraries, always clean up in `onUnmounted`.
 
 ## Task Checklist
 
@@ -34,17 +34,6 @@ export default {
       socket.on('message', handleMessage)
     })
   }
-}
-```
-
-```javascript
-// Options API - WRONG: No cleanup
-export default {
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll)
-    this.timer = setInterval(this.refresh, 10000)
-  }
-  // Component unmounts, but listeners and timers persist!
 }
 ```
 
@@ -81,31 +70,6 @@ export default {
 
       socket.off('message', handleMessage)
     })
-  }
-}
-```
-
-```javascript
-// Options API - CORRECT: Proper cleanup
-export default {
-  data() {
-    return {
-      timer: null
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll)
-    this.timer = setInterval(this.refresh, 10000)
-  },
-  unmounted() {
-    window.removeEventListener('scroll', this.handleScroll)
-    if (this.timer) {
-      clearInterval(this.timer)
-    }
-  },
-  methods: {
-    handleScroll() { /* ... */ },
-    refresh() { /* ... */ }
   }
 }
 ```

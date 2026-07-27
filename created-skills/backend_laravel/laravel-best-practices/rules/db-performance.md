@@ -60,8 +60,6 @@ $posts = Post::select('id', 'title', 'user_id', 'created_at')
     ->get();
 ```
 
-When selecting columns on eager-loaded relationships, always include the foreign key column or the relationship won't match.
-
 ## Chunk Large Datasets
 
 Never load thousands of records at once. Use chunking for batch processing.
@@ -93,30 +91,7 @@ User::where('active', false)->chunkById(200, function ($users) {
 
 ## Add Database Indexes
 
-Index columns that appear in `WHERE`, `ORDER BY`, `JOIN`, and `GROUP BY` clauses.
-
-Incorrect:
-```php
-Schema::create('orders', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('user_id')->constrained();
-    $table->string('status');
-    $table->timestamps();
-});
-```
-
-Correct:
-```php
-Schema::create('orders', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('user_id')->index()->constrained();
-    $table->string('status')->index();
-    $table->timestamps();
-    $table->index(['status', 'created_at']);
-});
-```
-
-Add composite indexes for common query patterns (e.g., `WHERE status = ? ORDER BY created_at`).
+Index columns that appear in `WHERE`, `ORDER BY`, `JOIN`, and `GROUP BY` clauses. Ver `rules/migrations.md` ("Add Indexes in the Migration") para o exemplo canônico e a ressalva sobre `->index()` redundante em coluna com `constrained()`.
 
 ## Use `withCount()` for Counting Relations
 
@@ -149,44 +124,8 @@ $posts = Post::withCount([
 ])->get();
 ```
 
-## Use `cursor()` for Memory-Efficient Iteration
-
-For read-only iteration over large result sets, `cursor()` loads one record at a time via a PHP generator.
-
-Incorrect:
-```php
-$users = User::where('active', true)->get();
-```
-
-Correct:
-```php
-foreach (User::where('active', true)->cursor() as $user) {
-    ProcessUser::dispatch($user->id);
-}
-```
-
-Use `cursor()` for read-only iteration. Use `chunk()` / `chunkById()` when modifying records.
+Para iteração read-only sobre grandes result sets use `cursor()`/`lazy()` — ver `rules/collections.md` ("Choose `cursor()` vs. `lazy()` Correctly") para o guia completo, incluindo a ressalva de que `cursor()` não faz eager-load de relacionamentos.
 
 ## No Queries in Blade Templates
 
-Never execute queries in Blade templates. Pass data from controllers.
-
-Incorrect:
-```blade
-@foreach (User::all() as $user)
-    {{ $user->profile->name }}
-@endforeach
-```
-
-Correct:
-```php
-// Controller
-$users = User::with('profile')->get();
-return view('users.index', compact('users'));
-```
-
-```blade
-@foreach ($users as $user)
-    {{ $user->profile->name }}
-@endforeach
-```
+Nunca execute queries em Blade templates — passe os dados já carregados (com eager load) do controller para a view.

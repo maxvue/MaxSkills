@@ -1,15 +1,15 @@
 # Architecture Best Practices
 
-## Single-Purpose Action Classes
+## Single-Purpose Classes (no engeapp: `app/Services/`)
 
-Extract discrete business operations into invokable Action classes.
+Extraia operações de negócio discretas em classes de propósito único. O engeapp não tem `app/Actions/` — a lógica de negócio vive em `app/Services/` (ex.: `ApiCepService`, `ApiCnpjService`, `HolidayService`, além de subpastas como `Ai/`, `Bank/`, `Finance/`, `Project/`). Siga essa convenção; não introduza um diretório `Actions/` novo.
 
 ```php
-class CreateOrderAction
+class OrderCreationService
 {
     public function __construct(private InventoryService $inventory) {}
 
-    public function execute(array $data): Order
+    public function create(array $data): Order
     {
         $order = Order::create($data);
         $this->inventory->reserve($order);
@@ -107,26 +107,6 @@ Cache::lock('order-processing-'.$order->id, 10)->block(5, function () use ($orde
 $product = Product::where('id', $id)->lockForUpdate()->first();
 ```
 
-## Use `mb_*` String Functions
-
-When no Laravel helper exists, prefer `mb_strlen`, `mb_strtolower`, etc. for UTF-8 safety. Standard PHP string functions count bytes, not characters.
-
-Incorrect:
-```php
-strlen('José');          // 5 (bytes, not characters)
-strtolower('MÜNCHEN');  // 'mÜnchen' — fails on multibyte
-```
-
-Correct:
-```php
-mb_strlen('José');             // 4 (characters)
-mb_strtolower('MÜNCHEN');     // 'münchen'
-
-// Prefer Laravel's Str helpers when available
-Str::length('José');          // 4
-Str::lower('MÜNCHEN');        // 'münchen'
-```
-
 ## Use `defer()` for Post-Response Work
 
 For lightweight tasks that don't need to survive a crash (logging, analytics, cleanup), use `defer()` instead of dispatching a job. The callback runs after the HTTP response is sent — no queue overhead.
@@ -157,7 +137,10 @@ $tenantId = Context::get('tenant_id');
 
 Context data automatically propagates to queued jobs and is included in log entries. Use `Context::addHidden()` for sensitive data that should be available in queued jobs but excluded from log context. If data must not leave the current process, do not store it in `Context`.
 
-## Use `Concurrency::run()` for Parallel Execution
+## Use `Concurrency::run()` for Parallel Execution (referência genérica do framework — sem uso no engeapp)
+
+> Nenhum model ou serviço do engeapp usa `Concurrency::` atualmente. Trate como orientação genérica
+> do Laravel, não como padrão verificável do projeto — ver `rules/transactions.md`.
 
 Run independent operations in parallel using child processes — no async libraries needed.
 

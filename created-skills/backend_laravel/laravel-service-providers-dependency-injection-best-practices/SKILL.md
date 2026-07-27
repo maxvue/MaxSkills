@@ -1,6 +1,6 @@
 ---
 name: laravel-service-providers-dependency-injection-best-practices
-description: Use when creating, modifying, or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Service Container, resolving dependencies via dependency injection, or ensuring memory safety and Octane compatibility in singleton bindings.
+description: "Use when creating, modifying, or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Service Container, resolving dependencies via dependency injection, or ensuring memory safety and Octane compatibility in singleton bindings."
 ---
 
 # Objetivo
@@ -38,7 +38,10 @@ Para prevenir vazamentos de memória e poluição de estado entre requisições 
       return new MyService(fn () => request());
   });
 
-  // Bom: registrado como scoped, então uma nova instância é criada para cada nova requisição
+  // Bom: registrado como scoped, então uma nova instância é criada para cada nova requisição.
+  // Receber $app['request'] aqui é aceitável justamente porque a instância é descartada
+  // a cada requisição (diferente de um singleton, onde isso vazaria estado entre requisições).
+  // O engeapp não usa `scoped` hoje — todos os bindings reais são `bind` (veja Exemplos).
   $this->app->scoped(MyService::class, function ($app) {
       return new MyService($app['request']);
   });
@@ -53,8 +56,6 @@ Para prevenir vazamentos de memória e poluição de estado entre requisições 
       protected LoggerInterface $logger,
   ) {}
   ```
-- Garanta que todos os parâmetros tenham declarações de tipo explícitas e tipos de retorno.
-- Evite deixar construtores vazios, sem parâmetros.
 
 ### 5. Escrevendo Testes de Resolução do Container
 Verifique que seus bindings resolvem corretamente a partir do Service Container usando Pest. Exemplo baseado no binding real do `SignatureServiceProvider` (serviço de assinatura digital Autentique):
@@ -103,18 +104,6 @@ class SignatureServiceProvider extends ServiceProvider
 }
 ```
 
-### Exemplo: Variante `scoped` para dados específicos da requisição
-Quando um serviço precisa de dados da requisição atual (ex.: IP), prefira `scoped` para que cada requisição do Octane receba a própria instância. Substitua `ExampleService` pelo seu contrato/classe real:
-```php
-$this->app->scoped(ExampleService::class, function (\Illuminate\Contracts\Foundation\Application $app) {
-    return new ExampleService(
-        token: (string) config('services.autentique.token'),
-        // Resolução lazy da info da requisição, evitando capturar o Request no boot.
-        requestIp: fn () => request()->ip()
-    );
-});
-```
-
 ### Exemplo: Consumindo o Serviço Registrado via DI
 ```php
 <?php
@@ -134,7 +123,7 @@ class SignatureController extends Controller
     public function show(string $documentId) : JsonResponse
     {
         return response()->json(
-            $this->documents->getById($documentId)
+            $this->documents->listById($documentId)
         );
     }
 }
@@ -147,5 +136,5 @@ class SignatureController extends Controller
 - **NÃO** instancie serviços manualmente usando `new` dentro de Controllers ou Models se eles devem ser gerenciados e injetados pelo container.
 - **NÃO** contorne a injeção via construtor em favor do helper `app()` dentro de classes de serviço (prefira DI adequada via construtor).
 
-## Restrições
+## Idioma
 - **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.

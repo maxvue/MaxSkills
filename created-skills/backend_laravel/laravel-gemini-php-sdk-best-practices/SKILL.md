@@ -1,6 +1,6 @@
 ---
 name: laravel-gemini-php-sdk-best-practices
-description: Use when interacting directly with the Gemini API using the google-gemini-php/laravel SDK, configuring GenerationConfig, utilizing structured outputs (JSON Schemas), handling multimodal inputs (Images, Audio, PDF) using Blob, or managing model calls and exceptions in Laravel.
+description: "Use when interacting directly with the Gemini API using the google-gemini-php/laravel SDK, configuring GenerationConfig, utilizing structured outputs (JSON Schemas), handling multimodal inputs (Images, Audio, PDF) using Blob, or managing model calls and exceptions in Laravel."
 ---
 
 # Objetivo
@@ -15,7 +15,7 @@ Sempre resolva o modelo Gemini usando a facade `Gemini` para gerenciar as chamad
 - **Modelo principal para operações Rápidas/Padrão:** `gemini-3.1-flash-lite` ou `gemini-3.5-flash` (fallback: `gemini-2.5-flash` / `gemini-2.5-flash-lite`).
 - **Modelo principal para raciocínio Complexo:** `gemini-3.1-pro-preview` (fallback: `gemini-2.5-pro`).
 - **Método:** Use `Gemini::generativeModel(model: 'model-name')` para iniciar a requisição de geração.
-- **Fallback em cascata:** Ao lidar com sobrecarga (503), itere sobre uma lista ordenada de modelos, misturando famílias 3.x e 2.5, como em `GeminiDocumentService::FALLBACK_MODELS`.
+- **Fallback em cascata:** Ao lidar com sobrecarga (503), itere sobre uma lista ordenada de modelos, misturando famílias 3.x e 2.5, como em `app/Jobs/GeminiContentJob.php` (`foreach` sobre `$fallbackModels` chamando `Gemini::generativeModel(...)->withGenerationConfig(...)->generateContent(...)` dentro de um `try/catch (\Throwable $e)`, relançando a última exceção se todos os modelos falharem). `GeminiDocumentService::promptWithFallback` é o equivalente no Laravel AI SDK (`private const FALLBACK_MODELS`, outra arquitetura, sem uso da facade `Gemini`).
 
 ```php
 use Gemini\Laravel\Facades\Gemini;
@@ -61,7 +61,7 @@ $result = Gemini::generativeModel(model: 'gemini-2.5-flash')
     ->withGenerationConfig($generationConfig)
     ->generateContent($promptText);
 
-$data = json_decode($result->text(), true);
+$data = $result->json();
 ```
 
 ### 3. Entradas Multimodais (Blobs)
@@ -121,8 +121,6 @@ try {
 
 # Restrições
 - **Nenhuma Exposição de API Key:** Nunca deixe a API key do Gemini hardcoded. Garanta que a configuração seja carregada por meio de `config('gemini.api_key')` ou variáveis de ambiente padrão.
-- **Eficiência de Memória:** Evite armazenar arquivos enormes em memória. Garanta que os payloads em Base64 sejam processados e coletados pelo garbage collector de forma eficiente.
-- **Campos Obrigatórios no Schema:** Ao definir saídas estruturadas, sempre passe o array de chaves obrigatórias para garantir que o validador de schema assegure sua presença na saída final.
 - **Comentários em Português Brasileiro:** Mantenha a documentação de código, restrições de modelo e comentários inline em **Português Brasileiro** (`pt-BR`), conforme as diretrizes do repositório.
 
 ## Idioma da conversa

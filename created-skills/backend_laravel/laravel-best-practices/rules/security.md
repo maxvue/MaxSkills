@@ -4,15 +4,7 @@
 
 Every model must define `$fillable` (whitelist) or `$guarded` (blacklist).
 
-Incorrect:
-```php
-class User extends Model
-{
-    protected $guarded = []; // All fields are mass assignable
-}
-```
-
-Correct:
+Preferred for new models — explicit whitelist:
 ```php
 class User extends Model
 {
@@ -24,7 +16,29 @@ class User extends Model
 }
 ```
 
-Never use `$guarded = []` on models that accept user input.
+**Convenção existente no engeapp:** cerca de 36 models instalados usam `protected $guarded = []`
+(ex.: `SupportTemplate`, `ProjectEvaluation`, `PriceTable`, `UserGroup`), enquanto a maioria (~94)
+usa `$fillable`. O padrão `$guarded = []` delega a proteção contra dados não confiáveis à validação
+(Form Request) antes do `create`/`update`. Ao editar ou estender esses models, mantenha a
+consistência com o arquivo; ao criar models novos, prefira `$fillable`.
+
+O risco de mass assignment com `$guarded = []` é real e continua valendo o alerta quando o payload
+chega direto do usuário:
+
+Incorrect:
+```php
+// Qualquer coluna enviada pelo cliente é preenchida — inclusive is_admin
+$user->update($request->all());
+```
+
+Correct:
+```php
+// Apenas o que o Form Request validou
+$user->update($request->validated());
+```
+
+Nunca passe `$request->all()` para `create()`/`update()` — em model algum, com `$fillable` ou
+`$guarded`. Ver `rules/validation.md`.
 
 ## Authorize Every Action
 
@@ -74,38 +88,11 @@ User::where('name', $request->name)->get();
 User::whereRaw('LOWER(name) = ?', [strtolower($request->name)])->get();
 ```
 
-## Escape Output to Prevent XSS
+## Proteção CSRF
 
-Use `{{ }}` for HTML escaping. Only use `{!! !!}` for trusted, pre-sanitized content.
+O engeapp é uma SPA Vue 3 (Vue Router, sem Inertia): a maior parte das requisições sai via axios, sem forms Blade. A proteção CSRF depende do cookie `XSRF-TOKEN`, que o axios reenvia automaticamente no header; garanta que o cliente HTTP esteja configurado para isso e que as rotas estateful passem pelo middleware de sessão. Além disso, o projeto envia o token explicitamente: `resources/Stores/Setting/useSystem.Store.ts` expõe `headerRequests` com o header `X-CSRF-TOKEN` e `withCredentials: true`. Rotas de webhook são isentas em `bootstrap/app.php` via `$middleware->validateCsrfTokens(except: ['onlyoffice/callback/*', 'voip/webhook', 'voip/agent/result'])` — ao adicionar um webhook novo, isente-o ali (e proteja-o por assinatura/token próprio).
 
-Incorrect:
-```blade
-{!! $user->bio !!}
-```
-
-Correct:
-```blade
-{{ $user->bio }}
-```
-
-## CSRF Protection
-
-Include `@csrf` in all POST/PUT/DELETE Blade forms. In Inertia apps, the `@csrf` directive is automatically applied.
-
-Incorrect:
-```blade
-<form method="POST" action="/posts">
-    <input type="text" name="title">
-</form>
-```
-
-Correct:
-```blade
-<form method="POST" action="/posts">
-    @csrf
-    <input type="text" name="title">
-</form>
-```
+Referência genérica do framework (raramente aplicável aqui): em views Blade servidas pelo servidor, use `{{ }}` para escape de saída (nunca `{!! !!}` com conteúdo do usuário) e inclua `@csrf` em todos os forms POST/PUT/DELETE.
 
 ## Rate Limit Auth and API Routes
 
@@ -140,21 +127,7 @@ $path = $request->file('avatar')->store('avatars', 'public');
 
 ## Keep Secrets Out of Code
 
-Never commit `.env`. Access secrets via `config()` only.
-
-Incorrect:
-```php
-$key = env('API_KEY');
-```
-
-Correct:
-```php
-// config/services.php
-'api_key' => env('API_KEY'),
-
-// In application code
-$key = config('services.api_key');
-```
+Never commit `.env`. Access secrets via `config()` only — ver `rules/config.md` ("`env()` Only in Config Files") para o exemplo Incorrect/Correct.
 
 ## Audit Dependencies
 

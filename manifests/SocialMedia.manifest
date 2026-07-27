@@ -6,7 +6,6 @@ typescript/typescript-best-practices
 typescript/typescript-advanced-types-best-practices
 # --- backend Laravel (só o que o composer.json suporta + domínio social) ---
 backend_laravel/laravel-best-practices
-backend_laravel/laravel-database-eloquent-best-practices
 backend_laravel/laravel-migrations-seeders-factories-best-practices
 backend_laravel/laravel-authorization-policies-gates
 backend_laravel/laravel-ziggy-routing-integration-best-practices

@@ -47,27 +47,19 @@ Estabelecer padrões precisos, consistentes e padronizados para:
   * `formatCep($value, $format = '#####-###')`: Formata CEP.
 
 #### D. Formatação de Números e Moeda (BRL)
-* Sempre use o `NumberFormatter` da extensão `intl` do PHP para formatar valores em BRL:
+* O padrão real do backend é `number_format($valor, 2, ',', '.')` com o prefixo `'R$ '` concatenado manualmente na exibição, como em `app/Traits/HasAgentAiRequest.php:137`:
   ```php
-  $formatter = new \NumberFormatter('pt_BR', \NumberFormatter::CURRENCY);
-  $formatted = $formatter->formatCurrency(1250.50, 'BRL'); // Saída: R$ 1.250,50
+  $totalPriceBrl = 'R$ ' . number_format($priceData['total_usd'] * $cotacaoDolar, 2, ',', '.');
   ```
-* Alternativamente, se usar o helper `Number` do Laravel (Laravel 10+):
-  ```php
-  use Illuminate\Support\Number;
-  
-  $formatted = Number::currency(1250.50, in: 'BRL', locale: 'pt_BR'); // Saída: R$ 1.250,50
-  ```
+  Outros exemplos reais: `app/Services/Bank/EfiPaymentStatus.php` e `app/Services/Finance/PaymentPricing.php` (`'R$' . number_format(...)`).
+* `\NumberFormatter` (extensão `intl`) e `Illuminate\Support\Number::currency` são opcionais, não o padrão do projeto: `ext-intl` NÃO está declarada em `composer.json` (apenas `ext-curl`/`dom`/`iconv`/`pdo`/`redis`/`zip`), então `Number::currency` lança `RuntimeException` e `new NumberFormatter` é fatal error sem a extensão instalada. Se optar por esse caminho, valide antes com `extension_loaded('intl')`.
 
 #### E. Arredondamento de Precisão
-* Para evitar divergências no cálculo de centavos (ex: imprecisões de ponto flutuante), use a extensão `bcmath` do PHP para operações matemáticas ou `round()` com precisão explícita:
+* O padrão real do projeto é `round($value, 2, PHP_ROUND_HALF_UP)` — não há uso de `bcmath` em `app/` nem a extensão declarada no `composer.json`:
   ```php
-  // Operação matemática usando bcmath
-  $sum = bcadd('10.25', '20.35', 2); // '30.60'
-  
-  // Arredondamento seguro
   $rounded = round($value, 2, PHP_ROUND_HALF_UP);
   ```
+* `bcmath` (`bcadd`, etc.) é uma alternativa genérica para quem precisar de precisão arbitrária, mas confirme antes com `extension_loaded('bcmath')` — não é dependência do projeto.
 * Evite converter valores float diretamente para inteiro sem o arredondamento adequado.
 
 #### F. Convertendo Números e Moeda por Extenso
@@ -139,15 +131,11 @@ Use os helpers da biblioteca `@maxvue/max-use` para lógica e validação:
   ```vue
   <InputNumber v-model="form.value" prefix="R$ " :minFractionDigits="2" :maxFractionDigits="2" label="Valor (R$)" />
   ```
-  Evidência real: `resources/Vue/Sections/supportChat/ChatInputTemplatesPopover.vue` (input de `type_input === 'finance' | 'money'`).
-* NÃO use `v-maska` cru + função manual de `parse` (`parseBrlToFloat` etc.) para moeda: isso reinventa o `MaxInputNumber` já existente e viola a regra de preferir componentes `Max*`. O `v-model` do `InputNumber` já entrega o `number` pronto para enviar ao backend.
+  Evidência real: `resources/Vue/Sections/supportChat/ChatInputTemplatesPopover.vue` (input de `type_input === 'finance' | 'money'`). NÃO use `v-maska` cru + função manual de `parse` (`parseBrlToFloat` etc.): isso reinventa o `MaxInputNumber` já existente.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-* NUNCA armazene documentos formatados (ex: com pontos, barras ou traços) no banco de dados. Sempre use `onlyNumbers()`.
 * NÃO escreva algoritmos de validação customizados para CPF/CNPJ ou CEP. Reutilize `lacus/br-utils` no backend (padrão do projeto) e `@maxvue/max-use` no frontend. NÃO confie em uma rule `cpf`/`cnpj` do Validator — ela não existe.
-* NÃO use `v-maska` cru + parsing manual para inputs de moeda; use o componente numérico Max (`MaxInputNumber`/`InputNumber`) com `prefix` e `minFractionDigits`.
-* NUNCA quebre atributos de componentes HTML/Vue em múltiplas linhas dentro dos templates. Mantenha as tags em linha única (estilo inline).
-* **NÃO** faça substituições manuais de string para formatação de moeda (ex: `str_replace` ou concatenar manualmente `"R$ "`). Sempre use `Intl.NumberFormat` no frontend e `NumberFormatter` ou o helper `Number` do Laravel no backend.
-* **NÃO** use adições baseadas em float (`$a + $b`) diretamente para cálculos financeiros sensíveis. Prefira `bcmath` ou imponha arredondamento de 2 casas decimais.
+* No frontend, sempre use `Intl.NumberFormat` (via `formatCurrency` do MaxUse) para formatação de moeda. No backend, o padrão real é `number_format($valor, 2, ',', '.')` com `'R$ '` concatenado manualmente na exibição — `NumberFormatter`/`Number::currency` são opcionais e dependem de `ext-intl`, não declarada no projeto.
+* **NÃO** use adições baseadas em float (`$a + $b`) diretamente para cálculos financeiros sensíveis. Imponha arredondamento de 2 casas decimais com `round($value, 2, PHP_ROUND_HALF_UP)`; `bcmath` é uma alternativa apenas se a extensão estiver disponível.
 * **NÃO** duplique a criação da instância de `NumberToWords` desnecessariamente; reutilize os helpers estabelecidos como `nameNumber()` dentro de `StringsHelper.php` quando aplicável.

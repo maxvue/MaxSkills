@@ -1,6 +1,6 @@
 ---
 name: laravel-rate-limiting-best-practices
-description: Use ao configurar, otimizar ou depurar limites de requisições (rate limiting) para rotas HTTP, APIs, login ou filas no Laravel 13. Aciona ao definir limiters nomeados em App\Providers\AppServiceProvider via RateLimiter::for, aplicar o middleware throttle (nomeado ou inline throttle:6,1), fazer throttling manual em FormRequest (tooManyAttempts/hit/clear), customizar a resposta 429 e testar no Pest.
+description: 'Use ao configurar, otimizar ou depurar limites de requisições (rate limiting) para rotas HTTP, APIs, login ou filas no Laravel 13. Aciona ao definir limiters nomeados em App\Providers\AppServiceProvider via RateLimiter::for, aplicar o middleware throttle (nomeado ou inline throttle:6,1), fazer throttling manual em FormRequest (tooManyAttempts/hit/clear), customizar a resposta 429 e testar no Pest.'
 ---
 
 # Boas Práticas de Rate Limiting no Laravel
@@ -61,6 +61,10 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
          }
 
          event(new Lockout($this));
+         // Nota: availableIn() apenas RETORNA os segundos restantes, sem efeito colateral.
+         // No engeapp o retorno é descartado (diferente do Breeze original, que usa esse valor
+         // para compor a mensagem de lockout) — reproduzir esta linha sem capturar o retorno é
+         // replicar uma característica do código real, não necessariamente um padrão a copiar.
          RateLimiter::availableIn($this->throttleKey());
 
          throw ValidationException::withMessages([]);
@@ -132,7 +136,7 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
 7. **Contornando o Rate Limiting em Ambientes Locais/de Teste**:
    - Para evitar bloquear testes automatizados ou fluxos de desenvolvimento local, permita desabilitar os rate limits durante a execução dos testes.
    - `app()->runningUnitTests()` já cobre o cenário de testes sem exigir configuração extra. Se quiser também uma flag por ambiente, crie você mesmo a chave (ela NÃO existe no engeapp: não há `config/security.php`) — publique um `config/security.php` retornando `['disable_rate_limits' => env('DISABLE_RATE_LIMITS', false)]` antes de referenciá-la.
-   - Em `AppServiceProvider.php`:
+   - Em `AppServiceProvider.php` (exemplo ilustrativo — o engeapp não tem nenhum limiter nomeado `'api'` registrado via `RateLimiter::for`; o throttling real do projeto é 100% inline via `throttle:6,1` nas rotas, mais throttling manual no `LoginRequest`. Adapte o nome do limiter ao que você de fato registrar):
      ```php
      // config('security.disable_rate_limits') pressupõe um config/security.php criado por você.
      if (app()->runningUnitTests() || config('security.disable_rate_limits')) {
@@ -142,9 +146,11 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
 
 8. **Testando o Throttling com o Pest**:
    - Use os testes de feature do Pest para verificar se os endpoints têm o throttle aplicado corretamente.
-   - Simule requisições consecutivas usando loops e verifique o status code. No engeapp o login é `POST /login_request` (`->name('login')`) e o throttling do `LoginRequest` dispara `ValidationException` (HTTP 422) até estourar o limite — a 6ª tentativa apenas acrescenta a mensagem de lockout, sem trocar o status. Prefira asserir contra o nome de rota (`route('login')`) e checar a mensagem/evento de bloqueio:
+   - Simule requisições consecutivas usando loops e verifique o status code. No engeapp o login é `POST /login_request` (`->name('login')`) e o throttling do `LoginRequest` dispara `ValidationException::withMessages([])` (HTTP 422) — o corpo é sempre vazio, tanto nas tentativas com credenciais erradas quanto na tentativa bloqueada por rate limit; a 6ª tentativa NÃO acrescenta nenhuma mensagem de lockout, apenas dispara o evento `Lockout`. O único jeito de provar o lockout é usar `Event::fake()` ANTES do loop e asserir `Event::assertDispatched(Lockout::class)`:
      ```php
      it('bloqueia o login após 5 tentativas com falha', function () {
+         Illuminate\Support\Facades\Event::fake();
+
          for ($i = 0; $i < 5; $i++) {
              $this->postJson(route('login'), [
                  'email'    => 'user@example.com',
@@ -152,12 +158,13 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
              ])->assertStatus(422); // credenciais inválidas, ainda sem lockout
          }
 
-         // A partir daqui o RateLimiter marca lockout (evento Lockout + availableIn).
-         Illuminate\Support\Facades\Event::fake();
+         // A 6ª tentativa dispara o evento Lockout (corpo da resposta continua vazio/422).
          $this->postJson(route('login'), [
              'email'    => 'user@example.com',
              'password' => 'senha-errada',
          ])->assertStatus(422);
+
+         Illuminate\Support\Facades\Event::assertDispatched(Illuminate\Auth\Events\Lockout::class);
      });
      ```
    - Para rotas com o middleware `throttle` nomeado ou inline (ex.: `throttle:6,1`), aí sim a resposta esperada após o limite é HTTP 429; teste o status code diretamente.
@@ -166,7 +173,7 @@ Fornecer diretrizes claras e padrões robustos para implementar, configurar e te
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem Locks Crus no Banco de Dados**: NÃO escreva consultas customizadas no banco ou arquivos de lock para contar requisições. Sempre use a facade nativa `RateLimiter` ou o middleware `throttle` do Laravel.
 - **Nunca Bloqueie Globalmente**: NÃO defina rate limiters sem um identificador único (como IP ou User ID) usando `by()`, pois isso aplicaria o throttle da rota para todos os usuários globalmente.
-- **Resposta JSON em APIs**: Rate limiters aplicados a rotas de API devem retornar respostas JSON com headers padrão de CORS e retry-after, evitando as páginas de erro HTML padrão.
+- **Resposta JSON em APIs**: Rate limiters aplicados a rotas de API devem retornar respostas JSON com os headers padrão de rate limit (`Retry-After`, `X-RateLimit-Limit`, `X-RateLimit-Remaining`), evitando as páginas de erro HTML padrão. CORS é uma preocupação independente, tratada por `HandleCors`/`config/cors.php`.
 - **Trate Falhas de Cache**: Garanta que o driver de cache esteja corretamente configurado (ex: Redis ou banco de dados) para suportar rate limits. O rate limiting usando o driver de cache `array` não persiste entre as requisições web.
 
 ## Exemplos

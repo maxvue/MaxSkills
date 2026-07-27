@@ -23,6 +23,7 @@ For async operations, either access all dependencies before the await, or use `w
 ```vue
 <script setup>
 import { ref, watchEffect } from 'vue'
+// No engeapp: apiGetRoute (@maxvue/max-use) por NOME de rota Ziggy pontilhado, nunca fetch cru
 
 const userId = ref(1)
 const includeDetails = ref(true)
@@ -30,8 +31,7 @@ const userData = ref(null)
 
 // BAD: includeDetails is accessed after await - NOT TRACKED!
 watchEffect(async () => {
-  const response = await fetch(`/api/users/${userId.value}`)
-  const data = await response.json()
+  const data = await apiGetRoute('users.show', { id: userId.value })
 
   // This dependency is NOT tracked - changes won't trigger re-run
   if (includeDetails.value) {
@@ -57,6 +57,7 @@ watchEffect(async () => {
 ```vue
 <script setup>
 import { ref, watchEffect, watch } from 'vue'
+// No engeapp: apiGetRoute (@maxvue/max-use) por NOME de rota Ziggy pontilhado, nunca fetch cru
 
 const userId = ref(1)
 const includeDetails = ref(true)
@@ -69,8 +70,7 @@ watchEffect(async () => {
   const withDetails = includeDetails.value
 
   // Now these are tracked
-  const response = await fetch(`/api/users/${id}`)
-  const data = await response.json()
+  const data = await apiGetRoute('users.show', { id })
 
   if (withDetails) {
     userData.value = { ...data, details: await fetchDetails(data.id) }
@@ -83,8 +83,7 @@ watchEffect(async () => {
 watch(
   [userId, includeDetails],
   async ([id, withDetails]) => {
-    const response = await fetch(`/api/users/${id}`)
-    const data = await response.json()
+    const data = await apiGetRoute('users.show', { id })
 
     if (withDetails) {
       userData.value = { ...data, details: await fetchDetails(data.id) }
@@ -102,6 +101,7 @@ watch(
 ```vue
 <script setup>
 import { ref, watchEffect } from 'vue'
+// No engeapp: apiGetRoute (@maxvue/max-use) por NOME de rota Ziggy pontilhado, nunca fetch cru
 
 const filters = ref({ status: 'active', sortBy: 'name' })
 const page = ref(1)
@@ -114,10 +114,7 @@ watchEffect(async () => {
   const currentPage = page.value
 
   // Now safe to do async work
-  const response = await fetch(
-    `/api/items?status=${status}&sort=${sortBy}&page=${currentPage}`
-  )
-  results.value = await response.json()
+  results.value = await apiGetRoute('items.index', { status, sort: sortBy, page: currentPage })
 })
 </script>
 ```

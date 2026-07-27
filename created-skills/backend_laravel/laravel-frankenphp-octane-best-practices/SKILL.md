@@ -12,17 +12,17 @@ Fornecer diretrizes, configurações e estratégias para executar, fazer deploy 
 
 1. **Isolamento de Estado e Prevenção de Memory Leaks**:
    - Garanta que os service providers registrem serviços da aplicação que mantêm estado específico de requisição (como usuário atual, sessão, configuração dinâmica) usando `$this->app->scoped()` em vez de `$this->app->singleton()`. Um binding `scoped` atua como um singleton durante a duração de uma única requisição, mas é destruído e recriado em requisições subsequentes.
-   - Se utilizar serviços customizados que persistem estado entre requisições, implemente resetters customizados ou registre classes de reset em `octane.listeners` ou `octane.warm` dentro de `config/octane.php`.
+   - Se utilizar serviços customizados que persistem estado entre requisições, implemente resetters customizados ou registre classes de reset em `octane.listeners` (lógica de reset via eventos) e nos bindings de `octane.flush` (bindings que devem ser re-resolvidos a cada requisição, descartados antes de cada nova requisição). `octane.warm`, por outro lado, apenas pré-aquece bindings no boot do worker e não serve para reset de estado — não confunda as duas chaves de `config/octane.php`.
    - Limpe manualmente quaisquer arrays ou collections estáticos ao final de um ciclo de requisição escutando o evento `RequestTerminated` do Octane ou definindo uma classe resetter customizada. Nunca declare propriedades estáticas que acumulam dados entre ciclos de requisição (ex: `public static array $cache = [];`) sem resetá-las.
    - **Resolver closures em singletons**: Se um serviço realmente precisa ser um singleton mas necessita de dados específicos da requisição, nunca injete o container da aplicação (`$app`), o `Request` HTTP, o repositório de config (`$config`) ou o gerenciador de sessão (`$session`) diretamente em seu construtor. Injete uma resolver closure (ex: `fn () => $app['request']`) ou resolva dinamicamente dentro dos métodos via helpers (`request()`, `config()`, `auth()`) ou facades.
    - **Estado de pacotes de terceiros**: Verifique que pacotes que mantêm estado interno sejam resetados entre requisições. Se um pacote não for Octane-aware, adicione sua lógica de reset ao array `octane.listeners` sob o evento `RequestReceived`.
-   - **Concorrência / `Octane::concurrently`**: Ao executar tarefas via a facade `Concurrency` (`Concurrency::run(...)` / `Concurrency::defer(...)`) ou `Octane::concurrently()`, lembre-se de que elas executam em processos worker isolados. Garanta que as conexões de banco de dados e a integridade transacional sejam mantidas corretamente dentro de cada tarefa concorrente.
+   - **Concorrência**: são duas APIs distintas, não confunda. `Octane::concurrently()` despacha via `ProvidesConcurrencySupport`, que só usa dispatcher paralelo (Swoole) quando `Swoole\Http\Server` está disponível; sob **FrankenPHP** (sem Swoole, o runtime real do engeapp — `php -m` não lista `swoole`, `composer.json` não tem `swoole/roadrunner`) ele cai no `SequentialTaskDispatcher` e executa as closures **sequencialmente no mesmo worker** — sem paralelismo nem isolamento. Já a facade `Concurrency` do framework (`Concurrency::run(...)`/`Concurrency::defer(...)`) é outro mecanismo: driver default `'process'`, que dispara processos PHP separados (sem herdar container/estado da requisição). Paralelismo real de `Octane::concurrently()` só existe com Swoole.
 
 2. **Configuração do Worker do FrankenPHP (runtime principal)**:
-   - O FrankenPHP é o servidor efetivamente usado no engeapp (`.env` define `OCTANE_SERVER=frankenphp`, sobrescrevendo o default `roadrunner` do `config/octane.php`). Inicie-o com:
+   - Inicie o worker com:
      `php artisan octane:start --server=frankenphp --workers=4 --max-requests=10000`
-     (com `OCTANE_SERVER=frankenphp` no `.env`, a flag `--server` é opcional). O script de dev do projeto usa `php artisan octane:start --port=4003 --admin-port=4004` — a flag `--admin-port` é específica do FrankenPHP e expõe o endpoint de administração/reload do worker.
-   - **Não escreva o Caddyfile à mão.** O próprio Octane gera e gerencia o Caddyfile a partir do stub `vendor/laravel/octane/src/Commands/stubs/Caddyfile`, parametrizado por variáveis de ambiente (`CADDY_SERVER_WORKER_DIRECTIVE`, `APP_PUBLIC_PATH`, `CADDY_SERVER_ADMIN_PORT` etc.). O engeapp NÃO possui Caddyfile manual — controle os workers pelas flags de CLI (`--workers`, `--max-requests`, `--admin-port`) e pelas variáveis de ambiente, não editando o Caddyfile.
+     (com `OCTANE_SERVER=frankenphp` no `.env`, a flag `--server` é opcional). O script de dev do projeto usa `php artisan octane:start --port=4003 --admin-port=4004`.
+   - **Não escreva o Caddyfile à mão.** O próprio Octane gera e gerencia o Caddyfile a partir do stub `vendor/laravel/octane/src/Commands/stubs/Caddyfile`, parametrizado por variáveis de ambiente (`CADDY_SERVER_WORKER_DIRECTIVE`, `APP_PUBLIC_PATH`, `CADDY_SERVER_ADMIN_PORT` etc.). O engeapp NÃO possui Caddyfile manual — controle os workers exclusivamente pelas **flags de CLI** do comando `octane:start` (`--workers`, `--max-requests`, `--admin-port`), não editando o Caddyfile. **Atenção:** `.env.example` define `OCTANE_WORKERS=auto` e `OCTANE_MAX_REQUESTS=1000`, mas essas variáveis são inertes — nada em `vendor/laravel/octane/` nem em `config/octane.php` as lê (o config só usa `env()` para `OCTANE_SERVER` e `OCTANE_HTTPS`). Os defaults reais vêm das flags do próprio comando (`StartFrankenPhpCommand`: `--admin-port=2019`, `--workers=auto`, `--max-requests=500`). Não presuma que ajustar essas envs muda o comportamento do worker.
    - Estrutura real gerada pelo Octane (referência, para entender o que a ferramenta produz): os workers do FrankenPHP são declarados no **bloco global** (`frankenphp { worker { ... } }`), e o bloco do site usa a diretiva `php_server` para rotear e servir assets estáticos. Um subdiretivo `frankenphp { num_workers N }` dentro do bloco do site NÃO é sintaxe válida.
      ```caddyfile
      {
@@ -50,25 +50,39 @@ Fornecer diretrizes, configurações e estratégias para executar, fazer deploy 
    - Use a opção `--max-requests` para reiniciar automaticamente os workers depois que eles processam um número definido de requisições, mitigando memory leaks lentos de bibliotecas de terceiros.
 
 3. **Alternativa opcional: RoadRunner ou Swoole**:
-   - Relevante apenas se você trocar o runtime. O RoadRunner é o valor default do `config/octane.php`, mas o engeapp o sobrescreve para FrankenPHP no `.env`. Para usá-lo, defina `OCTANE_SERVER=roadrunner` e inicie com `php artisan octane:start --server=roadrunner --workers=4 --max-requests=10000`.
-   - O RoadRunner é distribuído como um único binário `rr` (instalado via `./vendor/bin/rr get-binary` ou o pacote `spiral/roadrunner-cli`) e é controlado por um arquivo de config `.rr.yaml` na raiz do projeto. O Octane gerencia/gera esse arquivo; mantenha-o em sincronia com suas flags `--workers`/`--port` e evite editar manualmente valores que o Octane deriva das flags de CLI.
-   - O Swoole também é suportado via `OCTANE_SERVER=swoole`; as regras de statelessness abaixo se aplicam identicamente aos três servidores.
+   - `config/octane.php:41` tem `'server' => env('OCTANE_SERVER', 'roadrunner')` como default, sobrescrito pelo `.env` para `frankenphp`. Trocar de runtime é apenas mudar `OCTANE_SERVER`; as regras de statelessness desta skill valem igualmente para os três servidores (FrankenPHP, RoadRunner, Swoole).
 
-4. **Deploy e Reloads sem Downtime**:
-   - Ao realizar um deploy, não simplesmente mate o servidor. Em vez disso, recarregue os workers de forma graciosa.
-   - Use o comando Artisan de reload em seu script de deploy:
-     ```bash
-     php artisan octane:reload
+4. **Deploy (padrão real: Supervisor + restart, não reload)**:
+   - O Octane roda sob **Supervisor** no engeapp (programa `octane-engeapp:octane-engeapp_00`). O deploy usa a task `octane:restart` (`deploy.php:187-197`), registrada explicitamente na lista de tasks do `deploy()` (`deploy.php:362`) — não há hook `after(...)` para ela (o único `after()` do arquivo é `after('deploy:failed', 'deploy:unlock')`).
+   - A task faz um **restart deliberado**, não um `octane:reload`: `supervisorctl stop octane-engeapp:octane-engeapp_00` → `fuser -k 8000/tcp` (mitigação: o FrankenPHP pode deixar a porta presa) → `sleep 2` → `supervisorctl start octane-engeapp:octane-engeapp_00`. Não trate isso como um problema a corrigir — é a mitigação deliberada do projeto para a porta presa; não substitua por `octane:reload`/systemd/`SIGHUP` a menos que peçam explicitamente.
+   - `octane:reload` existe como opção genérica do Octane, mas não é usado no engeapp (zero ocorrências no repositório fora de `vendor`/`node_modules`) — não exija sua adoção.
+   - Exemplo real (Deployer), no formato do projeto:
+     ```php
+     // Em deploy.php
+     task('octane:restart', function () : void {
+         run('sudo /usr/bin/supervisorctl stop octane-engeapp:octane-engeapp_00 2>/dev/null || true');
+         run('sudo fuser -k 8000/tcp 2>/dev/null || true');
+         run('sleep 2');
+         run('sudo /usr/bin/supervisorctl start octane-engeapp:octane-engeapp_00');
+     })->desc('Reiniciar Laravel Octane');
+
+     // Entrada na lista explícita de tasks do deploy:
+     desc('Deploy completo do EngeApp');
+     task('deploy', [
+         // ...
+         'octane:restart',
+         'horizon:restart',
+         'reverb:restart',
+         // ...
+     ]);
      ```
-   - Garanta que seu workflow de deploy (ex: deployer, scripts bash) chame `octane:reload` após cachear config, rotas e views.
-   - Se estiver executando o Octane (RoadRunner ou FrankenPHP) como um serviço systemd, configure o systemd para suportar reloads graciosos (ex: enviando `SIGHUP`/`SIGUSR1`, ou executando `octane:reload`, para recarregar os workers sem descartar requisições em andamento).
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **Sem armazenamento direto de request**: NÃO armazene o objeto `Request` atual em singletons ou propriedades de classe que persistem entre requisições.
 - **Sem estado não gerenciado**: Nunca use superglobais do PHP (`$_GET`, `$_POST`, `$_SERVER`, `$_SESSION`) ou variáveis `global` diretamente; sempre use os objetos do ciclo de vida da requisição do Laravel.
 - **Sem propriedades estáticas não gerenciadas**: NÃO adicione a arrays/collections estáticos durante uma requisição sem resetá-los ao final da requisição.
-- **Sem restarts abruptos durante tráfego de usuários**: NÃO execute `octane:stop` seguido de `octane:start` em scripts de deploy de produção a menos que necessário, pois isso causa downtime. Sempre prefira `octane:reload`.
+- **Restart via Supervisor**: siga o padrão real do projeto (task `octane:restart`: stop → `fuser -k 8000/tcp` → sleep → start). Não substitua por `octane:reload`/systemd sem pedido explícito — é mitigação deliberada, não um bug a corrigir.
 
 ## Exemplos
 
@@ -124,7 +138,7 @@ use Illuminate\Http\Request;
 
 class PaymentService
 {
-    // OPÇÃO A: Injetar uma Closure resolvedora do request
+    // Injetar uma Closure resolvedora do request
     public function __construct(
         protected Closure $requestResolver
     ) {}
@@ -142,34 +156,4 @@ class PaymentService
 $this->app->singleton(PaymentService::class, function ($app) {
     return new PaymentService(fn () => $app['request']);
 });
-```
-
-### Bom Exemplo: Singleton resolvendo estado dinamicamente (stateless)
-```php
-<?php
-
-namespace App\Services;
-
-class PaymentService
-{
-    // OPÇÃO B: Nenhuma dependência no construtor. Resolva os helpers dinamicamente.
-    public function __construct() {}
-
-    public function processPayment()
-    {
-        // Resolve o request dinamicamente por chamada de método
-        $ip = request()->ip();
-        // Lógica de processamento de pagamento...
-    }
-}
-```
-
-### Exemplo: Reload Gracioso em Script do Deployer
-```php
-// Em deploy.php (Deployer)
-task('deploy:octane_reload', function () {
-    run('{{bin/php}} {{release_path}}/artisan octane:reload');
-})->desc('Reload Laravel Octane workers gracefully');
-
-after('deploy:publish', 'deploy:octane_reload');
 ```

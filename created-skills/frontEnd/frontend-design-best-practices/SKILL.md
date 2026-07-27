@@ -1,6 +1,6 @@
 ---
 name: frontend-design-best-practices
-description: Use ao construir nova UI ou remodelar telas do engeapp (Vue 3 + UnoCSS attributify presetMaxUno + componentes @maxvue/max-components-ui) buscando design intencional e distinto em vez de padrões genéricos. Cobre direção estética, tipografia, cor, composição espacial, movimento e a tradução da intenção de design em código acessível de produção.
+description: "Use ao construir nova UI ou remodelar telas do engeapp (Vue 3 + UnoCSS attributify presetMaxUno + componentes @maxvue/max-components-ui) buscando design intencional e distinto em vez de padrões genéricos. Cobre direção estética, tipografia, cor, composição espacial, movimento e a tradução da intenção de design em código acessível de produção."
 ---
 
 # Design de Frontend (Distinto, de Nível de Produção)
@@ -70,9 +70,10 @@ Se qualquer resposta for "não", reduza o escopo dos efeitos ou repense a direç
 
 **Tipografia**
 
-* Evite fontes de sistema e padrões de IA (Inter, Roboto, Arial, etc.)
-* Escolha 1 fonte de display expressiva e 1 fonte de corpo contida
-* Use a tipografia estruturalmente (escala, ritmo, contraste)
+* A fonte base do app **já é fixada pelo sistema**: o preflight do `presetMaxUno` compila `themes/all.scss` (que faz `@use './font.scss'`) e aplica `font-family: Quicksand, sans-serif` em `body`/`html`/`#app`. As tabelas Max (`MaxTable`, `MaxTableColumn`, `MaxTableFields`) fixam `font-family: Jost, sans-serif`, e `resources/Views/app.blade.php` ainda carrega `instrument-sans`.
+* Portanto, a expressividade tipográfica acontece **dentro dessas fontes**: hierarquia, escala, ritmo, contraste de peso (`font-weight-*`) e caixa/tracking — não trocando a família por padrão.
+* Se uma fonte de display autoral for realmente necessária, adicione-a em **escopo local** (classe/atributo da própria tela ou bloco), nunca sobrescrevendo o preflight de `body`/`html`/`#app`.
+* Evite fontes de sistema e padrões de IA (Inter, Roboto, Arial, etc.) nesses usos locais de display.
 
 **Cor & Tema**
 
@@ -103,6 +104,8 @@ Se qualquer resposta for "não", reduza o escopo dos efeitos ou repense a direç
 
 ### 4. Atenda aos Padrões de Implementação
 
+> **Reconciliação com as Restrições:** "sem design-por-componentes" e "sem layouts padrão de bibliotecas de UI" se referem a montar telas com presets genéricos e sem ponto de vista — **não** dispensam o uso obrigatório dos componentes Max. A expressividade acontece em composição, ritmo, densidade, cor e tokens/atributos UnoCSS aplicados aos componentes Max, nunca substituindo-os por elementos nativos.
+
 **Requisitos de Código**
 
 * Limpo, legível e modular
@@ -113,10 +116,10 @@ Se qualquer resposta for "não", reduza o escopo dos efeitos ou repense a direç
 
 **Orientação de Framework — Max stack (engeapp: Laravel 13 no backend + frontend Vue 3 com tooling Node/Vite)**
 
-* Construa UI em **Vue 3** com **`<script setup>`**, estilos via **UnoCSS attributify** (`presetMaxUno`) e componentes **`@maxvue/max-components-ui`**. Sem Tailwind, sem ShadCN, sem React.
+* Construa UI em **Vue 3** com **`<script setup>`**, estilos via **UnoCSS attributify** (`presetMaxUno`) e componentes **`@maxvue/max-components-ui`**. Sem o framework Tailwind como dependência standalone e sem React. Classes utilitárias no estilo Tailwind **são aceitas e usadas** via `presetWind3` + `presetAttributify` (ambos registrados em `uno.config.ts` junto com `presetMaxUno`), inclusive dentro dos próprios componentes Max (ex.: `MaxTitle1.vue` usa `text-lg font-medium uppercase`); o que se evita é adicionar o pacote `tailwindcss` como dependência extra. `shadcn-vue`/`radix-vue` estão declarados no `package.json` do engeapp mas não têm uso em `resources/` — não construa UI nova com eles.
 * **Nunca use inputs/botões nativos** (`<input>`/`<button>`/`<select>`/`<textarea>`) em código de app — use sempre os componentes MaxComponentsUi (`MaxInputText`, `MaxButton`, `MaxIconButton`, etc.).
 * **Nunca use headings nativos** (`<h1>`…`<h4>`) — use `MaxTitle1`/`MaxTitle2`.
-* **Formulários usam `MaxGrid`** (nunca `MaxGridCols`), com campos dimensionados por atributos (`s-30`, `w-max-300`, `h-min-50`, `w-min-10rem`).
+* **Formulários usam `MaxGrid`** (nunca `MaxGridCols`), com campos dimensionados por atributos (`s-30`, `w-max-300`, `h-min-50`, `w-min-160`). Essas regras do `presetMaxUno` concatenam `px` cegamente, então aceitam **apenas número puro** — `w-min-10rem` geraria `min-width: 10rempx` e seria descartado pelo browser.
 * **Não importe `@vueuse/core` nem `lodash`** — use os composables/utilitários do MaxUse (`@maxvue/max-use`).
 * **Animação**: CSS/transições nativas primeiro; bibliotecas de motion apenas quando justificado.
 
@@ -128,41 +131,21 @@ Se qualquer resposta for "não", reduza o escopo dos efeitos ou repense a direç
 
 ### 5. Entregue a Estrutura de Saída Exigida
 
-Ao gerar trabalho de frontend:
+Ao gerar trabalho de frontend, apresente nesta ordem:
 
-**Resumo da Direção de Design**
+1. **Resumo da Direção de Design** — nome da estética + inspiração-chave (conceitual, não plágio visual). Reforce aqui a Âncora de Diferenciação definida na fase de pensamento de design (seção 2).
+2. **Snapshot do Sistema de Design** — fontes (com justificativa), variáveis/tokens de cor, ritmo de espaçamento, filosofia de movimento.
+3. **Implementação** — código completo e funcional, com comentários (em pt-BR) apenas onde a intenção não é óbvia.
 
-* Nome da estética
-* Inspiração-chave (conceitual, não plágio visual)
+Antes de finalizar, confira o Checklist do Operador:
 
-**Snapshot do Sistema de Design**
-
-* Fontes (com justificativa)
-* Variáveis/tokens de cor
-* Ritmo de espaçamento
-* Filosofia de movimento
-
-**Implementação**
-
-* Código completo e funcional
-* Comentários apenas onde a intenção não é óbvia (em pt-BR)
-
-**Destaque de Diferenciação** — declare explicitamente:
-
-> "Isto evita UI genérica fazendo X em vez de Y."
-
-### 6. Execute o Checklist do Operador
-
-Antes de finalizar a saída:
-
-* [ ] Direção estética clara declarada
-* [ ] Uma âncora de design memorável e visível
+* [ ] Direção estética clara declarada, com a âncora de diferenciação visível na UI final
 * [ ] Sem fontes/cores/layouts genéricos
 * [ ] Código compatível com a ambição de design
 * [ ] Regras do Max stack respeitadas (Max*, sem nativos, sem vueuse/lodash)
 * [ ] Acessível e performático
 
-### 7. Faça Perguntas Esclarecedoras (se necessário)
+### 6. Faça Perguntas Esclarecedoras (se necessário)
 
 1. Para quem é isto, emocionalmente?
 2. Isto deve parecer confiável, empolgante, calmo ou provocativo?

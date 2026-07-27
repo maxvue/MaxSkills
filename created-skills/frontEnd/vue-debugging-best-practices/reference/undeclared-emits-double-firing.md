@@ -89,23 +89,6 @@ When you declare `click` in `emits`:
 - The listener does NOT fall through to the root element
 - Only your explicit `emit('click')` triggers the parent's handler
 
-## Options API Version
-
-**Correct - Using emits option:**
-```vue
-<script>
-export default {
-  emits: ['click', 'input', 'change'],
-
-  methods: {
-    handleClick(event) {
-      this.$emit('click', event)
-    }
-  }
-}
-</script>
-```
-
 ## Common Scenarios
 
 ### Wrapping Form Inputs

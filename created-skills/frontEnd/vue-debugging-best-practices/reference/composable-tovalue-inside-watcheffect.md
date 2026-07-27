@@ -22,20 +22,20 @@ This is a subtle but critical mistake that leads to composables that work with i
 **Incorrect:**
 ```javascript
 import { ref, watchEffect, toValue } from 'vue'
+// No engeapp: apiGetRoute (@maxvue/max-use) por NOME de rota Ziggy pontilhado, nunca fetch cru
 
-export function useFetch(url) {
+export function useApiData(routeName) {
   const data = ref(null)
   const error = ref(null)
 
   // WRONG: toValue called outside watchEffect
   // This extracts the value ONCE and passes a static string
-  const urlValue = toValue(url)
+  const routeValue = toValue(routeName)
 
   watchEffect(async () => {
     try {
-      // urlValue is a static string - no dependency tracked!
-      const response = await fetch(urlValue)
-      data.value = await response.json()
+      // routeValue is a static string - no dependency tracked!
+      data.value = await apiGetRoute(routeValue)
     } catch (e) {
       error.value = e
     }
@@ -45,29 +45,29 @@ export function useFetch(url) {
 }
 
 // When used like this:
-const apiUrl = ref('/api/users')
-const { data } = useFetch(apiUrl)
+const routeRef = ref('users.index')
+const { data } = useApiData(routeRef)
 
 // Later...
-apiUrl.value = '/api/products'  // useFetch will NOT refetch!
+routeRef.value = 'products.index'  // useApiData will NOT refetch!
 ```
 
 **Correct:**
 ```javascript
 import { ref, watchEffect, toValue } from 'vue'
+// No engeapp: apiGetRoute (@maxvue/max-use) por NOME de rota Ziggy pontilhado, nunca fetch cru
 
-export function useFetch(url) {
+export function useApiData(routeName) {
   const data = ref(null)
   const error = ref(null)
 
   watchEffect(async () => {
     // CORRECT: toValue called INSIDE watchEffect
     // Vue tracks this as a dependency
-    const urlValue = toValue(url)
+    const routeValue = toValue(routeName)
 
     try {
-      const response = await fetch(urlValue)
-      data.value = await response.json()
+      data.value = await apiGetRoute(routeValue)
     } catch (e) {
       error.value = e
     }
@@ -77,11 +77,11 @@ export function useFetch(url) {
 }
 
 // Now when used:
-const apiUrl = ref('/api/users')
-const { data } = useFetch(apiUrl)
+const routeRef = ref('users.index')
+const { data } = useApiData(routeRef)
 
 // Later...
-apiUrl.value = '/api/products'  // useFetch WILL refetch!
+routeRef.value = 'products.index'  // useApiData WILL refetch!
 ```
 
 ## The Same Applies to Direct Ref Access

@@ -1,6 +1,6 @@
 ---
 name: laravel-multitenancy-data-isolation-best-practices
-description: Use ao projetar, revisar ou depurar o isolamento multi-company do engeapp (Laravel 13). O tenant é a solar_company_id do cliente. Cobre o local scope scopeForUserTenant(Builder, User), o helper User::allowedSolarCompanyIds() (própria + companies atendidas quando projetista) e Policies que resolvem o tenant via cliente. Acione em filtros por solar_company_id ou forUserTenant.
+description: "Use ao projetar, revisar ou depurar o isolamento multi-company do engeapp (Laravel 13). O tenant é a solar_company_id do cliente. Cobre o local scope scopeForUserTenant(Builder, User), o helper User::allowedSolarCompanyIds() (própria + companies atendidas quando projetista) e Policies que resolvem o tenant via cliente. Acione em filtros por solar_company_id ou forUserTenant."
 ---
 
 # Isolamento de Dados Multi-company no EngeApp
@@ -14,7 +14,7 @@ Garantir que cada usuário só enxergue dados (clientes, projetos, documentos) d
 - `User::allowedSolarCompanyIds()` (`app/Models/User.php`) retorna a lista de IDs acessíveis:
   - a própria `solar_company_id` do usuário; **mais**
   - se a company for **projetista** (`UserSolarCompany::isProjetista()`), as `attendedCompanies()` (integradoras atendidas) via `array_merge`.
-- Por isso um scope de igualdade única (`where('solar_company_id', $id)`) é insuficiente: use sempre `whereIn(..., allowedSolarCompanyIds())`.
+- Por isso um usuário projetista pode ter múltiplas companies atendidas simultaneamente (ver regra normativa completa em Restrições).
 
 ```php
 // app/Models/User.php — retorna a própria company + (se projetista) as atendidas

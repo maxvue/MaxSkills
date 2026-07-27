@@ -8,7 +8,7 @@ description: Use ao criar, manter ou depurar a integração com a API do Trello 
 ## Objetivo
 Padronizar a integração com a API do Trello via `App\Services\TrelloService`, cobrindo credenciais, leitura de boards/lists/cards/anexos, recebimento de webhook e os commands Artisan reais do projeto.
 
-> **Estado atual (Fase 1 desativada):** No engeapp, os métodos de rede do `TrelloService` (`getData`, `putData`, `postData`) e vários fluxos (`getFileForAttachment`, `syncMediaForAttachment`, `ProcessTrelloWebhookJob::handle`, `SyncToTrelloJob::handle`, `SyncCardTrello::handle`) estão com o corpo comentado e retornam cedo com o marcador `// [Trello API] Execução cancelada na Fase 1`. A arquitetura (classes, assinaturas, credenciais) já existe e é a verdade-base desta skill; ao reativar, **descomente** os corpos existentes em vez de reescrever do zero.
+> **Estado atual (Fase 1 desativada):** No engeapp, `getFileForAttachment`, `putData`, `postData`, `ProcessTrelloWebhookJob::handle` e `SyncToTrelloJob::handle` estão com o corpo comentado e retornam cedo com o marcador `// [Trello API] Execução cancelada na Fase 1`. `getData`, `syncMediaForAttachment` e `SyncCardTrello::handle` estão ATIVOS e funcionais. A arquitetura (classes, assinaturas, credenciais) já existe e é a verdade-base desta skill; ao reativar os métodos desativados, **descomente** os corpos existentes em vez de reescrever do zero.
 
 ## Instruções
 
@@ -33,7 +33,7 @@ Padronizar a integração com a API do Trello via `App\Services\TrelloService`, 
 
 4. **Tratamento de erros e logging**:
    - O padrão real é `try/catch (\Throwable)` e **retornar vazio/null** (`return []` / `return null`) — não há exceção de domínio como `TrelloApiException` no projeto. Não referencie classes de exceção inexistentes.
-   - **Onde há log e onde não há:** apenas as mutações `putData`/`postData` registram no canal `trello` (`Log::channel('trello')->error('Erro no putData/postData do Trello', ...)`) dentro do catch. O `getData` (leituras) tem catch **silencioso** — só `return []`, sem log. Ao reativar/estender, mantenha esse contrato ou adicione log conscientemente; não presuma que `getData` já loga.
+   - **Onde há log e onde não há:** hoje o único log que executa no canal `trello` é `Log::channel('trello')->error('Erro ao baixar anexo do Trello', ...)`, no catch de `syncMediaForAttachment` (método ativo). O `getData` (leituras) tem catch **silencioso** — só `return []`, sem log. Os logs de `putData`/`postData` (`Log::channel('trello')->error('Erro no putData/postData do Trello', ...)`) existem apenas dentro dos blocos comentados da Fase 1 e são o contrato previsto ao reativar — não descreva como comportamento atual.
    - O canal `trello` está definido em `config/logging.php` (path `storage_path('logs/trello.log')`). Use-o para toda operação, erro e payload do Trello.
 
 5. **Webhook (recebimento)**:
@@ -68,24 +68,6 @@ Padronizar a integração com a API do Trello via `App\Services\TrelloService`, 
 
 ## Exemplos
 
-### Recebimento do webhook (real, `TrelloWebhookController`)
-```php
-public function handle(Request $request)
-{
-    // O Trello envia um HEAD ao registrar o webhook, só para validar a URL.
-    if ($request->isMethod('HEAD')) {
-        return response('', 200);
-    }
-
-    $payload = $request->all();
-
-    // Despacha o job e responde 200 imediatamente (não bloqueia a requisição).
-    \App\Jobs\ProcessTrelloWebhookJob::dispatch($payload);
-
-    return response('OK', 200);
-}
-```
-
 ### Padrão de leitura do serviço (real, `TrelloService`)
 ```php
 class TrelloService
@@ -117,8 +99,9 @@ class TrelloService
         try {
             $response = Http::withHeaders([])->get($this->baseUrl . $route, $data);
         }
-        // Atenção: no getData REAL o catch é SILENCIOSO (só return []). Quem loga no canal
-        // `trello` são apenas putData/postData (mutações). Não adicione log aqui achando que existe.
+        // Atenção: no getData REAL o catch é SILENCIOSO (só return []). Hoje quem loga no
+        // canal `trello` é apenas syncMediaForAttachment; putData/postData só logarão
+        // quando seus blocos comentados (Fase 1) forem reativados. Não adicione log aqui achando que existe.
         catch (\Throwable $e) {
             return [];
         }
@@ -126,14 +109,4 @@ class TrelloService
         return toArray($response?->json());
     }
 }
-```
-
-### Cache de leitura no chamador (real, `SyncCardTrello`)
-```php
-// TTL de 45 min, chave única — o cache fica no command, nunca dentro do TrelloService.
-$trello_cards = Cache::remember(
-    'trello.all_cards.board',
-    now()->addMinutes(45),
-    static fn () => $trelloService->getCardsForBoard(),
-);
 ```

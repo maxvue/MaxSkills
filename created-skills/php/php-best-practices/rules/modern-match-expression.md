@@ -71,7 +71,7 @@ function getStatusMessage(int $code): string
     };
 }
 
-// Multiple values per arm
+// Range/condition matching
 function getHttpStatusCategory(int $code): string
 {
     return match (true) {
@@ -84,7 +84,7 @@ function getHttpStatusCategory(int $code): string
     };
 }
 
-// Multiple conditions in one arm
+// Multiple values per arm
 function getDiscount(string $customerType): float
 {
     return match ($customerType) {

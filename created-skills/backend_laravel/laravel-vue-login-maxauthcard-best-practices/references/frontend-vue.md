@@ -4,11 +4,15 @@ Código de referência do frontend de login do engeapp. Sem Inertia. Vue Router 
 
 ## 1. Página de login
 
-`resources/Vue/Pages/LoginPage.vue` (ou `Sections/Auth/Login.vue`)
+`resources/Vue/Sections/Auth/Login.vue` (montado por `resources/Vue/Pages/LoginPage.vue`, que é só o shell com fundo/footer/transição entre Login/ForgotPassword/RecoveryPassword/Register)
 
 ```vue
 <template>
-  <MaxAuthCard title="Maxdmin" subtitle="Acesse sua conta" icon="mdi:shield-account-outline" :loading="login.loading" :error="login.error" v-model:email="login.value" v-model:password="login.password" v-model:remember="login.remember" :providers="login.providers" :register-to="{ name: 'register' }" :forgot-to="{ name: 'password.request' }" @submit="login.submit" @social="login.social" />
+  <MaxAuthCard identifier="email-phone" :loading="login.loading" :error="login.error" v-model:email="login.value" v-model:password="login.password" v-model:remember="login.remember" :providers="login.providers" :forgot-to="{ query: { sub_page: 'forgot-password' } }" :register-to="{ query: { sub_page: 'register' } }" @submit="login.submit" @social="login.social">
+    <template #header>
+      <Logo p />
+    </template>
+  </MaxAuthCard>
 </template>
 
 <script setup lang="ts">
@@ -21,7 +25,19 @@ Código de referência do frontend de login do engeapp. Sem Inertia. Vue Router 
 </script>
 ```
 
-`MaxAuthCard` é puramente visual: emite `submit` (`{ email, password, remember }`) e `social` (`providerId`). Nunca coloque HTTP/store dentro dele.
+`MaxAuthCard` é puramente visual: emite `submit` (`{ email, password, remember }`) e `social` (`providerId`). Nunca coloque HTTP/store dentro dele. `forgot-to`/`register-to` são `RouteLocationRaw` do Vue Router (não nomes Ziggy); o engeapp navega entre as sub-telas de auth por query `sub_page`, já que os nomes de rota do Vue Router vêm de glob de `resources/Vue/Pages/**/*.vue` e não existe página dedicada de recuperação de senha.
+
+**Prop `identifier`** (`'email' | 'email-phone'`, padrão `'email'`) — controla o campo de
+identificação. Confirmado em `MaxComponentsUi/src/components/MaxAuthCard.vue`:
+
+- `identifier="email"` → renderiza apenas um input de e-mail.
+- `identifier="email-phone"` → renderiza o `MaxInputPhoneMail`, campo **combinado** que aceita
+  e-mail OU telefone. É o valor **necessário** para o fluxo "login por e-mail OU telefone"
+  que a store `useLogin` implementa (campo único `value` + detecção `email`/`phone`). Sem
+  `identifier="email-phone"`, o card só aceita e-mail e o login por telefone fica inacessível.
+
+O v-model `email` do card (mapeado para `login.value`) carrega o valor combinado quando
+`identifier="email-phone"`; a store deriva `email`/`phone_number` a partir dele.
 
 ## 2. Store de login — `useLogin.Store.ts`
 
@@ -38,24 +54,24 @@ const PROVIDER_MAP: Record<string, Omit<ProviderBtn, 'id'>> = {
 export const useLoginStore = defineStore('login', () => {
   const loading   = ref(false);
   const value     = ref('');            // campo único: e-mail OU telefone
-  const method    = ref<'email' | 'phone'>('email');
+  const method    = ref('');            // '' | 'email' | 'phone'
   const password  = ref('');
   const remember  = ref(true);
   const error     = ref('');
   const providers = ref<ProviderBtn[]>([]);
 
   // Detecta e-mail vs telefone pelo conteúdo do campo único.
-  watch(value, (v) => {
-    const onlyDigits = v.replace(/[0-9()\-\s+]/g, '');
-    if (v.includes('@') && onlyDigits.length > 0) method.value = 'email';
-    else if (onlyDigits.length === 0 && v.length > 0) method.value = 'phone';
+  watch(value, () => {
+    const current = value.value ?? '';
+    if (current.includes('@')) method.value = 'email';
+    else if (/[0-9]/.test(current)) method.value = 'phone';
+    else if (current.length === 0) method.value = '';
   });
 
   const email        = computed(() => (method.value === 'email' ? value.value : 'undefined@enge.tec.br'));
   const phone_number = computed(() => (method.value === 'phone' ? value.value : ''));
 
   const submit = async () => {
-    if (loading.value) return;
     loading.value = true;
     error.value = '';
 
@@ -64,17 +80,18 @@ export const useLoginStore = defineStore('login', () => {
     const result = await apiPostRoute('login', {
       method: method.value,
       email: email.value,
-      phone_number: phone_number.value,
       password: password.value,
       remember: remember.value,
+      phone_number: phone_number.value,
     });
 
     if (result) {
       // Recarrega: o boot reidrata a store useUser e o guard redireciona.
       location.reload();
     } else {
+      // toast (vue3-toastify) além da mensagem exibida no card.
+      toast('Não foi possível realizar o login. <br>Verifique os dados e tente novamente.', { type: 'error', dangerouslyHTMLString: true });
       error.value = 'Usuário ou senha inválidos.';
-      setTimeout(() => (error.value = ''), 4000);
     }
     loading.value = false;
   };
@@ -106,7 +123,7 @@ export const useLoginStore = defineStore('login', () => {
     if (code && SOCIAL_ERROR_MESSAGES[code]) error.value = SOCIAL_ERROR_MESSAGES[code];
   };
 
-  return { loading, value, password, remember, error, providers, submit, social, loadProviders, loadUrlError };
+  return { email, value, phone_number, method, password, remember, loading, error, submit, providers, loadProviders, social, loadUrlError };
 });
 ```
 
@@ -167,55 +184,70 @@ router.beforeEach(async (to, _from, next) => {
 
 Meta das páginas: login → `{ layout: 'guest', requiresAuth: false }`; protegidas → `{ layout: 'default', requiresAuth: true }`.
 
-## 5. Logout
+## 5. Logout — navegação full-page (GET), NÃO POST via apiPostRoute
+
+O logout real do engeapp **não** é XHR nem `router.push`: é uma navegação full-page do
+navegador para `GET /logout`, disparada no menu do usuário
+(`resources/Vue/Layouts/PageLayout/TopMenu/UserSection.vue`, ~linha 86). O backend encerra
+a sessão (`Auth::guard('web')->logout()` + `session()->invalidate()`) e redireciona; o
+recarregamento total já reidrata o estado na tela de login. **Não** reescreva como
+`apiPostRoute('logout')` + `router.push` + `clearAll()`.
 
 ```ts
-const logout = async () => {
-  try { await apiPostRoute('logout'); } finally {
-    useUserStore().data = null;
-    router.push({ name: 'login' });
-  }
+// resources/Vue/Layouts/PageLayout/TopMenu/UserSection.vue
+const logout = () => {
+  window.location.href = '/logout'; // navegação full-page (GET)
 };
 ```
 
 ## 6. Bootstrap — `resources/app.ts`
 
+O boot **só** registra o resolver de rotas do Ziggy no MaxUse e monta o app. **Não** há
+camada global de Axios (`axios.defaults`, `withCredentials`, `withXSRFToken`), **não** há
+interceptor de `401` e **não** há Sanctum SPA stateful — nada disso existe no runtime real.
+A validação de sessão e o redirecionamento ao login são responsabilidade do guard do Vue
+Router (seção 4), que aguarda `user.waitRequest()`.
+
 ```ts
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import { createMaxPinia } from '@maxvue/max-pinia';
 import { ZiggyVue, route } from 'ziggy-js';
-import { setRouteResolver } from '@maxvue/max-use';
+import { setRouteResolver, setLibraryRouter } from '@maxvue/max-use';
 import MaxComponentsUi from '@maxvue/max-components-ui';
-import axios from 'axios';
 import App from './App.vue';
 import router from '@/Js/router';
 
-// MaxUse precisa de um resolver de rotas (Ziggy) para apiGetRoute/apiPostRoute.
-setRouteResolver((name: string, params?: any) => route(name, params));
+// MaxUse precisa de um resolver de rotas (Ziggy) para apiGetRoute/apiPostRoute/useCachedApi.
+// Deve ocorrer antes de qualquer store/composable resolver rotas.
+setRouteResolver((name: string, params?: any) => {
+  try {
+    return route(name, params);
+  } catch {
+    return null;
+  }
+});
 
-// Sessão por cookie + CSRF (Sanctum SPA stateful).
-axios.defaults.withCredentials = true;
-axios.defaults.withXSRFToken = true;
+const pinia = createPinia();
+pinia.use(createMaxPinia({
+  cacheName: 'pinia',
+  storeName: 'pinia-with-cache-plugin', // preserva o cache LocalForage já existente
+  resolveRoute: (name: string, params?: Record<string, any>) => route(name as any, params),
+  // ... getSessionToken/isAppStarted/onActivity/loading conforme o projeto
+}));
 
-// 401 global → volta ao login.
-axios.interceptors.response.use(
-  (r) => r,
-  (error) => {
-    if (error.response?.status === 401 && router.currentRoute.value.name !== 'login') {
-      useUserStore().data = null;
-      router.push({ name: 'login' });
-    }
-    return Promise.reject(error);
-  },
-);
+setLibraryRouter(router as any);
 
 createApp(App)
   .use(ZiggyVue)
-  .use(createPinia())
+  .use(pinia)
   .use(MaxComponentsUi)
   .use(router)
   .mount('#app');
 ```
+
+> Sem `setRouteResolver(...)`, `apiGetRoute`/`apiPostRoute` lançam "Route resolver não
+> configurado". Não configure `withXSRFToken`/interceptors: não há esse fluxo aqui.
 
 ## Armadilhas
 
@@ -223,5 +255,7 @@ createApp(App)
 - Buscar `user.data` com `axios.get` em vez da store MaxPinia — quebra cache/auto-save e o `waitRequest` do guard.
 - Passar URL crua para `apiPostRoute`/`apiGetRoute` — eles recebem **nome de rota Ziggy**.
 - Fazer login social com XHR — é `window.location.href = route('social.redirect', { provider })`.
+- Fazer logout com `apiPostRoute('logout')` + `router.push` — o real é `window.location.href = '/logout'` (GET).
+- Adicionar `axios.defaults.withXSRFToken`/interceptor de `401` no boot — não existe no runtime; a sessão é validada pelo guard.
 - Esquecer `setRouteResolver(...)` no boot — `apiGetRoute`/`apiPostRoute` lançam "Route resolver não configurado".
 - Checar `user.data?.id` no guard sem `await user.waitRequest()` — race condition no reload da página.

@@ -2,7 +2,9 @@
 
 Este exemplo demonstra como testar um componente Vue 3 (`UserCard.vue`) que recebe propriedades (props), emite eventos, utiliza componentes de UI stubbados e simula interações do usuário.
 
-### Componente Alvo: `UserCard.vue`
+O arquivo de teste vive em `tests/Js/` (único diretório coberto pelo `include` do `vitest.config.ts`) e importa o alvo por caminho relativo profundo até `resources/`, nunca colocalizado ao lado do SFC.
+
+### Componente Alvo: `resources/Vue/Components/User/UserCard.vue`
 ```vue
 <template>
   <div class="user-card" :class="{ 'is-admin': isAdmin }">
@@ -16,7 +18,8 @@ Este exemplo demonstra como testar um componente Vue 3 (`UserCard.vue`) que rece
 </template>
 
 <script setup lang="ts">
-import { MaxButton } from '@maxvue/max-components-ui';
+// MaxButton NÃO é importado: o unplugin-vue-components + MaxComponentsUiResolver
+// (vite.config.ts) resolve os componentes Max* automaticamente no build real.
 
 const props = withDefaults(defineProps<{
   name: string;
@@ -56,28 +59,32 @@ const confirmDelete = () => {
 
 ---
 
-### Arquivo de Teste: `UserCard.test.ts`
+### Arquivo de Teste: `tests/Js/userCard.test.ts`
 ```typescript
+// @vitest-environment jsdom
 import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { mount } from '@vue/test-utils';
-import UserCard from './UserCard.vue';
+import { config, mount } from '@vue/test-utils';
+import { defineComponent, h } from 'vue';
 
-// Função auxiliar para montar o componente com stubs necessários
+import UserCard from '../../resources/Vue/Components/User/UserCard.vue';
+
+// No build real, MaxButton é resolvido pelo unplugin-vue-components e nunca
+// importado no SFC. Sob o vitest.config.ts esse resolver não existe, então
+// registramos um stub global equivalente — sem alterar a convenção do componente.
+config.global.components = {
+    MaxButton: defineComponent({
+        props: ['label', 'severity', 'icon'],
+        setup: (props, { attrs }) => () => h('button', { class: 'max-button-stub', ...attrs }, props.label)
+    })
+};
+
+// Função auxiliar para montar o componente com as props padrão do cenário
 function mountUserCard(props: Record<string, any> = {}) {
     return mount(UserCard, {
         props: {
             name: 'João Silva',
             email: 'joao@engeapp.com.br',
             ...props
-        },
-        global: {
-            stubs: {
-                // Stubbando o MaxButton para evitar renderizar dependências pesadas de UI
-                MaxButton: {
-                    template: '<button class="max-button-stub" @click="$emit(\'click\')">{{ label }}</button>',
-                    props: ['label', 'severity', 'icon']
-                }
-            }
         }
     });
 }

@@ -6,7 +6,7 @@ Core rules, parameterization, and calculation modeling adopted by `AgentHealthSc
 ## Instructions
 
 ### 1. Base Weights and Parameters
-An account's overall health always starts from **100**. The total score is the weighted average across the three major partnership areas:
+Cada uma das três áreas parte de **100** (ver §3); a nota geral da conta nunca parte de 100 diretamente — ela é sempre derivada da média ponderada das três áreas. The total score is the weighted average across the three major partnership areas:
 - **Business (40%)**: Reflects sales trends, payments, and defaults.
 - **Experience (35%)**: Reflects communication friction, satisfaction, or hostility.
 - **Operation (25%)**: Reflects technical friction, scope, or technical maturity.
@@ -39,14 +39,25 @@ Espelhe EXATAMENTE o bloco `<LOGICA_DE_CALCULO>` do prompt de `app/Ai/Agents/Age
 If any area lacks billable information during data collection, assign a value of **5** and make clear in the text that this number does not represent a failure, but rather a lack of metrics.
 
 ### 5. B2B Status Classes
-- Excellent: **81 - 100**
-- Good: **61 - 80**
+Strings literais em pt-BR (persistidas em `solar_company.health` / `solar_company_health_logs.status`):
+- Excelente: **81 - 100**
+- Bom: **61 - 80**
 - Regular: **41 - 60**
-- Poor: **21 - 40**
-- Critical: **0 - 20**
+- Ruim: **21 - 40**
+- Péssimo: **0 - 20**
 
 ### 6. Markdown Report (Template `health_details`)
-The text document model produced by this LLM must contain the H1 header (`# 🩺 Relatório de Saúde Comercial`), the bulleted summaries (`### 1. Diagnóstico de Negócio`, etc.), and end with `🎯 4. Playbook de Ação Recomendado`. (End-user report content is written in pt-BR.)
+O campo `health_details` deve seguir EXATAMENTE este formato Markdown, começando pelo H1 completo `# 🩺 Relatório de Saúde Comercial (Health Score B2B)`, seguido imediatamente pela linha `## **NOTA FINAL: [Nota Geral]** | Status: **[Status]**` e por uma tabela markdown com as 3 notas por área:
+
+```
+| Área | Nota |
+|------|------|
+| 📊 Negócios e Finanças | [nota_negocios]/100 |
+| 🤝 Experiência do Cliente (CES) | [nota_experiencia]/100 |
+| ⚙️ Operação Técnica | [nota_operacao]/100 |
+```
+
+Em seguida, os resumos numerados (`### 1. Diagnóstico de Negócio`, etc.), terminando com `🎯 4. Playbook de Ação Recomendado`. (End-user report content is written in pt-BR.)
 
 ### 7. Required Tools and Tests
 Use the `GetClientData` tool to ingest metadata and billing. At the end, ALWAYS trigger the `SetHealth` tool to persist the JSON of the individual scores. Tests must cover mocking these tools, verifying recalculation of the decay window.

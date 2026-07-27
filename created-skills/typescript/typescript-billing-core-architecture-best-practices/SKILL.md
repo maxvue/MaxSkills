@@ -1,6 +1,6 @@
 ---
 name: typescript-billing-core-architecture-best-practices
-description: Use ao projetar, implementar, revisar ou depurar um mecanismo de faturamento de assinaturas em TypeScript puro e zero-framework — máquina de estados de assinatura, interface desacoplada de gateway de pagamento, parser de webhook canônico e idempotência. Não cobre a integração de pagamentos do engeapp, que roda em PHP no Laravel (SDKs efipay e inter-co).
+description: "Use ao projetar, implementar, revisar ou depurar um mecanismo de faturamento de assinaturas em TypeScript puro e zero-framework — máquina de estados de assinatura, interface desacoplada de gateway de pagamento, parser de webhook canônico e idempotência. Não cobre a integração de pagamentos do engeapp, que roda em PHP no Laravel (SDKs efipay e inter-co)."
 ---
 
 ## Objetivo
@@ -11,7 +11,7 @@ Esta skill descreve um PADRÃO de arquitetura para uma biblioteca de faturamento
 
 No `engeapp` real, a integração de pagamentos é feita em PHP dentro do backend Laravel 13, não por uma lib TypeScript consumida pelo Laravel (PHP não importa TS). A verdade-base é:
 * SDKs PHP declarados em `composer.json`: `efipay/sdk-php-apis-efi` (Efí/Gerencianet) e `inter-co/pj-sdk-php` (Banco Inter).
-* Código PHP correspondente: `app/Http/Integrations/Efi/`, `app/Services/Bank/EfiPaymentStatus.php`, o job idempotente `app/Jobs/ProcessEfiWebhookJob.php`, o controller `app/Http/Controllers/Api/Bank/Efi/EfiPaymentExecute.php` e o comando `SyncEfiPaymentsStatusCommand`.
+* Código PHP correspondente: `app/Http/Integrations/Efi/`, `app/Services/Bank/EfiPaymentStatus.php`, o job `app/Jobs/ProcessEfiWebhookJob.php`, o controller `app/Http/Controllers/Api/Bank/Efi/EfiPaymentExecute.php` e o comando `SyncEfiPaymentsStatusCommand`.
 * A fila é processada com `laravel/horizon`.
 
 Portanto, aplique esta skill quando estiver construindo uma biblioteca TS autônoma de faturamento. Para a lógica de pagamentos existente do `engeapp`, trabalhe em PHP/Laravel, não aqui.
@@ -36,7 +36,7 @@ Garanta a divisão estrita de responsabilidade entre os diretórios da bibliotec
 ### 3. Máquina de Estados de Assinatura
 * Mantenha uma máquina de estados finitos para as transições de status, com auxiliares `canTransition`/`transition` que lancem `InvalidTransitionError` em transições inválidas, e `grantsAccess` para decidir acesso.
 * Nunca atualize status "na mão": sempre passe pela função de transição para preservar o ciclo de vida válido, e nunca permita saída do estado terminal `canceled`.
-* Estados, eventos e regras de transição propostos estão em `references/contrato-billing-core.md`.
+* Estados e eventos propostos, além da regra do estado terminal `canceled`, estão em `references/contrato-billing-core.md`.
 
 ### 4. Abstração Desacoplada de Gateway de Pagamento
 * Todas as integrações devem depender de uma interface única de gateway (`PaymentGateway`), com adaptadores concretos por provedor (ex.: `EfiGateway`, `InterGateway`) que não vazem tipos específicos do provedor.
@@ -45,8 +45,8 @@ Garanta a divisão estrita de responsabilidade entre os diretórios da bibliotec
 
 ### 5. Parser de Webhook e Idempotência
 * Trate o evento de webhook como fonte da verdade para confirmações de pagamento.
-* Use um parser (`parseWebhook`) para traduzir o payload do provedor para um evento canônico que carregue uma `idempotencyKey` determinística (ex.: `txid` + `endToEndId`).
-* O backend consumidor deve processar cada evento por meio de um job idempotente, consultando a `idempotencyKey`/ID de transação para evitar cobrança ou crédito duplicados. No `engeapp`, esse papel é cumprido em PHP por `ProcessEfiWebhookJob` sobre a fila do Horizon — não por esta biblioteca.
+* Use um parser (`parseWebhook`) para traduzir o payload do provedor para um evento canônico que carregue uma `idempotencyKey` determinística igual ao `endToEndId` do Pix, com fallback para o `txid` e, na ausência de ambos, `'unknown'` — sem prefixo (mesma regra da skill irmã `typescript-max-banks-efi-gateway-best-practices`).
+* O backend consumidor deve processar cada evento consultando a `idempotencyKey`/ID de transação para evitar cobrança ou crédito duplicados. No `engeapp` real esse papel NÃO está implementado: o job `ProcessEfiWebhookJob` roda em PHP sobre a fila do Horizon, mas a única proteção contra reprocessamento hoje é o guarda `$payment->status !== 'paid'` — não há chave de idempotência persistida nem índice único na tabela `bank_webhooks`, e reprocessar o mesmo webhook duplica o histórico em `webhook_data_received`.
 
 ### 6. Testes Unitários Isolados
 * Teste a lógica de `core` e as transições de forma totalmente isolada.

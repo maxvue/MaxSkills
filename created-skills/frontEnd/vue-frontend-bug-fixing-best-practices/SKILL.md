@@ -1,6 +1,6 @@
 ---
 name: vue-frontend-bug-fixing-best-practices
-description: Use when diagnosing and fixing front-end bugs in the EngeApp project built with Vue 3 + TypeScript + MaxPinia (@maxvue/max-pinia) + UnoCSS + MaxComponentsUi + MaxUse — visual glitches, reactivity issues, TS type errors, broken MaxPinia stores (cache/auto-save), MaxComponentsUi/MaxUse component or composable failures, Vite/HMR breakage, or routing problems.
+description: "Use when diagnosing and fixing front-end bugs in the EngeApp project built with Vue 3 + TypeScript + MaxPinia (@maxvue/max-pinia) + UnoCSS + MaxComponentsUi + MaxUse — visual glitches, reactivity issues, TS type errors, broken MaxPinia stores (cache/auto-save), MaxComponentsUi/MaxUse component or composable failures, Vite/HMR breakage, or routing problems."
 ---
 
 # Correção de Bugs do Front-End Vue — Melhores Práticas
@@ -28,7 +28,7 @@ Usar esta skill quando:
 
 | Tecnologia | Versão | Notas |
 |------------|--------|-------|
-| Vue | 3.6.0-beta.17 | Composition API + `<script setup lang="ts">` — SEMPRE |
+| Vue | `^3.6.0-rc.2` | Composition API + `<script setup lang="ts">` — SEMPRE |
 | TypeScript | Strict mode | Tipagem obrigatória em todo front-end |
 | **@maxvue/max-pinia** | **local** | **State management — camada de cache + auto-save (debounced). TODO GET/save de dados de página passa por stores MaxPinia (sobre Pinia 3). Não usar Pinia puro nem GET/POST manual para dados de página.** |
 | Vue Router | 5 | SPA pura (Laravel serve catch-all HTML) — Ziggy (`ziggy-js`) está configurado e é usado; as rotas de API são passadas como **nome (Ziggy)** — ex.: `'client.data'` — e os helpers do `@maxvue/max-use` (`apiGetRoute`) resolvem o nome internamente (via `route()`) para a URL `/api/...` |
@@ -37,14 +37,14 @@ Usar esta skill quando:
 | Vite | 8 (`^8.0.14`) | Bundler + HMR |
 | Unplugin Auto Import | — | Auto-importação de composables e helpers |
 | Unplugin Vue Components | — | Auto-importação de componentes |
-| **@maxvue/max-components-ui** | **local** | **Biblioteca própria de componentes UI (~70 componentes + componentes do PrimeVue inclusos)** |
+| **@maxvue/max-components-ui** | **local** | **Biblioteca própria de componentes UI (~70 componentes `Max*`/`InputBase`; **não reexporta componentes do PrimeVue** — só registra `app.use(PrimeVue)` e a diretiva `v-tooltip`)** |
 | **@maxvue/max-use** | **local** | **Biblioteca própria de composables, helpers, rotas e utilitários** |
-| laravel-echo / @laravel/echo-vue | dependência | Realtime via WebSockets (Laravel Reverb) — `laravel-echo` + `@laravel/echo-vue` (`import Echo` / `useEcho`), presentes no `package.json` do app |
+| laravel-echo / @laravel/echo-vue | dependência | Realtime via WebSockets (Laravel Reverb) — bootstrap com `import { configureEcho } from '@laravel/echo-vue'` (`resources/Js/configureReverbEcho.js`) e consumo via `useEcho`. Não há `import Echo from 'laravel-echo'` em `resources/`; `laravel-echo` está em `devDependencies` e `@laravel/echo-vue` em `dependencies` |
 | @vue-flow/core | `^1.48.2` | Diagramas de fluxo — **dependência direta** do app (`dependencies` do `package.json`) |
 | @tanstack/vue-virtual | `^3.13.26` | Virtualização de listas — **dependência direta** do app |
-| floating-vue | `^5.2.2` | Tooltips e popovers — **dependência direta** do app |
+| floating-vue | `^5.2.2` | Consta no `package.json` mas é **DEPENDÊNCIA MORTA** — nunca importada em `resources/` nem nas libs Max*. Tooltips do projeto usam a diretiva `v-tooltip` do PrimeVue registrada pela MaxComponentsUi (`app.directive('tooltip', Tooltip)`); popovers usam `MaxPopover`/`MaxPopoverMenu`. Não diagnosticar tooltips via floating-vue. |
 | lucide-vue-next / lucide | `^1.0.0` / `^1.17.0` | Ícones — **dependências diretas** do app (além de `@iconify/vue`, `@kalimahapps/vue-icons`) |
-| Vitest | `^4.1.7` (devDep) | Consta como `devDependency` do app, mas o front-end (`resources/`) **não tem `vitest.config` nem specs** — na prática não há suíte de testes de front rodando aqui. Testes de backend rodam com **Pest** (`php artisan test`). Vitest é o runner efetivo das libs Max* (`@maxvue/max-use`, `@maxvue/max-components-ui`). Não invente que existe teste de front. |
+| Vitest | `^4.1.7` (devDep) | Há `vitest.config.ts` na raiz do engeapp cobrindo `tests/Js/**/*.{test,spec}.ts` (specs reais de VOIP e TRT), além das suítes das libs Max*. Testes de backend usam **Pest** (`php artisan test`). |
 
 ### Bibliotecas Próprias — Contexto Obrigatório
 
@@ -53,28 +53,12 @@ Usar esta skill quando:
 Biblioteca de **componentes UI** construída sobre PrimeVue com estilos e comportamentos customizados.
 Código-fonte em: `storage/libs/MaxComponentsUi/src/` (dentro do próprio projeto engeapp)
 
-**Componentes principais (~70 total):**
-- **Inputs:** `MaxInputText`, `MaxInputNumber`, `MaxInputSelect`, `MaxInputAutoComplete`, `MaxInputAutoCompleteApi`, `MaxInputCep`, `MaxInputCpfCnpj`, `MaxInputDatePicker`, `MaxInputCheckbox`, `MaxInputRadio`, `MaxInputSwitch`, `MaxInputToggle`, `MaxInputTextArea`, `MaxInputSearch`, `MaxInputPhoneMail`, `MaxInputCoordinateDecimalLat/Lng`
-- **Upload:** `MaxInputFile`, `MaxInputFileUpload`, `MaxInputFileUploadBig`, `MaxInputFileUploadButton`, `MaxInputFileProject`
-- **Botões:** `MaxButton` (aliases: `Button`, `Botao`), `MaxIconButton`, `MaxIconConfirm`
-- **Layout:** `MaxGrid`, `MaxGridCols`, `MaxTable`, `MaxTableColumn`, `MaxModal`, `MaxPopover`, `MaxPopoverConfirm`, `MaxTogglePopover`
-- **Feedback:** `MaxLoader`, `MaxLoaderAi`, `MaxLoaderIcon`, `MaxDoneIcon`, `MaxErrorIcon`, `MaxWaitIcon`, `MaxBadgeComponent`, `MaxMsgLabels`, `MaxEmptyDiv`
-- **Navegação:** `MaxLink`, `MaxLogo`, `MaxUserAvatar`
-- **Mídia:** `MaxIcon` (Iconify), `MaxPdfView`, `MaxMaps`
-- **Animação:** `MaxAnimateFade`, `TransitionFade`, `MaxTransitionFadeLight`, `MaxTransitionUp`
-- **Títulos:** `MaxTitle1`, `MaxTitle2`
-- **Base:** `InputBase` (wrapper de todos os inputs — gerencia labels, erros, ícones)
+Agrupamentos-chave (para bug fixing, basta saber onde procurar — a lista completa e as props ao vivo estão no source e na skill dedicada, não replique nomes aqui):
+- **Inputs** (todos envolvem `InputBase`, que gerencia label/erro/ícone), **Upload**, **Botões** (`MaxButton`/aliases `Button`,`Botao`), **Layout** (`MaxTable`, `MaxModal`, `MaxPopover`…), **Feedback/Loaders**, **Navegação**, **Mídia** (`MaxIcon`/Iconify, `MaxPdfView`, `MaxMaps`), **Animação**, **Títulos**.
+- **Stores internas da lib:** `useConfirmStore`, `useModalStore`, `usePopoverStore`.
+- **Temas/estilos:** `src/themes/`, `src/styles/`, `src/prime/`, `src/presetMaxUno.ts`.
 
-**Stores internas da lib:**
-- `useConfirmStore` — diálogos de confirmação
-- `useModalStore` — controle de modais
-- `usePopoverStore` — controle de popovers
-
-**Temas e estilos:**
-- `src/themes/` — temas PrimeVue customizados
-- `src/styles/` — estilos base da biblioteca
-- `src/prime/` — configurações PrimeVue
-- `src/presetMaxUno.ts` — preset UnoCSS da biblioteca
+> Para a lista granular de componentes/props, consulte o **source** (`storage/libs/MaxComponentsUi/src/components/`) ou a skill **`vue-max-ecosystem-api-reference`** — não confie numa lista transcrita aqui (desatualiza).
 
 #### `@maxvue/max-use` (link local: `file:./storage/libs/MaxUse`)
 
@@ -83,39 +67,12 @@ Código-fonte em: `storage/libs/MaxUse/src/` (dentro do próprio projeto engeapp
 
 > **Obs.:** o MaxPinia também é link local (`file:./storage/libs/MaxPinia`), com código-fonte em `storage/libs/MaxPinia/src/`.
 
-**Composables próprios:**
-- `useDefaultReset` — reset de estado para valores padrão
-- `useRefCached` — ref com cache em localStorage
-- `useRefCachedApi` — ref com cache + sincronização com API
-- `useTimeAgo` — formatação de tempo relativo
+Para bug fixing, os agrupamentos relevantes (nomes exatos e assinaturas: consulte o **source** `storage/libs/MaxUse/src/` ou a skill **`vue-max-ecosystem-api-reference`**):
+- **Composables próprios:** `useDefaultReset`, `useRefCached` (cache em localStorage), `useRefCachedApi` (cache + sincronização com API), `useTimeAgo`.
+- **Módulos de Helpers (namespace `_`):** `Browser`, `Dates`, `Iterables`, `Math`, `Objects`, `Strings`, `Types`, `Validations`, `Electrical` (fotovoltaica), `Format`.
+- **Sistema de Rotas** — `apiGetRoute`/`apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`/`apiUploadRoute`/`apiRoute` + `getRoute`/`goToRoute`. **Todos recebem o nome da rota (Ziggy)** — ex.: `'client.data'` — e resolvem internamente (via `route()`) para a URL `/api/...`.
 
-**Módulos de Helpers (namespace `_`):**
-- `Browser` — utilitários do navegador
-- `Dates` — manipulação de datas (inclui `now()`)
-- `Iterables` — operações em iteráveis
-- `Math` — cálculos matemáticos
-- `Objects` — manipulação de objetos (inclui `get()`, `set()`)
-- `Strings` — manipulação de strings
-- `Types` — verificação de tipos (inclui `isObject()`)
-- `Validations` — validações de dados
-- `Electrical` — cálculos elétricos fotovoltaicos
-- `Format` — formatação de valores
-
-**Sistema de Rotas (helpers do `@maxvue/max-use`; recebem o **nome da rota (Ziggy)** — ex.: `'client.data'` — e resolvem internamente para a URL `/api/...`):**
-- `apiGetRoute` — GET requests
-- `apiPostRoute` — POST requests
-- `apiPutRoute` — PUT requests
-- `apiDeleteRoute` — DELETE requests
-- `apiUploadRoute` — upload de arquivos
-- `apiRoute` — rota genérica
-- `getRoute` — obter URL de rota nomeada
-- `goToRoute` — navegar para rota
-
-**Objeto utilitário `_` (underscore):**
-A biblioteca exporta `_` como um objeto centralizado que unifica helpers próprios + VueUse + Lodash, com prioridade para os próprios (sem duplicatas). Usar `_.nomeFuncao()` para acessar qualquer utilitário.
-
-**Re-exportações do VueUse:**
-Todas as funções do `@vueuse/core` são re-exportadas e disponíveis via auto-import.
+**Objeto utilitário `_` (underscore):** objeto centralizado que unifica helpers próprios + VueUse + Lodash, com prioridade para os próprios (sem duplicatas). Usar `_.nomeFuncao()`. Todas as funções do `@vueuse/core` também são re-exportadas via auto-import.
 
 ## Estrutura de Pastas do Front-End
 
@@ -130,12 +87,13 @@ resources/
 │   ├── Sections/      # Seções de funcionalidades (subpastas por domínio)
 │   ├── Site/          # Área/páginas do site
 │   └── Structure/     # Componentes estruturais
-├── Stores/            # Stores @maxvue/max-pinia (organizados por domínio)
+├── Stores/            # Stores @maxvue/max-pinia (organizados por domínio) — dir de auto-import
 │   ├── calendar/
 │   ├── Client/
 │   ├── Component/
 │   ├── Concessionaire/
 │   ├── Equipments/
+│   ├── Finance/
 │   ├── Integrador/
 │   ├── List/
 │   ├── Location/
@@ -146,7 +104,9 @@ resources/
 │   ├── Solar_company/
 │   ├── Statistics/
 │   ├── Support/
-│   └── UserStores/
+│   ├── UserStores/
+│   └── Voip/
+├── Functions/         # Funções de domínio (ex.: trt.ts) — dir de auto-import
 ├── Types/             # Tipos TypeScript / DTOs (gerados do backend)
 │   ├── generated.d.ts # DTOs gerados automaticamente — NÃO EDITAR MANUALMENTE
 │   ├── Global.d.ts
@@ -156,7 +116,10 @@ resources/
 ├── Helpers/           # Helpers do projeto (arquivos .ts + subpastas Chat/ e Locales/)
 │   ├── Chat/          # Helpers de chat
 │   └── Locales/       # i18n / localização
-├── Js/                # (ver "Pastas a Ignorar")
+├── Js/                # Infra do SPA consumida por app.ts: router.ts (Vue Router),
+│                      # ziggy.js + ziggy.d.ts (rotas Ziggy geradas),
+│                      # configureReverbEcho.js (Echo/Reverb), inactivityWatcher.ts,
+│                      # Composables/, Locales/ — fonte legítima de investigação
 ├── Theme/             # (ver "Pastas a Ignorar")
 ├── Views/ e views/    # (ver "Pastas a Ignorar")
 ├── App.vue            # Componente raiz (NÃO MODIFICAR sem aprovação)
@@ -180,7 +143,11 @@ storage/libs/MaxPinia/          # @maxvue/max-pinia
 
 - `resources/Theme/`
 - `resources/Views/` e `resources/views/`
-- `resources/Js/`
+
+> **Não ignorar `resources/Js/`:** é onde vivem `router.ts` (Vue Router), `ziggy.js`/`ziggy.d.ts`
+> (rotas Ziggy geradas), `configureReverbEcho.js` (Echo/Reverb), `inactivityWatcher.ts`,
+> `Composables/` e `Locales/` — todos importados pelo entry point `resources/app.ts`.
+> Para bugs de **Roteamento**, **Ziggy/rotas** ou **Echo/realtime**, investigue ali.
 
 ## Instruções
 
@@ -199,6 +166,9 @@ Procurar por:
 - `Failed to resolve component` — componentes não registrados
 - Erros de rede (API calls falhando)
 
+Na aba **Network** do DevTools, inspecionar as requisições `/api/...` (status, payload, resposta)
+para separar falha de front de falha de backend.
+
 #### 1.2 Verificar Erros do Backend
 
 Verificar os logs do servidor Laravel (`storage/logs/laravel.log` / saída do `php artisan serve`) para identificar se o bug tem origem no backend (erro 500, validação 422, exceção de controller/serviço).
@@ -210,7 +180,12 @@ Verificar se o `npm run dev` está reportando erros:
 - Erros de importação/resolução de módulos
 - Warnings do Vite sobre dependências
 
-#### 1.4 Reproduzir o Problema
+#### 1.4 Verificar os Dados no Banco
+
+Quando o bug parecer de dados (campo vazio, valor divergente), conferir direto no MySQL
+(cliente SQL ou `php artisan tinker`) antes de acusar o front.
+
+#### 1.5 Reproduzir o Problema
 
 - Identificar os passos exatos para reprodução
 - Verificar se o erro é consistente ou intermitente
@@ -234,48 +209,23 @@ Classificar o bug em uma das categorias abaixo para direcionar o diagnóstico:
 | **Roteamento** | Navegação falhando, parâmetros incorretos, guards com problema |
 | **Build/HMR** | Vite não recarrega, erros de importação, módulos não resolvidos, lib local não atualizada |
 | **Async/API** | Dados não carregando, race conditions, tratamento de erro ausente |
-| **Auto-Import** | Composable/componente não reconhecido pelo TS, tipos faltando em `auto-imports.d.ts` |
+| **Auto-Import** | Composable/componente não reconhecido pelo TS, tipos faltando em `auto-import.d.ts` |
 
 ### Fase 3: Diagnóstico Guiado
 
-#### Para bugs de Reatividade
+#### Para bugs de Reatividade, TypeScript e Template/Renderização
 
-Checklist:
-- [ ] Acessando `.value` corretamente em `ref()` dentro do `<script>`?
-- [ ] Usando `reactive()` sem desestruturar? (desestruturação quebra reatividade)
-- [ ] `computed()` retornando valor derivado sem side effects?
-- [ ] `watch` usando getter function para propriedades de objetos reativos?
-- [ ] `watchEffect` não tem `await` antes das dependências rastreadas?
-- [ ] Usando `toRef()` / `toRefs()` ao passar props para composables?
-- [ ] Usando `shallowRef` quando deveria usar `ref` (ou vice-versa)?
-- [ ] Objetos não-reativos sendo marcados com `markRaw()` quando necessário?
-
-#### Para bugs de TypeScript
-
-Checklist:
-- [ ] Tipo `Ref<T>` vs `T` — atribuindo valor a `.value` corretamente?
-- [ ] `defineProps` com tipos importados suportados? (limitações de tipos complexos)
-- [ ] `withDefaults` usando factory function para valores mutáveis?
-- [ ] Template refs tipados com `ref<InstanceType<typeof Component> | null>(null)`?
-- [ ] Eventos tipados com `defineEmits<{...}>()`?
-- [ ] Verificar se o auto-import gerou os tipos no `auto-imports.d.ts`?
-
-#### Para bugs de Template/Renderização
-
-Checklist:
-- [ ] `v-for` tem `:key` único e estável?
-- [ ] `v-if` e `v-for` não estão no mesmo elemento?
-- [ ] `v-if` verifica nulidade antes de acessar propriedades?
-- [ ] Componentes filhos em `v-for` recebem props corretamente?
-- [ ] `v-model` está no elemento correto (não em `<template>`)?
-- [ ] Slots nomeados sendo usados com `v-slot:nome` ou `#nome`?
+Para causas genéricas de Vue 3/TS (`ref`/`.value`, `reactive` desestruturado, `computed` com side
+effects, `watch`/`watchEffect`, `v-if` + `v-for` no mesmo elemento, `withDefaults`, `defineEmits`,
+template refs) consulte as skills `vue-debugging-best-practices` (um guia por sintoma em
+`reference/`), `vue` e `vue-typescript-best-practices`.
 
 #### Para bugs de MaxPinia/Store (`@maxvue/max-pinia`)
 
 Checklist:
 - [ ] Dados de página estão vindo de uma store `@maxvue/max-pinia` (não de `apiGetRoute` manual no componente)?
 - [ ] Auto-save (debounced) do MaxPinia disparando ao alterar o estado? Verificar se a alteração é feita no estado da store (não em cópia local)
-- [ ] Camada de cache do MaxPinia retornando dado obsoleto? Verificar invalidação/refetch
+- [ ] Camada de cache do MaxPinia (LocalForage) retornando dado obsoleto? A chave é formada por `getKey() = store.$id + '.' + (store.id ?? store.options.id ?? 'global')` (`storage/libs/MaxPinia/src/plugin.ts`). Ao diagnosticar cache cruzado/obsoleto, confira qual `id` a store está usando: sem `id`/`options.id`, a chave cai em `'.global'` e pode colidir entre instâncias. `options.key` **não** entra na chave de cache. Verificar invalidação/refetch
 - [ ] Store usando `storeToRefs()` ao desestruturar estado/getters?
 - [ ] Actions são chamadas como métodos (sem desestruturar)?
 - [ ] Estado reativo não sendo substituído por reatribuição direta?
@@ -284,7 +234,7 @@ Checklist:
 #### Para bugs de MaxComponents (`@maxvue/max-components-ui`)
 
 Checklist:
-- [ ] Componente Max* está sendo auto-importado? Verificar `components.d.ts`
+- [ ] Componente Max* está sendo auto-importado? Verificar `auto-import-components.d.ts`
 - [ ] Props do componente Max* correspondem à API definida no source (`MaxComponentsUi/src/components/`)?
 - [ ] `InputBase` está recebendo as props de erro/validação corretamente?
 - [ ] `v-model` funciona com o componente? Verificar se o componente usa `defineModel()` ou `emit('update:modelValue')`
@@ -292,7 +242,7 @@ Checklist:
 - [ ] Eventos customizados do componente estão com a assinatura correta?
 - [ ] O bug é no componente Max* ou no PrimeVue subjacente? Verificar se o problema persiste usando o PrimeVue puro
 
-> **Regra:** Se o bug está no código-fonte da biblioteca, corrigir em `storage/libs/MaxComponentsUi/src/`. Depois rodar `npm run build` na lib e reiniciar `npm run dev` no EngeApp.
+> **Regra:** Se o bug está no source da lib, corrija em `storage/libs/MaxComponentsUi/src/` e siga o **"Fluxo de Atualização das Bibliotecas Locais"** (rebuild + restart) descrito adiante.
 
 #### Para bugs de MaxUse — Helpers e Composables (`@maxvue/max-use`)
 
@@ -307,7 +257,7 @@ Checklist:
 - [ ] Helpers de `Validations` — regras de CPF/CNPJ/CEP validando corretamente?
 - [ ] Helpers de `Format` — formatação de moeda/número/data correta?
 
-> **Regra:** Se o bug está no código-fonte da biblioteca, corrigir em `storage/libs/MaxUse/src/`. Depois rodar `npm run build` na lib e reiniciar `npm run dev` no EngeApp.
+> **Regra:** Se o bug está no source da lib, corrija em `storage/libs/MaxUse/src/` e siga o **"Fluxo de Atualização das Bibliotecas Locais"** (rebuild + restart) descrito adiante.
 
 #### Para bugs de MaxUse — Sistema de Rotas
 
@@ -316,13 +266,13 @@ Checklist:
 - [ ] Parâmetros da rota sendo passados corretamente (`apiGetRoute('recurso.data', { id: 1 })` — passa-se o **nome** da rota; o helper do MaxUse resolve via Ziggy para o caminho `/api/...`)
 - [ ] `apiPostRoute` — corpo da requisição com dados corretos?
 - [ ] `apiUploadRoute` — arquivo sendo enviado como `FormData`?
-- [ ] Erros de CORS ou autenticação? Auth é Laravel Sanctum (SPA) via sessão + cookie — verificar se o cookie de sessão está sendo enviado (`withCredentials`) e se o fluxo `/sanctum/csrf-cookie` foi obtido, não procurar Bearer/token
+- [ ] Erros de CORS ou autenticação? A auth do engeapp é por **guard `web`** (padrão em `config/auth.php`: `AUTH_GUARD=web`) — login via `AuthenticatedSessionController` + `Auth::attempt`, **sessão em banco + cookie**. O MaxUse já aplica `withCredentials=true`, então o cookie de sessão vai junto; não há bootstrap clássico de `/sanctum/csrf-cookie` no front (nenhuma **chamada** a essa rota em `resources/`; a ocorrência de `sanctum.csrf-cookie` em `Js/ziggy.js`/`Js/ziggy.d.ts` é apenas a tabela de rotas gerada). Não procurar Bearer/token nem fluxo Sanctum SPA
 - [ ] Resposta HTTP sendo tratada (status 200 vs 422 vs 500)?
 
 #### Para bugs de PrimeVue (componentes puros, não Max*)
 
 Checklist:
-- [ ] Componente está sendo auto-importado corretamente?
+- [ ] Componente foi importado **explicitamente**? Componentes PrimeVue puros **não** são auto-importados (o `unplugin-vue-components` usa só o `MaxComponentsUiResolver`, que resolve apenas nomes `Max*`/aliases do manifest). Use `import Dialog from 'primevue/dialog'` — como em `resources/Vue/Sections/Project/Files/OnlyOfficeEditor.vue`
 - [ ] Props seguem a API da versão instalada?
 - [ ] Eventos seguem a convenção do PrimeVue (camelCase)?
 - [ ] Slots estão usando a sintaxe correta?
@@ -344,10 +294,10 @@ Checklist:
 Checklist:
 - [ ] Importações circulares?
 - [ ] Módulo não encontrado — verificar `tsconfig.json` paths e `vite.config.ts` aliases?
-- [ ] **Bibliotecas locais desatualizadas?** Rodar `npm run build` em MaxComponentsUi/MaxUse e reiniciar `npm run dev`
+- [ ] **Bibliotecas locais desatualizadas?** Seguir o **"Fluxo de Atualização das Bibliotecas Locais"** (rebuild da lib + restart do dev)
 - [ ] Auto-import falhou — rodar `npm run dev` novamente para regenerar tipos?
 - [ ] Cache do Vite corrompido — limpar `node_modules/.vite`?
-- [ ] `auto-imports.d.ts` ou `components.d.ts` não gerados? Verificar configuração do Vite
+- [ ] `auto-import.d.ts` ou `auto-import-components.d.ts` não gerados? Verificar configuração do Vite
 
 #### Para bugs Async/API
 
@@ -362,7 +312,7 @@ Checklist:
 #### Para bugs de Auto-Import
 
 Checklist:
-- [ ] Composable/componente aparece no `auto-imports.d.ts` ou `components.d.ts`?
+- [ ] Composable/componente aparece no `auto-import.d.ts` ou `auto-import-components.d.ts`?
 - [ ] `maxUseAutoImport` está configurado no `vite.config.ts`?
 - [ ] Após adicionar novo export na MaxUse/MaxComponents, rodou `npm run build` na lib?
 - [ ] TypeScript reconhece o tipo mas o runtime não encontra? Verificar se o export existe no `index.ts` da lib
@@ -428,19 +378,9 @@ Ativar conforme necessário durante o diagnóstico (usar apenas skills que exist
 | Skill | Quando Ativar |
 |-------|---------------|
 | `superpowers:systematic-debugging` | Bugs difíceis que necessitam investigação sistemática em fases |
-| `superpowers:test-driven-development` | Reproduzir o bug com um teste antes de corrigir (backend usa Pest/`php artisan test`; Vitest só nas libs Max*) |
+| `superpowers:test-driven-development` | Reproduzir o bug com um teste antes de corrigir — no front, adicionar um spec em `tests/Js/` (Vitest, via `vitest.config.ts` da raiz) quando aplicável; no backend, Pest (`php artisan test`) |
 
 > Para regras específicas de Vue 3 / TypeScript / MaxPinia / MaxComponentsUi / MaxUse, este documento já consolida os checklists; não dependa de skills `@...` que possam não existir no repositório.
-
-### Fontes de Diagnóstico Disponíveis
-
-| Fonte | Uso |
-|-------|-----|
-| Console do navegador (DevTools) | Logs/erros do front-end (`[Vue warn]`, runtime errors) |
-| Logs do servidor Laravel (`storage/logs/laravel.log`) | Último erro/exceção do backend (controller/serviço/validação) |
-| Aba Network (DevTools) | Inspecionar requisições `/api/...` (status, payload, resposta) |
-| MySQL (cliente / `php artisan tinker`) | Verificar dados no banco quando o bug parecer de dados |
-| Terminal do Vite | Erros de compilação/HMR |
 
 ### Fluxo de Atualização das Bibliotecas Locais
 
@@ -454,10 +394,16 @@ Quando o bug for corrigido no código-fonte de uma biblioteca própria:
 cd storage/libs/MaxComponentsUi && npm run build
 # ou
 cd storage/libs/MaxUse && npm run build
+# ou
+cd storage/libs/MaxPinia && npm run build
 
 # 3. Reiniciar o dev server do EngeApp
 # (parar e reiniciar npm run dev no engeapp)
 ```
+
+> **Atenção:** `storage/libs/MaxComponentsUi`, `storage/libs/MaxUse` e `storage/libs/MaxPinia` são
+> **symlinks** para os repositórios irmãos (`/home/johnattas/GitHub/MaxComponentsUi`, `.../MaxUse`,
+> `.../MaxPinia`). Editar/rebuildar ali altera o repositório externo, não uma cópia local do engeapp.
 
 ## Restrições
 

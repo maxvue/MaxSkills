@@ -56,19 +56,6 @@ function handleCancel() {
 </script>
 ```
 
-**Correct - Options API:**
-```js
-export default {
-  emits: ['submit', 'cancel', 'update'],
-
-  methods: {
-    handleSubmit() {
-      this.$emit('submit', this.formData)
-    }
-  }
-}
-```
-
 ## TypeScript Typed Emits
 
 **Correct - Type-based declaration (recommended for TypeScript):**

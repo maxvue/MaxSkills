@@ -1,6 +1,6 @@
 ---
 name: typescript-advanced-types-best-practices
-description: Use when designing type-safe TypeScript architectures or solving advanced type problems — generics, conditional types, mapped types, template literal types, utility types, branded types, strict compiler configuration, type inference, and type testing. Triggers on type-level programming, shared type contracts, and hardening type safety for production systems.
+description: "Use when designing type-safe TypeScript architectures or solving advanced type problems — generics, conditional types, mapped types, template literal types, utility types, branded types, strict compiler configuration, type inference, and type testing. Triggers on type-level programming, shared type contracts, and hardening type safety for production systems."
 ---
 
 # Tipos Avançados e Boas Práticas em TypeScript
@@ -18,9 +18,6 @@ Siga esta abordagem ao projetar ou fortalecer tipos em TypeScript:
 3. Implemente com salvaguardas de compilador e linting.
 4. Valide o desempenho de build e a ergonomia para o desenvolvedor.
 5. Prefira a inferência de tipos a anotações explícitas quando estiver claro.
-6. Projete interfaces e classes abstratas robustas.
-7. Implemente fronteiras de erro adequadas com exceções tipadas.
-8. Otimize os tempos de build com compilação incremental.
 
 ### Generics
 
@@ -129,18 +126,7 @@ type Route = typeof routes[number]; // '/home' | '/about' | '/contact'
 
 ### Utility Types
 
-```typescript
-Partial<T>          // Todas as propriedades opcionais
-Required<T>         // Todas as propriedades obrigatórias
-Readonly<T>         // Todas as propriedades somente leitura
-Pick<T, K>          // Selecionar propriedades específicas
-Omit<T, K>          // Remover propriedades específicas
-Exclude<T, U>       // Excluir tipos de uma união
-Extract<T, U>       // Extrair tipos de uma união
-NonNullable<T>      // Excluir null e undefined
-Record<K, T>        // Criar tipo objeto com chaves K e valores T
-ReturnType<F>       // Tipo de retorno de uma função
-```
+Utilitários nativos do TS (`Partial`, `Required`, `Readonly`, `Pick`, `Omit`, `Exclude`, `Extract`, `NonNullable`, `Record`, `ReturnType`, etc.) — ver [documentação oficial](https://www.typescriptlang.org/docs/handbook/utility-types.html). Cuidado ao redeclarar tipos com esses mesmos nomes (ver `MyReturnType`/`MyPartial` acima, renomeados para não colidir com os built-ins).
 
 ### Branded Types (Tipos Marcados)
 
@@ -156,10 +142,14 @@ Use para: primitivos de domínio críticos, fronteiras de API, moeda/unidades. R
 
 ### Configuração Estrita
 
+O baseline real dos 4 projetos (engeapp, MaxUse, MaxPinia, MaxComponentsUi) é `strict: true` + `skipLibCheck: true`. As flags abaixo são adicionais/aspiracionais — nenhuma delas está ativa hoje em nenhum tsconfig.json real; avalie caso a caso antes de propô-las.
+
 ```json
 {
   "compilerOptions": {
     "strict": true,
+    "skipLibCheck": true,
+    // Flags opcionais/aspiracionais — ainda não adotadas nos projetos reais
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "exactOptionalPropertyTypes": true,
@@ -195,7 +185,7 @@ O Vitest está disponível nos projetos Max*/engeapp (é o runner de testes), ma
 6. Use type guards e predicados em vez de asserções de tipo (`as`).
 7. Documente tipos complexos com JSDoc.
 8. Ative o modo `strict` em todos os projetos TypeScript.
-9. Evite referências de tipo circulares e tipos condicionais profundamente aninhados.
+9. Evite referências de tipo circulares.
 10. Teste definições de tipo com um helper `AssertEqual` validado por `tsc` (ou `expectTypeOf` do Vitest, se adotar testes de tipo no projeto).
 
 ## Armadilhas comuns a evitar
@@ -205,7 +195,6 @@ O Vitest está disponível nos projetos Max*/engeapp (é o runner de testes), ma
 3. Tipos condicionais aninhados profundamente demais — tornam a compilação lenta.
 4. Não usar uniões discriminadas — perde o estreitamento (narrowing) de tipos.
 5. Esquecer `readonly` em estruturas imutáveis.
-6. Faltar `await` em funções assíncronas — retorna `Promise<T>`, não `T`.
 
 ## Limitações de escopo
 

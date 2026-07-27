@@ -1,197 +1,39 @@
-# Laravel Asaas Payments Integration
+# Integração de Pagamentos Asaas com Laravel
 
-## Goal
-Establish clear, secure, and resilient standards for integrating the Asaas payment gateway into the Engeapp backend. This integration must follow the native `BaseApi` pattern, utilize DTOs for payload typing, implement webhook security, and log transactional operations for auditability.
+> **Status:** o Asaas **está configurado e em uso** no engeapp — `config/services.php` define `asaas.api_key` (env `ASAAS_KEY`) e `asaas.base_url` (env `ASAAS_BASE_URL`, default `https://api-sandbox.asaas.com`) —, porém **apenas para recarga de celular**: `App\Services\CellChargeService` chama `/v3/mobilePhoneRecharges` via facade `Http`, consumido por `CellChargeCommand` e coberto por testes. **Cobranças, clientes, Pix/Boleto e webhook do Asaas não existem hoje** — não há controller, rota, Job nem DTO em `app/Data/Asaas`. O que descreve essa parte abaixo é **aspiracional**.
 
-## Instructions
+## Objetivo
+Estabelecer padrões claros, seguros e resilientes para estender a integração Asaas no backend do Engeapp: seguir o padrão que a integração existente já adota, usar DTOs (Spatie Laravel Data) para tipar payloads, aplicar segurança de webhook e registrar operações transacionais para auditoria.
 
-### 1. File and Directory Structure
-Each integration must be isolated in its own directory. For Asaas, create the directory `app/Http/Integrations/Asaas/` containing:
-- `Asaas.php` — The main connector class extending `BaseApi`.
-- `Attributes.json` — API attribute configuration and validation constraints.
-- `EndPoints.json` — Hierarchical endpoint routing mapping Asaas resources (Customers, Payments, Subscriptions).
+## Estrutura
 
-### 2. Implementing the Connector Class (Asaas.php)
-Because Asaas uses the `access_token` header instead of standard `Bearer` authentication, the connector must override the parent `request()` method to inject Guzzle headers correctly.
+O padrão real do Asaas no projeto é um **Service em `app/Services/` usando o facade `Http`** — veja `App\Services\CellChargeService`. Ao adicionar cobranças/clientes, siga esse mesmo padrão em vez de introduzir um conector `BaseApi`:
 
 ```php
-<?php
-
-namespace App\Http\Integrations\Asaas;
-
-use App\Http\Integrations\BaseApi;
-use Illuminate\Http\Client\Response;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
-
-class Asaas extends BaseApi
-{
-    protected array $bases_url = [
-        'production' => 'https://api.asaas.com/v3',
-        'development' => 'https://sandbox.asaas.com/v3',
-    ];
-
-    protected function getAccessToken() : ?string
-    {
-        return config('services.asaas.token');
-    }
-
-    /**
-     * Override BaseApi request to support Asaas-specific access_token header
-     */
-    protected function request(string $method) : Response
-    {
-        $token = $this->getAccessToken();
-
-        if ($this->clear_cache) {
-            $this->setCacheKey();
-            Cache::forget($this->cache_key);
-        }
-
-        if ($this->with_cache) {
-            $this->setCacheKey();
-            $data = Cache::get($this->cache_key);
-            if ($data) {
-                return $this->getToCache($data);
-            }
-        }
-
-        $http = Http::contentType('application/json')
-            ->timeout(120)
-            ->withHeaders([
-                'access_token' => $token,
-            ]);
-
-        if ($this->certificate_path) {
-            $http->withOptions(['cert' => $this->certificate_path]);
-        }
-
-        $method = mb_strtolower($method);
-
-        if (!in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
-            $method = 'get';
-        }
-
-        $data_send = $this->data_array;
-        foreach ($this->data_array_path as $path_remove) {
-            unset($data_send[$path_remove]);
-        }
-
-        $response = $http->{$method}($this->url, $data_send);
-
-        if ($this->with_cache) {
-            $data_cache = [
-                'body'    => $response->body(),
-                'status'  => $response->status(),
-                'headers' => $response->headers(),
-            ];
-            Cache::put($this->cache_key, $data_cache, $this->cache_seconds);
-        }
-
-        return $response;
-    }
-}
+Http::baseUrl((string) config('services.asaas.base_url'))
+    ->acceptJson()
+    ->timeout(15)
+    ->withHeaders(['access_token' => $apiKey]);
 ```
 
-### 3. Setting Up Schema Files
-Create the JSON configurations inside `app/Http/Integrations/Asaas/`:
+Se, ainda assim, houver motivo para um conector dedicado em `app/Http/Integrations/Asaas/` (padrão descrito pela skill **`laravel-api-integration-patterns`**), a convenção de nomes do projeto é nomear o arquivo pelo gateway (`Asaas.php`), com `Attributes.json` (regras de validação: `name`, `cpfCnpj`, `billingType`, `value`, `dueDate`, `customer`) e `EndPoints.json` (Customers, Payments, Subscriptions). Note que `BaseApi` não é regra universal — só as integrações de WhatsApp o estendem, e o conector da Efí não.
 
-#### Attributes.json Example
-```json
-{
-    "name": {
-        "type": "string",
-        "description": "Customer name",
-        "required": true
-    },
-    "cpfCnpj": {
-        "type": "string",
-        "description": "Customer CPF or CNPJ",
-        "required": true
-    },
-    "billingType": {
-        "type": "enum",
-        "enum": ["BOLETO", "CREDIT_CARD", "PIX", "UNDEFINED"],
-        "description": "Type of payment",
-        "required": true
-    },
-    "value": {
-        "type": "number",
-        "description": "Invoice total amount",
-        "required": true
-    },
-    "dueDate": {
-        "type": "string",
-        "description": "Payment due date (YYYY-MM-DD)",
-        "required": true
-    },
-    "customer": {
-        "type": "string",
-        "description": "Asaas customer ID",
-        "required": true
-    }
-}
-```
+### Particularidades da API Asaas
 
-#### EndPoints.json Example
-```json
-{
-    "customers": {
-        "create": {
-            "end_point": "/customers",
-            "method": "POST",
-            "description": "Register a new customer in Asaas",
-            "attributes": {
-                "body": ["name", "cpfCnpj"]
-            }
-        }
-    },
-    "payments": {
-        "create": {
-            "end_point": "/payments",
-            "method": "POST",
-            "description": "Generate a new charge/invoice",
-            "attributes": {
-                "body": ["customer", "billingType", "value", "dueDate"]
-            }
-        },
-        "get": {
-            "end_point": "/payments/{id}",
-            "method": "GET",
-            "description": "Retrieve specific invoice details",
-            "attributes": {
-                "path": ["id"]
-            }
-        }
-    }
-}
-```
+- **Base URL:** o host é `https://api.asaas.com` (produção) ou `https://api-sandbox.asaas.com` (sandbox, default de `ASAAS_BASE_URL`). O `/v3` é **prefixo de path** das chamadas (ex.: `/v3/customers`, `/v3/payments`), não parte do host base.
+- **Autenticação:** o Asaas usa o header `access_token` (não `Bearer`), com o valor resolvido de `config('services.asaas.api_key')` — a convenção de chaves deste gateway em `config/services.php` é `api_key`/`base_url`; não existe chave `token`. Se optar por um conector `BaseApi`, será preciso sobrescrever o ponto de injeção de header (que emite `Bearer`) preservando o comportamento de cache (`withCache`/`withoutCache`/`clearCache`) — veja `laravel-api-integration-patterns` para a assinatura exata.
 
-### 4. Handling Webhooks Securely
-Webhooks are essential for capturing real-time updates (e.g. payments received, overdue alerts).
-- **Authentication**: Check the request header `asaas-access-token` and match it with `config('services.asaas.webhook_token')`. If they do not match, abort the request with 401 Unauthorized.
-- **DTOs**: Map Asaas webhook payloads using Spatie Data classes to ensure structural consistency.
-- **Asynchronous Execution**: Webhook controllers should quickly save/queue payloads and respond to Asaas with HTTP 200 OK. Heavy database updates or user notifications should be dispatched to background Jobs.
+## Segurança de webhooks
 
-```php
-// Example: Webhook Controller verification
-public function handle(Request $request)
-{
-    $token = $request->header('asaas-access-token');
-    
-    if ($token !== config('services.asaas.webhook_token')) {
-        abort(401, 'Unauthorized Webhook Token');
-    }
-    
-    // Dispatch webhook payload to a Job for background processing
-    ProcessAsaasWebhookJob::dispatch($request->all());
-    
-    return response()->json(['status' => 'success'], 200);
-}
-```
+O webhook do Asaas notifica atualizações em tempo real (pagamento recebido, cobrança vencida etc.). Ao implementá-lo:
 
-## Constraints
-- **Do NOT** bypass the webhook token authentication check. Webhooks are public facing endpoints and are highly vulnerable to malicious payloads.
-- **Do NOT** execute long-running operations synchronously in the webhook handler (e.g., rendering PDF reports or querying multiple external services). Dispatch queue jobs to avoid webhook timeouts.
-- **Do NOT** store credit card info locally. Send PCI-compliant payment requests directly to Asaas and store only the masked card information or transaction tokens returned by Asaas.
-- **Do NOT** write hardcoded credentials in code; use environmental variables via `config/services.php`.
+- **Autenticação:** confira o header `asaas-access-token` contra um segredo de webhook vindo da config. Essa chave **ainda não existe** — `config/services.php` só traz `asaas.api_key` e `asaas.base_url`; crie-a a partir de uma env seguindo a convenção do gateway (ex.: `services.asaas.webhook_token`). Se não conferir, aborte com `401`.
+- **DTOs:** mapeie o payload do webhook com classes Spatie Data para consistência estrutural.
+- **Processamento assíncrono:** o controller deve apenas persistir/enfileirar o payload (na tabela `bank_webhooks`, status `pending`) e responder `200 OK` imediatamente; atualizações pesadas e notificações vão para um Job em background (ex.: um futuro `ProcessAsaasWebhookJob`), seguindo o mesmo padrão de `ProcessEfiWebhookJob`.
+
+## Restrições
+- **NÃO** ignore a verificação do token de webhook: são endpoints públicos e vulneráveis a payloads maliciosos.
+- **NÃO** execute operações longas de forma síncrona no handler do webhook (renderização de PDF, múltiplas chamadas externas). Enfileire Jobs para evitar timeouts.
+- **NÃO** armazene dados de cartão de crédito localmente. Envie requisições PCI-compliant diretamente ao Asaas e guarde apenas dados mascarados ou tokens de transação retornados.
+- **NÃO** deixe credenciais hardcoded; resolva-as via `config/services.php` a partir de variáveis de ambiente.
+- **NÃO** use comentários inline ou PHPDoc em inglês no código PHP. Todos os comentários e documentação PHP devem estar estritamente em pt-BR.

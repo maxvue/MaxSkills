@@ -8,17 +8,17 @@ Garantir a sincronização em tempo real entre as operações do gerenciador de 
 
 # Instruções
 1. **Operações do Controller & Tratamento de Ações**:
-   - Resolva o diretório do projeto e os adapters do gerenciador de arquivos de forma segura.
-   - Use `Ozdemir\VueFinder\VueFinderBuilder` e `VueFinderActionFactory` para tratar a execução da request.
-   - Despache os hooks de sincronização imediatamente após a execução, correspondendo às ações específicas (`upload`, `delete`, `rename`, `move`, `copy`).
+   - Antes de listar/operar, garanta idempotentemente que a pasta do projeto exista fisicamente: se `$project->folder` ainda não estiver definido, chame `$project->createFolder(true)`; se estiver definido mas ausente no disco, recrie-a com `makeDirectory()` incluindo as subpastas padrão `Fotos` e `Vistoria`. Só então monte o adapter (`LocalFilesystemAdapter`) e o `VueFinderBuilder`/`ActionFactory` para tratar a execução da request.
+   - Use `Ozdemir\VueFinder\VueFinderBuilder::create()` do vendor para montar o core, mas instancie a factory LOCAL `App\Services\VueFinder\ActionFactory` (subclasse de `VueFinderActionFactory` que exige `$basePath` e substitui `preview`/`download` por `PreviewAction`/`DownloadAction` com suporte a HTTP Range via `LocalFileStreamAction::setBasePath`), chamando `->setRequest($request)->create($action)->execute()`.
+   - Envolva a chamada a `->execute()` em `try/catch` de `League\Flysystem\UnableToReadFile | UnableToRetrieveMetadata`: logue com `Log::warning()` e retorne JSON 404 (`'Arquivo não encontrado.'`) em vez de deixar a exceção subir ao handler global e gerar auto-report.
+   - Despache os hooks de sincronização (`syncWithSpatie`) imediatamente após a execução, correspondendo às ações específicas (`upload`, `delete`, `rename`, `move`, `copy`). `syncWithSpatie` deve capturar `\Throwable` e apenas logar um warning, garantindo que falha de sincronização nunca quebre a resposta do file manager.
 
 2. **Sincronização de Upload de Arquivo (`onUpload`)**:
    - Garanta a prevenção de duplicatas verificando registros de media existentes com o mesmo nome de arquivo e a mesma propriedade `legacy_folder`.
    - Crie um registro de Media do Spatie diretamente no model alvo (`model_type` = `Project::class`, `model_id` = id do projeto) usando `Media::create()`. Preencha `uuid`, `collection_name` (`'documents'`), `name`, `file_name`, `mime_type`, `disk`, `conversions_disk` (mesmo disk do projeto) e `size`. `conversions_disk` é obrigatório para a regeneração de conversões não quebrar.
    - Calcule `order_column` como `($project->media()->max('order_column') ?? 0) + 1` para manter a ordenação; sem isso os registros ficam sem ordem definida.
    - Inicialize os campos JSON exigidos pelo schema do Spatie: `manipulations`, `generated_conversions` e `responsive_images` como arrays vazios.
-   - Armazene o caminho do diretório físico em `custom_properties->legacy_folder`.
-   - Despache jobs em background ou comandos artisan para regenerar thumbnails ou processar o conteúdo do documento (ex.: `ProcessMediaDocumentReaderJob`).
+   - Armazene o caminho do diretório físico em `custom_properties->legacy_folder`. Marque `custom_properties->status_ai_process = true` (consumido depois no enriquecimento). Crie uma notificação para o usuário via `NotificationService::createNotification()`, então force a regeneração de conversões com `Artisan::call('media-library:regenerate', ['--ids' => [$media->id], '--force' => true])` antes de despachar `ProcessMediaDocumentReaderJob` (passando o id da notificação).
 
 3. **Sincronização de Exclusão de Arquivo (`onDelete`)**:
    - Se um diretório for excluído, exclua recursivamente todos os itens de media correspondentes cujo `legacy_folder` corresponda ao prefixo do caminho da pasta excluída.
@@ -38,7 +38,6 @@ Garantir a sincronização em tempo real entre as operações do gerenciador de 
    - Enriqueça as respostas JSON de índice ou busca do VueFinder com os atributos da media library do Spatie (`media_id`, `data_ai`, `status_ai_process`, `thumbnail`, `document_type`, `tags`, etc.).
 
 # Restrições
-- NUNCA armazene arquivos temporários fora dos discos de armazenamento configurados.
 - NUNCA dispare os eventos padrão de model do Eloquent ou os observers do MediaLibrary durante a sincronização (use queries `saveQuietly()` ou `toBase()`) para evitar disparos circulares.
 - NÃO duplique registros de media para arquivos idênticos na mesma pasta virtual.
 

@@ -16,19 +16,19 @@ Fornecer diretrizes arquiteturais para integrar a Graph API da Meta (Facebook e 
   - `MediaHandler` (`$service->media`): dados da postagem, insights e remoção quando suportada.
 - **Camada de Transporte HTTP:** Use a trait `MetaRequestTrait` (`MetaRequestTrait.php`) que encapsula o cliente `Http` do Laravel. Ela:
   - Monta a URL versionada em `buildUrl()`: `$this->base_url . 'v' . $version . '/' . $endpoint` (ex.: `https://graph.facebook.com/v24.0/...`).
-  - Alterna a `base_url` conforme o prefixo do token: tokens do Instagram Login (prefixo `IG`) usam `https://graph.instagram.com/`; tokens Graph clássico (prefixo `EAA`) usam `https://graph.facebook.com/`.
+  - Alterna a `base_url` com um único teste de prefixo: se o token começa com `IG` (Instagram Login), usa `https://graph.instagram.com/`; caso contrário (fallback padrão, cobrindo tokens `EAA`/Graph clássico e qualquer outro formato), usa `https://graph.facebook.com/`.
   - Autentica via `Http::withToken($this->token)->acceptJson()`.
   - Normaliza erros: retorna sempre um array; em falha de transporte ou credencial ausente devolve `['error' => ...]` e registra via `Log::error()`/`Log::warning()`, sem lançar exceção para os handlers.
 
 ### 2. Origem do Token e da Versão
-O módulo **consome um access token já persistido** — não há fluxo OAuth de troca de token curto→longo, nem Socialite, nem chamadas a `/oauth/access_token` ou `/me/accounts` no projeto. Resolva o token assim:
+O módulo **consome um access token já persistido** — não há fluxo OAuth de troca de token curto→longo nem chamadas a `/oauth/access_token` ou `/me/accounts` no projeto. O `laravel/socialite` já existe no engeapp (`composer.json`) e está em uso ativo em `App\Http\Controllers\Auth\SocialiteController`, mas apenas para login social do usuário (Google/Facebook) — não para obter ou renovar tokens da Graph API consumidos pelo `MetaService`. Resolva o token assim:
 - **Token global (single-tenant):** `config('api.meta_token')` (env `META_TOKEN`, em `config/api.php`).
 - **Versão da Graph API:** `config('api.meta_graph_version', '24.0')` (env `META_GRAPH_VERSION`).
 - **Por credencial:** `MetaService::forCredential(SocialMediaCredential $credential)` usa `$credential->access_token` e `$credential->external_account_id`.
 - **Por empresa:** `MetaService::forCompany(string $solarCompanyId, string $apiName)` resolve a credencial ativa (`is_active`) da empresa para a API do catálogo `EventApi` (ex.: `"Instagram"`) e recai sobre `config('api.meta_token')` quando não há credencial cadastrada; retorna `null` se nenhuma autenticação estiver disponível.
 - **Segurança do Token:** Armazene access tokens no banco (`SocialMediaCredential->access_token`) e nunca exponha tokens crus ao frontend. Não coloque tokens em `.env` versionado nem hardcode no código.
 
-> Se um fluxo OAuth de autorização (Socialite/troca de token) vier a ser necessário, ele **ainda não existe** neste projeto — trate-o como novo recurso a ser construído, não como padrão vigente.
+> Se um fluxo OAuth de troca/renovação de token da Graph API (curto→longo, `/oauth/access_token`, `/me/accounts`) vier a ser necessário, ele **ainda não existe** neste projeto — trate-o como novo recurso a ser construído, não como padrão vigente. Isso não se confunde com o Socialite já usado para login social do usuário.
 
 ### 3. Fluxos de Publicação de Mídia (`PublishHandler`)
 - **Instagram — imagem única:** `createImageContainer($imageUrl, $caption)` faz `POST {ig-user-id}/media` com `image_url`/`caption`; depois `publishContainer($creationId)` em `{ig-user-id}/media_publish`.

@@ -1,6 +1,6 @@
 ---
 name: laravel-migrations-seeders-factories-best-practices
-description: Use when creating, modifying, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Triggers on schema definitions, table creation, foreign keys, database seeders, and factory definitions.
+description: "Use when creating, modifying, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Triggers on schema definitions, table creation, foreign keys, database seeders, and factory definitions."
 ---
 
 # Objetivo
@@ -56,9 +56,7 @@ Garantir que migrations, seeders e model factories no Laravel estejam em conform
       );
   }
   ```
-- **Sincronização de Dados de Referência e Produção:** Ao copiar tabelas estáticas/de referência (ex.: cidades, marcas de equipamentos):
-  - Desabilite a verificação de chaves estrangeiras com o helper agnóstico de banco `Schema::withoutForeignKeyConstraints(function () { /* ... */ });` — ele funciona no MySQL (o SGBD alvo do projeto) e mantém os seeders portáveis. A forma raw equivalente no MySQL é `DB::statement('SET FOREIGN_KEY_CHECKS=0')` … `=1`, mas prefira o helper para não deixar as verificações desabilitadas caso a closure lance uma exceção.
-  - Use `truncate()` nas tabelas de destino antes de inserir os novos dados.
+- **Sincronização de Dados de Referência e Produção:** Ao copiar tabelas estáticas/de referência (ex.: cidades, marcas de equipamentos), desabilite a verificação de chaves estrangeiras com `DB::statement('SET FOREIGN_KEY_CHECKS=0')` … `=1` (forma real usada em `database/seeders/TestReferenceDataSeeder.php:91`), use `truncate()` nas tabelas de destino antes de inserir os novos dados.
   - Divida os datasets em blocos (ex.: `500` itens) durante a inserção em massa para evitar erros de limite de memória:
     ```php
     foreach ($sourceData->chunk(500) as $chunk) {
@@ -75,6 +73,7 @@ Garantir que migrations, seeders e model factories no Laravel estejam em conform
   namespace Database\Factories\Finance;
 
   use App\Models\Finance\Payments;
+  use App\Models\Project\Project;
   use Illuminate\Database\Eloquent\Factories\Factory;
 
   class PaymentsFactory extends Factory
@@ -102,10 +101,7 @@ Garantir que migrations, seeders e model factories no Laravel estejam em conform
   ```
 
 # Restrições
-- NÃO defina chaves estrangeiras diretamente nos arquivos de migration de criação de tabela. Coloque-as em arquivos separados `add_foreign_keys_to_...` dentro de blocos `try/catch`.
-- NÃO execute inserções em massa no banco em seeders sem dividir em blocos (chunking).
 - NÃO fixe (hardcode) IDs de relacionamento em seeders ou factories. Sempre use relacionamentos de factory (ex.: `User::factory()`).
-- NÃO use `$this->faker` em novas factories; prefira o helper global `fake()`.
 - NÃO omita os retornos `void` nos métodos `up`/`down` das migrations e no método `run` dos seeders.
 
 ## Idioma

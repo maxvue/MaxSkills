@@ -1,6 +1,6 @@
 ---
 name: laravel-livekit-server-sdk-best-practices
-description: Use ao criar, atualizar ou depurar serviços de áudio/vídeo WebRTC com o LiveKit Server SDK (agence104/livekit-server-sdk) no Laravel — gerar AccessToken JWT com VideoGrant para salas e gerenciar salas via RoomServiceClient (createRoom com RoomCreateOptions, deleteRoom, listParticipants) com tratamento de exceções. Acione em LiveKitService, geração de token e RoomServiceClient.
+description: "Use ao criar, atualizar ou depurar serviços de áudio/vídeo WebRTC com o LiveKit Server SDK (agence104/livekit-server-sdk) no Laravel — gerar AccessToken JWT com VideoGrant para salas e gerenciar salas via RoomServiceClient (createRoom com RoomCreateOptions, deleteRoom, listParticipants) com tratamento de exceções. Acione em LiveKitService, geração de token e RoomServiceClient."
 ---
 
 # Boas Práticas do LiveKit Server SDK no Laravel
@@ -29,11 +29,7 @@ Fornecer diretrizes sólidas e padrões consistentes para integrar o LiveKit Ser
 * **Injeção de Dependência:** Centralize todas as operações do LiveKit Server em uma classe de serviço especializada (`LiveKitService`), injetando suas dependências via constructor property promotion ou referências de config.
 
 ### 2. Geração Segura de AccessToken
-* **Configuração dos VideoGrants:** Sempre gere tokens com grants estritos. Para usuários padrão:
-  - Chame `setRoomJoin()` e `setRoomName($roomName)`.
-  - Chame `setCanPublish(true)` para permitir publicar tracks (áudio/tela).
-  - Chame `setCanSubscribe(true)` para permitir assinar as tracks de outros participantes.
-* **Identity e Display Name:** Sempre defina identificadores únicos para `setIdentity()` (ex: o ID do usuário como string) e `setName()` (ex: o nome de exibição do usuário) para garantir auditoria e a representação correta do estado no client.
+* **Grants estritos e identity única:** Nunca deixe os VideoGrants vazios nem conceda permissões curinga; sempre defina `setIdentity()`/`setName()` únicos por participante. Veja o exemplo completo de `generateToken` na seção "Exemplos" abaixo.
 
 ### 3. Gerenciamento de Salas via RoomServiceClient
 * **Inicialização do Client:** O `RoomServiceClient` requer um schema HTTP/HTTPS para chamadas REST, enquanto a conexão do client usa WebSocket (`ws://` / `wss://`). Limpe a URL antes de instanciar o client:
@@ -42,8 +38,12 @@ Fornecer diretrizes sólidas e padrões consistentes para integrar o LiveKit Ser
   ```
 * **Operações:** Use os métodos do `RoomServiceClient` para criar (`createRoom`), deletar/encerrar (`deleteRoom`) e listar participantes (`listParticipants`) dinamicamente no servidor.
 * **Assinatura de `createRoom`:** O SDK declara `createRoom(RoomCreateOptions $createOptions): Room`. **Nunca** passe um array — isso causa `TypeError`. Construa as opções via fluent setters: `(new RoomCreateOptions)->setName($roomName)->setMaxParticipants($maxParticipants)`.
+* **Metadata da sala:** `RoomCreateOptions` também aceita `setMetadata(?string $metadata)`. No projeto, o serviço real (`LiveKitService::createRoom`) expõe um 3º parâmetro opcional `?string $metadata = null`, usado pelo fluxo de agente de voz (`AgentCallService`) para passar contexto (script + dados do projeto) ao worker Python — só aplique o setter quando `$metadata !== null`.
+* **Retorno de `listParticipants`:** O SDK real declara `listParticipants(string $roomName): ListParticipantsResponse`, não `array`. Tipar o método do wrapper como `: array` e apenas repassar o retorno do SDK causa `TypeError`; converta explicitamente com `->getParticipants()` antes de retornar um array, ou tipe o retorno do wrapper como `ListParticipantsResponse`.
 
 ### 4. Tratamento de Exceções e Logging
+> **Estado atual do repositório:** `app/Services/LiveKitService.php` hoje chama `createRoom`/`deleteRoom`/`listParticipants` sem nenhum `try-catch` ou `Log`. A orientação abaixo é a boa prática recomendada para código novo/refatoração, não uma descrição do serviço já instalado.
+
 * **Wrappers Robustos:** Sempre envolva as chamadas REST do LiveKit Server (ex: `createRoom`, `deleteRoom`, `listParticipants`) em blocos `try-catch`.
 * **Logging de Erros:** Em caso de falhas de conexão ou exceções da API, capture o erro, registre-o usando a facade Log do Laravel com contexto descritivo e retorne uma exceção ou resposta de erro limpa e amigável ao usuário.
 
@@ -62,6 +62,7 @@ use Agence104\LiveKit\RoomServiceClient;
 use Agence104\LiveKit\VideoGrant;
 use Exception;
 use Illuminate\Support\Facades\Log;
+use Livekit\ListParticipantsResponse;
 
 /**
  * Serviço responsável por encapsular a integração com o LiveKit Server.
@@ -129,10 +130,11 @@ class LiveKitService
      *
      * @param string $roomName Nome/Slug da sala.
      * @param int $maxParticipants Limite de participantes.
+     * @param string|null $metadata Contexto opcional consumido por workers (ex: agente de voz).
      * @return mixed Objeto contendo os dados da sala criada.
      * @throws Exception Caso ocorra erro na API do LiveKit.
      */
-    public function createRoom(string $roomName, int $maxParticipants = 20): mixed
+    public function createRoom(string $roomName, int $maxParticipants = 20, ?string $metadata = null): mixed
     {
         try {
             $client = $this->getRoomServiceClient();
@@ -141,6 +143,10 @@ class LiveKitService
             $options = (new RoomCreateOptions())
                 ->setName($roomName)
                 ->setMaxParticipants($maxParticipants);
+
+            if ($metadata !== null) {
+                $options->setMetadata($metadata);
+            }
 
             return $client->createRoom($options);
         } catch (Exception $e) {
@@ -156,9 +162,10 @@ class LiveKitService
      * Lista os participantes ativos de uma sala no servidor LiveKit.
      *
      * @param string $roomName Nome/Slug da sala.
-     * @return array<int, mixed> Lista de participantes ativos.
+     * @return ListParticipantsResponse Resposta do SDK contendo os participantes ativos.
+     * @throws Exception Caso ocorra erro na API do LiveKit.
      */
-    public function listParticipants(string $roomName): array
+    public function listParticipants(string $roomName): ListParticipantsResponse
     {
         try {
             $client = $this->getRoomServiceClient();
@@ -169,7 +176,7 @@ class LiveKitService
                 'exception' => $e->getMessage(),
             ]);
 
-            return [];
+            throw $e;
         }
     }
 
@@ -192,61 +199,27 @@ class LiveKitService
 ```
 
 ### Controller de Geração de Token do LiveKit (`LiveTokenController.php`)
+Injete o `LiveKitService` via DI (nunca instancie `AccessToken`/`RoomServiceClient` no controller) e devolva `token`, `ws_url` (via `LiveKitService::getWsUrl()`) e `room_name` — é esse o contrato JSON consumido pelo front:
 ```php
-<?php
-
-namespace App\Http\Controllers\Live;
-
-use App\Http\Controllers\Controller;
-use App\Services\LiveKitService;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-
-/**
- * Controller responsável por autenticar e gerar tokens JWT para conexões LiveKit.
- */
-class LiveTokenController extends Controller
+public function generateToken(Request $request, LiveKitService $liveKit): JsonResponse
 {
-    /**
-     * Gera o token JWT para conectar à sala de videoconferência.
-     */
-    public function generateToken(Request $request, LiveKitService $liveKit): JsonResponse
-    {
-        $user = $request->user();
+    $roomSlug = $request->validate(['room_slug' => 'required|string'])['room_slug'];
 
-        // Validação e recuperação da sala a ser associada
-        $request->validate([
-            'room_slug' => 'required|string',
-        ]);
+    $token = $liveKit->generateToken($roomSlug, (string) $request->user()->id, $request->user()->name);
 
-        $roomSlug = $request->input('room_slug');
-
-        try {
-            $token = $liveKit->generateToken(
-                $roomSlug,
-                (string) $user->id,
-                $user->name
-            );
-
-            return response()->json([
-                'token' => $token,
-                'ws_url' => $liveKit->getWsUrl(),
-                'room_name' => $roomSlug,
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'error' => 'Não foi possível gerar o token de acesso à sala.',
-                'message' => $e->getMessage(),
-            ], 500);
-        }
-    }
+    return response()->json([
+        'token' => $token,
+        'ws_url' => $liveKit->getWsUrl(),
+        'room_name' => $roomSlug,
+    ]);
 }
 ```
+> **Nota:** o controller real do projeto (`app/Http/Controllers/Live/LiveTokenController.php`) é mais elaborado — `room_slug` é `nullable`, valida `$user->solar_company_id` (403 se ausente), resolve a sala via `LiveRoom::firstOrCreate` com escopo multi-tenant e dispara `LivePrivateCallEnded`, sem `try-catch`. O snippet acima é um esqueleto mínimo do contrato de API, não uma cópia do controller de produção — replique o isolamento por empresa ao adaptar para o projeto real.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Imponha Grants de Acesso Estritos:** Nunca deixe os VideoGrants vazios nem conceda permissões curinga (wildcard) sem especificar explicitamente os detalhes da sala (`setRoomJoin`, `setRoomName`).
 * **Limpe as URLs de WS:** Sempre sanitize a URL de WebSocket usando uma substituição de string antes de instanciar o `RoomServiceClient` para evitar falhas de schema de conexão.
-* **Logging Adequado de Erros:** Nunca suprima erros da API do LiveKit Server. Envolva todas as chamadas em blocos `try-catch` e registre-os usando a facade `Log` com contexto descritivo.
+* **Logging Adequado de Erros:** Nunca suprima erros da API do LiveKit Server. Envolva todas as chamadas em blocos `try-catch` e registre-os usando a facade `Log` com contexto descritivo (ver seção 4).
 * **Sem Instanciação Direta do SDK nos Controllers:** Os controllers não devem instanciar `AccessToken` ou `RoomServiceClient` diretamente. Eles devem depender do `LiveKitService` injetado via injeção de dependência do Laravel.
 * **Idioma dos Comentários:** Comentários de código e docstrings nos blocos de código devem ser escritos em **português brasileiro (pt-BR)**.

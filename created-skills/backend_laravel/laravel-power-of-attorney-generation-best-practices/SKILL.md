@@ -25,17 +25,19 @@ Toda a lógica vive em `App\Services\Signature\PowerAttorneyService` (`app/Servi
    - Formate os endereços padrão como: `[Rua], [Número], [Complemento (se existir)], [Bairro], município de [Cidade], CEP: [CEP]`.
    - Implemente fallbacks seguros: use o helper `getContent(...)` e o literal `'S/N'` para números de casa/edifício ausentes (ver `getAddress`).
 
-3. **Gerenciamento de Status**:
+3. **Formatação de Data (`generateData`)**:
+   - Em `generateData`, formate a data do rodapé usando `now()->translatedFormat('l, d \\d\\e F \\d\\e Y')`, concatenada com a cidade do projeto.
+
+4. **Gerenciamento de Status**:
    - Em `generateData`, defina o status inicial do `ProjectPowerOfAttorneyDocument` como `editing` e `type_signature` como `digital`.
    - Suporte as transições de status padrão no fluxo de assinatura: `editing`, `sent`, `delivered`, `opened`, `viewed`, `signed`.
 
-4. **Geração de PDF e Integração de Assinatura (`createPdf`)**:
+5. **Geração de PDF e Integração de Assinatura (`createPdf`)**:
    - Use `Barryvdh\DomPDF\Facade\Pdf` (`Pdf::loadHTML(...)`) para renderizar o HTML.
-   - O modo do PDF é decidido apenas pelo parâmetro `string $type_document`: o único valor literal reconhecido é `'digital'` (renderiza os blocos de assinatura digital com a Lei 14.063/2020 e o link `https://validar.iti.gov.br`, e grava `Procuração Digital - Aguardando Validação.pdf`). QUALQUER outro valor cai no ramo físico/manual (linhas de assinatura em branco, arquivo `Procuração - Em Branco.pdf`). Não existe a string literal `'blank'` no código — não compare `type_document === 'blank'`; para o modo físico, apenas passe um valor diferente de `'digital'`.
-   - Formate as datas dinamicamente usando um formato de data/hora localizado e traduzido (ex: `now()->translatedFormat('l, d \\d\\e F \\d\\e Y')` em português).
+   - O modo do PDF é decidido apenas pelo parâmetro `string $type_document`: o único valor literal testado no código é `'digital'` (renderiza os blocos de assinatura digital com a Lei 14.063/2020 e o link `https://validar.iti.gov.br`, e grava `Procuração Digital - Aguardando Validação.pdf`). QUALQUER outro valor cai no ramo físico/manual (linhas de assinatura em branco, arquivo `Procuração - Em Branco.pdf`). Por convenção, o controller chama `createPdf` com o literal `'blank'` para o modo físico — essa string existe e é usada, mas o service não a trata de forma especial: ele só verifica se o valor é diferente de `'digital'`.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- NÃO deixe fixos (hardcode) os dados regionais da concessionária ou do projetista (designer); sempre resolva-os através de relações (ex: `$project->concessionaire`, `$project->designer`).
+- NÃO deixe fixos (hardcode) os dados regionais da concessionária ou do projetista (designer); sempre resolva-os através de relações (ex: `$project->concessionaire`, `$project->designer`). Nota: o `generateData()` atual ainda viola isso — usa fallbacks fixos para `designer_name`/`designer_document` e grava o endereço do projetista como string totalmente literal em vez de resolvê-lo por relação; trate como débito técnico a corrigir, não como padrão a seguir.
 - NÃO gere HTML com CPFs ou CNPJs crus e não formatados; sempre aplique funções helper de formatação/sanitização (ex: `formatCpfCnpj`).
 - NÃO prossiga com a geração do PDF se campos cruciais de cliente/localização estiverem null; use verificações de validação para garantir dados limpos previamente.

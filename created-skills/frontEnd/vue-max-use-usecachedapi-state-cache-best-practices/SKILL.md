@@ -26,7 +26,7 @@ export function useCachedApi<T>(
 ): ToRefCachedApi<T>
 ```
 > O retorno é `ToRefCachedApi<T>`, que resolve para `Ref<T>` quando `T` não é uma `Ref` (e mantém o próprio tipo quando `T` já é uma `Ref`). Na prática você usa como uma `Ref<T>` comum. Os parâmetros da rota podem ser passados em `options.data` ou no alias `options.data_get`.
-* **`route_name`**: O **nome** da rota Ziggy (pontilhado — ex.: `'clients.data'`), resolvido internamente pelos helpers do `@maxvue/max-use` via `route()` do Ziggy (que resolve para a URL `/api/...` real). Ziggy ESTÁ configurado no projeto; passe o **nome** da rota, não um caminho `/api/...`. Lembre-se: para GET de dados de página, prefira uma store `@maxvue/max-pinia` (todo GET deve passar por store); use `useRefCachedApi` apenas em casos pontuais.
+* **`route_name`**: O **nome** da rota Ziggy (pontilhado — ex.: `'clients.data'`). O nome é resolvido por `resolveRoute()` do `@maxvue/max-use`, que delega ao resolvedor injetado pela aplicação via `setRouteResolver()` (em `engeapp/resources/app.ts`, implementado com `route()` do Ziggy, que ainda remove o origin da URL absoluta). Se `setRouteResolver()` não tiver sido chamado, `resolveRoute()` lança um `Error` explícito, que vira uma Promise rejeitada não tratada — a falha NÃO é silenciosa. Passe sempre o **nome** da rota, nunca um caminho `/api/...`. Lembre-se: para GET de dados de página, prefira uma store `@maxvue/max-pinia` (todo GET deve passar por store); use `useRefCachedApi` apenas em casos pontuais.
 * **`options.defaultValue`**: Crucial para evitar erros de renderização inicial (ex: `defaultValue: []` para listas). Sempre forneça um valor padrão compatível com o tipo.
 * **`options.key`**: Chave personalizada do `localStorage` (padrão: `route_name`). Necessária ao fazer cache de dados para diferentes escopos de contexto (como tenants ou clientes).
 * **`options.sync`**: Padrão é `true`. Se definido como `false`, não executará a requisição GET da API em segundo plano automaticamente na criação.
@@ -39,8 +39,6 @@ Ao utilizar `useRefCachedApi` em um arquivo `.vue` ou store do Pinia, você deve
   const clients = useRefCachedApi<Client[]>('clients.data', { defaultValue: [] });
   ```
 * **Tipos do TypeScript**: Defina explicitamente o parâmetro genérico `<T>` para que os templates Vue e as propriedades computadas tenham verificação de tipo precisa.
-* **Composition API**: Deve-se utilizar `<script setup lang="ts">`. O uso de Options API é estritamente proibido.
-* **Atributos de Elementos HTML em Linha Única**: No bloco `<template>`, formate os elementos em linha (mantenha todos os atributos na mesma linha, sem quebras de linha múltiplas).
 
 ### 3. Chaves de Cache Dinâmicas e Isolamento (Multi-tenant/Cliente)
 Como o `useRefCachedApi` avalia a opção `key` apenas uma vez no momento da criação (não reativamente), se o tenant ou cliente ativo mudar, você deve gerenciar manualmente o carregamento e a atualização do cache dentro de um `watch`:
@@ -52,47 +50,16 @@ Como o `useRefCachedApi` avalia a opção `key` apenas uma vez no momento da cri
     defaultValue: [] 
   });
   ```
-* **Correto (Troca de cache manual via Watch)**:
-  ```typescript
-  const list = useRefCachedApi<Data[]>('reports.data', { 
-    defaultValue: [],
-    sync: false // Desativa a sincronização automática na criação
-  });
-
-  watch(
-    () => selectedClient.id,
-    (newId) => {
-      if (!newId) {
-        list.value = [];
-        return;
-      }
-      const cacheKey = `data::${newId}`;
-      const localData = localStorage.getItem(cacheKey);
-      
-      // 1. Carrega instantaneamente do cache, se disponível
-      list.value = localData ? JSON.parse(localData) : [];
-
-      // 2. Busca dados novos da API em segundo plano e atualiza o cache
-      apiGetRoute('reports.data', { client_id: newId }).then((data) => {
-        if (data) {
-          list.value = data;
-          localStorage.setItem(cacheKey, JSON.stringify(data));
-        }
-      });
-    },
-    { immediate: true }
-  );
-  ```
+* **Correto (Troca de cache manual via Watch)**: use `sync: false` para desativar a sincronização automática, e um `watch({ immediate: true })` no id do tenant/cliente para: carregar do `localStorage` com a chave `data::${newId}` (fallback `[]`), depois buscar em segundo plano via `apiGetRoute` e regravar o `localStorage` com o resultado. A chave (`key` avaliada uma única vez na criação, ver Restrições) é reconstruída manualmente a cada mudança de `newId`.
 
 ### 4. Invalidação de Cache e Atualizações Pós-Mutação
 Ao realizar modificações por meio de requisições POST/PUT/DELETE (mutações), o cache local torna-se obsoleto.
 
-> **Mutações pertencem ao MaxPinia.** Criar/editar/excluir dados de página é responsabilidade de uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) e revalida o estado. NÃO escreva `apiPostRoute`/`apiPutRoute` manuais nem manipule `localStorage` à mão para persistir mutações. Altere o estado da store e o salvamento ocorre automaticamente. O `useRefCachedApi` cobre apenas leituras pontuais (GET com cache) fora do fluxo de store.
+> **Mutações pertencem ao MaxPinia.** Criar/editar/excluir dados de página é responsabilidade de uma store `@maxvue/max-pinia`, que faz o auto-save (debounced) e revalida o estado. O `useRefCachedApi` cobre apenas leituras pontuais (GET com cache) fora do fluxo de store.
 
 * **Atualizações automáticas via watch**: Se `watch: true` (padrão), modificar diretamente o `list.value` irá salvá-lo de volta no `localStorage` — útil apenas para o cache local de leitura.
-* **Quando precisar revalidar**: deixe a store MaxPinia disparar a mutação e a releitura. O padrão abaixo (POST manual) é desencorajado e só se justifica em integrações fora do domínio de página gerenciado pela store:
+* **Quando precisar revalidar**: deixe a store MaxPinia disparar a mutação e a releitura. O padrão abaixo (POST manual) só se justifica em integrações fora do domínio de página gerenciado pela store:
   ```typescript
-  // Evite: prefira mutar a store @maxvue/max-pinia, que salva automaticamente.
   const addClient = async (newClient: ClientInput) => {
     const freshClient = await apiPostRoute('clients.save', newClient);
     if (freshClient) {

@@ -8,6 +8,9 @@ description: "Use when configuring, optimizing, debugging, or deploying the Lara
 ## Objetivo
 Padronizar a instalação, configuração, ajuste de performance e deploy em produção do servidor WebSocket nativo Laravel Reverb para operações em tempo real seguras (WSS) e altamente escaláveis.
 
+## Contexto
+No engeapp o Reverb é o único transporte WebSocket ativo (`BROADCAST_CONNECTION=reverb`, `configureReverbEcho` em `resources/app.ts`, `@laravel/echo-vue`/`useEcho` no front e cerca de 14 classes implementando `ShouldBroadcast`, majoritariamente em `app/Events/`).
+
 ## Instruções
 
 ### 1. Configuração de Ambiente (`.env`)
@@ -22,14 +25,19 @@ REVERB_SERVER_PORT=9000
 # Reverb Public Access Configuration (Client-facing)
 REVERB_HOST="dev.engeapp.com.br"
 REVERB_PORT=443
-REVERB_SCHEME=https
+# No engeapp o servidor Reverb roda em HTTP local por trás do proxy: REVERB_SCHEME=http.
+# É o Nginx/proxy que faz a terminação TLS; só o lado do cliente (Vite) fala WSS/https.
+REVERB_SCHEME=http
 
 # Client-side (Vite) broadcasting variables
+# O cliente usa https (WSS) mesmo com o servidor em http, pois conecta via proxy TLS.
 VITE_REVERB_APP_KEY="${REVERB_APP_KEY}"
-VITE_REVERB_HOST="${REVERB_HOST}"
+VITE_REVERB_HOST="engeapp.com.br"
 VITE_REVERB_PORT="${REVERB_PORT}"
-VITE_REVERB_SCHEME="${REVERB_SCHEME}"
+VITE_REVERB_SCHEME="https"
 ```
+
+Apenas `VITE_REVERB_APP_KEY` e `VITE_REVERB_HOST` são efetivamente consumidas pelo cliente (em `resources/Js/configureReverbEcho.js`). `VITE_REVERB_PORT` e `VITE_REVERB_SCHEME` existem no `.env` mas são ignoradas — o cliente usa valores hardcoded (`wsPort: 80`, `wssPort: 443`, `forceTLS: true`) em `configureReverbEcho.js`. Alterar essas duas vars no `.env` não muda o comportamento do cliente.
 
 ### 2. Configuração de Reverse Proxy (Nginx)
 Para proteger as conexões WebSocket usando TLS (WSS), configure o Nginx como um reverse proxy para terminar o SSL e encaminhar o tráfego para o servidor Reverb.
@@ -115,5 +123,5 @@ No engeapp o padrão é `env('REVERB_SCALING_ENABLED', false)` — ou seja, scal
 - **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
 - **Não exponha portas brutas do Reverb** (ex.: 9000) diretamente à internet pública. Sempre roteie o tráfego através de Nginx, Apache ou Caddy.
 - **Nunca execute** `reverb:start` diretamente em produção sem um gerenciador de processos (Supervisor/systemd).
-- **Evite valores de configuração hardcoded** dentro de `config/reverb.php`; sempre resolva-os usando o helper `env()`.
+- Hoje `config/reverb.php` hardcoda host/port/hostname do bind interno (`0.0.0.0`/`9000`, aceitável pois é bind local atrás de proxy) e `allowed_origins` (`['*']`, intencional) sem `env()`. Não refatore esses valores existentes por conta própria. Ao adicionar novas chaves de configuração sensíveis (credenciais, endpoints externos), prefira `env()`.
 - **Atenção à configuração de CORS.** Hoje o engeapp usa `allowed_origins => ['*']` em `config/reverb.php` (intencional, aceita qualquer origem). Isso é aceitável em dev; em produção altamente sensível, prefira restringir `allowed_origins` aos domínios reais (ex.: `['dev.engeapp.com.br', 'engeapp.com.br']`). Não trate o `['*']` atual como bug a ser "corrigido" sem antes confirmar o requisito de segurança com o time.

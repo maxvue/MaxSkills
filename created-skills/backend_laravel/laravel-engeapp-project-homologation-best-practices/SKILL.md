@@ -19,7 +19,7 @@ Use o model `App\Models\Concessionaire\ConcessionaireSubsidiaryRegulation` (tabe
 Cada atributo retorna um **array de combinações** (não um escalar), lido de `ConcessionaireSubsidiaryRegulationData` (`concessionaires_subsidiaries_regulations_data`). Cada linha traz `circuit_breaker` (disjuntor, A), `wire_phase`/`wire_neutral`/`wire_ground` (bitolas, mm²) e `maximum_load`. Itere para validar o dimensionamento antes de despachar o envio:
 
 ```php
-$regulation = ConcessionaireSubsidiaryRegulation::with('data')->findOrFail($id);
+$regulation = ConcessionaireSubsidiaryRegulation::findOrFail($id);
 
 // Ex.: rede monofásica 127V — array de opções disjuntor↔cabo aceitas.
 $permitido = collect($regulation->mono_127)->contains(
@@ -32,7 +32,7 @@ if (! $permitido) {
 }
 ```
 
-Prefira `$regulation->mono_127` (atributo) a consultar `data` cru — o atributo já filtra `amount_phases` e `voltage_phase_neutral`. **Nunca** deixe um projeto seguir para envio violando a `ConcessionaireSubsidiaryRegulation` ativa.
+Prefira `$regulation->mono_127` (atributo) a consultar `data` cru — o atributo já filtra `amount_phases` e `voltage_phase_neutral`. O model já declara `protected $with = ['data']` (eager por padrão), então não é preciso encadear `with('data')` manualmente; note ainda que os atributos appended fazem sua própria query filtrada (`$this->data()->where(...)->get()`) e não reaproveitam a relação eager-loaded. **Nunca** deixe um projeto seguir para envio violando a `ConcessionaireSubsidiaryRegulation` selecionada para a filial/classe do projeto (a tabela não tem coluna de vigência/status — a norma correta é obtida por filial + `class`/`regulation_code`, não por uma flag de "ativa").
 
 ## 2. Ciclo de vida e sincronização do protocolo
 
@@ -44,18 +44,20 @@ Entenda com precisão a **divisão de responsabilidades** — este é o ponto qu
 
   ```php
   $card->setProtocol([
-      'department'    => 'homologacao',
+      'department'    => 'concessionair_web',
       'occurrence_at' => now(),
       'description'   => 'Projeto enviado para análise da concessionária.',
       // opcionais: protocol, expires_at, notify_client, notify_designer, notify_solar_company...
   ]);
   ```
 
+  `department` é vocabulário controlado (não é texto livre): os valores aceitos são `internal_affairs`, `concessionair_web`, `concessionair_phone`, `concessionair_email`, `concessionair_internal_affairs`, `reclame_aqui`, `procon`, `Consumidor.gov`, `aneel`, `juridical`, `other` (ver `list_department_protocol` em `ListCardDialogProtocols.vue`). Um valor fora dessa lista fica sem label/ícone na UI.
+
 - **Edições:** a sincronização de **atualizações** NÃO passa por `setProtocol()`. Ela é feita pelo hook `static::saved` em `Protocol::booted()`, que a cada save re-anexa o protocolo aos dois lados (`syncWithoutDetaching`) e chama `updateExpiresAt()` no card. O hook `static::deleted` recalcula os prazos ao remover.
 
 Não reimplemente essa sincronização manualmente nos controllers — deixe a trait cobrir a criação e o `booted()` cobrir as edições/remoções.
 
-Para prazos: o campo `expires_at` do `Protocol` alimenta `PlannerCard::updateExpiresAt()`. Use scheduler/queue para varrer `expires_at` e alertar sobre prazos iminentes.
+Para prazos: o campo `expires_at` do `Protocol` alimenta `PlannerCard::updateExpiresAt()`, e esse recálculo **já é automático** — o hook `Protocol::booted()` chama `updateExpiresAt()` tanto em `static::saved` quanto em `static::deleted`. Também já existe reprocessamento em lote: `php artisan planner:update-expires-at` (`App\Console\Commands\UpdatePlannerCardExpiresAtCommand`, hoje sem agendamento registrado). Não crie um novo job/scheduler para recalcular `expires_at` — o único gap real é o *alerta* de prazo iminente (notificar antes do vencimento), que de fato não existe hoje.
 
 ## 3. Onde colocar a lógica de homologação
 
@@ -81,6 +83,3 @@ O front é uma SPA Vue 3 com Vue Router; siga o contrato do ecossistema Max e Zi
 
 ## Restrições
 - **Idioma:** comunique-se com o humano sempre em Português (pt-BR), independentemente do idioma do corpo desta skill.
-- **Não burle a norma técnica:** nada segue para envio violando a `ConcessionaireSubsidiaryRegulation` ativa.
-- **Não escreva query/validação de homologação em controller:** delegue a um service (a criar, ver seção 3).
-- **Não bloqueie a request com notificações:** respeite as flags `notify_*` e entregue via Jobs assíncronos.

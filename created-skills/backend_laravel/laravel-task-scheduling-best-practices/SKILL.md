@@ -1,6 +1,6 @@
 ---
 name: laravel-task-scheduling-best-practices
-description: Use when creating, configuring, auditing, or debugging Laravel task schedules (Schedule) in routes/console.php, managing cron jobs, preventing overlapping processes, configuring background executions, handling task outputs, logging scheduler errors, optimizing recurrent backend tasks, and configuring/maintaining Studio Totem for task management.
+description: "Use when creating, configuring, auditing, or debugging Laravel task schedules (Schedule) in routes/console.php, managing cron jobs, preventing overlapping processes, configuring background executions, handling task outputs, logging scheduler errors, optimizing recurrent backend tasks, and configuring/maintaining Studio Totem for task management."
 ---
 
 # Agendamento de Tarefas no Laravel — Boas Práticas
@@ -39,10 +39,12 @@ Estabelecer diretrizes sólidas e padrões consistentes para agendamento, monito
 - **Redirecionamento de Saída:** Nunca deixe as saídas das tarefas desaparecerem. Sempre anexe as saídas padrão e os streams de erro a arquivos de log dedicados ou direcione-os para handlers customizados.
 - **Hooks de Erro:** Utilize os hooks de callback de falha e sucesso para registrar anomalias ou disparar alertas.
 - **Limpeza dos Logs no Banco do Totem (Política de Retenção):** O Totem registra cada status de execução e saída na tabela `task_results` (o nome pode ganhar prefixo se `TOTEM_TABLE_PREFIX` estiver definido; no engeapp está vazio, então é `task_results`).
-- **Prefira o auto-cleanup nativo por tarefa.** Cada tarefa do Totem tem os campos `auto_cleanup_num` e `auto_cleanup_type` (colunas na tabela `tasks`, editáveis pela própria UI do Totem no formulário da tarefa). O método `Task::autoCleanup()` roda automaticamente após cada execução: com `auto_cleanup_num > 0` ele poda a `task_results` daquela tarefa, ou mantendo apenas os N resultados mais recentes (`auto_cleanup_type = 'results'`), ou apagando resultados mais antigos que N dias (qualquer outro `auto_cleanup_type`). Configure essa retenção por tarefa na UI em vez de agendar deleções manuais — isso mantém a poda vinculada à tarefa e limitada ao seu próprio histórico.
+- **Prefira o auto-cleanup nativo por tarefa.** Cada tarefa do Totem tem os campos `auto_cleanup_num` e `auto_cleanup_type` (colunas na tabela `tasks`, editáveis pela própria UI do Totem no formulário da tarefa). O método `Task::autoCleanup()` roda automaticamente após cada execução: com `auto_cleanup_num > 0` ele poda a `task_results` daquela tarefa, ou mantendo apenas os N resultados mais recentes (`auto_cleanup_type = 'results'`), ou apagando resultados mais antigos que N dias (qualquer outro `auto_cleanup_type`). **Atenção ao off-by-one:** o corte usa `Carbon::now()->subDays($auto_cleanup_num - 1)`, ou seja, com `auto_cleanup_num = N` o Totem mantém os resultados dos últimos N-1 dias completos, não N — configure a retenção considerando essa diferença. Configure essa retenção por tarefa na UI em vez de agendar deleções manuais — isso mantém a poda vinculada à tarefa e limitada ao seu próprio histórico.
 - **Poda manual só como fallback.** O Totem **não** expõe comando artisan de limpeza (registra apenas `schedule:list` e `totem:assets`). Portanto, use uma deleção agendada apenas para schedules que NÃO passam pelo Totem (registrados direto em `routes/console.php`), ou para uma varredura global de segurança:
   ```php
   // routes/console.php — fallback para o que não é gerenciado pelo Totem
+  use Illuminate\Support\Facades\DB;
+
   Schedule::call(fn () => DB::table('task_results')
       ->where('created_at', '<', now()->subDays(7))->delete())->daily();
   ```
@@ -59,18 +61,17 @@ Estabelecer diretrizes sólidas e padrões consistentes para agendamento, monito
 
 ### 5. Segurança e Autenticação do Dashboard do Totem
 - O dashboard do Laravel Totem é servido no prefixo de rota especificado por `TOTEM_WEB_ROUTE_PREFIX` (o padrão é `/tasks`).
-- O acesso deve ser estritamente restrito. Implemente a autorização da rota em `AppServiceProvider.php` usando `Totem::auth()` e o gate `viewTotem`:
+- O acesso deve ser estritamente restrito. **Apenas o closure registrado via `Totem::auth()` protege a rota** — é o único callback consumido pelo middleware `Authenticate` do pacote (`Totem::check($request)` executa exclusivamente `static::$authUsing`, definido por `Totem::auth()`). Implemente-o em `AppServiceProvider.php`:
   ```php
   use Studio\Totem\Totem;
-  use Illuminate\Support\Facades\Gate;
-
-  Gate::define('viewTotem', fn ($user) => $user->is_developer || in_array($user->email, $allowedEmails));
 
   Totem::auth(function () {
       $user = auth()->user();
       return $user && ($user->is_developer || in_array($user->email, $allowedEmails));
   });
   ```
+- O engeapp também define um `Gate::define('viewTotem', ...)` em `AppServiceProvider.php` espelhando o `viewPulse`, mas esse gate é convenção interna do projeto e **não tem nenhum consumidor** (nem back-end, nem front-end) — não é ele que protege o dashboard.
+- **Alerta operacional:** se você definir apenas o Gate `viewTotem` e esquecer de chamar `Totem::auth()`, `Totem::check()` cai no fallback `app()->environment('local')` e o dashboard fica liberado sem autenticação em ambiente local (e bloqueado por `abort(403)` em qualquer outro ambiente, mesmo para usuários autorizados).
 
 ### 6. Design Padrão de Artisan Command e Chamadas a APIs Externas
 - Qualquer comando registrado no Totem ou Laravel deve definir assinaturas explícitas e descritivas.
@@ -84,12 +85,10 @@ Estabelecer diretrizes sólidas e padrões consistentes para agendamento, monito
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- **NUNCA** escreva processamento pesado, requisições HTTP ou consultas cruas ao banco de dados diretamente dentro das closures de `routes/console.php`. Sempre delegue a um Artisan command ou a um Job de fila.
 - **NUNCA** omita `withoutOverlapping()` para tarefas de limpeza ou sincronização que possam demorar mais do que seu intervalo de execução.
-- **NUNCA** execute comandos sem especificar limites de ambiente se eles modificam dados de teste ou fazem mock de integrações com APIs externas.
 - **NUNCA** use `echo` puro do PHP ou saídas padrão dentro das closures de comando do scheduler; sempre utilize logging estruturado via `Log::channel()` apontando para um canal **existente** em `config/logging.php` (ex.: `jobs` ou `automations`). Não invente canais: `Log::channel('scheduler')` lança `InvalidArgumentException` em runtime porque esse canal não existe no engeapp. Se precisar de um canal dedicado, crie-o antes em `config/logging.php`.
 - **NUNCA** exponha a rota do dashboard `/tasks` (ou o prefixo configurado) ao público. Proteja-a atrás de gates de autenticação.
-- **NUNCA** agende um comando de alta frequência sem configurar uma política de retenção de logs correspondente. Para tarefas gerenciadas pelo Totem, prefira o auto-cleanup nativo por tarefa (`auto_cleanup_num`/`auto_cleanup_type`, configurável na UI); para o restante, use uma deleção agendada na `task_results` (o Totem não tem comando `totem:cleanup`).
+- **NUNCA** agende um comando de alta frequência sem política de retenção — ver seção 3 para as opções (auto-cleanup nativo do Totem vs. deleção agendada de fallback).
 - **NÃO** execute chamadas bloqueantes a APIs de terceiros dentro de comandos agendados sem um timeout HTTP explícito.
 
 ## Exemplos

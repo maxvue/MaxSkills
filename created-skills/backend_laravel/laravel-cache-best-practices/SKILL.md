@@ -1,6 +1,6 @@
 ---
 name: laravel-cache-best-practices
-description: Use ao implementar, configurar ou depurar cache no Laravel do Engeapp (Laravel 13 + Octane, store default database). Cobre padrão cache-aside com Cache::remember, TTLs, invalidação via Cache::forget (inline em Models/Controllers e convenção-alvo com Observers), nomenclatura de chaves, tags/locks e caches de framework no deploy. Aciona no uso da facade Cache.
+description: Use ao implementar, configurar ou depurar cache no Laravel do Engeapp (Laravel 13 + Octane, store Redis via phpredis). Cobre padrão cache-aside com Cache::remember, TTLs, invalidação via Cache::forget (inline em Models/Controllers e convenção-alvo com Observers), nomenclatura de chaves, tags/locks e caches de framework no deploy. Aciona no uso da facade Cache.
 ---
 
 # Boas Práticas de Cache do Laravel
@@ -15,7 +15,7 @@ Estabelecer diretrizes sólidas, convenções consistentes de nomenclatura de ch
 ### 1. Convenções de Nomenclatura de Chaves de Cache
 > **Estado atual do repositório (verdade-base):** o código hoje usa chaves *planas*, montadas por concatenação, sem prefixo estruturado. Exemplos reais:
 > - `Cache::remember($this->id . '-cache-nominal-power-kw', 120, ...)` — `app/Models/Equipment/Inverter.php:126`
-> - `Cache::remember('contact-contact_type-' . $this->id, ...)` — `app/Models/SupportChat/SupportContact.php:491`
+> - `Cache::remember('contact-contact_type-' . $this->id, ...)` — `app/Models/SupportChat/SupportContact.php:493` (com `Cache::forget` correspondente em `:489`)
 > - `Cache::remember('users.channel.' . $this->id, ...)` — `app/Models/SupportChat/SupportChannel.php:73`
 > - `'specs.' . $model->id` (`Module`), `'files_' . $message->id` (`SupportMessage`)
 >
@@ -53,10 +53,12 @@ $inverterPower = Cache::remember(
 
 ### 4. Invalidação de Cache
 > **Estado atual do repositório (verdade-base):** hoje a invalidação é feita *inline*, de duas formas:
-> - **Hooks de ciclo de vida no próprio Model**, via `static::booted()` + `static::updated()`. Ex.: `Module` limpa `'specs.' . $model->id` (`app/Models/Equipment/Module.php:240`); `SupportContact`/`SupportMessage` chamam `Cache::forget` diretamente.
+> - **Hooks de ciclo de vida no próprio Model**, via `static::booted()` + `static::updated()`. Ex.: `Module` limpa `'specs.' . $model->id` (`app/Models/Equipment/Module.php:241`); `SupportContact`/`SupportMessage` chamam `Cache::forget` diretamente.
 > - **`Cache::forget` dentro de Controllers.** Ex.: `app/Http/Controllers/SupportContacts/ContactsDataControler.php:64` e `:118`; `app/Http/Controllers/SupportMessage/SupportMessageDataController.php:38`.
 >
 > Existem Observers no projeto (`app/Observers/*Observer.php`), mas **nenhum** deles invalida cache atualmente. Ou seja, a orientação abaixo é uma **convenção-alvo para centralizar/refatorar** a invalidação, não o padrão já adotado. Ao mexer em cache de um Model existente, primeiro localize onde a chave é escrita e onde já é esquecida, e mantenha a consistência.
+>
+> **Atenção — namespace `specs.` é compartilhado entre Module e Inverter:** a chave `'specs.{id}'` é ESCRITA por `StationModule::dataSpecs` (`app/Models/Station/StationModule.php:84`, TTL 259200) e por `StationInverter::dataSpecs` (`StationInverter.php:125`), e INVALIDADA por `Module::booted/updated` (`Module.php:241`), `Inverter::booted/updated` (`Inverter.php:186`) e `StationInverter::booted/saving` (`StationInverter.php:187`) — quem escreve e quem invalida são classes distintas. A chave usa apenas o id do equipamento, então um `Module` e um `Inverter` com o mesmo id colidem na mesma chave `specs.{id}` (um `StationModule` pode acabar lendo um `Inverter` cacheado, e vice-versa). Ao tocar nesse cache, prefira qualificar a chave por tipo (ex.: `specs.module.{id}` / `specs.inverter.{id}`) — aqui a invalidação é necessariamente multi-model, não um ponto único por Model.
 
 Para reduzir duplicação e evitar dados obsoletos (stale), prefira concentrar a invalidação de cada Model num único ponto — seja num Observer dedicado, seja no hook `static::booted()` do Model — em vez de espalhar `Cache::forget` por vários Controllers. Dispare o `forget` nos eventos `saved`, `updated`, `deleted` e `restored`, sempre remontando a chave exatamente como ela é escrita.
 
@@ -93,12 +95,12 @@ class InverterObserver
 ```
 
 #### Orientação única sobre Cache Tags (canônica — referida também por `laravel-redis-integration-best-practices`)
-> **Ainda não usado no Engeapp:** não há nenhuma ocorrência de `Cache::tags` em `app/`. Além disso, o driver de cache padrão do projeto é `database` (`config/cache.php:18`, `CACHE_STORE` default `'database'`), que **não suporta tags**. Portanto, só use tags depois de garantir que o store efetivo é Redis/Memcached — caso contrário a chamada lança exceção.
+> **Ainda não usado no Engeapp:** não há nenhuma ocorrência de `Cache::tags` em `app/`. O store efetivo do projeto é `redis` (`CACHE_DRIVER=redis` / `CACHE_STORE=redis` em `.env`, via `phpredis`; `config/cache.php:18` só define `database` como fallback do `env()`), que **suporta tags** — mas `file`/`array` (e `database`, caso o store seja trocado) **não** suportam. Verifique o store efetivo antes de usar tags.
 
 Para entradas relacionadas que devem expirar juntas (ex: todas as páginas cacheadas de uma listagem), marque-as com uma tag na escrita e limpe o grupo inteiro de uma vez com `flush()` seletivo. Regras:
-- Só drivers com suporte a tags (Redis, Memcached) as aceitam — `file`/`database`/`array` **não** (o default atual do projeto é `database`). Verifique o driver antes.
 - No Redis, tags são implementadas via **chaves de rastreamento adicionais**, que consomem memória. Use tags para grupos de **cardinalidade moderada**; **evite** tags ao cachear milhões de chaves. Nesses casos de altíssima cardinalidade, prefira invalidação por chave individual (Observers + `Cache::forget`) ou por prefixo determinístico embutido na própria chave.
 - Faça `flush()` **seletivo por tag**, nunca limpe o cache inteiro.
+- `CACHE_PREFIX` (`.env`) já compõe o namespace real de todas as chaves gravadas no Redis.
 
 ```php
 // Agrupa entradas relacionadas sob uma tag para invalidação em bloco
@@ -111,15 +113,15 @@ Cache::tags(['inverters'])->flush();
 Documente o gatilho de invalidação próximo ao código que escreve o cache, e sempre inclua qualquer dimensão de escopo (tenant, locale, página) na chave.
 
 ### 5. Condições de Corrida e Concorrência
-> **Ainda não usado no Engeapp:** não há ocorrências de `Cache::lock` em `app/`. A orientação abaixo é um recurso válido do Laravel a adotar quando necessário, não um padrão já presente no código. Note que o store `database` suporta locks (via `lock_connection`), mas o driver `array` não é confiável para isso.
+> **Padrão já presente no Engeapp:** `Cache::lock` já é usado em `app/Services/Finance/TrtPaymentSchedulingService.php:109` (`Cache::lock('trt-payment-schedule:' . $project->id . ':' . $index, 120)`) para evitar duplo envio de pagamento. Use esse caso real como referência ao introduzir locks em outros fluxos. O store `redis` suporta locks atômicos (usa `lock_connection`, default `'default'`); o driver `array` não é confiável para isso.
 
 Para tarefas de alta concorrência ou recálculos pesados, use locks atômicos (`Cache::lock`) para prevenir Cache Stampede (múltiplos processos consultando os mesmos dados do banco simultaneamente quando o cache expira).
 
 ```php
 use Illuminate\Support\Facades\Cache;
 
-// Adquire uma trava atômica por até 10 segundos para processar dados de API pesados
-$lock = Cache::lock('api:processing:heavy_report', 10);
+// Adquire uma trava atômica por até 120s para evitar duplo processamento (padrão real: TrtPaymentSchedulingService)
+$lock = Cache::lock('trt-payment-schedule:' . $project->id . ':' . $index, 120);
 
 if ($lock->get()) {
     // Processamento seguro sem concorrência concorrente
@@ -130,7 +132,7 @@ if ($lock->get()) {
 
 ### 6. Compatibilidade com Octane (Stateless)
 - Evite usar o driver de cache `array` em ambientes de produção, pois ele é em memória e não sincronizará entre múltiplos workers do Octane.
-- Não armazene estado diretamente em propriedades estáticas de classe, pois elas persistem entre requisições no worker do Octane. Sempre use a facade `Cache` para estado compartilhado. Para metadados com escopo de requisição, a facade `Context` do Laravel é uma opção válida — porém note que **ela ainda não é usada no Engeapp** (zero ocorrências de `Context::` em `app/`); adote-a conscientemente ao introduzir esse padrão.
+- Não armazene estado diretamente em propriedades estáticas de classe, pois elas persistem entre requisições no worker do Octane. Sempre use a facade `Cache` para estado compartilhado. Para metadados com escopo de requisição, a facade `Context` do Laravel é uma opção válida — porém note que a facade `Context` do Laravel (`Illuminate\Support\Facades\Context`) **ainda não é usada no Engeapp**; as únicas ocorrências de `Context::` em `app/` são `Twirp\Context::withHttpRequestHeaders` em `AgentCallService.php` e `VoipService.php`, que não têm relação com essa facade. Adote-a conscientemente ao introduzir esse padrão.
 
 ### 7. Caches do Framework (Deploy)
 Cacheie a config, as rotas e as views do próprio framework durante o deploy para reduzir o custo de boot por requisição. Sempre limpe (ou re-cacheie) esses itens a cada deploy, e nunca rode `config:cache` localmente enquanto edita o `.env`.
@@ -147,7 +149,5 @@ Use os comandos correspondentes `config:clear` / `route:clear` / `view:clear` qu
 
 ## Restrições
 - **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
-- **Chaves estruturadas em código NOVO:** ao criar cache novo, prefixe as chaves (ex: em vez de só `$this->id`, use `"model:inverters:{$this->id}:nominal_power"`). Isto é convenção-alvo — o código existente usa chaves planas (ver seção 1); não reescreva chaves legadas sem também migrar quem as invalida.
-- **Evite espalhar invalidação:** ao adicionar cache novo, concentre a invalidação num único ponto (Observer ou hook `booted()` do Model) em vez de duplicar `Cache::forget` por vários Controllers. O repo hoje faz invalidação inline em Controllers e Models (ver seção 4); trate isso como alvo de refatoração, não como base já conforme.
 - **SEM Singletons com Estado:** Nunca armazene valores cacheados em propriedades de instância de singleton, a menos que você implemente explicitamente um mecanismo de limpeza ou os vincule usando resolver closures.
 - **Comentários em Português Brasileiro:** Todos os comentários de código dentro dos exemplos PHP devem ser escritos estritamente em português brasileiro (pt-BR).

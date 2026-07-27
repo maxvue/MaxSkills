@@ -1,6 +1,6 @@
 ---
 name: vue-meta-api-oauth-integration-best-practices
-description: Use ao construir, refatorar ou depurar a UI de credenciais das APIs oficiais da Meta (Instagram e Página do Facebook) no front-end Vue 3 do engeapp (SocialMedia/TabCredentials.vue). Cobre entrada MANUAL de external_account_id e token via MaxInputText/MaxButton, salvamento pela store Pinia comum useSocialMediaCredentials (load/save via axios + route Ziggy) e o indicador has_token.
+description: "Use ao construir, refatorar ou depurar a UI de credenciais das APIs oficiais da Meta (Instagram e Página do Facebook) no front-end Vue 3 do engeapp (SocialMedia/TabCredentials.vue). Cobre entrada MANUAL de external_account_id e token via MaxInputText/MaxButton, salvamento pela store Pinia comum useSocialMediaCredentials (load/save via axios + route Ziggy) e o indicador has_token."
 ---
 
 ## Objetivo
@@ -35,10 +35,6 @@ Arquivos reais que esta skill descreve:
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), sem exceção.
-- NÃO invente fluxo OAuth de popup/redirect no front-end (`window.open`, `postMessage`, `auth_url`): ele não existe neste projeto.
-- NÃO trate a store de credenciais como MaxPinia; use `load()`/`save()` (axios + `route()`).
-- NÃO exponha nem armazene o token de acesso no cliente; dependa de `has_token` e da sessão do backend.
-- NÃO use inputs/botões nativos ou PrimeVue cru; use `MaxInputText`, `MaxInputSwitch`, `MaxButton`, `Toast`.
 
 # Exemplo
 

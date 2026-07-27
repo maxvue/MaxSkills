@@ -9,15 +9,17 @@ Padronizar busca textual rápida com Laravel Scout + Meilisearch no engeapp segu
 # Como o projeto faz (verdade-base)
 
 ## 1. Trait central: `HasScoutMeilisearch`
-Todo model pesquisável usa `App\Traits\HasScoutMeilisearch` (não `Laravel\Scout\Searchable` diretamente). A trait já faz `use Searchable` internamente e fornece:
+Models pesquisáveis novos devem usar `App\Traits\HasScoutMeilisearch` (não `Laravel\Scout\Searchable` diretamente). A trait já faz `use Searchable` internamente e fornece:
 
 - `toSearchableArray()` pronto: percorre as chaves de `getScoutMeilisearchArray('array')`, resolve cada valor com `data_get($this, $key)`, faz `json_encode` de valores não-string, troca `.` por `_` nas chaves e força `id` como string. Por isso **você normalmente NÃO sobrescreve `toSearchableArray()`** — apenas declara as propriedades abaixo.
 - `meilisearchSettings()`: retorna os `searchableAttributes`/`filterableAttributes`/`sortableAttributes`/`stopWords` do índice, consumido em `config/scout.php`.
 
 Models reais que adotam a trait: `App\Models\Leads\Lead`, `App\Models\User`, `App\Models\SupportChat\SupportMessage`, `App\Models\SupportChat\SupportContact`, `App\Models\Client\Client`, `App\Models\Lists\City`.
 
+Exceções legadas: `App\Models\Project\Project` e `App\Models\SupportChat\SupportProtocol` usam `Laravel\Scout\Searchable` cru com `toSearchableArray()` manual mínimo (poucos campos, ex.: `id`/`consumer_code`/`installation_code` em `Project`, `id`/`protocol` em `SupportProtocol`). O exemplo de busca da seção 4 (`SupportSearchDataController`) opera justamente sobre `SupportProtocol` (Searchable cru) — a macro `searchSafe()` funciona igual em ambos os padrões.
+
 ## 2. Configuração do índice por propriedades no model
-Em vez de montar payload manual, declare arrays no model. A trait combina esses arrays com os defaults (`id`, `created_at`, `updated_at`) e com campos padrão que existirem em `fillable`/`casts`/`hidden`/`appends`:
+Em vez de montar payload manual, declare arrays no model. A trait sempre mescla, incondicionalmente, os defaults `id`, `created_at`, `updated_at`; além disso mescla (só quando a coluna existir em `fillable`/`casts`/`hidden`/`appends` do model) os defaults extras `finished_at` (filterable), `name`/`created_at` (sortable) e `name`/`email`/`trade_name`/`phone_number`/`international_phone_number` (searchable). A stoplist pt-BR `['de', 'a', 'o', 'em', 'na', 'no', 'e', 'os', 'as']` é SEMPRE aplicada, independentemente do valor de `$scout_stop_words`.
 
 ```php
 protected array $scout_searchable = ['name_code']; // colunas de busca textual extras
@@ -42,33 +44,22 @@ $contacts = SupportContact::search($search)
 
 `searchSafe()` retorna uma `Collection` (não um paginator). Referência real: `app/Http/Controllers/Support/SupportSearchDataController.php`.
 
+Duas limitações importantes de `searchSafe()`:
+- Filtros passados via `->where()` do `ScoutBuilder` NÃO sobrevivem ao fallback LIKE — a macro, no catch, só reaplica o closure registrado em `->query()`, nunca os `->where()` do Scout. Filtros que precisam valer nos dois caminhos devem ir dentro de `->query(fn ($q) => $q->where(...))`. Exemplo do risco real: `app/Services/ApiCepService.php` usa `City::search($this->city_name)->where('state_id', $this->state->id)->searchSafe(['name'])`, cujo filtro por estado desaparece no fallback.
+- `searchSafe(array $fallbackColumns = [])` aceita array vazio (é o valor default do parâmetro); se o Meilisearch estiver offline e nenhuma coluna de fallback for informada, o catch retorna uma `Collection` vazia silenciosamente, sem erro. Sempre informe as colunas de fallback para evitar esse mascaramento de falha.
+
 # Instruções
-1. **Torne o model pesquisável** usando `use App\Traits\HasScoutMeilisearch;` (que já inclui `Searchable`). Não use `Laravel\Scout\Searchable` cru.
-2. **Configure o índice via propriedades** `$scout_searchable` / `$scout_filterable` / `$scout_stop_words`, não sobrescrevendo `toSearchableArray()`. Só sobrescreva `toSearchableArray()` se precisar de um payload que a trait não consegue derivar (caso raro).
-3. **Não indexe tabelas grandes inteiras.** Liste apenas as colunas necessárias para busca/filtro/ordenação nas propriedades acima.
-4. **Ao buscar, use `->searchSafe([...])`** informando as colunas de fallback (as mesmas usadas na busca textual), e `->query(fn ($q) => $q->with([...]))` para carregar relações e evitar N+1.
-5. **Não edite `meilisearch.index-settings` manualmente** em `config/scout.php` — a descoberta é automática via `meilisearchSettings::getSettings()`.
+1. **Não indexe tabelas grandes inteiras.** Liste apenas as colunas necessárias para busca/filtro/ordenação nas propriedades da seção 2.
 
 # Restrições
 - Nunca inclua HTML cru grande, binários ou base64 no payload indexado.
 - Não dispare consultas N+1 dentro do fluxo de indexação; carregue relações com `->query(...->with([...]))` na busca.
 - Não use `LIKE` cru direto no controller quando o Scout cobrir o recurso — o fallback `LIKE` é responsabilidade da macro `searchSafe()`, não código duplicado.
 - Comentários de código em pt-BR.
-
-# Recursos genéricos do Scout (NÃO são convenção do engeapp)
-Os itens abaixo existem no Scout, mas **não são usados em nenhum model do projeto hoje**. Use apenas se realmente precisar, ciente de que fogem do padrão atual:
-- `shouldBeSearchable(): bool` para indexação condicional — nenhum model do engeapp implementa.
-- `protected $touches = ['relacao']` para reindexar o pai quando o filho muda — nenhum model Scout do engeapp declara.
+- `shouldBeSearchable(): bool` e `protected $touches = ['relacao']` existem no Scout mas não são usados em nenhum model do engeapp hoje.
 
 # Exemplo — Model pesquisável (padrão do projeto)
 ```php
-<?php
-
-namespace App\Models\Lists;
-
-use App\Traits\HasScoutMeilisearch;
-use Illuminate\Database\Eloquent\Model;
-
 class City extends Model
 {
     use HasScoutMeilisearch;
@@ -76,21 +67,7 @@ class City extends Model
     // A trait deriva toSearchableArray() automaticamente a partir destas propriedades:
     protected array $scout_searchable = ['name_code']; // busca textual
     protected array $scout_filterable = ['state_id'];   // filtros / WHERE
-
-    public function state()
-    {
-        return $this->belongsTo(State::class, 'state_id', 'id');
-    }
 }
-```
-
-# Exemplo — Busca resiliente com fallback
-```php
-// Retorna uma Collection; se o Meilisearch estiver offline,
-// searchSafe cai para LIKE nas colunas informadas.
-$results = SupportContact::search($search)
-    ->query(fn ($query) => $query->with(['last_support']))
-    ->searchSafe(['name', 'phone']);
 ```
 
 ---

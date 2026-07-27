@@ -16,10 +16,10 @@ Sempre use o método estático `FinanceDiscountCoupons::getCouponByCode($code, $
 - **Expiração:** Verifique se o horário atual é posterior à data de expiração (`expiration`).
 - **Limite Global de Uso:** A contagem total de usos (`count_use` via `uses()->count()`) não deve exceder a quantidade total permitida do cupom (`amount`).
 - **Limite por Empresa/Integrador:** Verifique se a contagem de usos da empresa solar excede o limite máximo permitido por integrador (`limit_use`).
-- **Restrições de Público:** `reference_use` tem cast `object` (coluna `json` na migration `finance_discounts_coupons`) e guarda a estrutura `{ value: ... }`. Se estiver definido, compare a **chave aninhada** `reference_use['value']` com o `solar_company->id` **ou** o `project->client->id` — nunca compare o objeto cru, sob pena de o cupom nunca casar. Quando `reference_use` é vazio o cupom é público (ver `getIsPublicAttribute`).
+- **Restrições de Público:** `reference_use` tem cast `object` (coluna `json` na migration `finance_discounts_coupons`) e guarda a estrutura `{ value: ... }`. O cast `object` faz `json_decode($value, false)` (retorna `stdClass`, sem `ArrayAccess`) — acesse por **propriedade**, `reference_use->value`, nunca por chave (`reference_use['value']`). **Atenção:** `FinanceDiscountCoupons.php:131` hoje faz `$coupon->reference_use['value']`, o que lança `Cannot use object of type stdClass as array` sempre que `reference_use` estiver preenchido; ao tocar nesse trecho, corrija para acesso por propriedade (ou troque o cast para `array`/`collection`). Quando `reference_use` é vazio o cupom é público (ver `getIsPublicAttribute`).
 
 ### 2. Aplicação Segura & Concorrência (Condições de Corrida) — MELHORIA PROPOSTA
-> **Estado atual do código:** o fluxo real `ProjectsInvoiceExecuteController::createPayment` **não** usa transação nem lock. Ele apenas chama `FinanceDiscountCoupons::getCouponByCode(...)` e, se houver cupom, faz `$payment->coupons()->create([...])`. As recomendações abaixo são um **hardening proposto**, não o padrão vigente — aplique-as ao endurecer o checkout, não presuma que já existem.
+> O fluxo real `ProjectsInvoiceExecuteController::createPayment` **não** usa transação nem lock hoje (apenas `FinanceDiscountCoupons::getCouponByCode(...)` + `$payment->coupons()->create([...])`). O que segue é hardening proposto, a aplicar ao endurecer o checkout — não presuma que já existe.
 
 Quando um cupom é aplicado durante o checkout, condições de corrida podem permitir que um cupom seja usado além de seus limites se múltiplas requisições ocorrerem simultaneamente.
 - **Transações de Banco de Dados:** Envolva a criação do pagamento, a validação do cupom e o registro de uso do cupom dentro de uma transação de banco de dados:
@@ -37,15 +37,11 @@ Quando um cupom é aplicado durante o checkout, condições de corrida podem per
       // 3. Cria o pagamento e registra o uso do cupom
   });
   ```
-- **Pessimistic Locking:** Use `.lockForUpdate()` ao consultar o cupom para bloquear checkouts concorrentes de lerem contagens de uso obsoletas.
 
 ### 3. Cálculos de Desconto com Precisão (BRL) — MELHORIA PROPOSTA
-> **Estado atual do código:** o cálculo real usa **float puro**, não BCMath. Em `EfiPaymentExecute` (`$value_coupon = ($total * $coupon->info->value) / 100; $total -= $value_coupon;`) e em `ProjectsInvoiceExecuteController`, os valores são tratados como `(float)`. A abordagem BCMath abaixo é uma **melhoria proposta** para eliminar imprecisões de centavo; ela não espelha o padrão vigente. Note também que no fluxo Efí o percentual e o tipo vêm da relação `$coupon->info` (`$coupon->info->value`, `$coupon->info->type_discount`).
+> O cálculo real do desconto do cupom acontece em `App\Services\Finance\PaymentPricing::for()` (`app/Services/Finance/PaymentPricing.php:34-41`), com **float puro** (`$total -= ($total * (float) $coupon->info->value) / 100;` para `type_discount === 'percent'`, `$total -= (float) $coupon->info->value;` para `'value'`). A mesma lógica está **duplicada** em `App\Services\Bank\EfiPaymentStatus` (linhas 53-60 e 179-186) — risco real de divergência de arredondamento entre os dois caminhos. `EfiPaymentExecute` apenas **consome** `PaymentPricing` (converte o resultado para centavos com `(int) round($valor * 100)`); `ProjectsInvoiceExecuteController` só resolve o cupom (`getCouponByCode`) e registra o uso — nenhum dos dois calcula o desconto. A abordagem BCMath abaixo é melhoria proposta para eliminar imprecisões de centavo, não o padrão vigente.
 
-Para prevenir diferenças de arredondamento de centavos ao aplicar valores de desconto (fixos ou percentuais):
-- **Evite Float:** Não use cálculos com float puro para operações financeiras.
-- **Verificação de Tipo:** Distinga claramente entre descontos percentuais (`type_discount === 'percent'`) e descontos de valor fixo (`type_discount === 'value'`).
-- **Precisão de Cálculo:** Calcule com funções BCMath (`bcmul`/`bcadd`/`bcsub`/`bcdiv` com `scale` explícito de 2) em vez de aritmética de float, tratando os valores como strings antes de armazená-los nos campos de pagamento:
+Para prevenir diferenças de arredondamento de centavos, calcule com funções BCMath (`bcmul`/`bcadd`/`bcsub`/`bcdiv` com `scale` explícito de 2) em vez de aritmética de float, distinguindo claramente `type_discount === 'percent'` de `type_discount === 'value'` e tratando os valores como strings antes de armazená-los:
   ```php
   // Trabalhe com strings e scale = 2 para evitar imprecisões de ponto flutuante
   if ($coupon->type_discount === 'percent') {
@@ -76,4 +72,3 @@ Toda vez que um cupom for aplicado com sucesso, registre o histórico na tabela 
   $model->client_id = $model->payment->project->client_id;
   $model->solar_company_id = $model->payment->project->client->solar_company_id;
   ```
-- **Comparação de Float:** Nunca realize comparações diretas de igualdade em floats ao validar saldos remanescentes.

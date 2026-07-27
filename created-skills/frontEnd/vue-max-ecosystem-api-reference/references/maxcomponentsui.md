@@ -232,17 +232,8 @@ Propósito: seletor de cor (encapsula `ColorPicker` + `InputText` do PrimeVue de
 | inputId | string | — | não | id do input subjacente |
 | ariaLabel | string | — | não | rótulo de acessibilidade |
 | ariaLabelledby | string | — | não | associação de rótulo (a11y) |
-| icon / i | string | — | não | ícone (via InputBase) |
-| disabled | boolean | false | não | desabilita o campo |
-| float | boolean | — | não | estilo FloatLabel |
-| msg / message | string | — | não | mensagem de feedback |
-| iconMessage | string | — | não | ícone da mensagem |
-| label | string | — | não | rótulo do campo |
-| done | boolean | undefined | não | estado de conclusão manual |
-| error | string \| boolean | undefined | não | mensagem/estado de erro |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 | targetValue | string | — | não | valor para comparação de igualdade |
-| caution | string \| boolean | undefined | não | mensagem/estado de atenção |
-| required | boolean | false | não | campo obrigatório |
 | placeholder | string | — | não | placeholder |
 
 **v-model**
@@ -258,13 +249,7 @@ Propósito: seletor de cor (encapsula `ColorPicker` + `InputText` do PrimeVue de
 ---
 
 ### MaxDoneIcon
-Import: `import { MaxDoneIcon } from '@maxvue/max-components-ui'`
-Propósito: ícone estático de "concluído" (check verde em círculo). Sem props/emits/slots.
-
-**Exemplo**
-```vue
-<MaxDoneIcon />
-```
+Import: `import { MaxDoneIcon } from '@maxvue/max-components-ui'`. Ícone estático de "concluído" (check verde em círculo). Sem props/emits/slots. Exemplo: `<MaxDoneIcon />`
 
 ---
 
@@ -289,13 +274,7 @@ Propósito: placeholder de "sem registros" com ícone e rótulo; totalmente conf
 ---
 
 ### MaxErrorIcon
-Import: `import { MaxErrorIcon } from '@maxvue/max-components-ui'`
-Propósito: ícone estático de "erro" (X vermelho em círculo). Sem props/emits/slots.
-
-**Exemplo**
-```vue
-<MaxErrorIcon />
-```
+Import: `import { MaxErrorIcon } from '@maxvue/max-components-ui'`. Ícone estático de "erro" (X vermelho em círculo). Sem props/emits/slots. Exemplo: `<MaxErrorIcon />`
 
 ---
 
@@ -464,20 +443,11 @@ Propósito: autocomplete com filtragem local de uma lista de opções (encapsula
 |------|------|---------|-------------|-----------|
 | modelValue | any | '' | não | valor selecionado |
 | options | any | [] | não | lista de opções para filtragem local |
-| icon / i | string | — | não | ícone (InputBase) |
-| disabled | boolean | — | não | desabilita o campo |
 | optionLabel | string | 'name' | não | campo usado como rótulo |
 | optionValue | string | — | não | campo usado como valor |
-| float | boolean | — | não | estilo FloatLabel |
-| msg / message | string | — | não | mensagem de feedback |
-| iconMessage | string | — | não | ícone da mensagem |
 | placeholder | string | 'SELECIONE' | não | placeholder |
-| label | string | — | não | rótulo |
-| done | boolean | undefined | não | estado de conclusão manual |
-| error | string \| boolean | undefined | não | erro |
 | targetValue | string | — | não | valor de comparação |
-| caution | string \| boolean | undefined | não | atenção |
-| required | boolean | false | não | obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Model | Tipo | Descrição |
@@ -567,17 +537,8 @@ Propósito: entrada de CEP com máscara automática (`##.### - ###`) e validaç�
 |------|------|---------|-------------|-----------|
 | modelValue | any | '' | não | valor do CEP (apenas números) |
 | loading | boolean | false | não | estado de carregamento (ícone à direita) |
-| icon / i | string | — | não | ícone |
-| disabled | boolean | — | não | desabilita |
-| float | boolean | — | não | FloatLabel |
-| msg / message | string | — | não | mensagem |
-| iconMessage | string | — | não | ícone da mensagem |
-| label | string | — | não | rótulo |
-| done | boolean | undefined | não | conclusão manual |
-| error | string \| boolean | — | não | erro |
 | targetValue | string | — | não | comparação |
-| caution | string \| boolean | undefined | não | atenção |
-| required | boolean | false | não | obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Model | Tipo | Descrição |
@@ -636,17 +597,8 @@ Propósito: entrada de latitude decimal com máscara dinâmica e validação de 
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
 | modelValue | string \| number | '' | não | valor da latitude |
-| icon / i | string | — | não | ícone |
-| disabled | boolean | — | não | desabilita |
-| float | boolean | — | não | FloatLabel |
-| msg / message | string | — | não | mensagem |
-| iconMessage | string | — | não | ícone da mensagem |
-| label | string | — | não | rótulo |
-| done | boolean | undefined | não | conclusão manual |
-| error | string \| boolean | — | não | erro |
 | targetValue | string | — | não | comparação |
-| caution | string \| boolean | undefined | não | atenção |
-| required | boolean | false | não | obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Model | Tipo | Descrição |
@@ -676,17 +628,8 @@ Propósito: entrada de longitude decimal com máscara `-7#.######` e validação
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
 | modelValue | string \| number | '' | não | valor da longitude |
-| icon / i | string | — | não | ícone |
-| disabled | boolean | — | não | desabilita |
-| float | boolean | — | não | FloatLabel |
-| msg / message | string | — | não | mensagem |
-| iconMessage | string | — | não | ícone da mensagem |
-| label | string | — | não | rótulo |
-| done | boolean | undefined | não | conclusão manual |
-| error | string \| boolean | — | não | erro |
 | targetValue | string | — | não | comparação |
-| caution | string \| boolean | undefined | não | atenção |
-| required | boolean | false | não | obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Model | Tipo | Descrição |
@@ -718,17 +661,8 @@ Propósito: entrada de CPF ou CNPJ com detecção automática do tipo pelo taman
 | modelValue | string \| null | '' | não | documento (apenas números) |
 | cpf | boolean | — | não | força máscara/validação de CPF |
 | cnpj | boolean | — | não | força máscara/validação de CNPJ |
-| icon / i | string | — | não | ícone |
-| disabled | boolean | — | não | desabilita |
-| float | boolean | — | não | FloatLabel |
-| msg / message | string | — | não | mensagem |
-| iconMessage | string | — | não | ícone da mensagem |
-| label | string | — | não | rótulo |
-| done | boolean | undefined | não | conclusão manual |
-| error | string \| boolean | — | não | erro |
 | targetValue | string | — | não | comparação |
-| caution | string \| boolean | undefined | não | atenção |
-| required | boolean | false | não | obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Model | Tipo | Descrição |
@@ -781,10 +715,7 @@ Propósito: seletor de data (encapsula `DatePicker` do PrimeVue dentro do `Input
 ---
 
 ### MaxInputFile
-Import: `import { MaxInputFile } from '@maxvue/max-components-ui'`
-Propósito: componente sem template funcional — contém apenas estilos (`.input-file-main-div`) usados por outros componentes de arquivo. **Sem props/emits/slots/lógica.**
-
-> Observação: o `<script setup>` e `<template>` estão vazios; apenas o bloco `<style>` está presente.
+Import: `import { MaxInputFile } from '@maxvue/max-components-ui'`. Componente sem template funcional — contém apenas estilos (`.input-file-main-div`) usados por outros componentes de arquivo. **Sem props/emits/slots/lógica.** `<script setup>` e `<template>` estão vazios; apenas o bloco `<style>` está presente.
 
 ---
 
@@ -1011,17 +942,8 @@ Propósito: entrada numérica (encapsula `InputNumber` do PrimeVue dentro do `In
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
 | modelValue | any | '' | não | valor numérico |
-| icon / i | string | — | não | ícone |
-| disabled | boolean | — | não | desabilita |
-| float | boolean | — | não | FloatLabel |
-| msg / message | string | — | não | mensagem |
-| iconMessage | string | — | não | ícone da mensagem |
-| label | string | — | não | rótulo |
-| done | boolean | undefined | não | conclusão manual |
-| error | string \| boolean | — | não | erro |
 | targetValue | string | — | não | comparação |
-| caution | string \| boolean | undefined | não | atenção |
-| required | boolean | false | não | obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 | prefix | string | undefined | não | prefixo do valor |
 | suffix | string | undefined | não | sufixo do valor |
 | placeholder | string | undefined | não | placeholder |
@@ -1054,17 +976,9 @@ Propósito: campo unificado de e-mail OU telefone (WhatsApp) com máscara e íco
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
 | modelValue | string | '' | não | valor (e-mail ou telefone) |
-| icon / i | string | — | não | ícone |
-| disabled | boolean | — | não | desabilita |
-| float | boolean | — | não | FloatLabel |
-| msg / message | string | — | não | mensagem |
-| iconMessage | string | — | não | ícone da mensagem |
-| label | string | — | não | rótulo (default dinâmico) |
-| done | boolean | undefined | não | conclusão manual |
-| error | string \| boolean | — | não | erro |
 | targetValue | string | — | não | comparação |
-| caution | string \| boolean | undefined | não | atenção |
-| required | boolean | false | não | obrigatório |
+| label | string | — | não | rótulo (default dinâmico 'Email ou Whatsapp', ao contrário do padrão do InputBase) |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Model | Tipo | Descrição |
@@ -1214,19 +1128,8 @@ Propósito: interruptor (switch/toggle) para opções binárias, com pergunta/r�
 |------|------|---------|-------------|-----------|
 | modelValue | boolean | false | não | Valor booleano do switch |
 | question | string | — | não | Pergunta/rótulo exibido ao lado do switch |
-| icon | string \| undefined | — | não | Ícone opcional |
-| i | string \| undefined | — | não | Alias para o ícone |
-| disabled | boolean \| undefined | — | não | Desabilita o campo |
-| float | boolean \| undefined | — | não | Estilo FloatLabel |
-| msg | string \| undefined | — | não | Mensagem de feedback (alias) |
-| message | string \| undefined | — | não | Mensagem de feedback |
-| iconMessage | string \| undefined | — | não | Ícone da mensagem |
-| label | string \| undefined | — | não | Rótulo do campo |
-| done | boolean \| undefined | undefined | não | Estado de conclusão/validação manual |
-| error | string \| boolean \| undefined | — | não | Mensagem/estado de erro |
 | targetValue | string | — | não | Valor para comparação |
-| caution | string \| boolean \| undefined | undefined | não | Mensagem/estado de atenção |
-| required | boolean | false | não | Campo obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Nome | Tipo | Descrição |
@@ -1253,17 +1156,8 @@ Propósito: área de texto multi-linha com redimensionamento automático. Encaps
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
 | modelValue | any | '' | não | Valor do campo |
-| icon / i | string \| undefined | — | não | Ícone / alias |
-| disabled | boolean \| undefined | — | não | Desabilita o campo |
-| float | boolean \| undefined | — | não | Estilo FloatLabel |
-| msg / message | string \| undefined | — | não | Mensagem de feedback |
-| iconMessage | string \| undefined | — | não | Ícone da mensagem |
-| label | string \| undefined | — | não | Rótulo |
-| done | boolean \| undefined | undefined | não | Estado de conclusão |
-| error | string \| boolean \| undefined | — | não | Erro |
 | targetValue | string | — | não | Valor para comparação |
-| caution | string \| boolean \| undefined | — | não | Atenção |
-| required | boolean | — | não | Obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 | autoResize | boolean | true | não | Redimensiona automaticamente |
 | rows | string \| number | — | não | Nº fixo de linhas (sobrepõe cálculo automático) |
 | minRows | number \| string | 1 | não | Mínimo de linhas |
@@ -1299,18 +1193,9 @@ Propósito: entrada de texto padrão, com validação de obrigatoriedade e compa
 |------|------|---------|-------------|-----------|
 | type | string | 'text' | não | Tipo do input HTML |
 | modelValue | any | '' | não | Valor atual |
-| icon / i | string \| undefined | — | não | Ícone / alias (ex.: 'mdi:email') |
-| disabled | boolean \| undefined | false | não | Desabilita |
-| float | boolean \| undefined | — | não | FloatLabel |
-| msg / message | string \| undefined | — | não | Mensagem de feedback |
-| iconMessage | string \| undefined | — | não | Ícone da mensagem |
-| label | string \| undefined | — | não | Rótulo |
-| done | boolean \| undefined | undefined | não | Conclusão/validação manual |
-| error | string \| boolean \| undefined | undefined | não | Erro |
 | targetValue | string | — | não | Valor esperado (valida igualdade) |
-| caution | string \| boolean \| undefined | undefined | não | Atenção |
-| required | boolean | false | não | Obrigatório |
 | placeholder | string \| undefined | — | não | Placeholder |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 Nota: usa `attrs.errMsg`/`error_message`/`error_msg` para customizar a mensagem de erro; mensagens automáticas: "Valor esperado: ..." (falha na comparação) e "Campo obrigatório".
 
@@ -1344,17 +1229,8 @@ Propósito: editor de texto tipo "código", com numeração de linhas, indentaç
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
 | modelValue | any | '' | não | Conteúdo do editor |
-| icon / i | string \| undefined | — | não | Ícone / alias |
-| disabled | boolean \| undefined | — | não | Desabilita |
-| float | boolean \| undefined | — | não | FloatLabel |
-| msg / message | string \| undefined | — | não | Mensagem |
-| iconMessage | string \| undefined | — | não | Ícone da mensagem |
-| label | string \| undefined | — | não | Rótulo |
-| done | boolean \| undefined | — | não | Conclusão |
-| error | string \| boolean \| undefined | — | não | Erro |
 | targetValue | string | — | não | Comparação |
-| caution | string \| boolean \| undefined | — | não | Atenção |
-| required | boolean | — | não | Obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, label, done, error, caution, required — ver topo)_ | | | | |
 
 **v-model**
 | Nome | Tipo | Descrição |
@@ -1598,7 +1474,7 @@ Propósito: modal centralizado com botão de abertura, header (título/subtítul
 
 ### MaxMsgLabels
 Import: `import { MaxMsgLabels } from '@maxvue/max-components-ui'` (named export público do entry principal)
-Propósito: exibe rótulos de mensagem/erro e o asterisco de obrigatoriedade. (Não consta no `index.ts`.)
+Propósito: exibe rótulos de mensagem/erro e o asterisco de obrigatoriedade.
 
 **Props**
 | Prop | Tipo | Default | Obrigatório | Descrição |
@@ -1640,17 +1516,9 @@ Propósito: campo de telefone internacional com seletor de DDI/bandeira e másca
 **Props**
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
-| icon / i | string \| undefined | — | não | Ícone / alias |
-| disabled | boolean \| undefined | — | não | Desabilita |
-| float | boolean \| undefined | — | não | FloatLabel |
-| msg / message | string \| undefined | — | não | Mensagem |
-| iconMessage | string \| undefined | — | não | Ícone da mensagem |
-| label | string \| undefined | — | não | Rótulo (default 'Telefone...') |
-| done | boolean \| undefined | undefined | não | Conclusão |
-| error | string \| boolean \| undefined | — | não | Erro |
+| label | string \| undefined | — | não | Rótulo (default 'Telefone...', ao contrário do padrão do InputBase) |
 | targetValue | string | — | não | Comparação |
-| caution | string \| boolean \| undefined | undefined | não | Atenção |
-| required | boolean | false | não | Obrigatório |
+| _(demais props do InputBase: icon/i, disabled, float, msg/message, iconMessage, done, error, caution, required — ver topo)_ | | | | |
 | noLabel | boolean | false | não | Oculta o rótulo |
 | noIcon | boolean | false | não | Oculta o ícone do WhatsApp |
 
@@ -1808,8 +1676,7 @@ Não define `defineProps` — todas as props do DataTable via `$attrs`. Sempre a
 ---
 
 ### MaxTableColumn
-Import: (não exportado no index principal) — apenas re-exporta o `Column` do PrimeVue como importação interna; template vazio.
-Propósito: placeholder/estilos para a coluna da tabela (`p-datatable`). Sem props, sem slots, sem emits. Apenas fornece SCSS. Não é registrado no `index.ts`.
+Import: (não exportado no index principal) — apenas re-exporta o `Column` do PrimeVue como importação interna; template vazio. Placeholder/estilos para a coluna da tabela (`p-datatable`). Sem props, sem slots, sem emits. Apenas fornece SCSS. Não é registrado no `index.ts`.
 
 ---
 
@@ -1949,13 +1816,7 @@ Propósito: lista de tags editável — cada tag é um `MaxTagSelect`; permite t
 ---
 
 ### MaxTextInputFloatLabel
-Import: `import { MaxTextInputFloatLabel } from '@maxvue/max-components-ui'`
-Propósito: componente DESCONTINUADO (renderiza uma `<div>` vazia). Sem props/emits/slots.
-
-**Exemplo**
-```vue
-<MaxTextInputFloatLabel />
-```
+Import: `import { MaxTextInputFloatLabel } from '@maxvue/max-components-ui'`. Componente DESCONTINUADO (renderiza uma `<div>` vazia). Sem props/emits/slots. Exemplo: `<MaxTextInputFloatLabel />`
 
 ---
 
@@ -2062,34 +1923,12 @@ Propósito: botão que dispara um popover de confirmação via `useConfirmStore`
 ---
 
 ### MaxTransitionFadeLight
-Import: `import { MaxTransitionFadeLight } from '@maxvue/max-components-ui'`
-Propósito: wrapper de `<Transition>` com fade de opacidade (0.5s). Sem props/emits.
-
-**Slots**
-| Nome | Props | Descrição |
-|------|-------|-----------|
-| default | — | Conteúdo animado |
-
-**Exemplo**
-```vue
-<MaxTransitionFadeLight><div v-if="show">...</div></MaxTransitionFadeLight>
-```
+Import: `import { MaxTransitionFadeLight } from '@maxvue/max-components-ui'`. Wrapper de `<Transition>` com fade de opacidade (0.5s). Sem props/emits. Slot `default` (conteúdo animado). Exemplo: `<MaxTransitionFadeLight><div v-if="show">...</div></MaxTransitionFadeLight>`
 
 ---
 
 ### MaxTransitionUp
-Import: `import { MaxTransitionUp } from '@maxvue/max-components-ui'`
-Propósito: wrapper de `<Transition>` com animação de deslizar para cima na entrada e para baixo na saída. Sem props/emits.
-
-**Slots**
-| Nome | Props | Descrição |
-|------|-------|-----------|
-| default | — | Conteúdo animado |
-
-**Exemplo**
-```vue
-<MaxTransitionUp><div v-if="show">...</div></MaxTransitionUp>
-```
+Import: `import { MaxTransitionUp } from '@maxvue/max-components-ui'`. Wrapper de `<Transition>` com animação de deslizar para cima na entrada e para baixo na saída. Sem props/emits. Slot `default` (conteúdo animado). Exemplo: `<MaxTransitionUp><div v-if="show">...</div></MaxTransitionUp>`
 
 ---
 
@@ -2121,13 +1960,7 @@ Propósito: avatar do usuário (imagem ou iniciais do nome), com tooltip opciona
 ---
 
 ### MaxWaitIcon
-Import: `import { MaxWaitIcon } from '@maxvue/max-components-ui'`
-Propósito: ícone SVG animado de "aguarde" (ampulheta com animação de rotação/fade), usando `currentColor`. Sem props/emits/slots.
-
-**Exemplo**
-```vue
-<MaxWaitIcon />
-```
+Import: `import { MaxWaitIcon } from '@maxvue/max-components-ui'`. Ícone SVG animado de "aguarde" (ampulheta com animação de rotação/fade), usando `currentColor`. Sem props/emits/slots. Exemplo: `<MaxWaitIcon />`
 
 ---
 

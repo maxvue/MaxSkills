@@ -38,22 +38,6 @@ const filteredItems = computed((status) => {  // status will be undefined or pre
 </script>
 ```
 
-```vue
-<script>
-export default {
-  data() {
-    return { items: [/* ... */] }
-  },
-  computed: {
-    // BAD: Computed doesn't receive arguments
-    filteredItems(status) {  // 'status' is actually 'this' or undefined
-      return this.items.filter(i => i.status === status)
-    }
-  }
-}
-</script>
-```
-
 **Correct:**
 ```vue
 <template>

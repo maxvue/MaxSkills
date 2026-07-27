@@ -91,23 +91,13 @@ $uri = Uri::of('https://example.com/search')
 
 Use `$request->string('name')` to get a fluent `Stringable` directly from request input for immediate chaining.
 
-Use `search-docs` for the full list of available methods — these helpers are extensive.
+Quando não existir helper Laravel equivalente, use `mb_*` (`mb_strlen`, `mb_strtolower`) — funções PHP puras como `strlen`/`strtolower` contam bytes, não caracteres, e falham com UTF-8 multibyte (`strlen('José')` retorna 5, não 4).
 
-## No Inline JS/CSS in Blade
+Consulte a documentação da versão instalada (vendor/ ou docs oficiais) para a lista completa de métodos — se o MCP do Laravel Boost estiver habilitado, use `search-docs`.
 
-Do not put JS or CSS in Blade templates. Do not put HTML in PHP classes.
+## Sem JS/CSS inline em Blade (raramente aplicável)
 
-Incorrect:
-```blade
-let article = `{{ json_encode($article) }}`;
-```
-
-Correct:
-```blade
-<button class="js-fav-article" data-article='@json($article)'>{{ $article->name }}</button>
-```
-
-Pass data to JS via data attributes or use a dedicated PHP-to-JS package.
+O engeapp não tem views Blade próprias (SPA Vue 3), então esta regra quase nunca se aplica. Como referência genérica do framework: não coloque JS/CSS em templates Blade nem HTML em classes PHP — passe dados via data attributes (`@json($article)`). Nunca coloque HTML em classes PHP (ex.: mensagens de exception ou de mailable devem usar views/Markdown).
 
 ## No Unnecessary Comments
 

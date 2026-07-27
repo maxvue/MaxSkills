@@ -46,11 +46,9 @@ NÃO use esta skill quando a tarefa for exclusivamente escrever/corrigir código
 
 **2. Estrutura padronizada.** Cada tipo de documento tem uma estrutura própria. **Nunca invente estruturas novas** — siga os templates definidos aqui.
 
-**3. Exemplos funcionais.** Todo exemplo de código DEVE funcionar se copiado e colado. Use dados realistas, nunca `foo`, `bar`, `baz`. Mostre o output/resultado esperado quando possível. Inclua exemplos de erro e como tratá-los.
+**3. Versionamento.** Sempre inclua versão ou data na documentação. Mantenha a compatibilidade com versões anteriores documentada. Use badges para indicar versão, status e compatibilidade.
 
-**4. Linguagem.** Frases curtas e diretas. Voz ativa: "Instale o pacote" em vez de "O pacote deve ser instalado". Evite jargões desnecessários — se usar, explique na primeira ocorrência. Use listas e tabelas em vez de parágrafos longos.
-
-**5. Versionamento.** Sempre inclua versão ou data na documentação. Mantenha a compatibilidade com versões anteriores documentada. Use badges para indicar versão, status e compatibilidade.
+Demais critérios de qualidade (exemplos funcionais, linguagem, formatação) estão consolidados no Checklist de Qualidade abaixo.
 
 ### Fluxo de Trabalho
 
@@ -93,14 +91,6 @@ NÃO use esta skill quando a tarefa for exclusivamente escrever/corrigir código
 4. Validar exemplos de código
 5. Revisar formatação Markdown
 ```
-
-### Padrões de Resposta
-
-**Ao criar documentação nova:** Análise (examinar o código/projeto relevante) → Plano (apresentar estrutura proposta) → Escrita (seguir o template escolhido) → Revisão (aplicar o checklist de qualidade).
-
-**Ao melhorar documentação existente:** Diagnóstico (identificar problemas e lacunas) → Relatório (listar melhorias sugeridas com prioridade) → Execução (aplicar as melhorias aprovadas) → Validação (verificar com checklist).
-
-**Ao documentar código existente:** Leitura (analisar o código em profundidade) → Extração (identificar interfaces públicas, tipos, parâmetros) → Contextualização (entender o propósito e uso) → Documentação (gerar docs seguindo o template relevante).
 
 ### Regras de Formatação Markdown
 
@@ -204,64 +194,7 @@ Para gerar documentação inline e referência de API a partir de código TypeSc
 7. Documente o **porquê**, não o **quê** — não documente código óbvio
 8. Mantenha a doc sincronizada com o código e com a versão
 
-**1. Configurar o TypeDoc:**
-
-```bash
-npm install --save-dev typedoc typedoc-plugin-markdown
-```
-
-```json
-{
-  "entryPoints": ["src/index.ts"],
-  "out": "docs/api",
-  "theme": "markdown",
-  "excludePrivate": true,
-  "readme": "README.md"
-}
-```
-
-Membros privados: use `@private` ou `excludePrivate` para excluí-los da saída.
-
-**2. Validar a documentação com ESLint:**
-
-```json
-{
-  "rules": {
-    "jsdoc/require-description": "error",
-    "jsdoc/require-param-description": "error",
-    "jsdoc/require-returns-description": "error",
-    "jsdoc/require-example": "warn",
-    "jsdoc/check-alignment": "error",
-    "jsdoc/check-indentation": "error",
-    "jsdoc/tag-lines": ["error", "any", { "startLines": 1 }]
-  }
-}
-```
-
-**Se a validação falhar:** revise os erros do ESLint, corrija os comentários JSDoc (adicione descrições faltantes, `@param`/`@returns`/`@throws` ausentes) e rode novamente `eslint --ext .ts src/` até passar antes de commitar.
-
-**3. Pipeline de CI/CD (GitHub Actions):**
-
-```yaml
-name: Documentation
-on:
-  push:
-    branches: [main]
-    paths: ['src/**', 'docs/**']
-
-jobs:
-  generate-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run docs:generate
-      - run: npm run docs:validate
-```
+Se algum dia o pacote adotar geração automática de docs, avaliar TypeDoc (`typedoc` + `typedoc-plugin-markdown`) — nenhum projeto do ecossistema usa isso hoje.
 
 **Checklist de validação TypeScript:**
 
@@ -271,7 +204,6 @@ jobs:
 - [ ] Funções complexas têm bloco `@example`
 - [ ] Todos os `@throws` documentados para cenários de erro
 - [ ] Referências cruzadas usam `@see`
-- [ ] As regras JSDoc do ESLint passam
 
 ## Restrições
 
@@ -281,20 +213,14 @@ jobs:
 - Exemplos devem ser extraídos ou baseados no código real do projeto
 - Mantenha consistência de estilo dentro do mesmo projeto
 - Pergunte ao usuário quando houver ambiguidade sobre escopo ou audiência
-- Documentação em português brasileiro (pt-BR) por padrão
 - Não trate a saída como substituto para revisão de pares ou validação técnica
 - Pare e peça esclarecimentos se informações essenciais estiverem faltando
 
-**Anti-padrões a evitar:**
+**Anti-padrões a evitar** (além dos já cobertos nas Restrições e no Checklist de Qualidade):
 
-- ❌ Documentação gerada sem analisar o código-fonte
-- ❌ Exemplos com dados genéricos (`foo`, `bar`, `test`)
-- ❌ Blocos de código sem linguagem especificada
 - ❌ Parágrafos longos onde tabelas seriam mais claras
 - ❌ Copiar/colar sem adaptar ao contexto do projeto
 - ❌ Documentação que repete o código sem agregar valor
-- ❌ Omitir cenários de erro e edge cases
-- ❌ Ignorar versionamento e datas
 - ❌ Estrutura inconsistente entre documentos do mesmo projeto
 
 ## Exemplos
@@ -489,11 +415,11 @@ Requer sessão autenticada (guard `web`, cookie de sessão). O front consome est
 }
 \```
 
-#### ❌ 401 — Sessão Não Autenticada
+#### ❌ 401 — Não Autenticado
 
 \```json
 {
-  "message": "Sessão não autenticada."
+  "message": "Unauthenticated."
 }
 \```
 ```
@@ -757,7 +683,7 @@ use Illuminate\Support\Facades\Hash;
  * Serviço para gerenciar a autenticação de usuários.
  *
  * Lida com autenticação baseada em sessão+cookie (guarda `web` do Laravel),
- * com sessões persistidas em banco (MySQL) e validade de 30 dias.
+ * com sessões persistidas em banco (MySQL); duração conforme `config('session.lifetime')`.
  * Hashing de senha via bcrypt (`Hash::make`, driver padrão do Laravel).
  * Login social via Laravel Socialite.
  *
@@ -802,11 +728,11 @@ use App\Http\Resources\UserResource;
  * Todos os endpoints exigem sessão autenticada (guarda `web`); o middleware
  * `auth` rejeita requisições sem sessão válida. A sessão é transportada via
  * cookie HttpOnly — não há token Bearer/JWT no fluxo padrão.
- * Rate limiting: 100 requisições por minuto por usuário.
+ * Rate limiting: conforme os limites definidos em `RateLimiter::for(...)` (ex.: `throttle:6,1`).
  *
  * Notas de segurança:
  * - Todos os endpoints usam HTTPS
- * - Sessões persistidas em DB (MySQL) com validade de 30 dias
+ * - Sessões persistidas em DB (MySQL); duração conforme `config('session.lifetime')`
  * - Dados sensíveis são redigidos dos logs
  *
  * @example

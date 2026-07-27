@@ -35,6 +35,7 @@ export default defineConfig(() => ({
         // maxUseAutoImport é um ARRAY de import-sources: faça spread dele nos imports
         ...(Array.isArray(maxUseAutoImport) ? maxUseAutoImport : [maxUseAutoImport]),
         { pinia: ['defineStore'] },
+        { 'ziggy-js': ['route'] },
         { '@maxvue/max-pinia': ['useAsyncStatus'] },
         { axios: [['default', 'axios']] }
       ],
@@ -65,8 +66,10 @@ export default defineConfig(() => ({
 
 > As globais NÃO são geradas via bloco `eslintrc` do auto-import. O engeapp não possui `.eslintrc-auto-import.json`; a resolução das globais acontece pelos `.d.ts` registrados no `tsconfig.json` (ver Seção 2). Não adicione o bloco `eslintrc` ao copiar esta config.
 
+> **Alias obrigatório `ziggy-js`**: como o auto-import de `route` (via `{ 'ziggy-js': ['route'] }`) injeta o import em qualquer arquivo processado — inclusive em libs linkadas fora da raiz do projeto —, o `vite.config.ts` também precisa do alias `'ziggy-js': path.resolve(__dirname, './node_modules/ziggy-js')` na seção `resolve.alias`, para que essas libs consigam resolver o módulo.
+
 ### 2. Integração com TypeScript (`tsconfig.json`)
-Os arquivos autogerados de declaração de tipos (`auto-import.d.ts` e `auto-import-components.d.ts`) precisam estar registrados no `include` do `tsconfig.json` (é o `tsconfig` do front no engeapp — não existe `tsconfig.frontend.json`) para que a IDE resolva as variáveis e componentes globais. No projeto real ambos já constam do `include`:
+Os arquivos autogerados de declaração de tipos (`auto-import.d.ts` e `auto-import-components.d.ts`) precisam estar registrados no `include` do `tsconfig.json` (é o `tsconfig` do front no engeapp — não existe `tsconfig.frontend.json`) para que a IDE resolva as variáveis e componentes globais. No projeto real ambos já constam do `include` (recorte ilustrativo — o `include` real tem mais entradas, ex.: `./resources/Stores/**/*.ts`, `./resources/Functions/**/*.ts`):
 
 ```json
 {
@@ -85,9 +88,7 @@ Os arquivos autogerados de declaração de tipos (`auto-import.d.ts` e `auto-imp
 ### 3. Resolução de Problemas Comuns (Troubleshooting)
 Se a IDE apresentar erros como "Cannot find name 'ref'" ou se os componentes customizados não renderizarem:
 1.  **Regenerar as Declarações**: Execute o dev server do Vite (ou force um rebuild) para atualizar os arquivos `auto-import.d.ts` e `auto-import-components.d.ts`.
-2.  **Verificar os Caminhos no Include**: Confirme se o `tsconfig.json` inclui `./auto-import.d.ts` e `./auto-import-components.d.ts` na seção `include`.
-3.  **Verificar os `dirs` de varredura**: Confirme que os `dirs` do auto-import apontam para `./resources/...` (e não `./src/...`); caso contrário Helpers, Stores e Types não serão importados.
-4.  **Verificar o Registro do Resolver**: Certifique-se de que o resolver `MaxComponentsUiResolver` está listado no array `resolvers` do plugin `Components`.
+2.  **Se persistir**: revise a configuração das Seções 1 e 2 (dirs de varredura, include do tsconfig, resolver registrado).
 
 ## Examples
 
@@ -98,7 +99,7 @@ Em componentes Single-File do Vue (SFCs), escreva tags `<script setup>` limpas s
 <template>
   <div class="user-dashboard">
     <!-- MaxTitle1 e MaxButton são importados automaticamente pelo MaxComponentsUiResolver -->
-    <MaxTitle1>Painel de Controle</MaxTitle1>
+    <MaxTitle1 h1="Painel de Controle" />
     
     <div class="card">
       <p>Contagem Atual: {{ count }}</p>
@@ -118,30 +119,18 @@ const count = ref<number>(0);
 const rawDate = ref<Date>(new Date());
 
 const formattedDate = computed<string>(() => {
-  return formatDate(rawDate.value, 'dd/MM/yyyy');
+  return formatDate(rawDate.value, 'DD/MM/YYYY');
 });
 
 function increment(): void {
   count.value++;
 }
 </script>
-
-<style scoped lang="scss">
-.user-dashboard {
-  padding: 1.5rem;
-  
-  .card {
-    margin-top: 1rem;
-    padding: 1rem;
-    border: 1px solid var(--border-base);
-  }
-}
-</style>
 ```
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 *   **Não Escreva Imports Manuais**: Jamais importe manualmente funções do núcleo do Vue (`ref`, `computed`, `watch`, `onMounted`, etc.) ou funções auxiliares do `@maxvue/max-use` que já estejam mapeadas no auto-import.
 *   **Não Desative a Geração de DTS**: Nunca defina `dts: false` na configuração dos plugins. Isso quebra o autocompletar da IDE e a validação estática.
-*   **Mantenha Arquivos Gerados fora do Git (Opcional)**: Se preferir, garanta que os arquivos `auto-import.d.ts` e `auto-import-components.d.ts` estejam no `.gitignore` caso o pipeline de build os gere em tempo de execução (mas garanta que estejam disponíveis no desenvolvimento local para DX).
+*   **Arquivos Gerados fora do Git**: No engeapp, `auto-import.d.ts` e `auto-import-components.d.ts` JÁ estão no `.gitignore` (gerados em tempo de dev/build); não os versione.
 *   **Atributos de Componente Inline**: Ao usar componentes auto-importados do Vue no `<template>`, mantenha todos os atributos em uma única linha, de acordo com as regras de formatação do projeto (ex: `<MaxButton param1="..." param2="..." />`).

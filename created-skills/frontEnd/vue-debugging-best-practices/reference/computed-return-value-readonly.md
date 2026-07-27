@@ -47,32 +47,6 @@ function reverseBooks() {
 </script>
 ```
 
-```vue
-<script>
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John',
-        books: ['Book A', 'Book B']
-      }
-    }
-  },
-  computed: {
-    authorBooks() {
-      return this.author.books
-    }
-  },
-  methods: {
-    addBook() {
-      // BAD: Mutating computed value
-      this.authorBooks.push('New Book')
-    }
-  }
-}
-</script>
-```
-
 **Correct:**
 ```vue
 <script setup>
@@ -97,32 +71,6 @@ const sortedBooks = computed(() => {
 const reversedBooks = computed(() => {
   return [...books.value].reverse()  // Spread to create copy before reverse
 })
-</script>
-```
-
-```vue
-<script>
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John',
-        books: ['Book A', 'Book B']
-      }
-    }
-  },
-  computed: {
-    authorBooks() {
-      return this.author.books
-    }
-  },
-  methods: {
-    addBook(bookName) {
-      // GOOD: Update source state
-      this.author.books.push(bookName)
-    }
-  }
-}
 </script>
 ```
 

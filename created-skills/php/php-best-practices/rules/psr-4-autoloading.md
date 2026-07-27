@@ -41,10 +41,49 @@ require_once 'lib/helpers.php';
 
 ## Good Example
 
+Em projetos Laravel (como o engeapp), o mapeamento PSR-4 padrão é `App\ -> app/`, sem camada `src/Domain/Application/Infrastructure` — Laravel não usa Doctrine nem essa separação por padrão:
+
 ```php
 <?php
 
-declare(strict_types=1);
+// File: app/Services/UserService.php
+// Namespace matches directory structure (App\ -> app/)
+
+namespace App\Services;
+
+use App\Models\User;
+use App\Repositories\UserRepository;
+
+class UserService
+{
+    public function __construct(
+        private UserRepository $repository,
+    ) {}
+
+    public function find(int $id): ?User
+    {
+        return $this->repository->find($id);
+    }
+}
+
+// File: app/Repositories/UserRepository.php
+namespace App\Repositories;
+
+use App\Models\User;
+
+class UserRepository
+{
+    public function find(int $id): ?User
+    {
+        return User::find($id);
+    }
+}
+```
+
+Fora do Laravel, um projeto pode optar por `src/` com camadas Domain/Application/Infrastructure — mas isso é uma escolha de arquitetura, não uma exigência do PSR-4:
+
+```php
+<?php
 
 // File: src/Domain/User/User.php
 // Namespace matches directory structure
@@ -58,32 +97,25 @@ class User
         private Email $email,
     ) {}
 }
-
-// File: src/Domain/User/UserId.php
-namespace App\Domain\User;
-
-readonly class UserId
-{
-    public function __construct(
-        public string $value,
-    ) {}
-}
-
-// File: src/Application/Services/UserService.php
-namespace App\Application\Services;
-
-use App\Domain\User\User;
-use App\Domain\User\UserRepository;
-
-class UserService
-{
-    public function __construct(
-        private UserRepository $repository,
-    ) {}
-}
 ```
 
 ### Composer Configuration
+
+Laravel (engeapp):
+
+```json
+{
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    }
+}
+```
+
+Projeto não-Laravel com camada `src/`:
 
 ```json
 {
@@ -94,41 +126,6 @@ class UserService
         }
     }
 }
-```
-
-### Directory Structure
-
-```
-project/
-├── composer.json
-├── src/
-│   ├── Application/
-│   │   ├── Commands/
-│   │   │   └── CreateUserCommand.php
-│   │   └── Services/
-│   │       └── UserService.php
-│   ├── Domain/
-│   │   ├── User/
-│   │   │   ├── User.php
-│   │   │   ├── UserId.php
-│   │   │   ├── Email.php
-│   │   │   └── UserRepository.php
-│   │   └── Order/
-│   │       ├── Order.php
-│   │       └── OrderRepository.php
-│   └── Infrastructure/
-│       ├── Persistence/
-│       │   └── DoctrineUserRepository.php
-│       └── Http/
-│           └── Controllers/
-│               └── UserController.php
-└── tests/
-    ├── Unit/
-    │   └── Domain/
-    │       └── User/
-    │           └── UserTest.php
-    └── Integration/
-        └── UserServiceTest.php
 ```
 
 ## Why

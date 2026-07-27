@@ -1,6 +1,6 @@
 ---
 name: laravel-gemini-file-api-media-integration-best-practices
-description: Use when implementing, reviewing, or debugging media uploads and processing using the Google AI File API with the Gemini SDK in Laravel. Triggers on files managing multimodal AI requests, processing large video, audio, or PDF files for Gemini analysis, uploading temp files to the Google File API, monitoring upload state, and cleanup operations using the google-gemini-php/laravel SDK.
+description: "Use when implementing, reviewing, or debugging media uploads and processing using the Google AI File API with the Gemini SDK in Laravel. Triggers on files managing multimodal AI requests, processing large video, audio, or PDF files for Gemini analysis, uploading temp files to the Google File API, monitoring upload state, and cleanup operations using the google-gemini-php/laravel SDK."
 ---
 
 # Objetivo
@@ -10,11 +10,15 @@ Fornecer diretrizes robustas, seguras e eficientes em memória para fazer upload
 
 # Instruções
 
-### 1. Determinando Quando Usar File API vs. Blobs (Inline Data)
+### 1. Determinando Quando Usar File API vs. Blobs (Inline Data) vs. Laravel AI SDK
 - **Use Inline Blobs (Base64):** Para arquivos pequenos (< 20MB), como imagens padrão, pequenos documentos PDF e trechos curtos de áudio. Isso é mais rápido, pois não requer uma etapa intermediária de upload. Consulte [laravel-gemini-php-sdk-best-practices](../laravel-gemini-php-sdk-best-practices/SKILL.md).
-- **Use a Google File API (`Gemini::files()`):** Para arquivos grandes (> 20MB), vídeos de alta resolução, gravações de áudio longas (briefings) ou documentos grandes. Essencial para prevenir o esgotamento de memória do PHP (`Allowed memory size exhausted`) e permanecer dentro dos limites de payload da requisição.
+- **Use a Google File API (`Gemini::files()`):** Apenas para vídeo e mídia grande (> 20MB) que o Laravel AI SDK do projeto não cobre. Essencial para prevenir o esgotamento de memória do PHP (`Allowed memory size exhausted`) e permanecer dentro dos limites de payload da requisição.
+- **Quando NÃO usar (caminho canônico do engeapp):** para PDFs, imagens e áudio processados por agentes, o engeapp usa o Laravel AI SDK (`Laravel\Ai\Files\LocalDocument`/`LocalImage`/`LocalAudio`, ver `App\Services\Ai\GeminiDocumentService`), não `Gemini::files()`. O pacote `laravel/ai` (`vendor/laravel/ai/src/Files/`) já cobre Audio, Document e Image (variantes Local/Remote/Stored/Base64) — não existe classe Video, que é o único nicho real onde a File API se justifica.
 
-### 2. Fazendo Upload de Arquivos para a Google File API
+### 2. Sempre Execute o Pipeline Dentro de um Job em Fila
+O pipeline completo (upload → polling → generateContent → delete) deve rodar dentro de um Job `implements ShouldQueue` processado pelo Horizon, seguindo o padrão de `app/Jobs/GeminiContentJob.php` (com `$tries`/`$backoff` configurados), nunca no ciclo request/response. O engeapp roda sob Octane (`laravel/octane`), onde um `sleep()` de dezenas de segundos no polling travaria o worker.
+
+### 3. Fazendo Upload de Arquivos para a Google File API
 Resolva o cliente da File API através da facade `Gemini`. Use caminhos locais do servidor ou streams de armazenamento temporário da facade `Storage` do Laravel para executar o upload.
 
 ```php
@@ -41,7 +45,7 @@ $uploadedAudio = Gemini::files()->upload(
 );
 ```
 
-### 3. Polling de Status Ativo (Monitorando o Estado de Processamento)
+### 4. Polling de Status Ativo (Monitorando o Estado de Processamento)
 Arquivos grandes (especialmente vídeos e arquivos de áudio pesados) exigem processamento no backend da Google AI antes de poderem ser analisados pelo Gemini. Você deve fazer polling na API de metadados até que o estado do arquivo seja `ACTIVE`.
 
 ```php
@@ -74,7 +78,7 @@ if ($meta->state !== FileState::Active) {
 }
 ```
 
-### 4. Passando Arquivos Enviados para os Modelos Gemini
+### 5. Passando Arquivos Enviados para os Modelos Gemini
 Para consultar a IA sobre o arquivo enviado, passe uma instância de `Gemini\Data\UploadedFile` como parte do array de conteúdo para `generateContent` ou `streamGenerateContent`.
 
 ```php
@@ -93,7 +97,7 @@ $result = Gemini::generativeModel(model: 'gemini-2.5-flash')
 $responseContent = $result->text();
 ```
 
-### 5. Limpeza e Exclusão de Arquivos Obrigatórias
+### 6. Limpeza e Exclusão de Arquivos Obrigatórias
 Sempre limpe os arquivos no armazenamento da Google File API para reforçar a privacidade de dados, proteger a propriedade intelectual e evitar exceder o limite de armazenamento/cota da sua organização. Utilize blocos `try-finally` para garantir a exclusão do arquivo.
 
 ```php
@@ -104,14 +108,18 @@ $tempLocalPath = null;
 
 try {
     // 1. Upload
-    $uploadedFile = Gemini::files()->upload(...);
-    
+    $uploadedFile = Gemini::files()->upload(
+        filename: $tempLocalPath,
+        mimeType: MimeType::VIDEO_MP4,
+        displayName: 'Client Marketing Video'
+    );
+
     // 2. Poll do Status
-    // ...
-    
+    // (ver seção 4)
+
     // 3. Gerar Conteúdo
-    // ...
-    
+    // (ver seção 5)
+
 } finally {
     // Apaga o arquivo temporário local, se existir
     if ($tempLocalPath && file_exists($tempLocalPath)) {
@@ -138,4 +146,5 @@ try {
 - **Nunca Faça Hardcode de Segredos:** API Keys e config de autenticação nunca devem ser colocadas em arquivos-fonte. Mantenha os parâmetros de ambiente usando a config do Laravel.
 - **Limpeza Estrita no Finally:** Garanta que tanto os arquivos temporários locais quanto as entradas remotas da Google File API sejam deletados usando blocos `finally`, protegendo contra exceções de geração de conteúdo com falha.
 - **MimeTypes Polimórficos de Arquivo:** Verifique novamente se o enum `MimeType` correto corresponde à extensão do arquivo antes de executar `upload()`.
+- **Timeout do Cliente HTTP:** O SDK Gemini usa `config('gemini.request_timeout')`, com padrão de 30 segundos (`GEMINI_REQUEST_TIMEOUT`). Para uploads de vídeos grandes ou arquivos de mídia pesados, aumente esse valor via `.env` — o padrão de 30s é insuficiente para os cenários que justificam o uso da File API.
 - **Comentários em Português Brasileiro:** Garanta que os comentários de código e explicações inline sejam escritos em **português brasileiro** (`pt-BR`) conforme as diretrizes do repositório.

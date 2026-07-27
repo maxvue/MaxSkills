@@ -1,29 +1,31 @@
 ---
 name: php-best-practices
-description: PHP 8.x modern patterns, PSR standards, and SOLID principles for the Laravel 13 / PHP 8.4 backend. Use when reviewing PHP code, checking type safety, auditing code quality, or ensuring PHP best practices. Triggers on "review PHP", "check PHP code", "audit PHP", or "PHP best practices".
+description: "PHP 8.x modern patterns, PSR standards, and SOLID principles for the Laravel 13 / PHP 8.4 backend. Use when reviewing PHP code, checking type safety, auditing code quality, or ensuring PHP best practices. Triggers on \"review PHP\", \"check PHP code\", \"audit PHP\", or \"PHP best practices\"."
 metadata:
-  phpVersion: "8.0 - 8.5"
+  phpVersion: "8.4 (target atual do engeapp, pinado via composer platform 8.4.99) — notas de 8.5 incluídas apenas como cobertura antecipada para quando o piso subir"
 ---
 
 # PHP Best Practices
 
-Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 51 rules for writing clean, maintainable PHP code.
+Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 45 rules for writing clean, maintainable PHP code.
 
 ## Step 1: Detect PHP Version
 
 **Always check the project's PHP version before giving any advice.** Features vary significantly across 8.0 - 8.5. Never suggest syntax that doesn't exist in the project's version.
 
-Check `composer.json` for the required PHP version:
+Check `composer.json` for the required PHP version — this is the authoritative floor, including the `config.platform.php` pin when present:
 ```json
 { "require": { "php": "^8.1" } }   // -> 8.1 rules and below
 { "require": { "php": "^8.3" } }   // -> 8.3 rules and below
 { "require": { "php": ">=8.4" } }  // -> 8.4 rules and below
 ```
 
-Also check the runtime version:
+Also check the runtime version, as a secondary sanity check only:
 ```bash
 php -v   # e.g. PHP 8.3.12
 ```
+
+**Never use the local runtime's `php -v` to authorize syntax above the composer floor.** The composer requirement (and `config.platform.php` if pinned) is the only source of truth for which version the deployed code must run on — a developer's local PHP can be newer than production/CI. If they disagree, the composer floor wins.
 
 ### Feature Availability by Version
 
@@ -54,17 +56,17 @@ Reference these guidelines when:
 |----------|----------|--------|--------|-------|
 | 1 | Type System | CRITICAL | `type-` | 9 |
 | 2 | Modern PHP Features | CRITICAL | `modern-` | 16 |
-| 3 | PSR Standards | HIGH | `psr-` | 6 |
+| 3 | PSR Standards | HIGH | `psr-` | 4 |
 | 4 | SOLID Principles | HIGH | `solid-` | 5 |
 | 5 | Error Handling | HIGH | `error-` | 5 |
 | 6 | Performance | MEDIUM | `perf-` | 5 |
-| 7 | Security | CRITICAL | `sec-` | 5 |
+| 7 | Security | CRITICAL | `sec-` | 1 |
 
 ## Quick Reference
 
 ### 1. Type System (CRITICAL) — 9 rules
 
-- `type-strict-mode` - Declare strict types in every file
+- `type-strict-mode` - Declare strict types (OPCIONAL no engeapp: 0/840 arquivos em `app/` usam; `pint.json` não exige — aplique só a código novo isolado, não a arquivos existentes do alvo)
 - `type-return-types` - Always declare return types
 - `type-parameter-types` - Type all parameters
 - `type-property-types` - Type class properties
@@ -101,17 +103,15 @@ Reference these guidelines when:
 - `modern-property-hooks` - Property hooks replacing getters/setters
 - `modern-asymmetric-visibility` - `public private(set)` for controlled access
 
-**8.5+:**
-- `modern-pipe-operator` - Pipe operator (`|>`) for functional chaining
+**8.5+ (cobertura antecipada — fora do alvo atual):**
+- `modern-pipe-operator` - Pipe operator (`|>`) for functional chaining. **No engeapp o piso é `^8.4` / `platform.php: 8.4.99` — este recurso está fora do alvo hoje e não deve ser sugerido nesse projeto**, mesmo que o `php -v` do runtime local reporte 8.5+
 
-### 3. PSR Standards (HIGH) — 6 rules
+### 3. PSR Standards (HIGH) — 4 rules
 
-- `psr-4-autoloading` - Follow PSR-4 autoloading
+- `psr-4-autoloading` - Follow PSR-4 autoloading (engeapp: `App\ -> app/`, no `src/` layer)
 - `psr-12-coding-style` - Follow PSR-12 coding style
-- `psr-naming-classes` - Class naming conventions
-- `psr-naming-methods` - Method naming conventions
-- `psr-file-structure` - One class per file
-- `psr-namespace-usage` - Proper namespace usage
+- `psr-naming` - Class/method naming and namespace conventions (with `handle()`/`__invoke()` Laravel exception)
+- `psr-file-structure` - One class per file; member ordering is convention, not PSR
 
 ### 4. SOLID Principles (HIGH) — 5 rules
 
@@ -137,85 +137,13 @@ Reference these guidelines when:
 - `perf-string-functions` - Use native string functions over regex
 - `perf-generators` - Use generators for large datasets
 
-### 7. Security (CRITICAL) — 5 rules
+### 7. Security (CRITICAL) — 1 rule
 
-- `sec-input-validation` - Validate and sanitize all external input
-- `sec-output-escaping` - Escape output based on context (HTML, JS, URL)
-- `sec-password-hashing` - Use password_hash/verify, never MD5/SHA1
-- `sec-sql-prepared` - Use prepared statements for all SQL queries
-- `sec-file-uploads` - Validate file type, size, name; store outside web root
+- `sec-input-handling` - Input validation, output escaping, password hashing, SQL, and uploads via the Laravel layer (FormRequest, Eloquent bindings, Hash::make, MediaLibrary) — pointer to `laravel-best-practices/rules/security.md` and `laravel-security-hardening-best-practices` for the full engeapp-specific coverage
 
-## Essential Guidelines
+## Rule Files
 
-For detailed examples and explanations, see the rule files:
-
-- [type-strict-mode.md](rules/type-strict-mode.md) - Strict types declaration
-- [modern-constructor-promotion.md](rules/modern-constructor-promotion.md) - Constructor property promotion
-- [modern-enums.md](rules/modern-enums.md) - PHP 8.1+ enums with methods
-- [solid-srp.md](rules/solid-srp.md) - Single responsibility principle
-
-### Key Patterns (Quick Reference)
-
-```php
-<?php
-declare(strict_types=1);
-
-// 8.0+ Constructor promotion + readonly (8.1+)
-class User
-{
-    public function __construct(
-        public readonly string $id,
-        private string $email,
-    ) {}
-}
-
-// 8.1+ Enums with methods
-enum Status: string
-{
-    case Active = 'active';
-    case Inactive = 'inactive';
-
-    public function label(): string
-    {
-        return match($this) {
-            self::Active => 'Active',
-            self::Inactive => 'Inactive',
-        };
-    }
-}
-
-// 8.0+ Match expression
-$result = match($status) {
-    'pending' => 'Waiting',
-    'active' => 'Running',
-    default => 'Unknown',
-};
-
-// 8.0+ Nullsafe operator
-$country = $user?->getAddress()?->getCountry();
-
-// 8.3+ Typed class constants + #[\Override]
-class PaymentService extends BaseService
-{
-    public const string GATEWAY = 'stripe';
-
-    #[\Override]
-    public function process(): void { /* ... */ }
-}
-
-// 8.4+ Property hooks + asymmetric visibility
-class Product
-{
-    public string $name { set => trim($value); }
-    public private(set) float $price;
-}
-
-// 8.5+ Pipe operator
-$result = $input
-    |> trim(...)
-    |> strtolower(...)
-    |> htmlspecialchars(...);
-```
+Cada regra listada no Quick Reference tem um arquivo próprio em `rules/<slug>.md` com exemplo ruim/bom e explicação. Abra o arquivo correspondente ao aplicar ou auditar um padrão — por exemplo `rules/type-strict-mode.md`, `rules/modern-constructor-promotion.md`, `rules/modern-enums.md`, `rules/solid-srp.md`. `rules/` é a fonte única da verdade; este SKILL.md apenas indexa.
 
 ## Output Format
 
@@ -230,16 +158,6 @@ Example:
 src/Services/UserService.php:15 - [type] Missing return type declaration
 src/Models/Order.php:42 - [modern] Use match expression instead of switch
 src/Controllers/ApiController.php:28 - [solid] Class has multiple responsibilities
-```
-
-## How to Use
-
-Read individual rule files for detailed explanations:
-
-```
-rules/modern-constructor-promotion.md
-rules/type-strict-mode.md
-rules/solid-srp.md
 ```
 
 ## Constraints

@@ -1,6 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
-    "display": "Strict TypeScript 5.x",
+    "display": "Strict TypeScript 6.x",
     "compilerOptions": {
         // =========================================================================
         // STRICTNESS (Maximum Type Safety)
@@ -41,8 +41,9 @@
         "incremental": true,
         // =========================================================================
         // PATH ALIASES
+        // Sem "baseUrl": o TypeScript 6.x (usado nos projetos) emite TS5101
+        // para essa opção; os padrões de "paths" já são relativos a este arquivo.
         // =========================================================================
-        "baseUrl": ".",
         "paths": {
             "@/*": [
                 "./src/*"

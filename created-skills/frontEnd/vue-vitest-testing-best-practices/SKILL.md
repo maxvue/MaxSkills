@@ -1,7 +1,6 @@
 ---
 name: vue-vitest-testing-best-practices
-description: >-
-  Use when writing, debugging, or updating front-end unit and integration tests using Vitest and Vue Test Utils for Vue 3 components, @maxvue/max-pinia stores, and composables in Engeapp. Triggers on creating test files, configuring Vitest, mocking MaxPinia stores, Axios, or @maxvue/max-use route helpers, and verifying component rendering, user interactions, or store states.
+description: "Use when writing, debugging, or updating front-end unit and integration tests using Vitest and Vue Test Utils for Vue 3 components, @maxvue/max-pinia stores, and composables in Engeapp. Triggers on creating test files in tests/Js/, configuring Vitest, stubbing global helpers (apiGetRoute/apiPostRoute, axios, route), isolating MaxPinia stores, and verifying rendering, interactions, or store state."
 ---
 
 # Melhores Práticas de Testes com Vitest no Vue
@@ -16,7 +15,15 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
   ```typescript
   import { describe, it, expect, beforeEach, vi } from 'vitest';
   ```
-- **Ambiente:** Certifique-se de que o ambiente está configurado como `happy-dom` ou `jsdom` (geralmente definido em `vitest.config.ts`).
+- **Ambiente:** O ambiente padrão do `vitest.config.ts` do engeapp é `node` (sem DOM), e o `include` cobre apenas `tests/Js/**/*.{test,spec}.ts`. Testes que precisam de DOM devem declarar a diretiva no topo do próprio arquivo, como fazem os testes reais em `tests/Js/`:
+  ```typescript
+  // @vitest-environment jsdom
+  ```
+  ```typescript
+  /**
+   * @vitest-environment happy-dom
+   */
+  ```
 - **Estado Limpo:** Sempre limpe os mocks e estados locais antes de cada execução de teste:
   ```typescript
   beforeEach(() => {
@@ -48,10 +55,13 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
   await button.trigger('click');
   expect(wrapper.emitted('submit')).toBeTruthy();
   ```
-- **Vínculos de Formulários (Form Bindings):** Para componentes que utilizam utilitários de formulário (como `useForm`), defina os valores usando `setValue` e valide o estado correspondente:
+- **Vínculos de Formulários (Form Bindings):** O projeto não usa inputs nativos — os campos são componentes `MaxInput*` de `@maxvue/max-components-ui`. Preencha o valor pelo stub registrado (que emite `update:modelValue`) ou emitindo o evento diretamente no componente encontrado:
   ```typescript
-  const input = wrapper.find('input[type="text"]');
-  await input.setValue('Novo Valor');
+  // Emita o evento no componente: o stub padrão do VTU não renderiza um <input>,
+  // então `setValue` falharia (só funciona em input/select/textarea).
+  await wrapper.findComponent({ name: 'MaxInputText' }).vm.$emit('update:modelValue', 'Novo Valor');
+  // Se registrar um stub próprio com <input> interno, aí sim vale:
+  // await wrapper.find('input').setValue('Novo Valor');
   ```
 
 ### 3. Testes de Store MaxPinia
@@ -69,10 +79,10 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
       setActivePinia(pinia);
   });
   ```
-  `createMaxPinia` e `useAsyncStatus` são os únicos exports de `@maxvue/max-pinia`.
+  `createMaxPinia` e `useAsyncStatus` são os únicos exports de **valor** de `@maxvue/max-pinia` (o pacote também exporta tipos: `MaxPiniaConfig`, `LoadingAdapter`, `LoadingOptions`, `Status`, `OperationStatus`).
 - **Isolamento de rede — injete o axios mockado, não `createTestingPinia`:** O MaxPinia executa o GET (auto-GET) e o save **dentro do plugin** (via `axios`, disparado por watchers), e **não** dentro de actions da store. Portanto, `createTestingPinia({ stubActions: true })` do `@pinia/testing` **não** intercepta essas requisições — as chamadas reais aconteceriam mesmo assim. Prefira injetar uma instância de `axios` mockada em `createMaxPinia({ axios })` (como acima) ou interceptar no nível da rede (MSW). Só use `@pinia/testing` após adicioná-lo como devDependency do projeto (ele não é dependência do projeto-alvo).
-- **Opt-in de cache e estado de carga:** `isCached`/`is_cached` é um flag de **entrada** que a store declara para ativar o plugin de cache (o plugin faz `if (!store.isCached && !store.is_cached) return {};`), **não** um flag de saída de "dados carregados". Para saber se os dados chegaram, use `store.status.server.get.is_success` ou `store.is_done`. Os dados do GET sempre chegam em `store.data`.
-- **`reload()` não aguarda o GET interno — esvazie as promises:** internamente o plugin dispara `axios.get(...).then(...)` **sem** aguardar essa promise; o `.then` que escreve em `store.data` e marca `is_success` roda num microtask não aguardado. Assim, `await store.reload()` pode resolver **antes** de os dados chegarem. Sempre chame `flushPromises()` (de `@vue/test-utils`) ou `vi.waitFor(...)` após o `await store.reload()`, antes de assertar sobre `store.data`/status — caso contrário o teste fica flaky.
+- **Opt-in de cache e estado de carga:** `isCached`/`is_cached` é um flag de **entrada** que a store declara para ativar o plugin de cache (o plugin faz `if (!store.isCached && !store.is_cached) return {};`), **não** um flag de saída de "dados carregados". Para saber se os dados chegaram, use `store.status.server.get.is_success` ou `store.is_done`.
+- **`reload()` não aguarda o GET interno — esvazie as promises:** após `await store.reload()`, chame sempre `flushPromises()` (de `@vue/test-utils`) ou `vi.waitFor(...)` antes de assertar, senão o teste fica flaky. Explicação detalhada em [Exemplo de Teste de Store](examples/store-test-example.md).
 - **Testes Isolados:** Teste as ações da store invocando-as diretamente e inspecionando o estado mutado:
   ```typescript
   const store = useMyStore();
@@ -84,33 +94,19 @@ Estabelecer padrões de teste limpos, consistentes e confiáveis para o front-en
 - **Prefira mockar a store MaxPinia:** Como TODO GET/save de dados de página passa por uma store `@maxvue/max-pinia`, o ponto de isolamento natural é a instância de `axios` injetada em `createMaxPinia({ axios })` (como na seção 3) — não o cliente HTTP importado diretamente. Sobrescreva diretamente o estado/ações expostas quando quiser deixar o componente alheio ao transporte:
   ```typescript
   const store = useMyStore();
-  store.items = [{ id: 1, nome: 'Usina Solar 01' }]; // estado já carregado, sem fetch real
+  store.data = [{ id: 1, nome: 'Usina Solar 01' }]; // estado já carregado, sem fetch real
   ```
-- **Mock do Axios (apenas casos de baixo nível):** Quando o código sob teste fizer uma chamada HTTP fora da store (raro neste projeto), evite requisições reais mockando o Axios com `vi.mock`. Não use isto como atalho para contornar o fluxo MaxPinia:
+- **Axios fora da store (raro):** `axios` também é um global auto-importado (`vite.config.ts`: `{ axios: [['default', 'axios']] }`), então nenhum SFC/store o importa e `vi.mock('axios')` **não intercepta** nada. Se o código sob teste chamar `axios` fora da store, stube o global: `vi.stubGlobal('axios', { post: vi.fn() })` (padrão real de `tests/Js/voip.test.ts`).
+- **Helpers de rota são GLOBAIS — use `vi.stubGlobal`, não `vi.mock`:** As rotas do front são NOMES Ziggy pontilhados (ex.: `'user.data'`, `'client.save'`) passados a `apiGetRoute`/`apiPostRoute` de `@maxvue/max-use`. No engeapp esses helpers são injetados como globais pelo `unplugin-auto-import` (`maxUseAutoImport` no `vite.config.ts`, declarados em `auto-import.d.ts`) e **nunca são importados nos arquivos** — por isso `vi.mock('@maxvue/max-use')` é inerte. Pior: o `vitest.config.ts` registra auto-import apenas de `vue`, `{ pinia: ['defineStore'] }` e das stores em `dirs: ['./resources/Stores/**']`, ou seja, sob teste esses globais do max-use **nem existem**. Declare-os você mesmo:
   ```typescript
-  import axios from 'axios';
-  
-  vi.mock('axios', () => ({
-      default: {
-          get: vi.fn(),
-          post: vi.fn()
-      }
-  }));
+  // apiGetRoute/apiPostRoute recebem NOMES Ziggy pontilhados (ex.: 'user.data')
+  // e resolvem para o CORPO da resposta (`return response.data`), não para `{ data }`.
+  vi.stubGlobal('apiGetRoute', vi.fn().mockResolvedValue([]));
+  vi.stubGlobal('apiPostRoute', vi.fn().mockResolvedValue({}));
+  // Se o código sob teste chamar route() do Ziggy diretamente:
+  vi.stubGlobal('route', vi.fn((name: string) => name));
   ```
-- **Mock dos helpers de rota:** As rotas do front são NOMES Ziggy pontilhados (ex.: `'user.data'`, `'client.save'`) resolvidos por `apiGetRoute`/`apiPostRoute` de `@maxvue/max-use` (o Ziggy está configurado no engeapp). Nos testes, mocke essas importações para não depender do mapa de rotas Ziggy nem disparar requisições reais:
-  ```typescript
-  import * as maxUse from '@maxvue/max-use';
-  
-  vi.mock('@maxvue/max-use', async (importOriginal) => {
-      const actual = await importOriginal();
-      return {
-          ...(actual as object),
-          // apiGetRoute/apiPostRoute recebem NOMES Ziggy pontilhados (ex.: 'user.data')
-          apiGetRoute: vi.fn().mockResolvedValue({ data: [] }),
-          apiPostRoute: vi.fn().mockResolvedValue({ data: {} })
-      };
-  });
-  ```
+  Lembre de restaurar com `vi.unstubAllGlobals()` no `afterEach` quando o stub for local ao bloco.
 
 ### 5. Idioma do Código e Comentários
 - **Regra Crucial:** Todos os comentários dentro dos arquivos de teste DEVEM ser escritos em **Português do Brasil (pt-BR)** para alinhar com os padrões do projeto Engeapp.
@@ -123,6 +119,5 @@ Consulte o diretório `examples/` para ver implementações detalhadas:
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - **NUNCA** permita que os testes realizem operações de rede reais.
-- **NUNCA** escreva comentários em inglês; sempre utilize português (pt-BR) dentro do código do teste.
 - **NUNCA** deixe de chamar `vi.clearAllMocks()` ou `setActivePinia` ao testar componentes ou stores que possuem estado mutável ou que rastreiam históricos de mocks.
 - **NUNCA** teste detalhes internos de implementação; verifique apenas a API pública (props, eventos emitidos, interações do usuário e saídas visuais).

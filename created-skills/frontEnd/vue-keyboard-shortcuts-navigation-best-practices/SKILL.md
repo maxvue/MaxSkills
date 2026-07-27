@@ -1,6 +1,6 @@
 ---
 name: vue-keyboard-shortcuts-navigation-best-practices
-description: Use when implementing, designing, or debugging global or component-specific keyboard shortcuts, keyboard navigation, hotkeys, or managing focus and active elements in Vue 3. Triggers on custom keyboard event listeners, useMagicKeys, useActiveElement, and keydown/keyup event modifiers.
+description: "Use when implementing, designing, or debugging global or component-specific keyboard shortcuts, keyboard navigation, hotkeys, or managing focus and active elements in Vue 3. Triggers on custom keyboard event listeners, useMagicKeys, useActiveElement, and keydown/keyup event modifiers."
 ---
 
 ## Objetivo
@@ -41,7 +41,7 @@ Fornecer diretrizes e convenções claras para implementar atalhos de teclado gl
 
 3. **Modificadores de Eventos de Teclado do Vue 3**:
    - Para ouvintes de teclado locais, específicos de componentes, use modificadores de tecla do Vue 3 como `@keydown.enter` ou `@keyup.escape`.
-   - Sempre utilize o modificador `.exact` para garantir que o atalho seja disparado apenas com a combinação exata de teclas, evitando falsos positivos (ex: evitar que `@keydown.enter.exact` seja disparado ao segurar Shift ou Ctrl).
+   - Sempre utilize o modificador `.exact` para garantir que o atalho seja disparado apenas com a combinação exata de teclas (ex: sem `.exact`, `@keydown.enter` também dispara ao segurar Shift ou Ctrl junto com Enter; com `.exact`, só dispara com Enter sozinho).
    - Use `.prevent` para parar ações padrões do navegador (como a janela de salvar padrão do navegador ao pressionar Ctrl+S).
    - Exemplo:
      ```html
@@ -58,13 +58,7 @@ Fornecer diretrizes e convenções claras para implementar atalhos de teclado gl
    - Garanta que a tecla `Esc` feche modais de forma segura, verificando se o modal está atualmente visível.
    - Restaure o foco para o elemento de ativação assim que a sobreposição for fechada.
 
-5. **Padrões de Acessibilidade WAI-ARIA**:
-   - Garanta que componentes interativos (ex: navegação em listas, dropdowns personalizados) suportem os modelos padrão de interação por teclado (teclas direcionais para navegar, Space/Enter para selecionar).
-   - Adicione `tabindex="0"` para tornar elementos não interativos personalizados focáveis quando necessário.
-
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- NÃO dispare atalhos globais (como `S`, `N` ou `Ctrl+S`) quando o foco estiver dentro de um controle de formulário (`INPUT`, `TEXTAREA`, `SELECT`, `contenteditable`).
 - NÃO defina ouvintes de `keydown` globais usando `window.addEventListener('keydown', ...)` nativo sem removê-los na destruição do componente (`onUnmounted`). Dê preferência aos utilitários reativos reutilizáveis do VueUse ou realize a limpeza correta.
 - NÃO defina atalhos de teclado genéricos que colidam com atalhos comuns do navegador (ex: Ctrl+T, Ctrl+W, F5), a menos que explicitamente solicitado e totalmente controlado.
-- NÃO use `@keydown` sem `.exact` se você precisar de combinações estritas de teclas.

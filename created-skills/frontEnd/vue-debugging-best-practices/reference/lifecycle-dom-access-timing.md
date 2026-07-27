@@ -63,28 +63,6 @@ myInput.value.focus() // Error: Cannot read property 'focus' of null
 ```
 
 **Correct:**
-```javascript
-// CORRECT: Use created for data, mounted for DOM
-export default {
-  data() {
-    return { chartData: null }
-  },
-  async created() {
-    // Data fetching is fine in created
-    this.chartData = await fetchChartData()
-  },
-  mounted() {
-    // Now the DOM exists and is safe to access
-    console.log(this.$el) // <div>...</div>
-
-    // Initialize DOM-dependent libraries
-    this.chart = new Chart(this.$refs.chartCanvas, {
-      data: this.chartData
-    })
-  }
-}
-```
-
 ```vue
 <!-- CORRECT: Access template refs in onMounted -->
 <script setup>
@@ -101,23 +79,6 @@ onMounted(() => {
 <template>
   <input ref="myInput" />
 </template>
-```
-
-```javascript
-// CORRECT: Using $nextTick for DOM access after data changes
-export default {
-  methods: {
-    async addItem() {
-      this.items.push(newItem)
-
-      // Wait for Vue to update the DOM
-      await this.$nextTick()
-
-      // Now the new element exists in DOM
-      this.$refs.list.lastElementChild.scrollIntoView()
-    }
-  }
-}
 ```
 
 ## Vue 3 Composition API Pattern

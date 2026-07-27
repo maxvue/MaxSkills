@@ -38,7 +38,7 @@ O `resources/App.vue` NÃO usa um booleano `isGuestRoute`. Ele escolhe o que ren
 - `system?.page` em (`'Pay'`, `'Page'`, `'contatos'`, `'Contract'`, `'Wire'`, `'SolarCompanySubdomain'`) → `<RouterView />` puro (páginas fora do shell do app).
 - `user.status?.server?.get?.is_success && !system?.user?.data?.id` → `<RouterView />` puro (sessão resolvida, sem usuário logado — telas guest como login).
 - `user.status?.server?.get?.is_success && system?.user?.data?.id` → `<PageLayout><RouterView /></PageLayout>` (usuário autenticado, shell completo).
-- Enquanto nada disso resolve, exibe `<LoadScreen />`. Fora do `route.name`, sempre há `<MaxPopoverConfirm />` e `<MaxToast />`.
+- Enquanto nada disso resolve, exibe `<LoadScreen />`. Fora do `route.name`, sempre há `<MaxPopoverConfirm />`, `<MaxToast />`, `<VoipDialer />`, `<VoipReverbListener />` e `<IncomingCallModal />`.
 
 Os três valores de `layout` que existem no projeto são `'default'`, `'guest'` (só `login`) e `'site'` (bloco `/site`). Não invente outros.
 
@@ -53,16 +53,19 @@ Os três valores de `layout` que existem no projeto são `'default'`, `'guest'` 
     </div>
     <MaxPopoverConfirm />
     <MaxToast />
+    <VoipDialer />
+    <VoipReverbListener />
+    <IncomingCallModal />
 </template>
 ```
 
 ### 4. Guards de Navegação — Autenticação e Carregamento
-Os guards globais ficam em `resources/Js/router.ts`. O projeto usa o **callback `next()`** (assinatura `(to, from, next)`), NÃO o controle por valor de retorno — mantenha esse padrão.
+Os guards globais ficam em `resources/Js/router.ts`. O projeto usa o **callback `next()`** (assinatura `(to, from, next)`), NÃO o controle por valor de retorno — mantenha esse padrão. Só existem guards **globais** (`beforeEach`/`afterEach`) — o projeto NÃO usa `beforeRouteEnter`/`beforeRouteLeave` in-component nem `beforeEnter` por rota. No `router.ts` real, cada guard de permissão é um bloco `if` independente (ver exemplo abaixo).
 
 - **Carregamento:** `loading.start({ message: 'Acessando dados da página...', key: 'router' })` no `beforeEach`; `loading.end('router')` no `afterEach`, ambos via `useLoadingStore()` (checado com `if (loading)`).
 - **Resolução de sessão:** sempre `await user.waitRequest()` antes de checar `user.data?.id`, evitando race na carga inicial do SPA.
 - **Autenticação:** derive apenas de `!!user.data?.id`. NÃO existe checagem de status 401 em `user.status.server.get.error.response.status` — não invente esse caminho.
-- **Regra guest:** apenas `to.name === 'login'` com usuário autenticado redireciona; o destino é `{ name: 'board' }` (não existe rota `clients`, `register`, `forgot_password`, `reset_password` nem `home`).
+- **Regra guest:** apenas `to.name === 'login'` com usuário autenticado redireciona; o destino é `{ name: 'board' }` (não existe rota `clients`, `forgot_password`, `reset_password` nem `home`).
 - **Guards de UX por permissão:** rotas cujo nome começa com `integrador_` exigem `projeto.ver`; `menu_roles`, `admin_companies` e `menus_admin` exigem `usuario.gerenciar`. São guards defensivos de UX — a segurança real fica no backend. Sem a permissão, redireciona para `{ name: 'board' }`.
 
 ```typescript
@@ -97,6 +100,7 @@ router.afterEach(() => {
 Use `useRouter` do `vue-router` dentro do `<script setup lang="ts">` e navegue pelo **nome** da rota, nunca por caminho estático.
 - Nomes válidos vêm dos arquivos em `Vue/Pages` (ex.: `board`, `login`, `integrador_clients`) ou das rotas registradas manualmente (`integrador_client_show`, `site.home`, `site.prices`, `site.posts`, `site.post`).
 - A única rota com param de path é `integrador_client_show`, cujo param é `:id`.
+- Navegação por query string por nome de rota também é usada (ex.: abrir projeto passando o `id` em `query`, não em `params`).
 
 ```typescript
 import { useRouter } from 'vue-router';
@@ -107,6 +111,9 @@ const irParaClientes = () => router.push({ name: 'integrador_clients' });
 
 // Rota com parâmetro de path :id
 const abrirCliente = (id: string) => router.push({ name: 'integrador_client_show', params: { id } });
+
+// Navegação por query string (ex.: NewProjectPage.vue, IncomingCallModal.vue)
+const abrirProjeto = (id: string) => router.push({ name: 'project', query: { id, sub_page: 'project_data' } });
 ```
 
 ### 6. Leitura de Parâmetros e Query
@@ -124,11 +131,6 @@ const clientId = computed<string>(() => route.params.id as string);
 // Query (ex.: ?status=active)
 const filterStatus = computed<string>(() => (route.query.status as string) || 'all');
 ```
-
-### 7. Ordem de Blocos SFC e Formatação
-- Ordem dos blocos SFC: `<template>` → `<script setup lang="ts">` → `<style lang="scss">`.
-- Mantenha os atributos de elementos na mesma linha — não quebre em múltiplas linhas.
-- Comentários de código sempre em português brasileiro (pt-BR).
 
 ## Restrições
 - **Idioma:** comunique-se com o usuário humano em Português (pt-BR), sempre, independentemente do idioma do corpo desta skill.

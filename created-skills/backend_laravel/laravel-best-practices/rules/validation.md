@@ -35,20 +35,6 @@ Array syntax is more readable and composes cleanly with `Rule::` objects. Prefer
 'email' => 'required|email|unique:users',
 ```
 
-## Always Use `validated()`
-
-Get only validated data. Never use `$request->all()` for mass operations.
-
-Incorrect:
-```php
-Post::create($request->all());
-```
-
-Correct:
-```php
-Post::create($request->validated());
-```
-
 ## Use `Rule::when()` for Conditional Validation
 
 ```php

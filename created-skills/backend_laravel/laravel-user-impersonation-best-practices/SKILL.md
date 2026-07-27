@@ -8,7 +8,7 @@ Diretrizes seguras para a impersonação de usuário (login-as) no engeapp usand
 
 # Contexto real do projeto (verdade-base)
 - Model `app/Models/User.php` usa o trait `Lab404\Impersonate\Models\Impersonate`. O projeto NÃO sobrescreve `canImpersonate()`/`canBeImpersonated()` — herda os defaults `true` do trait. O controle de acesso é feito pela coluna booleana `can_impersonate` (cast `boolean`), verificada no controller.
-- Colunas booleanas relevantes do model: `can_impersonate`, `is_developer`, `is_validated`, `is_technical_manager`. Não existe `is_admin` nem coluna `status`.
+- Colunas booleanas relevantes do model: `can_impersonate`, `is_developer`, `is_validated`, `is_technical_manager`. Não existe `is_admin` (a coluna `status` existe — enum `['active','blocked','inactive']` — mas não tem relação com autorização de impersonação; não a use para esse fim).
 - Controller: `app/Http/Controllers/User/UserExecuteController.php`.
 - Rotas: `routes/web/Web.User.Route.php`.
 - Store frontend: `resources/Stores/UserStores/useUser.Store.ts`.
@@ -89,7 +89,7 @@ Na store `resources/Stores/UserStores/useUser.Store.ts`, o flag é um `computedA
 const isImpersonated = computedAsync(
     async () => {
         const status_server = getStatus();
-        // Só busca o status quando o usuário já está carregado (contrato MaxPinia: status.get.is_success).
+        // Só busca o status quando o usuário já está carregado (contrato MaxPinia: status.server.get.is_success, via getStatus()).
         if (data?.value?.id && status_server?.get?.is_success)
             return await apiGetRoute('user.impersonate.status');
 
@@ -100,6 +100,10 @@ const isImpersonated = computedAsync(
 // ...
 return { data, options, waitRequest, departments_id, isImpersonated, isCached };
 ```
+
+O início da impersonação (`user.impersonate.start`) tem dois pontos de entrada reais no frontend:
+- **Padrão canônico:** `apiPostRoute('user.impersonate.start', { id })`, como em `resources/Vue/Sections/SolarCompany/SectionExpansionSolarCompanyDataTable.vue:70` (`startImpersonate(item.id)`). O payload usa a chave `id` — é por isso que o controller aceita `user_id ?? id`.
+- **Desvio legado (não replicar):** `resources/Stores/Setting/useAdminCompanyUsers.Store.ts:73` usa `axios.post(route('user.impersonate.start'), { user_id: userId })` cru, com `route()` em vez de `apiPostRoute`. É um desvio existente a ser migrado para o padrão canônico, não um segundo padrão válido.
 
 No layout, mostre o banner/botão de retorno quando `isImpersonated` for verdadeiro e chame a rota de fim via `apiPostRoute`:
 ```vue
@@ -155,7 +159,7 @@ test('usuário sem can_impersonate não consegue impersonar', function () {
     $this->actingAs($user)
         ->postJson(route('user.impersonate.start'), ['user_id' => $target->id])
         ->assertOk()
-        ->assertExactJson(false); // controller retorna json(false), não 403
+        ->assertContent('false'); // controller retorna json(false), não 403
 });
 
 test('admin impersona e depois retorna ao usuário original', function () {
@@ -165,7 +169,7 @@ test('admin impersona e depois retorna ao usuário original', function () {
     $this->actingAs($admin)
         ->postJson(route('user.impersonate.start'), ['user_id' => $target->id])
         ->assertOk()
-        ->assertExactJson(true);
+        ->assertContent('true');
 
     expect(auth()->user()->id)->toBe($target->id);
 
@@ -180,17 +184,14 @@ test('admin não pode impersonar a si mesmo', function () {
     $this->actingAs($admin)
         ->postJson(route('user.impersonate.start'), ['user_id' => $admin->id])
         ->assertOk()
-        ->assertExactJson(false);
+        ->assertContent('false');
 });
 ```
 
 # Restrições
-- **Fonte de permissão única:** autorize por `can_impersonate` no controller; não invente `is_admin`/`status` — essas colunas não existem no model.
-- **Sem impersonação aninhada:** um usuário impersonado não deve iniciar outra impersonação.
+- **Fonte de permissão única:** autorize por `can_impersonate` no controller; não invente `is_admin` (não existe no model) nem use `status` para esse fim (existe, mas é um enum de estado de conta, não uma flag de autorização).
+- **Sem impersonação aninhada (recomendado, NÃO implementado hoje):** o controller atual não verifica se a sessão já está impersonada — `makeImpersonate` só checa `can_impersonate` e auto-impersonação. Se for adicionar o bloqueio, teste `Auth::user()?->isImpersonated()` antes de chamar `impersonate()`.
 - **Sem segredos no cliente:** confie nos session drivers do Laravel; nunca guarde hash/credencial do admin em localStorage/cookies.
-- **Rotas por nome:** frontend sempre via `apiGetRoute`/`apiPostRoute` com nomes pontilhados; nada de strings `/api/...`.
 - **Status enxuto:** `statusImpersonation` retorna apenas o booleano; não vaze dados do impersonador.
 - **Comentários em pt-BR** no código.
-
-## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), independentemente do idioma do conteúdo desta skill.

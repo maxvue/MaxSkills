@@ -1,20 +1,19 @@
 ---
 name: vue-rss-news-moderation-dashboard-best-practices
-description: Use ao implementar, estilizar ou depurar o painel de moderação de notícias RSS (TabNewsItems.vue) do EngeApp em Vue 3. Cobre a store Pinia useSocialMediaNewsStore (axios + rotas Ziggy news.index/approve/reprove/refresh/agent.keywords), abas pendente/arquivada via prop archived, agrupamento por palavra-chave, aprovar criando Tema editorial e feedback via Toast.
+description: "Use ao implementar, estilizar ou depurar o painel de moderação de notícias RSS (TabNewsItems.vue) do EngeApp em Vue 3. Cobre a store Pinia useSocialMediaNewsStore (axios + rotas Ziggy news.index/approve/reprove/refresh/agent.keywords), paginação incremental limit/offset, abas pendente/arquivada via prop archived, agrupamento por palavra-chave e aprovação criando Tema editorial."
 ---
 
 ## Objetivo
 Padronizar a arquitetura e a UX do painel de moderação de notícias RSS do EngeApp — o componente `resources/Vue/Sections/SocialMedia/TabNewsItems.vue` e sua store `resources/Stores/calendar/useSocialMediaNews.Store.ts`. As notícias são importadas do Google News RSS (comando `social-media:fetch-news`), entram como `pending`, e o gestor aprova (gerando um Tema editorial) ou arquiva cada uma.
-
-Grave a verdade-base do fluxo antes de mexer, porque a implementação é enxuta e específica: cards de texto puro (sem imagens), abas controladas pelo pai via prop, store Pinia pura com axios, e feedback via `Toast`. Não invente imagens, busca de texto, animação otimista nem cache MaxPinia — nada disso existe aqui.
 
 ## Verdade-base do fluxo (confirme sempre no código)
 
 - **Componente:** `TabNewsItems.vue`, `<script setup lang="ts">`. Recebe `defineProps<{ archived?: boolean }>()` e emite `theme-created`. O pai (página) decide qual aba renderizar passando `archived`; o componente NÃO tem abas internas nem `ref` de status.
 - **Status reais:** `type NewsStatus = 'pending' | 'approved' | 'reproved'`. A aba "arquivadas" mostra os `reproved`. Não existe status `archived`, e não há aba de `approved` — aprovar remove o item da lista e cria um `SocialMediaTheme`.
 - **Store:** `useSocialMediaNewsStore`, `defineStore('social.media.news.store', ...)`. É **Pinia pura** (setup store), sem `isCached`, sem `options`, sem auto-save. Faz `axios` direto contra nomes de rota Ziggy resolvidos por `route()`.
-- **Cards:** texto puro — `source`, `published_at`, `title`, `keywords`, `description`, mais link externo (`item.url`). Não há `<img>`, `imageUrl`, fallback de imagem nem `handleImageError`. A interface `SocialMediaNewsItem` não tem campo de imagem.
-- **Backend:** EngeApp é **Laravel 13**; a geração/IA usa o pacote `laravel/ai`. Não existe Vercel AI SDK aqui, nem card inline "Sugerir Tema" — o Tema nasce como efeito de `approve`.
+- **Cards:** texto puro — `source`, `published_at`, `title`, `keywords`, `description`, mais link externo (`item.url`). A interface `SocialMediaNewsItem` não tem campo de imagem.
+- **Paginação:** o endpoint `news.index` é paginado por `limit`/`offset` e responde `{ items, total }`. A store guarda `pendingTotal`/`archivedTotal` e faz append incremental; o componente exibe o botão "Carregar mais".
+- **Backend:** EngeApp é **Laravel 13**; a geração/IA usa o pacote `laravel/ai`. Não há card inline "Sugerir Tema" — o Tema nasce como efeito de `approve`.
 
 ## Instruções
 
@@ -31,24 +30,40 @@ const isLoading = computed(() => props.archived ? store.loadingArchived : store.
 Carregue no `onMounted` chamando `reload()`, que despacha `store.loadPending()` ou `store.loadArchived()` conforme a prop. O painel de palavras-chave e as ações de moderação só aparecem quando `!archived`.
 
 ### 2. Store Pinia pura com axios + rotas Ziggy
-Toda leitura/gravação deste fluxo usa `axios` diretamente com **nomes de rota Ziggy** via `route(...)` (Ziggy está configurado). Esta store NÃO usa `@maxvue/max-pinia`, `isCached`, `apiGetRoute` nem `apiPostRoute` — replicar o padrão MaxPinia aqui está errado.
+Toda leitura/gravação deste fluxo usa `axios` diretamente com **nomes de rota Ziggy** via `route(...)` (Ziggy está configurado). Replicar o padrão MaxPinia (`@maxvue/max-pinia`, `isCached`, `apiGetRoute`/`apiPostRoute`) aqui está errado.
 
 ```typescript
+/** Tamanho de página do carregamento incremental de notícias. */
+const NEWS_PAGE_SIZE = 200;
+
 export const useSocialMediaNewsStore = defineStore('social.media.news.store', () => {
     const pending  = ref<SocialMediaNewsItem[]>([]);
     const archived = ref<SocialMediaNewsItem[]>([]);
+    /** Totais reais no servidor (a lista local pode conter só as primeiras páginas). */
+    const pendingTotal    = ref(0);
+    const archivedTotal   = ref(0);
     const loadingPending  = ref(false);
     const loadingArchived = ref(false);
     const processingId    = ref<string | null>(null);
 
-    async function loadPending(): Promise<void> {
+    async function loadPending(append = false): Promise<void> {
         loadingPending.value = true;
         try {
-            const { data } = await axios.get(route('news.index'), { params: { status: 'pending' } });
-            pending.value = data;
+            const { data } = await axios.get(route('news.index'), {
+                params: { status: 'pending', limit: NEWS_PAGE_SIZE, offset: append ? pending.value.length : 0 }
+            });
+            pending.value = append ? [...pending.value, ...data.items] : data.items;
+            pendingTotal.value = data.total;
         } finally {
             loadingPending.value = false;
         }
+    }
+    // loadArchived(append = false) é idêntico, com status: 'reproved' e archived/archivedTotal.
+
+    /** Só o total de pendentes (payload mínimo, limit: 1) para o badge da aba, sem montar a lista. */
+    async function loadPendingCount(): Promise<void> {
+        const { data } = await axios.get(route('news.index'), { params: { status: 'pending', limit: 1 } });
+        pendingTotal.value = data.total;
     }
 
     async function approve(id: string): Promise<{ theme: any }> {
@@ -56,23 +71,44 @@ export const useSocialMediaNewsStore = defineStore('social.media.news.store', ()
         try {
             const { data } = await axios.post(route('news.approve', { news: id }));
             pending.value = pending.value.filter(n => n.id !== id); // remoção real fica na store
+            pendingTotal.value = Math.max(0, pendingTotal.value - 1);
             return data; // { theme }
         } finally {
             processingId.value = null;
         }
     }
-    // reprove → route('news.reprove', { news: id })
-    // saveKeywords → route('news.agent.keywords', { agent: agentId }) via axios.patch
-    // refresh → route('news.refresh')
-    return { pending, archived, loadingPending, loadingArchived, processingId,
-             loadPending, loadArchived, approve, reprove, saveKeywords, refresh };
+    // reprove: além de remover de pending, dá unshift do item em archived com status 'reproved',
+    // decrementa pendingTotal e incrementa archivedTotal.
+    return { pending, archived, pendingTotal, archivedTotal, loadingPending, loadingArchived, processingId,
+             loadPending, loadArchived, loadPendingCount, approve, reprove, saveKeywords, refresh };
 });
 ```
 
-Rotas Ziggy reais usadas: `news.index` (com `params.status`), `news.approve` (param `news`), `news.reprove` (param `news`), `news.agent.keywords` (param `agent`, `PATCH`), `news.refresh`.
+Rotas Ziggy reais usadas: `news.index` (`GET`, com `params.status`, `params.limit` e `params.offset`; responde `{ items, total }`), `news.approve` (param `news`, `POST`), `news.reprove` (param `news`, `POST`), `news.agent.keywords` (param `agent`, `PATCH`), `news.refresh` (`POST`).
+
+No componente, derive a paginação dos totais da store e ofereça o botão "Carregar mais":
+
+```typescript
+const totalOnServer  = computed(() => props.archived ? store.archivedTotal : store.pendingTotal);
+const hasMore        = computed(() => items.value.length < totalOnServer.value);
+const remainingCount = computed(() => Math.max(0, totalOnServer.value - items.value.length));
+
+function loadMore(): void {
+    if (props.archived) store.loadArchived(true);
+    else store.loadPending(true);
+}
+```
+
+```html
+<div class="news-load-more" v-if="hasMore">
+    <MaxButton icon="mdi:chevron-down" :label="`Carregar mais (${remainingCount} restantes)`" secondary outlined :loading="isLoading" :action="loadMore" />
+</div>
+```
+
+O badge de pendentes na aba (`TabThemes.vue`) usa `newsStore.pendingTotal` alimentado por `newsStore.loadPendingCount()`.
 
 ### 3. Ação de moderação: sem otimismo com timeout, remoção na store
-Não faça `items[index].isLeaving = true` + `splice` + `setTimeout(300)` nem rollback via `reload()` — nada disso existe. O padrão real é: o handler do componente chama o método da store (que faz o axios e já remove o item da lista com `filter`), e o feedback vem de `Toast`. O loading por item é derivado de `store.processingId === item.id`.
+O padrão real é: o handler do componente chama o método da store (que faz o axios e já remove o item da lista com `filter`), e o feedback vem de `Toast`. O loading por item é derivado de `store.processingId === item.id`.
 
 ```typescript
 async function handleApprove(id: string): Promise<void> {
@@ -95,14 +131,15 @@ async function handleApprove(id: string): Promise<void> {
 ```
 
 ### 4. Agrupamento por palavra-chave (não é busca de texto)
-Não existe input de busca, `refDebounced`, filtro `computed` por texto digitado nem parâmetro `search` reativo na store. A organização real é por **palavras-chave** do agente: `displayGroups` ordena as notícias por data e as agrupa segundo `agentStore.data?.news_keywords`, com um grupo "Outros" para o restante. Na aba arquivada, tudo vai num grupo único.
+A organização real é por **palavras-chave** do agente: `displayGroups` ordena as notícias por data e as agrupa segundo `agentStore.data?.news_keywords`, com um grupo "Outros" para o restante. Cada grupo de keyword mostra no máximo **12 itens** (`.slice(0, 12)`). Na aba arquivada — e também quando o agente não tem keywords cadastradas — tudo vai num grupo único.
 
 ```typescript
 const displayGroups = computed<NewsGroup[]>(() => {
     const sorted = sortByDate(items.value);
     if (props.archived || !sorted.length) return [{ keyword: null, label: '', items: sorted }];
     const keywords = agentStore.data?.news_keywords ?? [];
-    // ...agrupa por keyword incluída em item.keywords, dedup por id, resto em "Outros"
+    if (!keywords.length) return [{ keyword: null, label: '', items: sorted }]; // sem keywords → grupo único
+    // ...agrupa por keyword incluída em item.keywords (máx. 12 por grupo), dedup por id, resto em "Outros"
 });
 ```
 
@@ -111,11 +148,20 @@ O painel de palavras-chave (aba pendente) permite adicionar/remover chips localm
 ### 5. Importação e atualização em tempo real (Echo)
 Para reimportar notícias, chame `store.refresh()` (dispara o job de importação no backend) e informe o usuário com `Toast` de que a atualização virá automaticamente. A chegada das novas notícias é notificada por WebSocket com `useEcho` de `@laravel/echo-vue`, no canal `live.company.${companyId}`, evento `SocialMediaNewsImported`; ao receber, recarregue com `store.loadPending()` e mostre `Toast` com a contagem.
 
+Registre o listener numa função chamada no `onMounted` (junto com `reload()`): pegue o `companyId` de `useSolarCompanyStore()`, saia cedo se não houver, e **desestruture `listen` de `useEcho` chamando-o** ao final. Trate os dois ramos de `payload.count`.
+
 ```typescript
-useEcho(`live.company.${companyId}`, 'SocialMediaNewsImported', (payload: { count: number }) => {
-    store.loadPending();
-    Toast.show({ severity: 'success', title: 'Notícias atualizadas!', message: `${payload.count} nova(s) notícia(s) importada(s).` });
-});
+function setupEchoListener(): void {
+    const companyId = solarCompany.id;
+    if (!companyId) return; // sem empresa não há canal para assinar
+
+    const { listen } = useEcho(`live.company.${companyId}`, 'SocialMediaNewsImported', (payload: { count: number }) => {
+        store.loadPending();
+        if (payload.count > 0) Toast.show({ severity: 'success', title: 'Notícias atualizadas!', message: `${payload.count} nova(s) notícia(s) importada(s).` });
+        else Toast.show({ severity: 'info', title: 'Importação concluída', message: 'Nenhuma notícia nova encontrada.' });
+    });
+    listen();
+}
 ```
 
 ### 6. Componentes, estilo e atributos
@@ -130,6 +176,4 @@ useEcho(`live.company.${companyId}`, 'SocialMediaNewsImported', (payload: { coun
 - **PROIBIDO Options API.**
 - **PROIBIDO inventar recursos ausentes:** não adicione imagens/fallback, busca de texto com debounce, animação otimista com `setTimeout`, cache MaxPinia (`isCached`/`options`) ou Vercel AI SDK — nada disso existe neste fluxo.
 - **PROIBIDO UI de bloqueio síncrono:** nunca congele a tela durante aprovar/arquivar/importar; use os loaders localizados (`store.processingId`, `store.loadingPending/loadingArchived`, `refreshing`, `savingKeywords`) e feedback via `Toast`.
-- **Estados vazios/carregando:** sempre trate `isLoading` e lista vazia com mensagens próprias (pendentes vs. arquivadas), como no componente real.
-</content>
-</invoke>
+- **Estados vazios/carregando:** mostre o loading de carga inicial apenas quando a lista ainda está vazia (`isLoading && !items.length`); durante o "Carregar mais", use o loading do próprio botão. Trate a lista vazia com mensagens próprias (pendentes vs. arquivadas).

@@ -50,21 +50,13 @@ class MyExampleJob implements ShouldQueue
 }
 ```
 
-**Propriedades obrigatórias:**
-
-| Propriedade | Tipo | Descrição | Padrão |
-|----------|------|-------------|---------|
-| `$tries` | `int` | Número máximo de tentativas de execução | `3` |
-| `$backoff` | `array<int, int>` | Tempo de espera (segundos) entre cada retry | `[30, 60, 120]` |
-| `$timeout` | `int` | Tempo máximo de execução em segundos | `120` |
-
 ### 2. Estratégia de Retry & Backoff
 
 Escolha a estratégia de retry com base na dependência externa do Job:
 
 | Cenário | `$tries` | `$backoff` | Justificativa |
 |----------|----------|------------|-----------|
-| **API WhatsApp** (com rate limit) | `3` | `[5, 15, 30]` | Intervalos curtos — a API se recupera rapidamente |
+| **API WhatsApp** (com rate limit) | `5` | `[30, 60, 120, 180, 300]` | Padrão do `SendMessageWhatsappJob`, alinhado ao `whatsapp-supervisor` (tries=5) |
 | **Chamadas de IA/LLM** (Gemini, OpenAI) | `5` | `[60, 120, 300, 600]` | Intervalos longos — rate limits resetam lentamente |
 | **Processamento de webhook** (Trello, EFI) | `3` | `[30, 60, 120]` | Padrão — janela de retry moderada |
 | **Tarefas internas** (cálculos, sync) | `3` | `[10, 30, 60]` | Recuperação rápida — sem dependência externa |
@@ -72,8 +64,7 @@ Escolha a estratégia de retry com base na dependência externa do Job:
 
 **Regras:**
 1. **NUNCA** defina `$tries = 0` — sempre permita ao menos 1 tentativa.
-2. **SEMPRE** defina `$backoff` como um array explícito, não um único inteiro — isso cria **backoff exponencial**.
-3. Para Jobs intensivos em IA, use o padrão do `GeminiContentJob`: `$tries = 5` com `$backoff = [60, 120, 300, 600]`.
+2. **SEMPRE** defina `$backoff` como um array explícito, não um único inteiro. Um array define atrasos fixos por tentativa — só é "exponencial" se os valores escolhidos crescerem exponencialmente (nem todos os Jobs do projeto seguem esse padrão, ex.: `[30, 60]`). Além da propriedade `$backoff`, o projeto também usa a forma de método `public function backoff(): array`, como em `ProcessDocumentReaderJob` e `ExtractFileDataAiJob` (ambos retornando `[30, 60]`).
 
 ### 3. Gerenciamento de Timeout
 
@@ -83,7 +74,7 @@ A propriedade `$timeout` define o máximo de segundos que uma única tentativa p
 
 | Tipo de Job | `$timeout` recomendado | Referência |
 |----------|----------------------|-----------|
-| Operações simples de DB | `60–120` | `AnalyzeProtocolJob` (120s) |
+| Execução de agente de IA leve (1 chamada, `max_calls=1`) | `60–120` | `AnalyzeProtocolJob` (120s — Job de IA, mas com escopo mínimo, por isso o timeout curto é aceitável) |
 | Processamento de documentos | `120` | `ProcessDocumentReaderJob` (120s) |
 | Execução de agente de IA (baseado em tools) | `300–600` | `BrowserAiJob` (dinâmico via `timeout()`) |
 | Computação de IA (pesada) | `400` | `CalculateAiCircuitsJob`, `SupportMessageAiJob` |
@@ -170,12 +161,6 @@ public function failed(?\Throwable $exception): void
 }
 ```
 
-**O checklist do `failed()`:**
-- [ ] Resetar quaisquer flags de "processing" (`$model->calculating_ai = false`)
-- [ ] Disparar evento de falha via Reverb para o frontend
-- [ ] Atualizar a notification se alguma foi criada no dispatch
-- [ ] Logar o erro com contexto estruturado
-
 ### 6. Idempotência — Prevenindo Processamento Duplicado
 
 Jobs podem sofrer retry. Eles **DEVEM** ser projetados para lidar com a reexecução de forma segura:
@@ -198,9 +183,8 @@ public function handle(): void
 ```
 
 **Padrões de idempotência:**
-1. **Check-before-act:** Verifique se o resultado já existe antes de processar (como acima).
+1. **Check-before-act com early return:** Verifique se o resultado já existe antes de processar e, se a pré-condição já estiver satisfeita, faça `return` imediatamente sem lançar exception (como acima).
 2. **Guard baseado em flag:** Use uma coluna booleana (`$model->transcode`, `$model->calculating_ai`) para detectar a conclusão.
-3. **Early return:** Se a pré-condição já estiver satisfeita, faça `return` imediatamente sem lançar exception.
 
 ### 7. Jobs de Agente de IA — Integração com `HasAgentAiRequest`
 
@@ -212,7 +196,7 @@ class MyAiJob implements ShouldQueue
     use HasAgentAiRequest, Queueable;
 
     public int $timeout = 400;
-    public string $model = 'gemini-2.5-flash-lite';
+    public string $model = 'gemini-3.5-flash';
 
     public function __construct(
         public string $model_id,
@@ -239,11 +223,11 @@ class MyAiJob implements ShouldQueue
 ```
 
 **Regras-chave para Jobs de IA:**
-1. **SEMPRE** atribua à fila `gemini`: `$this->onQueue('gemini')`.
-2. **SEMPRE** defina `$timeout >= 300` — chamadas de IA são inerentemente lentas.
+1. **SEMPRE** atribua à fila `gemini`: `$this->onQueue('gemini')`. Estado real do projeto (dívida técnica a corrigir): dos 12 Jobs que usam `HasAgentAiRequest`, 5 (`AnalyzeProtocolJob`, `HealthScoreJob`, `ProcessPromotionAgentJob`, `Browser/BrowserAiJob`, `Planner/ExtractProtocolFromCommentJob`) e também `GeminiContentJob` ainda rodam na fila `default`, cujo supervisor tem timeout de 120s — o que entra em conflito com a Regra Crítica da seção 3 quando o Job declara `$timeout` maior (ex.: `HealthScoreJob` com 300s, `BrowserAiJob` com até 600s via `timeout()`). Não trate isso como padrão a seguir; é o que deve ser corrigido.
+2. Para Jobs de IA na fila `gemini` (supervisor com timeout 600s), use `$timeout` entre 240 e 600. Jobs de IA que permanecem na `default` estão limitados a ≤120s pelo `general-supervisor`. Valores reais no projeto: `AnalyzeProtocolJob` 120, `ProcessPromotionAgentJob` 120, `ProcessIconKeywordBatch` 180, `CopywriterJob` 240, `HealthScoreJob` 300.
 3. **SEMPRE** implemente `isDone()` com uma verificação no banco de dados para confirmar a conclusão.
 4. **SEMPRE** defina `$max_calls` para limitar o loop de retry do do-while (padrão: `5`).
-5. O trait `HasAgentAiRequest` trata o **fallback automático de modelo** (`flash-lite → flash → pro`).
+5. O trait `HasAgentAiRequest` trata o **fallback automático de modelo**. A cadeia real (app/Traits/HasAgentAiRequest.php) é `gemini-3.1-flash-lite → gemini-2.5-flash → gemini-3.5-flash → gemini-2.5-pro`: ao falhar, o trait avança para o próximo modelo da lista após o `$model` atual. O default (quando não há `$model` nem atributo `#[Model]` no agent) é `gemini-3.5-flash`.
 
 ### 8. Configuração do Horizon — Referência de Supervisores
 
@@ -258,9 +242,9 @@ A configuração atual do Horizon para produção:
 | `gemini-supervisor` | `gemini` | `auto` (size) | — / 5 | 600s | 2 |
 
 **Regras importantes de alinhamento:**
-1. O `$timeout` do Job **DEVE** ser ≤ ao `timeout` do supervisor.
-2. O `$tries` do Job **DEVE** corresponder ou ser ≤ ao `tries` do supervisor.
-3. Se um Job requer mais tempo do que o supervisor permite, configure um supervisor dedicado.
+1. O `$timeout` do Job **DEVE** ser ≤ ao `timeout` do supervisor (ver a Regra Crítica da seção 3 — formulação única).
+2. O `$tries` do Job **PREVALECE** sobre o `tries` do supervisor — o valor do supervisor é apenas o default para Jobs que não declaram `$tries`. Jobs podem definir `$tries` acima do supervisor: o `gemini-supervisor` usa `tries=2`, mas `ProcessIconKeywordBatch` sobrescreve com `$tries=8` e `GeminiContentJob` usa `$tries=5`. Portanto, defina `$tries` pela necessidade real do Job, não pelo supervisor.
+3. Se um Job requer mais tempo do que o `timeout` do supervisor permite, configure um supervisor dedicado (o `$tries`, ao contrário do `$timeout`, não exige isso).
 
 ### 9. Estratégia de Logging
 
@@ -318,15 +302,10 @@ public function tags(): array
 ## Restrições
 
 - **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
-1. **NUNCA** crie um Job sem ambas as propriedades `$tries` e `$backoff`.
-2. **NUNCA** use `$this->delete()` dentro de `handle()` para suprimir erros — deixe o mecanismo de retry funcionar.
-3. **NUNCA** faça dispatch de Jobs dentro de transações de banco de dados — a transação pode sofrer rollback, mas o Job já foi enfileirado.
-4. **NUNCA** defina `$timeout` maior que o `timeout` do supervisor do Horizon para a fila atribuída.
-5. **NUNCA** passe models Eloquent diretamente para construtores quando o model possa ser deletado antes do processamento — use IDs no lugar e `findOrFail()` em `handle()`.
-6. **NUNCA** use `sleep()` dentro de Jobs para limitar chamadas de API — use `$backoff` no lugar.
-7. **NUNCA** esqueça de implementar `failed()` para Jobs que alteram estado visível (flags de UI, notificações).
-8. **SEMPRE** torne os Jobs idempotentes — seguros para reexecutar sem efeitos colaterais.
-9. **SEMPRE** use `Log::channel()` com arrays de contexto estruturados.
-10. **SEMPRE** atribua Jobs de IA à fila `gemini` e Jobs do WhatsApp à fila `whatsapp`.
-11. **SEMPRE** alinhe o `$timeout` do Job com o timeout do supervisor do Horizon para a fila de destino.
-12. **SEMPRE** implemente soft cancel para operações de longa duração voltadas ao usuário.
+
+Restrições que **não** repetem as seções acima (idempotência, filas, timeout≤supervisor, `failed()`, logging e soft cancel já estão nas seções 2–10):
+
+1. **NUNCA** use `$this->delete()` dentro de `handle()` para suprimir erros — deixe o mecanismo de retry funcionar.
+2. **NUNCA** faça dispatch de Jobs dentro de transações de banco de dados — a transação pode sofrer rollback, mas o Job já foi enfileirado.
+3. **NUNCA** passe models Eloquent diretamente para construtores quando o model possa ser deletado antes do processamento — use IDs no lugar e `findOrFail()` em `handle()`.
+4. **NUNCA** use `sleep()` dentro de Jobs para limitar chamadas de API — use `$backoff` no lugar.

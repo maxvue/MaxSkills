@@ -31,8 +31,9 @@ Orientar a implementação e manutenção do login social OAuth do engeapp usand
 
 3. **Provisionamento de usuário (find-or-create por e-mail):**
    - O callback busca `User::where('email', $email)->first()`. Se não existir, cria via `createUserFromSocial()` e dispara `event(new Registered($user))`.
-   - A criação roda dentro de `DB::transaction`: cria primeiro uma `UserSolarCompany` (integradora solar) e vincula `solar_company_id` ao `User`.
-   - Ao montar o `User`, inclua `phone_number = null` e `international_phone_number = null` via `setRawAttributes()`. Motivo real: o mutator `setPhoneNumberAttribute` faz early-return em `null`, e a coluna tem `DEFAULT '0'` com constraint `UNIQUE` — se o campo for omitido do INSERT, dois usuários sem telefone colidem. Não remova esse contorno.
+   - A criação roda dentro de `DB::transaction`: primeiro busca `$designer = User::where('key_url', 'engetec')->first()` e cria uma `UserSolarCompany` (integradora solar) com `user_designer = $designer?->id`, `company_name`/`email`/`project_mails` vindos do usuário social; depois vincula `solar_company_id` ao `User`.
+   - Ao montar o `User` via `fill()`, além de `name`/`email`/`avatar`/`password`, sempre inclua `user_group_id = '01jnpabdcfgbgee7pdfdr23p1c'` (ULID hardcoded do grupo padrão), `privacy = true`, `status = 'active'`, `is_validated = false` e `settings = ['width' => 450]`.
+   - Em seguida, inclua `phone_number = null` e `international_phone_number = null` via `setRawAttributes()`. Motivo real: o mutator `setPhoneNumberAttribute` faz early-return em `null`, e a coluna tem `DEFAULT '0'` com constraint `UNIQUE` — se o campo for omitido do INSERT, dois usuários sem telefone colidem. Não remova esse contorno.
    - `password` recebe `Hash::make(Str::random(40))` (conta social sem senha utilizável).
 
 4. **Validação de provedor e tratamento de erro (query-string):**
@@ -44,7 +45,7 @@ Orientar a implementação e manutenção do login social OAuth do engeapp usand
 5. **Integração com o frontend (Vue SPA):**
    - `redirect()` do Socialite devolve `Symfony\...\RedirectResponse` (navegação do navegador para o provedor); os demais retornam `Illuminate RedirectResponse`.
    - O frontend inicia o fluxo com `route('social.redirect', { provider })` (nome Ziggy) via `window.location.href`, e carrega provedores com `apiGetRoute('social.providers')`.
-   - Fluxo detalhado do card de login: ver [laravel-vue-login-maxauthcard-best-practices](../../../projects/engeapp/.claude/skills/laravel-vue-login-maxauthcard-best-practices/SKILL.md).
+   - Fluxo detalhado do card de login: ver [laravel-vue-login-maxauthcard-best-practices](../laravel-vue-login-maxauthcard-best-practices/SKILL.md).
 
 6. **Testes Pest e Mocking do Socialite:**
    - Nunca acesse endpoints OAuth externos nos testes; faça mock do Socialite (facade / contrato `Laravel\Socialite\Contracts\Factory`).
@@ -52,11 +53,7 @@ Orientar a implementação e manutenção do login social OAuth do engeapp usand
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), independentemente do idioma do corpo desta skill.
-- NÃO referencie colunas `oauth_provider`/`oauth_id` nem uma tabela `social_accounts`: não existem no projeto. O vínculo é por e-mail.
-- NÃO configure `redirect` de OAuth via env var; use o caminho fixo como no `config/services.php` real.
 - NÃO armazene credenciais brutas de client OAuth no código; `client_id`/`client_secret` vêm do `.env`.
-- NÃO deixe exceções do Socialite (incl. `InvalidStateException`) virarem erro 500; capture com `try/catch (Throwable)` e redirecione para `/login?error=oauth_failed`.
-- NÃO troque o esquema de erro por session flash: o contrato com o frontend é `?error=<código>` na URL.
 - NÃO faça requisições HTTP reais ao provedor nos testes; sempre faça mock do Socialite.
 
 ## Consideração de segurança (genérica — NÃO implementada no engeapp)
@@ -89,102 +86,36 @@ Route::middleware('guest')->group(function () : void {
 });
 ```
 
-### 3. `SocialiteController` (essência)
-```php
-private const PROVIDERS = ['google', 'facebook'];
-
-// Lista provedores com credenciais configuradas (consumido pelo frontend).
-public function providers() : JsonResponse
-{
-    $enabled = array_values(array_filter(
-        self::PROVIDERS,
-        fn (string $provider) : bool =>
-            ! empty(config("services.{$provider}.client_id"))
-            && ! empty(config("services.{$provider}.client_secret")),
-    ));
-
-    return response()->json($enabled);
-}
-
-public function redirect(string $provider) : SymfonyRedirectResponse
-{
-    if ( ! in_array($provider, self::PROVIDERS, true)) {
-        return redirect('/login?error=invalid_provider');
-    }
-
-    return Socialite::driver($provider)->redirect();
-}
-
-public function callback(string $provider) : RedirectResponse
-{
-    if ( ! in_array($provider, self::PROVIDERS, true)) {
-        return redirect('/login?error=invalid_provider');
-    }
-
-    try {
-        $socialUser = Socialite::driver($provider)->user();
-    }
-    catch (Throwable) {
-        return redirect('/login?error=oauth_failed');
-    }
-
-    $email = $socialUser->getEmail();
-
-    if ( ! $email) {
-        return redirect('/login?error=no_email');
-    }
-
-    // Find-or-create por e-mail (sem colunas de provider).
-    $user = User::where('email', $email)->first();
-
-    if ( ! $user) {
-        $user = $this->createUserFromSocial($socialUser);
-        event(new Registered($user));
-    }
-
-    Auth::login($user);
-    request()->session()->regenerate();
-
-    return redirect('/');
-}
-```
-
-Provisionamento (dentro de `DB::transaction`): cria a `UserSolarCompany`, monta o `User`
-e inclui `phone_number`/`international_phone_number` como `null` via `setRawAttributes()`
-para contornar o mutator (early-return em null) e a constraint UNIQUE com DEFAULT '0'.
-
-### 4. Mocking com Pest
+### 3. Mocking com Pest
 ```php
 use App\Models\User;
+use Laravel\Socialite\Contracts\Provider;
+use Laravel\Socialite\Contracts\User as SocialiteUser;
 use Laravel\Socialite\Facades\Socialite;
-use Laravel\Socialite\Two\User as OAuthUser;
 
-it('redireciona para o provedor oauth correto', function () {
-    $response = $this->get(route('social.redirect', ['provider' => 'google']));
+test('redirect para provider válido redireciona ao provedor', function () {
+    $driver = Mockery::mock(Provider::class);
+    $driver->shouldReceive('redirect')->andReturn(redirect('https://accounts.google.com/o/oauth2'));
+    Socialite::shouldReceive('driver')->with('google')->andReturn($driver);
 
-    $response->assertRedirect();
+    $this->get('/auth/google/redirect')->assertRedirect();
 });
 
-it('autentica e cria o usuario quando o callback retorna dados validos', function () {
-    $abstractUser = mock(OAuthUser::class);
-    $abstractUser->shouldReceive('getId')->andReturn('google-id-12345');
-    $abstractUser->shouldReceive('getName')->andReturn('Test User');
-    $abstractUser->shouldReceive('getEmail')->andReturn('test@example.com');
-    $abstractUser->shouldReceive('getAvatar')->andReturn(null);
+test('callback autentica e cria o usuario quando os dados sao validos', function () {
+    $socialUser = Mockery::mock(SocialiteUser::class);
+    $socialUser->shouldReceive('getEmail')->andReturn('test@example.com');
+    $socialUser->shouldReceive('getName')->andReturn('Test User');
+    $socialUser->shouldReceive('getAvatar')->andReturn('https://example.com/avatar.png');
+    $socialUser->shouldReceive('getId')->andReturn('social-123');
 
-    Socialite::shouldReceive('driver')->with('google')->andReturnSelf();
-    Socialite::shouldReceive('user')->andReturn($abstractUser);
+    $driver = Mockery::mock(Provider::class);
+    $driver->shouldReceive('user')->andReturn($socialUser);
+    Socialite::shouldReceive('driver')->with('google')->andReturn($driver);
 
     $response = $this->get(route('social.callback', ['provider' => 'google']));
 
     $response->assertRedirect('/');
     $this->assertDatabaseHas('users', ['email' => 'test@example.com']);
     $this->assertAuthenticated();
-});
-
-it('redireciona com erro quando o provedor e invalido', function () {
-    $response = $this->get(route('social.redirect', ['provider' => 'twitter']));
-
-    $response->assertRedirect('/login?error=invalid_provider');
 });
 ```

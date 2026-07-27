@@ -1,6 +1,6 @@
 ---
 name: laravel-brazilian-data-queries-best-practices
-description: Use ao projetar, implementar ou depurar serviços que consultam dados brasileiros de CNPJ e CEP no engeapp. Cobre ApiCnpjService (fallback ReceitaWS→OpenCNPJ→CnpjAberto) e ApiCepService (CepAberto→ViaCep→OpenCep→BrasilAPI→AwesomeAPI→apicep→BrasilAberto), com cache, normalização e resolução de CEP contra o banco local (models Cep/City/State).
+description: "Use ao projetar, implementar ou depurar serviços que consultam dados brasileiros de CNPJ e CEP no engeapp. Cobre ApiCnpjService (fallback ReceitaWS→OpenCNPJ→CnpjAberto) e ApiCepService (CepAberto→ViaCep→OpenCep→BrasilAPI→AwesomeAPI→apicep→BrasilAberto), com cache, normalização e resolução de CEP contra o banco local (models Cep/City/State)."
 ---
 
 # Boas Práticas de Consultas a Dados Brasileiros no Laravel (engeapp)
@@ -20,7 +20,7 @@ Leia os dois serviços antes de alterar comportamento — eles são a fonte da v
 
 Não use BrasilAPI para CNPJ: o projeto não a utiliza nessa consulta.
 
-### B. Cache (não há persistência em banco para CNPJ)
+### B. Cache
 - Chave: `"cnpj-api-:{$cnpj}:profile"`.
 - Só grava em caso de sucesso: `Cache::put($cacheKey, $cnpj_data, now()->addMonths(3))` — TTL de **3 meses**.
 - No começo, `getData` faz `Cache::has`/`Cache::get` da mesma chave.
@@ -90,7 +90,7 @@ O CEP é limpo/validado no construtor (`getCepOnlyNumber`, `checkCepValid`, `mb_
 Não há chave `ibge_code`. `setData()` faz o mapeamento resiliente de campos vindos de cada provedor (`logradouro`/`street`, `bairro`/`neighborhood`, `localidade`/`cidade`/`city`, `uf`/`UF`/`estado`, etc.) via `getFirstContent`, resolvendo por fim `State` e `City` no banco.
 
 ## 3. Tratamento de Erros
-- Ambos os serviços tratam falhas retornando estruturas, **não** lançando exceção customizada: CNPJ devolve `['status' => 'fail', ...]`; CEP captura `Throwable` no closure e devolve array vazio/valores nulos. Não existe `BrazilianDataQueryException` no projeto — não a invente.
+- Nenhum dos serviços lança exceção customizada — ambos retornam estruturas de falha (ver 1.C e 2.D). Não existe `BrazilianDataQueryException` no projeto — não a invente.
 - Siga `laravel-exception-handling-logging` para logging adicional.
 - Sempre use o cliente `Http` do Laravel (nunca cURL bruto).
 

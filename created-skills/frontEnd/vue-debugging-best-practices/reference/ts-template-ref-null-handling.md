@@ -125,6 +125,15 @@ watch(modalRef, (newRef) => {
 </template>
 ```
 
+Se precisar de acesso persistente ao ref (sem ele virar `null` quando a condição desliga), considere `v-show` no lugar de `v-if`: `v-show` mantém o elemento sempre no DOM (só alterna `display` via CSS), então o ref nunca fica `null`:
+
+```vue
+<template>
+  <!-- Elemento sempre existe no DOM, ref nunca é null -->
+  <input v-show="showInput" ref="inputRef" />
+</template>
+```
+
 ## Component Refs
 
 For component refs, use `InstanceType`:

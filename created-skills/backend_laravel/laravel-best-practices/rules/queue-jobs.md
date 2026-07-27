@@ -74,6 +74,21 @@ public function failed(?Throwable $exception): void
 }
 ```
 
+## Models em Jobs: as Relações Eager-Loaded São Preservadas
+
+Com a trait `SerializesModels` (padrão nos jobs gerados), o Laravel 13 serializa o model como um
+`ModelIdentifier` que **inclui os nomes das relações já carregadas** e, ao desserializar, refaz o
+`loadMissing()` dessas relações. Não é necessário recarregá-las manualmente no `handle()`.
+
+```php
+// O job recebe o model já com 'client' carregado ao processar
+ProcessProject::dispatch($project->load('client'));
+```
+
+Use o atributo `#[WithoutRelations]` (na propriedade ou na classe do job) quando quiser
+explicitamente descartar as relações e reduzir o payload. Se o job puder receber um model sem a
+relação garantida, `loadMissing()` no `handle()` continua sendo uma defesa barata.
+
 ## Rate Limit External API Calls in Jobs
 
 Use `RateLimited` middleware to throttle jobs calling third-party APIs.

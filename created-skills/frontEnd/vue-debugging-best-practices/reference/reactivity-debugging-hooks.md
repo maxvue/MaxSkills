@@ -96,23 +96,6 @@ onRenderTriggered((event) => {
 </script>
 ```
 
-**Options API equivalent:**
-```javascript
-export default {
-  data() {
-    return { count: 0 }
-  },
-  renderTracked(event) {
-    console.log('Dependency tracked during render:', event)
-    debugger
-  },
-  renderTriggered(event) {
-    console.log('Re-render triggered by:', event)
-    debugger
-  }
-}
-```
-
 **Debug event properties:**
 ```javascript
 // The event object contains:

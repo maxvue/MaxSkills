@@ -23,7 +23,7 @@ Pacote: `@maxvue/max-pinia`.
 npm install @maxvue/max-pinia
 ```
 
-Peer deps (de `README.md`): `vue ^3.5`, `pinia ^3`, `axios ^1`, `@vueuse/core ^14`. Dependências internas usadas no código: `localforage`, `lodash-es`, `ulid`.
+Peer deps (de `package.json`, não do README desatualizado): `vue ^3.6.0-rc.2`, `pinia ^3`, `axios ^1`, `@vueuse/core ^14`. Dependências internas usadas no código: `localforage`, `lodash-es`, `ulid`.
 
 Registro no Pinia via `pinia.use(createMaxPinia(config))`:
 
@@ -161,7 +161,7 @@ interface OperationStatus {
 | `saveInServer()` | `() => void` (async) | POST manual imediato para a rota de save com o payload resolvido; atualiza `status.server.save`, salva no cache, aplica `save_return`/`reload_after_save`. |
 | `saveInCache()` | `() => Promise<void>` | Persiste `{ data, ...includeInCacheValues }` no localforage sob a chave da store; atualiza `status.cache.save`. Aceita `data_save` opcional interno. |
 | `clearAll()` | `() => Promise<void>` | `localforage.clear()` — limpa **todo** o banco de cache. |
-| `cancelLoad(retryInSeconds?)` | `(retryInSeconds?: number \| boolean \| null) => void` | Aborta o GET em voo. Se `true`/`0` → reagenda em 50 ms; se número > 0 → reagenda `loadInServer()` após esse tempo (ms). |
+| `cancelLoad(retryInSeconds?)` | `(retryInSeconds?: number \| boolean \| null) => void` | Aborta o GET em voo. Se `true`/`0` → reagenda `loadInServer()` após 5 SEGUNDOS; se número > 0 → reagenda após esse número de SEGUNDOS (não ms). |
 | `setLoadingMessage(message)` | `(message: string) => void` | Emite `loading.update({ target, key, message })` via adapter. |
 | `status` | `Status` | Ver acima. |
 | `is_done_to_show` | `ComputedRef<boolean>` | `(server.get.is_success && !server.get.is_blank) \|\| cache.get.is_success` — pronto para renderizar (servidor ok não-vazio, ou cache ok). |

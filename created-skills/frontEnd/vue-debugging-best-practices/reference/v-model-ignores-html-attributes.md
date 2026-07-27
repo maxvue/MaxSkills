@@ -66,18 +66,5 @@ const country = ref('us')
 </template>
 ```
 
-```javascript
-// Options API equivalent
-export default {
-  data() {
-    return {
-      username: 'default_user',
-      isSubscribed: true,
-      country: 'us'
-    }
-  }
-}
-```
-
 ## Reference
 - [Vue.js Form Input Bindings](https://vuejs.org/guide/essentials/forms.html)

@@ -10,22 +10,16 @@ Definir diretrizes, padrões e convenções para escrever testes Unit, Feature e
 
 ## Instruções
 1. **Sintaxe dos Testes**:
-   - Use a sintaxe `test('description', function () { ... })` em vez de `it('description')` ou métodos de classe no estilo PHPUnit.
-   - Mantenha as descrições claras, concisas e em português brasileiro (ex.: `'Client gendler_name retorna Masculino para M'`), seguindo a convenção do Engeapp.
-   - Use o helper funcional `arch()` do Pest v3 para definir suítes de testes de arquitetura, ex.: `arch('controllers')->expect(...)`.
+   - Use a sintaxe funcional do Pest em vez de métodos de classe no estilo PHPUnit. `it()` e `test()` coexistem amplamente no engeapp (`it()` em ~88 arquivos, `test()` em ~46), então **não há convenção estabelecida**: prefira `test('description', function () { ... })` como padronização para código novo, mas mantenha o estilo já usado ao mexer em arquivos existentes.
+   - Mantenha as descrições claras, concisas e em português brasileiro (ex.: `'Client gendler_name retorna Masculino para M'`).
+   - Ao introduzir testes de arquitetura (ainda inexistentes no engeapp — ver seção 7), use o helper funcional `arch()` do Pest v3, ex.: `arch('controllers')->expect(...)`.
 
 2. **Assertions (Expectations)**:
-   - Use a API fluente do Pest (`expect()`) para todas as assertions.
-   - Exemplos comuns de expectation:
-     - `expect($value)->toBe($expected)`
-     - `expect($value)->toBeTrue()` / `expect($value)->toBeFalse()`
-     - `expect($value)->toBeInstanceOf(ClassName::class)`
-     - `expect($collection)->toHaveCount($count)`
-     - `expect($value)->not->toBe($other)`
+   - Use a API fluente do Pest (`expect()`) para todas as assertions, e não as assertions padrão do PHPUnit (ver Restrições).
 
-3. **Banco de Dados & Isolamento**:
-   - **Testes Feature**: Todos os testes dentro do diretório `tests/Feature` usam automaticamente o trait `DatabaseTransactions` (conforme configurado em `tests/Pest.php`). NÃO adicione manualmente `use DatabaseTransactions` ou `use RefreshDatabase` em arquivos individuais.
-   - **Testes Unit**: Mantenha os testes unitários puros. Não consulte o banco de dados nem dependa do estado do banco em `tests/Unit`.
+3. **Banco de Dados & Isolamento** (regra única — as Restrições apenas referenciam esta seção):
+   - `tests/Pest.php` aplica `DatabaseTransactions` tanto em `Feature` quanto em `Unit`. NÃO adicione manualmente `use DatabaseTransactions` nem `use RefreshDatabase` em arquivos individuais, e não misture os dois traits.
+   - **Testes Unit**: prefira testes puros com `make()` e mocks. Mas quando o teste de Unit precisar do banco, isso é **aceito no engeapp** — é exatamente por isso que `tests/Pest.php` estende `DatabaseTransactions` também em `Unit` (ver comentário no arquivo). Exemplos reais que persistem models: `tests/Unit/Models/CallTest.php`, `tests/Unit/Services/VoipServiceDialTest.php`, `tests/Unit/Services/VoipServiceAnswerTest.php`, `tests/Unit/Services/PhoneNumberResolverTest.php`, `tests/Unit/Integrador/SolarCompanyTypeTest.php`, `tests/Unit/Integrador/UserRolesTest.php`, `tests/Unit/Events/IncomingCallEventTest.php`.
 
 4. **Factories & Criação de Models**:
    - Use Laravel Model Factories para instanciar models.
@@ -40,8 +34,9 @@ Definir diretrizes, padrões e convenções para escrever testes Unit, Feature e
    - Faça mock de chamadas a APIs externas, envio de emails, jobs ou notificações pesadas.
    - Use os Fakes padrão do Laravel para facades: `Queue::fake()`, `Event::fake()`, `Http::fake()`.
 
-7. **Testes de Arquitetura (Pest v3)**:
-   - Salve os testes de arquitetura no diretório `tests/Architecture` ou em arquivos de teste dedicados nomeados como `tests/Feature/ArchitectureTest.php`, se apropriado.
+7. **Testes de Arquitetura (Pest v3)** — *recomendação, ainda não adotada no engeapp*:
+   - **Nota de contexto:** o engeapp NÃO possui hoje nenhum teste de arquitetura (`arch()`), diretório `tests/Architecture` nem `ArchitectureTest.php`. As APIs abaixo são reais do Pest v3 e representam uma boa prática a introduzir; trate-as como orientação para novos testes, não como uma convenção já seguida pelo projeto.
+   - Ao introduzir, salve os testes de arquitetura no diretório `tests/Architecture` ou em arquivos dedicados nomeados como `tests/Feature/ArchitectureTest.php`, se apropriado.
    - **Impondo Herança de Classe**:
      ```php
      arch('controllers')
@@ -54,12 +49,7 @@ Definir diretrizes, padrões e convenções para escrever testes Unit, Feature e
          ->expect('App\Services')
          ->toHaveSuffix('Service');
      ```
-   - **Isolamento de Camadas & Restrições de Acoplamento**:
-     ```php
-     arch('domain')
-         ->expect('App\Domain')
-         ->not->toUse('App\Http');
-     ```
+   - **ATENÇÃO — os dois exemplos acima falham hoje se executados como estão.** O código atual tem exceções conhecidas: `App\Http\Controllers\Support\SupportExecuteController` e `App\Http\Controllers\Settings\DateController` não têm `extends` (e são apenas dois exemplos: algumas dezenas de arquivos em `app/Http/Controllers` não têm `extends Controller`); em `app/Services` existem `Ogg.php`, `EfiPaymentStatus.php`, `InterPaymentExecute.php`, `PaymentPricing.php`, entre outros, sem o sufixo `Service`. Antes de adotar esses arch tests, acrescente `ignoring()` para essas exceções ou ajuste o código.
    - **Regras Estritas de Dependência & Qualidade de Código**:
      ```php
      arch('globals')
@@ -67,17 +57,17 @@ Definir diretrizes, padrões e convenções para escrever testes Unit, Feature e
          ->not->toUse(['dd', 'dump', 'ray', 'var_dump']);
      ```
    - **Resolvendo Dependências Externas / Falsos Positivos**:
-     Exclua classes de terceiros, models ou código de vendor que possam causar falsos positivos ao testar limites de arquitetura usando `ignoring()`:
+     Use `ignoring()` para excluir classes que causariam falsos positivos ou que são exceções legadas conhecidas:
      ```php
-     arch('domain')
-         ->expect('App\Domain')
-         ->not->toUse('App\Infrastructure')
-         ->ignoring('App\Infrastructure\Traits\SharedTrait');
+     arch('services')
+         ->expect('App\Services')
+         ->toHaveSuffix('Service')
+         ->ignoring([\App\Services\Ogg::class, \App\Services\Bank\EfiPaymentStatus::class]);
      ```
 
 8. **Mocking do HTTP Client**:
-   - Sempre chame `Http::preventStrayRequests()` no `beforeEach()` para garantir que nenhuma requisição de rede real escape. Ela lança imediatamente em chamadas não mockadas.
-   - Use `Http::fake(['domain.com/*' => Http::response([...], 200)])` para padrões de URL específicos. Evite o coringa `*` — ele mascara requisições não intencionais.
+   - Os testes reais do engeapp usam `Http::fake()` diretamente (ex.: `tests/Feature/Icons/OllamaClientTest.php`, `tests/Feature/SocialMedia/MetaIntegrationTest.php`), inclusive com o coringa `Http::fake(['*' => ...])`. Siga esse padrão existente ao mexer nesses testes.
+   - Use `Http::preventStrayRequests()` no `beforeEach()` e padrões de URL específicos em `Http::fake()` — padrão já adotado no projeto: `tests/Feature/CellChargeServiceTest.php` usa a URL absoluta completa (`'https://api-sandbox.asaas.com/v3/mobilePhoneRecharges/...'`), enquanto `tests/Feature/Console/CellChargeCommandTest.php` e `tests/Feature/Console/CellChargeListTest.php` usam coringas parciais (`'*/v3/mobilePhoneRecharges/*/provider'`). Reserve o coringa `'*'` para casos em que qualquer requisição serve.
    - Use `Http::sequence()` para código que faz múltiplas requisições ao mesmo endpoint (lógica de retry, APIs paginadas):
      ```php
      Http::fake(['api.service.com/send' => Http::sequence()->push('Error', 500)->push(['id' => 'abc'], 200)]);
@@ -91,10 +81,9 @@ Definir diretrizes, padrões e convenções para escrever testes Unit, Feature e
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
 - NÃO use classes de teste ou declarações de método no estilo PHPUnit (ex.: `public function test_something()`). Use a sintaxe funcional do Pest e o helper `arch()`.
-- NÃO misture `DatabaseTransactions` com `RefreshDatabase` dentro de arquivos de teste. Deixe o `tests/Pest.php` global cuidar do estado transacional para a suíte `Feature`.
-- NÃO consulte o banco de dados dentro de `tests/Unit`. Use objetos mock ou factories com `make()` no lugar.
+- Isolamento de banco: siga a seção 3 (o `tests/Pest.php` global cuida do estado transacional de `Feature` **e** de `Unit`).
 - NÃO use assertions padrão do PHPUnit (como `$this->assertEquals()`) a menos que seja absolutamente necessário. Prefira a API `expect()` do Pest.
 - NÃO use inglês para descrições de teste, pois o padrão do projeto usa português para os textos de descrição (ex.: `test('retorna erro se o cpf for invalido', function() { ... })`).
 - NÃO consulte o banco de dados nem faça mock de facades dentro de testes de arquitetura. Mantenha-os puramente focados em análise estática e relações entre classes.
 - NÃO defina testes de arquitetura com limites vazios ou escopos sobrepostos que possam deixar o test runner mais lento.
-- NÃO permita SQL bruto ou query builders de baixo nível em Controllers; force que passem por Services ou DTOs verificando violações de dependência.
+- Restringir SQL bruto / query builders de baixo nível em Controllers é **aspiracional**, não o estado atual: boa parte dos controllers do engeapp usa Eloquent/DB diretamente e há `DB::table()`/`DB::raw()` em `Calendar/CalendarDataController.php`, `Admin/AdminCompanyController.php` e `Statistics/StatisticsController.php`. Se um arch test dessa regra for introduzido, ele precisa nascer com `ignoring()` para essas exceções ou ser aplicado apenas a namespaces novos.

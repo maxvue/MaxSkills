@@ -12,7 +12,6 @@ tags: [vue3, sfc, export, script-block, composition-api]
 
 ## Task Checklist
 
-- [ ] Always use `export default` in `<script>` blocks (Options API)
 - [ ] Use `<script setup>` which handles exports automatically (Composition API)
 - [ ] Move shared utilities to separate `.js`/`.ts` files, not the component's script block
 - [ ] If you need to export types, use a separate `<script>` block alongside `<script setup>`
@@ -39,22 +38,6 @@ export function helper() { }
 ```
 
 **Correct Code:**
-```vue
-<!-- MyComponent.vue - Options API -->
-<script>
-// GOOD: Single default export
-export default {
-  data() {
-    return { count: 0 }
-  }
-}
-</script>
-
-<template>
-  <div>{{ count }}</div>
-</template>
-```
-
 ```vue
 <!-- MyComponent.vue - Composition API with script setup -->
 <script setup>
@@ -105,7 +88,6 @@ Don't put shared code in component script blocks. Create separate files:
 ```typescript
 // utils/constants.ts
 export const ITEMS_PER_PAGE = 20
-export const API_BASE_URL = '/api/v1'
 
 // utils/helpers.ts
 export function formatDate(date: Date): string {

@@ -1,6 +1,6 @@
 ---
 name: laravel-whatsapp-cloud-api-integration
-description: Use when creating, reviewing, or debugging WhatsApp Cloud API integrations, handling WhatsApp webhooks, sending templates or interactive messages, processing incoming messages, and managing conversation states.
+description: "Use when creating, reviewing, or debugging WhatsApp Cloud API integrations, handling WhatsApp webhooks, sending templates or interactive messages, processing incoming messages, and managing conversation states."
 ---
 
 # Objetivo
@@ -9,10 +9,29 @@ Fornecer diretrizes estritas, padrões arquiteturais e convenções de código p
 # Instruções
 
 ## 1. Verificação & Processamento de Webhooks
-* **Validação de Segurança:** Verifique a assinatura da requisição de entrada usando o header `X-Hub-Signature-256` e o App Secret. Valide o Hub Verification Token durante a confirmação da subscrição.
-* **Resposta Imediata:** O controller que recebe as requisições de webhook DEVE retornar uma resposta HTTP 200 OK imediata. Evite realizar operações pesadas no banco de dados ou chamadas a APIs externas de forma síncrona dentro desse controller para evitar flags de timeout do webhook da Meta.
-* **Delegação Assíncrona:** Faça dispatch do payload bruto do webhook diretamente para um job assíncrono (ex.: `WebhookWhatsappJobExecuteJob`) na fila `whatsapp`:
+* **Validação da subscrição (fato do engeapp):** Na confirmação da subscrição (requisição GET com `hub_challenge`), valide o `hub_verify_token` recebido contra o token configurado e responda com o `hub_challenge` inteiro. É exatamente o que o `WebhookController::index` faz (`app/Http/Controllers/Api/Whatsapp/WebhookController.php`), lendo o token de `config('api.whatsapp_webhook_token')`:
   ```php
+  if ($request->isMethod('get') && $request->has('hub_challenge')) {
+      $token = config('api.whatsapp_webhook_token');
+      if ($request->input('hub_verify_token') === $token) {
+          return response((int) $request->input('hub_challenge'), 200);
+      }
+
+      return response('Token inválido', 403);
+  }
+  ```
+* **Validação de assinatura HMAC (recomendação genérica, NÃO implementada no engeapp):** Como reforço de segurança de best-practice, é recomendável verificar a assinatura da requisição de entrada via header `X-Hub-Signature-256` (HMAC-SHA256 com o App Secret). **Atenção:** hoje o engeapp NÃO faz essa verificação — o `WebhookController` valida apenas o `hub_verify_token` na subscrição e persiste o payload sem checar assinatura. Trate isto como recomendação a implementar, não como padrão já existente do projeto.
+* **Resposta Imediata:** O controller que recebe as requisições de webhook DEVE retornar uma resposta imediata (o `WebhookController` retorna `response()->json(false)` após persistir). Evite realizar operações pesadas no banco de dados ou chamadas a APIs externas de forma síncrona dentro desse controller para evitar flags de timeout do webhook da Meta.
+* **Delegação Assíncrona (fluxo real em duas etapas):** O fluxo real é: **controller HTTP → job na fila `webhooks` → service → job na fila `whatsapp`**. O `WebhookController` persiste o payload bruto no model `Webhook` e, com base no nome da rota, despacha `WebhookWhatsappJob` na fila `webhooks`:
+  ```php
+  // No WebhookController::index — entrypoint HTTP
+  if (str_contains($webhook->route_name, 'whatsapp')) {
+      WebhookWhatsappJob::dispatch($webhook->id)->onQueue('webhooks');
+  }
+  ```
+  Já o dispatch de `WebhookWhatsappJobExecuteJob` na fila `whatsapp` acontece na camada de serviço (`WhatsappService::webhook`, em `app/Services/Whatsapp/WhatsappService.php`), NÃO no controller de webhook:
+  ```php
+  // No WhatsappService::webhook — camada de serviço
   WebhookWhatsappJobExecuteJob::dispatch($data)->onQueue('whatsapp');
   ```
 
@@ -57,7 +76,7 @@ Fornecer diretrizes estritas, padrões arquiteturais e convenções de código p
 
 ## 4. Envios de Saída — SDK netflie (caminho principal)
 * **Use o SDK instalado:** Mensagens de saída DEVEM passar pelo SDK `netflie/whatsapp-cloud-api` (`^2.2`) instalado, não por chamadas manuais `Http::withHeaders(...)`. Isso espelha os controllers reais em `app/Http/Controllers/Api/Whatsapp/Sends/`, que importam `Netflie\WhatsAppCloudApi\...`.
-* **Instancie com config, nunca com tokens hardcoded:** O construtor recebe um array associativo com apenas dois campos (`from_phone_number_id`, `access_token`). Leia o phone number id do canal (`$channel->meta_number`) e o token de `config()`:
+* **Instancie com config, nunca com tokens hardcoded:** O construtor aceita um array associativo com defaults para seis chaves (`from_phone_number_id`, `access_token`, `business_id`, `graph_version`, `client_handler`, `timeout`), mas o projeto instancia usando apenas duas (`from_phone_number_id` e `access_token`). Leia o phone number id do canal (`$channel->meta_number`) e o token de `config()`:
   ```php
   use Netflie\WhatsAppCloudApi\WhatsAppCloudApi;
   use Netflie\WhatsAppCloudApi\Message\Template\Component;

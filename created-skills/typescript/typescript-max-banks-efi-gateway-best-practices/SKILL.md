@@ -1,6 +1,6 @@
 ---
 name: typescript-max-banks-efi-gateway-best-practices
-description: Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks.
+description: "Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks."
 ---
 
 ## Objetivo
@@ -8,7 +8,7 @@ Fornecer diretrizes estruturadas e melhores práticas para a integração do gat
 
 ## Instruções
 
-> **Convenção-alvo (não verificável no repositório atual):** O pacote `@maxvue/max-banks` e a classe `EfiGateway` são o **design-alvo** desta integração; eles ainda **não** existem em `/projects`. No monólito real (engeapp), a Efí é integrada exclusivamente pelo **SDK PHP** `efipay/sdk-php-apis-efi` (Laravel), não por um cliente Node/TypeScript. Portanto, nomes de arquivos, assinaturas de métodos e a interface `PaymentGateway` abaixo descrevem a convenção pretendida para o pacote Node — trate-os como alvo a seguir, não como fato já existente. As especificidades da **API HTTP da Efí** (endpoints, corpo, OAuth2/mTLS, webhooks) são fiéis à documentação oficial da Efí e valem independentemente da linguagem.
+> **Convenção-alvo (não verificável no repositório atual):** O pacote `@maxvue/max-banks` e a classe `EfiGateway` são o **design-alvo** desta integração; eles ainda **não** existem em `/projects`. No monólito real (engeapp), a Efí é integrada majoritariamente pelo **SDK PHP** `efipay/sdk-php-apis-efi` (Laravel), mas o engeapp também possui um cliente HTTP próprio (`app/Http/Integrations/Efi/`) para parte dos endpoints — em ambos os casos não há cliente Node/TypeScript. Portanto, nomes de arquivos, assinaturas de métodos e a interface `PaymentGateway` abaixo descrevem a convenção pretendida para o pacote Node — trate-os como alvo a seguir, não como fato já existente. As especificidades da **API HTTP da Efí** (endpoints, corpo, OAuth2/mTLS, webhooks) são fiéis à documentação oficial da Efí e valem independentemente da linguagem.
 
 ### 1. Configuração do Cliente de Baixo Nível (EfiHttpClient)
 * **Certificado mTLS Obrigatório:** A API da Efí exige um certificado PKCS#12 (.p12) para todas as operações de Pix.
@@ -39,7 +39,7 @@ Fornecer diretrizes estruturadas e melhores práticas para a integração do gat
   - Obtenha a imagem do QR code e o payload fazendo uma requisição GET para `/v2/loc/{locId}/qrcode`.
   - Exponha tanto a imagem do QR code codificada em base64 quanto a string bruta de "Copia e Cola EMV" (`pixCopiaECola`).
 
-> **Escopo (convenção-alvo, não confirmada em código):** Mantenha o `EfiGateway` restrito à superfície de **Pix**. A convenção pretendida é que a interface `PaymentGateway` declare somente `createPixCharge`, `getCharge` e `parseWebhook` e que `PaymentMethod` cubra apenas Pix nesta primeira versão. **Não** adicione API de cartão de crédito nem endpoints de plano/assinatura (`/v1/plan`, `/v1/subscription`, `payment_token`) ao gateway, e **não** modele assinaturas mapeando strings de status da Efí. Caso assinaturas venham a existir, a orientação de arquitetura é modelá-las por uma máquina de estados própria e orientada a eventos (nomes de arquivo, enum de status e transições ficam a critério da implementação real — os exemplos abaixo são sugestões, não nomes garantidos): estados como `incomplete`/`trialing`/`active`/`past_due`/`grace`/`canceled` e transições disparadas por eventos (`payment_confirmed`/`payment_failed`/`grace_expired`/`cancel`). Antes de assumir qualquer path ou identificador, verifique o código real do pacote quando ele existir.
+> **Escopo:** Mantenha o `EfiGateway` restrito a Pix (`createPixCharge`, `getCharge`, `parseWebhook`); não modele cartão de crédito nem assinatura/plano.
 
 ### 3. Processamento e Validação de Webhooks
 * **Fonte da Verdade:** Webhooks são a principal fonte da verdade para atualizações de status de transações.

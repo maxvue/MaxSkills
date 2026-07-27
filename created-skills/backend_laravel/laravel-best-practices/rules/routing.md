@@ -42,7 +42,7 @@ Route::apiResource('posts', Api\PostController::class);
 
 ## Keep Controllers Thin
 
-Aim for under 10 lines per method. Extract business logic to action or service classes.
+Aim for under 10 lines per method. Extract business logic to service classes (`app/Services/`).
 
 Incorrect:
 ```php
@@ -59,11 +59,11 @@ public function store(Request $request)
 }
 ```
 
-Correct:
+Correct (no engeapp, extraia para `app/Services/`):
 ```php
-public function store(StorePostRequest $request, CreatePostAction $create)
+public function store(StorePostRequest $request, PostCreationService $service)
 {
-    $post = $create->execute($request->validated());
+    $post = $service->create($request->validated());
 
     return redirect()->route('posts.show', $post);
 }
@@ -71,29 +71,4 @@ public function store(StorePostRequest $request, CreatePostAction $create)
 
 ## Type-Hint Form Requests
 
-Type-hinting Form Requests triggers automatic validation and authorization before the method executes.
-
-Incorrect:
-```php
-public function store(Request $request): RedirectResponse
-{
-    $validated = $request->validate([
-        'title' => ['required', 'max:255'],
-        'body' => ['required'],
-    ]);
-
-    Post::create($validated);
-
-    return redirect()->route('posts.index');
-}
-```
-
-Correct:
-```php
-public function store(StorePostRequest $request): RedirectResponse
-{
-    Post::create($request->validated());
-
-    return redirect()->route('posts.index');
-}
-```
+Type-hinting Form Requests triggers automatic validation and authorization before o método executar. Ver `rules/validation.md` ("Use Form Request Classes") para o exemplo completo Incorrect/Correct.

@@ -140,23 +140,6 @@ defineExpose({
 </template>
 ```
 
-```javascript
-// Options API equivalent using expose option
-export default {
-  expose: ['count', 'increment', 'reset'],
-  data() {
-    return {
-      count: 0,
-      internalState: 'private'
-    }
-  },
-  methods: {
-    increment() { this.count++ },
-    reset() { this.count = 0 }
-  }
-}
-```
-
 ## Best Practice Reminder
 
 Component refs create tight coupling between parent and child. Prefer standard patterns:

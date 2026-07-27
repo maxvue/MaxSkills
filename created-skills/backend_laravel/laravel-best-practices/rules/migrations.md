@@ -62,12 +62,14 @@ Correct:
 ```php
 Schema::create('orders', function (Blueprint $table) {
     $table->id();
-    $table->foreignId('user_id')->constrained()->index();
+    $table->foreignId('user_id')->constrained();
     $table->string('status')->index();
     $table->timestamp('shipped_at')->nullable()->index();
     $table->timestamps();
 });
 ```
+
+Não encadeie `->index()` depois de `constrained()`: o `index` fica gravado no `ForeignKeyDefinition`, não na coluna, e `addFluentIndexes()` só percorre `$this->columns` — o índice é descartado como no-op silencioso. Isso não significa "sem índice": em MySQL/InnoDB a própria foreign key já cria um índice automaticamente. Use `->index()` apenas nas colunas sem FK.
 
 ## Mirror Defaults in Model `$attributes`
 

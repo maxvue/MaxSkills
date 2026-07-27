@@ -11,7 +11,7 @@ Estabelecer diretrizes padrão para depuração, profiling, inspeção e otimiza
 ## Instruções
 
 ### 1. Monitoramento de Performance com Pulse
-- **Segurança e Autenticação**: Defina autorização personalizada para produção usando `Pulse::user()`. Restrinja a administradores. NÃO exponha `/pulse` publicamente sem middleware estrito.
+- **Segurança e Autenticação**: Defina a autorização de produção via `Gate::define('viewPulse', ...)` (é esse gate que o middleware `Authorize` do Pulse checa). Use `Pulse::user()` apenas para customizar os dados exibidos do usuário (name/email/avatar/extra) — não é mecanismo de autorização. Restrinja a administradores. NÃO exponha `/pulse` publicamente sem middleware estrito.
 - **Configuração**: Use o driver de ingestão `redis` em ambientes de alto tráfego para desafogar os workers. Configure uma janela de armazenamento menor se o banco de dados crescer rapidamente.
 - **Recorders e Agregação**: Crie recorders personalizados para operações de negócio. Identifique queries lentas (>1000ms) e taxas de hit/miss do cache Redis pelo dashboard.
 
@@ -36,20 +36,18 @@ Estabelecer diretrizes padrão para depuração, profiling, inspeção e otimiza
 ### 3. Depuração com LaraDumps
 - **Ferramenta Principal**: Use `ds()` em vez de `dd()`, `dump()` ou `print_r()`. Rotule e colora a saída.
 - **Recursos**: Monitore queries (`ds()->queriesOn()`), tempo (`ds()->time()`), models (`ds()->model()`).
-- **Etiqueta**: Remova todas as instruções `ds()` antes de fazer commit. NUNCA faça commit de helpers `ds(...)` ativos. Use as variáveis de `config/laradumps.php` para alternar.
+- **Etiqueta**: Remova todas as instruções `ds()` antes de fazer commit. NUNCA faça commit de helpers `ds(...)` ativos. O controle de ativação/estado do LaraDumps fica no arquivo `laradumps.yaml` na raiz do projeto (gerenciado pela extensão/app desktop) — `config/laradumps.php`, quando publicado, contém apenas padrões de ignore de queries/rotas, não um toggle liga/desliga.
 
 ### 4. Laravel Debugbar CLI
 - Use para inspecionar e depurar via CLI sem um navegador.
 - **Comandos**: Localize requisições (`debugbar:find`), inspecione detalhes (`debugbar:get --collector=time`), inspecione queries (`debugbar:queries`) e limpe o armazenamento (`debugbar:clear`).
-- **Restrição**: NÃO faça dry-run com `--result` via Debugbar para queries de mutação (`INSERT`, `UPDATE`, `DELETE`) em produção.
+- **Restrição**: NÃO faça dry-run com `--result` via Debugbar para queries de mutação (`INSERT`, `UPDATE`, `DELETE`) em ambientes locais/staging com bancos compartilhados. Debugbar é ferramenta de desenvolvimento (`require-dev`, `DEBUGBAR_ENABLED=false`) e não roda em produção no engeapp.
 
-### 5. Laravel Telescope
-- **Watchers**: Personalize o `config/telescope.php`. Defina limites (`'slow' => 100`). Desabilite `hydrations` no `ModelWatcher` localmente.
-- **Pruning e Segurança**: Limpe os dados via scheduler (`telescope:prune`). Filtre dados sensíveis (senhas, tokens, CVVs) no `TelescopeServiceProvider`. Restrinja o acesso em produção usando Gates. Nunca faça commit de dumps do Telescope.
+### 5. Laravel Telescope — veja a skill dedicada `laravel-telescope-debugging-best-practices` (watchers reais, Telescope::filter/night, hideSensitiveRequestDetails, gate viewTelescope, poda de telescope_entries).
 
 ### 6. Laravel Log Viewer
 - **Protegendo o Acesso**: Defina um gate personalizado (`viewLogViewer`) no `AppServiceProvider`. Exija autenticação em produção.
-- **Configuração**: Exclua frames do framework nos stack traces e proteja logs sensíveis via `exclude_files`. Use `log-viewer:clear-cache` para limpar os índices.
+- **Configuração**: Exclua frames do framework nos stack traces e proteja logs sensíveis via `exclude_files`. A limpeza de cache dos índices ocorre via ações da UI/rotas HTTP do Log Viewer — não existe comando artisan `log-viewer:clear-cache`.
 
 ### 7. Laravel Pail (Tailing de Log em Tempo Real)
 - **Iniciando**: Execute `php artisan pail` no terminal para transmitir novas entradas de log instantaneamente conforme ocorrem.
@@ -57,7 +55,7 @@ Estabelecer diretrizes padrão para depuração, profiling, inspeção e otimiza
   - Por classe de exceção: `php artisan pail --filter="App\Exceptions\ServiceIntegrationException"`
   - Por usuário autenticado: `php artisan pail --user=42`
   - Por mensagem/conteúdo: `php artisan pail --message="Failed to send template"`
-- **Verbosidade**: `-v` (trace básico), `-vv` (contexto + stack trace), `-vvv` (stack traces completos).
+- **Verbosidade**: por padrão a mensagem é truncada. `-v` destrunca mensagem/classe/arquivo e mostra a data completa (sem stack trace); `-vv` adiciona o stack trace. Não há comportamento adicional documentado para `-vvv`. O contexto é sempre exibido, independente da verbosidade.
 - **Logs Estruturados**: Ao usar exceções personalizadas com arrays contextuais (como em `laravel-exception-handling-logging`), o Pail faz o parse e exibe o contexto estruturado de forma elegante no terminal.
 - **Etiqueta**: NÃO faça `grep` ou `tail` manual no `laravel.log` físico quando o Pail pode fornecer um stream mais limpo e filtrável.
 

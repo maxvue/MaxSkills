@@ -20,9 +20,16 @@ Prevent accidental execution of production-only tasks (billing, reporting) on st
 Schedule::command('billing:charge')->monthly()->environments(['production']);
 ```
 
-## Use `takeUntilTimeout()` for Time-Bounded Processing
+## Use `takeUntilTimeout()` for Time-Bounded Cursor Processing
 
-A task running every 15 minutes that processes an unbounded cursor can overlap with the next run. Bound execution time.
+`takeUntilTimeout()` é um método de `LazyCollection`, não do agendador — não existe encadeado em `Schedule::command(...)`. Use-o DENTRO do corpo do comando, sobre a coleção lazy que ele processa, para que um comando agendado a cada 15 minutos com um cursor sem limite pare antes de sobrepor a próxima execução:
+
+```php
+// Dentro do handle() do Artisan Command, não em routes/console.php
+Order::query()->lazy()->takeUntilTimeout(now()->addMinutes(14))->each(function ($order) {
+    // processa $order
+});
+```
 
 ## Use Schedule Groups for Shared Configuration
 

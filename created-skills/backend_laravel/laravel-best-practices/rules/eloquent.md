@@ -146,3 +146,31 @@ Order::where('status', 'pending')->get();
 Prefer Eloquent queries and relationships over `DB::table()` whenever possible — they already reference the model's table. When `DB::table()` or raw joins are unavoidable, always use `(new Model)->getTable()` to keep the reference traceable.
 
 **Exception — migrations:** In migrations, hardcoded table names via `DB::table('settings')` are acceptable and preferred. Models change over time but migrations are frozen snapshots — referencing a model that is later renamed or deleted would break the migration.
+
+## Sincronização de Pivot (Muitos-para-Muitos)
+
+Use os métodos de pivot em vez de manipular a tabela intermediária na mão:
+
+```php
+$post->tags()->sync([1, 2, 3]);              // substituição atômica (remove o que não está na lista)
+$post->tags()->syncWithoutDetaching([4]);    // adiciona sem remover os vínculos existentes
+$post->tags()->attach(5, ['order' => 1]);    // uma linha de pivot, com atributos extras
+$post->tags()->detach(5);                    // remove uma linha de pivot
+```
+
+## Eventos do Model no `booted()`
+
+Registre hooks de ciclo de vida (`creating`, `saving`, `deleting`, ...) no `booted()` para atributos
+derivados ou limpeza em cascata:
+
+```php
+protected static function booted(): void
+{
+    // Gera o slug automaticamente na criação
+    static::creating(function (Post $post) {
+        $post->slug ??= Str::slug($post->title);
+    });
+}
+```
+
+Para lógica pesada ou transversal, extraia para um Observer dedicado em vez de closures inline.

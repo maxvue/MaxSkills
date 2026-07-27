@@ -14,6 +14,7 @@ Estabelecer padrões seguros, reativos e localizados para operações de data/ho
 - **Não existe inicialização centralizada de Day.js.** O `resources/app.ts` não importa `dayjs`, e não há `dayjs.extend(...)`, `dayjs/plugin/*` nem `dayjs/locale/pt-br` em `resources/`.
 - O único uso real de Day.js hoje é **direto dentro de um componente** — `resources/Vue/Pages/AdminCompaniesPage.vue` faz `import dayjs from 'dayjs'` e `dayjs(value).format('DD/MM/YYYY HH:mm')`, sem plugins nem locale.
 - Antes de escrever formatação nova com Day.js, verifique se `useDateFormat`/`useTimeAgo` de `@maxvue/max-use` já resolvem — na maioria dos casos resolvem.
+- Para aritmética e comparação de datas, a via real do projeto também já são os helpers de `@maxvue/max-use` (ex: `isSameDay` em `resources/Stores/calendar/useSocialMediaAgent.Store.ts`), não Day.js cru.
 
 ## Instruções
 
@@ -25,10 +26,10 @@ import { useDateFormat, useTimeAgo } from '@maxvue/max-use';
 
 const dataFormatada = useDateFormat('2026-05-24', 'DD/MM/YYYY'); // → '24/05/2026'
 const comHora = useDateFormat(new Date(), 'DD/MM/YYYY HH:mm');    // → '24/05/2026 14:30'
-const relativo = useTimeAgo(algumaData);                          // → 'Ontem', '2 dias'...
+const relativo = useTimeAgo(algumaData, 'abbrev');                // → '2 dias', '4h'...
 ```
 
-`useDateFormat` aceita `Date | number | string | null | undefined` (inclusive refs/getters) e, se o valor for inválido, faz fallback para a data atual — não é preciso duplicar essa lógica.
+`useDateFormat` aceita `Date | number | string | null | undefined` (inclusive refs/getters) e, se o valor for `null`/`undefined`, faz fallback para a data atual. Esse fallback **não** cobre strings/valores malformados (ex: `''`, `'abc'`, `'0000-00-00'`): eles não são `null`/`undefined`, então passam direto para o VueUse e podem renderizar `'Invalid Date'`. O wrapper não substitui a validação de conteúdo de string vinda de API/usuário — veja a Restrição "Sempre valide".
 
 ### 2. Formatos Padrão
 Ao formatar (via `useDateFormat` ou Day.js), use sempre as strings de formato brasileiras:
@@ -60,8 +61,6 @@ export default dayjs;
 
 2. Se for um caso isolado (como o `AdminCompaniesPage.vue` atual), pode estender no próprio módulo — mas centralize assim que um segundo componente precisar do mesmo plugin, para não repetir `extend`/locale.
 
-> Este helper é uma **recomendação**, não infraestrutura já existente. Não presuma que plugins ou o locale pt-BR já estejam carregados globalmente.
-
 ### 4. Parsing Seguro
 - **Strings só com data (proteção de fuso):** ao parsear datas ISO sem hora (ex: `'2026-06-20'`), o navegador pode interpretá-las como UTC e deslocar o dia. Anexe `'T00:00:00'` para forçar horário local:
   ```typescript
@@ -86,21 +85,29 @@ export default dayjs;
   const horaSP = dayjs().tz('America/Sao_Paulo');
   ```
 
-### 6. Aritmética e Comparação
-- **Cálculos:**
-  ```typescript
-  const proximaSemana = dayjs().add(7, 'day');
-  const diferencaDias = dayjs('2026-06-30').diff(dayjs('2026-06-20'), 'day');
-  ```
-- **Comparação segura** — use `isBefore`, `isAfter`, `isSame` em vez de operadores matemáticos crus:
-  ```typescript
-  const expirado = dayjs().isAfter(dataVencimento);
-  ```
+### 6. Aritmética e Comparação — prefira os helpers de @maxvue/max-use
+Para cálculos e comparações de data, use primeiro os helpers auto-importados de `@maxvue/max-use` em vez de Day.js cru:
+
+```typescript
+const proximaSemana = addTime(dataBase, 7, 'days');           // Date | null
+const diferencaDias = diffInDays(dataInicio, dataFim);        // valor ABSOLUTO
+const jaPassou = isPast(dataVencimento);
+const eFuturo = isFuture(dataVencimento);
+const mesmoDia = isSameDay([dataSelecionada, dataInicio, dataFim]); // recebe array de datas
+const noPeriodo = inDateInterval(data, inicio, fim);
+const passouHoras = hasPassedHours(data, 24);
+const relativo = timeAgo(data, 'abbrev');
+```
+
+- Todos aceitam `MaybeRefOrGetter<string | number | Date | null | undefined>` (refs/getters funcionam direto).
+- `diffInDays`/`diffInHours`/`diffInMinutes` (e afins) retornam sempre a diferença **absoluta**, nunca negativa — não use o sinal do resultado para saber qual data é maior; use `isPast`/`isFuture`/`isSameDay` para isso.
+- `addTime` retorna `Date | null` (null se a data base for inválida).
+- Recorra ao Day.js cru (`.add`, `.diff`, `.isBefore`, `.isAfter`, `.isSame`) só para o que esses helpers não cobrem (timezone, durations, parsing estrito).
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR), independentemente do idioma do corpo desta skill.
 - **Comentários de código em pt-BR.**
 - **Prefira `@maxvue/max-use`:** não crie composables novos embrulhando Day.js para formatação/tempo relativo — `useDateFormat` e `useTimeAgo` já cumprem esse papel. Recorra ao Day.js direto só para o que elas não cobrem.
 - **Não misture bibliotecas:** nada de Moment.js, date-fns ou Luxon. Toda lógica de data no frontend fica em Day.js ou nos wrappers de `@maxvue/max-use`.
-- **Sem mutação global dispersa:** não faça `dayjs.extend`/`locale` dentro de componentes de forma repetida; centralize num helper em `resources/Helpers/` quando o uso se repetir.
+- **Sem mutação global dispersa:** ver seção 3.
 - **Sempre valide:** rode `.isValid()` antes de exibir datas parseadas dinamicamente de entrada do usuário ou da API.

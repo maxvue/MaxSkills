@@ -1,127 +1,100 @@
 ---
 name: laravel-social-media-oauth-token-lifecycle-management-best-practices
-description: "Use when designing, implementing, reviewing, or debugging OAuth token lifecycle management for social media integrations (Facebook, Instagram, LinkedIn, YouTube, TikTok) in Laravel. Triggers on social media credential storage, token encryption/decryption, refresh token flows, expiration checks, invalid or revoked token responses, and scheduling token renewal jobs."
+description: "Use ao cadastrar, revisar ou depurar credenciais de redes sociais (Meta: Instagram/Facebook) no engeapp Laravel 13: model SocialMediaCredential (cast access_token 'encrypted', token_expires_at, $hidden, unique solar_company_id+event_api_id), rotação manual via rotas Ziggy social_media.credentials.data/save (has_token) e resolução por MetaService::forCredential/forCompany. Não cobre login social."
 ---
 
-# Boas Práticas de Gerenciamento do Ciclo de Vida de Tokens OAuth de Redes Sociais no Laravel
+# Ciclo de Vida das Credenciais de Redes Sociais (Meta) no Laravel
 
 ## Objetivo
-Estabelecer diretrizes seguras, resilientes e automatizadas para gerenciar access tokens e refresh tokens OAuth de plataformas externas de redes sociais (Facebook, Instagram, LinkedIn, YouTube, TikTok) dentro do backend baseado em Laravel da aplicação SocialMedia.
+Guiar o armazenamento seguro, a rotação e a invalidação dos tokens de publicação em redes sociais no engeapp, fiel ao módulo real: as credenciais são **digitadas manualmente pelo gestor** e persistidas por empresa (tenant) em `calendar_social_media_credentials`, sendo consumidas pelo `MetaService`.
+
+> **Escopo real:** apenas **Meta (Instagram + Facebook)** está implementado. Ancore-se nestes arquivos:
+> - `app/Models/Calendar/SocialMediaCredential.php`
+> - `database/migrations/*_create_calendar_social_media_credentials_table.php`
+> - `app/Http/Controllers/Calendar/SocialMediaCredentialController.php`
+> - `app/Services/SocialMedia/Meta/MetaService.php` (+ `MetaRequestTrait.php`)
+> - `database/factories/Calendar/SocialMediaCredentialFactory.php` e `tests/Feature/SocialMedia/MetaIntegrationTest.php`
+>
+> Não existem drivers para LinkedIn, YouTube ou TikTok — o catálogo exposto pelo controller é `['Instagram', 'Facebook']`. Qualquer outro canal seria uma extensão futura, não um padrão vigente. O login social (`laravel/socialite`) é assunto separado, coberto por `laravel-socialite-oauth-integration-best-practices`; ele não fornece os tokens de publicação usados aqui.
 
 ## Instruções
 
-### 1. Armazenamento Seguro e Criptografia de Tokens
-- **Criptografia em Repouso (at Rest)**: Armazene todos os tokens OAuth sensíveis (`access_token`, `refresh_token`, `client_secret`) de forma segura. Use o cast nativo `encrypted:array` do Laravel no model `SocialMediaCredential`:
+### 1. Schema e Criptografia em Repouso
+- **Cast de coluna, não de blob:** o token vive na própria coluna `access_token` (`text`, nullable) com cast escalar `encrypted` — não há campo `credentials` nem `encrypted:array`. Use a **propriedade** `$casts` (convenção do projeto), não o método `casts()`:
   ```php
-  protected function casts(): array
-  {
-      return [
-          'credentials' => 'encrypted:array',
-      ];
+  // app/Models/Calendar/SocialMediaCredential.php
+  protected $casts = [
+      'access_token'     => 'encrypted',   // cifrado em repouso
+      'token_expires_at' => 'datetime',    // coluna própria, consultável por SQL
+      'params'           => 'array',
+      'is_active'        => 'boolean',
+  ];
+
+  // Impede serialização acidental do token em respostas JSON.
+  protected $hidden = ['access_token'];
+  ```
+- **Expiração consultável:** por `token_expires_at` ser coluna dedicada (`dateTime` nullable) e não estar dentro de um blob cifrado, filtre por SQL (`where('token_expires_at', '<=', now()->addDays(7))`). Nada de varrer a tabela e comparar em PHP.
+- **Metadados livres em `params`:** dados não sensíveis do canal (JSON) ficam em `params`; o identificador da conta externa (`ig_user_id` / `page_id`) tem coluna própria, `external_account_id`.
+
+### 2. Unicidade e Isolamento Multi-Tenant
+- O tenant é a **empresa solar** (`solar_company_id`), nunca um `client_id`. Cada empresa tem no máximo uma credencial por API do catálogo `EventApi`:
+  ```php
+  $table->unique(['solar_company_id', 'event_api_id'], 'sm_credentials_company_api_unique');
+  ```
+- Toda leitura parte do tenant do usuário autenticado: `SocialMediaCredential::where('solar_company_id', Auth::user()?->solar_company_id)`.
+- A plataforma **não** é uma coluna `platform`: ela vem da relação `eventApi(): BelongsTo(EventApi::class, 'event_api_id')`. Para filtrar por nome, use `whereHas('eventApi', fn ($q) => $q->whereRaw('LOWER(name) = ?', [mb_strtolower($apiName)]))`.
+
+### 3. Cadastro e Rotação Manual do Token
+- **Origem do token:** o gestor cola o token no formulário; o backend valida como string livre e faz `updateOrCreate` pela chave do tenant:
+  ```php
+  // app/Http/Controllers/Calendar/SocialMediaCredentialController.php
+  SocialMediaCredential::updateOrCreate(
+      ['solar_company_id' => $solarCompanyId, 'event_api_id' => $validated['event_api_id']],
+      $attributes,
+  );
+  ```
+- **Sobrescrita parcial:** só grave `access_token` quando o campo vier preenchido. Isso permite ajustar a conta externa ou o status `is_active` sem exigir que o gestor redigite o token:
+  ```php
+  if ( ! empty($validated['access_token'])) {
+      $attributes['access_token'] = $validated['access_token'];
   }
   ```
-- **Ocultando Campos Sensíveis**: Sempre adicione o atributo `credentials` ao array `$hidden` no model para evitar serialização acidental e exposição em respostas JSON:
-  ```php
-  protected $hidden = ['credentials'];
-  ```
-- **Restrições de Unicidade Compostas**: Garanta que cada cliente possa ter apenas um conjunto de credenciais por plataforma usando um índice único composto:
-  ```php
-  $table->unique(['client_id', 'platform']);
-  ```
+- **Rotação = novo POST:** não existe refresh token nem job/comando de renovação automática no projeto. A rotação acontece quando o gestor salva um token novo pela rota Ziggy `social_media.credentials.save`; a listagem usa `social_media.credentials.data`.
+- Se um dia for necessário avisar sobre vencimento, apoie-se em `token_expires_at` + `is_active` numa consulta agendada — a coluna existe justamente para isso, mas hoje **nenhum código de aplicação a lê**.
 
-### 2. Abstração de Driver de Provedor (Strategy Pattern)
-- **Definição da Interface**: Defina uma interface ou classe abstrata (ex: `SocialMediaProviderDriver`) para unificar a interface de integração.
+### 4. Nunca Devolver o Token ao Front-end
+- O endpoint de leitura devolve apenas um indicador de presença, preservando o sigilo:
   ```php
-  interface SocialMediaProviderDriver
-  {
-      public function refreshToken(SocialMediaCredential $credential): bool;
-      public function validateToken(SocialMediaCredential $credential): bool;
-      public function fetchProfile(SocialMediaCredential $credential): array;
+  'has_token' => ! empty($credential?->access_token),
+  ```
+- Exponha ao front `event_api_id`, `api_name`, `icon`, `external_account_id`, `is_active` e `has_token` — nada mais. O `$hidden` do model é a segunda linha de defesa, não a primeira.
+
+### 5. Resolução do Token no Serviço
+- A resolução é **estática, por credencial ou por empresa**, sem Manager nem `driver()`:
+  ```php
+  $service = MetaService::forCredential($credential);           // token + external_account_id da credencial
+  $service = MetaService::forCompany($solarCompanyId, 'Instagram'); // credencial ativa da empresa; fallback config('api.meta_token')
+  ```
+- `forCompany()` filtra por `is_active = true` e cai no token global de `config/api.php` quando a empresa não tem credencial — logo, `null` significa "nenhuma autenticação disponível". Cheque `isUsable()` antes de publicar.
+- O prefixo do token decide o host: tokens `IG` (Instagram Login) vão para `graph.instagram.com`, os demais para `graph.facebook.com`. Guardar o token errado para a API errada é a causa mais comum de 400/190 — valide o prefixo ao cadastrar.
+
+### 6. Token Inválido ou Revogado
+- A camada de transporte (`MetaRequestTrait::send`) **não lança exceção**: ela registra `Log::warning` em respostas `failed()` e devolve o corpo decodificado, normalizando falhas de transporte como `['error' => ...]`. Portanto, quem chama precisa inspecionar o retorno:
+  ```php
+  $resposta = $service->publish->publishContainer($containerId);
+
+  if (isset($resposta['error'])) {
+      // Token revogado/expirado (ex.: OAuthException, code 190) → desativar e pedir novo cadastro.
+      $credential->update(['is_active' => false]);
+      // notifique o gestor para colar um token novo em social_media.credentials.save
   }
   ```
-- **Estratégia de Implementação**: Crie drivers dedicados para cada plataforma (ex: `FacebookDriver`, `LinkedInDriver`, etc.) que implementem essa interface, resolvendo as requisições de rede e processando as respostas.
-- **Factory Manager**: Use uma classe manager para resolver o driver correto em tempo de execução:
-  ```php
-  $driver = SocialMediaManager::driver($credential->platform);
-  ```
+- Os códigos e tipos de erro da Meta (`OAuthException`, `code 190`) e os prazos de validade de tokens de longa duração são **convenções externas da plataforma**, não fatos do código — confirme na documentação oficial vigente antes de codificar limiares.
 
-### 3. Fluxo Proativo de Expiração e Renovação de Tokens
-- **Rastreamento de Expiração**: Armazene um timestamp `expires_at` dentro do array `credentials`.
-- **Verificações Proativas de Renovação**: Compare o horário atual com o timestamp `expires_at`. Se um token estiver dentro da janela de renovação (tipicamente 7 dias antes da expiração para tokens de longa duração), marque-o para renovação automática. Como `credentials` é um cast `encrypted:array`, o `expires_at` NÃO é consultável por SQL (fica cifrado em repouso). Portanto, encapsule a comparação em um método no model que decifra e lê o array em PHP:
-  ```php
-  // app/Models/SocialMediaCredential.php
-
-  // Janela de renovação: quantos dias antes da expiração o token é elegível a refresh.
-  public const JANELA_RENOVACAO_DIAS = 7;
-
-  // Indica se o token está dentro da janela de renovação (ou já expirou).
-  // Lê expires_at do array já decifrado pelo cast; se ausente, trata como elegível.
-  public function isNearExpiration(): bool
-  {
-      $expiresAt = $this->credentials['expires_at'] ?? null;
-
-      if ($expiresAt === null) {
-          return true;
-      }
-
-      return now()->addDays(self::JANELA_RENOVACAO_DIAS)
-          ->greaterThanOrEqualTo(Carbon::createFromTimestamp($expiresAt));
-  }
-  ```
-- **Comando Agendado + Job por Credencial**: Evite a renovação síncrona de tokens durante as requisições de usuários. Crie um comando agendado (`RefreshSocialMediaTokens`) que despacha um job dedicado por credencial (`RefreshSocialMediaTokenJob`, singular — um job por token). Como `expires_at` está cifrado e não pode ser filtrado por `where` em SQL, percorra a tabela em lotes com `chunkById` (nunca `all()`, que carrega toda a tabela em memória) e filtre em PHP:
-  ```php
-  // app/Console/Commands/RefreshSocialMediaTokens.php
-  public function handle(): void
-  {
-      // chunkById itera em lotes de 200, mantendo o uso de memória constante.
-      SocialMediaCredential::query()->chunkById(200, function ($credenciais) {
-          foreach ($credenciais as $credential) {
-              if ($credential->isNearExpiration()) {
-                  RefreshSocialMediaTokenJob::dispatch($credential);
-              }
-          }
-      });
-  }
-  ```
-- **Integração com Horizon/Filas**: Despache os jobs `RefreshSocialMediaTokenJob` para uma fila dedicada com rate limits, intervalos de retry e configurações de timeout adequados.
-
-### 4. Tratamento de Tokens Invalidados ou Revogados
-- **Fronteira de Exceção**: Capture exceções de client/HTTP da API externa (ex: 401 Unauthorized ou 403 Forbidden) e verifique mensagens de erro que denotem tokens inválidos ou revogados (ex: OAuthException do Facebook, InvalidToken do LinkedIn).
-- **Disparo de Evento**: Despache um evento `SocialMediaTokenInvalidated` quando a renovação falhar ou um token for confirmado como revogado:
-  ```php
-  event(new SocialMediaTokenInvalidated($credential));
-  ```
-- **Notificação ao Usuário**: Escute esse evento para desabilitar a conexão, registrar o erro e notificar o tenant (agência/cliente) na UI para reconectar sua conta manualmente.
-
-### 5. Testes e Mocking com Pest
-- **Mocking de HTTP**: Use `Http::fake()` para interceptar as requisições OAuth de saída.
-- **Asserções com Pest**: Escreva testes Pest claros simulando renovações de token bem-sucedidas e falhas:
-  ```php
-  it('successfully refreshes near-expired token', function () {
-      Http::fake([
-          'https://api.linkedin.com/v2/*' => Http::response(['access_token' => 'new-token', 'expires_in' => 3600]),
-      ]);
-
-      $credential = SocialMediaCredential::factory()->create([
-          'platform' => 'linkedin',
-          'credentials' => [
-              'access_token' => 'old-token',
-              'refresh_token' => 'old-refresh',
-              'expires_at' => now()->addMinutes(10)->timestamp,
-          ],
-      ]);
-
-      $driver = new LinkedInDriver();
-      $success = $driver->refreshToken($credential);
-
-      expect($success)->toBeTrue();
-      expect($credential->fresh()->credentials['access_token'])->toBe('new-token');
-  });
-  ```
+### 7. Testes
+- Use a `SocialMediaCredentialFactory` (que já preenche `access_token`, `token_expires_at`, `is_active`) e `Http::fake()` sobre `graph.facebook.com` / `graph.instagram.com`. O exemplo de referência é `tests/Feature/SocialMedia/MetaIntegrationTest.php`; os padrões de fake/sequence/assertSent estão em `laravel-pest-testing-best-practices`.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
-- NUNCA armazene credenciais, access tokens ou refresh tokens em texto puro em tabelas do banco de dados ou entradas de log.
-- NUNCA envie credenciais ou tokens crus ao frontend nem os exponha em respostas de API.
-- NUNCA renove tokens de forma síncrona dentro de requisições HTTP padrão; sempre use jobs agendados ou filas.
-- NUNCA engula (swallow) exceções da API de refresh; registre-as e notifique o cliente/usuário quando ação manual for necessária.
+- NUNCA envie o `access_token` ao frontend nem o exponha em respostas de API; devolva apenas `has_token`.
+- NUNCA ignore o `['error' => ...]` retornado pelos handlers da Meta; registre-o e sinalize ao gestor quando for necessário recadastrar o token.

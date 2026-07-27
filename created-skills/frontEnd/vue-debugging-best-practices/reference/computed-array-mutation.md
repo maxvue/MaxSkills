@@ -143,6 +143,26 @@ const deepCopied = computed(() => {
 })
 ```
 
+## Also Applies to Methods Used in v-for (Templates)
+
+The same rule applies when a method sorts/filters data used directly inside a `v-for` loop:
+
+```javascript
+// CORRECT: Method that doesn't mutate
+function getSortedChildren(parent) {
+  return [...parent.children].sort((a, b) => a.order - b.order)
+}
+```
+
+```html
+<ul v-for="parent in parents" :key="parent.id">
+  <li v-for="child in getSortedChildren(parent)" :key="child.id">
+    {{ child.name }}
+  </li>
+</ul>
+```
+
 ## Reference
 - [Vue.js Computed Properties - Avoid Mutating Computed Value](https://vuejs.org/guide/essentials/computed.html#avoid-mutating-computed-value)
+- [Vue.js List Rendering - Displaying Filtered/Sorted Results](https://vuejs.org/guide/essentials/list.html#displaying-filtered-sorted-results)
 - [MDN Array Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)

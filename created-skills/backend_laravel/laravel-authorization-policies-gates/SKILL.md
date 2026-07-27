@@ -108,61 +108,75 @@ Padronizar a autorização do backend engeapp (Laravel 13 / PHP 8.4). O RBAC rea
    - Para autorizar contra uma Policy de um model específico, faça no controller (ver abaixo), não no middleware de rota.
 
 5. **Autorização em nível de controller**:
-   - Quando precisar da Policy (checagem por instância de model, com escopo de tenant), chame explicitamente no controller:
+   - `$this->authorize(...)` só funciona se o controller usar o trait `Illuminate\Foundation\Auth\Access\AuthorizesRequests` — a classe base `App\Http\Controllers\Controller` é vazia (`abstract class Controller {}`), sem esse trait:
      ```php
-     public function update(Request $request, Project $project)
-     {
-         $this->authorize('view', $project); // dispara ProjectPolicy::view
+     use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-         $project->update($request->validated());
+     class IntegradorProjectController extends Controller
+     {
+         use AuthorizesRequests;
+
+         public function update(Request $request, Project $project)
+         {
+             $this->authorize('view', $project); // dispara ProjectPolicy::view
+
+             $project->update($request->validated());
+         }
      }
      ```
-   - Alternativa: `Gate::authorize('view', $project);`. Use middleware `can:permissao.nomeada` para permissões grosseiras e a Policy no controller para regras por instância/tenant.
+   - `Gate::authorize('view', $project);` é uma opção igualmente comum no projeto (usada em `ProjectTrtPaymentController` e `ProjectsInvoiceExecuteController`) e dispensa o trait — prefira-a quando o controller não usar `AuthorizesRequests`. Use middleware `can:permissao.nomeada` para permissões grosseiras e a Policy no controller (por qualquer uma das duas formas) para regras por instância/tenant.
 
-6. **Expondo permissões para a SPA Vue (via /api + store MaxPinia)**:
-   - O backend calcula um mapa de permissões com escopo para o usuário autenticado e o retorna de um controller. Não exponha a base inteira de permissões — limite ao que a tela precisa.
+6. **Expondo permissões para a SPA Vue (via store MaxPinia)**:
+   - O payload do usuário autenticado já é servido por `UserDataControler::getAuthUserData` (rota nomeada `user.data`, `routes/web/Web.User.Route.php:39`) e consumido pela store real `useUserStore` (`resources/Stores/UserStores/useUser.Store.ts`). Um mapa `can` de permissões com escopo deve ser um acréscimo a esse payload/store existente — não exponha a base inteira de permissões, limite ao que a tela precisa:
      ```php
-     public function me(Request $request)
+     public function getAuthUserData(Request $request)
      {
          $user = $request->user();
 
          return response()->json([
              'user' => $user,
              'can' => [
-                 'projeto.criar'   => $user?->can('projeto.criar') ?? false,
+                 'projeto.criar'    => $user?->can('projeto.criar') ?? false,
                  'documento.enviar' => $user?->can('documento.enviar') ?? false,
              ],
          ]);
      }
      ```
-     > Nota: em `routes/api.php` a rota de usuário está comentada; o endpoint acima é ilustrativo — ajuste o nome de rota real ao ligar o recurso.
-   - No front-end, todo GET passa por uma **store MaxPinia** (`@maxvue/max-pinia`); nunca faça fetch direto no componente e nunca leia permissões de props de página. O contrato real da store: `isCached` (`ref`), `options` computado com `get.route` recebendo o **nome de rota Ziggy pontilhado** (o `apiGetRoute`/plugin resolve para `/api/...` via Ziggy), `save`, `key`, e o estado do servidor em `status.server.get.is_requested` / `is_success`. Espelhe o formato das stores existentes:
+   - No front-end, todo GET passa por uma **store MaxPinia** (`@maxvue/max-pinia`); nunca faça fetch direto no componente e nunca leia permissões de props de página. O contrato real da store: `isCached` (`ref`), `options` computado com `get.route` recebendo o **nome de rota Ziggy pontilhado** (o `apiGetRoute`/plugin resolve internamente via Ziggy), `save` e `key`. Espelhe o formato real:
      ```ts
-     export const useAuthStore = defineStore('auth', () => {
-         const isCached = ref(true);
-         // options.get.route é o NOME Ziggy pontilhado, resolvido internamente para /api/...
-         const options = computed(() => ({ get: { route: 'auth.me' }, save: 'auth.save', key: 'auth' }));
-         const data = ref<{ can?: Record<string, boolean> } | null>(null);
+     export const useUserStore = defineStore('user', () => {
+         const isCached: Ref = ref(true);
+         // options.get.route é o NOME Ziggy pontilhado, resolvido internamente pelo apiGetRoute
+         const options: Ref = computed(() => ({ get: { route: 'user.data' }, save: 'user.save', key: 'user' }));
+         const data: Ref<User | null> = ref(null);
 
          return { options, isCached, data };
      });
      ```
      ```vue
      <script setup lang="ts">
-     const auth = useAuthStore(); // a store carrega o payload em seu estado cacheado
+     const user = useUserStore(); // a store carrega o payload em seu estado cacheado
      </script>
 
      <template>
-       <MaxButton v-if="auth.data?.can?.['projeto.criar']" @click="openModal">
+       <MaxButton v-if="user.data?.can?.['projeto.criar']" @click="openModal">
          Novo Projeto
        </MaxButton>
      </template>
      ```
+   - Se um exemplo genérico (nome de rota diferente de `user.data`) for necessário, marque explicitamente o nome como placeholder a implementar — nunca como rota já existente.
    - Use componentes `Max*` de `@maxvue/max-components-ui` (ex.: `MaxButton`), nunca `<button>` nativo, e composables de `@maxvue/max-use` no lugar de vueuse/lodash crus.
 
 7. **Testes com Pest**:
-   - Escreva feature tests cobrindo roles/permissões do Spatie e Gates.
+   - Escreva feature tests cobrindo roles/permissões do Spatie e Gates. Espelhe o setup real de `tests/Feature/Integrador/ClientPolicyTest.php`: um `beforeEach` cria as permissões usadas com `Permission::findOrCreate(...)` — sem isso `givePermissionTo` lança `PermissionDoesNotExist`, pois a permissão precisa existir no banco antes de ser atribuída. Quando o teste envolver escopo de tenant, crie `UserSolarCompany` e passe `solar_company_id` + `international_phone_number` único no factory — `UserFactory` não os define, e `allowedSolarCompanyIds()` retorna `[]` sem `solar_company_id`. `Queue::fake()` pode ser citado como prática dos testes existentes, mas não é obrigatório (não há job disparado na criação de `User`).
      ```php
+     use Illuminate\Support\Facades\Gate;
+     use Spatie\Permission\Models\Permission;
+
+     beforeEach(function () : void {
+         Permission::findOrCreate('projeto.criar', 'web');
+     });
+
      it('permite quem tem a permissão projeto.criar', function () {
          $user = User::factory()->create();
          $user->givePermissionTo('projeto.criar');

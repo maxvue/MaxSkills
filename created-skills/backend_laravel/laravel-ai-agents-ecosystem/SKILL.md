@@ -25,7 +25,7 @@ Como criar classes de agente (Simples, Com Tools, Structured Outputs), aplicar o
 
 ### 2. Criação de Tools (Tools Creator)
 
-Regras estritas para criar tools (Function Calling) em `app/Ai/Tools`, exigindo definições de schema precisas via `JsonSchema` e saídas padronizadas em formato JSON com `try-catch`.
+Regras estritas para criar tools (Function Calling) em `app/Ai/Tools`, exigindo definições de schema precisas via `JsonSchema` e saídas padronizadas em formato JSON (`status`/`message`; `try-catch` é boa prática recomendada, não vigente).
 🔗 **Referência:** [Criação de Tools](references/tools-creator.md)
 
 ### 3. Structured Outputs
@@ -52,6 +52,5 @@ Regras de negócio específicas, algoritmos matemáticos, ponderação de áreas
 
 - **Idioma:** Sempre se comunique com o usuário humano em português (pt-BR). Este é o idioma padrão da conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta própria skill esteja escrito.
 - **NUNCA** faça chamadas reais (não mockadas) à API de LLM em testes automatizados.
-- **SEMPRE** use os atributos obrigatórios (`Provider`, `Model`, `Temperature`, `MaxTokens`, `Timeout`) na classe do Agent.
-- **NUNCA** pule a validação de limites e cotas antes da requisição usando `RateLimiter` ou Cache.
+- **SEMPRE** declare os atributos `Provider`, `Model` e `Temperature` na classe do Agent (presentes em todos os agentes de `app/Ai/Agents`). Ver [agent-creator.md](references/agent-creator.md) para a ressalva sobre `MaxTokens`/`Timeout`.
 - **SEMPRE** produza prompts e respostas voltadas ao usuário final (como relatórios) em português brasileiro (pt-BR).

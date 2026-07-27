@@ -24,7 +24,7 @@ Exceção documentada: nem toda integração de pagamento segue esse padrão. `a
 
 ### 3. Definindo os Endpoints (EndPoints.json)
 - Mapeie seus endpoints de API em um objeto JSON hierárquico.
-- Todo endpoint executável deve definir: `end_point`, `method` e `attributes` (um objeto agrupando parâmetros em `query`, `path` ou `body`). Placeholders `{...}` em `end_point` DEVEM ser listados em `path`, pois `checkAttributes()` substitui `{chave}` pelo valor de `data_array[chave]`.
+- Todo endpoint executável deve definir: `end_point`, `method` e `attributes` (um objeto agrupando parâmetros em `query`, `path` ou `body`). Placeholders `{...}` em `end_point` DEVEM ser listados em `path`, pois `checkAttributes()` substitui `{chave}` pelo valor de `data_array[chave]` — mas **somente quando esse valor é uma string** (`BaseApi.php:159`, checagem `is_string()`). Se um valor numérico/int for passado para um placeholder de path, a substituição é silenciosamente pulada e a URL final mantém `{chave}` literal, sem nenhum log de erro. Ao popular parâmetros de path (ex.: IDs), converta explicitamente para string.
 - Um nó pode definir `base_url` próprio para sobrepor o `base_url` do connector naquele endpoint.
 
 ### 4. Implementando o Connector
@@ -39,8 +39,9 @@ Exceção documentada: nem toda integração de pagamento segue esse padrão. `a
 - `getAccessToken()` cacheia o token pela facade `Cache` sob a chave `('production:'|'sandbox:') . $this->url`, com TTL de 600 segundos (`Cache::remember`). Em falha de autenticação, retorna um array com `body`, `headers`, `status`, `code`, `json` e `response`.
 
 ### 6. Cache de Requisições
-`BaseApi` cacheia respostas por requisição. Métodos fluentes para controlar:
-- `withCache(int $seconds)` / `enableCache()` / `cache(bool, int)` / `cacheTtl()` / `cacheMinutes()` / `cacheHours()` / `cacheTime()` — habilitam e ajustam o TTL (padrão 120s quando `seconds` não é informado; padrão base da classe é `cache_seconds = 60000`).
+`BaseApi` cacheia respostas por requisição. Métodos fluentes para controlar, em DOIS grupos com comportamento diferente:
+- `withCache(int $seconds = 0)` / `enableCache(int $seconds = 0)` / `cache(bool $value = true, int $seconds = 0)` — habilitam o cache (`with_cache = true`) e usam TTL padrão de 120s quando `seconds` não é informado ou é `<= 0` (padrão base da classe é `cache_seconds = 60000`).
+- `cacheTtl(int $seconds = 0)` / `cacheMinutes(int $minutes = 0)` / `cacheHours(int $hours = 0)` / `cacheTime(int $seconds = 0)` — fazem `with_cache = seconds > 0`: chamados **sem argumento (ou com 0) DESABILITAM o cache** em vez de usar um TTL padrão. Armadilha: `->cacheMinutes()` sozinho não ativa cache nenhum; sempre passe um valor `> 0` a esses métodos.
 - `withoutCache()` / `disableCache()` — desabilitam o cache da requisição.
 - `clearCache()` — marca para dar `Cache::forget` na chave antes de refazer a requisição.
 

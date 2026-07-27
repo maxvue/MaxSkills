@@ -1,6 +1,6 @@
 ---
 name: laravel-electrical-calculations-dimensioning-best-practices
-description: Use when performing or validating electrical sizing, calculating circuit breakers, sizing cables, verifying voltage drop, or resolving inverter and solar module specifications. Triggers on calls to getWireSize, getCircuitBrake, getInverter, or when handling NBR 5410 electrical standards.
+description: "Use when performing or validating electrical sizing, calculating circuit breakers, sizing cables, verifying voltage drop, or resolving inverter and solar module specifications. Triggers on calls to getWireSize, getCircuitBrake, getInverter, or when handling NBR 5410 electrical standards."
 ---
 
 # Objetivo
@@ -17,14 +17,16 @@ Garantir a execução padronizada e precisa de dimensionamento elétrico, seleç
      - `phases`: Quantidade de fases (1, 2 ou 3).
      - `type_line`: Método de instalação da NBR 5410 (ex: `'B1'`, `'B2'`).
      - `cables`: Número de condutores carregados.
-     - `max_percent`: Percentual aceitável de queda de tensão (padrão: 2% para monofásico, 3% para trifásico).
+     - `isolation`: Isolação do condutor (int, padrão 70) — usada na busca da tabela NBR e faz parte da chave de cache.
+     - `max_percent`: Percentual aceitável de queda de tensão (padrão: 2% apenas quando `phases=1`/monofásico; 3% para qualquer outro valor de `phases`, incluindo bifásico e trifásico). Aceita também os aliases `percent` e `max`.
+   - `material`, `length`, `voltage`, `phases`, `cables` e `type_line` aceitam aliases alternativos usados no código real (ex: `wire_material`/`material_cable`/`wire_material_cable`, `distance`/`wire_length`, `wire_type_line`, `wire_cables`, `wire_voltage`, `wire_phases`/`phase_number`/`phase_numbers`).
    - Ao validar um cabo pré-selecionado, forneça a opção `wire` ou `wire_target` para simular sua perda de potência e verificar a conformidade via `$result->permitido`.
 
 2. **Seleção de Disjuntores:**
    - Sempre use o helper global `getCircuitBrake($currents, $limit_percent = 80)` (ou seu alias `getCircuitBraker`).
    - O primeiro parâmetro `$currents` pode ser um float, string ou array (se for array, seleciona a corrente máxima).
    - O `$limit_percent` especifica a capacidade máxima de carga (padrão é 80%).
-   - Confie nessa função para encontrar o próximo valor comercial padrão de disjuntor disponível (ex: 10A, 13A, 16A, 20A, 25A, 32A, 40A, 50A, 63A, 80A, 100A, 125A).
+   - Confie nessa função para encontrar o próximo valor comercial padrão de disjuntor disponível (ex: 10A, 13A, 16A, 20A, 25A, 32A, 40A, 50A, 63A, 80A, 100A, 125A — recorte ilustrativo; a lista real vai de 1A a 6300A, com 45 valores comerciais).
 
 3. **Dimensionamento e Busca de Inversores:**
    - Use o helper `getInverter($brand_name, $model, $power)` para buscar e retornar um model `App\Models\Equipment\Inverter` do banco de dados.
@@ -49,11 +51,13 @@ $result = getWireSize(25.4, [
     'cables' => 3
 ]);
 
-// $result conterá:
-// - wire_size (ex: 6.0)
-// - drop_voltage
-// - efficiency
-// - loss
+// getWireSize pode retornar null se nenhuma seção comercial atender ao cálculo.
+// $result terá 'current' como única chave sempre presente. As demais são condicionais:
+// - 'drop_voltage', 'efficiency' e 'loss' só existem quando voltage > 0 e current > 0.
+// - 'wire_size', 'min_wire_size', 'method', 'page', 'table', 'isolation' e 'db' só existem
+//   quando há linha correspondente em WireTable (nbr5410_tables) para a combinação
+//   conductors/material/method/isolation/current — caso contrário estarão ausentes.
+// Faça checagem defensiva antes de usar, ex: $result?->wire_size ?? null
 ```
 
 ### Simulação de conformidade de cabo:
@@ -74,6 +78,6 @@ $breaker = getCircuitBrake([15.5, 24.2, 19.8], 80); // Retorna 32
 ## Restrições
 - **Sem Cálculos Manuais:** Nunca deixe constantes de queda de tensão hardcoded (0.0172 ou 0.0283) nem escreva loops de fórmula customizados para encontrar seções de cabo. Sempre delegue ao `getWireSize`.
 - **Cache do Banco de Dados:** Não limpe nem contorne os mecanismos de cache do `db_abnt_wire`. O helper cuida do cache automaticamente.
-- **Tipagem Estrita:** Garanta que as correntes de entrada sejam convertidas ou casteadas apropriadamente antes de passá-las aos helpers. Se array ou null forem possíveis, deixe o helper normalizar ou tratar valores vazios de forma elegante (ex: retornando 0 ou null).
+- **Normalização de Correntes:** Os helpers aceitam `$currents` como float, string, array ou null e fazem a normalização internamente (cast e tratamento de vazio/array); não é necessário pré-castear antes de chamar `getWireSize` ou `getCircuitBrake`.
 - **Normas:** Todos os cálculos devem estar alinhados à NBR 5410. Não invente valores customizados para disjuntores comerciais padrão.
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
