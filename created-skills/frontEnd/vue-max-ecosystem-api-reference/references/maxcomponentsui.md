@@ -1865,15 +1865,20 @@ Propósito: título "H2" (variação menor, com opção de centralização). Sub
 
 ### MaxToast
 Import: `import { MaxToast } from '@maxvue/max-components-ui'`
-Propósito: container de notificações toast (canto superior direito). É a camada de UI da `useToastStore` — montado uma vez; toasts são disparados via helper `Toast` ou pela store. Sem props. Suporta severidades: success, info, warning, error, whatsapp. Pausa o timer no hover.
+Propósito: container de notificações toast (canto superior direito). É a camada de UI da `useToastStore` — montado uma vez (no `App.vue`, fora do `RouterView`); toasts são disparados via helper `Toast` ou pela store. Sem props. Pausa o timer no hover; barra de progresso e botão de fechar embutidos.
+
+Payload de disparo (`ToastPayload`): `title` (obrigatório) · `message?` (linha secundária, 2 linhas com ellipsis) · `severity?` = `'success' | 'info' | 'warning' | 'error' | 'whatsapp'` (default `'info'`) · `icon?` (Iconify, sobrescreve o ícone da severidade) · `duration?` em ms (default `4000`).
+
+Ícones automáticos por severidade: success → `mdi:check-circle-outline` · info → `mdi:information-outline` · warning → `mdi:alert-outline` · error → `mdi:close-circle-outline` · whatsapp → `mdi:whatsapp`.
 
 **Exemplo**
 ```vue
-<!-- Montar uma vez -->
+<!-- Montar uma vez, no App.vue -->
 <MaxToast />
 <script setup>
 import { Toast } from '@maxvue/max-components-ui';
 Toast.show({ title: 'Salvo!', severity: 'success' });
+Toast.show({ title: 'Falha ao salvar', message: 'Verifique sua conexão.', severity: 'error', duration: 5000 });
 </script>
 ```
 
