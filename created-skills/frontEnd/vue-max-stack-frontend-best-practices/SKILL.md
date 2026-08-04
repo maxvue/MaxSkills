@@ -140,7 +140,11 @@ Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isVali
   Ex.: `<MaxInputText v-model="form.nome" label="Nome" s-70 w-max-400 />` · `<MaxInputCep v-model="form.cep" label="CEP" s-30 w-min-80 />` dentro de um `<MaxGrid>`.
 - **Tabelas**: `MaxTable` (leitura, cabeçalho fixo) e `MaxTableFields` (+ `MaxTableColumn`, editável).
 - **Modais/popovers**: `MaxModal` (métodos `toggle()`/`show()`/`hide()` ou store `useModalStore`), `MaxPopover`, `MaxPopoverConfirm`, `MaxPopoverMenu`, `MaxIconConfirm`.
-- **Feedback**: `MaxLoader`, `MaxBadgeComponent`, `MaxToast` (montar uma vez na raiz). Disparo: `Toast.show({ severity: 'success' | 'info' | 'warning' | 'error' | 'whatsapp', title, message })` (importado de `@maxvue/max-components-ui`).
+- **Feedback**: `MaxLoader`, `MaxBadgeComponent`, `MaxToast`.
+  - **Toast é sempre o `MaxToast`** — qualquer pedido de "toast", "toastzinho", "aviso flutuante", "notificação" ou "snackbar" se resolve com ele; nunca com `vue3-toastify`, `vue-toastification`, `primevue/toast` ou similar.
+  - O container `<MaxToast />` é montado **uma única vez no `App.vue`**, sem props. Nunca em páginas ou modais.
+  - Disparo: `import { Toast } from '@maxvue/max-components-ui'` → `Toast.show({ title, message?, severity?, icon?, duration? })`, com `severity` em `'success' | 'info' | 'warning' | 'error' | 'whatsapp'` (default `'info'`) e `duration` em ms (default `4000`). Retorna o `id`; feche antes da hora com `Toast.hide(id)` ou limpe tudo com `Toast.clear()`.
+  - Detalhes completos (severidades, store `useToastStore`, feedback do save MaxPinia, migração do toastify legado): skill `vue-toast-notifications-toastify-best-practices`.
 - **Títulos/cards**: `MaxTitle1` (título principal — props `h1="Título"` e `h2="Subtítulo"`), `MaxTitle2` (título de seção), `MaxAuthCard`. Nunca use headings nativos (`<h1>`–`<h4>`) como título.
 - **Ícones**: `MaxIcon` ou prop `icon` por string Iconify — MDI no EngeApp (`icon="mdi:plus"`). Não importe SVGs avulsos quando há ícone no set.
 

@@ -87,4 +87,4 @@ const submit = async () => {
 ## Restrições
 - **Idioma:** comunique-se com o usuário humano sempre em Português (pt-BR), independentemente do idioma do corpo desta skill.
 - **NÃO** configure `axios.defaults`, `baseURL`, interceptadores globais nem fluxo `/sanctum/csrf-cookie`: nada disso existe neste projeto e não deve ser introduzido para chamadas de API.
-- **NÃO** exponha erros brutos do backend ao usuário final; exiba mensagens limpas via `toast` (`vue3-toastify`) ou `Toast.show` do `@maxvue/max-components-ui`.
+- **NÃO** exponha erros brutos do backend ao usuário final; exiba mensagens limpas via `Toast.show({ title, message, severity: 'error' })` do `@maxvue/max-components-ui` (padrão MaxToast — ver skill `vue-toast-notifications-toastify-best-practices`). O `vue3-toastify` que aparece no trecho de `useLogin.Store.ts` acima é código legado; não replique em código novo.

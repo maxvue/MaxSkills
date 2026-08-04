@@ -2029,9 +2029,9 @@ skills:
   - /bug-fix-front-end
 - action: CRIAR
   nome: vue-toast-notifications-toastify-best-practices
-  resumo: Use when setting up, configuring, or triggering toast notifications in Vue
-    3 components, composables, or API interceptors using the vue3-toastify library.
-    Triggers on success, error, warning toasts...
+  resumo: Use SEMPRE que precisar exibir uma notificação toast / "toastzinho" / aviso
+    flutuante / snackbar no frontend Vue 3. O padrão obrigatório é o MaxToast do
+    @maxvue/max-components-ui, disparado por Toast.show({ title, severity })...
   status: CONCLUIDA
   workflows: []
 - action: CRIAR
