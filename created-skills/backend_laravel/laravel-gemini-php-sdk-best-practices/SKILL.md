@@ -1,8 +1,7 @@
 ---
 name: laravel-gemini-php-sdk-best-practices
-description: "Use when interacting directly with the Gemini API using the google-gemini-php/laravel SDK, configuring GenerationConfig, utilizing structured outputs (JSON Schemas), handling multimodal inputs (Images, Audio, PDF) using Blob, or managing model calls and exceptions in Laravel."
+description: "Use when interacting with Gemini API using google-gemini-php/laravel SDK. Covers GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, and exception handling. Covers objectives, Facade model, and Gemini API schemas."
 ---
-
 # Objetivo
 Garantir integrações robustas, padronizadas e de alto desempenho com a API Gemini usando o SDK `google-gemini-php/laravel` dentro do backend do Engeapp. Isso abrange a estruturação de consultas usando a Facade do Gemini, a definição de saídas JSON rígidas com helpers nativos de schema, o tratamento seguro de entradas multimodais via Blobs em Base64 e a execução de tratamento de erros confiável.
 

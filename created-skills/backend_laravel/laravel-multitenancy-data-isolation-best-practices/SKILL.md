@@ -1,8 +1,7 @@
 ---
 name: laravel-multitenancy-data-isolation-best-practices
-description: "Use ao projetar, revisar ou depurar o isolamento multi-company do engeapp (Laravel 13). O tenant é a solar_company_id do cliente. Cobre o local scope scopeForUserTenant(Builder, User), o helper User::allowedSolarCompanyIds() (própria + companies atendidas quando projetista) e Policies que resolvem o tenant via cliente. Acione em filtros por solar_company_id ou forUserTenant."
+description: "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies. Covers objectives, tenant scoping, and user permission models."
 ---
-
 # Isolamento de Dados Multi-company no EngeApp
 
 ## Objetivo

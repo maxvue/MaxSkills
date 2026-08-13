@@ -1,8 +1,7 @@
 ---
 name: vue-debugging-best-practices
-description: Use when diagnosing or fixing Vue 3 issues — reactivity bugs, refs not updating from missing .value or ref unwrapping in collections, watcher timing and stale data, template refs becoming null, lifecycle hook problems, and async/component runtime errors and warnings.
+description: "Use when diagnosing or fixing Vue 3 reactivity bugs, computed refs, refs not updating, watcher timing, stale data, null template refs, lifecycle hook issues, and async component warnings. Covers best practices, debugging strategies, and objectives."
 ---
-
 # Boas Práticas de Depuração no Vue 3
 
 ## Objetivo

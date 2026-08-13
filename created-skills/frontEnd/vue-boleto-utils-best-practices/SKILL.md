@@ -1,8 +1,7 @@
 ---
 name: vue-boleto-utils-best-practices
-description: "Use when validating, formatting, parsing, or handling bank slip data (boletos) in the frontend Vue 3 application using the @mrmgomes/boleto-utils library. Triggers on validation of digit lines (linha digitável) or barcodes, extraction of expiration dates, calculating slip values, and formatting inputs for boleto payments."
+description: "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting. Covers objectives and core workflows."
 ---
-
 # Boas Práticas para Vue Boleto Utils
 
 ## Objetivo

@@ -1,12 +1,14 @@
 # Token & Cost Tracking (agents_ai_cost)
 
 ## Objetivo
-Registrar o consumo de tokens das requisições ao LLM (Gemini) e convertê-lo em custo
+Registrar o consumo de tokens das requisições ao LLM e convertê-lo em custo
 financeiro (USD/BRL) no ecossistema Engeapp. Comentários de código em pt-BR.
 
 > IMPORTANTE: Descreva SEMPRE o fluxo real do projeto. NÃO existe arquitetura assíncrona
-> (Job/Listener/Evento) para custo, NÃO existe `config/ai-pricing.php` nem `AiCostCalculator`,
-> e os preços NÃO são carregados de config — são fixos no código. Não invente essas peças.
+> (Job/Listener/Evento) para custo, NÃO existe `config/ai-pricing.php` nem `AiCostCalculator`.
+> Não invente essas peças.
+>
+> O projeto é MULTI-PROVIDER (`gemini`, `deepseek`, `xAi`) — não assuma que tudo é Gemini.
 
 ## 1. Onde o cálculo acontece (síncrono, dentro do trait)
 O cálculo e a montagem do custo são feitos SÍNCRONAMENTE em `app/Traits/HasAgentAiRequest.php`,
@@ -27,23 +29,63 @@ total_usd = round(input_não_cached + input_cached + output, 6)
 ```
 A conversão para BRL usa o helper `dolarReal()` apenas para exibição/log (não é persistida).
 
-## 2. Preços HARDCODED por modelo (não use config)
-Os preços ficam FIXOS no método `getTablePrice()` do trait, em USD por 1M de tokens,
-com as chaves `not_cached`, `cached` e `output_reasoning`. Modelo desconhecido → tudo 0.
-Ao ajustar preço, edite ESTA tabela (nunca uma migration ou config inexistente):
+## 2. Preços vivem no BANCO (tabela `ai_models`) — NÃO são hardcoded
 
-| model                     | not_cached | cached | output_reasoning |
-|---------------------------|-----------:|-------:|-----------------:|
-| gemini-2.5-flash-lite     | 0.10       | 0.01   | 0.40             |
-| gemini-3.1-flash-lite     | 0.25       | 0.025  | 1.50             |
-| gemini-2.5-flash          | 0.30       | 0.03   | 2.50             |
-| gemini-3.5-flash          | 1.50       | 0.15   | 9.00             |
-| gemini-2.5-pro            | 1.25       | 0.125  | 10.00            |
-| gemini-3.1-pro-preview    | 2.00       | 0.20   | 12.00            |
+> Histórico: até 08/2026 os preços eram uma tabela fixa dentro de
+> `getTablePrice()`. Isso MUDOU. A tabela hardcoded não existe mais no trait.
 
-Modelos realmente usados pelos agentes (atributo `#[Model(...)]` em `app/Ai/Agents`):
-`gemini-2.5-flash-lite`, `gemini-3.1-flash-lite`, `gemini-2.5-flash`, `gemini-3.5-flash`,
-`gemini-2.5-pro`. Não há `gemini-1.5-*` no projeto.
+`getTablePrice()` hoje apenas delega ao `AiPricingService`:
+
+```php
+private function getTablePrice() : array
+{
+    // Preços agora vivem em ai_models (cacheados sem TTL pelo AiPricingService).
+    return app(\App\Services\Ai\AiPricingService::class)
+        ->getPricesFor($this->provider->value, (string) $this->model);
+}
+```
+
+### Onde ajustar um preço
+1. **Tela Settings → IA** (caminho normal para o usuário), ou
+2. `UPDATE` direto em `ai_models`, ou
+3. `database/seeders/AiProviderSeeder.php` — apenas **carga inicial** (`updateOrCreate`);
+   editar o seeder NÃO altera preço de um modelo já cadastrado.
+
+**Nunca** reintroduza uma tabela de preços no código PHP.
+
+### Colunas relevantes de `ai_models`
+`ai_provider_id` (FK → `ai_providers`), `model`, `not_cached`, `cached`,
+`output_reasoning` (USD por 1M de tokens), `active` (bool), `status`
+(`approved` / `pending` / `failed` — ver constantes `AiModel::STATUS_*`),
+`fallback_models` (JSON de ULIDs), `replace_by_fallback` (bool).
+
+Modelo não cadastrado → preços 0 → custo gravado como zero, **sem erro visível**.
+Ao adotar um modelo novo, confirme que ele existe em `ai_models`, com preço e `active = 1`.
+
+### Cache
+`AiPricingService` cacheia o registry inteiro com `rememberForever`
+(chave `AiPricingService::CACHE_KEY` = `ai_prices`). A invalidação é automática, via
+hooks `booted()` de `AiProvider` e `AiModel`. Após `UPDATE` manual no banco (fora do
+Eloquent), limpe o cache — senão o preço antigo continua valendo.
+
+### Descoberta e sugestão de preços (automático)
+- `AiModelDiscoveryService` — consulta a API de cada provider e cadastra modelos novos
+  como `pending` com preço 0.
+- `AiPriceScraperFactory` (+ scrapers `Gemini`/`Anthropic`/`OpenAi`/`XAi`/`DeepSeek`) —
+  raspa a página pública de preços e grava em `ai_model_price_suggestions` para aprovação.
+
+Por isso existem muitos modelos `pending` com preço 0 em `ai_models`: são descobertas
+automáticas ainda não aprovadas, não erros de cadastro.
+
+### Consulta útil
+```php
+DB::table('ai_models')
+    ->join('ai_providers', 'ai_providers.id', '=', 'ai_models.ai_provider_id')
+    ->where('ai_models.active', 1)
+    ->select('ai_providers.key as provider', 'ai_models.model',
+             'ai_models.not_cached', 'ai_models.cached', 'ai_models.output_reasoning')
+    ->get();
+```
 
 ## 3. Persistência (morph `costable`, tabela `agents_ai_cost`)
 A gravação é feita pelo método `saveAiCost(EloquentModel $model, array $costData)` do trait,
@@ -92,7 +134,20 @@ Não existem colunas `prompt_tokens` nem `completion_tokens`: o breakdown é
 `tokens_input` (não-cached), `tokens_cached`, `tokens_input_total` e `tokens_output`.
 
 ## 5. Fallback de modelo e resiliência
-Se uma chamada lança exceção, `execute()` faz downgrade/upgrade automático percorrendo
-`['gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-3.5-flash', 'gemini-2.5-pro']` e
-tenta novamente (até `max_calls`, padrão 5). Todo o consumo é somado antes de calcular o custo.
+Se uma chamada lança exceção, `execute()` tenta o próximo modelo da cadeia de fallback
+(até `max_calls`, padrão 5). Todo o consumo é somado antes de calcular o custo.
 Um log de BENCHMARK é sempre emitido no canal `ai_benchmarks` para comparar modelos.
+
+A cadeia **não é hardcoded**. A resolução tem duas fontes, nesta ordem:
+
+1. **Banco (fonte real)** — coluna `ai_models.fallback_models` (JSON de ULIDs), editável
+   na tela Settings → IA e semeada por `AiFallbackChainSeeder`. Resolvida pelo
+   `AiFallbackChainResolver`.
+2. **`config('ai.default_fallback_chains')`** — rede de segurança em runtime
+   (`HasAgentAiRequest::initFallbackChain()`), usada só quando a cadeia do banco está
+   vazia. Sem ela, um modelo sem cadeia repetiria o MESMO modelo até esgotar `max_calls`.
+
+As cadeias são declaradas **por provider** e não devem misturar providers diferentes.
+
+Ao editar `config/ai.php`, verifique se os modelos citados existem em `ai_models` e estão
+com `active = 1`: uma cadeia que termina em modelo inativo deixa o agente sem plano B.

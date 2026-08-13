@@ -1,8 +1,7 @@
 ---
 name: laravel-livekit-server-sdk-best-practices
-description: "Use ao criar, atualizar ou depurar serviços de áudio/vídeo WebRTC com o LiveKit Server SDK (agence104/livekit-server-sdk) no Laravel — gerar AccessToken JWT com VideoGrant para salas e gerenciar salas via RoomServiceClient (createRoom com RoomCreateOptions, deleteRoom, listParticipants) com tratamento de exceções. Acione em LiveKitService, geração de token e RoomServiceClient."
+description: "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging. Covers objectives and core workflows."
 ---
-
 # Boas Práticas do LiveKit Server SDK no Laravel
 
 ## Objetivo

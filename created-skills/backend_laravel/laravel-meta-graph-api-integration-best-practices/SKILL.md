@@ -1,8 +1,7 @@
 ---
 name: laravel-meta-graph-api-integration-best-practices
-description: "Use ao implementar, revisar ou depurar integrações com a Graph API da Meta (Facebook/Instagram) no engeapp (Laravel 13): publicação de fotos, reels e carrosséis via containers de mídia, comentários e insights, e webhooks de entrada. Acione em MetaService, MetaRequestTrait, PublishHandler/CommentHandler/MediaHandler, MetaWebhookController, MetaWebhookJob e SocialMediaCredential."
+description: "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Covers objectives, architectural structure, and Meta API endpoints."
 ---
-
 ## Objetivo
 Fornecer diretrizes arquiteturais para integrar a Graph API da Meta (Facebook e Instagram) no engeapp usando Laravel 13, fiéis ao módulo real em `App\Services\SocialMedia\Meta`. Cobre a façade de serviço, a camada de transporte HTTP, os fluxos de publicação assíncrona de mídia e a validação de webhooks de entrada.
 

@@ -1,8 +1,7 @@
 ---
 name: vue-axios-api-integration-best-practices
-description: "Use ao integrar o front Vue 3 do EngeApp com a API Laravel via HTTP. Sem Axios direto: o transporte passa pelos helpers apiGetRoute/apiPostRoute/apiPutRoute/apiDeleteRoute do @maxvue/max-use, que recebem NOMES de rota Ziggy pontilhados e já aplicam headers e withCredentials. GET sempre via store MaxPinia. Sucesso retorna data; erro HTTP retorna null; nome de rota inexistente LANÇA exceção."
+description: "Use when integrating Vue 3 front-end with Laravel API via apiGetRoute/apiPostRoute/apiPutRoute/apiDeleteRoute from @maxvue/max-use, Ziggy named routes with credentials, and MaxPinia stores."
 ---
-
 # Boas Práticas de Integração de API HTTP no Vue 3 (EngeApp)
 
 ## Objetivo

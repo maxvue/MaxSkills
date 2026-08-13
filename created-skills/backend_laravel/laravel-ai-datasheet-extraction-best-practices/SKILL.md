@@ -1,8 +1,7 @@
 ---
 name: laravel-ai-datasheet-extraction-best-practices
-description: "Use when creating, modifying, reviewing, or debugging technical data extraction workflows from solar inverter and module datasheets (PDFs) using AgentDatasheetReader, defining output schemas, extracting electrical/dimensional specifications, handling OCR failures, or validating structured JSON results."
+description: "Use when extracting technical specifications from solar inverter/module datasheets (PDFs) via AgentDatasheetReader, production pipeline, grounding rules, output schemas, electrical specs, and JSON validation. Covers extraction pipeline and validation rules."
 ---
-
 # Boas Práticas para Extração de Datasheets com IA no Laravel
 
 ## Objetivo

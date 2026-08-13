@@ -1,8 +1,7 @@
 ---
 name: vue-typescript-best-practices
-description: Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions written in TypeScript, or when adjusting TypeScript configurations (tsconfig.json, declare module) in the frontend. Triggers on defineProps, defineEmits, ComputedRef, PropType, typed ref, and compiler type-check issues in Vue/TS files.
+description: "Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, tsconfig.json, and module declarations. Covers objectives, SFC structure, and TypeScript declarations."
 ---
-
 ## Objetivo
 Garantir a segurança de tipos, estrutura limpa de código e total conformidade com o compilador do TypeScript no desenvolvimento com Vue 3 no ecossistema Engeapp, utilizando componentes tipados, composables, stores do Pinia e DTOs integrados ao backend.
 

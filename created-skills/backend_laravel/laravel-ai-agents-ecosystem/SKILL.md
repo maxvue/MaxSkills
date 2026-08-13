@@ -1,13 +1,7 @@
 ---
 name: laravel-ai-agents-ecosystem
-description: >-
-  Use when creating, testing, or monitoring AI agents in Laravel with the
-  laravel/ai (aiSDK) ecosystem. Covers agent classes, function-calling tools,
-  structured JSON outputs, Pest testing with fakeAgent, token cost tracking,
-  and the B2B AgentHealthScore business rules. Triggers on Agent/Tool classes,
-  HasStructuredOutput, HasAgentAiRequest, Ai::fakeAgent(), and cost persistence.
+description: "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules. Covers objectives and core workflows."
 ---
-
 # Ecossistema de Agentes de IA no Laravel
 
 ## Objetivo
@@ -40,7 +34,7 @@ Padrões de Pest PHP para usar `Ai::fakeAgent()`, testar loops assíncronos (`is
 
 ### 5. Token Cost Tracking
 
-Cálculo SÍNCRONO de custo dentro do trait `HasAgentAiRequest` (`calculatePrice()`/`getTablePrice()`), preços fixos por modelo no próprio código, tabela `agents_ai_cost` (morph `costable`, `decimal(10,6)`) e persistência via `saveAiCost()` chamado no Job.
+Cálculo SÍNCRONO de custo dentro do trait `HasAgentAiRequest` (`calculatePrice()`/`getTablePrice()`), preços cadastrados **no banco** (tabela `ai_models`, via `AiPricingService`), tabela `agents_ai_cost` (morph `costable`, `decimal(10,6)`) e persistência via `saveAiCost()` chamado no Job.
 🔗 **Referência:** [Token Cost Tracking](references/token-cost-tracking.md)
 
 ### 6. B2B Health Score (AgentHealthScore)

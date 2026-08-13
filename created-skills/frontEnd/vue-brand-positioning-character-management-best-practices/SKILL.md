@@ -1,8 +1,7 @@
 ---
 name: vue-brand-positioning-character-management-best-practices
-description: "Use quando criar, modificar, estilizar ou depurar componentes, páginas ou stores Vue 3 do módulo de posicionamento de marca e personagens (SocialMedia): TabBrandPositioning, TabCharacters, TabThemes. Cobre a store MaxPinia com salvamento automático (useBrandPositioning) e a store Pinia manual com axios + route Ziggy (useSocialMediaCharacters), uploads de imagens de referência facial e temas."
+description: "Use when building, styling, or debugging Vue 3 brand positioning and character components/stores in SocialMedia module (TabBrandPositioning, TabCharacters, TabThemes, useBrandPositioning, useSocialMediaCharacters). Covers brand positioning, character management, and social media stores."
 ---
-
 # Boas Práticas de Gerenciamento de Posicionamento de Marca e Personagens em Vue
 
 ## Objetivo

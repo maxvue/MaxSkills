@@ -1,8 +1,7 @@
 ---
 name: laravel-vue-login-maxauthcard-best-practices
-description: "Use ao implementar, revisar ou depurar login e sessão no engeapp (Laravel 13 + Ziggy + Vue Router + MaxPinia): backend com AuthenticatedSessionController, LoginRequest e-mail OU telefone, sessão por cookie (guard web, sem Sanctum) e Socialite; frontend com MaxAuthCard (identifier email-phone), stores useLogin/useUser, guard waitRequest, login social por redirect Ziggy e logout GET /logout."
+description: "Use when implementing or debugging authentication in Engeapp (Laravel + Ziggy + Vue Router + MaxPinia): AuthenticatedSessionController, cookie sessions, MaxAuthCard, useLogin/useUser stores, and social login redirects. Covers objectives and central authentication stack."
 ---
-
 # Login full-stack (Laravel 13 + Vue 3.6 + MaxAuthCard)
 
 ## Objetivo

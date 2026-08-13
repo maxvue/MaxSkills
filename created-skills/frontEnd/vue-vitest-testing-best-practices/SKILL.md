@@ -1,8 +1,7 @@
 ---
 name: vue-vitest-testing-best-practices
-description: "Use when writing, debugging, or updating front-end unit and integration tests using Vitest and Vue Test Utils for Vue 3 components, @maxvue/max-pinia stores, and composables in Engeapp. Triggers on creating test files in tests/Js/, configuring Vitest, stubbing global helpers (apiGetRoute/apiPostRoute, axios, route), isolating MaxPinia stores, and verifying rendering, interactions, or store state."
+description: "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Covers objectives and core workflows."
 ---
-
 # Melhores Práticas de Testes com Vitest no Vue
 
 ## Objetivo

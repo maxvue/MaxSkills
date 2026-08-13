@@ -1,8 +1,7 @@
 ---
 name: technical-documentation-best-practices
-description: "Use when writing or improving technical documentation — READMEs, API endpoints, UI components, ADRs, changelogs, CONTRIBUTING, install/config guides or database schemas. Includes TypeScript docs (JSDoc/TSDoc, TypeDoc, ESLint, CI/CD) and doc patterns for Laravel 13 controllers/services and Vue 3 MaxPinia stores (rotas por nome Ziggy pontilhado). Provides templates and a quality checklist."
+description: "Use when writing or improving technical documentation: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, and Laravel/Vue doc patterns. Covers best practices, debugging strategies, and objectives."
 ---
-
 # Boas Práticas de Documentação Técnica
 
 ## Objetivo

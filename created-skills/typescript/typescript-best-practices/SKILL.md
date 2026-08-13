@@ -1,8 +1,7 @@
 ---
 name: typescript-best-practices
-description: "Use when reading, writing, or reviewing TypeScript/JavaScript files (.ts, .tsx, .js, tsconfig.json) in the EngeApp Vue 3 stack. Covers the no-any hard rule, typing boundary/third-party values, discriminated unions to make illegal states unrepresentable, functional and error-handling idioms, and running the TS Language Server plus project type-check after edits."
+description: "Use when reading, writing, or reviewing TypeScript and JavaScript files (.ts, .tsx, .js) in Engeapp. Covers strict no-any rule, type boundaries, discriminated unions, and error handling."
 ---
-
 # TypeScript Best Practices
 
 Covers language-specific idioms for TypeScript in this stack.

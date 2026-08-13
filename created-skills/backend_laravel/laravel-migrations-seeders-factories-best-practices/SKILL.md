@@ -1,8 +1,7 @@
 ---
 name: laravel-migrations-seeders-factories-best-practices
-description: "Use when creating, modifying, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Triggers on schema definitions, table creation, foreign keys, database seeders, and factory definitions."
+description: "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Covers objectives and core workflows."
 ---
-
 # Objetivo
 Garantir que migrations, seeders e model factories no Laravel estejam em conformidade com os padrões de arquitetura do Engeapp. Isso promove integridade do banco de dados, testes locais rápidos e atualizações de schema resilientes.
 

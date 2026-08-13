@@ -1,8 +1,7 @@
 ---
 name: laravel-editorial-calendar-event-workflow-best-practices
-description: "Use ao desenvolver, revisar ou depurar o ciclo de vida e as transições de status dos eventos do calendário editorial do Instagram (App\\Models\\Calendar\\Event, enum CalendarEventStatusEnum) no Laravel 13 do engeapp: encadeamento dos agentes de IA (Copywriter, GraphicEditor, ArtAnalyst) pelo App\\Observers\\EventObserver a cada mudança de status, jobs na fila gemini e reset para planned em falha."
+description: "Use when implementing or managing editorial calendar events, post scheduling, workflow status states, and automated publishing channels in Engeapp. Covers event workflows and publishing channels."
 ---
-
 # Boas Práticas do Fluxo de Trabalho de Eventos do Calendário Editorial no Laravel
 
 ## Objetivo

@@ -1,8 +1,7 @@
 ---
 name: laravel-media-library-best-practices
-description: 'Use ao definir, implementar, revisar ou depurar upload e anexos de arquivos com Spatie Laravel Media Library no engeapp. Cobre models HasMedia/InteractsWithMedia, o Media model customizado (App\Models\Media\Media com HasUlids e custom properties), coleções com disco por domínio (projects/whatsapp/bugs/default), conversões nonQueued, o MediaController genérico e as rotas media.* de view/download.'
+description: "Use when managing file uploads and attachments with Spatie Media Library in Engeapp. Covers HasMedia/InteractsWithMedia models, custom Media model, domain disks (projects/whatsapp), conversions, and media.* routes."
 ---
-
 # Boas Práticas do Spatie Laravel Media Library (engeapp)
 
 ## Objetivo

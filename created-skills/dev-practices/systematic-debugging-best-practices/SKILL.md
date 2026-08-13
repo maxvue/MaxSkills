@@ -1,8 +1,7 @@
 ---
 name: systematic-debugging-best-practices
-description: Use when reporting a bug, investigating unexpected behavior, test failures, build errors, performance degradation, or intermittent production issues, and before proposing any fix. Enforces root-cause investigation before attempting a fix — no guessing, follow the evidence.
+description: "Use when investigating unexpected behavior, test failures, build errors, or performance issues. Enforces root-cause analysis before proposing fixes based on log evidence. Covers systematic debugging methodology and log inspection."
 ---
-
 # Metodologia Sistemática de Depuração
 
 ## Objetivo

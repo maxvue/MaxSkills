@@ -1,8 +1,7 @@
 ---
 name: laravel-brazilian-data-queries-best-practices
-description: "Use ao projetar, implementar ou depurar serviços que consultam dados brasileiros de CNPJ e CEP no engeapp. Cobre ApiCnpjService (fallback ReceitaWS→OpenCNPJ→CnpjAberto) e ApiCepService (CepAberto→ViaCep→OpenCep→BrasilAPI→AwesomeAPI→apicep→BrasilAberto), com cache, normalização e resolução de CEP contra o banco local (models Cep/City/State)."
+description: "Use when querying Brazilian CNPJ and CEP data in Engeapp. Covers ApiCnpjService fallback chain, ApiCepService, caching, and local Cep/City/State models. Covers objectives and core workflows."
 ---
-
 # Boas Práticas de Consultas a Dados Brasileiros no Laravel (engeapp)
 
 ## Objetivo

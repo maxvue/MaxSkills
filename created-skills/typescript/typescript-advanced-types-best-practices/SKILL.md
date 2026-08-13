@@ -1,8 +1,7 @@
 ---
 name: typescript-advanced-types-best-practices
-description: "Use when designing type-safe TypeScript architectures or solving advanced type problems — generics, conditional types, mapped types, template literal types, utility types, branded types, strict compiler configuration, type inference, and type testing. Triggers on type-level programming, shared type contracts, and hardening type safety for production systems."
+description: "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config. Covers objectives and core workflows."
 ---
-
 # Tipos Avançados e Boas Práticas em TypeScript
 
 ## Objetivo

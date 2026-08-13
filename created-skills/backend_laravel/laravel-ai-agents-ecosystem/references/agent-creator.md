@@ -93,10 +93,33 @@ class MyAgentJob implements ShouldQueue {
 }
 ```
 Implement the `isDone()` method to check in the database whether the agent's final goal has been reached (returning `true`). If `false`, the fallback (retry with model switch) can act.
-Default Fallback Chain: `gemini-3.1-flash-lite` -> `gemini-2.5-flash` -> `gemini-3.5-flash` -> `gemini-2.5-pro`.
 
-### 5. Gemini Model Selection Guide
-- `gemini-3.1-flash-lite`: Fast and cheap. Excellent for simple structured extraction.
-- `gemini-2.5-flash`: Moderate reasoning and multiple steps.
-- `gemini-3.5-flash`: Complex reasoning with multiple tools.
-- `gemini-2.5-pro`: Extreme quality and decision-making, high cost (restricted use).
+A cadeia de fallback **não é hardcoded**: vem de `ai_models.fallback_models` (banco, fonte
+real) com `config('ai.default_fallback_chains')` como rede de segurança. Ver
+[token-cost-tracking.md](token-cost-tracking.md) §5.
+
+### 5. Model Selection Guide
+
+O projeto é **multi-provider**: `gemini`, `deepseek` e `xAi`. Preço e disponibilidade vivem
+na tabela `ai_models` — **consulte o banco** (ou a tela Settings → IA) antes de escolher,
+em vez de confiar em qualquer lista escrita aqui, que envelhece rápido.
+
+```sql
+SELECT p.key, m.model, m.not_cached, m.output_reasoning
+FROM ai_models m JOIN ai_providers p ON p.id = m.ai_provider_id
+WHERE m.active = 1 ORDER BY p.key, m.not_cached;
+```
+
+Critérios de escolha:
+
+- **Texto puro** (triagem, classificação, extração de dados de texto): prefira o modelo
+  ativo mais barato. Hoje `deepseek-v4-flash` é ordens de grandeza mais barato que os
+  Gemini flash.
+- **Multimodal** (PDF, imagem, áudio): exige modelo com suporte à modalidade.
+  ⚠️ `deepseek-v4-flash` é **text-only**; no DeepSeek, só o `deepseek-v4-pro` aceita imagem.
+  Para PDF/imagem, use um Gemini flash ativo.
+- **Raciocínio complexo com múltiplas tools**: modelo de maior capacidade (família `pro`),
+  de uso restrito por causa do custo.
+
+Ao adotar um modelo, confirme que ele está em `ai_models` com `active = 1` e preço
+preenchido — modelo ausente faz o custo ser gravado como zero, silenciosamente.

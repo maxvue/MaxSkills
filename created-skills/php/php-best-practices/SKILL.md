@@ -1,10 +1,8 @@
 ---
 name: php-best-practices
-description: "PHP 8.x modern patterns, PSR standards, and SOLID principles for the Laravel 13 / PHP 8.4 backend. Use when reviewing PHP code, checking type safety, auditing code quality, or ensuring PHP best practices. Triggers on \"review PHP\", \"check PHP code\", \"audit PHP\", or \"PHP best practices\"."
-metadata:
-  phpVersion: "8.4 (target atual do engeapp, pinado via composer platform 8.4.99) — notas de 8.5 incluídas apenas como cobertura antecipada para quando o piso subir"
+description: "Use when writing, refactoring, or reviewing PHP 8.5 code in Engeapp. Covers modern PHP patterns, PSR standards, strict typing, constructor property promotion, enums, and SOLID principles."
+metadata: {'phpVersion': '8.4 (target atual do engeapp, pinado via composer platform 8.4.99) — notas de 8.5 incluídas apenas como cobertura antecipada para quando o piso subir'}
 ---
-
 # PHP Best Practices
 
 Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 45 rules for writing clean, maintainable PHP code.

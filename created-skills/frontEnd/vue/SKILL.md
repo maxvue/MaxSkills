@@ -1,12 +1,8 @@
 ---
 name: vue
-description: Fundamentos de Vue 3 Composition API (3.6) no engeapp — `<script setup lang=ts>`, defineProps/Emits/Model, reatividade/watchers, componentes embutidos (Transition/Teleport/Suspense/KeepAlive), fluxo props↓/eventos↑, composables, divisão de componentes e performance de listas. Use ao escrever/refatorar SFCs `.vue` ou revisar Vue de base. Fetch/estado/rotas/ecossistema Max → vue-max-stack.
-metadata:
-  author: Anthony Fu
-  version: "2026.1.31"
-  source: Generated from https://github.com/vuejs/docs, scripts at https://github.com/antfu/skills
+description: "Use for core Vue 3 Composition API fundamentals in Engeapp. Covers script setup, defineProps, defineEmits, defineModel, reactivity, built-in components, composables, component splitting, and list performance."
+metadata: {'author': 'Anthony Fu', 'version': '2026.1.31', 'source': 'Generated from https://github.com/vuejs/docs, scripts at https://github.com/antfu/skills'}
 ---
-
 # Vue
 
 > Fundamentos puros de Vue 3. O engeapp usa Vue `^3.6.0-rc.2` (recursos 3.4/3.5 abaixo continuam válidos). Sempre use a Composition API com `<script setup lang="ts">`.

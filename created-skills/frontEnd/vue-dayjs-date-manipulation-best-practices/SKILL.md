@@ -1,8 +1,7 @@
 ---
 name: vue-dayjs-date-manipulation-best-practices
-description: "Use ao manipular, formatar, parsear ou comparar datas e horas no frontend Vue 3 do EngeApp com Day.js (dayjs ^1.11.21, já no package.json). Prefira as composables de @maxvue/max-use (useDateFormat, useTimeAgo) e recorra ao Day.js direto só para timezone, durations ou parsing estrito. Cobre formatos pt-BR, proteção de fuso e extensão de plugins."
+description: "Use when formatting, parsing, or comparing dates and times in Vue 3 with Day.js. Covers @maxvue/max-use composables (useDateFormat, useTimeAgo), timezones, durations, and strict parsing."
 ---
-
 # Boas Práticas de Manipulação de Datas com Day.js no Vue 3
 
 > **Prefira as composables do `@maxvue/max-use` para datas.** O `dayjs ^1.11.21` está no `package.json` do EngeApp, mas para formatação e tempo relativo a via padrão do frontend é `useDateFormat` e `useTimeAgo` de `@maxvue/max-use` (wrappers seguros do VueUse, já com fallback e locale pt-BR). Use o Day.js **diretamente** apenas quando precisar de recursos avançados (timezone, durations, parsing estrito) que essas composables não cobrem.

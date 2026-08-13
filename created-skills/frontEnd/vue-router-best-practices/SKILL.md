@@ -1,8 +1,7 @@
 ---
 name: vue-router-best-practices
-description: "Use ao projetar, depurar ou revisar Vue Router no frontend Vue 3 do engeapp: registro dinâmico de páginas via import.meta.glob de resources/Vue/Pages, layouts default/guest/site, rotas dinâmicas registradas manualmente (integrador_client_show/:id), guards beforeEach com callback next(), useUserStore.waitRequest, useLoadingStore, navegação com useRouter e leitura de params com useRoute."
+description: "Use when designing, debugging, or reviewing Vue Router in Engeapp. Covers dynamic page registration via import.meta.glob, public routes, layouts, beforeEach guards, waitRequest, and loading stores."
 ---
-
 # Melhores Práticas de Vue Router
 
 ## Objetivo

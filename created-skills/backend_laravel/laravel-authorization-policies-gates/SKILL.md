@@ -1,8 +1,7 @@
 ---
 name: laravel-authorization-policies-gates
-description: Use ao criar, alterar ou revisar autorização no Laravel 13 do engeapp com spatie/laravel-permission. Cobre roles/permissões nomeadas (HasRoles, hasRole/hasPermissionTo), permissões registradas como gates, Policies com escopo multi-tenant (allowedSolarCompanyIds), Gates ad-hoc (viewPulse), middleware can:permissao.nomeada e exposição das permissões à SPA Vue via store MaxPinia.
+description: "Use when creating or reviewing authorization in Laravel via spatie/laravel-permission. Covers roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia integration. Covers objectives and core workflows."
 ---
-
 # Laravel Authorization Policies and Gates
 
 ## Objetivo

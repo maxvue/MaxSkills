@@ -1,8 +1,7 @@
 ---
 name: laravel-power-of-attorney-generation-best-practices
-description: Use ao criar, revisar ou depurar a geração de Procurações (Power of Attorney) no backend Laravel via App\Services\Signature\PowerAttorneyService (generateData/createPdf/getAddress), ao formatar endereços de cliente ou representante legal em documentos legais, ou ao gerar o PDF (DomPDF) para concessionárias de projetos solares.
+description: "Use when creating, reviewing, or debugging Power of Attorney PDF generation in Laravel via PowerAttorneyService, formatting legal addresses, and rendering DomPDF documents. Covers document generation and DomPDF rendering."
 ---
-
 # laravel-power-of-attorney-generation-best-practices
 
 ## Objetivo

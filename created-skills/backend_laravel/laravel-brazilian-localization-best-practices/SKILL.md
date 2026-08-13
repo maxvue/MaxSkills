@@ -1,8 +1,7 @@
 ---
 name: laravel-brazilian-localization-best-practices
-description: Use when validating, formatting, sanitizing, or processing Brazilian documents (CPF, CNPJ, CEP, phone numbers) and when formatting, parsing, or rounding currency (BRL), percentages, decimal numbers, or converting numbers and monetary values into words in Portuguese (pt-BR) on both backend (Laravel) and frontend (Vue 3/MaxUse).
+description: "Use when validating, formatting, or sanitizing Brazilian documents (CPF, CNPJ, CEP, phone numbers) and currency values (BRL, pt-BR) across Laravel backend and Vue 3 / MaxUse frontend. Covers Brazilian localization best practices and document validation."
 ---
-
 # Boas Práticas de Localização Brasileira
 
 ## Objetivo

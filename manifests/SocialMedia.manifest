@@ -19,10 +19,15 @@ backend_laravel/laravel-security-hardening-best-practices
 backend_laravel/laravel-editorial-calendar-event-workflow-best-practices
 backend_laravel/laravel-meta-graph-api-integration-best-practices
 backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices
+backend_laravel/laravel-vue-login-maxauthcard-best-practices
+backend_laravel/laravel-ai-agents-ecosystem
+backend_laravel/laravel-socialite-oauth-integration-best-practices
+backend_laravel/laravel-jobs-queues-horizon-best-practices
+backend_laravel/laravel-service-providers-dependency-injection-best-practices
+backend_laravel/laravel-rate-limiting-best-practices
+backend_laravel/laravel-redis-integration-best-practices
 # --- frontend Vue/Max ---
 frontEnd/vue
-frontEnd/vue-best-practices
-frontEnd/vue-expert
 frontEnd/vue-typescript-best-practices
 frontEnd/vue-max-stack-frontend-best-practices
 frontEnd/vue-router-best-practices
@@ -31,7 +36,6 @@ frontEnd/vue-max-use-usecachedapi-state-cache-best-practices
 frontEnd/vue-max-ecosystem-api-reference
 frontEnd/vue-max-components-ui-popovers-confirmations-best-practices
 frontEnd/vue-axios-api-integration-best-practices
-frontEnd/vue-auth-session-state-best-practices
 frontEnd/vue-auto-import-components-best-practices
 frontEnd/vue-unocss-styling-best-practices
 frontEnd/vue-brand-positioning-character-management-best-practices

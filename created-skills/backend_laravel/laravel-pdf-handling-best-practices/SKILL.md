@@ -1,8 +1,7 @@
 ---
 name: laravel-pdf-handling-best-practices
-description: 'Use ao gerar, renderizar, extrair texto, validar ou converter PDFs em imagem no Laravel do engeapp. Cobre DomPDF via trait HasDocument (Pdf::loadHTML + isRemoteEnabled), FPDI/TCPDF via App\Classes\PdfEdit (importFile, coordenadas em mm), validação com pdfIsValid()/CouldNotExtractText e conversão em .png via File::createThumbnailFromPdf()/ImageGenerator. Enfileire processamento pesado.'
+description: "Use when generating, rendering, extracting text, validating, or converting PDFs to images in Engeapp. Covers DomPDF via HasDocument trait, FPDI/TCPDF via PdfEdit, pdfIsValid() validation, and File::createThumbnailFromPdf()."
 ---
-
 # Boas Práticas de Manipulação de PDF no Laravel
 
 ## Objetivo
@@ -45,11 +44,24 @@ Use `Spatie\PdfToText\Pdf::getText($path)`. O engeapp centraliza a validação n
 ### 2.2 Conversão para imagem (spatie/pdf-to-image) — padrão em uso
 Existem dois caminhos distintos e não relacionados de conversão PDF→imagem no engeapp:
 1. `App\MediaLibrary\ImageGenerators\Pdf`, registrado em `config/media-library.php`, usado pelo pipeline de conversões do Spatie Media Library.
-2. `App\Models\File\File::createThumbnailFromPdf()`, que instancia `Spatie\PdfToImage\Pdf` diretamente e é o padrão real de thumbnail em uso: `new Pdf($this->path)`, depois `setResolution(400)->setPage(1)->setOutputFormat('png')->saveImage($temp_path)`, seguido de `resizeImage()` e `@unlink()` do temporário. Não depende do ImageGenerator do Media Library.
+2. `App\Models\File\File::createThumbnailFromPdf()`, que instancia `Spatie\PdfToImage\Pdf` diretamente e é o padrão real de thumbnail em uso: `new Pdf($this->path)`, depois `resolution(400)->selectPage(1)->format(OutputFormat::Png)->save($temp_path)`, seguido de `resizeImage()` e `@unlink()` do temporário. Não depende do ImageGenerator do Media Library.
 
 * Gere sempre `.png`, não `.jpg`, para evitar que o Imagick produza fundo preto em PDFs com fundo transparente.
-* O engeapp está fixado em `spatie/pdf-to-image` `^1.2` (1.4.0 instalado), então a API realmente em uso hoje é a legada: `setResolution()->setOutputFormat('png')->setPage($n)->saveImage($img)` (ver `File::createThumbnailFromPdf()`). O ramo v3 (`selectPage($n)->save($img)`) é código dormente, só relevante se a constraint do `composer.json` for elevada para `^3.0` — não apresente v2/v3 como alternativas correntes equivalentes.
+* O engeapp usa `spatie/pdf-to-image` `^3.3` (3.4.0 instalado). A API v3 é a única válida: `resolution()`, `selectPage()`, `format(OutputFormat::Png)`, `save()`. Os métodos da v2 (`setResolution`, `setPage`, `setOutputFormat`, `saveImage`) **não existem mais** e lançam `Error: Call to undefined method` — não `Exception`.
+* `App\MediaLibrary\ImageGenerators\Pdf` mantém um ramo v2 atrás de `usesPdfToImageV3()` (checagem via `InstalledVersions::satisfies`). Esse ramo é código morto na versão atual; não o tome como referência de API corrente.
 * Exige a extensão `Imagick` instalada (`requirementsAreInstalled()` checa `class_exists(Imagick::class)`).
+
+### 2.2.1 Redimensionamento (intervention/image v4)
+`resizeImage()` (em `app/Helpers/FilesHelpers.php`) é o helper usado logo após a conversão PDF→imagem e também no thumbnail de imagens.
+
+* O engeapp usa `intervention/image` `^4.2` (4.2.1 instalado). Use `ImageManager::decodePath($path)` — `read()` foi **removido** na v4.
+* Os encoders por formato (`toPng()`, `toJpeg()`, `toGif()`, `toTiff()`, `toWebp()`) também saíram. Para gravar em disco, `save($path)` já resolve o encoder pela extensão do destino; para obter os bytes (ex.: base64), use `encodeUsingFileExtension('jpg', quality: 50)`.
+
+### 2.2.2 Erros de API quebrada são `Error`, não `Exception`
+Ao chamar um método removido por upgrade de biblioteca, o PHP lança `Error`. Um `catch (Exception $e)` **não** o intercepta.
+
+* Em código acessório disparado por hooks de model (`booted()` do `File` chama `setThumbnail()`/`checkPageNumbersPdf()`), capture `Throwable` — um `Error` ali derruba com 500 a criação inteira do registro, e não apenas a miniatura.
+* Cuidado com o efeito de mascaramento: com o `catch` alargado, uma falha seguinte passa a ser engolida silenciosamente. Testes desse caminho devem assertar o **efeito** (o arquivo saiu no disco, com a dimensão esperada), não apenas a ausência de exceção.
 
 ### 2.3 Processamento em segundo plano e testes
 * Para PDFs grandes, despache Jobs enfileirados (`implements ShouldQueue`), como faz `ThemeExtractionJob`, em vez de processar na thread da requisição HTTP.

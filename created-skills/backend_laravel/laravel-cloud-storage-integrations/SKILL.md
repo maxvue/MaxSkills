@@ -1,8 +1,7 @@
 ---
 name: laravel-cloud-storage-integrations
-description: Use ao configurar, implementar ou depurar integrações de armazenamento remoto no Laravel. O caso concreto do engeapp é Seafile via WebDAV (driver customizado 'seafile' em AppServiceProvider, credenciais em config('filesystems.seafile'), disco 'projects' do Spatie Media Library). Cobre streams de arquivos grandes, incompatibilidade de path() em discos remotos e S3/MinIO/R2 como orientação genérica.
+description: "Use when configuring or debugging remote storage in Laravel. Covers Seafile WebDAV driver in AppServiceProvider, Seafile filesystems config, and Spatie Media Library projects disk."
 ---
-
 # Boas Práticas de Integrações com Cloud Storage no Laravel
 
 ## Objetivo

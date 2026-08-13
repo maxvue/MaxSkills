@@ -1,8 +1,7 @@
 ---
 name: vue-toast-notifications-toastify-best-practices
-description: Use SEMPRE que precisar exibir uma notificação toast / "toastzinho" / aviso flutuante / snackbar no frontend Vue 3 (feedback de sucesso, erro, aviso, cópia para a área de transferência, resultado de save). O padrão obrigatório é o MaxToast do @maxvue/max-components-ui, disparado pelo helper Toast.show({ title, severity }). Cobre montagem única de <MaxToast /> no App.vue, as 5 severidades, duração/pausa no hover, feedback do save MaxPinia via status reativo, e a exceção legada vue3-toastify.
+description: "Use when displaying toast notifications or floating alerts in Vue 3. Standard requirement is MaxToast from @maxvue/max-components-ui triggered via Toast.show({ title, severity }) with ToastPayload."
 ---
-
 # Notificações Toast no Vue 3 — MaxToast é o padrão
 
 ## Objetivo

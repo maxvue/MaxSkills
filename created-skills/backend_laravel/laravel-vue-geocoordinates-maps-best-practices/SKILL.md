@@ -1,8 +1,7 @@
 ---
 name: laravel-vue-geocoordinates-maps-best-practices
-description: "Use ao lidar com coordenadas geográficas (Decimal, UTM, DMS) no engeapp: validar DTOs Spatie Data (CoordinateDecimalData, CoordinateUTMData, CoordinateDMSData) e persistir JSON no model LocationCoordinate (Laravel), integrar mapa com vue3-google-map/MaxMaps.vue e converter UTM/DMS/Decimal no frontend via utm-latlng dentro do store MaxPinia useCoordinates.Store."
+description: "Use when handling geographic coordinates (Decimal, UTM, DMS) in Engeapp. Covers validating Spatie Data DTOs, persisting LocationCoordinate JSON, integrating Google Maps, and converting UTM/DMS/Decimal via utm-latlng."
 ---
-
 # Boas Práticas de Coordenadas Geográficas e Mapas em Laravel e Vue
 
 ## Objetivo

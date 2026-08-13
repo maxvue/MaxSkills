@@ -1,8 +1,7 @@
 ---
 name: laravel-concessionaires-connection-regulation-best-practices
-description: "Use ao criar, alterar ou consultar concessionárias de energia, filiais, canais de atendimento, automações e normas técnicas de conexão (fases, tensão, disjuntor e bitola de cabos) no backend Laravel do engeapp. Acione em models, DTOs, controllers e rotas de Concessionaire e nos parâmetros elétricos usados para dimensionar projetos fotovoltaicos."
+description: "Use when managing energy concessionaires, subsidiaries, RPAs, and connection standards (phases, voltage, breaker, cables) in Engeapp, and electrical parameters for PV sizing. Covers concessionaire regulations and electrical connection standards."
 ---
-
 # Boas Práticas de Concessionárias e Normas Técnicas de Conexão
 
 ## Objetivo

@@ -1,8 +1,7 @@
 ---
 name: laravel-pest-testing-best-practices
-description: "Use when writing, debugging, or reviewing Unit, Feature, or Architecture tests with Pest PHP in Laravel. Triggers on test creation, assertions, mocking dependencies, factory usage, database test setup, enforcing code standards and architectural boundaries via arch(), or faking HTTP client calls (Http::fake, Http::sequence, Http::assertSent) for external API tests."
+description: "Use when writing, debugging, or reviewing Unit, Feature, or Architecture tests with Pest PHP in Laravel. Covers test creation, assertions, mocking dependencies, factory usage, database setup, arch() rules, and Http::fake()."
 ---
-
 # Boas Práticas de Testes com Pest e de Arquitetura no Laravel
 
 ## Objetivo

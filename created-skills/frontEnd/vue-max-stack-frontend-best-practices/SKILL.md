@@ -1,8 +1,7 @@
 ---
 name: vue-max-stack-frontend-best-practices
-description: "Use when developing the Vue 3 (Composition API, script setup lang=ts) front-end of EngeApp (Laravel 13) with Vue Router, MaxComponentsUi, MaxUse and MaxPinia. Triggers on creating/editing components, pages, composables, cached stores; forms, tables, modals; named routes via apiGetRoute (Ziggy-resolved); vue-tsc or Vitest; Max* or @maxvue/* imports — even if the user never says Max."
+description: "Use when developing Vue 3 SFC (<script setup lang='ts'>) front-end in Engeapp. Covers Vue Router, MaxComponentsUi, MaxUse, MaxPinia cached stores, forms, tables, and Ziggy routes."
 ---
-
 # Front-end Vue do Ecossistema Max (EngeApp — Laravel 13)
 
 ## Objetivo

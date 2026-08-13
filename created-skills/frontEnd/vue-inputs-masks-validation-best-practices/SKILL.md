@@ -1,8 +1,7 @@
 ---
 name: vue-inputs-masks-validation-best-practices
-description: Use ao implementar, formatar ou validar inputs com máscaras em componentes Vue 3 do EngeApp usando Maska v3 e libphonenumber-js, além de card-validator e @polvo-labs/card-type (ambos já instalados no projeto). Acione ao configurar telefone, CPF, CNPJ, moeda, CEP, placa de veículo e cartão de crédito, tratar máscaras dinâmicas e fazer validação/unmask antes de persistir na store @maxvue/max-pinia.
+description: "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card. Covers objectives and core workflows."
 ---
-
 # Boas Práticas de Inputs, Máscaras e Validação no Vue 3
 
 ## Objetivo

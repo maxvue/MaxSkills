@@ -1,8 +1,7 @@
 ---
 name: laravel-rate-limiting-best-practices
-description: 'Use ao configurar, otimizar ou depurar limites de requisições (rate limiting) para rotas HTTP, APIs, login ou filas no Laravel 13. Aciona ao definir limiters nomeados em App\Providers\AppServiceProvider via RateLimiter::for, aplicar o middleware throttle (nomeado ou inline throttle:6,1), fazer throttling manual em FormRequest (tooManyAttempts/hit/clear), customizar a resposta 429 e testar no Pest.'
+description: "Use when configuring, optimizing, or debugging rate limits for HTTP routes, APIs, logins, or queues in Laravel. Covers named limiters in AppServiceProvider, throttle middleware, manual FormRequest throttling, and 429 response customization."
 ---
-
 # Boas Práticas de Rate Limiting no Laravel
 
 ## Objetivo

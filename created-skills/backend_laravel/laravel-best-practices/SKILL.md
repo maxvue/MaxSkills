@@ -1,11 +1,9 @@
 ---
 name: laravel-best-practices
-description: "Aplique ao escrever, revisar ou refatorar código Laravel 13 / PHP 8.4: controllers, models, migrations, form requests, policies, jobs, comandos agendados, service classes e queries Eloquent. Aciona em performance de queries e N+1, cache, autorização e segurança, validação, tratamento de erros, filas, rotas e decisões de arquitetura. Também para code reviews e refatoração Laravel."
+description: "Use when writing or refactoring Laravel 13 / PHP 8.5 code: controllers, models, migrations, requests, policies, jobs, commands, and Eloquent queries. Covers design consistency, DB performance, caching, security, and N+1 prevention."
 license: MIT
-metadata:
-  author: engeapp
+metadata: {'author': 'engeapp'}
 ---
-
 # Boas Práticas de Laravel
 
 Boas práticas para Laravel, priorizadas por impacto. Cada regra ensina o que fazer e por quê. Para a sintaxe exata da API, consulte a documentação da versão instalada (vendor/ ou docs oficiais); se o MCP do Laravel Boost estiver habilitado, use `search-docs`.

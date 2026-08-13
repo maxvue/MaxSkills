@@ -1,8 +1,7 @@
 ---
 name: laravel-finance-coupons-discounts-best-practices
-description: Use when creating, modifying, applying, or validating discount coupons (cupons de desconto), referral usage rules, or financial discounts (descontos financeiros) in Laravel. Triggers on coupon validation logic, payment discount adjustments, coupon-project associations, and discount expiration checks.
+description: "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks. Covers objectives and core workflows."
 ---
-
 # Boas Práticas de Cupons e Descontos Financeiros no Laravel
 
 ## Objetivo

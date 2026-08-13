@@ -1,8 +1,7 @@
 ---
 name: laravel-typescript-transformer-best-practices
-description: Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer. Triggers on typescript:transform command execution, custom type writer/transformer adjustments, and TypeScript type checking errors in Vue/TS components.
+description: "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Covers objectives, TypeScript DTO transformation, and language rules."
 ---
-
 # Objetivo
 Garantir diretrizes sólidas e consistentes para configurar, gerar e validar definições TypeScript a partir de DTOs e Enums PHP do backend, mantendo a sincronização perfeita entre Laravel e Vue 3 / TypeScript no ecossistema do Engeapp.
 

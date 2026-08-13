@@ -1,8 +1,7 @@
 ---
 name: vue-max-components-ui-popovers-confirmations-best-practices
-description: "Use ao implementar, estilizar ou revisar tooltips de texto no hover, popovers contextuais, menus suspensos e confirmações de ação rápida no front Vue 3 do engeapp. Tooltips usam a diretiva v-tooltip do PrimeVue (registrada por MaxComponentsUi) com modificadores .top/.right/.bottom/.left. Popovers, menus e confirmações usam MaxPopover, MaxPopoverMenu e MaxIconConfirm."
+description: "Use when implementing tooltips, popovers, dropdown menus, MaxPopover, and confirmation dialogs in Vue 3 using PrimeVue v-tooltip directive registered via MaxComponentsUi."
 ---
-
 # Melhores Práticas para Popovers & Confirmações do MaxComponentsUi no Vue
 
 ## Objetivo

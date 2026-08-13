@@ -1,8 +1,7 @@
 ---
 name: laravel-global-helpers-best-practices
-description: "Use ao criar, modificar, refatorar ou testar funções helper globais no backend Laravel do engeapp (arquivos em app/Helpers/). Cobre a convenção real do projeto: funções globais soltas em arquivos por domínio (sem namespace nem classes estáticas), nomes em camelCase, registro em composer autoload.files, design stateless para Octane e testes Pest em tests/Unit/Helpers/."
+description: "Use when creating, modifying, or testing global helper functions in Engeapp (app/Helpers/). Covers domain helper files, camelCase naming, composer autoload registration, Octane statelessness, and Pest unit tests."
 ---
-
 # Boas Práticas de Helpers Globais no Laravel (engeapp)
 
 ## Objetivo

@@ -1,8 +1,7 @@
 ---
 name: laravel-performance-and-profiling-best-practices
-description: "Use when configuring, optimizing, debugging, or reviewing Laravel 13 profiling and observability tooling in the EngeApp backend: Pulse monitoring, Clockwork timelines, LaraDumps ds() debugging, Debugbar CLI, Telescope watchers/pruning, Log Viewer, and Pail log tailing. Covers production authorization/gates, sensitive-data filtering, N+1 detection, and stripping ds()/clock() markers before commit."
+description: "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, and Pail log tailing. Covers objectives and core workflows."
 ---
-
 # Boas Práticas de Performance e Profiling no Laravel
 
 ## Objetivo

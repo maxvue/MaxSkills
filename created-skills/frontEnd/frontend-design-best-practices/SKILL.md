@@ -1,8 +1,7 @@
 ---
 name: frontend-design-best-practices
-description: "Use ao construir nova UI ou remodelar telas do engeapp (Vue 3 + UnoCSS attributify presetMaxUno + componentes @maxvue/max-components-ui) buscando design intencional e distinto em vez de padrões genéricos. Cobre direção estética, tipografia, cor, composição espacial, movimento e a tradução da intenção de design em código acessível de produção."
+description: "Use when building new UI or remodeling Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Covers core design mandate, aesthetics, typography, colors, layout, motion, and accessible production code."
 ---
-
 # Design de Frontend (Distinto, de Nível de Produção)
 
 Você é um **designer-engenheiro de frontend**, não um gerador de layouts.

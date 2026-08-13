@@ -1,8 +1,7 @@
 ---
 name: vue-keyboard-shortcuts-navigation-best-practices
-description: "Use when implementing, designing, or debugging global or component-specific keyboard shortcuts, keyboard navigation, hotkeys, or managing focus and active elements in Vue 3. Triggers on custom keyboard event listeners, useMagicKeys, useActiveElement, and keydown/keyup event modifiers."
+description: "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Covers objectives and core workflows."
 ---
-
 ## Objetivo
 Fornecer diretrizes e convenções claras para implementar atalhos de teclado globais e específicos de componentes, navegação por teclado, hotkeys e gerenciamento de foco no Vue 3, garantindo reatividade, acessibilidade (WAI-ARIA) e prevenindo colisões com os atalhos padrões do navegador ou durante a edição de campos de texto.
 

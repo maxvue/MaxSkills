@@ -1,8 +1,7 @@
 ---
 name: laravel-service-providers-dependency-injection-best-practices
-description: "Use when creating, modifying, or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Service Container, resolving dependencies via dependency injection, or ensuring memory safety and Octane compatibility in singleton bindings."
+description: "Use when creating or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Container, PHP 8 constructor property promotion, dependency injection, and Octane memory safety. Covers objectives and core workflows."
 ---
-
 # Objetivo
 
 Fornecer diretrizes claras e robustas e padrões de implementação para registrar serviços via Service Providers e resolvê-los usando injeção de dependência no Laravel, garantindo especificamente compatibilidade com ambientes stateless de alta performance como o Laravel Octane.

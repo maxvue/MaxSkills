@@ -1,8 +1,7 @@
 ---
 name: vue-pinia-state-management-best-practices
-description: "Use when creating, modifying, reviewing, or debugging Pinia stores in Vue 3 with the @maxvue/max-pinia plugin. Every page-level GET MUST go through a MaxPinia store (one-shot search/autocomplete lookups may use apiGetRoute). Triggers on defineStore, isCached, options with get/save routes, status.server, auto-save with debounce, offline cache."
+description: "Use when creating, reviewing, or debugging Pinia stores in Vue 3 with @maxvue/max-pinia plugin. Every page-level GET MUST go through a MaxPinia store (one-shot lookups may use apiGetRoute). Covers objectives and best practices, Registro main."
 ---
-
 # Boas Práticas de Gerenciamento de Estado com Vue 3, Pinia e MaxPinia
 
 ## Objetivo
