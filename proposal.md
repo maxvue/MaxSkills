@@ -28,7 +28,7 @@ Antes de qualquer análise, o agente **DEVE** verificar se já existe uma propos
 6. **Skills de Terceiros:** Procurar por skills de terceiros (pasta `.agents/skills/`) que podem auxiliar na elaboração desta skill.
 
 ### 1.3 — Análise de Dependências de Skills Próprias (OBRIGATÓRIO)
-Verifique se esta nova skill fará **uso direto** de alguma skill própria já criada (da pasta `created-skills/`).
+Verifique se esta nova skill fará **uso direto** de alguma skill própria já criada (das pastas `created-skills/` e `created-skills-adonis/`).
 
 1. Liste todas as skills existentes em `created-skills/` e leia o `Goal` de cada uma.
 2. Para cada skill encontrada, avalie se a skill que está sendo proposta precisará **consumir, referenciar ou estender** o conhecimento dela durante sua execução.
@@ -62,7 +62,7 @@ Verifique se esta nova skill fará **uso direto** de alguma skill própria já c
 * **Objetivo:** Detalhar o objetivo desta skill.
 * **Casos de uso:** Detalhar os casos de uso práticos dentro do projeto.
 * **Workflows:** Listar todos os workflows que farão uso desta skill.
-* **Skills próprias utilizadas:** Listar as skills próprias (da pasta `created-skills/`) que esta skill fará uso direto durante sua execução, com breve descrição de como serão utilizadas.
+* **Skills próprias utilizadas:** Listar as skills próprias (das pastas `created-skills/` e `created-skills-adonis/`) que esta skill fará uso direto durante sua execução, com breve descrição de como serão utilizadas.
 * **Skills auxiliares:** Listar as skills de terceiros que auxiliarão a criação ou atualização.
 * **Skills beneficiadas:** Listar as skills próprias que serão beneficiadas.
 * **Benefícios:** Detalhar os benefícios envolvidos na elaboração desta skill.
