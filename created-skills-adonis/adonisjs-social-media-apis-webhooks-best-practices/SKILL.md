@@ -47,14 +47,20 @@ Estabelecer uma integração segura, performática e resiliente com APIs de míd
   import logger from '@adonisjs/core/services/logger'
   import env from '#start/env'
 
-  // Dentro do método do seu controller (POST)
   // 1. Verificar assinatura HMAC-SHA256 antes de persistir qualquer coisa
   const signature = request.header('x-hub-signature-256') ?? ''
   const expected = 'sha256=' + crypto
     .createHmac('sha256', env.get('META_APP_SECRET'))
     .update(request.raw() ?? '')
     .digest('hex')
-  if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) {
+
+  const signatureBuffer = Buffer.from(signature)
+  const expectedBuffer = Buffer.from(expected)
+
+  if (
+    signatureBuffer.length !== expectedBuffer.length ||
+    !crypto.timingSafeEqual(signatureBuffer, expectedBuffer)
+  ) {
     return response.status(401).json({ error: 'Invalid signature' })
   }
 

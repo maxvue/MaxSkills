@@ -93,14 +93,22 @@ export default class WebhooksController {
     }
 
     // 1. Verificar assinatura do gateway ANTES de qualquer operação no banco
-    // (implementação varia por gateway — exemplo para HMAC genérico):
+    // (implementação varia por gateway — exemplo para HMAC genérico). Compare em tempo constante
+    // com crypto.timingSafeEqual, sempre precedido da checagem de comprimento dos buffers:
     const rawBody = request.raw() ?? ''
     const gatewaySignature = request.header('X-Gateway-Signature') ?? ''
     const expectedSig = 'sha256=' + crypto
       .createHmac('sha256', env.get('PAYMENT_GATEWAY_WEBHOOK_SECRET'))
       .update(rawBody)
       .digest('hex')
-    if (!crypto.timingSafeEqual(Buffer.from(gatewaySignature), Buffer.from(expectedSig))) {
+
+    const signatureBuffer = Buffer.from(gatewaySignature)
+    const expectedBuffer = Buffer.from(expectedSig)
+
+    if (
+      signatureBuffer.length !== expectedBuffer.length ||
+      !crypto.timingSafeEqual(signatureBuffer, expectedBuffer)
+    ) {
       return response.unauthorized({ error: 'Invalid webhook signature' })
     }
 
