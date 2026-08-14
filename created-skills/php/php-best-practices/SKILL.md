@@ -1,7 +1,7 @@
 ---
 name: php-best-practices
 description: "Use when writing, refactoring, or reviewing PHP 8.5 code in Engeapp. Covers modern PHP patterns, PSR standards, strict typing, constructor property promotion, enums, and SOLID principles."
-metadata: {'phpVersion': '8.4 (target atual do engeapp, pinado via composer platform 8.4.99) — notas de 8.5 incluídas apenas como cobertura antecipada para quando o piso subir'}
+metadata: {'source': 'asyrafhussin/agent-skills — skills/php-best-practices/SKILL.md', 'phpVersion': '8.4 (target atual do engeapp, pinado via composer platform 8.4.99) — notas de 8.5 incluídas apenas como cobertura antecipada para quando o piso subir'}
 ---
 # PHP Best Practices
 

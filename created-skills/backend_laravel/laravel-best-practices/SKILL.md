@@ -2,7 +2,7 @@
 name: laravel-best-practices
 description: "Use when writing or refactoring Laravel 13 / PHP 8.5 code: controllers, models, migrations, requests, policies, jobs, commands, and Eloquent queries. Covers design consistency, DB performance, caching, security, and N+1 prevention."
 license: MIT
-metadata: {'author': 'engeapp'}
+metadata: {'author': 'engeapp', 'source': 'laravel/boost — .ai/laravel/skill/laravel-best-practices/SKILL.md'}
 ---
 # Boas Práticas de Laravel
 

@@ -1,6 +1,7 @@
 ---
 name: typescript-best-practices
 description: "Use when reading, writing, or reviewing TypeScript and JavaScript files (.ts, .tsx, .js) in Engeapp. Covers strict no-any rule, type boundaries, discriminated unions, and error handling."
+metadata: {'source': '0xbigboss/claude-code — .claude/skills/typescript-best-practices/SKILL.md'}
 ---
 # TypeScript Best Practices
 

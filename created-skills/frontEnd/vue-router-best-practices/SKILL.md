@@ -1,6 +1,7 @@
 ---
 name: vue-router-best-practices
 description: "Use when designing, debugging, or reviewing Vue Router in Engeapp. Covers dynamic page registration via import.meta.glob, public routes, layouts, beforeEach guards, waitRequest, and loading stores."
+metadata: {'source': 'hyf0/vue-skills — skills/vue-router-best-practices/SKILL.md'}
 ---
 # Melhores Práticas de Vue Router
 
