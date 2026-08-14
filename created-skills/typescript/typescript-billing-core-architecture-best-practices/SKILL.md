@@ -1,6 +1,6 @@
 ---
 name: typescript-billing-core-architecture-best-practices
-description: "Use ao projetar, implementar, revisar ou depurar um mecanismo de faturamento de assinaturas em TypeScript puro e zero-framework — máquina de estados de assinatura, interface desacoplada de gateway de pagamento, parser de webhook canônico e idempotência. Não cobre a integração de pagamentos do engeapp, que roda em PHP no Laravel (SDKs efipay e inter-co)."
+description: "Use when designing, implementing, reviewing, or debugging a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, and idempotency. NOT for Engeapp payment integration (which runs on PHP/Laravel with efipay and inter-co SDKs)."
 ---
 
 ## Objetivo

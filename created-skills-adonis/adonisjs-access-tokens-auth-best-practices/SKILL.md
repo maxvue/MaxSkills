@@ -1,6 +1,6 @@
 ---
 name: adonisjs-access-tokens-auth-best-practices
-description: Use when implementing or reviewing Opaque Access Tokens (auth.use('api')) no AdonisJS v6 para casos máquina-a-máquina/integrações externas e o endpoint MCP do Maxdmin — NÃO para login de usuários da web/SPA (essa é autenticação por sessão). Triggers em gerar/revogar tokens de API, proteger rotas de integração com o guard `api` e o McpAuthMiddleware.
+description: "Use when implementing or reviewing Opaque Access Tokens (auth.use('api')) in AdonisJS v6 for machine-to-machine integrations and the Maxdmin MCP endpoint — NOT for web/SPA user login (which uses session auth). Triggers on generating/revoking API tokens, protecting integration routes with `api` guard and McpAuthMiddleware."
 ---
 
 # Access Tokens no AdonisJS — Escopo Restrito (MCP / Máquina-a-Máquina)

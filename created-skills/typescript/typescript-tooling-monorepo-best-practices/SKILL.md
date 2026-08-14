@@ -1,6 +1,6 @@
 ---
 name: typescript-tooling-monorepo-best-practices
-description: "Use ao resolver problemas reais de ferramental TypeScript/JavaScript — desempenho do compilador (tsc lento), project references com composite por pacote, migração de JS para TS, erros de resolução de módulos, interop ESM/CJS e depuração de tsc. Foca no stack real: ESM-first, moduleResolution bundler, ESLint + typescript-eslint e Vitest. Aciona em tsconfig, velocidade de build e erros de tipo."
+description: "Use when solving TypeScript and JavaScript tooling issues: compiler performance (slow tsc), project references with per-package composite, JS to TS migration, module resolution errors, ESM/CJS interop, and tsc debugging. Focuses on ESM-first, moduleResolution bundler, ESLint, typescript-eslint, and Vitest. Triggers on tsconfig, build speed, and type errors."
 ---
 
 # Boas Práticas de Ferramental, Monorepo e Migração em TypeScript
