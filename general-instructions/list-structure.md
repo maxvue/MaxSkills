@@ -8,8 +8,11 @@
      - Usar `AGUARDANDO EXECUÇÃO` para propostas prontas para desenvolvimento e aguardando um agente.
      - Usar `EXECUTANDO` para propostas que estão em processo ativo de desenvolvimento.
      - Usar `CONCLUIDA` para propostas que já foram executadas e validadas (já constam na pasta `created-skills`).
+     - Usar `MESCLADA` para propostas cujo conteúdo foi incorporado a outra skill existente (rastro histórico).
+     - Usar `DESCONTINUADA` para propostas abandonadas ou fora do stack canônico (rastro histórico).
    - `resumo`: Um texto breve descrevendo o propósito da skill, baseado no documento de proposta.
    - `workflows`: Lista de workflows que farão uso desta skill.
+   - `mesclada_em`: (Opcional, usado com `MESCLADA`) Nome da skill que absorveu o conteúdo.
 
 ---
 
