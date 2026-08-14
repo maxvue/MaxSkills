@@ -48,7 +48,7 @@ export class TenantService {
 ```
 
 ### 2. Middleware de Detecção de Tenant
-Implemente um middleware para resolver o tenant a partir da requisição (ex: subdomínios, cabeçalhos customizados como `X-Tenant-Id` ou associação com o usuário autenticado) e vincule a execução ao contexto do tenant.
+Implemente um middleware para resolver o tenant a partir da autenticação (associação com o usuário autenticado ou subdomínio validado no banco) e vincule a execução ao contexto do tenant. **Nunca** confie em cabeçalhos controlados pelo cliente como `X-Tenant-Id`.
 
 ```typescript
 import type { HttpContext } from '@adonisjs/core/http'
@@ -56,16 +56,15 @@ import { TenantService } from '#services/tenant_service'
 
 export default class TenantMiddleware {
   async handle(ctx: HttpContext, next: () => Promise<void>) {
-    // 1. Garante que a autenticação (guard web/sessão) já rodou ANTES deste middleware,
-    //    pois usamos ctx.auth.user para resolver o tenant. Registre o middleware de
-    //    auth antes do TenantMiddleware na pipeline (kernel/rotas).
-    await ctx.auth.check()
+    // 1. Exige autenticação prévia (guard web/sessão). Use authenticate() que lança 401
+    //    caso o usuário não esteja logado.
+    const user = await ctx.auth.authenticate()
 
-    // 2. Resolve o ID do tenant (ex: do usuário autenticado ou cabeçalho da requisição)
-    const tenantId = ctx.auth.user?.solarCompanyId || ctx.request.header('X-Tenant-Id')
+    // 2. Resolve o ID do tenant a partir do vínculo do usuário autenticado no servidor
+    const tenantId = user.solarCompanyId
 
     if (!tenantId) {
-      return ctx.response.unauthorized({ error: 'Não foi possível resolver o contexto do tenant' })
+      return ctx.response.forbidden({ error: 'Usuário não possui tenant associado' })
     }
 
     // 3. Envolve a execução da requisição subsequente dentro do contexto do tenant
@@ -75,6 +74,34 @@ export default class TenantMiddleware {
   }
 }
 ```
+
+> **Variante com múltiplos tenants ou subdomínio (ajuste ao seu schema):** Se um usuário puder acessar múltiplos tenants ou o sistema usar subdomínios, o subdomínio/seletor serve apenas para identificar o tenant pretendido, mas **sempre** deve ser validado contra o banco e contra os vínculos do usuário autenticado:
+> ```typescript
+> import type { HttpContext } from '@adonisjs/core/http'
+> import { TenantService } from '#services/tenant_service'
+> import SolarCompany from '#models/solar_company'
+>
+> export default class SubdomainTenantMiddleware {
+>   async handle(ctx: HttpContext, next: () => Promise<void>) {
+>     const user = await ctx.auth.authenticate()
+>     const slug = (ctx.request.hostname() ?? '').split('.')[0]
+>
+>     const company = await SolarCompany.findBy('slug', slug)
+>     if (!company) {
+>       return ctx.response.notFound({ error: 'Tenant inexistente' })
+>     }
+>
+>     const isMember = await user.related('solarCompanies').query().where('id', company.id).first()
+>     if (!isMember) {
+>       return ctx.response.forbidden({ error: 'Usuário sem acesso a este tenant' })
+>     }
+>
+>     await TenantService.run(company.id, async () => {
+>       await next()
+>     })
+>   }
+> }
+> ```
 
 ### 3. Filtro Automático de Tenant via Query Hooks do Lucid
 > **Importante:** o Lucid v6 NÃO possui `addGlobalScope`/`static boot()` (isso é Eloquent/Laravel). No Adonis use **query hooks** (`@beforeFind`, `@beforeFetch`, `@beforePaginate`) para aplicar o filtro de tenant automaticamente, ou **named scopes** via `scope()` para aplicação explícita.
@@ -195,6 +222,7 @@ new Worker('solar-proposals', async (job: Job) => {
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
+* **Origem do Tenant Sempre Confiável**: O ID do tenant ativo nunca pode vir de dado controlado pelo cliente — cabeçalhos (`X-Tenant-Id`), query string, cookies ou corpo da requisição. Derive-o do vínculo do usuário autenticado; se usar subdomínio, resolva-o contra o cadastro de tenants e valide a associação do usuário antes de abrir o contexto. Use `ctx.auth.authenticate()` (que lança 401), nunca `ctx.auth.check()` (que só retorna boolean e deixa passar requisições anônimas).
 * **Sem Consultas Manuais de Tenant**: Evite adicionar manualmente filtros `.where('solarCompanyId', ...)` em ações padrão de controllers. Confie nos query hooks (`@beforeFind`/`@beforeFetch`/`@beforePaginate`) para evitar vazamentos de dados.
 * **Armazenamento de Contexto Estático**: Nunca armazene o ID do tenant ativo em variáveis estáticas de classe ou propriedades globais, pois elas persistem entre requisições HTTP concorrentes nos ambientes Octane e Node.js. Sempre use `AsyncLocalStorage`.
 * **Mapeamento de Chave Estrangeira**: Verifique duas vezes o nome da chave estrangeira do tenant em cada modelo (ex: `solarCompanyId` ou `idSolarCompany`). Aplicar o nome da chave incorreto quebrará as consultas ao banco de dados.
