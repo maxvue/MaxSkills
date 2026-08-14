@@ -25,8 +25,26 @@ O idioma padrão de conversação entre o Agente e o usuário humano é **sempre
 
 ## MATRIZ DE PRIORIDADE DE DADOS E CONTEXTOS (Resolução de Conflitos)
 Em caso de instruções divergentes entre os arquivos do repositório, o agente deve seguir estritamente a seguinte ordem de prioridade (decrescente):
-1. Este arquivo (`index.md`)
-2. Arquivos de instrução específicos na pasta `general-instructions/`
-3. Propostas elaboradas na pasta `proposals-skills/`
-4. Skills criadas na pasta `created-skills/`
-5. Skills externas instaladas na pasta `.agents/skills/`
+
+**Camada 1 — Governança global do workspace**
+1. `CLAUDE.md` — regras de idioma e worktree (prevalece apenas nos temas que trata explicitamente)
+
+**Camada 2 — Roteamento e arquitetura**
+2. Este arquivo (`index.md`) — orquestrador geral do fluxo de skills
+3. Arquivos normativos gerais na pasta `general-instructions/`
+
+**Camada 3 — Workflows de fase (especialistas)**
+4. `proposal.md` — soberano na Fase 2 (A) — criação de propostas
+5. `execute.md` — soberano na Fase 2 (B) — criação/atualização de skills
+6. `update-list.md` — soberano na Fase 3 — atualização do `list-skills.yaml`
+
+**Camada 4 — Conteúdo e artefatos**
+7. Propostas elaboradas na pasta `proposals-skills/`
+8. Skills próprias criadas: `created-skills/` e `created-skills-adonis/`
+9. Workflows globais em `global-workflows/`
+10. Skills externas instaladas na pasta `.agents/skills/`
+
+**Regras de desempate:**
+- **Específico vence genérico:** quando um workflow de fase (itens 4-6) contradiz uma regra genérica deste arquivo *dentro da sua própria fase*, vale o workflow da fase — salvo quando a regra genérica for marcada como "regra permanente", "sem exceção" ou "prioridade máxima", caso em que este arquivo vence.
+- **Obrigação cruzada:** quando um workflow impõe uma obrigação a ser cumprida dentro de outra fase (ex.: `proposal.md` Fase 1.3 → `execute.md`), a obrigação é válida e deve ser cumprida; o workflow de destino deve replicá-la em seu próprio texto. Divergência entre os dois textos é bug e deve ser reportada ao usuário, não resolvida silenciosamente.
+- **Arquivo/pasta inexistente:** se uma fonte listada não existir em disco, o agente deve **informar o usuário** e prosseguir com a fonte de prioridade imediatamente inferior — nunca criar a pasta silenciosamente.
