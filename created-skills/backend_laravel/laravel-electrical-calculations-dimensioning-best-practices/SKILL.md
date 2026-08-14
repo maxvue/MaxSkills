@@ -25,7 +25,8 @@ Garantir a execução padronizada e precisa de dimensionamento elétrico, seleç
    - Sempre use o helper global `getCircuitBrake($currents, $limit_percent = 80)` (ou seu alias `getCircuitBraker`).
    - O primeiro parâmetro `$currents` pode ser um float, string ou array (se for array, seleciona a corrente máxima).
    - O `$limit_percent` especifica a capacidade máxima de carga (padrão é 80%).
-   - Confie nessa função para encontrar o próximo valor comercial padrão de disjuntor disponível (ex: 10A, 13A, 16A, 20A, 25A, 32A, 40A, 50A, 63A, 80A, 100A, 125A — recorte ilustrativo; a lista real vai de 1A a 6300A, com 45 valores comerciais).
+   - Confie nessa função para encontrar o próximo valor comercial padrão de disjuntor disponível (ex: 10A, 13A, 16A, 20A, 25A, 32A, 40A, 50A, 63A, 80A, 100A, 125A — recorte ilustrativo; a lista real vai de 1A a 6300A, com 44 valores comerciais).
+   - **Origem da lista:** array hardcoded em `app/Helpers/ElectricalHelper.php` (dentro de `getCircuitBrake`) — NÃO é tabela de banco de dados nem seed. Para alterar os valores comerciais é preciso editar o helper.
 
 3. **Dimensionamento e Busca de Inversores:**
    - Use o helper `getInverter($brand_name, $model, $power)` para buscar e retornar um model `App\Models\Equipment\Inverter` do banco de dados.
