@@ -1,6 +1,6 @@
 ---
 name: adonisjs-auth-remember-me-best-practices
-description: "Use when implementing, configuring, reviewing, or debugging login persistence ("Remember Me") in AdonisJS v6. Covers database sessions with 30-day age and remember flag on login, and dedicated remember-me tokens. Triggers on config/auth.ts, config/session.ts, auth controllers with remember field, and remember_me_tokens migrations."
+description: "Use when implementing, configuring, reviewing, or debugging login persistence ('Remember Me') in AdonisJS v6. Covers database sessions with 30-day age and remember flag on login, and dedicated remember-me tokens. Triggers on config/auth.ts, config/session.ts, auth controllers with remember field, and remember_me_tokens migrations."
 ---
 
 # Boas Práticas de Autenticação "Lembrar de mim" no AdonisJS v6
