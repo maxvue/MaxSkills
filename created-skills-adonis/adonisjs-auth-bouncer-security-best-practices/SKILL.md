@@ -1,6 +1,6 @@
 ---
 name: adonisjs-auth-bouncer-security-best-practices
-description: Use when designing, creating, reviewing, or debugging authentication mechanisms (sessão via web guard, sessões no banco), authorization rules (Bouncer abilities/policies), social logins (Ally OAuth com Google/Facebook), or security features (Shield CSRF/headers, cookie XSRF) in AdonisJS. Triggers on requests involving bouncer policies, auth middleware, session setup, shield configuration, ally integration, and CSRF protection.
+description: "Use when designing, creating, reviewing, or debugging authentication (session via web guard, database sessions), authorization (Bouncer abilities/policies), social logins (Ally OAuth with Google/Facebook), or security features (Shield CSRF/headers, cookie XSRF) in AdonisJS. Triggers on bouncer policies, auth middleware, session setup, shield configuration, ally integration, and CSRF protection."
 ---
 
 # Melhores Práticas de Autenticação, Bouncer e Segurança no AdonisJS
