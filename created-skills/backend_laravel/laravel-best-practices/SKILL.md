@@ -6,15 +6,20 @@ metadata: {'author': 'engeapp'}
 ---
 # Boas Práticas de Laravel
 
+## Objetivo
+Use when writing or refactoring Laravel 13 / PHP 8.5 code: controllers, models, migrations, requests, policies, jobs, commands, and Eloquent queries. Covers design consistency, DB performance, caching, security, and N+1 prevention.
+
 Boas práticas para Laravel, priorizadas por impacto. Cada regra ensina o que fazer e por quê. Para a sintaxe exata da API, consulte a documentação da versão instalada (vendor/ ou docs oficiais); se o MCP do Laravel Boost estiver habilitado, use `search-docs`.
 
-## Consistência Primeiro
+## Instruções
+
+### Consistência Primeiro
 
 Antes de aplicar qualquer regra, verifique o que a aplicação já faz. O Laravel oferece múltiplas abordagens válidas — a melhor escolha é aquela que o codebase já utiliza, mesmo que outro padrão fosse teoricamente melhor. Inconsistência é pior que um padrão subótimo.
 
 Verifique arquivos irmãos, controllers, models ou testes relacionados em busca de padrões estabelecidos. Se algum existir, siga-o — não introduza uma segunda forma. Estas regras são defaults para quando ainda não existe um padrão, não substituições.
 
-## Referência Rápida
+### Referência Rápida
 
 ### 1. Performance de Banco de Dados → `rules/db-performance.md`
 
@@ -117,7 +122,7 @@ Verifique arquivos irmãos, controllers, models ou testes relacionados em busca 
 - **Referência genérica:** o engeapp não usa `Prunable`/`MassPrunable` hoje
 - `prunable(): Builder`, hook `pruning()` (só em `Prunable`) e `Schedule::command('model:prune')`
 
-## Como Aplicar
+### Como Aplicar
 
 Prefira delegar a leitura dos arquivos de regras a um sub-agent quando forem muitos arquivos ou §, para não inflar o contexto principal — carregue no fluxo principal apenas as regras da(s) seção(ões) que a tarefa exige.
 

@@ -5,9 +5,14 @@ metadata: {'phpVersion': '8.4 (target atual do engeapp, pinado via composer plat
 ---
 # PHP Best Practices
 
+## Objetivo
+Use when writing, refactoring, or reviewing PHP 8.5 code in Engeapp. Covers modern PHP patterns, PSR standards, strict typing, constructor property promotion, enums, and SOLID principles.
+
 Modern PHP 8.x patterns, PSR standards, type system best practices, and SOLID principles. Contains 45 rules for writing clean, maintainable PHP code.
 
-## Step 1: Detect PHP Version
+## Instruções
+
+### Step 1: Detect PHP Version
 
 **Always check the project's PHP version before giving any advice.** Features vary significantly across 8.0 - 8.5. Never suggest syntax that doesn't exist in the project's version.
 
@@ -38,7 +43,7 @@ php -v   # e.g. PHP 8.3.12
 
 **Only suggest features available in the detected version.** If the user asks about upgrading or newer features, mention what becomes available at each version.
 
-## When to Apply
+### When to Apply
 
 Reference these guidelines when:
 - Writing or reviewing PHP code
@@ -48,7 +53,7 @@ Reference these guidelines when:
 - Following PSR standards
 - Applying design patterns
 
-## Rule Categories by Priority
+### Rule Categories by Priority
 
 | Priority | Category | Impact | Prefix | Rules |
 |----------|----------|--------|--------|-------|
@@ -60,7 +65,7 @@ Reference these guidelines when:
 | 6 | Performance | MEDIUM | `perf-` | 5 |
 | 7 | Security | CRITICAL | `sec-` | 1 |
 
-## Quick Reference
+### Quick Reference
 
 ### 1. Type System (CRITICAL) — 9 rules
 
@@ -139,11 +144,11 @@ Reference these guidelines when:
 
 - `sec-input-handling` - Input validation, output escaping, password hashing, SQL, and uploads via the Laravel layer (FormRequest, Eloquent bindings, Hash::make, MediaLibrary) — pointer to `laravel-best-practices/rules/security.md` and `laravel-security-hardening-best-practices` for the full engeapp-specific coverage
 
-## Rule Files
+### Rule Files
 
 Cada regra listada no Quick Reference tem um arquivo próprio em `rules/<slug>.md` com exemplo ruim/bom e explicação. Abra o arquivo correspondente ao aplicar ou auditar um padrão — por exemplo `rules/type-strict-mode.md`, `rules/modern-constructor-promotion.md`, `rules/modern-enums.md`, `rules/solid-srp.md`. `rules/` é a fonte única da verdade; este SKILL.md apenas indexa.
 
-## Output Format
+### Output Format
 
 When auditing code, output findings in this format:
 
@@ -158,5 +163,5 @@ src/Models/Order.php:42 - [modern] Use match expression instead of switch
 src/Controllers/ApiController.php:28 - [solid] Class has multiple responsibilities
 ```
 
-## Constraints
+## Restrições
 - **Language:** Always communicate with the human user in Portuguese (pt-BR). This is the default Agent↔Human conversation language, always, without exception — regardless of the language this skill's own content/body is written in.

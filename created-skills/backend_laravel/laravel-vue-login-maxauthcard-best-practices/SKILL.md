@@ -10,13 +10,15 @@ Padronizar o fluxo de **login** e o **estado de sessão** no ecossistema engeapp
 
 Este é o stack do **engeapp (Laravel 13)**: aqui **existe** Ziggy, e as rotas podem ser **nomeadas** (resolvidas por `route()`) além das rotas string usadas pelas cached stores do MaxPinia. O modelo é **sessão + cookie** — não é token/Bearer. `remember` é repassado a `Auth::attempt($creds, $remember)` para emitir o cookie de "lembrar-me" padrão do Laravel (sem prazo customizado configurado no projeto). **Importante:** este projeto **não** tem camada global de Axios (`axios.defaults`, interceptadores, `baseURL`), nem fluxo Sanctum SPA stateful com `withXSRFToken`/`csrf-cookie`, nem interceptor global de `401` — veja a seção "Axios / CSRF / 401 / logout".
 
-## Princípio central do stack
+## Instruções
+
+### Princípio central do stack
 
 O MaxPinia (`@maxvue/max-pinia`) é a camada de cache + salvamento automático: **todo GET de estado de página passa por uma store MaxPinia** e qualquer alteração no estado dispara auto-save no backend. O login é a **exceção deliberada**: é uma transição de autenticação (um POST pontual), então usa `apiPostRoute('login', ...)` do MaxUse — não é "estado de página". Depois do login, o usuário atual (`user.data`) é estado de página e **deve** vir da store MaxPinia `useUser`, nunca de `axios.get` espalhado.
 
 Regra de ouro: o helper `apiPostRoute`/`apiGetRoute` do `@maxvue/max-use` recebe um **nome de rota Ziggy** (ex.: `'login'`, `'user.data'`) e **já executa a requisição** (retorna `response.data`). Internamente ele resolve o nome via `route()` do Ziggy. Não passe URL crua; não embrulhe em `axios.get(...)`.
 
-## Endpoints e rotas nomeadas
+### Endpoints e rotas nomeadas
 
 Defina os nomes em `routes/auth.php` (o Ziggy os expõe ao frontend via `route(nome)`):
 
@@ -33,7 +35,7 @@ Defina os nomes em `routes/auth.php` (o Ziggy os expõe ao frontend via `route(n
 
 > Os nomes acima são o contrato. Mantenha-os estáveis: o frontend referencia `route('login')`, `route('social.redirect', { provider })`, etc. Renomear uma rota quebra o Ziggy silenciosamente.
 
-## Backend (Laravel 13)
+### Backend (Laravel 13)
 
 Leia o arquivo de referência [references/backend-laravel.md](references/backend-laravel.md) para o código completo. Pontos não-negociáveis:
 
@@ -42,7 +44,7 @@ Leia o arquivo de referência [references/backend-laravel.md](references/backend
 3. **Login social com Laravel Socialite.** Configure `google` e `facebook` em `config/services.php`. O `SocialiteController` tem `redirect()` (→ `Socialite::driver($provider)->redirect()`) e `callback()` (busca usuário por e-mail; se não existir, **cria** com senha aleatória, depois `Auth::login($user)` e `redirect('/')`). Exponha `providers()` retornando só os provedores com credenciais preenchidas — é isso que o frontend consome para montar os botões. Valide o `provider` contra uma allowlist (`['google','facebook']`) e trate erros do OAuth redirecionando para `/login?error=...`. Padrões de driver, provisionamento seguro e mock em testes: skill `laravel-socialite-oauth-integration-best-practices`.
 4. **`remember`.** Repasse o booleano `remember` para `Auth::attempt($creds, $remember)` para emitir o cookie de "lembrar-me".
 
-## Frontend (Vue 3.6 + MaxAuthCard)
+### Frontend (Vue 3.6 + MaxAuthCard)
 
 Leia [references/frontend-vue.md](references/frontend-vue.md) para os arquivos completos (LoginPage, store de login, store useUser, guard, bootstrap). Pontos não-negociáveis:
 
@@ -87,7 +89,7 @@ Ponto de fato (verificado contra o código real do engeapp) — **não invente S
 - **Logout real = navegação full-page (GET).** O logout **não** é POST via `apiPostRoute`. É `window.location.href = '/logout'` (GET), disparado no menu do usuário (`resources/Vue/Layouts/PageLayout/TopMenu/UserSection.vue`, ~linha 86). O backend encerra a sessão (`Auth::guard('web')->logout()` + `session()->invalidate()`) e redireciona; a navegação full-page já reidrata o estado ao recarregar na tela de login. Não reescreva como `apiPostRoute('logout')` + `router.push` + `clearAll()`.
 - **Resolver Ziggy no boot (obrigatório).** Registre o resolver do Ziggy no MaxUse — `setRouteResolver((name, params) => route(name, params))` — e use `ZiggyVue` no app. Sem isso, `apiPostRoute`/`apiGetRoute` lançam "Route resolver não configurado".
 
-## Checklist de revisão
+### Checklist de revisão
 
 - [ ] Rotas de auth têm **nome** (Ziggy) e os nomes batem com o que o frontend chama.
 - [ ] `LoginRequest` aceita e-mail OU telefone, com rate limiting e `session()->regenerate()`.
@@ -101,7 +103,7 @@ Ponto de fato (verificado contra o código real do engeapp) — **não invente S
 - [ ] SEM `axios.defaults`/`withXSRFToken`/interceptor de 401 no runtime; SEM Sanctum SPA stateful/`csrf-cookie`. Resolver do Ziggy registrado no MaxUse.
 - [ ] Logout = navegação full-page `window.location.href = '/logout'` (GET), não `apiPostRoute('logout')`. CSRF manual só em widgets de upload via `useSystemStore`.
 
-## Skills relacionadas (não duplicar — referenciar)
+### Skills relacionadas (não duplicar — referenciar)
 
 - `laravel-socialite-oauth-integration-best-practices` — drivers, provisionamento, mock em Pest.
 - `laravel-ziggy-routing-integration-best-practices` — geração e uso de rotas nomeadas.

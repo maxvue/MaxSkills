@@ -17,7 +17,9 @@ Para *convenções* de escrita (ordem de blocos do SFC, UnoCSS/SCSS, atributos i
 `<section>` e de inputs/botões nativos, como montar formulários e integrar com a API) use a skill
 [vue-max-stack-frontend-best-practices](../vue-max-stack-frontend-best-practices/SKILL.md).
 
-## Como navegar
+## Instruções
+
+### Como navegar
 
 `Max*`, composables e stores aparecem sem import manual (auto-import/auto-resolução) — consulte o
 catálogo antes de assumir uma prop ou reimportar `@vueuse/core`/`lodash`, já que o MaxUse já re-exporta

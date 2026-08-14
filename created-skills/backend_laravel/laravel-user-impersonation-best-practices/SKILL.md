@@ -2,7 +2,7 @@
 name: laravel-user-impersonation-best-practices
 description: "Use when implementing, reviewing, or debugging user impersonation in Engeapp with lab404/laravel-impersonate. Covers impersonate routes, user permissions, and Pinia store integration."
 ---
-# Objetivo
+## Objetivo
 Diretrizes seguras para a impersonação de usuário (login-as) no engeapp usando o pacote `lab404/laravel-impersonate`, fiéis à implementação real: verificação por coluna no banco, rotas nomeadas (Ziggy) e estado exposto ao frontend Vue por rota dedicada consumida via `apiGetRoute`.
 
 # Contexto real do projeto (verdade-base)
@@ -13,7 +13,7 @@ Diretrizes seguras para a impersonação de usuário (login-as) no engeapp usand
 - Store frontend: `resources/Stores/UserStores/useUser.Store.ts`.
 - Banner/UI: `resources/Vue/Layouts/PageLayout/TopMenu/UserSection.vue`.
 
-# Instruções
+## Instruções
 
 ### 1. Rotas nomeadas (Ziggy)
 Use os nomes de rota existentes; não crie endpoints string paralelos.
@@ -187,7 +187,7 @@ test('admin não pode impersonar a si mesmo', function () {
 });
 ```
 
-# Restrições
+## Restrições
 - **Fonte de permissão única:** autorize por `can_impersonate` no controller; não invente `is_admin` (não existe no model) nem use `status` para esse fim (existe, mas é um enum de estado de conta, não uma flag de autorização).
 - **Sem impersonação aninhada (recomendado, NÃO implementado hoje):** o controller atual não verifica se a sessão já está impersonada — `makeImpersonate` só checa `can_impersonate` e auto-impersonação. Se for adicionar o bloqueio, teste `Auth::user()?->isImpersonated()` antes de chamar `impersonate()`.
 - **Sem segredos no cliente:** confie nos session drivers do Laravel; nunca guarde hash/credencial do admin em localStorage/cookies.

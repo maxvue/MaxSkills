@@ -10,11 +10,13 @@ Produzir código front-end consistente, idiomático e alinhado para o projeto **
 
 Esta skill é autocontida: ela traz os padrões reais do stack de front-end sobre o backend Laravel 13. Cobre a criação de **componentes (.vue), composables, chamadas de API e stores** no padrão do projeto.
 
-## Por que essas convenções importam
+## Instruções
+
+### Por que essas convenções importam
 
 O ecossistema Max depende fortemente de **auto-import** (`unplugin-auto-import`) e **auto-resolução de componentes** (`unplugin-vue-components`). Isso significa que `ref`, `computed`, `watch`, `defineStore`, `axios`, as stores e os componentes `Max*` ficam disponíveis **sem import manual**. Seguir o padrão não é estética: import duplicado, ordem de blocos errada ou SCSS que reimplementa o que o UnoCSS já resolve quebram o lint, incham o bundle e divergem do que o resto da base espera. Quando você escreve no mesmo idioma da base, o código "desaparece" — que é o objetivo.
 
-## Fluxo de trabalho
+### Fluxo de trabalho
 
 Ao implementar uma funcionalidade Vue, siga estes passos:
 
@@ -27,7 +29,7 @@ Ao implementar uma funcionalidade Vue, siga estes passos:
 
 > Realtime (Laravel Reverb + `@laravel/echo-vue`) e IA (`laravel/ai`) têm skills dedicadas — consulte-as ao integrar esses recursos, não os expanda aqui.
 
-## 1. Estrutura do SFC (regra rígida — vem do ESLint)
+### 1. Estrutura do SFC (regra rígida — vem do ESLint)
 
 O projeto usa o `eslint.config.js` com regras `@stylistic` + `vue/*`. Siga exatamente:
 
@@ -107,7 +109,7 @@ Esqueleto canônico:
 
 > **Auto-import**: confira `vite.config.ts` e `auto-import.d.ts` (mais `auto-import-components.d.ts` para componentes) do projeto antes de adicionar um import manual de `vue`/`pinia`/`axios` — quase sempre já está disponível. Importe manualmente apenas o que não está coberto (`vue-router`, `storeToRefs` do pinia, tipos, libs de terceiros, componentes específicos de `@maxvue/max-components-ui` quando precisar do tipo).
 
-## 2. Componentes: MaxComponentsUi (PrimeVue por baixo)
+### 2. Componentes: MaxComponentsUi (PrimeVue por baixo)
 
 Prefira sempre o componente `Max*` a um elemento HTML cru. Eles já trazem tema, acessibilidade e integração com o restante da UI. **Escolha o componente mais específico que existir** — há um input dedicado para cada tipo de dado (CPF, CEP, telefone, data). Usar o wrapper genérico `MaxInputText` onde existe um dedicado obriga você a reimplementar máscara e validação que o componente já entrega de graça.
 
@@ -149,7 +151,7 @@ Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isVali
 
 > Se o componente que você imagina não está nesta lista, confira o catálogo de API do projeto (skill `vue-max-ecosystem-api-reference`) **antes** de varrer o código-fonte da MaxComponentsUi — a lista acima já cobre os casos comuns e evita exploração desnecessária (e lenta).
 
-## 3. Utilitários e composables: MaxUse
+### 3. Utilitários e composables: MaxUse
 
 `@maxvue/max-use` evita reinventar lógica comum (datas, validação BR, cache, rotas). Vários composables são auto-importados via `maxUseAutoImport`; confira a config do projeto.
 
@@ -169,7 +171,7 @@ Todos herdam layout e estado de erro do `InputBase`: controle com `:done="isVali
 
 Antes de criar, confira o MaxUse — a maioria dos padrões (datas, validação, cache, storage) já existe lá. Se precisar de um composable de aplicação, coloque-o em `resources/Js/Composables`, prefixe com `use`, exporte como função nomeada, **tipe o retorno explicitamente** e aceite `MaybeRefOrGetter<T>` resolvendo com `toValue()`. Se ele registra listeners/timers/observers, limpe-os em `onScopeDispose` para evitar vazamentos de memória. Na prática o EngeApp escreve poucos composables próprios — o grosso da lógica reutilizável vem do MaxUse ou vive em stores.
 
-## 4. Estado: MaxPinia (`defineStore` em sintaxe setup)
+### 4. Estado: MaxPinia (`defineStore` em sintaxe setup)
 
 Stores usam **sintaxe de setup** (função), nunca a sintaxe de objeto. Ficam em `resources/Stores/{Domínio}/`, **um arquivo por store com sufixo `.Store.ts`** (ex.: `Stores/Client/useClient.Store.ts`). O export é camelCase com sufixo `Store` (`useClientStore`, `useProjectStore`); o `$id` do `defineStore` costuma ser pontilhado por domínio (`'project.client'`, `'project'`).
 
@@ -244,7 +246,7 @@ export const useUserStore = defineStore('user', () => {
 
 > Detalhes das flags de status (`is_requesting`/`is_requested`/`is_success`) e da derivação da chave de cache (`getKey()`): ver `vue-pinia-state-management-best-practices`.
 
-## 5. Vue Router
+### 5. Vue Router
 
 - Rotas montadas a partir do diretório de páginas via `import.meta.glob(...)` das `Pages/`.
 - Integre o roteador ao MaxUse com `setLibraryRouter(router as any)`.
@@ -252,7 +254,7 @@ export const useUserStore = defineStore('user', () => {
 - Use `meta.layout` (ou equivalente) para diferenciar áreas `guest` e `auth`. A raiz (`App.vue`) decide o layout/shell.
 - Rotas devem ser lazy quando fizer sentido para o bundle.
 
-## 6. Integração com o backend (Laravel 13)
+### 6. Integração com o backend (Laravel 13)
 
 - **Todo GET ao backend passa por uma store `@maxvue/max-pinia`** (cache + auto-save). Não busque dados com `axios.get` direto em componentes/serviços — defina uma store cacheada (`isCached` + `options.get.route`).
 - **Rotas são NOMES (Ziggy)**, não caminhos crus. Os helpers `apiGetRoute`/`apiPostRoute`/`apiPutRoute`/`apiDeleteRoute`/`apiUploadRoute` do `@maxvue/max-use` recebem o **nome da rota** (ex.: `apiGetRoute('project.data', { id })`) e o resolvem internamente via **Ziggy** — o `app.ts` faz `setRouteResolver((name, params) => route(name, params))` e `app.use(ZiggyVue)`. Nos stores, `options.get.route`/`save` também são **nomes** de rota. Você **não** chama `route()` diretamente no código de aplicação (o helper faz isso) nem monta `/api/...` à mão. `goToRoute` para navegação SPA.
@@ -260,7 +262,7 @@ export const useUserStore = defineStore('user', () => {
 - A autenticação por cookie de sessão já vem resolvida internamente pelos helpers do MaxUse (`withCredentials` por requisição) — o `app.ts` não configura `axios.defaults` globalmente.
 - Não use Inertia — é um SPA Vue puro servido pelo Laravel (rota catch-all).
 
-## 7. Estilização: UnoCSS + SCSS
+### 7. Estilização: UnoCSS + SCSS
 
 - **Layout e espaçamento são responsabilidade do UnoCSS**, não do SCSS. Use utilitários: `flex`, `items-center`, `justify-center`, `gap`, `w-full`, `h-max-200`, `flex-grow`, e os atalhos de tamanho `s100`/`s50`/`s33`/`s25`. Presets em uso: `presetMaxUno()`, `presetWind3()`, `presetAttributify()`, `presetIcons()`.
 - **Não reescreva em SCSS** o que o UnoCSS já resolve (width, height, padding, margin, flex). Reserve o `<style scoped>` para estrutura específica do componente e composições que os utilitários não cobrem.
@@ -268,7 +270,7 @@ export const useUserStore = defineStore('user', () => {
 - **Attributify** é válido: `<div s100 flex items-center>` funciona como classe.
 - Estilos globais/tema ficam em `resources/Theme/All.scss` (fonte, vars). Não duplique tema dentro de componentes.
 
-## 8. Estrutura de pastas (EngeApp — `resources/`)
+### 8. Estrutura de pastas (EngeApp — `resources/`)
 
 ```
 Vue/{Components, Layouts, Pages, Sections, Site, Structure}   # SFCs de aplicação

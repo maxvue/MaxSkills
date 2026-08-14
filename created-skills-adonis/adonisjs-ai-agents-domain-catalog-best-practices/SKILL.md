@@ -8,7 +8,9 @@ description: Use when implementing, reviewing, or debugging any of the Maxdmin d
 ## Objetivo
 Os 7 agentes de domínio do Maxdmin são instâncias do MESMO padrão (AgentConfig/factory + system prompt + tools com Zod + job BullMQ), diferindo apenas no domínio. Esta skill é o catálogo: descreve o esqueleto comum uma única vez e, por agente, preserva apenas os detalhes únicos (arquivos reais, tools, models, filas, particularidades de prompt).
 
-## Padrão comum
+## Instruções
+
+### Padrão comum
 Todos os agentes compartilham:
 - **AgentConfig / factory:** função `createXxxAgent(...)` (ou classe `AgentInstagramXxx` com `typeData: 'structured-data'`) que retorna a config: modelo Gemini inicial, `maxSteps`, `maxCalls` e a lista de tools.
 - **System prompt:** estruturado com tags XML (`<ENTRADA>`, `<TAREFA>`, `<REGRAS>`), saída em pt-BR (exceto prompts de geração de imagem, em inglês). Nunca inventar dados — usar só o que as tools retornam.
@@ -19,7 +21,7 @@ Todos os agentes compartilham:
 Para esses padrões transversais, **não duplique** — consulte:
 `adonisjs-ai-agents-best-practices`, `adonisjs-ai-agents-tool-calling`, `adonisjs-ai-agents-structured-outputs-zod`, `adonisjs-ai-agents-multi-agent-orchestration`, `adonisjs-ai-agents-observability-monitoring`.
 
-## Agentes
+### Agentes
 
 ### 1. Copywriter
 - **Arquivos:** `copywriter.ts` / `copywriter_job.ts`. Factory `createCopywriterAgent(event: CalendarEvent)`. Modelo `gemini-2.5-flash`, `maxSteps: 20`, `maxCalls: 2`.

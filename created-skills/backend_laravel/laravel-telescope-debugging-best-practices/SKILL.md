@@ -2,12 +2,14 @@
 name: laravel-telescope-debugging-best-practices
 description: "Use when configuring, optimizing, or debugging with Laravel Telescope in Engeapp. Covers config/telescope.php watchers, TelescopeServiceProvider filters, hideSensitiveRequestDetails, viewTelescope gate, and entry pruning."
 ---
-# Objetivo
+## Objetivo
 Padronizar como configurar, otimizar e depurar com o Laravel Telescope no engeapp, garantindo telemetria útil (queries, requests, jobs, exceções, comandos, cache) sem inchar o banco nem vazar dados sensíveis. O engeapp usa `laravel/telescope ^5.20`.
 
 # Como o Telescope está montado no engeapp
 
-## 1. Registro do provider
+## Instruções
+
+### 1. Registro do provider
 O `App\Providers\TelescopeServiceProvider` é registrado **incondicionalmente** em `bootstrap/providers.php` (padrão Laravel 11+/13), junto dos demais providers da aplicação:
 ```php
 // bootstrap/providers.php
@@ -21,7 +23,7 @@ return [
 ```
 Não registre o provider dentro de um bloco `if ($this->app->environment('local'))` no `register()`, e não registre `Laravel\Telescope\TelescopeServiceProvider` manualmente — o provider da aplicação já estende `TelescopeApplicationServiceProvider`. O Telescope roda em **todos** os ambientes; o que muda por ambiente é o que ele **grava**, controlado por `Telescope::filter()` (ver seção 2), e a **chave mestra** `TELESCOPE_ENABLED` no `.env` (`config/telescope.php` → `'enabled' => env('TELESCOPE_ENABLED', true)`).
 
-## 2. Controle de gravação por ambiente (`Telescope::filter` + `Telescope::night`)
+### 2. Controle de gravação por ambiente (`Telescope::filter` + `Telescope::night`)
 O mecanismo real de restrição está no `register()` do provider, não em registro condicional. Fora do ambiente `local`, apenas entradas relevantes são gravadas:
 ```php
 // app/Providers/TelescopeServiceProvider.php
@@ -44,7 +46,7 @@ public function register() : void
 - `Telescope::night()` aplica o tema escuro por padrão.
 - `Telescope::filter(...)`: em `local` grava tudo; nos demais ambientes grava só exceções reportáveis, requests/jobs falhos, tarefas agendadas e entradas com tag monitorada. Mantenha esse contrato ao ajustar filtros — não passe a gravar tudo em produção.
 
-## 3. Sanitização de dados sensíveis (`hideSensitiveRequestDetails`)
+### 3. Sanitização de dados sensíveis (`hideSensitiveRequestDetails`)
 `hideSensitiveRequestDetails()` é um **método protected** do provider (não uma chamada estática do Telescope). Ele faz early-return em `local` (onde não há sanitização, para facilitar debug) e só fora de `local` chama os métodos estáticos que escondem parâmetros/headers:
 ```php
 // app/Providers/TelescopeServiceProvider.php
@@ -65,7 +67,7 @@ protected function hideSensitiveRequestDetails() : void
 ```
 Ao lidar com novos payloads sensíveis (senhas, segredos de integração, PII), **adicione as chaves reais a estas listas** dentro de `hideSensitiveRequestDetails()`. Não confunda o método (que decide o quê/quando) com as chamadas estáticas `Telescope::hideRequestParameters()` / `Telescope::hideRequestHeaders()` (que efetivam a ocultação).
 
-## 4. Gate de acesso (`viewTelescope`)
+### 4. Gate de acesso (`viewTelescope`)
 O acesso ao dashboard fora de `local` é controlado pelo gate `viewTelescope` no método `gate()`. Hoje a lista de e-mails está vazia (só `local` acessa):
 ```php
 protected function gate() : void
@@ -96,7 +98,7 @@ Schedule::command('telescope:prune --hours=24')->daily();
 ```
 Alternativas: rodar `php artisan telescope:prune` manualmente, ou trocar `TELESCOPE_DRIVER` para um driver mais leve se o custo de escrita virar gargalo local.
 
-# Restrições
+## Restrições
 - Não passe a gravar todas as entradas fora de `local`: preserve o contrato do `Telescope::filter()` (só exceções/requests/jobs falhos, tarefas agendadas e tags monitoradas).
 - Não afrouxe o gate `viewTelescope`; libere acesso não local apenas incluindo e-mails específicos na lista.
 - Nunca registre credenciais, segredos de integração, certificados mTLS ou senhas nos parâmetros/cabeçalhos do Telescope — estenda `hideSensitiveRequestDetails()` quando surgirem novos campos sensíveis.

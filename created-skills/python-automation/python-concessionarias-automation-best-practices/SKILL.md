@@ -4,6 +4,9 @@ description: "Use when creating, modifying, or debugging Python RPA scripts (Sel
 ---
 # Boas Práticas de Automação (RPA) Python para Concessionárias
 
+## Objetivo
+Use when creating, modifying, or debugging Python RPA scripts (Selenium + requests) for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba), automation scripts, and TRT submissions. Covers concessionaire regulations, RPA automation, and portal scripts.
+
 > **Escopo:** scripts Python (Selenium + requests) que automatizam portais de concessionárias de energia (Cemig, Energisa, Equatorial, Coelba) e Sinceti/TRT — submeter projetos fotovoltaicos, consultar status e emitir/assinar TRTs —, integrados ao Engeapp. Esta skill é do ecossistema **Python/RPA** — não faz parte da stack Node/Vue (Maxdmin).
 
 ---

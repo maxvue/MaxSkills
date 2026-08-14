@@ -5,6 +5,9 @@ description: Use when setting up this project from scratch on a new machine, or 
 
 # Setup — SocialMedia
 
+## Objetivo
+Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.
+
 ```bash
 composer install && npm install
 cp .env.example .env && php artisan key:generate
@@ -22,3 +25,10 @@ php artisan schedule:work &  # manual, quando precisar: publicação automática
 
 - `php artisan ai:smoke {clientId}` — smoke test manual (fora da suíte) que roda o CopywriterJob síncrono com chamada REAL ao Gemini contra um client de teste (exige `GEMINI_API_KEY` válida e client com brand positioning preenchido).
 - `php artisan lora:smoke {characterId} [--generate]` — smoke test manual (fora da suíte) que roda a chain de caption+treino de LoRA real (OneTrainer) para um personagem de teste; com `--generate`, também chama o ComfyUI real para gerar uma arte com o LoRA treinado. OneTrainer e ComfyUI devem estar instalados e rodando na **mesma máquina** que o Laravel/Horizon (GPU local); substitua os templates de `resources/lora/` (`zimage-lora.template.json`, `comfyui-zimage-character.json`) pelos exports reais do OneTrainer GUI e do ComfyUI (Export API) antes de rodar este comando pela primeira vez.
+
+## Instruções
+
+Siga as instruções e padrões descritos na documentação.
+
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

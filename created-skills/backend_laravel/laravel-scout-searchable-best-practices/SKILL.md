@@ -2,7 +2,7 @@
 name: laravel-scout-searchable-best-practices
 description: "Use when implementing or optimizing full-text search (Laravel Scout + Meilisearch) in Engeapp. Covers HasScoutMeilisearch trait, toSearchableArray, meilisearchSettings, index configuration, and searchSafe macro fallback."
 ---
-# Objetivo
+## Objetivo
 Padronizar busca textual rápida com Laravel Scout + Meilisearch no engeapp seguindo as abstrações reais do projeto: a trait `App\Traits\HasScoutMeilisearch`, as propriedades de configuração por model e a macro `searchSafe()`. Evite reimplementar `Searchable` cru — o projeto já tem uma camada própria que você deve reusar.
 
 # Como o projeto faz (verdade-base)
@@ -47,10 +47,10 @@ Duas limitações importantes de `searchSafe()`:
 - Filtros passados via `->where()` do `ScoutBuilder` NÃO sobrevivem ao fallback LIKE — a macro, no catch, só reaplica o closure registrado em `->query()`, nunca os `->where()` do Scout. Filtros que precisam valer nos dois caminhos devem ir dentro de `->query(fn ($q) => $q->where(...))`. Exemplo do risco real: `app/Services/ApiCepService.php` usa `City::search($this->city_name)->where('state_id', $this->state->id)->searchSafe(['name'])`, cujo filtro por estado desaparece no fallback.
 - `searchSafe(array $fallbackColumns = [])` aceita array vazio (é o valor default do parâmetro); se o Meilisearch estiver offline e nenhuma coluna de fallback for informada, o catch retorna uma `Collection` vazia silenciosamente, sem erro. Sempre informe as colunas de fallback para evitar esse mascaramento de falha.
 
-# Instruções
+## Instruções
 1. **Não indexe tabelas grandes inteiras.** Liste apenas as colunas necessárias para busca/filtro/ordenação nas propriedades da seção 2.
 
-# Restrições
+## Restrições
 - Nunca inclua HTML cru grande, binários ou base64 no payload indexado.
 - Não dispare consultas N+1 dentro do fluxo de indexação; carregue relações com `->query(...->with([...]))` na busca.
 - Não use `LIKE` cru direto no controller quando o Scout cobrir o recurso — o fallback `LIKE` é responsabilidade da macro `searchSafe()`, não código duplicado.

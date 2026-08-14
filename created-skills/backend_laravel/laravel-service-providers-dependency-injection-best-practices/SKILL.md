@@ -2,11 +2,11 @@
 name: laravel-service-providers-dependency-injection-best-practices
 description: "Use when creating or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Container, PHP 8 constructor property promotion, dependency injection, and Octane memory safety. Covers objectives and core workflows."
 ---
-# Objetivo
+## Objetivo
 
 Fornecer diretrizes claras e robustas e padrões de implementação para registrar serviços via Service Providers e resolvê-los usando injeção de dependência no Laravel, garantindo especificamente compatibilidade com ambientes stateless de alta performance como o Laravel Octane.
 
-# Instruções
+## Instruções
 
 ### 1. Criação e Registro de Service Provider
 - Use o Artisan para gerar novos Service Providers:
@@ -128,7 +128,7 @@ class SignatureController extends Controller
 }
 ```
 
-# Restrições
+## Restrições
 
 - **NÃO** use `singleton` para qualquer serviço que processe ou mantenha dados específicos de requisição, a menos que as dependências sejam resolvidas usando closures.
 - **NÃO** mute propriedades estáticas em classes dentro do container.
