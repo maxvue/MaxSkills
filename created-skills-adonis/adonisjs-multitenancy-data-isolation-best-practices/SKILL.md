@@ -18,7 +18,8 @@ Crie um serviço dedicado `TenantService` para armazenar e recuperar o ID do ten
 import { AsyncLocalStorage } from 'node:async_hooks'
 
 export class TenantService {
-  private static storage = new AsyncLocalStorage<string>()
+  private static storage = new AsyncLocalStorage<string | symbol>()
+  private static readonly CROSS_TENANT = Symbol('cross_tenant')
 
   /**
    * Executa uma função de callback dentro do contexto de um tenant específico
@@ -28,10 +29,25 @@ export class TenantService {
   }
 
   /**
+   * Executa uma operação administrativa cross-tenant deliberada (bypass de isolamento)
+   */
+  static runCrossTenant<T>(callback: () => T): T {
+    return this.storage.run(this.CROSS_TENANT, callback)
+  }
+
+  /**
+   * Verifica se o contexto atual é uma operação cross-tenant autorizada
+   */
+  static isCrossTenant(): boolean {
+    return this.storage.getStore() === this.CROSS_TENANT
+  }
+
+  /**
    * Obtém o ID do tenant ativo no contexto de execução atual
    */
   static getTenantId(): string | null {
-    return this.storage.getStore() ?? null
+    const store = this.storage.getStore()
+    return typeof store === 'string' ? store : null
   }
 
   /**
@@ -79,7 +95,10 @@ export default class TenantMiddleware {
 ### 3. Filtro Automático de Tenant via Query Hooks do Lucid
 > **Importante:** o Lucid v6 NÃO possui `addGlobalScope`/`static boot()` (isso é Eloquent/Laravel). No Adonis use **query hooks** (`@beforeFind`, `@beforeFetch`, `@beforePaginate`) para aplicar o filtro de tenant automaticamente, ou **named scopes** via `scope()` para aplicação explícita.
 
-Crie um helper reutilizável que aplica o filtro no query builder, lendo o `tenantKey` dinamicamente para suportar convenções diferentes (`solarCompanyId` vs `idSolarCompany`):
+Crie um helper reutilizável que aplica o filtro no query builder, lendo o `tenantKey` dinamicamente para suportar convenções diferentes (`solarCompanyId` vs `idSolarCompany`).
+
+> **Falhe fechado, nunca aberto:** O helper de filtro nunca pode "pular" o `where` por ausência de contexto — um contexto vazio é indistinguível de um contexto perdido. Use `getRequiredTenantId()` (que lança) e reserve o bypass para a chamada explícita `TenantService.runCrossTenant()`.
+
 ```typescript
 import type { ModelQueryBuilderContract } from '@adonisjs/lucid/types/model'
 import type { LucidModel } from '@adonisjs/lucid/types/model'
@@ -89,12 +108,16 @@ export function applyTenantFilter(
   query: ModelQueryBuilderContract<LucidModel>,
   tenantKey: 'solarCompanyId' | 'idSolarCompany' = 'solarCompanyId'
 ) {
-  const tenantId = TenantService.getTenantId()
-
-  // Apenas aplica o filtro se um ID de tenant estiver definido no contexto
-  if (tenantId) {
-    query.where(tenantKey, tenantId)
+  // Bypass APENAS quando declarado explicitamente via TenantService.runCrossTenant()
+  if (TenantService.isCrossTenant()) {
+    return
   }
+
+  // Falha FECHADO: sem contexto de tenant, a consulta NÃO roda em vez de rodar sem filtro.
+  // Contexto perdido (job sem payload de tenant, comando Ace, callback fora do escopo do
+  // AsyncLocalStorage) vira erro imediato, nunca vazamento silencioso entre tenants.
+  const tenantId = TenantService.getRequiredTenantId()
+  query.where(tenantKey, tenantId)
 }
 ```
 
@@ -193,10 +216,12 @@ new Worker('solar-proposals', async (job: Job) => {
 })
 ```
 
+> Se `job.data.tenantId` vier ausente, o job deve falhar explicitamente (`TenantService.run` exige uma string) — com o filtro fechado, um job sem tenant erra em vez de processar dados de todos os tenants.
+
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 * **Sem Consultas Manuais de Tenant**: Evite adicionar manualmente filtros `.where('solarCompanyId', ...)` em ações padrão de controllers. Confie nos query hooks (`@beforeFind`/`@beforeFetch`/`@beforePaginate`) para evitar vazamentos de dados.
 * **Armazenamento de Contexto Estático**: Nunca armazene o ID do tenant ativo em variáveis estáticas de classe ou propriedades globais, pois elas persistem entre requisições HTTP concorrentes nos ambientes Octane e Node.js. Sempre use `AsyncLocalStorage`.
 * **Mapeamento de Chave Estrangeira**: Verifique duas vezes o nome da chave estrangeira do tenant em cada modelo (ex: `solarCompanyId` ou `idSolarCompany`). Aplicar o nome da chave incorreto quebrará as consultas ao banco de dados.
 * **Proteção de Mutação**: Nunca insira ou atualize registros sem verificar se a propriedade `tenantId` está alinhada com o contexto ativo do tenant.
-* **Desativação do Filtro Automático**: Para consultas cross-tenant (contextos administrativos/console), não há `ignoreScopes` no Lucid. Garanta que `TenantService.getTenantId()` retorne `null` no contexto de execução (não envolva a operação em `TenantService.run`) ou use uma conexão/query dedicada, sempre após validação explícita de autenticação e autorização.
+* **Desativação do Filtro Automático**: Para consultas cross-tenant (contextos administrativos/console), não há `ignoreScopes` no Lucid. Envolva a operação **explicitamente** em `TenantService.runCrossTenant(() => ...)`, sempre após validação explícita de autenticação e autorização. Nunca desative o filtro simplesmente deixando de inicializar o contexto: contexto ausente deve ser erro, não permissão total.
