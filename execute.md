@@ -13,9 +13,12 @@
 3. **Skill Existente:** Se a proposta for do tipo `ATUALIZAR`, obter o arquivo da skill existente na pasta `created-skills/`.
 4. **Contexto e padrões:** Utilizando as instruções do arquivo `general-instructions/planning-sub-agents.md`, obter os padrões de código em relação à skill.
 5. **Workflows:** Analisar os workflows citados no planejamento inicial (pasta `global-workflows/`) para auxiliar na criação/atualização da skill.
-6. **Skills de Terceiros:** Analisar as skills de terceiro citadas na proposta para auxiliar na criação/atualização da skill.
-7. **Vue:** Se o uso desta skill for em arquivos `.vue`, considerar as instruções em `general-instructions/vue-components.md`.
-8. Elabore o plano de forma detalhada conforme a proposta e os dados obtidos e **execute diretamente** as fases seguintes sem aguardar aprovação.
+6. **Skills Próprias Utilizadas (OBRIGATÓRIO):** Consulte o campo **"Skills próprias utilizadas"** da proposta. Para **cada** skill listada, leia o **conteúdo completo** do respectivo `SKILL.md` (em `created-skills/` ou `created-skills-adonis/`) e incorpore seus padrões, convenções e restrições à skill que está sendo criada/atualizada. Cumpre a regra obrigatória definida em `proposal.md` Fase 1.3.
+   - Se o campo estiver vazio, ausente ou preenchido como "Nenhuma": registre explicitamente no plano que não há dependências próprias e prossiga.
+   - Se uma skill listada **não for encontrada** em disco: informe o usuário e prossiga, registrando a dependência não resolvida no plano — **não** invente o conteúdo da skill ausente.
+7. **Skills de Terceiros:** Analisar as skills de terceiro citadas na proposta para auxiliar na criação/atualização da skill.
+8. **Vue:** Se o uso desta skill for em arquivos `.vue`, considerar as instruções em `general-instructions/vue-components.md`.
+9. Elabore o plano de forma detalhada conforme a proposta e os dados obtidos e **execute diretamente** as fases seguintes sem aguardar aprovação.
 
 ---
 
@@ -77,6 +80,7 @@ Antes de finalizar, execute esta checklist de validação obrigatória:
 - [ ] A `description` (wake word) segue as regras de qualidade definidas na Fase 3?
 - [ ] O corpo contém as seções obrigatórias em nível `##` e no idioma da pasta? (EN: `Goal`/`Instructions`/`Constraints`; PT: `Objetivo`/`Instruções`/`Restrições`)
 - [ ] A seção `Constraints`/`Restrições` contém, como primeira bullet, a regra de idioma de conversação Agente↔Humano = Português (pt-BR), sempre, sem exceção (Fase 3.1a)?
+- [ ] Todas as skills listadas no campo "Skills próprias utilizadas" da proposta foram lidas na íntegra e seus padrões estão refletidos na skill produzida (ou foi registrado que o campo estava vazio / a dependência não foi encontrada)?
 - [ ] A `description` (wake word) está em **Inglês e idêntica** entre a versão EN e a cópia PT?
 - [ ] Os blocos de código (```) estão todos **fechados** (nº par de cercas)?
 - [ ] Se há referências a arquivos auxiliares, os **caminhos relativos** estão corretos?
