@@ -28,7 +28,7 @@ sync_project() {
 
   # Suporte a worktrees/variantes sem manifesto próprio (ex: engeapp-wt-xxx, MaxComponentsUi-mig2)
   if [[ ! -f "$manifest" ]]; then
-    for prefix in "engeapp" "MaxComponentsUi" "MaxUse" "SocialMedia" "AgenteDeBolso" "MaxMoney" "Skills"; do
+    for prefix in "engeapp" "MaxComponentsUi" "MaxUse" "SocialMedia" "AgenteDeBolso" "MaxMoney" "MaxSkills"; do
       if [[ "$name" == "$prefix-"* && -f "$MANIFESTS_DIR/$prefix.manifest" ]]; then
         manifest="$MANIFESTS_DIR/$prefix.manifest"
         break
