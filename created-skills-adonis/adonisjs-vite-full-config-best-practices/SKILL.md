@@ -12,7 +12,9 @@ Documentar a configuração padrão do Vite no ecossistema Engeapp com AdonisJS 
 
 ---
 
-## Dependências (`package.json`)
+## Instruções
+
+### Dependências (`package.json`)
 
 ```json
 {
@@ -29,7 +31,7 @@ Documentar a configuração padrão do Vite no ecossistema Engeapp com AdonisJS 
 
 ---
 
-## Configuração Completa (`vite.config.ts`)
+### Configuração Completa (`vite.config.ts`)
 
 ```typescript
 import { defineConfig } from 'vite'
@@ -114,7 +116,7 @@ export default defineConfig({
 
 ---
 
-## Configuração UnoCSS (`uno.config.ts`)
+### Configuração UnoCSS (`uno.config.ts`)
 
 ```typescript
 import { defineConfig } from 'unocss'
@@ -131,7 +133,7 @@ export default defineConfig({
 
 ---
 
-## Configuração `adonisrc.ts` (Adonis v6)
+### Configuração `adonisrc.ts` (Adonis v6)
 
 No Adonis v6 **não existe** uma chave `vite` em `adonisrc.ts`. A integração com o Vite é feita por:
 1. o plugin `adonisjs()` no `vite.config.ts` (já configurado acima), e
@@ -159,7 +161,7 @@ export default defineConfig({
 
 ---
 
-## Configuração HMR em Desenvolvimento Local
+### Configuração HMR em Desenvolvimento Local
 
 Para HMR funcionando com domínio local e HTTPS, veja a skill `adonisjs-vite-local-https-ssl-best-practices`.
 
@@ -177,7 +179,7 @@ server: {
 
 ---
 
-## TypeScript (`tsconfig.json`)
+### TypeScript (`tsconfig.json`)
 
 ```json
 {

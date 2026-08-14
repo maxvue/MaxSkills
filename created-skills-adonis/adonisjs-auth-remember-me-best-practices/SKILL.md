@@ -8,7 +8,9 @@ description: Use when implementing, configuring, reviewing, or debugging persist
 ## Objetivo
 Documentar como funciona a persistência de login ("Lembrar de mim") no AdonisJS v6 usando `@adonisjs/auth`, refletindo o padrão real adotado neste projeto, e descrever a alternativa de remember-me tokens dedicados quando for desejada persistência independente da expiração da sessão.
 
-## Mecanismo real atual (padrão do projeto)
+## Instruções
+
+### Mecanismo real atual (padrão do projeto)
 
 Hoje a persistência de "lembrar de mim" **não** usa tokens dedicados. Em `config/auth.ts`, o session guard `web` está com `useRememberMeTokens: false`. A persistência de 30 dias vem da **própria sessão armazenada no banco**.
 
@@ -85,7 +87,7 @@ Hoje a persistência de "lembrar de mim" **não** usa tokens dedicados. Em `conf
   }
   ```
 
-## Opção: remember-me tokens dedicados
+### Opção: remember-me tokens dedicados
 
 Use esta opção **apenas** se quiser persistência de login **independente da expiração da sessão** (ex.: re-login automático via cookie mesmo após a sessão expirar). Não é o padrão atual do projeto. Ative deliberadamente os três pontos abaixo em conjunto; ativar apenas um deles quebra o fluxo.
 

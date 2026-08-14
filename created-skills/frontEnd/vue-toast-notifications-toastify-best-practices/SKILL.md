@@ -9,7 +9,9 @@ Quando alguém pedir "um toast", "um toastzinho", "um aviso", "uma notificação
 
 ---
 
-## 1. O que é o MaxToast
+## Instruções
+
+### 1. O que é o MaxToast
 
 O MaxToast é o sistema de toast **de primeira parte** do ecossistema Max. Ele tem três peças:
 
@@ -23,7 +25,7 @@ Visual pronto (não precisa estilizar): card colorido por severidade, ícone aut
 
 ---
 
-## 2. Montagem — uma vez só, no `App.vue`
+### 2. Montagem — uma vez só, no `App.vue`
 
 O container é montado **uma única vez na raiz da aplicação**, fora do `<RouterView />`, para que os toasts sobrevivam à troca de rota. É exatamente assim que o engeapp faz (`resources/App.vue`):
 
@@ -46,7 +48,7 @@ Regras de montagem:
 
 ---
 
-## 3. Disparo — `Toast.show({ title, severity })`
+### 3. Disparo — `Toast.show({ title, severity })`
 
 Esta é a forma canônica. Importe o helper `Toast` e chame `show`:
 
@@ -141,7 +143,7 @@ Toast.show({ title: 'Exportação concluída!', severity: 'success' });
 
 ---
 
-## 4. Uso avançado — a store `useToastStore`
+### 4. Uso avançado — a store `useToastStore`
 
 Só quando o helper não basta (ex.: você precisa **ler** a fila de toasts ativos ou pausar/retomar programaticamente):
 
@@ -163,7 +165,7 @@ toastStore.clear();          // remove todos
 
 ---
 
-## 5. Toast para o resultado do save de uma store MaxPinia
+### 5. Toast para o resultado do save de uma store MaxPinia
 
 **Atenção:** `saveInServer()` da store `@maxvue/max-pinia` **não** retorna uma promise que resolve/rejeita conforme o resultado HTTP. Ela é `async`, mas captura todos os erros internamente e resolve para `undefined` quase imediatamente. Portanto **não** dispare o toast de sucesso logo após um `await store.saveInServer()` — ele apareceria mesmo em caso de falha.
 
@@ -202,7 +204,7 @@ Lembre-se de que o MaxPinia já faz **auto-save com debounce**: não dispare um 
 
 ---
 
-## 6. Erros de API → toast
+### 6. Erros de API → toast
 
 Não existe interceptor `axios.interceptors.response` central no projeto: `@maxvue/max-use` (`apiGetRoute`/`apiPostRoute`) e `@maxvue/max-pinia` usam a instância padrão do axios e tratam o erro localmente (`console.error` + retorno `null` / `status.server.save.is_error`).
 
@@ -221,7 +223,7 @@ if (!data) {
 
 ---
 
-## 7. Exceção legada: `vue3-toastify`
+### 7. Exceção legada: `vue3-toastify`
 
 Alguns arquivos do engeapp ainda importam `{ toast } from 'vue3-toastify'` (ex.: `useLogin.Store.ts`, `CheckoutBoleto.vue`, `VoipCallButton.vue`, `ProjectPage.vue`). Isso é **legado**.
 

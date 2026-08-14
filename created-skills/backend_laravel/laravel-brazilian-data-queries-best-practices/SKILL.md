@@ -9,7 +9,9 @@ Padronizar a implementação e a manutenção dos serviços que consultam dados 
 
 Leia os dois serviços antes de alterar comportamento — eles são a fonte da verdade. Esta skill descreve as convenções que eles seguem e por quê.
 
-## 1. Consulta de CNPJ — `ApiCnpjService`
+## Instruções
+
+### 1. Consulta de CNPJ — `ApiCnpjService`
 
 ### A. Cadeia de fallback (ordem real)
 `getData(string $cnpj)` tenta os provedores nesta ordem, parando no primeiro sucesso (usa `??`):
@@ -42,7 +44,7 @@ Não use BrasilAPI para CNPJ: o projeto não a utiliza nessa consulta.
 ```
 Ao ler o resultado, consuma `['content']` no formato acima — não invente chaves em inglês (`legal_name`, `trade_name`, etc.).
 
-## 2. Consulta de CEP — `ApiCepService`
+### 2. Consulta de CEP — `ApiCepService`
 
 ### A. Cadeia de fallback (ordem real)
 O construtor monta `$api_data_get` e `get()` itera na ordem, parando quando um `City` é resolvido:
@@ -88,7 +90,7 @@ O CEP é limpo/validado no construtor (`getCepOnlyNumber`, `checkCepValid`, `mb_
 ```
 Não há chave `ibge_code`. `setData()` faz o mapeamento resiliente de campos vindos de cada provedor (`logradouro`/`street`, `bairro`/`neighborhood`, `localidade`/`cidade`/`city`, `uf`/`UF`/`estado`, etc.) via `getFirstContent`, resolvendo por fim `State` e `City` no banco.
 
-## 3. Tratamento de Erros
+### 3. Tratamento de Erros
 - Nenhum dos serviços lança exceção customizada — ambos retornam estruturas de falha (ver 1.C e 2.D). Não existe `BrazilianDataQueryException` no projeto — não a invente.
 - Siga `laravel-exception-handling-logging` para logging adicional.
 - Sempre use o cliente `Http` do Laravel (nunca cURL bruto).

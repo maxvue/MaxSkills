@@ -2,12 +2,12 @@
 name: laravel-gemini-file-api-media-integration-best-practices
 description: "Use when managing media uploads and multimodal processing via Google AI File API with Gemini SDK in Laravel. Covers video, audio, or PDF file processing, temp uploads, active state polling, and cleanup. Covers objectives and core workflows."
 ---
-# Objetivo
+## Objetivo
 Fornecer diretrizes robustas, seguras e eficientes em memória para fazer upload e gerenciar grandes arquivos de mídia (vídeos, faixas de áudio longas, PDFs grandes) usando a Google AI File API com o Gemini PHP SDK dentro de aplicações Laravel. Isso evita problemas de alto consumo de memória causados por payloads Base64 e garante interações multimodais confiáveis com a IA.
 
 ---
 
-# Instruções
+## Instruções
 
 ### 1. Determinando Quando Usar File API vs. Blobs (Inline Data) vs. Laravel AI SDK
 - **Use Inline Blobs (Base64):** Para arquivos pequenos (< 20MB), como imagens padrão, pequenos documentos PDF e trechos curtos de áudio. Isso é mais rápido, pois não requer uma etapa intermediária de upload. Consulte [laravel-gemini-php-sdk-best-practices](../laravel-gemini-php-sdk-best-practices/SKILL.md).
@@ -140,7 +140,7 @@ try {
 
 ---
 
-# Restrições
+## Restrições
 - **Idioma:** Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
 - **Nunca Faça Hardcode de Segredos:** API Keys e config de autenticação nunca devem ser colocadas em arquivos-fonte. Mantenha os parâmetros de ambiente usando a config do Laravel.
 - **Limpeza Estrita no Finally:** Garanta que tanto os arquivos temporários locais quanto as entradas remotas da Google File API sejam deletados usando blocos `finally`, protegendo contra exceções de geração de conteúdo com falha.

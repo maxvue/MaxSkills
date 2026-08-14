@@ -7,7 +7,9 @@ description: "Use when generating, rendering, extracting text, validating, or co
 ## Objetivo
 Estabelecer padrões de código eficientes em memória para gerar documentos PDF dinâmicos/estáticos e um fluxo resiliente a erros para extrair texto e converter páginas em imagens, alinhados às implementações reais do engeapp (`barryvdh/laravel-dompdf`, `setasign/fpdi` sobre `tecnickcom/tcpdf`, `spatie/pdf-to-text`, `spatie/pdf-to-image`).
 
-## 1. Geração de PDF
+## Instruções
+
+### 1. Geração de PDF
 
 ### 1.1 DomPDF (barryvdh/laravel-dompdf) — padrão em uso
 Padrão real no engeapp: `App\Traits\HasDocument` e controllers de documentos (ex.: `App\Http\Controllers\Documents\Document\Inmetro`).
@@ -31,7 +33,7 @@ Toda edição/montagem sobre templates estáticos passa por `App\Classes\PdfEdit
 ### 1.3 mPDF e spatie/laravel-pdf — instalados, sem uso direto
 `mpdf/mpdf` (^8.1) e `spatie/laravel-pdf` (^2.5) constam no `composer.json` mas não têm uso direto (mPDF aparece só como writer do PhpSpreadsheet em `FormRequestEnergisaController`); para PDF novo use 1.1 (DomPDF) ou 1.2 (PdfEdit). Se algum dia adotar `spatie/laravel-pdf`, atenção: o facade do DomPDF já é usado em 3 arquivos do projeto, então importar `Spatie\LaravelPdf\Facades\Pdf` sem alias criaria colisão real de nome.
 
-## 2. Extração e Conversão de PDF
+### 2. Extração e Conversão de PDF
 
 ### 2.1 Extração e validação de texto (spatie/pdf-to-text) — padrão em uso
 Use `Spatie\PdfToText\Pdf::getText($path)`. O engeapp centraliza a validação no helper `pdfIsValid()` (`app/Helpers/PdfHelper.php`), consumido por jobs como `App\Jobs\Instagram\ThemeExtractionJob`.

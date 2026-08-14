@@ -7,7 +7,9 @@ description: "Use when managing solar PV project homologation in Engeapp. Covers
 ## Objetivo
 Padronizar o fluxo de homologação de projetos fotovoltaicos junto às concessionárias no engeapp: validar limites técnicos da concessionária, registrar e sincronizar protocolos entre projeto e card do planner, e expor tudo ao front-end respeitando o contrato MaxPinia/Ziggy do projeto.
 
-## 1. Validação das normas técnicas da concessionária
+## Instruções
+
+### 1. Validação das normas técnicas da concessionária
 
 Use o model `App\Models\Concessionaire\ConcessionaireSubsidiaryRegulation` (tabela `concessionaires_subsidiaries_regulations`) como fonte de verdade dos limites aceitos. Ele expõe seis atributos appended, um por combinação fase × tensão fase-neutro:
 
@@ -33,7 +35,7 @@ if (! $permitido) {
 
 Prefira `$regulation->mono_127` (atributo) a consultar `data` cru — o atributo já filtra `amount_phases` e `voltage_phase_neutral`. O model já declara `protected $with = ['data']` (eager por padrão), então não é preciso encadear `with('data')` manualmente; note ainda que os atributos appended fazem sua própria query filtrada (`$this->data()->where(...)->get()`) e não reaproveitam a relação eager-loaded. **Nunca** deixe um projeto seguir para envio violando a `ConcessionaireSubsidiaryRegulation` selecionada para a filial/classe do projeto (a tabela não tem coluna de vigência/status — a norma correta é obtida por filial + `class`/`regulation_code`, não por uma flag de "ativa").
 
-## 2. Ciclo de vida e sincronização do protocolo
+### 2. Ciclo de vida e sincronização do protocolo
 
 Toda interação com a concessionária gera um `App\Models\Protocol\Protocol`. Models que se associam a protocolos usam a trait `App\Traits\HasProtocol` (ex.: `Project`, `PlannerCard`).
 
@@ -58,7 +60,7 @@ Não reimplemente essa sincronização manualmente nos controllers — deixe a t
 
 Para prazos: o campo `expires_at` do `Protocol` alimenta `PlannerCard::updateExpiresAt()`, e esse recálculo **já é automático** — o hook `Protocol::booted()` chama `updateExpiresAt()` tanto em `static::saved` quanto em `static::deleted`. Também já existe reprocessamento em lote: `php artisan planner:update-expires-at` (`App\Console\Commands\UpdatePlannerCardExpiresAtCommand`, hoje sem agendamento registrado). Não crie um novo job/scheduler para recalcular `expires_at` — o único gap real é o *alerta* de prazo iminente (notificar antes do vencimento), que de fato não existe hoje.
 
-## 3. Onde colocar a lógica de homologação
+### 3. Onde colocar a lógica de homologação
 
 Não coloque validação de norma nem persistência dentro de controllers. O engeapp organiza regras de negócio na camada `app/Services` (ex.: `Services/Project`, `Services/Signature`).
 
@@ -70,7 +72,7 @@ Um service de homologação deveria orquestrar:
 3. Criar o `Protocol` via `setProtocol()` no `Project`/`PlannerCard` (seção 2).
 4. Respeitar as flags de notificação (`notify_client`, `notify_designer`, `notify_solar_company`) e delegar o envio a Jobs assíncronos.
 
-## 4. Exposição ao front-end (Vue 3 SPA)
+### 4. Exposição ao front-end (Vue 3 SPA)
 
 O front é uma SPA Vue 3 com Vue Router; siga o contrato do ecossistema Max e Ziggy:
 

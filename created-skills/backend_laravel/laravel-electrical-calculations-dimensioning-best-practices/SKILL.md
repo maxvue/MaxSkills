@@ -2,10 +2,10 @@
 name: laravel-electrical-calculations-dimensioning-best-practices
 description: "Use when performing electrical sizing, circuit breaker calculation, cable sizing, voltage drop verification, or inverter/module matching via getWireSize, getCircuitBrake, getInverter, or NBR 5410 standards. Covers electrical sizing, breaker calculations, and cable sizing standards."
 ---
-# Objetivo
+## Objetivo
 Garantir a execução padronizada e precisa de dimensionamento elétrico, seleção de disjuntores, dimensionamento de cabos e busca de inversores dentro do Engeapp, aproveitando helpers globais e tabelas do banco de dados em vez de cálculos manuais ou valores hardcoded.
 
-# Instruções
+## Instruções
 1. **Dimensionamento de Cabos (Wire Sizing):**
    - Sempre use o helper global `getWireSize($currents, $options)`.
    - NÃO implemente fórmula customizada de resistência de cobre/alumínio ou cálculo de queda de tensão.

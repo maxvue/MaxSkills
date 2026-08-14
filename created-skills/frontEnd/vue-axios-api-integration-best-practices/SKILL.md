@@ -7,7 +7,9 @@ description: "Use when integrating Vue 3 front-end with Laravel API via apiGetRo
 ## Objetivo
 Padronizar como o front Vue 3 do EngeApp conversa com a API Laravel. **Neste projeto não existe uma camada de configuração global de Axios** (sem `axios.defaults`, sem interceptadores, sem `baseURL`, sem fluxo de `/sanctum/csrf-cookie`). Todo o transporte HTTP passa pelos helpers do `@maxvue/max-use`, que já encapsulam Axios com headers e credenciais corretos. O papel desta skill é ensinar a usar esses helpers e o contrato de retorno deles — não a reconfigurar Axios.
 
-## Regras fundamentais
+## Instruções
+
+### Regras fundamentais
 
 ### 1. Todo GET ao backend passa por uma store MaxPinia
 Nunca faça `axios.get` (ou `apiGetRoute`) direto em um componente. GETs de leitura vão para uma store MaxPinia com `isCached = true` e `options.get.route` apontando para o NOME da rota Ziggy. A store cuida de cache, deduplicação e `status.server.get.is_requested/is_success`. Isso evita requisições repetidas e mantém o estado consistente entre telas.
@@ -53,7 +55,7 @@ Não configure `Accept`, `Content-Type`, `X-Requested-With` nem `withCredentials
 ### 6. CSRF manual só para widgets de upload de terceiros
 O único lugar onde um token CSRF é anexado à mão é a configuração de bibliotecas externas de upload (ex.: VueFinder), onde se passa `'XSRF-TOKEN': system.token` / `'X-CSRF-TOKEN': system.token` e `baseUrl: system.base_url + '/normas/files'` (subpath concatenado, não o `base_url` puro), lendo do store `useSystemStore` (`token`, `base_url`). Isso é exceção para libs que fazem seu próprio HTTP — **não** é o fluxo das chamadas de API do app.
 
-## Exemplo real — login (POST de mutação)
+### Exemplo real — login (POST de mutação)
 
 Trecho fiel a `resources/Stores/UserStores/useLogin.Store.ts`. O login é um POST via `apiPostRoute` usando o nome de rota `'login'`; em sucesso a página é recarregada (`location.reload()`), em falha exibe-se um toast. Note: sem `csrf-cookie`, sem `router.push`, sem `axios`.
 

@@ -2,10 +2,10 @@
 name: laravel-vuefinder-media-library-integration
 description: "Use when integrating VueFinder file manager with Spatie MediaLibrary in Engeapp. Covers upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), and VueFinder JSON enrichment. Covers objectives and core workflows."
 ---
-# Objetivo
+## Objetivo
 Garantir a sincronização em tempo real entre as operações do gerenciador de arquivos VueFinder (upload, delete, rename, move, copy) e os registros no banco de dados do Spatie MediaLibrary, mantendo o armazenamento físico e a tabela `media` do banco de dados perfeitamente consistentes.
 
-# Instruções
+## Instruções
 1. **Operações do Controller & Tratamento de Ações**:
    - Antes de listar/operar, garanta idempotentemente que a pasta do projeto exista fisicamente: se `$project->folder` ainda não estiver definido, chame `$project->createFolder(true)`; se estiver definido mas ausente no disco, recrie-a com `makeDirectory()` incluindo as subpastas padrão `Fotos` e `Vistoria`. Só então monte o adapter (`LocalFilesystemAdapter`) e o `VueFinderBuilder`/`ActionFactory` para tratar a execução da request.
    - Use `Ozdemir\VueFinder\VueFinderBuilder::create()` do vendor para montar o core, mas instancie a factory LOCAL `App\Services\VueFinder\ActionFactory` (subclasse de `VueFinderActionFactory` que exige `$basePath` e substitui `preview`/`download` por `PreviewAction`/`DownloadAction` com suporte a HTTP Range via `LocalFileStreamAction::setBasePath`), chamando `->setRequest($request)->create($action)->execute()`.
@@ -36,7 +36,7 @@ Garantir a sincronização em tempo real entre as operações do gerenciador de 
 7. **Enriquecimento de Metadados (`enrichWithSpatieMetadata`)**:
    - Enriqueça as respostas JSON de índice ou busca do VueFinder com os atributos da media library do Spatie (`media_id`, `data_ai`, `status_ai_process`, `thumbnail`, `document_type`, `tags`, etc.).
 
-# Restrições
+## Restrições
 - NUNCA dispare os eventos padrão de model do Eloquent ou os observers do MediaLibrary durante a sincronização (use queries `saveQuietly()` ou `toBase()`) para evitar disparos circulares.
 - NÃO duplique registros de media para arquivos idênticos na mesma pasta virtual.
 

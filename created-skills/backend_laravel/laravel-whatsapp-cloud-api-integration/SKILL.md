@@ -2,10 +2,10 @@
 name: laravel-whatsapp-cloud-api-integration
 description: "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Covers objectives and core workflows."
 ---
-# Objetivo
+## Objetivo
 Fornecer diretrizes estritas, padrões arquiteturais e convenções de código para implementar, refatorar e depurar integrações com a WhatsApp Cloud API dentro do ecossistema Laravel do Engeapp. Isso garante validação segura de webhooks, processamento assíncrono e não-bloqueante de mensagens, gerenciamento robusto de rate limit da API, resiliência a erros e armazenamento padronizado no banco de dados.
 
-# Instruções
+## Instruções
 
 ## 1. Verificação & Processamento de Webhooks
 * **Validação da subscrição (fato do engeapp):** Na confirmação da subscrição (requisição GET com `hub_challenge`), valide o `hub_verify_token` recebido contra o token configurado e responda com o `hub_challenge` inteiro. É exatamente o que o `WebhookController::index` faz (`app/Http/Controllers/Api/Whatsapp/WebhookController.php`), lendo o token de `config('api.whatsapp_webhook_token')`:
@@ -110,7 +110,7 @@ Fornecer diretrizes estritas, padrões arquiteturais e convenções de código p
   Log::channel('whatsapp')->error('Integration error detail', ['context' => $data]);
   ```
 
-# Restrições
+## Restrições
 * **NÃO** execute lógica de negócio de longa duração, notificações ou transações de banco de dados diretamente dentro do contexto da requisição HTTP do webhook. Sempre envie para a fila.
 * **NÃO** tente reenviar mensagens que já contenham um `message_meta_id` válido, para evitar enviar duplicatas aos usuários.
 * **NÃO** faça log de tokens de autenticação brutos ou client secrets. Garanta que sejam lidos dos arquivos `config()` e armazenados com segurança no `.env`.

@@ -2,10 +2,10 @@
 name: laravel-typescript-transformer-best-practices
 description: "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Covers objectives, TypeScript DTO transformation, and language rules."
 ---
-# Objetivo
+## Objetivo
 Garantir diretrizes sólidas e consistentes para configurar, gerar e validar definições TypeScript a partir de DTOs e Enums PHP do backend, mantendo a sincronização perfeita entre Laravel e Vue 3 / TypeScript no ecossistema do Engeapp.
 
-# Instruções
+## Instruções
 1. **Inspeção de Diretórios e Escopo:** O Spatie TypeScript Transformer transforma automaticamente as classes em `app/Data` (para Data Transfer Objects do Spatie) e `app/Enums` (para Enums). A saída é escrita em `resources/Types/generated.d.ts`. Toda essa configuração é **programática**, não via `config/typescript-transformer.php` (esse arquivo não existe no projeto): está em `app/Providers/TypeScriptTransformerServiceProvider.php::configure()`, que usa a API v3 do `spatie/typescript-transformer` (`extension()`, `prependTransformer()`, `provider()`, `transformer()`, `transformDirectories()`, `outputDirectory()`, `writer()`, `formatter()`). É lá que `FlatGlobalWriter`, `CustomDataClassTransformer` e `LaravelDataTransformedProvider` são registrados, e onde `transformer()` registra o `EnumTransformer` (pipeline de Enums) — consulte esse provider para ajustar o pipeline.
 2. **Mapeamentos de DTO (Automático):**
    - Classes de backend que estendem `Spatie\LaravelData\Data` não exigem o atributo `#[TypeScript]`. Elas são descobertas automaticamente pelo `LaravelDataTransformedProvider`.
@@ -24,3 +24,6 @@ Garantir diretrizes sólidas e consistentes para configurar, gerar e validar def
 
 ## Idioma
 - Sempre comunique-se com o usuário humano em português (pt-BR). Este é o idioma padrão de conversa Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill esteja escrito.
+
+## Restrições
+- **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
