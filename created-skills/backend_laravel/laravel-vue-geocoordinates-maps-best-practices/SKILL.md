@@ -1,6 +1,7 @@
 ---
 name: laravel-vue-geocoordinates-maps-best-practices
 description: "Use when handling geographic coordinates (Decimal, UTM, DMS) in Engeapp. Covers validating Spatie Data DTOs, persisting LocationCoordinate JSON, integrating Google Maps, and converting UTM/DMS/Decimal via utm-latlng."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Coordenadas Geográficas e Mapas em Laravel e Vue
 

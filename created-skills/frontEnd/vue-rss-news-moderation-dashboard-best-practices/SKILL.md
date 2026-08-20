@@ -1,8 +1,8 @@
 ---
 name: vue-rss-news-moderation-dashboard-best-practices
 description: "Use when implementing, styling, or debugging the RSS news moderation panel (TabNewsItems.vue) in EngeApp Vue 3. Covers useSocialMediaNewsStore (axios and Ziggy news routes), incremental limit/offset pagination, pending/archived tabs via archived prop, keyword grouping, and editorial theme approval."
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Padronizar a arquitetura e a UX do painel de moderação de notícias RSS do EngeApp — o componente `resources/Vue/Sections/SocialMedia/TabNewsItems.vue` e sua store `resources/Stores/calendar/useSocialMediaNews.Store.ts`. As notícias são importadas do Google News RSS (comando `social-media:fetch-news`), entram como `pending`, e o gestor aprova (gerando um Tema editorial) ou arquiva cada uma.
 

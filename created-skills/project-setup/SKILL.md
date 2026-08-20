@@ -1,8 +1,8 @@
 ---
 name: project-setup
 description: Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Setup — SocialMedia
 
 ## Objetivo

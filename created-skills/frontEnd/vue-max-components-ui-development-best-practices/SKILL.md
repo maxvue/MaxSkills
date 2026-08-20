@@ -1,8 +1,8 @@
 ---
 name: vue-max-components-ui-development-best-practices
 description: Use when developing, modifying, or creating components within the @maxvue/max-components-ui library. Triggers on changes inside the MaxComponentsUi project, adding new PrimeVue wraps, implementing InputBase wrappers, running generateResolver.ts script, writing tests for UI components using Vitest and @vue/test-utils, or working on the active PrimeVue-independence migration.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer convenções rígidas de arquitetura, estilização, testes e registro para o desenvolvimento e manutenção dos componentes UI da biblioteca `@maxvue/max-components-ui`.
 

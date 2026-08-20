@@ -1,8 +1,8 @@
 ---
 name: adonisjs-canva-api-integration-best-practices
 description: Use when implementing, configuring, reviewing, or debugging integrations with the Canva API in an AdonisJS application, managing Canva OAuth 2.0 flows, uploading media assets to Canva, exporting or importing designs generated on Canva, or handling Canva webhook notifications for design updates.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões de desenvolvimento robustos, seguros e resilientes para integrar a API do Canva em aplicações AdonisJS v6. Isso abrange gerenciamento de credenciais OAuth 2.0 multi-tenant, sincronização de assets de mídia (exportando assets gerados no backend para o Canva e importando os designs finalizados de volta), endpoints de webhook seguros e tratamento de rate limiting.
 

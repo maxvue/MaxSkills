@@ -1,6 +1,7 @@
 ---
 name: laravel-ai-bank-ticket-processing-best-practices
 description: "Use when creating, reviewing, or debugging bank ticket (TRT/homologation) AI payment workflows and processing architecture via AgentBankTicketProcessor or AgentAiBilletReader (OCR) with Efí SDK. Covers processing best practices, TRT homologation, and ticket processor."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Processamento de Boletos Bancários com IA no Laravel
 

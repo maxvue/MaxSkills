@@ -1,8 +1,8 @@
 ---
 name: adonisjs-multitenancy-data-isolation-best-practices
 description: Use when designing, reviewing, or debugging multi-tenant architectures, data isolation, query scopes, and tenant middleware in AdonisJS. Triggers on requests involving database filters by tenant id (e.g., solarCompanyId, idSolarCompany), Lucid query hooks and named scopes, and tenant context resolution.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Multi-Tenancy e Isolamento de Dados no AdonisJS
 
 ## Objetivo

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-middleware-pipeline-best-practices
 description: Use when creating, modifying, reviewing, or debugging custom route and global HTTP middlewares, configuring the middleware pipeline in start/kernel.ts, managing HttpContext modifications, or enforcing multitenancy, authentication, and subscription checks at the route layer in AdonisJS v6. Triggers on middleware declaration, router.use, kernel.ts, and middleware tests.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes, padrões de design e padrões de implementação para desenvolver, registrar e testar HTTP middlewares, gerenciar pipelines de middleware, estender as propriedades do `HttpContext` e aplicar preocupações transversais (autenticação, multitenancy, planos de assinatura) no AdonisJS v6.
 

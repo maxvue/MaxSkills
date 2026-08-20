@@ -1,6 +1,7 @@
 ---
 name: vue-dayjs-date-manipulation-best-practices
 description: "Use when formatting, parsing, or comparing dates and times in Vue 3 with Day.js. Covers @maxvue/max-use composables (useDateFormat, useTimeAgo), timezones, durations, and strict parsing."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Manipulação de Datas com Day.js no Vue 3
 

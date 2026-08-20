@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-streaming-responses-gemini-best-practices
 description: Use when implementing, configuring, or debugging server-side streaming responses from Google Gemini or other LLMs in AdonisJS v6. Triggers on setting up HTTP stream controllers, returning Vercel AI SDK streamText or streamObject, handling SSE headers, and troubleshooting output buffer/compression issues.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para Respostas de Streaming de IA (Gemini) no AdonisJS v6
 
 ## Objetivo

@@ -1,6 +1,7 @@
 ---
 name: laravel-qrcode-generation-best-practices
 description: "Use when generating, customizing, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers SVG/PNG outputs, base64 encoding for Blade/APIs, logos, and labels. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Geração de QR Code no Laravel
 

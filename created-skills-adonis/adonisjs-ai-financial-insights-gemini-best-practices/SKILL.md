@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-financial-insights-gemini-best-practices
 description: Use when implementing, reviewing, or debugging AI-driven financial insights, automated cost analysis, project health scoring, or generative reports for solar/photovoltaic projects in AdonisJS. Triggers on files handling project cost summaries, payment/installment projections, and Gemini-based prompts for financial and project advisory.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Padronizar a implementação de serviços de insights financeiros orientados por IA, análise de custos e pontuação de saúde financeira de projetos fotovoltaicos (EngeApp) em aplicações AdonisJS usando o Google Gemini (via Vercel AI SDK), garantindo baixo consumo de tokens, privacidade de dados e confiabilidade determinística.
 

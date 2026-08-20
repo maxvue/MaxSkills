@@ -1,8 +1,8 @@
 ---
 name: adonisjs-outbound-http-ssrf-defense-best-practices
 description: Use when implementing, reviewing, or debugging outbound HTTP requests, external API integrations, RSS/news fetching, or media downloads from user-provided URLs in AdonisJS. Triggers on Got/Axios/undici configurations, custom DNS resolution, private IP range validation (RFC 1918), SSRF prevention, and download resource limiting.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Defesa contra SSRF em Requisições HTTP de Saída no AdonisJS
 
 ## Objetivo

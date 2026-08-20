@@ -1,8 +1,8 @@
 ---
 name: adonisjs-pdf-coordinate-editing-best-practices
 description: Use when loading existing PDF templates, placing texts or lines using coordinate systems (millimeters to points conversion), configuring fonts, colors, and line parameters, or testing PDF manipulation using pdf-lib in AdonisJS. Triggers on PdfEditService, coordinate conversion, loading PDF bytes, drawing text column, or drawing lines on PDF pages.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Edição de PDF por Coordenadas no AdonisJS
 
 ## Objetivo

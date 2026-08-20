@@ -1,6 +1,7 @@
 ---
 name: laravel-engeapp-project-homologation-best-practices
 description: "Use when managing solar PV project homologation in Engeapp. Covers concessionaire regulations via ConcessionaireSubsidiaryRegulation, HasProtocol trait, Protocol::booted hook, and Vue SPA MaxPinia integration. Covers objectives and connection regulations."
+author: Johnattas Conrady Gomes Santana
 ---
 # Homologação de Projetos no EngeApp (Laravel + Vue)
 

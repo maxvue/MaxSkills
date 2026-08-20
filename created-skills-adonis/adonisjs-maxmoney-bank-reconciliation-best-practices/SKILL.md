@@ -1,8 +1,8 @@
 ---
 name: adonisjs-maxmoney-bank-reconciliation-best-practices
 description: Use when designing, implementing, configuring, reviewing, or debugging bank reconciliation features, OFX statement parsers, transaction matching rules, and automatic ledger reconciliation in AdonisJS v6. Triggers on files modifying transaction matching logic, OFX imports, reconciliation controllers, and database schema updates for bank statements in MaxMoney.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes de design de arquitetura, modelagem de banco de dados e lógica de negócios de backend para a construção de conciliação bancária segura e confiável no AdonisJS v6 para a plataforma financeira MaxMoney.
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-telegram-bot-notifications-approval-best-practices
 description: Use when implementing, configuring, or debugging Telegram Bot integrations, sending real-time channel notifications, handling Telegram webhooks, or designing interactive chat approvals (such as post validation buttons, system warnings, or queue alerts) in AdonisJS v6.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Notificações e Aprovações com Telegram Bot no AdonisJS v6
 
 ## Objetivo

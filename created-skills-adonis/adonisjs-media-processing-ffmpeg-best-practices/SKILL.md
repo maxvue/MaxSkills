@@ -1,8 +1,8 @@
 ---
 name: adonisjs-media-processing-ffmpeg-best-practices
 description: Use when creating, modifying, reviewing, or debugging video and audio processing logic, utilizing FFmpeg or FFprobe, compressing media files for social media platforms (Instagram Reels, Stories, or Feed), extracting thumbnails, or converting audio formats (Opus, AAC, MP3, WAV) in AdonisJS v6. Triggers on fluent-ffmpeg integration, spawning child processes for media manipulation, metadata extraction, or stream-based media pipelines.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Processamento de Mídia com FFmpeg no AdonisJS — Boas Práticas
 
 ## Objetivo

@@ -1,6 +1,7 @@
 ---
 name: vue-max-ecosystem-api-reference
 description: "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Covers component props/events/slots, composables, and cached store configurations. Covers objectives, component props, composables, and API navigation."
+author: Johnattas Conrady Gomes Santana
 ---
 # Catálogo de API do Ecossistema Max (MaxComponentsUi · MaxUse · MaxPinia)
 

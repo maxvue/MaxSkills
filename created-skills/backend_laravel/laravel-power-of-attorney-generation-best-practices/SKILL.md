@@ -1,6 +1,7 @@
 ---
 name: laravel-power-of-attorney-generation-best-practices
 description: "Use when creating, reviewing, or debugging Power of Attorney PDF generation in Laravel via PowerAttorneyService, formatting legal addresses, and rendering DomPDF documents. Covers document generation and DomPDF rendering."
+author: Johnattas Conrady Gomes Santana
 ---
 # laravel-power-of-attorney-generation-best-practices
 

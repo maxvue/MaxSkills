@@ -1,8 +1,8 @@
 ---
 name: adonisjs-vue-timezone-datetime-best-practices
-description: Use when handling timezone conversions, datetime formatting, scheduling future events (ex.: manutenções, visitas técnicas, geração de relatórios), or managing date calculations across the backend (AdonisJS with Luxon) and frontend (Vue 3 with MaxUse date composables / Luxon). Triggers on datetime database storage, timezone settings per client/tenant, and datepicker formatting.
+description: "Use when handling timezone conversions, datetime formatting, scheduling future events (ex.: manutenções, visitas técnicas, geração de relatórios), or managing date calculations across the backend (AdonisJS with Luxon) and frontend (Vue 3 with MaxUse date composables / Luxon). Triggers on datetime database storage, timezone settings per client/tenant, and datepicker formatting."
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer diretrizes e padrões de código rigorosos para garantir a integridade e consistência de datas, horários e fusos horários (formatos IANA) entre o backend (AdonisJS com Luxon) e o frontend (Vue 3 usando os composables de data do MaxUse e/ou Luxon — que já é dependência do Maxdmin).
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-vue-typescript-type-sharing-best-practices
 description: Use when configuring TypeScript, sharing models or validation types between AdonisJS v6 backend and Vue 3 frontend, or defining APIs and generated.d.ts in Node.js. Triggers on types integration, sharing interfaces, and VineJS schemas inferring.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Compartilhamento de Tipos TypeScript entre AdonisJS e Vue 3
 
 ## Objetivo

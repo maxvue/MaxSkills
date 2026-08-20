@@ -1,8 +1,8 @@
 ---
 name: adonisjs-api-integration-patterns
 description: Use when creating, debugging, or enhancing integrations with external HTTP APIs in an AdonisJS ecosystem. Triggers on setting up custom API clients, managing API credentials, configuring request timeouts/retries, and processing webhooks or background integration tasks.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Padrões de Integração com APIs Externas no AdonisJS
 
 ## Objetivo

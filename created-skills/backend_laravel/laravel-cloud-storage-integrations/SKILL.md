@@ -1,6 +1,7 @@
 ---
 name: laravel-cloud-storage-integrations
 description: "Use when configuring or debugging remote storage in Laravel. Covers Seafile WebDAV driver in AppServiceProvider, Seafile filesystems config, and Spatie Media Library projects disk."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Integrações com Cloud Storage no Laravel
 

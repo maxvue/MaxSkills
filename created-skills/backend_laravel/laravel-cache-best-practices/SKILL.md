@@ -1,6 +1,7 @@
 ---
 name: laravel-cache-best-practices
 description: "Use when implementing, configuring, or debugging cache in Engeapp (Laravel 13 + Octane, phpredis store). Covers Cache::remember pattern, TTLs, invalidation via Cache::forget (Models/Observers), key conventions, tags/locks, and deploy caches."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Cache do Laravel
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-brazilian-nfse-focusnfe-integration-best-practices
 description: Use when integrating, reviewing, or debugging Brazilian NFS-e (Nota Fiscal de Serviço Eletrônica) issuance, cancellation, and queries using FocusNFe API in AdonisJS v6. Triggers on billing invoice paid events, parsing FocusNFe webhooks, tax calculations (ISS, PIS, COFINS, CSLL), and environment variable configuration for Brazilian fiscal services.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # AdonisJS Brazilian NFS-e FocusNFe Integration Best Practices
 
 ## Objetivo

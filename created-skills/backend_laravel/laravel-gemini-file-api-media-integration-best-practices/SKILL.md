@@ -1,6 +1,7 @@
 ---
 name: laravel-gemini-file-api-media-integration-best-practices
 description: "Use when managing media uploads and multimodal processing via Google AI File API with Gemini SDK in Laravel. Covers video, audio, or PDF file processing, temp uploads, active state polling, and cleanup. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo
 Fornecer diretrizes robustas, seguras e eficientes em memória para fazer upload e gerenciar grandes arquivos de mídia (vídeos, faixas de áudio longas, PDFs grandes) usando a Google AI File API com o Gemini PHP SDK dentro de aplicações Laravel. Isso evita problemas de alto consumo de memória causados por payloads Base64 e garante interações multimodais confiáveis com a IA.

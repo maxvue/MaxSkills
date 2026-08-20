@@ -1,8 +1,8 @@
 ---
 name: adonisjs-google-calendar-integration-best-practices
 description: Use when implementing, reviewing, or debugging Google Calendar API integrations, OAuth 2.0 flows for Google services, syncing events between local databases and Google Calendars, or handling Google Calendar webhook channel renewals and push notifications in AdonisJS v6. Triggers on files modifying GoogleCalendarService, GoogleCalendarController, calendar sync jobs, and Google OAuth credentials config.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Integração do Google Calendar no AdonisJS
 
 ## Objetivo

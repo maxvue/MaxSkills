@@ -1,8 +1,8 @@
 ---
 name: adonisjs-environment-variables-validation-best-practices
 description: Use when configuring, reviewing, or validating environment variables, updating start/env.ts, defining Env.schema schemas, troubleshooting missing or invalid env keys, or configuring environment variable injection across different deployment environments in AdonisJS v6. Triggers on start/env.ts modification, Env.schema validation, and env configuration.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer um conjunto abrangente de diretrizes e boas práticas para definir, validar e usar variáveis de ambiente em aplicações AdonisJS v6 usando `@adonisjs/core/env`.
 

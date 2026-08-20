@@ -1,6 +1,7 @@
 ---
 name: vue-pinia-state-management-best-practices
 description: "Use when creating, reviewing, or debugging Pinia stores in Vue 3 with @maxvue/max-pinia plugin. Every page-level GET MUST go through a MaxPinia store (one-shot lookups may use apiGetRoute). Covers objectives and best practices, Registro main."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Gerenciamento de Estado com Vue 3, Pinia e MaxPinia
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-social-media-apis-webhooks-best-practices
 description: Use when receiving INBOUND social media webhooks (Meta / Instagram Graph) in AdonisJS — verifying hub_verify_token challenge requests, fast-persisting raw payloads to an audit table, returning 200 within Meta's 3-second limit by delegating to async BullMQ jobs, and normalizing incoming comment/event payloads. For outbound publishing and token management, see adonisjs-meta-graph-api-integration-best-practices.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para APIs de Mídias Sociais e Webhooks no AdonisJS
 
 ## Objetivo

@@ -1,6 +1,7 @@
 ---
 name: vue-unocss-styling-best-practices
 description: "Use when styling templates, styles, and layouts in Vue 3 with UnoCSS + presetMaxUno: attributify classes/attributes, color shortcuts, transformerVariantGroup, params.scss, SCSS scoped blocks, and dark mode via useDark. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Melhores Práticas de Estilização com Vue 3 e UnoCSS
 

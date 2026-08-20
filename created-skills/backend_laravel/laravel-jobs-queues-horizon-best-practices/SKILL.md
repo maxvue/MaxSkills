@@ -1,6 +1,7 @@
 ---
 name: laravel-jobs-queues-horizon-best-practices
 description: "Use when creating, reviewing, or debugging queue Jobs, Horizon supervisors, retries, backoff, timeouts, API rate limiting, idempotency guards, and HasAgentAiRequest trait. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Laravel Jobs, Queues & Horizon — Boas Práticas
 

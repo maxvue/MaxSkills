@@ -1,6 +1,7 @@
 ---
 name: laravel-digital-signatures-integration
 description: "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, and background job processing. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Integração de Assinaturas Digitais no Laravel
 

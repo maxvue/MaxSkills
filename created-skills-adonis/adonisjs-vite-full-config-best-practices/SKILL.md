@@ -1,8 +1,8 @@
 ---
 name: adonisjs-vite-full-config-best-practices
 description: Use when configuring, updating, or debugging the Vite build setup in an AdonisJS v6 project. This project uses Vite 7 (vite@^7.3.3) with @adonisjs/vite@^5, @vitejs/plugin-vue@^6, unplugin-auto-import, unplugin-vue-components, UnoCSS, Vue 3.6, and the MaxComponentsUi resolver. Triggers on vite.config.ts changes, plugin configuration, auto-import setup, path aliases, HMR issues, or build optimization.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Configuração Completa do Vite com AdonisJS
 
 ## Objetivo

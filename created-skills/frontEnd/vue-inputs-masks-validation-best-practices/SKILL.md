@@ -1,6 +1,7 @@
 ---
 name: vue-inputs-masks-validation-best-practices
 description: "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Inputs, Máscaras e Validação no Vue 3
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-video-generation-heygen-best-practices
 description: Use when implementing, reviewing, or configuring AI avatar video generation using the HeyGen API, orchestrating video creation from script, handling HeyGen webhooks for render completions, or downloading and storing completed MP4 video files in AdonisJS v6. Triggers on HeyGenService, createVideoFromAvatar, heygenWebhook, and avatar video jobs.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para Geração de Vídeo por IA do HeyGen no AdonisJS
 
 ## Objetivo

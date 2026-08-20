@@ -1,8 +1,8 @@
 ---
 name: adonisjs-instagram-comments-ai-moderation-best-practices
 description: Use when implementing, reviewing, or debugging Instagram and Meta comments moderation, AI sentiment analysis, automated comment replies, or handling comments webhooks in AdonisJS v6. Triggers on files modifying CommentsController, Meta webhook processors, AI agent replies, or BullMQ jobs for comment moderation.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões e boas práticas para integrar a moderação de comentários do Instagram/Meta, o tratamento de eventos de webhook, a análise de sentimento por IA e as respostas automatizadas baseadas em fila dentro de uma aplicação AdonisJS v6.
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-postgresql-jsonb-best-practices
 description: Use when configuring, querying, updating, or indexing PostgreSQL JSON/JSONB columns, using Lucid ORM JSON capabilities, writing raw PostgreSQL JSONB queries (whereRaw, jsonb_to_record, contains @>, exists ??), mapping JSON data in Lucid models, or optimizing database performance for JSON fields in AdonisJS.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de AdonisJS & PostgreSQL JSONB
 
 ## Objetivo

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-social-media-api-mocking-testing-best-practices
 description: Use when implementing, reviewing, or debugging unit/integration tests for social media API integrations (Meta/Instagram, YouTube, TikTok, LinkedIn, Bluesky, X/Twitter, Pinterest) or external HTTP webhooks in AdonisJS v6 using Japa. Triggers on HTTP client mocking, api test suites, mocking the native fetch HTTP client (via nock), and webhook payload signature simulation.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer padrões de projeto, melhores práticas e diretrizes para simular APIs de redes sociais externas (Meta, LinkedIn, YouTube, X, Pinterest, Bluesky) e eventos de webhooks em testes de unidade e integração no AdonisJS v6 usando o Japa.
 

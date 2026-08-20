@@ -1,8 +1,8 @@
 ---
 name: adonisjs-japa-testing-best-practices
 description: Use when creating, reviewing, or refactoring automated tests in AdonisJS v6 with the Japa framework — unit and functional tests, test.group lifecycle hooks, the HTTP client and loginAs auth, asserting status/body, faking mail and the emitter, and isolating the test database via testUtils.db() migrations/truncation. Triggers on .spec.ts files, `node ace test`, mocking external services, and PostgreSQL test-data cleanup.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Teste com Japa no AdonisJS
 
 ## Objetivo

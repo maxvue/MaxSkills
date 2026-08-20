@@ -1,6 +1,7 @@
 ---
 name: laravel-pdf-handling-best-practices
 description: "Use when generating, rendering, extracting text, validating, or converting PDFs to images in Engeapp. Covers DomPDF via HasDocument trait, FPDI/TCPDF via PdfEdit, pdfIsValid() validation, and File::createThumbnailFromPdf()."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Manipulação de PDF no Laravel
 

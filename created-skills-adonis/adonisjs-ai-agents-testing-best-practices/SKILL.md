@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-testing-best-practices
 description: Use when writing, debugging, or configuring unit and functional tests for AI agents in AdonisJS v6. Triggers on testing LLM calls, mocking Vercel AI SDK (@ai-sdk/google), verifying Zod structured outputs, or writing integration tests for AI agents with Japa.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões claros, diretrizes e exemplos para a escrita de testes unitários e funcionais automatizados, rápidos e isolados para agentes de IA no AdonisJS v6 usando o framework de testes Japa e as ferramentas de simulação (mock) do Vercel AI SDK, evitando chamadas reais à API e dependências externas.
 

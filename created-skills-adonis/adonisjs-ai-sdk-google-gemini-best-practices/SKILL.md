@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-sdk-google-gemini-best-practices
 description: Use when configuring the Vercel AI SDK provider setup, model parameters (temperature, topP, stopWhen/stepCountIs), fallback chains, structured JSON outputs with Zod, or tracking token costs/caching with Google Gemini in AdonisJS v6. This is the standard AI provider skill — always use Vercel AI SDK (@ai-sdk/google). Triggers on provider instantiation, model degradation strategies, token budget control, and Gemini context caching. Use adonisjs-ai-agents-best-practices for agent logic and tool design.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer diretrizes e convenções de código estritas para a integração robusta e resiliente do Vercel AI SDK e provedores da API Google Gemini em aplicações baseadas no AdonisJS v6.
 

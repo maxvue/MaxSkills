@@ -1,8 +1,8 @@
 ---
 name: adonisjs-lucid-brazilian-data-queries-best-practices
 description: Use when writing, optimizing, or reviewing AdonisJS database queries using Lucid ORM that involve Brazilian-specific data formats, patterns, or regulations. Triggers on queries, models, or hooks handling CPFs, CNPJs, CEPs, Brazilian phone numbers, currency formatting (BRL/Real), and Brasília timezone (UTC-3) conversions.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Consultas e Dados Brasileiros no AdonisJS Lucid ORM
 
 ## Objetivo

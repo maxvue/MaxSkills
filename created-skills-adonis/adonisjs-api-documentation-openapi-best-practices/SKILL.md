@@ -1,8 +1,8 @@
 ---
 name: adonisjs-api-documentation-openapi-best-practices
 description: Use when configuring, documenting, or generating REST API documentation using OpenAPI 3.0/3.1 specifications, Swagger UI, or Scalar inside an AdonisJS v6 application. Triggers on route annotations, custom schema definitions using VineJS or Zod, auto-generation scripts, and Scalar/Swagger router configurations.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para Documentação de API com OpenAPI no AdonisJS
 
 ## Objetivo

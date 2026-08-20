@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agent-cost-analytics-and-budget-control-best-practices
 description: Use when implementing, reviewing, or debugging backend logic for AI agent requests in AdonisJS v6 — executeAgent execution with model fallback chains, capturing token/cost metrics and persisting them via the HasAiCost mixin (addAiCost) then reading them back through the AgentAiCost model, analyzing/aggregating AgentAiCost records (sums grouped by dates, agents, or clients), converting USD→BRL via ExchangeRateService, applying tenant budget limits to restrict LLM calls, and broadcasting real-time updates via AdonisJS Transmit (SSE).
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes, estruturas e padrões de implementação para a execução resiliente de agentes de IA, o rastreamento/agregação dos custos e a aplicação de controle de orçamento (budget) em um backend AdonisJS v6. Cobre cadeias de fallback de modelos, registro de custos no momento da requisição (`saveAiCost` → model `AgentAiCost`), análises financeiras agregadas, conversão de câmbio (USD para BRL via `ExchangeRateService` em `#services/bank/exchange_rate_service`) e feedback em tempo real ao usuário. Isso garante continuidade do serviço sob rate-limit, supervisão financeira confiável e evita loops de execução descontrolados.
 

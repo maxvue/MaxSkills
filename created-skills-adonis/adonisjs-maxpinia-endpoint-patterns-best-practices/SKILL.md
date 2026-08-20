@@ -1,8 +1,8 @@
 ---
 name: adonisjs-maxpinia-endpoint-patterns-best-practices
 description: Use when creating or reviewing AdonisJS backend endpoints that serve data to Vue 3 frontend stores powered by @maxvue/max-pinia. Every frontend store with isCached=true makes automatic GET and POST requests — the backend endpoints must match the expected patterns. Triggers on creating data endpoints, save endpoints, designing controller response structures, handling auto-save payloads, or debugging why MaxPinia GET/save is not working correctly.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Padrões de Endpoints AdonisJS para MaxPinia
 
 ## Objetivo

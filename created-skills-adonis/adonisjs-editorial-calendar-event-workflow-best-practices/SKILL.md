@@ -1,8 +1,8 @@
 ---
 name: adonisjs-editorial-calendar-event-workflow-best-practices
 description: Use when developing, reviewing, debugging, or maintaining the editorial calendar event lifecycle, event state transitions (planned, planning_approved, script_drafted, script_ready, art_ready, art_analysing, art_rejected, scheduled, published, failed, replanning), orchestrating AI copywriter, copywriter reviewer, graphic editor, or art analyst jobs, or handling publication queues and commands in AdonisJS. Triggers on editing calendar states, managing event job pipelines, and handling social media publishing flows.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões e regras padronizados para gerenciar, depurar e implementar o ciclo de vida dos eventos do calendário editorial, suas transições de estado e os jobs assíncronos de orquestração de agentes de IA usando AdonisJS v6 e BullMQ.
 

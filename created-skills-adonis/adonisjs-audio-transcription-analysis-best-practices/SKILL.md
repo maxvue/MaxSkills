@@ -1,8 +1,8 @@
 ---
 name: adonisjs-audio-transcription-analysis-best-practices
 description: Use when implementing, reviewing, or debugging audio transcription and voice analysis features in AdonisJS v6, routing AI calls (Google Gemini speech-to-text) through the Vercel AI SDK. Triggers on files handling audio upload processing for speech-to-text, integrating Gemini via the AI SDK for audio parsing, extracting voice metadata, or generating transcription transcripts for database storage.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer padrões estruturados, altamente confiáveis e seguros para receber, validar, transcrever e realizar análises cognitivas em arquivos de áudio e notas de voz no AdonisJS v6.
 

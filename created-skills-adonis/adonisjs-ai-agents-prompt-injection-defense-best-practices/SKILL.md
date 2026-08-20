@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-prompt-injection-defense-best-practices
 description: Use when implementing, reviewing, or debugging AI prompt construction, sanitizing user inputs or external content (news, comments, RSS) before passing to Gemini or Vercel AI SDK, or securing LLM interactions against prompt injection attacks in AdonisJS. Triggers on files modifying prompt templates, AI services/agents, or using SDK generation functions.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes de segurança robustas e padrões de código para construção de prompts e sanitização dinâmica de inputs de usuários ou fontes externas dentro de serviços backend no AdonisJS para prevenir injeção de prompt (prompt injection) e desvios de comportamento do modelo (hijacking).
 

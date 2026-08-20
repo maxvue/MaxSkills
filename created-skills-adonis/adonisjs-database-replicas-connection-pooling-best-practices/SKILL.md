@@ -1,8 +1,8 @@
 ---
 name: adonisjs-database-replicas-connection-pooling-best-practices
 description: Use when designing, configuring, profiling, or debugging database connections, read/write replica routing, connection pool tuning, or connection timeouts in AdonisJS v6 using Lucid ORM. Triggers on database.ts connection config, replica setup, query routing to read/write nodes, pool size tuning, and database connection timeouts.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes sólidas e padrões de configuração para replicação de banco de dados e gerenciamento de pool de conexões no AdonisJS v6 (usando o Lucid ORM), garantindo alta disponibilidade, escalabilidade e resiliência sob cargas de trabalho concorrentes (como jobs em background do BullMQ).
 

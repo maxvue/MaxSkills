@@ -1,8 +1,8 @@
 ---
 name: adonisjs-meta-api-outbound-rate-limiting-best-practices
 description: Use when implementing, reviewing, or debugging outbound API rate limiting, request throttling, or concurrency control for Meta/Instagram Graph APIs using Redis in AdonisJS. Triggers on files modifying MetaService, outbound API client throttling, processing Meta API rate limit headers (x-app-usage, x-business-use-case-usage), or managing dynamic BullMQ job delays.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer diretrizes padrão e padrões de implementação para o throttling resiliente de chamadas de API de saída e o gerenciamento de rate limit para integrações com a Meta (Graph API do Facebook/Instagram) usando Redis e BullMQ no AdonisJS v6.
 

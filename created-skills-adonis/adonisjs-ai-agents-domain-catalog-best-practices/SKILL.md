@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-domain-catalog-best-practices
-description: Use when implementing, reviewing, or debugging any of the Maxdmin domain AI agents in AdonisJS (Vercel AI SDK + Gemini + BullMQ) — copywriter, copywriter reviewer, theme extractor, strategy manager, event replanner, protocol extractor, and graphic editor & art analyst. Triggers on *_agent.ts / *_job.ts files and the named agents/tools/models below (copywriter.ts, copywriter_reviewer.ts, theme_extractor.ts, strategy_manager.ts, replan_event, protocol_extractor_agent.ts, graphic_editor.ts, art_analyst.ts; tools like SaveScriptDetail, GetBrandPositioning, CreateCalendarItems, UpdateCalendarItem, GenerateEventArtwork, InsertCardData; models SocialMediaTheme, SupportProtocolReport, CalendarEvent). For cross-cutting patterns prefer the dedicated skills: adonisjs-ai-agents-tool-calling, -structured-outputs-zod, -multi-agent-orchestration, -observability-monitoring.
+description: "Use when implementing, reviewing, or debugging any of the Maxdmin domain AI agents in AdonisJS (Vercel AI SDK + Gemini + BullMQ) — copywriter, copywriter reviewer, theme extractor, strategy manager, event replanner, protocol extractor, and graphic editor & art analyst. Triggers on *_agent.ts / *_job.ts files and the named agents/tools/models below (copywriter.ts, copywriter_reviewer.ts, theme_extractor.ts, strategy_manager.ts, replan_event, protocol_extractor_agent.ts, graphic_editor.ts, art_analyst.ts; tools like SaveScriptDetail, GetBrandPositioning, CreateCalendarItems, UpdateCalendarItem, GenerateEventArtwork, InsertCardData; models SocialMediaTheme, SupportProtocolReport, CalendarEvent). For cross-cutting patterns prefer the dedicated skills: adonisjs-ai-agents-tool-calling, -structured-outputs-zod, -multi-agent-orchestration, -observability-monitoring."
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Catálogo de Agentes de Domínio (AdonisJS + Vercel AI SDK + Gemini + BullMQ)
 
 ## Objetivo

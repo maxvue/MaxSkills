@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-image-generation-best-practices
 description: Use when designing, implementing, configuring, or debugging AI-based image generation features (using Google Imagen via @ai-sdk/google) within AdonisJS v6 backend. Triggers on setting up Vercel AI SDK image generation, handling image upload/storage to local Drive/S3, defining image prompt templates for graphic editor agents, and integrating image generation jobs in BullMQ.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões robustos, resilientes e com controle de custos para integrar a geração de imagens baseada em IA (Google Imagen via `@ai-sdk/google`) no backend AdonisJS v6, incluindo o processamento assíncrono de filas de tarefas via BullMQ, armazenamento persistente de arquivos usando o `@adonisjs/drive` e o registro de custos/uso de tokens de IA.
 

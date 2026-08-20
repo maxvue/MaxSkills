@@ -1,6 +1,7 @@
 ---
 name: laravel-telescope-debugging-best-practices
 description: "Use when configuring, optimizing, or debugging with Laravel Telescope in Engeapp. Covers config/telescope.php watchers, TelescopeServiceProvider filters, hideSensitiveRequestDetails, viewTelescope gate, and entry pruning."
+author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo
 Padronizar como configurar, otimizar e depurar com o Laravel Telescope no engeapp, garantindo telemetria útil (queries, requests, jobs, exceções, comandos, cache) sem inchar o banco nem vazar dados sensíveis. O engeapp usa `laravel/telescope ^5.20`.

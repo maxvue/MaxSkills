@@ -1,8 +1,8 @@
 ---
 name: adonisjs-brand-positioning-character-management-best-practices
 description: Use when creating, modifying, reviewing, or debugging controllers, models, validators, or services related to brand positioning, character profiles, agent persona configurations, reference image uploads, and topic lists in AdonisJS. Triggers on files modifying BrandPositioning, SocialMediaCharacter, character controllers, and related backend logic.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Posicionamento de Marca & Gerenciamento de Personagens em AdonisJS
 
 ## Objetivo

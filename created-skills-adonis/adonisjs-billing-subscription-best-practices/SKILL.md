@@ -1,8 +1,8 @@
 ---
 name: adonisjs-billing-subscription-best-practices
 description: Use when designing, implementing, configuring, or debugging SaaS subscription models, recurring billing, or payment gateway integrations (Efí, Banco Inter) in AdonisJS. Triggers on setting up billing-core, billing-adonis adapter, migrations, subscription state machines, webhook handling via BullMQ jobs, and billing enforcement middlewares.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Faturamento e Assinatura no AdonisJS
 
 ## Objetivo

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-bullmq-best-practices
 description: Use when configuring, creating, auditing, or debugging background jobs, queues, or workers with BullMQ in AdonisJS v6. Covers Redis connection setup, queue services, job/worker structure, sandboxed CPU-bound workers, graceful shutdown, retries and exponential backoff, failure handling and worker event listeners, job idempotency and deduplication via deterministic jobId, distributed Redis locks (ioredis), Lucid ORM transactions in jobs/webhook processors, and multi-tenant job isolation (tenant context propagation, AsyncLocalStorage, per-tenant concurrency/throttling, structured tenant logging). Triggers on Redis connections for queues, sandboxed workers, retry/backoff config, error categorization, webhook deduplication, setting jobIds, distributed locks, transaction-wrapped DB writes in jobs, tenantId payloads, and per-tenant rate limiting.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de BullMQ no AdonisJS v6
 
 ## Objetivo

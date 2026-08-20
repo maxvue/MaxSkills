@@ -1,6 +1,7 @@
 ---
 name: laravel-rate-limiting-best-practices
 description: "Use when configuring, optimizing, or debugging rate limits for HTTP routes, APIs, logins, or queues in Laravel. Covers named limiters in AppServiceProvider, throttle middleware, manual FormRequest throttling, and 429 response customization."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Rate Limiting no Laravel
 

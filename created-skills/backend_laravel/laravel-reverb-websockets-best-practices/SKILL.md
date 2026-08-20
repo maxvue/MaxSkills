@@ -1,6 +1,7 @@
 ---
 name: laravel-reverb-websockets-best-practices
 description: "Use when configuring, optimizing, debugging, or deploying Laravel Reverb WebSocket server in Engeapp. Covers WebSocket configuration, Vite client broadcasting, Caddy WSS reverse proxy, Supervisor, and live events."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de WebSockets com Laravel Reverb
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-meilisearch-sync-bullmq-best-practices
 description: Use when designing, implementing, reviewing, or debugging asynchronous Meilisearch index synchronization patterns in AdonisJS, dispatching indexing jobs via BullMQ from Lucid ORM hooks, or handling search reindexing queue errors.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões robustos para indexação assíncrona entre models do Lucid ORM e o Meilisearch via BullMQ no AdonisJS v6. Isso garante que as transações do banco de dados permaneçam desbloqueadas pela latência de APIs externas, que os jobs façam retry de forma resiliente em falhas de rede temporárias, e que as operações de reindexação em massa sejam altamente performáticas.
 

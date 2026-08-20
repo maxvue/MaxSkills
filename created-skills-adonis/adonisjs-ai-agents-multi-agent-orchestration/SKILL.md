@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-multi-agent-orchestration
 description: Use when designing, building, orchestrating, or debugging multi-agent AI workflows and pipelines in AdonisJS v6. Triggers on sequential agent chaining, feedback loops (rejection/revision cycles), passing conversational context between agents (e.g., Copywriter to Revisor), and monitoring multi-agent step states.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Orquestração de Múltiplos Agentes de IA no AdonisJS v6
 
 ## Objetivo

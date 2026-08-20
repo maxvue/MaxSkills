@@ -1,6 +1,7 @@
 ---
 name: technical-documentation-best-practices
 description: "Use when writing or improving technical documentation: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, and Laravel/Vue doc patterns. Covers best practices, debugging strategies, and objectives."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Documentação Técnica
 

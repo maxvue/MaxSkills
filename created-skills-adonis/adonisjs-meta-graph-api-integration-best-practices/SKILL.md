@@ -1,8 +1,8 @@
 ---
 name: adonisjs-meta-graph-api-integration-best-practices
 description: Use when publishing content OUT to Meta Graph API / Instagram Business in AdonisJS (outbound client side) — exchanging and refreshing long-lived access tokens, creating image/Reels/carousel media containers, polling container status with backoff, publishing media, and normalizing Graph API errors. For receiving inbound webhooks, see adonisjs-social-media-apis-webhooks-best-practices.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Integração com a Meta Graph API no AdonisJS
 
 ## Objetivo

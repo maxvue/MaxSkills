@@ -1,8 +1,8 @@
 ---
 name: adonisjs-maxdmin-project-agent-sync-best-practices
 description: Use when designing, implementing, modifying, or debugging the synchronization logic between Maxdmin database resources (projects, instructions, processes, skills) and local project directories. Triggers on files modifying ProjectsController synchronization methods, generating CLAUDE.md or .agents/AGENTS.md files, handling Node fs/promises file writes, validating local paths, or generating structured Markdown content for local AI agents.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Orientar o design, a implementação e a modificação da lógica de sincronização de projetos no Maxdmin. Ela garante que os recursos do banco de dados (projetos, templates, instruções, processos e skills) sejam formatados corretamente e escritos como configurações Markdown locais para agentes de IA locais (ClaudeCode e Antigravity) de forma segura, robusta e eficiente.
 

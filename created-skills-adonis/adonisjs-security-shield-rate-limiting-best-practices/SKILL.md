@@ -1,8 +1,8 @@
 ---
 name: adonisjs-security-shield-rate-limiting-best-practices
 description: Use when configuring security middleware, protecting routes against CSRF, configuring CORS or Content Security Policy (CSP) with AdonisJS Shield, or implementing Redis-based rate limiting on AdonisJS API routes to prevent API abuse and token exhaustion.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer políticas robustas de segurança e prevenir o abuso de recursos em aplicações AdonisJS v6, configurando o AdonisJS Shield para proteção contra CSRF/CORS/CSP, registrando limites de taxa (Rate Limit) baseados em Redis para rotas críticas e tratando exceções de segurança de forma limpa.
 

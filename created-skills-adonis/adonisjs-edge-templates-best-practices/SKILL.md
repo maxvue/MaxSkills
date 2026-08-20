@@ -1,8 +1,8 @@
 ---
 name: adonisjs-edge-templates-best-practices
 description: "Use when composing server-side HTML templates with Edge.js in AdonisJS v6 for transactional emails and PDF rendering with Puppeteer. Covers layouts, components, slots, custom helpers, and safe escaping — NOT for application page views (which use Vue SPA). Triggers on .edge files, edge.global, and edge.render in mailers, queues, or commands."
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Templates Edge no AdonisJS
 
 ## Objetivo

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-redis-cache-performance-best-practices
 description: Use when configuring, querying, or troubleshooting Redis, implementing caching strategies, throttling requests, or optimizing performance in an AdonisJS application. Triggers on Redis service imports, Cache helper implementations, rate limiter middleware configurations, and performance tuning tasks.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Cache e Performance com Redis no AdonisJS
 
 ## Objetivo

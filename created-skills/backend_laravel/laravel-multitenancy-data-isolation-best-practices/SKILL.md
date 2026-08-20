@@ -1,6 +1,7 @@
 ---
 name: laravel-multitenancy-data-isolation-best-practices
 description: "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies. Covers objectives, tenant scoping, and user permission models."
+author: Johnattas Conrady Gomes Santana
 ---
 # Isolamento de Dados Multi-company no EngeApp
 

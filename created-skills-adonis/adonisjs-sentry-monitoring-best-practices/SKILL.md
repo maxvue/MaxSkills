@@ -1,8 +1,8 @@
 ---
 name: adonisjs-sentry-monitoring-best-practices
 description: Use when setting up, configuring, or debugging Sentry error monitoring and performance tracking in AdonisJS v6. Triggers on Sentry initialization, configuring the HttpExceptionHandler to report to Sentry, capturing errors in BullMQ workers, attaching request context (user, URL, IP), or tracing database queries and transactions.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes claras e padrões de código estritos para a integração do Sentry v8/v9 em aplicações AdonisJS v6. Isso inclui a captura de exceções HTTP não tratadas, enriquecimento do contexto com metadados de usuário e requisição, reporte de falhas em filas em background (BullMQ), rastreamento de performance de consultas ao banco (Lucid ORM) e conformidade com padrões de segurança para evitar vazamento de dados em produção.
 
