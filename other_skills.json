@@ -7,7 +7,7 @@
         "promo_en": "Eliminates AI hallucination and trial-and-error debugging by enforcing systematic root-cause diagnosis, saving hours of developer troubleshooting.",
         "promo_pt_br": "Elimina alucinações de IA e depurações por tentativa e erro ao impor um diagnóstico sistemático de causa-raiz, economizando horas de resolução de problemas.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/systematic-debugging",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/systematic-debugging/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -110,7 +110,7 @@
         "promo_en": "Guarantees production-grade code quality and zero regressions by turning coding agents into disciplined TDD practitioners.",
         "promo_pt_br": "Garante qualidade de nível de produção e zero regressões ao transformar agentes de código em praticantes disciplinados de TDD.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/test-driven-development",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/test-driven-development/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -192,7 +192,7 @@
         "promo_en": "Elevates AI-generated web interfaces from generic mockups to polished, accessible, and distinctive production-ready designs.",
         "promo_pt_br": "Eleva as interfaces web geradas por IA de mockups genéricos para designs distintos, acessíveis e prontos para produção.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/frontend-design/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -275,7 +275,7 @@
         "promo_en": "Empowers developers to build, test, and distribute custom, modular AI agent skills with rigorous evaluation benchmarks.",
         "promo_pt_br": "Capacita desenvolvedores a criar, testar e distribuir skills modulares para agentes de IA com benchmarks de avaliação rigorosos.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/skill-creator/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -341,7 +341,7 @@
         "promo_en": "Automates the generation and maintenance of crystal-clear technical documentation, keeping codebases perfectly organized and team-ready.",
         "promo_pt_br": "Automatiza a criação e manutenção de documentação técnica impecável, mantendo a base de código organizada e pronta para a equipe.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/technical-documentation",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/technical-documentation/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -441,7 +441,7 @@
         "promo_en": "Enforces clean Git versioning discipline, worktree isolation for parallel agents, and seamless collaborative workflows.",
         "promo_pt_br": "Impõe disciplina de versionamento Git limpo, isolamento com worktrees para múltiplos agentes e fluxos colaborativos sem atrito.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/git-workflow",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/git-workflow/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -504,7 +504,7 @@
         "promo_en": "Protects applications by auditing source code for security vulnerabilities, compliance risks, and hardcoded credentials before deployment.",
         "promo_pt_br": "Protege aplicações auditando o código-fonte contra vulnerabilidades de segurança, riscos de conformidade e credenciais expostas.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/security-audit",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/security-audit/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -571,7 +571,7 @@
         "promo_en": "Acts as an automated senior engineer reviewing diffs to catch subtle bugs, logic flaws, and architectural debt before merging.",
         "promo_pt_br": "Atua como um engenheiro sênior automatizado que revisa diffs para capturar bugs sutis e dívida técnica antes do merge.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/code-review",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/code-review/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -659,7 +659,7 @@
         "promo_en": "Enables agents to navigate the web, test user journeys, verify UI rendering visually, and automate complex web portals.",
         "promo_pt_br": "Permite que agentes naveguem na web, testem fluxos de usuário, verifiquem renderização de UI visualmente e automatizem portais complexos.",
         "repo_name": "Playwright",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/browser-automation",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/browser-automation/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -747,7 +747,7 @@
         "promo_en": "Transforms autonomous coding into a reliable, high-velocity engineering loop with built-in quality gates.",
         "promo_pt_br": "Transforma o desenvolvimento autônomo em um loop de engenharia confiável e de alta velocidade com portões de qualidade integrados.",
         "repo_name": "Superpowers",
-        "url_skill": "https://github.com/obra/superpowers",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/superpowers/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -787,7 +787,7 @@
         "promo_en": "Coordinates specialized subagents in parallel to solve complex architectures while preserving primary session token context.",
         "promo_pt_br": "Coordena subagentes especializados em paralelo para resolver arquiteturas complexas preservando o contexto de tokens da sessão principal.",
         "repo_name": "Antigravity",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-orchestrator",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/agent-orchestrator/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -854,7 +854,7 @@
         "promo_en": "Rapidly constructs accessible, enterprise-grade user interfaces with customizable copy-paste component architecture.",
         "promo_pt_br": "Constrói rapidamente interfaces acessíveis de nível corporativo com arquitetura customizável de componentes modulares.",
         "repo_name": "ShadcnUi",
-        "url_skill": "https://skills.sh/shadcn-ui/ui",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/shadcn-ui/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -904,7 +904,7 @@
         "promo_en": "Connects AI agents seamlessly to external databases, enterprise APIs, cloud tools, and local execution environments via MCP standard.",
         "promo_pt_br": "Conecta agentes de IA perfeitamente a bancos de dados externos, APIs corporativas e ferramentas locais através do padrão MCP.",
         "repo_name": "MCP",
-        "url_skill": "https://github.com/modelcontextprotocol",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/mcp-server-routing/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
             "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -969,7 +969,7 @@
         "promo_en": "Drastically slashes LLM token consumption while boosting reasoning accuracy through smart context hygiene.",
         "promo_pt_br": "Reduz drasticamente o consumo de tokens e melhora a precisão do raciocínio através de higienização inteligente de contexto.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-engineering",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/context-engineering/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1032,7 +1032,7 @@
         "promo_en": "Designs scalable, robust API architectures with strict contract validation and automatic documentation out of the box.",
         "promo_pt_br": "Projeta arquiteturas de API robustas e escaláveis com validação estrita de contrato e documentação automática integrada.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-and-interface-design",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/api-design/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1092,7 +1092,7 @@
         "promo_en": "Accelerates frontend styling with clean, maintainable, and high-performance utility-first CSS architecture.",
         "promo_pt_br": "Acelera a estilização frontend com arquitetura CSS utilitária limpa, sustentável e de alta performance.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/tailwind-css",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/tailwind-css/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -1132,7 +1132,7 @@
         "promo_en": "Conducts deep internet research across technical documentations and papers to compile cited, authoritative summaries.",
         "promo_pt_br": "Conduz pesquisas aprofundadas na internet através de documentações técnicas para compilar resumos citados e autoritativos.",
         "repo_name": "GPT Researcher",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deep-research",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/deep-research/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1196,7 +1196,7 @@
         "promo_en": "Produces lightweight, secure, and production-ready containerized microservices and reproducible dev environments.",
         "promo_pt_br": "Produz microsserviços conteinerizados leves, seguros e prontos para produção e ambientes de desenvolvimento reproduzíveis.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/docker-expert",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/docker-expert/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1251,7 +1251,7 @@
         "promo_en": "Builds async Python microservices with automatic OpenAPI docs, dependency injection, and clean layered architecture.",
         "promo_pt_br": "Constrói microsserviços assíncronos em Python com OpenAPI automático, injeção de dependências e arquitetura em camadas limpa.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fastapi-templates",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/fastapi-templates/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1307,7 +1307,7 @@
         "promo_en": "Acts as a safety shield preventing autonomous agents from accidentally deleting production data or running dangerous operations.",
         "promo_pt_br": "Atua como um escudo de segurança impedindo que agentes autônomos excluam acidentalmente dados de produção ou executem operações perigosas.",
         "repo_name": "Agentic Engineering",
-        "url_skill": "https://github.com/agentic-engineering/tac-skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/damage-control/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
             "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -1346,7 +1346,7 @@
         "promo_en": "Enables multiple AI agents to develop, test, and build features in parallel without stepping on each other's branch workspaces.",
         "promo_pt_br": "Permite que múltiplos agentes de IA desenvolvam, testem e construam recursos em paralelo sem colisões de branch.",
         "repo_name": "Cole Medin",
-        "url_skill": "https://github.com/coleam00/skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/git-worktree/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
             "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
@@ -1396,7 +1396,7 @@
         "promo_en": "Optimizes relational databases to handle high throughput queries with minimal latency and smart indexing strategies.",
         "promo_pt_br": "Otimiza bancos de dados relacionais para suportar alto throughput de consultas com latência mínima e estratégias inteligentes de índice.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/davidondrej/skills/tree/main/skills/database-optimizer",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/database-optimizer/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
             "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -1444,7 +1444,7 @@
         "promo_en": "Enhances AI agent performance in ais os with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em ais os com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/nateherkai/AIS-OS",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/ais-os/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -1470,7 +1470,7 @@
         "promo_en": "Enhances AI agent performance in e2e testing patterns with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em e2e testing patterns com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/e2e-testing-patterns",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/e2e-testing-patterns/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1496,7 +1496,7 @@
         "promo_en": "Enhances AI agent performance in code refactoring with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em code refactoring com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/code-refactoring-refactor-clean",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/code-refactoring/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1542,7 +1542,7 @@
         "promo_en": "Prevents runaway coding by ensuring every task is planned, implemented in isolated chunks, and verified before completion.",
         "promo_pt_br": "Evita desvios de código garantindo que toda tarefa seja planejada, implementada em etapas isoladas e verificada antes da conclusão.",
         "repo_name": "Cole Medin",
-        "url_skill": "https://github.com/colemedin/agentic-workflows",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/piv-loop/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
             "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -1590,7 +1590,7 @@
         "promo_en": "Enhances AI agent performance in document skills with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em document skills com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/anthropics/skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/document-skills/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
             "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -1626,7 +1626,7 @@
         "promo_en": "Automates the creation of comprehensive unit and integration test suites with mocks and coverage reports.",
         "promo_pt_br": "Automatiza a criação de suítes completas de testes unitários e de integração com mocks e relatórios de cobertura.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/pytest-automation",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/pytest-and-jest-automation/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
             "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -1674,7 +1674,7 @@
         "promo_en": "Generates robust, typed React components adhering to modern architectural patterns and WCAG accessibility standards.",
         "promo_pt_br": "Gera componentes React tipados e robustos aderindo a padrões modernos de arquitetura e conformidade WCAG.",
         "repo_name": "Anthropic",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/react",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/react-components/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -1713,7 +1713,7 @@
         "promo_en": "Synchronizes your personal AI skill library across machines and projects with central versioning.",
         "promo_pt_br": "Sincroniza sua biblioteca pessoal de skills de IA entre máquinas e projetos com versionamento centralizado.",
         "repo_name": "The Library",
-        "url_skill": "https://github.com/disler/the-library",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/the-library/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -1753,7 +1753,7 @@
         "promo_en": "Enhances AI agent performance in claude api with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em claude api com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/claude-api/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -1789,7 +1789,7 @@
         "promo_en": "Enhances AI agent performance in vibe to spec with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em vibe to spec com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/alexfinn/vibe-coding-skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/vibe-to-spec/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
             "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -1825,7 +1825,7 @@
         "promo_en": "Designs and provisions scalable, cost-efficient cloud infrastructure with automated IaC blueprints.",
         "promo_pt_br": "Projeta e provisiona infraestrutura em nuvem escalável e econômica com blueprints automatizados de IaC.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/cloud-infra",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/cloud-architect/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
             "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -1874,7 +1874,7 @@
         "promo_en": "Enhances AI agent performance in terraform skill with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em terraform skill com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/terraform-infrastructure",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/terraform-skill/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -1900,7 +1900,7 @@
         "promo_en": "Enhances AI agent performance in static analysis and linting with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em static analysis and linting com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/anthropics/skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/static-analysis-and-linting/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_systematic_debugging_71",
             "https://www.youtube.com/watch?v=nate_tdd_skills_72",
@@ -1926,7 +1926,7 @@
         "promo_en": "Dramatically cuts API costs and boosts model response speed by trimming redundant tokens from conversation contexts.",
         "promo_pt_br": "Reduz drasticamente os custos de API e aumenta a velocidade de resposta cortando tokens redundantes dos contextos de conversa.",
         "repo_name": "Nate Herk",
-        "url_skill": "https://github.com/nateherk/claude-code-skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/token-optimization/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -1955,7 +1955,7 @@
         "promo_en": "Enhances AI agent performance in workflow automation with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em workflow automation com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/antigravity-workflows",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/workflow-automation/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -1981,7 +1981,7 @@
         "promo_en": "Enhances AI agent performance in agents md with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em agents md com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agents-md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/agents-md/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -2007,7 +2007,7 @@
         "promo_en": "Enhances AI agent performance in database migrations with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em database migrations com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-migrations-sql-migrations",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/database-migrations/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -2043,7 +2043,7 @@
         "promo_en": "Enhances AI agent performance in api testing mock with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em api testing mock com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-testing-observability-api-mock",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/api-testing-mock/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -2079,7 +2079,7 @@
         "promo_en": "Enhances AI agent performance in fullstack scaffolder with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em fullstack scaffolder com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/echohive42/agent-skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/fullstack-scaffolder/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
             "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -2115,7 +2115,7 @@
         "promo_en": "Enhances AI agent performance in marketing copy generator with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em marketing copy generator com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/alexfinn/claude-skills/tree/main/skills/marketing-copy",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/marketing-copy-generator/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
             "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -2141,7 +2141,7 @@
         "promo_en": "Enhances AI agent performance in n8n webhook automation with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em n8n webhook automation com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/n8n-automation",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/n8n-webhook-automation/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
             "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -2177,7 +2177,7 @@
         "promo_en": "Enhances AI agent performance in nextjs app router with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em nextjs app router com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/vercel/next.js",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/nextjs-app-router/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -2203,7 +2203,7 @@
         "promo_en": "Enhances AI agent performance in vue components with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em vue components com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/vuejs/core",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/vue-components/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -2229,7 +2229,7 @@
         "promo_en": "Enhances AI agent performance in design system tokens with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em design system tokens com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/tokens-studio/figma-plugin",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/design-system-tokens/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -2255,7 +2255,7 @@
         "promo_en": "Enhances AI agent performance in figma to code with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em figma to code com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/builderio/figma-html",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/figma-to-code/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -2281,7 +2281,7 @@
         "promo_en": "Enhances AI agent performance in pixel perfect ui with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em pixel perfect ui com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/agent-skills/pixel-perfect-ui",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/pixel-perfect-ui/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -2307,7 +2307,7 @@
         "promo_en": "Enhances AI agent performance in lucide icons with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em lucide icons com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/lucide-icons/lucide",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/lucide-icons/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -2333,7 +2333,7 @@
         "promo_en": "Enhances AI agent performance in backend architect with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em backend architect com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/backend-architect",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/backend-architect/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -2359,7 +2359,7 @@
         "promo_en": "Enhances AI agent performance in sql sentinel with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em sql sentinel com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/takeaseatventure/sql-sentinel",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/sql-sentinel/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -2385,7 +2385,7 @@
         "promo_en": "Enhances AI agent performance in django pro with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em django pro com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/django-pro",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/django-pro/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -2411,7 +2411,7 @@
         "promo_en": "Enhances AI agent performance in postgres best practices with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em postgres best practices com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/postgres-best-practices",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/postgres-best-practices/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -2437,7 +2437,7 @@
         "promo_en": "Enhances AI agent performance in kubernetes architect with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em kubernetes architect com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/kubernetes-architect",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/kubernetes-architect/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -2463,7 +2463,7 @@
         "promo_en": "Enhances AI agent performance in gcp cloud run with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em gcp cloud run com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gcp-cloud-run",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/gcp-cloud-run/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -2489,7 +2489,7 @@
         "promo_en": "Enhances AI agent performance in aws serverless with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em aws serverless com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/aws-serverless",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/aws-serverless/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -2515,7 +2515,7 @@
         "promo_en": "Enhances AI agent performance in verification before completion with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em verification before completion com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/davidondrej/skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/verification-before-completion/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_systematic_debugging_71",
             "https://www.youtube.com/watch?v=nate_tdd_skills_72",
@@ -2541,7 +2541,7 @@
         "promo_en": "Enhances AI agent performance in project memory manager with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em project memory manager com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/disler/indydevtools",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/project-memory-manager/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -2567,7 +2567,7 @@
         "promo_en": "Transforms complex software architectures and flows into crisp, embeddable Mermaid diagrams automatically.",
         "promo_pt_br": "Transforma fluxos e arquiteturas complexas em diagramas Mermaid nítidos e incorporáveis automaticamente.",
         "repo_name": "Mckay Wrigley",
-        "url_skill": "https://github.com/mckaywrigley/chatbot-ui",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/mermaid-diagrammer/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -2598,7 +2598,7 @@
         "promo_en": "Drives autonomous development at maximum speed while keeping rigorous quality checks in place.",
         "promo_pt_br": "Impulsiona o desenvolvimento autônomo na velocidade máxima enquanto mantém checagens rigorosas de qualidade.",
         "repo_name": "GSD",
-        "url_skill": "https://github.com/gsd-build",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/get-shit-done/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -2627,7 +2627,7 @@
         "promo_en": "Enhances AI agent performance in changelog generator with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em changelog generator com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/coleam00/skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/changelog-generator/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -2653,7 +2653,7 @@
         "promo_en": "Enhances AI agent performance in auto commenter with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em auto commenter com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/AI-Builder-Club",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/auto-commenter/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -2679,7 +2679,7 @@
         "promo_en": "Enhances AI agent performance in enterprise agent routing with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em enterprise agent routing com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/microsoft/semantic-kernel",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/enterprise-agent-routing/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
             "https://www.youtube.com/watch?v=nate_multiagent_teams_92",
@@ -2705,7 +2705,7 @@
         "promo_en": "Enhances AI agent performance in cmux with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em cmux com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/cmux-dev/cmux",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/cmux/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -2731,7 +2731,7 @@
         "promo_en": "Enhances AI agent performance in docx with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em docx com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/docx",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/docx/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -2757,7 +2757,7 @@
         "promo_en": "Enhances AI agent performance in pdf with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em pdf com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/anthropics/skills/tree/main/skills/pdf",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/pdf/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
             "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -2783,7 +2783,7 @@
         "promo_en": "Enhances AI agent performance in llm prompt optimizer with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em llm prompt optimizer com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/llm-prompt-optimizer",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/llm-prompt-optimizer/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
             "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -2809,7 +2809,7 @@
         "promo_en": "Enhances AI agent performance in deepseek reasoner harness with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em deepseek reasoner harness com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/deepseek-ai/DeepSeek-V3",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/deepseek-reasoner-harness/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
             "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -2835,7 +2835,7 @@
         "promo_en": "Enhances AI agent performance in claude code hooks with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em claude code hooks com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/disler/claude-code-hooks-mastery",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/claude-code-hooks/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
             "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
@@ -2861,7 +2861,7 @@
         "promo_en": "Enhances AI agent performance in autoresearch self annealing with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em autoresearch self annealing com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/nickjwells/skills-workspace",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/autoresearch-self-annealing/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
             "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
@@ -2887,7 +2887,7 @@
         "promo_en": "Enhances AI agent performance in python tool executor with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em python tool executor com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/echohive42",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/python-tool-executor/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
             "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
@@ -2913,7 +2913,7 @@
         "promo_en": "Enhances AI agent performance in aios agent layer with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em aios agent layer com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/LiamOttley",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/aios-agent-layer/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
             "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
@@ -2939,7 +2939,7 @@
         "promo_en": "Enhances AI agent performance in loop engineering with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em loop engineering com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/anthropics/skills",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/loop-engineering/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
             "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
@@ -2965,7 +2965,7 @@
         "promo_en": "Enhances AI agent performance in data science eda with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em data science eda com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/data-science-eda",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/data-science-eda/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
             "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -2991,7 +2991,7 @@
         "promo_en": "Enhances AI agent performance in python dependency manager with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em python dependency manager com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/python-dependency",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/python-dependency-manager/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
             "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -3017,7 +3017,7 @@
         "promo_en": "Enhances AI agent performance in landing page generator with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em landing page generator com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/agent-skills/landing-page-generator",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/landing-page-generator/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -3043,7 +3043,7 @@
         "promo_en": "Enhances AI agent performance in builder visual copilot with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em builder visual copilot com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/BuilderIO/builder",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/builder-visual-copilot/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
             "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -3069,7 +3069,7 @@
         "promo_en": "Enhances AI agent performance in microservices patterns with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em microservices patterns com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/microservices-patterns",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/microservices-patterns/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -3095,7 +3095,7 @@
         "promo_en": "Enhances AI agent performance in bigquery sql with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em bigquery sql com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bigquery-sql",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/bigquery-sql/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -3121,7 +3121,7 @@
         "promo_en": "Enhances AI agent performance in gcp data pipelines with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em gcp data pipelines com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gcp-data-pipelines",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/gcp-data-pipelines/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
             "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
@@ -3147,7 +3147,7 @@
         "promo_en": "Enhances AI agent performance in graphify with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em graphify com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/disler/the-library",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/graphify/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -3173,7 +3173,7 @@
         "promo_en": "Enhances AI agent performance in obsidian sync with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em obsidian sync com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://github.com/WesRoth",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/obsidian-sync/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -3199,7 +3199,7 @@
         "promo_en": "Enhances AI agent performance in ai productivity pack with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em ai productivity pack com padrões de execução estruturados e prevenção de erros.",
         "repo_name": "Awesome",
-        "url_skill": "https://futuretools.io",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/ai-productivity-pack/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
             "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -3225,7 +3225,7 @@
         "promo_en": "Specialized automation skill for scraping utility portals, submitting TRT protocols, and parsing energy billing invoices in Brazil.",
         "promo_pt_br": "Skill de automação RPA especializada para raspagem de portais de energia elétrica, submissão de TRTs e parsing de faturas de concessionárias brasileiras.",
         "repo_name": "MaxSkills",
-        "url_skill": "https://github.com/MaxSkills/python-concessionarias-automation-best-practices",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/python-concessionarias-automation/SKILL.md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
             "https://www.youtube.com/watch?v=nate_multiagent_teams_92",
