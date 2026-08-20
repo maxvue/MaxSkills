@@ -6,7 +6,7 @@
         "description_pt_br": "Metodologia de investigação profunda e análise sistemática de causa-raiz em logs e testes antes de propor correções de código.",
         "promo_en": "Eliminates AI hallucination and trial-and-error debugging by enforcing systematic root-cause diagnosis, saving hours of developer troubleshooting.",
         "promo_pt_br": "Elimina alucinações de IA e depurações por tentativa e erro ao impor um diagnóstico sistemático de causa-raiz, economizando horas de resolução de problemas.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/systematic-debugging",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -109,7 +109,7 @@
         "description_pt_br": "Fluxo estruturado de desenvolvimento orientado por testes (TDD) com ciclo Red-Green-Refactor e validação contínua.",
         "promo_en": "Guarantees production-grade code quality and zero regressions by turning coding agents into disciplined TDD practitioners.",
         "promo_pt_br": "Garante qualidade de nível de produção e zero regressões ao transformar agentes de código em praticantes disciplinados de TDD.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/test-driven-development",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -191,7 +191,7 @@
         "description_pt_br": "Diretrizes de design de interface de usuário, acessibilidade, responsividade e padrões estéticos modernos para desenvolvimento web frontend.",
         "promo_en": "Elevates AI-generated web interfaces from generic mockups to polished, accessible, and distinctive production-ready designs.",
         "promo_pt_br": "Eleva as interfaces web geradas por IA de mockups genéricos para designs distintos, acessíveis e prontos para produção.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/frontend-design",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -274,7 +274,7 @@
         "description_pt_br": "Meta-skill oficial para criar, iterar, estruturar arquivos SKILL.md e testar novas habilidades com avaliações automatizadas.",
         "promo_en": "Empowers developers to build, test, and distribute custom, modular AI agent skills with rigorous evaluation benchmarks.",
         "promo_pt_br": "Capacita desenvolvedores a criar, testar e distribuir skills modulares para agentes de IA com benchmarks de avaliação rigorosos.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -340,7 +340,7 @@
         "description_pt_br": "Elaboração de documentação técnica, registros de decisões de arquitetura (ADRs), changelogs e especificações de endpoints.",
         "promo_en": "Automates the generation and maintenance of crystal-clear technical documentation, keeping codebases perfectly organized and team-ready.",
         "promo_pt_br": "Automatiza a criação e manutenção de documentação técnica impecável, mantendo a base de código organizada e pronta para a equipe.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/technical-documentation",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -440,7 +440,7 @@
         "description_pt_br": "Padronização de fluxo Git, geração de conventional commits, criação de Pull Requests e regras de branching.",
         "promo_en": "Enforces clean Git versioning discipline, worktree isolation for parallel agents, and seamless collaborative workflows.",
         "promo_pt_br": "Impõe disciplina de versionamento Git limpo, isolamento com worktrees para múltiplos agentes e fluxos colaborativos sem atrito.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/git-workflow",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -503,7 +503,7 @@
         "description_pt_br": "Varredura de segurança, auditoria de vulnerabilidades em dependências e conformidade SAIF.",
         "promo_en": "Protects applications by auditing source code for security vulnerabilities, compliance risks, and hardcoded credentials before deployment.",
         "promo_pt_br": "Protege aplicações auditando o código-fonte contra vulnerabilidades de segurança, riscos de conformidade e credenciais expostas.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/security-audit",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -570,7 +570,7 @@
         "description_pt_br": "Revisão automatizada de código, análise estática de conformidade e detecção de antipadrões em Pull Requests.",
         "promo_en": "Acts as an automated senior engineer reviewing diffs to catch subtle bugs, logic flaws, and architectural debt before merging.",
         "promo_pt_br": "Atua como um engenheiro sênior automatizado que revisa diffs para capturar bugs sutis e dívida técnica antes do merge.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/code-review",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -658,7 +658,7 @@
         "description_pt_br": "Automação e interação autônoma com o navegador via Chrome DevTools Protocol e Playwright para scraping e testes de UI.",
         "promo_en": "Enables agents to navigate the web, test user journeys, verify UI rendering visually, and automate complex web portals.",
         "promo_pt_br": "Permite que agentes naveguem na web, testem fluxos de usuário, verifiquem renderização de UI visualmente e automatizem portais complexos.",
-        "repo_name": "microsoft/playwright",
+        "repo_name": "Playwright",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/browser-automation",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -746,7 +746,7 @@
         "description_pt_br": "Framework de engenharia agentic com planejamento arquitetural estruturado e prevenção de erros.",
         "promo_en": "Transforms autonomous coding into a reliable, high-velocity engineering loop with built-in quality gates.",
         "promo_pt_br": "Transforma o desenvolvimento autônomo em um loop de engenharia confiável e de alta velocidade com portões de qualidade integrados.",
-        "repo_name": "obra/superpowers",
+        "repo_name": "Superpowers",
         "url_skill": "https://github.com/obra/superpowers",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -786,7 +786,7 @@
         "description_pt_br": "Orquestração e disparo coordenado de múltiplos subagentes autônomos para resolução distribuída de problemas complexos.",
         "promo_en": "Coordinates specialized subagents in parallel to solve complex architectures while preserving primary session token context.",
         "promo_pt_br": "Coordena subagentes especializados em paralelo para resolver arquiteturas complexas preservando o contexto de tokens da sessão principal.",
-        "repo_name": "google/antigravity",
+        "repo_name": "Antigravity",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agent-orchestrator",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -853,7 +853,7 @@
         "description_pt_br": "Guia e automação de integração de componentes Tailwind/Radix da biblioteca shadcn/ui em aplicações React, Next.js e Vite.",
         "promo_en": "Rapidly constructs accessible, enterprise-grade user interfaces with customizable copy-paste component architecture.",
         "promo_pt_br": "Constrói rapidamente interfaces acessíveis de nível corporativo com arquitetura customizável de componentes modulares.",
-        "repo_name": "shadcn-ui/ui",
+        "repo_name": "ShadcnUi",
         "url_skill": "https://skills.sh/shadcn-ui/ui",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -903,7 +903,7 @@
         "description_pt_br": "Camada de ponte para carregar dinamicamente servidores e ferramentas MCP como Agent Skills.",
         "promo_en": "Connects AI agents seamlessly to external databases, enterprise APIs, cloud tools, and local execution environments via MCP standard.",
         "promo_pt_br": "Conecta agentes de IA perfeitamente a bancos de dados externos, APIs corporativas e ferramentas locais através do padrão MCP.",
-        "repo_name": "modelcontextprotocol/servers",
+        "repo_name": "MCP",
         "url_skill": "https://github.com/modelcontextprotocol",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
@@ -968,7 +968,7 @@
         "description_pt_br": "Gerenciamento eficiente de janelas de contexto, divulgação progressiva de contexto e estratégias de compressão de prompt.",
         "promo_en": "Drastically slashes LLM token consumption while boosting reasoning accuracy through smart context hygiene.",
         "promo_pt_br": "Reduz drasticamente o consumo de tokens e melhora a precisão do raciocínio através de higienização inteligente de contexto.",
-        "repo_name": "anthropics/anthropic-quickstarts",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/context-engineering",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1031,7 +1031,7 @@
         "description_pt_br": "Design de interfaces de serviços, modelagem de contratos de APIs REST/GraphQL e documentação de payloads.",
         "promo_en": "Designs scalable, robust API architectures with strict contract validation and automatic documentation out of the box.",
         "promo_pt_br": "Projeta arquiteturas de API robustas e escaláveis com validação estrita de contrato e documentação automática integrada.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-and-interface-design",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1091,7 +1091,7 @@
         "description_pt_br": "Regras e práticas recomendadas para estilização com Tailwind CSS v3 e v4.",
         "promo_en": "Accelerates frontend styling with clean, maintainable, and high-performance utility-first CSS architecture.",
         "promo_pt_br": "Acelera a estilização frontend com arquitetura CSS utilitária limpa, sustentável e de alta performance.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/tailwind-css",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -1131,7 +1131,7 @@
         "description_pt_br": "Pesquisa profunda automatizada na web, cruzamento analítico de fontes técnicas e geração de relatórios consolidados.",
         "promo_en": "Conducts deep internet research across technical documentations and papers to compile cited, authoritative summaries.",
         "promo_pt_br": "Conduz pesquisas aprofundadas na internet através de documentações técnicas para compilar resumos citados e autoritativos.",
-        "repo_name": "assafelovic/gpt-researcher",
+        "repo_name": "GPT Researcher",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/deep-research",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1195,7 +1195,7 @@
         "description_pt_br": "Criação de Dockerfiles otimizados, gerenciamento de múltiplos serviços com docker-compose e conteinerização de ambientes.",
         "promo_en": "Produces lightweight, secure, and production-ready containerized microservices and reproducible dev environments.",
         "promo_pt_br": "Produz microsserviços conteinerizados leves, seguros e prontos para produção e ambientes de desenvolvimento reproduzíveis.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/docker-expert",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1250,7 +1250,7 @@
         "description_pt_br": "Templates e padrões de scaffolding para construção ágil de microsserviços e APIs com FastAPI e Python assíncrono.",
         "promo_en": "Builds async Python microservices with automatic OpenAPI docs, dependency injection, and clean layered architecture.",
         "promo_pt_br": "Constrói microsserviços assíncronos em Python com OpenAPI automático, injeção de dependências e arquitetura em camadas limpa.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/fastapi-templates",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1306,7 +1306,7 @@
         "description_pt_br": "Mecanismo de proteção contra operações destrutivas e isolamento em sandboxes.",
         "promo_en": "Acts as a safety shield preventing autonomous agents from accidentally deleting production data or running dangerous operations.",
         "promo_pt_br": "Atua como um escudo de segurança impedindo que agentes autônomos excluam acidentalmente dados de produção ou executem operações perigosas.",
-        "repo_name": "agentic-engineering/tac-skills",
+        "repo_name": "Agentic Engineering",
         "url_skill": "https://github.com/agentic-engineering/tac-skills",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
@@ -1345,7 +1345,7 @@
         "description_pt_br": "Isolamento estrito de tarefas e desenvolvimento paralelo em branches separadas utilizando git worktrees.",
         "promo_en": "Enables multiple AI agents to develop, test, and build features in parallel without stepping on each other's branch workspaces.",
         "promo_pt_br": "Permite que múltiplos agentes de IA desenvolvam, testem e construam recursos em paralelo sem colisões de branch.",
-        "repo_name": "coleam00/skills",
+        "repo_name": "Cole Medin",
         "url_skill": "https://github.com/coleam00/skills",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
@@ -1395,7 +1395,7 @@
         "description_pt_br": "Análise e otimização de consultas SQL, modelagem relacional, planos de execução e indexação.",
         "promo_en": "Optimizes relational databases to handle high throughput queries with minimal latency and smart indexing strategies.",
         "promo_pt_br": "Otimiza bancos de dados relacionais para suportar alto throughput de consultas com latência mínima e estratégias inteligentes de índice.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/davidondrej/skills/tree/main/skills/database-optimizer",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
@@ -1443,7 +1443,7 @@
         "description_pt_br": "Kit de habilidades e sistema operacional de IA para automação de negócios, orquestração de subagentes e gestão de pipelines autônomos.",
         "promo_en": "Enhances AI agent performance in ais os with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em ais os com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/nateherkai/AIS-OS",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -1469,7 +1469,7 @@
         "description_pt_br": "Criação, execução e automação de testes end-to-end (E2E), testes de integração e fluxos de desenvolvimento orientado a testes (TDD).",
         "promo_en": "Enhances AI agent performance in e2e testing patterns with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em e2e testing patterns com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/e2e-testing-patterns",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1495,7 +1495,7 @@
         "description_pt_br": "Refatoração estruturada de base de código para simplificação, modularização e aplicação de padrões de Clean Code.",
         "promo_en": "Enhances AI agent performance in code refactoring with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em code refactoring com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/code-refactoring-refactor-clean",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1541,7 +1541,7 @@
         "description_pt_br": "Framework que divide desenvolvimento em Planejamento, Implementação e Validação.",
         "promo_en": "Prevents runaway coding by ensuring every task is planned, implemented in isolated chunks, and verified before completion.",
         "promo_pt_br": "Evita desvios de código garantindo que toda tarefa seja planejada, implementada em etapas isoladas e verificada antes da conclusão.",
-        "repo_name": "coleam00/skills",
+        "repo_name": "Cole Medin",
         "url_skill": "https://github.com/colemedin/agentic-workflows",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
@@ -1589,7 +1589,7 @@
         "description_pt_br": "Produz relatórios estruturados, artefatos markdown e documentos a partir de saídas de análise.",
         "promo_en": "Enhances AI agent performance in document skills with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em document skills com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/anthropics/skills",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
@@ -1625,7 +1625,7 @@
         "description_pt_br": "Automação de testes em Python com pytest e fixtures avançadas.",
         "promo_en": "Automates the creation of comprehensive unit and integration test suites with mocks and coverage reports.",
         "promo_pt_br": "Automatiza a criação de suítes completas de testes unitários e de integração com mocks e relatórios de cobertura.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/pytest-automation",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
@@ -1673,7 +1673,7 @@
         "description_pt_br": "Boas práticas para geração e estruturação de componentes React com TypeScript.",
         "promo_en": "Generates robust, typed React components adhering to modern architectural patterns and WCAG accessibility standards.",
         "promo_pt_br": "Gera componentes React tipados e robustos aderindo a padrões modernos de arquitetura e conformidade WCAG.",
-        "repo_name": "anthropics/skills",
+        "repo_name": "Anthropic",
         "url_skill": "https://github.com/anthropics/skills/tree/main/react",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -1712,7 +1712,7 @@
         "description_pt_br": "Meta-skill para distribuição, versionamento e sincronização centralizada de habilidades, agentes e prompts.",
         "promo_en": "Synchronizes your personal AI skill library across machines and projects with central versioning.",
         "promo_pt_br": "Sincroniza sua biblioteca pessoal de skills de IA entre máquinas e projetos com versionamento centralizado.",
-        "repo_name": "disler/the-library",
+        "repo_name": "The Library",
         "url_skill": "https://github.com/disler/the-library",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -1752,7 +1752,7 @@
         "description_pt_br": "Melhores práticas de engenharia de software e integração direta com o SDK e a API da Anthropic Claude.",
         "promo_en": "Enhances AI agent performance in claude api with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em claude api com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/claude-api",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -1788,7 +1788,7 @@
         "description_pt_br": "Transforma comandos informais de vibe coding em especificações técnicas formais.",
         "promo_en": "Enhances AI agent performance in vibe to spec with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em vibe to spec com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/alexfinn/vibe-coding-skills",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
@@ -1824,7 +1824,7 @@
         "description_pt_br": "Provisionamento de infraestrutura como código (IaC) com Terraform e cloud architecture.",
         "promo_en": "Designs and provisions scalable, cost-efficient cloud infrastructure with automated IaC blueprints.",
         "promo_pt_br": "Projeta e provisiona infraestrutura em nuvem escalável e econômica com blueprints automatizados de IaC.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/cloud-infra",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
@@ -1873,7 +1873,7 @@
         "description_pt_br": "Provisionamento de infraestrutura como código (IaC) com Terraform e OpenTofu.",
         "promo_en": "Enhances AI agent performance in terraform skill with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em terraform skill com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/terraform-infrastructure",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -1899,7 +1899,7 @@
         "description_pt_br": "Integração de ferramentas de análise estática de código, AST linting e validação de tipos.",
         "promo_en": "Enhances AI agent performance in static analysis and linting with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em static analysis and linting com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/anthropics/skills",
         "recomends": [
             "https://www.youtube.com/watch?v=david_systematic_debugging_71",
@@ -1925,7 +1925,7 @@
         "description_pt_br": "Regras para poda de contexto, desconexão de MCPs ociosos e redução de custos de LLM em até 80%.",
         "promo_en": "Dramatically cuts API costs and boosts model response speed by trimming redundant tokens from conversation contexts.",
         "promo_pt_br": "Reduz drasticamente os custos de API e aumenta a velocidade de resposta cortando tokens redundantes dos contextos de conversa.",
-        "repo_name": "nateherkai/claude-code-skills",
+        "repo_name": "Nate Herk",
         "url_skill": "https://github.com/nateherk/claude-code-skills",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -1954,7 +1954,7 @@
         "description_pt_br": "Automação de rotinas repetitivas, encadeamento de etapas de desenvolvimento e integração com ferramentas do sistema operacional.",
         "promo_en": "Enhances AI agent performance in workflow automation with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em workflow automation com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/antigravity-workflows",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -1980,7 +1980,7 @@
         "description_pt_br": "Definição de regras de comportamento, arquitetura de governança e restrições por diretório via arquivos AGENTS.md.",
         "promo_en": "Enhances AI agent performance in agents md with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em agents md com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/agents-md",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -2006,7 +2006,7 @@
         "description_pt_br": "Planejamento e execução de migrações relacionais seguras, versionamento de schemas SQL e integridade de dados.",
         "promo_en": "Enhances AI agent performance in database migrations with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em database migrations com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/database-migrations-sql-migrations",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -2042,7 +2042,7 @@
         "description_pt_br": "Mocking de serviços, testes de integração de APIs e configuração de telemetria de observabilidade.",
         "promo_en": "Enhances AI agent performance in api testing mock with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em api testing mock com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/api-testing-observability-api-mock",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -2078,7 +2078,7 @@
         "description_pt_br": "Gera scaffolding e inicialização de estruturas full-stack integrando backend e frontend.",
         "promo_en": "Enhances AI agent performance in fullstack scaffolder with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em fullstack scaffolder com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/echohive42/agent-skills",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
@@ -2114,7 +2114,7 @@
         "description_pt_br": "Geração de copywriting persuasivo para landing pages e anúncios de lançamento de produto.",
         "promo_en": "Enhances AI agent performance in marketing copy generator with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em marketing copy generator com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/alexfinn/claude-skills/tree/main/skills/marketing-copy",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
@@ -2140,7 +2140,7 @@
         "description_pt_br": "Construção e orquestração de fluxos de automação n8n ativados por webhooks.",
         "promo_en": "Enhances AI agent performance in n8n webhook automation with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em n8n webhook automation com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/n8n-automation",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
@@ -2176,7 +2176,7 @@
         "description_pt_br": "Regras arquiteturais para Next.js 15 com App Router, RSC e Server Actions.",
         "promo_en": "Enhances AI agent performance in nextjs app router with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em nextjs app router com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/vercel/next.js",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -2202,7 +2202,7 @@
         "description_pt_br": "Padrões de desenvolvimento para Vue 3 utilizando SFC e Composition API.",
         "promo_en": "Enhances AI agent performance in vue components with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em vue components com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/vuejs/core",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -2228,7 +2228,7 @@
         "description_pt_br": "Sincronização de tokens de design entre ferramentas visuais e bases de código.",
         "promo_en": "Enhances AI agent performance in design system tokens with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em design system tokens com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/tokens-studio/figma-plugin",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -2254,7 +2254,7 @@
         "description_pt_br": "Conversão automatizada de nós e layouts do Figma diretamente em código HTML/Tailwind.",
         "promo_en": "Enhances AI agent performance in figma to code with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em figma to code com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/builderio/figma-html",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -2280,7 +2280,7 @@
         "description_pt_br": "Alinhamento geométrico milimétrico e calibração de viewports para fidelidade visual.",
         "promo_en": "Enhances AI agent performance in pixel perfect ui with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em pixel perfect ui com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/agent-skills/pixel-perfect-ui",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -2306,7 +2306,7 @@
         "description_pt_br": "Inserção padronizada de iconografia vetorial limpa e acessível.",
         "promo_en": "Enhances AI agent performance in lucide icons with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em lucide icons com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/lucide-icons/lucide",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -2332,7 +2332,7 @@
         "description_pt_br": "Especialista em arquitetura backend, design escalável de APIs REST/GraphQL e microsserviços.",
         "promo_en": "Enhances AI agent performance in backend architect with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em backend architect com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/backend-architect",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -2358,7 +2358,7 @@
         "description_pt_br": "Auditoria de SQL para detecção de antipadrões de custo e performance em BigQuery e PostgreSQL.",
         "promo_en": "Enhances AI agent performance in sql sentinel with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em sql sentinel com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/takeaseatventure/sql-sentinel",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -2384,7 +2384,7 @@
         "description_pt_br": "Desenvolvimento em Django 5.x com DRF, Celery e resolução de gargalos de ORM N+1.",
         "promo_en": "Enhances AI agent performance in django pro with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em django pro com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/django-pro",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -2410,7 +2410,7 @@
         "description_pt_br": "Boas práticas de PostgreSQL e Prisma para modelagem relacional e otimização.",
         "promo_en": "Enhances AI agent performance in postgres best practices with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em postgres best practices com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/postgres-best-practices",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -2436,7 +2436,7 @@
         "description_pt_br": "Orquestração em Kubernetes, Helm charts, Ingress e manifests de produção.",
         "promo_en": "Enhances AI agent performance in kubernetes architect with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em kubernetes architect com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/kubernetes-architect",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -2462,7 +2462,7 @@
         "description_pt_br": "Aplicações serverless conteinerizadas no GCP Cloud Run e Cloud Functions.",
         "promo_en": "Enhances AI agent performance in gcp cloud run with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em gcp cloud run com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gcp-cloud-run",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -2488,7 +2488,7 @@
         "description_pt_br": "Aplicações serverless na AWS com Lambda, API Gateway e Step Functions.",
         "promo_en": "Enhances AI agent performance in aws serverless with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em aws serverless com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/aws-serverless",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -2514,7 +2514,7 @@
         "description_pt_br": "Protocolo de validação obrigatório impedindo finalização sem suíte de testes passando.",
         "promo_en": "Enhances AI agent performance in verification before completion with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em verification before completion com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/davidondrej/skills",
         "recomends": [
             "https://www.youtube.com/watch?v=david_systematic_debugging_71",
@@ -2540,7 +2540,7 @@
         "description_pt_br": "Gerencia memória de longo prazo e persistência de contexto em repositórios via arquivos estruturados.",
         "promo_en": "Enhances AI agent performance in project memory manager with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em project memory manager com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/disler/indydevtools",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -2566,7 +2566,7 @@
         "description_pt_br": "Geração automatizada de diagramas em sintaxe Mermaid (fluxogramas, ERD, arquitetura C4).",
         "promo_en": "Transforms complex software architectures and flows into crisp, embeddable Mermaid diagrams automatically.",
         "promo_pt_br": "Transforma fluxos e arquiteturas complexas em diagramas Mermaid nítidos e incorporáveis automaticamente.",
-        "repo_name": "mckaywrigley/chatbot-ui",
+        "repo_name": "Mckay Wrigley",
         "url_skill": "https://github.com/mckaywrigley/chatbot-ui",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -2597,7 +2597,7 @@
         "description_pt_br": "Framework de execução autônoma em alta velocidade (GSD / Finn-Loop) do planejamento à entrega.",
         "promo_en": "Drives autonomous development at maximum speed while keeping rigorous quality checks in place.",
         "promo_pt_br": "Impulsiona o desenvolvimento autônomo na velocidade máxima enquanto mantém checagens rigorosas de qualidade.",
-        "repo_name": "gsd-build",
+        "repo_name": "GSD",
         "url_skill": "https://github.com/gsd-build",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -2626,7 +2626,7 @@
         "description_pt_br": "Extração e categorização automática de commits para geração de changelogs e notas de release semânticas.",
         "promo_en": "Enhances AI agent performance in changelog generator with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em changelog generator com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/coleam00/skills",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -2652,7 +2652,7 @@
         "description_pt_br": "Anotação e documentação automática de código em PHPDoc, JSDoc e TSDoc sem poluir a lógica de negócios.",
         "promo_en": "Enhances AI agent performance in auto commenter with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em auto commenter com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/AI-Builder-Club",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -2678,7 +2678,7 @@
         "description_pt_br": "Roteamento de agentes empresariais em larga escala com suporte a governança corporativa e RBAC.",
         "promo_en": "Enhances AI agent performance in enterprise agent routing with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em enterprise agent routing com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/microsoft/semantic-kernel",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
@@ -2704,7 +2704,7 @@
         "description_pt_br": "Orquestrador e multiplexador de terminais para execução concorrente e monitoramento de agentes.",
         "promo_en": "Enhances AI agent performance in cmux with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em cmux com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/cmux-dev/cmux",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -2730,7 +2730,7 @@
         "description_pt_br": "Criação, formatação, extração e edição programática de documentos do Microsoft Word (.docx).",
         "promo_en": "Enhances AI agent performance in docx with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em docx com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/docx",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -2756,7 +2756,7 @@
         "description_pt_br": "Processamento, extração de texto estruturado e manipulação de arquivos em formato PDF.",
         "promo_en": "Enhances AI agent performance in pdf with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em pdf com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/anthropics/skills/tree/main/skills/pdf",
         "recomends": [
             "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
@@ -2782,7 +2782,7 @@
         "description_pt_br": "Refinamento e otimização sistemática de prompts de sistema para melhorar a assertividade e clareza das respostas dos agentes.",
         "promo_en": "Enhances AI agent performance in llm prompt optimizer with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em llm prompt optimizer com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/llm-prompt-optimizer",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
@@ -2808,7 +2808,7 @@
         "description_pt_br": "Estrutura especializada para guiar o raciocínio em cadeia (CoT) de modelos DeepSeek R1/V3.",
         "promo_en": "Enhances AI agent performance in deepseek reasoner harness with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em deepseek reasoner harness com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/deepseek-ai/DeepSeek-V3",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
@@ -2834,7 +2834,7 @@
         "description_pt_br": "Implementação de hooks de ciclo de vida para customizar agentes CLI.",
         "promo_en": "Enhances AI agent performance in claude code hooks with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em claude code hooks com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/disler/claude-code-hooks-mastery",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
@@ -2860,7 +2860,7 @@
         "description_pt_br": "Mecanismo de auto-recozimento onde o agente avalia e aprimora seus próprios SKILL.md.",
         "promo_en": "Enhances AI agent performance in autoresearch self annealing with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em autoresearch self annealing com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/nickjwells/skills-workspace",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
@@ -2886,7 +2886,7 @@
         "description_pt_br": "Criação de ferramentas determinísticas em Python integradas a descritores Markdown.",
         "promo_en": "Enhances AI agent performance in python tool executor with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em python tool executor com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/echohive42",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
@@ -2912,7 +2912,7 @@
         "description_pt_br": "Construção de camada de serviços para AI Operating Systems com FastAPI e filas assíncronas.",
         "promo_en": "Enhances AI agent performance in aios agent layer with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em aios agent layer com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/LiamOttley",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
@@ -2938,7 +2938,7 @@
         "description_pt_br": "Engenharia de loops autônomos de execução com rotinas de auto-recuperação diante de falhas.",
         "promo_en": "Enhances AI agent performance in loop engineering with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em loop engineering com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/anthropics/skills",
         "recomends": [
             "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
@@ -2964,7 +2964,7 @@
         "description_pt_br": "Análise exploratória de dados (EDA) automatizada utilizando Pandas e Polars.",
         "promo_en": "Enhances AI agent performance in data science eda with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em data science eda com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/data-science-eda",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
@@ -2990,7 +2990,7 @@
         "description_pt_br": "Gestão determinística de dependências e ambientes virtuais modernos com uv e Poetry.",
         "promo_en": "Enhances AI agent performance in python dependency manager with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em python dependency manager com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/python-dependency",
         "recomends": [
             "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
@@ -3016,7 +3016,7 @@
         "description_pt_br": "Geração rápida de landing pages de alta conversão para SaaS.",
         "promo_en": "Enhances AI agent performance in landing page generator with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em landing page generator com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/agent-skills/landing-page-generator",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -3042,7 +3042,7 @@
         "description_pt_br": "Tradução visual e mapeamento de componentes de design em código de produção.",
         "promo_en": "Enhances AI agent performance in builder visual copilot with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em builder visual copilot com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/BuilderIO/builder",
         "recomends": [
             "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
@@ -3068,7 +3068,7 @@
         "description_pt_br": "Padrões de microsserviços, comunicação inter-serviços, saga pattern e resiliência.",
         "promo_en": "Enhances AI agent performance in microservices patterns with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em microservices patterns com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/microservices-patterns",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -3094,7 +3094,7 @@
         "description_pt_br": "Técnicas de otimização de queries SQL no Google BigQuery.",
         "promo_en": "Enhances AI agent performance in bigquery sql with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em bigquery sql com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/bigquery-sql",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -3120,7 +3120,7 @@
         "description_pt_br": "Construção e orquestração de pipelines de dados no GCP com Dataform e Composer.",
         "promo_en": "Enhances AI agent performance in gcp data pipelines with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em gcp data pipelines com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/sickn33/antigravity-awesome-skills/tree/main/skills/gcp-data-pipelines",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
@@ -3146,7 +3146,7 @@
         "description_pt_br": "Transforma o repositório em um grafo de conhecimento consultável para navegação sem perda de contexto.",
         "promo_en": "Enhances AI agent performance in graphify with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em graphify com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/disler/the-library",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -3172,7 +3172,7 @@
         "description_pt_br": "Integração e sincronização bidirecional entre vaults do Obsidian e o agente de IA.",
         "promo_en": "Enhances AI agent performance in obsidian sync with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em obsidian sync com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://github.com/WesRoth",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -3198,7 +3198,7 @@
         "description_pt_br": "Coleção de utilitários e aceleradores essenciais para desenvolvedores com agentes de IA.",
         "promo_en": "Enhances AI agent performance in ai productivity pack with structured execution patterns and error-prevention guidelines.",
         "promo_pt_br": "Aumenta a performance do agente de IA em ai productivity pack com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "sickn33/antigravity-awesome-skills",
+        "repo_name": "Awesome",
         "url_skill": "https://futuretools.io",
         "recomends": [
             "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
@@ -3224,7 +3224,7 @@
         "description_pt_br": "Automação RPA em Python para portais de concessionárias de energia brasileiras (Cemig, Energisa, Equatorial, Coelba).",
         "promo_en": "Specialized automation skill for scraping utility portals, submitting TRT protocols, and parsing energy billing invoices in Brazil.",
         "promo_pt_br": "Skill de automação RPA especializada para raspagem de portais de energia elétrica, submissão de TRTs e parsing de faturas de concessionárias brasileiras.",
-        "repo_name": "MaxSkills/python-concessionarias-automation-best-practices",
+        "repo_name": "MaxSkills",
         "url_skill": "https://github.com/MaxSkills/python-concessionarias-automation-best-practices",
         "recomends": [
             "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
