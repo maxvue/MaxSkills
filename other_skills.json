@@ -1,5 +1,6 @@
 [
     {
+        "id": "01M0G4G52FBKP8E6N9AP4K3RB9",
         "skill_name": "systematic-debugging",
         "description_en": "4-phase disciplined root-cause investigation methodology based on log evidence and test reproduction before proposing any code fixes.",
         "description_pt_br": "Metodologia de investigação profunda e análise sistemática de causa-raiz em logs e testes antes de propor correções de código.",
@@ -102,6 +103,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FQ2GH4WZB4MDWRTW6",
         "skill_name": "test-driven-development",
         "description_en": "Strict Red-Green-Refactor test-driven development workflow requiring automated tests written and failing before feature implementation.",
         "description_pt_br": "Fluxo estruturado de desenvolvimento orientado por testes (TDD) com ciclo Red-Green-Refactor e validação contínua.",
@@ -183,6 +185,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FH90TKJ99SM1D454A",
         "skill_name": "frontend-design",
         "description_en": "Modern aesthetic UI/UX guidelines, accessibility best practices, and responsive design systems preventing repetitive, generic AI templates.",
         "description_pt_br": "Diretrizes de design de interface de usuário, acessibilidade, responsividade e padrões estéticos modernos para desenvolvimento web frontend.",
@@ -265,6 +268,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FCRTTHSA4Z23Q336F",
         "skill_name": "skill-creator",
         "description_en": "Official meta-skill for scaffolding, designing frontmatter triggers, writing clear SKILL.md specs, and running automated eval suites.",
         "description_pt_br": "Meta-skill oficial para criar, iterar, estruturar arquivos SKILL.md e testar novas habilidades com avaliações automatizadas.",
@@ -330,6 +334,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FEG48KKZ383TGPX52",
         "skill_name": "technical-documentation",
         "description_en": "Comprehensive standards for authoring high-fidelity technical documentation, Architecture Decision Records (ADRs), READMEs, and API schemas.",
         "description_pt_br": "Elaboração de documentação técnica, registros de decisões de arquitetura (ADRs), changelogs e especificações de endpoints.",
@@ -429,6 +434,7 @@
         ]
     },
     {
+        "id": "01M0G4G52F663YHJWYW67CP8KR",
         "skill_name": "git-workflow",
         "description_en": "Git branching governance, atomic Conventional Commits, isolated git worktrees management, and automated pull request generation.",
         "description_pt_br": "Padronização de fluxo Git, geração de conventional commits, criação de Pull Requests e regras de branching.",
@@ -491,6 +497,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FV5WNNFWAXJX7HKYG",
         "skill_name": "security-audit",
         "description_en": "Automated security scanning, OWASP Top 10 vulnerability prevention, secret leakage detection, and dependency risk assessment.",
         "description_pt_br": "Varredura de segurança, auditoria de vulnerabilidades em dependências e conformidade SAIF.",
@@ -557,6 +564,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
         "skill_name": "code-review",
         "description_en": "Automated pull request review agent performing static analysis, cyclomatic complexity checks, style conformance, and bug detection.",
         "description_pt_br": "Revisão automatizada de código, análise estática de conformidade e detecção de antipadrões em Pull Requests.",
@@ -644,6 +652,7 @@
         ]
     },
     {
+        "id": "01M0G4G52F32ZTYMTYQK259587",
         "skill_name": "browser-automation",
         "description_en": "Autonomous web interaction, DOM inspection, scraping, and end-to-end user flow verification using Playwright and Chrome DevTools.",
         "description_pt_br": "Automação e interação autônoma com o navegador via Chrome DevTools Protocol e Playwright para scraping e testes de UI.",
@@ -731,6 +740,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FVBQNA612AE7T78GH",
         "skill_name": "superpowers",
         "description_en": "Complete agentic engineering workflow framework enforcing structured planning, technical specs, TDD, and subagent review cycles.",
         "description_pt_br": "Framework de engenharia agentic com planejamento arquitetural estruturado e prevenção de erros.",
@@ -770,6 +780,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FS4JB7ES3Z9C8N4F1",
         "skill_name": "agent-orchestrator",
         "description_en": "Multi-agent coordination engine for hierarchical task delegation, background subagent management, and parallel execution.",
         "description_pt_br": "Orquestração e disparo coordenado de múltiplos subagentes autônomos para resolução distribuída de problemas complexos.",
@@ -836,6 +847,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FASG08WQAJCM01AT2",
         "skill_name": "shadcn-ui",
         "description_en": "Integration and customization of accessible, headless Radix UI and Tailwind CSS components into modern React and Next.js applications.",
         "description_pt_br": "Guia e automação de integração de componentes Tailwind/Radix da biblioteca shadcn/ui em aplicações React, Next.js e Vite.",
@@ -885,6 +897,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FZ807HQW0RAS5BAAZ",
         "skill_name": "mcp-server-routing",
         "description_en": "Dynamic discovery, routing, and lifecycle execution of Model Context Protocol (MCP) servers and tools for external integrations.",
         "description_pt_br": "Camada de ponte para carregar dinamicamente servidores e ferramentas MCP como Agent Skills.",
@@ -949,6 +962,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FE36M320YYCE4WKRV",
         "skill_name": "context-engineering",
         "description_en": "LLM token budgeting, context pruning, progressive disclosure indexers, and systematic session state handoff techniques.",
         "description_pt_br": "Gerenciamento eficiente de janelas de contexto, divulgação progressiva de contexto e estratégias de compressão de prompt.",
@@ -1011,6 +1025,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FZWBAQWX620WBMW1N",
         "skill_name": "api-design",
         "description_en": "Production-grade RESTful and GraphQL API contract design, OpenAPI 3.1 specifications, request validation, and typed SDK generation.",
         "description_pt_br": "Design de interfaces de serviços, modelagem de contratos de APIs REST/GraphQL e documentação de payloads.",
@@ -1070,6 +1085,7 @@
         ]
     },
     {
+        "id": "01M0G4G52F6E8ZEKWF2BX32G7J",
         "skill_name": "tailwind-css",
         "description_en": "Tailwind CSS v3/v4 design token mapping, responsive utility layout structuring, mobile-first design, and dark mode configuration.",
         "description_pt_br": "Regras e práticas recomendadas para estilização com Tailwind CSS v3 e v4.",
@@ -1109,6 +1125,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FPQGPD3CF1ZW3BKSB",
         "skill_name": "deep-research",
         "description_en": "Autonomous iterative multi-source web search, reference synthesis, fact validation, and formatted technical report generation.",
         "description_pt_br": "Pesquisa profunda automatizada na web, cruzamento analítico de fontes técnicas e geração de relatórios consolidados.",
@@ -1172,6 +1189,7 @@
         ]
     },
     {
+        "id": "01M0G4G52F4V1VXAMC0WYZZ9Z7",
         "skill_name": "docker-expert",
         "description_en": "Multi-stage Dockerfile optimization, container hardening, multi-service Docker Compose orchestration, and CI/CD container pipelines.",
         "description_pt_br": "Criação de Dockerfiles otimizados, gerenciamento de múltiplos serviços com docker-compose e conteinerização de ambientes.",
@@ -1226,6 +1244,7 @@
         ]
     },
     {
+        "id": "01M0G4G52F1C753JPHMPTS9EMK",
         "skill_name": "fastapi-templates",
         "description_en": "Scaffolding and patterns for high-performance async Python web APIs using FastAPI, Pydantic V2, and SQLAlchemy 2.0.",
         "description_pt_br": "Templates e padrões de scaffolding para construção ágil de microsserviços e APIs com FastAPI e Python assíncrono.",
@@ -1281,6 +1300,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FHZMPGHHTZFX8Q0XN",
         "skill_name": "damage-control",
         "description_en": "High-risk command interceptor and sandbox guardrail preventing accidental data loss, destructive SQL, and uncommitted git wipes.",
         "description_pt_br": "Mecanismo de proteção contra operações destrutivas e isolamento em sandboxes.",
@@ -1319,6 +1339,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F3YQWZTYC3K1S074P",
         "skill_name": "git-worktree",
         "description_en": "Strict task isolation and parallel branch management with Git Worktrees for multiple autonomous agents working concurrently.",
         "description_pt_br": "Isolamento estrito de tarefas e desenvolvimento paralelo em branches separadas utilizando git worktrees.",
@@ -1368,6 +1389,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FPHZ3VCA06Z2NTCG5",
         "skill_name": "database-optimizer",
         "description_en": "SQL query performance tuning, index optimization (B-Tree, GIN, GiST), EXPLAIN execution plan analysis, and N+1 query elimination.",
         "description_pt_br": "Análise e otimização de consultas SQL, modelagem relacional, planos de execução e indexação.",
@@ -1415,6 +1437,7 @@
         ]
     },
     {
+        "id": "01M0G4G52F5K1CDG8SC52QJVP9",
         "skill_name": "ais-os",
         "description_en": "Specialized AI agent skill for ais os providing best practices and automated workflows.",
         "description_pt_br": "Kit de habilidades e sistema operacional de IA para automação de negócios, orquestração de subagentes e gestão de pipelines autônomos.",
@@ -1440,6 +1463,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FPAF7NXX28YZW5QWG",
         "skill_name": "e2e-testing-patterns",
         "description_en": "Specialized AI agent skill for e2e testing patterns providing best practices and automated workflows.",
         "description_pt_br": "Criação, execução e automação de testes end-to-end (E2E), testes de integração e fluxos de desenvolvimento orientado a testes (TDD).",
@@ -1465,6 +1489,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F7JJDSHVVZEMSBEFR",
         "skill_name": "code-refactoring",
         "description_en": "Specialized AI agent skill for code refactoring providing best practices and automated workflows.",
         "description_pt_br": "Refatoração estruturada de base de código para simplificação, modularização e aplicação de padrões de Clean Code.",
@@ -1510,6 +1535,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FSJ578YDABJWPFQM4",
         "skill_name": "piv-loop",
         "description_en": "Plan-Implement-Validate (PIV) structured engineering loop breaking complex tasks into clear milestones with strict validation gates.",
         "description_pt_br": "Framework que divide desenvolvimento em Planejamento, Implementação e Validação.",
@@ -1557,6 +1583,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FGKVZ0F7H7ETQ12B1",
         "skill_name": "document-skills",
         "description_en": "Specialized AI agent skill for document skills providing best practices and automated workflows.",
         "description_pt_br": "Produz relatórios estruturados, artefatos markdown e documentos a partir de saídas de análise.",
@@ -1592,6 +1619,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F953EWRK967AST11H",
         "skill_name": "pytest-and-jest-automation",
         "description_en": "Automated unit and integration test suite generation with Pytest (Python) and Jest/Vitest (TypeScript), mocking, and coverage analysis.",
         "description_pt_br": "Automação de testes em Python com pytest e fixtures avançadas.",
@@ -1639,6 +1667,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FSEJ8Z7FYJ1NCVKCA",
         "skill_name": "react-components",
         "description_en": "Production patterns for modern React 19 / TypeScript component development, custom hooks, state isolation, and accessibility.",
         "description_pt_br": "Boas práticas para geração e estruturação de componentes React com TypeScript.",
@@ -1677,6 +1706,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FTC9D5B58G13FBRRT",
         "skill_name": "the-library",
         "description_en": "Decentralized catalog and private synchronization system for distributing reusable skills, agent personas, and prompt kits.",
         "description_pt_br": "Meta-skill para distribuição, versionamento e sincronização centralizada de habilidades, agentes e prompts.",
@@ -1716,6 +1746,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F7GJH34QTMX9Q6WTE",
         "skill_name": "claude-api",
         "description_en": "Specialized AI agent skill for claude api providing best practices and automated workflows.",
         "description_pt_br": "Melhores práticas de engenharia de software e integração direta com o SDK e a API da Anthropic Claude.",
@@ -1751,6 +1782,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FANN9BZTTSSHYFNZK",
         "skill_name": "vibe-to-spec",
         "description_en": "Specialized AI agent skill for vibe to spec providing best practices and automated workflows.",
         "description_pt_br": "Transforma comandos informais de vibe coding em especificações técnicas formais.",
@@ -1786,6 +1818,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F9TT91W6TR5FTQXT9",
         "skill_name": "cloud-architect",
         "description_en": "Multi-cloud architecture design (AWS, GCP, Azure), Terraform/OpenTofu Infrastructure-as-Code modules, and FinOps optimization.",
         "description_pt_br": "Provisionamento de infraestrutura como código (IaC) com Terraform e cloud architecture.",
@@ -1834,6 +1867,7 @@
         ]
     },
     {
+        "id": "01M0G4G52F6MFSCRGE7KZ27HSN",
         "skill_name": "terraform-skill",
         "description_en": "Specialized AI agent skill for terraform skill providing best practices and automated workflows.",
         "description_pt_br": "Provisionamento de infraestrutura como código (IaC) com Terraform e OpenTofu.",
@@ -1859,6 +1893,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FS49WVEBA5YQ7MZJB",
         "skill_name": "static-analysis-and-linting",
         "description_en": "Specialized AI agent skill for static analysis and linting providing best practices and automated workflows.",
         "description_pt_br": "Integração de ferramentas de análise estática de código, AST linting e validação de tipos.",
@@ -1884,6 +1919,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F5Y1T4W98MNDFXK8H",
         "skill_name": "token-optimization",
         "description_en": "Context window budgeting, idle tool detachment, prompt compression, and token consumption reduction techniques by up to 80%.",
         "description_pt_br": "Regras para poda de contexto, desconexão de MCPs ociosos e redução de custos de LLM em até 80%.",
@@ -1912,6 +1948,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FECGJ2KD891NSKYV9",
         "skill_name": "workflow-automation",
         "description_en": "Specialized AI agent skill for workflow automation providing best practices and automated workflows.",
         "description_pt_br": "Automação de rotinas repetitivas, encadeamento de etapas de desenvolvimento e integração com ferramentas do sistema operacional.",
@@ -1937,6 +1974,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F3SRQWXBDZMGMN6EC",
         "skill_name": "agents-md",
         "description_en": "Specialized AI agent skill for agents md providing best practices and automated workflows.",
         "description_pt_br": "Definição de regras de comportamento, arquitetura de governança e restrições por diretório via arquivos AGENTS.md.",
@@ -1962,6 +2000,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F8ZRPGN8NMN2MDZ5B",
         "skill_name": "database-migrations",
         "description_en": "Specialized AI agent skill for database migrations providing best practices and automated workflows.",
         "description_pt_br": "Planejamento e execução de migrações relacionais seguras, versionamento de schemas SQL e integridade de dados.",
@@ -1997,6 +2036,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FZR92M0YQPQ6GP7GA",
         "skill_name": "api-testing-mock",
         "description_en": "Specialized AI agent skill for api testing mock providing best practices and automated workflows.",
         "description_pt_br": "Mocking de serviços, testes de integração de APIs e configuração de telemetria de observabilidade.",
@@ -2032,6 +2072,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FCM9MZ8V37A6W1RNW",
         "skill_name": "fullstack-scaffolder",
         "description_en": "Specialized AI agent skill for fullstack scaffolder providing best practices and automated workflows.",
         "description_pt_br": "Gera scaffolding e inicialização de estruturas full-stack integrando backend e frontend.",
@@ -2067,6 +2108,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FSMRJV3XMA8SHWNC8",
         "skill_name": "marketing-copy-generator",
         "description_en": "Specialized AI agent skill for marketing copy generator providing best practices and automated workflows.",
         "description_pt_br": "Geração de copywriting persuasivo para landing pages e anúncios de lançamento de produto.",
@@ -2092,6 +2134,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FJ41WHT0JD7W7VH61",
         "skill_name": "n8n-webhook-automation",
         "description_en": "Specialized AI agent skill for n8n webhook automation providing best practices and automated workflows.",
         "description_pt_br": "Construção e orquestração de fluxos de automação n8n ativados por webhooks.",
@@ -2127,6 +2170,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F4Z3FNZVNF5678NBN",
         "skill_name": "nextjs-app-router",
         "description_en": "Specialized AI agent skill for nextjs app router providing best practices and automated workflows.",
         "description_pt_br": "Regras arquiteturais para Next.js 15 com App Router, RSC e Server Actions.",
@@ -2152,6 +2196,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FHV0YSD6V1ZJMX69R",
         "skill_name": "vue-components",
         "description_en": "Specialized AI agent skill for vue components providing best practices and automated workflows.",
         "description_pt_br": "Padrões de desenvolvimento para Vue 3 utilizando SFC e Composition API.",
@@ -2177,6 +2222,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F1F45ZSJZNSWZJ002",
         "skill_name": "design-system-tokens",
         "description_en": "Specialized AI agent skill for design system tokens providing best practices and automated workflows.",
         "description_pt_br": "Sincronização de tokens de design entre ferramentas visuais e bases de código.",
@@ -2202,6 +2248,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FF1ZWWGP3EXWMHRXH",
         "skill_name": "figma-to-code",
         "description_en": "Specialized AI agent skill for figma to code providing best practices and automated workflows.",
         "description_pt_br": "Conversão automatizada de nós e layouts do Figma diretamente em código HTML/Tailwind.",
@@ -2227,6 +2274,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FVB482W6EPGBXGXPV",
         "skill_name": "pixel-perfect-ui",
         "description_en": "Specialized AI agent skill for pixel perfect ui providing best practices and automated workflows.",
         "description_pt_br": "Alinhamento geométrico milimétrico e calibração de viewports para fidelidade visual.",
@@ -2252,6 +2300,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FYT3CZ23JQSYW385K",
         "skill_name": "lucide-icons",
         "description_en": "Specialized AI agent skill for lucide icons providing best practices and automated workflows.",
         "description_pt_br": "Inserção padronizada de iconografia vetorial limpa e acessível.",
@@ -2277,6 +2326,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FMVG4CBAN01J1M82S",
         "skill_name": "backend-architect",
         "description_en": "Specialized AI agent skill for backend architect providing best practices and automated workflows.",
         "description_pt_br": "Especialista em arquitetura backend, design escalável de APIs REST/GraphQL e microsserviços.",
@@ -2302,6 +2352,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F3SRX4CKY8TK6YARN",
         "skill_name": "sql-sentinel",
         "description_en": "Specialized AI agent skill for sql sentinel providing best practices and automated workflows.",
         "description_pt_br": "Auditoria de SQL para detecção de antipadrões de custo e performance em BigQuery e PostgreSQL.",
@@ -2327,6 +2378,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FFK0NC3SB0NJAH78C",
         "skill_name": "django-pro",
         "description_en": "Specialized AI agent skill for django pro providing best practices and automated workflows.",
         "description_pt_br": "Desenvolvimento em Django 5.x com DRF, Celery e resolução de gargalos de ORM N+1.",
@@ -2352,6 +2404,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F6K0HHC22K4JC6PM5",
         "skill_name": "postgres-best-practices",
         "description_en": "Specialized AI agent skill for postgres best practices providing best practices and automated workflows.",
         "description_pt_br": "Boas práticas de PostgreSQL e Prisma para modelagem relacional e otimização.",
@@ -2377,6 +2430,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FAZ2EZBWSTRFKD82K",
         "skill_name": "kubernetes-architect",
         "description_en": "Specialized AI agent skill for kubernetes architect providing best practices and automated workflows.",
         "description_pt_br": "Orquestração em Kubernetes, Helm charts, Ingress e manifests de produção.",
@@ -2402,6 +2456,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FEZQ5BVAY2QKSEFHV",
         "skill_name": "gcp-cloud-run",
         "description_en": "Specialized AI agent skill for gcp cloud run providing best practices and automated workflows.",
         "description_pt_br": "Aplicações serverless conteinerizadas no GCP Cloud Run e Cloud Functions.",
@@ -2427,6 +2482,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FQHRSR36TQ5RRWA8M",
         "skill_name": "aws-serverless",
         "description_en": "Specialized AI agent skill for aws serverless providing best practices and automated workflows.",
         "description_pt_br": "Aplicações serverless na AWS com Lambda, API Gateway e Step Functions.",
@@ -2452,6 +2508,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FNQC5NB0ZEW17XXCZ",
         "skill_name": "verification-before-completion",
         "description_en": "Specialized AI agent skill for verification before completion providing best practices and automated workflows.",
         "description_pt_br": "Protocolo de validação obrigatório impedindo finalização sem suíte de testes passando.",
@@ -2477,6 +2534,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F69JCBK3ES7RH56CB",
         "skill_name": "project-memory-manager",
         "description_en": "Specialized AI agent skill for project memory manager providing best practices and automated workflows.",
         "description_pt_br": "Gerencia memória de longo prazo e persistência de contexto em repositórios via arquivos estruturados.",
@@ -2502,6 +2560,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FF04J8FCWYMH48QBD",
         "skill_name": "mermaid-diagrammer",
         "description_en": "Automated generation of Mermaid syntax diagrams (flowcharts, sequence diagrams, ERD, C4 architecture, and state machines).",
         "description_pt_br": "Geração automatizada de diagramas em sintaxe Mermaid (fluxogramas, ERD, arquitetura C4).",
@@ -2532,6 +2591,7 @@
         ]
     },
     {
+        "id": "01M0G4G52FGN0MWZAFZYXN7109",
         "skill_name": "get-shit-done",
         "description_en": "High-velocity autonomous engineering workflow framework moving agents from idea to verified delivery with minimal friction.",
         "description_pt_br": "Framework de execução autônoma em alta velocidade (GSD / Finn-Loop) do planejamento à entrega.",
@@ -2560,6 +2620,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FE9JS25WSWZA38TPF",
         "skill_name": "changelog-generator",
         "description_en": "Specialized AI agent skill for changelog generator providing best practices and automated workflows.",
         "description_pt_br": "Extração e categorização automática de commits para geração de changelogs e notas de release semânticas.",
@@ -2585,6 +2646,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FQW6YR9VYJTQ7PHPW",
         "skill_name": "auto-commenter",
         "description_en": "Specialized AI agent skill for auto commenter providing best practices and automated workflows.",
         "description_pt_br": "Anotação e documentação automática de código em PHPDoc, JSDoc e TSDoc sem poluir a lógica de negócios.",
@@ -2610,6 +2672,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F9NV7JMDYFSRKNXTE",
         "skill_name": "enterprise-agent-routing",
         "description_en": "Specialized AI agent skill for enterprise agent routing providing best practices and automated workflows.",
         "description_pt_br": "Roteamento de agentes empresariais em larga escala com suporte a governança corporativa e RBAC.",
@@ -2635,6 +2698,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F83XWWXZQTFHZCC8H",
         "skill_name": "cmux",
         "description_en": "Specialized AI agent skill for cmux providing best practices and automated workflows.",
         "description_pt_br": "Orquestrador e multiplexador de terminais para execução concorrente e monitoramento de agentes.",
@@ -2660,6 +2724,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FD2HR91SGSCCEA8FE",
         "skill_name": "docx",
         "description_en": "Specialized AI agent skill for docx providing best practices and automated workflows.",
         "description_pt_br": "Criação, formatação, extração e edição programática de documentos do Microsoft Word (.docx).",
@@ -2685,6 +2750,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F4Y1VJKPPECPTCGM7",
         "skill_name": "pdf",
         "description_en": "Specialized AI agent skill for pdf providing best practices and automated workflows.",
         "description_pt_br": "Processamento, extração de texto estruturado e manipulação de arquivos em formato PDF.",
@@ -2710,6 +2776,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FXYCE5PM8JXBPE6JT",
         "skill_name": "llm-prompt-optimizer",
         "description_en": "Specialized AI agent skill for llm prompt optimizer providing best practices and automated workflows.",
         "description_pt_br": "Refinamento e otimização sistemática de prompts de sistema para melhorar a assertividade e clareza das respostas dos agentes.",
@@ -2735,6 +2802,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FJD9C3R5VZMVJXG8J",
         "skill_name": "deepseek-reasoner-harness",
         "description_en": "Specialized AI agent skill for deepseek reasoner harness providing best practices and automated workflows.",
         "description_pt_br": "Estrutura especializada para guiar o raciocínio em cadeia (CoT) de modelos DeepSeek R1/V3.",
@@ -2760,6 +2828,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FRPQ6RKRSD7JVYA5M",
         "skill_name": "claude-code-hooks",
         "description_en": "Specialized AI agent skill for claude code hooks providing best practices and automated workflows.",
         "description_pt_br": "Implementação de hooks de ciclo de vida para customizar agentes CLI.",
@@ -2785,6 +2854,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F4WMBQJYAM9Y7GAXT",
         "skill_name": "autoresearch-self-annealing",
         "description_en": "Specialized AI agent skill for autoresearch self annealing providing best practices and automated workflows.",
         "description_pt_br": "Mecanismo de auto-recozimento onde o agente avalia e aprimora seus próprios SKILL.md.",
@@ -2810,6 +2880,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FSJ5FECY4DYXB29TG",
         "skill_name": "python-tool-executor",
         "description_en": "Specialized AI agent skill for python tool executor providing best practices and automated workflows.",
         "description_pt_br": "Criação de ferramentas determinísticas em Python integradas a descritores Markdown.",
@@ -2835,6 +2906,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FHQ36908PJ8G6PSN3",
         "skill_name": "aios-agent-layer",
         "description_en": "Specialized AI agent skill for aios agent layer providing best practices and automated workflows.",
         "description_pt_br": "Construção de camada de serviços para AI Operating Systems com FastAPI e filas assíncronas.",
@@ -2860,6 +2932,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FJDPZ7YR2TGVZTWVA",
         "skill_name": "loop-engineering",
         "description_en": "Specialized AI agent skill for loop engineering providing best practices and automated workflows.",
         "description_pt_br": "Engenharia de loops autônomos de execução com rotinas de auto-recuperação diante de falhas.",
@@ -2885,6 +2958,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FMCAG9T1SZAB8Y0J0",
         "skill_name": "data-science-eda",
         "description_en": "Specialized AI agent skill for data science eda providing best practices and automated workflows.",
         "description_pt_br": "Análise exploratória de dados (EDA) automatizada utilizando Pandas e Polars.",
@@ -2910,6 +2984,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F4Y9SYVTAQGJ6KB5E",
         "skill_name": "python-dependency-manager",
         "description_en": "Specialized AI agent skill for python dependency manager providing best practices and automated workflows.",
         "description_pt_br": "Gestão determinística de dependências e ambientes virtuais modernos com uv e Poetry.",
@@ -2935,6 +3010,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FW5FYCCE19G8GGK6M",
         "skill_name": "landing-page-generator",
         "description_en": "Specialized AI agent skill for landing page generator providing best practices and automated workflows.",
         "description_pt_br": "Geração rápida de landing pages de alta conversão para SaaS.",
@@ -2960,6 +3036,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FAFJGK4N7R0PNQC67",
         "skill_name": "builder-visual-copilot",
         "description_en": "Specialized AI agent skill for builder visual copilot providing best practices and automated workflows.",
         "description_pt_br": "Tradução visual e mapeamento de componentes de design em código de produção.",
@@ -2985,6 +3062,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FVY4EYMFZQ7C08QZH",
         "skill_name": "microservices-patterns",
         "description_en": "Specialized AI agent skill for microservices patterns providing best practices and automated workflows.",
         "description_pt_br": "Padrões de microsserviços, comunicação inter-serviços, saga pattern e resiliência.",
@@ -3010,6 +3088,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F316FSX9EAYHEE40D",
         "skill_name": "bigquery-sql",
         "description_en": "Specialized AI agent skill for bigquery sql providing best practices and automated workflows.",
         "description_pt_br": "Técnicas de otimização de queries SQL no Google BigQuery.",
@@ -3035,6 +3114,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FEMNP5MK9SH34TAC0",
         "skill_name": "gcp-data-pipelines",
         "description_en": "Specialized AI agent skill for gcp data pipelines providing best practices and automated workflows.",
         "description_pt_br": "Construção e orquestração de pipelines de dados no GCP com Dataform e Composer.",
@@ -3060,6 +3140,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FPT34P9RB5PVJPW1D",
         "skill_name": "graphify",
         "description_en": "Specialized AI agent skill for graphify providing best practices and automated workflows.",
         "description_pt_br": "Transforma o repositório em um grafo de conhecimento consultável para navegação sem perda de contexto.",
@@ -3085,6 +3166,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FMMGCXXNNJXGRCFSG",
         "skill_name": "obsidian-sync",
         "description_en": "Specialized AI agent skill for obsidian sync providing best practices and automated workflows.",
         "description_pt_br": "Integração e sincronização bidirecional entre vaults do Obsidian e o agente de IA.",
@@ -3110,6 +3192,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52F7KGFWPWDHATEYVX9",
         "skill_name": "ai-productivity-pack",
         "description_en": "Specialized AI agent skill for ai productivity pack providing best practices and automated workflows.",
         "description_pt_br": "Coleção de utilitários e aceleradores essenciais para desenvolvedores com agentes de IA.",
@@ -3135,6 +3218,7 @@
         "libs": []
     },
     {
+        "id": "01M0G4G52FV8AC72Q93QPP5PPE",
         "skill_name": "python-concessionarias-automation",
         "description_en": "RPA browser automation and API extraction for Brazilian electric power concessionaire portals (Cemig, Energisa, Equatorial, Coelba) and invoice processing.",
         "description_pt_br": "Automação RPA em Python para portais de concessionárias de energia brasileiras (Cemig, Energisa, Equatorial, Coelba).",
