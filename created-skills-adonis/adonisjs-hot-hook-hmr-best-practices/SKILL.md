@@ -1,8 +1,8 @@
 ---
 name: adonisjs-hot-hook-hmr-best-practices
 description: Use when configuring, debugging, or coding with hot-hook or Hot Module Replacement (HMR) in AdonisJS v6. Triggers on changes to hotHook boundaries in package.json, configuring controller/middleware reloading, handling memory leaks, or resolving container binding updates during development.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Hot-Hook HMR no AdonisJS v6
 
 ## Objetivo

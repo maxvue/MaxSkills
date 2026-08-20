@@ -1,6 +1,7 @@
 ---
 name: vue-auto-import-components-best-practices
 description: "Use when configuring or debugging Vue 3 auto-imports via unplugin-auto-import and unplugin-vue-components in vite.config.ts, tsconfig.json integration, auto-import.d.ts, and MaxComponentsUiResolver."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Importação Automática e Resolvers de Componentes no Vue 3
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-docker-development-environment-best-practices
 description: Use when creating, modifying, configuring, or debugging Docker containers, Dockerfiles, or docker-compose configurations for AdonisJS applications. Triggers on files like Dockerfile, docker-compose.yml, container setups, or requests to configure development environments with PostgreSQL, Redis, and Meilisearch.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Ambiente de Desenvolvimento Docker para AdonisJS
 
 ## Objetivo

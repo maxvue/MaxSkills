@@ -1,8 +1,8 @@
 ---
 name: adonisjs-gemini-file-api-media-integration-best-practices
 description: Use when implementing, reviewing, or debugging media uploads and processing using the Google AI File API with Gemini in AdonisJS. Triggers on files managing multimodal AI requests, processing large video, audio, or PDF files for Gemini analysis, uploading temp files to the Google File API, monitoring upload state, and cleanup operations.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes seguras, robustas e eficientes em recursos para fazer upload e processar grandes arquivos multimídia (vídeos, áudios e PDFs pesados) para a Google AI File API e passá-los para os modelos Gemini dentro de uma aplicação AdonisJS v6. O backend-alvo usa o **Vercel AI SDK** (`ai@7.0.2`) com o provider Google **`@ai-sdk/google@4.0.0`** — os pacotes standalone `@google/genai` / `@google/generative-ai` **não** estão instalados e não devem ser usados.
 

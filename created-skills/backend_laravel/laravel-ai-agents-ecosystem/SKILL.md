@@ -1,6 +1,7 @@
 ---
 name: laravel-ai-agents-ecosystem
 description: "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Ecossistema de Agentes de IA no Laravel
 

@@ -1,6 +1,7 @@
 ---
 name: laravel-scout-searchable-best-practices
 description: "Use when implementing or optimizing full-text search (Laravel Scout + Meilisearch) in Engeapp. Covers HasScoutMeilisearch trait, toSearchableArray, meilisearchSettings, index configuration, and searchSafe macro fallback."
+author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo
 Padronizar busca textual rápida com Laravel Scout + Meilisearch no engeapp seguindo as abstrações reais do projeto: a trait `App\Traits\HasScoutMeilisearch`, as propriedades de configuração por model e a macro `searchSafe()`. Evite reimplementar `Searchable` cru — o projeto já tem uma camada própria que você deve reusar.

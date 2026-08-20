@@ -1,6 +1,7 @@
 ---
 name: vue-meta-api-oauth-integration-best-practices
 description: "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo
 Padronizar a tela de **credenciais de redes sociais** do engeapp: o gestor **digita manualmente** o identificador da conta (Page ID do Facebook ou Instagram User ID) e **cola o token de acesso** obtido no painel da Meta, salvando via botão. Não existe fluxo OAuth de popup/redirect no front-end — a autorização é feita fora da aplicação e apenas as credenciais resultantes são armazenadas pelo backend.

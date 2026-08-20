@@ -1,8 +1,8 @@
 ---
 name: adonisjs-google-business-profile-api-integration-best-practices
 description: Use when implementing, configuring, reviewing, or debugging integrations with Google Business Profile (GBP / Google My Business) API v4 or Google Business Performance API in AdonisJS v6. Triggers on files managing Google OAuth 2.0 credentials, refreshing tokens, creating posts (local posts/updates, offers, events), uploading media to Google Business accounts, and handling API rate limits or webhook notifications.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Integração da API Google Business Profile no AdonisJS
 
 ## Objetivo

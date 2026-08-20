@@ -1,8 +1,8 @@
 ---
 name: adonisjs-image-optimization-sharp-best-practices
 description: Use when implementing, reviewing, or debugging server-side image processing, optimization, compression, or format conversion (e.g., WebP, AVIF, JPEG) using Sharp in AdonisJS v6. Triggers on files modifying ImageService, processing uploads, generating thumbnails, or handling media compression background jobs.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer um padrão robusto e eficiente em memória para o processamento de imagens no lado do servidor no AdonisJS v6 usando a biblioteca `sharp`. Isso inclui otimizar, comprimir, gerar thumbnails e converter formatos de imagem (AVIF, WebP, JPEG), integrando com o `@adonisjs/drive` e delegando tarefas pesadas a workers em segundo plano.
 

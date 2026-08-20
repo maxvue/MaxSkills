@@ -1,8 +1,8 @@
 ---
 name: adonisjs-migrations-seeders-factories-best-practices
 description: Use when creating, updating, or reviewing database migrations, database seeders, or model factories using Lucid ORM in an AdonisJS v6 application. Triggers on migration files, seeder definitions, factory configurations, schema changes, and mock data generation.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Migrações, Seeders e Factories no AdonisJS
 
 ## Objetivo

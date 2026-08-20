@@ -1,8 +1,8 @@
 ---
 name: adonisjs-tiktok-api-integration-best-practices
 description: Use when implementing, reviewing, or debugging TikTok API integrations, managing TikTok OAuth v2 authentication flows, uploading and publishing videos (Direct Post API), retrieving user profile metrics, handling TikTok webhooks, or processing rate limit responses in AdonisJS v6. Triggers on files modifying TikTokService, TikTokController, or TikTok OAuth drivers.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Integração com a API do TikTok no AdonisJS
 
 ## Objetivo

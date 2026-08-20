@@ -1,8 +1,8 @@
 ---
 name: adonisjs-encryption-sensitive-data-best-practices
 description: Use when encrypting, decrypting, or storing sensitive client credentials, access tokens (Meta Graph, Instagram, WhatsApp), and API keys in the database using AdonisJS v6 Encryption service. Triggers on model hooks, custom setters/getters for credential serialization, and environment key rotation.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer um padrão uniforme e seguro para criptografar, descriptografar e armazenar dados sensíveis (por exemplo, credenciais de APIs externas, tokens de acesso OAuth da Meta, segredos de webhook) no banco de dados usando o serviço nativo de Encryption do AdonisJS v6 e o Lucid ORM.
 

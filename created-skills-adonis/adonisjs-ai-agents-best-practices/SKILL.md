@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-best-practices
 description: Use when creating, reviewing, debugging, or enhancing AI agent logic, AI tools with Zod schemas, BullMQ workers, or Ace CLI command workers in AdonisJS. Triggers on agent design patterns (AgentConfig, factory exports), system prompt structure, tool definitions with Vercel AI SDK, and BullMQ queue handlers. Use adonisjs-ai-sdk-google-gemini-best-practices for provider configuration, fallback chains, and cost tracking.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões estritos e melhores práticas para a criação, depuração e manutenção de agentes de IA usando o Vercel AI SDK e a API do Google Gemini, definindo ferramentas de IA robustas com validação de esquema Zod, e tratando processamento em segundo plano utilizando workers BullMQ e comandos Ace no framework AdonisJS.
 

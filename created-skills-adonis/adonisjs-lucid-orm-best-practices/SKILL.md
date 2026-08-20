@@ -1,8 +1,8 @@
 ---
 name: adonisjs-lucid-orm-best-practices
 description: Use when creating, modifying, reviewing, or debugging Lucid ORM models, migrations, relationships, queries, or database configurations in an AdonisJS application. Triggers on class definitions extending BaseModel, decorators like @column, @belongsTo, @hasMany, @manyToMany, database queries using model Query Builder, and transactions.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para o AdonisJS Lucid ORM
 
 ## Objetivo

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-instagram-meta-token-renewal-best-practices
 description: Use when designing, implementing, configuring, or debugging the automatic renewal of Meta/Instagram Graph API long-lived access tokens, managing OAuth2 token lifespans, scheduling token refresh cron jobs, or handling Meta OAuth authentication expiration in AdonisJS v6 applications.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Renovação de Tokens da API da Meta e Instagram no AdonisJS
 
 ## Objetivo

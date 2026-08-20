@@ -1,6 +1,7 @@
 ---
 name: laravel-security-hardening-best-practices
 description: "Use when designing, reviewing, or debugging Laravel application security. Covers Eloquent encryption, mass assignment protection, SQLi/IDOR mitigation, secure controllers, file upload hardening, security headers, and OWASP Top 10."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Hardening de Segurança no Laravel
 

@@ -1,8 +1,8 @@
 ---
 name: adonisjs-events-listeners-best-practices
 description: Use when declaring, dispatching, or subscribing to events and listeners in AdonisJS v6. Triggers on emitter.emit calls, creating events in app/events, creating listeners in app/listeners, configuring start/events.ts, or managing asynchronous event workflows.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Eventos e Ouvintes (Listeners) no AdonisJS v6
 
 ## Objetivo

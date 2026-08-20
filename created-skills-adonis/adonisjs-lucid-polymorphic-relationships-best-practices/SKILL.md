@@ -1,8 +1,8 @@
 ---
 name: adonisjs-lucid-polymorphic-relationships-best-practices
 description: Use when implementing, reviewing, or debugging polymorphic-like relationships (one-to-many or many-to-many morphs) in AdonisJS v6 using Lucid ORM. Triggers on custom morphTo/morphMany resolver getters, storing polymorphic columns (xxxable_type and xxxable_id), resolving dynamic model types using Union Types in TypeScript, or preventing N+1 queries during polymorphic dynamic preloads.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Implementar, refatorar e manter relacionamentos polimórficos (polymorphic-like) no AdonisJS v6 com o Lucid ORM usando um padrão robusto de resolver personalizado que previne problemas de performance de queries N+1 e mantém a type-safety do TypeScript com Union Types.
 

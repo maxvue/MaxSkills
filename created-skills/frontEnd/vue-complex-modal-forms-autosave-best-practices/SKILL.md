@@ -1,6 +1,7 @@
 ---
 name: vue-complex-modal-forms-autosave-best-practices
 description: "Use when building complex modal forms in Vue 3 with auto-save, live sync indicators, and multi-tab layouts using @maxvue/max-components-ui (MaxModal), max-use, and max-pinia stores. Covers complex modal forms, auto-save state, and multi-tab layouts."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas para Formulários de Modal Complexos e Salvamento Automático em Vue 3
 

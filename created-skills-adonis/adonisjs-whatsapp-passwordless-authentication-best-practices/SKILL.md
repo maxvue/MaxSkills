@@ -1,8 +1,8 @@
 ---
 name: adonisjs-whatsapp-passwordless-authentication-best-practices
 description: Use when implementing, configuring, reviewing, or debugging passwordless authentication flows via WhatsApp OTP in AdonisJS v6 using session auth (guard web), including generating secure codes, rate-limiting, sending messages via WhatsApp Cloud API, and validating logins.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Autenticação Sem Senha via WhatsApp no AdonisJS
 
 ## Objetivo

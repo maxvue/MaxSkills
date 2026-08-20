@@ -1,6 +1,7 @@
 ---
 name: systematic-debugging-best-practices
 description: "Use when investigating unexpected behavior, test failures, build errors, or performance issues. Enforces root-cause analysis before proposing fixes based on log evidence. Covers systematic debugging methodology and log inspection."
+author: Johnattas Conrady Gomes Santana
 ---
 # Metodologia Sistemática de Depuração
 

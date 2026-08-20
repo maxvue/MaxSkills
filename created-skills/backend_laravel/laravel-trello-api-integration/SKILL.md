@@ -1,6 +1,7 @@
 ---
 name: laravel-trello-api-integration
 description: "Use when maintaining or debugging Trello API integration in Engeapp (TrelloService), reading config/api.php, handling webhooks via ProcessTrelloWebhookJob, and running trello Artisan commands. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Integração com a API do Trello no Laravel (engeapp)
 

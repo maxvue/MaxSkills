@@ -1,8 +1,8 @@
 ---
 name: adonisjs-two-factor-authentication-best-practices
 description: Use when implementing, configuring, reviewing, or securing Two-Factor Authentication (2FA) or Multi-Factor Authentication (MFA) in AdonisJS v6, using TOTP (Time-based One-time Password) libraries, generating QR codes, handling backup recovery codes, or implementing frontend challenge screens in Vue 3. Triggers on 2FA setup, token verification middleware, and backup code generation.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões seguros, robustos e consistentes para a implementação de Autenticação de Dois Fatores (2FA) baseada em TOTP no backend AdonisJS v6 e no frontend Vue 3 dentro do ecossistema EngeApp.
 

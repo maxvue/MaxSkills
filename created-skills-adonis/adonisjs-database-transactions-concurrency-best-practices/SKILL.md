@@ -1,8 +1,8 @@
 ---
 name: adonisjs-database-transactions-concurrency-best-practices
 description: Use when writing, modifying, reviewing, or debugging database transactions, handling concurrency control, managing database locks (SELECT FOR UPDATE), resolving deadlocks, or orchestrating multi-table atomic writes with Lucid ORM in AdonisJS v6. Triggers on database.transaction, db.transaction, model.useTransaction, transaction rollback, and row locking queries.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para Transações de Banco de Dados e Concorrência no AdonisJS v6
 
 ## Objetivo

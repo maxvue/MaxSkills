@@ -1,8 +1,8 @@
 ---
 name: adonisjs-user-impersonation-best-practices
 description: Use when implementing, configuring, reviewing, or securing user impersonation (login-as) features in AdonisJS v6 backend. Triggers on session simulation, admin impersonator actions, custom Auth guard modifiers, and audit logs for impersonated sessions.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Personificação de Usuários (Login-As) no AdonisJS v6
 
 ## Objetivo

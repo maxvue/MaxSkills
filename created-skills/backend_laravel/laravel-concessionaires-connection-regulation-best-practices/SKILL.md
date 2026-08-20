@@ -1,6 +1,7 @@
 ---
 name: laravel-concessionaires-connection-regulation-best-practices
 description: "Use when managing energy concessionaires, subsidiaries, RPAs, and connection standards (phases, voltage, breaker, cables) in Engeapp, and electrical parameters for PV sizing. Covers concessionaire regulations and electrical connection standards."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Concessionárias e Normas Técnicas de Conexão
 

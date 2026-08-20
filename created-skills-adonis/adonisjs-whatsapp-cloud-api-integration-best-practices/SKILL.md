@@ -1,8 +1,8 @@
 ---
 name: adonisjs-whatsapp-cloud-api-integration-best-practices
 description: Use when configuring, reviewing, or debugging WhatsApp Cloud API integrations and Webhook reception in AdonisJS. Triggers on WhatsApp service development, sending template messages, managing webhook verification, verifying X-Hub-Signature-256, and offloading webhook payloads to BullMQ jobs in Node.js.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Integração da WhatsApp Cloud API no AdonisJS
 
 ## Objetivo

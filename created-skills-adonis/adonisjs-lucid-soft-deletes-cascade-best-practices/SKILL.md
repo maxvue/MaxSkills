@@ -1,8 +1,8 @@
 ---
 name: adonisjs-lucid-soft-deletes-cascade-best-practices
 description: Use when implementing, configuring, reviewing, or debugging soft deletes, cascading soft deletes, or restoring soft-deleted records and their relationships using Lucid ORM in AdonisJS v6. Triggers on models defining soft delete attributes, hooks, query scopes, and cascading delete logic.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Padronizar e orientar a implementação de exclusões lógicas (soft deletes), exclusões lógicas em cascata e restauração de registros e suas relações associadas utilizando o Lucid ORM no AdonisJS v6.
 

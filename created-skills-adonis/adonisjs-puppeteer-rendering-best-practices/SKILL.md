@@ -1,8 +1,8 @@
 ---
 name: adonisjs-puppeteer-rendering-best-practices
 description: Use when rendering HTML to PDF or to images, generating reports, exporting spreadsheets, or driving a headless browser in AdonisJS. Triggers on PDF generation (Puppeteer/Playwright/PDFKit), social media post image generation from HTML/CSS templates, Instagram aspect ratios (1:1, 4:5, 9:16), Excel/CSV exports (exceljs), Edge.js reporting templates, headless browser pool/singleton configuration, AdonisJS Drive uploads of generated files, and queueing heavy rendering via BullMQ. Triggers on launchBrowser, captureTemplateScreenshot, renderPostImage, GenerateReportJob, and Puppeteer concurrency/pool tuning.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Padrões e Melhores Práticas de Renderização com Puppeteer no AdonisJS (PDF, Imagem e Planilhas)
 
 ## Objetivo

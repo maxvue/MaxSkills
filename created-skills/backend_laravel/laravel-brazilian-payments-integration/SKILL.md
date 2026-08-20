@@ -1,6 +1,7 @@
 ---
 name: laravel-brazilian-payments-integration
 description: "Use when integrating or debugging Brazilian payments in Engeapp: Efí (SDK EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas (baseUrl, API keys), and Banco Inter webhooks."
+author: Johnattas Conrady Gomes Santana
 ---
 # Integração de Pagamentos Brasileiros com Laravel
 

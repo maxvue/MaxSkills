@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-rag-vector-database-best-practices
 description: Use when designing, implementing, or debugging Retrieval-Augmented Generation (RAG) workflows, vector database integrations (pgvector), and embedding generation in AdonisJS v6. Triggers on Vercel AI SDK embedding functions, raw SQL vector operations with Lucid ORM, and document chunking strategies.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Agentes de IA, RAG e Banco de Dados Vetorial no AdonisJS
 
 ## Objetivo

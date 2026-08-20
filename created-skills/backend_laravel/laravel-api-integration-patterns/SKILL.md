@@ -1,6 +1,7 @@
 ---
 name: laravel-api-integration-patterns
 description: "Use when creating, debugging, or extending external HTTP APIs over BaseApi in Engeapp. Covers BaseApi connectors, Attributes.json, EndPoints.json, and request caching."
+author: Johnattas Conrady Gomes Santana
 ---
 # Padrões de Integração de API do Laravel
 

@@ -1,8 +1,8 @@
 ---
 name: typescript-max-banks-efi-gateway-best-practices
 description: "Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks."
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes estruturadas e melhores práticas para a integração do gateway de pagamento Efí (EfiGateway) dentro do pacote `@maxvue/max-banks`. Isso garante autenticação OAuth2/mTLS segura, abstração limpa do fluxo de Pix (`createPixCharge`/`getCharge`) e processamento resiliente de webhooks.
 

@@ -1,6 +1,7 @@
 ---
 name: laravel-task-scheduling-best-practices
 description: "Use when creating, configuring, or debugging Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, and Studio Totem integration. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Agendamento de Tarefas no Laravel — Boas Práticas
 

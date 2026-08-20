@@ -1,8 +1,8 @@
 ---
 name: adonisjs-rss-news-fetching-deduplication-best-practices
 description: Use when implementing, configuring, or debugging RSS news fetching services, parsing XML feeds, calculating string similarity for title deduplication, managing URL hash uniqueness, and updating keyword associations on pending news items in AdonisJS v6 backend.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Busca e Deduplicação de Notícias RSS no AdonisJS
 
 ## Objetivo

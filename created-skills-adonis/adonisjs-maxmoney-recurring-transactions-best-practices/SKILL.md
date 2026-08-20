@@ -1,8 +1,8 @@
 ---
 name: adonisjs-maxmoney-recurring-transactions-best-practices
 description: Use when designing, implementing, configuring, validating, or debugging recurring financial transactions, expense/revenue recurrence rules, parent-child transaction propagation, or BullMQ background processing jobs for transaction generation in AdonisJS v6 for MaxMoney (Dinheirou) application.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões de código, manipulação de transações de banco de dados e padrões de processamento em segundo plano para transações financeiras recorrentes (despesas, receitas) no MaxMoney (Dinheirou) desenvolvido com AdonisJS v6.
 

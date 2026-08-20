@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-tool-calling-best-practices
 description: Use when designing, implementing, configuring, securing, or debugging tool calling functionality (AI Tools) for LLM agents using the Vercel AI SDK (provider Gemini via Vercel AI SDK) in AdonisJS v6. Triggers on files modifying AI tools, tool schemas, input validations with Zod, database access inside tools, and tool execution error handling.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Chamada de Ferramentas (Tool Calling) para Agentes de IA no AdonisJS
 
 ## Objetivo

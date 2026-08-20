@@ -1,8 +1,8 @@
 ---
 name: adonisjs-vite-local-https-ssl-best-practices
 description: Use when configuring, reviewing, or debugging local HTTPS development environments, setting up Vite 7 HMR (Hot Module Replacement) over SSL, managing SSL/TLS keys and certificates, or routing local subdomains and custom hosts (e.g., dev.maxdmin.com.br) in AdonisJS and Vite 7.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para HTTPS/SSL Local no AdonisJS e Vite
 
 ## Objetivo

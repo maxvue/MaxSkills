@@ -1,8 +1,8 @@
 ---
 name: adonisjs-meilisearch-best-practices
 description: Use when configuring, optimizing, or debugging Meilisearch integration in an AdonisJS application, including client setup, Lucid ORM hooks for real-time document indexing, index settings configuration, search query execution, and pagination.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões e melhores práticas para integrar, configurar e executar pesquisas eficientes e resilientes com Meilisearch no AdonisJS v6, utilizando BullMQ para indexação assíncrona em background.
 

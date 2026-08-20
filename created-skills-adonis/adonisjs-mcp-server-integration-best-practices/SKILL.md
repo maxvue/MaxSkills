@@ -1,8 +1,8 @@
 ---
 name: adonisjs-mcp-server-integration-best-practices
 description: Use when designing, configuring, implementing, securing, or debugging Model Context Protocol (MCP) server integrations, stdio/Streamable HTTP transports, and Bearer (OAT) token authenticated API endpoints for MCP/M2M clients in AdonisJS v6 applications.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Integração do Servidor MCP no AdonisJS
 
 ## Objetivo

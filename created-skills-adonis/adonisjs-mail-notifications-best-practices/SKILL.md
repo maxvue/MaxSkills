@@ -1,8 +1,8 @@
 ---
 name: adonisjs-mail-notifications-best-practices
 description: Use when configuring, creating, sending, or debugging transactional emails and notifications in an AdonisJS ecosystem. Triggers on mail configuration, mail templates, SMTP/SES/Resend drivers, and queues integration for mails in Node.js.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Envio de E-mails e Notificações no AdonisJS
 
 ## Objetivo

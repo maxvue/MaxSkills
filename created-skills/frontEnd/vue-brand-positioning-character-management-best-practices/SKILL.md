@@ -1,6 +1,7 @@
 ---
 name: vue-brand-positioning-character-management-best-practices
 description: "Use when building, styling, or debugging Vue 3 brand positioning and character components/stores in SocialMedia module (TabBrandPositioning, TabCharacters, TabThemes, useBrandPositioning, useSocialMediaCharacters). Covers brand positioning, character management, and social media stores."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Gerenciamento de Posicionamento de Marca e Personagens em Vue
 

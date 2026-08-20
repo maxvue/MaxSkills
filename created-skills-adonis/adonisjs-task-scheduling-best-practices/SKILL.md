@@ -1,8 +1,8 @@
 ---
 name: adonisjs-task-scheduling-best-practices
 description: Use when designing, creating, editing, or debugging periodic background tasks, cron jobs, task schedulers, or running persistent Ace Commands with loop intervals (like scheduler:run) in AdonisJS. Triggers on cron expressions, setInterval schedulers, and graceful process shutdowns.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para Agendamento de Tarefas no AdonisJS
 
 ## Objetivo

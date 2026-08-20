@@ -1,8 +1,8 @@
 ---
 name: adonisjs-best-practices
 description: Use when creating, reviewing, or refactoring AdonisJS backend code, including controllers, models, routes, middleware, and services. Triggers on requests involving the AdonisJS framework, backend logic in Node.js, routing, and database interactions using Lucid ORM.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas do AdonisJS
 
 ## Objetivo

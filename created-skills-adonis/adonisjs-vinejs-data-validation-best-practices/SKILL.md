@@ -1,8 +1,8 @@
 ---
 name: adonisjs-vinejs-data-validation-best-practices
 description: Use when defining, editing, validating, or reviewing VineJS validation schemas in AdonisJS v6. Triggers on schema builders (`vine.object`, `vine.compile`), custom validation rules (CPF, CNPJ, phone, postal code), localization of validation messages, and handling schema-inferred TypeScript types.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Validação de Dados com VineJS no AdonisJS v6
 
 ## Objetivo

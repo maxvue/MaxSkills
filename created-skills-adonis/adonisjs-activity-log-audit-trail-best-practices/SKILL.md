@@ -1,8 +1,8 @@
 ---
 name: adonisjs-activity-log-audit-trail-best-practices
 description: Use when designing, implementing, reviewing, or debugging user activity logs, audit trails, or model change tracking in AdonisJS v6. Triggers on model hooks, custom event listeners for tracking changes, storing before/after states in JSONB, and recording authentication-related actions (login, impersonation).
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para Logs de Atividades e Trilhas de Auditoria no AdonisJS
 
 ## Objetivo

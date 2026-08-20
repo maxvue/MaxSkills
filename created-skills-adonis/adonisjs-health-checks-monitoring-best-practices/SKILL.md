@@ -1,8 +1,8 @@
 ---
 name: adonisjs-health-checks-monitoring-best-practices
 description: Use when designing, configuring, implementing, or debugging health checks, system monitoring services, or readiness/liveness checks in AdonisJS v6. Triggers on configuring database health checkers, Redis/BullMQ connection validation, external API availability checks (WhatsApp Cloud, gateways de pagamento EFI/Inter), setting up custom health reporters, or exposing security-hardened health check endpoints.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer diretrizes claras e padrões de código estruturados para implementar endpoints de verificação de integridade (health checks), monitoramento de integridade do sistema e validações de dependências (PostgreSQL, Redis, BullMQ, APIs externas) em aplicações AdonisJS v6, garantindo a detecção precoce de falhas de infraestrutura e prevenindo a degradação silenciosa de workers.
 

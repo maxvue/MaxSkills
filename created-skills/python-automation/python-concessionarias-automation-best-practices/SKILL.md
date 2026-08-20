@@ -1,6 +1,7 @@
 ---
 name: python-concessionarias-automation-best-practices
 description: "Use when creating, modifying, or debugging Python RPA scripts (Selenium + requests) for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba), automation scripts, and TRT submissions. Covers concessionaire regulations, RPA automation, and portal scripts."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Automação (RPA) Python para Concessionárias
 

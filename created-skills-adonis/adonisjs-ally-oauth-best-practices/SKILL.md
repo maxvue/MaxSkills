@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ally-oauth-best-practices
 description: "Use when configuring, implementing, or debugging social login (OAuth2) with AdonisJS Ally for Google and Facebook providers, including /auth/:provider/redirect and /auth/:provider/callback routes, accessDenied/hasError handling, find-or-create user by email, and web session login. Triggers on Ally config, callback handling, and social login flows."
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de Autenticação Social com AdonisJS Ally (Google + Facebook)
 
 ## Objetivo

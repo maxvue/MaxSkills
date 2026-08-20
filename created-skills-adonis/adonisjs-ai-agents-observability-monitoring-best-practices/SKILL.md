@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-observability-monitoring-best-practices
 description: Use when implementing, reviewing, or debugging observability, logging, and monitoring systems for AI agents, Vercel AI SDK execution traces, tool-calling logs, and real-time agent execution tracking in AdonisJS v6. Triggers on agent execution telemetry, onStepFinish event tracing, Sentry AI error tracking, and log persistence.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões robustos e melhores práticas para rastreamento (tracing), logging estruturado, monitoramento e depuração de agentes de IA baseados no Vercel AI SDK no ambiente backend do AdonisJS v6. Isso inclui telemetria de passos, logging de chamadas de ferramentas, persistência de custos e históricos no banco de dados, monitoramento de erros via Sentry e transmissão de progresso em tempo real usando Server-Sent Events (SSE).
 

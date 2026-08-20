@@ -1,6 +1,7 @@
 ---
 name: laravel-exception-handling-logging
 description: "Use when defining, refactoring, or debugging exception handling and logging in Engeapp. Covers custom Exceptions (ShouldntReport, failed() job callback), context()/render()/report(), logging channels, defensive try-catch in services."
+author: Johnattas Conrady Gomes Santana
 ---
 # Tratamento de Exceções & Logging no Laravel (engeapp)
 

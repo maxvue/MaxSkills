@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-gemini-context-caching-best-practices
 description: Use when implementing, reviewing, or configuring Gemini context caching, managing cache lifespans (TTL), or optimizing token costs and latency for large prompts, brand guidelines, and system instructions in AdonisJS v6. Triggers on geminiContextCache, createCache, cachedContent, and large prompt agent configurations.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer as melhores práticas para a implementação e gerenciamento de Caching de Contexto explícito do Gemini em serviços backend do AdonisJS v6. Isso é feito utilizando o SDK oficial do Google Gen AI (`@google/genai`) para operações de ciclo de vida do cache em conjunto com o Vercel AI SDK (`@ai-sdk/google` / `ai`) para execuções de agentes, reduzindo os custos de tokens de prompt e a latência de execução.
 

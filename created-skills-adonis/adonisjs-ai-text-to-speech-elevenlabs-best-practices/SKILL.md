@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-text-to-speech-elevenlabs-best-practices
 description: Use when implementing, reviewing, or debugging text-to-speech (TTS) features, voice generation, or integrating ElevenLabs API in AdonisJS v6. Triggers on ElevenLabsService, synthesizeVoice, voiceover jobs, and TTS credentials configuration.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para AI Text-to-Speech (ElevenLabs) no AdonisJS
 
 ## Objetivo

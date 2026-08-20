@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ace-commands-best-practices
 description: Use when creating, reviewing, or debugging custom Ace commands (CLI scripts) in AdonisJS v6. Triggers on extending BaseCommand, defining command flags and arguments, setting startApp options, running interactive prompts (ask, choice, secure, confirm), using logger output in commands, or implementing command test helpers.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para Comandos Ace do AdonisJS v6
 
 ## Objetivo

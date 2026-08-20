@@ -1,8 +1,8 @@
 ---
 name: adonisjs-transmit-sse-realtime-best-practices
 description: Use when implementing, configuring, or debugging real-time notifications, event broadcasting, or Server-Sent Events (SSE) using @adonisjs/transmit on the backend, including channel authorization, broadcasting events from controllers/services/commands, and protecting Transmit routes with session auth middleware, or when subscribing to channels, handling stream connections, and listening to events with @adonisjs/transmit-client (EventSource) in Vue 3 frontends. Replaces Pusher/Soketi/Reverb/laravel-echo WebSocket setups.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para AdonisJS Transmit e SSE em Tempo Real
 
 ## Objetivo

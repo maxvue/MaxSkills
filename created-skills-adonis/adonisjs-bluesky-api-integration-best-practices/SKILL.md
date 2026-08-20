@@ -1,8 +1,8 @@
 ---
 name: adonisjs-bluesky-api-integration-best-practices
 description: Use when implementing, configuring, or debugging integrations with the Bluesky social network using the AT Protocol (@atproto/api) in AdonisJS. Triggers on setting up BlueskyService, managing DID authentication, posting rich text with facets, uploading image blobs, and handling Bluesky API rate limits.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Integração com a API do Bluesky em AdonisJS
 
 ## Objetivo

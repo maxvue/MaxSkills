@@ -1,6 +1,7 @@
 ---
 name: laravel-social-media-oauth-token-lifecycle-management-best-practices
 description: "Use when managing social media credentials (Meta: Instagram/Facebook) in Engeapp. Covers SocialMediaCredential model (encrypted access_token, token_expires_at), manual rotation via Ziggy routes, and MetaService resolution."
+author: Johnattas Conrady Gomes Santana
 ---
 # Ciclo de Vida das Credenciais de Redes Sociais (Meta) no Laravel
 

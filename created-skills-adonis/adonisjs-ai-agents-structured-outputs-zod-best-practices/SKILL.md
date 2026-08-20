@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ai-agents-structured-outputs-zod-best-practices
 description: Use when implementing, reviewing, or debugging structured outputs from AI models using Zod schemas with Vercel AI SDK and Gemini in AdonisJS. Triggers on generateObject, jsonSchema, zod schemas for AI, and validation of LLM structured responses.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas para Saídas Estruturadas com Zod e IA no AdonisJS
 
 ## Objetivo

@@ -1,6 +1,7 @@
 ---
 name: frontend-design-best-practices
 description: "Use when building new UI or remodeling Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Covers core design mandate, aesthetics, typography, colors, layout, motion, and accessible production code."
+author: Johnattas Conrady Gomes Santana
 ---
 # Design de Frontend (Distinto, de Nível de Produção)
 

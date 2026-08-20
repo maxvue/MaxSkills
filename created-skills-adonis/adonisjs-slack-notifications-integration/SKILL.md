@@ -1,8 +1,8 @@
 ---
 name: adonisjs-slack-notifications-integration
 description: Use when configuring, sending, or debugging Slack notifications and webhooks in AdonisJS v6, formatting Slack blocks for rich messages, or routing system alerts, critical exceptions, and queue failures to Slack channels.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Integração de Notificações do Slack no AdonisJS v6
 
 ## Objetivo

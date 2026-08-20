@@ -1,6 +1,7 @@
 ---
 name: vue-eslint-stylelint-quality-standards
 description: "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, indent, quotes, comma-dangle, and pseudo-element overrides. Covers objectives, ESLint/Stylelint standards, and execution commands."
+author: Johnattas Conrady Gomes Santana
 ---
 # Vue ESLint e Stylelint - Padrões de Qualidade
 

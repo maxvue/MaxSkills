@@ -1,8 +1,8 @@
 ---
 name: adonisjs-linkedin-api-integration-best-practices
 description: Use when implementing, reviewing, or debugging LinkedIn API integrations, managing LinkedIn OAuth v2 authentication flows, posting text/image/link shares (UGC Posts or Share API), retrieving organization or member profiles, handling LinkedIn webhooks, or processing rate limit responses in AdonisJS v6. Triggers on files modifying LinkedInService, LinkedInController, or LinkedIn OAuth drivers.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões robustos e boas práticas para integrar a API do LinkedIn, gerenciar a autenticação OAuth 2.0 (3-legged), publicar conteúdo de texto/mídia, implementar validação segura de webhooks e tratar rate limits no AdonisJS v6.
 

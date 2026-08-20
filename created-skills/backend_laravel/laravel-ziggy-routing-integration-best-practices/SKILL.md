@@ -1,6 +1,7 @@
 ---
 name: laravel-ziggy-routing-integration-best-practices
 description: "Use when configuring, generating, or consuming Ziggy routes in Vue 3 SPA. Covers config/ziggy.php, ziggy:generate, ziggy.d.ts, route() auto-import, and setRouteResolver."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Integração de Rotas com Laravel Ziggy
 

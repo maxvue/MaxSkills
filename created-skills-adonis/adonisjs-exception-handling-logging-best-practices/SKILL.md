@@ -1,8 +1,8 @@
 ---
 name: adonisjs-exception-handling-logging-best-practices
 description: Use when configuring global or custom exception handlers in AdonisJS v6, defining custom HTTP response formats, handling validation errors, logging info or debug data using the AdonisJS Logger (pino), or integrating third-party monitoring tools.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões robustos e convenções de codificação para gerenciar o tratamento de exceções, formatação de erros de validação e logs de auditoria em aplicações AdonisJS v6, garantindo depurabilidade adequada, respostas de erro limpas para os clientes e segurança absoluta contra vazamentos de informações em produção.
 

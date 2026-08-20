@@ -1,8 +1,8 @@
 ---
 name: adonisjs-ioc-container-dependency-injection-best-practices
 description: Use when designing, reviewing, or debugging dependency injection, IoC container bindings, or service provider setups in an AdonisJS application. Triggers on constructor injections, the @inject decorator, registrations in AppProvider, swaps in tests, and resolving service instances from the container.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas para IoC Container e Injeção de Dependência no AdonisJS
 
 ## Objetivo

@@ -1,6 +1,7 @@
 ---
 name: laravel-services-best-practices
 description: "Use when creating, refactoring, or reviewing Laravel Service classes, applying Single Responsibility Principle, dependency injection, and standardized error handling. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Services no Laravel
 

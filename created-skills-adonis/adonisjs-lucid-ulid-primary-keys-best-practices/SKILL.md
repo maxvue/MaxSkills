@@ -1,8 +1,8 @@
 ---
 name: adonisjs-lucid-ulid-primary-keys-best-practices
 description: Use when configuring, reviewing, or implementing ULID as primary keys in AdonisJS Lucid ORM models and database migrations. Triggers on setting up primary key column decorators, generating beforeCreate hooks for ULID generation, creating database migrations with ULID column types, and converting models to use ULIDs.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Fornecer diretrizes e boas práticas para configurar e usar Universally Unique Lexicographically Sortable Identifiers (ULID) como chaves primárias em aplicações AdonisJS v6 usando o Lucid ORM e migrations de banco de dados.
 

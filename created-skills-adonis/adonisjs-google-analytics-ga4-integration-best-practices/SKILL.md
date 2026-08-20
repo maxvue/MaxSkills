@@ -1,8 +1,8 @@
 ---
 name: adonisjs-google-analytics-ga4-integration-best-practices
 description: Use when integrating, configuring, or querying the Google Analytics 4 (GA4) Data API in AdonisJS. Triggers on fetching traffic and conversion metrics by source/medium (UTM), handling Google OAuth2 tokens for GA4 access, caching analytics data using Redis, or executing background sync jobs for marketing attribution of solar/photovoltaic leads.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Boas Práticas de Integração do Google Analytics 4 (GA4) no AdonisJS
 
 ## Objetivo

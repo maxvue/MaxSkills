@@ -1,8 +1,8 @@
 ---
 name: adonisjs-drive-file-uploads-best-practices
 description: Use when implementing, reviewing, or debugging file uploads, storage disks config, image manipulation, or media delivery in AdonisJS using @adonisjs/drive, sharp, or other file processing libraries. Triggers on multipart request handling, drive disk setup, file validations (size, mime types), and media processing.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer padrões robustos, seguros e portáveis para nuvem para uploads de arquivos, configuração de discos de armazenamento, processamento de mídias (usando Sharp) e entrega segura de arquivos no AdonisJS v6.
 

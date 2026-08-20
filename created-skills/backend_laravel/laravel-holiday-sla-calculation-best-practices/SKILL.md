@@ -1,6 +1,7 @@
 ---
 name: laravel-holiday-sla-calculation-best-practices
 description: "Use when implementing or debugging SLA tracking, business-day calculations, or deadlines in Engeapp backend. Covers DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween). Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 # Laravel Holiday & SLA Calculation Best Practices
 

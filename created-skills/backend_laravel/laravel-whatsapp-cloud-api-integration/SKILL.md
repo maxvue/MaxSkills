@@ -1,6 +1,7 @@
 ---
 name: laravel-whatsapp-cloud-api-integration
 description: "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Covers objectives and core workflows."
+author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo
 Fornecer diretrizes estritas, padrões arquiteturais e convenções de código para implementar, refatorar e depurar integrações com a WhatsApp Cloud API dentro do ecossistema Laravel do Engeapp. Isso garante validação segura de webhooks, processamento assíncrono e não-bloqueante de mensagens, gerenciamento robusto de rate limit da API, resiliência a erros e armazenamento padronizado no banco de dados.

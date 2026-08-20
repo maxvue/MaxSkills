@@ -1,8 +1,8 @@
 ---
 name: adonisjs-i18n-brazilian-localization-best-practices
 description: Use when implementing, configuring, translating, or debugging internationalization (i18n) and localization features in AdonisJS v6, configuring translation files for Brazilian Portuguese (pt-BR), localizing VineJS validator error messages, or formatting dates/currencies according to Brazilian standards (pt-BR). Triggers on configurations of @adonisjs/i18n, translations in resources/lang/pt, custom validation messages for VineJS, and formatting utilities for pt-BR.
+author: Johnattas Conrady Gomes Santana
 ---
-
 # Melhores Práticas de i18n e Localização Brasileira (pt-BR) no AdonisJS v6
 
 ## Objetivo

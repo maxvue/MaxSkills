@@ -1,8 +1,8 @@
 ---
 name: adonisjs-api-serialization-best-practices
 description: Use when designing, configuring, customizing, or debugging JSON serialization payloads, formatting Lucid ORM model serialization, mapping snake_case database columns to camelCase API responses, or preventing N+1 queries during response generation in AdonisJS v6. Triggers on custom namingStrategy, serialize() overrides, omit fields serializing, and formatting paginated responses.
+author: Johnattas Conrady Gomes Santana
 ---
-
 ## Objetivo
 Estabelecer práticas seguras, performáticas e padronizadas para a serialização de dados e formatação de respostas de API no AdonisJS v6 utilizando Lucid ORM, garantindo saídas consistentes em camelCase para consumo no frontend Vue 3, enquanto previne consultas N+1 e exposição acidental de dados.
 
