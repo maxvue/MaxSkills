@@ -4,7 +4,7 @@ skills:
   resumo: Use when configuring, debugging, or creating payment integrations with the Asaas gateway in AdonisJS v6. 
     Triggers on files handling customer registrations, invoice generation (Pix, Boleto, Credit Card), webhook signature 
     verification, subscription billing sync, and payment logging.
-  status: AGUARDANDO EXECUÇÃO
+  status: CONCLUIDA
   workflows: []
 - action: CRIAR
   nome: adonisjs-broadcasting-websockets-best-practices

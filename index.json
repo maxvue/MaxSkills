@@ -1,5 +1,44 @@
 [
     {
+        "id": "01M0WFGHQNH2X17E9E2PAENKBQ",
+        "skill_name": "adonisjs-brazilian-payments-asaas-integration-best-practices",
+        "description_en": "Use when configuring, debugging, or creating payment integrations with the Asaas gateway in AdonisJS v6. Triggers on files handling customer registrations, invoice generation (Pix, Boleto, Credit Card), webhook signature verification, subscription billing sync, and payment logging.",
+        "description_pt_br": "Use ao configurar, depurar ou criar integrações de pagamento com o gateway Asaas no AdonisJS v6. Dispara em arquivos que lidam com cadastro de clientes, emissão de cobranças (Pix, Boleto, Cartão de Crédito), verificação de assinatura de webhooks, sincronização de assinaturas e logging.",
+        "promo_en": "Enterprise guidelines and architectural standards for Asaas payment integration in AdonisJS v6. Enforces best practices, strict typing, clean domain separation, and resilient webhook processing.",
+        "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para integração de pagamentos Asaas no AdonisJS v6. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e processamento resiliente de webhooks.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend-node/adonisjs-brazilian-payments-asaas-integration-best-practices/SKILL.md",
+        "languages": [
+            "TypeScript"
+        ],
+        "frameworks": [
+            "AdonisJS"
+        ],
+        "libs": [
+            "BullMQ",
+            "VineJS",
+            "Lucid ORM"
+        ]
+    },
+    {
+        "id": "01M0G4G52FE6Y45CNB8F3MQM0R",
+        "skill_name": "frontend-design-best-practices",
+        "description_en": "Use when building new UI or remodeling Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Covers core design mandate, aesthetics, typography, colors, layout, motion, and accessible production code.",
+        "description_pt_br": "Use ao construir novas interfaces (UI) ou remodelar telas Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Cobre core design mandate, aesthetics, typography, colors, layout, motion, e accessible production code.",
+        "promo_en": "Standardized engineering practices for frontend design. Enhances project stability, maintainability, and implementation velocity.",
+        "promo_pt_br": "Boas práticas de engenharia de software para frontend design, promovendo maior estabilidade, manutenibilidade e velocidade de entrega.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
+        "languages": [
+            "JavaScript",
+            "TypeScript"
+        ],
+        "frameworks": [
+            "Vue.js"
+        ],
+        "libs": []
+    },
+    {
         "id": "01M0G4G52EYV7E1XB1AR91RA7C",
         "skill_name": "laravel-ai-agents-ecosystem",
         "description_en": "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules. Covers objectives and core workflows.",
@@ -1045,6 +1084,55 @@
         ]
     },
     {
+        "id": "01M0G4G52FPABCWP4S35T8BE88",
+        "skill_name": "project-history",
+        "description_en": "Use when you need historical context on how a feature was built, why a past decision was made, or the validation/test-count trail for a completed milestone in this project — the changelog of every marco/fase from Marco 1 through the most recent branch, moved out of CLAUDE.md so it isn't always loaded.",
+        "description_pt_br": "Use quando precisar de contexto histórico sobre como uma funcionalidade foi construída ou o motivo de decisões passadas, ou the trilha de validação e contagem de testes para marcos concluídos neste projeto — o changelog de cada marco/fase desde o Marco 1 até a branch mais recente, movido para fora do CLAUDE.md para não ser carregado constantemente.",
+        "promo_en": "Structured change tracking and project history standard. Captures key architectural decisions, feature implementations, and evolutionary milestones across the repository.",
+        "promo_pt_br": "Estrutura para registro cronológico e histórico de decisões arquiteturais do projeto. Facilita o acompanhamento de evolução técnica e marcos de desenvolvimento.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-history/SKILL.md",
+        "languages": [],
+        "frameworks": [
+            "UnoCSS"
+        ],
+        "libs": []
+    },
+    {
+        "id": "01M0G4G52FM2QXVR4AZP8HS2XR",
+        "skill_name": "project-setup",
+        "description_en": "Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.",
+        "description_pt_br": "Use ao configurar este projeto do zero em uma nova máquina ou quando passos de onboarding forem necessários (instalação de dependências, configuração do .env, inicialização do banco de dados e serviços dev). Não necessário para o dia a dia em ambientes já configurados.",
+        "promo_en": "Unified project bootstrapping and environment setup guide. Guarantees consistent developer onboarding, standard tooling configurations, and reproducible environments.",
+        "promo_pt_br": "Guia unificado de inicialização e configuração de ambientes de desenvolvimento. Garante padronização de dependências, ferramentas de linting e agilidade no onboarding.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-setup/SKILL.md",
+        "languages": [],
+        "frameworks": [],
+        "libs": [
+            "Google Gemini SDK",
+            "Redis"
+        ]
+    },
+    {
+        "id": "01M0G4G52FBQ06VE4HY7HGXBEW",
+        "skill_name": "python-concessionarias-automation-best-practices",
+        "description_en": "Use when creating, modifying, or debugging Python RPA scripts (Selenium + requests) for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba), automation scripts, and TRT submissions. Covers concessionaire regulations, RPA automation, and portal scripts.",
+        "description_pt_br": "Use ao criar, modificar ou depurar Python RPA scripts (Selenium + requests) para portais de concessionárias de energia (Cemig, Energisa, Equatorial, Coelba), scripts de automação, e emissão/submissão de TRTs. Cobre regulamentações das concessionárias, automação RPA e scripts de portais.",
+        "promo_en": "Specialized Python RPA automation standard for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba). Ensures resilient bot execution, error recovery, and compliant regulatory submissions.",
+        "promo_pt_br": "Padrão especializado de automação RPA em Python para portais de concessionárias de energia (Cemig, Energisa, Equatorial, Coelba). Garante resiliência, tratamento de falhas e automação segura de protocolos.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/python-automation/python-concessionarias-automation-best-practices/SKILL.md",
+        "languages": [
+            "Python"
+        ],
+        "frameworks": [],
+        "libs": [
+            "Requests",
+            "Selenium"
+        ]
+    },
+    {
         "id": "01M0G4G52FGT31WKMJ1B9SRF3B",
         "skill_name": "systematic-debugging-best-practices",
         "description_en": "Use when investigating unexpected behavior, test failures, build errors, or performance issues. Enforces root-cause analysis before proposing fixes based on log evidence. Covers systematic debugging methodology and log inspection.",
@@ -1073,22 +1161,70 @@
         ]
     },
     {
-        "id": "01M0G4G52FE6Y45CNB8F3MQM0R",
-        "skill_name": "frontend-design-best-practices",
-        "description_en": "Use when building new UI or remodeling Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Covers core design mandate, aesthetics, typography, colors, layout, motion, and accessible production code.",
-        "description_pt_br": "Use ao construir novas interfaces (UI) ou remodelar telas Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Cobre core design mandate, aesthetics, typography, colors, layout, motion, e accessible production code.",
-        "promo_en": "Standardized engineering practices for frontend design. Enhances project stability, maintainability, and implementation velocity.",
-        "promo_pt_br": "Boas práticas de engenharia de software para frontend design, promovendo maior estabilidade, manutenibilidade e velocidade de entrega.",
+        "id": "01M0G4G52F477ME1WMWZNJDX3J",
+        "skill_name": "typescript-advanced-types-best-practices",
+        "description_en": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config. Covers objectives and core workflows.",
+        "description_pt_br": "Use ao projetar arquiteturas TypeScript type-safe ou resolver problemas avançados de tipagem: generics, conditional types, mapped types, template literals, utility types, branded types, e strict config. Cobre objetivos e fluxos de trabalho centrais.",
+        "promo_en": "Advanced TypeScript engineering standard for advanced types. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
+        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para advanced types. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
         "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
         "languages": [
-            "JavaScript",
             "TypeScript"
         ],
-        "frameworks": [
-            "Vue.js"
-        ],
+        "frameworks": [],
         "libs": []
+    },
+    {
+        "id": "01M0G4G52FB0505WH8S40NG5M9",
+        "skill_name": "typescript-billing-core-architecture-best-practices",
+        "description_en": "Use when designing, implementing, reviewing, or debugging a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, and idempotency. NOT for Engeapp payment integration (which runs on PHP/Laravel with efipay and inter-co SDKs).",
+        "description_pt_br": "Use ao projetar, implementar, revisar ou depurar a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, e idempotency. NOT para Engeapp payment integration (which runs em PHP/Laravel com efipay e inter-co SDKs).",
+        "promo_en": "Advanced TypeScript engineering standard for billing core architecture. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
+        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para billing core architecture. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
+        "languages": [
+            "TypeScript"
+        ],
+        "frameworks": [],
+        "libs": [
+            "EfiPay SDK"
+        ]
+    },
+    {
+        "id": "01M0G4G52FSR9AMFSDH0NFKVA1",
+        "skill_name": "typescript-max-banks-efi-gateway-best-practices",
+        "description_en": "Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks.",
+        "description_pt_br": "Use ao projetar, implementar, configurar ou depurar the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Acionado em files modifying EfiGateway code, gerenciamento de Efí API client credentials (client_id/client_secret), configuração de OAuth2/mTLS authentication, execução de Pix charges (createPixCharge/getCharge) via Efí, e análise e conversão de Efí webhooks.",
+        "promo_en": "Advanced TypeScript engineering standard for max banks efi gateway. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
+        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para max banks efi gateway. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
+        "languages": [
+            "TypeScript"
+        ],
+        "frameworks": [],
+        "libs": [
+            "EfiPay SDK"
+        ]
+    },
+    {
+        "id": "01M0G4G52F89MV92CC8JTBEX4D",
+        "skill_name": "typescript-tooling-monorepo-best-practices",
+        "description_en": "Use when solving TypeScript and JavaScript tooling issues: compiler performance (slow tsc), project references with per-package composite, JS to TS migration, module resolution errors, ESM/CJS interop, and tsc debugging. Focuses on ESM-first, moduleResolution bundler, ESLint, typescript-eslint, and Vitest. Triggers on tsconfig, build speed, and type errors.",
+        "description_pt_br": "Use quando para solving TypeScript e JavaScript tooling issues: compiler performance (slow tsc), project references com per-package composite, JS para TS migration, module resolution errors, ESM/CJS interop, e tsc depuração de. Focuses em ESM-first, moduleResolution bundler, ESLint, typescript-eslint, e Vitest. Acionado em tsconfig, build speed, e type errors.",
+        "promo_en": "Advanced TypeScript engineering standard for tooling monorepo. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
+        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para tooling monorepo. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
+        "repo_name": "max",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
+        "languages": [
+            "TypeScript"
+        ],
+        "frameworks": [],
+        "libs": [
+            "ESLint"
+        ]
     },
     {
         "id": "01M0G4G52FQ8N5D73J59PY8MH4",
@@ -1619,120 +1755,5 @@
             "Vue.js"
         ],
         "libs": []
-    },
-    {
-        "id": "01M0G4G52FPABCWP4S35T8BE88",
-        "skill_name": "project-history",
-        "description_en": "Use when you need historical context on how a feature was built, why a past decision was made, or the validation/test-count trail for a completed milestone in this project — the changelog of every marco/fase from Marco 1 through the most recent branch, moved out of CLAUDE.md so it isn't always loaded.",
-        "description_pt_br": "Use quando precisar de contexto histórico sobre como uma funcionalidade foi construída ou o motivo de decisões passadas, ou the trilha de validação e contagem de testes para marcos concluídos neste projeto — o changelog de cada marco/fase desde o Marco 1 até a branch mais recente, movido para fora do CLAUDE.md para não ser carregado constantemente.",
-        "promo_en": "Structured change tracking and project history standard. Captures key architectural decisions, feature implementations, and evolutionary milestones across the repository.",
-        "promo_pt_br": "Estrutura para registro cronológico e histórico de decisões arquiteturais do projeto. Facilita o acompanhamento de evolução técnica e marcos de desenvolvimento.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-history/SKILL.md",
-        "languages": [],
-        "frameworks": [
-            "UnoCSS"
-        ],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FM2QXVR4AZP8HS2XR",
-        "skill_name": "project-setup",
-        "description_en": "Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.",
-        "description_pt_br": "Use ao configurar este projeto do zero em uma nova máquina ou quando passos de onboarding forem necessários (instalação de dependências, configuração do .env, inicialização do banco de dados e serviços dev). Não necessário para o dia a dia em ambientes já configurados.",
-        "promo_en": "Unified project bootstrapping and environment setup guide. Guarantees consistent developer onboarding, standard tooling configurations, and reproducible environments.",
-        "promo_pt_br": "Guia unificado de inicialização e configuração de ambientes de desenvolvimento. Garante padronização de dependências, ferramentas de linting e agilidade no onboarding.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-setup/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": [
-            "Google Gemini SDK",
-            "Redis"
-        ]
-    },
-    {
-        "id": "01M0G4G52FBQ06VE4HY7HGXBEW",
-        "skill_name": "python-concessionarias-automation-best-practices",
-        "description_en": "Use when creating, modifying, or debugging Python RPA scripts (Selenium + requests) for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba), automation scripts, and TRT submissions. Covers concessionaire regulations, RPA automation, and portal scripts.",
-        "description_pt_br": "Use ao criar, modificar ou depurar Python RPA scripts (Selenium + requests) para portais de concessionárias de energia (Cemig, Energisa, Equatorial, Coelba), scripts de automação, e emissão/submissão de TRTs. Cobre regulamentações das concessionárias, automação RPA e scripts de portais.",
-        "promo_en": "Specialized Python RPA automation standard for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba). Ensures resilient bot execution, error recovery, and compliant regulatory submissions.",
-        "promo_pt_br": "Padrão especializado de automação RPA em Python para portais de concessionárias de energia (Cemig, Energisa, Equatorial, Coelba). Garante resiliência, tratamento de falhas e automação segura de protocolos.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/python-automation/python-concessionarias-automation-best-practices/SKILL.md",
-        "languages": [
-            "Python"
-        ],
-        "frameworks": [],
-        "libs": [
-            "Requests",
-            "Selenium"
-        ]
-    },
-    {
-        "id": "01M0G4G52F477ME1WMWZNJDX3J",
-        "skill_name": "typescript-advanced-types-best-practices",
-        "description_en": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config. Covers objectives and core workflows.",
-        "description_pt_br": "Use ao projetar arquiteturas TypeScript type-safe ou resolver problemas avançados de tipagem: generics, conditional types, mapped types, template literals, utility types, branded types, e strict config. Cobre objetivos e fluxos de trabalho centrais.",
-        "promo_en": "Advanced TypeScript engineering standard for advanced types. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para advanced types. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
-        "languages": [
-            "TypeScript"
-        ],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FB0505WH8S40NG5M9",
-        "skill_name": "typescript-billing-core-architecture-best-practices",
-        "description_en": "Use when designing, implementing, reviewing, or debugging a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, and idempotency. NOT for Engeapp payment integration (which runs on PHP/Laravel with efipay and inter-co SDKs).",
-        "description_pt_br": "Use ao projetar, implementar, revisar ou depurar a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, e idempotency. NOT para Engeapp payment integration (which runs em PHP/Laravel com efipay e inter-co SDKs).",
-        "promo_en": "Advanced TypeScript engineering standard for billing core architecture. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para billing core architecture. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
-        "languages": [
-            "TypeScript"
-        ],
-        "frameworks": [],
-        "libs": [
-            "EfiPay SDK"
-        ]
-    },
-    {
-        "id": "01M0G4G52FSR9AMFSDH0NFKVA1",
-        "skill_name": "typescript-max-banks-efi-gateway-best-practices",
-        "description_en": "Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks.",
-        "description_pt_br": "Use ao projetar, implementar, configurar ou depurar the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Acionado em files modifying EfiGateway code, gerenciamento de Efí API client credentials (client_id/client_secret), configuração de OAuth2/mTLS authentication, execução de Pix charges (createPixCharge/getCharge) via Efí, e análise e conversão de Efí webhooks.",
-        "promo_en": "Advanced TypeScript engineering standard for max banks efi gateway. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para max banks efi gateway. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
-        "languages": [
-            "TypeScript"
-        ],
-        "frameworks": [],
-        "libs": [
-            "EfiPay SDK"
-        ]
-    },
-    {
-        "id": "01M0G4G52F89MV92CC8JTBEX4D",
-        "skill_name": "typescript-tooling-monorepo-best-practices",
-        "description_en": "Use when solving TypeScript and JavaScript tooling issues: compiler performance (slow tsc), project references with per-package composite, JS to TS migration, module resolution errors, ESM/CJS interop, and tsc debugging. Focuses on ESM-first, moduleResolution bundler, ESLint, typescript-eslint, and Vitest. Triggers on tsconfig, build speed, and type errors.",
-        "description_pt_br": "Use quando para solving TypeScript e JavaScript tooling issues: compiler performance (slow tsc), project references com per-package composite, JS para TS migration, module resolution errors, ESM/CJS interop, e tsc depuração de. Focuses em ESM-first, moduleResolution bundler, ESLint, typescript-eslint, e Vitest. Acionado em tsconfig, build speed, e type errors.",
-        "promo_en": "Advanced TypeScript engineering standard for tooling monorepo. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-        "promo_pt_br": "Padrão avançado de engenharia em TypeScript para tooling monorepo. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
-        "languages": [
-            "TypeScript"
-        ],
-        "frameworks": [],
-        "libs": [
-            "ESLint"
-        ]
     }
 ]
