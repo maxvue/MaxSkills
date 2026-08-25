@@ -79,38 +79,7 @@
       "@testing-library/react",
       "@testing-library/vue",
       "unittest.mock"
-    ],
-    "local_path": "other_skills/curated-youtube/test-driven-development/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Disciplina Red-Green-Refactor agnóstica de stack; é prática de engenharia genérica, mas o SocialMedia formaliza TDD na metodologia auditoria→spec→plano→worktree→TDD, o que a torna um pouco mais aderente lá. Notas — engeapp: 6, SocialMedia: 7, AgenteDeBolso: 6. Nota máxima: 7/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 6, SocialMedia: 7, AgenteDeBolso: 6. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FQ2GH4WZB4MDWRTW6"
+    ]
   },
   {
     "id": "01M0G4G52FH90TKJ99SM1D454A",
@@ -193,38 +162,7 @@
       "Radix UI",
       "Lucide Icons",
       "Framer Motion"
-    ],
-    "local_path": "other_skills/curated-youtube/frontend-design/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 2
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 2
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 3
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Diretrizes de UI/UX ancoradas em Tailwind, shadcn/ui e React/Next — stacks marcadas como irrelevantes; só o eixo de acessibilidade/contraste tangencia o tema de dark mode e WCAG do AgenteDeBolso, e ainda assim o design system Max já define o padrão. Notas — engeapp: 2, SocialMedia: 2, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 2, SocialMedia: 2, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FH90TKJ99SM1D454A"
+    ]
   },
   {
     "id": "01M0G4G52FCRTTHSA4Z23Q336F",
@@ -290,38 +228,7 @@
       "jsonschema",
       "pydantic",
       "yaml"
-    ],
-    "local_path": "other_skills/curated-youtube/skill-creator/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 4
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 4
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Meta-skill para criar SKILL.md, frontmatter e evals; ajuda apenas quando se decide escrever novas skills para os projetos, não no desenvolvimento de features Laravel/Vue do dia a dia. Notas — engeapp: 4, SocialMedia: 4, AgenteDeBolso: 4. Nota máxima: 4/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 4, SocialMedia: 4, AgenteDeBolso: 4. Nota máxima: 4/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FCRTTHSA4Z23Q336F"
+    ]
   },
   {
     "id": "01M0G4G52F663YHJWYW67CP8KR",
@@ -384,41 +291,7 @@
     "libs": [
       "conventional-changelog",
       "simple-git"
-    ],
-    "local_path": "other_skills/curated-youtube/git-workflow/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Governança de branches, Conventional Commits atômicos e gestão de worktrees isolados casa com a regra dura de worktree obrigatório e commit só sob pedido nos três projetos, embora não cubra nenhuma tecnologia do domínio. Notas — engeapp: 7, SocialMedia: 7, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 7, SocialMedia: 7, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 2 sobreposição(ões) de propósito/escopo com: [git-pr-workflows-git-workflow, git-workflow-and-versioning]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [git-pr-workflows-git-workflow, git-workflow-and-versioning]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [git-workflow, git-pr-workflows-git-workflow, git-workflow-and-versioning]. Motivo: Eleita a skill 'git-workflow' (other_skills.json) por apresentar maior aderência à stack (nota de importância 7/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F663YHJWYW67CP8KR"
+    ]
   },
   {
     "id": "01M0G4G52FV5WNNFWAXJX7HKYG",
@@ -485,41 +358,7 @@
       "pip-audit",
       "npm-audit",
       "Semgrep"
-    ],
-    "local_path": "other_skills/curated-youtube/security-audit/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Varredura OWASP Top 10, vazamento de segredos e risco de dependências: útil para PII/LGPD no engeapp e especialmente para o AgenteDeBolso, que versiona auditorias em docs/audit e lida com WebAuthn e dados bancários; o ferramental (Snyk/Trivy/Semgrep) não é o usado. Notas — engeapp: 6, SocialMedia: 5, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 6, SocialMedia: 5, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [aws-security-audit]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [aws-security-audit]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [security-audit, aws-security-audit]. Motivo: Eleita a skill 'security-audit' (other_skills.json) por apresentar maior aderência à stack (nota de importância 7/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FV5WNNFWAXJX7HKYG"
+    ]
   },
   {
     "id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
@@ -607,41 +446,7 @@
       "Ruff",
       "Mypy",
       "PHPStan"
-    ],
-    "local_path": "other_skills/curated-youtube/code-review/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Revisão automatizada com análise estática, complexidade e conformidade de estilo; é boa prática genérica que se apoia em PHPStan/ESLint (presentes nos três), mas não conhece as convenções Max nem o domínio de cada app. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [code-review-and-quality]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [code-review-and-quality]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [code-review, code-review-and-quality]. Motivo: Eleita a skill 'code-review' (other_skills.json) por apresentar maior aderência à stack (nota de importância 6/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FM4PKRXYWCZ20ZSBV"
+    ]
   },
   {
     "id": "01M0G4G52F32ZTYMTYQK259587",
@@ -729,38 +534,7 @@
       "playwright-core",
       "cheerio",
       "browser-use"
-    ],
-    "local_path": "other_skills/curated-youtube/browser-automation/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Inspeção de DOM e verificação de fluxos end-to-end no navegador: os três verificam UI empiricamente (Puppeteer/webdriver no engeapp e AgenteDeBolso, Playwright headless no SocialMedia), mas o foco em Playwright/Selenium só se alinha parcialmente com Dusk e Puppeteer. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F32ZTYMTYQK259587"
+    ]
   },
   {
     "id": "01M0G4G52FVBQNA612AE7T78GH",
@@ -800,38 +574,7 @@
       "TypeScript"
     ],
     "frameworks": [],
-    "libs": [],
-    "local_path": "other_skills/curated-youtube/superpowers/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Framework de planejamento estruturado com specs técnicas, TDD e ciclos de revisão por subagentes; o SocialMedia já adota esse fluxo formalmente (artefatos em docs/superpowers/specs|plans), então lá é aderência direta e nos outros é processo genérico. Notas — engeapp: 6, SocialMedia: 8, AgenteDeBolso: 6. Nota máxima: 8/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 6, SocialMedia: 8, AgenteDeBolso: 6. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FVBQNA612AE7T78GH"
+    "libs": []
   },
   {
     "id": "01M0G4G52FS4JB7ES3Z9C8N4F1",
@@ -898,38 +641,7 @@
     "libs": [
       "asyncio",
       "pydantic"
-    ],
-    "local_path": "other_skills/curated-youtube/agent-orchestrator/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 3
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 3
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Coordenação hierárquica de múltiplos agentes baseada em LangGraph/CrewAI e Python; a orquestração de IA dos projetos é server-side em PHP (laravel/ai com Gemini, jobs encadeados), então só o conceito de delegação paralela sobra. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FS4JB7ES3Z9C8N4F1"
+    ]
   },
   {
     "id": "01M0G4G52FZ807HQW0RAS5BAAZ",
@@ -994,38 +706,7 @@
     "libs": [
       "@modelcontextprotocol/sdk",
       "mcp-core"
-    ],
-    "local_path": "other_skills/curated-youtube/mcp-server-routing/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 3
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 3
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Descoberta e roteamento de servidores MCP; nenhum dos três projetos expõe ou consome MCP — as integrações de IA usam tool calling nativo do Gemini/laravel-ai — então serve apenas ao tooling do agente. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FZ807HQW0RAS5BAAZ"
+    ]
   },
   {
     "id": "01M0G4G52FE36M320YYCE4WKRV",
@@ -1088,38 +769,7 @@
     "libs": [
       "tiktoken",
       "langchain-core"
-    ],
-    "local_path": "other_skills/curated-youtube/context-engineering/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Orçamento de tokens, poda de contexto e handoff de sessão: melhora o trabalho do agente em bases grandes (970 arquivos PHP no engeapp, 181 SFCs no AgenteDeBolso), mas é prática de agente genérica, sem ligação com a stack. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FE36M320YYCE4WKRV"
+    ]
   },
   {
     "id": "01M0G4G52FZWBAQWX620WBMW1N",
@@ -1179,41 +829,7 @@
       "Zod",
       "Pydantic",
       "Swagger / OpenAPI"
-    ],
-    "local_path": "other_skills/curated-youtube/api-design/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Contratos REST/OpenAPI com validação e SDK tipado; os três expõem APIs internas para SPA (rotas aninhadas sob sanctum no SocialMedia, Ziggy nos demais), porém não usam OpenAPI nem GraphQL, o que reduz a skill a princípios genéricos de REST. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [api-design-principles]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [api-design-principles]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [api-design, api-design-principles]. Motivo: Eleita a skill 'api-design' (other_skills.json) por apresentar maior aderência à stack (nota de importância 5/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FZWBAQWX620WBMW1N"
+    ]
   },
   {
     "id": "01M0G4G52FPQGPD3CF1ZW3BKSB",
@@ -1277,38 +893,7 @@
       "DuckDuckGo-Search",
       "arxiv",
       "newspaper3k"
-    ],
-    "local_path": "other_skills/curated-youtube/deep-research/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 3
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 3
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Pesquisa web multi-fonte com verificação e relatório; ajuda pontualmente a investigar APIs externas (Meta Graph, Pluggy, Banco Inter), mas o caminho preferido nos projetos é a documentação local e o Boost search-docs. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 3/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FPQGPD3CF1ZW3BKSB"
+    ]
   },
   {
     "id": "01M0G4G52F4V1VXAMC0WYZZ9Z7",
@@ -1363,41 +948,7 @@
     ],
     "libs": [
       "docker-py"
-    ],
-    "local_path": "other_skills/curated-youtube/docker-expert/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 4
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Dockerfile multi-stage e Docker Compose com pipelines de container: os três rodam sem Docker e sem CI, em Caddy systemd + PHP-FPM local e deploy por Deployer/webhook, com Docker listado como tema irrelevante. Notas — engeapp: 0, SocialMedia: 0, AgenteDeBolso: 0. Nota máxima: 0/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Subagentes confirmaram utilidade para infraestrutura, containers Docker e cloud deployment. Notas — engeapp: 5, SocialMedia: 4, AgenteDeBolso: 4. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [odoo-docker-deployment]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [odoo-docker-deployment]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [docker-expert, odoo-docker-deployment]. Motivo: Eleita a skill 'docker-expert' (other_skills.json) por apresentar maior aderência à stack (nota de importância 5/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F4V1VXAMC0WYZZ9Z7"
+    ]
   },
   {
     "id": "01M0G4G52F1C753JPHMPTS9EMK",
@@ -1453,38 +1004,7 @@
       "SQLAlchemy 2.0",
       "Uvicorn",
       "Alembic"
-    ],
-    "local_path": "other_skills/curated-youtube/fastapi-templates/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Scaffolding de APIs Python com FastAPI, Pydantic v2 e SQLAlchemy; o backend dos três é exclusivamente PHP/Laravel e Python aparece nos dossiês como linguagem irrelevante. Notas — engeapp: 0, SocialMedia: 0, AgenteDeBolso: 0. Nota máxima: 0/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Subagentes confirmaram utilidade para design arquitetural de APIs REST. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F1C753JPHMPTS9EMK"
+    ]
   },
   {
     "id": "01M0G4G52FHZMPGHHTZFX8Q0XN",
@@ -1523,38 +1043,7 @@
       "Python"
     ],
     "frameworks": [],
-    "libs": [],
-    "local_path": "other_skills/curated-youtube/damage-control/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Interceptação de comandos destrutivos (SQL perigoso, wipe de git não commitado) tem valor concreto no AgenteDeBolso, que proíbe migrate:fresh/refresh/db:wipe fora do PHPUnit e compartilha banco de teste entre worktrees; nos outros é salvaguarda genérica. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FHZMPGHHTZFX8Q0XN"
+    "libs": []
   },
   {
     "id": "01M0G4G52F3YQWZTYC3K1S074P",
@@ -1604,41 +1093,7 @@
       "Git"
     ],
     "frameworks": [],
-    "libs": [],
-    "local_path": "other_skills/curated-youtube/git-worktree/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Isolamento de tarefas e branches paralelas via git worktree é convenção obrigatória (.worktrees/) nos três projetos, com armadilhas reais como poda do watcher do Vite no SocialMedia e proibição de dump-autoload no worktree do AgenteDeBolso. Notas — engeapp: 8, SocialMedia: 8, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 8, SocialMedia: 8, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [using-git-worktrees]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [using-git-worktrees]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [git-worktree, using-git-worktrees]. Motivo: Eleita a skill 'git-worktree' (other_skills.json) por apresentar maior aderência à stack (nota de importância 8/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F3YQWZTYC3K1S074P"
+    "libs": []
   },
   {
     "id": "01M0G4G52FPHZ3VCA06Z2NTCG5",
@@ -1686,41 +1141,7 @@
     "libs": [
       "pg_stat_statements",
       "prisma-client"
-    ],
-    "local_path": "other_skills/curated-youtube/database-optimizer/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Tuning de consultas, índices e eliminação de N+1 via EXPLAIN é aplicável ao Eloquent dos três (129 models no engeapp, índices parciais no PostgreSQL 18 do SocialMedia, eager loading no AgenteDeBolso), mas o recorte Prisma/SQLAlchemy e GIN/GiST cobre só parte do cenário. Notas — engeapp: 7, SocialMedia: 7, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 7, SocialMedia: 7, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [database]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [database, database-admin, database-architect, database-design, database-migration]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [database-optimizer, database, database-admin, database-architect, database-design, database-migration]. Motivo: Eleita a skill 'database-optimizer' (other_skills.json) por apresentar maior aderência à stack (nota de importância 7/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FPHZ3VCA06Z2NTCG5"
+    ]
   },
   {
     "id": "01M0G4G52FSJ578YDABJWPFQM4",
@@ -1768,38 +1189,7 @@
       "Markdown"
     ],
     "frameworks": [],
-    "libs": [],
-    "local_path": "other_skills/curated-youtube/piv-loop/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Loop Plan-Implement-Validate com marcos e portões de validação reforça a regra de apresentar plano antes de modificar código, presente nos três projetos, mas é processo puro sem conhecimento de Laravel/Vue. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FSJ578YDABJWPFQM4"
+    "libs": []
   },
   {
     "id": "01M0G4G52F953EWRK967AST11H",
@@ -1847,38 +1237,7 @@
       "pytest-asyncio",
       "pytest-mock",
       "@testing-library/jest-dom"
-    ],
-    "local_path": "other_skills/curated-youtube/pytest-and-jest-automation/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 3
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 1
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Geração de suítes com Pytest e Jest: Python e Jest são irrelevantes nos três; só o trecho sobre Vitest tangencia engeapp e SocialMedia, enquanto o AgenteDeBolso testa exclusivamente com Pest e Dusk. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 1. Nota máxima: 3/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 3, SocialMedia: 3, AgenteDeBolso: 1. Nota máxima: 3/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F953EWRK967AST11H"
+    ]
   },
   {
     "id": "01M0G4G52F9TT91W6TR5FTQXT9",
@@ -1927,41 +1286,7 @@
     "libs": [
       "tflint",
       "checkov"
-    ],
-    "local_path": "other_skills/curated-youtube/cloud-architect/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 4
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Arquitetura multi-cloud com Terraform/OpenTofu e FinOps em AWS/GCP/Azure; os dossiês marcam IaC e nuvem gerenciada como irrelevantes, já que o deploy é em servidor próprio via Deployer 8 ou webhook. Notas — engeapp: 0, SocialMedia: 0, AgenteDeBolso: 0. Nota máxima: 0/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Subagentes confirmaram utilidade para infraestrutura, containers Docker e cloud deployment. Notas — engeapp: 5, SocialMedia: 4, AgenteDeBolso: 4. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [multi-cloud-architecture]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [multi-cloud-architecture]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [cloud-architect, multi-cloud-architecture]. Motivo: Eleita a skill 'cloud-architect' (other_skills.json) por apresentar maior aderência à stack (nota de importância 5/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F9TT91W6TR5FTQXT9"
+    ]
   },
   {
     "id": "01M0G4G52F5Y1T4W98MNDFXK8H",
@@ -1990,38 +1315,7 @@
       "Markdown"
     ],
     "frameworks": [],
-    "libs": [],
-    "local_path": "other_skills/curated-youtube/token-optimization/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Redução de consumo de contexto por compressão de prompt e desanexação de ferramentas ociosas; melhora a operação do agente nas bases grandes dos três, mas é otimização de sessão e não toca o custo de LLM em produção (Gemini/BigQuery). Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F5Y1T4W98MNDFXK8H"
+    "libs": []
   },
   {
     "id": "01M0G4G52FHV0YSD6V1ZJMX69R",
@@ -2047,38 +1341,7 @@
     "stars": 4500,
     "languages": [],
     "frameworks": [],
-    "libs": [],
-    "local_path": "other_skills/curated-youtube/vue-components/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 4
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 4
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Conteúdo genérico e raso sobre SFC e Composition API do Vue 3, sem tratar de auto-imports, componentes Max, UnoCSS ou Vapor; acrescenta pouco além do que as skills específicas de Vue/TypeScript do repositório já cobrem. Notas — engeapp: 4, SocialMedia: 4, AgenteDeBolso: 4. Nota máxima: 4/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 4, SocialMedia: 4, AgenteDeBolso: 4. Nota máxima: 4/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FHV0YSD6V1ZJMX69R"
+    "libs": []
   },
   {
     "id": "01M0G4G52FF04J8FCWYMH48QBD",
@@ -2109,38 +1372,7 @@
     "frameworks": [],
     "libs": [
       "mermaid-cli"
-    ],
-    "local_path": "other_skills/curated-youtube/mermaid-diagrammer/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 4
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Geração de diagramas Mermaid (fluxo, sequência, ERD, máquinas de estado) serve à documentação viva; no SocialMedia rende um pouco mais por causa da máquina de estados do evento de calendário e dos pipelines de IA a documentar. Notas — engeapp: 4, SocialMedia: 5, AgenteDeBolso: 4. Nota máxima: 5/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 4, SocialMedia: 5, AgenteDeBolso: 4. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FF04J8FCWYMH48QBD"
+    ]
   },
   {
     "id": "01M0G4G52FGN0MWZAFZYXN7109",
@@ -2169,38 +1401,7 @@
       "Shell"
     ],
     "frameworks": [],
-    "libs": [],
-    "local_path": "other_skills/curated-youtube/get-shit-done/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Workflow autônomo de alta velocidade da ideia à entrega verificada; é metodologia genérica e ainda tende a conflitar com a exigência dos três projetos de plano aprovado antes de qualquer alteração de código. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FGN0MWZAFZYXN7109"
+    "libs": []
   },
   {
     "id": "01M0G4G52FV8AC72Q93QPP5PPE",
@@ -2235,37 +1436,6 @@
       "PyMuPDF",
       "pdfplumber",
       "beautifulsoup4"
-    ],
-    "local_path": "other_skills/curated-youtube/python-concessionarias-automation/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 1
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): RPA em portais de concessionárias brasileiras (Cemig, Energisa, Equatorial, Coelba) e leitura de faturas toca o domínio central de homologação do engeapp, mas a implementação em Python/Selenium destoa do webdriver/Puppeteer em PHP; irrelevante para os outros dois. Notas — engeapp: 6, SocialMedia: 0, AgenteDeBolso: 1. Nota máxima: 6/10."
-      },
-      {
-        "Fase2": "Fase 2 (Confirmação do Filtro): Auditado e mantido pelos 3 subagentes. Importância validada para o ecossistema. Notas — engeapp: 6, SocialMedia: 0, AgenteDeBolso: 1. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FV8AC72Q93QPP5PPE"
+    ]
   }
 ]

@@ -18,35 +18,7 @@
       "BullMQ",
       "VineJS",
       "Lucid ORM"
-    ],
-    "local_path": "created-skills/backend-node/adonisjs-brazilian-payments-asaas-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 3
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 2
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Integração Asaas (Pix/boleto/cartão, webhook assinado) porém escrita para AdonisJS v6 + Lucid + VineJS, stack de backend Node que nenhum dos três usa; só o conhecimento de domínio do gateway Asaas salva alguma nota no engeapp, que integra Asaas em Laravel. Notas — engeapp: 3, SocialMedia: 0, AgenteDeBolso: 2. Nota máxima: 3/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0WFGHQNH2X17E9E2PAENKBQ"
+    ]
   },
   {
     "id": "01M0G4G52FE6Y45CNB8F3MQM0R",
@@ -64,35 +36,7 @@
     "frameworks": [
       "Vue.js"
     ],
-    "libs": [],
-    "local_path": "created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Mandato de design para telas Vue 3 com UnoCSS attributify + presetMaxUno e @maxvue/max-components-ui — exatamente o design system Max compartilhado pelos três projetos; escrita sobre o EngeApp, por isso a nota máxima ali, e os outros dois replicam o mesmo layout. Notas — engeapp: 10, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FE6Y45CNB8F3MQM0R"
+    "libs": []
   },
   {
     "id": "01M0G4G52EYV7E1XB1AR91RA7C",
@@ -111,35 +55,7 @@
     ],
     "libs": [
       "Pest PHP"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 10
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Classes de Agent, tools de function-calling, saída JSON estruturada e testes com fakeAgent do pacote laravel/ai: é o coração do pipeline de IA do SocialMedia (Ai/Agents, Ai/Tools); o engeapp também traz laravel/ai junto ao Gemini, enquanto o AgenteDeBolso usa o SDK google-gemini-php direto. Notas — engeapp: 8, SocialMedia: 10, AgenteDeBolso: 5. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EYV7E1XB1AR91RA7C"
+    ]
   },
   {
     "id": "01M0G4G52EPQKNR9AWG7B5HJGN",
@@ -158,35 +74,7 @@
     ],
     "libs": [
       "EfiPay SDK"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Leitura de boletos por OCR/IA e pagamento de taxas de TRT/homologação com o SDK Efí — fluxo literal do engeapp; o AgenteDeBolso aproveita parcialmente (Efí/Pix e leitura de boleto em lançamentos), e o SocialMedia não tem cobrança alguma. Notas — engeapp: 9, SocialMedia: 0, AgenteDeBolso: 6. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EPQKNR9AWG7B5HJGN"
+    ]
   },
   {
     "id": "01M0G4G52EJXZCX57K0HJ9WEAY",
@@ -205,35 +93,7 @@
     ],
     "libs": [
       "Google Gemini SDK"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 3
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Extração de especificações elétricas de datasheets de inversor/módulo em PDF via Gemini com schema e grounding: domínio fotovoltaico exclusivo do engeapp; nos outros dois só resta a técnica genérica de extração estruturada de PDF (temas no SocialMedia, extratos no AgenteDeBolso). Notas — engeapp: 10, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EJXZCX57K0HJ9WEAY"
+    ]
   },
   {
     "id": "01M0G4G52E658QPZ1C0F301826",
@@ -252,35 +112,7 @@
     ],
     "libs": [
       "AntiCaptcha API"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 2
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Resolução de CAPTCHA via Anti-Captcha, útil no engeapp porque os robôs de homologação em portais de concessionária (webdriver/Puppeteer) esbarram nisso; SocialMedia e AgenteDeBolso não fazem raspagem de portais protegidos. Notas — engeapp: 6, SocialMedia: 0, AgenteDeBolso: 2. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E658QPZ1C0F301826"
+    ]
   },
   {
     "id": "01M0G4G52E6PHAX6NHQTY8PD16",
@@ -299,35 +131,7 @@
     ],
     "libs": [
       "EfiPay SDK"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 4
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Documenta o conector BaseApi do engeapp com Attributes.json/EndPoints.json e cache de requisição — abstração proprietária daquele repositório, que concentra as dezenas de integrações externas; nos outros projetos vale apenas como padrão geral de cliente HTTP. Notas — engeapp: 9, SocialMedia: 4, AgenteDeBolso: 5. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E6PHAX6NHQTY8PD16"
+    ]
   },
   {
     "id": "01M0G4G52EZACYS1CEZG32T53N",
@@ -346,35 +150,7 @@
     ],
     "libs": [
       "Spatie Permission"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): spatie/laravel-permission com Gates, Policies multi-tenant (allowedSolarCompanyIds) e reflexo no SPA via MaxPinia: engeapp e SocialMedia usam spatie-permission com isolamento por tenant/agência; o AgenteDeBolso usa policies e papéis de compartilhamento de perfil, sem o mesmo pacote. Notas — engeapp: 9, SocialMedia: 8, AgenteDeBolso: 7. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EZACYS1CEZG32T53N"
+    ]
   },
   {
     "id": "01M0G4G52E3TW3BJ2G7RBX8SRF",
@@ -391,35 +167,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 1
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cadeia de fallback do ApiCnpjService/ApiCepService com cache e modelos locais Cep/City/State — consulta de CNPJ e CEP é rotina no engeapp e existe no AgenteDeBolso (BrasilAPI/CEP Aberto, base de instituições); o SocialMedia não consulta dados cadastrais brasileiros. Notas — engeapp: 9, SocialMedia: 1, AgenteDeBolso: 7. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E3TW3BJ2G7RBX8SRF"
+    "libs": []
   },
   {
     "id": "01M0G4G52E7Y6F0YXKZ5CHW4WF",
@@ -438,35 +186,7 @@
     ],
     "libs": [
       "Eloquent ORM"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 2
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Validação/formatação de CPF, CNPJ, CEP, telefone e valores em BRL cobrindo backend Laravel e frontend Vue/MaxUse: essencial no AgenteDeBolso (moeda e máscaras em todo lançamento) e no engeapp (cadastro de clientes); o SocialMedia quase não lida com documentos ou dinheiro em BRL além de conversão de custo. Notas — engeapp: 9, SocialMedia: 2, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E7Y6F0YXKZ5CHW4WF"
+    ]
   },
   {
     "id": "01M0G4G52EHSTESYE3S88P1J4Y",
@@ -486,35 +206,7 @@
     "libs": [
       "Asaas API",
       "EfiPay SDK"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Efí (SDK EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas e webhooks do Banco Inter — pilar de cobranças do engeapp e igualmente aplicável ao AgenteDeBolso, que carrega os mesmos SDKs para Pix; o SocialMedia declara pagamentos/billing como tema irrelevante. Notas — engeapp: 10, SocialMedia: 0, AgenteDeBolso: 9. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EHSTESYE3S88P1J4Y"
+    ]
   },
   {
     "id": "01M0G4G52ENM960HYNFXV97H2A",
@@ -534,35 +226,7 @@
     "libs": [
       "Redis",
       "Selenium"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Selenium WebDriver, Dusk e Puppeteer para automação e interação com elementos: engeapp usa php-webdriver/Dusk para robôs de concessionária e o AgenteDeBolso usa Dusk + Puppeteer para verificação empírica de UI; no SocialMedia só há Playwright headless pontual. Notas — engeapp: 8, SocialMedia: 3, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52ENM960HYNFXV97H2A"
+    ]
   },
   {
     "id": "01M0G4G52E7KH6E1RR8FZF01EG",
@@ -582,35 +246,7 @@
     "libs": [
       "FrankenPHP",
       "Redis"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cache::remember, TTLs, invalidação por Observer, tags/locks e caches de deploy com store phpredis sob Octane: cenário exato de engeapp e AgenteDeBolso (Redis + Octane em produção); o SocialMedia usa cache Redis mas sem Octane. Notas — engeapp: 9, SocialMedia: 6, AgenteDeBolso: 8. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E7KH6E1RR8FZF01EG"
+    ]
   },
   {
     "id": "01M0G4G52EB1CVXDA5JBZFW5G7",
@@ -629,35 +265,7 @@
     ],
     "libs": [
       "AWS S3"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 2
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Driver WebDAV do Seafile registrado no AppServiceProvider e disco projects do Media Library — infraestrutura de storage própria do engeapp; o AgenteDeBolso guarda anexos em S3 (aproveita só a parte de filesystems) e o SocialMedia usa disco local. Notas — engeapp: 9, SocialMedia: 2, AgenteDeBolso: 4. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EB1CVXDA5JBZFW5G7"
+    ]
   },
   {
     "id": "01M0G4G52E3S47MEQYM9W6Y7QS",
@@ -674,35 +282,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 0
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Concessionárias, filiais, RPAs e padrões de conexão (fases, tensão, disjuntor, cabos) para dimensionamento fotovoltaico: regra de negócio nuclear do engeapp e sem qualquer aplicação em redes sociais ou finanças pessoais. Notas — engeapp: 10, SocialMedia: 0, AgenteDeBolso: 0. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E3S47MEQYM9W6Y7QS"
+    "libs": []
   },
   {
     "id": "01M0G4G52EBH67GJV397R7602V",
@@ -721,35 +301,7 @@
     ],
     "libs": [
       "Google Calendar API"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Assinatura digital via Autentique/Clicksign com upload de documento, signatários, webhook seguro e job em fila: engeapp assina procurações e ART/TRT e o AgenteDeBolso também carrega o SDK vinicinbgs/autentique-v2; o SocialMedia não assina documentos. Notas — engeapp: 8, SocialMedia: 0, AgenteDeBolso: 7. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EBH67GJV397R7602V"
+    ]
   },
   {
     "id": "01M0G4G52EVETWJZW63H90EQRD",
@@ -766,35 +318,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 4
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 10
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 1
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Eventos de calendário editorial, agendamento de posts, estados de workflow e canais de publicação automática — descreve exatamente a máquina de estados planned→published do SocialMedia; no engeapp só aproxima do planner/kanban e no AgenteDeBolso o calendário é financeiro. Notas — engeapp: 4, SocialMedia: 10, AgenteDeBolso: 1. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EVETWJZW63H90EQRD"
+    "libs": []
   },
   {
     "id": "01M0G4G52E421RF15A8K26V438",
@@ -811,35 +335,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 0
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Dimensionamento elétrico pela NBR 5410 (getWireSize, getCircuitBrake, getInverter, queda de tensão, casamento inversor/módulo): cálculo fotovoltaico é núcleo do engeapp e nada disso existe nos outros dois domínios. Notas — engeapp: 10, SocialMedia: 0, AgenteDeBolso: 0. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E421RF15A8K26V438"
+    "libs": []
   },
   {
     "id": "01M0G4G52EY4CGV98QXC2RCKY5",
@@ -858,35 +354,7 @@
     ],
     "libs": [
       "Ziggy"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 1
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Homologação de projeto fotovoltaico com ConcessionaireSubsidiaryRegulation, trait HasProtocol e hook Protocol::booted integrados ao SPA MaxPinia: fluxo proprietário do engeapp; só o padrão de trait/booted teria eco marginal fora dele. Notas — engeapp: 10, SocialMedia: 0, AgenteDeBolso: 1. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EY4CGV98QXC2RCKY5"
+    ]
   },
   {
     "id": "01M0G4G52EVT227DEYCPV0CQNM",
@@ -905,35 +373,7 @@
     ],
     "libs": [
       "Slack API"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Exceptions customizadas com ShouldntReport, callback failed() de job, context()/render()/report(), canais de log e try-catch defensivo em services: prática direta no engeapp (que a skill documenta) e transferível aos outros dois, que dependem muito de jobs e de depurar falhas silenciosas. Notas — engeapp: 9, SocialMedia: 6, AgenteDeBolso: 7. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EVT227DEYCPV0CQNM"
+    ]
   },
   {
     "id": "01M0G4G52E5329B3BXTNW6Q5YY",
@@ -950,35 +390,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 1
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cupons de desconto, regras de indicação e ajuste de valores na cobrança: encaixa no módulo de billing/assinaturas e cotas por plano do AgenteDeBolso; no engeapp seria adjacente às cobranças EFI/Inter e o SocialMedia não fatura clientes. Notas — engeapp: 5, SocialMedia: 1, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E5329B3BXTNW6Q5YY"
+    "libs": []
   },
   {
     "id": "01M0G4G52E2CWKHNK3N6E91RS4",
@@ -997,35 +409,7 @@
     ],
     "libs": [
       "FrankenPHP"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Octane sobre FrankenPHP: código stateless, vazamento de memória, singletons e workers no Caddyfile — engeapp e AgenteDeBolso rodam Octane em produção; o SocialMedia lista Octane explicitamente como tema irrelevante. Notas — engeapp: 9, SocialMedia: 0, AgenteDeBolso: 7. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E2CWKHNK3N6E91RS4"
+    ]
   },
   {
     "id": "01M0G4G52E63VH9SV4003B4Y1R",
@@ -1044,35 +428,7 @@
     ],
     "libs": [
       "Google Gemini SDK"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Upload e processamento multimodal (vídeo, áudio, PDF) pela File API do Google AI com polling de estado ACTIVE e limpeza: casa com o áudio via FFmpeg e os PDFs do AgenteDeBolso e com a leitura de documentos do engeapp; o SocialMedia processa mídia, mas através do laravel/ai. Notas — engeapp: 8, SocialMedia: 6, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E63VH9SV4003B4Y1R"
+    ]
   },
   {
     "id": "01M0G4G52EZFM3K4GGMPMH1H5P",
@@ -1091,35 +447,7 @@
     ],
     "libs": [
       "Google Gemini SDK"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): SDK google-gemini-php/laravel com GenerationConfig, schema JSON estruturado, Blobs multimodais e escolha de modelo: é literalmente o pacote de IA do engeapp e do AgenteDeBolso (Gemini é o único LLM lá); o SocialMedia fala com Gemini pela camada laravel/ai, então aproveita só os conceitos de prompt/schema. Notas — engeapp: 9, SocialMedia: 5, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EZFM3K4GGMPMH1H5P"
+    ]
   },
   {
     "id": "01M0G4G52EZVJMHHYQF3F852RZ",
@@ -1136,35 +464,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Organização de helpers globais em app/Helpers com naming camelCase, registro no autoload do composer, statelessness sob Octane e testes Pest: engeapp tem 18 helpers e o AgenteDeBolso 12, ambos sob Octane; o SocialMedia tem uma pasta Helpers menor e sem Octane. Notas — engeapp: 9, SocialMedia: 6, AgenteDeBolso: 8. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EZVJMHHYQF3F852RZ"
+    "libs": []
   },
   {
     "id": "01M0G4G52EYEJVD5QHWVGNZXEG",
@@ -1181,35 +481,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cálculo de dias úteis e feriados (addBusinessDays, isHoliday, businessMinutesBetween) para SLA e prazos: o AgenteDeBolso depende disso no ajuste de fechamento/vencimento de fatura de cartão por feriado e o engeapp nos prazos de homologação; no SocialMedia só tangencia o agendamento de posts. Notas — engeapp: 8, SocialMedia: 3, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EYEJVD5QHWVGNZXEG"
+    "libs": []
   },
   {
     "id": "01M0G4G52EMZX2NAXDAJN2GAGE",
@@ -1228,35 +500,7 @@
     ],
     "libs": [
       "Laravel Horizon"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Jobs, supervisores do Horizon, retries, backoff, timeouts, rate limit de API e guardas de idempotência: os três rodam Redis+Horizon com filas pesadas (~45 jobs no engeapp, supervisor gpu-supervisor no SocialMedia, jobs agendados no AgenteDeBolso). Notas — engeapp: 10, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EMZX2NAXDAJN2GAGE"
+    ]
   },
   {
     "id": "01M0G4G52EF6QCHQEM9Q9SDFGY",
@@ -1275,35 +519,7 @@
     ],
     "libs": [
       "LiveKit"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 0
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): AccessToken com VideoGrant e RoomServiceClient do agence104/livekit-server-sdk: só o engeapp tem live/videoconferência WebRTC; SocialMedia e AgenteDeBolso não têm sala de vídeo alguma. Notas — engeapp: 8, SocialMedia: 0, AgenteDeBolso: 0. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EF6QCHQEM9Q9SDFGY"
+    ]
   },
   {
     "id": "01M0G4G52EMJBAGBRFMEQKBQ4F",
@@ -1322,35 +538,7 @@
     ],
     "libs": [
       "Spatie MediaLibrary"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 2
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 3
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): HasMedia/InteractsWithMedia, Media model customizado, discos de domínio (projects/whatsapp), conversões e rotas media.*: spatie/laravel-medialibrary só está no engeapp; os outros dois tratam upload de anexos e artes sem esse pacote. Notas — engeapp: 9, SocialMedia: 2, AgenteDeBolso: 3. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EMJBAGBRFMEQKBQ4F"
+    ]
   },
   {
     "id": "01M0G4G52EQ46JEKV691NC2RFC",
@@ -1369,35 +557,7 @@
     ],
     "libs": [
       "Meta Graph API"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 4
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 10
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 1
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Publicação de fotos, reels e carrosséis por containers de mídia, comentários, insights, MetaService e MetaWebhookJob: é exatamente a publicação IG/FB do SocialMedia; no engeapp só ecoa parcialmente na Meta/WhatsApp Cloud API e no AgenteDeBolso não há redes sociais. Notas — engeapp: 4, SocialMedia: 10, AgenteDeBolso: 1. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EQ46JEKV691NC2RFC"
+    ]
   },
   {
     "id": "01M0G4G52EQ3RJ9J2W2FJGJXPK",
@@ -1414,35 +574,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Schema, chaves estrangeiras, seeders e states de factory: o AgenteDeBolso cataloga armadilhas exatamente aí (collation errno 150, NOT NULL sem default, tabelas sem FK) e o engeapp mantém 384 migrations; o SocialMedia tem esquema menor, com ULID e índices parciais no PostgreSQL não cobertos aqui. Notas — engeapp: 8, SocialMedia: 7, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EQ3RJ9J2W2FJGJXPK"
+    "libs": []
   },
   {
     "id": "01M0G4G52EWS1XFNG7E5VA2FW1",
@@ -1459,35 +591,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Isolamento multi-tenant por solar_company_id com scopeForUserTenant, allowedSolarCompanyIds e Policies que resolvem tenant: núcleo do engeapp e traduzível para o AgencyScope do SocialMedia; no AgenteDeBolso o recorte é por perfil de usuário, não por empresa. Notas — engeapp: 10, SocialMedia: 7, AgenteDeBolso: 5. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EWS1XFNG7E5VA2FW1"
+    "libs": []
   },
   {
     "id": "01M0G4G52E5VW7P42NVJEQ2469",
@@ -1506,35 +610,7 @@
     ],
     "libs": [
       "DomPDF"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Geração com DomPDF pelo trait HasDocument, edição via FPDI/TCPDF, validação pdfIsValid() e thumbnail de PDF: engeapp emite documentos de homologação o tempo todo e o AgenteDeBolso exporta relatórios e lê extratos em PDF; o SocialMedia só usa pdftotext para extrair temas. Notas — engeapp: 10, SocialMedia: 3, AgenteDeBolso: 9. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E5VW7P42NVJEQ2469"
+    ]
   },
   {
     "id": "01M0G4G52EDC220YG70SVNTF4V",
@@ -1554,35 +630,7 @@
     "libs": [
       "Pest PHP",
       "Redis"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer e Pail: engeapp usa Pulse/Telescope e o AgenteDeBolso lista LaraDumps/Clockwork/Debugbar/Pail/log-viewer como ferramental padrão; o SocialMedia não tem esse arsenal instalado. Notas — engeapp: 9, SocialMedia: 5, AgenteDeBolso: 8. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EDC220YG70SVNTF4V"
+    ]
   },
   {
     "id": "01M0G4G52EV3J99GGRP1DN0VQE",
@@ -1601,38 +649,7 @@
     ],
     "libs": [
       "Pest PHP"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Testes Unit/Feature/Architecture em Pest com mocks, factories, arch() e Http::fake(): os três repositórios têm suíte Pest volumosa (415, ~382 e 165 arquivos) e o SocialMedia ainda exige TDD como metodologia registrada. Notas — engeapp: 9, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [laravel-expert]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [laravel-expert]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [laravel-pest-testing-best-practices, laravel-expert, laravel-security-hardening-best-practices]. Motivo: Eleita a skill 'laravel-pest-testing-best-practices' (index.json) por apresentar maior aderência à stack (nota de importância 9/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EV3J99GGRP1DN0VQE"
+    ]
   },
   {
     "id": "01M0G4G52EMMPA0WK4VBGPMERB",
@@ -1649,35 +666,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Pint, Larastan/PHPStan com phpstan.neon, Rector em dry-run e IDE Helper: engeapp e AgenteDeBolso exigem Pint + PHPStan level 1 (este com baseline e preset customizado do Pint); o SocialMedia roda só Pint, então aproveita menos. Notas — engeapp: 9, SocialMedia: 7, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EMMPA0WK4VBGPMERB"
+    "libs": []
   },
   {
     "id": "01M0G4G52E006K101Q4R47XJKJ",
@@ -1696,35 +685,7 @@
     ],
     "libs": [
       "DomPDF"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 2
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Geração de procuração em PDF pelo PowerAttorneyService com formatação de endereço legal e render DomPDF: documento obrigatório da homologação em concessionária no engeapp; fora dele sobra apenas a técnica de template DomPDF. Notas — engeapp: 9, SocialMedia: 0, AgenteDeBolso: 2. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E006K101Q4R47XJKJ"
+    ]
   },
   {
     "id": "01M0G4G52E9NHSSAVVM63K35W2",
@@ -1743,35 +704,7 @@
     ],
     "libs": [
       "BaconQrCode"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): endroid/qr-code com saída SVG/PNG, base64, logo e label: os dois projetos financeiros usam esse pacote para QR Code de Pix e documentos; o SocialMedia não gera QR Code em nenhum fluxo. Notas — engeapp: 8, SocialMedia: 0, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52E9NHSSAVVM63K35W2"
+    ]
   },
   {
     "id": "01M0G4G52EE2GFVNXFBD6JHGCQ",
@@ -1788,35 +721,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Limiters nomeados no AppServiceProvider, middleware throttle, throttling manual em FormRequest e resposta 429: útil no engeapp para proteger login e as APIs expostas a integrações externas, e moderadamente nos outros dois, onde o gargalo real é rate limit de API de terceiros dentro de jobs. Notas — engeapp: 7, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EE2GFVNXFBD6JHGCQ"
+    "libs": []
   },
   {
     "id": "01M0G4G52EQJCSMT32MAFD936X",
@@ -1835,35 +740,7 @@
     ],
     "libs": [
       "Redis"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cliente phpredis, prefixos de chave, HSETNX atômico, pipelines, fallback de RedisException, tags e filas do Horizon: os três apoiam cache e filas em Redis, e o SocialMedia ainda usa múltiplas conexões Redis para serializar a GPU. Notas — engeapp: 9, SocialMedia: 8, AgenteDeBolso: 8. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EQJCSMT32MAFD936X"
+    ]
   },
   {
     "id": "01M0G4G52ESF7J4C064VDK19S4",
@@ -1882,35 +759,7 @@
     ],
     "libs": [
       "Laravel Reverb"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cobre servidor Reverb, WSS atrás de Caddy e broadcasting no cliente Vite — stack ativa em engeapp (live/videoconferência, eventos em tempo real) e em AgenteDeBolso (Reverb + Echo + pusher-js). SocialMedia tem BROADCAST=null e usa polling, com Reverb/Echo listado como tema irrelevante. Notas — engeapp: 9, SocialMedia: 0, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52ESF7J4C064VDK19S4"
+    ]
   },
   {
     "id": "01M0G4G52EM5N1TD8M4V7AFVA3",
@@ -1930,35 +779,7 @@
     "libs": [
       "Laravel Scout",
       "Meilisearch"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 1
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Trata toSearchableArray, meilisearchSettings e o fallback searchSafe do Scout+Meilisearch, que ambos engeapp e AgenteDeBolso rodam em produção (meilisearch-php no composer). SocialMedia não tem Scout nem Meilisearch na stack. Notas — engeapp: 9, SocialMedia: 1, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EM5N1TD8M4V7AFVA3"
+    ]
   },
   {
     "id": "01M0G4G52E92NHZMVBF5M82SWK",
@@ -1977,38 +798,7 @@
     ],
     "libs": [
       "Eloquent ORM"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Encryption de atributos Eloquent, mass assignment, IDOR e hardening de upload são exatamente as armadilhas catalogadas nos três (PII/LGPD em engeapp, upload por tenant em SocialMedia). AgenteDeBolso pesa mais por lidar com dados bancários, PIN/WebAuthn e manter auditorias de segurança versionadas em docs/audit/. Notas — engeapp: 8, SocialMedia: 7, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [laravel-expert]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [laravel-expert]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): DERROTADA no cluster de duplicidade frente a 'laravel-pest-testing-best-practices' (01M0G4G52EV3J99GGRP1DN0VQE). Marcada para remoção na Fase 7."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52EV3J99GGRP1DN0VQE"
+    ]
   },
   {
     "id": "01M0G4G52FYW6F10SWM38VNXAK",
@@ -2027,35 +817,7 @@
     ],
     "libs": [
       "FrankenPHP"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Bind/singleton/scoped no container e segurança de memória sob Octane/FrankenPHP importam diretamente a engeapp e AgenteDeBolso, que rodam Octane em produção (vazamento de estado é tema de alta relevância). SocialMedia proíbe Octane, restando só o valor genérico de DI e promotion. Notas — engeapp: 8, SocialMedia: 6, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FYW6F10SWM38VNXAK"
+    ]
   },
   {
     "id": "01M0G4G52FH4PYVMV8YJFA2PNM",
@@ -2072,35 +834,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Padroniza classes Service com SRP, injeção e tratamento de erro; AgenteDeBolso é estruturado justamente como camada de Services por domínio (~416 arquivos PHP), então o ganho é direto. Em engeapp e SocialMedia a arquitetura pende para Actions/Jobs, deixando a skill útil porém menos central. Notas — engeapp: 7, SocialMedia: 7, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FH4PYVMV8YJFA2PNM"
+    "libs": []
   },
   {
     "id": "01M0G4G52FN6C0J033TB526R94",
@@ -2121,35 +855,7 @@
       "Laravel Socialite",
       "LinkedIn API",
       "TikTok API"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 0
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Descreve SocialMediaCredential com access_token cifrado, expiração e resolução via MetaService para publicação Instagram/Facebook — o coração das credenciais por cliente do SocialMedia. Existe módulo equivalente no calendar do engeapp; AgenteDeBolso (finanças pessoais) não publica em redes sociais. Notas — engeapp: 7, SocialMedia: 9, AgenteDeBolso: 0. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FN6C0J033TB526R94"
+    ]
   },
   {
     "id": "01M0G4G52FFPJQ6FJFN3ZV390R",
@@ -2170,35 +876,7 @@
       "Laravel Socialite",
       "Pest PHP",
       "Ziggy"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Login social com Socialite (services.php, rotas de auth, criação de usuário, mock em Pest) é usado nos três: engeapp com Google+Facebook, SocialMedia e AgenteDeBolso só com Google OAuth. Notas — engeapp: 9, SocialMedia: 8, AgenteDeBolso: 8. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FFPJQ6FJFN3ZV390R"
+    ]
   },
   {
     "id": "01M0G4G52F8KMB5WX6JP3M717H",
@@ -2215,35 +893,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Agendamento em routes/console.php, withoutOverlapping e integração com Studio Totem — Totem está no composer do engeapp; SocialMedia agenda publish-due/fetch-news e AgenteDeBolso agenda o job de cotações de moeda. Notas — engeapp: 9, SocialMedia: 8, AgenteDeBolso: 8. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F8KMB5WX6JP3M717H"
+    "libs": []
   },
   {
     "id": "01M0G4G52FW4DAZHA7HCT9R4AR",
@@ -2263,35 +913,7 @@
     "libs": [
       "Laravel Telescope",
       "Requests"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 2
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Watchers, gate viewTelescope, hideSensitiveRequestDetails e pruning só fazem sentido onde laravel/telescope está instalado, que é o engeapp. AgenteDeBolso depura com Clockwork/Debugbar/Pail/log-viewer e SocialMedia sequer lista Telescope. Notas — engeapp: 8, SocialMedia: 2, AgenteDeBolso: 4. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FW4DAZHA7HCT9R4AR"
+    ]
   },
   {
     "id": "01M0G4G52FKTF5149YTWZCRXZG",
@@ -2310,35 +932,7 @@
     ],
     "libs": [
       "Trello API"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): TrelloService, ProcessTrelloWebhookJob e comandos artisan de Trello sustentam o planner/kanban do engeapp com sync Trello+GitHub. AgenteDeBolso apenas lista Trello como serviço externo secundário e SocialMedia não o usa. Notas — engeapp: 8, SocialMedia: 0, AgenteDeBolso: 4. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FKTF5149YTWZCRXZG"
+    ]
   },
   {
     "id": "01M0G4G52F5EWFT8TVSJXKCEAM",
@@ -2356,35 +950,7 @@
     "frameworks": [
       "Laravel"
     ],
-    "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 3
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Geração de tipos TS a partir de DTOs spatie/laravel-data e Enums via typescript:transform é fluxo obrigatório do engeapp (spatie/laravel-typescript-transformer no composer). Os outros dois não usam o transformer, embora tenham Enums de domínio. Notas — engeapp: 9, SocialMedia: 3, AgenteDeBolso: 3. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [typescript]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F5EWFT8TVSJXKCEAM"
+    "libs": []
   },
   {
     "id": "01M0G4G52FYXWDZE1HVYMETWMC",
@@ -2403,35 +969,7 @@
     ],
     "libs": [
       "Ziggy"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 4
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 2
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): lab404/laravel-impersonate com rotas, permissões e integração com store Pinia é dependência declarada do AgenteDeBolso (suporte a multi-perfil e planos). engeapp/SocialMedia não têm o pacote, restando valor conceitual para suporte administrativo. Notas — engeapp: 4, SocialMedia: 2, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FYXWDZE1HVYMETWMC"
+    ]
   },
   {
     "id": "01M0G4G52F1YNV899D43G1Q2M5",
@@ -2454,35 +992,7 @@
     "libs": [
       "@maxvue/max-pinia",
       "Eloquent ORM"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 1
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 2
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Conversão UTM/DMS/Decimal, DTO LocationCoordinate e vue3-google-map atendem à georreferência de usinas fotovoltaicas do engeapp (proj4, utm-latlng, Google Maps na stack). Nem SocialMedia nem AgenteDeBolso manipulam coordenadas. Notas — engeapp: 9, SocialMedia: 1, AgenteDeBolso: 2. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F1YNV899D43G1Q2M5"
+    ]
   },
   {
     "id": "01M0G4G52FW1QKEZZND0K3YDZJ",
@@ -2510,35 +1020,7 @@
       "Pinia",
       "Vue Router",
       "Ziggy"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Autenticação por sessão/cookie com AuthenticatedSessionController, MaxAuthCard e stores useLogin/useUser é literalmente o mesmo fluxo nos três SPAs (Sanctum por sessão + Ziggy + vue-router 5); o SocialMedia inclusive documenta ter montado o login com MaxAuthCard. Notas — engeapp: 9, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FW1QKEZZND0K3YDZJ"
+    ]
   },
   {
     "id": "01M0G4G52FQ50YYSPJG6FMWM19",
@@ -2561,35 +1043,7 @@
     "libs": [
       "Spatie MediaLibrary",
       "VueFinder"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Sincronizar VueFinder com Spatie MediaLibrary (hooks de upload/move, custom properties, saveQuietly) casa com o gerenciador de documentos do engeapp, que tem os dois pacotes. AgenteDeBolso usa vuefinder-php para anexos mas não MediaLibrary; SocialMedia não usa nenhum dos dois. Notas — engeapp: 9, SocialMedia: 3, AgenteDeBolso: 7. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FQ50YYSPJG6FMWM19"
+    ]
   },
   {
     "id": "01M0G4G52F93MEV0NBHVH0EPB9",
@@ -2608,38 +1062,7 @@
     ],
     "libs": [
       "WhatsApp Cloud API"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 1
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Webhooks, jobs enfileirados, templates e mensagens interativas da WhatsApp Cloud API são pilar do atendimento do engeapp (netflie/whatsapp-cloud-api). AgenteDeBolso já tem SDK e tokens configurados mas o bot ainda não foi implementado; SocialMedia só integra Meta Graph para IG/FB. Notas — engeapp: 10, SocialMedia: 1, AgenteDeBolso: 7. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [whatsapp-cloud-api]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [whatsapp-cloud-api]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [laravel-whatsapp-cloud-api-integration, whatsapp-cloud-api]. Motivo: Eleita a skill 'laravel-whatsapp-cloud-api-integration' (index.json) por apresentar maior aderência à stack (nota de importância 10/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F93MEV0NBHVH0EPB9"
+    ]
   },
   {
     "id": "01M0G4G52F1DZR5DBTQCE2TPR9",
@@ -2658,35 +1081,7 @@
     ],
     "libs": [
       "Ziggy"
-    ],
-    "local_path": "created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): config/ziggy.php, ziggy:generate, ziggy.d.ts e route() auto-importado são infraestrutura comum dos três SPAs sem Inertia; no AgenteDeBolso a rota Ziggy ainda alimenta options.get.route das stores MaxPinia. Notas — engeapp: 9, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F1DZR5DBTQCE2TPR9"
+    ]
   },
   {
     "id": "01M0G4G52FPABCWP4S35T8BE88",
@@ -2701,35 +1096,7 @@
     "frameworks": [
       "UnoCSS"
     ],
-    "libs": [],
-    "local_path": "created-skills/project-history/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 0
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 0
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): É o changelog de marcos do próprio SocialMedia (Marco 1 multi-tenancy/AgencyScope em diante, com contagem de testes Pest), útil só ali para recuperar decisões passadas; é conteúdo factual de outro repositório para engeapp e AgenteDeBolso. Notas — engeapp: 0, SocialMedia: 8, AgenteDeBolso: 0. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FPABCWP4S35T8BE88"
+    "libs": []
   },
   {
     "id": "01M0G4G52FM2QXVR4AZP8HS2XR",
@@ -2745,35 +1112,7 @@
     "libs": [
       "Google Gemini SDK",
       "Redis"
-    ],
-    "local_path": "created-skills/project-setup/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 0
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 0
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Onboarding específico do SocialMedia (db:bootstrap PostgreSQL, GEMINI_API_KEY, META_*, pdftotext, ONETRAINER_PATH/COMFYUI_URL, Redis); vale só nesse repo e apenas em máquina nova, não no dia a dia. Notas — engeapp: 0, SocialMedia: 7, AgenteDeBolso: 0. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FM2QXVR4AZP8HS2XR"
+    ]
   },
   {
     "id": "01M0G4G52FGT31WKMJ1B9SRF3B",
@@ -2786,35 +1125,7 @@
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
     "languages": [],
     "frameworks": [],
-    "libs": [],
-    "local_path": "created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Metodologia genérica de causa-raiz apoiada em evidência de log antes de propor correção: boa prática de engenharia aplicável aos três, mas sem amarração a Laravel, Vue ou ao domínio de nenhum deles. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FGT31WKMJ1B9SRF3B"
+    "libs": []
   },
   {
     "id": "01M0G4G52FEQE51DMZ9YKMEYCA",
@@ -2829,38 +1140,7 @@
     "frameworks": [],
     "libs": [
       "ESLint"
-    ],
-    "local_path": "created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Padrões de README, ADR, changelog e JSDoc/TSDoc para código Laravel/Vue; pesa um pouco mais em SocialMedia (documentação viva em docs/superpowers) e AgenteDeBolso (atualizar resources/CLAUDE.md no mesmo commit é regra de entrega). Notas — engeapp: 6, SocialMedia: 7, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Identificadas 1 sobreposição(ões) de propósito/escopo com: [documentation]."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno do SKILL.md auditado. Duplicidade real confirmada com: [documentation, api-documentation-generator]. Devem ser submetidas à Fase 6 para eleição da melhor skill."
-      },
-      {
-        "Fase6": "Fase 6 (Eleição): ELEITA como a melhor skill do cluster de duplicidade [technical-documentation-best-practices, documentation, api-documentation-generator]. Motivo: Eleita a skill 'technical-documentation-best-practices' (index.json) por apresentar maior aderência à stack (nota de importância 7/10) e conteúdo mais estruturado para os projetos engeapp, SocialMedia e AgenteDeBolso."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FEQE51DMZ9YKMEYCA"
+    ]
   },
   {
     "id": "01M0G4G52F477ME1WMWZNJDX3J",
@@ -2875,35 +1155,7 @@
       "TypeScript"
     ],
     "frameworks": [],
-    "libs": [],
-    "local_path": "created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Generics, tipos condicionais/mapeados e branded types ajudam a tipar stores e DTOs nos três front-ends TS estritos, mas é conhecimento de linguagem geral, sem tocar Vue 3.6, MaxPinia ou UnoCSS. Notas — engeapp: 6, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F477ME1WMWZNJDX3J"
+    "libs": []
   },
   {
     "id": "01M0G4G52FB0505WH8S40NG5M9",
@@ -2920,35 +1172,7 @@
     "frameworks": [],
     "libs": [
       "EfiPay SDK"
-    ],
-    "local_path": "created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 2
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Motor de assinaturas em TypeScript puro (máquina de estados de subscription, parser canônico de webhook, idempotência) e a própria skill declara não servir à integração de pagamentos do engeapp, feita em PHP com efipay/inter-co. Só AgenteDeBolso tem billing/planos/cotas, e ainda assim em Laravel, então aproveita apenas os conceitos. Notas — engeapp: 2, SocialMedia: 0, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FB0505WH8S40NG5M9"
+    ]
   },
   {
     "id": "01M0G4G52FSR9AMFSDH0NFKVA1",
@@ -2965,35 +1189,7 @@
     "frameworks": [],
     "libs": [
       "EfiPay SDK"
-    ],
-    "local_path": "created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 6
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): EfiGateway do pacote @maxvue/max-banks: OAuth2/mTLS, createPixCharge/getCharge e parsing de webhook da Efí. engeapp e AgenteDeBolso cobram Pix via Efí (mas pelo SDK PHP), então a skill vale pelas regras da API; SocialMedia não tem pagamentos. Notas — engeapp: 6, SocialMedia: 0, AgenteDeBolso: 6. Nota máxima: 6/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FSR9AMFSDH0NFKVA1"
+    ]
   },
   {
     "id": "01M0G4G52F89MV92CC8JTBEX4D",
@@ -3010,35 +1206,7 @@
     "frameworks": [],
     "libs": [
       "ESLint"
-    ],
-    "local_path": "created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 5
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Trata tsc lento, project references, resolução de módulos e interop ESM/CJS — útil quando as libs @maxvue são linkadas localmente, mas os projetos não são monorepos e AgenteDeBolso nem usa Vitest, foco parcial da skill. Notas — engeapp: 5, SocialMedia: 5, AgenteDeBolso: 4. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F89MV92CC8JTBEX4D"
+    ]
   },
   {
     "id": "01M0G4G52FQ8N5D73J59PY8MH4",
@@ -3062,35 +1230,7 @@
       "@maxvue/max-use",
       "Axios",
       "Pinia"
-    ],
-    "local_path": "created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): unplugin-auto-import/unplugin-vue-components, MaxComponentsUiResolver e o auto-import.d.ts vs tsconfig são regra dura nos três (importar manualmente de vue ou das libs Max é proibido) e fonte recorrente de erro no vue-tsc. Notas — engeapp: 9, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FQ8N5D73J59PY8MH4"
+    ]
   },
   {
     "id": "01M0G4G52FMY72CNEFPYVGGCK1",
@@ -3112,35 +1252,7 @@
       "@maxvue/max-pinia",
       "@maxvue/max-use",
       "Axios"
-    ],
-    "local_path": "created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Uso de apiGetRoute/apiPostRoute do @maxvue/max-use com rotas Ziggy e credenciais dentro de stores MaxPinia é exatamente a regra dura dos três (nada de axios solto em componente; todo GET por store cacheada). Notas — engeapp: 9, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FMY72CNEFPYVGGCK1"
+    ]
   },
   {
     "id": "01M0G4G52FHZWZ0HXJ6BHDPQKS",
@@ -3158,35 +1270,7 @@
     "frameworks": [
       "Vue.js"
     ],
-    "libs": [],
-    "local_path": "created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Validação e parsing de linha digitável/código de barras com @mrmgomes/boleto-utils atende às cobranças EFI/Inter do engeapp e ao lançamento de contas a pagar do AgenteDeBolso (boleto-utils e jsbarcode na stack). SocialMedia não lida com pagamentos. Notas — engeapp: 8, SocialMedia: 0, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FHZWZ0HXJ6BHDPQKS"
+    "libs": []
   },
   {
     "id": "01M0G4G52FE13XJ9SAZPCH9XWS",
@@ -3209,35 +1293,7 @@
       "ESLint",
       "Pinia",
       "Stylelint"
-    ],
-    "local_path": "created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 1
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 0
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Componentes e stores de posicionamento de marca, temas e personagens (TabBrandPositioning, useSocialMediaCharacters, upload de imagens de referência) mapeiam o workspace do cliente no SocialMedia, inclusive a base de imagens que alimenta o LoRA. Nada disso existe nos outros dois domínios. Notas — engeapp: 1, SocialMedia: 9, AgenteDeBolso: 0. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FE13XJ9SAZPCH9XWS"
+    ]
   },
   {
     "id": "01M0G4G52FBQ3RGEF7PC4ZNGMC",
@@ -3257,35 +1313,7 @@
     ],
     "libs": [
       "@maxvue/max-components-ui"
-    ],
-    "local_path": "created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Formulários modais com MaxModal, auto-save com indicador de sincronização e abas múltiplas sobre stores max-pinia: padrão recorrente nos cadastros do engeapp e nos lançamentos/cartões do AgenteDeBolso; no SocialMedia aparece nas abas do workspace do cliente. Notas — engeapp: 8, SocialMedia: 7, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FBQ3RGEF7PC4ZNGMC"
+    ]
   },
   {
     "id": "01M0G4G52FPPR93JC232GM9B5A",
@@ -3306,35 +1334,7 @@
     "libs": [
       "@maxvue/max-use",
       "Day.js"
-    ],
-    "local_path": "created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): useDateFormat/useTimeAgo do max-use, fuso e parsing estrito com Day.js: uso constante em agenda/planner do engeapp, calendário editorial do SocialMedia e crítico no AgenteDeBolso (ciclo de fatura, competência x caixa, recorrência). Notas — engeapp: 7, SocialMedia: 7, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FPPR93JC232GM9B5A"
+    ]
   },
   {
     "id": "01M0G4G52F6TCCATTNQD1F1K3V",
@@ -3352,35 +1352,7 @@
     "frameworks": [
       "Vue.js"
     ],
-    "libs": [],
-    "local_path": "created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 7
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Diagnóstico de reatividade Vue 3 (computed, watchers, refs de template nulos, dados velhos, timing de ciclo de vida) atinge os três SPAs Vue 3.6, mas é troubleshooting de framework, não do design system Max nem do domínio. Notas — engeapp: 7, SocialMedia: 7, AgenteDeBolso: 7. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F6TCCATTNQD1F1K3V"
+    "libs": []
   },
   {
     "id": "01M0G4G52FR45GY3Q2E1Y36D87",
@@ -3401,35 +1373,7 @@
     "libs": [
       "ESLint",
       "Stylelint"
-    ],
-    "local_path": "created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 7
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Flat config de ESLint + Stylelint com ordem de blocos template/script/style em SFC e regras de SCSS: engeapp roda os dois linters; AgenteDeBolso usa ESLint 9 + Prettier sem Stylelint e SocialMedia se apoia sobretudo em Pint e vue-tsc. Notas — engeapp: 8, SocialMedia: 6, AgenteDeBolso: 7. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FR45GY3Q2E1Y36D87"
+    ]
   },
   {
     "id": "01M0G4G52F736SSZVZDWV8HQ5Q",
@@ -3454,35 +1398,7 @@
       "@maxvue/max-use",
       "Pinia",
       "Vue Router"
-    ],
-    "local_path": "created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Roteiro de correção de bug de front na stack exata Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi (cache de store, auto-save, HMR, rotas); escrita para engeapp e transferível quase integralmente aos outros dois, que replicam a stack. Notas — engeapp: 9, SocialMedia: 8, AgenteDeBolso: 8. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F736SSZVZDWV8HQ5Q"
+    ]
   },
   {
     "id": "01M0G4G52FJ4QZKB4R0K2TGM0R",
@@ -3504,35 +1420,7 @@
       "@maxvue/max-components-ui",
       "@maxvue/max-pinia",
       "Pinia"
-    ],
-    "local_path": "created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Máscaras Maska v3 e validação de CPF/CNPJ, CEP, telefone, moeda e cartão (card-validator) são pão-de-cada-dia nos formulários de cliente do engeapp e no cadastro de cartões/valores do AgenteDeBolso. SocialMedia tem pouquíssima entrada de dado brasileiro formatado. Notas — engeapp: 9, SocialMedia: 3, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FJ4QZKB4R0K2TGM0R"
+    ]
   },
   {
     "id": "01M0G4G52FPRWYTT588CZRBTYB",
@@ -3552,35 +1440,7 @@
     ],
     "libs": [
       "@maxvue/max-use"
-    ],
-    "local_path": "created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 5
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 4
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 5
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): useMagicKeys/useActiveElement para atalhos e gestão de foco melhora acessibilidade e produtividade em telas densas, mas nenhum dos três lista atalhos de teclado como requisito — e o AgenteDeBolso é mobile-first, reduzindo ainda mais o ganho. Notas — engeapp: 5, SocialMedia: 4, AgenteDeBolso: 5. Nota máxima: 5/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FPRWYTT588CZRBTYB"
+    ]
   },
   {
     "id": "01M0G4G52FN919TBC6AS95B5SQ",
@@ -3600,35 +1460,7 @@
     ],
     "libs": [
       "@maxvue/max-components-ui"
-    ],
-    "local_path": "created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 3
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): MaxPopover, menus e diálogos de confirmação apoiados na diretiva v-tooltip do PrimeVue registrada pelo MaxComponentsUi; AgenteDeBolso renderiza PrimeVue por baixo do max-components-ui e engeapp usa o mesmo design system. SocialMedia removeu o PrimeVue e proíbe reintroduzi-lo. Notas — engeapp: 8, SocialMedia: 3, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FN919TBC6AS95B5SQ"
+    ]
   },
   {
     "id": "01M0G4G52F058W41SS9BH3M23N",
@@ -3651,35 +1483,7 @@
       "@maxvue/max-components-ui",
       "@maxvue/max-pinia",
       "@maxvue/max-use"
-    ],
-    "local_path": "created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Referência de props/eventos/slots do MaxComponentsUi, composables do MaxUse e configuração de stores cacheadas do MaxPinia — as três libs internas obrigatórias em todos os projetos; é a consulta que evita reinventar componente ou store. Notas — engeapp: 10, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F058W41SS9BH3M23N"
+    ]
   },
   {
     "id": "01M0G4G52FCX379X4PKE3XTT1X",
@@ -3705,35 +1509,7 @@
       "Axios",
       "Pinia",
       "Vue Router"
-    ],
-    "local_path": "created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Define o padrão de SFC com <script setup lang=\"ts\">, vue-router, stores MaxPinia cacheadas, formulários/tabelas Max e rotas Ziggy: é a convenção de front declarada como obrigatória nos três projetos. Notas — engeapp: 10, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FCX379X4PKE3XTT1X"
+    ]
   },
   {
     "id": "01M0G4G52F35ZFHS7Y30QK1X9N",
@@ -3754,35 +1530,7 @@
     "libs": [
       "@maxvue/max-use",
       "Vitest"
-    ],
-    "local_path": "created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 7
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 6
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 6
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Voltada a evoluir a própria lib @maxvue/max-use (novos helpers, composables, testes Vitest, tipos), não a consumi-la; vale quando um projeto precisa estender a lib — mais provável no engeapp, origem do ecossistema, e SocialMedia/AgenteDeBolso apenas consomem as libs em storage/libs. Notas — engeapp: 7, SocialMedia: 6, AgenteDeBolso: 6. Nota máxima: 7/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F35ZFHS7Y30QK1X9N"
+    ]
   },
   {
     "id": "01M0G4G52F9X8JJ3EV6AHP7MTG",
@@ -3802,35 +1550,7 @@
     ],
     "libs": [
       "@maxvue/max-use"
-    ],
-    "local_path": "created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 10
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Documenta useRefCachedApi/useCachedApi de @maxvue/max-use para cachear GET com revalidação em background, exatamente o mecanismo de cache client-side (LocalForage) que os três projetos exigem por convenção. AgenteDeBolso é o mais dependente (64 stores com isCached e invalidação de cache). Notas — engeapp: 9, SocialMedia: 9, AgenteDeBolso: 10. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F9X8JJ3EV6AHP7MTG"
+    ]
   },
   {
     "id": "01M0G4G52FD6G89W0Q773PB3KM",
@@ -3852,35 +1572,7 @@
       "@maxvue/max-pinia",
       "Axios",
       "Pinia"
-    ],
-    "local_path": "created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 2
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 1
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cobre a UI de credenciais da Meta API (external_account_id/token) em TabCredentials.vue do próprio SocialMedia, integração central de publicação IG/FB. EngeApp só usa a Meta via WhatsApp Cloud (outro fluxo) e AgenteDeBolso não publica em redes sociais. Notas — engeapp: 2, SocialMedia: 9, AgenteDeBolso: 1. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FD6G89W0Q773PB3KM"
+    ]
   },
   {
     "id": "01M0G4G52FDY6EWRN5N76EG8NB",
@@ -3901,35 +1593,7 @@
     "libs": [
       "@maxvue/max-pinia",
       "Pinia"
-    ],
-    "local_path": "created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 10
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 10
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Formaliza a regra dura compartilhada de que todo GET de página passa por store MaxPinia (@maxvue/max-pinia), com apiGetRoute só para lookups pontuais. É literalmente a convenção de estado obrigatória nos três frontends Vue 3.6. Notas — engeapp: 10, SocialMedia: 10, AgenteDeBolso: 10. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FDY6EWRN5N76EG8NB"
+    ]
   },
   {
     "id": "01M0G4G52FW4DTJ525TRMKE93A",
@@ -3950,35 +1614,7 @@
     "libs": [
       "Axios",
       "Pinia"
-    ],
-    "local_path": "created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 2
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 1
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Descreve o painel TabNewsItems.vue de moderação de notícias RSS (paginação limit/offset, abas pending/archived, agrupamento por keyword, aprovação de tema editorial) — funcionalidade nuclear do SocialMedia. Os outros dois projetos não têm ingestão de notícias. Notas — engeapp: 2, SocialMedia: 9, AgenteDeBolso: 1. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FW4DTJ525TRMKE93A"
+    ]
   },
   {
     "id": "01M0G4G52FBKC0FDXJBMR25V6R",
@@ -4000,35 +1636,7 @@
       "@maxvue/max-components-ui",
       "Pinia",
       "Vue Toastify"
-    ],
-    "local_path": "created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 8
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Padroniza feedback ao usuário via MaxToast de @maxvue/max-components-ui com Toast.show({title, severity}), componente do design system Max presente nos três projetos; é uso frequente porém periférico frente ao núcleo de domínio. Notas — engeapp: 8, SocialMedia: 8, AgenteDeBolso: 8. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FBKC0FDXJBMR25V6R"
+    ]
   },
   {
     "id": "01M0G4G52F0CEX4Y8AWFQVWR1T",
@@ -4048,35 +1656,7 @@
     ],
     "libs": [
       "Pinia"
-    ],
-    "local_path": "created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 9
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 9
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Cobre estrutura de SFC com script setup lang=ts, tipagem de defineProps/defineEmits, tsconfig e declarações de módulo — base diária dos três frontends Vue 3.6 + TypeScript com vue-tsc --noEmit e auto-imports. Notas — engeapp: 9, SocialMedia: 9, AgenteDeBolso: 9. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F0CEX4Y8AWFQVWR1T"
+    ]
   },
   {
     "id": "01M0G4G52F7HCNBBVQ423KY0TJ",
@@ -4098,35 +1678,7 @@
     ],
     "libs": [
       "@maxvue/max-components-ui"
-    ],
-    "local_path": "created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 10
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 10
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 10
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Trata de UnoCSS com presetMaxUno, attributify, variant groups, params.scss e dark mode via useDark — o sistema de estilo obrigatório (e explicitamente não-Tailwind) dos três projetos. A menção a Tailwind nos metadados é ruído de classificação. Notas — engeapp: 10, SocialMedia: 10, AgenteDeBolso: 10. Nota máxima: 10/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52F7HCNBBVQ423KY0TJ"
+    ]
   },
   {
     "id": "01M0G4G52FJ69WE0FRS2ZJTDD0",
@@ -4146,35 +1698,7 @@
     ],
     "libs": [
       "Vitest"
-    ],
-    "local_path": "created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 9
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 8
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 2
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Testes de componentes, stores MaxPinia e composables com Vitest + Vue Test Utils em tests/Js: engeapp mantém 29 specs e SocialMedia 10 specs, enquanto AgenteDeBolso lista Vitest como fora da estratégia (usa Pest + Dusk). Notas — engeapp: 9, SocialMedia: 8, AgenteDeBolso: 2. Nota máxima: 9/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FJ69WE0FRS2ZJTDD0"
+    ]
   },
   {
     "id": "01M0G4G52FFKRZ5RZHFQ5YXYEZ",
@@ -4192,34 +1716,6 @@
     "frameworks": [
       "Vue.js"
     ],
-    "libs": [],
-    "local_path": "created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 8
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 1
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 4
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Simulação em Vue de mensagens interativas do WhatsApp (quick replies, listas, CTA, header de mídia) casa com o módulo de atendimento WhatsApp Cloud API do engeapp; AgenteDeBolso tem o SDK configurado mas o bot ainda não existe, e SocialMedia não usa WhatsApp. Notas — engeapp: 8, SocialMedia: 1, AgenteDeBolso: 4. Nota máxima: 8/10."
-      },
-      {
-        "Fase4": "Fase 4 (Duplicidades): Nenhuma sobreposição de escopo detectada na análise de description_en."
-      },
-      {
-        "Fase5": "Fase 5 (Confirmação de Duplicidades): Conteúdo interno auditado. Nenhuma duplicidade concorrente detectada (ou sobreposições superficiais refutadas por complementaridade)."
-      }
-    ],
-    "overlaps_ids": [],
-    "overlaps_best_id": "01M0G4G52FFKRZ5RZHFQ5YXYEZ"
+    "libs": []
   }
 ]
