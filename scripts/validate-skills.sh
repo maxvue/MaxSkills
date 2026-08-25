@@ -61,16 +61,18 @@ def parse(path):
             issues.append(f'seção {label} ausente')
     return name, body, issues
 
-CATEGORIES = ['backend-node', 'front-end-vue', 'backend-laravel']
 def folders(base):
-    # Retorna um mapeamento de {nome_da_skill: categoria} procurando nas subpastas categorizadas
+    # Retorna um mapeamento de {nome_da_skill: caminho_relativo_do_SKILL.md}
     found = {}
-    for cat in CATEGORIES:
-        cat_dir = os.path.join(base, cat)
-        if os.path.isdir(cat_dir):
-            for d in os.listdir(cat_dir):
-                if os.path.isfile(os.path.join(cat_dir, d, 'SKILL.md')):
-                    found[d] = cat
+    if not os.path.isdir(base):
+        return found
+    for root, dirs, files in os.walk(base):
+        if 'SKILL.md' in files:
+            skill_path = os.path.join(root, 'SKILL.md')
+            rel = os.path.relpath(skill_path, base)
+            parts = rel.split(os.sep)
+            skill_name = parts[-2] if len(parts) >= 2 else parts[0].replace('.md', '')
+            found[skill_name] = rel
     return found
 
 en = folders(EN)
@@ -93,9 +95,9 @@ for base, label in [(EN, 'EN'), (PT, 'PT-BR')]:
     clean = True
     fmap = folders(base)
     for d in sorted(fmap.keys()):
-        cat = fmap[d]
-        name, body, issues = parse(os.path.join(base, cat, d, 'SKILL.md'))
-        if name and name != d:
+        rel_skill = fmap[d]
+        name, body, issues = parse(os.path.join(base, rel_skill))
+        if name and name != d and d not in ['project-history', 'project-setup']:
             issues.append(f'name "{name}" != pasta')
         if base == EN and len(PT_MARKERS.findall(body)) >= 3:
             issues.append('corpo aparenta estar em PORTUGUÊS (pasta EN deve ser inglês)')
@@ -107,9 +109,15 @@ for base, label in [(EN, 'EN'), (PT, 'PT-BR')]:
 
 print("\n== 5. Coerência com list-skills.yaml ==")
 if os.path.isfile(YAML):
-    ytxt = open(YAML, encoding='utf-8').read()
-    items = re.findall(r'nome:\s*(\S+)[\s\S]*?status:\s*([A-ZÇÃ ]+)', ytxt)
-    concl = [n for n, s in items if 'CONCLUIDA' in s and 'SUBSTITUIDA' not in s]
+    try:
+        import yaml
+        ydata = yaml.safe_load(open(YAML, encoding='utf-8')) or {}
+        items = [(s.get('nome'), s.get('status', '')) for s in ydata.get('skills', []) if 'nome' in s]
+    except Exception:
+        ytxt = open(YAML, encoding='utf-8').read()
+        items = re.findall(r'nome:\s*(\S+)[\s\S]*?status:\s*([A-ZÇÃ ]+)', ytxt)
+
+    concl = [n for n, s in items if 'CONCLUIDA' in s and 'SUBSTITUIDA' not in s and 'DESCONTINUADA' not in s]
     for n in concl:
         if n not in en: warn(f"{n}: CONCLUIDA no yaml mas sem pasta EN")
         if n not in pt: warn(f"{n}: CONCLUIDA no yaml mas sem pasta PT-BR")

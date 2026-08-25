@@ -1,3 +1,5 @@
 /.worktrees
 skills-lock.json
 .agents/
+.agent
+

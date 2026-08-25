@@ -18,6 +18,9 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SKILLS_ROOT="$REPO_ROOT/created-skills"
 MANIFESTS_DIR="$REPO_ROOT/manifests"
 PROJECTS_ROOT="${PROJECTS_ROOT:-$HOME/GitHub}"
+if [[ ! -d "$PROJECTS_ROOT" && -d "/home/johnattas/GitHub" ]]; then
+  PROJECTS_ROOT="/home/johnattas/GitHub"
+fi
 
 errors=0
 
