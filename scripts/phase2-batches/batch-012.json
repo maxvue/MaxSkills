@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0GCFD292J4EYJYGH1167P0Y",
+  "skill_name": "gemini-omni-flash-api",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/gemini-omni-flash-api/SKILL.md",
+  "description_en": "Use this skill for generative video editing, text-to-video, image-referenced video generation, and first-frame-to-video transition animations using the official google-genai SDK. Includes workflows for pre-processing/optimizing high-resolution or long source videos with ffmpeg,...",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Cobre geração/edição de vídeo com Gemini pelo SDK google-genai (Python) mais pré-processamento com ffmpeg; SocialMedia usa Gemini e ffmpeg no pipeline de mídia, mas via laravel/ai em PHP e sem text-to-video, então ajuda apenas parcialmente; engeapp e AgenteDeBolso usam Gemini só para texto/extração."
+ },
+ {
+  "id": "01M0GCFD29KJWWZTJJV5Z491AK",
+  "skill_name": "generate-nanobanana",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/generate-nanobanana/SKILL.md",
+  "description_en": "Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Flash), with cost-approval gates, reference-image support, and a prompt/output log per call.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Geração e edição de imagem com os modelos de mídia do Gemini (Nano Banana), com imagens de referência e registro de custo por chamada; casa com a direção de arte por IA e o rastreio de custo USD→BRL do SocialMedia, embora a arte final lá seja gerada por ComfyUI+LoRA Z-Image local."
+ },
+ {
+  "id": "01M0GCFD292D04ENM7S0F2TBVT",
+  "skill_name": "gha-security-review",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/gha-security-review/SKILL.md",
+  "description_en": "Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete exploitation scenario — if you can't build the attack, don't report it.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Auditoria de vulnerabilidades em workflows do GitHub Actions; os três projetos não têm CI/CD (deploy por Deployer 8 ou webhook próprio) e GitHub Actions está explicitamente listado como tema irrelevante."
+ },
+ {
+  "id": "01M0GCFD29FQ3DW58YCT90PRHV",
+  "skill_name": "git-advanced-workflows",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-advanced-workflows/SKILL.md",
+  "description_en": "Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from any situation with confidence.",
+  "fase1_notas": {
+   "engeapp": 7,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Técnicas avançadas de Git (histórico limpo, rebase, recuperação de estados quebrados) que sustentam a regra dura de worktrees obrigatórios em `.worktrees/` compartilhada pelos três projetos, incluindo merges de volta ao branch principal."
+ },
+ {
+  "id": "01M0GCFD29KEC48M75RQH5SWFX",
+  "skill_name": "git-hooks-automation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-hooks-automation/SKILL.md",
+  "description_en": "Master Git hooks setup with Husky, lint-staged, pre-commit framework, and commitlint. Automate code quality gates, formatting, linting, and commit message enforcement before code reaches CI.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Configuração de Husky/lint-staged/commitlint como portão antes da CI; os projetos rodam Pint, ESLint e PHPStan manualmente e não têm CI, então automação por hooks seria uma adoção nova e opcional."
+ },
+ {
+  "id": "01M0GCFD293BM76FCBAH5GWP8Q",
+  "skill_name": "git-pr-review",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-review/SKILL.md",
+  "description_en": "Generate a concise and structured PR description from commit history with minimal token usage",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Gera descrição de PR a partir do histórico de commits com baixo consumo de tokens; nos três projetos o fluxo é worktree → merge local com commit só sob pedido, sem cultura de pull request."
+ },
+ {
+  "id": "01M0GCFD292KAD47D51TYCY4B5",
+  "skill_name": "git-pr-workflows-git-workflow",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-workflows-git-workflow/SKILL.md",
+  "description_en": "Orchestrate review, tests, commits, branch pushes, and pull-request creation with parallel agents. Use when completed changes must move through validation into a PR or guarded merge.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Orquestra revisão, testes, commit, push de branch e abertura de PR com agentes paralelos; a parte de rodar a suíte antes de integrar é útil, mas o destino em PR/merge guardado não corresponde ao fluxo local desses repositórios."
+ },
+ {
+  "id": "01M0GCFD2986BXK9479Y2EP8G3",
+  "skill_name": "git-pr-workflows-onboard",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-workflows-onboard/SKILL.md",
+  "description_en": "You are an **expert onboarding specialist and knowledge transfer architect** with deep experience in remote-first organizations, technical team integration, and accelerated learning methodologies. You",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Metodologia de onboarding e transferência de conhecimento para times remotos; os três projetos são de desenvolvedor único com contexto já consolidado em CLAUDE.md, tornando o uso raro."
+ },
+ {
+  "id": "01M0GCFD29BBVZSVVJ1773K0MM",
+  "skill_name": "git-pr-workflows-pr-enhance",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-workflows-pr-enhance/SKILL.md",
+  "description_en": "You are a PR optimization expert specializing in creating high-quality pull requests that facilitate efficient code reviews. Generate comprehensive PR descriptions, automate review processes, and ensu",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Otimiza descrições de pull request e automatiza o processo de code review em PR; sem fluxo de PR nesses repositórios, a skill fica praticamente sem gatilho."
+ },
+ {
+  "id": "01M0GCFD29GXPDWZNDYFXCZCB3",
+  "skill_name": "git-pushing",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pushing/SKILL.md",
+  "description_en": "Safely stage, commit, and push intended git changes with conventional commit messages. Use for ordinary non-release pushes when explicitly asked to push, save work remotely, or share a completed change.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Disciplina de stage/commit/push seletivo com mensagens em conventional commits e só quando pedido explicitamente, o que espelha a convenção dos três projetos de commitar apenas sob autorização e nunca versionar segredos."
+ },
+ {
+  "id": "01M0GCFD2AT5AX4GCKET2HQQ9E",
+  "skill_name": "git-workflow-and-versioning",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-workflow-and-versioning/SKILL.md",
+  "description_en": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Estrutura branching, resolução de conflitos e organização de trabalho em fluxos paralelos — pertinente ao modelo de múltiplas worktrees simultâneas usado nos três repositórios, mas sem nada específico da stack Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD2AMBRADHJ1257ARFYG",
+  "skill_name": "github",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github/SKILL.md",
+  "description_en": "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Uso do CLI `gh` para issues, PRs e API do GitHub; ganha peso no engeapp, que integra GitHub ao planner/kanban e ao módulo interno de bugs, e pouco nos outros dois, que não consomem a API do GitHub."
+ },
+ {
+  "id": "01M0GCFD2AEJKXX8R9FS0C1S5Y",
+  "skill_name": "github-actions-advanced",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github-actions-advanced/SKILL.md",
+  "description_en": "Design, debug, and harden GitHub Actions CI/CD workflows, including reusable workflows, matrix builds, self-hosted runners, OIDC authentication, caching, environments, secrets, and release automation.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Workflows reutilizáveis, matrizes, runners self-hosted e OIDC no GitHub Actions; CI/CD por GitHub Actions é tema explicitamente irrelevante nos três dossiês."
+ },
+ {
+  "id": "01M0GCFD2AW4DWKYDCD1JJHVTP",
+  "skill_name": "github-presence",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github-presence/SKILL.md",
+  "description_en": "When the user wants to optimize their GitHub profile, README, or project discoverability. Trigger phrases include \"GitHub README,\" \"README optimization,\" \"GitHub profile,\" \"GitHub stars,\" \"GitHub discoverability,\" \"awesome lists,\" or \"GitHub marketing.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Otimização de perfil, README e descoberta de projetos open source no GitHub; os três são SaaS privados, sem qualquer objetivo de estrelas ou marketing de repositório."
+ },
+ {
+  "id": "01M0GCFD2APMQNQ10W1RACZB7Z",
+  "skill_name": "github-workflow-automation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github-workflow-automation/SKILL.md",
+  "description_en": "Patterns for automating GitHub workflows with AI assistance, inspired by [Gemini CLI](https://github.com/google-gemini/gemini-cli) and modern DevOps practices.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Padrões de automação de fluxos do GitHub com IA inspirados no Gemini CLI e práticas DevOps; a base é GitHub Actions/DevOps, fora do escopo desses projetos sem CI."
+ },
+ {
+  "id": "01M0GCFD2AJVS5P7SFYH9CGFQ9",
+  "skill_name": "global-chat-agent-discovery",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/global-chat-agent-discovery/SKILL.md",
+  "description_en": "Discover and search 18K+ MCP servers and AI agents across 6+ registries using Global Chat's cross-protocol directory and MCP server.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Busca de servidores MCP e agentes em registries externos; nenhum dos projetos depende de descoberta de MCP de terceiros — os agentes de IA são internos (laravel/ai com Gemini e Ollama)."
+ },
+ {
+  "id": "01M0GCFD2A7J8KD6W5AGRN0ZKG",
+  "skill_name": "go-rod-master",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/go-rod-master/SKILL.md",
+  "description_en": "Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) including stealth anti-bot-detection patterns.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Automação de navegador via CDP com a biblioteca go-rod em Go; embora engeapp e AgenteDeBolso automatizem navegador, fazem isso com Puppeteer/php-webdriver, e Go é linguagem listada como irrelevante."
+ },
+ {
+  "id": "01M0GCFD2AXMN1KH6GC0HHBMDY",
+  "skill_name": "goal-loop",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/goal-loop/SKILL.md",
+  "description_en": "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Redação de prompts de laço persistente com condições de parada para trabalho longo de agente; útil pontualmente em migrações extensas (ex.: varrer 384 migrations ou 181 SFCs), mas é técnica de prompt, não de stack."
+ },
+ {
+  "id": "01M0GCFD2AZ4B2N4DE73SZ95M5",
+  "skill_name": "golang-pro",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/golang-pro/SKILL.md",
+  "description_en": "Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production-ready microservices.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Go 1.21+, concorrência avançada e microserviços em produção; Go e microserviços são temas explicitamente irrelevantes — o backend dos três é PHP 8.4/Laravel monolítico."
+ },
+ {
+  "id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+  "skill_name": "google-calendar-automation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/google-calendar-automation/SKILL.md",
+  "description_en": "Lightweight Google Calendar integration with standalone OAuth authentication. No MCP server required.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Integração com a API do Google Calendar via OAuth standalone; o calendário editorial do SocialMedia é FullCalendar próprio e o do AgenteDeBolso exporta .ics, sem sincronizar com o Google Calendar."
+ },
+ {
+  "id": "01M0GCFD2BSHZ94XGYRYCBDG3B",
+  "skill_name": "gpt-taste",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/gpt-taste/SKILL.md",
+  "description_en": "Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography, and gapless bento grids.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Landing pages com animação pesada em GSAP, estrutura AIDA e bento grids; conflita com o design system Max + UnoCSS attributify obrigatório, servindo no máximo ao site público do engeapp."
+ },
+ {
+  "id": "01M0GCFD2BQ91RX9V6F88M7859",
+  "skill_name": "graphql-architect",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/graphql-architect/SKILL.md",
+  "description_en": "Master modern GraphQL with federation, performance optimization, and enterprise security. Build scalable schemas, implement advanced caching, and design real-time systems.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Schemas GraphQL federados, caching e subscriptions; GraphQL é tema explicitamente irrelevante nos três projetos, que expõem APIs REST com rotas Laravel + Ziggy."
+ },
+ {
+  "id": "01M0GCFD2BP2RK9R4QRF23QSMT",
+  "skill_name": "grilling",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/grilling/SKILL.md",
+  "description_en": "Interview the user relentlessly about a plan or design. Use when the user wants to stress-test a plan before building, or uses any 'grill' trigger phrases.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Interrogatório sistemático do plano antes de codar; encaixa na regra de apresentar plano antes de qualquer alteração (engeapp) e no ciclo auditoria→spec→plano→worktree→TDD do SocialMedia, mas é prática de processo, não de stack."
+ },
+ {
+  "id": "01M0GCFD2BM9NVH79MPAMJETEA",
+  "skill_name": "grok-build",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/grok-build/SKILL.md",
+  "description_en": "Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while the orchestrating agent plans, writes task specs, reviews every diff, and owns the result.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Delegação de tarefas de implementação ao CLI Grok da xAI em modo headless; nenhum dos projetos usa xAI/Grok como ferramenta de desenvolvimento ou provider."
+ },
+ {
+  "id": "01M0GCFD2B5HX9Z9M70RYKKRVQ",
+  "skill_name": "growth-engine",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/growth-engine/SKILL.md",
+  "description_en": "Motor de crescimento para produtos digitais -- growth hacking, SEO, ASO, viral loops, email marketing, CRM, referral programs e aquisicao organica.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Growth hacking, SEO/ASO, loops virais, e-mail marketing e programas de indicação; é conteúdo de marketing de produto e não de engenharia — nem o SocialMedia, que atende agências, precisa disso no código."
+ },
+ {
+  "id": "01M0GCFD2BANK518VNKWNPBJ3Q",
+  "skill_name": "handoff",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/handoff/SKILL.md",
+  "description_en": "Compact the current conversation into a handoff document for another agent to pick up.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Compacta a conversa em documento de handoff para outro agente continuar; combina com a documentação viva do SocialMedia (docs/superpowers/specs|plans) e ajuda em sessões longas nos repositórios grandes, sem tocar na stack."
+ },
+ {
+  "id": "01M0GCFD2B1J83FTEXH34PT8M4",
+  "skill_name": "hasdata",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hasdata/SKILL.md",
+  "description_en": "Use HasData APIs for web scraping and structured web data extraction.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Extração estruturada de dados web pelas APIs pagas da HasData; o SocialMedia faz scraping de URL para temas e leitura de RSS, mas com ferramentas próprias, então seria no máximo uma alternativa terceirizada."
+ },
+ {
+  "id": "01M0GCFD2BVKMAGDMNKEGEB36B",
+  "skill_name": "hf-mcp",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hf-mcp/SKILL.md",
+  "description_en": "Use Hugging Face Hub via MCP server tools. Search models, datasets, Spaces, papers. Get repo details, fetch documentation, run compute jobs, and use Gradio Spaces as AI tools. Available when connected to the HF MCP server.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Busca de modelos, datasets e Spaces no Hugging Face via servidor MCP; pode ajudar o SocialMedia a localizar checkpoints/safetensors para o pipeline Z-Image/LoRA e modelos do Ollama, mas exige o MCP conectado."
+ },
+ {
+  "id": "01M0GCFD2CMRKVQ8Y3A6SVX811",
+  "skill_name": "hierarchical-agent-memory",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hierarchical-agent-memory/SKILL.md",
+  "description_en": "Scoped CLAUDE.md memory system that reduces context token spend. Creates directory-level context files, tracks savings via dashboard, and routes agents to the right sub-context.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Sistema de CLAUDE.md escopado por diretório para reduzir gasto de contexto; é atraente para repositórios grandes com CLAUDE.md extenso (970 arquivos PHP no engeapp, resources/CLAUDE.md no AgenteDeBolso), porém propõe uma reestruturação que colide com a regra de manter um CLAUDE.md único e atualizado."
+ },
+ {
+  "id": "01M0GCFD2C4GHTQZ18JV8GZYM5",
+  "skill_name": "hig-components-status",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hig-components-status/SKILL.md",
+  "description_en": "Apple HIG guidance for status and progress UI components including progress indicators, status bars, and activity rings.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Guia de indicadores de progresso, status bars e activity rings segundo a Apple HIG; a UI dos três vem dos componentes Max/UnoCSS e mobile nativo é irrelevante — só o layout mobile-first do AgenteDeBolso aproveita alguma ideia."
+ },
+ {
+  "id": "01M0GCFD2CS3MQFEYA3489P6W7",
+  "skill_name": "hig-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hig-patterns/SKILL.md",
+  "description_en": "Apple Human Interface Guidelines interaction and UX patterns.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Padrões de interação e UX das Human Interface Guidelines da Apple; são referências de plataforma iOS, enquanto os projetos são PWA/SPA web com design system Max já definido."
+ },
+ {
+  "id": "01M0GCFD2C0WBXYD627ETB34XD",
+  "skill_name": "hono",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hono/SKILL.md",
+  "description_en": "Build ultra-fast web APIs and full-stack apps with Hono — runs on Cloudflare Workers, Deno, Bun, Node.js, and any WinterCG-compatible runtime.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Construção de APIs com Hono em Cloudflare Workers/Deno/Bun; backend Node e edge serverless são temas irrelevantes — os três rodam Laravel sobre Caddy+PHP-FPM."
+ },
+ {
+  "id": "01M0GCFD2DNFHE5H4RY28KZ2F2",
+  "skill_name": "hugging-face-datasets",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-datasets/SKILL.md",
+  "description_en": "Create and manage datasets on Hugging Face Hub. Supports initializing repos, defining configs/system prompts, streaming row updates, and SQL-based dataset querying/transformation. Designed to work alongside HF MCP server for comprehensive dataset workflows.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Criação e consulta SQL de datasets no Hub do Hugging Face; o SocialMedia monta datasets de imagens com captioning para treinar LoRA, mas localmente com OneTrainer, sem publicar no Hub."
+ },
+ {
+  "id": "01M0GCFD2DT2609088TH7QDN6J",
+  "skill_name": "hugging-face-evaluation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-evaluation/SKILL.md",
+  "description_en": "Add and manage evaluation results in Hugging Face model cards. Supports extracting eval tables from README content, importing scores from Artificial Analysis API, and running custom model evaluations with vLLM/lighteval. Works with the model-index metadata format.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Gestão de resultados de avaliação em model cards com vLLM/lighteval e formato model-index; nenhum projeto publica model cards nem roda benchmarks de LLM — o consumo é de APIs Gemini e do Ollama local."
+ },
+ {
+  "id": "01M0GCFD2DD4V89E7SBCS5CBQT",
+  "skill_name": "hugging-face-model-trainer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-model-trainer/SKILL.md",
+  "description_en": "Train or fine-tune language and vision models using TRL (Transformer Reinforcement Learning) or Unsloth with Hugging Face Jobs infrastructure. Covers SFT, DPO, GRPO and reward modeling training methods, plus GGUF conversion for local deployment. Includes guidance on the TRL Jobs...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Fine-tuning de LLMs com TRL/Unsloth (SFT, DPO, GRPO) na infra de Jobs do HF e conversão para GGUF; o SocialMedia treina LoRA de imagem Z-Image com OneTrainer na GPU local, um caminho técnico distinto, e os demais não treinam modelo algum."
+ },
+ {
+  "id": "01M0GCFD2D3EYGB63VY4TNHNAM",
+  "skill_name": "hugging-face-paper-publisher",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-paper-publisher/SKILL.md",
+  "description_en": "Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking papers to models/datasets, claiming authorship, and generating professional markdown-based research articles.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Publicação de artigos de pesquisa no Hugging Face Hub e reivindicação de autoria; é atividade acadêmica sem qualquer interseção com SaaS de energia solar, redes sociais ou finanças pessoais."
+ },
+ {
+  "id": "01M0GCFD2DKR0Q3D768G21TFD5",
+  "skill_name": "hugging-face-papers",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-papers/SKILL.md",
+  "description_en": "Look up and read Hugging Face paper pages in markdown, and use the papers API for structured metadata such as authors, linked models/datasets/spaces, Github repo and project page. Use when the user shares a Hugging Face paper page URL, an arXiv URL or ID, or asks to summarize, explain,...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Leitura e resumo de páginas de papers do HF/arXiv com metadados estruturados; serviria apenas a pesquisa exploratória sobre difusão/LoRA no SocialMedia, sem efeito no código de produção."
+ },
+ {
+  "id": "01M0GCFD2DK2G7KWEKH7H8GKAQ",
+  "skill_name": "hugging-face-tool-builder",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-tool-builder/SKILL.md",
+  "description_en": "Your purpose is now is to create reusable command line scripts and utilities for using the Hugging Face API, allowing chaining, piping and intermediate processing where helpful. You can access the API directly, as well as use the hf command line tool.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Criação de scripts CLI encadeáveis sobre a API e o comando `hf`; no SocialMedia poderia automatizar download de checkpoints para ComfyUI, mas nada disso toca a stack PHP/Vue dos projetos."
+ },
+ {
+  "id": "01M0GCFD2DE6D049CDSZSWD2M4",
+  "skill_name": "hugging-face-trackio",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-trackio/SKILL.md",
+  "description_en": "Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI). Supports real-time dashboard visualization, alerts with webhooks, HF Space syncing, and...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Log e dashboard de métricas de treino em Python com Trackio e alertas por webhook; o treino de LoRA do SocialMedia é acompanhado por jobs Laravel na fila `lora-train`, e Python/ML tracking está fora da stack dos outros dois."
+ },
+ {
+  "id": "01M0GCFD2DSER46E9AYVN61WKD",
+  "skill_name": "hugging-face-vision-trainer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-vision-trainer/SKILL.md",
+  "description_en": "Trains and fine-tunes vision models for object detection (D-FINE, RT-DETR v2, DETR, YOLOS), image classification (timm models — MobileNetV3, MobileViT, ResNet, ViT/DINOv3 — plus any Transformers classifier), and SAM/SAM2 segmentation using Hugging Face Transformers on Hugging Face Jobs...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Treino de modelos de visão para detecção (RT-DETR, YOLOS), classificação (timm/ViT) e segmentação SAM2 em HF Jobs; o SocialMedia faz visão apenas com MediaPipe Face Landmarker e treino de LoRA generativo, não de detectores."
+ }
+]

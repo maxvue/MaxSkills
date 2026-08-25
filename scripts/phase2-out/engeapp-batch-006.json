@@ -1,0 +1,322 @@
+[
+  {
+    "id": "01M0GCFD1E5T52AXSFFAXY27JM",
+    "skill_name": "autonomous-agent-patterns",
+    "importance": 3,
+    "fase1_importance": 3,
+    "verdict": "confirmada",
+    "evidence": "As 769 linhas trazem substância real (classe AgentLoop com Think/Decide/Act/Observe, execução de tool_calls, aprovação humana), mas todo o código é Python e a seção MultiModelAgent fixa gpt-3.5-turbo/gpt-4-turbo/claude-3-sonnet — provedores que o dossiê do engeapp rejeita; só o conceito de loop de tool calling se transfere ao agente Gemini."
+  },
+  {
+    "id": "01M0GCFD1EQK0SXFPZB8B1486J",
+    "skill_name": "avalonia-layout-zafiro",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O corpo é apenas um mapa de conteúdo apontando para themes.md/containers.md/icons.md de XAML Avalonia e um caminho local hardcoded para o projeto Angor; nada disso alcança SFCs Vue com UnoCSS."
+  },
+  {
+    "id": "01M0GCFD1FRHYHAX0WYD1YVWAQ",
+    "skill_name": "avalonia-zafiro-development",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Arquivo de 40 linhas que só lista guias de MVVM funcional-reativo com DynamicData/ReactiveUI e tipos Result em C#; stack .NET desktop sem qualquer ponto de contato com Laravel/Vue."
+  },
+  {
+    "id": "01M0GCFD1FN47ZG4WKH30Z7FX0",
+    "skill_name": "aws-agentic-ai",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo é uma tabela dos nove serviços do Bedrock AgentCore (Gateway, Runtime, Memory, Identity) com links para READMEs externos e exigência de MCP mcp__acdocs__*; Bedrock e AWS são explicitamente irrelevantes no engeapp, que roda Gemini."
+  },
+  {
+    "id": "01M0GCFD1F14G2Y5HV35P56CSQ",
+    "skill_name": "aws-cost-operations",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Gira em torno dos MCP servers de Pricing e Cost Explorer para estimar e analisar fatura AWS; a telemetria de custo do engeapp é de tokens de IA no BigQuery, não de recursos AWS."
+  },
+  {
+    "id": "01M0GCFD1F73ESGH4ZMNGHHYVK",
+    "skill_name": "aws-mcp-setup",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "É um passo a passo de instalação de uvx/Python 3.10 e checagem de mcp__aws-mcp__* para pesquisar documentação AWS; puro setup de ferramenta para uma nuvem que o projeto não usa."
+  },
+  {
+    "id": "01M0GCFD1FRW06KN75PK57K21K",
+    "skill_name": "aws-secrets-rotation",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "As 470 linhas são exclusivamente `aws secretsmanager create-secret/rotate-secret` e uma Lambda Python de rotação com boto3, inclusive o exemplo de chave sendo Stripe; não sobra nenhuma orientação transferível ao .env do engeapp, então cai de 1 para 0."
+  },
+  {
+    "id": "01M0GCFD1FF3N2KNZ2W4V83HCZ",
+    "skill_name": "aws-security-audit",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "As categorias auditadas são IAM, security groups 0.0.0.0/0, buckets S3 públicos, volumes EBS sem criptografia e CloudTrail — infraestrutura AWS, enquanto o engeapp roda em VPS com Caddy+PHP-FPM."
+  },
+  {
+    "id": "01M0GCFD1FD76KAR53J88BC45X",
+    "skill_name": "aws-serverless-eda",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Baseia-se no Well-Architected para Lambda, Step Functions e sagas distribuídas, exigindo MCP do CDK; o processamento assíncrono do engeapp são ~45 jobs em Horizon/Redis."
+  },
+  {
+    "id": "01M0GCFD1FD71ZYQ03TBRDK42X",
+    "skill_name": "aws-skills",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Skill oca de 28 linhas: a seção Instructions apenas repete a própria descrição (\"provides guidance and patterns for aws development...\") e manda ler o repositório de origem; nota 0 já era correta mesmo por outro motivo."
+  },
+  {
+    "id": "01M0GCFD1F4SPE2QN74VRWMMJJ",
+    "skill_name": "awt-e2e-testing",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "O arquivo tem 40 linhas e é essencialmente material promocional (\"Actively developed by a solo developer at AILoopLab\", links para demo na Vercel), sem um único exemplo de cenário YAML; além de depender de Playwright, é oca, então cai para 1."
+  },
+  {
+    "id": "01M0GCFD1FPYS9VWG466T2R3EQ",
+    "skill_name": "azd-deployment",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Estrutura o projeto em azure.yaml, main.bicep e Dockerfiles com `azd up` para Container Apps; contêineres e nuvem gerenciada estão fora — o deploy do engeapp é Deployer 8 por rsync."
+  },
+  {
+    "id": "01M0GCFD1GNKQ1BHWAV8G29GXZ",
+    "skill_name": "azure-ai-contentunderstanding-py",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O corpo é `pip install azure-ai-contentunderstanding` com DefaultAzureCredential e polling de begin_analyze(); a extração de documentos do engeapp existe, mas é feita em PHP com Gemini e spatie/pdf-to-text, então o valor é quase nulo."
+  },
+  {
+    "id": "01M0GCFD1G2T4YV3V7AGFX0F3G",
+    "skill_name": "azure-ai-textanalytics-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "TextAnalyticsClient em Python para sentimento/entidades/PII num serviço cognitivo Azure; o engeapp não tem pipeline de NLP gerenciado nem Python."
+  },
+  {
+    "id": "01M0GCFD1G6H964YCV76GC5FWW",
+    "skill_name": "azure-ai-transcription-py",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "São 77 linhas rasas — instalação, duas variáveis de ambiente e a observação de que DefaultAzureCredential não é suportado; conteúdo curto demais e de provedor não usado, por isso desce de 1 para 0."
+  },
+  {
+    "id": "01M0GCFD1GVR7Q8MHM3Q1WFSKJ",
+    "skill_name": "azure-ai-translation-document-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Exige containers de Blob Storage com SAS de origem e destino para tradução em lote; o engeapp é pt-BR único e i18n não está no radar."
+  },
+  {
+    "id": "01M0GCFD1GH19VYWSK4R9RRRMV",
+    "skill_name": "azure-ai-vision-imageanalysis-java",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo abre com dependência Maven com.azure:azure-ai-vision-imageanalysis e ImageAnalysisClientBuilder em Java; linguagem e provedor totalmente fora da stack."
+  },
+  {
+    "id": "01M0GCFD1GMA5TGGGYRDEJBNET",
+    "skill_name": "azure-ai-voicelive-ts",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "As 474 linhas cobrem @azure/ai-voicelive com sessão bidirecional por WebSocket em Node/browser; o engeapp faz voz com livekit-client e SIP próprio, então o paralelo é só temático."
+  },
+  {
+    "id": "01M0GCFD1HT10JX6N7HPS4QB77",
+    "skill_name": "azure-cosmos-java",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Começa com o POM do azure-cosmos e segue com padrões reativos Java para NoSQL distribuído; o engeapp persiste em MariaDB via Eloquent com 384 migrations."
+  },
+  {
+    "id": "01M0GCFD1HG9JETW0RCXTFJNRA",
+    "skill_name": "azure-cosmos-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Detalha o plano de dados do @azure/cosmos (CRUD, queries, bulk) com DefaultAzureCredential em Node 20; nenhuma operação de banco do engeapp passa por JavaScript."
+  },
+  {
+    "id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "skill_name": "azure-keyvault-keys-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Usa KeyClient/CryptographyClient contra um vault .vault.azure.net para assinar e rotacionar chaves; o engeapp guarda credenciais de EFI/Inter/Meta em .env, sem HSM na nuvem."
+  },
+  {
+    "id": "01M0GCFD1J4Q23R2RDACGGKPZJ",
+    "skill_name": "azure-mgmt-apicenter-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "É SDK de management plane (ApiCenterMgmtClient com AZURE_SUBSCRIPTION_ID) para inventário corporativo de APIs; o engeapp expõe rotas Laravel com Ziggy, sem camada de governança."
+  },
+  {
+    "id": "01M0GCFD1JGSKC5712A26BR7A0",
+    "skill_name": "azure-monitor-ingestion-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Todo o texto orbita DCE/DCR e tabelas Custom-MyTable_CL do Log Analytics; a observabilidade do engeapp é Pulse/Telescope local."
+  },
+  {
+    "id": "01M0GCFD1KGASTJ1BJAEH29XBH",
+    "skill_name": "azure-postgres-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Conecta com o pacote pg a um host .postgres.database.azure.com usando Entra ID passwordless; o engeapp é MariaDB/MySQL acessado por PHP, dupla incompatibilidade."
+  },
+  {
+    "id": "01M0GCFD1KBBT7Z5M921HFM46E",
+    "skill_name": "azure-speech-to-text-rest-py",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "As 380 linhas ensinam o REST de áudio curto (até 60s) com AZURE_SPEECH_KEY/REGION em Python; o engeapp grava voz com vue-voice-recording e processa por Gemini, então o teto de utilidade é baixíssimo."
+  },
+  {
+    "id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "skill_name": "azure-storage-blob-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Cobre @azure/storage-blob 12.x para upload/download de blobs em Node >= 18; o armazenamento do engeapp é WebDAV/Seafile via Flysystem e medialibrary."
+  },
+  {
+    "id": "01M0GCFD1MT34KWPV43JB0AFVQ",
+    "skill_name": "backend-dev-guidelines",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O subtítulo declara \"Node.js · Express · TypeScript · Microservices\" e os exemplos proibem `prisma.user.create` dentro de rotas Express; a doutrina de camadas até é sensata, mas o engeapp já resolve isso com Services/FormRequest em Laravel."
+  },
+  {
+    "id": "01M0GCFD1M7EXR68185CS3K22D",
+    "skill_name": "backend-security-coder",
+    "importance": 4,
+    "fase1_importance": 6,
+    "verdict": "rebaixada",
+    "evidence": "O arquivo é um catálogo de bullets de capacidades (\"Parameterized queries\", \"CSRF tokens\", \"SSRF prevention\") sem um único exemplo de código, e remete a `resources/implementation-playbook.md` que não existe no diretório da skill — promete revisão de segurança e entrega índice, por isso desce de 6 para 4."
+  },
+  {
+    "id": "01M0GCFD1ME017D9Y4BG6BMV3B",
+    "skill_name": "backtesting-frameworks",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "São 47 linhas de boilerplate (\"Define hypothesis, universe, timeframe\") sobre backtest de estratégias de trading, com ressalva de não dar conselho de investimento; o engeapp é fotovoltaico, sem nenhuma aderência."
+  },
+  {
+    "id": "01M0GCFD1MG06F174TXCVJVC0Q",
+    "skill_name": "base",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "O conteúdo é sobre o formato nativo ODB, bancos embutidos HSQLDB/Firebird e formulários do LibreOffice Base; o engeapp gera planilhas com PhpSpreadsheet e usa OnlyOffice, nunca a suíte LibreOffice — cai de 1 para 0."
+  },
+  {
+    "id": "01M0GCFD1MJ2Z34X305BBW5ZVX",
+    "skill_name": "baseline-ui",
+    "importance": 2,
+    "fase1_importance": 6,
+    "verdict": "rebaixada",
+    "evidence": "A seção Stack impõe \"MUST use Tailwind CSS defaults\", `motion/react`, o utilitário `cn` (clsx + tailwind-merge) e primitivas React Aria/Base UI, além de regras como \"NEVER use useEffect...\"; o engeapp proíbe Tailwind e não usa React, então a nota 6 da Fase 1 partia de uma descrição neutra enganosa e cai para 2."
+  },
+  {
+    "id": "01M0GCFD1MMX4FH7BA7MWAAQ11",
+    "skill_name": "bats-testing-patterns",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "As 42 linhas não contêm nenhum teste Bats de exemplo — só quatro bullets genéricos (\"Write tests for exit codes, output, and side effects\") e um ponteiro para playbook; skill oca somada a um alvo (scripts shell) marginal no engeapp derruba para 1."
+  },
+  {
+    "id": "01M0GCFD1M1430C3TH99XKQ21R",
+    "skill_name": "bazel-build-optimization",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Mostra a estrutura WORKSPACE.bazel e cache/execução remota para monorepos corporativos; o build do engeapp é Vite 8 + Composer em repositório único."
+  },
+  {
+    "id": "01M0GCFD1MNCV4X5MMMRBEXZ0A",
+    "skill_name": "bdi-mental-states",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O corpo modela crenças/desejos/intenções em RDF Turtle (`:Belief_store_open a bdi:Belief`) e cita frameworks JADE/JADEX; os agentes do engeapp são chamadas Gemini com tool calling, sem camada ontológica."
+  },
+  {
+    "id": "01M0GCFD1MZ9KDTPFX58B2SV2P",
+    "skill_name": "bdistill-behavioral-xray",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "Na prática são 91 linhas vendendo a ferramenta bdistill (`pip install bdistill` + servidor MCP) que roda 30 sondagens e gera HTML com radar chart; depende de instalar Python/MCP e não gera nada aplicável ao código do engeapp, por isso 3 vira 2."
+  },
+  {
+    "id": "01M0GCFD1MN1DSD9KR5QG7B533",
+    "skill_name": "bdistill-knowledge-extraction",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "É o mesmo produto bdistill via MCP, voltado a montar datasets de referência e dados de treino para ML clássico; o engeapp não faz destilação de conhecimento nem treino de modelos, então desce de 2 para 1."
+  },
+  {
+    "id": "01M0GCFD1NF2SMZ1DTS061AYXT",
+    "skill_name": "behavioral-modes",
+    "importance": 5,
+    "fase1_importance": 5,
+    "verdict": "confirmada",
+    "evidence": "Os modos são descritos com comportamento e formato de saída concretos (o DEBUG exige sintoma → causa raiz → correção → prevenção, o IMPLEMENT proíbe explicação tutorial); é disciplina de processo real, alinhada ao fluxo plano-antes-de-codar do engeapp, mas sem nada de Laravel/Vue — 5 continua justo."
+  },
+  {
+    "id": "01M0GCFD1NFYEDFEDNFWNNSCGD",
+    "skill_name": "bento-ui",
+    "importance": 3,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "Metade do arquivo é implementação SwiftUI (LazyVGrid, RoundedRectangle) e o resto é CSS puro com `border-radius: 32px` e fontes SF Pro; é receita estética Apple que conflita com MaxGrid e os tokens do design system Max, então 4 é generoso e vira 3."
+  },
+  {
+    "id": "01M0GCFD1NBVZNPWE0FP4VSAMA",
+    "skill_name": "bilig-workpaper",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O runtime é Node/TypeScript exposto por MCP e o próprio frontmatter traz `plugin.targets.claude: blocked`; para o engeapp, que monta planilhas com PhpSpreadsheet no servidor, o formato WorkPaper JSON não se encaixa — cai de 3 para 2."
+  },
+  {
+    "id": "01M0GCFD1NMJ78GMNEVKTDA368",
+    "skill_name": "biopython",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "As 448 linhas tratam de Bio.Seq/SeqIO, Entrez do NCBI, BLAST e estruturas PDB em Python; domínio de biologia molecular sem qualquer interseção com gestão de projetos fotovoltaicos."
+  }
+]

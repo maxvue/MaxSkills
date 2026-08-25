@@ -1,0 +1,450 @@
+[
+ {
+  "id": "01M0GCFD292J4EYJYGH1167P0Y",
+  "catalog": "awesome_skills.json",
+  "skill_name": "gemini-omni-flash-api",
+  "description_en": "Use this skill for generative video editing, text-to-video, image-referenced video generation, and first-frame-to-video transition animations using the official google-genai SDK. Includes workflows for pre-processing/optimizing high-resolution or long source videos with ffmpeg,...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/gemini-omni-flash-api/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD29KJWWZTJJV5Z491AK",
+  "catalog": "awesome_skills.json",
+  "skill_name": "generate-nanobanana",
+  "description_en": "Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Flash), with cost-approval gates, reference-image support, and a prompt/output log per call.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/generate-nanobanana/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD292D04ENM7S0F2TBVT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "gha-security-review",
+  "description_en": "Find exploitable vulnerabilities in GitHub Actions workflows. Every finding MUST include a concrete exploitation scenario — if you can't build the attack, don't report it.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/gha-security-review/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD29FQ3DW58YCT90PRHV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-advanced-workflows",
+  "description_en": "Master advanced Git techniques to maintain clean history, collaborate effectively, and recover from any situation with confidence.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-advanced-workflows/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD29KEC48M75RQH5SWFX",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-hooks-automation",
+  "description_en": "Master Git hooks setup with Husky, lint-staged, pre-commit framework, and commitlint. Automate code quality gates, formatting, linting, and commit message enforcement before code reaches CI.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-hooks-automation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD293BM76FCBAH5GWP8Q",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-pr-review",
+  "description_en": "Generate a concise and structured PR description from commit history with minimal token usage",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-review/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD292KAD47D51TYCY4B5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-pr-workflows-git-workflow",
+  "description_en": "Orchestrate review, tests, commits, branch pushes, and pull-request creation with parallel agents. Use when completed changes must move through validation into a PR or guarded merge.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-workflows-git-workflow/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2986BXK9479Y2EP8G3",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-pr-workflows-onboard",
+  "description_en": "You are an **expert onboarding specialist and knowledge transfer architect** with deep experience in remote-first organizations, technical team integration, and accelerated learning methodologies. You",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-workflows-onboard/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD29BBVZSVVJ1773K0MM",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-pr-workflows-pr-enhance",
+  "description_en": "You are a PR optimization expert specializing in creating high-quality pull requests that facilitate efficient code reviews. Generate comprehensive PR descriptions, automate review processes, and ensu",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pr-workflows-pr-enhance/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD29GXPDWZNDYFXCZCB3",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-pushing",
+  "description_en": "Safely stage, commit, and push intended git changes with conventional commit messages. Use for ordinary non-release pushes when explicitly asked to push, save work remotely, or share a completed change.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-pushing/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AT5AX4GCKET2HQQ9E",
+  "catalog": "awesome_skills.json",
+  "skill_name": "git-workflow-and-versioning",
+  "description_en": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/git-workflow-and-versioning/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AMBRADHJ1257ARFYG",
+  "catalog": "awesome_skills.json",
+  "skill_name": "github",
+  "description_en": "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AEJKXX8R9FS0C1S5Y",
+  "catalog": "awesome_skills.json",
+  "skill_name": "github-actions-advanced",
+  "description_en": "Design, debug, and harden GitHub Actions CI/CD workflows, including reusable workflows, matrix builds, self-hosted runners, OIDC authentication, caching, environments, secrets, and release automation.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github-actions-advanced/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AW4DWKYDCD1JJHVTP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "github-presence",
+  "description_en": "When the user wants to optimize their GitHub profile, README, or project discoverability. Trigger phrases include \"GitHub README,\" \"README optimization,\" \"GitHub profile,\" \"GitHub stars,\" \"GitHub discoverability,\" \"awesome lists,\" or \"GitHub marketing.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github-presence/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2APMQNQ10W1RACZB7Z",
+  "catalog": "awesome_skills.json",
+  "skill_name": "github-workflow-automation",
+  "description_en": "Patterns for automating GitHub workflows with AI assistance, inspired by [Gemini CLI](https://github.com/google-gemini/gemini-cli) and modern DevOps practices.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/github-workflow-automation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AJVS5P7SFYH9CGFQ9",
+  "catalog": "awesome_skills.json",
+  "skill_name": "global-chat-agent-discovery",
+  "description_en": "Discover and search 18K+ MCP servers and AI agents across 6+ registries using Global Chat's cross-protocol directory and MCP server.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/global-chat-agent-discovery/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2A7J8KD6W5AGRN0ZKG",
+  "catalog": "awesome_skills.json",
+  "skill_name": "go-rod-master",
+  "description_en": "Comprehensive guide for browser automation and web scraping with go-rod (Chrome DevTools Protocol) including stealth anti-bot-detection patterns.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/go-rod-master/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AXMN1KH6GC0HHBMDY",
+  "catalog": "awesome_skills.json",
+  "skill_name": "goal-loop",
+  "description_en": "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/goal-loop/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AZ4B2N4DE73SZ95M5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "golang-pro",
+  "description_en": "Master Go 1.21+ with modern patterns, advanced concurrency, performance optimization, and production-ready microservices.",
+  "languages": [
+   "Go"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/golang-pro/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+  "catalog": "awesome_skills.json",
+  "skill_name": "google-calendar-automation",
+  "description_en": "Lightweight Google Calendar integration with standalone OAuth authentication. No MCP server required.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/google-calendar-automation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2BSHZ94XGYRYCBDG3B",
+  "catalog": "awesome_skills.json",
+  "skill_name": "gpt-taste",
+  "description_en": "Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typography, and gapless bento grids.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/gpt-taste/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2BQ91RX9V6F88M7859",
+  "catalog": "awesome_skills.json",
+  "skill_name": "graphql-architect",
+  "description_en": "Master modern GraphQL with federation, performance optimization, and enterprise security. Build scalable schemas, implement advanced caching, and design real-time systems.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [
+   "GraphQL"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/graphql-architect/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2BP2RK9R4QRF23QSMT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "grilling",
+  "description_en": "Interview the user relentlessly about a plan or design. Use when the user wants to stress-test a plan before building, or uses any 'grill' trigger phrases.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/grilling/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2BM9NVH79MPAMJETEA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "grok-build",
+  "description_en": "Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while the orchestrating agent plans, writes task specs, reviews every diff, and owns the result.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/grok-build/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2B5HX9Z9M70RYKKRVQ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "growth-engine",
+  "description_en": "Motor de crescimento para produtos digitais -- growth hacking, SEO, ASO, viral loops, email marketing, CRM, referral programs e aquisicao organica.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/growth-engine/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2BANK518VNKWNPBJ3Q",
+  "catalog": "awesome_skills.json",
+  "skill_name": "handoff",
+  "description_en": "Compact the current conversation into a handoff document for another agent to pick up.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/handoff/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2B1J83FTEXH34PT8M4",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hasdata",
+  "description_en": "Use HasData APIs for web scraping and structured web data extraction.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hasdata/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2BVKMAGDMNKEGEB36B",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hf-mcp",
+  "description_en": "Use Hugging Face Hub via MCP server tools. Search models, datasets, Spaces, papers. Get repo details, fetch documentation, run compute jobs, and use Gradio Spaces as AI tools. Available when connected to the HF MCP server.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hf-mcp/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2CMRKVQ8Y3A6SVX811",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hierarchical-agent-memory",
+  "description_en": "Scoped CLAUDE.md memory system that reduces context token spend. Creates directory-level context files, tracks savings via dashboard, and routes agents to the right sub-context.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hierarchical-agent-memory/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2C4GHTQZ18JV8GZYM5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hig-components-status",
+  "description_en": "Apple HIG guidance for status and progress UI components including progress indicators, status bars, and activity rings.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hig-components-status/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2CS3MQFEYA3489P6W7",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hig-patterns",
+  "description_en": "Apple Human Interface Guidelines interaction and UX patterns.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hig-patterns/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2C0WBXYD627ETB34XD",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hono",
+  "description_en": "Build ultra-fast web APIs and full-stack apps with Hono — runs on Cloudflare Workers, Deno, Bun, Node.js, and any WinterCG-compatible runtime.",
+  "languages": [
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hono/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DNFHE5H4RY28KZ2F2",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-datasets",
+  "description_en": "Create and manage datasets on Hugging Face Hub. Supports initializing repos, defining configs/system prompts, streaming row updates, and SQL-based dataset querying/transformation. Designed to work alongside HF MCP server for comprehensive dataset workflows.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-datasets/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DT2609088TH7QDN6J",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-evaluation",
+  "description_en": "Add and manage evaluation results in Hugging Face model cards. Supports extracting eval tables from README content, importing scores from Artificial Analysis API, and running custom model evaluations with vLLM/lighteval. Works with the model-index metadata format.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-evaluation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DD4V89E7SBCS5CBQT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-model-trainer",
+  "description_en": "Train or fine-tune language and vision models using TRL (Transformer Reinforcement Learning) or Unsloth with Hugging Face Jobs infrastructure. Covers SFT, DPO, GRPO and reward modeling training methods, plus GGUF conversion for local deployment. Includes guidance on the TRL Jobs...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-model-trainer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2D3EYGB63VY4TNHNAM",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-paper-publisher",
+  "description_en": "Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking papers to models/datasets, claiming authorship, and generating professional markdown-based research articles.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-paper-publisher/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DKR0Q3D768G21TFD5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-papers",
+  "description_en": "Look up and read Hugging Face paper pages in markdown, and use the papers API for structured metadata such as authors, linked models/datasets/spaces, Github repo and project page. Use when the user shares a Hugging Face paper page URL, an arXiv URL or ID, or asks to summarize, explain,...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-papers/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DK2G7KWEKH7H8GKAQ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-tool-builder",
+  "description_en": "Your purpose is now is to create reusable command line scripts and utilities for using the Hugging Face API, allowing chaining, piping and intermediate processing where helpful. You can access the API directly, as well as use the hf command line tool.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-tool-builder/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DE6D049CDSZSWD2M4",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-trackio",
+  "description_en": "Track and visualize ML training experiments with Trackio. Use when logging metrics during training (Python API), firing alerts for training diagnostics, or retrieving/analyzing logged metrics (CLI). Supports real-time dashboard visualization, alerts with webhooks, HF Space syncing, and...",
+  "languages": [
+   "Python"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-trackio/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DSER46E9AYVN61WKD",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugging-face-vision-trainer",
+  "description_en": "Trains and fine-tunes vision models for object detection (D-FINE, RT-DETR v2, DETR, YOLOS), image classification (timm models — MobileNetV3, MobileViT, ResNet, ViT/DINOv3 — plus any Transformers classifier), and SAM/SAM2 segmentation using Hugging Face Transformers on Hugging Face Jobs...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugging-face-vision-trainer/SKILL.md"
+ }
+]

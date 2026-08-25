@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0GCFD2NJBMCRDT7FYYKMHNF",
+  "skill_name": "markstream-nuxt",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-nuxt/SKILL.md",
+  "description_en": "Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit CSS, and browser-only optional peers.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Integra o renderizador markstream em Nuxt 3/4 com fronteiras SSR; Nuxt e SSR/SSG estão listados como irrelevantes nos três projetos, que são SPAs Vue 3 com vue-router 5 sem Inertia nem SSR."
+ },
+ {
+  "id": "01M0GCFD2NSHGXA69ZD20BZJE7",
+  "skill_name": "markstream-react",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-react/SKILL.md",
+  "description_en": "Integrate the beta markstream-react renderer into React 18+ or Next.js with correct client/server entrypoints, CSS, streaming state, and component overrides.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Renderizador markstream para React 18+/Next.js com entrypoints client/server; React e Next são explicitamente irrelevantes nos três dossiês."
+ },
+ {
+  "id": "01M0GCFD2N1CGVKA226BYCP83H",
+  "skill_name": "markstream-vue",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-vue/SKILL.md",
+  "description_en": "Integrate markstream-vue into plain Vue 3 with renderer modes, code and DOM choices, streaming state, virtualization, optional peers, and scoped components.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Configura o componente markstream-vue em Vue 3 para renderizar Markdown em streaming de chat de IA (modos chat/docs, shiki, virtualização); é Vue 3 de verdade, mas nenhum projeto usa essa lib — só ajudaria se alguma tela de saída de LLM (agentes Gemini do SocialMedia) passasse a exibir Markdown em streaming."
+ },
+ {
+  "id": "01M0GCFD2NG35C40GQBYWMC64B",
+  "skill_name": "mason",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-squad/mason/SKILL.md",
+  "description_en": "Produces clean, functional code that matches the architecture and checklists.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Persona 'Builder' de um agent-squad que implementa estritamente conforme blueprint e checklist, sem inventar schema nem adicionar features; alinha-se ao fluxo spec→plano→implementação dos projetos, mas depende dos outros papéis do squad e não traz nada de Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD2N6WDBW25FQ4SGZSRA",
+  "skill_name": "mcp-tool-developer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mcp-tool-developer/SKILL.md",
+  "description_en": "Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with TypeScript/Python, testing, deployment, and registry publishing.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Ensina a construir servidores MCP em TypeScript/Python com testes e publicação em registry; nenhum dos projetos expõe servidor MCP (as ferramentas de IA são Tools do laravel/ai e tool calling do Gemini), então é uso raro e em linguagem fora da stack."
+ },
+ {
+  "id": "01M0GCFD2NJ8VFTTV59GWABVYN",
+  "skill_name": "mdpr-skill",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mdpr-skill/SKILL.md",
+  "description_en": "Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic renderer boundaries.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Revisa fluxos de apresentação em Markdown MDPR com dicas semânticas e checagem visual; os projetos geram documentos em PDF/Excel/Word, não slides MDPR."
+ },
+ {
+  "id": "01M0GCFD2PWZ8PMESCJXVAZ1FB",
+  "skill_name": "mesh-memory",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mesh-memory/SKILL.md",
+  "description_en": "Self-hosted semantic memory for AI agents via MCP. Save worklogs, decisions, and notes, then recall them across sessions by meaning, not keyword. Postgres + pgvector with auto-tagging.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Memória semântica auto-hospedada para agentes via MCP com Postgres+pgvector; só o SocialMedia roda PostgreSQL, mas nenhum projeto usa pgvector ou memória vetorial de sessão — a persistência de contexto é feita por documentação viva em Markdown."
+ },
+ {
+  "id": "01M0GCFD2P22D8SKR0PTRZCGP0",
+  "skill_name": "metasploit-framework",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/metasploit-framework/SKILL.md",
+  "description_en": "⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments only. > You must have explicit, written permission from the system owner before using this tool. > Misuse of this tool is illegal and strictly prohibited.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Exploração ofensiva com Metasploit em pentest autorizado; nada a ver com o desenvolvimento de SaaS Laravel/Vue destes projetos, cujas auditorias de segurança são de código (mass assignment, PII, HMAC)."
+ },
+ {
+  "id": "01M0GCFD2PF44BFFWN5G2QCHE4",
+  "skill_name": "minimalist-ui",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/minimalist-ui/SKILL.md",
+  "description_en": "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Guia estético de interfaces editoriais monocromáticas com layout bento e motion contido; os três projetos têm design system Max fechado (MaxTitle, MaxGrid, presetMaxUno) e layout padronizado, então uma estética alternativa conflita mais do que ajuda."
+ },
+ {
+  "id": "01M0GCFD2P6E50R03V0HQE60Q8",
+  "skill_name": "mmx-cli",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mmx-cli/SKILL.md",
+  "description_en": "Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the user wants to create media content, chat with MiniMax models, perform web search, or manage MiniMax API resources from the terminal.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "CLI da plataforma MiniMax para gerar texto, imagem, vídeo, fala e música; o SocialMedia gera arte com ComfyUI+LoRA Z-Image local e usa Gemini/Ollama, e os outros dois usam só Gemini, então esse provider externo não entra na stack."
+ },
+ {
+  "id": "01M0GCFD2P9SBB6AKKYQVQYJAB",
+  "skill_name": "mobile-games",
+  "local_path": "other_skills/Agentic Awesome Skills/plugins/agentic-awesome-skills/skills/game-development/mobile-games/SKILL.md",
+  "description_en": "Mobile game development principles. Touch input, battery, performance, app stores.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Princípios de desenvolvimento de jogos mobile (input de toque, bateria, app stores); jogos e mobile nativo são irrelevantes nos três dossiês — a estratégia é PWA."
+ },
+ {
+  "id": "01M0GCFD2PB7QKTPMVH07W5D1N",
+  "skill_name": "mock-hunter",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mock-hunter/SKILL.md",
+  "description_en": "Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data, hardcoded values, LLM-generated metrics, and broken endpoints. Outputs a markdown report with REAL/MOCK/LLM/HARDCODED/BROKEN/UNKNOWN verdicts per visible value.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Audita uma página web ao vivo via Playwright classificando cada valor visível como REAL/MOCK/HARDCODED/BROKEN; a metodologia de caçar dado falso em tela é útil (SocialMedia já usa Playwright headless para verificação visual), mas engeapp e AgenteDeBolso verificam UI com Dusk/Puppeteer e listam Playwright como irrelevante."
+ },
+ {
+  "id": "01M0GCFD2QWJEZC2B8RS6E63AW",
+  "skill_name": "modellix",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/modellix/SKILL.md",
+  "description_en": "Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (model run --wait, task download).",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Integra a API/CLI Modellix para geração assíncrona de imagem, vídeo e fala e transcrição; a geração de imagem do SocialMedia é local (ComfyUI/OneTrainer) e o AgenteDeBolso não tem STT implementada, então o serviço não se aplica."
+ },
+ {
+  "id": "01M0GCFD2Q080M2GVEQEVGA0JT",
+  "skill_name": "modern-javascript-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/modern-javascript-patterns/SKILL.md",
+  "description_en": "Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns, and best practices for writing clean, maintainable, and performant code.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Padrões modernos de JavaScript ES6+ e programação funcional; é base genérica que se aplica ao TypeScript dos três frontends Vue 3.6, mas não cobre nada de Vue, Pinia/MaxPinia, UnoCSS ou Vite, que é onde estão as armadilhas reais."
+ },
+ {
+  "id": "01M0GCFD2QDJTQY6THR1XKCPXS",
+  "skill_name": "molykit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/molykit/SKILL.md",
+  "description_en": "CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:\nBotClient, OpenAI, SSE streaming, AI chat, molykit,\nPlatformSend, spawn(), ThreadToken, cross-platform async,\nChat widget, Messages, PromptInput, Avatar, LLM",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Toolkit MolyKit de chat com IA (BotClient, streaming SSE com OpenAI, widgets de chat); OpenAI como provider é explicitamente irrelevante nos três projetos, que usam Gemini/DeepSeek/Ollama, e nenhum consome essa lib."
+ },
+ {
+  "id": "01M0GCFD2QECSZF5Q3JK4FA7RN",
+  "skill_name": "monopoly",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monopoly/SKILL.md",
+  "description_en": "MONOPOLY is a Senior System Design Engineer skill for architecting, reviewing, and scaling systems. Triggers on requests involving architecture, databases, scaling, microservices, or infrastructure design. Proactively engages to design resilient backend systems.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Papel de engenheiro sênior de system design focado em arquitetura, bancos, escala e microserviços/infraestrutura; os projetos são monolitos Laravel e listam microserviços como irrelevantes, sobrando só o raciocínio arquitetural genérico."
+ },
+ {
+  "id": "01M0GCFD2QZPB9MH18RBHTGESV",
+  "skill_name": "monorepo-architect",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monorepo-architect/SKILL.md",
+  "description_en": "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use PROACTIVELY for monorepo setup,",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Arquitetura de monorepo com Nx, Turborepo, Bazel e Lerna; nenhum projeto usa tooling de monorepo (o AgenteDeBolso lista isso como irrelevante) — as libs @maxvue são pacotes externos consumidos, não workspaces locais."
+ },
+ {
+  "id": "01M0GCFD2QMQ5H4WPXJWZ5YY9B",
+  "skill_name": "monte-carlo-analyze-root-cause",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-analyze-root-cause/SKILL.md",
+  "description_en": "Investigate data incidents and find root causes using Monte Carlo's observability data. Guides the agent through systematic investigation: alert lookup, lineage tracing, ETL checks, query analysis, and data profiling. Activates when a user asks about data issues, incidents, alerts, or...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Investiga incidentes de dados usando a plataforma de observabilidade Monte Carlo (lineage, ETL, alertas de warehouse); exige o SaaS Monte Carlo e um data warehouse, ausentes nos três — o BigQuery do engeapp serve só para billing de IA."
+ },
+ {
+  "id": "01M0GCFD2QN3HGPJK4P95R43T3",
+  "skill_name": "monte-carlo-monitoring-advisor",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-monitoring-advisor/SKILL.md",
+  "description_en": "Analyze data coverage, create monitors for warehouse tables and AI agents. Covers coverage gaps, use-case analysis, data monitor creation, and agent observability.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Cria monitores de cobertura para tabelas de warehouse e agentes na Monte Carlo; ETL/BI/data warehouse são temas irrelevantes e o monitoramento dos projetos é Horizon/Pulse/Telescope/log-viewer."
+ },
+ {
+  "id": "01M0GCFD2QC9H0QKPMBP6SR6RV",
+  "skill_name": "monte-carlo-performance-diagnosis",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-performance-diagnosis/SKILL.md",
+  "description_en": "Diagnoses pipeline performance issues -- slow jobs, expensive queries, latency trends -- using Monte Carlo's cross-platform observability. Uses a tiered investigation approach: discover problems, bridge to affected tables, then drill into root causes. Activates when a user asks about...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Diagnostica jobs lentos e queries caras de pipeline de dados via observabilidade Monte Carlo; a análise de performance nos projetos é de queries Eloquent/MySQL-Postgres e filas Horizon, sem pipeline de dados nem a ferramenta."
+ },
+ {
+  "id": "01M0GCFD2Q82D7N8C04SN24M6M",
+  "skill_name": "monte-carlo-prevent",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-prevent/SKILL.md",
+  "description_en": "Surfaces Monte Carlo data observability context (table health, alerts, lineage, blast radius) before SQL/dbt edits.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Traz contexto de saúde de tabelas e blast radius antes de editar SQL/dbt; nenhum projeto usa dbt ou SQL versionado — as mudanças de schema são migrations Laravel."
+ },
+ {
+  "id": "01M0GCFD2QP5737SK4M4CG3P0Q",
+  "skill_name": "monte-carlo-remediation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-remediation/SKILL.md",
+  "description_en": "Investigate and remediate data quality alerts using Monte Carlo MCP tools. Runs root cause analysis, assesses blast radius, discovers available tools (MCP/CLI/API), proposes and executes fixes, or escalates with full context when uncertain.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Remedia alertas de qualidade de dados via MCP tools da Monte Carlo, com análise de causa raiz e execução de correções; depende inteiramente desse SaaS de data observability, inexistente nos três projetos."
+ },
+ {
+  "id": "01M0GCFD2QSWHNVBHZT4SPM8Y1",
+  "skill_name": "monte-carlo-validation-notebook",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-validation-notebook/SKILL.md",
+  "description_en": "Generates SQL validation notebooks for dbt PR changes with before/after comparison queries.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Gera notebooks SQL de validação antes/depois para PRs de dbt; dbt e notebooks não existem na stack — a validação de mudanças é feita por Pest/Vitest e Dusk."
+ },
+ {
+  "id": "01M0GCFD2QHQQDR9WR33SED557",
+  "skill_name": "moodle-external-api-development",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/moodle-external-api-development/SKILL.md",
+  "description_en": "This skill guides you through creating custom external web service APIs for Moodle LMS, following Moodle's external API framework and coding standards.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Cria web services externos no framework de plugins do Moodle LMS; é PHP, mas com convenções e API do Moodle que não têm sobreposição com Laravel 12/13 nem com os domínios (fotovoltaico, social media, finanças)."
+ },
+ {
+  "id": "01M0GCFD2Q1YD06P0EQY8415ZB",
+  "skill_name": "moyu",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/moyu/SKILL.md",
+  "description_en": "Anti-over-engineering guardrail that activates when an AI coding agent expands scope, adds abstractions, or changes files the user did not request.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Guardrail anti-over-engineering que impede o agente de ampliar escopo, criar abstrações ou tocar arquivos não pedidos; casa diretamente com as convenções dos três projetos (plano antes de alterar, nunca modificar sem autorização), mas é comportamento genérico, não conhecimento de stack."
+ },
+ {
+  "id": "01M0GCFD2QM00G0YN3GYRRHBSJ",
+  "skill_name": "multi-agent-brainstorming",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-agent-brainstorming/SKILL.md",
+  "description_en": "Simulate a structured peer-review process using multiple specialized agents to validate designs, surface hidden assumptions, and identify failure modes before implementation.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Simula peer review com agentes especializados para expor premissas escondidas e modos de falha antes de implementar; útil na etapa de spec/plano adotada pelos projetos, porém é técnica de processo sem qualquer conteúdo de Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD2QPPTJEXZM0T6KNJ8D",
+  "skill_name": "multi-agent-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-agent-patterns/SKILL.md",
+  "description_en": "This skill should be used when the user asks to \"design multi-agent system\", \"implement supervisor pattern\", \"create swarm architecture\", \"coordinate multiple agents\", or mentions multi-agent patterns, context isolation, agent handoffs, sub-agents, or parallel agent execution.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Padrões de sistemas multi-agente (supervisor, swarm, handoffs, isolamento de contexto, subagentes); o SocialMedia tem um pipeline real de agentes encadeados por status em laravel/ai e o engeapp agentes Gemini com tool calling, mas os padrões aqui são de frameworks de agentes, não de Jobs Laravel."
+ },
+ {
+  "id": "01M0GCFD2R9PCJWX0TPKRQ66FG",
+  "skill_name": "multi-agent-task-orchestrator",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-agent-task-orchestrator/SKILL.md",
+  "description_en": "Route tasks to specialized AI agents with anti-duplication, quality gates, and 30-minute heartbeat monitoring",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Roteia tarefas para agentes especializados com anti-duplicação, quality gates e heartbeat de 30 minutos; é orquestração de sessão de codificação, aplicável a qualquer repo, sem tocar em worktrees, Pest ou nas regras específicas dos projetos."
+ },
+ {
+  "id": "01M0GCFD2R60RYRE9H37Y7JHNR",
+  "skill_name": "multi-cloud-architecture",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-cloud-architecture/SKILL.md",
+  "description_en": "Decision framework and patterns for architecting applications across AWS, Azure, and GCP.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Framework de decisão para arquitetar entre AWS, Azure e GCP; AWS/GCP/Azure são temas irrelevantes — os três rodam em servidor próprio com Caddy+PHP-FPM e deploy por Deployer/webhook."
+ },
+ {
+  "id": "01M0GCFD2R7VQ4EJGESBAYADX5",
+  "skill_name": "multi-platform-apps-multi-platform",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-platform-apps-multi-platform/SKILL.md",
+  "description_en": "Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Entrega da mesma feature em web, mobile e desktop com arquitetura API-first e implementação paralela; mobile nativo e Electron são irrelevantes nos dossiês — a estratégia é PWA única, restando só a ideia de API-first."
+ },
+ {
+  "id": "01M0GCFD2RTEY0VSEEK5VANNAF",
+  "skill_name": "multiplayer",
+  "local_path": "other_skills/Agentic Awesome Skills/plugins/agentic-awesome-skills/skills/game-development/multiplayer/SKILL.md",
+  "description_en": "Multiplayer game development principles. Architecture, networking, synchronization.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Arquitetura, rede e sincronização de estado para jogos multiplayer; jogos são irrelevantes e o realtime dos projetos é Reverb/Echo para broadcasting de eventos de negócio, não netcode."
+ },
+ {
+  "id": "01M0GCFD2RV0PKZBCPAYYKZ8SR",
+  "skill_name": "n8n-agents",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-agents/SKILL.md",
+  "description_en": "Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output, and human-review flows.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Desenha agentes, chains, classificadores e RAG dentro do n8n; os agentes dos projetos são código PHP (laravel/ai, Gemini tool calling) e nenhum usa n8n como plataforma de automação."
+ },
+ {
+  "id": "01M0GCFD2RPHJ6BJGFX5CNYA9J",
+  "skill_name": "n8n-binary-and-data",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-binary-and-data/SKILL.md",
+  "description_en": "Handle n8n files and binary data across uploads, downloads, transforms, multimodal inputs, agent tools, and chat surfaces.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Manipula arquivos e dados binários em workflows n8n (upload, download, entradas multimodais); o tratamento de mídia nos projetos é medialibrary, Uppy, ffmpeg e imagick, fora do n8n."
+ },
+ {
+  "id": "01M0GCFD2R5428E6GY1E0YB5CM",
+  "skill_name": "n8n-code-tool",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-code-tool/SKILL.md",
+  "description_en": "Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sandbox limits, and return formats.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Escreve e depura JS/Python no Custom Code Tool do n8n, com schemas e limites de sandbox; nada disso existe nos projetos, cujas tools de IA são classes PHP."
+ },
+ {
+  "id": "01M0GCFD2RGHKX344HT5RJKC24",
+  "skill_name": "n8n-expression-syntax",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-expression-syntax/SKILL.md",
+  "description_en": "Validate n8n expression syntax and fix common errors. Use when writing n8n expressions, using {{}} syntax, accessing $json/$node variables, troubleshooting expression errors, or working with webhook data in workflows.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Valida a sintaxe de expressões {{ }} e variáveis $json/$node do n8n; é conhecimento exclusivo da ferramenta, sem aplicação em Blade, Vue ou webhooks tratados em Laravel."
+ },
+ {
+  "id": "01M0GCFD2RVWKK8T4N65WD94X5",
+  "skill_name": "n8n-node-configuration",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-node-configuration/SKILL.md",
+  "description_en": "Operation-aware node configuration guidance. Use when configuring nodes, understanding property dependencies, determining required fields, choosing between get_node detail levels, or learning common configuration patterns by node type.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Guia de configuração de nodes do n8n (dependências de propriedades, campos obrigatórios, níveis de detalhe do get_node); inaplicável a projetos sem n8n na infraestrutura."
+ },
+ {
+  "id": "01M0GCFD2R5XVXQ4JN2ZHWVBXD",
+  "skill_name": "native-data-fetching",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/native-data-fetching/SKILL.md",
+  "description_en": "Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetch API, React Query, SWR, error handling, caching, offline support, and Expo Router data loaders (`useLoaderData`).",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Requisições e cache de dados com fetch, React Query, SWR e loaders do Expo Router; é React/React Native, enquanto os três projetos obrigam GET via store cacheada MaxPinia com axios e LocalForage."
+ },
+ {
+  "id": "01M0GCFD2RHAHXWGZ9GDR04V3B",
+  "skill_name": "neon-ai-gateway",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/neon-ai-gateway/SKILL.md",
+  "description_en": "One API and one credential for frontier and open-source LLMs, built into your Neon branch and powered by Databricks. Use when a user wants to call an LLM, add AI/chat/an agent to their app, route between model providers (OpenAI, Anthropic, Google/Gemini, Meta, Alibaba, DeepSeek), or...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Gateway do Neon/Databricks para chamar e rotear entre provedores de LLM com uma credencial única; os projetos chamam Gemini direto (google-gemini-php/laravel ou laravel/ai) e não usam Neon nem roteamento multi-provider."
+ },
+ {
+  "id": "01M0GCFD2REEZ23RBS0FKQFYDD",
+  "skill_name": "neon-functions",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/neon-functions/SKILL.md",
+  "description_en": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE)...",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Funções HTTP serverless em Node.js hospedadas numa branch Neon com DATABASE_URL injetada; backend Node e serverless são irrelevantes — mesmo o SocialMedia, que usa PostgreSQL, roda Laravel em Caddy+PHP-FPM próprio."
+ },
+ {
+  "id": "01M0GCFD2RMRZ2VXXX4C82EEQ6",
+  "skill_name": "neon-object-storage",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/neon-object-storage/SKILL.md",
+  "description_en": "S3-compatible object storage that branches with your Neon project, so files and the database stay in sync across every branch. Use when a user wants object storage, a bucket, blob/file storage, or somewhere to put uploads, images, documents, avatars, or user-generated files for their...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Object storage compatível com S3 que versiona junto com as branches do Neon; o armazenamento dos projetos é WebDAV/Seafile, disco local e S3/SES da AWS no AgenteDeBolso, sem qualquer vínculo com Neon."
+ }
+]

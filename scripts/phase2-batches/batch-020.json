@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0GCFD3692ENTCD0NTHM2GK4",
+  "skill_name": "seo-image-gen",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-image-gen/SKILL.md",
+  "description_en": "Generate SEO-focused images such as OG cards, hero images, schema assets, product visuals, and infographics. Use when image generation is part of an SEO workflow or content publishing task.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Gera imagens voltadas a SEO (OG cards, heros, infográficos) dentro de fluxo de publicação de conteúdo. Só toca de leve o site público do engeapp; no SocialMedia a geração de arte é feita com Z-Image/LoRA no ComfyUI, não com assets de SEO, e o AgenteDeBolso lista SEO/marketing como irrelevante."
+ },
+ {
+  "id": "01M0GCFD36DDFQ13QS3997B2A5",
+  "skill_name": "seo-images",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-images/SKILL.md",
+  "description_en": "Image optimization analysis for SEO and performance. Checks alt text, file sizes, formats, responsive images, lazy loading, and CLS prevention. Use when user says \"image optimization\", \"alt text\", \"image SEO\", \"image size\", or \"image audit\".",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Auditoria de imagens para SEO/performance (alt text, formatos, lazy loading, CLS). O ganho real nos três apps é apenas acessibilidade/peso de imagem em SPA autenticada; nenhum deles depende de indexação de imagens."
+ },
+ {
+  "id": "01M0GCFD36Y6XZC2R35C4YWKGG",
+  "skill_name": "seo-meta-optimizer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-meta-optimizer/SKILL.md",
+  "description_en": "Creates optimized meta titles, descriptions, and URL suggestions based on character limits and best practices. Generates compelling, keyword-rich metadata. Use PROACTIVELY for new content.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Escreve títulos/descrições meta e slugs otimizados. Aplicável apenas ao site público e às páginas de leads do engeapp; AgenteDeBolso marca explicitamente SEO/marketing site como tema irrelevante."
+ },
+ {
+  "id": "01M0GCFD36DY1X1SWFDMMSQQ06",
+  "skill_name": "seo-page",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-page/SKILL.md",
+  "description_en": "Deep single-page SEO analysis covering on-page elements, content quality, technical meta tags, schema, images, and performance. Use when user says \"analyze this page\", \"check page SEO\", or provides a single URL for review.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Análise SEO on-page profunda de uma URL (meta tags, schema, conteúdo, performance). Serve no máximo para o site público do engeapp; SocialMedia e AgenteDeBolso são SPAs privadas atrás de autenticação."
+ },
+ {
+  "id": "01M0GCFD366Q8BSYS5G4ADAQQX",
+  "skill_name": "seo-plan",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-plan/SKILL.md",
+  "description_en": "Strategic SEO planning for new or existing websites. Industry-specific templates, competitive analysis, content strategy, and implementation roadmap. Use when user says \"SEO plan\", \"SEO strategy\", \"content strategy\", \"site architecture\", or \"SEO roadmap\".",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Planejamento estratégico de SEO (arquitetura de site, estratégia de conteúdo, roadmap). O SocialMedia gera plano editorial mensal por IA, mas para redes sociais/Meta, não para busca orgânica; AgenteDeBolso não faz marketing."
+ },
+ {
+  "id": "01M0GCFD369A3NBJC1NTAVT72P",
+  "skill_name": "seo-programmatic",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-programmatic/SKILL.md",
+  "description_en": "Plan and audit programmatic SEO pages generated at scale from structured data. Use when designing templates, URL systems, internal linking, quality gates, and index-bloat safeguards for pages at scale.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Cobre páginas geradas em escala a partir de dados estruturados, templates de URL e index bloat. Nenhum dos três produz páginas programáticas indexáveis — todos são SPAs de aplicação com área pública mínima."
+ },
+ {
+  "id": "01M0GCFD36T80P0KZ7AKZZQ395",
+  "skill_name": "seo-schema",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-schema/SKILL.md",
+  "description_en": "Detect, validate, and generate Schema.org structured data. JSON-LD format preferred. Use when user says \"schema\", \"structured data\", \"rich results\", \"JSON-LD\", or \"markup\".",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Geração e validação de Schema.org/JSON-LD para rich results. Só o site público do engeapp poderia consumir markup estruturado; os demais não têm superfície indexável."
+ },
+ {
+  "id": "01M0GCFD366J9687WE1Y9KY8JM",
+  "skill_name": "seo-sitemap",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-sitemap/SKILL.md",
+  "description_en": "Analyze existing XML sitemaps or generate new ones with industry templates. Validates format, URLs, and structure. Use when user says \"sitemap\", \"generate sitemap\", \"sitemap issues\", or \"XML sitemap\".",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Geração e validação de sitemap XML. Útil apenas pontualmente no site público do engeapp; SocialMedia e AgenteDeBolso são apps autenticados sem sitemap."
+ },
+ {
+  "id": "01M0GCFD36KKY7260G95MZX165",
+  "skill_name": "seo-structure-architect",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-structure-architect/SKILL.md",
+  "description_en": "Analyzes and optimizes content structure including header hierarchy, suggests schema markup, and internal linking opportunities. Creates search-friendly content organization.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Organiza hierarquia de headings, schema e links internos para conteúdo buscável. O conselho sobre hierarquia de títulos colide parcialmente com a regra Max de usar MaxTitle1/2 em vez de <h1>, e o foco em busca orgânica não é o da agência de redes sociais."
+ },
+ {
+  "id": "01M0GCFD37ZDB7MW8J2PD4XJW9",
+  "skill_name": "seo-technical",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-technical/SKILL.md",
+  "description_en": "Audit technical SEO across crawlability, indexability, security, URLs, mobile, Core Web Vitals, structured data, JavaScript rendering, and related platform signals like robots.txt and AI crawler access.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Auditoria técnica de crawlability, robots.txt, Core Web Vitals e renderização JavaScript. A parte de Core Web Vitals ajuda marginalmente SPAs Vue 3.6/Vite, mas o resto (indexação, crawlers de IA) não se aplica a apps privados."
+ },
+ {
+  "id": "01M0GCFD37H5Z7JYG3Q85B7EDF",
+  "skill_name": "sharp-coder",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sharp-coder/SKILL.md",
+  "description_en": "Two-layer performance skill combining disciplined THINK layer (surgical edits, simplicity) and terse SPEAK layer (caveman compression). Triggers on requests for brevity, token efficiency, or disciplined coding.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Disciplina de edições cirúrgicas e respostas comprimidas para economia de tokens. É prática de engenharia genérica, aplicável a qualquer base grande (970 arquivos PHP no engeapp, 181 SFCs no AgenteDeBolso), sem cobrir nada da stack Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD37KPWGFNH4RZ6031PB",
+  "skill_name": "shopify-development",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/shopify-development/SKILL.md",
+  "description_en": "Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Desenvolvimento de apps/temas Shopify com GraphQL Admin API, Polaris e Liquid. E-commerce e GraphQL constam como irrelevantes nos três dossiês."
+ },
+ {
+  "id": "01M0GCFD373QBT57K55F2735CS",
+  "skill_name": "similarity-search-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/similarity-search-patterns/SKILL.md",
+  "description_en": "Implement efficient similarity search with vector databases. Use when building semantic search, implementing nearest neighbor queries, or optimizing retrieval performance.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Busca semântica com bancos vetoriais e vizinhos mais próximos. O SocialMedia faz dedup de notícias, mas por LLM (Ollama) e dHash perceptual, não por embeddings vetoriais; engeapp e AgenteDeBolso usam Meilisearch lexical."
+ },
+ {
+  "id": "01M0GCFD37YYXT7N1XKF3HSXX2",
+  "skill_name": "site-architecture",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/site-architecture/SKILL.md",
+  "description_en": "Plan or restructure website hierarchy, navigation, URL patterns, breadcrumbs, and internal linking. Use when mapping pages, sections, and site structure, but not for XML sitemap auditing or schema markup.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Planeja hierarquia de páginas, navegação, padrões de URL e breadcrumbs. Há sobreposição fraca com o roteamento por glob do vue-router 5 no AgenteDeBolso, mas a skill é orientada a sites de conteúdo, não a SPAs de aplicação."
+ },
+ {
+  "id": "01M0GCFD370N7HAQ090AVGNEC4",
+  "skill_name": "skill-audit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/skill-audit/SKILL.md",
+  "description_en": "Pre-install security scanner for AI agent skills. 7.5% of 14,706 skills are malicious. Audit before you trust.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Scanner de segurança pré-instalação de skills de agente (prompt injection, código malicioso). É higiene do ecossistema de skills, não do código Laravel/Vue dos projetos; ajuda só indiretamente, embora os três exijam ativação obrigatória de skills."
+ },
+ {
+  "id": "01M0GCFD38A23J90ZG7HMDNN11",
+  "skill_name": "skill-improver",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/skill-improver/SKILL.md",
+  "description_en": "Iteratively improve a Claude Code skill using the skill-reviewer agent until it meets quality standards. Use when improving a skill with multiple quality issues, iterating on a new skill until it meets standards, or automated fix-review cycles instead of manual editing.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Ciclo iterativo de correção/revisão de um SKILL.md até atingir padrão de qualidade. Útil apenas para manter as skills internas dos projetos afiadas, sem impacto direto em Laravel, Vue ou nos domínios de negócio."
+ },
+ {
+  "id": "01M0GCFD38JB12A30PDBV3044X",
+  "skill_name": "skill-optimizer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/skill-optimizer/SKILL.md",
+  "description_en": "Diagnose and optimize Agent Skills (SKILL.md) with real session data and research-backed static analysis. Works with Claude Code, Codex, and any Agent Skills-compatible agent.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Diagnostica SKILL.md com dados reais de sessão e análise estática para melhorar acionamento e tamanho. Vale como meta-ferramenta de tuning das skills usadas nos três repositórios, mas não cobre nenhuma tecnologia da stack."
+ },
+ {
+  "id": "01M0GCFD38F43S3NK3PD5708QH",
+  "skill_name": "skill-scanner",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/skill-scanner/SKILL.md",
+  "description_en": "Scan agent skills for security issues before adoption. Detects prompt injection, malicious code, excessive permissions, secret exposure, and supply chain risks.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Detecta permissões excessivas, exposição de segredos e risco de cadeia de suprimentos em skills de terceiros. Reforça a regra de nunca commitar segredos, mas atua sobre skills adotadas, não sobre o código dos apps."
+ },
+ {
+  "id": "01M0GCFD385S4HPGQJR7MSDDHS",
+  "skill_name": "skill-seekers",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md",
+  "description_en": "-Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills in minutes.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Converte sites de documentação, repositórios e PDFs em skills automaticamente. Poderia empacotar docs de Laravel 13, laravel/ai ou ComfyUI em skills locais, mas é ferramenta de preparação, não de desenvolvimento nos projetos."
+ },
+ {
+  "id": "01M0GCFD38PYF9EZGHKJDD2CJY",
+  "skill_name": "skill-writer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/skill-writer/SKILL.md",
+  "description_en": "Create and improve agent skills following the Agent Skills specification. Use when asked to create, write, or update skills.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Cria e atualiza skills seguindo a especificação Agent Skills. Os três projetos dependem de skills próprias e de documentação viva, mas escrever SKILL.md é atividade de suporte e não move a agulha no código de domínio."
+ },
+ {
+  "id": "01M0GCFD38QXB3N5MXEPCVST8V",
+  "skill_name": "slack-bot-builder",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/slack-bot-builder/SKILL.md",
+  "description_en": "Build Slack apps using the Bolt framework across Python,",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Constrói apps Slack com o framework Bolt em Python. engeapp e AgenteDeBolso integram Slack apenas para notificações via PHP; Python é tema explicitamente irrelevante nos dossiês."
+ },
+ {
+  "id": "01M0GCFD38V9VJCZA7Q3PCQWCQ",
+  "skill_name": "smart-git-automation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/smart-git-automation/SKILL.md",
+  "description_en": "Smart change detection, auto branch naming, and streamlined commit/PR workflow",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Detecção de mudanças, nomeação automática de branch e fluxo automatizado de commit/PR. Os três projetos exigem worktrees e proíbem commit/push sem pedido explícito, o que neutraliza boa parte da automação proposta."
+ },
+ {
+  "id": "01M0GCFD388CGYSGHZ5C7DR04M",
+  "skill_name": "smartui-skill",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/smartui-skill/SKILL.md",
+  "description_en": "Generates SmartUI visual regression test configurations for screenshot comparison on TestMu AI cloud. Framework-agnostic — works with Playwright, Selenium, Cypress, Puppeteer. Use when user mentions \"SmartUI\", \"visual regression\", \"screenshot comparison\", \"visual testing\". Triggers on:...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Configura regressão visual SmartUI na nuvem TestMu com Playwright/Selenium/Cypress. Os projetos verificam UI localmente com Dusk, Puppeteer ou Playwright headless, e serviços de teste em nuvem não fazem parte da infra (sem CI)."
+ },
+ {
+  "id": "01M0GCFD38C405TB9RTQ1XK7B8",
+  "skill_name": "smtp-penetration-testing",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/smtp-penetration-testing/SKILL.md",
+  "description_en": "Conduct comprehensive security assessments of SMTP (Simple Mail Transfer Protocol) servers to identify vulnerabilities including open relays, user enumeration, weak authentication, and misconfiguration.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Pentest de servidores SMTP (open relay, enumeração de usuários). engeapp consome Postmark/Resend/SES e IMAP como cliente, sem operar servidor SMTP próprio; SocialMedia nem usa e-mail transacional."
+ },
+ {
+  "id": "01M0GCFD39MQ2R6CX72HDYPG06",
+  "skill_name": "snowflake-development",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/snowflake-development/SKILL.md",
+  "description_en": "Comprehensive Snowflake development assistant covering SQL best practices, data pipeline design (Dynamic Tables, Streams, Tasks, Snowpipe), Cortex AI functions, Cortex Agents, Snowpark Python, dbt integration, performance tuning, and security hardening.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Data warehouse Snowflake com Snowpark Python, dbt e Cortex AI. engeapp usa BigQuery só para billing de IA, e data warehouse/BI/ETL está listado como irrelevante no SocialMedia."
+ },
+ {
+  "id": "01M0GCFD398CZGARQX7BHFJ8FM",
+  "skill_name": "social-content",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/social-content/SKILL.md",
+  "description_en": "You are an expert social media strategist with direct access to a scheduling platform that publishes to all major social networks. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Estratégia de conteúdo social e criação de posts engajadores com agendamento. Alinha-se ao pipeline de copywriting/planejamento editorial do SocialMedia, mas presume plataforma de agendamento de terceiros e várias redes, enquanto o projeto publica só na Meta com pipeline próprio."
+ },
+ {
+  "id": "01M0GCFD390WGJPS8RRJJG7BXN",
+  "skill_name": "social-metadata-hardening",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/social-metadata-hardening/SKILL.md",
+  "description_en": "Fix social sharing previews so URLs render as rich cards on Facebook, LinkedIn, X/Twitter, WhatsApp, Telegram, and more. Covers OG tags, Twitter cards, absolute image URLs, and debugging.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Corrige preview de compartilhamento (OG tags, Twitter cards, URLs absolutas de imagem), com exemplos em Next.js. Só ajudaria em páginas públicas do engeapp; o SocialMedia publica mídia direto na Graph API e não depende de unfurl de link."
+ },
+ {
+  "id": "01M0GCFD395M62X7V7QPJDQFTV",
+  "skill_name": "social-orchestrator",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/social-orchestrator/SKILL.md",
+  "description_en": "Orquestrador unificado de canais sociais — coordena Instagram, Telegram e WhatsApp em um unico fluxo de trabalho. Publicacao cross-channel, metricas unificadas, reutilizacao de conteudo por formato, agendamento sincronizado e gestao centralizada de campanhas em todos os canais simultaneamente.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Orquestra publicação cross-channel em Instagram, Telegram e WhatsApp com métricas unificadas e agendamento. O eixo Instagram e o agendamento sincronizado batem com o calendário editorial do SocialMedia, mas Telegram está fora do escopo (só Meta) e o engeapp só usa WhatsApp Cloud para atendimento."
+ },
+ {
+  "id": "01M0GCFD397SVN70J9DBTQNJ4H",
+  "skill_name": "social-post-writer-seo",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/social-post-writer-seo/SKILL.md",
+  "description_en": "Social Media Strategist and Content Writer. Creates clear, engaging social media posts for Instagram, LinkedIn, and Facebook.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Redige posts para Instagram, LinkedIn e Facebook. Serve de referência de copywriting para a etapa de roteiro/legenda do SocialMedia (IG/FB), embora não trate da máquina de estados nem dos agentes laravel/ai que executam essa geração."
+ },
+ {
+  "id": "01M0GCFD3985YMQGV96Y442KC5",
+  "skill_name": "socialclaw",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/socialclaw/SKILL.md",
+  "description_en": "Agent-first social media publishing skill — schedule and publish posts across 13 platforms (X, LinkedIn, Instagram, Facebook Pages, TikTok, Discord, Telegram, YouTube, Reddit, WordPress, Pinterest) via a single workspace API key.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Publicação agendada em 13 plataformas (X, TikTok, YouTube, Pinterest etc.) por uma API SaaS de terceiros. O SocialMedia publica diretamente na Meta Graph API com jobs idempotentes próprios e lista TikTok/LinkedIn/X/YouTube como irrelevantes."
+ },
+ {
+  "id": "01M0GCFD39NMR6A1Q6T4K4F6D6",
+  "skill_name": "software-architecture",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/software-architecture/SKILL.md",
+  "description_en": "Guide for quality focused software architecture. This skill should be used when users want to write code, design architecture, analyze code, in any case that relates to software development.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Guia genérico de arquitetura e qualidade de software para design e análise de código. Aplicável às camadas de Actions/Services dos três apps, mas sem nada específico de Laravel, Eloquent ou Vue."
+ },
+ {
+  "id": "01M0GCFD395B9Y9GHZYF5Q2TC9",
+  "skill_name": "source-driven-development",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/source-driven-development/SKILL.md",
+  "description_en": "Grounds every implementation decision in official documentation. Use when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Obriga fundamentar cada decisão em documentação oficial citada, evitando padrões desatualizados. Casa bem com o uso de Boost search-docs no engeapp e com stacks em release candidate (Vue 3.6-rc, Laravel 13, vue-router 5), onde o conhecimento do modelo tende a estar defasado."
+ },
+ {
+  "id": "01M0GCFD39YE59MJVTK7XN57SS",
+  "skill_name": "spark-optimization",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/spark-optimization/SKILL.md",
+  "description_en": "Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use when improving Spark performance, debugging slow jobs, or scaling data processing pipelines.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Tuning de jobs Apache Spark (particionamento, shuffle, memória). Nenhum dos projetos processa big data; Spark/ETL é tema explicitamente irrelevante."
+ },
+ {
+  "id": "01M0GCFD39HPER3GWTGKQ3F7V0",
+  "skill_name": "spec-to-code-compliance",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/spec-to-code-compliance/SKILL.md",
+  "description_en": "Verifies code implements exactly what documentation specifies for blockchain audits. Use when comparing code against whitepapers, finding gaps between specs and implementation, or performing compliance checks for protocol implementations.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Compara implementação com whitepapers em auditorias de protocolos blockchain. A ideia de conferir código contra spec ecoa o fluxo spec→plano→TDD do SocialMedia, mas o enquadramento em cripto é irrelevante nos três dossiês."
+ },
+ {
+  "id": "01M0GCFD3928HJVCERBT0PAQFC",
+  "skill_name": "spline-3d-integration",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/spline-3d-integration/SKILL.md",
+  "description_en": "Use when adding interactive 3D scenes from Spline.design to web projects, including React embedding and runtime control API.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Incorpora cenas 3D do Spline.design via runtime React. React é irrelevante nos três projetos e nenhum tem requisito de 3D interativo."
+ },
+ {
+  "id": "01M0GCFD39JY9XFDDANQNPGWFS",
+  "skill_name": "sql-injection-testing",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sql-injection-testing/SKILL.md",
+  "description_en": "Execute comprehensive SQL injection vulnerability assessments on web applications to identify database security flaws, demonstrate exploitation techniques, and validate input sanitization mechanisms.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Avaliação ofensiva de injeção de SQL e validação de sanitização de entrada. engeapp e AgenteDeBolso mantêm auditorias de segurança versionadas e usam raw queries pontuais, mas o Eloquent já parametriza quase tudo, tornando o valor esporádico."
+ },
+ {
+  "id": "01M0GCFD39YMGPRHBP0500PN94",
+  "skill_name": "sql-optimization-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sql-optimization-patterns/SKILL.md",
+  "description_en": "Transform slow database queries into lightning-fast operations through systematic optimization, proper indexing, and query plan analysis.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Otimização sistemática de queries lentas com indexação e análise de plano de execução. Ajuda concretamente nas 384 migrations/129 models do engeapp, nos índices únicos parciais do PostgreSQL 18 do SocialMedia e no motor de saldo/extrato do AgenteDeBolso, mas é agnóstica de Eloquent."
+ },
+ {
+  "id": "01M0GCFD39K72NZ32W705GSK05",
+  "skill_name": "sql-pro",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sql-pro/SKILL.md",
+  "description_en": "Master modern SQL with cloud-native databases, OLTP/OLAP optimization, and advanced query techniques. Expert in performance tuning, data modeling, and hybrid analytical systems.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "SQL avançado com foco em bancos cloud-native, OLTP/OLAP e modelagem híbrida analítica. A parte OLTP e de tuning serve ao MySQL 8 e ao PostgreSQL 18 dos projetos, mas o viés analítico/cloud não corresponde a nenhuma das infras."
+ },
+ {
+  "id": "01M0GCFD39HSWXSQ6MNMSGG5HJ",
+  "skill_name": "sqlmap-database-pentesting",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sqlmap-database-pentesting/SKILL.md",
+  "description_en": "Provide systematic methodologies for automated SQL injection detection and exploitation using SQLMap.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Uso operacional do SQLMap para detectar e explorar injeção de SQL automaticamente. É ferramenta de pentest externo, fora do fluxo de desenvolvimento Laravel dos três projetos, com uso só em auditorias raras."
+ },
+ {
+  "id": "01M0GCFD398RJ5TW3DDVHN6RJF",
+  "skill_name": "sred-project-organizer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sred-project-organizer/SKILL.md",
+  "description_en": "Take a list of projects and their related documentation, and organize them into the SRED format for submission.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Organiza projetos no formato SR&ED, incentivo fiscal canadense de P&D. Contexto regulatório estrangeiro sem qualquer relação com produtos brasileiros de energia solar, redes sociais ou finanças pessoais."
+ }
+]

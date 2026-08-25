@@ -1,0 +1,442 @@
+[
+  {
+    "id": "01M0GCFD1B6XY3JKF58ZH8VS02",
+    "skill_name": "animejs-animation",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Cobre a biblioteca anime.js para animações JS complexas, que não está no package.json de nenhum dos três projetos (as transições vêm do design system Max e de utilitários UnoCSS). Só ajudaria em um efeito visual pontual e ainda exigiria adicionar uma dependência nova."
+  },
+  {
+    "id": "01M0GCFD1BEEMD615PTCRA4ZGA",
+    "skill_name": "anti-reversing-techniques",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Trata de anti-debug, ofuscação e bypass de proteções em binários — domínio de engenharia reversa, não de SaaS Laravel/Vue. Ganha um ponto a mais no AgenteDeBolso apenas porque lá existe um APK descompilado usado como referência de regra de negócio."
+  },
+  {
+    "id": "01M0GCFD1B5AQBZ7T5BB74PNAA",
+    "skill_name": "antigravity-agent-manager",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Ensina a orquestrar agentes paralelos especificamente no Antigravity 2.0 Agent Manager / Antigravity IDE, ferramenta que não faz parte do fluxo dos projetos (que usam Claude Code + git worktrees). A ideia de paralelismo é transferível, o conteúdo operacional não."
+  },
+  {
+    "id": "01M0GCFD1CVQ3FBNNSHP07FQ95",
+    "skill_name": "antigravity-design-expert",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Foca em UI glassmorphism/espacial com GSAP e CSS 3D, enquanto os três projetos são padronizados no design system Max + UnoCSS attributify com layout idêntico entre apps. Adotar esse estilo iria contra a convenção de UI vigente."
+  },
+  {
+    "id": "01M0GCFD1CMAJE0QT5AS7RJW6V",
+    "skill_name": "antigravity-workflows",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "É um orquestrador de outras skills do ecossistema Antigravity (MVP SaaS, auditoria, QA de browser) e só funciona se essas skills estiverem instaladas. Sem esse ecossistema, não entrega nada aos projetos."
+  },
+  {
+    "id": "01M0GCFD1C05NRMB4SXZ4REKWQ",
+    "skill_name": "anywrite",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "CLI para a API local do Anytype (objetos, tags, chat, arquivos). Nenhum dos projetos usa Anytype como base de conhecimento — a documentação vive em Markdown no repositório."
+  },
+  {
+    "id": "01M0GCFD1CXAV1KWKW58KQB0NZ",
+    "skill_name": "api-analyzer",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Valida se uma requisição HTTP (método, headers, auth, body) está correta a partir de um curl. É útil ao depurar as muitas integrações externas (WhatsApp Cloud, Meta Graph, EFI/Inter, Pluggy), mas é uma prática genérica de diagnóstico, sem conhecimento dessas APIs específicas."
+  },
+  {
+    "id": "01M0GCFD1C2PN9MJVPR0D0ZMF2",
+    "skill_name": "api-and-interface-design",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Orienta o desenho de contratos estáveis entre módulos e da fronteira front/back, o que se aplica às SPAs Vue que consomem rotas Laravel via Ziggy. Perde pontos por tratar REST e GraphQL genericamente, sendo GraphQL tema explicitamente irrelevante nos três dossiês."
+  },
+  {
+    "id": "01M0GCFD1CJAMPBGQKRNQ8YHWK",
+    "skill_name": "api-design-principles",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Panorama teórico de design REST/GraphQL (nomeação, versionamento, escalabilidade) sem amarração com Laravel, resources ou spatie-data. Como metade do conteúdo é GraphQL, tema descartado nos três projetos, o ganho prático é pequeno."
+  },
+  {
+    "id": "01M0GCFD1C94BH0NDHFY8NX008",
+    "skill_name": "api-documentation-generator",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Gera documentação de endpoints a partir do código. Os três projetos são SPAs de consumo interno, sem API pública para terceiros, então a documentação relevante é o CLAUDE.md/docs internos e não um portal OpenAPI."
+  },
+  {
+    "id": "01M0GCFD1CXQK8A0147KC2JX3P",
+    "skill_name": "api-endpoint-builder",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Roteiro para criar endpoints REST com validação, tratamento de erro e autenticação — atividade diária nos três backends Laravel, porém sem citar FormRequest, policies ou Sanctum. Pontua um pouco mais no SocialMedia, cuja superfície inteira são rotas aninhadas `/api/clients/{client}/*` sob auth:sanctum."
+  },
+  {
+    "id": "01M0GCFD1CHK8FFXXEK304VRDS",
+    "skill_name": "api-fuzzing-bug-bounty",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Técnicas ofensivas de bug bounty (fuzzing, bypass de auth, IDOR) sobre REST/SOAP/GraphQL. O teste de IDOR tem eco no isolamento multi-tenant, e no AgenteDeBolso soma às auditorias de segurança versionadas em docs/audit/, mas a postura é de pentest, não de desenvolvimento."
+  },
+  {
+    "id": "01M0GCFD1C5W6JT7C1G3DDVSS2",
+    "skill_name": "api-integration",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Trata de sistemas de webhook, encadeamento de APIs e arquitetura orientada a eventos — o miolo das integrações WhatsApp Cloud/EFI, webhook da Meta com HMAC e webhook Pluggy. É rebaixada por misturar Kafka/Pub-Sub/ETL, infraestrutura listada como irrelevante nos três dossiês."
+  },
+  {
+    "id": "01M0GCFD1CKCRNS4QGQPRKSKNF",
+    "skill_name": "api-onboarding",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Otimiza o time-to-first-API-call de desenvolvedores externos com sandbox, chaves e docs interativas. Nenhum dos três é uma plataforma de API para terceiros — todos consomem APIs alheias em vez de publicar a sua."
+  },
+  {
+    "id": "01M0GCFD1C7VCQAGBXR3D1Z8PR",
+    "skill_name": "api-patterns",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Decisão entre REST, GraphQL e tRPC mais formatos de resposta, versionamento e paginação. A escolha de estilo já está fechada (REST/Laravel com Ziggy) e GraphQL/tRPC são irrelevantes; só sobra a parte de paginação e formato de resposta."
+  },
+  {
+    "id": "01M0GCFD1C87AA214YJMR6W538",
+    "skill_name": "api-sdk-generator",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Gera bibliotecas cliente e modelos de request/response para APIs REST em várias linguagens. No engeapp os tipos TS já vêm do spatie/laravel-typescript-transformer e as integrações externas usam SDKs oficiais (efipay, inter-co, netflie), o que torna a geração de SDK rara."
+  },
+  {
+    "id": "01M0GCFD1CCRBPQFVGMJPJX18W",
+    "skill_name": "api-security-best-practices",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 7}
+    ],
+    "rationale": "Padrões de autenticação, autorização, validação de entrada e rate limiting aplicáveis às rotas Sanctum e aos endpoints que recebem webhooks. Vale mais no AgenteDeBolso, que manipula dados financeiros, Open Finance e PIN/passkey e mantém auditorias de segurança formais."
+  },
+  {
+    "id": "01M0GCFD1CVY4PA43WMKER37JZ",
+    "skill_name": "api-security-testing",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Workflow de teste de segurança de API (authz, rate limit, validação) que pode virar casos Pest verificando vazamento entre tenants. Parte do escopo é GraphQL, irrelevante; o AgenteDeBolso aproveita mais por causa das auditorias recorrentes em docs/audit/."
+  },
+  {
+    "id": "01M0GCFD1C90WN1MT30VAD0FB3",
+    "skill_name": "apify-actorization",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Empacota software como Actors serverless em imagens Docker para a plataforma Apify. Une duas coisas descartadas nos dossiês: Docker/serverless e uma plataforma de scraping que nenhum projeto contrata."
+  },
+  {
+    "id": "01M0GCFD1C4EEYA294EDCJXJB8",
+    "skill_name": "apify-audience-analysis",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Analisa demografia e engajamento de audiência via scrapers da Apify em Facebook, Instagram, YouTube e TikTok. O SocialMedia trabalha com IG/FB, mas exclusivamente pela Meta Graph API oficial e sem TikTok/YouTube, então só o vocabulário de métricas de audiência sobrevive."
+  },
+  {
+    "id": "01M0GCFD1D78D3P6SYHB5GE90M",
+    "skill_name": "apify-competitor-intelligence",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Inteligência competitiva raspando Google Maps, Booking, IG/FB/YouTube/TikTok com actors Apify. Tangencia o posicionamento de marca do SocialMedia, mas o produto gera conteúdo com Gemini e publica só na Meta, sem camada de scraping de concorrentes."
+  },
+  {
+    "id": "01M0GCFD1DGCHWTYYCVZDBFPB1",
+    "skill_name": "apify-ecommerce",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Extração de produtos, preços e reviews de plataformas de e-commerce. E-commerce/marketplace é tema explicitamente irrelevante e nenhum projeto raspa catálogos de loja."
+  },
+  {
+    "id": "01M0GCFD1DK6JXHK1KA9YAY8H1",
+    "skill_name": "app-store-changelog",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Gera release notes no formato da App Store a partir do histórico git desde a última tag. Os três são web apps (a estratégia declarada do engeapp e do AgenteDeBolso é PWA, não loja de aplicativos), então não há submissão a revisar."
+  },
+  {
+    "id": "01M0GCFD1D8PGWN1T5PKW0637R",
+    "skill_name": "app-store-optimization",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Toolkit de ASO para ranquear apps na Apple App Store e Google Play. Mobile nativo é tema explicitamente irrelevante nos três dossiês e nenhum produto é distribuído por loja."
+  },
+  {
+    "id": "01M0GCFD1DQ5796HQ9Q5S3BHNY",
+    "skill_name": "appdeploy",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Publica web apps com banco e storage em uma plataforma de hospedagem via API HTTP com curl. Conflita com a realidade de deploy dos projetos: Deployer 8 zero-downtime no engeapp, webhook próprio + DeployJob no AgenteDeBolso, e nada de PaaS."
+  },
+  {
+    "id": "01M0GCFD1DRX1WZ40STVA1GSP4",
+    "skill_name": "apple-container",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Roda containers OCI como micro-VMs em macOS Apple Silicon via CLI da Apple. O ambiente é Linux com Caddy systemd + PHP-FPM e containers estão listados como irrelevantes nos três projetos."
+  },
+  {
+    "id": "01M0GCFD1DMJMG6A0FB3A35Z21",
+    "skill_name": "application-performance-performance-optimization",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Método de otimização ponta a ponta com profiling e observabilidade, que casa com os temas de N+1, Pulse/Telescope, Clockwork e tuning de Octane, mas sem instruções específicas de Laravel ou Vue. É boa engenharia genérica, não conhecimento de stack."
+  },
+  {
+    "id": "01M0GCFD1DKZ206GD4MNAGBNCK",
+    "skill_name": "applicationinsights-web-ts",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Instrumentação RUM de browser com o SDK Application Insights da Microsoft/Azure. A observabilidade dos projetos é Pulse/Telescope/Clockwork/log-viewer e nenhum deles usa Azure."
+  },
+  {
+    "id": "01M0GCFD1DAJAZD48YVZ33B204",
+    "skill_name": "architect-review",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Persona de arquiteto para revisar decisões estruturais de mudanças. Ajuda a manter coerência em bases grandes (970 arquivos PHP no engeapp, 64 stores no AgenteDeBolso), mas é conselho arquitetural genérico sem noção de Actions/Services/MaxPinia."
+  },
+  {
+    "id": "01M0GCFD1DMKTWQ6XCW4NCYT8M",
+    "skill_name": "architecture-decision-records",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Formaliza ADRs para registrar contexto e motivo de decisões técnicas. Encaixa no hábito de documentação viva do SocialMedia (docs/superpowers/specs|plans) e na exigência do AgenteDeBolso de atualizar resources/CLAUDE.md no mesmo commit, mas é um formato de documento, não conhecimento de stack."
+  },
+  {
+    "id": "01M0GCFD1D7ASYM90VBQK5XCQZ",
+    "skill_name": "architecture-patterns",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Clean Architecture, Hexagonal e DDD para backends. Tem afinidade conceitual com a camada de Services do AgenteDeBolso e as Actions do SocialMedia, mas os projetos seguem o padrão idiomático do Laravel e não uma arquitetura em portas/adaptadores."
+  },
+  {
+    "id": "01M0GCFD1DCSSZCHWN0V7C45F7",
+    "skill_name": "aria",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Papel de um 'agent-squad' encarregado de desenhar modelo de dados e contratos de API, descrito de forma abstrata e dependente do restante do squad. Modelagem de dados importa nos três (384 migrations no engeapp, ULID no SocialMedia), mas a skill não traz técnica concreta de Eloquent/migrations."
+  },
+  {
+    "id": "01M0GCFD1EKJAM9R8J2QW9VC9R",
+    "skill_name": "astro",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Framework Astro para sites de conteúdo com islands e SSG/MDX. Astro e SSG/SSR estão entre os temas irrelevantes; o front dos três é SPA Vue 3.6 com Vite e vue-router 5."
+  },
+  {
+    "id": "01M0GCFD1EN1XTRJPR4GRXPYP9",
+    "skill_name": "async-python-patterns",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Concorrência em Python com asyncio e async/await. Python é explicitamente irrelevante nos três dossiês; a concorrência real acontece em filas Redis com Horizon no PHP."
+  },
+  {
+    "id": "01M0GCFD1EDA0CM6814JHG4KWK",
+    "skill_name": "atlas-cloud-media",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Geração de imagem e vídeo pela API assíncrona da Atlas Cloud com polling de job. O SocialMedia gera arte, porém localmente via ComfyUI com LoRA Z-Image próprio; só o padrão de polling assíncrono é vagamente transferível."
+  },
+  {
+    "id": "01M0GCFD1ER5ZNCFAKA3SP858C",
+    "skill_name": "atlas-contract",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Disciplina de integridade de objetivo: fixa um contrato da tarefa, emite avisos de desvio e auditoria final, evitando que o agente altere o que foi mandado preservar. Conversa com a regra dos três projetos de não modificar código sem plano aprovado, mas é processo, não stack."
+  },
+  {
+    "id": "01M0GCFD1ERHT9G9YJ9HV9WTC4",
+    "skill_name": "attack-tree-construction",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Modelagem de ameaças por árvores de ataque para mapear caminhos de exploração e lacunas de defesa. É um exercício ocasional de segurança; rende um pouco mais no AgenteDeBolso pela superfície sensível de Open Finance, passkey e billing."
+  },
+  {
+    "id": "01M0GCFD1EH4PX7EW5EP7988EF",
+    "skill_name": "audio-transcriber",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Converte gravações de áudio em Markdown com resumo por LLM. O SocialMedia realmente extrai temas a partir de áudio (com ffmpeg/ffprobe no pipeline), enquanto engeapp e AgenteDeBolso só gravam voz (vue-voice-recording, ffmpeg OGG/Opus) sem STT implementada."
+  },
+  {
+    "id": "01M0GCFD1EK00X7W151N9A7EG6",
+    "skill_name": "audit-agent-run-evidence",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Julga se um agente/automação realmente concluiu o que alegou, olhando traces, tool calls e checkpoints em vez de confiar no auto-relato. Útil no hábito de verificação empírica (Puppeteer/Playwright para conferir UI), mas voltada a auditar harnesses e gateways MCP, cenário fora do dia a dia dos três projetos."
+  },
+  {
+    "id": "01M0GCFD1EQK5QHR7267QGH5QV",
+    "skill_name": "auth-implementation-patterns",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 7},
+      {"project": "AgenteDeBolso", "importance": 8}
+    ],
+    "rationale": "Padrões de autenticação e autorização (sessão, tokens, OAuth, controle de acesso) que sustentam Sanctum SPA, Socialite/Google e spatie-permission nos três. Pontua mais alto no AgenteDeBolso, onde autenticação é domínio de primeira classe com WebAuthn/passkey, PIN de app e de perfil e compartilhamento por papéis."
+  }
+]

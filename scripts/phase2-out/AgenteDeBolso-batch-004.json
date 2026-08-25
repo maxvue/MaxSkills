@@ -1,0 +1,322 @@
+[
+  {
+    "id": "01M0GCFD18JWND6HNR2YAA19ZT",
+    "skill_name": "2slides-ppt-generator",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "O corpo exige `python -m pip install -r requirements.txt` e uma chave `SLIDES_2SLIDES_API_KEY` paga (10 a 210 créditos por página) para chamar uma API hospedada; Python é tecnologia vetada no dossiê e o AgenteDeBolso só gera PDF/Excel de relatórios financeiros, nunca decks."
+  },
+  {
+    "id": "01M0GCFD18NX2MRZQC17MY1DA5",
+    "skill_name": "3d-ui",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Além do bloco CSS com `perspective`/`preserve-3d`, mais da metade do arquivo é implementação em SwiftUI (`rotation3DEffect`) e Flutter — mobile nativo explicitamente irrelevante — e a estética 'Midnight Luxury' com assets .glb conflita com o layout mobile-first do design system Max."
+  },
+  {
+    "id": "01M0GCFD1811C5TG8VHJ34BCDN",
+    "skill_name": "ab-test-setup",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo é realmente um processo de gates (Hypothesis Lock, checagem de premissas, métricas primária/secundária/guardrail) sem uma linha de código; o AgenteDeBolso não tem fonte de analytics nem volume de tráfego para MDE, então a Fase 1 acertou em mantê-lo baixo."
+  },
+  {
+    "id": "01M0GCFD18KWQT3TFSW2CRN77T",
+    "skill_name": "ab-testing",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O arquivo entrega framework de hipótese e tabelas de sample size (ex.: baseline 1% exigindo 150k/variante) e aponta para calculadoras do Optimizely; nada disso encontra apoio num app de finanças pessoais sem instrumentação de experimentos."
+  },
+  {
+    "id": "01M0GCFD18VAGVJWZC3N8DC6G5",
+    "skill_name": "ad-creative",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O miolo são tabelas de limites de caracteres de Google RSA, Meta, LinkedIn e TikTok para copy de mídia paga; o AgenteDeBolso lista SEO/marketing como irrelevante e não produz anúncios."
+  },
+  {
+    "id": "01M0GCFD184YZG5EYCX4KG5D0Y",
+    "skill_name": "adhx",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "São 133 linhas em torno de um único endpoint `adhx.com/api/share/tweet/{user}/{id}` consumido por curl; não há qualquer ponto de contato com lançamentos, faturas ou Open Finance do projeto."
+  },
+  {
+    "id": "01M0GCFD19T9JY3X5W3ATJ3S4T",
+    "skill_name": "aegisops-ai",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Os três módulos são scripts Python (`patch_analyzer.py`, `cost_auditor.py`, `k8s_policy_generator.py`) para diffs de kernel em C, `terraform plan` e manifestos K8s, e o próprio texto diz 'não use para lógica de web app' — soma de tecnologias vetadas."
+  },
+  {
+    "id": "01M0GCFD19NWKBJ1YCS29T5NGS",
+    "skill_name": "agent-creator",
+    "importance": 4,
+    "fase1_importance": 5,
+    "verdict": "rebaixada",
+    "evidence": "O conteúdo é concreto mas puramente sobre scaffolding em `<appDataDir>/config/plugins/` com `plugin.json` e geração de persona, e o frontmatter traz `targets: claude: blocked`; é meta-tooling do harness, abaixo de uma prática de engenharia aproveitável no código Laravel/Vue."
+  },
+  {
+    "id": "01M0GCFD198ZTWHXMA72NJDA89",
+    "skill_name": "agent-evaluation",
+    "importance": 3,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "As 1136 linhas são classes TypeScript como `StatisticalEvaluator` com minRuns=10 e ecossistema AgentBench/τ-bench/LangSmith; o AgenteDeBolso valida seu uso de Gemini com Pest e Dusk, sem harness de benchmark estatístico."
+  },
+  {
+    "id": "01M0GCFD19BMF20Z7SJH4S58KG",
+    "skill_name": "agent-evaluation-reporting",
+    "importance": 3,
+    "fase1_importance": 3,
+    "verdict": "confirmada",
+    "evidence": "O texto é rigoroso de verdade (ledger mutuamente exclusivo autonomous/assisted/failure/timeout/invalid e fórmulas presas a `N_eval` e `T_all`), mas o rigor só rende se existir uma bateria de avaliação de agente — que o projeto não mantém; nota tangencial correta."
+  },
+  {
+    "id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+    "skill_name": "agent-framework-azure-ai-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Todos os exemplos são `pip install agent-framework`, `AzureCliCredential` e `AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o-mini`; Python, Azure e OpenAI são simultaneamente rejeitados pelo dossiê, que fixa Gemini via google-gemini-php."
+  },
+  {
+    "id": "01M0GCFD197FJEE75WWCDHK2Q4",
+    "skill_name": "agent-harness-fault-injection",
+    "importance": 3,
+    "fase1_importance": 2,
+    "verdict": "promovida",
+    "evidence": "O corpo formaliza um contrato de recuperação ('retome do último checkpoint durável e comprometa cada efeito externo no máximo uma vez') e uma máquina de estados de retry — vocabulário transferível para a idempotência de jobs Horizon e webhooks HMAC do Pluggy, mesmo que o alvo declarado seja o sandbox do agente."
+  },
+  {
+    "id": "01M0GCFD197CRDEE5JDE68FNAJ",
+    "skill_name": "agent-manager-skill",
+    "importance": 1,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "Skill oca: 48 linhas que apenas mandam clonar um repo externo e rodar `python3 agent-manager/scripts/main.py start EMP_0001` em tmux, sem nenhuma orientação própria — não sobra conteúdo para justificar nota 3."
+  },
+  {
+    "id": "01M0GCFD19NG8MWNKV6CX0ZK6F",
+    "skill_name": "agent-memory-mcp",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "As 105 linhas são procedimento de clonar `webzler/agentMemory` num commit fixo, `npm ci`/`npm run compile` e a lista de tools `memory_search`/`memory_write`; exige adotar um servidor MCP Node que o AgenteDeBolso não usa, e a documentação viva do projeto já vive no `resources/CLAUDE.md`."
+  },
+  {
+    "id": "01M0GCFD19RMWE1BMBZKEQF9WP",
+    "skill_name": "agent-memory-systems",
+    "importance": 1,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "Apesar do volume (1089 linhas), o ferramental é integralmente vetado: LangMem/LangChain, MemGPT, Pinecone/Qdrant/Weaviate/pgvector e embeddings `text-embedding-3-large` da OpenAI — nada compatível com MySQL 8 + Gemini."
+  },
+  {
+    "id": "01M0GCFD19Q09WF3PG18JEXMVP",
+    "skill_name": "agent-orchestration-improve-agent",
+    "importance": 3,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "A Fase 1 apostou no 'prompt engineering para Gemini', mas o corpo é um pipeline dependente de uma ferramenta inexistente (`Use: context-manager` / `analyze-agent-performance --days 30`) e de métricas de satisfação que o AgenteDeBolso não coleta."
+  },
+  {
+    "id": "01M0GCFD191187GGD9RBHK114V",
+    "skill_name": "agent-orchestration-multi-agent-optimize",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "Conteúdo raso e genérico: placeholders `$TARGET`/`$BUDGET_CONSTRAINTS` e bullets como 'Intelligent multi-agent coordination' e 'Adaptive optimization strategies', sem uma técnica de profiling concreta que ajude filas Redis/Horizon."
+  },
+  {
+    "id": "01M0GCFD19M581W25QWJ6QWEGY",
+    "skill_name": "agent-qa-authoring",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "Todo o workflow chama tools proprietárias (`agent_qa_discover`, `agent_qa_generate_id`) e impõe contratos de ID como 't_ + 10 palavras id-agent'; nada disso se traduz para Pest 3 ou Dusk, então a nota baixa se confirma."
+  },
+  {
+    "id": "01M0GCFD19428J1JZ1H2KE7C9T",
+    "skill_name": "agent-qa-debug-fix",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "As 78 linhas trazem uma regra saudável ('não reescreva o teste só para passar quando o artefato mostra defeito de produto'), mas o passo a passo depende de `agent_qa_get_run_artifact` e `agent_qa_classify_failure`, plataforma ausente do projeto."
+  },
+  {
+    "id": "01M0GCFD19ASKMNADR1VH7XNAA",
+    "skill_name": "agent-qa-result-triage",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O arquivo é essencialmente uma tabela fechada de categorias (`appium_startup`, `browser_disconnect`, `element_not_found`) para runs Appium/browser do Agent QA; a verificação empírica de UI do AgenteDeBolso é feita com Dusk e Puppeteer."
+  },
+  {
+    "id": "01M0GCFD194JJP2JDD90STJPY1",
+    "skill_name": "agent-self-scheduling",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O conteúdo real gira em torno de `claude -p --output-format json`, `codex exec`, `hermes cron create` e loops `while ...; sleep N`; é o relógio do assistente, e não tem sobreposição com o scheduler do Laravel que atualiza cotações de moeda."
+  },
+  {
+    "id": "01M0GCFD19S31C8FP08Z2EN260",
+    "skill_name": "agent-squad",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O corpo é uma tabela de personas fictícias (Rex, Alex, Aria, Mason, Luna, Quinn, Max, Dep) com fase de DevOps 'deploy/containerize/CI setup' — containerização e CI são irrelevantes aqui; sobra apenas a ideia de resumo comprimido entre agentes."
+  },
+  {
+    "id": "01M0GCFD192PKRXS4KC9H07H25",
+    "skill_name": "agent-tool-builder",
+    "importance": 5,
+    "fase1_importance": 5,
+    "verdict": "confirmada",
+    "evidence": "As 715 linhas defendem regras aplicáveis a qualquer function calling ('a descrição importa mais que a implementação', menos de 20 tools, retornar string em vez de objeto, nunca falhar em silêncio) — útil ao integrar Gemini, mas sem exemplo em PHP; nota mediana está certa."
+  },
+  {
+    "id": "01M0GCFD19Q756MA5YBBWDP4Y8",
+    "skill_name": "agentfolio",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O 'workflow' é literalmente abrir agentfolio.io no navegador, filtrar por categoria e anotar 'core promise' de cada agente; é pesquisa de mercado, não produz código para o app de finanças."
+  },
+  {
+    "id": "01M0GCFD19CF528696MJD8F7VQ",
+    "skill_name": "agentic-actions-auditor",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "A metodologia é boa (rebate racionalizações como 'não tem ${{ }} no prompt, logo é seguro' e cobre `pull_request_target`), mas opera exclusivamente sobre arquivos de workflow do GitHub Actions, e o AgenteDeBolso não tem CI — o deploy é webhook próprio + DeployJob."
+  },
+  {
+    "id": "01M0GCFD19D6MAB1EJNJR2WY0A",
+    "skill_name": "agentmail",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "É um manual de curl para `api.theagentmail.net` com sistema de karma (-10 por conta criada, -1 por envio); o projeto usa AWS SES e não precisa de caixa postal para agente."
+  },
+  {
+    "id": "01M0GCFD19AG9GNBM5MSTB8PWE",
+    "skill_name": "agentphone",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "São 1389 linhas de referência da API agentphone.to (comprar número, modos `hosted`/`webhook`, transcrições de chamada); o AgenteDeBolso não tem telefonia — o canal previsto é WhatsApp Cloud API."
+  },
+  {
+    "id": "01M0GCFD1AC3M5665APCE4TX90",
+    "skill_name": "ai-agent-development",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Skill oca: cada fase é só uma lista de 'Skills to Invoke' e prompts copiáveis do tipo 'Use @ai-agents-architect to design AI agent architecture', e as poucas tecnologias citadas são CrewAI e LangGraph, ambas vetadas."
+  },
+  {
+    "id": "01M0GCFD1AS7K02PFWQGG6P1T8",
+    "skill_name": "ai-agents-architect",
+    "importance": 4,
+    "fase1_importance": 4,
+    "verdict": "confirmada",
+    "evidence": "O corpo entrega padrões reais e agnósticos de provider (loop ReAct com limite de iterações, Plan-and-Execute, 'agentes devem falhar alto, não em silêncio'), o que dialoga com a armadilha de falhas silenciosas do projeto, mas nunca chega ao PHP/Gemini."
+  },
+  {
+    "id": "01M0GCFD1AK23KX3N29BJ0DTK1",
+    "skill_name": "ai-engineer",
+    "importance": 2,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "Tecnologia divergente: a seção de capacidades é uma enumeração de GPT-4o/o1, Claude 4.5, Llama/Mixtral, Pinecone/Weaviate/Milvus, LangGraph, LlamaIndex, CrewAI e AutoGen — praticamente a lista de itens irrelevantes do dossiê, que fixa Gemini como único LLM."
+  },
+  {
+    "id": "01M0GCFD1AJ43K5F3ZHGHVDRA1",
+    "skill_name": "ai-engineering-toolkit",
+    "importance": 2,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "O diretório contém apenas o SKILL.md, e essas 122 linhas só descrevem os 6 workflows em um parágrafo cada (o 'context budget planner' e o checklist de 65 pontos nunca são detalhados); ainda abre com gate de uso ofensivo autorizado. Promessa grande, corpo raso."
+  },
+  {
+    "id": "01M0GCFD1AE80EEGE44CXYHPYY",
+    "skill_name": "ai-ml",
+    "importance": 1,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "Outro bundle-índice: as fases listam skills a invocar (`llm-application-dev-langchain-agent`, `gemini-api-dev`) e prompts para copiar, sem nenhum conteúdo próprio sobre integração de LLM."
+  },
+  {
+    "id": "01M0GCFD1AZHJS0F22BKJ4AJW8",
+    "skill_name": "ai-native-cli",
+    "importance": 3,
+    "fase1_importance": 3,
+    "verdict": "confirmada",
+    "evidence": "A spec é concreta (níveis core/recommended/ecosystem, prioridades P0-P2, JSON como saída padrão e `--human` opcional, princípio fail-closed), mas o AgenteDeBolso só expõe comandos artisan internos como `CheckDebugStatements`, então segue tangencial."
+  },
+  {
+    "id": "01M0GCFD1ARYJSMTQVB7FTJSPX",
+    "skill_name": "ai-seo",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo compara como AI Overviews, ChatGPT, Perplexity e Copilot escolhem fontes para citação de conteúdo público; o AgenteDeBolso é um app autenticado de finanças que marca SEO/marketing como irrelevante."
+  },
+  {
+    "id": "01M0GCFD1ADDJZ82SHM3HNC17T",
+    "skill_name": "ai-studio-image",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "Apesar de usar a `GEMINI_API_KEY` (mesmo provider do projeto), o conteúdo é prompt de fotografia humanizada — granulação de sensor, enquadramento descentralizado, estilo influencer — sem qualquer uso num app de lançamentos e faturas."
+  },
+  {
+    "id": "01M0GCFD1AXJ9AF4HKY3TK7HWW",
+    "skill_name": "akf-trust-metadata",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "São 74 linhas resumidas em `pip install akf` e comandos `akf stamp/read/audit --regulation eu_ai_act|hipaa|sox`; o projeto segue LGPD e gera PDFs com dompdf/mpdf sem esse formato proprietário."
+  },
+  {
+    "id": "01M0GCFD1BT3R63XYJKN7N2ETY",
+    "skill_name": "analytics",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O texto é um plano de tracking de marketing (GA4, GTM, UTM, eventos de conversão) que depende de ler `.agents/product-marketing.md`; a telemetria do AgenteDeBolso é técnica (Clockwork, Debugbar, log-viewer)."
+  },
+  {
+    "id": "01M0GCFD1BB3FQRBYTFKMKEWJF",
+    "skill_name": "analytics-product",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Conteúdo enganoso/reaproveitado: o núcleo é um dicionário Python `AURI_EVENTS` com eventos de outro produto ('first_conversation', 'aha_moment_reached') e ferramentas PostHog/Mixpanel; não há taxonomia genérica aproveitável para finanças pessoais."
+  },
+  {
+    "id": "01M0GCFD1BSPYDRBENCE9VQ36N",
+    "skill_name": "analytics-tracking",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O corpo constrói um 'Measurement Readiness & Signal Quality Index' de 0-100 com pesos (Decision Alignment 25, Event Model Clarity 20) e avisa para não tratar números do GA4 como verdade; é disciplina de instrumentação analítica que o projeto não possui."
+  },
+  {
+    "id": "01M0GCFD1BEPBTV937GV5DDZP0",
+    "skill_name": "andrej-karpathy",
+    "importance": 6,
+    "fase1_importance": 6,
+    "verdict": "confirmada",
+    "evidence": "As diretrizes são acionáveis e casam com as convenções do AgenteDeBolso: mudanças cirúrgicas ('não melhore código adjacente, combine com o estilo existente'), nada de abstração especulativa e explicitar suposições antes de codar — exatamente a regra de planejar antes de alterar."
+  }
+]

@@ -1,0 +1,322 @@
+[
+ {
+  "id": "01M0G4G52F9X8JJ3EV6AHP7MTG",
+  "skill_name": "vue-max-use-usecachedapi-state-cache-best-practices",
+  "importance": 9,
+  "fase1_importance": 9,
+  "verdict": "confirmada",
+  "evidence": "O corpo traz a assinatura real de useCachedApi<T>(route_name, {data_get,key,defaultValue,sync,watch}) e cita engeapp/resources/app.ts com setRouteResolver() via Ziggy, além da armadilha de key não-reativa em cenário multi-tenant. Conteúdo denso e ancorado no código real do projeto: nota 9 se sustenta."
+ },
+ {
+  "id": "01M0G4G52FD6G89W0Q773PB3KM",
+  "skill_name": "vue-meta-api-oauth-integration-best-practices",
+  "importance": 2,
+  "fase1_importance": 2,
+  "verdict": "confirmada",
+  "evidence": "Apesar do texto abrir dizendo 'engeapp', os arquivos citados são resources/Vue/Sections/SocialMedia/TabCredentials.vue e useSocialMediaCredentials.Store.ts — credenciais de Page ID / Instagram User ID da Meta Graph, fluxo que não existe no engeapp (que usa a Meta só pelo WhatsApp Cloud). Sobra apenas o padrão genérico de token write-only."
+ },
+ {
+  "id": "01M0G4G52FDY6EWRN5N76EG8NB",
+  "skill_name": "vue-pinia-state-management-best-practices",
+  "importance": 10,
+  "fase1_importance": 10,
+  "verdict": "confirmada",
+  "evidence": "191 linhas descrevendo o createMaxPinia real do engeapp: getSessionToken via X-CSRF-TOKEN, debounce de 300ms no auto-save, diferença entre status.server.get.is_requested e is_success, e o waitRequest do useUser.Store.ts usado no guard do router.ts. É a convenção obrigatória de estado do projeto, documentada com precisão."
+ },
+ {
+  "id": "01M0G4G52FW4DTJ525TRMKE93A",
+  "skill_name": "vue-rss-news-moderation-dashboard-best-practices",
+  "importance": 2,
+  "fase1_importance": 2,
+  "verdict": "confirmada",
+  "evidence": "O conteúdo detalha useSocialMediaNewsStore, rotas Ziggy news.index/news.approve e o status 'reproved' do painel de notícias RSS — funcionalidade do SocialMedia, apenas rotulada como 'EngeApp' no frontmatter. O engeapp não ingere RSS nem cria SocialMediaTheme, então só resta o padrão de paginação limit/offset."
+ },
+ {
+  "id": "01M0G4G52FBKC0FDXJBMR25V6R",
+  "skill_name": "vue-toast-notifications-toastify-best-practices",
+  "importance": 9,
+  "fase1_importance": 8,
+  "verdict": "promovida",
+  "evidence": "258 linhas com a API completa do helper (show/add/hide/delete/clear), o ToastPayload tipado, a montagem única de <MaxToast /> em resources/App.vue do engeapp e até a severidade 'whatsapp' (#128C7E) criada para o módulo de atendimento do projeto. É mais que periférico: é o canal padrão de feedback, com detalhe suficiente para evitar reimplementação."
+ },
+ {
+  "id": "01M0G4G52F0CEX4Y8AWFQVWR1T",
+  "skill_name": "vue-typescript-best-practices",
+  "importance": 9,
+  "fase1_importance": 9,
+  "verdict": "confirmada",
+  "evidence": "Vai além de TS genérico: trata do consumo dos tipos gerados por spatie/laravel-data + laravel-typescript-transformer, do auto-import.d.ts que torna ref/computed/defineStore globais e do contrato isCached/options.get.route da store MaxPinia. Casa item a item com a stack do engeapp."
+ },
+ {
+  "id": "01M0G4G52F7HCNBBVQ423KY0TJ",
+  "skill_name": "vue-unocss-styling-best-practices",
+  "importance": 10,
+  "fase1_importance": 10,
+  "verdict": "confirmada",
+  "evidence": "Curto porém cirúrgico: explica a regex real do presetMaxUno (blue-600 vira color:var(--blue-600), enquanto text-blue-600 cai no presetWind3), a colisão entre params.scss e presetAttributify em [flex]/[absolute], e documenta que o engeapp hoje não aplica a classe .dark ao DOM. Zero enchimento."
+ },
+ {
+  "id": "01M0G4G52FJ69WE0FRS2ZJTDD0",
+  "skill_name": "vue-vitest-testing-best-practices",
+  "importance": 9,
+  "fase1_importance": 9,
+  "verdict": "confirmada",
+  "evidence": "Documenta armadilhas verificadas no engeapp: ambiente padrão 'node' no vitest.config.ts exigindo @vitest-environment jsdom, por que vi.mock('@maxvue/max-use') é inerte (helpers são globais do unplugin-auto-import) e o uso de vi.stubGlobal('axios') como em tests/Js/voip.test.ts. Aplicável direto às 29 specs do projeto."
+ },
+ {
+  "id": "01M0G4G52FFKRZ5RZHFQ5YXYEZ",
+  "skill_name": "vue-whatsapp-interactive-messages-simulator-best-practices",
+  "importance": 8,
+  "fase1_importance": 8,
+  "verdict": "confirmada",
+  "evidence": "Aponta o editor+preview real ChatInputTemplatesPopover.vue em resources/Vue/Sections/supportChat/ e os componentes ChatMessageMain/ChatMessageButtonOptions, além dos limites da Meta (1024 corpo, 3 quick replies, 20 chars por botão). Sólido, mas cobre um recorte de UI do módulo WhatsApp, não a integração Cloud API em si — 8 está certo."
+ },
+ {
+  "id": "01M0G4G52FQ2GH4WZB4MDWRTW6",
+  "skill_name": "test-driven-development",
+  "importance": 6,
+  "fase1_importance": 6,
+  "verdict": "confirmada",
+  "evidence": "O corpo é real e disciplinado (Red-Green-Refactor, tabela de racionalizações, regra de nunca assertar sobre mock), mas totalmente agnóstico: os exemplos são `npm test` em TypeScript, sem uma linha sobre Pest ou os 415 arquivos de teste PHP do engeapp. Boa prática de engenharia, nota 6."
+ },
+ {
+  "id": "01M0G4G52FH90TKJ99SM1D454A",
+  "skill_name": "frontend-design",
+  "importance": 2,
+  "fase1_importance": 2,
+  "verdict": "confirmada",
+  "evidence": "O arquivo não fala de Tailwind nem React (a justificativa da Fase 1 errou o motivo), mas prega criar identidade visual autoral do zero — paleta de 4-6 hex próprios, pares tipográficos incomuns, um 'elemento assinatura'. Isso colide frontalmente com o design system Max e os tokens do presetMaxUno; a nota 2 permanece, por outro fundamento."
+ },
+ {
+  "id": "01M0G4G52FCRTTHSA4Z23Q336F",
+  "skill_name": "skill-creator",
+  "importance": 4,
+  "fase1_importance": 4,
+  "verdict": "confirmada",
+  "evidence": "485 linhas de conteúdo genuíno sobre capturar intenção, escrever frontmatter e rodar evals com eval-viewer/generate_review.py. Útil só quando se escreve skill nova para o engeapp, nunca durante uma feature Laravel/Vue — meta-trabalho, nota 4 mantida."
+ },
+ {
+  "id": "01M0G4G52F663YHJWYW67CP8KR",
+  "skill_name": "git-workflow",
+  "importance": 7,
+  "fase1_importance": 7,
+  "verdict": "confirmada",
+  "evidence": "A seção 'Working with Worktrees' traz comandos concretos (git worktree add/remove por feature) que servem à regra obrigatória de .worktrees/ do engeapp, e há Conventional Commits atômicos. Perde pontos por defender trunk-based com commit contínuo, oposto da regra de 'commit só sob pedido' do projeto."
+ },
+ {
+  "id": "01M0G4G52FV5WNNFWAXJX7HKYG",
+  "skill_name": "security-audit",
+  "importance": 3,
+  "fase1_importance": 6,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: o arquivo é só um índice de orquestração que manda invocar skills inexistentes (@scanning-tools, @shodan-reconnaissance, @vulnerability-scanner) com prompts de copiar e colar. Não há um único controle de segurança concreto para Laravel, PII/LGPD ou webhook assinado — é casca, não conteúdo."
+ },
+ {
+  "id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
+  "skill_name": "code-review",
+  "importance": 6,
+  "fase1_importance": 6,
+  "verdict": "confirmada",
+  "evidence": "Conteúdo real de 394 linhas com os cinco eixos (correção, legibilidade, arquitetura, segurança, performance) e sinais úteis como condicional repetida indicando modelo faltante. Segue sem conhecer Pint/PHPStan nem as convenções Max, então é revisão genérica — 6 confirmado."
+ },
+ {
+  "id": "01M0G4G52F32ZTYMTYQK259587",
+  "skill_name": "browser-automation",
+  "importance": 6,
+  "fase1_importance": 6,
+  "verdict": "confirmada",
+  "evidence": "1116 linhas com substância real sobre seletores por papel, estratégias de espera e anti-detecção, cobrindo Puppeteer (usado no engeapp) além de Playwright. O recorte declara Playwright como padrão e ignora Laravel Dusk, que é o E2E do projeto — utilidade parcial, nota 6."
+ },
+ {
+  "id": "01M0G4G52FVBQNA612AE7T78GH",
+  "skill_name": "superpowers",
+  "importance": 2,
+  "fase1_importance": 6,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada por skill oca: 64 linhas do template genérico 'Visão Geral / Stack / Quando Usar / Vídeos de Referência', com 4 diretrizes vagas ('Investigação Prévia', 'Validação Contínua') e links de YouTube inventados (watch?v=FqR8_claude_skills_01). Não ensina nenhum fluxo de spec/TDD de fato."
+ },
+ {
+  "id": "01M0G4G52FS4JB7ES3Z9C8N4F1",
+  "skill_name": "agent-orchestrator",
+  "importance": 3,
+  "fase1_importance": 3,
+  "verdict": "confirmada",
+  "evidence": "Conteúdo existe (321 linhas) mas gira em torno de rodar python agent-orchestrator/scripts/scan_registry.py para montar um registry de skills. É tooling de agente em Python, sem relação com a orquestração server-side em PHP com Gemini do engeapp."
+ },
+ {
+  "id": "01M0G4G52FASG08WQAJCM01AT2",
+  "skill_name": "shadcn-ui",
+  "importance": 1,
+  "fase1_importance": 2,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: além de tratar de Radix+Tailwind em React/Next (irrelevante), o arquivo é o mesmo template de 64 linhas dos demais 'curated-youtube' — nenhum componente, nenhum comando de CLI, só metadados e vídeos fictícios. Nem como referência de shadcn-vue serve."
+ },
+ {
+  "id": "01M0G4G52FZ807HQW0RAS5BAAZ",
+  "skill_name": "mcp-server-routing",
+  "importance": 3,
+  "fase1_importance": 3,
+  "verdict": "confirmada",
+  "evidence": "O nome promete roteamento de servidores MCP, mas o frontmatter interno é 'mcp-builder': um guia de construção de servidores MCP em TypeScript/FastMCP, com transporte streamable HTTP e nomenclatura de tools. Conteúdo é bom, porém o engeapp não expõe nem consome MCP — usa tool calling do Gemini."
+ },
+ {
+  "id": "01M0G4G52FE36M320YYCE4WKRV",
+  "skill_name": "context-engineering",
+  "importance": 5,
+  "fase1_importance": 5,
+  "verdict": "confirmada",
+  "evidence": "Traz uma hierarquia de contexto concreta (rules file > specs > fontes > erros > histórico) e modelo de CLAUDE.md, ainda que o exemplo de stack seja React/Prisma. Ajuda a operar o agente numa base de 970 arquivos PHP, mas não toca a stack — prática genérica, 5 mantido."
+ },
+ {
+  "id": "01M0G4G52FZWBAQWX620WBMW1N",
+  "skill_name": "api-design",
+  "importance": 5,
+  "fase1_importance": 5,
+  "verdict": "confirmada",
+  "evidence": "Conteúdo real e bem argumentado (Lei de Hyrum, regra de uma versão, contrato antes da implementação, exemplos em TypeScript). O engeapp não usa OpenAPI nem GraphQL e expõe rotas Ziggy para a SPA, então sobram os princípios — 5 é justo."
+ },
+ {
+  "id": "01M0G4G52F6E8ZEKWF2BX32G7J",
+  "skill_name": "tailwind-css",
+  "importance": 0,
+  "fase1_importance": 0,
+  "verdict": "confirmada",
+  "evidence": "Além de o Tailwind estar na lista de irrelevantes do engeapp (que usa presetMaxUno), o arquivo é o template oco de 64 linhas: não há sequer um utilitário, um token ou um trecho de tailwind.config. Zero por dois motivos independentes."
+ },
+ {
+  "id": "01M0G4G52FPQGPD3CF1ZW3BKSB",
+  "skill_name": "deep-research",
+  "importance": 3,
+  "fase1_importance": 3,
+  "verdict": "confirmada",
+  "evidence": "O corpo é o manual de um script Python (scripts/research.py, httpx, GEMINI_API_KEY) que dispara pesquisas na API do Gemini. Usa Gemini, que é do stack, mas para relatórios de mercado — nada aplicável ao código do engeapp, cujo caminho de dúvida é o Boost search-docs."
+ },
+ {
+  "id": "01M0G4G52F4V1VXAMC0WYZZ9Z7",
+  "skill_name": "docker-expert",
+  "importance": 0,
+  "fase1_importance": 0,
+  "verdict": "confirmada",
+  "evidence": "418 linhas legítimas sobre builds multi-stage, hardening e Compose — e exatamente por serem legítimas confirmam a inaplicabilidade: o engeapp roda Caddy systemd + PHP-FPM em dev e Deployer 8 em produção, sem Docker e sem CI de containers."
+ },
+ {
+  "id": "01M0G4G52F1C753JPHMPTS9EMK",
+  "skill_name": "fastapi-templates",
+  "importance": 0,
+  "fase1_importance": 0,
+  "verdict": "confirmada",
+  "evidence": "40 linhas que nem explicam FastAPI: só delegam para resources/implementation-playbook.md e repetem 'Clarify goals, constraints'. Oca e ainda por cima Python/Pydantic/SQLAlchemy, backend inexistente no engeapp."
+ },
+ {
+  "id": "01M0G4G52FHZMPGHHTZFX8Q0XN",
+  "skill_name": "damage-control",
+  "importance": 2,
+  "fase1_importance": 5,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: prometia interceptar comandos destrutivos, mas o arquivo é o template padrão de 64 linhas — nenhuma lista de comandos bloqueados, nenhum hook, nenhuma menção a migrate:fresh ou db:wipe. A ideia é útil ao engeapp; o conteúdo entregue não é."
+ },
+ {
+  "id": "01M0G4G52F3YQWZTYC3K1S074P",
+  "skill_name": "git-worktree",
+  "importance": 2,
+  "fase1_importance": 8,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada de 8: apesar de worktree ser regra obrigatória no engeapp, o arquivo não contém um único comando git — é o mesmo boilerplate ('Isolamento Seguro', 'Documentação Integrada') com cinco links de YouTube falsos (cole_skills_masterclass_31). A skill git-workflow deste mesmo lote entrega os comandos que esta apenas promete."
+ },
+ {
+  "id": "01M0G4G52FPHZ3VCA06Z2NTCG5",
+  "skill_name": "database-optimizer",
+  "importance": 5,
+  "fase1_importance": 7,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: o corpo é uma laundry list de capacidades (GiST/GIN/BRIN, DynamoDB GSI/LSI, Aurora, Azure SQL, DataDog) sem um exemplo de EXPLAIN ou de correção de N+1, e delega o resto a resources/implementation-playbook.md. Para os 129 models Eloquent em MariaDB do engeapp, entrega vocabulário, não técnica."
+ },
+ {
+  "id": "01M0G4G52FSJ578YDABJWPFQM4",
+  "skill_name": "piv-loop",
+  "importance": 2,
+  "fase1_importance": 6,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: 64 linhas do template compartilhado; o ciclo Plan-Implement-Validate nunca é descrito — não há definição de marco, de portão de validação nem de critério de saída. Apenas o nome sugere o método."
+ },
+ {
+  "id": "01M0G4G52F953EWRK967AST11H",
+  "skill_name": "pytest-and-jest-automation",
+  "importance": 1,
+  "fase1_importance": 3,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: template oco de 64 linhas cujo próprio cabeçalho aponta para Pytest e Jest, ambos fora do engeapp (Pest + Vitest). Sem conteúdo, o eixo Vitest que a Fase 1 considerou tangencial simplesmente não existe no arquivo."
+ },
+ {
+  "id": "01M0G4G52FSEJ8Z7FYJ1NCVKCA",
+  "skill_name": "react-components",
+  "importance": 0,
+  "fase1_importance": 0,
+  "verdict": "confirmada",
+  "evidence": "Confirmada em zero: é o boilerplate de 64 linhas anunciando React 19 e libs do ecossistema React nos metadados. Tecnologia rejeitada pelo dossiê e, ainda assim, nem sequer ensinada."
+ },
+ {
+  "id": "01M0G4G52FTC9D5B58G13FBRRT",
+  "skill_name": "the-library",
+  "importance": 1,
+  "fase1_importance": 2,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: o arquivo é o template genérico, sem descrever formato de catálogo, protocolo de sync ou estrutura de pastas. Distribuição de skills já não afetava o código do engeapp; sem conteúdo, cai para 1."
+ },
+ {
+  "id": "01M0G4G52F9TT91W6TR5FTQXT9",
+  "skill_name": "cloud-architect",
+  "importance": 0,
+  "fase1_importance": 0,
+  "verdict": "confirmada",
+  "evidence": "Conteúdo real listando EC2/Lambda/EKS, ARM/Bicep, Terraform/Pulumi e FinOps multi-cloud — exatamente os temas que o dossiê do engeapp marca como irrelevantes, já que o deploy é em servidor próprio via Deployer 8. Zero confirmado."
+ },
+ {
+  "id": "01M0G4G52F5Y1T4W98MNDFXK8H",
+  "skill_name": "token-optimization",
+  "importance": 2,
+  "fase1_importance": 5,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: 64 linhas de template ('Repositório Oficial: Nate Herk', vídeos watch?v=nate_token_optimization_83) sem uma única técnica de poda de contexto ou de desanexação de ferramenta. A promessa de 'até 80%' não é acompanhada de método algum."
+ },
+ {
+  "id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+  "skill_name": "vue-components",
+  "importance": 1,
+  "fase1_importance": 4,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: mesmo sendo sobre Vue, o corpo é o boilerplate compartilhado — declara 'Linguagens Otimizadas: Agnóstico' e não mostra um SFC, um defineProps ou um script setup. As skills vue-typescript e vue-pinia do próprio lote cobrem tudo com profundidade real."
+ },
+ {
+  "id": "01M0G4G52FF04J8FCWYMH48QBD",
+  "skill_name": "mermaid-diagrammer",
+  "importance": 1,
+  "fase1_importance": 4,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: nenhum diagrama, nenhuma sintaxe Mermaid (graph TD, erDiagram, stateDiagram) aparece no arquivo — é o template de 64 linhas com 'Bibliotecas: mermaid-cli'. Para documentar os 129 models do engeapp não oferece nada de concreto."
+ },
+ {
+  "id": "01M0G4G52FGN0MWZAFZYXN7109",
+  "skill_name": "get-shit-done",
+  "importance": 1,
+  "fase1_importance": 5,
+  "verdict": "rebaixada",
+  "evidence": "Rebaixada: template oco de 64 linhas; o 'workflow de alta velocidade' não é definido em passo algum. Some o problema original apontado pela Fase 1 (conflito com a regra de plano aprovado antes de codar) e some também qualquer valor prático."
+ },
+ {
+  "id": "01M0G4G52FV8AC72Q93QPP5PPE",
+  "skill_name": "python-concessionarias-automation",
+  "importance": 7,
+  "fase1_importance": 6,
+  "verdict": "promovida",
+  "evidence": "Promovida: o corpo é específico do engeapp de verdade — get_data() batendo em /api/project/data, a armadilha de ProjectDataController selecionar o projeto por python_requested = true e zerar a flag no GET (logo, não idempotente), o limite de 49 caracteres no upload dos portais Equatorial e as chaves de AntiCaptcha hardcoded em functions_engeapp.py. Toca o domínio central de homologação e TRT, mesmo sendo Python."
+ },
+ {
+  "id": "01M0GCFD178VHCNATWBR63059T",
+  "skill_name": "007",
+  "importance": 7,
+  "fase1_importance": 6,
+  "verdict": "promovida",
+  "evidence": "Promovida: 655 linhas com checklists acionáveis que batem com temas de alta relevância do engeapp — idempotência e assinatura de webhook, proteção contra replay por nonce/timestamp, IDOR/SSRF, LGPD e uma seção de segurança de IA/agentes (prompt injection, explosão de custo), além de Red Team com personas. Bem acima da media das skills de segurança deste lote."
+ }
+]

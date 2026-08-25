@@ -1,0 +1,322 @@
+[
+  {
+    "id": "01M0GCFD1E5T52AXSFFAXY27JM",
+    "skill_name": "autonomous-agent-patterns",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "São 769 linhas densas, mas o corpo implementa `class AgentLoop` em Python com Think/Decide/Act, sistemas de aprovação e automação de browser para agentes de codificação. O AgenteDeBolso usa Gemini via google-gemini-php/laravel para tarefas pontuais e não constrói agente autônomo, então a tecnologia (Python) diverge do que o dossiê aceita."
+  },
+  {
+    "id": "01M0GCFD1EQK0SXFPZB8B1486J",
+    "skill_name": "avalonia-layout-zafiro",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O arquivo é um mapa de conteúdo para `themes.md`/`containers.md` com checklist de XAML (`HeaderedContainer`, `EdgePanel`, `{Icon fa-name}`) e até aponta um caminho local do projeto Angor em .NET. Nada disso toca Vue 3.6/UnoCSS."
+  },
+  {
+    "id": "01M0GCFD1FRHYHAX0WYD1YVWAQ",
+    "skill_name": "avalonia-zafiro-development",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Apenas 40 linhas prometendo MVVM funcional-reativo com DynamicData/ReactiveUI e delegando tudo a arquivos externos; é C#/desktop e ainda por cima raso, logo zero para uma SPA Laravel+Vue."
+  },
+  {
+    "id": "01M0GCFD1FN47ZG4WKH30Z7FX0",
+    "skill_name": "aws-agentic-ai",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O corpo é uma tabela dos nove serviços do Bedrock AgentCore (Gateway, Runtime, Memory, Registry) e exige verificar tudo via MCP `mcp__acdocs__*`; Bedrock e AWS estão na lista de temas irrelevantes do projeto."
+  },
+  {
+    "id": "01M0GCFD1F14G2Y5HV35P56CSQ",
+    "skill_name": "aws-cost-operations",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Todo o conteúdo gira em torno de três MCP servers (pricing, Cost Explorer, CloudWatch) para analisar fatura e alarmes AWS; o AgenteDeBolso roda em VPS própria com Caddy+PHP-FPM e não tem conta AWS a otimizar."
+  },
+  {
+    "id": "01M0GCFD1F73ESGH4ZMNGHHYVK",
+    "skill_name": "aws-mcp-setup",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "É um passo a passo de instalação de servidor MCP AWS via uvx/Python 3.10+ e edição de `.mcp.json`; puro tooling de documentação AWS, sem qualquer aplicação ao código do projeto."
+  },
+  {
+    "id": "01M0GCFD1FRW06KN75PK57K21K",
+    "skill_name": "aws-secrets-rotation",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "As 470 linhas são exclusivamente `aws secretsmanager create-secret` e funções Lambda de rotação para RDS/DocumentDB/Redshift — não há princípio transferível para credenciais Efí/Inter guardadas em .env, então cai de 1 para 0."
+  },
+  {
+    "id": "01M0GCFD1FF3N2KNZ2W4V83HCZ",
+    "skill_name": "aws-security-audit",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "O conteúdo real é uma coleção de comandos `aws iam get-credential-report`, checagem de security groups 0.0.0.0/0 e VPC Flow Logs; as auditorias versionadas em docs/audit/ do projeto são de código Laravel, não de IAM/VPC — nenhuma aplicabilidade sobra."
+  },
+  {
+    "id": "01M0GCFD1FD76KAR53J88BC45X",
+    "skill_name": "aws-serverless-eda",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Os exemplos são `export const processOrder` em Lambda/TypeScript com API Gateway, DynamoDB e Step Functions; o processamento assíncrono do projeto é Job/Horizon em Redis, arquitetura oposta."
+  },
+  {
+    "id": "01M0GCFD1FD71ZYQ03TBRDK42X",
+    "skill_name": "aws-skills",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Skill oca de 28 linhas que só repete a própria descrição ('provides guidance and patterns for aws development') e manda ler o repositório de origem — sem conteúdo, além de tema irrelevante."
+  },
+  {
+    "id": "01M0GCFD1F4SPE2QN74VRWMMJJ",
+    "skill_name": "awt-e2e-testing",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "As 40 linhas são propaganda do pacote (`npx skills add ksgisang/awt-skill`, links para repo e demo na Vercel) sem um único exemplo de cenário YAML; skill oca sobre Playwright, que o dossiê rejeita em favor de Dusk/Puppeteer."
+  },
+  {
+    "id": "01M0GCFD1FPYS9VWG466T2R3EQ",
+    "skill_name": "azd-deployment",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Mostra `azd up`, estrutura `infra/main.bicep` e Dockerfiles para Azure Container Apps; o deploy do AgenteDeBolso é por webhook próprio + DeployJob, sem Docker nem Bicep."
+  },
+  {
+    "id": "01M0GCFD1GNKQ1BHWAV8G29GXZ",
+    "skill_name": "azure-ai-contentunderstanding-py",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O corpo é `pip install azure-ai-contentunderstanding` + `ContentUnderstandingClient` com DefaultAzureCredential e long-running operations; o tema (extrair dados de documento) existe no projeto via Gemini/smalot-pdfparser, mas nada do código serve — nota 1 estava certa."
+  },
+  {
+    "id": "01M0GCFD1G2T4YV3V7AGFX0F3G",
+    "skill_name": "azure-ai-textanalytics-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "SDK Python `TextAnalyticsClient` para sentimento/entidades/PII; o AgenteDeBolso não faz NLP de texto livre — sua categorização é por regras e mapeamento de categorias do Open Finance."
+  },
+  {
+    "id": "01M0GCFD1G6H964YCV76GC5FWW",
+    "skill_name": "azure-ai-transcription-py",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "Arquivo raso de 77 linhas: instalação, variável TRANSCRIPTION_ENDPOINT e um `TranscriptionClient` em Python. Como o dossiê afirma explicitamente que 'não há STT/transcrição implementada', não sobra nem o valor conceitual que justificaria o 1."
+  },
+  {
+    "id": "01M0GCFD1GVR7Q8MHM3Q1WFSKJ",
+    "skill_name": "azure-ai-translation-document-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Tudo depende de containers Blob com SAS (AZURE_SOURCE_CONTAINER_URL) para tradução em lote; o produto é pt-BR único e i18n é tema descartado."
+  },
+  {
+    "id": "01M0GCFD1GH19VYWSK4R9RRRMV",
+    "skill_name": "azure-ai-vision-imageanalysis-java",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Começa com dependência Maven `com.azure:azure-ai-vision-imageanalysis` e builders Java; o tratamento de imagem do projeto é intervention/image em PHP."
+  },
+  {
+    "id": "01M0GCFD1GMA5TGGGYRDEJBNET",
+    "skill_name": "azure-ai-voicelive-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "SDK `@azure/ai-voicelive` com WebSocket bidirecional e Entra ID; o áudio do AgenteDeBolso é gravação de voz + FFmpeg (OGG/Opus, AAC), sem assistente de voz em tempo real."
+  },
+  {
+    "id": "01M0GCFD1HT10JX6N7HPS4QB77",
+    "skill_name": "azure-cosmos-java",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Abre com o BOM do azure-sdk em pom.xml e padrões reativos para Cosmos NoSQL; o banco é MySQL 8 com Eloquent e migrations, combinação sem interseção."
+  },
+  {
+    "id": "01M0GCFD1HG9JETW0RCXTFJNRA",
+    "skill_name": "azure-cosmos-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Distingue data plane (@azure/cosmos) de management plane (@azure/arm-cosmosdb) exigindo Node >= 20 e COSMOS_ENDPOINT; NoSQL gerenciado não aparece em nenhuma parte da arquitetura relacional do app."
+  },
+  {
+    "id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "skill_name": "azure-keyvault-keys-ts",
+    "importance": 0,
+    "fase1_importance": 1,
+    "verdict": "rebaixada",
+    "evidence": "As 279 linhas são só `KeyClient`/`CryptographyClient` contra KEY_VAULT_URL; a criptografia do projeto (WebAuthn com web-auth/webauthn-lib, PIN de perfil) é feita em PHP no servidor, sem HSM na nuvem — não há resíduo aproveitável que justifique 1."
+  },
+  {
+    "id": "01M0GCFD1J4Q23R2RDACGGKPZJ",
+    "skill_name": "azure-mgmt-apicenter-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Usa `ApiCenterMgmtClient` com AZURE_SUBSCRIPTION_ID para inventariar APIs corporativas; as 31 rotas `Web.<Dominio>.Routes.php` não têm nada de governança multi-organização."
+  },
+  {
+    "id": "01M0GCFD1JGSKC5712A26BR7A0",
+    "skill_name": "azure-monitor-ingestion-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Exige DCE, DCR e tabela custom no Log Analytics antes de qualquer linha de código; a observabilidade do AgenteDeBolso é opcodesio/log-viewer, LaraDumps, Clockwork e Pail, tudo local."
+  },
+  {
+    "id": "01M0GCFD1KGASTJ1BJAEH29XBH",
+    "skill_name": "azure-postgres-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Ensina `new Client()` do pacote pg com Entra ID passwordless contra PostgreSQL Flexible Server; o projeto é MySQL 8 acessado por PHP, dupla incompatibilidade."
+  },
+  {
+    "id": "01M0GCFD1KBBT7Z5M921HFM46E",
+    "skill_name": "azure-speech-to-text-rest-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Traz `def transcribe_audio(...)` com requests e AZURE_SPEECH_KEY para áudios de até 60s; sem STT implementado no projeto e sendo Python+Azure, o zero da Fase 1 se sustenta."
+  },
+  {
+    "id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "skill_name": "azure-storage-blob-ts",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Instancia `BlobServiceClient` com DefaultAzureCredential em Node >= 18; os anexos de lançamento usam disco local/S3 via Flysystem, sem Azure Storage."
+  },
+  {
+    "id": "01M0GCFD1MT34KWPV43JB0AFVQ",
+    "skill_name": "backend-dev-guidelines",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O subtítulo do arquivo é literalmente '(Node.js · Express · TypeScript · Microservices)' e o índice BFRI mede aderência a 'routes → controllers → services → repositories' do Express; a única transferência é a ideia de camadas, que o projeto já resolve com Services + FormRequest + policies."
+  },
+  {
+    "id": "01M0GCFD1M7EXR68185CS3K22D",
+    "skill_name": "backend-security-coder",
+    "importance": 5,
+    "fase1_importance": 7,
+    "verdict": "rebaixada",
+    "evidence": "O arquivo é uma persona de agente: seções 'Capabilities', 'Behavioral Traits', 'Knowledge Base' e 'Example Interactions' listando CSP, SameSite, CSRF, SSRF e Argon2 em bullets, sem uma única linha de código ou exemplo. Serve como checklist para as auditorias em docs/audit/, mas não entrega a profundidade que uma nota 7 pressupõe."
+  },
+  {
+    "id": "01M0GCFD1ME017D9Y4BG6BMV3B",
+    "skill_name": "backtesting-frameworks",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "São 47 linhas com cinco bullets ('defina hipótese, universo, timeframe') e um ponteiro para `resources/implementation-playbook.md`; além de tratar de estratégias de trading e não de finanças pessoais, o SKILL.md em si é oco."
+  },
+  {
+    "id": "01M0GCFD1MG06F174TXCVJVC0Q",
+    "skill_name": "base",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "Fala em criar bancos ODB embarcados (HSQLDB/Firebird), formulários e relatórios no LibreOffice Base; a exportação Excel do projeto é PhpSpreadsheet/maatwebsite no servidor, então o 1 residual está correto."
+  },
+  {
+    "id": "01M0GCFD1MJ2Z34X305BBW5ZVX",
+    "skill_name": "baseline-ui",
+    "importance": 2,
+    "fase1_importance": 6,
+    "verdict": "rebaixada",
+    "evidence": "Achado mais grave do lote: a seção 'Stack' exige 'MUST use Tailwind CSS defaults', `motion/react`, `cn` (clsx + tailwind-merge) e Base UI/React Aria, e a seção Performance proíbe `useEffect` — é React+Tailwind, exatamente as tecnologias que o dossiê rejeita (UnoCSS com presetMaxUno, `shortcuts: []` vazio). Regras como `tabular-nums` e `h-dvh` são o pouco que sobra."
+  },
+  {
+    "id": "01M0GCFD1MMX4FH7BA7MWAAQ11",
+    "skill_name": "bats-testing-patterns",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "As 42 linhas prometem 'comprehensive guidance' mas entregam quatro bullets genéricos e delegam ao playbook externo; sem substância e sobre testes de shell, enquanto a suíte real é Pest 3 + Dusk."
+  },
+  {
+    "id": "01M0GCFD1M1430C3TH99XKQ21R",
+    "skill_name": "bazel-build-optimization",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Detalha WORKSPACE.bazel, .bazelrc e cache/execução remota para monorepos; o build do AgenteDeBolso é Vite 7 + Composer, e o dossiê descarta tooling de monorepo."
+  },
+  {
+    "id": "01M0GCFD1MNCV4X5MMMRBEXZ0A",
+    "skill_name": "bdi-mental-states",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O corpo é sério (300 linhas com tripas em Turtle, `:Belief_store_open a bdi:Belief ; bdi:motivates ...` e frameworks SEMAS/JADE), mas modelagem cognitiva neuro-simbólica não tem ponto de contato com chamadas pontuais ao Gemini num app de finanças."
+  },
+  {
+    "id": "01M0GCFD1MZ9KDTPFX58B2SV2P",
+    "skill_name": "bdistill-behavioral-xray",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Na prática é um manual de instalação de ferramenta (`pip install bdistill`, `claude mcp add bdistill`, comandos `/xray`) que gera relatório HTML com radar chart; não produz nada que entre no código do app nem ajuda a calibrar os prompts Gemini de produção."
+  },
+  {
+    "id": "01M0GCFD1MN1DSD9KR5QG7B533",
+    "skill_name": "bdistill-knowledge-extraction",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Mesmo formato de anúncio de CLI (`/distill`, `bdistill kb export -d medical -f csv`) e depende de Ollama para modelos locais — provider que o dossiê do AgenteDeBolso exclui, já que o único LLM é o Gemini."
+  },
+  {
+    "id": "01M0GCFD1NF2SMZ1DTS061AYXT",
+    "skill_name": "behavioral-modes",
+    "importance": 5,
+    "fase1_importance": 5,
+    "verdict": "confirmada",
+    "evidence": "As 252 linhas descrevem de fato cada modo com comportamento e estilo de saída (BRAINSTORM exige três alternativas antes de código; IMPLEMENT proíbe explicação tutorial e over-engineering); é disciplina de processo real e genérica, casando com a exigência do projeto de planejar antes de mexer no código — nota 5 está correta."
+  },
+  {
+    "id": "01M0GCFD1NFYEDFEDNFWNNSCGD",
+    "skill_name": "bento-ui",
+    "importance": 3,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "A parte web é um bloco de CSS Grid aproveitável para o dashboard financeiro, mas metade do arquivo é implementação em SwiftUI (`LazyVGrid`, `RoundedRectangle`) e Flutter — mobile nativo, que o dossiê descarta —, e a receita de border-radius 32px/sombra fixa ignora os tokens do presetMaxUno."
+  },
+  {
+    "id": "01M0GCFD1NBVZNPWE0FP4VSAMA",
+    "skill_name": "bilig-workpaper",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O próprio frontmatter traz `plugin.targets: claude: blocked`, e o fluxo é rodar o pacote npm `@bilig/workpaper` como servidor MCP gravável a partir de um serviço Node; a exportação de planilhas do AgenteDeBolso é PhpSpreadsheet no backend, então o valor prático é menor que o 3 dado."
+  },
+  {
+    "id": "01M0GCFD1NMJ78GMNEVKTDA368",
+    "skill_name": "biopython",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Conteúdo real e extenso sobre Bio.Seq, Bio.PDB, BLAST e Entrez em Python 1.85; excelente skill, domínio completamente alheio a um app de finanças pessoais em PHP."
+  }
+]

@@ -1,0 +1,476 @@
+[
+ {
+  "id": "01M0GCFD2NJBMCRDT7FYYKMHNF",
+  "catalog": "awesome_skills.json",
+  "skill_name": "markstream-nuxt",
+  "description_en": "Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit CSS, and browser-only optional peers.",
+  "languages": [
+   "CSS"
+  ],
+  "frameworks": [
+   "Vue.js",
+   "Nuxt.js"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-nuxt/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2NSHGXA69ZD20BZJE7",
+  "catalog": "awesome_skills.json",
+  "skill_name": "markstream-react",
+  "description_en": "Integrate the beta markstream-react renderer into React 18+ or Next.js with correct client/server entrypoints, CSS, streaming state, and component overrides.",
+  "languages": [
+   "CSS"
+  ],
+  "frameworks": [
+   "React",
+   "Next.js"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-react/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2N1CGVKA226BYCP83H",
+  "catalog": "awesome_skills.json",
+  "skill_name": "markstream-vue",
+  "description_en": "Integrate markstream-vue into plain Vue 3 with renderer modes, code and DOM choices, streaming state, virtualization, optional peers, and scoped components.",
+  "languages": [],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-vue/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2NG35C40GQBYWMC64B",
+  "catalog": "awesome_skills.json",
+  "skill_name": "mason",
+  "description_en": "Produces clean, functional code that matches the architecture and checklists.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-squad/mason/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2N6WDBW25FQ4SGZSRA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "mcp-tool-developer",
+  "description_en": "Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with TypeScript/Python, testing, deployment, and registry publishing.",
+  "languages": [
+   "Python",
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mcp-tool-developer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2NJ8VFTTV59GWABVYN",
+  "catalog": "awesome_skills.json",
+  "skill_name": "mdpr-skill",
+  "description_en": "Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic renderer boundaries.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mdpr-skill/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2PWZ8PMESCJXVAZ1FB",
+  "catalog": "awesome_skills.json",
+  "skill_name": "mesh-memory",
+  "description_en": "Self-hosted semantic memory for AI agents via MCP. Save worklogs, decisions, and notes, then recall them across sessions by meaning, not keyword. Postgres + pgvector with auto-tagging.",
+  "languages": [
+   "SQL"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mesh-memory/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2P22D8SKR0PTRZCGP0",
+  "catalog": "awesome_skills.json",
+  "skill_name": "metasploit-framework",
+  "description_en": "⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments only. > You must have explicit, written permission from the system owner before using this tool. > Misuse of this tool is illegal and strictly prohibited.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/metasploit-framework/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2PF44BFFWN5G2QCHE4",
+  "catalog": "awesome_skills.json",
+  "skill_name": "minimalist-ui",
+  "description_en": "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/minimalist-ui/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2P6E50R03V0HQE60Q8",
+  "catalog": "awesome_skills.json",
+  "skill_name": "mmx-cli",
+  "description_en": "Use mmx to generate text, images, video, speech, and music via the MiniMax AI platform. Use when the user wants to create media content, chat with MiniMax models, perform web search, or manage MiniMax API resources from the terminal.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mmx-cli/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2P9SBB6AKKYQVQYJAB",
+  "catalog": "awesome_skills.json",
+  "skill_name": "mobile-games",
+  "description_en": "Mobile game development principles. Touch input, battery, performance, app stores.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/plugins/agentic-awesome-skills/skills/game-development/mobile-games/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2PB7QKTPMVH07W5D1N",
+  "catalog": "awesome_skills.json",
+  "skill_name": "mock-hunter",
+  "description_en": "Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock data, hardcoded values, LLM-generated metrics, and broken endpoints. Outputs a markdown report with REAL/MOCK/LLM/HARDCODED/BROKEN/UNKNOWN verdicts per visible value.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [
+   "Playwright"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/mock-hunter/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QWJEZC2B8RS6E63AW",
+  "catalog": "awesome_skills.json",
+  "skill_name": "modellix",
+  "description_en": "Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (model run --wait, task download).",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/modellix/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2Q080M2GVEQEVGA0JT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "modern-javascript-patterns",
+  "description_en": "Comprehensive guide for mastering modern JavaScript (ES6+) features, functional programming patterns, and best practices for writing clean, maintainable, and performant code.",
+  "languages": [
+   "JavaScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/modern-javascript-patterns/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QDJTQY6THR1XKCPXS",
+  "catalog": "awesome_skills.json",
+  "skill_name": "molykit",
+  "description_en": "CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:\nBotClient, OpenAI, SSE streaming, AI chat, molykit,\nPlatformSend, spawn(), ThreadToken, cross-platform async,\nChat widget, Messages, PromptInput, Avatar, LLM",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/molykit/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QECSZF5Q3JK4FA7RN",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monopoly",
+  "description_en": "MONOPOLY is a Senior System Design Engineer skill for architecting, reviewing, and scaling systems. Triggers on requests involving architecture, databases, scaling, microservices, or infrastructure design. Proactively engages to design resilient backend systems.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monopoly/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QZPB9MH18RBHTGESV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monorepo-architect",
+  "description_en": "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use PROACTIVELY for monorepo setup,",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monorepo-architect/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QMQ5H4WPXJWZ5YY9B",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monte-carlo-analyze-root-cause",
+  "description_en": "Investigate data incidents and find root causes using Monte Carlo's observability data. Guides the agent through systematic investigation: alert lookup, lineage tracing, ETL checks, query analysis, and data profiling. Activates when a user asks about data issues, incidents, alerts, or...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-analyze-root-cause/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QN3HGPJK4P95R43T3",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monte-carlo-monitoring-advisor",
+  "description_en": "Analyze data coverage, create monitors for warehouse tables and AI agents. Covers coverage gaps, use-case analysis, data monitor creation, and agent observability.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-monitoring-advisor/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QC9H0QKPMBP6SR6RV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monte-carlo-performance-diagnosis",
+  "description_en": "Diagnoses pipeline performance issues -- slow jobs, expensive queries, latency trends -- using Monte Carlo's cross-platform observability. Uses a tiered investigation approach: discover problems, bridge to affected tables, then drill into root causes. Activates when a user asks about...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-performance-diagnosis/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2Q82D7N8C04SN24M6M",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monte-carlo-prevent",
+  "description_en": "Surfaces Monte Carlo data observability context (table health, alerts, lineage, blast radius) before SQL/dbt edits.",
+  "languages": [
+   "SQL"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-prevent/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QP5737SK4M4CG3P0Q",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monte-carlo-remediation",
+  "description_en": "Investigate and remediate data quality alerts using Monte Carlo MCP tools. Runs root cause analysis, assesses blast radius, discovers available tools (MCP/CLI/API), proposes and executes fixes, or escalates with full context when uncertain.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-remediation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QSWHNVBHZT4SPM8Y1",
+  "catalog": "awesome_skills.json",
+  "skill_name": "monte-carlo-validation-notebook",
+  "description_en": "Generates SQL validation notebooks for dbt PR changes with before/after comparison queries.",
+  "languages": [
+   "SQL"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monte-carlo-validation-notebook/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QHQQDR9WR33SED557",
+  "catalog": "awesome_skills.json",
+  "skill_name": "moodle-external-api-development",
+  "description_en": "This skill guides you through creating custom external web service APIs for Moodle LMS, following Moodle's external API framework and coding standards.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/moodle-external-api-development/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2Q1YD06P0EQY8415ZB",
+  "catalog": "awesome_skills.json",
+  "skill_name": "moyu",
+  "description_en": "Anti-over-engineering guardrail that activates when an AI coding agent expands scope, adds abstractions, or changes files the user did not request.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/moyu/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QM00G0YN3GYRRHBSJ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "multi-agent-brainstorming",
+  "description_en": "Simulate a structured peer-review process using multiple specialized agents to validate designs, surface hidden assumptions, and identify failure modes before implementation.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-agent-brainstorming/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2QPPTJEXZM0T6KNJ8D",
+  "catalog": "awesome_skills.json",
+  "skill_name": "multi-agent-patterns",
+  "description_en": "This skill should be used when the user asks to \"design multi-agent system\", \"implement supervisor pattern\", \"create swarm architecture\", \"coordinate multiple agents\", or mentions multi-agent patterns, context isolation, agent handoffs, sub-agents, or parallel agent execution.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-agent-patterns/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2R9PCJWX0TPKRQ66FG",
+  "catalog": "awesome_skills.json",
+  "skill_name": "multi-agent-task-orchestrator",
+  "description_en": "Route tasks to specialized AI agents with anti-duplication, quality gates, and 30-minute heartbeat monitoring",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-agent-task-orchestrator/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2R60RYRE9H37Y7JHNR",
+  "catalog": "awesome_skills.json",
+  "skill_name": "multi-cloud-architecture",
+  "description_en": "Decision framework and patterns for architecting applications across AWS, Azure, and GCP.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-cloud-architecture/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2R7VQ4EJGESBAYADX5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "multi-platform-apps-multi-platform",
+  "description_en": "Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/multi-platform-apps-multi-platform/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2RTEY0VSEEK5VANNAF",
+  "catalog": "awesome_skills.json",
+  "skill_name": "multiplayer",
+  "description_en": "Multiplayer game development principles. Architecture, networking, synchronization.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/plugins/agentic-awesome-skills/skills/game-development/multiplayer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2RV0PKZBCPAYYKZ8SR",
+  "catalog": "awesome_skills.json",
+  "skill_name": "n8n-agents",
+  "description_en": "Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output, and human-review flows.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-agents/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2RPHJ6BJGFX5CNYA9J",
+  "catalog": "awesome_skills.json",
+  "skill_name": "n8n-binary-and-data",
+  "description_en": "Handle n8n files and binary data across uploads, downloads, transforms, multimodal inputs, agent tools, and chat surfaces.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-binary-and-data/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2R5428E6GY1E0YB5CM",
+  "catalog": "awesome_skills.json",
+  "skill_name": "n8n-code-tool",
+  "description_en": "Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sandbox limits, and return formats.",
+  "languages": [
+   "Python",
+   "JavaScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-code-tool/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2RGHKX344HT5RJKC24",
+  "catalog": "awesome_skills.json",
+  "skill_name": "n8n-expression-syntax",
+  "description_en": "Validate n8n expression syntax and fix common errors. Use when writing n8n expressions, using {{}} syntax, accessing $json/$node variables, troubleshooting expression errors, or working with webhook data in workflows.",
+  "languages": [
+   "JavaScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-expression-syntax/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2RVWKK8T4N65WD94X5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "n8n-node-configuration",
+  "description_en": "Operation-aware node configuration guidance. Use when configuring nodes, understanding property dependencies, determining required fields, choosing between get_node detail levels, or learning common configuration patterns by node type.",
+  "languages": [
+   "JavaScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/n8n-node-configuration/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2R5XVXQ4JN2ZHWVBXD",
+  "catalog": "awesome_skills.json",
+  "skill_name": "native-data-fetching",
+  "description_en": "Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetch API, React Query, SWR, error handling, caching, offline support, and Expo Router data loaders (`useLoaderData`).",
+  "languages": [],
+  "frameworks": [
+   "React"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/native-data-fetching/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2RHAHXWGZ9GDR04V3B",
+  "catalog": "awesome_skills.json",
+  "skill_name": "neon-ai-gateway",
+  "description_en": "One API and one credential for frontier and open-source LLMs, built into your Neon branch and powered by Databricks. Use when a user wants to call an LLM, add AI/chat/an agent to their app, route between model providers (OpenAI, Anthropic, Google/Gemini, Meta, Alibaba, DeepSeek), or...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/neon-ai-gateway/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2REEZ23RBS0FKQFYDD",
+  "catalog": "awesome_skills.json",
+  "skill_name": "neon-functions",
+  "description_en": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE)...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/neon-functions/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2RMRZ2VXXX4C82EEQ6",
+  "catalog": "awesome_skills.json",
+  "skill_name": "neon-object-storage",
+  "description_en": "S3-compatible object storage that branches with your Neon project, so files and the database stay in sync across every branch. Use when a user wants object storage, a bucket, blob/file storage, or somewhere to put uploads, images, documents, avatars, or user-generated files for their...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/neon-object-storage/SKILL.md"
+ }
+]

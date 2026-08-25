@@ -1,0 +1,442 @@
+[
+ {
+  "id": "01M0GCFD2WF3KY4MEF65GA4Z0N",
+  "skill_name": "pdf-official",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Ensina processamento de PDF (extração, preenchimento de formulários) via bibliotecas Python/JS, enquanto engeapp e AgenteDeBolso geram e leem PDF em PHP (dompdf, mpdf, TCPDF, FPDI, spatie/pdf-to-text) — os conceitos ajudam pouco além do pdftotext; SocialMedia só extrai texto de PDF em temas."
+ },
+ {
+  "id": "01M0GCFD2W6A4Y93GT7BXC1WNZ",
+  "skill_name": "pentest-commands",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Referência de comandos ofensivos (nmap, cracking de senha, exploração) para pentest de infraestrutura; nenhum dos três projetos faz security assessment ofensivo — as auditorias de segurança são de código (mass assignment, PII, LGPD)."
+ },
+ {
+  "id": "01M0GCFD2WXG9G4D76WGWER4GZ",
+  "skill_name": "people-data",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Prospecção de perfis do LinkedIn e busca de e-mail/telefone de contatos comerciais; o módulo de leads do engeapp e a pesquisa de marca do SocialMedia não usam LinkedIn (só Meta), e AgenteDeBolso é finanças pessoais."
+ },
+ {
+  "id": "01M0GCFD2WTE6K710KA8GER4J3",
+  "skill_name": "performance-optimization",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Metodologia genérica de otimização com foco em Core Web Vitals e tempo de carga; útil para as SPAs Vue 3.6 + Vite dos três projetos, mas sem nada específico de Octane, Horizon ou MaxPinia."
+ },
+ {
+  "id": "01M0GCFD2X2VQQ90RR7NWSRXHA",
+  "skill_name": "performance-optimizer",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Disciplina de medir antes/depois ao caçar gargalos em código, banco e APIs; aplicável a queries Eloquent lentas e N+1 nos três projetos, mas é prática genérica sem conhecimento de MySQL/PostgreSQL específico da stack."
+ },
+ {
+  "id": "01M0GCFD2XXH4GMRCMEESY0Z05",
+  "skill_name": "performance-profiling",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Princípios de profiling (medição, análise, otimização) que complementam o Pulse/Telescope do engeapp e o Clockwork/Debugbar do AgenteDeBolso, mas sem instruções para essas ferramentas concretas."
+ },
+ {
+  "id": "01M0GCFD2X04MEFQR033R9YR8G",
+  "skill_name": "performance-testing-review-multi-agent-review",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Revisão multi-agente de testes de performance/carga; nenhum dos projetos mantém suíte de load testing — a qualidade é garantida por Pest, Vitest e Dusk, então o uso seria raro."
+ },
+ {
+  "id": "01M0GCFD2X4RJ1EH6PX3328W6S",
+  "skill_name": "photopea-embedded-editor",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Embarcar o editor Photopea com API compatível com Photoshop (camadas, texto, filtros) em app web; só tangencia o SocialMedia, que faz direção de arte e overlay tipográfico, mas lá a composição é server-side (imagick/ComfyUI), não editor embarcado."
+ },
+ {
+  "id": "01M0GCFD2XG5VAQXJDH7A9C0VN",
+  "skill_name": "php-pro",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 7},
+   {"project": "SocialMedia", "importance": 7},
+   {"project": "AgenteDeBolso", "importance": 7}
+  ],
+  "rationale": "PHP idiomático moderno com generators, iterators e estruturas SPL — diretamente aplicável aos backends PHP 8.3-8.5 dos três projetos, embora não cubra Laravel nem as convenções (constructor promotion, tipagem explícita, Pint) exigidas."
+ },
+ {
+  "id": "01M0GCFD2XB2MG3ZSAJ5V9NE32",
+  "skill_name": "pi-custom-model",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Registro de slugs de modelo do Pi Agent para variantes do OpenRouter; os três projetos usam Gemini (e Ollama no SocialMedia) diretamente, sem OpenRouter nem Pi Agent."
+ },
+ {
+  "id": "01M0GCFD2XHT3X9G7B9Q8ASTSV",
+  "skill_name": "pilot-protocol",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Protocolo experimental de endereço de rede permanente, mensageria P2P criptografada e app store para agentes; não há nenhuma superfície P2P nos três SaaS Laravel."
+ },
+ {
+  "id": "01M0GCFD2XM5V86F65QCFZJQM9",
+  "skill_name": "pipecat-friday-agent",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Assistente de voz de baixa latência em Python com Pipecat e OpenAI; engeapp tem VoIP/LiveKit e AgenteDeBolso grava áudio com FFmpeg, mas a stack é PHP+Gemini e não há STT/pipeline de voz Python."
+ },
+ {
+  "id": "01M0GCFD2XWXTXZEYYY4FPYVBX",
+  "skill_name": "plaid-fintech",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Padrões de agregação bancária com Plaid (Link token, contas, transações, webhooks) — conceitualmente próximos do Open Finance via Pluggy do AgenteDeBolso (mapeamento de categorias, webhook), embora o provider seja outro; engeapp só faz cobrança e SocialMedia nada disso."
+ },
+ {
+  "id": "01M0GCFD2XVMQXM4KSCHNJJAKP",
+  "skill_name": "planning-with-files",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 7},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Usar arquivos markdown persistentes como memória de trabalho do agente; casa bem com o fluxo auditoria→spec→plano→TDD com artefatos em docs/superpowers do SocialMedia e com a exigência de plano antes de codar dos outros dois."
+ },
+ {
+  "id": "01M0GCFD2XVJR5D6528DX8MQWH",
+  "skill_name": "playwright-java",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Testes E2E Playwright em Java com Page Object Model, JUnit 5 e Allure; Java é irrelevante nos três, e mesmo o Playwright do SocialMedia é só um smoke visual headless em JS."
+ },
+ {
+  "id": "01M0GCFD2XVJA45GJXCGSNB915",
+  "skill_name": "podcast-generation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Geração de narrativa em áudio pela Realtime API do Azure OpenAI; provider explicitamente irrelevante nos três dossiês e nenhum projeto produz podcast — o SocialMedia gera imagem/copy, não áudio."
+ },
+ {
+  "id": "01M0GCFD2XQDEFEKPYCQ937K72",
+  "skill_name": "polis-protocol",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Orquestração de agentes multi-vendor com roteador que aprende por histórico e regras emendáveis; os projetos usam um único provider (Gemini) e pipelines de IA determinísticos em Jobs, não um mercado de agentes."
+ },
+ {
+  "id": "01M0GCFD2Y9KDF9NW85H9XAC1X",
+  "skill_name": "postgres-readonly-queries",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 7},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Execução segura de SQL somente leitura em PostgreSQL com proteção contra escrita; útil para inspecionar o PostgreSQL 18 do SocialMedia sem risco, mas engeapp e AgenteDeBolso rodam MariaDB/MySQL 8."
+ },
+ {
+  "id": "01M0GCFD2YFMHARNVYFK2M7T8F",
+  "skill_name": "postgresql",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 9},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Modelagem de schema PostgreSQL (tipos, índices, constraints, recursos avançados) — central para o SocialMedia, que usa PostgreSQL 18 com ULID, índices únicos parciais e soft delete em cascata; irrelevante para os projetos MySQL."
+ },
+ {
+  "id": "01M0GCFD2YHBS0QSE1DADZH3WK",
+  "skill_name": "postgresql-cli",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 7},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Referência do psql (meta-comandos \\d, \\copy, scripting, import/export); ajuda na inspeção diária do banco do SocialMedia e no db:bootstrap, mas não serve a MariaDB/MySQL dos outros dois."
+ },
+ {
+  "id": "01M0GCFD2YR90TX9XYTKE9J9Y1",
+  "skill_name": "postgresql-optimization",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 8},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Tuning de query, estratégia de índices e análise de performance em PostgreSQL; aplicável às consultas de calendário editorial e índices parciais do SocialMedia, inútil nos bancos MySQL de engeapp e AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD2Y83F94XZ5NRW47FQP",
+  "skill_name": "postman-newman-automation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Automação de coleções Postman com Newman e pipelines Jenkins/CI; os três projetos testam API por Pest (feature tests) e não têm Docker/CI nem coleções Postman versionadas."
+ },
+ {
+  "id": "01M0GCFD2YM129GKBMGN2VYSYD",
+  "skill_name": "pr-merge-champion",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Preparar PRs com diff limpo, auto-revisão e descrição estruturada; boa higiene aplicável ao fluxo de worktree→merge dos três, mas eles trabalham em branch própria sem revisão externa formal de PR."
+ },
+ {
+  "id": "01M0GCFD2Y4A81XN48K2AAJ6FY",
+  "skill_name": "prisma-expert",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "ORM Prisma (schema, migrations, relações) em stack Node; o ORM dos três projetos é Eloquent e Prisma consta explicitamente como tema irrelevante nos dossiês."
+ },
+ {
+  "id": "01M0GCFD2ZMTQ2W164B7J908B6",
+  "skill_name": "privacy-mask",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Mascarar PII em capturas de tela via OCR (Tesseract/RapidOCR) e regras regex para CPF, cartão e chaves; ajuda pontualmente ao anexar prints de bug em engeapp e AgenteDeBolso (dados financeiros sensíveis), mas não é fluxo de código do produto."
+ },
+ {
+  "id": "01M0GCFD2Z7RD5RM81NCX91R1G",
+  "skill_name": "product-decision-agent",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Agente de decisão de produto em chinês (priorização, roadmap, A/B test, retenção); além de o idioma contrariar a convenção pt-BR, é trabalho de gestão e não de engenharia nos três repositórios."
+ },
+ {
+  "id": "01M0GCFD2Z4ZAPW58V72G4BNBH",
+  "skill_name": "product-design",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Design de produto com design tokens, tipografia, cor, espaçamento e acessibilidade; conversa com o design system Max e com os tokens SCSS/dark mode/WCAG do AgenteDeBolso, mas é centrado em Figma e não nos componentes Max/UnoCSS reais."
+ },
+ {
+  "id": "01M0GCFD2Z5CGC8BR0A9H2VNPJ",
+  "skill_name": "product-inventor",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Persona de inventor de produto misturando product thinking, storytelling e psicologia cognitiva; pode inspirar a concepção de telas novas, mas entrega pouco acionável perto do design system Max já definido."
+ },
+ {
+  "id": "01M0GCFD2ZNSG8S30PKPSF4YTV",
+  "skill_name": "product-manager",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Frameworks e métricas SaaS de PM sênior (30+ frameworks, 32 métricas); os três são SaaS e AgenteDeBolso tem planos/cotas, mas o trabalho pedido ao agente é implementação, não discovery de produto."
+ },
+ {
+  "id": "01M0GCFD2ZDWGJ9SCE95JYR2J6",
+  "skill_name": "product-marketing",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Construção de documento de contexto de marketing (posicionamento, ICP, público-alvo); tem eco no SocialMedia, cujo domínio inclui posicionamento de marca do cliente e personagens, mas é conteúdo de marketing e não código."
+ },
+ {
+  "id": "01M0GCFD2Z5MNX947GZTDX7XMS",
+  "skill_name": "production-code-audit",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Varredura autônoma linha a linha do codebase para elevar a qualidade a nível de produção; combina com as auditorias versionadas em docs/audit do AgenteDeBolso, mas a transformação automática em massa conflita com a regra de nunca alterar código sem plano aprovado."
+ },
+ {
+  "id": "01M0GCFD2Z9FZQB8FMVGPFMK6C",
+  "skill_name": "progressive-estimation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Estimativa PERT com calibração para trabalho híbrido humano+agente; nenhum dos três projetos mantém processo de estimativa formal — o fluxo é spec, plano e execução em worktree."
+ },
+ {
+  "id": "01M0GCFD2ZHB8HMYK9GC35P70Q",
+  "skill_name": "project-development",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Princípios para escolher tarefas adequadas a LLM, desenhar arquitetura de projeto e iterar com apoio de agente; útil ao pipeline de IA por status do SocialMedia, mas em nível abstrato e sem tocar Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD2ZV7Y48SQC2FS41B06",
+  "skill_name": "prompt-engineering",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 8},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Padrões de prompting e depuração de comportamento de agente; alto para o SocialMedia, onde prompt engineering para Gemini via laravel/ai é tema central (copywriting, direção de arte, dedup de notícias), e moderado nos usos de Gemini de engeapp e AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD2ZTQTPNZ9A65E1C90V",
+  "skill_name": "prompt-engineering-patterns",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 8},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Técnicas avançadas de prompt para confiabilidade e controlabilidade da saída do LLM; valiosa para a saída estruturada exigida pelos Agents/Tools do SocialMedia e para extração de dados de documentos por IA no engeapp e categorização no AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD30J8D485W9RQKRY1FP",
+  "skill_name": "protect-mcp-governance",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Governança de chamadas de ferramentas MCP com políticas Cedar e recibos assinados em Ed25519; os projetos expõem tools de IA dentro do próprio Laravel (laravel/ai, Gemini tool calling), sem camada MCP governada."
+ },
+ {
+  "id": "01M0GCFD3032Y7ZNNK40624YXT",
+  "skill_name": "protocol-reverse-engineering",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Captura e documentação de protocolos de rede para interoperabilidade; no AgenteDeBolso poderia apoiar a leitura do APK descompilado do 'Minhas Finanças' e no engeapp o SIP/VoIP, mas ambos são cenários raros."
+ },
+ {
+  "id": "01M0GCFD304DX6KA0TEB5F5N66",
+  "skill_name": "prototype",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Construir protótipo descartável para explorar regra de negócio ou variações de UI numa rota única; técnica razoável para validar telas Vue antes de commitar, mas genérica e sem aderência aos componentes Max."
+ },
+ {
+  "id": "01M0GCFD3014F2SESY93TKC447",
+  "skill_name": "pubmed-database",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Consulta à API E-utilities do PubMed com queries MeSH para literatura biomédica; nenhum dos projetos (fotovoltaico, redes sociais, finanças pessoais) toca domínio de saúde."
+ },
+ {
+  "id": "01M0GCFD30QMZX2QE0Y2QXCJP9",
+  "skill_name": "puppeteer-skill",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 7},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 8}
+  ],
+  "rationale": "Geração de scripts Puppeteer para automação de navegador, scraping e PDF; engeapp e AgenteDeBolso têm puppeteer nas dependências e usam verificação empírica de UI por navegador headless (AgenteDeBolso a prescreve), enquanto o SocialMedia usa Playwright para isso."
+ }
+]

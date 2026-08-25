@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0GCFD18JWND6HNR2YAA19ZT",
+  "skill_name": "2slides-ppt-generator",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/2slides-ppt-generator/SKILL.md",
+  "description_en": "AI-powered presentation generation via the 2slides API — create slides from text, match a reference image style, summarize documents into decks, add AI voice narration, and export pages/audio. Use for any \\\"make slides\\\", \\\"create a deck\\\", or \\\"slides from this document\\\" request.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Integração com a API paga 2slides para gerar apresentações PPT com narração; nenhum dos projetos gera decks (engeapp gera PDF/Word/Excel, não PPT) nem contrata esse serviço."
+ },
+ {
+  "id": "01M0GCFD18NX2MRZQC17MY1DA5",
+  "skill_name": "3d-ui",
+  "local_path": "other_skills/Agentic Awesome Skills/plugins/agentic-awesome-skills/skills/design-it/3d-ui/SKILL.md",
+  "description_en": "Web and App implementation guide for 3D UI. Trigger when user wants actual 3D objects, perspective effects, and spatial depth.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Guia de UI 3D com perspectiva e profundidade espacial; as três interfaces são SPAs Vue com design system Max/UnoCSS em layout 2D convencional, sem WebGL/Three.js."
+ },
+ {
+  "id": "01M0GCFD1811C5TG8VHJ34BCDN",
+  "skill_name": "ab-test-setup",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ab-test-setup/SKILL.md",
+  "description_en": "Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and execution readiness.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Processo com gates para hipótese, métricas e prontidão de execução de testes A/B; só teria uso pontual no SocialMedia ao comparar variações de conteúdo publicado na Meta, e nenhum nos apps de gestão solar e finanças."
+ },
+ {
+  "id": "01M0GCFD18KWQT3TFSW2CRN77T",
+  "skill_name": "ab-testing",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ab-testing/SKILL.md",
+  "description_en": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\"...",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Programa de experimentação de growth (split test, variantes de copy, multivariado); tangencia o SocialMedia por ser SaaS de agência que testa copy de post, mas nenhum projeto tem infraestrutura de experimentos."
+ },
+ {
+  "id": "01M0GCFD18VAGVJWZC3N8DC6G5",
+  "skill_name": "ad-creative",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ad-creative/SKILL.md",
+  "description_en": "Create, iterate, and scale paid ad creative for Google Ads, Meta, LinkedIn, TikTok, and similar platforms. Use when generating headlines, descriptions, primary text, or large sets of ad variations for testing and performance optimization.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Criação e escala de criativos pagos (headlines, primary text, variações) para Google/Meta/LinkedIn; alinha-se ao pipeline de copywriting e direção de arte do SocialMedia, embora o produto trate de posts orgânicos e não de mídia paga."
+ },
+ {
+  "id": "01M0GCFD184YZG5EYCX4KG5D0Y",
+  "skill_name": "adhx",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/adhx/SKILL.md",
+  "description_en": "Fetch any X/Twitter post as clean LLM-friendly JSON. Converts x.com, twitter.com, or adhx.com links into structured data with full article content, author info, and engagement metrics. No scraping or browser required.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Converte links de X/Twitter em JSON estruturado; o SocialMedia integra exclusivamente a Meta Graph API e o dossiê marca APIs de X/TikTok/LinkedIn como irrelevantes."
+ },
+ {
+  "id": "01M0GCFD19T9JY3X5W3ATJ3S4T",
+  "skill_name": "aegisops-ai",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/aegisops-ai/SKILL.md",
+  "description_en": "Autonomous DevSecOps & FinOps Guardrails. Orchestrates Gemini 3 Flash to audit Linux Kernel patches, Terraform cost drifts, and K8s compliance.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Guardrails de DevSecOps/FinOps para patches de kernel Linux, drift de custo Terraform e compliance Kubernetes — pilha de infraestrutura explicitamente irrelevante nos três projetos, que rodam em Caddy+PHP-FPM sem Docker/K8s."
+ },
+ {
+  "id": "01M0GCFD19NWKBJ1YCS29T5NGS",
+  "skill_name": "agent-creator",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-creator/SKILL.md",
+  "description_en": "Create custom AI subagents with proper plugin structure, persona generation, and companion routing skills.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Cria subagentes de Claude Code com estrutura de plugin e persona; é meta-tooling do próprio harness, útil de forma genérica nos três repositórios que já usam subagentes e worktrees, sem tocar na stack Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD198ZTWHXMA72NJDA89",
+  "skill_name": "agent-evaluation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-evaluation/SKILL.md",
+  "description_en": "Testing and benchmarking LLM agents including behavioral testing,",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Testes comportamentais e benchmarking de agentes LLM; ajuda a validar o pipeline de agentes laravel/ai do SocialMedia e os agentes Gemini com tool calling do engeapp, mas é conceitual e não cobre Pest/smoke commands existentes."
+ },
+ {
+  "id": "01M0GCFD19BMF20Z7SJH4S58KG",
+  "skill_name": "agent-evaluation-reporting",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-evaluation-reporting/SKILL.md",
+  "description_en": "Use when summarizing agent evaluations where autonomous, assisted, failed, timed-out, or invalid outcomes must remain distinct and comparable.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Padroniza relatórios de avaliação mantendo distintos os desfechos autônomo/assistido/falho/timeout; é um formato de reporte de benchmark, útil apenas se houvesse uma bateria formal de avaliação dos agentes de conteúdo do SocialMedia."
+ },
+ {
+  "id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+  "skill_name": "agent-framework-azure-ai-py",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-framework-azure-ai-py/SKILL.md",
+  "description_en": "Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Agentes persistentes no Azure AI Foundry com SDK Python; combina duas tecnologias vetadas nos dossiês (Python e nuvem Azure) enquanto os projetos usam PHP com Gemini/Ollama."
+ },
+ {
+  "id": "01M0GCFD197FJEE75WWCDHK2Q4",
+  "skill_name": "agent-harness-fault-injection",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-harness-fault-injection/SKILL.md",
+  "description_en": "Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, checkpoint, memory, or orchestration failures.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Injeção determinística de falhas em sandbox, MCP, workers e checkpoints de harness de agente; a ideia de provar recuperação tangencia a serialização de GPU/OOM do SocialMedia, mas o alvo é o harness do agente e não filas Horizon."
+ },
+ {
+  "id": "01M0GCFD197CRDEE5JDE68FNAJ",
+  "skill_name": "agent-manager-skill",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-manager-skill/SKILL.md",
+  "description_en": "Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly scheduling.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Gerencia vários agentes CLI locais em sessões tmux com agendamento por cron; é infraestrutura de operação do desenvolvedor, sem relação com código Laravel/Vue dos três produtos."
+ },
+ {
+  "id": "01M0GCFD19NG8MWNKV6CX0ZK6F",
+  "skill_name": "agent-memory-mcp",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-memory-mcp/SKILL.md",
+  "description_en": "A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Architecture, Patterns, Decisions).",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Servidor MCP de memória híbrida para registrar arquitetura, padrões e decisões; poderia complementar a documentação viva dos repositórios, mas exige adotar um MCP externo que nenhum projeto usa."
+ },
+ {
+  "id": "01M0GCFD19RMWE1BMBZKEQF9WP",
+  "skill_name": "agent-memory-systems",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-memory-systems/SKILL.md",
+  "description_en": "Memory is the cornerstone of intelligent agents. Without it, every",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Teoria de memória de curto/longo prazo para agentes; roça o contexto persistente dos agentes de conteúdo do SocialMedia (personagens, posicionamento de marca), mas não trata de laravel/ai nem de Gemini."
+ },
+ {
+  "id": "01M0GCFD19Q09WF3PG18JEXMVP",
+  "skill_name": "agent-orchestration-improve-agent",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-orchestration-improve-agent/SKILL.md",
+  "description_en": "Systematic improvement of existing agents through performance analysis, prompt engineering, and continuous iteration.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Melhoria iterativa de agentes existentes via análise de desempenho e engenharia de prompt; prompt engineering para Gemini é tema de alta relevância no SocialMedia, ainda que a skill seja agnóstica de provider."
+ },
+ {
+  "id": "01M0GCFD191187GGD9RBHK114V",
+  "skill_name": "agent-orchestration-multi-agent-optimize",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-orchestration-multi-agent-optimize/SKILL.md",
+  "description_en": "Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware orchestration. Use when improving agent performance, throughput, or reliability.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Profiling, distribuição de carga e orquestração ciente de custo em sistemas multi-agente; conversa de longe com o rastreio de custo USD→BRL do SocialMedia e com o billing de IA por BigQuery do engeapp, mas sem aterrissar na implementação PHP."
+ },
+ {
+  "id": "01M0GCFD19M581W25QWJ6QWEGY",
+  "skill_name": "agent-qa-authoring",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-qa-authoring/SKILL.md",
+  "description_en": "Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while preserving canonical IDs and schema contracts.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Autoria de testes e suítes na plataforma Agent QA via MCP/CLI com IDs canônicos; é ferramenta proprietária externa, enquanto a QA dos projetos é Pest, Vitest e Dusk."
+ },
+ {
+  "id": "01M0GCFD19428J1JZ1H2KE7C9T",
+  "skill_name": "agent-qa-debug-fix",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-qa-debug-fix/SKILL.md",
+  "description_en": "Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local code without hiding product or infrastructure defects.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Depura e corrige execuções falhas do Agent QA a partir de evidências MCP e artefatos; a disciplina de não mascarar defeito real é boa, mas está acoplada a uma plataforma que nenhum dos três projetos adota."
+ },
+ {
+  "id": "01M0GCFD19ASKMNADR1VH7XNAA",
+  "skill_name": "agent-qa-result-triage",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-qa-result-triage/SKILL.md",
+  "description_en": "Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence, and actionable next steps.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Triagem de runs falhos do Agent QA com categorias fixas de falha e nível de confiança; mesmo ecossistema MCP proprietário, sem aplicação nas suítes Pest/Dusk dos projetos."
+ },
+ {
+  "id": "01M0GCFD194JJP2JDD90STJPY1",
+  "skill_name": "agent-self-scheduling",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-self-scheduling/SKILL.md",
+  "description_en": "Schedule AI agent runs with cron, loops, or external clocks while avoiding unsafe tight autonomous timers.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Agenda execuções do próprio agente por cron/loops evitando timers autônomos inseguros; trata do ciclo de vida do assistente, não do scheduler do Laravel (publish-due, fetch-news, cotações) usado nos projetos."
+ },
+ {
+  "id": "01M0GCFD19S31C8FP08Z2EN260",
+  "skill_name": "agent-squad",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-squad/SKILL.md",
+  "description_en": "Main agent orchestrator that coordinates a specialized squad of agents",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Orquestrador principal que coordena um esquadrão de agentes especializados; é organização do fluxo de trabalho do assistente, útil de forma marginal e redundante com o agent-orchestrator já disponível."
+ },
+ {
+  "id": "01M0GCFD192PKRXS4KC9H07H25",
+  "skill_name": "agent-tool-builder",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agent-tool-builder/SKILL.md",
+  "description_en": "Tools are how AI agents interact with the world. A well-designed",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Design de tools para agentes (schema, nomes, mensagens de erro, granularidade); aplica-se direto às Tools do laravel/ai no SocialMedia e ao tool calling com Gemini no engeapp, embora os exemplos não sejam em PHP."
+ },
+ {
+  "id": "01M0GCFD19Q756MA5YBBWDP4Y8",
+  "skill_name": "agentfolio",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agentfolio/SKILL.md",
+  "description_en": "Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFolio directory.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Pesquisa de agentes e ferramentas no diretório AgentFolio; é descoberta de mercado, não produz nenhum ganho ao codificar Laravel, Vue ou os domínios de solar, social e finanças."
+ },
+ {
+  "id": "01M0GCFD19CF528696MJD8F7VQ",
+  "skill_name": "agentic-actions-auditor",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agentic-actions-auditor/SKILL.md",
+  "description_en": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations  including Claude Code Action,  Gemini CLI, OpenAI Codex, and GitHub AI  Inference.  Detects attack vectors where attacker-controlled  input reaches. AI agents running in CI/CD pipelines.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Audita workflows do GitHub Actions contra prompt injection em agentes de CI/CD; GitHub Actions e CI estão listados como irrelevantes e SocialMedia/AgenteDeBolso sequer têm pipeline."
+ },
+ {
+  "id": "01M0GCFD19D6MAB1EJNJR2WY0A",
+  "skill_name": "agentmail",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agentmail/SKILL.md",
+  "description_en": "Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check karma balance via the AgentMail API.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Caixas de e-mail para agentes via API AgentMail; o engeapp já resolve e-mail com IMAP (imapengine) e Postmark/Resend/SES, e os outros dois não têm e-mail transacional como tema."
+ },
+ {
+  "id": "01M0GCFD19AG9GNBM5MSTB8PWE",
+  "skill_name": "agentphone",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/agentphone/SKILL.md",
+  "description_en": "Build AI phone agents with AgentPhone API. Use when the user wants to make phone calls, send/receive SMS, manage phone numbers, create voice agents, set up webhooks, or check usage — anything related to telephony, phone numbers, or voice AI.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Agentes de voz e SMS pela API AgentPhone; o engeapp tem VoIP/SIP e LiveKit próprios, então no máximo serve de inspiração conceitual, e é um serviço externo não contratado."
+ },
+ {
+  "id": "01M0GCFD1AC3M5665APCE4TX90",
+  "skill_name": "ai-agent-development",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-agent-development/SKILL.md",
+  "description_en": "AI agent development workflow for building autonomous agents, multi-agent systems, and agent orchestration with CrewAI, LangGraph, and custom agents.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Construção de agentes com CrewAI e LangGraph; são frameworks Python/LangChain explicitamente vetados, já que a orquestração dos projetos é feita em PHP com laravel/ai e google-gemini-php."
+ },
+ {
+  "id": "01M0GCFD1AS7K02PFWQGG6P1T8",
+  "skill_name": "ai-agents-architect",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-agents-architect/SKILL.md",
+  "description_en": "Expert in designing and building autonomous AI agents. Masters tool",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Arquitetura de agentes autônomos com foco em uso de ferramentas e decomposição de tarefas; oferece princípios aproveitáveis no pipeline de IA por status do SocialMedia e nos agentes de extração de documentos do engeapp, mas sem código da stack."
+ },
+ {
+  "id": "01M0GCFD1AK23KX3N29BJ0DTK1",
+  "skill_name": "ai-engineer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-engineer/SKILL.md",
+  "description_en": "Build production-ready LLM applications, advanced RAG systems, and intelligent agents. Implements vector search, multimodal AI, agent orchestration, and enterprise AI integrations.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Aplicações LLM em produção com RAG avançado, busca vetorial e IA multimodal; multimodalidade e integração corporativa tocam a extração de documentos por IA, porém RAG/vector search não faz parte de nenhuma das três arquiteturas."
+ },
+ {
+  "id": "01M0GCFD1AJ43K5F3ZHGHVDRA1",
+  "skill_name": "ai-engineering-toolkit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-engineering-toolkit/SKILL.md",
+  "description_en": "6 production-ready AI engineering workflows: prompt evaluation (8-dimension scoring), context budget planning, RAG pipeline design, agent security audit (65-point checklist), eval harness building, and product sense coaching.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Workflows de avaliação de prompt em 8 dimensões, planejamento de orçamento de contexto e auditoria de segurança de agente; o orçamento de contexto é diretamente aplicável ao Ollama local com num_ctx 80000 do SocialMedia e à contenção de custo Gemini."
+ },
+ {
+  "id": "01M0GCFD1AE80EEGE44CXYHPYY",
+  "skill_name": "ai-ml",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-ml/SKILL.md",
+  "description_en": "AI and machine learning workflow covering LLM application development, RAG implementation, agent architecture, ML pipelines, and AI-powered features.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Workflow amplo de IA/ML cobrindo RAG, pipelines de ML e features com IA; a parte de pipelines de ML clássico é vetada nos dossiês e sobra apenas orientação genérica de features com LLM."
+ },
+ {
+  "id": "01M0GCFD1AZHJS0F22BKJ4AJW8",
+  "skill_name": "ai-native-cli",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-native-cli/SKILL.md",
+  "description_en": "Design spec with 98 rules for building CLI tools that AI agents can safely use. Covers structured JSON output, error handling, input contracts, safety guardrails, exit codes, and agent self-description.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "98 regras para CLIs consumíveis por agentes (saída JSON, exit codes, contratos de entrada); tem leitura útil ao desenhar comandos artisan como ai:smoke e lora:smoke do SocialMedia, mas nenhum projeto entrega CLI como produto."
+ },
+ {
+  "id": "01M0GCFD1ARYJSMTQVB7FTJSPX",
+  "skill_name": "ai-seo",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-seo/SKILL.md",
+  "description_en": "Optimize content for AI search and LLM citations across AI Overviews, ChatGPT, Perplexity, Claude, Gemini, and similar systems. Use when improving AI visibility, answer engine optimization, or citation readiness.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Otimização de conteúdo para citação em buscadores de IA (AI Overviews, Perplexity); só ajuda de forma indireta no conteúdo produzido pelo SocialMedia, e o AgenteDeBolso lista SEO/marketing como irrelevante."
+ },
+ {
+  "id": "01M0GCFD1ADDJZ82SHM3HNC17T",
+  "skill_name": "ai-studio-image",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md",
+  "description_en": "Geracao de imagens humanizadas via Google AI Studio (Gemini). Fotos realistas estilo influencer ou educacional com iluminacao natural e imperfeicoes sutis.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Prompts para gerar fotos humanizadas estilo influencer via Google AI Studio/Gemini; casa com a etapa de direção de arte e geração de imagem de personagens do SocialMedia, apesar de a geração final lá ser local com Z-Image/ComfyUI."
+ },
+ {
+  "id": "01M0GCFD1AXJ9AF4HKY3TK7HWW",
+  "skill_name": "akf-trust-metadata",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/akf-trust-metadata/SKILL.md",
+  "description_en": "The AI native file format. EXIF for AI — stamps every file with trust scores, source provenance, and compliance metadata. Embeds into 20+ formats (DOCX, PDF, images, code). EU AI Act, SOX, HIPAA auditing.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Formato AKF que carimba arquivos com score de confiança e metadados de compliance para EU AI Act, SOX e HIPAA; os projetos seguem LGPD brasileira e não usam esse formato proprietário em seus PDFs e mídias."
+ },
+ {
+  "id": "01M0GCFD1BT3R63XYJKN7N2ETY",
+  "skill_name": "analytics",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/analytics/SKILL.md",
+  "description_en": "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" \"tracking...",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Implantação e auditoria de tracking com GA4, GTM, UTMs e eventos de conversão; nenhum projeto tem GA4/GTM na stack e só o SocialMedia, por atender agências, tocaria métricas de campanha."
+ },
+ {
+  "id": "01M0GCFD1BB3FQRBYTFKMKEWJF",
+  "skill_name": "analytics-product",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/analytics-product/SKILL.md",
+  "description_en": "Analytics de produto — PostHog, Mixpanel, eventos, funnels, cohorts, retencao, north star metric, OKRs e dashboards de produto.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Analytics de produto com PostHog/Mixpanel, funis, coortes, retenção e north star metric; é disciplina de PM apoiada em ferramentas SaaS ausentes das três stacks (que usam Pulse/Telescope para telemetria técnica)."
+ },
+ {
+  "id": "01M0GCFD1BSPYDRBENCE9VQ36N",
+  "skill_name": "analytics-tracking",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/analytics-tracking/SKILL.md",
+  "description_en": "Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Projeto e auditoria de planos de tracking para gerar dados confiáveis de decisão; o rigor de taxonomia de eventos é bom, mas nenhum dos três apps mantém camada de eventos analíticos instrumentada."
+ },
+ {
+  "id": "01M0GCFD1BEPBTV937GV5DDZP0",
+  "skill_name": "andrej-karpathy",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/andrej-karpathy/SKILL.md",
+  "description_en": "Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions, and define verifiable success criteria.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Diretrizes comportamentais para o agente evitar overengineering, fazer mudanças cirúrgicas, explicitar suposições e definir critérios verificáveis; é prática de engenharia genérica que combina com a regra dos três projetos de planejar antes de alterar código."
+ }
+]

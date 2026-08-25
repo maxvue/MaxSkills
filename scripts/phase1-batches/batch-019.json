@@ -1,0 +1,463 @@
+[
+ {
+  "id": "01M0GCFD33GDZ1FSD2XAXTNFNP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "saas-multi-tenant",
+  "description_en": "Design and implement multi-tenant SaaS architectures with row-level security, tenant-scoped queries, shared-schema isolation, and safe cross-tenant admin patterns in PostgreSQL and TypeScript.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/saas-multi-tenant/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD339XMJSQMNMSP8G7A6",
+  "catalog": "awesome_skills.json",
+  "skill_name": "saas-mvp-launcher",
+  "description_en": "Use when planning or building a SaaS MVP from scratch. Provides a structured roadmap covering tech stack, architecture, auth, payments, and launch checklist.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/saas-mvp-launcher/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3478W4W6JJVCMT1P8H",
+  "catalog": "awesome_skills.json",
+  "skill_name": "sankhya-dashboard-html-jsp-custom-best-pratices",
+  "description_en": "This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sankhya dashboards using HTML, JSP, Java, and SQL.",
+  "languages": [
+   "Java",
+   "SQL",
+   "HTML"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sankhya-dashboard-html-jsp-custom-best-pratices/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD342DFMZ0SJCHBC7C8Z",
+  "catalog": "awesome_skills.json",
+  "skill_name": "sast-configuration",
+  "description_en": "Static Application Security Testing (SAST) tool setup, configuration, and custom rule creation for comprehensive security scanning across multiple programming languages.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sast-configuration/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD34VE8K8CWF0DA9MA0V",
+  "catalog": "awesome_skills.json",
+  "skill_name": "scanning-tools",
+  "description_en": "Master essential security scanning tools for network discovery, vulnerability assessment, web application testing, wireless security, and compliance validation. This skill covers tool selection, configuration, and practical usage across different scanning categories.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/scanning-tools/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD34P90ZSTWKQYC5WTTB",
+  "catalog": "awesome_skills.json",
+  "skill_name": "schema-markup",
+  "description_en": "Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurable SEO impact.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/schema-markup/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD34ZTBS7DZ2DTBA9XY9",
+  "catalog": "awesome_skills.json",
+  "skill_name": "screenshots",
+  "description_en": "Generate marketing screenshots of your app using Playwright. Use when the user wants to create screenshots for Product Hunt, social media, landing pages, or documentation.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/screenshots/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD34Q591HVSWVN98E6R5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "sdk-dx",
+  "description_en": "Design SDKs that developers love to use—APIs that feel native, error messages that guide, and experiences that reduce friction. This skill covers creating SDKs that drive adoption through exceptional developer experience rather than aggressive marketing. Trigger phrases: \"SDK design\",...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sdk-dx/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD340VP929TRZZE6NWC4",
+  "catalog": "awesome_skills.json",
+  "skill_name": "security-and-hardening",
+  "description_en": "Hardens code against vulnerabilities. Use when handling user input, authentication, data storage, or external integrations. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/security-and-hardening/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD34WF63R8QKVEFHYCR7",
+  "catalog": "awesome_skills.json",
+  "skill_name": "security-auditor",
+  "description_en": "Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, and compliance frameworks.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/security-auditor/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD34SDEN6G5E704Y7Z32",
+  "catalog": "awesome_skills.json",
+  "skill_name": "security-bluebook-builder",
+  "description_en": "Build a minimal but real security policy for sensitive apps. The output is a single, coherent Blue Book document using MUST/SHOULD/CAN language, with explicit assumptions, scope, and security gates.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/security-bluebook-builder/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35XXJENZBN8MQKSB5A",
+  "catalog": "awesome_skills.json",
+  "skill_name": "security-checklist",
+  "description_en": "Reference document for monopoly security-checklist.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/monopoly/security-checklist/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD356F95KZVGKTW1JAVD",
+  "catalog": "awesome_skills.json",
+  "skill_name": "security-compliance-compliance-check",
+  "description_en": "You are a compliance expert specializing in regulatory requirements for software systems including GDPR, HIPAA, SOC2, PCI-DSS, and other industry standards. Perform comprehensive compliance audits and provide implementation guidance for achieving and maintaining compliance.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/security-compliance-compliance-check/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35CGAKENNDCCTTY3WF",
+  "catalog": "awesome_skills.json",
+  "skill_name": "security-requirement-extraction",
+  "description_en": "Derive security requirements from threat models and business context. Use when translating threats into actionable requirements, creating security user stories, or building security test cases.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/security-requirement-extraction/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD356HBVBGAM92DCTAQV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "security-scanning-security-hardening",
+  "description_en": "Coordinate multi-layer security scanning and hardening across application, infrastructure, and compliance controls.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/security-scanning-security-hardening/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35RGKPPJ6W07DGH5S5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seek-and-analyze-video",
+  "description_en": "Seek and analyze video content using Memories.ai Large Visual Memory Model for persistent video intelligence",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seek-and-analyze-video/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35FCKCENRWXWEZ51Q8",
+  "catalog": "awesome_skills.json",
+  "skill_name": "selenium-skill",
+  "description_en": "Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, JavaScript, C#, Ruby, or PHP. Supports local execution and TestMu AI cloud with 3000+ browser/OS combinations. Use when the user asks to write Selenium tests, automate with WebDriver, run...",
+  "languages": [
+   "Python",
+   "JavaScript",
+   "Java",
+   "C#",
+   "Ruby"
+  ],
+  "frameworks": [],
+  "libs": [
+   "Selenium"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/selenium-skill/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35BSGY11WSABBST7SH",
+  "catalog": "awesome_skills.json",
+  "skill_name": "semgrep-rule-creator",
+  "description_en": "Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/semgrep-rule-creator/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35BZQ3F4N7AZ5CKX29",
+  "catalog": "awesome_skills.json",
+  "skill_name": "sendblue-api",
+  "description_en": "Send and receive iMessage, SMS, and RCS from application code via the Sendblue HTTP API — text, media, group messages, send styles, reactions, typing indicators, status callbacks, and inbound webhooks.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sendblue/sendblue-api/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35J8VQ1R04E9SRGJZP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "sendblue-cli",
+  "description_en": "Send iMessage and SMS from the shell via the @sendblue/cli npm package — outbound sends, contact management, and account setup with no API client or webhook server required.",
+  "languages": [
+   "Shell"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sendblue/sendblue-cli/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35TKKF1DABSJ1W9HPP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "sendblue-notify",
+  "description_en": "Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sendblue/sendblue-notify/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35Z69X77WXZJP5S8NF",
+  "catalog": "awesome_skills.json",
+  "skill_name": "sendgrid-automation",
+  "description_en": "Automate SendGrid email delivery workflows including marketing campaigns (Single Sends), contact and list management, sender identity setup, and email analytics through Composio's SendGrid toolkit.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/sendgrid-automation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35ER8ZKJBBN04SX8VH",
+  "catalog": "awesome_skills.json",
+  "skill_name": "senior-frontend",
+  "description_en": "Frontend development skill for React, Next.js, TypeScript, and Tailwind CSS applications. Use when building React components, optimizing Next.js performance, analyzing bundle sizes, scaffolding frontend projects, implementing accessibility, or reviewing frontend code quality.",
+  "languages": [
+   "TypeScript",
+   "CSS"
+  ],
+  "frameworks": [
+   "React",
+   "Next.js",
+   "Tailwind CSS"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/senior-frontend/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35RGVM19RSKASEY8YV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-aeo-blog-writer",
+  "description_en": "Writes long-form blog posts with TL;DR block, definition sentence, comparison table, and 5-question FAQ for SEO ranking and AEO citation. Activate when the user wants to write a blog post, article, or long-form content piece.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-aeo-blog-writer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35BXCMF14P6YNH676Q",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-aeo-content-cluster",
+  "description_en": "Builds a topical authority map with a pillar page, prioritised cluster articles, content types, internal link map, and content gap analysis. Activate when the user wants to build a content cluster, topic map, or content strategy.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-aeo-content-cluster/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD355NFY7VGA254TF08J",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-aeo-content-quality-auditor",
+  "description_en": "Audits content for SEO and AEO performance with scored reports, severity-ranked fix lists, and projected scores after fixes. Activate when the user wants to audit, review, or score content for SEO or AEO compliance.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-aeo-content-quality-auditor/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35H5FW79PZFG7H0XJA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-aeo-internal-linking",
+  "description_en": "Maps internal link opportunities between pages with anchor text, placement instructions, orphan page detection, and cannibalization checks. Activate when the user wants to build an internal linking strategy or find link opportunities.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-aeo-internal-linking/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35Q3G4BP2K0T8AC36D",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-aeo-keyword-research",
+  "description_en": "Researches and prioritises SEO keywords with AEO question queries, difficulty tiers, cannibalization checks, and a content map. Activate when the user wants to find keywords, research search terms, or build a keyword strategy.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-aeo-keyword-research/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35SSQAS3BHRF813VZY",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-aeo-landing-page-writer",
+  "description_en": "Writes complete, structured landing pages optimized for SEO ranking, AEO citation, and visitor conversion. Activate when the user wants to write or generate a landing page for a product, service, or offer.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-aeo-landing-page-writer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD35XVRZTQPB4CBHD6WN",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-aeo-meta-description-generator",
+  "description_en": "Writes 3 title tag variants and 3 meta description variants per page with SERP preview, OG tags, and Twitter Card tags. Activate when the user wants to write meta tags, title tags, or social sharing tags for any page.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-aeo-meta-description-generator/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD368WMV5BGVYDE3ECPJ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-audit",
+  "description_en": "Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-audit/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD364VRSRJHQW09VS9YM",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-cannibalization-detector",
+  "description_en": "Analyzes multiple provided pages to identify keyword overlap and potential cannibalization issues. Suggests differentiation strategies. Use PROACTIVELY when reviewing similar content.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-cannibalization-detector/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD36PPZZVFEDW4YJEPDD",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-competitor-pages",
+  "description_en": "Generate SEO-optimized competitor comparison and alternatives pages. Covers \"X vs Y\" layouts, \"alternatives to X\" pages, feature matrices, schema markup, and conversion optimization. Use when user says \"comparison page\", \"vs page\", \"alternatives page\", \"competitor comparison\", or \"X vs Y\".",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-competitor-pages/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD36ARZ7QFMNM38HPZQJ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-content-planner",
+  "description_en": "Creates comprehensive content outlines and topic clusters for SEO.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-content-planner/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD36HXDMNPMDC3J8FK40",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-content-refresher",
+  "description_en": "Identifies outdated elements in provided content and suggests updates to maintain freshness. Finds statistics, dates, and examples that need updating. Use PROACTIVELY for older content.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-content-refresher/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD36C0G72Y2S19K7S5X2",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-dataforseo",
+  "description_en": "Use DataForSEO for live SERPs, keyword metrics, backlinks, competitor analysis, on-page checks, and AI visibility data. Trigger when the user needs real SEO data rather than static guidance.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-dataforseo/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD36XDFHABH151RR2FCZ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-drift",
+  "description_en": "Snapshot a site's SEO state and detect ranking, indexation, metadata, canonical, robots, schema, and on-page regressions over time.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-drift/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD36Z77SN29DQQWQR8DA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-forensic-incident-response",
+  "description_en": "Investigate sudden drops in organic traffic or rankings and run a structured forensic SEO incident response with triage, root-cause analysis and recovery plan.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-forensic-incident-response/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD36DJ23E9TGYZ3K6S0H",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-fundamentals",
+  "description_en": "Core principles of SEO including E-E-A-T, Core Web Vitals, technical foundations, content quality, and how modern search engines evaluate pages.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-fundamentals/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD366SSHTE5ZXQHCSFWP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "seo-hreflang",
+  "description_en": "Hreflang and international SEO audit, validation, and generation. Detects common mistakes, validates language/region codes, and generates correct hreflang implementations. Use when user says \"hreflang\", \"i18n SEO\", \"international SEO\", \"multi-language\", \"multi-region\", or \"language tags\".",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/seo-hreflang/SKILL.md"
+ }
+]

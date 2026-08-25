@@ -1,0 +1,442 @@
+[
+  {
+    "id": "01M0GCFD21TFQ3G1CAZ5HMDB7Q",
+    "skill_name": "developer-audience-context",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Define persona de público desenvolvedor para marketing de DevRel; nenhum dos três produtos vende para desenvolvedores (integradores fotovoltaicos, agências de marketing e pessoa física). Só arranha o SocialMedia por ser um SaaS de conteúdo, mas ali o público é agência, não dev."
+  },
+  {
+    "id": "01M0GCFD21MWQFDE5ZX6QE8CYZ",
+    "skill_name": "developer-newsletter",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Escrita e crescimento de newsletter por e-mail para audiência dev. E-mail transacional/marketing é tema irrelevante no SocialMedia e no AgenteDeBolso, e o engeapp usa Postmark/SES apenas para notificações do sistema."
+  },
+  {
+    "id": "01M0GCFD21NQ76H2100TSRA467",
+    "skill_name": "developer-sandbox",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Arquitetura de playgrounds interativos para desenvolvedores experimentarem uma API pública. Nenhum dos três expõe API pública para terceiros — todos são SPAs Vue consumindo a própria API Laravel sob Sanctum."
+  },
+  {
+    "id": "01M0GCFD21SKGZ5ERQPGBHB8WB",
+    "skill_name": "developer-seo",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "SEO para consultas técnicas do tipo 'how to X' e conteúdo estilo Stack Overflow. O AgenteDeBolso lista SEO/marketing site como irrelevante; o site público do engeapp é institucional e não mira palavras-chave de programação."
+  },
+  {
+    "id": "01M0GCFD21QRD4AK08AB2HAFN6",
+    "skill_name": "developer-signup-flow",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Cadastro sem atrito com GitHub OAuth, geração de API key e onboarding personalizado. O AgenteDeBolso tem onboarding, planos e Google OAuth, e o engeapp tem Google/Facebook OAuth, mas o foco em API key e público dev não bate com nenhum dos fluxos reais."
+  },
+  {
+    "id": "01M0GCFD21YWPE0YVSDVXMCS1M",
+    "skill_name": "devops-deploy",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Docker, GitHub Actions, AWS Lambda/SAM e Terraform — exatamente a lista de temas marcados como irrelevantes nos três dossiês. Os deploys reais são Deployer 8 (engeapp), webhook próprio (AgenteDeBolso) e nada (SocialMedia), todos sem contêiner e sem CI."
+  },
+  {
+    "id": "01M0GCFD21ZN23R18NBN6YEBNT",
+    "skill_name": "devrel-content",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Produção de blog posts e tutoriais técnicos voltados a desenvolvedores. O SocialMedia gera conteúdo por IA, mas para Instagram/Facebook de clientes de agência, não artigos de DevRel — a estrutura de copy aqui não transfere."
+  },
+  {
+    "id": "01M0GCFD213V0WBQJ9TMWD1STV",
+    "skill_name": "diagnosing-bugs",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 7}
+    ],
+    "rationale": "Loop disciplinado de diagnóstico de bugs difíceis e regressões de performance, agnóstico de stack. Ganha meio ponto no AgenteDeBolso, que catalogou armadilhas de falha silenciosa (ícone Iconify inválido, colunas NOT NULL sem default, errno 150 de collation) e tem módulo próprio de depuração."
+  },
+  {
+    "id": "01M0GCFD21E958ZRZ6AM27ZQCY",
+    "skill_name": "differential-review",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 7}
+    ],
+    "rationale": "Revisão de diff/PR com foco em segurança. Aplicável aos três (PII/LGPD no engeapp, HMAC de webhook no SocialMedia), com peso maior no AgenteDeBolso, que versiona auditorias de segurança em docs/audit e lida com WebAuthn, PIN e dados de Open Finance."
+  },
+  {
+    "id": "01M0GCFD21ZD68XFYQ3VZ6644E",
+    "skill_name": "discord-bot-architect",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Construção de bots Discord (discord.js, slash commands, gateway). Nenhum projeto integra Discord — os canais são WhatsApp Cloud API, Meta Graph e Slack para notificações internas."
+  },
+  {
+    "id": "01M0GCFD21X5M9JZFNTQ1GTG96",
+    "skill_name": "distribute-skill-to-all-agents",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Distribui arquivos de skill entre pastas de vários agentes respeitando symlinks — tarefa de administração do tooling de IA, não de desenvolvimento dos produtos. Não ajuda a escrever código Laravel/Vue em nenhum dos três."
+  },
+  {
+    "id": "01M0GCFD211A05CRE25K9P03HB",
+    "skill_name": "distributed-debugging-debug-trace",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Tracing distribuído e ferramental de diagnóstico para sistemas multi-serviço. Os três são monolitos Laravel com Telescope/Pulse, LaraDumps/Clockwork e log-viewer; microserviços estão listados como tema irrelevante."
+  },
+  {
+    "id": "01M0GCFD2241HCWKNH72M1NC67",
+    "skill_name": "docs-architect",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Gera manuais técnicos longos a partir da análise da arquitetura do código existente. Útil de forma genérica, com leve vantagem onde a documentação é parte da entrega (CLAUDE.md do SocialMedia, resources/CLAUDE.md do AgenteDeBolso no mesmo commit)."
+  },
+  {
+    "id": "01M0GCFD223J6DB9GN35AV5WZZ",
+    "skill_name": "docs-as-marketing",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Transforma documentação pública em canal de aquisição e conversão de desenvolvedores. Nenhum dos três publica docs externas de produto; no AgenteDeBolso o tema marketing/SEO é explicitamente irrelevante."
+  },
+  {
+    "id": "01M0GCFD228NP950V25XEYEGDX",
+    "skill_name": "docs-guard",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Revisa README, changelog e docs geradas antes de mesclar, cobrando exatidão em relação ao código. Encaixa na regra do SocialMedia de manter CLAUDE.md fiel e sem duplicação e na do AgenteDeBolso de corrigir a linha existente do resources/CLAUDE.md."
+  },
+  {
+    "id": "01M0GCFD22E9RDHVHEREF30MAR",
+    "skill_name": "documentation",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Fluxo genérico de produção de docs de API, arquitetura, README e comentários de código. Boa prática aplicável, mas não fala das convenções específicas (pt-BR em comentários, artefatos em docs/superpowers/specs) que os projetos exigem."
+  },
+  {
+    "id": "01M0GCFD222A5CTQWWDJT9DQ6Y",
+    "skill_name": "documentation-and-adrs",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Registro de decisões arquiteturais (ADR) ao mudar APIs públicas ou entregar features. Combina com o ciclo auditoria→spec→plano do SocialMedia e com as armadilhas catalogadas do AgenteDeBolso, mas é um formato de registro, não conhecimento de stack."
+  },
+  {
+    "id": "01M0GCFD22MCGBNR51131376RN",
+    "skill_name": "domain-driven-design",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Modelagem estratégica e tática de DDD com viés para arquitetura evented. Os domínios são ricos (máquina de estados do calendário editorial, regime caixa×competência), mas a implementação real é Actions/Services/Enums em Laravel e event sourcing está listado como irrelevante."
+  },
+  {
+    "id": "01M0GCFD222GG4YWGX5EGB287P",
+    "skill_name": "dos-verify-done-claims",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Confere a alegação de 'pronto' contra ancestralidade git e o diff do commit, porém via os comandos do kernel DOS (`dos verify`, `dos commit-audit`), que não existem em nenhum dos repositórios. A ideia é boa; a ferramenta não roda."
+  },
+  {
+    "id": "01M0GCFD22XX0EGYNJSR0HN12A",
+    "skill_name": "doubt-driven-development",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Submete cada decisão não-trivial a revisão adversarial com contexto novo antes de aceitá-la. Vale um pouco mais no AgenteDeBolso, onde erro em cálculo de fatura, estorno ou saldo é irreversível para o usuário."
+  },
+  {
+    "id": "01M0GCFD22Y5DER3FR77PTBMJC",
+    "skill_name": "drizzle-migration-conflict",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Conflitos de migration do Drizzle Kit (snapshots, journal, merge queue). Drizzle está na lista de irrelevantes dos três; as migrations são do Laravel sobre MariaDB, PostgreSQL 18 e MySQL 8."
+  },
+  {
+    "id": "01M0GCFD234K7B5B5JX9VBAXHC",
+    "skill_name": "drizzle-orm-expert",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "ORM TypeScript Drizzle para bancos serverless. A camada de dados dos três é Eloquent em PHP; Drizzle/Prisma/TypeORM aparecem explicitamente como temas irrelevantes."
+  },
+  {
+    "id": "01M0GCFD23R8RZSH2B9WBHEPJP",
+    "skill_name": "dwarf-expert",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Análise do formato de debug DWARF v3-v5 de binários compilados. Não há código nativo compilado em nenhum dos projetos — a stack é PHP interpretado mais TypeScript."
+  },
+  {
+    "id": "01M0GCFD237QK6EKEJKCPHGF01",
+    "skill_name": "ecl-harness-engineer",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Monta a infraestrutura do harness ECL: AGENTS.md, change tracking e gates de CI. Os três usam CLAUDE.md em vez de AGENTS.md e não possuem CI, o que esvazia a maior parte do procedimento."
+  },
+  {
+    "id": "01M0GCFD23DTRPHR1JFYV6FAT5",
+    "skill_name": "effective-agent-skills",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Ensina a escrever e revisar SKILL.md com bons triggers e divulgação progressiva. Só é útil quando se está autorando skills — o engeapp exige ativar skills antes de dev/refactor, mas não escrevê-las durante o trabalho de produto."
+  },
+  {
+    "id": "01M0GCFD23MVPBJEVN38DRGBFS",
+    "skill_name": "ejentum-reasoning-harness",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Depende de um servidor MCP externo que devolve scaffolds cognitivos antes de gerar resposta. É meta-tooling do agente, exige infraestrutura não instalada e não agrega conhecimento de Laravel, Vue ou dos domínios de negócio."
+  },
+  {
+    "id": "01M0GCFD23PGD836YWSKK1XQZC",
+    "skill_name": "electron-development",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Apps desktop Electron com IPC seguro, electron-builder e auto-update. Electron/desktop está na lista de irrelevantes do SocialMedia e a estratégia dos outros dois é PWA no navegador."
+  },
+  {
+    "id": "01M0GCFD23D8TX6XWBMMF32HKZ",
+    "skill_name": "email-sequence",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Cria sequências de e-mail de nutrição e conversão. O SocialMedia produz copy por IA, mas para posts de Instagram/Facebook; e-mail transacional/marketing está explicitamente fora do escopo dele."
+  },
+  {
+    "id": "01M0GCFD23GPD1DDXK0XC7YV32",
+    "skill_name": "email-systems",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Estratégia de e-mail como canal de ROI de marketing (listas, segmentação, métricas). O engeapp usa Postmark/Resend/SES só para notificações do sistema e o AgenteDeBolso usa SES pontualmente — nenhum faz campanha."
+  },
+  {
+    "id": "01M0GCFD23JSC1MQYW5NQC32GJ",
+    "skill_name": "emil-design-eng",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Princípios de animação, microinterações e acabamento de componentes de UI. Aplicável ao frontend Vue dos três, mas os projetos são presos ao design system Max e a exemplos React/Radix da skill; pesa um pouco mais no AgenteDeBolso, mobile-first com metas de contraste e WCAG."
+  },
+  {
+    "id": "01M0GCFD24VRGZFKWBH4B60XJE",
+    "skill_name": "employment-contract-templates",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Modelos de contrato de trabalho, carta-proposta e políticas de RH. Assunto jurídico-administrativo sem qualquer interseção com os três produtos; o engeapp gera documentos, mas de homologação em concessionária (ART/TRT, procurações)."
+  },
+  {
+    "id": "01M0GCFD24KE758SQKTQ1BSJRA",
+    "skill_name": "enhance-prompt",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Refina ideias vagas de UI em prompts otimizados para o Stitch (gerador de telas do Google). O SocialMedia trabalha com prompt engineering de imagem, mas via ComfyUI/LoRA Z-Image, cujos parâmetros nada têm a ver com o formato do Stitch."
+  },
+  {
+    "id": "01M0GCFD24NHF7RBCDBD7CQEER",
+    "skill_name": "ethical-hacking-methodology",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Ciclo completo de pentest (recon, exploração, relatório) com ferramental ofensivo de infraestrutura. As auditorias de segurança do AgenteDeBolso e as preocupações com PII/LGPD do engeapp são de revisão de código, não de teste de intrusão externa."
+  },
+  {
+    "id": "01M0GCFD24633VCEVP5PF0E4GA",
+    "skill_name": "evaluation",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 7},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Monta frameworks de avaliação para medir sistematicamente a qualidade de sistemas de agentes. Encaixa direto no pipeline de IA por status do SocialMedia (copywriting, dedup de notícias por LLM, smoke commands ai:smoke), e de forma mais pontual nos agentes Gemini dos outros dois."
+  },
+  {
+    "id": "01M0GCFD244FMC6WTECMJ1EX0E",
+    "skill_name": "event-sourcing-architect",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Event store, CQRS, projeções e sagas. Event sourcing aparece nominalmente como tema irrelevante nos três dossiês; o histórico financeiro do AgenteDeBolso é resolvido com snapshot mensal de saldo em tabelas Eloquent."
+  },
+  {
+    "id": "01M0GCFD242FZ6GWZR28ZN0EEQ",
+    "skill_name": "exa-search",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Busca semântica e pesquisa estruturada pela API paga da Exa. O SocialMedia faz descoberta e dedup de conteúdo, mas por RSS mais Ollama local; a Exa não está contratada em nenhum projeto."
+  },
+  {
+    "id": "01M0GCFD24ZR5EJSSD0TK4RZXF",
+    "skill_name": "expo-api-routes",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "API routes do Expo Router hospedadas no EAS. Mobile nativo/React Native é tema irrelevante nos três; as rotas de API são arquivos routes/*.php do Laravel."
+  },
+  {
+    "id": "01M0GCFD25RHDEMFCN5MFZT11R",
+    "skill_name": "expo-examples",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Catálogo de exemplos with-* do repositório expo/examples (Stripe, Clerk, Supabase, Skia, NativeWind). Toda a lista de integrações é de React Native e de serviços descartados (Stripe, OpenAI) pelos três projetos."
+  },
+  {
+    "id": "01M0GCFD25XFTDMR0KVRMCJ7XT",
+    "skill_name": "expo-module",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Criação de módulos nativos Expo em Swift e Kotlin com a Modules API. Não há código iOS/Android nos projetos — o APK do AgenteDeBolso é apenas referência de regra de negócio e a estratégia é PWA."
+  },
+  {
+    "id": "01M0GCFD253BS7XM9VRJRA6RDG",
+    "skill_name": "expo-tailwind-setup",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Configura Tailwind v4 com NativeWind em apps Expo. Soma dois temas proibidos de uma vez: Tailwind (a estilização é UnoCSS com presetMaxUno) e React Native."
+  }
+]

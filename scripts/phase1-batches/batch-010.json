@@ -1,0 +1,461 @@
+[
+ {
+  "id": "01M0GCFD21TFQ3G1CAZ5HMDB7Q",
+  "catalog": "awesome_skills.json",
+  "skill_name": "developer-audience-context",
+  "description_en": "When the user wants to establish or update their developer audience context. Also use when starting any other developer marketing skill to ensure foundational context is loaded. Trigger phrases include \"developer persona,\" \"target developers,\" \"who are our developers,\" \"developer...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/developer-audience-context/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21MWQFDE5ZX6QE8CYZ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "developer-newsletter",
+  "description_en": "When the user wants to create, write, or improve a newsletter for developer audiences. Trigger phrases include \"newsletter,\" \"email marketing,\" \"developer email,\" \"weekly digest,\" \"dev newsletter,\" \"email subscribers,\" \"newsletter growth,\" or \"email list.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/developer-newsletter/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21NQ76H2100TSRA467",
+  "catalog": "awesome_skills.json",
+  "skill_name": "developer-sandbox",
+  "description_en": "Design and build interactive playgrounds that let developers experience your product without commitment. This skill covers playground architecture, pre-populated examples, embedding strategies, gating decisions, and converting playground users to signups. Trigger phrases: \"developer...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/developer-sandbox/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21SKGZ5ERQPGBHB8WB",
+  "catalog": "awesome_skills.json",
+  "skill_name": "developer-seo",
+  "description_en": "SEO strategy for technical queries and developer audiences. Covers keyword research for \"how to X in language\" queries, error message SEO, Stack Overflow-style content, technical long-tail keywords, and competing with official documentation sites. Use when asked about: - SEO for...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/developer-seo/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21QRD4AK08AB2HAFN6",
+  "catalog": "awesome_skills.json",
+  "skill_name": "developer-signup-flow",
+  "description_en": "Design frictionless signup experiences for developers including GitHub OAuth, API key generation, and onboarding personalization. Trigger phrases: developer signup, dev registration, OAuth flow, API key onboarding, reduce signup friction, developer authentication, signup conversion,...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/developer-signup-flow/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21YWPE0YVSDVXMCS1M",
+  "catalog": "awesome_skills.json",
+  "skill_name": "devops-deploy",
+  "description_en": "DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infraestrutura como codigo e monitoramento.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [
+   "Docker",
+   "Terraform"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/devops-deploy/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21ZN23R18NBN6YEBNT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "devrel-content",
+  "description_en": "When the user wants to create technical content for developers including blog posts, tutorials, and documentation. Trigger phrases include \"write a blog post,\" \"technical article,\" \"developer content,\" \"tutorial,\" \"devrel content,\" \"dev blog,\" \"technical writing,\" or \"content for...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/devrel-content/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD213V0WBQJ9TMWD1STV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "diagnosing-bugs",
+  "description_en": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/diagnosing-bugs/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21E958ZRZ6AM27ZQCY",
+  "catalog": "awesome_skills.json",
+  "skill_name": "differential-review",
+  "description_en": "Security-focused code review for PRs, commits, and diffs.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/differential-review/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21ZD68XFYQ3VZ6644E",
+  "catalog": "awesome_skills.json",
+  "skill_name": "discord-bot-architect",
+  "description_en": "Specialized skill for building production-ready Discord bots.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/discord-bot-architect/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD21X5M9JZFNTQ1GTG96",
+  "catalog": "awesome_skills.json",
+  "skill_name": "distribute-skill-to-all-agents",
+  "description_en": "Distribute a skill across configured agent skill folders while respecting local symlink layouts.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/distribute-skill-to-all-agents/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD211A05CRE25K9P03HB",
+  "catalog": "awesome_skills.json",
+  "skill_name": "distributed-debugging-debug-trace",
+  "description_en": "You are a debugging expert specializing in setting up comprehensive debugging environments, distributed tracing, and diagnostic tools. Configure debugging workflows, implement tracing solutions, and establish troubleshooting practices for development and production environments.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/distributed-debugging-debug-trace/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2241HCWKNH72M1NC67",
+  "catalog": "awesome_skills.json",
+  "skill_name": "docs-architect",
+  "description_en": "Creates comprehensive technical documentation from existing codebases. Analyzes architecture, design patterns, and implementation details to produce long-form technical manuals and ebooks.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/docs-architect/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD223J6DB9GN35AV5WZZ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "docs-as-marketing",
+  "description_en": "Transform documentation into a powerful marketing channel that attracts, converts, and retains developers. This skill covers creating documentation that ranks in search, converts visitors into users, and accelerates adoption through exceptional information architecture and...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/docs-as-marketing/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD228NP950V25XEYEGDX",
+  "catalog": "awesome_skills.json",
+  "skill_name": "docs-guard",
+  "description_en": "Review generated or changed documentation before it ships, including READMEs, API references, docstrings, changelogs, tutorials, and documentation sites.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/docs-guard/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD22E9RDHVHEREF30MAR",
+  "catalog": "awesome_skills.json",
+  "skill_name": "documentation",
+  "description_en": "Documentation generation workflow covering API docs, architecture docs, README files, code comments, and technical writing.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/documentation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD222A5CTQWWDJT9DQ6Y",
+  "catalog": "awesome_skills.json",
+  "skill_name": "documentation-and-adrs",
+  "description_en": "Records decisions and documentation. Use when making architectural decisions, changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/documentation-and-adrs/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD22MCGBNR51131376RN",
+  "catalog": "awesome_skills.json",
+  "skill_name": "domain-driven-design",
+  "description_en": "Plan and route Domain-Driven Design work from strategic modeling to tactical implementation and evented architecture patterns.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/domain-driven-design/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD222GG4YWGX5EGB287P",
+  "catalog": "awesome_skills.json",
+  "skill_name": "dos-verify-done-claims",
+  "description_en": "Before accepting an agent's 'done / shipped / fixed' claim, verify it against ground truth (git ancestry + the commit's own diff) using the DOS kernel's `dos verify` and `dos commit-audit` — never the agent's own narration.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/dos-verify-done-claims/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD22XX0EGYNJSR0HN12A",
+  "catalog": "awesome_skills.json",
+  "skill_name": "doubt-driven-development",
+  "description_en": "Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when correctness matters more than speed, when working in unfamiliar code, when stakes are high (production, security-sensitive logic, irreversible operations), or any time a confident...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/doubt-driven-development/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD22Y5DER3FR77PTBMJC",
+  "catalog": "awesome_skills.json",
+  "skill_name": "drizzle-migration-conflict",
+  "description_en": "Diagnose, repair, and prevent Drizzle Kit migration conflicts involving generated SQL, snapshots, journals, merge queues, and team workflows.",
+  "languages": [
+   "SQL"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/drizzle-migration-conflict/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD234K7B5B5JX9VBAXHC",
+  "catalog": "awesome_skills.json",
+  "skill_name": "drizzle-orm-expert",
+  "description_en": "Expert in Drizzle ORM for TypeScript — schema design, relational queries, migrations, and serverless database integration. Use when building type-safe database layers with Drizzle.",
+  "languages": [
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/drizzle-orm-expert/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD23R8RZSH2B9WBHEPJP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "dwarf-expert",
+  "description_en": "Provides expertise for analyzing DWARF debug files and understanding the DWARF debug format/standard (v3-v5). Triggers when understanding DWARF information, interacting with DWARF files, answering DWARF-related questions, or working with code that parses DWARF data.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/dwarf-expert/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD237QK6EKEJKCPHGF01",
+  "catalog": "awesome_skills.json",
+  "skill_name": "ecl-harness-engineer",
+  "description_en": "Create or audit ECL Agent Harness infrastructure: AGENTS.md, change tracking, repository guidance, lint checks, CI gates, and agent handoff docs.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ecl-harness-engineer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD23DTRPHR1JFYV6FAT5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "effective-agent-skills",
+  "description_en": "Author and review high-quality agent skills with triggers, progressive disclosure, and safety notes.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/effective-agent-skills/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD23MVPBJEVN38DRGBFS",
+  "catalog": "awesome_skills.json",
+  "skill_name": "ejentum-reasoning-harness",
+  "description_en": "MCP server exposing four cognitive harness modes (reasoning, code, anti-deception, memory). Each call returns an engineered scaffold (failure pattern, procedure, suppression vectors, falsification test) the agent ingests before generating.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ejentum-reasoning-harness/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD23PGD836YWSKK1XQZC",
+  "catalog": "awesome_skills.json",
+  "skill_name": "electron-development",
+  "description_en": "Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-process architecture, electron-builder packaging, code signing, and auto-update.",
+  "languages": [],
+  "frameworks": [
+   "Electron"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/electron-development/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD23D8TX6XWBMMF32HKZ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "email-sequence",
+  "description_en": "You are an expert in email marketing and automation. Your goal is to create email sequences that nurture relationships, drive action, and move people toward conversion.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/email-sequence/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD23GPD1DDXK0XC7YV32",
+  "catalog": "awesome_skills.json",
+  "skill_name": "email-systems",
+  "description_en": "Email has the highest ROI of any marketing channel. $36 for every",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/email-systems/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD23JSC1MQYW5NQC32GJ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "emil-design-eng",
+  "description_en": "Use when designing or reviewing polished product UI with Emil Kowalski-inspired animation, interaction, and component craft guidance.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/emil-design-eng/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD24VRGZFKWBH4B60XJE",
+  "catalog": "awesome_skills.json",
+  "skill_name": "employment-contract-templates",
+  "description_en": "Templates and patterns for creating legally sound employment documentation including contracts, offer letters, and HR policies.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/employment-contract-templates/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD24KE758SQKTQ1BSJRA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "enhance-prompt",
+  "description_en": "Transforms vague UI ideas into polished, Stitch-optimized prompts. Enhances specificity, adds UI/UX keywords, injects design system context, and structures output for better generation results.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/enhance-prompt/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD24NHF7RBCDBD7CQEER",
+  "catalog": "awesome_skills.json",
+  "skill_name": "ethical-hacking-methodology",
+  "description_en": "Master the complete penetration testing lifecycle from reconnaissance through reporting. This skill covers the five stages of ethical hacking methodology, essential tools, attack techniques, and professional reporting for authorized security assessments.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ethical-hacking-methodology/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD24633VCEVP5PF0E4GA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "evaluation",
+  "description_en": "Build evaluation frameworks for agent systems. Use when testing agent performance systematically, validating context engineering choices, or measuring improvements over time.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/evaluation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD244FMC6WTECMJ1EX0E",
+  "catalog": "awesome_skills.json",
+  "skill_name": "event-sourcing-architect",
+  "description_en": "Expert in event sourcing, CQRS, and event-driven architecture patterns. Masters event store design, projection building, saga orchestration, and eventual consistency patterns. Use PROACTIVELY for event-sourced systems, audit trail requirements, or complex domain modeling with temporal queries.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/event-sourcing-architect/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD242FZ6GWZR28ZN0EEQ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "exa-search",
+  "description_en": "Semantic search, similar content discovery, and structured research using Exa API. Use when you need semantic/embeddings-based search, finding similar content, or searching by category (company, people, research papers, etc.).",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/exa-search/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD24ZR5EJSSD0TK4RZXF",
+  "catalog": "awesome_skills.json",
+  "skill_name": "expo-api-routes",
+  "description_en": "Guidelines for creating API routes in Expo Router with EAS Hosting",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/expo-api-routes/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD25RHDEMFCN5MFZT11R",
+  "catalog": "awesome_skills.json",
+  "skill_name": "expo-examples",
+  "description_en": "Expo's official example projects — the expo/examples repo of ~70 `with-*` integrations (Stripe, Clerk, Supabase, OpenAI, maps, Reanimated, SQLite, Skia, NativeWind, and more). Use when integrating a third-party library or service into an existing Expo app and you want the canonical,...",
+  "languages": [
+   "SQL"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/expo-examples/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD25XFTDMR0KVRMCJ7XT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "expo-module",
+  "description_en": "Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift, Kotlin, TypeScript). Covers module definition DSL, native views, shared objects, config plugins, lifecycle hooks, autolinking, and type system. Use when building or modifying native modules...",
+  "languages": [
+   "TypeScript",
+   "Swift",
+   "Kotlin"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/expo-module/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD253BS7XM9VRJRA6RDG",
+  "catalog": "awesome_skills.json",
+  "skill_name": "expo-tailwind-setup",
+  "description_en": "Set up Tailwind CSS v4 in Expo with react-native-css and NativeWind v5 for universal styling",
+  "languages": [
+   "CSS"
+  ],
+  "frameworks": [
+   "Tailwind CSS"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/expo-tailwind-setup/SKILL.md"
+ }
+]

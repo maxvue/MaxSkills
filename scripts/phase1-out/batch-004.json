@@ -1,0 +1,442 @@
+[
+  {
+    "id": "01M0GCFD18JWND6HNR2YAA19ZT",
+    "skill_name": "2slides-ppt-generator",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Integração com a API paga 2slides para gerar apresentações PPT com narração; nenhum dos projetos gera decks (engeapp gera PDF/Word/Excel, não PPT) nem contrata esse serviço."
+  },
+  {
+    "id": "01M0GCFD18NX2MRZQC17MY1DA5",
+    "skill_name": "3d-ui",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Guia de UI 3D com perspectiva e profundidade espacial; as três interfaces são SPAs Vue com design system Max/UnoCSS em layout 2D convencional, sem WebGL/Three.js."
+  },
+  {
+    "id": "01M0GCFD1811C5TG8VHJ34BCDN",
+    "skill_name": "ab-test-setup",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Processo com gates para hipótese, métricas e prontidão de execução de testes A/B; só teria uso pontual no SocialMedia ao comparar variações de conteúdo publicado na Meta, e nenhum nos apps de gestão solar e finanças."
+  },
+  {
+    "id": "01M0GCFD18KWQT3TFSW2CRN77T",
+    "skill_name": "ab-testing",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Programa de experimentação de growth (split test, variantes de copy, multivariado); tangencia o SocialMedia por ser SaaS de agência que testa copy de post, mas nenhum projeto tem infraestrutura de experimentos."
+  },
+  {
+    "id": "01M0GCFD18VAGVJWZC3N8DC6G5",
+    "skill_name": "ad-creative",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Criação e escala de criativos pagos (headlines, primary text, variações) para Google/Meta/LinkedIn; alinha-se ao pipeline de copywriting e direção de arte do SocialMedia, embora o produto trate de posts orgânicos e não de mídia paga."
+  },
+  {
+    "id": "01M0GCFD184YZG5EYCX4KG5D0Y",
+    "skill_name": "adhx",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Converte links de X/Twitter em JSON estruturado; o SocialMedia integra exclusivamente a Meta Graph API e o dossiê marca APIs de X/TikTok/LinkedIn como irrelevantes."
+  },
+  {
+    "id": "01M0GCFD19T9JY3X5W3ATJ3S4T",
+    "skill_name": "aegisops-ai",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Guardrails de DevSecOps/FinOps para patches de kernel Linux, drift de custo Terraform e compliance Kubernetes — pilha de infraestrutura explicitamente irrelevante nos três projetos, que rodam em Caddy+PHP-FPM sem Docker/K8s."
+  },
+  {
+    "id": "01M0GCFD19NWKBJ1YCS29T5NGS",
+    "skill_name": "agent-creator",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Cria subagentes de Claude Code com estrutura de plugin e persona; é meta-tooling do próprio harness, útil de forma genérica nos três repositórios que já usam subagentes e worktrees, sem tocar na stack Laravel/Vue."
+  },
+  {
+    "id": "01M0GCFD198ZTWHXMA72NJDA89",
+    "skill_name": "agent-evaluation",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Testes comportamentais e benchmarking de agentes LLM; ajuda a validar o pipeline de agentes laravel/ai do SocialMedia e os agentes Gemini com tool calling do engeapp, mas é conceitual e não cobre Pest/smoke commands existentes."
+  },
+  {
+    "id": "01M0GCFD19BMF20Z7SJH4S58KG",
+    "skill_name": "agent-evaluation-reporting",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Padroniza relatórios de avaliação mantendo distintos os desfechos autônomo/assistido/falho/timeout; é um formato de reporte de benchmark, útil apenas se houvesse uma bateria formal de avaliação dos agentes de conteúdo do SocialMedia."
+  },
+  {
+    "id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+    "skill_name": "agent-framework-azure-ai-py",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Agentes persistentes no Azure AI Foundry com SDK Python; combina duas tecnologias vetadas nos dossiês (Python e nuvem Azure) enquanto os projetos usam PHP com Gemini/Ollama."
+  },
+  {
+    "id": "01M0GCFD197FJEE75WWCDHK2Q4",
+    "skill_name": "agent-harness-fault-injection",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Injeção determinística de falhas em sandbox, MCP, workers e checkpoints de harness de agente; a ideia de provar recuperação tangencia a serialização de GPU/OOM do SocialMedia, mas o alvo é o harness do agente e não filas Horizon."
+  },
+  {
+    "id": "01M0GCFD197CRDEE5JDE68FNAJ",
+    "skill_name": "agent-manager-skill",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Gerencia vários agentes CLI locais em sessões tmux com agendamento por cron; é infraestrutura de operação do desenvolvedor, sem relação com código Laravel/Vue dos três produtos."
+  },
+  {
+    "id": "01M0GCFD19NG8MWNKV6CX0ZK6F",
+    "skill_name": "agent-memory-mcp",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Servidor MCP de memória híbrida para registrar arquitetura, padrões e decisões; poderia complementar a documentação viva dos repositórios, mas exige adotar um MCP externo que nenhum projeto usa."
+  },
+  {
+    "id": "01M0GCFD19RMWE1BMBZKEQF9WP",
+    "skill_name": "agent-memory-systems",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Teoria de memória de curto/longo prazo para agentes; roça o contexto persistente dos agentes de conteúdo do SocialMedia (personagens, posicionamento de marca), mas não trata de laravel/ai nem de Gemini."
+  },
+  {
+    "id": "01M0GCFD19Q09WF3PG18JEXMVP",
+    "skill_name": "agent-orchestration-improve-agent",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Melhoria iterativa de agentes existentes via análise de desempenho e engenharia de prompt; prompt engineering para Gemini é tema de alta relevância no SocialMedia, ainda que a skill seja agnóstica de provider."
+  },
+  {
+    "id": "01M0GCFD191187GGD9RBHK114V",
+    "skill_name": "agent-orchestration-multi-agent-optimize",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Profiling, distribuição de carga e orquestração ciente de custo em sistemas multi-agente; conversa de longe com o rastreio de custo USD→BRL do SocialMedia e com o billing de IA por BigQuery do engeapp, mas sem aterrissar na implementação PHP."
+  },
+  {
+    "id": "01M0GCFD19M581W25QWJ6QWEGY",
+    "skill_name": "agent-qa-authoring",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Autoria de testes e suítes na plataforma Agent QA via MCP/CLI com IDs canônicos; é ferramenta proprietária externa, enquanto a QA dos projetos é Pest, Vitest e Dusk."
+  },
+  {
+    "id": "01M0GCFD19428J1JZ1H2KE7C9T",
+    "skill_name": "agent-qa-debug-fix",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Depura e corrige execuções falhas do Agent QA a partir de evidências MCP e artefatos; a disciplina de não mascarar defeito real é boa, mas está acoplada a uma plataforma que nenhum dos três projetos adota."
+  },
+  {
+    "id": "01M0GCFD19ASKMNADR1VH7XNAA",
+    "skill_name": "agent-qa-result-triage",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Triagem de runs falhos do Agent QA com categorias fixas de falha e nível de confiança; mesmo ecossistema MCP proprietário, sem aplicação nas suítes Pest/Dusk dos projetos."
+  },
+  {
+    "id": "01M0GCFD194JJP2JDD90STJPY1",
+    "skill_name": "agent-self-scheduling",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Agenda execuções do próprio agente por cron/loops evitando timers autônomos inseguros; trata do ciclo de vida do assistente, não do scheduler do Laravel (publish-due, fetch-news, cotações) usado nos projetos."
+  },
+  {
+    "id": "01M0GCFD19S31C8FP08Z2EN260",
+    "skill_name": "agent-squad",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Orquestrador principal que coordena um esquadrão de agentes especializados; é organização do fluxo de trabalho do assistente, útil de forma marginal e redundante com o agent-orchestrator já disponível."
+  },
+  {
+    "id": "01M0GCFD192PKRXS4KC9H07H25",
+    "skill_name": "agent-tool-builder",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 7},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Design de tools para agentes (schema, nomes, mensagens de erro, granularidade); aplica-se direto às Tools do laravel/ai no SocialMedia e ao tool calling com Gemini no engeapp, embora os exemplos não sejam em PHP."
+  },
+  {
+    "id": "01M0GCFD19Q756MA5YBBWDP4Y8",
+    "skill_name": "agentfolio",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Pesquisa de agentes e ferramentas no diretório AgentFolio; é descoberta de mercado, não produz nenhum ganho ao codificar Laravel, Vue ou os domínios de solar, social e finanças."
+  },
+  {
+    "id": "01M0GCFD19CF528696MJD8F7VQ",
+    "skill_name": "agentic-actions-auditor",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Audita workflows do GitHub Actions contra prompt injection em agentes de CI/CD; GitHub Actions e CI estão listados como irrelevantes e SocialMedia/AgenteDeBolso sequer têm pipeline."
+  },
+  {
+    "id": "01M0GCFD19D6MAB1EJNJR2WY0A",
+    "skill_name": "agentmail",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Caixas de e-mail para agentes via API AgentMail; o engeapp já resolve e-mail com IMAP (imapengine) e Postmark/Resend/SES, e os outros dois não têm e-mail transacional como tema."
+  },
+  {
+    "id": "01M0GCFD19AG9GNBM5MSTB8PWE",
+    "skill_name": "agentphone",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Agentes de voz e SMS pela API AgentPhone; o engeapp tem VoIP/SIP e LiveKit próprios, então no máximo serve de inspiração conceitual, e é um serviço externo não contratado."
+  },
+  {
+    "id": "01M0GCFD1AC3M5665APCE4TX90",
+    "skill_name": "ai-agent-development",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Construção de agentes com CrewAI e LangGraph; são frameworks Python/LangChain explicitamente vetados, já que a orquestração dos projetos é feita em PHP com laravel/ai e google-gemini-php."
+  },
+  {
+    "id": "01M0GCFD1AS7K02PFWQGG6P1T8",
+    "skill_name": "ai-agents-architect",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Arquitetura de agentes autônomos com foco em uso de ferramentas e decomposição de tarefas; oferece princípios aproveitáveis no pipeline de IA por status do SocialMedia e nos agentes de extração de documentos do engeapp, mas sem código da stack."
+  },
+  {
+    "id": "01M0GCFD1AK23KX3N29BJ0DTK1",
+    "skill_name": "ai-engineer",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Aplicações LLM em produção com RAG avançado, busca vetorial e IA multimodal; multimodalidade e integração corporativa tocam a extração de documentos por IA, porém RAG/vector search não faz parte de nenhuma das três arquiteturas."
+  },
+  {
+    "id": "01M0GCFD1AJ43K5F3ZHGHVDRA1",
+    "skill_name": "ai-engineering-toolkit",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Workflows de avaliação de prompt em 8 dimensões, planejamento de orçamento de contexto e auditoria de segurança de agente; o orçamento de contexto é diretamente aplicável ao Ollama local com num_ctx 80000 do SocialMedia e à contenção de custo Gemini."
+  },
+  {
+    "id": "01M0GCFD1AE80EEGE44CXYHPYY",
+    "skill_name": "ai-ml",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Workflow amplo de IA/ML cobrindo RAG, pipelines de ML e features com IA; a parte de pipelines de ML clássico é vetada nos dossiês e sobra apenas orientação genérica de features com LLM."
+  },
+  {
+    "id": "01M0GCFD1AZHJS0F22BKJ4AJW8",
+    "skill_name": "ai-native-cli",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "98 regras para CLIs consumíveis por agentes (saída JSON, exit codes, contratos de entrada); tem leitura útil ao desenhar comandos artisan como ai:smoke e lora:smoke do SocialMedia, mas nenhum projeto entrega CLI como produto."
+  },
+  {
+    "id": "01M0GCFD1ARYJSMTQVB7FTJSPX",
+    "skill_name": "ai-seo",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Otimização de conteúdo para citação em buscadores de IA (AI Overviews, Perplexity); só ajuda de forma indireta no conteúdo produzido pelo SocialMedia, e o AgenteDeBolso lista SEO/marketing como irrelevante."
+  },
+  {
+    "id": "01M0GCFD1ADDJZ82SHM3HNC17T",
+    "skill_name": "ai-studio-image",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 7},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Prompts para gerar fotos humanizadas estilo influencer via Google AI Studio/Gemini; casa com a etapa de direção de arte e geração de imagem de personagens do SocialMedia, apesar de a geração final lá ser local com Z-Image/ComfyUI."
+  },
+  {
+    "id": "01M0GCFD1AXJ9AF4HKY3TK7HWW",
+    "skill_name": "akf-trust-metadata",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Formato AKF que carimba arquivos com score de confiança e metadados de compliance para EU AI Act, SOX e HIPAA; os projetos seguem LGPD brasileira e não usam esse formato proprietário em seus PDFs e mídias."
+  },
+  {
+    "id": "01M0GCFD1BT3R63XYJKN7N2ETY",
+    "skill_name": "analytics",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Implantação e auditoria de tracking com GA4, GTM, UTMs e eventos de conversão; nenhum projeto tem GA4/GTM na stack e só o SocialMedia, por atender agências, tocaria métricas de campanha."
+  },
+  {
+    "id": "01M0GCFD1BB3FQRBYTFKMKEWJF",
+    "skill_name": "analytics-product",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Analytics de produto com PostHog/Mixpanel, funis, coortes, retenção e north star metric; é disciplina de PM apoiada em ferramentas SaaS ausentes das três stacks (que usam Pulse/Telescope para telemetria técnica)."
+  },
+  {
+    "id": "01M0GCFD1BSPYDRBENCE9VQ36N",
+    "skill_name": "analytics-tracking",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Projeto e auditoria de planos de tracking para gerar dados confiáveis de decisão; o rigor de taxonomia de eventos é bom, mas nenhum dos três apps mantém camada de eventos analíticos instrumentada."
+  },
+  {
+    "id": "01M0GCFD1BEPBTV937GV5DDZP0",
+    "skill_name": "andrej-karpathy",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Diretrizes comportamentais para o agente evitar overengineering, fazer mudanças cirúrgicas, explicitar suposições e definir critérios verificáveis; é prática de engenharia genérica que combina com a regra dos três projetos de planejar antes de alterar código."
+  }
+]

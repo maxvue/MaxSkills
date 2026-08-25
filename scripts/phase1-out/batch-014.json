@@ -1,0 +1,442 @@
+[
+ {
+  "id": "01M0GCFD2JNHW0EMWF5QMN2B0H",
+  "skill_name": "linkerd-patterns",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Service mesh Linkerd sobre Kubernetes; os três projetos rodam Caddy systemd + PHP-FPM em servidor único e listam Kubernetes/Docker como tema irrelevante."
+ },
+ {
+  "id": "01M0GCFD2JCRCCGH9G4BBJAKR8",
+  "skill_name": "linux-privilege-escalation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Escalação de privilégio em pentest ofensivo de host Linux; nada a ver com o desenvolvimento Laravel/Vue desses projetos, cuja segurança relevante é de aplicação (LGPD, mass assignment, WebAuthn)."
+ },
+ {
+  "id": "01M0GCFD2JSZ6V8JNRTA7AT5CV",
+  "skill_name": "linux-shell-scripting",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Templates de shell para backup, monitoramento e análise de log em sysadmin; útil só pontualmente, já que os projetos usam Deployer/artisan e comandos Laravel em vez de scripts bash de infraestrutura."
+ },
+ {
+  "id": "01M0GCFD2J058PF3V99ZYSXNJ5",
+  "skill_name": "linux-troubleshooting",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Diagnóstico de serviços e performance no Linux; tem aplicação real nos ambientes dev com Caddy systemd + PHP-FPM e workers Horizon, mas é conhecimento genérico de sistema, não da stack."
+ },
+ {
+  "id": "01M0GCFD2JXY6BK6QZD4H20YSZ",
+  "skill_name": "liuguang-banlan-ui",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Gera dois modos visuais estéticos chineses com OKLCH e WebGL; conflita com o design system Max/UnoCSS obrigatório, servindo no máximo como referência solta de cor/contraste no tema SCSS do AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD2JMWRHXMKSXDNV3RRW",
+  "skill_name": "llm-app-patterns",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Padrões de app LLM inspirados no Dify, com foco pesado em RAG, vector search e arquiteturas de agente genéricas; os projetos usam Gemini via laravel/ai com tool calling e não têm pipeline RAG, então só a parte de agentes/tools agrega parcialmente."
+ },
+ {
+  "id": "01M0GCFD2JH0Q28KEGYSMNB3QZ",
+  "skill_name": "llm-application-dev-ai-assistant",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Guia de construção de chatbots e interfaces conversacionais em nível conceitual; os projetos têm agentes de IA (Gemini, WhatsApp), mas a skill não toca em laravel/ai nem em Gemini, ficando tangencial."
+ },
+ {
+  "id": "01M0GCFD2JGRMW49PBCMHS68WS",
+  "skill_name": "llm-application-dev-langchain-agent",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Agentes em LangChain/LangGraph com Python; LangChain está explicitamente na lista de irrelevantes dos três projetos, que fazem agentes em PHP com laravel/ai e Gemini."
+ },
+ {
+  "id": "01M0GCFD2JVSXN461WQ2QJKTVX",
+  "skill_name": "llm-application-dev-prompt-optimize",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 8},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Engenharia de prompt (chain-of-thought, otimização por modelo) é tema de alta relevância no SocialMedia, cujo pipeline de copywriting/direção de arte e dedup de notícias depende de prompts Gemini/Ollama; nos outros dois a IA é mais pontual (extração de documentos, categorização)."
+ },
+ {
+  "id": "01M0GCFD2J4SR22JA58C1V8S1Y",
+  "skill_name": "llm-council",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Orquestra conselhos de modelos open-weight hospedados na Fireworks; nenhum dos projetos usa Fireworks nem ensemble multi-modelo, ficando distante do arranjo Gemini + Ollama local."
+ },
+ {
+  "id": "01M0GCFD2J41X3C946Q2KN6SQJ",
+  "skill_name": "llm-evaluation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Estratégias de avaliação de saída de LLM (métricas automáticas, LLM-judge, A/B); ajudaria a validar o pipeline de conteúdo e a relevância de notícias do SocialMedia, mas os projetos usam smoke commands e Pest em vez de suíte de evals."
+ },
+ {
+  "id": "01M0GCFD2J18YKCTC7EXHHJTDZ",
+  "skill_name": "llm-ops",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Cobre RAG, embeddings, pgvector, fine-tuning e custos de LLM; só o eixo de custo/telemetria de IA (BigQuery no engeapp, USD→BRL no SocialMedia) casa com os projetos, o resto é infraestrutura que eles não têm."
+ },
+ {
+  "id": "01M0GCFD2JH3PPCSCAGCSVS232",
+  "skill_name": "llm-structured-output",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 7},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Saída JSON/enum confiável via response_format e schema-constrained decoding, incluindo a API do Google; útil na extração de dados de documentos (engeapp), no retorno tipado dos Agents/Tools do laravel/ai (SocialMedia) e na categorização automática do AgenteDeBolso, ainda que parte do texto seja sobre OpenAI/Anthropic."
+ },
+ {
+  "id": "01M0GCFD2J9YPGQ6K5SN3BGHMJ",
+  "skill_name": "local-legal-seo-audit",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "SEO local para escritórios de advocacia (Google Business Profile, E-E-A-T); nicho jurídico fora do escopo, tocando de longe apenas o marketing digital que o SocialMedia atende para clientes de agência."
+ },
+ {
+  "id": "01M0GCFD2J5MWMY8XH5AHTZ712",
+  "skill_name": "local-llm-expert",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 8},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Inferência local com Ollama, escolha de modelo, quantização e cálculo de VRAM — exatamente as dores do SocialMedia (gemma4 com num_ctx 80000, fila gpu-supervisor, OOM de VRAM disputando GPU com ComfyUI/OneTrainer); engeapp e AgenteDeBolso usam só LLM em nuvem."
+ },
+ {
+  "id": "01M0GCFD2J4XSXYH5N4V5W4QHF",
+  "skill_name": "logic-diff",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Compara duas versões de código por equivalência semântica via tracing; boa prática genérica com valor real nos refactors frequentes (migração de Inertia para vue-router, Rector no engeapp), mas independente da stack."
+ },
+ {
+  "id": "01M0GCFD2JVVTM2T8PPC7F37B3",
+  "skill_name": "logic-lens",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Revisão de código por raciocínio lógico formal para achar bugs e riscos além do linter; complementa Pint/PHPStan/ESLint dos três projetos, porém é técnica genérica de review sem conhecimento de Laravel ou Vue."
+ },
+ {
+  "id": "01M0GCFD2KGPKPYKQ4A3JXWEWF",
+  "skill_name": "logic-locate",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 7}
+  ],
+  "rationale": "Localiza causa raiz de falha confirmada por tracing regressivo a partir de stack trace ou asserção quebrada; encaixa bem no AgenteDeBolso, que cataloga armadilhas de falha silenciosa (ícone Iconify inválido, profile_id fora de $fillable) e depende de depuração empírica."
+ },
+ {
+  "id": "01M0GCFD2KNZSP04KVX2EKRQC5",
+  "skill_name": "loki-mode",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Modo autônomo de PRD a produção com zero intervenção humana, baseado em OpenAI SDK e AWS Bedrock; contraria diretamente as convenções dos três projetos (plano antes de modificar, commit só sob pedido)."
+ },
+ {
+  "id": "01M0GCFD2KPZXDD3K5YR9MHVZG",
+  "skill_name": "longbridge",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Corretora Longbridge para mercados de HK/US/A-share com cotações e opções; o AgenteDeBolso é finanças pessoais brasileiras (Pluggy, Bacen), sem qualquer módulo de investimento em bolsa asiática."
+ },
+ {
+  "id": "01M0GCFD2KQG97NE1K8V34HNMH",
+  "skill_name": "longbridge-market-data",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Dados de mercado em tempo real (K-line, book, IPO) via API Longbridge; único ponto de contato remoto é a cotação de câmbio do AgenteDeBolso, que já vem de outra API."
+ },
+ {
+  "id": "01M0GCFD2KYQ4D7K3X9V90WPVW",
+  "skill_name": "lookdev-auto",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Loop de ajuste visual em que um modelo de visão avalia variantes renderizadas; combina com a verificação visual por Playwright e sobretudo com a composição de arte/overlay tipográfico e contraste do SocialMedia."
+ },
+ {
+  "id": "01M0GCFD2K898CTVE8GZXEVMVE",
+  "skill_name": "lore",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Memória de projeto em Markdown em `.lore/` para decisões e convenções; os três já mantêm documentação viva própria (CLAUDE.md, docs/superpowers, resources/CLAUDE.md), então introduziria um formato concorrente em vez de somar."
+ },
+ {
+  "id": "01M0GCFD2KV7H9AH9FB3PQXTQY",
+  "skill_name": "lovable-cleanup",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Remove scaffolding do Lovable em projetos Vite + React com shadcn/Radix; React é tema irrelevante nos três e nenhum foi gerado pelo Lovable."
+ },
+ {
+  "id": "01M0GCFD2KRA0WNEQA7YQJRK79",
+  "skill_name": "luna",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Agente revisor focado em correção objetiva, segurança e confiabilidade; prática de code review genérica, sem qualquer especificidade de Laravel, Vue ou do design system Max."
+ },
+ {
+  "id": "01M0GCFD2K5DGYXRRQF91QBGTA",
+  "skill_name": "m365-agents-ts",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "SDK de agentes do Microsoft 365 em TypeScript/Node; os projetos não integram Teams/M365 e seus agentes vivem no backend PHP com Gemini."
+ },
+ {
+  "id": "01M0GCFD2KCJ1PECC95N2PA1JN",
+  "skill_name": "magic-animator",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Ferramenta de animação de logos, ícones e peças para redes sociais; tem alguma aderência à produção de criativos do SocialMedia, mas o pipeline de arte de lá é ComfyUI/LoRA e imagem estática."
+ },
+ {
+  "id": "01M0GCFD2MV2BS6DF51CD3JZXF",
+  "skill_name": "magic-ui-generator",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Gera componentes de UI via Magic da 21st.dev, orientado a React/Tailwind; os três exigem componentes `@maxvue/max-components-ui` com UnoCSS attributify e proíbem Tailwind."
+ },
+ {
+  "id": "01M0GCFD2MT0AJG5C5XXN3AP0T",
+  "skill_name": "mailtrap-managing-contacts",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Gestão de contatos, listas e segmentos de campanha no Mailtrap; nenhum projeto usa Mailtrap (engeapp envia por Postmark/Resend/SES) e o SocialMedia declara e-mail transacional como irrelevante."
+ },
+ {
+  "id": "01M0GCFD2M36321Q6SX7KPFVBZ",
+  "skill_name": "mailtrap-sending-emails",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Configura envio real e streams transacionais/bulk no Mailtrap; engeapp e AgenteDeBolso enviam e-mail por Postmark/Resend/SES e AWS SES, então serviria apenas como analogia de troubleshooting SMTP."
+ },
+ {
+  "id": "01M0GCFD2MJQASJWB2C6KHGQA2",
+  "skill_name": "makepad-skills",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Framework de UI Makepad para apps em Rust com shaders e empacotamento nativo; Rust e desktop nativo são temas irrelevantes nos três projetos web PHP/Vue."
+ },
+ {
+  "id": "01M0GCFD2MQQGCTH1QWFDY6X0E",
+  "skill_name": "manage-skills",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Gerencia arquivos de skill entre 11 ferramentas (Cursor, Windsurf, Copilot, Cline etc.); é meta-tooling de agente, não ajuda a escrever código Laravel/Vue nesses repositórios, embora o engeapp exija ativação de skills antes de dev."
+ },
+ {
+  "id": "01M0GCFD2MNKZAN3089WSD40SP",
+  "skill_name": "manifest",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Instala e configura o plugin de observabilidade Manifest para agentes; a telemetria que importa nesses projetos é Pulse/Telescope/Horizon e custo de IA em BigQuery, não um SaaS externo de traces de agente."
+ },
+ {
+  "id": "01M0GCFD2MC9YA4PX69MHK6YVB",
+  "skill_name": "markdown-rendering",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Resolve painéis de Markdown em branco especificamente no editor cmux; problema de ferramenta de terminal alheia ao desenvolvimento dos três projetos."
+ },
+ {
+  "id": "01M0GCFD2M6JA8FH2P71MARA6V",
+  "skill_name": "marketing-ideas",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Estratégias de crescimento para SaaS com pontuação de viabilidade; o SocialMedia atende agências e poderia usar isso na geração de pauta/posicionamento de marca, mas é conteúdo de negócio, não de engenharia."
+ },
+ {
+  "id": "01M0GCFD2NPVWYFCC941W5V0P2",
+  "skill_name": "marketing-plan",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Monta plano de marketing/GTM completo (AARRR, roadmap de 12 meses); aproxima-se do planejamento mensal de conteúdo por IA do SocialMedia, porém não trata do calendário editorial nem da máquina de estados do produto."
+ },
+ {
+  "id": "01M0GCFD2NKCKD8EHSK5YE7GP7",
+  "skill_name": "marketing-psychology",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Aplica ciência comportamental e gatilhos mentais a decisões de marketing; pode enriquecer os prompts de copywriting do SocialMedia, mas não contribui em nada para a implementação técnica."
+ },
+ {
+  "id": "01M0GCFD2NA8EKY3EXMJV1GT9X",
+  "skill_name": "markstream-custom-components",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Sobrescreve renderizadores de nós do Markstream com tags customizadas, com suporte a Vue entre outros frameworks; só valeria se algum projeto exibisse Markdown em streaming de IA, o que hoje não é o caso (o AgenteDeBolso usa Quill para rich text)."
+ },
+ {
+  "id": "01M0GCFD2N9NP3BX5219A4FFNT",
+  "skill_name": "markstream-install",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Instalação do renderizador de Markdown em streaming Markstream, majoritariamente voltada a Next/Nuxt/Angular/Vue 2; a fatia Vue 3 seria aproveitável, mas nenhum projeto tem hoje UI de resposta de LLM em streaming."
+ },
+ {
+  "id": "01M0GCFD2N4W2XBN1MQV447YBK",
+  "skill_name": "markstream-migration",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Migra um renderizador de Markdown existente para o Markstream preservando política de segurança e paridade; pressupõe uma base Markdown instalada que nenhum dos três possui."
+ }
+]

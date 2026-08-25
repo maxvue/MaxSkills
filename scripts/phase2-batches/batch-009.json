@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0GCFD1X6MKQQH9ZH4FKNEZ2",
+  "skill_name": "cqrs-implementation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cqrs-implementation/SKILL.md",
+  "description_en": "Implement Command Query Responsibility Segregation for scalable architectures. Use when separating read and write models, optimizing query performance, or building event-sourced systems.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "CQRS/event sourcing é explicitamente listado como irrelevante nos dossiês (SocialMedia e AgenteDeBolso citam 'event sourcing' como fora de escopo); os três usam Laravel com Eloquent/Services, não separação de modelos de leitura/escrita."
+ },
+ {
+  "id": "01M0GCFD1X82A0SA3755Q9SMTP",
+  "skill_name": "create-branch",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/create-branch/SKILL.md",
+  "description_en": "Create a git branch following Sentry naming conventions. Use when asked to \"create a branch\", \"new branch\", \"start a branch\", \"make a branch\", \"switch to a new branch\", or when starting new work on the default branch.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Criação de branch seguindo convenções de nomenclatura da Sentry; os três projetos usam git worktrees com nomes próprios (`.worktrees/wt-<slug>`), então a convenção externa da Sentry não agrega quase nada."
+ },
+ {
+  "id": "01M0GCFD1XK4106THVY6FF1DPY",
+  "skill_name": "cro",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cro/SKILL.md",
+  "description_en": "When the user wants to optimize, improve, or increase conversions on any marketing page or form — including homepage, landing pages, pricing pages, feature pages, lead capture forms, or contact forms. Also use when the user says 'CRO,' 'conversion rate optimization,' 'this page isn't...",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Otimização de conversão de landing pages/formulários de captura; engeapp tem site público e leads (uso marginal), SocialMedia lida com marketing de agências mas o produto é workspace interno, e AgenteDeBolso não tem site de marketing (SEO/marketing listado como irrelevante)."
+ },
+ {
+  "id": "01M0GCFD1XFXD8FJ5YR02YBV0V",
+  "skill_name": "cross-platform-contract-propagation-audit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cross-platform-contract-propagation-audit/SKILL.md",
+  "description_en": "Use when auditing whether a field, enum, flag, or API contract propagates consistently across storage, services, clients, analytics, and tests.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Auditoria de propagação de um campo/enum/flag por storage, serviços, clientes e testes; é prática genérica útil nos três, que têm muitos Enums de domínio e DTOs/tipos espelhados no front (spatie-data + TS transformer no engeapp, 22 enums no AgenteDeBolso, 7 enums de status no SocialMedia)."
+ },
+ {
+  "id": "01M0GCFD1YM7W2X78C9AQJJJXN",
+  "skill_name": "crypto-bd-agent",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/crypto-bd-agent/SKILL.md",
+  "description_en": "Production-tested patterns for building AI agents that autonomously discover, > evaluate, and acquire token listings for cryptocurrency exchanges.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Agentes para listagem de tokens em exchanges de criptomoeda; cripto é tema explicitamente irrelevante em engeapp e AgenteDeBolso e nada tem a ver com o SaaS de redes sociais."
+ },
+ {
+  "id": "01M0GCFD1YAX46ZGGXGX75620J",
+  "skill_name": "cucumber-skill",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cucumber-skill/SKILL.md",
+  "description_en": "Generates Cucumber BDD tests with Gherkin feature files and step definitions in Java, JavaScript, or Ruby. Use when user mentions \"Cucumber\", \"Gherkin\", \"Feature/Scenario\", \"Given/When/Then\", \"BDD\". Triggers on: \"Cucumber\", \"Gherkin\", \"BDD\", \"Feature file\", \"Given/When/Then\", \"step...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Cucumber/Gherkin com step definitions em Java, JS ou Ruby; os três projetos testam com Pest (PHP) + Vitest/Dusk, e Java/Ruby/BDD Gherkin não fazem parte de nenhuma stack."
+ },
+ {
+  "id": "01M0GCFD1YST9A0REM6RVS43JG",
+  "skill_name": "customer-support",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/customer-support/SKILL.md",
+  "description_en": "Elite AI-powered customer support specialist mastering conversational AI, automated ticketing, sentiment analysis, and omnichannel support experiences.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Atendimento ao cliente com IA conversacional, ticketing e omnichannel; engeapp tem atendimento por WhatsApp Cloud e SocialMedia responde comentários da Meta, mas a skill trata de operação de suporte, não da implementação técnica dessas integrações."
+ },
+ {
+  "id": "01M0GCFD1Y6HNWQ9TM38WW404Y",
+  "skill_name": "customs-trade-compliance",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/customs-trade-compliance/SKILL.md",
+  "description_en": "Codified expertise for customs documentation, tariff classification, duty optimisation, restricted party screening, and regulatory compliance across multiple jurisdictions.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Classificação tarifária, documentação aduaneira e compliance de comércio exterior; nenhum dos três projetos (fotovoltaico/homologação, redes sociais, finanças pessoais) toca importação/exportação de mercadorias."
+ },
+ {
+  "id": "01M0GCFD1YGCR2GY5Q4MVP4YZS",
+  "skill_name": "cyber-audit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cyber-audit/SKILL.md",
+  "description_en": "Run read-only exposure checks for security advisories and write a structured local audit report.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Checagem read-only de exposição a advisories de segurança com relatório estruturado; útil de forma genérica nos três, com leve vantagem para o AgenteDeBolso, que já mantém auditorias de segurança versionadas em `docs/audit/` e lida com PIN/WebAuthn e dados financeiros."
+ },
+ {
+  "id": "01M0GCFD1YR61Z1AKVV5WPQ0A0",
+  "skill_name": "cypress-skill",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cypress-skill/SKILL.md",
+  "description_en": "Generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Supports local execution and TestMu AI cloud. Use when the user asks to write Cypress tests, set up Cypress, test with cy commands, or mentions \"Cypress\", \"cy.visit\", \"cy.get\", \"cy.intercept\"....",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Testes E2E e de componentes com Cypress; Cypress é citado como irrelevante nos três dossiês — engeapp e AgenteDeBolso usam Dusk e SocialMedia usa Playwright headless apenas para verificação visual."
+ },
+ {
+  "id": "01M0GCFD1YR4Q5GDBEXXKG77XM",
+  "skill_name": "daily",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/daily/SKILL.md",
+  "description_en": "Documentation and capabilities reference for Daily",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Referência da plataforma Daily (vídeo/áudio em tempo real via WebRTC); engeapp usa LiveKit como SDK de videoconferência e os outros dois não têm vídeo em tempo real, então a documentação de um concorrente não se aplica."
+ },
+ {
+  "id": "01M0GCFD1YR5SAYVEP21QC44SZ",
+  "skill_name": "daily-gift",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/daily-gift/SKILL.md",
+  "description_en": "Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, synthesis, concept generation, visual strategy, and rendering in H5, image, or video",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Motor criativo de 'presente diário' com pipeline de conceito/estratégia visual e render em H5, imagem ou vídeo; SocialMedia tem pipeline criativo de conteúdo, mas o formato de presente relacional não mapeia no calendário editorial nem nos outros dois projetos."
+ },
+ {
+  "id": "01M0GCFD1Y3RZRZ4637JGKF5SG",
+  "skill_name": "daily-news-report",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/daily-news-report/SKILL.md",
+  "description_en": "Scrapes content based on a preset URL list, filters high-quality technical information, and generates daily Markdown reports.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Scraping de lista de URLs, filtragem de conteúdo relevante e geração de relatório Markdown diário; casa parcialmente com o módulo de notícias RSS do SocialMedia (relevância e dedup por LLM), mas é irrelevante para fotovoltaico e finanças pessoais."
+ },
+ {
+  "id": "01M0GCFD1Y549AQ9R8EDKX3WQH",
+  "skill_name": "data-engineering-data-pipeline",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/data-engineering-data-pipeline/SKILL.md",
+  "description_en": "You are a data pipeline architecture expert specializing in scalable, reliable, and cost-effective data pipelines for batch and streaming data processing.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Arquitetura de pipelines de dados batch/streaming; data warehouse, ETL e Spark são listados como irrelevantes no SocialMedia e não há engenharia de dados nos outros dois (o BigQuery do engeapp é só billing de IA)."
+ },
+ {
+  "id": "01M0GCFD1YXZCFPK8S1D0GAM53",
+  "skill_name": "data-scientist",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/data-scientist/SKILL.md",
+  "description_en": "Expert data scientist for advanced analytics, machine learning, and statistical modeling. Handles complex data analysis, predictive modeling, and business intelligence.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Analytics avançada, modelagem estatística e machine learning; ML in-house/ML training são temas explicitamente descartados em engeapp e AgenteDeBolso, e o SocialMedia usa LLMs prontos, não modelagem preditiva."
+ },
+ {
+  "id": "01M0GCFD1ZYS84NX1MJ9K2D2CN",
+  "skill_name": "database",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database/SKILL.md",
+  "description_en": "Database development and operations workflow covering SQL, NoSQL, database design, migrations, optimization, and data engineering.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Bundle de workflow genérico de banco cobrindo SQL, NoSQL, design, migrations e otimização; é raso e agnóstico, enquanto os projetos precisam de especificidades (collation/FK no MySQL 8 do AgenteDeBolso, índices parciais no PostgreSQL 18 do SocialMedia, 384 migrations no engeapp)."
+ },
+ {
+  "id": "01M0GCFD1Z59ZHEQ01QK4KG256",
+  "skill_name": "database-admin",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database-admin/SKILL.md",
+  "description_en": "Expert database administrator specializing in modern cloud databases, automation, and reliability engineering.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Administração de bancos em nuvem com automação e SRE; os três rodam MariaDB/MySQL ou PostgreSQL locais sem Docker/CI, e nuvem gerenciada (AWS/GCP/Azure) está na lista de temas irrelevantes."
+ },
+ {
+  "id": "01M0GCFD1ZH3E2N9BGBS7FBX3P",
+  "skill_name": "database-architect",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database-architect/SKILL.md",
+  "description_en": "Expert database architect specializing in data layer design from scratch, technology selection, schema modeling, and scalable database architectures.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Design de camada de dados do zero, seleção de tecnologia e modelagem de schema; os três já têm banco escolhido e schema maduro (129 models no engeapp, ULID no SocialMedia, tabelas legadas no AgenteDeBolso), então a parte de escolha de tecnologia é inútil e sobra só modelagem genérica."
+ },
+ {
+  "id": "01M0GCFD1ZG4YJMRHG3V6CW49Y",
+  "skill_name": "database-cloud-optimization-cost-optimize",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database-cloud-optimization-cost-optimize/SKILL.md",
+  "description_en": "You are a cloud cost optimization expert specializing in reducing infrastructure expenses while maintaining performance and reliability. Analyze cloud spending, identify savings opportunities, and implement cost-effective architectures across AWS, Azure, and GCP.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Redução de custos de infraestrutura em AWS/Azure/GCP; nuvem hiperescala é tema irrelevante nos três dossiês, que rodam em servidor próprio com Caddy+PHP-FPM."
+ },
+ {
+  "id": "01M0GCFD1Z4ZY68TEJ7HWGDXVX",
+  "skill_name": "database-design",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database-design/SKILL.md",
+  "description_en": "Database design principles and decision-making. Schema design, indexing strategy, ORM selection, serverless databases.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Princípios de design de schema, estratégia de indexação, escolha de ORM e bancos serverless; a parte de indexação ajuda um pouco, mas escolha de ORM e serverless não se aplicam a projetos já fixados em Eloquent."
+ },
+ {
+  "id": "01M0GCFD1Z85WHAR5QD4BX5K4Q",
+  "skill_name": "database-migration",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database-migration/SKILL.md",
+  "description_en": "Master database schema and data migrations across ORMs (Sequelize, TypeORM, Prisma), including rollback strategies and zero-downtime deployments.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Migrations por ORMs JS (Sequelize, TypeORM, Prisma); Prisma/Drizzle/TypeORM são explicitamente irrelevantes e as migrations dos três são feitas com o schema builder do Laravel."
+ },
+ {
+  "id": "01M0GCFD1ZS9T0CXKKJN6X9WCE",
+  "skill_name": "database-migrations-migration-observability",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database-migrations-migration-observability/SKILL.md",
+  "description_en": "Migration monitoring, CDC, and observability infrastructure",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Monitoramento de migrações com CDC e infraestrutura de observabilidade; os três fazem migrations Laravel simples e a observabilidade usada é Telescope/Pulse/Horizon/log-viewer, não CDC de banco."
+ },
+ {
+  "id": "01M0GCFD1ZRHE26ZPWQB8R4FNK",
+  "skill_name": "database-migrations-sql-migrations",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/database-migrations-sql-migrations/SKILL.md",
+  "description_en": "SQL database migrations with zero-downtime strategies for PostgreSQL, MySQL, and SQL Server. Focus on data integrity and rollback plans.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Migrations SQL com estratégias de zero-downtime, integridade de dados e rollback para PostgreSQL/MySQL/SQL Server; tem algum valor para os cuidados de FK/integridade do AgenteDeBolso (armadilhas de collation e errno 150) e do SocialMedia, mas é SQL cru e não Laravel."
+ },
+ {
+  "id": "01M0GCFD1ZX56Y7GD6SW4NAH5N",
+  "skill_name": "dbos-typescript",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/dbos-typescript/SKILL.md",
+  "description_en": "Guide for building reliable, fault-tolerant TypeScript applications with DBOS durable workflows. Use when adding DBOS to existing TypeScript code, creating workflows and steps, or using queues for concurrency control.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Workflows duráveis DBOS em TypeScript; nenhum projeto tem backend Node — a durabilidade de execução vem de Jobs/Horizon no Laravel."
+ },
+ {
+  "id": "01M0GCFD1ZDEQ54DQPQ8TRXC3S",
+  "skill_name": "dbt-transformation-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/dbt-transformation-patterns/SKILL.md",
+  "description_en": "Production-ready patterns for dbt (data build tool) including model organization, testing strategies, documentation, and incremental processing.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Padrões de modelagem com dbt para data warehouse; transformação analítica/ETL é tema explicitamente descartado e não existe warehouse em nenhum dos três."
+ },
+ {
+  "id": "01M0GCFD1ZDR7YRBN19Z4RK25Y",
+  "skill_name": "debug-buttercup",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/debug-buttercup/SKILL.md",
+  "description_en": "All pods run in namespace crs. Use when pods in the crs namespace are in CrashLoopBackOff, OOMKilled, or restarting, multiple services restart simultaneously (cascade failure), or redis is unresponsive or showing AOF warnings.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Depuração de pods em CrashLoopBackOff/OOMKilled no namespace Kubernetes 'crs'; Kubernetes é irrelevante nos três, que sequer usam Docker."
+ },
+ {
+  "id": "01M0GCFD1ZB5V400P40F9K3BCA",
+  "skill_name": "debugger",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/debugger/SKILL.md",
+  "description_en": "Debugging specialist for errors, test failures, and unexpected",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Especialista genérico em depurar erros, falhas de teste e comportamento inesperado; é boa prática de engenharia aplicável às suítes Pest/Vitest dos três projetos, mas sem nada específico de Laravel, Vue ou do domínio."
+ },
+ {
+  "id": "01M0GCFD1ZK70NAD3XC83QYGVS",
+  "skill_name": "debugging-code",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/debugging-code/SKILL.md",
+  "description_en": "Interactively debug source code — set breakpoints, step through execution line by line, inspect live variable state, evaluate expressions against the running program, and navigate the call stack to trace root causes. Use when a program crashes, raises unexpected exceptions, produces...",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Depuração interativa com breakpoints, step-through e inspeção de variáveis em runtime; útil de modo genérico, porém os projetos depuram sobretudo com Telescope/Pulse/LaraDumps/Clockwork/Pail e verificação empírica por browser, não com debugger passo a passo."
+ },
+ {
+  "id": "01M0GCFD1ZQTXDE1VSAY2DBD7C",
+  "skill_name": "debugging-toolkit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/debugging-toolkit/SKILL.md",
+  "description_en": "Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug)",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "O arquivo é apenas um alias que redireciona para `debugging-toolkit-smart-debug`, sem conteúdo próprio; instalá-lo não torna um agente mais eficaz em nenhum dos três projetos."
+ },
+ {
+  "id": "01M0GCFD1Z8XPSECKT1YJV5DT9",
+  "skill_name": "deepapi",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/deepapi/SKILL.md",
+  "description_en": "Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Uso do serviço DeepAPI para scraping, pesquisa e fluxos de e-mail com credenciais explícitas; o SocialMedia faz scraping de URLs para extração de temas, mas com ferramentas próprias, e depender de um SaaS externo não previsto é pouco atraente."
+ },
+ {
+  "id": "01M0GCFD20R6W4Q45B3T2M4SR1",
+  "skill_name": "defuddle",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/defuddle/SKILL.md",
+  "description_en": "Extract clean markdown content from web pages using Defuddle CLI, removing clutter and navigation to save tokens. Use instead of WebFetch when the user provides a URL to read or analyze, for online documentation, articles, blog posts, or any standard web page.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Extração de markdown limpo de páginas web via CLI Defuddle, economizando tokens; encaixa no fluxo de temas por URL e de notícias RSS do SocialMedia, mas é uma dependência externa e tem pouco uso nos outros dois."
+ },
+ {
+  "id": "01M0GCFD207P4R09FHXJN2MJG8",
+  "skill_name": "delegating-to-agents",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/delegating-to-agents/SKILL.md",
+  "description_en": "Delegate bounded work to other AI agents while preserving context, ownership, and progress checks.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Delegação de trabalho delimitado a outros agentes preservando contexto e checagem de progresso; útil nos três, que rodam agentes em worktrees isolados com fluxo spec→plano→TDD, mas é meta-processo e não conhecimento de stack."
+ },
+ {
+  "id": "01M0GCFD20QHGD6QZ3T7TTJXM2",
+  "skill_name": "deployment-pipeline-design",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/deployment-pipeline-design/SKILL.md",
+  "description_en": "Architecture patterns for multi-stage CI/CD pipelines with approval gates and deployment strategies.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Pipelines CI/CD multi-estágio com gates de aprovação; CI/CD é irrelevante nos três (SocialMedia e AgenteDeBolso não têm CI e o engeapp faz deploy imperativo com Deployer 8 por rsync)."
+ },
+ {
+  "id": "01M0GCFD206WCPSPKDPAF1T8F4",
+  "skill_name": "design-philosophy",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/design-philosophy/SKILL.md",
+  "description_en": "Visual philosophy and art-direction for frontend. Use when creating high-concept work, campaigns, or when the user asks for a visual philosophy, manifesto, or unmistakable art-like aesthetic.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Direção de arte e filosofia visual para trabalho de alto conceito e campanhas; os três seguem um design system fechado (componentes Max + presetMaxUno) com layout padronizado, então manifesto estético livre tem pouco espaço — só o SocialMedia, com direção de arte de posts, ganha algo."
+ },
+ {
+  "id": "01M0GCFD20WHPN7EPQGH0B2NDR",
+  "skill_name": "design-system",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/design-system/SKILL.md",
+  "description_en": "Mechanical implementation invariants for frontend design: token architecture, typography hierarchy, loading order, FOUT prevention, chrome stability, motion timing, color semantics. Use with design when building components, pages, or design systems. (Aesthetic direction lives in...",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Invariantes mecânicas de implementação: arquitetura de tokens, hierarquia tipográfica, ordem de carregamento, prevenção de FOUT e semântica de cor; conversa diretamente com o presetMaxUno/SCSS dos três e especialmente com o AgenteDeBolso, cujo dossiê lista design tokens, dark mode e contraste WCAG."
+ },
+ {
+  "id": "01M0GCFD208ZGBYZWRF7NJ72D2",
+  "skill_name": "design-taste-frontend",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/design-taste-frontend/SKILL.md",
+  "description_en": "Use when building high-agency frontend interfaces with strict design taste, calibrated color, responsive layout, and motion rules.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Interfaces com regras rígidas de gosto visual, cor calibrada e movimento, com exemplos em React; React é explicitamente irrelevante nos três e o visual já é ditado pelo design system Max."
+ },
+ {
+  "id": "01M0GCFD20GN2JNYXCXKF2STV0",
+  "skill_name": "design-thinking",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/design-thinking/SKILL.md",
+  "description_en": "Direction and intent for frontend design. Use with design when defining purpose, tone, domain, color world, and review bar; includes cross-domain lens from cinema, architecture, marketing, UX, automotive, industrial design.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Definição de propósito, tom, domínio e mundo de cor antes de desenhar, com lentes de cinema/arquitetura/UX; é upstream demais para projetos com identidade visual já consolidada e idêntica entre si."
+ },
+ {
+  "id": "01M0GCFD200MMSYQE7JZ2V9V7E",
+  "skill_name": "design-ux",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/design-ux/SKILL.md",
+  "description_en": "UX / usability audit — heuristic evaluation of INTERACTIVE UIs (not just visual polish). Load with design when a UI \"feels off\", \"sucks to use\", is hard to learn, needs an instruction wall, or before shipping an interactive tool/editor/app. Scores the RENDERED UI against Nielsen's 10 +...",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Auditoria heurística de usabilidade (Nielsen) sobre a UI renderizada, para telas que 'são difíceis de usar'; aplica-se aos três SPAs Vue e rende mais no AgenteDeBolso, que é PWA mobile-first com layouts desktop×mobile e fluxos densos de lançamentos/faturas."
+ },
+ {
+  "id": "01M0GCFD20YP2TH3MW7N0A8GD6",
+  "skill_name": "deterministic-design",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/deterministic-design/SKILL.md",
+  "description_en": "Render the UI and prove it's balanced + usable: a deterministic layout audit (centroid / optical-center / pixel-oracle balance via explicit math + annotated screenshot) plus a vision-judged Nielsen usability audit by a separate fresh-eyes judge. The measurement layer taste-only design skills lack.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Auditoria determinística de layout (balanço por centroide/centro óptico com screenshot anotado) mais julgamento de usabilidade por visão; combina com a verificação empírica de UI já praticada — Puppeteer no engeapp/AgenteDeBolso e Playwright visual no SocialMedia."
+ },
+ {
+  "id": "01M0GCFD20TF5V0C7TPZA0220Z",
+  "skill_name": "devcontainer-setup",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/devcontainer-setup/SKILL.md",
+  "description_en": "Creates devcontainers with Claude Code, language-specific tooling (Python/Node/Rust/Go), and persistent volumes. Use when adding devcontainer support to a project, setting up isolated development environments, or configuring sandboxed Claude Code workspaces.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Criação de devcontainers com volumes persistentes e tooling Python/Node/Rust/Go; Docker e ambientes containerizados são temas explicitamente irrelevantes nos três, que usam Caddy systemd + PHP-FPM local."
+ }
+]

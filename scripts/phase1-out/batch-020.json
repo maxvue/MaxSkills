@@ -1,0 +1,442 @@
+[
+ {
+  "id": "01M0GCFD3692ENTCD0NTHM2GK4",
+  "skill_name": "seo-image-gen",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Gera imagens voltadas a SEO (OG cards, heros, infográficos) dentro de fluxo de publicação de conteúdo. Só toca de leve o site público do engeapp; no SocialMedia a geração de arte é feita com Z-Image/LoRA no ComfyUI, não com assets de SEO, e o AgenteDeBolso lista SEO/marketing como irrelevante."
+ },
+ {
+  "id": "01M0GCFD36DDFQ13QS3997B2A5",
+  "skill_name": "seo-images",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Auditoria de imagens para SEO/performance (alt text, formatos, lazy loading, CLS). O ganho real nos três apps é apenas acessibilidade/peso de imagem em SPA autenticada; nenhum deles depende de indexação de imagens."
+ },
+ {
+  "id": "01M0GCFD36Y6XZC2R35C4YWKGG",
+  "skill_name": "seo-meta-optimizer",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Escreve títulos/descrições meta e slugs otimizados. Aplicável apenas ao site público e às páginas de leads do engeapp; AgenteDeBolso marca explicitamente SEO/marketing site como tema irrelevante."
+ },
+ {
+  "id": "01M0GCFD36DY1X1SWFDMMSQQ06",
+  "skill_name": "seo-page",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Análise SEO on-page profunda de uma URL (meta tags, schema, conteúdo, performance). Serve no máximo para o site público do engeapp; SocialMedia e AgenteDeBolso são SPAs privadas atrás de autenticação."
+ },
+ {
+  "id": "01M0GCFD366Q8BSYS5G4ADAQQX",
+  "skill_name": "seo-plan",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Planejamento estratégico de SEO (arquitetura de site, estratégia de conteúdo, roadmap). O SocialMedia gera plano editorial mensal por IA, mas para redes sociais/Meta, não para busca orgânica; AgenteDeBolso não faz marketing."
+ },
+ {
+  "id": "01M0GCFD369A3NBJC1NTAVT72P",
+  "skill_name": "seo-programmatic",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Cobre páginas geradas em escala a partir de dados estruturados, templates de URL e index bloat. Nenhum dos três produz páginas programáticas indexáveis — todos são SPAs de aplicação com área pública mínima."
+ },
+ {
+  "id": "01M0GCFD36T80P0KZ7AKZZQ395",
+  "skill_name": "seo-schema",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Geração e validação de Schema.org/JSON-LD para rich results. Só o site público do engeapp poderia consumir markup estruturado; os demais não têm superfície indexável."
+ },
+ {
+  "id": "01M0GCFD366J9687WE1Y9KY8JM",
+  "skill_name": "seo-sitemap",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Geração e validação de sitemap XML. Útil apenas pontualmente no site público do engeapp; SocialMedia e AgenteDeBolso são apps autenticados sem sitemap."
+ },
+ {
+  "id": "01M0GCFD36KKY7260G95MZX165",
+  "skill_name": "seo-structure-architect",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Organiza hierarquia de headings, schema e links internos para conteúdo buscável. O conselho sobre hierarquia de títulos colide parcialmente com a regra Max de usar MaxTitle1/2 em vez de <h1>, e o foco em busca orgânica não é o da agência de redes sociais."
+ },
+ {
+  "id": "01M0GCFD37ZDB7MW8J2PD4XJW9",
+  "skill_name": "seo-technical",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Auditoria técnica de crawlability, robots.txt, Core Web Vitals e renderização JavaScript. A parte de Core Web Vitals ajuda marginalmente SPAs Vue 3.6/Vite, mas o resto (indexação, crawlers de IA) não se aplica a apps privados."
+ },
+ {
+  "id": "01M0GCFD37H5Z7JYG3Q85B7EDF",
+  "skill_name": "sharp-coder",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Disciplina de edições cirúrgicas e respostas comprimidas para economia de tokens. É prática de engenharia genérica, aplicável a qualquer base grande (970 arquivos PHP no engeapp, 181 SFCs no AgenteDeBolso), sem cobrir nada da stack Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD37KPWGFNH4RZ6031PB",
+  "skill_name": "shopify-development",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Desenvolvimento de apps/temas Shopify com GraphQL Admin API, Polaris e Liquid. E-commerce e GraphQL constam como irrelevantes nos três dossiês."
+ },
+ {
+  "id": "01M0GCFD373QBT57K55F2735CS",
+  "skill_name": "similarity-search-patterns",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Busca semântica com bancos vetoriais e vizinhos mais próximos. O SocialMedia faz dedup de notícias, mas por LLM (Ollama) e dHash perceptual, não por embeddings vetoriais; engeapp e AgenteDeBolso usam Meilisearch lexical."
+ },
+ {
+  "id": "01M0GCFD37YYXT7N1XKF3HSXX2",
+  "skill_name": "site-architecture",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Planeja hierarquia de páginas, navegação, padrões de URL e breadcrumbs. Há sobreposição fraca com o roteamento por glob do vue-router 5 no AgenteDeBolso, mas a skill é orientada a sites de conteúdo, não a SPAs de aplicação."
+ },
+ {
+  "id": "01M0GCFD370N7HAQ090AVGNEC4",
+  "skill_name": "skill-audit",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Scanner de segurança pré-instalação de skills de agente (prompt injection, código malicioso). É higiene do ecossistema de skills, não do código Laravel/Vue dos projetos; ajuda só indiretamente, embora os três exijam ativação obrigatória de skills."
+ },
+ {
+  "id": "01M0GCFD38A23J90ZG7HMDNN11",
+  "skill_name": "skill-improver",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Ciclo iterativo de correção/revisão de um SKILL.md até atingir padrão de qualidade. Útil apenas para manter as skills internas dos projetos afiadas, sem impacto direto em Laravel, Vue ou nos domínios de negócio."
+ },
+ {
+  "id": "01M0GCFD38JB12A30PDBV3044X",
+  "skill_name": "skill-optimizer",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Diagnostica SKILL.md com dados reais de sessão e análise estática para melhorar acionamento e tamanho. Vale como meta-ferramenta de tuning das skills usadas nos três repositórios, mas não cobre nenhuma tecnologia da stack."
+ },
+ {
+  "id": "01M0GCFD38F43S3NK3PD5708QH",
+  "skill_name": "skill-scanner",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Detecta permissões excessivas, exposição de segredos e risco de cadeia de suprimentos em skills de terceiros. Reforça a regra de nunca commitar segredos, mas atua sobre skills adotadas, não sobre o código dos apps."
+ },
+ {
+  "id": "01M0GCFD385S4HPGQJR7MSDDHS",
+  "skill_name": "skill-seekers",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Converte sites de documentação, repositórios e PDFs em skills automaticamente. Poderia empacotar docs de Laravel 13, laravel/ai ou ComfyUI em skills locais, mas é ferramenta de preparação, não de desenvolvimento nos projetos."
+ },
+ {
+  "id": "01M0GCFD38PYF9EZGHKJDD2CJY",
+  "skill_name": "skill-writer",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Cria e atualiza skills seguindo a especificação Agent Skills. Os três projetos dependem de skills próprias e de documentação viva, mas escrever SKILL.md é atividade de suporte e não move a agulha no código de domínio."
+ },
+ {
+  "id": "01M0GCFD38QXB3N5MXEPCVST8V",
+  "skill_name": "slack-bot-builder",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Constrói apps Slack com o framework Bolt em Python. engeapp e AgenteDeBolso integram Slack apenas para notificações via PHP; Python é tema explicitamente irrelevante nos dossiês."
+ },
+ {
+  "id": "01M0GCFD38V9VJCZA7Q3PCQWCQ",
+  "skill_name": "smart-git-automation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Detecção de mudanças, nomeação automática de branch e fluxo automatizado de commit/PR. Os três projetos exigem worktrees e proíbem commit/push sem pedido explícito, o que neutraliza boa parte da automação proposta."
+ },
+ {
+  "id": "01M0GCFD388CGYSGHZ5C7DR04M",
+  "skill_name": "smartui-skill",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Configura regressão visual SmartUI na nuvem TestMu com Playwright/Selenium/Cypress. Os projetos verificam UI localmente com Dusk, Puppeteer ou Playwright headless, e serviços de teste em nuvem não fazem parte da infra (sem CI)."
+ },
+ {
+  "id": "01M0GCFD38C405TB9RTQ1XK7B8",
+  "skill_name": "smtp-penetration-testing",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Pentest de servidores SMTP (open relay, enumeração de usuários). engeapp consome Postmark/Resend/SES e IMAP como cliente, sem operar servidor SMTP próprio; SocialMedia nem usa e-mail transacional."
+ },
+ {
+  "id": "01M0GCFD39MQ2R6CX72HDYPG06",
+  "skill_name": "snowflake-development",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Data warehouse Snowflake com Snowpark Python, dbt e Cortex AI. engeapp usa BigQuery só para billing de IA, e data warehouse/BI/ETL está listado como irrelevante no SocialMedia."
+ },
+ {
+  "id": "01M0GCFD398CZGARQX7BHFJ8FM",
+  "skill_name": "social-content",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Estratégia de conteúdo social e criação de posts engajadores com agendamento. Alinha-se ao pipeline de copywriting/planejamento editorial do SocialMedia, mas presume plataforma de agendamento de terceiros e várias redes, enquanto o projeto publica só na Meta com pipeline próprio."
+ },
+ {
+  "id": "01M0GCFD390WGJPS8RRJJG7BXN",
+  "skill_name": "social-metadata-hardening",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Corrige preview de compartilhamento (OG tags, Twitter cards, URLs absolutas de imagem), com exemplos em Next.js. Só ajudaria em páginas públicas do engeapp; o SocialMedia publica mídia direto na Graph API e não depende de unfurl de link."
+ },
+ {
+  "id": "01M0GCFD395M62X7V7QPJDQFTV",
+  "skill_name": "social-orchestrator",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Orquestra publicação cross-channel em Instagram, Telegram e WhatsApp com métricas unificadas e agendamento. O eixo Instagram e o agendamento sincronizado batem com o calendário editorial do SocialMedia, mas Telegram está fora do escopo (só Meta) e o engeapp só usa WhatsApp Cloud para atendimento."
+ },
+ {
+  "id": "01M0GCFD397SVN70J9DBTQNJ4H",
+  "skill_name": "social-post-writer-seo",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Redige posts para Instagram, LinkedIn e Facebook. Serve de referência de copywriting para a etapa de roteiro/legenda do SocialMedia (IG/FB), embora não trate da máquina de estados nem dos agentes laravel/ai que executam essa geração."
+ },
+ {
+  "id": "01M0GCFD3985YMQGV96Y442KC5",
+  "skill_name": "socialclaw",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Publicação agendada em 13 plataformas (X, TikTok, YouTube, Pinterest etc.) por uma API SaaS de terceiros. O SocialMedia publica diretamente na Meta Graph API com jobs idempotentes próprios e lista TikTok/LinkedIn/X/YouTube como irrelevantes."
+ },
+ {
+  "id": "01M0GCFD39NMR6A1Q6T4K4F6D6",
+  "skill_name": "software-architecture",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Guia genérico de arquitetura e qualidade de software para design e análise de código. Aplicável às camadas de Actions/Services dos três apps, mas sem nada específico de Laravel, Eloquent ou Vue."
+ },
+ {
+  "id": "01M0GCFD395B9Y9GHZYF5Q2TC9",
+  "skill_name": "source-driven-development",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Obriga fundamentar cada decisão em documentação oficial citada, evitando padrões desatualizados. Casa bem com o uso de Boost search-docs no engeapp e com stacks em release candidate (Vue 3.6-rc, Laravel 13, vue-router 5), onde o conhecimento do modelo tende a estar defasado."
+ },
+ {
+  "id": "01M0GCFD39YE59MJVTK7XN57SS",
+  "skill_name": "spark-optimization",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Tuning de jobs Apache Spark (particionamento, shuffle, memória). Nenhum dos projetos processa big data; Spark/ETL é tema explicitamente irrelevante."
+ },
+ {
+  "id": "01M0GCFD39HPER3GWTGKQ3F7V0",
+  "skill_name": "spec-to-code-compliance",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Compara implementação com whitepapers em auditorias de protocolos blockchain. A ideia de conferir código contra spec ecoa o fluxo spec→plano→TDD do SocialMedia, mas o enquadramento em cripto é irrelevante nos três dossiês."
+ },
+ {
+  "id": "01M0GCFD3928HJVCERBT0PAQFC",
+  "skill_name": "spline-3d-integration",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Incorpora cenas 3D do Spline.design via runtime React. React é irrelevante nos três projetos e nenhum tem requisito de 3D interativo."
+ },
+ {
+  "id": "01M0GCFD39JY9XFDDANQNPGWFS",
+  "skill_name": "sql-injection-testing",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Avaliação ofensiva de injeção de SQL e validação de sanitização de entrada. engeapp e AgenteDeBolso mantêm auditorias de segurança versionadas e usam raw queries pontuais, mas o Eloquent já parametriza quase tudo, tornando o valor esporádico."
+ },
+ {
+  "id": "01M0GCFD39YMGPRHBP0500PN94",
+  "skill_name": "sql-optimization-patterns",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Otimização sistemática de queries lentas com indexação e análise de plano de execução. Ajuda concretamente nas 384 migrations/129 models do engeapp, nos índices únicos parciais do PostgreSQL 18 do SocialMedia e no motor de saldo/extrato do AgenteDeBolso, mas é agnóstica de Eloquent."
+ },
+ {
+  "id": "01M0GCFD39K72NZ32W705GSK05",
+  "skill_name": "sql-pro",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "SQL avançado com foco em bancos cloud-native, OLTP/OLAP e modelagem híbrida analítica. A parte OLTP e de tuning serve ao MySQL 8 e ao PostgreSQL 18 dos projetos, mas o viés analítico/cloud não corresponde a nenhuma das infras."
+ },
+ {
+  "id": "01M0GCFD39HSWXSQ6MNMSGG5HJ",
+  "skill_name": "sqlmap-database-pentesting",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Uso operacional do SQLMap para detectar e explorar injeção de SQL automaticamente. É ferramenta de pentest externo, fora do fluxo de desenvolvimento Laravel dos três projetos, com uso só em auditorias raras."
+ },
+ {
+  "id": "01M0GCFD398RJ5TW3DDVHN6RJF",
+  "skill_name": "sred-project-organizer",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Organiza projetos no formato SR&ED, incentivo fiscal canadense de P&D. Contexto regulatório estrangeiro sem qualquer relação com produtos brasileiros de energia solar, redes sociais ou finanças pessoais."
+ }
+]

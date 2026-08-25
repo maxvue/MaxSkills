@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0WFGHQNH2X17E9E2PAENKBQ",
+  "skill_name": "adonisjs-brazilian-payments-asaas-integration-best-practices",
+  "local_path": "created-skills/backend-node/adonisjs-brazilian-payments-asaas-integration-best-practices/SKILL.md",
+  "description_en": "Use when configuring, debugging, or creating payment integrations with the Asaas gateway in AdonisJS v6. Triggers on files handling customer registrations, invoice generation (Pix, Boleto, Credit Card), webhook signature verification, subscription billing sync, and payment logging.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Integração Asaas (Pix/boleto/cartão, webhook assinado) porém escrita para AdonisJS v6 + Lucid + VineJS, stack de backend Node que nenhum dos três usa; só o conhecimento de domínio do gateway Asaas salva alguma nota no engeapp, que integra Asaas em Laravel."
+ },
+ {
+  "id": "01M0G4G52FE6Y45CNB8F3MQM0R",
+  "skill_name": "frontend-design-best-practices",
+  "local_path": "created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
+  "description_en": "Use when building new UI or remodeling Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Covers core design mandate, aesthetics, typography, colors, layout, motion, and accessible production code.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 9,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Mandato de design para telas Vue 3 com UnoCSS attributify + presetMaxUno e @maxvue/max-components-ui — exatamente o design system Max compartilhado pelos três projetos; escrita sobre o EngeApp, por isso a nota máxima ali, e os outros dois replicam o mesmo layout."
+ },
+ {
+  "id": "01M0G4G52EYV7E1XB1AR91RA7C",
+  "skill_name": "laravel-ai-agents-ecosystem",
+  "local_path": "created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
+  "description_en": "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 10,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Classes de Agent, tools de function-calling, saída JSON estruturada e testes com fakeAgent do pacote laravel/ai: é o coração do pipeline de IA do SocialMedia (Ai/Agents, Ai/Tools); o engeapp também traz laravel/ai junto ao Gemini, enquanto o AgenteDeBolso usa o SDK google-gemini-php direto."
+ },
+ {
+  "id": "01M0G4G52EPQKNR9AWG7B5HJGN",
+  "skill_name": "laravel-ai-bank-ticket-processing-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
+  "description_en": "Use when creating, reviewing, or debugging bank ticket (TRT/homologation) AI payment workflows and processing architecture via AgentBankTicketProcessor or AgentAiBilletReader (OCR) with Efí SDK. Covers processing best practices, TRT homologation, and ticket processor.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Leitura de boletos por OCR/IA e pagamento de taxas de TRT/homologação com o SDK Efí — fluxo literal do engeapp; o AgenteDeBolso aproveita parcialmente (Efí/Pix e leitura de boleto em lançamentos), e o SocialMedia não tem cobrança alguma."
+ },
+ {
+  "id": "01M0G4G52EJXZCX57K0HJ9WEAY",
+  "skill_name": "laravel-ai-datasheet-extraction-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
+  "description_en": "Use when extracting technical specifications from solar inverter/module datasheets (PDFs) via AgentDatasheetReader, production pipeline, grounding rules, output schemas, electrical specs, and JSON validation. Covers extraction pipeline and validation rules.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Extração de especificações elétricas de datasheets de inversor/módulo em PDF via Gemini com schema e grounding: domínio fotovoltaico exclusivo do engeapp; nos outros dois só resta a técnica genérica de extração estruturada de PDF (temas no SocialMedia, extratos no AgenteDeBolso)."
+ },
+ {
+  "id": "01M0G4G52E658QPZ1C0F301826",
+  "skill_name": "laravel-anticaptcha-integration-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+  "description_en": "Use when implementing or debugging CAPTCHA resolution services (Anti-Captcha) in Laravel, including ImageToText tasks, API keys, error handling, timeouts, and logging. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Resolução de CAPTCHA via Anti-Captcha, útil no engeapp porque os robôs de homologação em portais de concessionária (webdriver/Puppeteer) esbarram nisso; SocialMedia e AgenteDeBolso não fazem raspagem de portais protegidos."
+ },
+ {
+  "id": "01M0G4G52E6PHAX6NHQTY8PD16",
+  "skill_name": "laravel-api-integration-patterns",
+  "local_path": "created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
+  "description_en": "Use when creating, debugging, or extending external HTTP APIs over BaseApi in Engeapp. Covers BaseApi connectors, Attributes.json, EndPoints.json, and request caching.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Documenta o conector BaseApi do engeapp com Attributes.json/EndPoints.json e cache de requisição — abstração proprietária daquele repositório, que concentra as dezenas de integrações externas; nos outros projetos vale apenas como padrão geral de cliente HTTP."
+ },
+ {
+  "id": "01M0G4G52EZACYS1CEZG32T53N",
+  "skill_name": "laravel-authorization-policies-gates",
+  "local_path": "created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
+  "description_en": "Use when creating or reviewing authorization in Laravel via spatie/laravel-permission. Covers roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia integration. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 8,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "spatie/laravel-permission com Gates, Policies multi-tenant (allowedSolarCompanyIds) e reflexo no SPA via MaxPinia: engeapp e SocialMedia usam spatie-permission com isolamento por tenant/agência; o AgenteDeBolso usa policies e papéis de compartilhamento de perfil, sem o mesmo pacote."
+ },
+ {
+  "id": "01M0G4G52E3TW3BJ2G7RBX8SRF",
+  "skill_name": "laravel-brazilian-data-queries-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
+  "description_en": "Use when querying Brazilian CNPJ and CEP data in Engeapp. Covers ApiCnpjService fallback chain, ApiCepService, caching, and local Cep/City/State models. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Cadeia de fallback do ApiCnpjService/ApiCepService com cache e modelos locais Cep/City/State — consulta de CNPJ e CEP é rotina no engeapp e existe no AgenteDeBolso (BrasilAPI/CEP Aberto, base de instituições); o SocialMedia não consulta dados cadastrais brasileiros."
+ },
+ {
+  "id": "01M0G4G52E7Y6F0YXKZ5CHW4WF",
+  "skill_name": "laravel-brazilian-localization-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
+  "description_en": "Use when validating, formatting, or sanitizing Brazilian documents (CPF, CNPJ, CEP, phone numbers) and currency values (BRL, pt-BR) across Laravel backend and Vue 3 / MaxUse frontend. Covers Brazilian localization best practices and document validation.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Validação/formatação de CPF, CNPJ, CEP, telefone e valores em BRL cobrindo backend Laravel e frontend Vue/MaxUse: essencial no AgenteDeBolso (moeda e máscaras em todo lançamento) e no engeapp (cadastro de clientes); o SocialMedia quase não lida com documentos ou dinheiro em BRL além de conversão de custo."
+ },
+ {
+  "id": "01M0G4G52EHSTESYE3S88P1J4Y",
+  "skill_name": "laravel-brazilian-payments-integration",
+  "local_path": "created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
+  "description_en": "Use when integrating or debugging Brazilian payments in Engeapp: Efí (SDK EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas (baseUrl, API keys), and Banco Inter webhooks.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Efí (SDK EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas e webhooks do Banco Inter — pilar de cobranças do engeapp e igualmente aplicável ao AgenteDeBolso, que carrega os mesmos SDKs para Pix; o SocialMedia declara pagamentos/billing como tema irrelevante."
+ },
+ {
+  "id": "01M0G4G52ENM960HYNFXV97H2A",
+  "skill_name": "laravel-browser-automation-webdriver",
+  "local_path": "created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+  "description_en": "Use when creating, modifying, or debugging web browser automation tasks (Selenium WebDriver, Dusk, Puppeteer, Python RPA) in Laravel or backend microservices. Covers browser automation, driver configuration, and element interactions.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Selenium WebDriver, Dusk e Puppeteer para automação e interação com elementos: engeapp usa php-webdriver/Dusk para robôs de concessionária e o AgenteDeBolso usa Dusk + Puppeteer para verificação empírica de UI; no SocialMedia só há Playwright headless pontual."
+ },
+ {
+  "id": "01M0G4G52E7KH6E1RR8FZF01EG",
+  "skill_name": "laravel-cache-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
+  "description_en": "Use when implementing, configuring, or debugging cache in Engeapp (Laravel 13 + Octane, phpredis store). Covers Cache::remember pattern, TTLs, invalidation via Cache::forget (Models/Observers), key conventions, tags/locks, and deploy caches.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Cache::remember, TTLs, invalidação por Observer, tags/locks e caches de deploy com store phpredis sob Octane: cenário exato de engeapp e AgenteDeBolso (Redis + Octane em produção); o SocialMedia usa cache Redis mas sem Octane."
+ },
+ {
+  "id": "01M0G4G52EB1CVXDA5JBZFW5G7",
+  "skill_name": "laravel-cloud-storage-integrations",
+  "local_path": "created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
+  "description_en": "Use when configuring or debugging remote storage in Laravel. Covers Seafile WebDAV driver in AppServiceProvider, Seafile filesystems config, and Spatie Media Library projects disk.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Driver WebDAV do Seafile registrado no AppServiceProvider e disco projects do Media Library — infraestrutura de storage própria do engeapp; o AgenteDeBolso guarda anexos em S3 (aproveita só a parte de filesystems) e o SocialMedia usa disco local."
+ },
+ {
+  "id": "01M0G4G52E3S47MEQYM9W6Y7QS",
+  "skill_name": "laravel-concessionaires-connection-regulation-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
+  "description_en": "Use when managing energy concessionaires, subsidiaries, RPAs, and connection standards (phases, voltage, breaker, cables) in Engeapp, and electrical parameters for PV sizing. Covers concessionaire regulations and electrical connection standards.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Concessionárias, filiais, RPAs e padrões de conexão (fases, tensão, disjuntor, cabos) para dimensionamento fotovoltaico: regra de negócio nuclear do engeapp e sem qualquer aplicação em redes sociais ou finanças pessoais."
+ },
+ {
+  "id": "01M0G4G52EBH67GJV397R7602V",
+  "skill_name": "laravel-digital-signatures-integration",
+  "local_path": "created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
+  "description_en": "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, and background job processing. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Assinatura digital via Autentique/Clicksign com upload de documento, signatários, webhook seguro e job em fila: engeapp assina procurações e ART/TRT e o AgenteDeBolso também carrega o SDK vinicinbgs/autentique-v2; o SocialMedia não assina documentos."
+ },
+ {
+  "id": "01M0G4G52EVETWJZW63H90EQRD",
+  "skill_name": "laravel-editorial-calendar-event-workflow-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
+  "description_en": "Use when implementing or managing editorial calendar events, post scheduling, workflow status states, and automated publishing channels in Engeapp. Covers event workflows and publishing channels.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 10,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Eventos de calendário editorial, agendamento de posts, estados de workflow e canais de publicação automática — descreve exatamente a máquina de estados planned→published do SocialMedia; no engeapp só aproxima do planner/kanban e no AgenteDeBolso o calendário é financeiro."
+ },
+ {
+  "id": "01M0G4G52E421RF15A8K26V438",
+  "skill_name": "laravel-electrical-calculations-dimensioning-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
+  "description_en": "Use when performing electrical sizing, circuit breaker calculation, cable sizing, voltage drop verification, or inverter/module matching via getWireSize, getCircuitBrake, getInverter, or NBR 5410 standards. Covers electrical sizing, breaker calculations, and cable sizing standards.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Dimensionamento elétrico pela NBR 5410 (getWireSize, getCircuitBrake, getInverter, queda de tensão, casamento inversor/módulo): cálculo fotovoltaico é núcleo do engeapp e nada disso existe nos outros dois domínios."
+ },
+ {
+  "id": "01M0G4G52EY4CGV98QXC2RCKY5",
+  "skill_name": "laravel-engeapp-project-homologation-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
+  "description_en": "Use when managing solar PV project homologation in Engeapp. Covers concessionaire regulations via ConcessionaireSubsidiaryRegulation, HasProtocol trait, Protocol::booted hook, and Vue SPA MaxPinia integration. Covers objectives and connection regulations.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Homologação de projeto fotovoltaico com ConcessionaireSubsidiaryRegulation, trait HasProtocol e hook Protocol::booted integrados ao SPA MaxPinia: fluxo proprietário do engeapp; só o padrão de trait/booted teria eco marginal fora dele."
+ },
+ {
+  "id": "01M0G4G52EVT227DEYCPV0CQNM",
+  "skill_name": "laravel-exception-handling-logging",
+  "local_path": "created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
+  "description_en": "Use when defining, refactoring, or debugging exception handling and logging in Engeapp. Covers custom Exceptions (ShouldntReport, failed() job callback), context()/render()/report(), logging channels, defensive try-catch in services.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Exceptions customizadas com ShouldntReport, callback failed() de job, context()/render()/report(), canais de log e try-catch defensivo em services: prática direta no engeapp (que a skill documenta) e transferível aos outros dois, que dependem muito de jobs e de depurar falhas silenciosas."
+ },
+ {
+  "id": "01M0G4G52E5329B3BXTNW6Q5YY",
+  "skill_name": "laravel-finance-coupons-discounts-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
+  "description_en": "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Cupons de desconto, regras de indicação e ajuste de valores na cobrança: encaixa no módulo de billing/assinaturas e cotas por plano do AgenteDeBolso; no engeapp seria adjacente às cobranças EFI/Inter e o SocialMedia não fatura clientes."
+ },
+ {
+  "id": "01M0G4G52E2CWKHNK3N6E91RS4",
+  "skill_name": "laravel-frankenphp-octane-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
+  "description_en": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, avoiding memory leaks, managing singletons, and tuning Caddyfile workers. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Octane sobre FrankenPHP: código stateless, vazamento de memória, singletons e workers no Caddyfile — engeapp e AgenteDeBolso rodam Octane em produção; o SocialMedia lista Octane explicitamente como tema irrelevante."
+ },
+ {
+  "id": "01M0G4G52E63VH9SV4003B4Y1R",
+  "skill_name": "laravel-gemini-file-api-media-integration-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
+  "description_en": "Use when managing media uploads and multimodal processing via Google AI File API with Gemini SDK in Laravel. Covers video, audio, or PDF file processing, temp uploads, active state polling, and cleanup. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Upload e processamento multimodal (vídeo, áudio, PDF) pela File API do Google AI com polling de estado ACTIVE e limpeza: casa com o áudio via FFmpeg e os PDFs do AgenteDeBolso e com a leitura de documentos do engeapp; o SocialMedia processa mídia, mas através do laravel/ai."
+ },
+ {
+  "id": "01M0G4G52EZFM3K4GGMPMH1H5P",
+  "skill_name": "laravel-gemini-php-sdk-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
+  "description_en": "Use when interacting with Gemini API using google-gemini-php/laravel SDK. Covers GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, and exception handling. Covers objectives, Facade model, and Gemini API schemas.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "SDK google-gemini-php/laravel com GenerationConfig, schema JSON estruturado, Blobs multimodais e escolha de modelo: é literalmente o pacote de IA do engeapp e do AgenteDeBolso (Gemini é o único LLM lá); o SocialMedia fala com Gemini pela camada laravel/ai, então aproveita só os conceitos de prompt/schema."
+ },
+ {
+  "id": "01M0G4G52EZVJMHHYQF3F852RZ",
+  "skill_name": "laravel-global-helpers-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
+  "description_en": "Use when creating, modifying, or testing global helper functions in Engeapp (app/Helpers/). Covers domain helper files, camelCase naming, composer autoload registration, Octane statelessness, and Pest unit tests.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Organização de helpers globais em app/Helpers com naming camelCase, registro no autoload do composer, statelessness sob Octane e testes Pest: engeapp tem 18 helpers e o AgenteDeBolso 12, ambos sob Octane; o SocialMedia tem uma pasta Helpers menor e sem Octane."
+ },
+ {
+  "id": "01M0G4G52EYEJVD5QHWVGNZXEG",
+  "skill_name": "laravel-holiday-sla-calculation-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
+  "description_en": "Use when implementing or debugging SLA tracking, business-day calculations, or deadlines in Engeapp backend. Covers DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween). Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Cálculo de dias úteis e feriados (addBusinessDays, isHoliday, businessMinutesBetween) para SLA e prazos: o AgenteDeBolso depende disso no ajuste de fechamento/vencimento de fatura de cartão por feriado e o engeapp nos prazos de homologação; no SocialMedia só tangencia o agendamento de posts."
+ },
+ {
+  "id": "01M0G4G52EMZX2NAXDAJN2GAGE",
+  "skill_name": "laravel-jobs-queues-horizon-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
+  "description_en": "Use when creating, reviewing, or debugging queue Jobs, Horizon supervisors, retries, backoff, timeouts, API rate limiting, idempotency guards, and HasAgentAiRequest trait. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 9,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Jobs, supervisores do Horizon, retries, backoff, timeouts, rate limit de API e guardas de idempotência: os três rodam Redis+Horizon com filas pesadas (~45 jobs no engeapp, supervisor gpu-supervisor no SocialMedia, jobs agendados no AgenteDeBolso)."
+ },
+ {
+  "id": "01M0G4G52EF6QCHQEM9Q9SDFGY",
+  "skill_name": "laravel-livekit-server-sdk-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
+  "description_en": "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "AccessToken com VideoGrant e RoomServiceClient do agence104/livekit-server-sdk: só o engeapp tem live/videoconferência WebRTC; SocialMedia e AgenteDeBolso não têm sala de vídeo alguma."
+ },
+ {
+  "id": "01M0G4G52EMJBAGBRFMEQKBQ4F",
+  "skill_name": "laravel-media-library-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
+  "description_en": "Use when managing file uploads and attachments with Spatie Media Library in Engeapp. Covers HasMedia/InteractsWithMedia models, custom Media model, domain disks (projects/whatsapp), conversions, and media.* routes.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "HasMedia/InteractsWithMedia, Media model customizado, discos de domínio (projects/whatsapp), conversões e rotas media.*: spatie/laravel-medialibrary só está no engeapp; os outros dois tratam upload de anexos e artes sem esse pacote."
+ },
+ {
+  "id": "01M0G4G52EQ46JEKV691NC2RFC",
+  "skill_name": "laravel-meta-graph-api-integration-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+  "description_en": "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Covers objectives, architectural structure, and Meta API endpoints.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 10,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Publicação de fotos, reels e carrosséis por containers de mídia, comentários, insights, MetaService e MetaWebhookJob: é exatamente a publicação IG/FB do SocialMedia; no engeapp só ecoa parcialmente na Meta/WhatsApp Cloud API e no AgenteDeBolso não há redes sociais."
+ },
+ {
+  "id": "01M0G4G52EQ3RJ9J2W2FJGJXPK",
+  "skill_name": "laravel-migrations-seeders-factories-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+  "description_en": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Schema, chaves estrangeiras, seeders e states de factory: o AgenteDeBolso cataloga armadilhas exatamente aí (collation errno 150, NOT NULL sem default, tabelas sem FK) e o engeapp mantém 384 migrations; o SocialMedia tem esquema menor, com ULID e índices parciais no PostgreSQL não cobertos aqui."
+ },
+ {
+  "id": "01M0G4G52EWS1XFNG7E5VA2FW1",
+  "skill_name": "laravel-multitenancy-data-isolation-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
+  "description_en": "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies. Covers objectives, tenant scoping, and user permission models.",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Isolamento multi-tenant por solar_company_id com scopeForUserTenant, allowedSolarCompanyIds e Policies que resolvem tenant: núcleo do engeapp e traduzível para o AgencyScope do SocialMedia; no AgenteDeBolso o recorte é por perfil de usuário, não por empresa."
+ },
+ {
+  "id": "01M0G4G52E5VW7P42NVJEQ2469",
+  "skill_name": "laravel-pdf-handling-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
+  "description_en": "Use when generating, rendering, extracting text, validating, or converting PDFs to images in Engeapp. Covers DomPDF via HasDocument trait, FPDI/TCPDF via PdfEdit, pdfIsValid() validation, and File::createThumbnailFromPdf().",
+  "fase1_notas": {
+   "engeapp": 10,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Geração com DomPDF pelo trait HasDocument, edição via FPDI/TCPDF, validação pdfIsValid() e thumbnail de PDF: engeapp emite documentos de homologação o tempo todo e o AgenteDeBolso exporta relatórios e lê extratos em PDF; o SocialMedia só usa pdftotext para extrair temas."
+ },
+ {
+  "id": "01M0G4G52EDC220YG70SVNTF4V",
+  "skill_name": "laravel-performance-and-profiling-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+  "description_en": "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, and Pail log tailing. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer e Pail: engeapp usa Pulse/Telescope e o AgenteDeBolso lista LaraDumps/Clockwork/Debugbar/Pail/log-viewer como ferramental padrão; o SocialMedia não tem esse arsenal instalado."
+ },
+ {
+  "id": "01M0G4G52EV3J99GGRP1DN0VQE",
+  "skill_name": "laravel-pest-testing-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
+  "description_en": "Use when writing, debugging, or reviewing Unit, Feature, or Architecture tests with Pest PHP in Laravel. Covers test creation, assertions, mocking dependencies, factory usage, database setup, arch() rules, and Http::fake().",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 9,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Testes Unit/Feature/Architecture em Pest com mocks, factories, arch() e Http::fake(): os três repositórios têm suíte Pest volumosa (415, ~382 e 165 arquivos) e o SocialMedia ainda exige TDD como metodologia registrada."
+ },
+ {
+  "id": "01M0G4G52EMMPA0WK4VBGPMERB",
+  "skill_name": "laravel-php-code-quality-tooling",
+  "local_path": "created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
+  "description_en": "Use when formatting, statically analyzing, or refactoring PHP 8.5+ code in Engeapp using Laravel Pint, Larastan/PHPStan (phpstan.neon), Rector dry-runs, and Barryvdh IDE Helper.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 9
+  },
+  "fase1_rationale": "Pint, Larastan/PHPStan com phpstan.neon, Rector em dry-run e IDE Helper: engeapp e AgenteDeBolso exigem Pint + PHPStan level 1 (este com baseline e preset customizado do Pint); o SocialMedia roda só Pint, então aproveita menos."
+ },
+ {
+  "id": "01M0G4G52E006K101Q4R47XJKJ",
+  "skill_name": "laravel-power-of-attorney-generation-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
+  "description_en": "Use when creating, reviewing, or debugging Power of Attorney PDF generation in Laravel via PowerAttorneyService, formatting legal addresses, and rendering DomPDF documents. Covers document generation and DomPDF rendering.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Geração de procuração em PDF pelo PowerAttorneyService com formatação de endereço legal e render DomPDF: documento obrigatório da homologação em concessionária no engeapp; fora dele sobra apenas a técnica de template DomPDF."
+ },
+ {
+  "id": "01M0G4G52E9NHSSAVVM63K35W2",
+  "skill_name": "laravel-qrcode-generation-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+  "description_en": "Use when generating, customizing, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers SVG/PNG outputs, base64 encoding for Blade/APIs, logos, and labels. Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 8,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "endroid/qr-code com saída SVG/PNG, base64, logo e label: os dois projetos financeiros usam esse pacote para QR Code de Pix e documentos; o SocialMedia não gera QR Code em nenhum fluxo."
+ },
+ {
+  "id": "01M0G4G52EE2GFVNXFBD6JHGCQ",
+  "skill_name": "laravel-rate-limiting-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
+  "description_en": "Use when configuring, optimizing, or debugging rate limits for HTTP routes, APIs, logins, or queues in Laravel. Covers named limiters in AppServiceProvider, throttle middleware, manual FormRequest throttling, and 429 response customization.",
+  "fase1_notas": {
+   "engeapp": 7,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Limiters nomeados no AppServiceProvider, middleware throttle, throttling manual em FormRequest e resposta 429: útil no engeapp para proteger login e as APIs expostas a integrações externas, e moderadamente nos outros dois, onde o gargalo real é rate limit de API de terceiros dentro de jobs."
+ },
+ {
+  "id": "01M0G4G52EQJCSMT32MAFD936X",
+  "skill_name": "laravel-redis-integration-best-practices",
+  "local_path": "created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
+  "description_en": "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues). Covers objectives and core workflows.",
+  "fase1_notas": {
+   "engeapp": 9,
+   "SocialMedia": 8,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Cliente phpredis, prefixos de chave, HSETNX atômico, pipelines, fallback de RedisException, tags e filas do Horizon: os três apoiam cache e filas em Redis, e o SocialMedia ainda usa múltiplas conexões Redis para serializar a GPU."
+ }
+]

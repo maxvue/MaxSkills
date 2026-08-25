@@ -1,0 +1,802 @@
+[
+  {
+    "id": "01M0GCFD1N2MZ7ZN55SDSP7SR8",
+    "skill_name": "blueprint",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 6
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 7
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Converte um objetivo em plano de construção passo a passo com briefing autocontido por etapa; casa com a metodologia auditoria→spec→plano→worktree→TDD do SocialMedia e com a exigência de plano antes de mexer em código no engeapp/AgenteDeBolso, mas é metodologia genérica, não stack."
+  },
+  {
+    "id": "01M0GCFD1NST63K5E9KKQWW599",
+    "skill_name": "brain-to-docs",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 5
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 6
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Entrevista o usuário para gerar README e ADRs; útil porque os três projetos tratam documentação como entrega (CLAUDE.md/resources/CLAUDE.md atualizados no mesmo commit, docs/superpowers no SocialMedia), embora não toque em Laravel/Vue."
+  },
+  {
+    "id": "01M0GCFD1NKATM94KRMWPQQSES",
+    "skill_name": "brainstorming",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 6
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 6
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Disciplina de transformar ideia vaga em design validado antes de codar; alinhada à regra dos três projetos de não alterar código sem plano aprovado, mas permanece prática genérica de engenharia."
+  },
+  {
+    "id": "01M0GCFD1N9NXS95SVVMBTPNDC",
+    "skill_name": "brand-guidelines",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 2
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 2
+      }
+    ],
+    "rationale": "Guia de copy com o tom de voz específico da Sentry (Plain Speech/Sentry Voice) em inglês; os projetos são pt-BR e o SocialMedia já tem posicionamento de marca por cliente, então serve no máximo como referência solta de escrita de UI."
+  },
+  {
+    "id": "01M0GCFD1N02PD73MW0DJ2W6K6",
+    "skill_name": "brave-man",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 5
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 5
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 5
+      }
+    ],
+    "rationale": "Entrevista estruturada de requisitos que produz um prompt.md especificado para outra sessão; ajuda no início de features novas nos três, mas não cobre nenhuma tecnologia da stack Laravel/Vue/Max."
+  },
+  {
+    "id": "01M0GCFD1NX9AAATQHVGJXQ5KB",
+    "skill_name": "brendangregg-use-tsa",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 5
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 5
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 4
+      }
+    ],
+    "rationale": "Metodologia USE/TSA de troubleshooting de performance de sistema com RCA e postmortem; tem uso pontual no engeapp (Octane/FrankenPHP, Horizon) e no SocialMedia (contenção de GPU/VRAM no supervisor gpu-supervisor), mas é diagnóstico de SO, não de aplicação."
+  },
+  {
+    "id": "01M0GCFD1NFH7AEWRBW8E3QX85",
+    "skill_name": "brevo-automation",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Automação de e-mail marketing Brevo/Sendinblue via toolkit Composio no Rube MCP; nenhum dos projetos usa Brevo (engeapp usa Postmark/Resend/SES) e o AgenteDeBolso não tem frente de e-mail marketing."
+  },
+  {
+    "id": "01M0GCFD1N9ZX32AM0B86Q6T1P",
+    "skill_name": "broken-authentication",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 6
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 6
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 8
+      }
+    ],
+    "rationale": "Exploração e correção de falhas de autenticação e sessão (OWASP); bate diretamente com o AgenteDeBolso, que tem passkey/WebAuthn, PIN de perfil e de app, impersonate e compartilhamento com papéis, e é útil de forma mais genérica no Sanctum SPA dos outros dois."
+  },
+  {
+    "id": "01M0GCFD1PJ1XZJY01F7WNXJAY",
+    "skill_name": "brooks-audit",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 5
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 5
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 5
+      }
+    ],
+    "rationale": "Auditoria de arquitetura mapeando dependências entre módulos, camadas e imports circulares; aplicável às camadas de Actions/Services/Jobs dos três backends Laravel, porém sem conhecimento específico de Laravel ou Vue."
+  },
+  {
+    "id": "01M0GCFD1PVDJB9ATDPTSCS14R",
+    "skill_name": "brooks-harness",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 1
+      }
+    ],
+    "rationale": "Orquestrador de manutenção do próprio plugin brooks-lint (author→eval→QA→release, sincronização de manifests e CHANGELOG); serve apenas a quem desenvolve aquele plugin, não aos projetos."
+  },
+  {
+    "id": "01M0GCFD1P1M6P5BCSH3BQ4B6E",
+    "skill_name": "brooks-sweep",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 4
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 4
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 4
+      }
+    ],
+    "rationale": "Varredura unificada de qualidade que aplica correções automáticas de decay, dívida técnica e testes; a aplicação automática conflita com a regra dos três projetos de não alterar código sem autorização, restando valor tangencial de diagnóstico."
+  },
+  {
+    "id": "01M0GCFD1PANZTRBMRQX0RG97Z",
+    "skill_name": "brooks-test",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 6
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 6
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Diagnóstico de qualidade de suíte de testes (fragilidade, excesso de mocks, código legado); os três têm suítes grandes (415 arquivos Pest no engeapp, ~382 testes no SocialMedia, 165 no AgenteDeBolso), mas a skill não conhece Pest nem Vitest."
+  },
+  {
+    "id": "01M0GCFD1PW8KG6R0K4DR9MT75",
+    "skill_name": "browser-testing-with-devtools",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 6
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 6
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Teste de app no navegador via Chrome DevTools MCP inspecionando DOM, console, rede e screenshots; complementa a verificação empírica de UI já praticada (Dusk e Puppeteer no engeapp/AgenteDeBolso, Playwright headless visual no SocialMedia), ainda que a ferramenta em si não seja a adotada."
+  },
+  {
+    "id": "01M0GCFD1PGGEA0H3HJ6RJR849",
+    "skill_name": "bugs-are-annoying",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 6
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 6
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Auditor adversarial focado em bugs de lógica e falhas de segurança em vez de estilo; útil nos três, com destaque para armadilhas silenciosas catalogadas no AgenteDeBolso, mas sem especialização em PHP/Laravel ou Vue."
+  },
+  {
+    "id": "01M0GCFD1PDC9SE16C2DD7QJAK",
+    "skill_name": "bun-development",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 1
+      }
+    ],
+    "rationale": "Desenvolvimento com o runtime Bun; os três projetos usam Node com Vite 7/8 e npm, e o backend é PHP/Laravel, então o runtime nunca entra em jogo."
+  },
+  {
+    "id": "01M0GCFD1PQ2P04D4K4XJ4VYM1",
+    "skill_name": "burp-suite-testing",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 2
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Teste de segurança web com Burp Suite (interceptação, replay, scan); só teria uso esporádico nas auditorias de segurança versionadas do AgenteDeBolso e nos webhooks do engeapp, e a ferramenta não faz parte do toolkit dos projetos."
+  },
+  {
+    "id": "01M0GCFD1PJPV8H1P396GJZK4W",
+    "skill_name": "burpsuite-project-parser",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 1
+      }
+    ],
+    "rationale": "Parser de linha de comando para arquivos .burp (histórico de proxy, sitemap, findings); depende de artefatos do Burp que nenhum dos três projetos produz."
+  },
+  {
+    "id": "01M0GCFD1Q72KTVFM1SKT77S5W",
+    "skill_name": "business-analyst",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Análise de negócio com KPIs, dashboards e modelos preditivos; os dashboards dos projetos (financeiro no AgenteDeBolso, calendário editorial no SocialMedia) são features de produto, não consultoria de BI, e o dossiê marca BI/data warehouse como irrelevante."
+  },
+  {
+    "id": "01M0GCFD1QK91JVW92BQ7CF6RK",
+    "skill_name": "buywhere-product-catalog",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 0
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 0
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Busca de produtos, comparação de preços e ofertas via MCP da BuyWhere para agentes de compras; e-commerce/marketplace está explicitamente listado como tema irrelevante nos três projetos."
+  },
+  {
+    "id": "01M0GCFD1Q8HMXB9VXGXQ8C97T",
+    "skill_name": "c4-architecture-c4-architecture",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 4
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 4
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 4
+      }
+    ],
+    "rationale": "Geração de documentação C4 completa de um repositório existente por análise bottom-up; pode render um panorama útil de codebases grandes (970 arquivos PHP no engeapp), mas os projetos documentam via CLAUDE.md e não adotam C4."
+  },
+  {
+    "id": "01M0GCFD1Q2MQWWBDXJ104QZFD",
+    "skill_name": "c4-code",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Documentação C4 nível código (assinaturas de funções, argumentos, dependências) por diretório; volume alto de saída para um formalismo que nenhum dos três projetos usa."
+  },
+  {
+    "id": "01M0GCFD1Q23SZXZ4KF1CT9BWG",
+    "skill_name": "c4-component",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Sintetiza documentação C4 de código em nível de componente, definindo fronteiras e interfaces; tangencial, já que o mapeamento de módulos dos projetos vive nos arquivos CLAUDE.md e não em modelo C4."
+  },
+  {
+    "id": "01M0GCFD1QTJ30A0GW66DV47KF",
+    "skill_name": "c4-container",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Documentação C4 nível container (unidades executáveis e seus protocolos); descreveria Caddy/PHP-FPM, Horizon, Reverb e Vite, mas o formalismo C4 não é adotado por nenhum dos projetos."
+  },
+  {
+    "id": "01M0GCFD1Q4QZF644E8Y4GXQNW",
+    "skill_name": "c4-context",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Documentação C4 de contexto com personas, jornadas e dependências externas; os três têm muitas integrações externas para mapear, porém o diagrama C4 não faz parte da entrega esperada."
+  },
+  {
+    "id": "01M0GCFD1QZ1VWCX14ZEB3HGZ5",
+    "skill_name": "canvas-design",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 5
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Criação de filosofias estéticas expressas visualmente com saída em .md/.pdf/.png; tem alguma aderência à direção de arte e geração de imagem do SocialMedia, mas não substitui o design system Max/UnoCSS já fixado nos três."
+  },
+  {
+    "id": "01M0GCFD1Q06Q30E71WJ6V5SA4",
+    "skill_name": "carrier-relationship-management",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 0
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 0
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Gestão de portfólio de transportadoras, negociação de fretes e alocação de carga; domínio logístico sem qualquer interseção com fotovoltaico, redes sociais ou finanças pessoais."
+  },
+  {
+    "id": "01M0GCFD1QWX26J4J39E8HSH8Z",
+    "skill_name": "cc-skill-backend-patterns",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 1
+      }
+    ],
+    "rationale": "Padrões de backend para Node.js, Express e API routes do Next.js; os três backends são Laravel/PHP e o dossiê lista Node backend e Next como irrelevantes."
+  },
+  {
+    "id": "01M0GCFD1Q549RHB5DEGN15B7W",
+    "skill_name": "cc-skill-clickhouse-io",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 0
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Padrões e otimização de consultas no ClickHouse para cargas analíticas; o engeapp usa BigQuery para billing de IA (interseção mínima de conceito colunar) e os outros dois usam PostgreSQL 18 e MySQL 8."
+  },
+  {
+    "id": "01M0GCFD1QVMGY1YN4223ZZEC6",
+    "skill_name": "cc-skill-coding-standards",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Padrões de código para TypeScript, JavaScript, React e Node; só a parte de TS/JS é aproveitável no frontend Vue 3.6, e React/Node estão marcados como irrelevantes."
+  },
+  {
+    "id": "01M0GCFD1QNWE07CRNPXB6G4KZ",
+    "skill_name": "cc-skill-frontend-patterns",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 0
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 0
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Padrões de frontend para React, Next.js e seu ecossistema de state management; React/Next e Redux/Zustand estão explicitamente na lista de irrelevantes dos três projetos, que usam Vue 3.6 + Pinia/MaxPinia."
+  },
+  {
+    "id": "01M0GCFD1Q4KAXHFR4AMQ3SN50",
+    "skill_name": "cc-skill-security-review",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 6
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 7
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Revisão de segurança em autenticação/autorização, upload de arquivos e novos endpoints; encaixa no upload com validação de MIME por tenant e nos webhooks HMAC do SocialMedia, e nas policies/spatie-permission dos três, mas o conteúdo é agnóstico de Laravel."
+  },
+  {
+    "id": "01M0GCFD1QA84E6MYTM0WB9W51",
+    "skill_name": "cdk-patterns",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 0
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 0
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Padrões e constructs L3 do AWS CDK em TypeScript/Python/Java; infraestrutura como código na AWS está listada como irrelevante — os projetos rodam em Caddy+PHP-FPM com deploy por Deployer ou webhook próprio."
+  },
+  {
+    "id": "01M0GCFD1RSFJEV8BGDP7JCK5J",
+    "skill_name": "ci-cd-and-automation",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 1
+      }
+    ],
+    "rationale": "Montagem de pipelines de CI/CD com quality gates e estratégias de deploy; os três projetos não têm CI (deploy via Deployer 8, webhook próprio ou nada) e o dossiê marca CI/CD como irrelevante."
+  },
+  {
+    "id": "01M0GCFD1RTD3EAJA9VZZGQE3D",
+    "skill_name": "cicd-automation-workflow-automate",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 1
+      }
+    ],
+    "rationale": "Automação de workflows com GitHub Actions e pipelines de entrega; GitHub Actions consta como tema irrelevante e nenhum dos três repositórios mantém workflows de CI."
+  },
+  {
+    "id": "01M0GCFD1R57CJR25Y43WA0MSP",
+    "skill_name": "ckw-design",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 5
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 5
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 6
+      }
+    ],
+    "rationale": "Ponto de entrada de design de frontend (direção visual, design system, espaçamento, cor e tipografia) cobrindo Vue e CSS; é aplicável ao polimento de UI, mas os três já operam sob o design system Max + presetMaxUno, e o AgenteDeBolso ganha um pouco mais por causa de tokens SCSS, dark mode e contraste WCAG."
+  },
+  {
+    "id": "01M0GCFD1R4RYW0G0JVY5S22SX",
+    "skill_name": "claimable-postgres",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 0
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 2
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Provisionamento de bancos Postgres temporários pela Neon (neon.new) sem cadastro; só o SocialMedia usa PostgreSQL 18, e ainda assim local, sem Neon nem ambientes descartáveis — engeapp e AgenteDeBolso são MySQL/MariaDB."
+  },
+  {
+    "id": "01M0GCFD1RMZYAR0FKZ0VS3Y05",
+    "skill_name": "clarvia-aeo-check",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 1
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 1
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 1
+      }
+    ],
+    "rationale": "Pontua servidores MCP, APIs e CLIs quanto a prontidão para agentes usando o índice Clarvia AEO; nenhum dos projetos publica ou seleciona servidores MCP como parte do trabalho."
+  },
+  {
+    "id": "01M0GCFD1REAMX0AD5FJYKPMRV",
+    "skill_name": "claude-monitor",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 3
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 3
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 3
+      }
+    ],
+    "rationale": "Monitor de performance do próprio Claude Code e da máquina local (CPU/RAM/disco, latência de API); ajuda a diagnosticar lentidão da sessão — algo sensível no SocialMedia por causa do heap OOM do watcher do Vite — mas não melhora o código dos projetos."
+  },
+  {
+    "id": "01M0GCFD1SQ8JA9T7GZT21E67K",
+    "skill_name": "clerk-auth",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 0
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 0
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Implementação de autenticação com Clerk e seu middleware (ecossistema Next.js/React); os três usam Laravel Sanctum com sessão e Socialite/Google, e o AgenteDeBolso ainda soma WebAuthn próprio."
+  },
+  {
+    "id": "01M0GCFD1SZS7XVRD31EGT5ZQ6",
+    "skill_name": "cloud-penetration-testing",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {
+        "project": "engeapp",
+        "importance": 0
+      },
+      {
+        "project": "SocialMedia",
+        "importance": 0
+      },
+      {
+        "project": "AgenteDeBolso",
+        "importance": 0
+      }
+    ],
+    "rationale": "Pentest de infraestrutura em Azure, AWS e GCP; os três projetos rodam em servidor próprio com Caddy+PHP-FPM e listam AWS/GCP/Azure e K8s como temas irrelevantes."
+  }
+]

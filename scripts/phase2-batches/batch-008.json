@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0GCFD1SP56BWPXHV8E8JFHF",
+  "skill_name": "cloudflare-security-audit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cloudflare-security-audit/SKILL.md",
+  "description_en": "Audit authorized codebases for exploitable vulnerabilities using scoped reconnaissance, adversarial review, validation, and structured reporting.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "Metodologia de auditoria adversarial de vulnerabilidades (recon com escopo, validação de exploits, relatório estruturado), agnóstica de stack. Vale um pouco mais no AgenteDeBolso, que já mantém auditorias de segurança versionadas em docs/audit/ e lida com PIN/WebAuthn e dados financeiros."
+ },
+ {
+  "id": "01M0GCFD1S9W6FV04MQ8QSP0HA",
+  "skill_name": "co-marketing",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/co-marketing/SKILL.md",
+  "description_en": "When the user wants to find co-marketing partners, plan joint campaigns, or brainstorm partnership opportunities. Use when the user says 'co-marketing,' 'partner marketing,' 'joint campaign,' 'who should we partner with,' 'integration marketing,' 'cross-promotion,' 'collaborate with...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Skill de negócio para achar parceiros de co-marketing e planejar campanhas conjuntas; não ajuda a escrever código. No SocialMedia toca de raspão o domínio de agência de marketing, mas o produto gera posts para clientes, não firma parcerias."
+ },
+ {
+  "id": "01M0GCFD1SFYPBQCCBH9VZNKGQ",
+  "skill_name": "code-documentation-code-explain",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-documentation-code-explain/SKILL.md",
+  "description_en": "You are a code education expert specializing in explaining complex code through clear narratives, visual diagrams, and step-by-step breakdowns. Transform difficult concepts into understandable explanations for developers at all levels.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Explica código complexo com narrativa, diagramas e passo a passo — prática genérica útil para entender os 970 arquivos PHP do engeapp ou a máquina de estados do SocialMedia, mas sem nada específico de Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD1SAXTCG549X1ZPJVNQ",
+  "skill_name": "code-documentation-doc-generate",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-documentation-doc-generate/SKILL.md",
+  "description_en": "You are a documentation expert specializing in creating comprehensive, maintainable documentation from code. Generate API docs, architecture diagrams, user guides, and technical references using AI-powered analysis and industry best practices.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Geração de docs de API, guias e referências técnicas a partir do código. SocialMedia e AgenteDeBolso exigem documentação viva (CLAUDE.md/resources/CLAUDE.md atualizados no mesmo commit), então a prática soma, ainda que a skill seja agnóstica."
+ },
+ {
+  "id": "01M0GCFD1SNGDED7Z7SRBW09RP",
+  "skill_name": "code-refactoring-refactor-clean",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-refactoring-refactor-clean/SKILL.md",
+  "description_en": "You are a code refactoring expert specializing in clean code principles, SOLID design patterns, and modern software engineering best practices. Analyze and refactor the provided code to improve its quality, maintainability, and performance.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Refatoração por clean code e SOLID de forma genérica; aplicável às camadas de Services/Actions dos três projetos, mas não substitui Rector/Pint nem conhece as convenções Max/Laravel."
+ },
+ {
+  "id": "01M0GCFD1S9C3AXPJ6RW5X8PV4",
+  "skill_name": "code-review-and-quality",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-review-and-quality/SKILL.md",
+  "description_en": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Revisão multi-eixo antes de merge, incluindo código escrito por agentes — encaixa no fluxo worktree → revisão → merge adotado nos três projetos, mas é engenharia genérica sem viés de PHP/Vue."
+ },
+ {
+  "id": "01M0GCFD1SYRVSJ2AMY57J0342",
+  "skill_name": "code-review-checklist",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-review-checklist/SKILL.md",
+  "description_en": "Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Checklist de revisão cobrindo funcionalidade, segurança, performance e manutenibilidade; útil como lembrete, porém redundante com code-review-and-quality e sem itens específicos (mass assignment, $fillable, MaxPinia) dos projetos."
+ },
+ {
+  "id": "01M0GCFD1T22T3X2MBE3TKHETJ",
+  "skill_name": "code-showcase-core-components",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-showcase-core-components/SKILL.md",
+  "description_en": "Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Prega usar biblioteca de componentes e design tokens em vez de elementos crus — princípio idêntico ao \"priorizar componentes Max\", mas os exemplos são em TSX/React e os tokens não são os do presetMaxUno, então o ganho concreto é pequeno."
+ },
+ {
+  "id": "01M0GCFD1TN35A6HDCHQCHZ6FX",
+  "skill_name": "code-showcase-testing-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-showcase-testing-patterns/SKILL.md",
+  "description_en": "Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing unit tests, creating test factories, or following TDD red-green-refactor cycle.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Padrões de teste centrados em Jest (factories, mocks, TDD) — Jest é explicitamente irrelevante nos três; engeapp e SocialMedia usam Vitest e o AgenteDeBolso só Pest+Dusk."
+ },
+ {
+  "id": "01M0GCFD1TWA7VNAVJW6CR3MV3",
+  "skill_name": "code-simplifier",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/code-simplifier/SKILL.md",
+  "description_en": "Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. Use when asked to \"simplify code\", \"clean up code\", \"refactor for clarity\", \"improve readability\", or review recently modified code for elegance. Focuses on project-specific best practices.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Simplifica código recém-modificado preservando comportamento, apoiando-se nas convenções do próprio projeto; boa higiene pós-implementação nos três, sem conhecimento específico de Laravel 13 ou Vue 3.6."
+ },
+ {
+  "id": "01M0GCFD1T2QNYB4A6HBR5SJT5",
+  "skill_name": "codebase-audit-pre-push",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/codebase-audit-pre-push/SKILL.md",
+  "description_en": "Deep audit before GitHub push: removes junk files, dead code, security holes, and optimization issues. Checks every file line-by-line for production readiness.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Varredura pré-push por arquivos lixo, código morto e falhas de segurança; casa com o comando CheckDebugStatements e a regra de nunca commitar segredos, especialmente no AgenteDeBolso que já tem esse ritual formalizado."
+ },
+ {
+  "id": "01M0GCFD1T34535SRZ4M6DX600",
+  "skill_name": "codebase-cleanup-deps-audit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/codebase-cleanup-deps-audit/SKILL.md",
+  "description_en": "You are a dependency security expert specializing in vulnerability scanning, license compliance, and supply chain security. Analyze project dependencies for known vulnerabilities, licensing issues, outdated packages, and provide actionable remediation strategies.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Auditoria de dependências (CVEs, licenças, pacotes desatualizados) via composer/npm; o engeapp carrega dezenas de SDKs de terceiros (EFI, Inter, LiveKit, WhatsApp, mPDF) e é onde a varredura rende mais."
+ },
+ {
+  "id": "01M0GCFD1T1H5Z4EYPGG6TRH59",
+  "skill_name": "codebase-to-wordpress-converter",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/codebase-to-wordpress-converter/SKILL.md",
+  "description_en": "Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, and dynamic WordPress theme.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Converte projetos React/Next/HTML em temas WordPress — nenhum dos projetos usa WordPress ou React, e CMS/SEO está listado como tema irrelevante."
+ },
+ {
+  "id": "01M0GCFD1TBKVFW5V4CWG2T1F1",
+  "skill_name": "cohesivity",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cohesivity/SKILL.md",
+  "description_en": "Provision headless backend services for AI agents through Cohesivity: hosting, databases, storage, LLMs, and third-party APIs over one HTTP API. Use when a trusted .cohesivity file exists or the user approves a new backend.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Provisiona backend headless de terceiros (hosting, banco, storage, LLMs) via API HTTP proprietária; os três projetos têm backend Laravel próprio em servidor gerenciado com Caddy+PHP-FPM e não terceirizam infra."
+ },
+ {
+  "id": "01M0GCFD1TDMWE44B25Z7PN6D0",
+  "skill_name": "comfyui-gateway",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/comfyui-gateway/SKILL.md",
+  "description_en": "REST API gateway for ComfyUI servers. Workflow management, job queuing, webhooks, caching, auth, rate limiting, and image delivery (URL + base64).",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Gateway REST para servidores ComfyUI (fila de jobs, webhooks, cache, entrega de imagem) — o SocialMedia gera arte com ComfyUI+LoRA e enfileira via Horizon, mas a skill é um wrapper TypeScript raso, não a API de workflows JSON/KSampler que o projeto consome do PHP."
+ },
+ {
+  "id": "01M0GCFD1TKH618AQ37PB0T8TS",
+  "skill_name": "command-center-ui",
+  "local_path": "other_skills/Agentic Awesome Skills/plugins/agentic-awesome-skills/skills/design-it/command-center-ui/SKILL.md",
+  "description_en": "Web and App implementation guide for Command Center UI. Trigger when user wants monitoring systems, enterprise dashboards, NOCs, and global maps.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Padrões visuais de dashboards de monitoramento tipo NOC com mapas globais; há dashboards no engeapp e no AgenteDeBolso, mas o estilo \"command center\" não é o design system Max e não trata UnoCSS/SCSS."
+ },
+ {
+  "id": "01M0GCFD1T8K95R2V68V1BNPB3",
+  "skill_name": "commit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/commit/SKILL.md",
+  "description_en": "ALWAYS use this skill when committing code changes — never commit directly without it. Creates commits following Sentry conventions with proper conventional commit format and issue references. Trigger on any commit, git commit, save changes, or commit message task.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Padroniza mensagens em conventional commits seguindo as convenções da Sentry com referência a issues; os três projetos commitam só sob pedido e em pt-BR, então a parte de referência a issues da Sentry não se aplica."
+ },
+ {
+  "id": "01M0GCFD1VZY8A2AG0F1CZ0P2R",
+  "skill_name": "competitor-tracking",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/competitor-tracking/SKILL.md",
+  "description_en": "Systematic competitor analysis for developer tools. Track features, pricing, positioning, content strategy, and community sentiment for direct and indirect competitors. Trigger phrases: \"competitor analysis\", \"track competitors\", \"competitive intelligence\", \"competitor research\", \"what...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Análise competitiva de dev tools (features, preços, sentimento de comunidade) — trabalho de produto/marketing, não de código; nem o módulo de posicionamento de marca do SocialMedia depende de rastrear concorrentes de ferramentas de desenvolvedor."
+ },
+ {
+  "id": "01M0GCFD1V7FGNB7M7Y7234QNK",
+  "skill_name": "compile-knowledge",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/compile-knowledge/SKILL.md",
+  "description_en": "Compile durable, non-obvious findings into an interlinked markdown knowledge store — atomic files, [[wiki-links]], a maintained index — so an agent gets smarter across sessions instead of relearning the same facts.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Compila achados não óbvios num repositório markdown interligado com índice mantido; combina com as armadilhas catalogadas do AgenteDeBolso (errno 150, ícone Iconify silencioso) e com docs/superpowers do SocialMedia, mas concorre com os CLAUDE.md já existentes."
+ },
+ {
+  "id": "01M0GCFD1VN6QQMTF59Y4PJVBH",
+  "skill_name": "comprehensive-review-pr-enhance",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/comprehensive-review-pr-enhance/SKILL.md",
+  "description_en": "Generate structured PR descriptions from diffs, add review checklists, risk assessments, and test coverage summaries. Use when the user says \"write a PR description\", \"improve this PR\", \"summarize my changes\", \"PR review\", \"pull request\", or asks to document a diff for reviewers.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Gera descrição de PR, checklist de revisão e avaliação de risco a partir do diff; os três trabalham por worktree com merge direto e sem CI, então PRs formais são situação pontual."
+ },
+ {
+  "id": "01M0GCFD1VYK7Z3YQ2770FE2JP",
+  "skill_name": "computer-use-agents",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/computer-use-agents/SKILL.md",
+  "description_en": "Build AI agents that interact with computers like humans do -",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Agentes que controlam a tela via visão, baseados em Computer Use da Anthropic e Operator da OpenAI — providers explicitamente irrelevantes; a automação de navegador do engeapp e do AgenteDeBolso é WebDriver/Puppeteer determinístico, não controle visual."
+ },
+ {
+  "id": "01M0GCFD1VQS7N8R677Y9Z5SQJ",
+  "skill_name": "computer-vision-expert",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/computer-vision-expert/SKILL.md",
+  "description_en": "SOTA Computer Vision Expert (2026). Specialized in YOLO26, Segment Anything 3 (SAM 3), Vision Language Models, and real-time spatial analysis.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Visão computacional SOTA com YOLO26, SAM 3 e VLMs para análise espacial em tempo real; o SocialMedia mexe com imagem, mas via MediaPipe Face Landmarker e dHash/imagick, não com detecção/segmentação treinada."
+ },
+ {
+  "id": "01M0GCFD1VBY8KDGCTJCK1HRAP",
+  "skill_name": "conductor-implement",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/conductor-implement/SKILL.md",
+  "description_en": "Execute tasks from a track's implementation plan following TDD workflow",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Executa tarefas de um plano de implementação seguindo ciclo TDD; espelha a metodologia spec → plano → worktree → TDD do SocialMedia, mas depende do formato de \"track\" do Conductor, estranho aos repositórios."
+ },
+ {
+  "id": "01M0GCFD1VX0Q950JRXP7J4EGN",
+  "skill_name": "conductor-revert",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/conductor-revert/SKILL.md",
+  "description_en": "Git-aware undo by logical work unit (track, phase, or task)",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Desfaz trabalho por unidade lógica (track/fase/tarefa) usando Git; desfazer alterações é comum no fluxo de worktrees, mas a granularidade depende da estrutura de tracks do Conductor, que nenhum projeto adota."
+ },
+ {
+  "id": "01M0GCFD1VB5H963GNKVATAPNC",
+  "skill_name": "container-security-hardening",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/container-security-hardening/SKILL.md",
+  "description_en": "Harden Docker/container images and runtime deployments with secure base images, non-root users, CVE scanning, SBOM/signing, seccomp/AppArmor, and Kubernetes pod security controls. Use for Dockerfile security reviews, container CVEs, image scanning, distroless images, or production hardening.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Endurecimento de imagens Docker e pod security do Kubernetes; Docker e K8s constam como irrelevantes nos três dossiês — o deploy é Deployer 8 ou webhook próprio em servidor com Caddy+PHP-FPM."
+ },
+ {
+  "id": "01M0GCFD1WMR3DA6R103CV330Y",
+  "skill_name": "content-creator",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/content-creator/SKILL.md",
+  "description_en": "Professional-grade brand voice analysis, SEO optimization, and platform-specific content frameworks.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Análise de voz de marca e frameworks de conteúdo por plataforma — insumo direto para os agentes de copywriting e o módulo de posicionamento de marca do SocialMedia; o viés de SEO reduz o encaixe, já que a publicação é só IG/FB."
+ },
+ {
+  "id": "01M0GCFD1WBW3JQEP4P2BS4YJF",
+  "skill_name": "content-marketer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/content-marketer/SKILL.md",
+  "description_en": "Elite content marketing strategist specializing in AI-powered content creation, omnichannel distribution, SEO optimization, and data-driven performance marketing.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Estratégia de marketing de conteúdo omnichannel com foco em SEO e performance; ajuda a calibrar os prompts do pipeline de IA do SocialMedia, mas boa parte (e-mail, SEO, múltiplos canais) está fora do escopo Meta-only."
+ },
+ {
+  "id": "01M0GCFD1W33WPE1T5AS7RNQ6J",
+  "skill_name": "content-strategy",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/content-strategy/SKILL.md",
+  "description_en": "Plan a content strategy, topic clusters, editorial roadmap, and content mix for traffic, authority, and lead generation. Use when deciding what to publish, what topics to prioritize, or how to structure a content program.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Planeja clusters de temas e roadmap editorial — conceitualmente igual ao planejamento mensal por IA e ao calendário editorial do SocialMedia, embora seja orientada a blog/tráfego e não a posts sociais com arte."
+ },
+ {
+  "id": "01M0GCFD1WEBJ07M8BHVW14PYC",
+  "skill_name": "context-agent",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/context-agent/SKILL.md",
+  "description_en": "Agente de contexto para continuidade entre sessoes. Salva resumos, decisoes, tarefas pendentes e carrega briefing automatico na sessao seguinte.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Salva resumos, decisões e pendências entre sessões e carrega briefing na sessão seguinte (e já vem em pt-BR); útil em sessões longas nos três, mas sobrepõe os CLAUDE.md e docs de plano já mantidos."
+ },
+ {
+  "id": "01M0GCFD1WMZA16K3M9DZY8S1G",
+  "skill_name": "context-compression",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/context-compression/SKILL.md",
+  "description_en": "When agent sessions generate millions of tokens of conversation history, compression becomes mandatory. The naive approach is aggressive compression to minimize tokens per request.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Estratégias de compressão de histórico em sessões de agente com milhões de tokens; vale mais no SocialMedia, onde o Ollama local roda com num_ctx 80000 e há truncamento explícito de contexto nas tarefas de dedup de notícias."
+ },
+ {
+  "id": "01M0GCFD1WJ593G7F8Q8WFMBV7",
+  "skill_name": "context-driven-development",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/context-driven-development/SKILL.md",
+  "description_en": "Guide for implementing and maintaining context as a managed artifact alongside code, enabling consistent AI interactions and team alignment through structured project documentation.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Trata o contexto do projeto como artefato versionado junto ao código para manter o agente consistente; é exatamente a disciplina de CLAUDE.md/resources/CLAUDE.md atualizados no mesmo commit exigida no SocialMedia e no AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD1W71HBY3FKXYQAQA3S",
+  "skill_name": "context-kit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/context-kit/SKILL.md",
+  "description_en": "Evaluate, adapt, and safely install Context Kit personal context artifacts for Claude Code or adjacent agent workflows.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Avalia e instala artefatos de contexto pessoal do produto Context Kit no Claude Code; é setup de ferramenta de terceiro, não ajuda no código Laravel/Vue dos projetos."
+ },
+ {
+  "id": "01M0GCFD1WDF7VHMNKBNBJ416J",
+  "skill_name": "context-window-management",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/context-window-management/SKILL.md",
+  "description_en": "Strategies for managing LLM context windows including",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Táticas de orçamento e janela de contexto de LLM; interessa ao SocialMedia, que precisa caber notícias RSS e temas extraídos dentro dos limites do Gemini e do gemma local, e pouco ao engeapp/AgenteDeBolso, cujos usos do Gemini são prompts curtos."
+ },
+ {
+  "id": "01M0GCFD1WAF57KG27XPKH87KX",
+  "skill_name": "context7-auto-research",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/context7-auto-research/SKILL.md",
+  "description_en": "Automatically fetch latest library/framework documentation for Claude Code via Context7 API. Use when you need up-to-date documentation for libraries and frameworks or asking about React, Next.js, Prisma, or any other popular library.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Busca documentação atualizada de bibliotecas via API do Context7; poderia cobrir Vue 3.6-rc e Laravel 13, mas o engeapp já resolve isso com Boost search-docs e os exemplos da skill são React/Next/Prisma."
+ },
+ {
+  "id": "01M0GCFD1WBZR1510F36BK3BNZ",
+  "skill_name": "conversation-memory",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/conversation-memory/SKILL.md",
+  "description_en": "Persistent memory systems for LLM conversations including",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Memória persistente para conversas com LLM (resumo progressivo, recuperação de fatos); encosta nos agentes laravel/ai do SocialMedia e no atendimento WhatsApp do engeapp, mas trata de arquitetura genérica de memória, não das ferramentas usadas."
+ },
+ {
+  "id": "01M0GCFD1W8EX4XTRFX87CVN8K",
+  "skill_name": "convex",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/convex/SKILL.md",
+  "description_en": "Convex reactive backend expert: schema design, TypeScript functions, real-time subscriptions, auth, file storage, scheduling, and deployment.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Backend reativo Convex em TypeScript (schema, subscriptions, auth, storage); backend concorrente ao Laravel/MySQL/PostgreSQL dos três projetos e sem qualquer plano de adoção."
+ },
+ {
+  "id": "01M0GCFD1WA04D7V89E06H7W6X",
+  "skill_name": "copy-editing",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/copy-editing/SKILL.md",
+  "description_en": "You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the core message.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Passes sistemáticos de edição de copy de marketing preservando a mensagem — encaixa na etapa de revisão de texto do pipeline de IA do SocialMedia (copywriting → revisão); no engeapp serviria apenas ao site público."
+ },
+ {
+  "id": "01M0GCFD1WG8KK9XRMWPRCRKTC",
+  "skill_name": "copywriting",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/copywriting/SKILL.md",
+  "description_en": "Write rigorous, conversion-focused marketing copy for landing pages and emails. Enforces brief confirmation and strict no-fabrication rules.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Copy de conversão para landing pages e e-mails com regra dura de não inventar fatos; a proibição de fabricação é valiosa para os agentes de conteúdo do SocialMedia, mas o formato-alvo (landing/e-mail) não é post de Instagram."
+ },
+ {
+  "id": "01M0GCFD1WS763R18V6A75T3K6",
+  "skill_name": "copywriting-psychologist",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/copywriting-psychologist/SKILL.md",
+  "description_en": "One sentence - what this skill does and when to invoke it",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Gatilhos psicológicos de persuasão (perfil psicográfico, JTBD, estágio de consciência) para engenharia de desejo; serve de base para prompts de copy dos personagens e do posicionamento de marca no SocialMedia, sem uso nos outros dois."
+ },
+ {
+  "id": "01M0GCFD1XBE08CCMAQ03P5ZD6",
+  "skill_name": "cpp-pro",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/cpp-pro/SKILL.md",
+  "description_en": "Write idiomatic C++ code with modern features, RAII, smart pointers, and STL algorithms. Handles templates, move semantics, and performance optimization.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "C++ moderno com RAII, smart pointers, templates e STL; nenhum dos três projetos tem linha de C++ — a stack é PHP 8.4 e TypeScript."
+ }
+]

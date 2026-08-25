@@ -1,0 +1,779 @@
+[
+ {
+  "id": "01M0G4G52F9X8JJ3EV6AHP7MTG",
+  "catalog": "index.json",
+  "skill_name": "vue-max-use-usecachedapi-state-cache-best-practices",
+  "description_en": "Use when implementing or debugging Vue 3 code with useRefCachedApi (or useCachedApi, useSharedCacheApi, useInCacheApi) from @maxvue/max-use to cache GET requests in localStorage with background revalidation. Covers objectives, composable signatures, and cached state management.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-use"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FD6G89W0Q773PB3KM",
+  "catalog": "index.json",
+  "skill_name": "vue-meta-api-oauth-integration-best-practices",
+  "description_en": "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-pinia",
+   "Axios",
+   "Pinia"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FDY6EWRN5N76EG8NB",
+  "catalog": "index.json",
+  "skill_name": "vue-pinia-state-management-best-practices",
+  "description_en": "Use when creating, reviewing, or debugging Pinia stores in Vue 3 with @maxvue/max-pinia plugin. Every page-level GET MUST go through a MaxPinia store (one-shot lookups may use apiGetRoute). Covers objectives and best practices, Registro main.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-pinia",
+   "Pinia"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FW4DTJ525TRMKE93A",
+  "catalog": "index.json",
+  "skill_name": "vue-rss-news-moderation-dashboard-best-practices",
+  "description_en": "Use when implementing, styling, or debugging the RSS news moderation panel (TabNewsItems.vue) in EngeApp Vue 3. Covers useSocialMediaNewsStore (axios and Ziggy news routes), incremental limit/offset pagination, pending/archived tabs via archived prop, keyword grouping, and editorial theme approval.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "Axios",
+   "Pinia"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FBKC0FDXJBMR25V6R",
+  "catalog": "index.json",
+  "skill_name": "vue-toast-notifications-toastify-best-practices",
+  "description_en": "Use when displaying toast notifications or floating alerts in Vue 3. Standard requirement is MaxToast from @maxvue/max-components-ui triggered via Toast.show({ title, severity }) with ToastPayload.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui",
+   "Pinia",
+   "Vue Toastify"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F0CEX4Y8AWFQVWR1T",
+  "catalog": "index.json",
+  "skill_name": "vue-typescript-best-practices",
+  "description_en": "Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, tsconfig.json, and module declarations. Covers objectives, SFC structure, and TypeScript declarations.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "Pinia"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-typescript-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F7HCNBBVQ423KY0TJ",
+  "catalog": "index.json",
+  "skill_name": "vue-unocss-styling-best-practices",
+  "description_en": "Use when styling templates, styles, and layouts in Vue 3 with UnoCSS + presetMaxUno: attributify classes/attributes, color shortcuts, transformerVariantGroup, params.scss, SCSS scoped blocks, and dark mode via useDark. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Tailwind CSS",
+   "UnoCSS",
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FJ69WE0FRS2ZJTDD0",
+  "catalog": "index.json",
+  "skill_name": "vue-vitest-testing-best-practices",
+  "description_en": "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "Vitest"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FFKRZ5RZHFQ5YXYEZ",
+  "catalog": "index.json",
+  "skill_name": "vue-whatsapp-interactive-messages-simulator-best-practices",
+  "description_en": "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FQ2GH4WZB4MDWRTW6",
+  "catalog": "other_skills.json",
+  "skill_name": "test-driven-development",
+  "description_en": "Strict Red-Green-Refactor test-driven development workflow requiring automated tests written and failing before feature implementation.",
+  "languages": [
+   "TypeScript",
+   "Python",
+   "JavaScript",
+   "PHP",
+   "Go"
+  ],
+  "frameworks": [
+   "Jest",
+   "Vitest",
+   "Pytest",
+   "PHPUnit",
+   "Mocha"
+  ],
+  "libs": [
+   "@testing-library/react",
+   "@testing-library/vue",
+   "unittest.mock"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/test-driven-development/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FH90TKJ99SM1D454A",
+  "catalog": "other_skills.json",
+  "skill_name": "frontend-design",
+  "description_en": "Modern aesthetic UI/UX guidelines, accessibility best practices, and responsive design systems preventing repetitive, generic AI templates.",
+  "languages": [
+   "TypeScript",
+   "JavaScript",
+   "HTML",
+   "CSS"
+  ],
+  "frameworks": [
+   "React",
+   "Next.js",
+   "Vue",
+   "Nuxt",
+   "Svelte"
+  ],
+  "libs": [
+   "Tailwind CSS",
+   "shadcn/ui",
+   "Radix UI",
+   "Lucide Icons",
+   "Framer Motion"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/frontend-design/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FCRTTHSA4Z23Q336F",
+  "catalog": "other_skills.json",
+  "skill_name": "skill-creator",
+  "description_en": "Official meta-skill for scaffolding, designing frontmatter triggers, writing clear SKILL.md specs, and running automated eval suites.",
+  "languages": [
+   "Markdown",
+   "Python",
+   "JavaScript",
+   "JSON",
+   "YAML"
+  ],
+  "frameworks": [],
+  "libs": [
+   "jsonschema",
+   "pydantic",
+   "yaml"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/skill-creator/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F663YHJWYW67CP8KR",
+  "catalog": "other_skills.json",
+  "skill_name": "git-workflow",
+  "description_en": "Git branching governance, atomic Conventional Commits, isolated git worktrees management, and automated pull request generation.",
+  "languages": [
+   "Shell",
+   "Bash",
+   "Git"
+  ],
+  "frameworks": [],
+  "libs": [
+   "conventional-changelog",
+   "simple-git"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/git-workflow/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FV5WNNFWAXJX7HKYG",
+  "catalog": "other_skills.json",
+  "skill_name": "security-audit",
+  "description_en": "Automated security scanning, OWASP Top 10 vulnerability prevention, secret leakage detection, and dependency risk assessment.",
+  "languages": [
+   "Python",
+   "TypeScript",
+   "JavaScript",
+   "Go"
+  ],
+  "frameworks": [],
+  "libs": [
+   "Snyk",
+   "Trivy",
+   "pip-audit",
+   "npm-audit",
+   "Semgrep"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/security-audit/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
+  "catalog": "other_skills.json",
+  "skill_name": "code-review",
+  "description_en": "Automated pull request review agent performing static analysis, cyclomatic complexity checks, style conformance, and bug detection.",
+  "languages": [
+   "TypeScript",
+   "Python",
+   "JavaScript",
+   "Go",
+   "PHP"
+  ],
+  "frameworks": [],
+  "libs": [
+   "ESLint",
+   "Biome",
+   "Ruff",
+   "Mypy",
+   "PHPStan"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/code-review/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F32ZTYMTYQK259587",
+  "catalog": "other_skills.json",
+  "skill_name": "browser-automation",
+  "description_en": "Autonomous web interaction, DOM inspection, scraping, and end-to-end user flow verification using Playwright and Chrome DevTools.",
+  "languages": [
+   "TypeScript",
+   "JavaScript",
+   "Python"
+  ],
+  "frameworks": [
+   "Playwright",
+   "Puppeteer",
+   "Selenium"
+  ],
+  "libs": [
+   "playwright-core",
+   "cheerio",
+   "browser-use"
+  ],
+  "repo_name": "Playwright",
+  "local_path": "other_skills/curated-youtube/browser-automation/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FVBQNA612AE7T78GH",
+  "catalog": "other_skills.json",
+  "skill_name": "superpowers",
+  "description_en": "Complete agentic engineering workflow framework enforcing structured planning, technical specs, TDD, and subagent review cycles.",
+  "languages": [
+   "Markdown",
+   "Shell",
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Superpowers",
+  "local_path": "other_skills/curated-youtube/superpowers/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FS4JB7ES3Z9C8N4F1",
+  "catalog": "other_skills.json",
+  "skill_name": "agent-orchestrator",
+  "description_en": "Multi-agent coordination engine for hierarchical task delegation, background subagent management, and parallel execution.",
+  "languages": [
+   "Python",
+   "TypeScript",
+   "Go"
+  ],
+  "frameworks": [
+   "LangGraph",
+   "CrewAI",
+   "Semantic Kernel"
+  ],
+  "libs": [
+   "asyncio",
+   "pydantic"
+  ],
+  "repo_name": "Antigravity",
+  "local_path": "other_skills/curated-youtube/agent-orchestrator/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FASG08WQAJCM01AT2",
+  "catalog": "other_skills.json",
+  "skill_name": "shadcn-ui",
+  "description_en": "Integration and customization of accessible, headless Radix UI and Tailwind CSS components into modern React and Next.js applications.",
+  "languages": [
+   "TypeScript",
+   "JavaScript",
+   "CSS"
+  ],
+  "frameworks": [
+   "React",
+   "Next.js",
+   "Vite",
+   "Remix"
+  ],
+  "libs": [
+   "@radix-ui/react-primitives",
+   "tailwind-merge",
+   "clsx",
+   "lucide-react"
+  ],
+  "repo_name": "ShadcnUi",
+  "local_path": "other_skills/curated-youtube/shadcn-ui/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FZ807HQW0RAS5BAAZ",
+  "catalog": "other_skills.json",
+  "skill_name": "mcp-server-routing",
+  "description_en": "Dynamic discovery, routing, and lifecycle execution of Model Context Protocol (MCP) servers and tools for external integrations.",
+  "languages": [
+   "TypeScript",
+   "Python",
+   "JSON"
+  ],
+  "frameworks": [
+   "Model Context Protocol (MCP)"
+  ],
+  "libs": [
+   "@modelcontextprotocol/sdk",
+   "mcp-core"
+  ],
+  "repo_name": "MCP",
+  "local_path": "other_skills/curated-youtube/mcp-server-routing/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FE36M320YYCE4WKRV",
+  "catalog": "other_skills.json",
+  "skill_name": "context-engineering",
+  "description_en": "LLM token budgeting, context pruning, progressive disclosure indexers, and systematic session state handoff techniques.",
+  "languages": [
+   "Markdown",
+   "Python",
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [
+   "tiktoken",
+   "langchain-core"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/context-engineering/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FZWBAQWX620WBMW1N",
+  "catalog": "other_skills.json",
+  "skill_name": "api-design",
+  "description_en": "Production-grade RESTful and GraphQL API contract design, OpenAPI 3.1 specifications, request validation, and typed SDK generation.",
+  "languages": [
+   "TypeScript",
+   "Python",
+   "Go",
+   "PHP"
+  ],
+  "frameworks": [
+   "FastAPI",
+   "Express",
+   "NestJS",
+   "Laravel"
+  ],
+  "libs": [
+   "Zod",
+   "Pydantic",
+   "Swagger / OpenAPI"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/curated-youtube/api-design/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F6E8ZEKWF2BX32G7J",
+  "catalog": "other_skills.json",
+  "skill_name": "tailwind-css",
+  "description_en": "Tailwind CSS v3/v4 design token mapping, responsive utility layout structuring, mobile-first design, and dark mode configuration.",
+  "languages": [
+   "CSS",
+   "HTML",
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Tailwind CSS v3/v4",
+   "Next.js",
+   "Vue",
+   "React"
+  ],
+  "libs": [
+   "postcss",
+   "autoprefixer",
+   "tailwind-merge"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/tailwind-css/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FPQGPD3CF1ZW3BKSB",
+  "catalog": "other_skills.json",
+  "skill_name": "deep-research",
+  "description_en": "Autonomous iterative multi-source web search, reference synthesis, fact validation, and formatted technical report generation.",
+  "languages": [
+   "Python",
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [
+   "BeautifulSoup4",
+   "DuckDuckGo-Search",
+   "arxiv",
+   "newspaper3k"
+  ],
+  "repo_name": "GPT Researcher",
+  "local_path": "other_skills/curated-youtube/deep-research/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F4V1VXAMC0WYZZ9Z7",
+  "catalog": "other_skills.json",
+  "skill_name": "docker-expert",
+  "description_en": "Multi-stage Dockerfile optimization, container hardening, multi-service Docker Compose orchestration, and CI/CD container pipelines.",
+  "languages": [
+   "Dockerfile",
+   "Shell",
+   "YAML"
+  ],
+  "frameworks": [
+   "Docker",
+   "Docker Compose"
+  ],
+  "libs": [
+   "docker-py"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/curated-youtube/docker-expert/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F1C753JPHMPTS9EMK",
+  "catalog": "other_skills.json",
+  "skill_name": "fastapi-templates",
+  "description_en": "Scaffolding and patterns for high-performance async Python web APIs using FastAPI, Pydantic V2, and SQLAlchemy 2.0.",
+  "languages": [
+   "Python"
+  ],
+  "frameworks": [
+   "FastAPI",
+   "Starlette"
+  ],
+  "libs": [
+   "Pydantic v2",
+   "SQLAlchemy 2.0",
+   "Uvicorn",
+   "Alembic"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/curated-youtube/fastapi-templates/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FHZMPGHHTZFX8Q0XN",
+  "catalog": "other_skills.json",
+  "skill_name": "damage-control",
+  "description_en": "High-risk command interceptor and sandbox guardrail preventing accidental data loss, destructive SQL, and uncommitted git wipes.",
+  "languages": [
+   "Shell",
+   "Python"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Agentic Engineering",
+  "local_path": "other_skills/curated-youtube/damage-control/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F3YQWZTYC3K1S074P",
+  "catalog": "other_skills.json",
+  "skill_name": "git-worktree",
+  "description_en": "Strict task isolation and parallel branch management with Git Worktrees for multiple autonomous agents working concurrently.",
+  "languages": [
+   "Bash",
+   "Shell",
+   "Git"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Cole Medin",
+  "local_path": "other_skills/curated-youtube/git-worktree/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FPHZ3VCA06Z2NTCG5",
+  "catalog": "other_skills.json",
+  "skill_name": "database-optimizer",
+  "description_en": "SQL query performance tuning, index optimization (B-Tree, GIN, GiST), EXPLAIN execution plan analysis, and N+1 query elimination.",
+  "languages": [
+   "SQL",
+   "Python",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "PostgreSQL",
+   "MySQL",
+   "Prisma",
+   "SQLAlchemy"
+  ],
+  "libs": [
+   "pg_stat_statements",
+   "prisma-client"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/curated-youtube/database-optimizer/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FSJ578YDABJWPFQM4",
+  "catalog": "other_skills.json",
+  "skill_name": "piv-loop",
+  "description_en": "Plan-Implement-Validate (PIV) structured engineering loop breaking complex tasks into clear milestones with strict validation gates.",
+  "languages": [
+   "Markdown"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Cole Medin",
+  "local_path": "other_skills/curated-youtube/piv-loop/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F953EWRK967AST11H",
+  "catalog": "other_skills.json",
+  "skill_name": "pytest-and-jest-automation",
+  "description_en": "Automated unit and integration test suite generation with Pytest (Python) and Jest/Vitest (TypeScript), mocking, and coverage analysis.",
+  "languages": [
+   "Python",
+   "TypeScript",
+   "JavaScript"
+  ],
+  "frameworks": [
+   "Pytest",
+   "Jest",
+   "Vitest"
+  ],
+  "libs": [
+   "pytest-asyncio",
+   "pytest-mock",
+   "@testing-library/jest-dom"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/pytest-and-jest-automation/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FSEJ8Z7FYJ1NCVKCA",
+  "catalog": "other_skills.json",
+  "skill_name": "react-components",
+  "description_en": "Production patterns for modern React 19 / TypeScript component development, custom hooks, state isolation, and accessibility.",
+  "languages": [
+   "TypeScript",
+   "JavaScript",
+   "TSX"
+  ],
+  "frameworks": [
+   "React 19",
+   "Next.js",
+   "Vite"
+  ],
+  "libs": [
+   "Radix UI",
+   "Zustand",
+   "TanStack Query",
+   "Lucide React"
+  ],
+  "repo_name": "Anthropic",
+  "local_path": "other_skills/curated-youtube/react-components/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FTC9D5B58G13FBRRT",
+  "catalog": "other_skills.json",
+  "skill_name": "the-library",
+  "description_en": "Decentralized catalog and private synchronization system for distributing reusable skills, agent personas, and prompt kits.",
+  "languages": [
+   "TypeScript",
+   "Markdown",
+   "Shell"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "The Library",
+  "local_path": "other_skills/curated-youtube/the-library/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F9TT91W6TR5FTQXT9",
+  "catalog": "other_skills.json",
+  "skill_name": "cloud-architect",
+  "description_en": "Multi-cloud architecture design (AWS, GCP, Azure), Terraform/OpenTofu Infrastructure-as-Code modules, and FinOps optimization.",
+  "languages": [
+   "HCL",
+   "Terraform",
+   "YAML"
+  ],
+  "frameworks": [
+   "AWS",
+   "GCP",
+   "Azure",
+   "Terraform",
+   "OpenTofu"
+  ],
+  "libs": [
+   "tflint",
+   "checkov"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/curated-youtube/cloud-architect/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F5Y1T4W98MNDFXK8H",
+  "catalog": "other_skills.json",
+  "skill_name": "token-optimization",
+  "description_en": "Context window budgeting, idle tool detachment, prompt compression, and token consumption reduction techniques by up to 80%.",
+  "languages": [
+   "Python",
+   "Markdown"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Nate Herk",
+  "local_path": "other_skills/curated-youtube/token-optimization/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+  "catalog": "other_skills.json",
+  "skill_name": "vue-components",
+  "description_en": "Specialized AI agent skill for vue components providing best practices and automated workflows.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/curated-youtube/vue-components/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FF04J8FCWYMH48QBD",
+  "catalog": "other_skills.json",
+  "skill_name": "mermaid-diagrammer",
+  "description_en": "Automated generation of Mermaid syntax diagrams (flowcharts, sequence diagrams, ERD, C4 architecture, and state machines).",
+  "languages": [
+   "Mermaid",
+   "Markdown"
+  ],
+  "frameworks": [],
+  "libs": [
+   "mermaid-cli"
+  ],
+  "repo_name": "Mckay Wrigley",
+  "local_path": "other_skills/curated-youtube/mermaid-diagrammer/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FGN0MWZAFZYXN7109",
+  "catalog": "other_skills.json",
+  "skill_name": "get-shit-done",
+  "description_en": "High-velocity autonomous engineering workflow framework moving agents from idea to verified delivery with minimal friction.",
+  "languages": [
+   "Markdown",
+   "Shell"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "GSD",
+  "local_path": "other_skills/curated-youtube/get-shit-done/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FV8AC72Q93QPP5PPE",
+  "catalog": "other_skills.json",
+  "skill_name": "python-concessionarias-automation",
+  "description_en": "RPA browser automation and API extraction for Brazilian electric power concessionaire portals (Cemig, Energisa, Equatorial, Coelba) and invoice processing.",
+  "languages": [
+   "Python"
+  ],
+  "frameworks": [
+   "Selenium",
+   "Requests"
+  ],
+  "libs": [
+   "PyMuPDF",
+   "pdfplumber",
+   "beautifulsoup4"
+  ],
+  "repo_name": "MaxSkills",
+  "local_path": "other_skills/curated-youtube/python-concessionarias-automation/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD178VHCNATWBR63059T",
+  "catalog": "awesome_skills.json",
+  "skill_name": "007",
+  "description_en": "Security audit, hardening, threat modeling (STRIDE/PASTA), Red/Blue Team, OWASP checks, code review, incident response, and infrastructure security for any project.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/007/SKILL.md"
+ }
+]

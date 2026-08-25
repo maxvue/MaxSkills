@@ -1,0 +1,482 @@
+[
+ {
+  "id": "01M0GCFD2WF3KY4MEF65GA4Z0N",
+  "skill_name": "pdf-official",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/pdf-official/SKILL.md",
+  "description_en": "This guide covers essential PDF processing operations using Python libraries and command-line tools. For advanced features, JavaScript libraries, and detailed examples, see reference.md. If you need to fill out a PDF form, read forms.md and follow its instructions.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Ensina processamento de PDF (extração, preenchimento de formulários) via bibliotecas Python/JS, enquanto engeapp e AgenteDeBolso geram e leem PDF em PHP (dompdf, mpdf, TCPDF, FPDI, spatie/pdf-to-text) — os conceitos ajudam pouco além do pdftotext; SocialMedia só extrai texto de PDF em temas."
+ },
+ {
+  "id": "01M0GCFD2W6A4Y93GT7BXC1WNZ",
+  "skill_name": "pentest-commands",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/pentest-commands/SKILL.md",
+  "description_en": "Provide a comprehensive command reference for penetration testing tools including network scanning, exploitation, password cracking, and web application testing. Enable quick command lookup during security assessments.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Referência de comandos ofensivos (nmap, cracking de senha, exploração) para pentest de infraestrutura; nenhum dos três projetos faz security assessment ofensivo — as auditorias de segurança são de código (mass assignment, PII, LGPD)."
+ },
+ {
+  "id": "01M0GCFD2WXG9G4D76WGWER4GZ",
+  "skill_name": "people-data",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/people-data/SKILL.md",
+  "description_en": "Research LinkedIn professional profiles and public business-contact data, including email/phone lookup, people search, and YouTube channel business-email discovery.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Prospecção de perfis do LinkedIn e busca de e-mail/telefone de contatos comerciais; o módulo de leads do engeapp e a pesquisa de marca do SocialMedia não usam LinkedIn (só Meta), e AgenteDeBolso é finanças pessoais."
+ },
+ {
+  "id": "01M0GCFD2WTE6K710KA8GER4J3",
+  "skill_name": "performance-optimization",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/performance-optimization/SKILL.md",
+  "description_en": "Optimizes application performance. Use when performance requirements exist, when you suspect performance regressions, or when Core Web Vitals or load times need improvement. Use when profiling reveals bottlenecks that need fixing.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Metodologia genérica de otimização com foco em Core Web Vitals e tempo de carga; útil para as SPAs Vue 3.6 + Vite dos três projetos, mas sem nada específico de Octane, Horizon ou MaxPinia."
+ },
+ {
+  "id": "01M0GCFD2X2VQQ90RR7NWSRXHA",
+  "skill_name": "performance-optimizer",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/performance-optimizer/SKILL.md",
+  "description_en": "Identifies and fixes performance bottlenecks in code, databases, and APIs. Measures before and after to prove improvements.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 6,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Disciplina de medir antes/depois ao caçar gargalos em código, banco e APIs; aplicável a queries Eloquent lentas e N+1 nos três projetos, mas é prática genérica sem conhecimento de MySQL/PostgreSQL específico da stack."
+ },
+ {
+  "id": "01M0GCFD2XXH4GMRCMEESY0Z05",
+  "skill_name": "performance-profiling",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/performance-profiling/SKILL.md",
+  "description_en": "Performance profiling principles. Measurement, analysis, and optimization techniques.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Princípios de profiling (medição, análise, otimização) que complementam o Pulse/Telescope do engeapp e o Clockwork/Debugbar do AgenteDeBolso, mas sem instruções para essas ferramentas concretas."
+ },
+ {
+  "id": "01M0GCFD2X04MEFQR033R9YR8G",
+  "skill_name": "performance-testing-review-multi-agent-review",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/performance-testing-review-multi-agent-review/SKILL.md",
+  "description_en": "Use when working with performance testing review multi agent review",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Revisão multi-agente de testes de performance/carga; nenhum dos projetos mantém suíte de load testing — a qualidade é garantida por Pest, Vitest e Dusk, então o uso seria raro."
+ },
+ {
+  "id": "01M0GCFD2X4RJ1EH6PX3328W6S",
+  "skill_name": "photopea-embedded-editor",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/photopea-embedded-editor/SKILL.md",
+  "description_en": "Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and the full Photoshop-compatible API.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Embarcar o editor Photopea com API compatível com Photoshop (camadas, texto, filtros) em app web; só tangencia o SocialMedia, que faz direção de arte e overlay tipográfico, mas lá a composição é server-side (imagick/ComfyUI), não editor embarcado."
+ },
+ {
+  "id": "01M0GCFD2XG5VAQXJDH7A9C0VN",
+  "skill_name": "php-pro",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/php-pro/SKILL.md",
+  "description_en": "Write idiomatic PHP code with generators, iterators, SPL data",
+  "fase1_notas": {
+   "engeapp": 7,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 7
+  },
+  "fase1_rationale": "PHP idiomático moderno com generators, iterators e estruturas SPL — diretamente aplicável aos backends PHP 8.3-8.5 dos três projetos, embora não cubra Laravel nem as convenções (constructor promotion, tipagem explícita, Pint) exigidas."
+ },
+ {
+  "id": "01M0GCFD2XB2MG3ZSAJ5V9NE32",
+  "skill_name": "pi-custom-model",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/pi-custom-model/SKILL.md",
+  "description_en": "Register custom Pi Agent model slugs so saved OpenRouter variants resolve correctly.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Registro de slugs de modelo do Pi Agent para variantes do OpenRouter; os três projetos usam Gemini (e Ollama no SocialMedia) diretamente, sem OpenRouter nem Pi Agent."
+ },
+ {
+  "id": "01M0GCFD2XHT3X9G7B9Q8ASTSV",
+  "skill_name": "pilot-protocol",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/pilot-protocol/SKILL.md",
+  "description_en": "Give an AI agent a permanent network address, encrypted P2P messaging, and an installable app store via Pilot Protocol",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Protocolo experimental de endereço de rede permanente, mensageria P2P criptografada e app store para agentes; não há nenhuma superfície P2P nos três SaaS Laravel."
+ },
+ {
+  "id": "01M0GCFD2XM5V86F65QCFZJQM9",
+  "skill_name": "pipecat-friday-agent",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/pipecat-friday-agent/SKILL.md",
+  "description_en": "Build a low-latency, Iron Man-inspired tactical voice assistant (F.R.I.D.A.Y.) using Pipecat, Gemini, and OpenAI.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Assistente de voz de baixa latência em Python com Pipecat e OpenAI; engeapp tem VoIP/LiveKit e AgenteDeBolso grava áudio com FFmpeg, mas a stack é PHP+Gemini e não há STT/pipeline de voz Python."
+ },
+ {
+  "id": "01M0GCFD2XWXTXZEYYY4FPYVBX",
+  "skill_name": "plaid-fintech",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/plaid-fintech/SKILL.md",
+  "description_en": "Expert patterns for Plaid API integration including Link token",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Padrões de agregação bancária com Plaid (Link token, contas, transações, webhooks) — conceitualmente próximos do Open Finance via Pluggy do AgenteDeBolso (mapeamento de categorias, webhook), embora o provider seja outro; engeapp só faz cobrança e SocialMedia nada disso."
+ },
+ {
+  "id": "01M0GCFD2XVMQXM4KSCHNJJAKP",
+  "skill_name": "planning-with-files",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/planning-with-files/SKILL.md",
+  "description_en": "Work like Manus: Use persistent markdown files as your \\\"working memory on disk.\\\"",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Usar arquivos markdown persistentes como memória de trabalho do agente; casa bem com o fluxo auditoria→spec→plano→TDD com artefatos em docs/superpowers do SocialMedia e com a exigência de plano antes de codar dos outros dois."
+ },
+ {
+  "id": "01M0GCFD2XVJR5D6528DX8MQWH",
+  "skill_name": "playwright-java",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/playwright-java/SKILL.md",
+  "description_en": "Scaffold, write, debug, and enhance enterprise-grade Playwright E2E tests in Java using Page Object Model, JUnit 5, Allure reporting, and parallel execution.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 1,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Testes E2E Playwright em Java com Page Object Model, JUnit 5 e Allure; Java é irrelevante nos três, e mesmo o Playwright do SocialMedia é só um smoke visual headless em JS."
+ },
+ {
+  "id": "01M0GCFD2XVJA45GJXCGSNB915",
+  "skill_name": "podcast-generation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/podcast-generation/SKILL.md",
+  "description_en": "Generate real audio narratives from text content using Azure OpenAI's Realtime API.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Geração de narrativa em áudio pela Realtime API do Azure OpenAI; provider explicitamente irrelevante nos três dossiês e nenhum projeto produz podcast — o SocialMedia gera imagem/copy, não áudio."
+ },
+ {
+  "id": "01M0GCFD2XQDEFEKPYCQ937K72",
+  "skill_name": "polis-protocol",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/polis-protocol/SKILL.md",
+  "description_en": "Coordinate multi-vendor AI agents as a self-improving team — a learning router assigns work by track record and citizens can amend the protocol's own rules.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Orquestração de agentes multi-vendor com roteador que aprende por histórico e regras emendáveis; os projetos usam um único provider (Gemini) e pipelines de IA determinísticos em Jobs, não um mercado de agentes."
+ },
+ {
+  "id": "01M0GCFD2Y9KDF9NW85H9XAC1X",
+  "skill_name": "postgres-readonly-queries",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/postgres-readonly-queries/SKILL.md",
+  "description_en": "Execute safe read-only SQL queries against PostgreSQL databases with multi-connection support and defense-in-depth write protection.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Execução segura de SQL somente leitura em PostgreSQL com proteção contra escrita; útil para inspecionar o PostgreSQL 18 do SocialMedia sem risco, mas engeapp e AgenteDeBolso rodam MariaDB/MySQL 8."
+ },
+ {
+  "id": "01M0GCFD2YFMHARNVYFK2M7T8F",
+  "skill_name": "postgresql",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/postgresql/SKILL.md",
+  "description_en": "Design a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, performance patterns, and advanced features",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 9,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Modelagem de schema PostgreSQL (tipos, índices, constraints, recursos avançados) — central para o SocialMedia, que usa PostgreSQL 18 com ULID, índices únicos parciais e soft delete em cascata; irrelevante para os projetos MySQL."
+ },
+ {
+  "id": "01M0GCFD2YHBS0QSE1DADZH3WK",
+  "skill_name": "postgresql-cli",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/postgresql-cli/SKILL.md",
+  "description_en": "PostgreSQL interactive terminal (psql) reference and usage guide. Use this skill whenever the user mentions psql, PostgreSQL command-line client, backslash commands, meta-commands, \\d commands, database inspection, SQL scripting in PostgreSQL, importing/exporting data with psql, \\copy,...",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 7,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Referência do psql (meta-comandos \\d, \\copy, scripting, import/export); ajuda na inspeção diária do banco do SocialMedia e no db:bootstrap, mas não serve a MariaDB/MySQL dos outros dois."
+ },
+ {
+  "id": "01M0GCFD2YR90TX9XYTKE9J9Y1",
+  "skill_name": "postgresql-optimization",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/postgresql-optimization/SKILL.md",
+  "description_en": "PostgreSQL database optimization workflow for query tuning, indexing strategies, performance analysis, and production database management.",
+  "fase1_notas": {
+   "engeapp": 1,
+   "SocialMedia": 8,
+   "AgenteDeBolso": 1
+  },
+  "fase1_rationale": "Tuning de query, estratégia de índices e análise de performance em PostgreSQL; aplicável às consultas de calendário editorial e índices parciais do SocialMedia, inútil nos bancos MySQL de engeapp e AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD2Y83F94XZ5NRW47FQP",
+  "skill_name": "postman-newman-automation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/postman-newman-automation/SKILL.md",
+  "description_en": "Generate Newman CLI commands, configuration files, Jenkins pipeline scripts, and shell automation for running Postman collections in CI/CD or local environments. Use this skill whenever the user wants to run Postman collections from the command line, automate API tests, integrate...",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Automação de coleções Postman com Newman e pipelines Jenkins/CI; os três projetos testam API por Pest (feature tests) e não têm Docker/CI nem coleções Postman versionadas."
+ },
+ {
+  "id": "01M0GCFD2YM129GKBMGN2VYSYD",
+  "skill_name": "pr-merge-champion",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/pr-merge-champion/SKILL.md",
+  "description_en": "Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-reviews, and structured documentation.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Preparar PRs com diff limpo, auto-revisão e descrição estruturada; boa higiene aplicável ao fluxo de worktree→merge dos três, mas eles trabalham em branch própria sem revisão externa formal de PR."
+ },
+ {
+  "id": "01M0GCFD2Y4A81XN48K2AAJ6FY",
+  "skill_name": "prisma-expert",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/prisma-expert/SKILL.md",
+  "description_en": "You are an expert in Prisma ORM with deep knowledge of schema design, migrations, query optimization, relations modeling, and database operations across PostgreSQL, MySQL, and SQLite.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "ORM Prisma (schema, migrations, relações) em stack Node; o ORM dos três projetos é Eloquent e Prisma consta explicitamente como tema irrelevante nos dossiês."
+ },
+ {
+  "id": "01M0GCFD2ZMTQ2W164B7J908B6",
+  "skill_name": "privacy-mask",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/privacy-mask/SKILL.md",
+  "description_en": "Mask, redact, anonymize and censor sensitive information (PII) in screenshots and images — phone numbers, emails, IDs, API keys, crypto wallets, credit cards, passwords, and more. Uses OCR (Tesseract + RapidOCR) with 47 regex rules and optional NER (GLiNER) to detect private data and...",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Mascarar PII em capturas de tela via OCR (Tesseract/RapidOCR) e regras regex para CPF, cartão e chaves; ajuda pontualmente ao anexar prints de bug em engeapp e AgenteDeBolso (dados financeiros sensíveis), mas não é fluxo de código do produto."
+ },
+ {
+  "id": "01M0GCFD2Z7RD5RM81NCX91R1G",
+  "skill_name": "product-decision-agent",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/product-decision-agent/SKILL.md",
+  "description_en": "中文产品决策 Agent。用于需求优先级、Roadmap、增长、留存、运营、数据异常、A/B Test、项目延期和跨团队协作；先判断事实、阶段、核心阻塞与主导机制，再给出下一步、停止清单和切换条件。默认中文，不引用原文或讲历史。",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Agente de decisão de produto em chinês (priorização, roadmap, A/B test, retenção); além de o idioma contrariar a convenção pt-BR, é trabalho de gestão e não de engenharia nos três repositórios."
+ },
+ {
+  "id": "01M0GCFD2Z4ZAPW58V72G4BNBH",
+  "skill_name": "product-design",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/product-design/SKILL.md",
+  "description_en": "Design de produto nivel Apple — sistemas visuais, UX flows, acessibilidade, linguagem visual proprietaria, design tokens, prototipagem e handoff. Cobre Figma, design systems, tipografia, cor, espacamento, motion design e principios de design cognitivo.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Design de produto com design tokens, tipografia, cor, espaçamento e acessibilidade; conversa com o design system Max e com os tokens SCSS/dark mode/WCAG do AgenteDeBolso, mas é centrado em Figma e não nos componentes Max/UnoCSS reais."
+ },
+ {
+  "id": "01M0GCFD2Z5CGC8BR0A9H2VNPJ",
+  "skill_name": "product-inventor",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/product-inventor/SKILL.md",
+  "description_en": "Product Inventor e Design Alchemist de nivel maximo — combina Product Thinking, Design Systems, UI Engineering, Psicologia Cognitiva, Storytelling e execucao impecavel nivel Jobs/Apple.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Persona de inventor de produto misturando product thinking, storytelling e psicologia cognitiva; pode inspirar a concepção de telas novas, mas entrega pouco acionável perto do design system Max já definido."
+ },
+ {
+  "id": "01M0GCFD2ZNSG8S30PKPSF4YTV",
+  "skill_name": "product-manager",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/product-manager/SKILL.md",
+  "description_en": "Senior PM agent with 6 knowledge domains, 30+ frameworks, 12 templates, and 32 SaaS metrics with formulas. Pure Markdown, zero scripts.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 4,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Frameworks e métricas SaaS de PM sênior (30+ frameworks, 32 métricas); os três são SaaS e AgenteDeBolso tem planos/cotas, mas o trabalho pedido ao agente é implementação, não discovery de produto."
+ },
+ {
+  "id": "01M0GCFD2ZDWGJ9SCE95JYR2J6",
+  "skill_name": "product-marketing",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/product-marketing/SKILL.md",
+  "description_en": "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wants to...",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Construção de documento de contexto de marketing (posicionamento, ICP, público-alvo); tem eco no SocialMedia, cujo domínio inclui posicionamento de marca do cliente e personagens, mas é conteúdo de marketing e não código."
+ },
+ {
+  "id": "01M0GCFD2Z5MNX947GZTDX7XMS",
+  "skill_name": "production-code-audit",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/production-code-audit/SKILL.md",
+  "description_en": "Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then systematically transform it to production-grade, corporate-level professional quality with optimizations",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Varredura autônoma linha a linha do codebase para elevar a qualidade a nível de produção; combina com as auditorias versionadas em docs/audit do AgenteDeBolso, mas a transformação automática em massa conflita com a regra de nunca alterar código sem plano aprovado."
+ },
+ {
+  "id": "01M0GCFD2Z9FZQB8FMVGPFMK6C",
+  "skill_name": "progressive-estimation",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/progressive-estimation/SKILL.md",
+  "description_en": "Estimate AI-assisted and hybrid human+agent development work with research-backed PERT statistics and calibration feedback loops",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 3
+  },
+  "fase1_rationale": "Estimativa PERT com calibração para trabalho híbrido humano+agente; nenhum dos três projetos mantém processo de estimativa formal — o fluxo é spec, plano e execução em worktree."
+ },
+ {
+  "id": "01M0GCFD2ZHB8HMYK9GC35P70Q",
+  "skill_name": "project-development",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/project-development/SKILL.md",
+  "description_en": "This skill covers the principles for identifying tasks suited to LLM processing, designing effective project architectures, and iterating rapidly using agent-assisted development.",
+  "fase1_notas": {
+   "engeapp": 4,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Princípios para escolher tarefas adequadas a LLM, desenhar arquitetura de projeto e iterar com apoio de agente; útil ao pipeline de IA por status do SocialMedia, mas em nível abstrato e sem tocar Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD2ZV7Y48SQC2FS41B06",
+  "skill_name": "prompt-engineering",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/prompt-engineering/SKILL.md",
+  "description_en": "Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when user wants to improve prompts, learn prompting strategies, or debug agent behavior.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 8,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Padrões de prompting e depuração de comportamento de agente; alto para o SocialMedia, onde prompt engineering para Gemini via laravel/ai é tema central (copywriting, direção de arte, dedup de notícias), e moderado nos usos de Gemini de engeapp e AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD2ZTQTPNZ9A65E1C90V",
+  "skill_name": "prompt-engineering-patterns",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/prompt-engineering-patterns/SKILL.md",
+  "description_en": "Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controllability.",
+  "fase1_notas": {
+   "engeapp": 6,
+   "SocialMedia": 8,
+   "AgenteDeBolso": 6
+  },
+  "fase1_rationale": "Técnicas avançadas de prompt para confiabilidade e controlabilidade da saída do LLM; valiosa para a saída estruturada exigida pelos Agents/Tools do SocialMedia e para extração de dados de documentos por IA no engeapp e categorização no AgenteDeBolso."
+ },
+ {
+  "id": "01M0GCFD30J8D485W9RQKRY1FP",
+  "skill_name": "protect-mcp-governance",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/protect-mcp-governance/SKILL.md",
+  "description_en": "Agent governance skill for MCP tool calls — Cedar policy authoring, shadow-to-enforce rollout, and Ed25519 receipt verification.",
+  "fase1_notas": {
+   "engeapp": 2,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 2
+  },
+  "fase1_rationale": "Governança de chamadas de ferramentas MCP com políticas Cedar e recibos assinados em Ed25519; os projetos expõem tools de IA dentro do próprio Laravel (laravel/ai, Gemini tool calling), sem camada MCP governada."
+ },
+ {
+  "id": "01M0GCFD3032Y7ZNNK40624YXT",
+  "skill_name": "protocol-reverse-engineering",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/protocol-reverse-engineering/SKILL.md",
+  "description_en": "Comprehensive techniques for capturing, analyzing, and documenting network protocols for security research, interoperability, and debugging.",
+  "fase1_notas": {
+   "engeapp": 3,
+   "SocialMedia": 2,
+   "AgenteDeBolso": 4
+  },
+  "fase1_rationale": "Captura e documentação de protocolos de rede para interoperabilidade; no AgenteDeBolso poderia apoiar a leitura do APK descompilado do 'Minhas Finanças' e no engeapp o SIP/VoIP, mas ambos são cenários raros."
+ },
+ {
+  "id": "01M0GCFD304DX6KA0TEB5F5N66",
+  "skill_name": "prototype",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/prototype/SKILL.md",
+  "description_en": "Build a throwaway prototype to flesh out a design — a runnable terminal app for state/business-logic questions, or several radically different UI variations toggleable from one route.",
+  "fase1_notas": {
+   "engeapp": 5,
+   "SocialMedia": 5,
+   "AgenteDeBolso": 5
+  },
+  "fase1_rationale": "Construir protótipo descartável para explorar regra de negócio ou variações de UI numa rota única; técnica razoável para validar telas Vue antes de commitar, mas genérica e sem aderência aos componentes Max."
+ },
+ {
+  "id": "01M0GCFD3014F2SESY93TKC447",
+  "skill_name": "pubmed-database",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/pubmed-database/SKILL.md",
+  "description_en": "Direct REST API access to PubMed. Advanced Boolean/MeSH queries, E-utilities API, batch processing, citation management. For Python workflows, prefer biopython (Bio.Entrez). Use this for direct HTTP/REST work or custom API implementations.",
+  "fase1_notas": {
+   "engeapp": 0,
+   "SocialMedia": 0,
+   "AgenteDeBolso": 0
+  },
+  "fase1_rationale": "Consulta à API E-utilities do PubMed com queries MeSH para literatura biomédica; nenhum dos projetos (fotovoltaico, redes sociais, finanças pessoais) toca domínio de saúde."
+ },
+ {
+  "id": "01M0GCFD30QMZX2QE0Y2QXCJP9",
+  "skill_name": "puppeteer-skill",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/puppeteer-skill/SKILL.md",
+  "description_en": "Generates Puppeteer scripts for browser automation, scraping, and PDF generation. Triggers on: \"Puppeteer\", \"headless Chrome\", \"page.goto\", \"scrape\", \"PDF generation\".",
+  "fase1_notas": {
+   "engeapp": 7,
+   "SocialMedia": 3,
+   "AgenteDeBolso": 8
+  },
+  "fase1_rationale": "Geração de scripts Puppeteer para automação de navegador, scraping e PDF; engeapp e AgenteDeBolso têm puppeteer nas dependências e usam verificação empírica de UI por navegador headless (AgenteDeBolso a prescreve), enquanto o SocialMedia usa Playwright para isso."
+ }
+]

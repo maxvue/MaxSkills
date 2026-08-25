@@ -1,0 +1,481 @@
+[
+ {
+  "id": "01M0GCFD2DR6FZYFYECTYG4CGA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "huggingface-spaces",
+  "description_en": "Build, deploy, and maintain applications on Hugging Face Spaces — Gradio / Docker / Static SDKs, ZeroGPU and dedicated hardware, model loading, debugging, buckets, inference providers, community grants. Use whenever the user asks to create or host an app on Hugging Face, port code onto...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [
+   "Docker"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/huggingface-spaces/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DPF4KPHDA102JJCE5",
+  "catalog": "awesome_skills.json",
+  "skill_name": "huggingface-tool-builder",
+  "description_en": "Use this skill when the user wants to build tool/scripts or achieve a task where using data from the Hugging Face API would help. This is especially useful when chaining or combining API calls or the task will be repeated/automated. This Skill creates a reusable script to fetch, enrich...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/huggingface-tool-builder/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DBNYN5H55YHR14WAQ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hugo-to-markdown",
+  "description_en": "Convert Hugo documentation sites and Hugo-managed content into standard Markdown. Use when Agent needs to inspect a local Hugo repository, read hugo.toml or config files, content/, archetypes/, layouts/_shortcodes/, layouts/_markup/, and related docs content, then produce Markdown...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hugo-to-markdown/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2DJ1CVHWFRHS6V054G",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hybrid-cloud-networking",
+  "description_en": "Configure secure, high-performance connectivity between on-premises and cloud environments using VPN, Direct Connect, and ExpressRoute.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hybrid-cloud-networking/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2D2A373QGYF4RR6WZ6",
+  "catalog": "awesome_skills.json",
+  "skill_name": "hyperexecute-skill",
+  "description_en": "Operates HyperExecute end-to-end for TestMu AI/LambdaTest cloud test execution: analyze projects, create YAML, validate locally, run CLI jobs, debug failures, and wire CI. Use when the user mentions HyperExecute, hyperexecute.yaml, HyperExecute CLI, autosplit, matrix execution,...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/hyperexecute-skill/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2ENHQV7H2M5XGZ6J35",
+  "catalog": "awesome_skills.json",
+  "skill_name": "iconsax-library",
+  "description_en": "Extensive icon library and AI-driven icon generation skill for premium UI/UX design.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/iconsax-library/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2E3W4CTM1QP0DYDEMC",
+  "catalog": "awesome_skills.json",
+  "skill_name": "idea-autopsy",
+  "description_en": "Autopsy a business idea before you build it: kill-list check, five hard filters, a free-AI one-prompt test, live ad-market verification, and a verdict with a named kill-pattern.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/idea-autopsy/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2EETA9RDBX8M8B31NJ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "idea-refine",
+  "description_en": "Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on...",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/idea-refine/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2E03E5YR4PZEMT0V06",
+  "catalog": "awesome_skills.json",
+  "skill_name": "image-generator",
+  "description_en": "Generate and edit images using Gemini's Nano Banana Pro model (gemini-3-pro-image-preview). Use this skill when the user asks you to generate images, create visuals, edit photos, create logos, generate product mockups, or perform any image generation/editing task.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/image-generator/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2ES5MPWHMBRZ70GBE7",
+  "catalog": "awesome_skills.json",
+  "skill_name": "imagen",
+  "description_en": "AI image generation skill powered by Google Gemini, enabling seamless visual content creation for UI placeholders, documentation, and design assets.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/imagen/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2EYRDGSH60X1BQ83FV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "improve-codebase-architecture",
+  "description_en": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+  "languages": [
+   "HTML"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/improve-codebase-architecture/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2EHZHN8T84W5SBSYH1",
+  "catalog": "awesome_skills.json",
+  "skill_name": "indexing-issue-auditor",
+  "description_en": "High-level technical SEO and site architecture auditor. Invoke to scan local or live environments for indexing, crawl budget, and structural errors.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/indexing-issue-auditor/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2E6KXC8CQ224G3X1J6",
+  "catalog": "awesome_skills.json",
+  "skill_name": "industrial-brutalist-ui",
+  "description_en": "Use when creating raw industrial or tactical telemetry UIs with rigid grids, stark typography, CRT effects, and high-density data.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/industrial-brutalist-ui/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2F1FZW7M02Y4SF2WRA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "ingest-youtube",
+  "description_en": "Pull a YouTube video transcript into a queryable markdown vault with yt-dlp subtitle discovery, VTT cleanup, metadata frontmatter, and capture-seed stubs.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/ingest-youtube/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2FYBEJ534CQDRMG8PB",
+  "catalog": "awesome_skills.json",
+  "skill_name": "instagram",
+  "description_en": "Integracao completa com Instagram via Graph API. Publicacao, analytics, comentarios, DMs, hashtags, agendamento, templates e gestao de contas Business/Creator.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/instagram/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2FKWYX3XB6SEYRDBWR",
+  "catalog": "awesome_skills.json",
+  "skill_name": "javascript-mastery",
+  "description_en": "33+ essential JavaScript concepts every developer should know, inspired by [33-js-concepts](https://github.com/leonardomso/33-js-concepts).",
+  "languages": [
+   "JavaScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/javascript-mastery/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2F7Y6BA9KP4YTWTTC0",
+  "catalog": "awesome_skills.json",
+  "skill_name": "javascript-pro",
+  "description_en": "Master modern JavaScript with ES6+, async patterns, and Node.js APIs. Handles promises, event loops, and browser/Node compatibility.",
+  "languages": [
+   "JavaScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/javascript-pro/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2F6V7CA8RM0MT0V44D",
+  "catalog": "awesome_skills.json",
+  "skill_name": "javascript-testing-patterns",
+  "description_en": "Comprehensive guide for implementing robust testing strategies in JavaScript/TypeScript applications using modern testing frameworks and best practices.",
+  "languages": [
+   "TypeScript",
+   "JavaScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/javascript-testing-patterns/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2FYZ8V93M1PSZQN3W6",
+  "catalog": "awesome_skills.json",
+  "skill_name": "javascript-typescript-typescript-scaffold",
+  "description_en": "You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.js and frontend applications. Generate complete project structures with modern tooling (pnpm, Vite, N",
+  "languages": [
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/javascript-typescript-typescript-scaffold/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GZBXX303V4Q2J84N2",
+  "catalog": "awesome_skills.json",
+  "skill_name": "jest-skill",
+  "description_en": "Generates Jest unit and integration tests in JavaScript or TypeScript. Covers mocking, snapshots, async testing, and React component testing. Use when user mentions \"Jest\", \"describe/it/expect\", \"jest.mock\", \"toMatchSnapshot\". Triggers on: \"Jest\", \"expect().toBe()\", \"jest.mock\",...",
+  "languages": [
+   "JavaScript"
+  ],
+  "frameworks": [
+   "React"
+  ],
+  "libs": [
+   "Jest"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/jest-skill/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2G2HNETVWAQG674D9B",
+  "catalog": "awesome_skills.json",
+  "skill_name": "junit-5-skill",
+  "description_en": "Generates production-grade JUnit 5 unit and integration tests in Java. Covers assertions, parameterized tests, lifecycle hooks, mocking with Mockito, and nested tests. Use when user mentions \"JUnit\", \"JUnit 5\", \"@Test\", \"assertEquals\", \"Assertions\", \"Java unit test\". Triggers on:...",
+  "languages": [
+   "Java"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/junit-5-skill/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2G00WK6KS41P7SRVAV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "junta-leiloeiros",
+  "description_en": "Coleta e consulta dados de leiloeiros oficiais de todas as 27 Juntas Comerciais do Brasil. Scraper multi-UF, banco SQLite, API FastAPI e exportacao CSV/JSON.",
+  "languages": [
+   "Python",
+   "SQL"
+  ],
+  "frameworks": [
+   "FastAPI"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/junta-leiloeiros/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GX86709XYGPB10RAT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "k6-load-testing",
+  "description_en": "Comprehensive k6 load testing skill for API, browser, and scalability testing. Write realistic load scenarios, analyze results, and integrate with CI/CD.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/k6-load-testing/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GVCZP2QCSBJB9SHQW",
+  "catalog": "awesome_skills.json",
+  "skill_name": "k8s-security-policies",
+  "description_en": "Comprehensive guide for implementing NetworkPolicy, PodSecurityPolicy, RBAC, and Pod Security Standards in Kubernetes.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/k8s-security-policies/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GGEQRR8ANQMAP3AME",
+  "catalog": "awesome_skills.json",
+  "skill_name": "kaizen",
+  "description_en": "Guide for continuous improvement, error proofing, and standardization. Use this skill when the user wants to improve code quality, refactor, or discuss process improvements.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/kaizen/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GCQEKWAXMRN95ANA8",
+  "catalog": "awesome_skills.json",
+  "skill_name": "keyword-extractor",
+  "description_en": "Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract keywords for given text.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/keyword-extractor/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GC291YTRCPMJW7MCT",
+  "catalog": "awesome_skills.json",
+  "skill_name": "kotler-macro-analyzer",
+  "description_en": "Professional PESTEL/SWOT analysis agent based on Kotler's methodology for strategic market audits.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/kotler-macro-analyzer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GPAPNJ4RB1VFA0D86",
+  "catalog": "awesome_skills.json",
+  "skill_name": "kpi-dashboard-design",
+  "description_en": "Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/kpi-dashboard-design/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GPBR928E9J99J85NM",
+  "catalog": "awesome_skills.json",
+  "skill_name": "kubestellar-console",
+  "description_en": "Multi-cluster Kubernetes dashboard with AI-powered operations via MCP server and 10+ built-in agent skills",
+  "languages": [],
+  "frameworks": [],
+  "libs": [
+   "Kubernetes"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/kubestellar-console/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GK9M5943Q0F5BYCR2",
+  "catalog": "awesome_skills.json",
+  "skill_name": "lambdatest-agent-skills",
+  "description_en": "Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual, and cloud testing in 15+ languages.",
+  "languages": [
+   "Python"
+  ],
+  "frameworks": [],
+  "libs": [
+   "Playwright",
+   "Selenium",
+   "Jest",
+   "Pytest"
+  ],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/lambdatest-agent-skills/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GKJH7YKGFVHJRJXPP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "langchain-architecture",
+  "description_en": "Master the LangChain framework for building sophisticated LLM applications with agents, chains, memory, and tool integration.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/langchain-architecture/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2GTMX1QXNTAK3BKGRY",
+  "catalog": "awesome_skills.json",
+  "skill_name": "langfuse",
+  "description_en": "Expert in Langfuse - the open-source LLM observability platform.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/langfuse/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2HNKDXHCEBP4415MMZ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "laravel-expert",
+  "description_en": "Senior Laravel Engineer role for production-grade, maintainable, and idiomatic Laravel solutions. Focuses on clean architecture, security, performance, and modern standards (Laravel 10/11+).",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/laravel-expert/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2H1JCSMBRGN91XASDH",
+  "catalog": "awesome_skills.json",
+  "skill_name": "legacy-modernizer",
+  "description_en": "Refactor legacy codebases, migrate outdated frameworks, and implement gradual modernization. Handles technical debt, dependency updates, and backward compatibility.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/legacy-modernizer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2HPF8GESN2A2A62PXV",
+  "catalog": "awesome_skills.json",
+  "skill_name": "leiloeiro-risco",
+  "description_en": "Analise de risco em leiloes de imoveis. Score 36 pontos, riscos juridicos/financeiros/operacionais, stress test 4 cenarios e ROI ponderado por risco.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/leiloeiro-risco/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2H2XN4XBDMYZ4KQ4SG",
+  "catalog": "awesome_skills.json",
+  "skill_name": "lightning-architecture-review",
+  "description_en": "Review Bitcoin Lightning Network protocol designs, compare channel factory approaches, and analyze Layer 2 scaling tradeoffs. Covers trust models, on-chain footprint, consensus requirements, HTLC/PTLC compatibility, liveness, and watchtower support.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/lightning-architecture-review/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2JBP5B20V4VXBXMMS7",
+  "catalog": "awesome_skills.json",
+  "skill_name": "linkedin-cli",
+  "description_en": "Use when automating LinkedIn via CLI: fetch profiles, search people/companies, send messages, manage connections, create posts, and Sales Navigator.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/linkedin-cli/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2J5Z4K066Q07RCT604",
+  "catalog": "awesome_skills.json",
+  "skill_name": "linkedin-content-generator",
+  "description_en": "AI-powered LinkedIn content suite: generate posts, carousels, newsletters, and 30-day calendars with niche-specific SEO rules and a reinforcement-learning personal memory system.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/linkedin-content-generator/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2J3NNS2E2G5J1JVJCK",
+  "catalog": "awesome_skills.json",
+  "skill_name": "linkedin-post-writer",
+  "description_en": "Draft LinkedIn posts from 16 tested hook formulas mapped to engagement goals (comments, reposts, likes, saves), with 2026 algorithm formatting rules and an AI-tell scrub pass before publishing.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/linkedin-post-writer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD2J33CD0AZH2Q2M3M02",
+  "catalog": "awesome_skills.json",
+  "skill_name": "linkedin-profile-optimizer",
+  "description_en": "High-intent expert for LinkedIn profile checks, authority building, and SEO optimization. Invoke to audit, rewrite, and enhance profiles for top 1% positioning.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/linkedin-profile-optimizer/SKILL.md"
+ }
+]

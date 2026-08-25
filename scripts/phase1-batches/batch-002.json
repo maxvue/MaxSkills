@@ -1,0 +1,712 @@
+[
+ {
+  "id": "01M0G4G52ESF7J4C064VDK19S4",
+  "catalog": "index.json",
+  "skill_name": "laravel-reverb-websockets-best-practices",
+  "description_en": "Use when configuring, optimizing, debugging, or deploying Laravel Reverb WebSocket server in Engeapp. Covers WebSocket configuration, Vite client broadcasting, Caddy WSS reverse proxy, Supervisor, and live events.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Laravel Reverb"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52EM5N1TD8M4V7AFVA3",
+  "catalog": "index.json",
+  "skill_name": "laravel-scout-searchable-best-practices",
+  "description_en": "Use when implementing or optimizing full-text search (Laravel Scout + Meilisearch) in Engeapp. Covers HasScoutMeilisearch trait, toSearchableArray, meilisearchSettings, index configuration, and searchSafe macro fallback.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Laravel Scout",
+   "Meilisearch"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52E92NHZMVBF5M82SWK",
+  "catalog": "index.json",
+  "skill_name": "laravel-security-hardening-best-practices",
+  "description_en": "Use when designing, reviewing, or debugging Laravel application security. Covers Eloquent encryption, mass assignment protection, SQLi/IDOR mitigation, secure controllers, file upload hardening, security headers, and OWASP Top 10.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Eloquent ORM"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FYW6F10SWM38VNXAK",
+  "catalog": "index.json",
+  "skill_name": "laravel-service-providers-dependency-injection-best-practices",
+  "description_en": "Use when creating or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Container, PHP 8 constructor property promotion, dependency injection, and Octane memory safety. Covers objectives and core workflows.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "FrankenPHP"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FH4PYVMV8YJFA2PNM",
+  "catalog": "index.json",
+  "skill_name": "laravel-services-best-practices",
+  "description_en": "Use when creating, refactoring, or reviewing Laravel Service classes, applying Single Responsibility Principle, dependency injection, and standardized error handling. Covers objectives and core workflows.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-services-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FN6C0J033TB526R94",
+  "catalog": "index.json",
+  "skill_name": "laravel-social-media-oauth-token-lifecycle-management-best-practices",
+  "description_en": "Use when managing social media credentials (Meta: Instagram/Facebook) in Engeapp. Covers SocialMediaCredential model (encrypted access_token, token_expires_at), manual rotation via Ziggy routes, and MetaService resolution.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Laravel Socialite",
+   "LinkedIn API",
+   "TikTok API"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FFPJQ6FJFN3ZV390R",
+  "catalog": "index.json",
+  "skill_name": "laravel-socialite-oauth-integration-best-practices",
+  "description_en": "Use when implementing or debugging social login OAuth with Laravel Socialite (Google/Facebook). Covers services.php, routes/auth.php, UserSolarCompany creation, and Pest mocking.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Laravel Socialite",
+   "Pest PHP",
+   "Ziggy"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F8KMB5WX6JP3M717H",
+  "catalog": "index.json",
+  "skill_name": "laravel-task-scheduling-best-practices",
+  "description_en": "Use when creating, configuring, or debugging Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, and Studio Totem integration. Covers objectives and core workflows.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FW4DAZHA7HCT9R4AR",
+  "catalog": "index.json",
+  "skill_name": "laravel-telescope-debugging-best-practices",
+  "description_en": "Use when configuring, optimizing, or debugging with Laravel Telescope in Engeapp. Covers config/telescope.php watchers, TelescopeServiceProvider filters, hideSensitiveRequestDetails, viewTelescope gate, and entry pruning.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Laravel Telescope",
+   "Requests"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FKTF5149YTWZCRXZG",
+  "catalog": "index.json",
+  "skill_name": "laravel-trello-api-integration",
+  "description_en": "Use when maintaining or debugging Trello API integration in Engeapp (TrelloService), reading config/api.php, handling webhooks via ProcessTrelloWebhookJob, and running trello Artisan commands. Covers objectives and core workflows.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Trello API"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F5EWFT8TVSJXKCEAM",
+  "catalog": "index.json",
+  "skill_name": "laravel-typescript-transformer-best-practices",
+  "description_en": "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Covers objectives, TypeScript DTO transformation, and language rules.",
+  "languages": [
+   "PHP",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FYXWDZE1HVYMETWMC",
+  "catalog": "index.json",
+  "skill_name": "laravel-user-impersonation-best-practices",
+  "description_en": "Use when implementing, reviewing, or debugging user impersonation in Engeapp with lab404/laravel-impersonate. Covers impersonate routes, user permissions, and Pinia store integration.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Ziggy"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F1YNV899D43G1Q2M5",
+  "catalog": "index.json",
+  "skill_name": "laravel-vue-geocoordinates-maps-best-practices",
+  "description_en": "Use when handling geographic coordinates (Decimal, UTM, DMS) in Engeapp. Covers validating Spatie Data DTOs, persisting LocationCoordinate JSON, integrating Google Maps, and converting UTM/DMS/Decimal via utm-latlng.",
+  "languages": [
+   "JavaScript",
+   "PHP",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Laravel",
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-pinia",
+   "Eloquent ORM"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FW1QKEZZND0K3YDZJ",
+  "catalog": "index.json",
+  "skill_name": "laravel-vue-login-maxauthcard-best-practices",
+  "description_en": "Use when implementing or debugging authentication in Engeapp (Laravel + Ziggy + Vue Router + MaxPinia): AuthenticatedSessionController, cookie sessions, MaxAuthCard, useLogin/useUser stores, and social login redirects. Covers objectives and central authentication stack.",
+  "languages": [
+   "JavaScript",
+   "PHP",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Laravel",
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui",
+   "@maxvue/max-pinia",
+   "Axios",
+   "Laravel Socialite",
+   "Pinia",
+   "Vue Router",
+   "Ziggy"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FQ50YYSPJG6FMWM19",
+  "catalog": "index.json",
+  "skill_name": "laravel-vuefinder-media-library-integration",
+  "description_en": "Use when integrating VueFinder file manager with Spatie MediaLibrary in Engeapp. Covers upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), and VueFinder JSON enrichment. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "PHP",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Laravel",
+   "Vue.js"
+  ],
+  "libs": [
+   "Spatie MediaLibrary",
+   "VueFinder"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F93MEV0NBHVH0EPB9",
+  "catalog": "index.json",
+  "skill_name": "laravel-whatsapp-cloud-api-integration",
+  "description_en": "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Covers objectives and core workflows.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "WhatsApp Cloud API"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F1DZR5DBTQCE2TPR9",
+  "catalog": "index.json",
+  "skill_name": "laravel-ziggy-routing-integration-best-practices",
+  "description_en": "Use when configuring, generating, or consuming Ziggy routes in Vue 3 SPA. Covers config/ziggy.php, ziggy:generate, ziggy.d.ts, route() auto-import, and setRouteResolver.",
+  "languages": [
+   "PHP"
+  ],
+  "frameworks": [
+   "Laravel"
+  ],
+  "libs": [
+   "Ziggy"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FPABCWP4S35T8BE88",
+  "catalog": "index.json",
+  "skill_name": "project-history",
+  "description_en": "Use when you need historical context on how a feature was built, why a past decision was made, or the validation/test-count trail for a completed milestone in this project — the changelog of every marco/fase from Marco 1 through the most recent branch, moved out of CLAUDE.md so it isn't always loaded.",
+  "languages": [],
+  "frameworks": [
+   "UnoCSS"
+  ],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/project-history/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FM2QXVR4AZP8HS2XR",
+  "catalog": "index.json",
+  "skill_name": "project-setup",
+  "description_en": "Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [
+   "Google Gemini SDK",
+   "Redis"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/project-setup/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FGT31WKMJ1B9SRF3B",
+  "catalog": "index.json",
+  "skill_name": "systematic-debugging-best-practices",
+  "description_en": "Use when investigating unexpected behavior, test failures, build errors, or performance issues. Enforces root-cause analysis before proposing fixes based on log evidence. Covers systematic debugging methodology and log inspection.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FEQE51DMZ9YKMEYCA",
+  "catalog": "index.json",
+  "skill_name": "technical-documentation-best-practices",
+  "description_en": "Use when writing or improving technical documentation: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, and Laravel/Vue doc patterns. Covers best practices, debugging strategies, and objectives.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [
+   "ESLint"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/dev-practices/technical-documentation-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F477ME1WMWZNJDX3J",
+  "catalog": "index.json",
+  "skill_name": "typescript-advanced-types-best-practices",
+  "description_en": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config. Covers objectives and core workflows.",
+  "languages": [
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FB0505WH8S40NG5M9",
+  "catalog": "index.json",
+  "skill_name": "typescript-billing-core-architecture-best-practices",
+  "description_en": "Use when designing, implementing, reviewing, or debugging a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, and idempotency. NOT for Engeapp payment integration (which runs on PHP/Laravel with efipay and inter-co SDKs).",
+  "languages": [
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [
+   "EfiPay SDK"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FSR9AMFSDH0NFKVA1",
+  "catalog": "index.json",
+  "skill_name": "typescript-max-banks-efi-gateway-best-practices",
+  "description_en": "Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks.",
+  "languages": [
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [
+   "EfiPay SDK"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F89MV92CC8JTBEX4D",
+  "catalog": "index.json",
+  "skill_name": "typescript-tooling-monorepo-best-practices",
+  "description_en": "Use when solving TypeScript and JavaScript tooling issues: compiler performance (slow tsc), project references with per-package composite, JS to TS migration, module resolution errors, ESM/CJS interop, and tsc debugging. Focuses on ESM-first, moduleResolution bundler, ESLint, typescript-eslint, and Vitest. Triggers on tsconfig, build speed, and type errors.",
+  "languages": [
+   "TypeScript"
+  ],
+  "frameworks": [],
+  "libs": [
+   "ESLint"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FQ8N5D73J59PY8MH4",
+  "catalog": "index.json",
+  "skill_name": "vue-auto-import-components-best-practices",
+  "description_en": "Use when configuring or debugging Vue 3 auto-imports via unplugin-auto-import and unplugin-vue-components in vite.config.ts, tsconfig.json integration, auto-import.d.ts, and MaxComponentsUiResolver.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui",
+   "@maxvue/max-pinia",
+   "@maxvue/max-use",
+   "Axios",
+   "Pinia"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FMY72CNEFPYVGGCK1",
+  "catalog": "index.json",
+  "skill_name": "vue-axios-api-integration-best-practices",
+  "description_en": "Use when integrating Vue 3 front-end with Laravel API via apiGetRoute/apiPostRoute/apiPutRoute/apiDeleteRoute from @maxvue/max-use, Ziggy named routes with credentials, and MaxPinia stores.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-pinia",
+   "@maxvue/max-use",
+   "Axios"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FHZWZ0HXJ6BHDPQKS",
+  "catalog": "index.json",
+  "skill_name": "vue-boleto-utils-best-practices",
+  "description_en": "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FE13XJ9SAZPCH9XWS",
+  "catalog": "index.json",
+  "skill_name": "vue-brand-positioning-character-management-best-practices",
+  "description_en": "Use when building, styling, or debugging Vue 3 brand positioning and character components/stores in SocialMedia module (TabBrandPositioning, TabCharacters, TabThemes, useBrandPositioning, useSocialMediaCharacters). Covers brand positioning, character management, and social media stores.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-pinia",
+   "ESLint",
+   "Pinia",
+   "Stylelint"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FBQ3RGEF7PC4ZNGMC",
+  "catalog": "index.json",
+  "skill_name": "vue-complex-modal-forms-autosave-best-practices",
+  "description_en": "Use when building complex modal forms in Vue 3 with auto-save, live sync indicators, and multi-tab layouts using @maxvue/max-components-ui (MaxModal), max-use, and max-pinia stores. Covers complex modal forms, auto-save state, and multi-tab layouts.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FPPR93JC232GM9B5A",
+  "catalog": "index.json",
+  "skill_name": "vue-dayjs-date-manipulation-best-practices",
+  "description_en": "Use when formatting, parsing, or comparing dates and times in Vue 3 with Day.js. Covers @maxvue/max-use composables (useDateFormat, useTimeAgo), timezones, durations, and strict parsing.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-use",
+   "Day.js"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F6TCCATTNQD1F1K3V",
+  "catalog": "index.json",
+  "skill_name": "vue-debugging-best-practices",
+  "description_en": "Use when diagnosing or fixing Vue 3 reactivity bugs, computed refs, refs not updating, watcher timing, stale data, null template refs, lifecycle hook issues, and async component warnings. Covers best practices, debugging strategies, and objectives.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-debugging-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FR45GY3Q2E1Y36D87",
+  "catalog": "index.json",
+  "skill_name": "vue-eslint-stylelint-quality-standards",
+  "description_en": "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, indent, quotes, comma-dangle, and pseudo-element overrides. Covers objectives, ESLint/Stylelint standards, and execution commands.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "ESLint",
+   "Stylelint"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F736SSZVZDWV8HQ5Q",
+  "catalog": "index.json",
+  "skill_name": "vue-frontend-bug-fixing-best-practices",
+  "description_en": "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing. Covers objectives, project stack, and frontend bug fixing.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "UnoCSS",
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui",
+   "@maxvue/max-pinia",
+   "@maxvue/max-use",
+   "Pinia",
+   "Vue Router"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FJ4QZKB4R0K2TGM0R",
+  "catalog": "index.json",
+  "skill_name": "vue-inputs-masks-validation-best-practices",
+  "description_en": "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui",
+   "@maxvue/max-pinia",
+   "Pinia"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FPRWYTT588CZRBTYB",
+  "catalog": "index.json",
+  "skill_name": "vue-keyboard-shortcuts-navigation-best-practices",
+  "description_en": "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Covers objectives and core workflows.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-use"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FN919TBC6AS95B5SQ",
+  "catalog": "index.json",
+  "skill_name": "vue-max-components-ui-popovers-confirmations-best-practices",
+  "description_en": "Use when implementing tooltips, popovers, dropdown menus, MaxPopover, and confirmation dialogs in Vue 3 using PrimeVue v-tooltip directive registered via MaxComponentsUi.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F058W41SS9BH3M23N",
+  "catalog": "index.json",
+  "skill_name": "vue-max-ecosystem-api-reference",
+  "description_en": "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Covers component props/events/slots, composables, and cached store configurations. Covers objectives, component props, composables, and API navigation.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "UnoCSS",
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui",
+   "@maxvue/max-pinia",
+   "@maxvue/max-use"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52FCX379X4PKE3XTT1X",
+  "catalog": "index.json",
+  "skill_name": "vue-max-stack-frontend-best-practices",
+  "description_en": "Use when developing Vue 3 SFC (<script setup lang='ts'>) front-end in Engeapp. Covers Vue Router, MaxComponentsUi, MaxUse, MaxPinia cached stores, forms, tables, and Ziggy routes.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "UnoCSS",
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-components-ui",
+   "@maxvue/max-pinia",
+   "@maxvue/max-use",
+   "Axios",
+   "Pinia",
+   "Vue Router"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md"
+ },
+ {
+  "id": "01M0G4G52F35ZFHS7Y30QK1X9N",
+  "catalog": "index.json",
+  "skill_name": "vue-max-use-development-best-practices",
+  "description_en": "Use when developing, extending, or optimizing helpers and composables in the `@maxvue/max-use` library. Triggers on adding new utility functions, creating custom Vue composables, writing Vitest unit tests for helpers, or refactoring TypeScript types in `@maxvue/max-use`.",
+  "languages": [
+   "JavaScript",
+   "TypeScript"
+  ],
+  "frameworks": [
+   "Vue.js"
+  ],
+  "libs": [
+   "@maxvue/max-use",
+   "Vitest"
+  ],
+  "repo_name": "max",
+  "local_path": "created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md"
+ }
+]

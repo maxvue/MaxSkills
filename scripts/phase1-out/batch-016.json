@@ -1,0 +1,442 @@
+[
+  {
+    "id": "01M0GCFD2RS1JSXZ7W1N8SGKK8",
+    "skill_name": "neon-postgres",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Cobre Neon Serverless Postgres (branching, autoscaling, scale-to-zero, SDKs TS/Python). engeapp e AgenteDeBolso usam MariaDB/MySQL 8; SocialMedia usa PostgreSQL 18 local, não Neon serverless, então só o vocabulário de Postgres é aproveitável."
+  },
+  {
+    "id": "01M0GCFD2SEP8C58RB17BARZM9",
+    "skill_name": "neon-postgres-branches",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Trata exclusivamente de tipos de branch do Neon via Neon CLI/MCP para ambientes de teste. Nenhum dos três projetos usa Neon; testes rodam contra banco local (PG18 no SocialMedia, MySQL nos outros)."
+  },
+  {
+    "id": "01M0GCFD2SE8AC16FG6WC0Q7MX",
+    "skill_name": "neon-postgres-egress-optimizer",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Diagnostica custo de egress de rede em faturas do Neon (SELECT * , transferência de dados). O ângulo de evitar SELECT * é marginalmente útil, mas o problema de billing por egress não existe em bancos self-hosted destes projetos."
+  },
+  {
+    "id": "01M0GCFD2S3ZX4MQMWHA6P8NTT",
+    "skill_name": "nerdzao-elite",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 5},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Workflow em pt-BR de engenharia sênior encadeando planejamento, arquitetura, TDD, clean code e validação visual de UI. É prática genérica agnóstica de stack, alinhada ao fluxo spec→plano→TDD dos projetos, mas não traz nada de Laravel/Vue/Max."
+  },
+  {
+    "id": "01M0GCFD2SRY5CWC768KZ5GJ10",
+    "skill_name": "nerdzao-elite-gemini-high",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 4},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Variante do workflow elite ajustada ao modelo Gemini 3.1 Pro High com foco em eficiência de tokens. Duplica a skill anterior e o ajuste é para o agente-codificador, não para o uso de Gemini como provider de API nos projetos."
+  },
+  {
+    "id": "01M0GCFD2S0XMVWKF45N1KQRM9",
+    "skill_name": "nestjs-expert",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Arquitetura Nest.js/Node enterprise (DI, guards, interceptors, pipes). Os três projetos têm backend exclusivamente Laravel/PHP; backend Node está listado como irrelevante."
+  },
+  {
+    "id": "01M0GCFD2STPYSAW7AJNNV0WD7",
+    "skill_name": "network-101",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Configura serviços de rede (HTTP, SNMP, SMB) para laboratórios de pentest. Não há atividade de pentest de infraestrutura nos projetos, que rodam atrás de Caddy+PHP-FPM já configurado."
+  },
+  {
+    "id": "01M0GCFD2S5M9DRXVGSATMCX5B",
+    "skill_name": "network-engineer",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Engenharia de redes em nuvem, arquiteturas de segurança de rede e otimização de tráfego. Foge do escopo de aplicação dos três projetos, cujo tema de infra se limita a Caddy, PHP-FPM e Redis em servidor próprio."
+  },
+  {
+    "id": "01M0GCFD2SRKF8MWGAW4X2RHAT",
+    "skill_name": "nextjs-seo-indexing",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "SEO e indexação no Search Console para apps Next.js (canonical, sitemap, static rendering). Next.js/SSR e SEO/marketing site estão explicitamente listados como irrelevantes nos três dossiês."
+  },
+  {
+    "id": "01M0GCFD2SGAMVE049K8XQF040",
+    "skill_name": "nextjs-supabase-auth",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Integração de Supabase Auth com Next.js App Router. A autenticação dos três projetos é Laravel Sanctum/sessão com Socialite, sem Supabase nem Next.js."
+  },
+  {
+    "id": "01M0GCFD2SQG30XAMXS29Q8CAY",
+    "skill_name": "nodejs-best-practices",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Princípios de arquitetura, async e segurança para aplicações Node.js de servidor. Node aparece nos projetos apenas como tooling do Vite/npm, nunca como runtime de backend."
+  },
+  {
+    "id": "01M0GCFD2SZ4EPGR5QDETYV2D7",
+    "skill_name": "notebooklm",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Automatiza o navegador para consultar o NotebookLM do Google e obter respostas ancoradas em documentos enviados. É consulta de documentação externa via UI web, sem relação com o uso programático da API Gemini nos três projetos."
+  },
+  {
+    "id": "01M0GCFD2TC0EDMC7N8AQKM6VR",
+    "skill_name": "obsidian-bases",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Criação de arquivos .base do Obsidian com views, filtros e fórmulas. Ferramenta pessoal de notas, sem qualquer interseção com o código ou a documentação versionada dos projetos."
+  },
+  {
+    "id": "01M0GCFD2TJYRRT55HY665TPHP",
+    "skill_name": "obsidian-cli",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Uso do CLI do Obsidian para gerenciar vaults e desenvolver plugins/temas do Obsidian. Nenhum dos projetos mantém vault ou plugin de Obsidian."
+  },
+  {
+    "id": "01M0GCFD2TNF0HKGBG1WPM4SVY",
+    "skill_name": "obsidian-markdown",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Sintaxe do Obsidian Flavored Markdown (wikilinks, callouts, embeds, properties). A documentação viva dos projetos é Markdown comum em CLAUDE.md e docs/, sem sintaxe proprietária do Obsidian."
+  },
+  {
+    "id": "01M0GCFD2TMBA0FZTBHNDXX9D6",
+    "skill_name": "odoo-automated-tests",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Testes do Odoo com TransactionCase, HttpCase e tours de navegador. Os projetos testam com Pest/Vitest/Dusk sobre Laravel; o ERP Odoo (Python) não faz parte de nenhuma stack."
+  },
+  {
+    "id": "01M0GCFD2THG192HEHAEYE0571",
+    "skill_name": "odoo-backup-strategy",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Backup/restore específico do Odoo (dump do banco + filestore + upload para nuvem). O AgenteDeBolso tem domínio de backup/restore de perfil, mas a implementação é Laravel/MySQL própria, nada aproveitável do Odoo."
+  },
+  {
+    "id": "01M0GCFD2T4DWAFA6JB2MHDD09",
+    "skill_name": "odoo-docker-deployment",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Deploy do Odoo com Docker Compose, PostgreSQL e proxy Nginx. Soma dois temas marcados como irrelevantes (Odoo e Docker/K8s); o deploy real é Deployer 8 ou webhook próprio sobre Caddy."
+  },
+  {
+    "id": "01M0GCFD2TDXTYWSJHCVAYAA8W",
+    "skill_name": "odoo-ecommerce-configurator",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Configuração do módulo de eCommerce/Website do Odoo (catálogo, provedores de pagamento, frete). Odoo e e-commerce/marketplace constam como irrelevantes nos dossiês."
+  },
+  {
+    "id": "01M0GCFD2TDF958FRMFYRXA03A",
+    "skill_name": "odoo-migration-helper",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Migração de módulos customizados do Odoo entre v14 e v17 (mudanças de API e views). As migrações relevantes aqui são de versão do Laravel e de schema SQL, sem qualquer relação."
+  },
+  {
+    "id": "01M0GCFD2T0Z1B8TR49P4DVA9Q",
+    "skill_name": "odoo-orm-expert",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Padrões do ORM do Odoo (search/browse/write, domain filters, campos computados). O ORM usado nos três projetos é o Eloquent, com semântica e API completamente distintas."
+  },
+  {
+    "id": "01M0GCFD2T865JAP297313JRE2",
+    "skill_name": "odoo-performance-tuner",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Tuning de performance do Odoo: workers, limites de memória e ajuste do PostgreSQL. Só o trecho de PostgreSQL roça o SocialMedia, e ainda assim atrelado à arquitetura de workers do Odoo."
+  },
+  {
+    "id": "01M0GCFD2VNDQ1MWRMR8AJAA4E",
+    "skill_name": "odoo-qweb-templates",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Templating QWeb do Odoo para relatórios PDF e e-mails (t-if, t-foreach, t-field). Os PDFs dos projetos saem de dompdf/mpdf/TCPDF com Blade, não de QWeb."
+  },
+  {
+    "id": "01M0GCFD2VDS8QPHEEYSXQCN9Y",
+    "skill_name": "odoo-rpc-api",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "APIs externas JSON-RPC/XML-RPC do Odoo com exemplos em Python e JavaScript. Nenhum dos projetos integra Odoo, e as integrações externas deles são REST (Meta, EFI, Inter, Pluggy)."
+  },
+  {
+    "id": "01M0GCFD2V8RP9E7PM86AFYBKV",
+    "skill_name": "odoo-security-rules",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Controle de acesso do Odoo via ir.model.access.csv, ir.rule e grupos multi-company. O equivalente nos projetos é spatie-permission com policies e global scopes de tenant, sem transferência de conhecimento."
+  },
+  {
+    "id": "01M0GCFD2VBG4R912K6TTC0GEE",
+    "skill_name": "odoo-shopify-integration",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Sincronização de produtos, estoque e pedidos entre Odoo e Shopify. Combina Odoo e e-commerce, ambos fora do escopo dos três produtos."
+  },
+  {
+    "id": "01M0GCFD2V87EBHZ2BVM8B0V5D",
+    "skill_name": "odoo-xml-views-builder",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 0},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Construção de views XML do Odoo (Form, List, Kanban, Search, Calendar, Graph) para as versões 14-17. A UI dos três projetos é Vue 3.6 SFC com componentes Max, não XML declarativo do Odoo."
+  },
+  {
+    "id": "01M0GCFD2V2T0HKF5SQSS5CPMK",
+    "skill_name": "ontoly-software-graph",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Usa o grafo de software do Ontoly via servidor MCP para revisão de arquitetura, rastreio de requisições e análise de impacto/dependências. A ideia é útil em bases grandes como a do engeapp, mas depende de uma ferramenta externa TypeScript não adotada em nenhum projeto."
+  },
+  {
+    "id": "01M0GCFD2V5GWBZJ86EYM29ZWX",
+    "skill_name": "open-source-marketing",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Marketing de projetos open source (crescer estrelas no GitHub, lançamento, marketing de contribuidores). Os três são SaaS proprietários; nem o SocialMedia, voltado a redes sociais de clientes de agência, trata de divulgação de bibliotecas OSS."
+  },
+  {
+    "id": "01M0GCFD2VS99CX7T8HEBKQV3Y",
+    "skill_name": "optim-agent",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Otimização automatizada de parâmetros (HPO, tuning de inferência, RL/controle). Só encosta no SocialMedia pela busca de hiperparâmetros no treino de LoRA com OneTrainer, e ainda assim o foco da skill é experimentação científica, não o pipeline Z-Image/ComfyUI."
+  },
+  {
+    "id": "01M0GCFD2W5T0AJ5QT62VVH63G",
+    "skill_name": "orchestrate-batch-refactor",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 5},
+      {"project": "AgenteDeBolso", "importance": 5}
+    ],
+    "rationale": "Planeja refatorações amplas particionando o trabalho em pacotes com consciência de dependências e execução paralela por subagentes. É engenharia genérica agnóstica de stack, mas rende um pouco mais no engeapp pela escala (970 arquivos PHP, 129 models)."
+  },
+  {
+    "id": "01M0GCFD2WYYZMBFBX683S2KRF",
+    "skill_name": "osterwalder-canvas-architect",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Consultoria iterativa para montar Business Model Canvas de 9 blocos. É artefato de estratégia de negócio, não de implementação; nenhum dos projetos tem módulo que produza ou consuma canvas."
+  },
+  {
+    "id": "01M0GCFD2WNTHSXHJ8NR7Y8TRW",
+    "skill_name": "outreachagent",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 2},
+      {"project": "AgenteDeBolso", "importance": 0}
+    ],
+    "rationale": "Operação de cold outbound por e-mail (caixas de entrada, cadências, aprovações, métricas de entrega). O engeapp tem módulo de leads e o SocialMedia lida com conteúdo, mas nenhum faz prospecção por e-mail; o AgenteDeBolso não tem e-mail de marketing."
+  },
+  {
+    "id": "01M0GCFD2WHWXXKA40YCD9P06F",
+    "skill_name": "page-cro",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Análise e otimização de conversão (CRO) de páginas isoladas. Aplicável só ao site público do engeapp e ao onboarding/landing do AgenteDeBolso de forma pontual; nos apps internos SPA a métrica de conversão não é o objetivo."
+  },
+  {
+    "id": "01M0GCFD2W5MWVZE8FSMX5190R",
+    "skill_name": "pagespeed-enhancer",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 4},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 4}
+    ],
+    "rationale": "Auditoria e correção em lote dos quatro pilares do Lighthouse (performance, acessibilidade, boas práticas, SEO). Os pilares de performance e acessibilidade servem à PWA mobile-first do AgenteDeBolso e ao site público do engeapp, mas o viés de SEO não se aplica a SPAs autenticadas."
+  },
+  {
+    "id": "01M0GCFD2WJP4Y3AJH8FR54M45",
+    "skill_name": "paid-ads",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 3},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "Criação, otimização e escala de campanhas de mídia paga com acesso às contas de anúncio. O SocialMedia usa a Meta Graph API, porém só para publicação orgânica IG/FB e comentários, sem módulo de Ads."
+  },
+  {
+    "id": "01M0GCFD2WPWRPYVS9SG5RAHQR",
+    "skill_name": "pakistan-payments-stack",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 2},
+      {"project": "SocialMedia", "importance": 0},
+      {"project": "AgenteDeBolso", "importance": 2}
+    ],
+    "rationale": "Integrações de pagamento paquistanesas (JazzCash, Easypaisa, Raast) com billing em PKR. Os padrões de confiabilidade de webhook e reconciliação lembram EFI/Inter/Pix, mas os rails e a moeda estão errados; SocialMedia não tem billing."
+  },
+  {
+    "id": "01M0GCFD2W8FJ91RTT5JW5TZ7P",
+    "skill_name": "papers-skill",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 1},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 1}
+    ],
+    "rationale": "CLI Python para buscar artigos no Semantic Scholar, inspecionar citações e baixar PDFs do arXiv. Fluxo de pesquisa acadêmica, sem uso nos três produtos de software comercial."
+  },
+  {
+    "id": "01M0GCFD2W8HY8FEW63F7MRCRT",
+    "skill_name": "pci-compliance",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 3},
+      {"project": "SocialMedia", "importance": 1},
+      {"project": "AgenteDeBolso", "importance": 3}
+    ],
+    "rationale": "Conformidade com PCI DSS para processamento de pagamentos e armazenamento de dados de portador de cartão. O AgenteDeBolso apenas registra cartões e faturas (não tokeniza PAN) e o engeapp delega cobrança a EFI/Inter/Asaas, então o valor fica na noção geral de tratar dado sensível."
+  },
+  {
+    "id": "01M0GCFD2WPTSVRWQ0MG8YVX0N",
+    "skill_name": "pdf-conversion-router",
+    "catalog": "awesome_skills.json",
+    "importance_in": [
+      {"project": "engeapp", "importance": 6},
+      {"project": "SocialMedia", "importance": 6},
+      {"project": "AgenteDeBolso", "importance": 6}
+    ],
+    "rationale": "Escolha de rota de extração e limpeza ao converter PDF para Markdown/texto/JSON/DOCX com máxima fidelidade. Conversa direto com o pdftotext do SocialMedia, a extração de documentos por IA do engeapp e a importação de extratos PDF do AgenteDeBolso, mas é agnóstica das libs PHP (spatie/pdf-to-text, smalot, mpdf) realmente usadas."
+  }
+]

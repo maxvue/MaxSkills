@@ -1,0 +1,112 @@
+[
+ {
+  "id": "01M0GCFD3M9AM03YPXZX0HPJYJ",
+  "catalog": "awesome_skills.json",
+  "skill_name": "writer",
+  "description_en": "Document creation, format conversion (ODT/DOCX/PDF), mail merge, and automation with LibreOffice Writer.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/libreoffice/writer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3M5YGGYJH2TG17ATN2",
+  "catalog": "awesome_skills.json",
+  "skill_name": "writing-skills",
+  "description_en": "Use when creating, updating, or improving agent skills.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/writing-skills/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3MDMPB3R7150ACGWQR",
+  "catalog": "awesome_skills.json",
+  "skill_name": "x-twitter-scraper",
+  "description_en": "Use Xquik for X data workflows: tweet search, user lookup, follower export, media downloads, monitors, webhooks, REST API, MCP, SDK setup, and approval-gated account actions.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/x-twitter-scraper/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3MAEGAVXJX8R98R5ZW",
+  "catalog": "awesome_skills.json",
+  "skill_name": "xiaohongshu-content-strategist",
+  "description_en": "Create viral Xiaohongshu (小红书) content with platform-native strategy, save-rate optimization, trending formats, and search SEO for China's #1 lifestyle platform.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/xiaohongshu-content-strategist/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3M8Q8V28N5XMV3490N",
+  "catalog": "awesome_skills.json",
+  "skill_name": "yao-meta-skill",
+  "description_en": "Create, refactor, evaluate, and package agent skills from workflows, prompts, transcripts, docs, or notes. Use for skill creation, reusable workflow packaging, skill improvement, evals, and team-ready distribution.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/yao-meta-skill/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3N8MV1VT6MJWCFAYKP",
+  "catalog": "awesome_skills.json",
+  "skill_name": "youtube-full",
+  "description_en": "Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI — no yt-dlp, no Google API key, works from any cloud server.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/youtube-full/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3NMWMF1W80E7TDHW77",
+  "catalog": "awesome_skills.json",
+  "skill_name": "youtube-notetaker",
+  "description_en": "Turn YouTube talks into local study notes with slides, transcripts, editable annotations, and a markdown-backed viewer.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/youtube-notetaker/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3N6VP9YC4YEQFFSVEM",
+  "catalog": "awesome_skills.json",
+  "skill_name": "youtube-seo-optimizer",
+  "description_en": "Generate complete YouTube & podcast SEO packages with live-researched keywords — titles, descriptions, tags, hashtags, chapters, and audit fixes. Use for new or underperforming content.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/youtube-seo-optimizer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3NWH3NB56J2E592MKA",
+  "catalog": "awesome_skills.json",
+  "skill_name": "youtube-summarizer",
+  "description_en": "Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelligent analysis frameworks",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/youtube-summarizer/SKILL.md"
+ },
+ {
+  "id": "01M0GCFD3N311YM294PB23QDB7",
+  "catalog": "awesome_skills.json",
+  "skill_name": "youtube-transcript",
+  "description_en": "Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output.",
+  "languages": [],
+  "frameworks": [],
+  "libs": [],
+  "repo_name": "Awesome",
+  "local_path": "other_skills/Agentic Awesome Skills/skills/youtube-transcript/SKILL.md"
+ }
+]

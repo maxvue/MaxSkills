@@ -1,0 +1,442 @@
+[
+ {
+  "id": "01M0GCFD292J4EYJYGH1167P0Y",
+  "skill_name": "gemini-omni-flash-api",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Cobre geração/edição de vídeo com Gemini pelo SDK google-genai (Python) mais pré-processamento com ffmpeg; SocialMedia usa Gemini e ffmpeg no pipeline de mídia, mas via laravel/ai em PHP e sem text-to-video, então ajuda apenas parcialmente; engeapp e AgenteDeBolso usam Gemini só para texto/extração."
+ },
+ {
+  "id": "01M0GCFD29KJWWZTJJV5Z491AK",
+  "skill_name": "generate-nanobanana",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Geração e edição de imagem com os modelos de mídia do Gemini (Nano Banana), com imagens de referência e registro de custo por chamada; casa com a direção de arte por IA e o rastreio de custo USD→BRL do SocialMedia, embora a arte final lá seja gerada por ComfyUI+LoRA Z-Image local."
+ },
+ {
+  "id": "01M0GCFD292D04ENM7S0F2TBVT",
+  "skill_name": "gha-security-review",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Auditoria de vulnerabilidades em workflows do GitHub Actions; os três projetos não têm CI/CD (deploy por Deployer 8 ou webhook próprio) e GitHub Actions está explicitamente listado como tema irrelevante."
+ },
+ {
+  "id": "01M0GCFD29FQ3DW58YCT90PRHV",
+  "skill_name": "git-advanced-workflows",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 7},
+   {"project": "SocialMedia", "importance": 7},
+   {"project": "AgenteDeBolso", "importance": 7}
+  ],
+  "rationale": "Técnicas avançadas de Git (histórico limpo, rebase, recuperação de estados quebrados) que sustentam a regra dura de worktrees obrigatórios em `.worktrees/` compartilhada pelos três projetos, incluindo merges de volta ao branch principal."
+ },
+ {
+  "id": "01M0GCFD29KEC48M75RQH5SWFX",
+  "skill_name": "git-hooks-automation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Configuração de Husky/lint-staged/commitlint como portão antes da CI; os projetos rodam Pint, ESLint e PHPStan manualmente e não têm CI, então automação por hooks seria uma adoção nova e opcional."
+ },
+ {
+  "id": "01M0GCFD293BM76FCBAH5GWP8Q",
+  "skill_name": "git-pr-review",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Gera descrição de PR a partir do histórico de commits com baixo consumo de tokens; nos três projetos o fluxo é worktree → merge local com commit só sob pedido, sem cultura de pull request."
+ },
+ {
+  "id": "01M0GCFD292KAD47D51TYCY4B5",
+  "skill_name": "git-pr-workflows-git-workflow",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Orquestra revisão, testes, commit, push de branch e abertura de PR com agentes paralelos; a parte de rodar a suíte antes de integrar é útil, mas o destino em PR/merge guardado não corresponde ao fluxo local desses repositórios."
+ },
+ {
+  "id": "01M0GCFD2986BXK9479Y2EP8G3",
+  "skill_name": "git-pr-workflows-onboard",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Metodologia de onboarding e transferência de conhecimento para times remotos; os três projetos são de desenvolvedor único com contexto já consolidado em CLAUDE.md, tornando o uso raro."
+ },
+ {
+  "id": "01M0GCFD29BBVZSVVJ1773K0MM",
+  "skill_name": "git-pr-workflows-pr-enhance",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Otimiza descrições de pull request e automatiza o processo de code review em PR; sem fluxo de PR nesses repositórios, a skill fica praticamente sem gatilho."
+ },
+ {
+  "id": "01M0GCFD29GXPDWZNDYFXCZCB3",
+  "skill_name": "git-pushing",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Disciplina de stage/commit/push seletivo com mensagens em conventional commits e só quando pedido explicitamente, o que espelha a convenção dos três projetos de commitar apenas sob autorização e nunca versionar segredos."
+ },
+ {
+  "id": "01M0GCFD2AT5AX4GCKET2HQQ9E",
+  "skill_name": "git-workflow-and-versioning",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 6}
+  ],
+  "rationale": "Estrutura branching, resolução de conflitos e organização de trabalho em fluxos paralelos — pertinente ao modelo de múltiplas worktrees simultâneas usado nos três repositórios, mas sem nada específico da stack Laravel/Vue."
+ },
+ {
+  "id": "01M0GCFD2AMBRADHJ1257ARFYG",
+  "skill_name": "github",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Uso do CLI `gh` para issues, PRs e API do GitHub; ganha peso no engeapp, que integra GitHub ao planner/kanban e ao módulo interno de bugs, e pouco nos outros dois, que não consomem a API do GitHub."
+ },
+ {
+  "id": "01M0GCFD2AEJKXX8R9FS0C1S5Y",
+  "skill_name": "github-actions-advanced",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Workflows reutilizáveis, matrizes, runners self-hosted e OIDC no GitHub Actions; CI/CD por GitHub Actions é tema explicitamente irrelevante nos três dossiês."
+ },
+ {
+  "id": "01M0GCFD2AW4DWKYDCD1JJHVTP",
+  "skill_name": "github-presence",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Otimização de perfil, README e descoberta de projetos open source no GitHub; os três são SaaS privados, sem qualquer objetivo de estrelas ou marketing de repositório."
+ },
+ {
+  "id": "01M0GCFD2APMQNQ10W1RACZB7Z",
+  "skill_name": "github-workflow-automation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Padrões de automação de fluxos do GitHub com IA inspirados no Gemini CLI e práticas DevOps; a base é GitHub Actions/DevOps, fora do escopo desses projetos sem CI."
+ },
+ {
+  "id": "01M0GCFD2AJVS5P7SFYH9CGFQ9",
+  "skill_name": "global-chat-agent-discovery",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Busca de servidores MCP e agentes em registries externos; nenhum dos projetos depende de descoberta de MCP de terceiros — os agentes de IA são internos (laravel/ai com Gemini e Ollama)."
+ },
+ {
+  "id": "01M0GCFD2A7J8KD6W5AGRN0ZKG",
+  "skill_name": "go-rod-master",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Automação de navegador via CDP com a biblioteca go-rod em Go; embora engeapp e AgenteDeBolso automatizem navegador, fazem isso com Puppeteer/php-webdriver, e Go é linguagem listada como irrelevante."
+ },
+ {
+  "id": "01M0GCFD2AXMN1KH6GC0HHBMDY",
+  "skill_name": "goal-loop",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Redação de prompts de laço persistente com condições de parada para trabalho longo de agente; útil pontualmente em migrações extensas (ex.: varrer 384 migrations ou 181 SFCs), mas é técnica de prompt, não de stack."
+ },
+ {
+  "id": "01M0GCFD2AZ4B2N4DE73SZ95M5",
+  "skill_name": "golang-pro",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Go 1.21+, concorrência avançada e microserviços em produção; Go e microserviços são temas explicitamente irrelevantes — o backend dos três é PHP 8.4/Laravel monolítico."
+ },
+ {
+  "id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+  "skill_name": "google-calendar-automation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 3},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Integração com a API do Google Calendar via OAuth standalone; o calendário editorial do SocialMedia é FullCalendar próprio e o do AgenteDeBolso exporta .ics, sem sincronizar com o Google Calendar."
+ },
+ {
+  "id": "01M0GCFD2BSHZ94XGYRYCBDG3B",
+  "skill_name": "gpt-taste",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Landing pages com animação pesada em GSAP, estrutura AIDA e bento grids; conflita com o design system Max + UnoCSS attributify obrigatório, servindo no máximo ao site público do engeapp."
+ },
+ {
+  "id": "01M0GCFD2BQ91RX9V6F88M7859",
+  "skill_name": "graphql-architect",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Schemas GraphQL federados, caching e subscriptions; GraphQL é tema explicitamente irrelevante nos três projetos, que expõem APIs REST com rotas Laravel + Ziggy."
+ },
+ {
+  "id": "01M0GCFD2BP2RK9R4QRF23QSMT",
+  "skill_name": "grilling",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 6},
+   {"project": "SocialMedia", "importance": 6},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Interrogatório sistemático do plano antes de codar; encaixa na regra de apresentar plano antes de qualquer alteração (engeapp) e no ciclo auditoria→spec→plano→worktree→TDD do SocialMedia, mas é prática de processo, não de stack."
+ },
+ {
+  "id": "01M0GCFD2BM9NVH79MPAMJETEA",
+  "skill_name": "grok-build",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 1},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Delegação de tarefas de implementação ao CLI Grok da xAI em modo headless; nenhum dos projetos usa xAI/Grok como ferramenta de desenvolvimento ou provider."
+ },
+ {
+  "id": "01M0GCFD2B5HX9Z9M70RYKKRVQ",
+  "skill_name": "growth-engine",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Growth hacking, SEO/ASO, loops virais, e-mail marketing e programas de indicação; é conteúdo de marketing de produto e não de engenharia — nem o SocialMedia, que atende agências, precisa disso no código."
+ },
+ {
+  "id": "01M0GCFD2BANK518VNKWNPBJ3Q",
+  "skill_name": "handoff",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 4},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 4}
+  ],
+  "rationale": "Compacta a conversa em documento de handoff para outro agente continuar; combina com a documentação viva do SocialMedia (docs/superpowers/specs|plans) e ajuda em sessões longas nos repositórios grandes, sem tocar na stack."
+ },
+ {
+  "id": "01M0GCFD2B1J83FTEXH34PT8M4",
+  "skill_name": "hasdata",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 2}
+  ],
+  "rationale": "Extração estruturada de dados web pelas APIs pagas da HasData; o SocialMedia faz scraping de URL para temas e leitura de RSS, mas com ferramentas próprias, então seria no máximo uma alternativa terceirizada."
+ },
+ {
+  "id": "01M0GCFD2BVKMAGDMNKEGEB36B",
+  "skill_name": "hf-mcp",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 4},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Busca de modelos, datasets e Spaces no Hugging Face via servidor MCP; pode ajudar o SocialMedia a localizar checkpoints/safetensors para o pipeline Z-Image/LoRA e modelos do Ollama, mas exige o MCP conectado."
+ },
+ {
+  "id": "01M0GCFD2CMRKVQ8Y3A6SVX811",
+  "skill_name": "hierarchical-agent-memory",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 5},
+   {"project": "SocialMedia", "importance": 5},
+   {"project": "AgenteDeBolso", "importance": 5}
+  ],
+  "rationale": "Sistema de CLAUDE.md escopado por diretório para reduzir gasto de contexto; é atraente para repositórios grandes com CLAUDE.md extenso (970 arquivos PHP no engeapp, resources/CLAUDE.md no AgenteDeBolso), porém propõe uma reestruturação que colide com a regra de manter um CLAUDE.md único e atualizado."
+ },
+ {
+  "id": "01M0GCFD2C4GHTQZ18JV8GZYM5",
+  "skill_name": "hig-components-status",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Guia de indicadores de progresso, status bars e activity rings segundo a Apple HIG; a UI dos três vem dos componentes Max/UnoCSS e mobile nativo é irrelevante — só o layout mobile-first do AgenteDeBolso aproveita alguma ideia."
+ },
+ {
+  "id": "01M0GCFD2CS3MQFEYA3489P6W7",
+  "skill_name": "hig-patterns",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 2},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 3}
+  ],
+  "rationale": "Padrões de interação e UX das Human Interface Guidelines da Apple; são referências de plataforma iOS, enquanto os projetos são PWA/SPA web com design system Max já definido."
+ },
+ {
+  "id": "01M0GCFD2C0WBXYD627ETB34XD",
+  "skill_name": "hono",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Construção de APIs com Hono em Cloudflare Workers/Deno/Bun; backend Node e edge serverless são temas irrelevantes — os três rodam Laravel sobre Caddy+PHP-FPM."
+ },
+ {
+  "id": "01M0GCFD2DNFHE5H4RY28KZ2F2",
+  "skill_name": "hugging-face-datasets",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Criação e consulta SQL de datasets no Hub do Hugging Face; o SocialMedia monta datasets de imagens com captioning para treinar LoRA, mas localmente com OneTrainer, sem publicar no Hub."
+ },
+ {
+  "id": "01M0GCFD2DT2609088TH7QDN6J",
+  "skill_name": "hugging-face-evaluation",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Gestão de resultados de avaliação em model cards com vLLM/lighteval e formato model-index; nenhum projeto publica model cards nem roda benchmarks de LLM — o consumo é de APIs Gemini e do Ollama local."
+ },
+ {
+  "id": "01M0GCFD2DD4V89E7SBCS5CBQT",
+  "skill_name": "hugging-face-model-trainer",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Fine-tuning de LLMs com TRL/Unsloth (SFT, DPO, GRPO) na infra de Jobs do HF e conversão para GGUF; o SocialMedia treina LoRA de imagem Z-Image com OneTrainer na GPU local, um caminho técnico distinto, e os demais não treinam modelo algum."
+ },
+ {
+  "id": "01M0GCFD2D3EYGB63VY4TNHNAM",
+  "skill_name": "hugging-face-paper-publisher",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 0},
+   {"project": "SocialMedia", "importance": 0},
+   {"project": "AgenteDeBolso", "importance": 0}
+  ],
+  "rationale": "Publicação de artigos de pesquisa no Hugging Face Hub e reivindicação de autoria; é atividade acadêmica sem qualquer interseção com SaaS de energia solar, redes sociais ou finanças pessoais."
+ },
+ {
+  "id": "01M0GCFD2DKR0Q3D768G21TFD5",
+  "skill_name": "hugging-face-papers",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 2},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Leitura e resumo de páginas de papers do HF/arXiv com metadados estruturados; serviria apenas a pesquisa exploratória sobre difusão/LoRA no SocialMedia, sem efeito no código de produção."
+ },
+ {
+  "id": "01M0GCFD2DK2G7KWEKH7H8GKAQ",
+  "skill_name": "hugging-face-tool-builder",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Criação de scripts CLI encadeáveis sobre a API e o comando `hf`; no SocialMedia poderia automatizar download de checkpoints para ComfyUI, mas nada disso toca a stack PHP/Vue dos projetos."
+ },
+ {
+  "id": "01M0GCFD2DE6D049CDSZSWD2M4",
+  "skill_name": "hugging-face-trackio",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Log e dashboard de métricas de treino em Python com Trackio e alertas por webhook; o treino de LoRA do SocialMedia é acompanhado por jobs Laravel na fila `lora-train`, e Python/ML tracking está fora da stack dos outros dois."
+ },
+ {
+  "id": "01M0GCFD2DSER46E9AYVN61WKD",
+  "skill_name": "hugging-face-vision-trainer",
+  "catalog": "awesome_skills.json",
+  "importance_in": [
+   {"project": "engeapp", "importance": 1},
+   {"project": "SocialMedia", "importance": 3},
+   {"project": "AgenteDeBolso", "importance": 1}
+  ],
+  "rationale": "Treino de modelos de visão para detecção (RT-DETR, YOLOS), classificação (timm/ViT) e segmentação SAM2 em HF Jobs; o SocialMedia faz visão apenas com MediaPipe Face Landmarker e treino de LoRA generativo, não de detectores."
+ }
+]

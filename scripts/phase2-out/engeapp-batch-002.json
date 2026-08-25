@@ -1,0 +1,322 @@
+[
+  {
+    "id": "01M0G4G52ESF7J4C064VDK19S4",
+    "skill_name": "laravel-reverb-websockets-best-practices",
+    "importance": 8,
+    "fase1_importance": 9,
+    "verdict": "rebaixada",
+    "evidence": "O corpo confirma o Reverb como único transporte WS do engeapp (BROADCAST_CONNECTION=reverb, configureReverbEcho em resources/app.ts, ~14 classes ShouldBroadcast), mas as seções 2 e 3 ensinam reverse proxy em Nginx e supervisão por Supervisor, enquanto o projeto roda Caddy systemd + Deployer 8 — parte do guia de deploy não se aplica."
+  },
+  {
+    "id": "01M0G4G52EM5N1TD8M4V7AFVA3",
+    "skill_name": "laravel-scout-searchable-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "A Fase 1 acertou: o arquivo documenta a trait real App\\Traits\\HasScoutMeilisearch, os models que a adotam (Lead, Client, City, SupportMessage) e duas armadilhas concretas da macro searchSafe() — o where() do ScoutBuilder que some no fallback LIKE e o retorno de Collection vazia quando nenhuma coluna de fallback é informada."
+  },
+  {
+    "id": "01M0G4G52E92NHZMVBF5M82SWK",
+    "skill_name": "laravel-security-hardening-best-practices",
+    "importance": 9,
+    "fase1_importance": 8,
+    "verdict": "promovida",
+    "evidence": "Apesar de apenas 52 linhas, o conteúdo é ancorado em fatos verificados do engeapp: rota pública sem auth em routes/api.php ('project/data'), ausência de scopeBindings() (IDOR real), isenções de CSRF em bootstrap/app.php (onlyoffice/callback, voip/webhook) e os discos segmentados de config/filesystems.php — vale mais que uma cartilha OWASP genérica."
+  },
+  {
+    "id": "01M0G4G52FYW6F10SWM38VNXAK",
+    "skill_name": "laravel-service-providers-dependency-injection-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Nota mantida porque o corpo usa o SignatureServiceProvider real (bind do cliente Autentique lendo o token dentro da closure) e detalha bind/singleton/scoped sob Octane, incluindo a nota de que o engeapp hoje não usa scoped — exatamente o tema 'vazamento de estado no Octane' do dossiê."
+  },
+  {
+    "id": "01M0G4G52FH4PYVMV8YJFA2PNM",
+    "skill_name": "laravel-services-best-practices",
+    "importance": 8,
+    "fase1_importance": 7,
+    "verdict": "promovida",
+    "evidence": "A Fase 1 supôs que o engeapp pende para Actions, mas o arquivo afirma o contrário sobre este codebase: 'o codebase usa app/Services (não há camada app/Actions)', cita TrelloService e ProjectDeletionService e manda os DTOs para app/Data (namespace App\\Data), casando com spatie/laravel-data do projeto."
+  },
+  {
+    "id": "01M0G4G52FN6C0J033TB526R94",
+    "skill_name": "laravel-social-media-oauth-token-lifecycle-management-best-practices",
+    "importance": 8,
+    "fase1_importance": 7,
+    "verdict": "promovida",
+    "evidence": "O corpo não é genérico nem do projeto SocialMedia: aponta arquivos do próprio engeapp (app/Models/Calendar/SocialMediaCredential.php, tabela calendar_social_media_credentials, MetaService::forCompany com fallback em config('api.meta_token')) e o unique por solar_company_id + event_api_id, ou seja, isolamento por tenant da integradora solar."
+  },
+  {
+    "id": "01M0G4G52FFPJQ6FJFN3ZV390R",
+    "skill_name": "laravel-socialite-oauth-integration-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Mantida: descreve o SocialiteController real com detalhes que só existem no engeapp — criação da UserSolarCompany dentro de DB::transaction, o ULID hardcoded de user_group_id e o contorno via setRawAttributes para phone_number NULL (coluna com DEFAULT '0' e UNIQUE)."
+  },
+  {
+    "id": "01M0G4G52F8KMB5WX6JP3M717H",
+    "skill_name": "laravel-task-scheduling-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Nota mantida: além de withoutOverlapping/onOneServer, traz fatos operacionais do engeapp — o off-by-one do autoCleanup do Totem (subDays(N-1)), o alerta de que só Totem::auth() protege /tasks (o gate viewTotem não tem consumidor) e que Log::channel('scheduler') estoura porque o canal não existe em config/logging.php."
+  },
+  {
+    "id": "01M0G4G52FW4DAZHA7HCT9R4AR",
+    "skill_name": "laravel-telescope-debugging-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Confirmada: reproduz o TelescopeServiceProvider real (Telescope::night(), filter com isReportableException/isFailedJob, hideSensitiveRequestDetails com early-return em local) e os valores efetivos dos watchers (QueryWatcher slow=100ms, ModelWatcher hydrations=true), além de apontar que não há telescope:prune agendado."
+  },
+  {
+    "id": "01M0G4G52FKTF5149YTWZCRXZG",
+    "skill_name": "laravel-trello-api-integration",
+    "importance": 7,
+    "fase1_importance": 8,
+    "verdict": "rebaixada",
+    "evidence": "O próprio arquivo avisa que a integração está parcialmente desligada: getFileForAttachment, putData, postData, ProcessTrelloWebhookJob::handle e SyncToTrelloJob::handle estão com o corpo comentado ('Execução cancelada na Fase 1'), sobrando ativos só getData, syncMediaForAttachment e SyncCardTrello — o valor prático hoje é menor que o de uma integração viva."
+  },
+  {
+    "id": "01M0G4G52F5EWFT8TVSJXKCEAM",
+    "skill_name": "laravel-typescript-transformer-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Curta (30 linhas) mas densa e certeira: explica que a configuração é programática em TypeScriptTransformerServiceProvider::configure() (não existe config/typescript-transformer.php), que a saída vai para resources/Types/generated.d.ts dentro de declare global e o papel do FlatGlobalWriter ao remover o sufixo Data."
+  },
+  {
+    "id": "01M0G4G52FYXWDZE1HVYMETWMC",
+    "skill_name": "laravel-user-impersonation-best-practices",
+    "importance": 8,
+    "fase1_importance": 4,
+    "verdict": "promovida",
+    "evidence": "A Fase 1 errou ao dizer que o engeapp não tem o pacote: o corpo cita o trait Lab404\\Impersonate no App\\Models\\User do engeapp, o UserExecuteController, as rotas de routes/web/Web.User.Route.php e o computedAsync isImpersonated na store useUser.Store.ts — inclusive apontando o desvio legado com axios cru em useAdminCompanyUsers.Store.ts."
+  },
+  {
+    "id": "01M0G4G52F1YNV899D43G1Q2M5",
+    "skill_name": "laravel-vue-geocoordinates-maps-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Mantida: descreve a arquitetura real (backend só persiste JSON em locations_coordinates; conversão toda no store useCoordinates.Store.ts com utm-latlng e anti-loop pause/resume de 500ms) e a orientação DMS brasileira L/O via CoordinateOrientationEnum — georreferência de usina fotovoltaica."
+  },
+  {
+    "id": "01M0G4G52FW1QKEZZND0K3YDZJ",
+    "skill_name": "laravel-vue-login-maxauthcard-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Confirmada: tabela de rotas Ziggy reais (login → /login_request, o nome contraintuitivo logout.post em GET), a cadeia de CSRF via csrf_token() serializado em user.data → useSystemStore, e o aviso de que não há interceptor de 401 nem Sanctum stateful; ainda traz references/backend-laravel.md e frontend-vue.md."
+  },
+  {
+    "id": "01M0G4G52FQ50YYSPJG6FMWM19",
+    "skill_name": "laravel-vuefinder-media-library-integration",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Mantida: o corpo detalha o ActionFactory local com PreviewAction/DownloadAction e HTTP Range, o conserto do order_column por max()+1, o conversions_disk obrigatório e o custom_properties->legacy_folder, além de mandar apagar com toBase()->delete() para não disparar observers do MediaLibrary."
+  },
+  {
+    "id": "01M0G4G52F93MEV0NBHVH0EPB9",
+    "skill_name": "laravel-whatsapp-cloud-api-integration",
+    "importance": 10,
+    "fase1_importance": 10,
+    "verdict": "confirmada",
+    "evidence": "Nota máxima mantida: mostra o fluxo real em duas etapas (WebhookController → WebhookWhatsappJob na fila 'webhooks' → WhatsappService::webhook → WebhookWhatsappJobExecuteJob na fila 'whatsapp'), idempotência por message_meta_id, backoff [30,60,120,180,300] e o SDK netflie instanciado com config — pilar do atendimento do engeapp."
+  },
+  {
+    "id": "01M0G4G52F1DZR5DBTQCE2TPR9",
+    "skill_name": "laravel-ziggy-routing-integration-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Confirmada: cobre o config/ziggy.php real (só a chave output.path), o ziggy:generate --types que produz resources/Js/ziggy.d.ts e o alias obrigatório 'ziggy-js' no vite.config.ts porque o auto-import de route() injeta o import até nas libs Max linkadas fora da raiz."
+  },
+  {
+    "id": "01M0G4G52FPABCWP4S35T8BE88",
+    "skill_name": "project-history",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Zero confirmado: o arquivo é literalmente o changelog do repositório SocialMedia (Marcos 1 a 7, contagens Pest 17/17 → 570/570, treino de LoRA com OneTrainer/ComfyUI, AgencyScope) — fato histórico de outro projeto, sem aplicabilidade ao engeapp."
+  },
+  {
+    "id": "01M0G4G52FM2QXVR4AZP8HS2XR",
+    "skill_name": "project-setup",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Zero confirmado: são 34 linhas de onboarding exclusivo do SocialMedia (php artisan db:bootstrap no PostgreSQL, ONETRAINER_PYTHON/COMFYUI_LORA_DIR, ai:smoke e lora:smoke) — nada disso existe na stack MySQL/Gemini do engeapp."
+  },
+  {
+    "id": "01M0G4G52FGT31WKMJ1B9SRF3B",
+    "skill_name": "systematic-debugging-best-practices",
+    "importance": 7,
+    "fase1_importance": 6,
+    "verdict": "promovida",
+    "evidence": "Não é tão genérica quanto a descrição sugere: as seções 1.2/1.4/1.5 instrumentam explicitamente as camadas do engeapp (componente Vue → store MaxPinia com status.server.get.is_success → nome de rota Ziggy pontilhado → controller → MySQL) e dão o comando real de tail no canal daily."
+  },
+  {
+    "id": "01M0G4G52FEQE51DMZ9YKMEYCA",
+    "skill_name": "technical-documentation-best-practices",
+    "importance": 6,
+    "fase1_importance": 6,
+    "verdict": "confirmada",
+    "evidence": "Mantida: são 833 linhas de método editorial (audiência, templates de README/ADR/changelog, fases análise→planejamento→escrita→revisão, TypeDoc/CI) que citam Laravel 13 e Vue 3 apenas de passagem, sem tocar em MaxPinia, UnoCSS ou no domínio fotovoltaico."
+  },
+  {
+    "id": "01M0G4G52F477ME1WMWZNJDX3J",
+    "skill_name": "typescript-advanced-types-best-practices",
+    "importance": 6,
+    "fase1_importance": 6,
+    "verdict": "confirmada",
+    "evidence": "Mantida: o conteúdo é puramente de linguagem (identity<T>, MyReturnType com infer, DeepReadonly recursivo limitado, remapeamento de chaves com Capitalize) — útil para tipar DTOs gerados e stores, mas sem uma linha sobre Vue 3.6 ou o ecossistema Max."
+  },
+  {
+    "id": "01M0G4G52FB0505WH8S40NG5M9",
+    "skill_name": "typescript-billing-core-architecture-best-practices",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "Nota baixa confirmada pelo próprio texto: 'não existe hoje uma lib billing-core/@maxvue/max-banks' e a cobrança do engeapp é PHP (efipay, inter-co, ProcessEfiWebhookJob). Só sobra um achado aproveitável — a ausência de chave de idempotência em bank_webhooks."
+  },
+  {
+    "id": "01M0G4G52FSR9AMFSDH0NFKVA1",
+    "skill_name": "typescript-max-banks-efi-gateway-best-practices",
+    "importance": 4,
+    "fase1_importance": 6,
+    "verdict": "rebaixada",
+    "evidence": "O aviso logo abaixo de 'Instruções' admite que o pacote @maxvue/max-banks e a classe EfiGateway 'ainda não existem em /projects' e que não há cliente Node/TS no engeapp; sobram apenas os fatos da API HTTP da Efí (POST /oauth/token com mTLS p12, /v2/cob, /v2/loc/{id}/qrcode), envoltos em uma arquitetura TypeScript que o projeto não vai escrever."
+  },
+  {
+    "id": "01M0G4G52F89MV92CC8JTBEX4D",
+    "skill_name": "typescript-tooling-monorepo-best-practices",
+    "importance": 6,
+    "fase1_importance": 5,
+    "verdict": "promovida",
+    "evidence": "O bloco 'Realidade dos projetos de referência' é factual e útil ao engeapp: TypeScript ^6 emitindo TS5101 para baseUrl (use só paths), proibição de validar SFC com npx tsc --noEmit (usar vue-tsc ou typecheck:tsgo) e o registro de que o engeapp não tem script test — mais que teoria de monorepo."
+  },
+  {
+    "id": "01M0G4G52FQ8N5D73J59PY8MH4",
+    "skill_name": "vue-auto-import-components-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Mantida: traz o bloco fiel do vite.config.ts do engeapp (spread de maxUseAutoImport, dirs em ./resources/Stores/**, dts auto-import.d.ts, MaxComponentsUiResolver) e alerta que o projeto não usa o bloco eslintrc do auto-import — regra dura do dossiê."
+  },
+  {
+    "id": "01M0G4G52FMY72CNEFPYVGGCK1",
+    "skill_name": "vue-axios-api-integration-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Confirmada: a Regra 4 disseca o contrato real dos helpers (nome falsy em apiPostRoute → false; nome inexistente → throw que propaga; erro HTTP → null que engole o corpo do 422) e admite que axios cru ainda aparece em ArtisanPage.vue/PublicationsPage.vue — orientação acionável, não slogan."
+  },
+  {
+    "id": "01M0G4G52FHZWZ0HXJ6BHDPQKS",
+    "skill_name": "vue-boleto-utils-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Mantida: documenta que o boleto-utils.d.ts publicado diverge do runtime (declara vencimentoApos22022025: string, mas o runtime devolve Date em vencimentoComNovoFator2025) e ensina a augmentation de módulo para o vue-tsc parar de reclamar — detalhe que só quem usou a lib conhece."
+  },
+  {
+    "id": "01M0G4G52FE13XJ9SAZPCH9XWS",
+    "skill_name": "vue-brand-positioning-character-management-best-practices",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "Confirmada: todo o corpo trata de TabBrandPositioning/TabCharacters/TabThemes, useSocialMediaCharacters.Store.ts e ThemeScheduleRule do projeto SocialMedia; o único resíduo aproveitável é a regra de UnoCSS attributify e o padrão de MaxModal de confirmação, já cobertos por outras skills."
+  },
+  {
+    "id": "01M0G4G52FBQ3RGEF7PC4ZNGMC",
+    "skill_name": "vue-complex-modal-forms-autosave-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Mantida: corrige erros reais de API do MaxModal (só .toggle()/.hide() existem; .show() da useModalStore precisa do id interno) e manda derivar o indicador de sincronização de store.status.server.save.is_requesting/is_success_now em vez de reimplementar debounce — o MaxPinia já salva com 300ms."
+  },
+  {
+    "id": "01M0G4G52FPPR93JC232GM9B5A",
+    "skill_name": "vue-dayjs-date-manipulation-best-practices",
+    "importance": 6,
+    "fase1_importance": 7,
+    "verdict": "rebaixada",
+    "evidence": "A própria seção 'Estado atual no projeto' confessa que o Day.js quase não é usado no engeapp — um único import em AdminCompaniesPage.vue, sem extend/locale central — e recomenda usar useDateFormat/useTimeAgo do max-use; o valor específico da skill é menor do que a nota 7 sugeria."
+  },
+  {
+    "id": "01M0G4G52F6TCCATTNQD1F1K3V",
+    "skill_name": "vue-debugging-best-practices",
+    "importance": 7,
+    "fase1_importance": 7,
+    "verdict": "confirmada",
+    "evidence": "O SKILL.md é um índice de sintomas, mas não é oco: aponta para uma pasta reference/ com ~800 KB de fichas reais (watch-async-cleanup, reactivity-proxy-identity-hazard, computed-conditional-dependencies); ainda assim é troubleshooting de framework, sem tocar MaxPinia ou UnoCSS — nota 7 continua justa."
+  },
+  {
+    "id": "01M0G4G52FR45GY3Q2E1Y36D87",
+    "skill_name": "vue-eslint-stylelint-quality-standards",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Mantida: lista as regras efetivamente configuradas no engeapp (vue/block-order, @stylistic/indent 4 com vue/script-indent baseIndent 1, comma-dangle never, ignorePseudoElements v-deep) e avisa que não há script npm de Stylelint, separando o que é lint do que é convenção de CLAUDE.md."
+  },
+  {
+    "id": "01M0G4G52F736SSZVZDWV8HQ5Q",
+    "skill_name": "vue-frontend-bug-fixing-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Confirmada: 415 linhas com a tabela de stack versionada do engeapp e achados verificáveis, como floating-vue sendo dependência morta (tooltips vêm da diretiva v-tooltip do PrimeVue registrada pela MaxComponentsUi) e o vitest.config.ts cobrindo tests/Js com specs de VOIP e TRT."
+  },
+  {
+    "id": "01M0G4G52FJ4QZKB4R0K2TGM0R",
+    "skill_name": "vue-inputs-masks-validation-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Mantida: define o contrato de persistência de telefone do projeto (DDI + dígitos sem '+', igual ao que PhoneClass::getInternationalPhoneNumber grava), a máscara real do MaxInputCep ('##.### - ###') e o critério MaxPhoneField vs MaxInputPhoneMail — e marca honestamente as seções de cartão como sem precedente no código."
+  },
+  {
+    "id": "01M0G4G52FPRWYTT588CZRBTYB",
+    "skill_name": "vue-keyboard-shortcuts-navigation-best-practices",
+    "importance": 5,
+    "fase1_importance": 5,
+    "verdict": "confirmada",
+    "evidence": "Mantida: o conteúdo é correto e adaptado ao auto-import do max-use (useActiveElement, useMagicKeys, whenever), com a guarda isTyping e o modificador .exact, mas trata de um requisito que o engeapp não declara em lugar nenhum — boa prática de UI, não necessidade do projeto."
+  },
+  {
+    "id": "01M0G4G52FN919TBC6AS95B5SQ",
+    "skill_name": "vue-max-components-ui-popovers-confirmations-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Mantida: além do v-tooltip do PrimeVue em forma string e objeto ({ value, escape: false }), registra duas armadilhas concretas — show() do MaxPopover é alias de toggle() e fecha se já estiver aberto, e usar nome de rota Ziggy de API em item de MaxPopoverMenu passa no hasRoute() mas não navega."
+  },
+  {
+    "id": "01M0G4G52F058W41SS9BH3M23N",
+    "skill_name": "vue-max-ecosystem-api-reference",
+    "importance": 10,
+    "fase1_importance": 10,
+    "verdict": "confirmada",
+    "evidence": "O SKILL.md é só um mapa de 48 linhas, mas as referências existem e são substanciais: 2.066 linhas em maxcomponentsui.md (68 componentes Max*), 558 em maxuse.md e 248 em maxpinia.md — catálogo de API das três libs obrigatórias do engeapp."
+  },
+  {
+    "id": "01M0G4G52FCX379X4PKE3XTT1X",
+    "skill_name": "vue-max-stack-frontend-best-practices",
+    "importance": 10,
+    "fase1_importance": 10,
+    "verdict": "confirmada",
+    "evidence": "Nota máxima mantida: 294 linhas com as regras duras do engeapp escritas na forma acionável — ordem de blocos por vue/block-order, atributos sempre inline, proibição de <section> e de input/button nativos com o mapeamento para MaxInputText/MaxButton, e a proibição de importar @vueuse/core ou lodash fora do MaxUse."
+  },
+  {
+    "id": "01M0G4G52F35ZFHS7Y30QK1X9N",
+    "skill_name": "vue-max-use-development-best-practices",
+    "importance": 7,
+    "fase1_importance": 7,
+    "verdict": "confirmada",
+    "evidence": "Mantida: é sobre evoluir a lib (MaybeRefOrGetter + toValue, testes Vitest dentro de effectScope, registro de nova categoria nos três pontos src/index.ts, maxUseItems.ts e buildAutoImport.ts) — valioso porque o engeapp é a origem do ecossistema, mas é trabalho na lib, não no app."
+  }
+]

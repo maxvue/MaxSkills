@@ -1,0 +1,322 @@
+[
+  {
+    "id": "01M0WFGHQNH2X17E9E2PAENKBQ",
+    "skill_name": "adonisjs-brazilian-payments-asaas-integration-best-practices",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O corpo inteiro é TypeScript de AdonisJS (`start/env.ts`, `config/asaas.ts`, models Lucid com `declare asaasCustomerId`, jobs BullMQ) — backend Node, que o dossiê lista como irrelevante. Sobra apenas o conhecimento de domínio (valores em centavos, ciclos de assinatura `MONTHLY`), útil de longe para o módulo de billing."
+  },
+  {
+    "id": "01M0G4G52FE6Y45CNB8F3MQM0R",
+    "skill_name": "frontend-design-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo não é papo genérico de design: fixa regras executáveis do stack Max — proibição de `<input>`/`<button>`/`<h1>` nativos, `MaxGrid` (nunca `MaxGridCols`), atributos dimensionais só com número puro (`w-min-10rem` viraria `min-width: 10rempx`) e proibição de `@vueuse/core`/`lodash`. Tudo isso vale igual no AgenteDeBolso."
+  },
+  {
+    "id": "01M0G4G52EYV7E1XB1AR91RA7C",
+    "skill_name": "laravel-ai-agents-ecosystem",
+    "importance": 3,
+    "fase1_importance": 5,
+    "verdict": "rebaixada",
+    "evidence": "O SKILL.md é só um índice de links para `references/*.md` — seis parágrafos apontando para outros arquivos, sem substância própria. E tudo gira em torno do pacote `laravel/ai` (`Ai::fakeAgent`, `HasAgentAiRequest`, `AgentHealthScore` B2B), que o AgenteDeBolso não usa: lá o LLM é chamado pelo `google-gemini-php` direto."
+  },
+  {
+    "id": "01M0G4G52EPQKNR9AWG7B5HJGN",
+    "skill_name": "laravel-ai-bank-ticket-processing-best-practices",
+    "importance": 3,
+    "fase1_importance": 6,
+    "verdict": "rebaixada",
+    "evidence": "O próprio aviso no topo admite que `CheckBankTicket`/`PayBankTicket`/`SaveBankTicketToProject` são mocks com `uniqid()` e que `AgentBankTicketProcessor` não é instanciado por nenhum controller/job — é um pipeline planejado. Além disso o fluxo é pagar taxa de TRT/homologação via agente `laravel/ai` + Spatie MediaLibrary, nada disso existe no AgenteDeBolso."
+  },
+  {
+    "id": "01M0G4G52EJXZCX57K0HJ9WEAY",
+    "skill_name": "laravel-ai-datasheet-extraction-best-practices",
+    "importance": 3,
+    "fase1_importance": 3,
+    "verdict": "confirmada",
+    "evidence": "O corpo é fotovoltaico puro (`type_equipment`, `range_vcc`, `voc`, MPPT, faixa de tensão CA `127/220V (188.6-237.7V)`) e amarrado ao `GeminiDatasheetProcessJob`. Só a técnica transversal — grounding, proibir alucinação, fallback para `0` e schema `JsonSchema` — aproveita na leitura de extratos em PDF."
+  },
+  {
+    "id": "01M0G4G52E658QPZ1C0F301826",
+    "skill_name": "laravel-anticaptcha-integration-best-practices",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Todo o conteúdo depende de classes proprietárias do engeapp (`App\\Classes\\Anticaptcha\\ImageToText`, property hooks de `AnticaptchaBase`, canal de log `anticaptcha`) que não existem no AgenteDeBolso, e o app de finanças não faz raspagem de portal protegido — nem o bug do `setCaseFlag()` documentado tem onde ser aplicado."
+  },
+  {
+    "id": "01M0G4G52E6PHAX6NHQTY8PD16",
+    "skill_name": "laravel-api-integration-patterns",
+    "importance": 3,
+    "fase1_importance": 5,
+    "verdict": "rebaixada",
+    "evidence": "É a documentação de uma abstração proprietária: `BaseApi` com `Attributes.json`/`EndPoints.json`, chamadas mágicas via `__call`, `setCacheKey()` e o contrato de cache `body`/`status`/`headers`. Nada disso existe no AgenteDeBolso, e a própria skill avisa que nem no engeapp o padrão é universal (a Efí não estende `BaseApi`)."
+  },
+  {
+    "id": "01M0G4G52EZACYS1CEZG32T53N",
+    "skill_name": "laravel-authorization-policies-gates",
+    "importance": 5,
+    "fase1_importance": 7,
+    "verdict": "rebaixada",
+    "evidence": "O eixo do texto é `spatie/laravel-permission` (`HasRoles`, permissões pontilhadas `projeto.criar`, `can:usuario.gerenciar`) e `belongsToTenant()` sobre `allowedSolarCompanyIds()` — pacote e recorte de tenant que o AgenteDeBolso não tem. Restam as Policies por auto-discovery e a autorização no controller, que sim se aplicam ao compartilhamento de perfil."
+  },
+  {
+    "id": "01M0G4G52E3TW3BJ2G7RBX8SRF",
+    "skill_name": "laravel-brazilian-data-queries-best-practices",
+    "importance": 7,
+    "fase1_importance": 7,
+    "verdict": "confirmada",
+    "evidence": "A cadeia real de sete provedores de CEP (CepAberto → ViaCep → OpenCep → BrasilAPI → …) com TTL de 8 meses e resolução prévia pelo banco é exatamente o cenário do AgenteDeBolso, que usa BrasilAPI/CEP Aberto. Fica em 7 porque o contrato de retorno devolve models `Cep`/`City`/`State` do engeapp, que precisariam ser reescritos."
+  },
+  {
+    "id": "01M0G4G52E7Y6F0YXKZ5CHW4WF",
+    "skill_name": "laravel-brazilian-localization-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Conteúdo denso e diretamente aplicável: alerta que a rule `'cpf'` não existe (o `phillarmonic/cpf-cnpj` não registra ServiceProvider), fixa `Lacus\\BrUtils` sobre `onlyNumbers()`, `number_format($v, 2, ',', '.')` com `R$` manual (porque `ext-intl` não está declarada) e `round(..., PHP_ROUND_HALF_UP)` — moeda e máscara aparecem em cada lançamento do app."
+  },
+  {
+    "id": "01M0G4G52EHSTESYE3S88P1J4Y",
+    "skill_name": "laravel-brazilian-payments-integration",
+    "importance": 7,
+    "fase1_importance": 9,
+    "verdict": "rebaixada",
+    "evidence": "Boa parte do corpo é confissão de código inexistente: Asaas só serve recarga de celular, `InterPaymentExecute::createBolix()` é um método vazio, Mercado Pago é 'aspiracional' e não há `app/Data/Asaas`. O que sobra de sólido é o padrão de webhook (persistir cru em `bank_webhooks`, responder 200, despachar job idempotente) e a instanciação da Efí — valioso, mas menos que a nota 9 sugeria."
+  },
+  {
+    "id": "01M0G4G52ENM960HYNFXV97H2A",
+    "skill_name": "laravel-browser-automation-webdriver",
+    "importance": 3,
+    "fase1_importance": 8,
+    "verdict": "rebaixada",
+    "evidence": "A descrição promete Dusk e Puppeteer, mas o arquivo não fala de nenhum dos dois: é 100% a classe `App\\Classes\\Browser` do engeapp sobre geckodriver/Firefox, com pool de portas 44500-44599 em hash Redis via `hsetnx`, `elementByIdExist()` quebrado e o command `geckodriver:cleanup-ports`. O AgenteDeBolso verifica UI com Dusk+Puppeteer, que a skill não cobre."
+  },
+  {
+    "id": "01M0G4G52E7KH6E1RR8FZF01EG",
+    "skill_name": "laravel-cache-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Além do `Cache::remember`, o texto entrega coisas transferíveis de verdade: a regra de remontar a chave exatamente como foi escrita ao invalidar, o alerta de que tags só funcionam no store efetivo (redis sim, file/array/database não) e o caso de colisão `specs.{id}` entre dois models — armadilha do mesmo tipo que o AgenteDeBolso cataloga."
+  },
+  {
+    "id": "01M0G4G52EB1CVXDA5JBZFW5G7",
+    "skill_name": "laravel-cloud-storage-integrations",
+    "importance": 2,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "O arquivo declara explicitamente que o bloco `s3` do `filesystems.php` 'não é usado no código' e que tudo gira em torno do driver customizado `seafile` (WebDAV/Sabre) e do disco `projects` do Media Library. O AgenteDeBolso guarda anexos no S3 e não tem MediaLibrary — sobra só o conselho de `Storage::fake()` nos testes."
+  },
+  {
+    "id": "01M0G4G52E3S47MEQYM9W6Y7QS",
+    "skill_name": "laravel-concessionaires-connection-regulation-best-practices",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo trata de `ConcessionaireCompany`/`ConcessionaireSubsidiary`, `wire_phase`/`wire_neutral`/`circuit_breaker` e 16 rotas nomeadas de concessionária. É regulação de conexão elétrica, sem qualquer ponto de contato com finanças pessoais."
+  },
+  {
+    "id": "01M0G4G52EBH67GJV397R7602V",
+    "skill_name": "laravel-digital-signatures-integration",
+    "importance": 5,
+    "fase1_importance": 7,
+    "verdict": "rebaixada",
+    "evidence": "A parte concreta é o binding de `vinicinbgs\\Autentique\\Documents` no container (sem token o SDK lança `EmptyTokenException`) e o envio de procuração por WhatsApp usando `ProjectPowerOfAttorneyDocument` do engeapp; Clicksign é admitidamente não instalado. O AgenteDeBolso tem o SDK no composer mas nenhum fluxo de assinatura descrito — vale como referência de setup, não como tema central."
+  },
+  {
+    "id": "01M0G4G52EVETWJZW63H90EQRD",
+    "skill_name": "laravel-editorial-calendar-event-workflow-best-practices",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O corpo é o `match` do `EventObserver` mapeando `planned`/`script_drafted`/`art_rejected` para `CopywriterJob`/`ArtAnalystJob` na fila `gemini` — máquina de estados de post de Instagram. Só o uso de `ShouldHandleEventsAfterCommit` para não despachar job antes do commit tem eco fora desse domínio."
+  },
+  {
+    "id": "01M0G4G52E421RF15A8K26V438",
+    "skill_name": "laravel-electrical-calculations-dimensioning-best-practices",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Todo o arquivo são helpers de engenharia elétrica: `getWireSize()` com `type_line` da NBR 5410, `getCircuitBrake()` com 44 valores comerciais hardcoded e `toPhasePhase()`/`voltageBetweenPhases()`. Zero interseção com o domínio de finanças pessoais."
+  },
+  {
+    "id": "01M0G4G52EY4CGV98QXC2RCKY5",
+    "skill_name": "laravel-engeapp-project-homologation-best-practices",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "As seções 1 a 3 são homologação pura (`ConcessionaireSubsidiaryRegulation`, `mono_127`/`tri_220`, trait `HasProtocol`, vocabulário controlado de `department`). Só a seção 4, que repete o contrato MaxPinia/Ziggy, tem valor fora do engeapp — e ele já está mais bem coberto por outras skills."
+  },
+  {
+    "id": "01M0G4G52EVT227DEYCPV0CQNM",
+    "skill_name": "laravel-exception-handling-logging",
+    "importance": 7,
+    "fase1_importance": 7,
+    "verdict": "confirmada",
+    "evidence": "O padrão `ShouldntReport` para exceptions que devem ser retentadas pela fila sem gerar auto-report, com o report definitivo no `failed()` do Job, é diretamente reaproveitável nos jobs agendados do AgenteDeBolso; a regra de contexto em array em vez de string concatenada ajuda na depuração de falhas silenciosas que o dossiê cita."
+  },
+  {
+    "id": "01M0G4G52E5329B3BXTNW6Q5YY",
+    "skill_name": "laravel-finance-coupons-discounts-best-practices",
+    "importance": 5,
+    "fase1_importance": 7,
+    "verdict": "rebaixada",
+    "evidence": "As seções 2 e 3 vêm rotuladas como 'MELHORIA PROPOSTA' — o fluxo real não usa transação nem lock, e o desconto é float puro duplicado entre `PaymentPricing` e `EfiPaymentStatus`. O resto é o model `FinanceDiscountCoupons` com `solar_company_id`/`project_id` do engeapp; o AgenteDeBolso sequer tem cupons, só cotas e planos."
+  },
+  {
+    "id": "01M0G4G52E2CWKHNK3N6E91RS4",
+    "skill_name": "laravel-frankenphp-octane-best-practices",
+    "importance": 7,
+    "fase1_importance": 7,
+    "verdict": "confirmada",
+    "evidence": "A parte de statelessness é exatamente a armadilha que o AgenteDeBolso tem em produção: `scoped()` em vez de `singleton()`, diferença entre `octane.flush`, `octane.listeners` e `octane.warm`, e o alerta de que `OCTANE_WORKERS`/`OCTANE_MAX_REQUESTS` são envs inertes. A seção de deploy (Deployer + supervisorctl) é do engeapp e não transfere."
+  },
+  {
+    "id": "01M0G4G52E63VH9SV4003B4Y1R",
+    "skill_name": "laravel-gemini-file-api-media-integration-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Entrega o pipeline completo com `Gemini::files()->upload()`, polling de `FileState::Active` com tratamento de `Failed`/timeout e a regra do corte em 20MB (blob inline abaixo, File API acima) — exatamente o que o AgenteDeBolso precisa ao mandar áudio convertido por FFmpeg e PDFs grandes ao Gemini, sempre dentro de job por causa do Octane."
+  },
+  {
+    "id": "01M0G4G52EZFM3K4GGMPMH1H5P",
+    "skill_name": "laravel-gemini-php-sdk-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "É o manual do SDK que o AgenteDeBolso realmente usa: `GenerationConfig` com `ResponseMimeType::APPLICATION_JSON` + `Schema`/`DataType` para saída estruturada, `Blob` base64 com os MimeTypes de PDF/áudio (inclusive `AUDIO_OGG` e `AUDIO_AAC`, os formatos do FFmpeg do projeto) e fallback em cascata entre modelos no erro 503."
+  },
+  {
+    "id": "01M0G4G52EZVJMHHYQF3F852RZ",
+    "skill_name": "laravel-global-helpers-best-practices",
+    "importance": 6,
+    "fase1_importance": 8,
+    "verdict": "rebaixada",
+    "evidence": "Boa parte do texto é inventário do engeapp — os 20 arquivos de `app/Helpers/`, o antipadrão `numbersHelper.php` e o `OldDBHelper.php` fora do `autoload.files`. As regras que transferem (camelCase, função global solta, statelessness sob Octane) são poucas, e a instrução de rodar `composer dump-autoload` colide com a proibição explícita do AgenteDeBolso dentro de worktree."
+  },
+  {
+    "id": "01M0G4G52EYEJVD5QHWVGNZXEG",
+    "skill_name": "laravel-holiday-sla-calculation-best-practices",
+    "importance": 9,
+    "fase1_importance": 8,
+    "verdict": "promovida",
+    "evidence": "O conteúdo vai além do prometido: documenta a armadilha de `fetchHolidays()` gravar `[]` dentro de um `Cache::rememberForever`, congelando a falha e fazendo `addBusinessDays()` pular só fins de semana. Como o AgenteDeBolso ajusta fechamento/vencimento de fatura por feriado e já integra a Invertexto, esse detalhe é decisivo — vale mais que 8."
+  },
+  {
+    "id": "01M0G4G52EMZX2NAXDAJN2GAGE",
+    "skill_name": "laravel-jobs-queues-horizon-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Conteúdo substancial e quase todo portável: esqueleto obrigatório de Job, tabelas de `$tries`/`$backoff` por tipo de dependência, `timeout()` dinâmico e a regra crítica de que o timeout do Job precisa ser ≤ ao do supervisor do Horizon, senão o job some sem disparar `failed()`. Vale integralmente para as filas Redis+Horizon do AgenteDeBolso."
+  },
+  {
+    "id": "01M0G4G52EF6QCHQEM9Q9SDFGY",
+    "skill_name": "laravel-livekit-server-sdk-best-practices",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "O arquivo trata de `AccessToken`/`VideoGrant`, `RoomCreateOptions` e `listParticipants()` do `agence104/livekit-server-sdk`. O AgenteDeBolso não tem WebRTC, sala de vídeo nem o pacote no composer."
+  },
+  {
+    "id": "01M0G4G52EMJBAGBRFMEQKBQ4F",
+    "skill_name": "laravel-media-library-best-practices",
+    "importance": 1,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "Cada seção pressupõe `spatie/laravel-medialibrary`: `HasMedia`/`InteractsWithMedia`, Media model customizado registrado em `config/media-library.php`, `addMediaCollection()->useDisk('projects')`, `nonQueued()` nas conversões e o `MediaController` genérico. O AgenteDeBolso não tem o pacote — nem o padrão de upload é reaproveitável."
+  },
+  {
+    "id": "01M0G4G52EQ46JEKV691NC2RFC",
+    "skill_name": "laravel-meta-graph-api-integration-best-practices",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O miolo é publicação no Instagram/Facebook — `createReelsContainer`, polling de `status_code` até `FINISHED`, carrossel em três etapas, `{page-id}/photos`. O único fiapo aproveitável é o handshake de challenge do webhook (`hub_verify_token`/`hub_challenge`), que ecoa de longe a WhatsApp Cloud API ainda não implementada no projeto."
+  },
+  {
+    "id": "01M0G4G52EQ3RJ9J2W2FJGJXPK",
+    "skill_name": "laravel-migrations-seeders-factories-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "As FKs em migration separada (`add_foreign_keys_to_*`) dentro de `try/catch`, o guard `Schema::hasTable()` e o `SET FOREIGN_KEY_CHECKS=0` com insert em chunks de 500 são resposta direta às armadilhas catalogadas no AgenteDeBolso (errno 150 de collation, tabelas sem FK). Só o padrão de PK ULID diverge do projeto."
+  },
+  {
+    "id": "01M0G4G52EWS1XFNG7E5VA2FW1",
+    "skill_name": "laravel-multitenancy-data-isolation-best-practices",
+    "importance": 4,
+    "fase1_importance": 5,
+    "verdict": "rebaixada",
+    "evidence": "Todo o texto gira em torno de `solar_company_id`, `allowedSolarCompanyIds()` e da regra de company projetista que atende integradoras — modelo que não existe no AgenteDeBolso, onde o recorte é `profile_id`. Salva-se a ideia de scope local explícito (`scopeForUserTenant`) revalidado na Policy como defesa em profundidade."
+  },
+  {
+    "id": "01M0G4G52E5VW7P42NVJEQ2469",
+    "skill_name": "laravel-pdf-handling-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Conteúdo denso e verificável: DomPDF sem flexbox/grid e com imagem em data URI, FPDI/TCPDF por coordenadas, `pdfIsValid()` antes de `Pdf::getText()` e o aviso de que a API v2 do `pdf-to-image` (`setResolution`/`saveImage`) lança `Error` — não `Exception` — logo um `catch (Exception)` não pega. O AgenteDeBolso carrega todos esses pacotes para exportar relatórios e ler extratos."
+  },
+  {
+    "id": "01M0G4G52EDC220YG70SVNTF4V",
+    "skill_name": "laravel-performance-and-profiling-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Traz correções de API que evitam erro em runtime: `clock()->event()->begin()/end()` (e não `clockwork()->startEvent()`, inexistente na v5), a inexistência do artisan `log-viewer:clear-cache` e a semântica de `-v`/`-vv` do Pail. LaraDumps, Clockwork, Debugbar, Pail e log-viewer são exatamente o arsenal instalado no AgenteDeBolso."
+  },
+  {
+    "id": "01M0G4G52EV3J99GGRP1DN0VQE",
+    "skill_name": "laravel-pest-testing-best-practices",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Cobre o que importa numa suíte grande: `DatabaseTransactions` centralizado em `tests/Pest.php` (com a proibição de misturar `RefreshDatabase` por arquivo), `make()` vs `create()`, `Http::preventStrayRequests()` com padrões específicos em vez do coringa `'*'` e regras `arch()` do Pest v3 com `ignoring()`. Combina com os 165 arquivos de Pest 3 do AgenteDeBolso."
+  },
+  {
+    "id": "01M0G4G52EMMPA0WK4VBGPMERB",
+    "skill_name": "laravel-php-code-quality-tooling",
+    "importance": 9,
+    "fase1_importance": 9,
+    "verdict": "confirmada",
+    "evidence": "Fixa a ordem correta do pipeline (Rector → Pint → Larastan), o `pint --dirty` para diffs focados e o `phpstan.neon` em level 1 com `scanFiles: _ide_helper_models.php` e `@mixin IdeHelper*` em vez de PHPDoc injetado no model — exatamente o toolchain Pint + PHPStan level 1 exigido no AgenteDeBolso."
+  },
+  {
+    "id": "01M0G4G52E006K101Q4R47XJKJ",
+    "skill_name": "laravel-power-of-attorney-generation-best-practices",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O arquivo é curto e inteiramente ancorado em `PowerAttorneyService`/`ProjectPowerOfAttorneyDocument`: composição de endereço via `Location→Address→cep→city`, blocos da Lei 14.063/2020 e o ramo `'digital'` vs qualquer outro valor. Só a ideia de PF×PJ e de não gerar HTML com CPF cru se aproveita fora do engeapp."
+  },
+  {
+    "id": "01M0G4G52E9NHSSAVVM63K35W2",
+    "skill_name": "laravel-qrcode-generation-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Cobre a v6 do `endroid/qr-code` com `Builder` por argumentos nomeados, `getDataUri()` para embutir em `<img>`/API e duas armadilhas reais: o `SvgWriter` engole o label silenciosamente e o `logoPunchoutBackground` lança exceção nele. Serve direto ao QR Code de Pix e aos documentos do AgenteDeBolso."
+  },
+  {
+    "id": "01M0G4G52EE2GFVNXFBD6JHGCQ",
+    "skill_name": "laravel-rate-limiting-best-practices",
+    "importance": 6,
+    "fase1_importance": 6,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo é Laravel puro e portável — `RateLimiter::for` no `AppServiceProvider`, `throttle:6,1` inline nas rotas de verificação de e-mail e o throttling manual em FormRequest que só conta tentativas com falha (`hit` no erro, `clear` no sucesso, chave por e-mail+IP). Útil no login e no PIN, mas não é tema estruturante do app."
+  },
+  {
+    "id": "01M0G4G52EQJCSMT32MAFD936X",
+    "skill_name": "laravel-redis-integration-best-practices",
+    "importance": 8,
+    "fase1_importance": 8,
+    "verdict": "confirmada",
+    "evidence": "Traz configuração real de `phpredis` (`persistent` via env, sugestão de `timeout`/`read_timeout` ausentes) e o alerta de não repetir o nome do app na chave porque o `REDIS_PREFIX` já prepende. O exemplo de reserva atômica com `Redis::hsetnx()` é de pool de portas do geckodriver, mas o padrão de lock transfere para as filas do AgenteDeBolso."
+  }
+]

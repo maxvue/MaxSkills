@@ -1,0 +1,322 @@
+[
+  {
+    "id": "01M0GCFD18JWND6HNR2YAA19ZT",
+    "skill_name": "2slides-ppt-generator",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "As 787 linhas são documentação real da API 2slides (créditos por página, Fast PPT, Nano Banana, narração) e exigem `pip install -r requirements.txt` mais a chave SLIDES_2SLIDES_API_KEY. Serviço pago em Python para gerar decks, algo que o engeapp não faz (gera PDF/Word/Excel)."
+  },
+  {
+    "id": "01M0GCFD18NX2MRZQC17MY1DA5",
+    "skill_name": "3d-ui",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O corpo entrega CSS concreto (`perspective: 1000px`, `transform-style: preserve-3d`, `rotateX/rotateY`) e um bloco SwiftUI com `rotation3DEffect`, além de pedir assets .glb/.gltf. Nada disso se encaixa no layout 2D com componentes Max e UnoCSS do engeapp."
+  },
+  {
+    "id": "01M0GCFD1811C5TG8VHJ34BCDN",
+    "skill_name": "ab-test-setup",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O arquivo tem gates duros reais — Hypothesis Lock com MDE obrigatório, checagem de validade (sazonalidade, independência de usuários) e escolha entre A/B, A/B/n, MVT e Split URL. Rigor legítimo, mas o engeapp não tem tráfego de experimento nem camada de variantes."
+  },
+  {
+    "id": "01M0GCFD18KWQT3TFSW2CRN77T",
+    "skill_name": "ab-testing",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "Traz tabela de sample size por baseline (1% exige 150k/variante para lift de 10%) e o template 'Because [observação]... we believe...', tudo orientado a conversão de marketing. Fora do escopo de homologação em concessionária e emissão de documentos."
+  },
+  {
+    "id": "01M0GCFD18VAGVJWZC3N8DC6G5",
+    "skill_name": "ad-creative",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo é especificação de mídia paga: limites de RSA do Google (headline 30 chars, até 15) e do Meta (primary text 125 chars visíveis). Puramente publicitário, sem relação com o SaaS fotovoltaico."
+  },
+  {
+    "id": "01M0GCFD184YZG5EYCX4KG5D0Y",
+    "skill_name": "adhx",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "São 132 linhas em torno de um único endpoint (`https://adhx.com/api/share/tweet/{username}/{statusId}`) com curl e schema de resposta. O engeapp não consome nada do X/Twitter."
+  },
+  {
+    "id": "01M0GCFD19T9JY3X5W3ATJ3S4T",
+    "skill_name": "aegisops-ai",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Os três módulos são scripts Python (`patch_analyzer.py`, `cost_auditor.py`, `k8s_policy_generator.py`) instalados via venv + `pip install google-genai`, atuando sobre patches de kernel C, `terraform plan` e securityContext do K8s. Toda a pilha é vetada no dossiê."
+  },
+  {
+    "id": "01M0GCFD19NWKBJ1YCS29T5NGS",
+    "skill_name": "agent-creator",
+    "importance": 3,
+    "fase1_importance": 5,
+    "verdict": "rebaixada",
+    "evidence": "O frontmatter traz `plugin.targets.claude: blocked` e todo o workflow escreve em `<appDataDir>\\config\\plugins\\` com barras invertidas — é scaffolding para outro harness, não para o ambiente usado no engeapp. Sobra apenas a ideia de gerar persona."
+  },
+  {
+    "id": "01M0GCFD198ZTWHXMA72NJDA89",
+    "skill_name": "agent-evaluation",
+    "importance": 5,
+    "fase1_importance": 5,
+    "verdict": "confirmada",
+    "evidence": "1135 linhas com implementação real em TypeScript (`StatisticalEvaluator`, minRuns=10, intervalo de confiança 95%, p95 de latência) para avaliar comportamento estocástico — método transferível aos agentes Gemini com tool calling do engeapp, mesmo com o ferramental citado (AgentBench, Langsmith) fora da stack."
+  },
+  {
+    "id": "01M0GCFD19BMF20Z7SJH4S58KG",
+    "skill_name": "agent-evaluation-reporting",
+    "importance": 3,
+    "fase1_importance": 3,
+    "verdict": "confirmada",
+    "evidence": "Conteúdo denso e honesto: ledger mutuamente exclusivo (autonomous/assisted/failure/timeout/invalid), fórmulas com denominadores explícitos (`N_eval = N_all - N_invalid`) e regra de reportar `unavailable` em vez de dividir por zero. Bom rigor, mas pressupõe uma bateria formal de avaliação que o engeapp não mantém."
+  },
+  {
+    "id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+    "skill_name": "agent-framework-azure-ai-py",
+    "importance": 0,
+    "fase1_importance": 0,
+    "verdict": "confirmada",
+    "evidence": "Todo o corpo é Python assíncrono com `AzureAIAgentsProvider`, `AzureCliCredential` e `AZURE_AI_MODEL_DEPLOYMENT_NAME=gpt-4o-mini`. Python, Azure e OpenAI são três vetos simultâneos do dossiê."
+  },
+  {
+    "id": "01M0GCFD197FJEE75WWCDHK2Q4",
+    "skill_name": "agent-harness-fault-injection",
+    "importance": 4,
+    "fase1_importance": 2,
+    "verdict": "promovida",
+    "evidence": "A descrição soa como brinquedo de harness, mas o corpo define um contrato de recuperação concreto — retomar do último checkpoint durável, respeitar o orçamento restante de retry/deadline e cometer cada efeito externo no máximo uma vez, com matriz de falhas exigindo 'bounded retry with same idempotency key'. É exatamente o vocabulário de idempotência e retries dos ~45 jobs Horizon do engeapp."
+  },
+  {
+    "id": "01M0GCFD197CRDEE5JDE68FNAJ",
+    "skill_name": "agent-manager-skill",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "São 47 linhas que se resumem a clonar `fractalmind-ai/agent-manager-skill` e executar cinco comandos `python3 agent-manager/scripts/main.py`, mais um bloco de limitações genéricas. Skill oca e dependente de tmux+python externo."
+  },
+  {
+    "id": "01M0GCFD19NG8MWNKV6CX0ZK6F",
+    "skill_name": "agent-memory-mcp",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "As 104 linhas são majoritariamente instruções de clonar o repo `webzler/agentMemory` num commit fixo, rodar `npm ci`/`npm run compile` e a assinatura de três tools (`memory_search`, `memory_write`, `memory_read`). Nenhuma orientação de conteúdo além do setup de um MCP Node que o engeapp não usa."
+  },
+  {
+    "id": "01M0GCFD19RMWE1BMBZKEQF9WP",
+    "skill_name": "agent-memory-systems",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O ferramental prescrito é inteiramente vetado: LangMem/LangChain, MemGPT, Pinecone/Qdrant/Weaviate/pgvector e embeddings `text-embedding-3-large` da OpenAI com preço por milhão de tokens. O engeapp não tem vector store nem RAG e sua stack de IA é Gemini/DeepSeek."
+  },
+  {
+    "id": "01M0GCFD19Q09WF3PG18JEXMVP",
+    "skill_name": "agent-orchestration-improve-agent",
+    "importance": 3,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "Onde deveria haver método, o arquivo manda executar um comando inexistente (`Use: context-manager` / `Command: analyze-agent-performance $ARGUMENTS --days 30`) e listar bullets genéricos de padrões de correção do usuário. É prosa de fase mais do que engenharia de prompt aplicável."
+  },
+  {
+    "id": "01M0GCFD191187GGD9RBHK114V",
+    "skill_name": "agent-orchestration-multi-agent-optimize",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O corpo é placeholder puro — `$TARGET`, `$PERFORMANCE_GOALS`, `$BUDGET_CONSTRAINTS` — e adjetivos ('framework avançado, orientado por IA, holístico'). Não há uma única técnica verificável de profiling que ajude a controlar custo Gemini/BigQuery no engeapp."
+  },
+  {
+    "id": "01M0GCFD19M581W25QWJ6QWEGY",
+    "skill_name": "agent-qa-authoring",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "Tudo gira em torno de tools proprietárias da Vostride (`agent_qa_generate_id`, `agent_qa_validate_suite`) e contratos de ID como 't_ mais 10 id-agent words'. Inaplicável a uma suíte Pest/Dusk/Vitest."
+  },
+  {
+    "id": "01M0GCFD19428J1JZ1H2KE7C9T",
+    "skill_name": "agent-qa-debug-fix",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "A regra 'não reescrever um teste só para ele passar quando o artefato mostra defeito de produto' é boa disciplina, mas o fluxo inteiro depende de `agent_qa_get_run_artifact` e `agent_qa_classify_failure` da plataforma externa."
+  },
+  {
+    "id": "01M0GCFD19ASKMNADR1VH7XNAA",
+    "skill_name": "agent-qa-result-triage",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "As oito categorias fixas incluem `appium_startup` e `browser_disconnect`, ou seja, mundo Appium/mobile via MCP da Vostride — o engeapp faz testes de navegador com Dusk e php-webdriver."
+  },
+  {
+    "id": "01M0GCFD194JJP2JDD90STJPY1",
+    "skill_name": "agent-self-scheduling",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O conteúdo é específico de harnesses alheios — 'Camp B' é o scheduler do Hermes (`hermes cron create`), e há seções sobre cmux, Pi e Codex. Trata do relógio do assistente, não do scheduler do Laravel/Totem que o engeapp usa para jobs recorrentes."
+  },
+  {
+    "id": "01M0GCFD19S31C8FP08Z2EN260",
+    "skill_name": "agent-squad",
+    "importance": 2,
+    "fase1_importance": 3,
+    "verdict": "rebaixada",
+    "evidence": "O núcleo é uma tabela de personas batizadas (Rex analista, Aria arquiteta, Dep de DevOps para 'containerize/CI setup') com um formato de resumo comprimido. Roleplay de esquadrão, e o agente de deploy aponta justamente para containers/CI, que o dossiê rejeita."
+  },
+  {
+    "id": "01M0GCFD192PKRXS4KC9H07H25",
+    "skill_name": "agent-tool-builder",
+    "importance": 6,
+    "fase1_importance": 6,
+    "verdict": "confirmada",
+    "evidence": "714 linhas com princípios verificáveis e úteis ao tool calling com Gemini do engeapp: menos de 20 tools para não confundir o modelo, retornar strings em vez de objetos, gates de validação antes da execução e a tese de que a descrição do schema pesa mais que a implementação."
+  },
+  {
+    "id": "01M0GCFD19Q756MA5YBBWDP4Y8",
+    "skill_name": "agentfolio",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O 'método' é literalmente abrir https://agentfolio.io, filtrar por categoria e anotar o modelo de autonomia de cada produto. Pesquisa de mercado sem nenhum artefato técnico."
+  },
+  {
+    "id": "01M0GCFD19CF528696MJD8F7VQ",
+    "skill_name": "agentic-actions-auditor",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "A análise é boa (aponta o vetor clássico de dado atacante fluindo por blocos `env:` até o prompt, e `pull_request_target` como gatilho externo), mas é 100% sobre workflows do GitHub Actions — o engeapp faz deploy por Deployer 8, sem CI."
+  },
+  {
+    "id": "01M0GCFD19D6MAB1EJNJR2WY0A",
+    "skill_name": "agentmail",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "O arquivo documenta a API `api.theagentmail.net` com um sistema de karma (-10 por conta criada, -1 por envio). O engeapp já resolve e-mail com imapengine e Postmark/Resend/SES."
+  },
+  {
+    "id": "01M0GCFD19AG9GNBM5MSTB8PWE",
+    "skill_name": "agentphone",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "As 1388 linhas são referência de API de um SaaS de telefonia (`sk_live_...`, modos `hosted` e `webhook`, compra de números) — nenhum conceito reaproveitável para o VoIP/SIP e o LiveKit já implementados no engeapp; é doc de produto de terceiro não contratado."
+  },
+  {
+    "id": "01M0GCFD1AC3M5665APCE4TX90",
+    "skill_name": "ai-agent-development",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Skill oca: cada fase só lista 'Skills to Invoke' e 'Copy-Paste Prompts' apontando para outras skills (`@ai-agents-architect`, `crewai`), sem conteúdo próprio, e a Fase 3 ancora o multi-agente no CrewAI."
+  },
+  {
+    "id": "01M0GCFD1AS7K02PFWQGG6P1T8",
+    "skill_name": "ai-agents-architect",
+    "importance": 5,
+    "fase1_importance": 5,
+    "verdict": "confirmada",
+    "evidence": "Descreve padrões nomeados e agnósticos de provider (loop ReAct com limite de iterações, Plan-and-Execute, 'agents should fail loudly, not silently'), aplicáveis à extração de dados de documentos por IA do engeapp, mas sem uma linha de PHP/Gemini."
+  },
+  {
+    "id": "01M0GCFD1AK23KX3N29BJ0DTK1",
+    "skill_name": "ai-engineer",
+    "importance": 2,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "Tecnologia divergente: o catálogo de capacidades é GPT-4o/o1, Claude, Llama/Mixtral, vLLM/BentoML, Pinecone/Weaviate/Milvus e LangChain/LangGraph/LlamaIndex/CrewAI — praticamente a lista de temas irrelevantes do engeapp, cuja IA é google-gemini-php."
+  },
+  {
+    "id": "01M0GCFD1AJ43K5F3ZHGHVDRA1",
+    "skill_name": "ai-engineering-toolkit",
+    "importance": 3,
+    "fase1_importance": 5,
+    "verdict": "rebaixada",
+    "evidence": "As 121 linhas apenas resumem em um parágrafo cada uma das 6 supostas ferramentas (Prompt Evaluator, Context Budget Planner, RAG Architect...) sem entregar as rubricas nem as árvores de decisão prometidas; ainda vem marcada como `risk: offensive` com portão de autorização para red-team. Promessa grande, corpo índice."
+  },
+  {
+    "id": "01M0GCFD1AE80EEGE44CXYHPYY",
+    "skill_name": "ai-ml",
+    "importance": 1,
+    "fase1_importance": 4,
+    "verdict": "rebaixada",
+    "evidence": "Bundle vazio: só encadeia 'Copy-Paste Prompts' para skills que sequer existem no catálogo (`@ai-product`, `@llm-application-dev-langchain-agent`) e ações de uma linha como 'Selecionar provedor de LLM'. Não ensina nada de concreto e ainda ancora a integração em LangChain."
+  },
+  {
+    "id": "01M0GCFD1AZHJS0F22BKJ4AJW8",
+    "skill_name": "ai-native-cli",
+    "importance": 3,
+    "fase1_importance": 3,
+    "verdict": "confirmada",
+    "evidence": "Há substância real — JSON como saída padrão com `--human` opcional, princípio Fail-Closed quando a própria validação falha, e níveis de certificação core/recommended/ecosystem. Útil só marginalmente para comandos artisan, já que o engeapp não entrega CLI como produto."
+  },
+  {
+    "id": "01M0GCFD1ARYJSMTQVB7FTJSPX",
+    "skill_name": "ai-seo",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O conteúdo compara como AI Overviews, Perplexity e Copilot selecionam fontes e ensina a ser citado em respostas geradas. No máximo tocaria o site público de leads do engeapp, nunca o núcleo de homologação e documentos."
+  },
+  {
+    "id": "01M0GCFD1ADDJZ82SHM3HNC17T",
+    "skill_name": "ai-studio-image",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "É engenharia de prompt fotográfico via `GEMINI_API_KEY` do AI Studio — granulação de sensor de celular, enquadramento descentralizado, profundidade de campo de lente pequena. Usa Gemini, que o engeapp tem, mas para gerar fotos estilo influencer, algo ausente do produto."
+  },
+  {
+    "id": "01M0GCFD1AXJ9AF4HKY3TK7HWW",
+    "skill_name": "akf-trust-metadata",
+    "importance": 1,
+    "fase1_importance": 1,
+    "verdict": "confirmada",
+    "evidence": "São 73 linhas com um punhado de comandos `akf stamp/read/audit --regulation eu_ai_act|hipaa|sox` instalados por `pip install akf`. Formato proprietário e regulações estrangeiras, enquanto o engeapp segue LGPD."
+  },
+  {
+    "id": "01M0GCFD1BT3R63XYJKN7N2ETY",
+    "skill_name": "analytics",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "O framework é um plano de tracking com convenções de nomenclatura de eventos e biblioteca de eventos para GA4/GTM. A telemetria do engeapp é técnica (Pulse, Telescope, BigQuery de custo de IA), sem camada de eventos de marketing."
+  },
+  {
+    "id": "01M0GCFD1BB3FQRBYTFKMKEWJF",
+    "skill_name": "analytics-product",
+    "importance": 1,
+    "fase1_importance": 2,
+    "verdict": "rebaixada",
+    "evidence": "Conteúdo enganoso: sob o rótulo genérico de analytics de produto, o corpo despeja um dicionário Python `AURI_EVENTS` com eventos de outro produto ('Auri') — `aha_moment_reached`, `subscription_canceled`. É material copiado de outro contexto, em linguagem que o engeapp não usa."
+  },
+  {
+    "id": "01M0GCFD1BSPYDRBENCE9VQ36N",
+    "skill_name": "analytics-tracking",
+    "importance": 2,
+    "fase1_importance": 2,
+    "verdict": "confirmada",
+    "evidence": "Traz um índice ponderado de 0-100 (Decision Alignment 25, Event Model Clarity 20, Data Accuracy 20...) como pré-requisito antes de instrumentar. Rigoroso, mas o engeapp não possui instrumentação analítica a ser diagnosticada."
+  },
+  {
+    "id": "01M0GCFD1BEPBTV937GV5DDZP0",
+    "skill_name": "andrej-karpathy",
+    "importance": 6,
+    "fase1_importance": 6,
+    "verdict": "confirmada",
+    "evidence": "As diretrizes são acionáveis e curtas: não 'melhorar' código adjacente, remover apenas os órfãos que a própria mudança criou, nada de abstração para código de uso único, toda linha alterada rastreável ao pedido. Casa com a regra do engeapp de planejar antes e rodar Pint só no arquivo modificado."
+  }
+]
