@@ -1,11 +1,8 @@
 # Skills para SocialMedia (Laravel enxuto + Vue/Max stack: fullcalendar, spatie/permission, sanctum, ziggy)
 dev-practices/systematic-debugging-best-practices
 dev-practices/technical-documentation-best-practices
-php/php-best-practices
-typescript/typescript-best-practices
 typescript/typescript-advanced-types-best-practices
 # --- backend Laravel (só o que o composer.json suporta + domínio social) ---
-backend_laravel/laravel-best-practices
 backend_laravel/laravel-migrations-seeders-factories-best-practices
 backend_laravel/laravel-authorization-policies-gates
 backend_laravel/laravel-ziggy-routing-integration-best-practices
@@ -27,10 +24,8 @@ backend_laravel/laravel-service-providers-dependency-injection-best-practices
 backend_laravel/laravel-rate-limiting-best-practices
 backend_laravel/laravel-redis-integration-best-practices
 # --- frontend Vue/Max ---
-frontEnd/vue
 frontEnd/vue-typescript-best-practices
 frontEnd/vue-max-stack-frontend-best-practices
-frontEnd/vue-router-best-practices
 frontEnd/vue-pinia-state-management-best-practices
 frontEnd/vue-max-use-usecachedapi-state-cache-best-practices
 frontEnd/vue-max-ecosystem-api-reference

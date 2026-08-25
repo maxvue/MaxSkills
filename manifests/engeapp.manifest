@@ -6,7 +6,6 @@ backend_laravel/laravel-ai-datasheet-extraction-best-practices
 backend_laravel/laravel-anticaptcha-integration-best-practices
 backend_laravel/laravel-api-integration-patterns
 backend_laravel/laravel-authorization-policies-gates
-backend_laravel/laravel-best-practices
 backend_laravel/laravel-brazilian-data-queries-best-practices
 backend_laravel/laravel-brazilian-localization-best-practices
 backend_laravel/laravel-brazilian-payments-integration
@@ -59,7 +58,6 @@ backend_laravel/laravel-ziggy-routing-integration-best-practices
 dev-practices/systematic-debugging-best-practices
 dev-practices/technical-documentation-best-practices
 frontEnd/frontend-design-best-practices
-frontEnd/vue
 frontEnd/vue-auto-import-components-best-practices
 frontEnd/vue-axios-api-integration-best-practices
 frontEnd/vue-boleto-utils-best-practices
@@ -77,13 +75,9 @@ frontEnd/vue-max-stack-frontend-best-practices
 frontEnd/vue-max-use-usecachedapi-state-cache-best-practices
 frontEnd/vue-meta-api-oauth-integration-best-practices
 frontEnd/vue-pinia-state-management-best-practices
-frontEnd/vue-router-best-practices
 frontEnd/vue-toast-notifications-toastify-best-practices
 frontEnd/vue-typescript-best-practices
 frontEnd/vue-unocss-styling-best-practices
 frontEnd/vue-vitest-testing-best-practices
 frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices
-php/php-best-practices
-python-automation/python-concessionarias-automation-best-practices
 typescript/typescript-advanced-types-best-practices
-typescript/typescript-best-practices

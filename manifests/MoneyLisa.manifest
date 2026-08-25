@@ -1,13 +1,10 @@
 # Skills para MoneyLisa (Laravel finanças/pagamentos: EFI/Inter, Gemini, WhatsApp, Horizon, boletos, PDF + Vue/Max stack)
 dev-practices/systematic-debugging-best-practices
 dev-practices/technical-documentation-best-practices
-php/php-best-practices
-typescript/typescript-best-practices
 typescript/typescript-advanced-types-best-practices
 typescript/typescript-billing-core-architecture-best-practices
 typescript/typescript-max-banks-efi-gateway-best-practices
 # --- backend Laravel ---
-backend_laravel/laravel-best-practices
 backend_laravel/laravel-ai-bank-ticket-processing-best-practices
 backend_laravel/laravel-api-integration-patterns
 backend_laravel/laravel-authorization-policies-gates
@@ -48,10 +45,8 @@ backend_laravel/laravel-vue-login-maxauthcard-best-practices
 backend_laravel/laravel-whatsapp-cloud-api-integration
 backend_laravel/laravel-ziggy-routing-integration-best-practices
 # --- frontend Vue/Max ---
-frontEnd/vue
 frontEnd/vue-typescript-best-practices
 frontEnd/vue-max-stack-frontend-best-practices
-frontEnd/vue-router-best-practices
 frontEnd/vue-pinia-state-management-best-practices
 frontEnd/vue-max-use-usecachedapi-state-cache-best-practices
 frontEnd/vue-max-ecosystem-api-reference
