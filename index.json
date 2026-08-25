@@ -1,46 +1,5 @@
 [
   {
-    "id": "01M0WFGHQNH2X17E9E2PAENKBQ",
-    "skill_name": "adonisjs-brazilian-payments-asaas-integration-best-practices",
-    "description_en": "Use when configuring, debugging, or creating payment integrations with the Asaas gateway in AdonisJS v6. Triggers on files handling customer registrations, invoice generation (Pix, Boleto, Credit Card), webhook signature verification, subscription billing sync, and payment logging.",
-    "description_pt_br": "Use ao configurar, depurar ou criar integrações de pagamento com o gateway Asaas no AdonisJS v6. Dispara em arquivos que lidam com cadastro de clientes, emissão de cobranças (Pix, Boleto, Cartão de Crédito), verificação de assinatura de webhooks, sincronização de assinaturas e logging.",
-    "promo_en": "Enterprise guidelines and architectural standards for Asaas payment integration in AdonisJS v6. Enforces best practices, strict typing, clean domain separation, and resilient webhook processing.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para integração de pagamentos Asaas no AdonisJS v6. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e processamento resiliente de webhooks.",
-    "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend-node/adonisjs-brazilian-payments-asaas-integration-best-practices/SKILL.md",
-    "languages": [
-      "TypeScript"
-    ],
-    "frameworks": [
-      "AdonisJS"
-    ],
-    "libs": [
-      "BullMQ",
-      "VineJS",
-      "Lucid ORM"
-    ],
-    "local_path": "created-skills/backend-node/adonisjs-brazilian-payments-asaas-integration-best-practices/SKILL.md",
-    "importance_in": [
-      {
-        "project": "engeapp",
-        "importance": 3
-      },
-      {
-        "project": "SocialMedia",
-        "importance": 0
-      },
-      {
-        "project": "AgenteDeBolso",
-        "importance": 2
-      }
-    ],
-    "details": [
-      {
-        "Fase1": "Fase 1 (Filtro): Integração Asaas (Pix/boleto/cartão, webhook assinado) porém escrita para AdonisJS v6 + Lucid + VineJS, stack de backend Node que nenhum dos três usa; só o conhecimento de domínio do gateway Asaas salva alguma nota no engeapp, que integra Asaas em Laravel. Notas — engeapp: 3, SocialMedia: 0, AgenteDeBolso: 2. Nota máxima: 3/10."
-      }
-    ]
-  },
-  {
     "id": "01M0G4G52FE6Y45CNB8F3MQM0R",
     "skill_name": "frontend-design-best-practices",
     "description_en": "Use when building new UI or remodeling Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Covers core design mandate, aesthetics, typography, colors, layout, motion, and accessible production code.",
@@ -237,8 +196,8 @@
   {
     "id": "01M0G4G52E6PHAX6NHQTY8PD16",
     "skill_name": "laravel-api-integration-patterns",
-    "description_en": "Use when creating, debugging, or extending external HTTP APIs over BaseApi in Engeapp. Covers BaseApi connectors, Attributes.json, EndPoints.json, and request caching.",
-    "description_pt_br": "Use ao criar, depuração de, ou extending external HTTP APIs over BaseApi no Engeapp. Cobre BaseApi connectors, Attributes.json, EndPoints.json, e request caching.",
+    "description_en": "Use when creating, debugging, or extending external HTTP API integrations over BaseApi in Engeapp. Triggers when configuring connector classes in app/Http/Integrations/, defining Attributes.json and EndPoints.json schemas, managing OAuth2 token lifecycle, or configuring request caching rules.",
+    "description_pt_br": "Use when creating, debugging, or extending external HTTP API integrations over BaseApi in Engeapp. Triggers when configuring connector classes in app/Http/Integrations/, defining Attributes.json and EndPoints.json schemas, managing OAuth2 token lifecycle, or configuring request caching rules.",
     "promo_en": "Enterprise guidelines and architectural standards for api integration patterns in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para api integration patterns no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -315,8 +274,8 @@
   {
     "id": "01M0G4G52E3TW3BJ2G7RBX8SRF",
     "skill_name": "laravel-brazilian-data-queries-best-practices",
-    "description_en": "Use when querying Brazilian CNPJ and CEP data in Engeapp. Covers ApiCnpjService fallback chain, ApiCepService, caching, and local Cep/City/State models. Covers objectives and core workflows.",
-    "description_pt_br": "Use quando para consulta de Brazilian CNPJ e CEP data no Engeapp. Cobre ApiCnpjService fallback chain, ApiCepService, caching, e local Cep/City/State models. Cobre objetivos e fluxos de trabalho centrais.",
+    "description_en": "Use when querying, validating, or caching Brazilian CNPJ and CEP postal data in Engeapp backend services. Triggers when working with ApiCnpjService fallback providers (ReceitaWS, OpenCNPJ, CnpjAberto), ApiCepService resolution chain, or local address cache models.",
+    "description_pt_br": "Use when querying, validating, or caching Brazilian CNPJ and CEP postal data in Engeapp backend services. Triggers when working with ApiCnpjService fallback providers (ReceitaWS, OpenCNPJ, CnpjAberto), ApiCepService resolution chain, or local address cache models.",
     "promo_en": "Enterprise guidelines and architectural standards for brazilian data queries in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para brazilian data queries no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -391,8 +350,8 @@
   {
     "id": "01M0G4G52EHSTESYE3S88P1J4Y",
     "skill_name": "laravel-brazilian-payments-integration",
-    "description_en": "Use when integrating or debugging Brazilian payments in Engeapp: Efí (SDK EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas (baseUrl, API keys), and Banco Inter webhooks.",
-    "description_pt_br": "Use quando para integrating ou depuração de Brazilian payments no Engeapp: Efí (SDK EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas (baseUrl, API keys), e Banco Inter webhooks.",
+    "description_en": "Use when integrating, configuring, or debugging Brazilian payment gateways in Engeapp. Covers Efí SDK (EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas HTTP service for mobile recharges (CellChargeService), Banco Inter webhook placeholders, and webhook idempotency patterns.",
+    "description_pt_br": "Use when integrating, configuring, or debugging Brazilian payment gateways in Engeapp. Covers Efí SDK (EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas HTTP service for mobile recharges (CellChargeService), Banco Inter webhook placeholders, and webhook idempotency patterns.",
     "promo_en": "Enterprise guidelines and architectural standards for brazilian payments integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para brazilian payments integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -511,8 +470,8 @@
   {
     "id": "01M0G4G52EB1CVXDA5JBZFW5G7",
     "skill_name": "laravel-cloud-storage-integrations",
-    "description_en": "Use when configuring or debugging remote storage in Laravel. Covers Seafile WebDAV driver in AppServiceProvider, Seafile filesystems config, and Spatie Media Library projects disk.",
-    "description_pt_br": "Use ao configurar ou depuração de remote storage no Laravel. Cobre Seafile WebDAV driver in AppServiceProvider, Seafile filesystems config, e Spatie Media Library projects disk.",
+    "description_en": "Use when configuring, debugging, or migrating cloud storage drivers in Engeapp Laravel backend. Covers custom Seafile WebDAV adapter in AppServiceProvider, FilesHelpers (resolveLocalDiskPath, saveToRemoteDisk), temporaryUrl, and Spatie Media Library disks.",
+    "description_pt_br": "Use when configuring, debugging, or migrating cloud storage drivers in Engeapp Laravel backend. Covers custom Seafile WebDAV adapter in AppServiceProvider, FilesHelpers (resolveLocalDiskPath, saveToRemoteDisk), temporaryUrl, and Spatie Media Library disks.",
     "promo_en": "Enterprise guidelines and architectural standards for cloud storage integrations in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para cloud storage integrations no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -626,8 +585,8 @@
   {
     "id": "01M0G4G52EVETWJZW63H90EQRD",
     "skill_name": "laravel-editorial-calendar-event-workflow-best-practices",
-    "description_en": "Use when implementing or managing editorial calendar events, post scheduling, workflow status states, and automated publishing channels in Engeapp. Covers event workflows and publishing channels.",
-    "description_pt_br": "Use ao implementar ou gerenciar editorial calendar events, post agendamento de, workflow status states, e automated publishing channels no Engeapp. Cobre event workflows e publishing channels.",
+    "description_en": "Use when implementing or managing Instagram editorial calendar events in Engeapp. Covers Event lifecycle states (CalendarEventStatusEnum), EventObserver job orchestration (CopywriterJob, GraphicEditorJob, ArtAnalystJob), Horizon gemini queue configuration, and slide-level revision workflows.",
+    "description_pt_br": "Use when implementing or managing Instagram editorial calendar events in Engeapp. Covers Event lifecycle states (CalendarEventStatusEnum), EventObserver job orchestration (CopywriterJob, GraphicEditorJob, ArtAnalystJob), Horizon gemini queue configuration, and slide-level revision workflows.",
     "promo_en": "Enterprise guidelines and architectural standards for editorial calendar event workflow in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para editorial calendar event workflow no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -1354,8 +1313,8 @@
   {
     "id": "01M0G4G52EMMPA0WK4VBGPMERB",
     "skill_name": "laravel-php-code-quality-tooling",
-    "description_en": "Use when formatting, statically analyzing, or refactoring PHP 8.5+ code in Engeapp using Laravel Pint, Larastan/PHPStan (phpstan.neon), Rector dry-runs, and Barryvdh IDE Helper.",
-    "description_pt_br": "Use quando para formatação de, statically analyzing, ou refatoração de PHP 8.5+ code no Engeapp usando Laravel Pint, Larastan/PHPStan (phpstan.neon), Rector dry-runs, e Barryvdh IDE Helper.",
+    "description_en": "Use when formatting, statically analyzing, or refactoring PHP 8.4+ code in Engeapp backend. Covers Laravel Pint code formatting (--dirty), Larastan/PHPStan static analysis (phpstan.neon level 1), Rector refactoring rules, and Barryvdh IDE Helper generation.",
+    "description_pt_br": "Use when formatting, statically analyzing, or refactoring PHP 8.4+ code in Engeapp backend. Covers Laravel Pint code formatting (--dirty), Larastan/PHPStan static analysis (phpstan.neon level 1), Rector refactoring rules, and Barryvdh IDE Helper generation.",
     "promo_en": "Enterprise guidelines and architectural standards for php code quality tooling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para php code quality tooling no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -1780,8 +1739,8 @@
   {
     "id": "01M0G4G52FFPJQ6FJFN3ZV390R",
     "skill_name": "laravel-socialite-oauth-integration-best-practices",
-    "description_en": "Use when implementing or debugging social login OAuth with Laravel Socialite (Google/Facebook). Covers services.php, routes/auth.php, UserSolarCompany creation, and Pest mocking.",
-    "description_pt_br": "Use ao implementar ou depurar social login OAuth com Laravel Socialite (Google/Facebook). Cobre services.php, routes/auth.php, UserSolarCompany creation, e Pest mocking.",
+    "description_en": "Use when implementing or debugging social login OAuth workflows with Laravel Socialite (Google/Facebook) in Engeapp. Covers services.php configs, guest auth routes (social.providers, social.redirect, social.callback), UserSolarCompany auto-provisioning, and Pest mocking.",
+    "description_pt_br": "Use when implementing or debugging social login OAuth workflows with Laravel Socialite (Google/Facebook) in Engeapp. Covers services.php configs, guest auth routes (social.providers, social.redirect, social.callback), UserSolarCompany auto-provisioning, and Pest mocking.",
     "promo_en": "Enterprise guidelines and architectural standards for socialite oauth integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para socialite oauth integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -1975,8 +1934,8 @@
   {
     "id": "01M0G4G52FYXWDZE1HVYMETWMC",
     "skill_name": "laravel-user-impersonation-best-practices",
-    "description_en": "Use when implementing, reviewing, or debugging user impersonation in Engeapp with lab404/laravel-impersonate. Covers impersonate routes, user permissions, and Pinia store integration.",
-    "description_pt_br": "Use ao implementar, revisar ou depurar user impersonation no Engeapp com lab404/laravel-impersonate. Cobre impersonate routes, user permissions, e Pinia store integration.",
+    "description_en": "Use when implementing, reviewing, or debugging user impersonation (login-as) in Engeapp with lab404/laravel-impersonate. Covers can_impersonate boolean column checks, Ziggy named routes (user.impersonate.*), Vue TopMenu banner UI, and Pest integration tests.",
+    "description_pt_br": "Use when implementing, reviewing, or debugging user impersonation (login-as) in Engeapp with lab404/laravel-impersonate. Covers can_impersonate boolean column checks, Ziggy named routes (user.impersonate.*), Vue TopMenu banner UI, and Pest integration tests.",
     "promo_en": "Enterprise guidelines and architectural standards for user impersonation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para user impersonation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -2187,8 +2146,8 @@
   {
     "id": "01M0G4G52F1DZR5DBTQCE2TPR9",
     "skill_name": "laravel-ziggy-routing-integration-best-practices",
-    "description_en": "Use when configuring, generating, or consuming Ziggy routes in Vue 3 SPA. Covers config/ziggy.php, ziggy:generate, ziggy.d.ts, route() auto-import, and setRouteResolver.",
-    "description_pt_br": "Use ao configurar, geração de, ou consuming Ziggy routes no Vue 3 SPA. Cobre config/ziggy.php, ziggy:generate, ziggy.d.ts, route() auto-import, e setRouteResolver.",
+    "description_en": "Use when configuring, generating, or consuming Ziggy named routes in Engeapp Vue 3 SPA. Covers config/ziggy.php, artisan ziggy:generate --types, auto-imported route() helper, setRouteResolver integration in MaxUse, and MaxPinia store options.get.route contracts.",
+    "description_pt_br": "Use when configuring, generating, or consuming Ziggy named routes in Engeapp Vue 3 SPA. Covers config/ziggy.php, artisan ziggy:generate --types, auto-imported route() helper, setRouteResolver integration in MaxUse, and MaxPinia store options.get.route contracts.",
     "promo_en": "Enterprise guidelines and architectural standards for ziggy routing integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para ziggy routing integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
     "repo_name": "max",
@@ -2511,8 +2470,8 @@
   {
     "id": "01M0G4G52FQ8N5D73J59PY8MH4",
     "skill_name": "vue-auto-import-components-best-practices",
-    "description_en": "Use when configuring or debugging Vue 3 auto-imports via unplugin-auto-import and unplugin-vue-components in vite.config.ts, tsconfig.json integration, auto-import.d.ts, and MaxComponentsUiResolver.",
-    "description_pt_br": "Use ao configurar ou depuração de Vue 3 auto-imports via unplugin-auto-import e unplugin-vue-components in vite.config.ts, tsconfig.json integration, auto-import.d.ts, e MaxComponentsUiResolver.",
+    "description_en": "Use when configuring, optimizing, or debugging Vue 3 auto-imports via unplugin-auto-import and unplugin-vue-components in Engeapp. Covers vite.config.ts setup, auto-import.d.ts, auto-import-components.d.ts, MaxComponentsUiResolver, and maxUseAutoImport integration.",
+    "description_pt_br": "Use when configuring, optimizing, or debugging Vue 3 auto-imports via unplugin-auto-import and unplugin-vue-components in Engeapp. Covers vite.config.ts setup, auto-import.d.ts, auto-import-components.d.ts, MaxComponentsUiResolver, and maxUseAutoImport integration.",
     "promo_en": "Production-grade frontend standard for auto import components in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrão de excelência frontend para auto import components em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
     "repo_name": "max",
@@ -2555,8 +2514,8 @@
   {
     "id": "01M0G4G52FMY72CNEFPYVGGCK1",
     "skill_name": "vue-axios-api-integration-best-practices",
-    "description_en": "Use when integrating Vue 3 front-end with Laravel API via apiGetRoute/apiPostRoute/apiPutRoute/apiDeleteRoute from @maxvue/max-use, Ziggy named routes with credentials, and MaxPinia stores.",
-    "description_pt_br": "Use quando para integrating Vue 3 front-end com Laravel API via apiGetRoute/apiPostRoute/apiPutRoute/apiDeleteRoute de @maxvue/max-use, Ziggy named routes com credentials, e MaxPinia stores.",
+    "description_en": "Use when integrating Vue 3 front-end with Laravel backend API using @maxvue/max-use HTTP helpers (apiGetRoute, apiPostRoute, apiPutRoute, apiDeleteRoute). Covers Ziggy named routes resolution, credentials handling, return contracts, and MaxPinia store data flow.",
+    "description_pt_br": "Use when integrating Vue 3 front-end with Laravel backend API using @maxvue/max-use HTTP helpers (apiGetRoute, apiPostRoute, apiPutRoute, apiDeleteRoute). Covers Ziggy named routes resolution, credentials handling, return contracts, and MaxPinia store data flow.",
     "promo_en": "Production-grade frontend standard for axios api integration in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrão de excelência frontend para axios api integration em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
     "repo_name": "max",
@@ -2718,8 +2677,8 @@
   {
     "id": "01M0G4G52FPPR93JC232GM9B5A",
     "skill_name": "vue-dayjs-date-manipulation-best-practices",
-    "description_en": "Use when formatting, parsing, or comparing dates and times in Vue 3 with Day.js. Covers @maxvue/max-use composables (useDateFormat, useTimeAgo), timezones, durations, and strict parsing.",
-    "description_pt_br": "Use quando para formatação de, análise e conversão de, ou comparing dates e times no Vue 3 com Day.js. Cobre @maxvue/max-use composables (useDateFormat, useTimeAgo), timezones, durations, e strict análise e conversão de.",
+    "description_en": "Use when formatting, parsing, comparing, or manipulating dates and times in Vue 3 SFCs and Pinia stores in Engeapp. Covers @maxvue/max-use date composables (useDateFormat, useTimeAgo, addTime, diffInDays, isSameDay), Day.js plugins, and Brazilian pt-BR format standards.",
+    "description_pt_br": "Use when formatting, parsing, comparing, or manipulating dates and times in Vue 3 SFCs and Pinia stores in Engeapp. Covers @maxvue/max-use date composables (useDateFormat, useTimeAgo, addTime, diffInDays, isSameDay), Day.js plugins, and Brazilian pt-BR format standards.",
     "promo_en": "Production-grade frontend standard for dayjs date manipulation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrão de excelência frontend para dayjs date manipulation em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
     "repo_name": "max",
@@ -2965,8 +2924,8 @@
   {
     "id": "01M0G4G52FN919TBC6AS95B5SQ",
     "skill_name": "vue-max-components-ui-popovers-confirmations-best-practices",
-    "description_en": "Use when implementing tooltips, popovers, dropdown menus, MaxPopover, and confirmation dialogs in Vue 3 using PrimeVue v-tooltip directive registered via MaxComponentsUi.",
-    "description_pt_br": "Use ao implementar tooltips, popovers, dropdown menus, MaxPopover, e confirmation dialogs no Vue 3 usando PrimeVue v-tooltip directive registered via MaxComponentsUi.",
+    "description_en": "Use when implementing tooltips, popovers, dropdown menus, and confirmation dialogs in Vue 3 SFCs. Covers PrimeVue v-tooltip directive registered via MaxComponentsUi, MaxPopover, MaxPopoverConfirm, MaxIconConfirm, and MaxPopoverMenu components with SCSS styling.",
+    "description_pt_br": "Use when implementing tooltips, popovers, dropdown menus, and confirmation dialogs in Vue 3 SFCs. Covers PrimeVue v-tooltip directive registered via MaxComponentsUi, MaxPopover, MaxPopoverConfirm, MaxIconConfirm, and MaxPopoverMenu components with SCSS styling.",
     "promo_en": "Production-grade frontend standard for max components ui popovers confirmations in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrão de excelência frontend para max components ui popovers confirmations em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
     "repo_name": "max",
@@ -3048,8 +3007,8 @@
   {
     "id": "01M0G4G52FCX379X4PKE3XTT1X",
     "skill_name": "vue-max-stack-frontend-best-practices",
-    "description_en": "Use when developing Vue 3 SFC (<script setup lang='ts'>) front-end in Engeapp. Covers Vue Router, MaxComponentsUi, MaxUse, MaxPinia cached stores, forms, tables, and Ziggy routes.",
-    "description_pt_br": "Use ao desenvolver Vue 3 SFC (<script setup lang='ts'>) front-end no Engeapp. Cobre Vue Router, MaxComponentsUi, MaxUse, MaxPinia cached stores, forms, tables, e Ziggy routes.",
+    "description_en": "Use when developing Vue 3 Single File Components (<script setup lang='ts'>) in Engeapp. Covers template structure, UnoCSS styling, MaxComponentsUi elements, MaxUse composables, MaxPinia cached stores, forms, tables, and Ziggy named routes.",
+    "description_pt_br": "Use when developing Vue 3 Single File Components (<script setup lang='ts'>) in Engeapp. Covers template structure, UnoCSS styling, MaxComponentsUi elements, MaxUse composables, MaxPinia cached stores, forms, tables, and Ziggy named routes.",
     "promo_en": "Production-grade frontend standard for max stack frontend in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrão de excelência frontend para max stack frontend em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
     "repo_name": "max",
@@ -3299,8 +3258,8 @@
   {
     "id": "01M0G4G52FBKC0FDXJBMR25V6R",
     "skill_name": "vue-toast-notifications-toastify-best-practices",
-    "description_en": "Use when displaying toast notifications or floating alerts in Vue 3. Standard requirement is MaxToast from @maxvue/max-components-ui triggered via Toast.show({ title, severity }) with ToastPayload.",
-    "description_pt_br": "Use quando para displaying toast notifications ou floating alerts no Vue 3. Standard requirement is MaxToast de @maxvue/max-components-ui triggered via Toast.show({ title, severity }) com ToastPayload.",
+    "description_en": "Use when displaying toast notifications or floating feedback alerts in Vue 3 applications. Covers MaxToast container mounting in App.vue, Toast.show({ title, severity }) helper from @maxvue/max-components-ui, and useToastStore queue lifecycle.",
+    "description_pt_br": "Use when displaying toast notifications or floating feedback alerts in Vue 3 applications. Covers MaxToast container mounting in App.vue, Toast.show({ title, severity }) helper from @maxvue/max-components-ui, and useToastStore queue lifecycle.",
     "promo_en": "Production-grade frontend standard for toast notifications toastify in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrão de excelência frontend para toast notifications toastify em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
     "repo_name": "max",

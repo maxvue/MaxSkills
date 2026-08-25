@@ -1,6 +1,6 @@
 ---
 name: laravel-editorial-calendar-event-workflow-best-practices
-description: "Use when implementing or managing editorial calendar events, post scheduling, workflow status states, and automated publishing channels in Engeapp. Covers event workflows and publishing channels."
+description: "Use when implementing or managing Instagram editorial calendar events in Engeapp. Covers Event lifecycle states (CalendarEventStatusEnum), EventObserver job orchestration (CopywriterJob, GraphicEditorJob, ArtAnalystJob), Horizon gemini queue configuration, and slide-level revision workflows."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas do Fluxo de Trabalho de Eventos do Calendário Editorial no Laravel

@@ -1,6 +1,6 @@
 ---
 name: vue-max-components-ui-popovers-confirmations-best-practices
-description: "Use when implementing tooltips, popovers, dropdown menus, MaxPopover, and confirmation dialogs in Vue 3 using PrimeVue v-tooltip directive registered via MaxComponentsUi."
+description: "Use when implementing tooltips, popovers, dropdown menus, and confirmation dialogs in Vue 3 SFCs. Covers PrimeVue v-tooltip directive registered via MaxComponentsUi, MaxPopover, MaxPopoverConfirm, MaxIconConfirm, and MaxPopoverMenu components with SCSS styling."
 author: Johnattas Conrady Gomes Santana
 ---
 # Melhores Práticas para Popovers & Confirmações do MaxComponentsUi no Vue

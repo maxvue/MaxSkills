@@ -1,6 +1,6 @@
 ---
 name: laravel-socialite-oauth-integration-best-practices
-description: "Use when implementing or debugging social login OAuth with Laravel Socialite (Google/Facebook). Covers services.php, routes/auth.php, UserSolarCompany creation, and Pest mocking."
+description: "Use when implementing or debugging social login OAuth workflows with Laravel Socialite (Google/Facebook) in Engeapp. Covers services.php configs, guest auth routes (social.providers, social.redirect, social.callback), UserSolarCompany auto-provisioning, and Pest mocking."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Integração OAuth com Laravel Socialite (engeapp)

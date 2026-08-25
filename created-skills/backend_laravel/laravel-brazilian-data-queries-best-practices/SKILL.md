@@ -1,6 +1,6 @@
 ---
 name: laravel-brazilian-data-queries-best-practices
-description: "Use when querying Brazilian CNPJ and CEP data in Engeapp. Covers ApiCnpjService fallback chain, ApiCepService, caching, and local Cep/City/State models. Covers objectives and core workflows."
+description: "Use when querying, validating, or caching Brazilian CNPJ and CEP postal data in Engeapp backend services. Triggers when working with ApiCnpjService fallback providers (ReceitaWS, OpenCNPJ, CnpjAberto), ApiCepService resolution chain, or local address cache models."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Consultas a Dados Brasileiros no Laravel (engeapp)

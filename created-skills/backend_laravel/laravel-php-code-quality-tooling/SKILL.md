@@ -1,6 +1,6 @@
 ---
 name: laravel-php-code-quality-tooling
-description: "Use when formatting, statically analyzing, or refactoring PHP 8.5+ code in Engeapp using Laravel Pint, Larastan/PHPStan (phpstan.neon), Rector dry-runs, and Barryvdh IDE Helper."
+description: "Use when formatting, statically analyzing, or refactoring PHP 8.4+ code in Engeapp backend. Covers Laravel Pint code formatting (--dirty), Larastan/PHPStan static analysis (phpstan.neon level 1), Rector refactoring rules, and Barryvdh IDE Helper generation."
 author: Johnattas Conrady Gomes Santana
 ---
 # Ferramentas de Qualidade de Código PHP no Laravel

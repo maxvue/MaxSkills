@@ -1,6 +1,6 @@
 ---
 name: vue-max-stack-frontend-best-practices
-description: "Use when developing Vue 3 SFC (<script setup lang='ts'>) front-end in Engeapp. Covers Vue Router, MaxComponentsUi, MaxUse, MaxPinia cached stores, forms, tables, and Ziggy routes."
+description: "Use when developing Vue 3 Single File Components (<script setup lang='ts'>) in Engeapp. Covers template structure, UnoCSS styling, MaxComponentsUi elements, MaxUse composables, MaxPinia cached stores, forms, tables, and Ziggy named routes."
 author: Johnattas Conrady Gomes Santana
 ---
 # Front-end Vue do Ecossistema Max (EngeApp — Laravel 13)

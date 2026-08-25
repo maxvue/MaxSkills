@@ -1,6 +1,6 @@
 ---
 name: vue-toast-notifications-toastify-best-practices
-description: "Use when displaying toast notifications or floating alerts in Vue 3. Standard requirement is MaxToast from @maxvue/max-components-ui triggered via Toast.show({ title, severity }) with ToastPayload."
+description: "Use when displaying toast notifications or floating feedback alerts in Vue 3 applications. Covers MaxToast container mounting in App.vue, Toast.show({ title, severity }) helper from @maxvue/max-components-ui, and useToastStore queue lifecycle."
 author: Johnattas Conrady Gomes Santana
 ---
 # Notificações Toast no Vue 3 — MaxToast é o padrão

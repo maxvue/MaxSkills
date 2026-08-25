@@ -1,6 +1,6 @@
 ---
 name: vue-axios-api-integration-best-practices
-description: "Use when integrating Vue 3 front-end with Laravel API via apiGetRoute/apiPostRoute/apiPutRoute/apiDeleteRoute from @maxvue/max-use, Ziggy named routes with credentials, and MaxPinia stores."
+description: "Use when integrating Vue 3 front-end with Laravel backend API using @maxvue/max-use HTTP helpers (apiGetRoute, apiPostRoute, apiPutRoute, apiDeleteRoute). Covers Ziggy named routes resolution, credentials handling, return contracts, and MaxPinia store data flow."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Integração de API HTTP no Vue 3 (EngeApp)

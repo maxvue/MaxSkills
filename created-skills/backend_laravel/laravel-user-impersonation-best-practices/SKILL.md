@@ -1,6 +1,6 @@
 ---
 name: laravel-user-impersonation-best-practices
-description: "Use when implementing, reviewing, or debugging user impersonation in Engeapp with lab404/laravel-impersonate. Covers impersonate routes, user permissions, and Pinia store integration."
+description: "Use when implementing, reviewing, or debugging user impersonation (login-as) in Engeapp with lab404/laravel-impersonate. Covers can_impersonate boolean column checks, Ziggy named routes (user.impersonate.*), Vue TopMenu banner UI, and Pest integration tests."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo
