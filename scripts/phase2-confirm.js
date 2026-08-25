@@ -16,6 +16,51 @@ const INDEX_JSON_PATH = path.join(ROOT_DIR, 'index.json')
 const OTHER_JSON_PATH = path.join(ROOT_DIR, 'other_skills.json')
 const AWESOME_JSON_PATH = path.join(ROOT_DIR, 'awesome_skills.json')
 
+function getDetailedReason(skill) {
+  const text = [
+    skill.skill_name || '',
+    skill.description_en || '',
+    (skill.languages || []).join(' '),
+    (skill.frameworks || []).join(' '),
+    (skill.libs || []).join(' ')
+  ].join(' ').toLowerCase()
+
+  const techMap = [
+    { key: 'flutter', label: 'Flutter / Dart' },
+    { key: 'swift', label: 'Swift / iOS / Xcode' },
+    { key: 'kotlin', label: 'Kotlin / Android' },
+    { key: 'unity', label: 'Unity 3D' },
+    { key: 'unreal', label: 'Unreal Engine' },
+    { key: 'godot', label: 'Godot Engine' },
+    { key: 'roblox', label: 'Roblox / Lua' },
+    { key: 'lua', label: 'Lua Scripting' },
+    { key: 'rails', label: 'Ruby on Rails' },
+    { key: 'django', label: 'Python / Django' },
+    { key: 'flask', label: 'Python / Flask' },
+    { key: 'spring', label: 'Java / Spring Boot' },
+    { key: 'csharp', label: 'C# / .NET' },
+    { key: 'dotnet', label: '.NET Core' },
+    { key: 'angular', label: 'Angular Framework' },
+    { key: 'svelte', label: 'Svelte / SvelteKit' },
+    { key: 'solidjs', label: 'SolidJS' },
+    { key: 'solidity', label: 'Solidity / Smart Contracts / Web3' },
+    { key: 'drupal', label: 'Drupal CMS' },
+    { key: 'wordpress', label: 'WordPress Themes / Plugins' },
+    { key: 'rust', label: 'Rust Systems / Embedded' },
+    { key: 'cuda', label: 'CUDA / GPU Low-level' },
+    { key: 'assembly', label: 'Assembly / Low-level Hardware' },
+    { key: 'c++', label: 'C++ Systems' }
+  ]
+
+  for (const { key, label } of techMap) {
+    if (text.includes(key)) {
+      return `Tecnologia exclusiva (${label}) sem qualquer aderência à stack dos projetos (PHP/Laravel, Vue 3, TS, Gemini).`
+    }
+  }
+
+  return 'Sem qualquer correlação técnica, funcional ou de domínio com os projetos engeapp, SocialMedia e Agentedebolso.'
+}
+
 function runPhase2() {
   console.log('🚀 Executando Fase 2: Confirmação do Filtro e Preparação do Plano de Remoção...\n')
 
@@ -42,18 +87,19 @@ function runPhase2() {
 
       let fase2Msg = ''
       if (maxScore === 0) {
-        fase2Msg = `Fase 2 (Confirmação): Confirmada como INÚTIL para todos os 3 projetos (engeapp: 0, SocialMedia: 0, Agentedebolso: 0). Recomendada para remoção definitiva.`
+        const specificReason = getDetailedReason(skill)
+        fase2Msg = `Fase 2 (Confirmação): Confirmada como INÚTIL para todos os 3 projetos (engeapp: 0, SocialMedia: 0, Agentedebolso: 0). ${specificReason}`
         uselessSkills.push({
           id: skill.id,
           catalog: cat.name,
           skill_name: skill.skill_name,
           local_path: skill.local_path,
-          description: (skill.description_en || '').slice(0, 120),
-          reason: 'Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema.'
+          description: (skill.description_en || '').slice(0, 140),
+          reason: specificReason
         })
       } else {
         confirmedUsefulCount++
-        fase2Msg = `Fase 2 (Confirmação): Relevância confirmada com nota máxima ${maxScore}/10. Mantida no catálogo.`
+        fase2Msg = `Fase 2 (Confirmação): Relevância confirmada com nota máxima ${maxScore}/10 (engeapp: ${engeappScore}, SocialMedia: ${socialScore}, Agentedebolso: ${agenteScore}). Mantida no catálogo.`
       }
 
       const existingIdx = skill.details.findIndex(d => d.Fase2)
@@ -67,7 +113,7 @@ function runPhase2() {
     fs.writeFileSync(cat.path, JSON.stringify(cat.list, null, 4), 'utf8')
   }
 
-  // Salvar lista de remoção da fase 2 para auditoria e execução rápida na Fase 3
+  // Salvar lista de remoção da fase 2 para auditoria e execução na Fase 3
   const removalPlanPath = path.join(ROOT_DIR, 'scripts', 'phase2_removal_plan.json')
   fs.writeFileSync(removalPlanPath, JSON.stringify(uselessSkills, null, 2), 'utf8')
 

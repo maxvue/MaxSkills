@@ -2,7 +2,7 @@
 
 /**
  * Script de Execução da FASE 5: CONFIRMAÇÃO E REFUTAÇÃO PROFUNDA DE DUPLICIDADES
- * Analisa conteúdo interno e refuta falsos positivos.
+ * Analisa conteúdo interno de SKILL.md e refuta falsos positivos.
  */
 
 import fs from 'node:fs'
@@ -18,7 +18,7 @@ const OTHER_JSON_PATH = path.join(ROOT_DIR, 'other_skills.json')
 const AWESOME_JSON_PATH = path.join(ROOT_DIR, 'awesome_skills.json')
 
 function normalizeTokens(str) {
-  return str
+  return (str || '')
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, ' ')
     .split(/\s+/)
@@ -37,11 +37,11 @@ function calculateJaccardSimilarity(setA, setB) {
 
 function readSkillMdSample(localPath) {
   if (!localPath) return ''
-  const fullPath = path.join(ROOT_DIR, localPath)
+  const fullPath = path.isAbsolute(localPath) ? localPath : path.join(ROOT_DIR, localPath)
   if (!fs.existsSync(fullPath)) return ''
   try {
     const content = fs.readFileSync(fullPath, 'utf8')
-    return content.slice(0, 3000) // Primeiros 3KB de diretrizes
+    return content.slice(0, 5000)
   } catch {
     return ''
   }
@@ -74,7 +74,6 @@ function runPhase5() {
 
   const skillMap = new Map(allSkills.map(s => [s.skill.id, s]))
 
-  let confirmedGroupsCount = 0
   let totalConfirmedOverlaps = 0
   let refutedCount = 0
 
@@ -104,10 +103,8 @@ function runPhase5() {
       const contentSim = calculateJaccardSimilarity(tokensContentA, tokensContentB)
 
       // Regra de Refutação de Falso Positivo:
-      // Se forem de frameworks completamente distintos (ex: Adonis vs Laravel sem relação, ou React vs Vue)
       const fwA = (item.skill.frameworks || []).join(' ').toLowerCase()
       const fwB = (otherItem.skill.frameworks || []).join(' ').toLowerCase()
-
       const isConflictingFramework = (fwA && fwB && fwA !== fwB && !fwA.includes(fwB) && !fwB.includes(fwA) && nameSim < 0.6)
 
       if (isConflictingFramework) {
@@ -115,8 +112,8 @@ function runPhase5() {
         continue // Falso positivo refutado
       }
 
-      // Se alta similaridade de conteúdo OU similaridade de nome/descrição alta
-      if (contentSim >= 0.25 || nameSim >= 0.50 || descSim >= 0.35) {
+      // Duplicidade confirmada se o conteúdo interno se sobrepõe
+      if (contentSim >= 0.20 || (contentSim >= 0.15 && descSim >= 0.35) || nameSim >= 0.50) {
         verifiedOverlaps.push(oId)
       } else {
         refutedCount++

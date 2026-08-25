@@ -86,7 +86,7 @@
                 "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (vue, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 7 (Aderência a módulo específico do projeto (vue).). Nota Máxima: 8/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10 (engeapp: 8, SocialMedia: 7, Agentedebolso: 7). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -196,22 +196,22 @@
         "local_path": "other_skills/curated-youtube/frontend-design/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, inter, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, radix, tailwind).). Nota Máxima: 10/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, typescript, tailwind).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, radix, tailwind).). Nota Máxima: 9/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10 (engeapp: 9, SocialMedia: 7, Agentedebolso: 9). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0G4G52FE6Y45CNB8F3MQM0R]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Falsos positivos refutados por análise de conteúdo interno. Tratam de escopos complementares e independentes."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
             }
         ],
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 10
+                "importance": 9
             },
             {
                 "project": "SocialMedia",
@@ -219,7 +219,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 10
+                "importance": 9
             }
         ],
         "overlaps_ids": []
@@ -292,16 +292,16 @@
         "local_path": "other_skills/curated-youtube/skill-creator/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (javascript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (javascript, ui).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (javascript).). Nota Máxima: 4/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (javascript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (javascript).), Agentedebolso: 6 (Aderência a módulo específico do projeto (agent).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 4/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 6). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD388HFDP9WE32PHWZ31]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
             },
             {
                 "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FCRTTHSA4Z23Q336F) por maior aderência técnica aos projetos."
@@ -314,11 +314,11 @@
             },
             {
                 "project": "SocialMedia",
-                "importance": 4
+                "importance": 3
             },
             {
                 "project": "Agentedebolso",
-                "importance": 3
+                "importance": 6
             }
         ],
         "overlaps_ids": [],
@@ -389,10 +389,10 @@
         "local_path": "other_skills/curated-youtube/git-workflow/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (ux).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -489,7 +489,7 @@
                 "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (javascript, typescript).), Agentedebolso: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, security).). Nota Máxima: 7/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10 (engeapp: 7, SocialMedia: 4, Agentedebolso: 5). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -604,16 +604,16 @@
         "local_path": "other_skills/curated-youtube/code-review/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (php, javascript, typescript).), Agentedebolso: 5 (Boa utilidade para padrões gerais de engenharia e stack (php, javascript, typescript).). Nota Máxima: 7/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (php, javascript, typescript).), Agentedebolso: 7 (Aderência a módulo específico do projeto (agent).). Nota Máxima: 7/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10 (engeapp: 7, SocialMedia: 5, Agentedebolso: 7). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 2 skill(s) concorrente(s): [01M0GCFD1S39XQTYVSPF7X3XG7, 01M0GCFD3FEB49NJFJ97M0ZMN3]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 2 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
             },
             {
                 "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FM4PKRXYWCZ20ZSBV) por maior aderência técnica aos projetos."
@@ -630,7 +630,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 5
+                "importance": 7
             }
         ],
         "overlaps_ids": [],
@@ -726,10 +726,10 @@
         "local_path": "other_skills/curated-youtube/browser-automation/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (inter, puppeteer, typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (puppeteer, scraping, inter).). Nota Máxima: 9/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (puppeteer, typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 8 (Forte aderência funcional e técnica (puppeteer, scraping).). Nota Máxima: 8/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10 (engeapp: 8, SocialMedia: 5, Agentedebolso: 8). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -741,7 +741,7 @@
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 9
+                "importance": 8
             },
             {
                 "project": "SocialMedia",
@@ -749,7 +749,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 9
+                "importance": 8
             }
         ],
         "overlaps_ids": []
@@ -796,16 +796,16 @@
         "local_path": "other_skills/curated-youtube/superpowers/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, ui).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, tdd).), Agentedebolso: 4 (Utilidade moderada em práticas gerais (typescript, tdd).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 6, SocialMedia: 4, Agentedebolso: 4). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD3GH9TJ78AF1VYH4KQ3]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
             },
             {
                 "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FVBQNA612AE7T78GH) por maior aderência técnica aos projetos."
@@ -822,7 +822,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 3
+                "importance": 4
             }
         ],
         "overlaps_ids": [],
@@ -900,7 +900,7 @@
                 "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 6 (Aderência a módulo específico do projeto (agent-orchestrator).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 6, SocialMedia: 3, Agentedebolso: 6). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -977,16 +977,16 @@
         "local_path": "other_skills/curated-youtube/shadcn-ui/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (inter, typescript, tailwind).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, tailwind).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (radix, tailwind, inter).). Nota Máxima: 9/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (typescript, tailwind).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, tailwind).), Agentedebolso: 8 (Forte aderência funcional e técnica (radix, tailwind).). Nota Máxima: 8/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10 (engeapp: 8, SocialMedia: 5, Agentedebolso: 8). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD37S6KC5ZZF7BRP3VJR]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
             },
             {
                 "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FASG08WQAJCM01AT2) por maior aderência técnica aos projetos."
@@ -995,7 +995,7 @@
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 9
+                "importance": 8
             },
             {
                 "project": "SocialMedia",
@@ -1003,7 +1003,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 9
+                "importance": 8
             }
         ],
         "overlaps_ids": [],
@@ -1076,10 +1076,10 @@
         "local_path": "other_skills/curated-youtube/mcp-server-routing/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 6 (Aderência a módulo específico do projeto (ai agents).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 8 (Forte aderência funcional e técnica (ai agents, agent).). Nota Máxima: 8/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10 (engeapp: 6, SocialMedia: 3, Agentedebolso: 8). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1099,7 +1099,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 6
+                "importance": 8
             }
         ],
         "overlaps_ids": []
@@ -1169,10 +1169,10 @@
         "local_path": "other_skills/curated-youtube/context-engineering/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (efi, typescript).), SocialMedia: 6 (Aderência a módulo específico do projeto (tiktok).), Agentedebolso: 8 (Forte aderência funcional e técnica (llm, efi).). Nota Máxima: 8/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 6 (Aderência a módulo específico do projeto (llm).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 6, SocialMedia: 3, Agentedebolso: 6). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1184,15 +1184,15 @@
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 8
-            },
-            {
-                "project": "SocialMedia",
                 "importance": 6
             },
             {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
                 "project": "Agentedebolso",
-                "importance": 8
+                "importance": 6
             }
         ],
         "overlaps_ids": []
@@ -1259,10 +1259,10 @@
         "local_path": "other_skills/curated-youtube/api-design/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, inter, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, inter).). Nota Máxima: 9/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10 (engeapp: 8, SocialMedia: 7, Agentedebolso: 7). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1274,7 +1274,7 @@
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 9
+                "importance": 8
             },
             {
                 "project": "SocialMedia",
@@ -1282,7 +1282,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 8
+                "importance": 7
             }
         ],
         "overlaps_ids": []
@@ -1329,22 +1329,22 @@
         "local_path": "other_skills/curated-youtube/tailwind-css/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, efi, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, tailwind, efi).). Nota Máxima: 10/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, typescript, tailwind).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, tailwind).). Nota Máxima: 9/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10 (engeapp: 9, SocialMedia: 7, Agentedebolso: 8). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição de escopo em description_en identificada com 1 skill(s) concorrente(s): [01M0GCFD3BXW3CKF3DPKCWP4PH]."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Falsos positivos refutados por análise de conteúdo interno. Tratam de escopos complementares e independentes."
             }
         ],
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 10
+                "importance": 9
             },
             {
                 "project": "SocialMedia",
@@ -1352,7 +1352,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 9
+                "importance": 8
             }
         ],
         "overlaps_ids": []
@@ -1423,10 +1423,10 @@
         "local_path": "other_skills/curated-youtube/deep-research/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (inter, typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, ui).), Agentedebolso: 6 (Aderência a módulo específico do projeto (inter).). Nota Máxima: 8/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 6, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1438,15 +1438,15 @@
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 8
+                "importance": 6
             },
             {
                 "project": "SocialMedia",
-                "importance": 4
+                "importance": 3
             },
             {
                 "project": "Agentedebolso",
-                "importance": 6
+                "importance": 3
             }
         ],
         "overlaps_ids": []
@@ -1508,10 +1508,10 @@
         "local_path": "other_skills/curated-youtube/docker-expert/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (docker).), SocialMedia: 0 (Nenhuma aderência com a stack ou domínio do projeto.), Agentedebolso: 0 (Nenhuma aderência com a stack ou domínio do projeto.). Nota Máxima: 3/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (docker).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (docker).), Agentedebolso: 0 (Nenhuma aderência com a stack ou domínio do projeto.). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 0). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1527,7 +1527,7 @@
             },
             {
                 "project": "SocialMedia",
-                "importance": 0
+                "importance": 3
             },
             {
                 "project": "Agentedebolso",
@@ -1594,19 +1594,19 @@
         "local_path": "other_skills/curated-youtube/fastapi-templates/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (sql).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (ui).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD2554A452TZCY0JP0TB]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição de escopo em description_en identificada com 1 skill(s) concorrente(s): [01M0GCFD300N2Z283SMDGHRNX9]."
             },
             {
                 "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
             },
             {
-                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52F1C753JPHMPTS9EMK) por maior aderência técnica aos projetos."
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52F1C753JPHMPTS9EMK) por maior aderência técnica aos projetos e qualidade instrucional."
             }
         ],
         "importance_in": [
@@ -1667,10 +1667,10 @@
         "local_path": "other_skills/curated-youtube/damage-control/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (inter).), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (inter).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (sql).), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (sql).). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1682,7 +1682,7 @@
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 6
+                "importance": 3
             },
             {
                 "project": "SocialMedia",
@@ -1690,7 +1690,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 6
+                "importance": 3
             }
         ],
         "overlaps_ids": []
@@ -1747,10 +1747,10 @@
         "local_path": "other_skills/curated-youtube/git-worktree/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (ui).), Agentedebolso: 6 (Aderência a módulo específico do projeto (ai agents).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (ai agents).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 6). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1825,10 +1825,10 @@
         "local_path": "other_skills/curated-youtube/database-optimizer/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 7/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 5 (Boa utilidade para padrões gerais de engenharia e stack (typescript, sql, mysql).). Nota Máxima: 7/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10 (engeapp: 7, SocialMedia: 3, Agentedebolso: 5). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1848,7 +1848,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 3
+                "importance": 5
             }
         ],
         "overlaps_ids": []
@@ -1906,7 +1906,7 @@
                 "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -1981,10 +1981,10 @@
         "local_path": "other_skills/curated-youtube/pytest-and-jest-automation/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, vite).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (javascript, typescript).), Agentedebolso: 4 (Utilidade moderada em práticas gerais (javascript, typescript).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 6, SocialMedia: 4, Agentedebolso: 4). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -2000,11 +2000,11 @@
             },
             {
                 "project": "SocialMedia",
-                "importance": 5
+                "importance": 4
             },
             {
                 "project": "Agentedebolso",
-                "importance": 5
+                "importance": 4
             }
         ],
         "overlaps_ids": []
@@ -2053,13 +2053,13 @@
                 "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 7 (Aderência a módulo específico do projeto (radix).). Nota Máxima: 7/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10 (engeapp: 7, SocialMedia: 5, Agentedebolso: 7). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição de escopo em description_en identificada com 1 skill(s) concorrente(s): [01M0GCFD31FRMPEEVWEFMVGTTB]."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Falsos positivos refutados por análise de conteúdo interno. Tratam de escopos complementares e independentes."
             }
         ],
         "importance_in": [
@@ -2120,10 +2120,10 @@
         "local_path": "other_skills/curated-youtube/the-library/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, ui).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 6 (Aderência a módulo específico do projeto (agent).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 6, SocialMedia: 3, Agentedebolso: 6). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -2139,11 +2139,11 @@
             },
             {
                 "project": "SocialMedia",
-                "importance": 4
+                "importance": 3
             },
             {
                 "project": "Agentedebolso",
-                "importance": 3
+                "importance": 6
             }
         ],
         "overlaps_ids": []
@@ -2199,10 +2199,10 @@
         "local_path": "other_skills/curated-youtube/cloud-architect/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 6 (Aderência a módulo específico do projeto (vision).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -2218,7 +2218,7 @@
             },
             {
                 "project": "SocialMedia",
-                "importance": 6
+                "importance": 3
             },
             {
                 "project": "Agentedebolso",
@@ -2258,10 +2258,10 @@
         "local_path": "other_skills/curated-youtube/token-optimization/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (llm).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 8 (Forte aderência funcional e técnica (llm, token-optimization).). Nota Máxima: 8/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 8). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -2281,7 +2281,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 6
+                "importance": 8
             }
         ],
         "overlaps_ids": []
@@ -2314,16 +2314,16 @@
         "local_path": "other_skills/curated-youtube/vue-components/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (vue, vue 3).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, vue 3).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, vue 3).). Nota Máxima: 8/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (vue, vue 3).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, vue 3).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (agent, vue, vue 3).). Nota Máxima: 9/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10 (engeapp: 8, SocialMedia: 8, Agentedebolso: 9). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 51 skill(s) concorrente(s): [01M0G4G52F5K1CDG8SC52QJVP9, 01M0G4G52FPAF7NXX28YZW5QWG, 01M0G4G52F7JJDSHVVZEMSBEFR, 01M0G4G52FGKVZ0F7H7ETQ12B1, 01M0G4G52F7GJH34QTMX9Q6WTE, 01M0G4G52FANN9BZTTSSHYFNZK, 01M0G4G52F6MFSCRGE7KZ27HSN, 01M0G4G52FS49WVEBA5YQ7MZJB, 01M0G4G52FECGJ2KD891NSKYV9, 01M0G4G52F3SRQWXBDZMGMN6EC, 01M0G4G52F8ZRPGN8NMN2MDZ5B, 01M0G4G52FZR92M0YQPQ6GP7GA, 01M0G4G52FCM9MZ8V37A6W1RNW, 01M0G4G52FSMRJV3XMA8SHWNC8, 01M0G4G52FJ41WHT0JD7W7VH61, 01M0G4G52F4Z3FNZVNF5678NBN, 01M0G4G52F1F45ZSJZNSWZJ002, 01M0G4G52FF1ZWWGP3EXWMHRXH, 01M0G4G52FVB482W6EPGBXGXPV, 01M0G4G52FYT3CZ23JQSYW385K, 01M0G4G52FMVG4CBAN01J1M82S, 01M0G4G52F3SRX4CKY8TK6YARN, 01M0G4G52F6K0HHC22K4JC6PM5, 01M0G4G52FAZ2EZBWSTRFKD82K, 01M0G4G52FEZQ5BVAY2QKSEFHV, 01M0G4G52FQHRSR36TQ5RRWA8M, 01M0G4G52FNQC5NB0ZEW17XXCZ, 01M0G4G52F69JCBK3ES7RH56CB, 01M0G4G52FE9JS25WSWZA38TPF, 01M0G4G52FQW6YR9VYJTQ7PHPW, 01M0G4G52F9NV7JMDYFSRKNXTE, 01M0G4G52F83XWWXZQTFHZCC8H, 01M0G4G52FD2HR91SGSCCEA8FE, 01M0G4G52F4Y1VJKPPECPTCGM7, 01M0G4G52FXYCE5PM8JXBPE6JT, 01M0G4G52FJD9C3R5VZMVJXG8J, 01M0G4G52FRPQ6RKRSD7JVYA5M, 01M0G4G52F4WMBQJYAM9Y7GAXT, 01M0G4G52FSJ5FECY4DYXB29TG, 01M0G4G52FHQ36908PJ8G6PSN3, 01M0G4G52FJDPZ7YR2TGVZTWVA, 01M0G4G52FMCAG9T1SZAB8Y0J0, 01M0G4G52F4Y9SYVTAQGJ6KB5E, 01M0G4G52FW5FYCCE19G8GGK6M, 01M0G4G52FAFJGK4N7R0PNQC67, 01M0G4G52FVY4EYMFZQ7C08QZH, 01M0G4G52F316FSX9EAYHEE40D, 01M0G4G52FEMNP5MK9SH34TAC0, 01M0G4G52FPT34P9RB5PVJPW1D, 01M0G4G52FMMGCXXNNJXGRCFSG, 01M0G4G52F7KGFWPWDHATEYVX9]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 51 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
             },
             {
                 "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FHV0YSD6V1ZJMX69R) por maior aderência técnica aos projetos."
@@ -2340,7 +2340,7 @@
             },
             {
                 "project": "Agentedebolso",
-                "importance": 8
+                "importance": 9
             }
         ],
         "overlaps_ids": [],
@@ -2379,10 +2379,10 @@
         "local_path": "other_skills/curated-youtube/mermaid-diagrammer/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 4 (Utilidade moderada em práticas gerais (ui, ux).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 4/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 4/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -2398,7 +2398,7 @@
             },
             {
                 "project": "SocialMedia",
-                "importance": 4
+                "importance": 3
             },
             {
                 "project": "Agentedebolso",
@@ -2441,7 +2441,7 @@
                 "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 3). Mantida no catálogo."
             },
             {
                 "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
@@ -2503,16 +2503,16 @@
         "local_path": "other_skills/curated-youtube/python-concessionarias-automation/SKILL.md",
         "details": [
             {
-                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (pdf).), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (scraping).). Nota Máxima: 6/10."
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (scraping).). Nota Máxima: 6/10."
             },
             {
-                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10 (engeapp: 3, SocialMedia: 3, Agentedebolso: 6). Mantida no catálogo."
             },
             {
-                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0G4G52FBQ06VE4HY7HGXBEW]."
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
             },
             {
-                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
             },
             {
                 "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FV8AC72Q93QPP5PPE) por maior aderência técnica aos projetos."
@@ -2521,7 +2521,7 @@
         "importance_in": [
             {
                 "project": "engeapp",
-                "importance": 6
+                "importance": 3
             },
             {
                 "project": "SocialMedia",

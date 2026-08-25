@@ -16,6 +16,17 @@ const INDEX_JSON_PATH = path.join(ROOT_DIR, 'index.json')
 const OTHER_JSON_PATH = path.join(ROOT_DIR, 'other_skills.json')
 const AWESOME_JSON_PATH = path.join(ROOT_DIR, 'awesome_skills.json')
 
+function readSkillMdSample(localPath) {
+  if (!localPath) return ''
+  const fullPath = path.isAbsolute(localPath) ? localPath : path.join(ROOT_DIR, localPath)
+  if (!fs.existsSync(fullPath)) return ''
+  try {
+    return fs.readFileSync(fullPath, 'utf8')
+  } catch {
+    return ''
+  }
+}
+
 function runPhase6() {
   console.log('🚀 Executando Fase 6: Eleição da Melhor Skill por Grupo de Duplicidade...\n')
 
@@ -41,7 +52,7 @@ function runPhase6() {
 
   const skillMap = new Map(allSkills.map(s => [s.skill.id, s]))
 
-  // Formar clusters/grupos de sobreposição
+  // Formar clusters/grupos de sobreposição conexos
   const visited = new Set()
   const duplicateGroups = []
 
@@ -79,9 +90,15 @@ function runPhase6() {
       const totalImportance = (item.skill.importance_in || []).reduce((acc, cur) => acc + (cur.importance || 0), 0)
       const completeness = (item.skill.languages?.length || 0) + (item.skill.frameworks?.length || 0) + (item.skill.libs?.length || 0)
 
-      // Bônus de especialização: se estiver em index.json (skills oficiais max), tem preferência
-      const catalogBonus = item.catalog === 'index.json' ? 20 : (item.catalog === 'other_skills.json' ? 5 : 0)
-      const compositeScore = totalImportance * 2 + catalogBonus
+      // Qualidade do conteúdo no disco
+      const rawContent = readSkillMdSample(item.skill.local_path)
+      const contentLength = rawContent.length
+      const hasStrictSections = /##\s+(Goal|Objetivo|Instructions|Instruções|Constraints|Restrições)/i.test(rawContent) ? 5 : 0
+
+      // Bônus de catálogo oficial / customizado
+      const catalogBonus = item.catalog === 'index.json' ? 30 : (item.catalog === 'other_skills.json' ? 10 : 0)
+      
+      const compositeScore = (totalImportance * 3) + catalogBonus + hasStrictSections + Math.min(contentLength / 500, 10)
 
       if (compositeScore > bestScore || (compositeScore === bestScore && completeness > bestCompleteness)) {
         bestScore = compositeScore
@@ -115,12 +132,13 @@ function runPhase6() {
           local_path: item.skill.local_path,
           best_id: bestSkillId,
           best_name: winnerItem?.skill?.skill_name,
-          reason: `Duplicata preterida em favor da skill eleita como melhor: [${winnerItem?.catalog}] ${winnerItem?.skill?.skill_name}.`
+          best_catalog: winnerItem?.catalog,
+          reason: `Duplicata preterida em favor da skill eleita como melhor do grupo: [${winnerItem?.catalog}] ${winnerItem?.skill?.skill_name} (${bestSkillId}).`
         })
       }
 
       const msgFase6 = isWinner
-        ? `Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: ${id}) por maior aderência técnica aos projetos.`
+        ? `Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: ${id}) por maior aderência técnica aos projetos e qualidade instrucional.`
         : `Fase 6 (Eleição): Preterida em favor da skill eleita como melhor (ID: ${bestSkillId} - ${winnerItem?.skill?.skill_name}). Recomendada para remoção por redundância.`
 
       const existingIdx = item.skill.details.findIndex(d => d.Fase6_Eleicao)
@@ -140,8 +158,9 @@ function runPhase6() {
   fs.writeFileSync(removalPlanPath, JSON.stringify(deprecatedSkillsList, null, 2), 'utf8')
 
   console.log(`✅ Fase 6 Concluída:`)
-  console.log(`   - Total de Skills Vencedoras (Mantidas): ${winnersList.length}`)
-  console.log(`   - Total de Skills Preteridas (Para Remoção na Fase 7): ${deprecatedSkillsList.length}`)
+  console.log(`   - Total de Grupos Concorrentes: ${duplicateGroups.length}`)
+  console.log(`   - Total de Skills Eleitas Vencedoras (Mantidas): ${winnersList.length}`)
+  console.log(`   - Total de Skills Duplicadas Preteridas (Para Remoção na Fase 7): ${deprecatedSkillsList.length}`)
   console.log(`   - Plano de Remoção salvo em: scripts/phase6_removal_plan.json\n`)
 }
 

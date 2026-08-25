@@ -22,7 +22,7 @@ const PROJECTS_CONFIG = {
   engeapp: {
     name: 'engeapp',
     highKeywords: [
-      'laravel', 'vue', 'vue 3', 'unocss', 'max-components-ui', 'max-pinia', 'max-use',
+      'laravel', 'vue', 'vue 3', 'vue3', 'unocss', 'max-components-ui', 'max-pinia', 'max-use',
       'livekit', 'webrtc', 'meilisearch', 'gemini', 'bigquery', 'whatsapp', 'asaas', 'efi', 'inter',
       'spatie', 'horizon', 'octane', 'pulse', 'reverb', 'sanctum', 'scout', 'telescope',
       'pdf', 'excel', 'phpspreadsheet', 'dompdf', 'mpdf', 'autentique', 'cpf', 'cnpj', 'boleto',
@@ -31,34 +31,38 @@ const PROJECTS_CONFIG = {
     mediumKeywords: [
       'php', 'javascript', 'pinia', 'radix', 'reka', 'floating-vue', 'chart.js', 'dayjs',
       'clean architecture', 'systematic-debugging', 'tdd', 'test-driven', 'security', 'owasp',
-      'docker', 'redis', 'api design', 'rest api', 'webhook', 'database', 'sql', 'mysql', 'postgresql'
+      'docker', 'redis', 'api design', 'rest api', 'webhook', 'database', 'sql', 'mysql', 'postgresql',
+      'ui', 'ux', 'frontend'
     ]
   },
   SocialMedia: {
     name: 'SocialMedia',
     highKeywords: [
       'social media', 'calendar', 'fullcalendar', 'mediapipe', 'vision', 'video', 'image processing',
-      'vue', 'vue 3', 'pinia', 'max-components-ui', 'max-pinia', 'max-use', 'vueuse', 'vue router',
+      'vue', 'vue 3', 'vue3', 'pinia', 'max-components-ui', 'max-pinia', 'max-use', 'vueuse', 'vue router',
       'laravel', 'horizon', 'sanctum', 'socialite', 'spatie', 'pdf-to-text', 'ai content', 'copywriting',
-      'instagram', 'tiktok', 'youtube', 'facebook', 'linkedin', 'marketing', 'seo', 'content strategy'
+      'instagram', 'tiktok', 'youtube', 'facebook', 'linkedin', 'marketing', 'seo', 'content strategy',
+      'prompt engineering'
     ],
     mediumKeywords: [
       'php', 'javascript', 'typescript', 'axios', 'localforage', 'ziggy', 'tailwind', 'css',
-      'systematic-debugging', 'frontend-design', 'ui', 'ux', 'prompt engineering', 'analytics'
+      'systematic-debugging', 'frontend-design', 'ui', 'ux', 'analytics', 'clean architecture',
+      'tdd', 'test-driven', 'docker', 'redis', 'api design', 'rest api', 'webhook'
     ]
   },
   Agentedebolso: {
     name: 'Agentedebolso',
     highKeywords: [
-      'ai agents', 'conversational ai', 'whatsapp', 'bot', 'gemini', 'llm', 'function calling',
+      'ai agents', 'agent', 'conversational ai', 'whatsapp', 'bot', 'gemini', 'llm', 'function calling',
       'voice recording', 'speech-to-text', 'transcription', 'ffmpeg', 'puppeteer', 'scraping',
-      'laravel', 'vue', 'vue 3', 'radix', 'tailwind', 'sass', 'sweetalert2', 'emoji', 'quill',
+      'laravel', 'vue', 'vue 3', 'vue3', 'radix', 'tailwind', 'sass', 'sweetalert2', 'emoji', 'quill',
       'brasilapi', 'webauthn', 'meilisearch', 'autentique', 'efi', 'inter', 'max-components-ui',
-      'max-pinia', 'max-use', 'vuefinder', 'multitenant', 'agent-orchestrator'
+      'max-pinia', 'max-use', 'vuefinder', 'multitenant', 'agent-orchestrator', 'token-optimization'
     ],
     mediumKeywords: [
       'php', 'javascript', 'typescript', 'pinia', 'vite', 'octane', 'reverb', 'horizon', 'sanctum',
-      'scout', 'systematic-debugging', 'token-optimization', 'security', 'owasp', 'api design'
+      'scout', 'systematic-debugging', 'security', 'owasp', 'api design', 'rest api', 'webhook',
+      'database', 'sql', 'mysql', 'clean architecture', 'tdd', 'test-driven', 'ui', 'ux'
     ]
   }
 }
@@ -74,6 +78,16 @@ const IRRELEVANT_PATTERNS = [
   /\b(solidity|smart-contracts|web3|ethereum|blockchain-defi)\b/i,
   /\b(drupal|joomla|magento|prestashop|wordpress-theme)\b/i
 ]
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function matchKeyword(kw, text) {
+  const escaped = escapeRegExp(kw.toLowerCase())
+  const regex = new RegExp(`(^|[^a-z0-9_-])${escaped}([^a-z0-9_-]|$)`, 'i')
+  return regex.test(text)
+}
 
 function getLocalRelativePath(urlSkill) {
   if (!urlSkill) return null
@@ -94,7 +108,7 @@ function calculateImportance(skill, projectConfig) {
 
   for (const pattern of IRRELEVANT_PATTERNS) {
     if (pattern.test(textToAnalyze)) {
-      if (!/\b(laravel|vue|php|typescript|javascript)\b/i.test(textToAnalyze)) {
+      if (!/\b(laravel|vue|vue3|php|typescript|javascript)\b/i.test(textToAnalyze)) {
         return { score: 0, reason: 'Stack tecnológica não utilizada no projeto (exclusiva de outro ecossistema).' }
       }
     }
@@ -103,7 +117,7 @@ function calculateImportance(skill, projectConfig) {
   let highMatches = 0
   let highHits = []
   for (const kw of projectConfig.highKeywords) {
-    if (textToAnalyze.includes(kw.toLowerCase())) {
+    if (matchKeyword(kw, textToAnalyze)) {
       highMatches++
       highHits.push(kw)
     }
@@ -112,7 +126,7 @@ function calculateImportance(skill, projectConfig) {
   let mediumMatches = 0
   let mediumHits = []
   for (const kw of projectConfig.mediumKeywords) {
-    if (textToAnalyze.includes(kw.toLowerCase())) {
+    if (matchKeyword(kw, textToAnalyze)) {
       mediumMatches++
       mediumHits.push(kw)
     }
