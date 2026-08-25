@@ -59,7 +59,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for 2d games. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para 2d games. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/2d-games/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/2d-games/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -85,7 +85,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for 3d games. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para 3d games. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/3d-games/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/3d-games/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -98,7 +98,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for 3d ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para 3d ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/3d-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/3d-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -541,19 +541,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD196W7F9BCNWFWDEV9R",
-        "skill_name": "agent-orchestrator",
-        "description_en": "Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capacidades, coordenacao de workflows multi-skill e registry management.",
-        "description_pt_br": "Diretrizes e automações para agent orchestrator. Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capacidades, coordenacao de workflows multi-skill e registry management.",
-        "promo_en": "Production-ready guidelines and agentic workflows for agent orchestrator. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para agent orchestrator. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-orchestrator/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD19M581W25QWJ6QWEGY",
         "skill_name": "agent-qa-authoring",
         "description_en": "Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while preserving canonical IDs and schema contracts.",
@@ -705,19 +692,6 @@
         "promo_pt_br": "Diretrizes e fluxos agênticos para agents generator. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agents-generator/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD1A5D91TJW9HF72TV64",
-        "skill_name": "agents-md",
-        "description_en": "This skill should be used when the user asks to \"create AGENTS.md\", \"update AGENTS.md\", \"maintain agent docs\", \"set up CLAUDE.md\", or needs to keep agent instructions concise. Enforces research-backed best practices for minimal, high-signal agent documentation.",
-        "description_pt_br": "Diretrizes e automações para agents md. This skill should be used when the user asks to \"create AGENTS.md\", \"update AGENTS.md\", \"maintain agent docs\", \"set up CLAUDE.md\", or needs to keep agent instructions concise. Enforces research-backed best practices for minimal, high-signal agent documentation.",
-        "promo_en": "Production-ready guidelines and agentic workflows for agents md. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para agents md. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agents-md/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -886,7 +860,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for ai native ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para ai native ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/ai-native-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/ai-native-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -990,7 +964,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for alex. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para alex. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/alex/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/alex/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -1139,6 +1113,21 @@
         "libs": []
     },
     {
+        "id": "01M0GCFD1BF659FF5JCR1CMA9R",
+        "skill_name": "android_ui_verification",
+        "description_en": "Automated end-to-end UI testing and verification on an Android Emulator using ADB.",
+        "description_pt_br": "Diretrizes e automações para android_ui_verification. Automated end-to-end UI testing and verification on an Android Emulator using ADB.",
+        "promo_en": "Production-ready guidelines and agentic workflows for android_ui_verification. Enforces best practices, maintainability, and error-free execution.",
+        "promo_pt_br": "Diretrizes e fluxos agênticos para android_ui_verification. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
+        "repo_name": "Awesome",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/android_ui_verification/SKILL.md",
+        "languages": [
+            "Kotlin"
+        ],
+        "frameworks": [],
+        "libs": []
+    },
+    {
         "id": "01M0GCFD1B3QMHKQ43HEFCE0XK",
         "skill_name": "android-cli",
         "description_en": "Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.",
@@ -1196,21 +1185,6 @@
         "promo_pt_br": "Diretrizes e fluxos agênticos para android ui journey testing. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/android-ui-journey-testing/SKILL.md",
-        "languages": [
-            "Kotlin"
-        ],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD1BF659FF5JCR1CMA9R",
-        "skill_name": "android_ui_verification",
-        "description_en": "Automated end-to-end UI testing and verification on an Android Emulator using ADB.",
-        "description_pt_br": "Diretrizes e automações para android_ui_verification. Automated end-to-end UI testing and verification on an Android Emulator using ADB.",
-        "promo_en": "Production-ready guidelines and agentic workflows for android_ui_verification. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para android_ui_verification. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/android_ui_verification/SKILL.md",
         "languages": [
             "Kotlin"
         ],
@@ -2030,7 +2004,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for aria. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para aria. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/aria/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/aria/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -2299,7 +2273,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for aurora ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para aurora ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/aurora-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/aurora-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -2472,7 +2446,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for aws compliance checker. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para aws compliance checker. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/aws-compliance-checker/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/security/aws-compliance-checker/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -2524,7 +2498,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for aws iam best practices. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para aws iam best practices. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/aws-iam-best-practices/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/security/aws-iam-best-practices/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -2563,7 +2537,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for aws secrets rotation. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para aws secrets rotation. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/aws-secrets-rotation/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/security/aws-secrets-rotation/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -2576,20 +2550,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for aws security audit. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para aws security audit. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/aws-security-audit/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD1FG6CSWFVXKQ3QB2N3",
-        "skill_name": "aws-serverless",
-        "description_en": "Specialized skill for building production-ready serverless",
-        "description_pt_br": "Diretrizes e automações para aws serverless. Specialized skill for building production-ready serverless",
-        "promo_en": "Production-ready guidelines and agentic workflows for aws serverless. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para aws serverless. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/aws-serverless/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/security/aws-security-audit/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -4310,19 +4271,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD1M3T90JFY3EGKRSD87",
-        "skill_name": "backend-architect",
-        "description_en": "Expert backend architect specializing in scalable API design, microservices architecture, and distributed systems.",
-        "description_pt_br": "Diretrizes e automações para backend architect. Expert backend architect specializing in scalable API design, microservices architecture, and distributed systems.",
-        "promo_en": "Production-ready guidelines and agentic workflows for backend architect. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para backend architect. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/backend-architect/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD1MT34KWPV43JB0AFVQ",
         "skill_name": "backend-dev-guidelines",
         "description_en": "You are a senior backend engineer operating production-grade services under strict architectural and reliability constraints. Use when routes, controllers, services, repositories, express middleware, or prisma database access.",
@@ -4399,7 +4347,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for base. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para base. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/base/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/libreoffice/base/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -4438,7 +4386,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for bash. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para bash. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/bash/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/bash/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -4617,7 +4565,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for bento ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para bento ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/bento-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/bento-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -5034,19 +4982,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD1PXB0D4B5F8YF8DNNX",
-        "skill_name": "browser-automation",
-        "description_en": "Browser automation powers web testing, scraping, and AI agent",
-        "description_pt_br": "Diretrizes e automações para browser automation. Browser automation powers web testing, scraping, and AI agent",
-        "promo_en": "Production-ready guidelines and agentic workflows for browser automation. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para browser automation. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/browser-automation/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD1P9Z2Y1NJDX57CHXM2",
         "skill_name": "browser-extension-builder",
         "description_en": "Expert in building browser extensions that solve real problems -",
@@ -5093,7 +5028,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for brutalism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para brutalism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/brutalism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/brutalism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -5106,7 +5041,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for brutalist typography. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para brutalist typography. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/brutalist-typography/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/brutalist-typography/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -5304,7 +5239,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for c. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para c. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/c/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/c/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -5408,7 +5343,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for calc. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para calc. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/calc/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/libreoffice/calc/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -5460,7 +5395,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for card based design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para card based design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/card-based-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/card-based-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -5812,19 +5747,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD1R99MHBNDHYB5WQWRK",
-        "skill_name": "claude-api",
-        "description_en": "Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use Claude API, Anthropic SDKs, or Agent SDK. DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or ML/data-science tasks.",
-        "description_pt_br": "Diretrizes e automações para claude api. Build apps with the Claude API or Anthropic SDK. TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`/`claude_agent_sdk`, or user asks to use Claude API, Anthropic SDKs, or Agent SDK. DO NOT TRIGGER when: code imports `openai`/other AI SDK, general programming, or ML/data-science tasks.",
-        "promo_en": "Production-ready guidelines and agentic workflows for claude api. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para claude api. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/claude-api/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD1RRR69P55JMKBRK3DP",
         "skill_name": "claude-code-expert",
         "description_en": "Especialista profundo em Claude Code - CLI da Anthropic. Maximiza produtividade com atalhos, hooks, MCPs, configuracoes avancadas, workflows, CLAUDE.md, memoria, sub-agentes, permissoes e integracao com ecossistemas.",
@@ -5951,7 +5873,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for claymorphism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para claymorphism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/claymorphism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/claymorphism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -6035,21 +5957,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD1SJ1FTDT81BHSXA6MQ",
-        "skill_name": "cloud-architect",
-        "description_en": "Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC (Terraform/OpenTofu/CDK), FinOps cost optimization, and modern architectural patterns.",
-        "description_pt_br": "Diretrizes e automações para cloud architect. Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC (Terraform/OpenTofu/CDK), FinOps cost optimization, and modern architectural patterns.",
-        "promo_en": "Production-ready guidelines and agentic workflows for cloud architect. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para cloud architect. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/cloud-architect/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": [
-            "Terraform"
-        ]
-    },
-    {
         "id": "01M0GCFD1SSW00V606TH4P7HMM",
         "skill_name": "cloud-devops",
         "description_en": "Cloud infrastructure and DevOps workflow covering AWS, Azure, GCP, Kubernetes, Terraform, CI/CD, monitoring, and cloud-native development.",
@@ -6113,19 +6020,6 @@
         "promo_pt_br": "Diretrizes e fluxos agênticos para cloudformation best practices. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/cloudformation-best-practices/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD1S3TX4TB2B6WP9FPCB",
-        "skill_name": "cmux",
-        "description_en": "Control cmux workspaces, panes, surfaces, and agent sessions safely from macOS terminal workflows.",
-        "description_pt_br": "Diretrizes e automações para cmux. Control cmux workspaces, panes, surfaces, and agent sessions safely from macOS terminal workflows.",
-        "promo_en": "Production-ready guidelines and agentic workflows for cmux. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para cmux. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/cmux/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -6551,7 +6445,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for color blocking. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para color blocking. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/color-blocking/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/color-blocking/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -6579,7 +6473,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for command center ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para command center ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/command-center-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/command-center-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7021,19 +6915,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD1WKDM6NN44A7ATHWDR",
-        "skill_name": "context-engineering",
-        "description_en": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.",
-        "description_pt_br": "Diretrizes e automações para context engineering. Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.",
-        "promo_en": "Production-ready guidelines and agentic workflows for context engineering. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para context engineering. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/context-engineering/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD1WT2EJQG4HE13T3GEW",
         "skill_name": "context-fundamentals",
         "description_en": "Context is the complete state available to a language model at inference time. It includes everything the model can attend to when generating responses: system instructions, tool definitions, retrieved documents, message history, and tool outputs.",
@@ -7298,7 +7179,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for cpp. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para cpp. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/cpp/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/cpp/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7614,7 +7495,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for csharp. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para csharp. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/csharp/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/csharp/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7736,7 +7617,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for cyber y2k. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para cyber y2k. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/cyber-y2k/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/cyber-y2k/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7749,7 +7630,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for cyberpunk ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para cyberpunk ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/cyberpunk-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/cyberpunk-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7816,7 +7697,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for dark mode. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para dark mode. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/dark-mode/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/dark-mode/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7829,7 +7710,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for dart. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para dart. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/dart/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/dart/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7842,7 +7723,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for dashboard design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para dashboard design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/dashboard-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/dashboard-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -7855,7 +7736,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for data dense design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para data dense design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/data-dense-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/data-dense-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -8058,19 +7939,6 @@
         "languages": [
             "SQL"
         ],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD1ZR0MGYSH348SPZ9VH",
-        "skill_name": "database-optimizer",
-        "description_en": "Expert database optimizer specializing in modern performance tuning, query optimization, and scalable architectures.",
-        "description_pt_br": "Diretrizes e automações para database optimizer. Expert database optimizer specializing in modern performance tuning, query optimization, and scalable architectures.",
-        "promo_en": "Production-ready guidelines and agentic workflows for database optimizer. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para database optimizer. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/database-optimizer/SKILL.md",
-        "languages": [],
         "frameworks": [],
         "libs": []
     },
@@ -8289,19 +8157,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD1ZB45WHJ2X0SW2E36H",
-        "skill_name": "deep-research",
-        "description_en": "Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports.",
-        "description_pt_br": "Diretrizes e automações para deep research. Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports.",
-        "promo_en": "Production-ready guidelines and agentic workflows for deep research. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para deep research. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/deep-research/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD1Z8XPSECKT1YJV5DT9",
         "skill_name": "deepapi",
         "description_en": "Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval.",
@@ -8361,7 +8216,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for dep. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para dep. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/dep/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/dep/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -9007,23 +8862,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD22YSYGHEEB9J33YSTP",
-        "skill_name": "django-pro",
-        "description_en": "Master Django 5.x with async views, DRF, Celery, and Django Channels. Build scalable web applications with proper architecture, testing, and deployment.",
-        "description_pt_br": "Diretrizes e automações para django pro. Master Django 5.x with async views, DRF, Celery, and Django Channels. Build scalable web applications with proper architecture, testing, and deployment.",
-        "promo_en": "Production-ready guidelines and agentic workflows for django pro. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para django pro. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/django-pro/SKILL.md",
-        "languages": [
-            "Python"
-        ],
-        "frameworks": [
-            "Django"
-        ],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD22EZ726N4VAJQCNAKK",
         "skill_name": "doc-coauthoring",
         "description_en": "This skill provides a structured workflow for guiding users through collaborative document creation. Act as an active guide, walking users through three stages: Context Gathering, Refinement & Structure, and Reader Testing.",
@@ -9048,21 +8886,6 @@
         "languages": [],
         "frameworks": [],
         "libs": []
-    },
-    {
-        "id": "01M0GCFD22J1FQ2X6BTEC7F3DA",
-        "skill_name": "docker-expert",
-        "description_en": "You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patterns, and production deployment strategies based on current industry best practices.",
-        "description_pt_br": "Diretrizes e automações para docker expert. You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patterns, and production deployment strategies based on current industry best practices.",
-        "promo_en": "Production-ready guidelines and agentic workflows for docker expert. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para docker expert. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/docker-expert/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": [
-            "Docker"
-        ]
     },
     {
         "id": "01M0GCFD2241HCWKNH72M1NC67",
@@ -9284,7 +9107,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for draw. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para draw. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/draw/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/libreoffice/draw/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -9353,7 +9176,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for duotone design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para duotone design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/duotone-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/duotone-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -9398,19 +9221,6 @@
         "libs": [
             "Playwright"
         ]
-    },
-    {
-        "id": "01M0GCFD23JEG7VBRV38QEYAJR",
-        "skill_name": "e2e-testing-patterns",
-        "description_en": "Build reliable, fast, and maintainable end-to-end test suites that provide confidence to ship code quickly and catch regressions before users do.",
-        "description_pt_br": "Diretrizes e automações para e2e testing patterns. Build reliable, fast, and maintainable end-to-end test suites that provide confidence to ship code quickly and catch regressions before users do.",
-        "promo_en": "Production-ready guidelines and agentic workflows for e2e testing patterns. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para e2e testing patterns. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/e2e-testing-patterns/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
     },
     {
         "id": "01M0GCFD2372DZQNKN4X0WG3D1",
@@ -9461,7 +9271,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for editorial design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para editorial design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/editorial-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/editorial-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -9528,7 +9338,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for elixir. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para elixir. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/elixir/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/elixir/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -9684,7 +9494,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for engine selection. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para engine selection. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/engine-selection/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/engine-selection/SKILL.md",
         "languages": [
             "Shell"
         ],
@@ -10351,23 +10161,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD25EWB80KE5V3KHX12X",
-        "skill_name": "fastapi-templates",
-        "description_en": "Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensive error handling. Use when building new FastAPI applications or setting up backend API projects.",
-        "description_pt_br": "Diretrizes e automações para fastapi templates. Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensive error handling. Use when building new FastAPI applications or setting up backend API projects.",
-        "promo_en": "Production-ready guidelines and agentic workflows for fastapi templates. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para fastapi templates. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/fastapi-templates/SKILL.md",
-        "languages": [
-            "Python"
-        ],
-        "frameworks": [
-            "FastAPI"
-        ],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD26Q2TPHGME7TWB4W4S",
         "skill_name": "favicon",
         "description_en": "Generate favicons from a source image",
@@ -10681,7 +10474,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for flat design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para flat design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/flat-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/flat-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -10694,7 +10487,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for flat design 2. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para flat design 2. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/flat-design-2/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/flat-design-2/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -10707,7 +10500,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for floating ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para floating ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/floating-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/floating-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -11155,19 +10948,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD28Y64ZBQC0TM9WW2FP",
-        "skill_name": "frontend-design",
-        "description_en": "You are a frontend designer-engineer, not a layout generator.",
-        "description_pt_br": "Diretrizes e automações para frontend design. You are a frontend designer-engineer, not a layout generator.",
-        "promo_en": "Production-ready guidelines and agentic workflows for frontend design. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para frontend design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/frontend-design/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD287RANDCM5NH1MABAN",
         "skill_name": "frontend-dev-guidelines",
         "description_en": "You are a senior frontend engineer operating under strict architectural and performance standards. Use when creating components or pages, adding new features, or fetching or mutating data.",
@@ -11372,7 +11152,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for frutiger aero. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para frutiger aero. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/frutiger-aero/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/frutiger-aero/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -11424,7 +11204,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for game art. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para game art. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-art/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/game-art/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -11437,7 +11217,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for game audio. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para game audio. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-audio/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/game-audio/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -11450,7 +11230,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for game design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para game design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/game-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -11464,19 +11244,6 @@
         "promo_pt_br": "Diretrizes e fluxos agênticos para game development. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD2973J8WD37YTYFFCE9",
-        "skill_name": "gcp-cloud-run",
-        "description_en": "Specialized skill for building production-ready serverless",
-        "description_pt_br": "Diretrizes e automações para gcp cloud run. Specialized skill for building production-ready serverless",
-        "promo_en": "Production-ready guidelines and agentic workflows for gcp cloud run. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para gcp cloud run. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/gcp-cloud-run/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -11948,7 +11715,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for glassmorphism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para glassmorphism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/glassmorphism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/glassmorphism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -11987,7 +11754,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for go. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para go. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/go/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/go/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -12229,7 +11996,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for gradient design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para gradient design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/gradient-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/gradient-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -12735,7 +12502,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for high contrast. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para high contrast. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/high-contrast/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/high-contrast/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -12761,7 +12528,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for holographic ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para holographic ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/holographic-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/holographic-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -13380,7 +13147,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for impress. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para impress. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/impress/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/libreoffice/impress/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -13724,7 +13491,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for isometric design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para isometric design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/isometric-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/isometric-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -13815,7 +13582,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for java. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para java. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/java/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/java/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -14131,7 +13898,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for kotlin. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para kotlin. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/kotlin/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/kotlin/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -14163,21 +13930,6 @@
         "languages": [],
         "frameworks": [],
         "libs": []
-    },
-    {
-        "id": "01M0GCFD2GC0RWYMX5GW1XQ3Z7",
-        "skill_name": "kubernetes-architect",
-        "description_en": "Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (ArgoCD/Flux), and enterprise container orchestration.",
-        "description_pt_br": "Diretrizes e automações para kubernetes architect. Expert Kubernetes architect specializing in cloud-native infrastructure, advanced GitOps workflows (ArgoCD/Flux), and enterprise container orchestration.",
-        "promo_en": "Production-ready guidelines and agentic workflows for kubernetes architect. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para kubernetes architect. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/kubernetes-architect/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": [
-            "Kubernetes"
-        ]
     },
     {
         "id": "01M0GCFD2GK7B9CY0QGHYF9B3P",
@@ -14241,25 +13993,6 @@
             "Jest",
             "Pytest"
         ]
-    },
-    {
-        "id": "01M0GCFD2GQQEMAG7XX28NTQAZ",
-        "skill_name": "landing-page-generator",
-        "description_en": "Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB frameworks for optimized copy/components (Heroes, Features, Pricing). Focuses on Core Web Vitals/SEO.",
-        "description_pt_br": "Diretrizes e automações para landing page generator. Generates high-converting Next.js/React landing pages with Tailwind CSS. Uses PAS, AIDA, and BAB frameworks for optimized copy/components (Heroes, Features, Pricing). Focuses on Core Web Vitals/SEO.",
-        "promo_en": "Production-ready guidelines and agentic workflows for landing page generator. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para landing page generator. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/landing-page-generator/SKILL.md",
-        "languages": [
-            "CSS"
-        ],
-        "frameworks": [
-            "React",
-            "Next.js",
-            "Tailwind CSS"
-        ],
-        "libs": []
     },
     {
         "id": "01M0GCFD2GKJH7YKGFVHJRJXPP",
@@ -14381,7 +14114,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for layered design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para layered design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/layered-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/layered-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -14859,19 +14592,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD2JKBHZCYN2PM76S7AS",
-        "skill_name": "llm-prompt-optimizer",
-        "description_en": "Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost output quality, reduce hallucinations, and cut token usage.",
-        "description_pt_br": "Use ao improving prompts for any LLM. Applies proven prompt engineering techniques to boost output quality, reduce hallucinations, and cut token usage.",
-        "promo_en": "Production-ready guidelines and agentic workflows for llm prompt optimizer. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para llm prompt optimizer. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/llm-prompt-optimizer/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD2JH3PPCSCAGCSVS232",
         "skill_name": "llm-structured-output",
         "description_en": "Get reliable JSON, enums, and typed objects from LLMs using response_format, tool_use, and schema-constrained decoding across OpenAI, Anthropic, and Google APIs.",
@@ -15170,7 +14890,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for luna. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para luna. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/luna/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/luna/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -15868,7 +15588,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for mason. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para mason. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/mason/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/mason/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -15894,7 +15614,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for material design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para material design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/material-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/material-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -15935,7 +15655,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for max. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para max. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/max/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/max/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -15961,7 +15681,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for maximalism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para maximalism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/maximalism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/maximalism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -16145,19 +15865,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD2P46J2NYRAG7JCMT03",
-        "skill_name": "microservices-patterns",
-        "description_en": "Master microservices architecture patterns including service boundaries, inter-service communication, data management, and resilience patterns for building distributed systems.",
-        "description_pt_br": "Diretrizes e automações para microservices patterns. Master microservices architecture patterns including service boundaries, inter-service communication, data management, and resilience patterns for building distributed systems.",
-        "promo_en": "Production-ready guidelines and agentic workflows for microservices patterns. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para microservices patterns. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/microservices-patterns/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD2P4NESGBWDMH1R3R4A",
         "skill_name": "microsoft-azure-webjobs-extensions-authentication-events-dotnet",
         "description_en": "Microsoft Entra Authentication Events SDK for .NET. Azure Functions triggers for custom authentication extensions.",
@@ -16204,7 +15911,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for minimalism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para minimalism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/minimalism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/minimalism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -16365,7 +16072,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for mobile games. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para mobile games. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/mobile-games/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/mobile-games/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -16473,7 +16180,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for monochromatic ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para monochromatic ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/monochromatic-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/monochromatic-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -16802,7 +16509,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for multiplayer. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para multiplayer. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/multiplayer/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/multiplayer/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -17023,7 +16730,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for neo brutalism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para neo brutalism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/neo-brutalism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/neo-brutalism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -17199,7 +16906,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for neumorphism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para neumorphism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/neumorphism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/neumorphism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -18343,7 +18050,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for patterns. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para patterns. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/patterns/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/monopoly/patterns/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -18397,7 +18104,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for pc games. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para pc games. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/pc-games/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/pc-games/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -18623,7 +18330,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for php. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para php. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/php/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/php/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -18894,21 +18601,6 @@
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/posix-shell-pro/SKILL.md",
         "languages": [
             "Shell"
-        ],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD2YYFB0CYT9HZYXY9SX",
-        "skill_name": "postgres-best-practices",
-        "description_en": "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
-        "description_pt_br": "Diretrizes e automações para postgres best practices. Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations.",
-        "promo_en": "Production-ready guidelines and agentic workflows for postgres best practices. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para postgres best practices. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/postgres-best-practices/SKILL.md",
-        "languages": [
-            "SQL"
         ],
         "frameworks": [],
         "libs": []
@@ -19736,7 +19428,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for python. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para python. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/python/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/python/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -19938,7 +19630,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for quinn. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para quinn. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/quinn/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/quinn/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -20522,7 +20214,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for retro design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para retro design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/retro-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/retro-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -20535,7 +20227,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for retro futurism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para retro futurism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/retro-futurism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/retro-futurism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -20639,7 +20331,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for rex. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para rex. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/rex/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/agent-squad/rex/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -20795,7 +20487,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for ruby. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para ruby. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/ruby/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/ruby/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -20862,7 +20554,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for rust. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para rust. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/rust/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/rust/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -21052,7 +20744,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for scala. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para scala. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/scala/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/scala/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -21078,7 +20770,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for scale benchmarks. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para scale benchmarks. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/scale-benchmarks/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/monopoly/scale-benchmarks/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -21160,7 +20852,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for sci fi interface. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para sci fi interface. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sci-fi-interface/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/sci-fi-interface/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -21313,19 +21005,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD340QWCKMXH2HYMDMRP",
-        "skill_name": "security-audit",
-        "description_en": "Comprehensive security auditing workflow covering web application testing, API security, penetration testing, vulnerability scanning, and security hardening.",
-        "description_pt_br": "Diretrizes e automações para security audit. Comprehensive security auditing workflow covering web application testing, API security, penetration testing, vulnerability scanning, and security hardening.",
-        "promo_en": "Production-ready guidelines and agentic workflows for security audit. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para security audit. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/security-audit/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD34WF63R8QKVEFHYCR7",
         "skill_name": "security-auditor",
         "description_en": "Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, and compliance frameworks.",
@@ -21359,7 +21038,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for security checklist. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para security checklist. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/security-checklist/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/monopoly/security-checklist/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -21523,7 +21202,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for sendblue api. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para sendblue api. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sendblue-api/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sendblue/sendblue-api/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -21536,7 +21215,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for sendblue cli. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para sendblue cli. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sendblue-cli/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sendblue/sendblue-cli/SKILL.md",
         "languages": [
             "Shell"
         ],
@@ -21551,7 +21230,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for sendblue notify. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para sendblue notify. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sendblue-notify/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sendblue/sendblue-notify/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -22414,7 +22093,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for skeuomorphism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para skeuomorphism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/skeuomorphism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/skeuomorphism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -22441,19 +22120,6 @@
         "promo_pt_br": "Diretrizes e fluxos agênticos para skill check. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/skill-check/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD384DQ5S0G2H1TCVPHY",
-        "skill_name": "skill-creator",
-        "description_en": "To create new CLI skills following Anthropic's official best practices with zero manual configuration. This skill automates brainstorming, template application, validation, and installation processes while maintaining progressive disclosure patterns and writing style standards.",
-        "description_pt_br": "Diretrizes e automações para skill creator. To create new CLI skills following Anthropic's official best practices with zero manual configuration. This skill automates brainstorming, template application, validation, and installation processes while maintaining progressive disclosure patterns and writing style standards.",
-        "promo_en": "Production-ready guidelines and agentic workflows for skill creator. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para skill creator. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/skill-creator/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -22870,7 +22536,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for soft pastel. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para soft pastel. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/soft-pastel/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/soft-pastel/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -22935,7 +22601,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for spatial computing ui. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para spatial computing ui. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/spatial-computing-ui/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/spatial-computing-ui/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -22948,7 +22614,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for spatial design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para spatial design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/spatial-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/spatial-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -23057,21 +22723,6 @@
         "promo_pt_br": "Diretrizes e fluxos agênticos para sql pro. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sql-pro/SKILL.md",
-        "languages": [
-            "SQL"
-        ],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD39D23CVHKG7QBEBFE4",
-        "skill_name": "sql-sentinel",
-        "description_en": "Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse health 0-100 and outputs a prioritized cost-reduction plan for BigQuery, Snowflake, Redshift, and Postgres.",
-        "description_pt_br": "Diretrizes e automações para sql sentinel. Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehouse health 0-100 and outputs a prioritized cost-reduction plan for BigQuery, Snowflake, Redshift, and Postgres.",
-        "promo_en": "Production-ready guidelines and agentic workflows for sql sentinel. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para sql sentinel. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sql-sentinel/SKILL.md",
         "languages": [
             "SQL"
         ],
@@ -23560,7 +23211,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for swift. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para swift. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/swift/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/swift/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -23655,7 +23306,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for swiss design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para swiss design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/swiss-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/swiss-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -23683,20 +23334,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for synthwave. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para synthwave. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/synthwave/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD3BPPRYKXNA6R1QYCR3",
-        "skill_name": "systematic-debugging",
-        "description_en": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
-        "description_pt_br": "Use ao encountering any bug, test failure, or unexpected behavior, before proposing fixes",
-        "promo_en": "Production-ready guidelines and agentic workflows for systematic debugging. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para systematic debugging. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/systematic-debugging/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/synthwave/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -23995,7 +23633,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for tech matrix. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para tech matrix. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/tech-matrix/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/monopoly/tech-matrix/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -24099,7 +23737,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for templates. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para templates. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/templates/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/app-builder/templates/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -24197,21 +23835,6 @@
         ]
     },
     {
-        "id": "01M0GCFD3CZXB3P4M05GP65YMC",
-        "skill_name": "terraform-skill",
-        "description_en": "Terraform infrastructure as code best practices",
-        "description_pt_br": "Diretrizes e automações para terraform skill. Terraform infrastructure as code best practices",
-        "promo_en": "Production-ready guidelines and agentic workflows for terraform skill. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para terraform skill. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/terraform-skill/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": [
-            "Terraform"
-        ]
-    },
-    {
         "id": "01M0GCFD3CFTPB4RWNBV9W56YV",
         "skill_name": "terraform-specialist",
         "description_en": "Expert Terraform/OpenTofu specialist mastering advanced IaC automation, state management, and enterprise infrastructure patterns.",
@@ -24235,19 +23858,6 @@
         "promo_pt_br": "Diretrizes e fluxos agênticos para test automator. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/test-automator/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0GCFD3C7DZMHHG7SXK3SAMT",
-        "skill_name": "test-driven-development",
-        "description_en": "Use when implementing any feature or bugfix, before writing implementation code",
-        "description_pt_br": "Use ao implementing any feature or bugfix, before writing implementation code",
-        "promo_en": "Production-ready guidelines and agentic workflows for test driven development. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para test driven development. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/test-driven-development/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -24346,7 +23956,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for textme. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para textme. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/textme/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/sendblue/textme/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -24567,7 +24177,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for tile design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para tile design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/tile-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/tile-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -24959,7 +24569,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for typescript. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para typescript. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/typescript/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/super-code/typescript/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -25018,7 +24628,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for typography first. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para typography first. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/typography-first/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/typography-first/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -25719,7 +25329,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for vaporwave. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para vaporwave. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/vaporwave/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/vaporwave/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -25875,19 +25485,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD3HJK99QV7MWGX0BQRZ",
-        "skill_name": "verification-before-completion",
-        "description_en": "Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation of success/completion claims, ANY expression of satisfaction, or ANY positive statement about work state.",
-        "description_pt_br": "Diretrizes e automações para verification before completion. Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY variation of success/completion claims, ANY expression of satisfaction, or ANY positive statement about work state.",
-        "promo_en": "Production-ready guidelines and agentic workflows for verification before completion. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para verification before completion. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/verification-before-completion/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD3HF42S1DAMXZK943B0",
         "skill_name": "vexor",
         "description_en": "Vector-powered CLI for semantic file search with a Claude/Codex skill",
@@ -25991,7 +25588,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for vibrant maximalism. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para vibrant maximalism. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/vibrant-maximalism/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/vibrant-maximalism/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -26167,7 +25764,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for vr ar. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para vr ar. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/vr-ar/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/vr-ar/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -26301,7 +25898,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for web games. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para web games. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/web-games/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/game-development/web-games/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -26515,7 +26112,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for widget based design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para widget based design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/widget-based-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/widget-based-design/SKILL.md",
         "languages": [
             "Swift"
         ],
@@ -26797,19 +26394,6 @@
         "libs": []
     },
     {
-        "id": "01M0GCFD3MZDKZPH50P4A8FA56",
-        "skill_name": "workflow-automation",
-        "description_en": "Workflow automation is the infrastructure that makes AI agents",
-        "description_pt_br": "Diretrizes e automações para workflow automation. Workflow automation is the infrastructure that makes AI agents",
-        "promo_en": "Production-ready guidelines and agentic workflows for workflow automation. Enforces best practices, maintainability, and error-free execution.",
-        "promo_pt_br": "Diretrizes e fluxos agênticos para workflow automation. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/workflow-automation/SKILL.md",
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
         "id": "01M0GCFD3MSH33S9EXY2RGFF6S",
         "skill_name": "workflow-orchestration-patterns",
         "description_en": "Master workflow orchestration architecture with Temporal, covering fundamental design decisions, resilience patterns, and best practices for building reliable distributed systems.",
@@ -26899,7 +26483,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for writer. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para writer. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/writer/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/libreoffice/writer/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
@@ -27048,7 +26632,7 @@
         "promo_en": "Production-ready guidelines and agentic workflows for y2k design. Enforces best practices, maintainability, and error-free execution.",
         "promo_pt_br": "Diretrizes e fluxos agênticos para y2k design. Assegura melhores práticas, manutenibilidade e execução padronizada em projetos.",
         "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/y2k-design/SKILL.md",
+        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/design-it/y2k-design/SKILL.md",
         "languages": [],
         "frameworks": [],
         "libs": []
