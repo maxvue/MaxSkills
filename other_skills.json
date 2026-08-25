@@ -1,108 +1,5 @@
 [
     {
-        "id": "01M0G4G52FBKP8E6N9AP4K3RB9",
-        "skill_name": "systematic-debugging",
-        "description_en": "4-phase disciplined root-cause investigation methodology based on log evidence and test reproduction before proposing any code fixes.",
-        "description_pt_br": "Metodologia de investigação profunda e análise sistemática de causa-raiz em logs e testes antes de propor correções de código.",
-        "promo_en": "Eliminates AI hallucination and trial-and-error debugging by enforcing systematic root-cause diagnosis, saving hours of developer troubleshooting.",
-        "promo_pt_br": "Elimina alucinações de IA e depurações por tentativa e erro ao impor um diagnóstico sistemático de causa-raiz, economizando horas de resolução de problemas.",
-        "repo_name": "Anthropic",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/systematic-debugging/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
-            "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
-            "https://www.youtube.com/watch?v=nate_tested_features_03",
-            "https://www.youtube.com/watch?v=nate_power_users_04",
-            "https://www.youtube.com/watch?v=GiRvGJDa8wDWMHE67pCNn9_DKc0RuwcO-WkXn4w9TLB1lL1sVI_HIsxUTlfnngnPavSpcuctt08pPLZLV-wR4D_QziqrbJzU8nWgKRFANk05VTV74DNiBEy3iEmkOB1FUf",
-            "https://www.youtube.com/watch?v=claude_official_skills_06",
-            "https://www.youtube.com/watch?v=builder_claude_skills_07",
-            "https://www.youtube.com/watch?v=ai_jason_claude_superpowers_08",
-            "https://www.youtube.com/watch?v=indydevdan_skills_sh_09",
-            "https://www.youtube.com/watch?v=david_ondrej_claude_apps_10",
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20",
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30",
-            "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
-            "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
-            "https://www.youtube.com/watch?v=mckay_skills_change_se_33",
-            "https://www.youtube.com/watch?v=indydevdan_agentic_stack_34",
-            "https://www.youtube.com/watch?v=david_skills_better_prompts_35",
-            "https://www.youtube.com/watch?v=ai_advantage_custom_skills_36",
-            "https://www.youtube.com/watch?v=nick_saraev_future_skills_37",
-            "https://www.youtube.com/watch?v=echohive_skills_python_md_38",
-            "https://www.youtube.com/watch?v=liam_ottley_agent_skills_39",
-            "https://www.youtube.com/watch?v=pe_ultimate_skill_stack_40",
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50",
-            "https://www.youtube.com/watch?v=david_systematic_debugging_71",
-            "https://www.youtube.com/watch?v=nate_tdd_skills_72",
-            "https://www.youtube.com/watch?v=mckay_security_audit_73",
-            "https://www.youtube.com/watch?v=indydevdan_testing_playwright_74",
-            "https://www.youtube.com/watch?v=ai_jason_code_review_skills_75",
-            "https://www.youtube.com/watch?v=cole_rca_logging_skills_76",
-            "https://www.youtube.com/watch?v=worldofai_saif_security_77",
-            "https://www.youtube.com/watch?v=echohive_bug_hunter_skills_78",
-            "https://www.youtube.com/watch?v=techwithtim_pytest_jest_skills_79",
-            "https://www.youtube.com/watch?v=pe_refactoring_legacy_80",
-            "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
-            "https://www.youtube.com/watch?v=nate_multiagent_teams_92",
-            "https://www.youtube.com/watch?v=david_browser_automation_93",
-            "https://www.youtube.com/watch?v=indydevdan_subagent_orchestrator_94",
-            "https://www.youtube.com/watch?v=ai_jason_rpa_portal_automation_95",
-            "https://www.youtube.com/watch?v=cole_n8n_webhook_skills_96",
-            "https://www.youtube.com/watch?v=worldofai_research_subagent_97",
-            "https://www.youtube.com/watch?v=liam_enterprise_agent_skills_98",
-            "https://www.youtube.com/watch?v=nick_multiagent_consensus_99",
-            "https://www.youtube.com/watch?v=wes_roth_ultimate_2026_guide_100"
-        ],
-        "stars": 24500,
-        "languages": [
-            "Python",
-            "TypeScript",
-            "JavaScript",
-            "Go",
-            "Rust",
-            "PHP"
-        ],
-        "frameworks": [
-            "Pytest",
-            "Jest",
-            "Vitest",
-            "PHPUnit"
-        ],
-        "libs": [
-            "pydantic",
-            "winston",
-            "structlog",
-            "tracing"
-        ]
-    },
-    {
         "id": "01M0G4G52FQ2GH4WZB4MDWRTW6",
         "skill_name": "test-driven-development",
         "description_en": "Strict Red-Green-Refactor test-driven development workflow requiring automated tests written and failing before feature implementation.",
@@ -182,7 +79,37 @@
             "@testing-library/react",
             "@testing-library/vue",
             "unittest.mock"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/test-driven-development/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (vue, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 7 (Aderência a módulo específico do projeto (vue).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FH90TKJ99SM1D454A",
@@ -265,7 +192,37 @@
             "Radix UI",
             "Lucide Icons",
             "Framer Motion"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/frontend-design/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, inter, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, radix, tailwind).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0G4G52FE6Y45CNB8F3MQM0R]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Falsos positivos refutados por análise de conteúdo interno. Tratam de escopos complementares e independentes."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FCRTTHSA4Z23Q336F",
@@ -331,107 +288,41 @@
             "jsonschema",
             "pydantic",
             "yaml"
-        ]
-    },
-    {
-        "id": "01M0G4G52FEG48KKZ383TGPX52",
-        "skill_name": "technical-documentation",
-        "description_en": "Comprehensive standards for authoring high-fidelity technical documentation, Architecture Decision Records (ADRs), READMEs, and API schemas.",
-        "description_pt_br": "Elaboração de documentação técnica, registros de decisões de arquitetura (ADRs), changelogs e especificações de endpoints.",
-        "promo_en": "Automates the generation and maintenance of crystal-clear technical documentation, keeping codebases perfectly organized and team-ready.",
-        "promo_pt_br": "Automatiza a criação e manutenção de documentação técnica impecável, mantendo a base de código organizada e pronta para a equipe.",
-        "repo_name": "Anthropic",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/technical-documentation/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
-            "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
-            "https://www.youtube.com/watch?v=nate_tested_features_03",
-            "https://www.youtube.com/watch?v=nate_power_users_04",
-            "https://www.youtube.com/watch?v=GiRvGJDa8wDWMHE67pCNn9_DKc0RuwcO-WkXn4w9TLB1lL1sVI_HIsxUTlfnngnPavSpcuctt08pPLZLV-wR4D_QziqrbJzU8nWgKRFANk05VTV74DNiBEy3iEmkOB1FUf",
-            "https://www.youtube.com/watch?v=claude_official_skills_06",
-            "https://www.youtube.com/watch?v=builder_claude_skills_07",
-            "https://www.youtube.com/watch?v=ai_jason_claude_superpowers_08",
-            "https://www.youtube.com/watch?v=indydevdan_skills_sh_09",
-            "https://www.youtube.com/watch?v=david_ondrej_claude_apps_10",
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20",
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30",
-            "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
-            "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
-            "https://www.youtube.com/watch?v=mckay_skills_change_se_33",
-            "https://www.youtube.com/watch?v=indydevdan_agentic_stack_34",
-            "https://www.youtube.com/watch?v=david_skills_better_prompts_35",
-            "https://www.youtube.com/watch?v=ai_advantage_custom_skills_36",
-            "https://www.youtube.com/watch?v=nick_saraev_future_skills_37",
-            "https://www.youtube.com/watch?v=echohive_skills_python_md_38",
-            "https://www.youtube.com/watch?v=liam_ottley_agent_skills_39",
-            "https://www.youtube.com/watch?v=pe_ultimate_skill_stack_40",
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50",
-            "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
-            "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
-            "https://www.youtube.com/watch?v=nate_token_optimization_83",
-            "https://www.youtube.com/watch?v=mckay_mermaid_architecture_84",
-            "https://www.youtube.com/watch?v=alex_finn_gsd_skill_85",
-            "https://www.youtube.com/watch?v=cole_changelog_semver_86",
-            "https://www.youtube.com/watch?v=ai_jason_phpdoc_jsdoc_87",
-            "https://www.youtube.com/watch?v=leon_git_worktrees_skills_88",
-            "https://www.youtube.com/watch?v=wes_roth_obsidian_sync_89",
-            "https://www.youtube.com/watch?v=matt_wolfe_productivity_skills_90",
-            "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
-            "https://www.youtube.com/watch?v=nate_multiagent_teams_92",
-            "https://www.youtube.com/watch?v=david_browser_automation_93",
-            "https://www.youtube.com/watch?v=indydevdan_subagent_orchestrator_94",
-            "https://www.youtube.com/watch?v=ai_jason_rpa_portal_automation_95",
-            "https://www.youtube.com/watch?v=cole_n8n_webhook_skills_96",
-            "https://www.youtube.com/watch?v=worldofai_research_subagent_97",
-            "https://www.youtube.com/watch?v=liam_enterprise_agent_skills_98",
-            "https://www.youtube.com/watch?v=nick_multiagent_consensus_99",
-            "https://www.youtube.com/watch?v=wes_roth_ultimate_2026_guide_100"
         ],
-        "stars": 24500,
-        "languages": [
-            "Markdown",
-            "TypeScript",
-            "PHP",
-            "Python"
+        "local_path": "other_skills/curated-youtube/skill-creator/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (javascript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (javascript, ui).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (javascript).). Nota Máxima: 4/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 4/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD388HFDP9WE32PHWZ31]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FCRTTHSA4Z23Q336F) por maior aderência técnica aos projetos."
+            }
         ],
-        "frameworks": [
-            "Docusaurus",
-            "VitePress",
-            "MkDocs"
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
         ],
-        "libs": [
-            "OpenAPI 3.1",
-            "TypeDoc",
-            "PHPDoc",
-            "Mermaid.js"
-        ]
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FCRTTHSA4Z23Q336F"
     },
     {
         "id": "01M0G4G52F663YHJWYW67CP8KR",
@@ -494,7 +385,37 @@
         "libs": [
             "conventional-changelog",
             "simple-git"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/git-workflow/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (ux).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FV5WNNFWAXJX7HKYG",
@@ -561,7 +482,37 @@
             "pip-audit",
             "npm-audit",
             "Semgrep"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/security-audit/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (javascript, typescript).), Agentedebolso: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, security).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 5
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
@@ -649,7 +600,41 @@
             "Ruff",
             "Mypy",
             "PHPStan"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/code-review/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (php, javascript, typescript).), Agentedebolso: 5 (Boa utilidade para padrões gerais de engenharia e stack (php, javascript, typescript).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 2 skill(s) concorrente(s): [01M0GCFD1S39XQTYVSPF7X3XG7, 01M0GCFD3FEB49NJFJ97M0ZMN3]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 2 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FM4PKRXYWCZ20ZSBV) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 5
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 5
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FM4PKRXYWCZ20ZSBV"
     },
     {
         "id": "01M0G4G52F32ZTYMTYQK259587",
@@ -737,7 +722,37 @@
             "playwright-core",
             "cheerio",
             "browser-use"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/browser-automation/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (inter, puppeteer, typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (puppeteer, scraping, inter).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 5
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FVBQNA612AE7T78GH",
@@ -777,7 +792,41 @@
             "TypeScript"
         ],
         "frameworks": [],
-        "libs": []
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/superpowers/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, ui).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD3GH9TJ78AF1VYH4KQ3]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FVBQNA612AE7T78GH) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FVBQNA612AE7T78GH"
     },
     {
         "id": "01M0G4G52FS4JB7ES3Z9C8N4F1",
@@ -844,7 +893,37 @@
         "libs": [
             "asyncio",
             "pydantic"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/agent-orchestrator/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 6 (Aderência a módulo específico do projeto (agent-orchestrator).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FASG08WQAJCM01AT2",
@@ -894,7 +973,41 @@
             "tailwind-merge",
             "clsx",
             "lucide-react"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/shadcn-ui/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (inter, typescript, tailwind).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, tailwind).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (radix, tailwind, inter).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD37S6KC5ZZF7BRP3VJR]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FASG08WQAJCM01AT2) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 5
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FASG08WQAJCM01AT2"
     },
     {
         "id": "01M0G4G52FZ807HQW0RAS5BAAZ",
@@ -959,7 +1072,37 @@
         "libs": [
             "@modelcontextprotocol/sdk",
             "mcp-core"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/mcp-server-routing/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 6 (Aderência a módulo específico do projeto (ai agents).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FE36M320YYCE4WKRV",
@@ -1022,7 +1165,37 @@
         "libs": [
             "tiktoken",
             "langchain-core"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/context-engineering/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (efi, typescript).), SocialMedia: 6 (Aderência a módulo específico do projeto (tiktok).), Agentedebolso: 8 (Forte aderência funcional e técnica (llm, efi).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 6
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FZWBAQWX620WBMW1N",
@@ -1082,7 +1255,37 @@
             "Zod",
             "Pydantic",
             "Swagger / OpenAPI"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/api-design/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, inter, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, inter).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F6E8ZEKWF2BX32G7J",
@@ -1122,7 +1325,37 @@
             "postcss",
             "autoprefixer",
             "tailwind-merge"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/tailwind-css/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, efi, typescript).), SocialMedia: 7 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, tailwind, efi).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FPQGPD3CF1ZW3BKSB",
@@ -1186,7 +1419,37 @@
             "DuckDuckGo-Search",
             "arxiv",
             "newspaper3k"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/deep-research/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (inter, typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, ui).), Agentedebolso: 6 (Aderência a módulo específico do projeto (inter).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F4V1VXAMC0WYZZ9Z7",
@@ -1241,7 +1504,37 @@
         ],
         "libs": [
             "docker-py"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/docker-expert/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (docker).), SocialMedia: 0 (Nenhuma aderência com a stack ou domínio do projeto.), Agentedebolso: 0 (Nenhuma aderência com a stack ou domínio do projeto.). Nota Máxima: 3/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 0
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 0
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F1C753JPHMPTS9EMK",
@@ -1297,7 +1590,41 @@
             "SQLAlchemy 2.0",
             "Uvicorn",
             "Alembic"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/fastapi-templates/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (sql).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (ui).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD2554A452TZCY0JP0TB]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52F1C753JPHMPTS9EMK) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52F1C753JPHMPTS9EMK"
     },
     {
         "id": "01M0G4G52FHZMPGHHTZFX8Q0XN",
@@ -1336,7 +1663,37 @@
             "Python"
         ],
         "frameworks": [],
-        "libs": []
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/damage-control/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (inter).), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (inter).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F3YQWZTYC3K1S074P",
@@ -1386,7 +1743,37 @@
             "Git"
         ],
         "frameworks": [],
-        "libs": []
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/git-worktree/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (ui).), Agentedebolso: 6 (Aderência a módulo específico do projeto (ai agents).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FPHZ3VCA06Z2NTCG5",
@@ -1434,105 +1821,37 @@
         "libs": [
             "pg_stat_statements",
             "prisma-client"
-        ]
-    },
-    {
-        "id": "01M0G4G52F5K1CDG8SC52QJVP9",
-        "skill_name": "ais-os",
-        "description_en": "Specialized AI agent skill for ais os providing best practices and automated workflows.",
-        "description_pt_br": "Kit de habilidades e sistema operacional de IA para automação de negócios, orquestração de subagentes e gestão de pipelines autônomos.",
-        "promo_en": "Enhances AI agent performance in ais os with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em ais os com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/ais-os/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
-            "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
-            "https://www.youtube.com/watch?v=nate_tested_features_03",
-            "https://www.youtube.com/watch?v=nate_power_users_04",
-            "https://www.youtube.com/watch?v=GiRvGJDa8wDWMHE67pCNn9_DKc0RuwcO-WkXn4w9TLB1lL1sVI_HIsxUTlfnngnPavSpcuctt08pPLZLV-wR4D_QziqrbJzU8nWgKRFANk05VTV74DNiBEy3iEmkOB1FUf",
-            "https://www.youtube.com/watch?v=claude_official_skills_06",
-            "https://www.youtube.com/watch?v=builder_claude_skills_07",
-            "https://www.youtube.com/watch?v=ai_jason_claude_superpowers_08",
-            "https://www.youtube.com/watch?v=indydevdan_skills_sh_09",
-            "https://www.youtube.com/watch?v=david_ondrej_claude_apps_10"
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FPAF7NXX28YZW5QWG",
-        "skill_name": "e2e-testing-patterns",
-        "description_en": "Specialized AI agent skill for e2e testing patterns providing best practices and automated workflows.",
-        "description_pt_br": "Criação, execução e automação de testes end-to-end (E2E), testes de integração e fluxos de desenvolvimento orientado a testes (TDD).",
-        "promo_en": "Enhances AI agent performance in e2e testing patterns with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em e2e testing patterns com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/e2e-testing-patterns/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20"
+        "local_path": "other_skills/curated-youtube/database-optimizer/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F7JJDSHVVZEMSBEFR",
-        "skill_name": "code-refactoring",
-        "description_en": "Specialized AI agent skill for code refactoring providing best practices and automated workflows.",
-        "description_pt_br": "Refatoração estruturada de base de código para simplificação, modularização e aplicação de padrões de Clean Code.",
-        "promo_en": "Enhances AI agent performance in code refactoring with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em code refactoring com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/code-refactoring/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20",
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50",
-            "https://www.youtube.com/watch?v=david_systematic_debugging_71",
-            "https://www.youtube.com/watch?v=nate_tdd_skills_72",
-            "https://www.youtube.com/watch?v=mckay_security_audit_73",
-            "https://www.youtube.com/watch?v=indydevdan_testing_playwright_74",
-            "https://www.youtube.com/watch?v=ai_jason_code_review_skills_75",
-            "https://www.youtube.com/watch?v=cole_rca_logging_skills_76",
-            "https://www.youtube.com/watch?v=worldofai_saif_security_77",
-            "https://www.youtube.com/watch?v=echohive_bug_hunter_skills_78",
-            "https://www.youtube.com/watch?v=techwithtim_pytest_jest_skills_79",
-            "https://www.youtube.com/watch?v=pe_refactoring_legacy_80"
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FSJ578YDABJWPFQM4",
@@ -1580,43 +1899,37 @@
             "Markdown"
         ],
         "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FGKVZ0F7H7ETQ12B1",
-        "skill_name": "document-skills",
-        "description_en": "Specialized AI agent skill for document skills providing best practices and automated workflows.",
-        "description_pt_br": "Produz relatórios estruturados, artefatos markdown e documentos a partir de saídas de análise.",
-        "promo_en": "Enhances AI agent performance in document skills with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em document skills com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/document-skills/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30",
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50"
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/piv-loop/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F953EWRK967AST11H",
@@ -1664,7 +1977,37 @@
             "pytest-asyncio",
             "pytest-mock",
             "@testing-library/jest-dom"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/pytest-and-jest-automation/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, vite).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 5
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 5
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FSEJ8Z7FYJ1NCVKCA",
@@ -1703,7 +2046,37 @@
             "Zustand",
             "TanStack Query",
             "Lucide React"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/react-components/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 7 (Aderência a módulo específico do projeto (radix).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 5
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FTC9D5B58G13FBRRT",
@@ -1743,79 +2116,37 @@
             "Shell"
         ],
         "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F7GJH34QTMX9Q6WTE",
-        "skill_name": "claude-api",
-        "description_en": "Specialized AI agent skill for claude api providing best practices and automated workflows.",
-        "description_pt_br": "Melhores práticas de engenharia de software e integração direta com o SDK e a API da Anthropic Claude.",
-        "promo_en": "Enhances AI agent performance in claude api with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em claude api com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/claude-api/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
-            "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
-            "https://www.youtube.com/watch?v=nate_tested_features_03",
-            "https://www.youtube.com/watch?v=nate_power_users_04",
-            "https://www.youtube.com/watch?v=GiRvGJDa8wDWMHE67pCNn9_DKc0RuwcO-WkXn4w9TLB1lL1sVI_HIsxUTlfnngnPavSpcuctt08pPLZLV-wR4D_QziqrbJzU8nWgKRFANk05VTV74DNiBEy3iEmkOB1FUf",
-            "https://www.youtube.com/watch?v=claude_official_skills_06",
-            "https://www.youtube.com/watch?v=builder_claude_skills_07",
-            "https://www.youtube.com/watch?v=ai_jason_claude_superpowers_08",
-            "https://www.youtube.com/watch?v=indydevdan_skills_sh_09",
-            "https://www.youtube.com/watch?v=david_ondrej_claude_apps_10",
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50"
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/the-library/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, ui).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FANN9BZTTSSHYFNZK",
-        "skill_name": "vibe-to-spec",
-        "description_en": "Specialized AI agent skill for vibe to spec providing best practices and automated workflows.",
-        "description_pt_br": "Transforma comandos informais de vibe coding em especificações técnicas formais.",
-        "promo_en": "Enhances AI agent performance in vibe to spec with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em vibe to spec com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/vibe-to-spec/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30",
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50"
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F9TT91W6TR5FTQXT9",
@@ -1864,59 +2195,37 @@
         "libs": [
             "tflint",
             "checkov"
-        ]
-    },
-    {
-        "id": "01M0G4G52F6MFSCRGE7KZ27HSN",
-        "skill_name": "terraform-skill",
-        "description_en": "Specialized AI agent skill for terraform skill providing best practices and automated workflows.",
-        "description_pt_br": "Provisionamento de infraestrutura como código (IaC) com Terraform e OpenTofu.",
-        "promo_en": "Enhances AI agent performance in terraform skill with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em terraform skill com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/terraform-skill/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FS49WVEBA5YQ7MZJB",
-        "skill_name": "static-analysis-and-linting",
-        "description_en": "Specialized AI agent skill for static analysis and linting providing best practices and automated workflows.",
-        "description_pt_br": "Integração de ferramentas de análise estática de código, AST linting e validação de tipos.",
-        "promo_en": "Enhances AI agent performance in static analysis and linting with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em static analysis and linting com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/static-analysis-and-linting/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_systematic_debugging_71",
-            "https://www.youtube.com/watch?v=nate_tdd_skills_72",
-            "https://www.youtube.com/watch?v=mckay_security_audit_73",
-            "https://www.youtube.com/watch?v=indydevdan_testing_playwright_74",
-            "https://www.youtube.com/watch?v=ai_jason_code_review_skills_75",
-            "https://www.youtube.com/watch?v=cole_rca_logging_skills_76",
-            "https://www.youtube.com/watch?v=worldofai_saif_security_77",
-            "https://www.youtube.com/watch?v=echohive_bug_hunter_skills_78",
-            "https://www.youtube.com/watch?v=techwithtim_pytest_jest_skills_79",
-            "https://www.youtube.com/watch?v=pe_refactoring_legacy_80"
+        "local_path": "other_skills/curated-youtube/cloud-architect/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 6 (Aderência a módulo específico do projeto (vision).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 6
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F5Y1T4W98MNDFXK8H",
@@ -1945,255 +2254,37 @@
             "Markdown"
         ],
         "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FECGJ2KD891NSKYV9",
-        "skill_name": "workflow-automation",
-        "description_en": "Specialized AI agent skill for workflow automation providing best practices and automated workflows.",
-        "description_pt_br": "Automação de rotinas repetitivas, encadeamento de etapas de desenvolvimento e integração com ferramentas do sistema operacional.",
-        "promo_en": "Enhances AI agent performance in workflow automation with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em workflow automation com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/workflow-automation/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20"
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/token-optimization/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (llm).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F3SRQWXBDZMGMN6EC",
-        "skill_name": "agents-md",
-        "description_en": "Specialized AI agent skill for agents md providing best practices and automated workflows.",
-        "description_pt_br": "Definição de regras de comportamento, arquitetura de governança e restrições por diretório via arquivos AGENTS.md.",
-        "promo_en": "Enhances AI agent performance in agents md with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em agents md com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/agents-md/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20"
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F8ZRPGN8NMN2MDZ5B",
-        "skill_name": "database-migrations",
-        "description_en": "Specialized AI agent skill for database migrations providing best practices and automated workflows.",
-        "description_pt_br": "Planejamento e execução de migrações relacionais seguras, versionamento de schemas SQL e integridade de dados.",
-        "promo_en": "Enhances AI agent performance in database migrations with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em database migrations com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/database-migrations/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20",
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FZR92M0YQPQ6GP7GA",
-        "skill_name": "api-testing-mock",
-        "description_en": "Specialized AI agent skill for api testing mock providing best practices and automated workflows.",
-        "description_pt_br": "Mocking de serviços, testes de integração de APIs e configuração de telemetria de observabilidade.",
-        "promo_en": "Enhances AI agent performance in api testing mock with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em api testing mock com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/api-testing-mock/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20",
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FCM9MZ8V37A6W1RNW",
-        "skill_name": "fullstack-scaffolder",
-        "description_en": "Specialized AI agent skill for fullstack scaffolder providing best practices and automated workflows.",
-        "description_pt_br": "Gera scaffolding e inicialização de estruturas full-stack integrando backend e frontend.",
-        "promo_en": "Enhances AI agent performance in fullstack scaffolder with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em fullstack scaffolder com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/fullstack-scaffolder/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30",
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FSMRJV3XMA8SHWNC8",
-        "skill_name": "marketing-copy-generator",
-        "description_en": "Specialized AI agent skill for marketing copy generator providing best practices and automated workflows.",
-        "description_pt_br": "Geração de copywriting persuasivo para landing pages e anúncios de lançamento de produto.",
-        "promo_en": "Enhances AI agent performance in marketing copy generator with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em marketing copy generator com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/marketing-copy-generator/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FJ41WHT0JD7W7VH61",
-        "skill_name": "n8n-webhook-automation",
-        "description_en": "Specialized AI agent skill for n8n webhook automation providing best practices and automated workflows.",
-        "description_pt_br": "Construção e orquestração de fluxos de automação n8n ativados por webhooks.",
-        "promo_en": "Enhances AI agent performance in n8n webhook automation with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em n8n webhook automation com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/n8n-webhook-automation/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50",
-            "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
-            "https://www.youtube.com/watch?v=nate_multiagent_teams_92",
-            "https://www.youtube.com/watch?v=david_browser_automation_93",
-            "https://www.youtube.com/watch?v=indydevdan_subagent_orchestrator_94",
-            "https://www.youtube.com/watch?v=ai_jason_rpa_portal_automation_95",
-            "https://www.youtube.com/watch?v=cole_n8n_webhook_skills_96",
-            "https://www.youtube.com/watch?v=worldofai_research_subagent_97",
-            "https://www.youtube.com/watch?v=liam_enterprise_agent_skills_98",
-            "https://www.youtube.com/watch?v=nick_multiagent_consensus_99",
-            "https://www.youtube.com/watch?v=wes_roth_ultimate_2026_guide_100"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F4Z3FNZVNF5678NBN",
-        "skill_name": "nextjs-app-router",
-        "description_en": "Specialized AI agent skill for nextjs app router providing best practices and automated workflows.",
-        "description_pt_br": "Regras arquiteturais para Next.js 15 com App Router, RSC e Server Actions.",
-        "promo_en": "Enhances AI agent performance in nextjs app router with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em nextjs app router com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/nextjs-app-router/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
-            "https://www.youtube.com/watch?v=nate_frontend_skills_52",
-            "https://www.youtube.com/watch?v=david_pixel_perfect_skills_53",
-            "https://www.youtube.com/watch?v=indydevdan_frontend_design_54",
-            "https://www.youtube.com/watch?v=ai_jason_design_systems_55",
-            "https://www.youtube.com/watch?v=echohive_nextjs_tailwind_skills_56",
-            "https://www.youtube.com/watch?v=cole_fullstack_ui_skills_57",
-            "https://www.youtube.com/watch?v=techwithtim_component_gen_58",
-            "https://www.youtube.com/watch?v=kris_figma_to_code_59",
-            "https://www.youtube.com/watch?v=alex_finn_landing_pages_60"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FHV0YSD6V1ZJMX69R",
@@ -2219,345 +2310,41 @@
         "stars": 4500,
         "languages": [],
         "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F1F45ZSJZNSWZJ002",
-        "skill_name": "design-system-tokens",
-        "description_en": "Specialized AI agent skill for design system tokens providing best practices and automated workflows.",
-        "description_pt_br": "Sincronização de tokens de design entre ferramentas visuais e bases de código.",
-        "promo_en": "Enhances AI agent performance in design system tokens with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em design system tokens com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/design-system-tokens/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
-            "https://www.youtube.com/watch?v=nate_frontend_skills_52",
-            "https://www.youtube.com/watch?v=david_pixel_perfect_skills_53",
-            "https://www.youtube.com/watch?v=indydevdan_frontend_design_54",
-            "https://www.youtube.com/watch?v=ai_jason_design_systems_55",
-            "https://www.youtube.com/watch?v=echohive_nextjs_tailwind_skills_56",
-            "https://www.youtube.com/watch?v=cole_fullstack_ui_skills_57",
-            "https://www.youtube.com/watch?v=techwithtim_component_gen_58",
-            "https://www.youtube.com/watch?v=kris_figma_to_code_59",
-            "https://www.youtube.com/watch?v=alex_finn_landing_pages_60"
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/vue-components/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (vue, vue 3).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, vue 3).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, vue 3).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 51 skill(s) concorrente(s): [01M0G4G52F5K1CDG8SC52QJVP9, 01M0G4G52FPAF7NXX28YZW5QWG, 01M0G4G52F7JJDSHVVZEMSBEFR, 01M0G4G52FGKVZ0F7H7ETQ12B1, 01M0G4G52F7GJH34QTMX9Q6WTE, 01M0G4G52FANN9BZTTSSHYFNZK, 01M0G4G52F6MFSCRGE7KZ27HSN, 01M0G4G52FS49WVEBA5YQ7MZJB, 01M0G4G52FECGJ2KD891NSKYV9, 01M0G4G52F3SRQWXBDZMGMN6EC, 01M0G4G52F8ZRPGN8NMN2MDZ5B, 01M0G4G52FZR92M0YQPQ6GP7GA, 01M0G4G52FCM9MZ8V37A6W1RNW, 01M0G4G52FSMRJV3XMA8SHWNC8, 01M0G4G52FJ41WHT0JD7W7VH61, 01M0G4G52F4Z3FNZVNF5678NBN, 01M0G4G52F1F45ZSJZNSWZJ002, 01M0G4G52FF1ZWWGP3EXWMHRXH, 01M0G4G52FVB482W6EPGBXGXPV, 01M0G4G52FYT3CZ23JQSYW385K, 01M0G4G52FMVG4CBAN01J1M82S, 01M0G4G52F3SRX4CKY8TK6YARN, 01M0G4G52F6K0HHC22K4JC6PM5, 01M0G4G52FAZ2EZBWSTRFKD82K, 01M0G4G52FEZQ5BVAY2QKSEFHV, 01M0G4G52FQHRSR36TQ5RRWA8M, 01M0G4G52FNQC5NB0ZEW17XXCZ, 01M0G4G52F69JCBK3ES7RH56CB, 01M0G4G52FE9JS25WSWZA38TPF, 01M0G4G52FQW6YR9VYJTQ7PHPW, 01M0G4G52F9NV7JMDYFSRKNXTE, 01M0G4G52F83XWWXZQTFHZCC8H, 01M0G4G52FD2HR91SGSCCEA8FE, 01M0G4G52F4Y1VJKPPECPTCGM7, 01M0G4G52FXYCE5PM8JXBPE6JT, 01M0G4G52FJD9C3R5VZMVJXG8J, 01M0G4G52FRPQ6RKRSD7JVYA5M, 01M0G4G52F4WMBQJYAM9Y7GAXT, 01M0G4G52FSJ5FECY4DYXB29TG, 01M0G4G52FHQ36908PJ8G6PSN3, 01M0G4G52FJDPZ7YR2TGVZTWVA, 01M0G4G52FMCAG9T1SZAB8Y0J0, 01M0G4G52F4Y9SYVTAQGJ6KB5E, 01M0G4G52FW5FYCCE19G8GGK6M, 01M0G4G52FAFJGK4N7R0PNQC67, 01M0G4G52FVY4EYMFZQ7C08QZH, 01M0G4G52F316FSX9EAYHEE40D, 01M0G4G52FEMNP5MK9SH34TAC0, 01M0G4G52FPT34P9RB5PVJPW1D, 01M0G4G52FMMGCXXNNJXGRCFSG, 01M0G4G52F7KGFWPWDHATEYVX9]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 51 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FHV0YSD6V1ZJMX69R) por maior aderência técnica aos projetos."
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FF1ZWWGP3EXWMHRXH",
-        "skill_name": "figma-to-code",
-        "description_en": "Specialized AI agent skill for figma to code providing best practices and automated workflows.",
-        "description_pt_br": "Conversão automatizada de nós e layouts do Figma diretamente em código HTML/Tailwind.",
-        "promo_en": "Enhances AI agent performance in figma to code with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em figma to code com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/figma-to-code/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
-            "https://www.youtube.com/watch?v=nate_frontend_skills_52",
-            "https://www.youtube.com/watch?v=david_pixel_perfect_skills_53",
-            "https://www.youtube.com/watch?v=indydevdan_frontend_design_54",
-            "https://www.youtube.com/watch?v=ai_jason_design_systems_55",
-            "https://www.youtube.com/watch?v=echohive_nextjs_tailwind_skills_56",
-            "https://www.youtube.com/watch?v=cole_fullstack_ui_skills_57",
-            "https://www.youtube.com/watch?v=techwithtim_component_gen_58",
-            "https://www.youtube.com/watch?v=kris_figma_to_code_59",
-            "https://www.youtube.com/watch?v=alex_finn_landing_pages_60"
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FVB482W6EPGBXGXPV",
-        "skill_name": "pixel-perfect-ui",
-        "description_en": "Specialized AI agent skill for pixel perfect ui providing best practices and automated workflows.",
-        "description_pt_br": "Alinhamento geométrico milimétrico e calibração de viewports para fidelidade visual.",
-        "promo_en": "Enhances AI agent performance in pixel perfect ui with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em pixel perfect ui com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/pixel-perfect-ui/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
-            "https://www.youtube.com/watch?v=nate_frontend_skills_52",
-            "https://www.youtube.com/watch?v=david_pixel_perfect_skills_53",
-            "https://www.youtube.com/watch?v=indydevdan_frontend_design_54",
-            "https://www.youtube.com/watch?v=ai_jason_design_systems_55",
-            "https://www.youtube.com/watch?v=echohive_nextjs_tailwind_skills_56",
-            "https://www.youtube.com/watch?v=cole_fullstack_ui_skills_57",
-            "https://www.youtube.com/watch?v=techwithtim_component_gen_58",
-            "https://www.youtube.com/watch?v=kris_figma_to_code_59",
-            "https://www.youtube.com/watch?v=alex_finn_landing_pages_60"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FYT3CZ23JQSYW385K",
-        "skill_name": "lucide-icons",
-        "description_en": "Specialized AI agent skill for lucide icons providing best practices and automated workflows.",
-        "description_pt_br": "Inserção padronizada de iconografia vetorial limpa e acessível.",
-        "promo_en": "Enhances AI agent performance in lucide icons with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em lucide icons com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/lucide-icons/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
-            "https://www.youtube.com/watch?v=nate_frontend_skills_52",
-            "https://www.youtube.com/watch?v=david_pixel_perfect_skills_53",
-            "https://www.youtube.com/watch?v=indydevdan_frontend_design_54",
-            "https://www.youtube.com/watch?v=ai_jason_design_systems_55",
-            "https://www.youtube.com/watch?v=echohive_nextjs_tailwind_skills_56",
-            "https://www.youtube.com/watch?v=cole_fullstack_ui_skills_57",
-            "https://www.youtube.com/watch?v=techwithtim_component_gen_58",
-            "https://www.youtube.com/watch?v=kris_figma_to_code_59",
-            "https://www.youtube.com/watch?v=alex_finn_landing_pages_60"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FMVG4CBAN01J1M82S",
-        "skill_name": "backend-architect",
-        "description_en": "Specialized AI agent skill for backend architect providing best practices and automated workflows.",
-        "description_pt_br": "Especialista em arquitetura backend, design escalável de APIs REST/GraphQL e microsserviços.",
-        "promo_en": "Enhances AI agent performance in backend architect with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em backend architect com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/backend-architect/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F3SRX4CKY8TK6YARN",
-        "skill_name": "sql-sentinel",
-        "description_en": "Specialized AI agent skill for sql sentinel providing best practices and automated workflows.",
-        "description_pt_br": "Auditoria de SQL para detecção de antipadrões de custo e performance em BigQuery e PostgreSQL.",
-        "promo_en": "Enhances AI agent performance in sql sentinel with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em sql sentinel com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/sql-sentinel/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FFK0NC3SB0NJAH78C",
-        "skill_name": "django-pro",
-        "description_en": "Specialized AI agent skill for django pro providing best practices and automated workflows.",
-        "description_pt_br": "Desenvolvimento em Django 5.x com DRF, Celery e resolução de gargalos de ORM N+1.",
-        "promo_en": "Enhances AI agent performance in django pro with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em django pro com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/django-pro/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F6K0HHC22K4JC6PM5",
-        "skill_name": "postgres-best-practices",
-        "description_en": "Specialized AI agent skill for postgres best practices providing best practices and automated workflows.",
-        "description_pt_br": "Boas práticas de PostgreSQL e Prisma para modelagem relacional e otimização.",
-        "promo_en": "Enhances AI agent performance in postgres best practices with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em postgres best practices com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/postgres-best-practices/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FAZ2EZBWSTRFKD82K",
-        "skill_name": "kubernetes-architect",
-        "description_en": "Specialized AI agent skill for kubernetes architect providing best practices and automated workflows.",
-        "description_pt_br": "Orquestração em Kubernetes, Helm charts, Ingress e manifests de produção.",
-        "promo_en": "Enhances AI agent performance in kubernetes architect with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em kubernetes architect com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/kubernetes-architect/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FEZQ5BVAY2QKSEFHV",
-        "skill_name": "gcp-cloud-run",
-        "description_en": "Specialized AI agent skill for gcp cloud run providing best practices and automated workflows.",
-        "description_pt_br": "Aplicações serverless conteinerizadas no GCP Cloud Run e Cloud Functions.",
-        "promo_en": "Enhances AI agent performance in gcp cloud run with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em gcp cloud run com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/gcp-cloud-run/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FQHRSR36TQ5RRWA8M",
-        "skill_name": "aws-serverless",
-        "description_en": "Specialized AI agent skill for aws serverless providing best practices and automated workflows.",
-        "description_pt_br": "Aplicações serverless na AWS com Lambda, API Gateway e Step Functions.",
-        "promo_en": "Enhances AI agent performance in aws serverless with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em aws serverless com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/aws-serverless/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FNQC5NB0ZEW17XXCZ",
-        "skill_name": "verification-before-completion",
-        "description_en": "Specialized AI agent skill for verification before completion providing best practices and automated workflows.",
-        "description_pt_br": "Protocolo de validação obrigatório impedindo finalização sem suíte de testes passando.",
-        "promo_en": "Enhances AI agent performance in verification before completion with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em verification before completion com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/verification-before-completion/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_systematic_debugging_71",
-            "https://www.youtube.com/watch?v=nate_tdd_skills_72",
-            "https://www.youtube.com/watch?v=mckay_security_audit_73",
-            "https://www.youtube.com/watch?v=indydevdan_testing_playwright_74",
-            "https://www.youtube.com/watch?v=ai_jason_code_review_skills_75",
-            "https://www.youtube.com/watch?v=cole_rca_logging_skills_76",
-            "https://www.youtube.com/watch?v=worldofai_saif_security_77",
-            "https://www.youtube.com/watch?v=echohive_bug_hunter_skills_78",
-            "https://www.youtube.com/watch?v=techwithtim_pytest_jest_skills_79",
-            "https://www.youtube.com/watch?v=pe_refactoring_legacy_80"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F69JCBK3ES7RH56CB",
-        "skill_name": "project-memory-manager",
-        "description_en": "Specialized AI agent skill for project memory manager providing best practices and automated workflows.",
-        "description_pt_br": "Gerencia memória de longo prazo e persistência de contexto em repositórios via arquivos estruturados.",
-        "promo_en": "Enhances AI agent performance in project memory manager with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em project memory manager com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/project-memory-manager/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
-            "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
-            "https://www.youtube.com/watch?v=nate_token_optimization_83",
-            "https://www.youtube.com/watch?v=mckay_mermaid_architecture_84",
-            "https://www.youtube.com/watch?v=alex_finn_gsd_skill_85",
-            "https://www.youtube.com/watch?v=cole_changelog_semver_86",
-            "https://www.youtube.com/watch?v=ai_jason_phpdoc_jsdoc_87",
-            "https://www.youtube.com/watch?v=leon_git_worktrees_skills_88",
-            "https://www.youtube.com/watch?v=wes_roth_obsidian_sync_89",
-            "https://www.youtube.com/watch?v=matt_wolfe_productivity_skills_90"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FHV0YSD6V1ZJMX69R"
     },
     {
         "id": "01M0G4G52FF04J8FCWYMH48QBD",
@@ -2588,7 +2375,37 @@
         "frameworks": [],
         "libs": [
             "mermaid-cli"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/mermaid-diagrammer/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 4 (Utilidade moderada em práticas gerais (ui, ux).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 4/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 4/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FGN0MWZAFZYXN7109",
@@ -2617,605 +2434,37 @@
             "Shell"
         ],
         "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FE9JS25WSWZA38TPF",
-        "skill_name": "changelog-generator",
-        "description_en": "Specialized AI agent skill for changelog generator providing best practices and automated workflows.",
-        "description_pt_br": "Extração e categorização automática de commits para geração de changelogs e notas de release semânticas.",
-        "promo_en": "Enhances AI agent performance in changelog generator with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em changelog generator com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/changelog-generator/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
-            "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
-            "https://www.youtube.com/watch?v=nate_token_optimization_83",
-            "https://www.youtube.com/watch?v=mckay_mermaid_architecture_84",
-            "https://www.youtube.com/watch?v=alex_finn_gsd_skill_85",
-            "https://www.youtube.com/watch?v=cole_changelog_semver_86",
-            "https://www.youtube.com/watch?v=ai_jason_phpdoc_jsdoc_87",
-            "https://www.youtube.com/watch?v=leon_git_worktrees_skills_88",
-            "https://www.youtube.com/watch?v=wes_roth_obsidian_sync_89",
-            "https://www.youtube.com/watch?v=matt_wolfe_productivity_skills_90"
+        "libs": [],
+        "local_path": "other_skills/curated-youtube/get-shit-done/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Prática genérica de engenharia de software aplicável genericamente.), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 3/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 3/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FQW6YR9VYJTQ7PHPW",
-        "skill_name": "auto-commenter",
-        "description_en": "Specialized AI agent skill for auto commenter providing best practices and automated workflows.",
-        "description_pt_br": "Anotação e documentação automática de código em PHPDoc, JSDoc e TSDoc sem poluir a lógica de negócios.",
-        "promo_en": "Enhances AI agent performance in auto commenter with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em auto commenter com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/auto-commenter/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
-            "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
-            "https://www.youtube.com/watch?v=nate_token_optimization_83",
-            "https://www.youtube.com/watch?v=mckay_mermaid_architecture_84",
-            "https://www.youtube.com/watch?v=alex_finn_gsd_skill_85",
-            "https://www.youtube.com/watch?v=cole_changelog_semver_86",
-            "https://www.youtube.com/watch?v=ai_jason_phpdoc_jsdoc_87",
-            "https://www.youtube.com/watch?v=leon_git_worktrees_skills_88",
-            "https://www.youtube.com/watch?v=wes_roth_obsidian_sync_89",
-            "https://www.youtube.com/watch?v=matt_wolfe_productivity_skills_90"
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
         ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F9NV7JMDYFSRKNXTE",
-        "skill_name": "enterprise-agent-routing",
-        "description_en": "Specialized AI agent skill for enterprise agent routing providing best practices and automated workflows.",
-        "description_pt_br": "Roteamento de agentes empresariais em larga escala com suporte a governança corporativa e RBAC.",
-        "promo_en": "Enhances AI agent performance in enterprise agent routing with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em enterprise agent routing com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/enterprise-agent-routing/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
-            "https://www.youtube.com/watch?v=nate_multiagent_teams_92",
-            "https://www.youtube.com/watch?v=david_browser_automation_93",
-            "https://www.youtube.com/watch?v=indydevdan_subagent_orchestrator_94",
-            "https://www.youtube.com/watch?v=ai_jason_rpa_portal_automation_95",
-            "https://www.youtube.com/watch?v=cole_n8n_webhook_skills_96",
-            "https://www.youtube.com/watch?v=worldofai_research_subagent_97",
-            "https://www.youtube.com/watch?v=liam_enterprise_agent_skills_98",
-            "https://www.youtube.com/watch?v=nick_multiagent_consensus_99",
-            "https://www.youtube.com/watch?v=wes_roth_ultimate_2026_guide_100"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F83XWWXZQTFHZCC8H",
-        "skill_name": "cmux",
-        "description_en": "Specialized AI agent skill for cmux providing best practices and automated workflows.",
-        "description_pt_br": "Orquestrador e multiplexador de terminais para execução concorrente e monitoramento de agentes.",
-        "promo_en": "Enhances AI agent performance in cmux with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em cmux com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/cmux/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
-            "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
-            "https://www.youtube.com/watch?v=nate_tested_features_03",
-            "https://www.youtube.com/watch?v=nate_power_users_04",
-            "https://www.youtube.com/watch?v=GiRvGJDa8wDWMHE67pCNn9_DKc0RuwcO-WkXn4w9TLB1lL1sVI_HIsxUTlfnngnPavSpcuctt08pPLZLV-wR4D_QziqrbJzU8nWgKRFANk05VTV74DNiBEy3iEmkOB1FUf",
-            "https://www.youtube.com/watch?v=claude_official_skills_06",
-            "https://www.youtube.com/watch?v=builder_claude_skills_07",
-            "https://www.youtube.com/watch?v=ai_jason_claude_superpowers_08",
-            "https://www.youtube.com/watch?v=indydevdan_skills_sh_09",
-            "https://www.youtube.com/watch?v=david_ondrej_claude_apps_10"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FD2HR91SGSCCEA8FE",
-        "skill_name": "docx",
-        "description_en": "Specialized AI agent skill for docx providing best practices and automated workflows.",
-        "description_pt_br": "Criação, formatação, extração e edição programática de documentos do Microsoft Word (.docx).",
-        "promo_en": "Enhances AI agent performance in docx with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em docx com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/docx/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
-            "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
-            "https://www.youtube.com/watch?v=nate_tested_features_03",
-            "https://www.youtube.com/watch?v=nate_power_users_04",
-            "https://www.youtube.com/watch?v=GiRvGJDa8wDWMHE67pCNn9_DKc0RuwcO-WkXn4w9TLB1lL1sVI_HIsxUTlfnngnPavSpcuctt08pPLZLV-wR4D_QziqrbJzU8nWgKRFANk05VTV74DNiBEy3iEmkOB1FUf",
-            "https://www.youtube.com/watch?v=claude_official_skills_06",
-            "https://www.youtube.com/watch?v=builder_claude_skills_07",
-            "https://www.youtube.com/watch?v=ai_jason_claude_superpowers_08",
-            "https://www.youtube.com/watch?v=indydevdan_skills_sh_09",
-            "https://www.youtube.com/watch?v=david_ondrej_claude_apps_10"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F4Y1VJKPPECPTCGM7",
-        "skill_name": "pdf",
-        "description_en": "Specialized AI agent skill for pdf providing best practices and automated workflows.",
-        "description_pt_br": "Processamento, extração de texto estruturado e manipulação de arquivos em formato PDF.",
-        "promo_en": "Enhances AI agent performance in pdf with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em pdf com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/pdf/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
-            "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
-            "https://www.youtube.com/watch?v=nate_tested_features_03",
-            "https://www.youtube.com/watch?v=nate_power_users_04",
-            "https://www.youtube.com/watch?v=GiRvGJDa8wDWMHE67pCNn9_DKc0RuwcO-WkXn4w9TLB1lL1sVI_HIsxUTlfnngnPavSpcuctt08pPLZLV-wR4D_QziqrbJzU8nWgKRFANk05VTV74DNiBEy3iEmkOB1FUf",
-            "https://www.youtube.com/watch?v=claude_official_skills_06",
-            "https://www.youtube.com/watch?v=builder_claude_skills_07",
-            "https://www.youtube.com/watch?v=ai_jason_claude_superpowers_08",
-            "https://www.youtube.com/watch?v=indydevdan_skills_sh_09",
-            "https://www.youtube.com/watch?v=david_ondrej_claude_apps_10"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FXYCE5PM8JXBPE6JT",
-        "skill_name": "llm-prompt-optimizer",
-        "description_en": "Specialized AI agent skill for llm prompt optimizer providing best practices and automated workflows.",
-        "description_pt_br": "Refinamento e otimização sistemática de prompts de sistema para melhorar a assertividade e clareza das respostas dos agentes.",
-        "promo_en": "Enhances AI agent performance in llm prompt optimizer with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em llm prompt optimizer com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/llm-prompt-optimizer/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
-            "https://www.youtube.com/watch?v=matthew_best_agentic_12",
-            "https://www.youtube.com/watch?v=david_antigravity_guide_13",
-            "https://www.youtube.com/watch?v=cole_antigravity_rules_14",
-            "https://www.youtube.com/watch?v=worldofai_antigravity_overview_15",
-            "https://www.youtube.com/watch?v=ai_jason_antigravity_workflows_16",
-            "https://www.youtube.com/watch?v=nick_saraev_antigravity_dive_17",
-            "https://www.youtube.com/watch?v=pe_antigravity_setup_18",
-            "https://www.youtube.com/watch?v=echohive_agent_comparison_19",
-            "https://www.youtube.com/watch?v=wes_roth_deepmind_antigravity_20"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FJD9C3R5VZMVJXG8J",
-        "skill_name": "deepseek-reasoner-harness",
-        "description_en": "Specialized AI agent skill for deepseek reasoner harness providing best practices and automated workflows.",
-        "description_pt_br": "Estrutura especializada para guiar o raciocínio em cadeia (CoT) de modelos DeepSeek R1/V3.",
-        "promo_en": "Enhances AI agent performance in deepseek reasoner harness with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em deepseek reasoner harness com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/deepseek-reasoner-harness/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
-            "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
-            "https://www.youtube.com/watch?v=worldofai_opencode_skills_23",
-            "https://www.youtube.com/watch?v=cole_opencode_walkthrough_24",
-            "https://www.youtube.com/watch?v=pe_opencode_deepseek_25",
-            "https://www.youtube.com/watch?v=echohive_opencode_fullstack_26",
-            "https://www.youtube.com/watch?v=alex_finn_opencode_automate_27",
-            "https://www.youtube.com/watch?v=leon_opencode_tutorial_28",
-            "https://www.youtube.com/watch?v=ai_jason_opencode_arch_29",
-            "https://www.youtube.com/watch?v=fireship_opencode_alternative_30"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FRPQ6RKRSD7JVYA5M",
-        "skill_name": "claude-code-hooks",
-        "description_en": "Specialized AI agent skill for claude code hooks providing best practices and automated workflows.",
-        "description_pt_br": "Implementação de hooks de ciclo de vida para customizar agentes CLI.",
-        "promo_en": "Enhances AI agent performance in claude code hooks with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em claude code hooks com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/claude-code-hooks/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
-            "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
-            "https://www.youtube.com/watch?v=mckay_skills_change_se_33",
-            "https://www.youtube.com/watch?v=indydevdan_agentic_stack_34",
-            "https://www.youtube.com/watch?v=david_skills_better_prompts_35",
-            "https://www.youtube.com/watch?v=ai_advantage_custom_skills_36",
-            "https://www.youtube.com/watch?v=nick_saraev_future_skills_37",
-            "https://www.youtube.com/watch?v=echohive_skills_python_md_38",
-            "https://www.youtube.com/watch?v=liam_ottley_agent_skills_39",
-            "https://www.youtube.com/watch?v=pe_ultimate_skill_stack_40"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F4WMBQJYAM9Y7GAXT",
-        "skill_name": "autoresearch-self-annealing",
-        "description_en": "Specialized AI agent skill for autoresearch self annealing providing best practices and automated workflows.",
-        "description_pt_br": "Mecanismo de auto-recozimento onde o agente avalia e aprimora seus próprios SKILL.md.",
-        "promo_en": "Enhances AI agent performance in autoresearch self annealing with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em autoresearch self annealing com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/autoresearch-self-annealing/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
-            "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
-            "https://www.youtube.com/watch?v=mckay_skills_change_se_33",
-            "https://www.youtube.com/watch?v=indydevdan_agentic_stack_34",
-            "https://www.youtube.com/watch?v=david_skills_better_prompts_35",
-            "https://www.youtube.com/watch?v=ai_advantage_custom_skills_36",
-            "https://www.youtube.com/watch?v=nick_saraev_future_skills_37",
-            "https://www.youtube.com/watch?v=echohive_skills_python_md_38",
-            "https://www.youtube.com/watch?v=liam_ottley_agent_skills_39",
-            "https://www.youtube.com/watch?v=pe_ultimate_skill_stack_40"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FSJ5FECY4DYXB29TG",
-        "skill_name": "python-tool-executor",
-        "description_en": "Specialized AI agent skill for python tool executor providing best practices and automated workflows.",
-        "description_pt_br": "Criação de ferramentas determinísticas em Python integradas a descritores Markdown.",
-        "promo_en": "Enhances AI agent performance in python tool executor with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em python tool executor com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/python-tool-executor/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
-            "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
-            "https://www.youtube.com/watch?v=mckay_skills_change_se_33",
-            "https://www.youtube.com/watch?v=indydevdan_agentic_stack_34",
-            "https://www.youtube.com/watch?v=david_skills_better_prompts_35",
-            "https://www.youtube.com/watch?v=ai_advantage_custom_skills_36",
-            "https://www.youtube.com/watch?v=nick_saraev_future_skills_37",
-            "https://www.youtube.com/watch?v=echohive_skills_python_md_38",
-            "https://www.youtube.com/watch?v=liam_ottley_agent_skills_39",
-            "https://www.youtube.com/watch?v=pe_ultimate_skill_stack_40"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FHQ36908PJ8G6PSN3",
-        "skill_name": "aios-agent-layer",
-        "description_en": "Specialized AI agent skill for aios agent layer providing best practices and automated workflows.",
-        "description_pt_br": "Construção de camada de serviços para AI Operating Systems com FastAPI e filas assíncronas.",
-        "promo_en": "Enhances AI agent performance in aios agent layer with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em aios agent layer com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/aios-agent-layer/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
-            "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
-            "https://www.youtube.com/watch?v=mckay_skills_change_se_33",
-            "https://www.youtube.com/watch?v=indydevdan_agentic_stack_34",
-            "https://www.youtube.com/watch?v=david_skills_better_prompts_35",
-            "https://www.youtube.com/watch?v=ai_advantage_custom_skills_36",
-            "https://www.youtube.com/watch?v=nick_saraev_future_skills_37",
-            "https://www.youtube.com/watch?v=echohive_skills_python_md_38",
-            "https://www.youtube.com/watch?v=liam_ottley_agent_skills_39",
-            "https://www.youtube.com/watch?v=pe_ultimate_skill_stack_40"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FJDPZ7YR2TGVZTWVA",
-        "skill_name": "loop-engineering",
-        "description_en": "Specialized AI agent skill for loop engineering providing best practices and automated workflows.",
-        "description_pt_br": "Engenharia de loops autônomos de execução com rotinas de auto-recuperação diante de falhas.",
-        "promo_en": "Enhances AI agent performance in loop engineering with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em loop engineering com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/loop-engineering/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
-            "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
-            "https://www.youtube.com/watch?v=mckay_skills_change_se_33",
-            "https://www.youtube.com/watch?v=indydevdan_agentic_stack_34",
-            "https://www.youtube.com/watch?v=david_skills_better_prompts_35",
-            "https://www.youtube.com/watch?v=ai_advantage_custom_skills_36",
-            "https://www.youtube.com/watch?v=nick_saraev_future_skills_37",
-            "https://www.youtube.com/watch?v=echohive_skills_python_md_38",
-            "https://www.youtube.com/watch?v=liam_ottley_agent_skills_39",
-            "https://www.youtube.com/watch?v=pe_ultimate_skill_stack_40"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FMCAG9T1SZAB8Y0J0",
-        "skill_name": "data-science-eda",
-        "description_en": "Specialized AI agent skill for data science eda providing best practices and automated workflows.",
-        "description_pt_br": "Análise exploratória de dados (EDA) automatizada utilizando Pandas e Polars.",
-        "promo_en": "Enhances AI agent performance in data science eda with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em data science eda com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/data-science-eda/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F4Y9SYVTAQGJ6KB5E",
-        "skill_name": "python-dependency-manager",
-        "description_en": "Specialized AI agent skill for python dependency manager providing best practices and automated workflows.",
-        "description_pt_br": "Gestão determinística de dependências e ambientes virtuais modernos com uv e Poetry.",
-        "promo_en": "Enhances AI agent performance in python dependency manager with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em python dependency manager com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/python-dependency-manager/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
-            "https://www.youtube.com/watch?v=david_top_10_skills_42",
-            "https://www.youtube.com/watch?v=alex_finn_top_5_claude_43",
-            "https://www.youtube.com/watch?v=worldofai_best_skills_2026_44",
-            "https://www.youtube.com/watch?v=techwithtim_python_skills_45",
-            "https://www.youtube.com/watch?v=leon_top_10_fullstack_46",
-            "https://www.youtube.com/watch?v=matt_wolfe_top_10_tools_47",
-            "https://www.youtube.com/watch?v=wes_roth_skills_ecosystem_48",
-            "https://www.youtube.com/watch?v=alex_finn_startup_5_skills_49",
-            "https://www.youtube.com/watch?v=fireship_10_ai_coding_tricks_50"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FW5FYCCE19G8GGK6M",
-        "skill_name": "landing-page-generator",
-        "description_en": "Specialized AI agent skill for landing page generator providing best practices and automated workflows.",
-        "description_pt_br": "Geração rápida de landing pages de alta conversão para SaaS.",
-        "promo_en": "Enhances AI agent performance in landing page generator with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em landing page generator com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/landing-page-generator/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
-            "https://www.youtube.com/watch?v=nate_frontend_skills_52",
-            "https://www.youtube.com/watch?v=david_pixel_perfect_skills_53",
-            "https://www.youtube.com/watch?v=indydevdan_frontend_design_54",
-            "https://www.youtube.com/watch?v=ai_jason_design_systems_55",
-            "https://www.youtube.com/watch?v=echohive_nextjs_tailwind_skills_56",
-            "https://www.youtube.com/watch?v=cole_fullstack_ui_skills_57",
-            "https://www.youtube.com/watch?v=techwithtim_component_gen_58",
-            "https://www.youtube.com/watch?v=kris_figma_to_code_59",
-            "https://www.youtube.com/watch?v=alex_finn_landing_pages_60"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FAFJGK4N7R0PNQC67",
-        "skill_name": "builder-visual-copilot",
-        "description_en": "Specialized AI agent skill for builder visual copilot providing best practices and automated workflows.",
-        "description_pt_br": "Tradução visual e mapeamento de componentes de design em código de produção.",
-        "promo_en": "Enhances AI agent performance in builder visual copilot with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em builder visual copilot com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/builder-visual-copilot/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
-            "https://www.youtube.com/watch?v=nate_frontend_skills_52",
-            "https://www.youtube.com/watch?v=david_pixel_perfect_skills_53",
-            "https://www.youtube.com/watch?v=indydevdan_frontend_design_54",
-            "https://www.youtube.com/watch?v=ai_jason_design_systems_55",
-            "https://www.youtube.com/watch?v=echohive_nextjs_tailwind_skills_56",
-            "https://www.youtube.com/watch?v=cole_fullstack_ui_skills_57",
-            "https://www.youtube.com/watch?v=techwithtim_component_gen_58",
-            "https://www.youtube.com/watch?v=kris_figma_to_code_59",
-            "https://www.youtube.com/watch?v=alex_finn_landing_pages_60"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FVY4EYMFZQ7C08QZH",
-        "skill_name": "microservices-patterns",
-        "description_en": "Specialized AI agent skill for microservices patterns providing best practices and automated workflows.",
-        "description_pt_br": "Padrões de microsserviços, comunicação inter-serviços, saga pattern e resiliência.",
-        "promo_en": "Enhances AI agent performance in microservices patterns with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em microservices patterns com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/microservices-patterns/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F316FSX9EAYHEE40D",
-        "skill_name": "bigquery-sql",
-        "description_en": "Specialized AI agent skill for bigquery sql providing best practices and automated workflows.",
-        "description_pt_br": "Técnicas de otimização de queries SQL no Google BigQuery.",
-        "promo_en": "Enhances AI agent performance in bigquery sql with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em bigquery sql com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/bigquery-sql/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FEMNP5MK9SH34TAC0",
-        "skill_name": "gcp-data-pipelines",
-        "description_en": "Specialized AI agent skill for gcp data pipelines providing best practices and automated workflows.",
-        "description_pt_br": "Construção e orquestração de pipelines de dados no GCP com Dataform e Composer.",
-        "promo_en": "Enhances AI agent performance in gcp data pipelines with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em gcp data pipelines com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/gcp-data-pipelines/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=matthew_backend_api_skills_61",
-            "https://www.youtube.com/watch?v=pe_database_sql_skills_62",
-            "https://www.youtube.com/watch?v=worldofai_devops_docker_skills_63",
-            "https://www.youtube.com/watch?v=indydevdan_api_design_skills_64",
-            "https://www.youtube.com/watch?v=techwithtim_fastapi_skills_65",
-            "https://www.youtube.com/watch?v=echohive_postgres_prisma_skills_66",
-            "https://www.youtube.com/watch?v=cole_cloud_infra_skills_67",
-            "https://www.youtube.com/watch?v=leon_microservices_skills_68",
-            "https://www.youtube.com/watch?v=nick_serverless_skills_69",
-            "https://www.youtube.com/watch?v=ai_jason_gcp_cloud_skills_70"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FPT34P9RB5PVJPW1D",
-        "skill_name": "graphify",
-        "description_en": "Specialized AI agent skill for graphify providing best practices and automated workflows.",
-        "description_pt_br": "Transforma o repositório em um grafo de conhecimento consultável para navegação sem perda de contexto.",
-        "promo_en": "Enhances AI agent performance in graphify with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em graphify com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/graphify/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
-            "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
-            "https://www.youtube.com/watch?v=nate_token_optimization_83",
-            "https://www.youtube.com/watch?v=mckay_mermaid_architecture_84",
-            "https://www.youtube.com/watch?v=alex_finn_gsd_skill_85",
-            "https://www.youtube.com/watch?v=cole_changelog_semver_86",
-            "https://www.youtube.com/watch?v=ai_jason_phpdoc_jsdoc_87",
-            "https://www.youtube.com/watch?v=leon_git_worktrees_skills_88",
-            "https://www.youtube.com/watch?v=wes_roth_obsidian_sync_89",
-            "https://www.youtube.com/watch?v=matt_wolfe_productivity_skills_90"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52FMMGCXXNNJXGRCFSG",
-        "skill_name": "obsidian-sync",
-        "description_en": "Specialized AI agent skill for obsidian sync providing best practices and automated workflows.",
-        "description_pt_br": "Integração e sincronização bidirecional entre vaults do Obsidian e o agente de IA.",
-        "promo_en": "Enhances AI agent performance in obsidian sync with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em obsidian sync com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/obsidian-sync/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
-            "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
-            "https://www.youtube.com/watch?v=nate_token_optimization_83",
-            "https://www.youtube.com/watch?v=mckay_mermaid_architecture_84",
-            "https://www.youtube.com/watch?v=alex_finn_gsd_skill_85",
-            "https://www.youtube.com/watch?v=cole_changelog_semver_86",
-            "https://www.youtube.com/watch?v=ai_jason_phpdoc_jsdoc_87",
-            "https://www.youtube.com/watch?v=leon_git_worktrees_skills_88",
-            "https://www.youtube.com/watch?v=wes_roth_obsidian_sync_89",
-            "https://www.youtube.com/watch?v=matt_wolfe_productivity_skills_90"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
-    },
-    {
-        "id": "01M0G4G52F7KGFWPWDHATEYVX9",
-        "skill_name": "ai-productivity-pack",
-        "description_en": "Specialized AI agent skill for ai productivity pack providing best practices and automated workflows.",
-        "description_pt_br": "Coleção de utilitários e aceleradores essenciais para desenvolvedores com agentes de IA.",
-        "promo_en": "Enhances AI agent performance in ai productivity pack with structured execution patterns and error-prevention guidelines.",
-        "promo_pt_br": "Aumenta a performance do agente de IA em ai productivity pack com padrões de execução estruturados e prevenção de erros.",
-        "repo_name": "Awesome",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/ai-productivity-pack/SKILL.md",
-        "recomends": [
-            "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
-            "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
-            "https://www.youtube.com/watch?v=nate_token_optimization_83",
-            "https://www.youtube.com/watch?v=mckay_mermaid_architecture_84",
-            "https://www.youtube.com/watch?v=alex_finn_gsd_skill_85",
-            "https://www.youtube.com/watch?v=cole_changelog_semver_86",
-            "https://www.youtube.com/watch?v=ai_jason_phpdoc_jsdoc_87",
-            "https://www.youtube.com/watch?v=leon_git_worktrees_skills_88",
-            "https://www.youtube.com/watch?v=wes_roth_obsidian_sync_89",
-            "https://www.youtube.com/watch?v=matt_wolfe_productivity_skills_90"
-        ],
-        "stars": 4500,
-        "languages": [],
-        "frameworks": [],
-        "libs": []
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FV8AC72Q93QPP5PPE",
@@ -3250,6 +2499,40 @@
             "PyMuPDF",
             "pdfplumber",
             "beautifulsoup4"
-        ]
+        ],
+        "local_path": "other_skills/curated-youtube/python-concessionarias-automation/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (pdf).), SocialMedia: 3 (Prática genérica de engenharia de software aplicável genericamente.), Agentedebolso: 6 (Aderência a módulo específico do projeto (scraping).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0G4G52FBQ06VE4HY7HGXBEW]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FV8AC72Q93QPP5PPE) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FV8AC72Q93QPP5PPE"
     }
 ]

@@ -18,7 +18,37 @@
             "BullMQ",
             "VineJS",
             "Lucid ORM"
-        ]
+        ],
+        "local_path": "created-skills/backend-node/adonisjs-brazilian-payments-asaas-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (asaas, boleto, typescript).), SocialMedia: 4 (Utilidade moderada em práticas gerais (typescript, ui).), Agentedebolso: 6 (Aderência a módulo específico do projeto (llm).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FE6Y45CNB8F3MQM0R",
@@ -36,7 +66,37 @@
         "frameworks": [
             "Vue.js"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, unocss).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-components-ui).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, inter).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0G4G52FH90TKJ99SM1D454A]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Falsos positivos refutados por análise de conteúdo interno. Tratam de escopos complementares e independentes."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EYV7E1XB1AR91RA7C",
@@ -55,7 +115,37 @@
         ],
         "libs": [
             "Pest PHP"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, pest).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (ai agents, function calling, laravel).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EPQKNR9AWG7B5HJGN",
@@ -74,7 +164,37 @@
         ],
         "libs": [
             "EfiPay SDK"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, efi).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, efi).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EJXZCX57K0HJ9WEAY",
@@ -93,7 +213,37 @@
         ],
         "libs": [
             "Google Gemini SDK"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, gemini, pdf).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (gemini, laravel).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E658QPZ1C0F301826",
@@ -112,7 +262,37 @@
         ],
         "libs": [
             "AntiCaptcha API"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E6PHAX6NHQTY8PD16",
@@ -131,7 +311,37 @@
         ],
         "libs": [
             "EfiPay SDK"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, efi).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, efi).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EZACYS1CEZG32T53N",
@@ -150,7 +360,37 @@
         ],
         "libs": [
             "Spatie Permission"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, vue, spatie).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, pinia, laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, vue).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E3TW3BJ2G7RBX8SRF",
@@ -167,7 +407,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, cnpj).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E7Y6F0YXKZ5CHW4WF",
@@ -186,7 +456,37 @@
         ],
         "libs": [
             "Eloquent ORM"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, vue 3).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, vue, vue 3).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EHSTESYE3S88P1J4Y",
@@ -206,7 +506,37 @@
         "libs": [
             "Asaas API",
             "EfiPay SDK"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, asaas, efi).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, efi, inter).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52ENM960HYNFXV97H2A",
@@ -226,7 +556,37 @@
         "libs": [
             "Redis",
             "Selenium"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, inter, puppeteer).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (puppeteer, laravel, inter).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E7KH6E1RR8FZF01EG",
@@ -246,7 +606,37 @@
         "libs": [
             "FrankenPHP",
             "Redis"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, octane).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EB1CVXDA5JBZFW5G7",
@@ -265,7 +655,37 @@
         ],
         "libs": [
             "AWS S3"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, spatie).), SocialMedia: 8 (Forte aderência funcional e técnica (laravel, spatie).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E3S47MEQYM9W6Y7QS",
@@ -282,7 +702,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EBH67GJV397R7602V",
@@ -301,7 +751,37 @@
         ],
         "libs": [
             "Google Calendar API"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, autentique).), SocialMedia: 8 (Forte aderência funcional e técnica (calendar, laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, autentique).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EVETWJZW63H90EQRD",
@@ -318,7 +798,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 8 (Forte aderência funcional e técnica (calendar, laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E421RF15A8K26V438",
@@ -335,7 +845,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EY4CGV98QXC2RCKY5",
@@ -354,7 +894,37 @@
         ],
         "libs": [
             "Ziggy"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, vue).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, pinia, laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, vue).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EVT227DEYCPV0CQNM",
@@ -373,7 +943,37 @@
         ],
         "libs": [
             "Slack API"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, efi).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, efi).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E5329B3BXTNW6Q5YY",
@@ -390,7 +990,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E2CWKHNK3N6E91RS4",
@@ -409,7 +1039,37 @@
         ],
         "libs": [
             "FrankenPHP"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, octane).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E63VH9SV4003B4Y1R",
@@ -428,7 +1088,37 @@
         ],
         "libs": [
             "Google Gemini SDK"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, gemini, pdf).), SocialMedia: 8 (Forte aderência funcional e técnica (video, laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (gemini, laravel).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EZFM3K4GGMPMH1H5P",
@@ -447,7 +1137,37 @@
         ],
         "libs": [
             "Google Gemini SDK"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, gemini, inter).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (gemini, laravel, inter).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EZVJMHHYQF3F852RZ",
@@ -464,7 +1184,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, octane, pest).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EYEJVD5QHWVGNZXEG",
@@ -481,7 +1231,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EMZX2NAXDAJN2GAGE",
@@ -500,7 +1280,37 @@
         ],
         "libs": [
             "Laravel Horizon"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, horizon).), SocialMedia: 8 (Forte aderência funcional e técnica (laravel, horizon).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EF6QCHQEM9Q9SDFGY",
@@ -519,7 +1329,37 @@
         ],
         "libs": [
             "LiveKit"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, livekit, webrtc).), SocialMedia: 8 (Forte aderência funcional e técnica (video, laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EMJBAGBRFMEQKBQ4F",
@@ -538,7 +1378,37 @@
         ],
         "libs": [
             "Spatie MediaLibrary"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, whatsapp, inter).), SocialMedia: 8 (Forte aderência funcional e técnica (laravel, spatie).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (whatsapp, laravel, inter).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EQ46JEKV691NC2RFC",
@@ -557,7 +1427,37 @@
         ],
         "libs": [
             "Meta Graph API"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, instagram, facebook).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EQ3RJ9J2W2FJGJXPK",
@@ -574,7 +1474,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, efi).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, efi).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EWS1XFNG7E5VA2FW1",
@@ -591,7 +1521,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E5VW7P42NVJEQ2469",
@@ -610,7 +1570,37 @@
         ],
         "libs": [
             "DomPDF"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, pdf, dompdf).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EDC220YG70SVNTF4V",
@@ -630,7 +1620,37 @@
         "libs": [
             "Pest PHP",
             "Redis"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, pulse, telescope).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EV3J99GGRP1DN0VQE",
@@ -649,7 +1669,37 @@
         ],
         "libs": [
             "Pest PHP"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, pest).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EMMPA0WK4VBGPMERB",
@@ -666,7 +1716,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E006K101Q4R47XJKJ",
@@ -685,7 +1765,37 @@
         ],
         "libs": [
             "DomPDF"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, pdf, dompdf).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E9NHSSAVVM63K35W2",
@@ -704,7 +1814,37 @@
         ],
         "libs": [
             "BaconQrCode"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EE2GFVNXFBD6JHGCQ",
@@ -721,7 +1861,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EQJCSMT32MAFD936X",
@@ -740,7 +1910,37 @@
         ],
         "libs": [
             "Redis"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, efi, horizon).), SocialMedia: 8 (Forte aderência funcional e técnica (laravel, horizon).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, efi).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52ESF7J4C064VDK19S4",
@@ -759,7 +1959,37 @@
         ],
         "libs": [
             "Laravel Reverb"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, reverb).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52EM5N1TD8M4V7AFVA3",
@@ -779,7 +2009,37 @@
         "libs": [
             "Laravel Scout",
             "Meilisearch"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, meilisearch, scout).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, meilisearch).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52E92NHZMVBF5M82SWK",
@@ -798,7 +2058,37 @@
         ],
         "libs": [
             "Eloquent ORM"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FYW6F10SWM38VNXAK",
@@ -817,7 +2107,37 @@
         ],
         "libs": [
             "FrankenPHP"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, octane).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FH4PYVMV8YJFA2PNM",
@@ -834,7 +2154,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FN6C0J033TB526R94",
@@ -855,7 +2205,37 @@
             "Laravel Socialite",
             "LinkedIn API",
             "TikTok API"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (social media, laravel, socialite).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FFPJQ6FJFN3ZV390R",
@@ -876,7 +2256,37 @@
             "Laravel Socialite",
             "Pest PHP",
             "Ziggy"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, pest).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, socialite, facebook).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F8KMB5WX6JP3M717H",
@@ -893,7 +2303,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FW4DAZHA7HCT9R4AR",
@@ -913,7 +2353,37 @@
         "libs": [
             "Laravel Telescope",
             "Requests"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, telescope).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FKTF5149YTWZCRXZG",
@@ -932,7 +2402,37 @@
         ],
         "libs": [
             "Trello API"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 6 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F5EWFT8TVSJXKCEAM",
@@ -950,7 +2450,37 @@
         "frameworks": [
             "Laravel"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, inter, spatie).), SocialMedia: 8 (Forte aderência funcional e técnica (laravel, spatie).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, inter).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FYXWDZE1HVYMETWMC",
@@ -969,7 +2499,37 @@
         ],
         "libs": [
             "Ziggy"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (laravel).), SocialMedia: 8 (Forte aderência funcional e técnica (pinia, laravel).), Agentedebolso: 7 (Aderência a módulo específico do projeto (laravel).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F1YNV899D43G1Q2M5",
@@ -992,7 +2552,37 @@
         "libs": [
             "@maxvue/max-pinia",
             "Eloquent ORM"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, max-pinia).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, pinia, max-pinia).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, vue, max-pinia).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FW1QKEZZND0K3YDZJ",
@@ -1020,7 +2610,37 @@
             "Pinia",
             "Vue Router",
             "Ziggy"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, max-components-ui).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, pinia, max-components-ui).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FQ50YYSPJG6FMWM19",
@@ -1043,7 +2663,37 @@
         "libs": [
             "Spatie MediaLibrary",
             "VueFinder"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, efi).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, laravel, spatie).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, efi).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F93MEV0NBHVH0EPB9",
@@ -1062,7 +2712,37 @@
         ],
         "libs": [
             "WhatsApp Cloud API"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, whatsapp, inter).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (whatsapp, laravel, inter).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F1DZR5DBTQCE2TPR9",
@@ -1081,7 +2761,37 @@
         ],
         "libs": [
             "Ziggy"
-        ]
+        ],
+        "local_path": "created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, vue, vue 3).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, vue, vue 3).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FPABCWP4S35T8BE88",
@@ -1096,7 +2806,37 @@
         "frameworks": [
             "UnoCSS"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/project-history/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (unocss).), SocialMedia: 4 (Utilidade moderada em práticas gerais (css, ui).), Agentedebolso: 3 (Prática genérica de engenharia de software aplicável genericamente.). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FM2QXVR4AZP8HS2XR",
@@ -1112,25 +2852,41 @@
         "libs": [
             "Google Gemini SDK",
             "Redis"
-        ]
-    },
-    {
-        "id": "01M0G4G52FBQ06VE4HY7HGXBEW",
-        "skill_name": "python-concessionarias-automation-best-practices",
-        "description_en": "Use when creating, modifying, or debugging Python RPA scripts (Selenium + requests) for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba), automation scripts, and TRT submissions. Covers concessionaire regulations, RPA automation, and portal scripts.",
-        "description_pt_br": "Use ao criar, modificar ou depurar Python RPA scripts (Selenium + requests) para portais de concessionárias de energia (Cemig, Energisa, Equatorial, Coelba), scripts de automação, e emissão/submissão de TRTs. Cobre regulamentações das concessionárias, automação RPA e scripts de portais.",
-        "promo_en": "Specialized Python RPA automation standard for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba). Ensures resilient bot execution, error recovery, and compliant regulatory submissions.",
-        "promo_pt_br": "Padrão especializado de automação RPA em Python para portais de concessionárias de energia (Cemig, Energisa, Equatorial, Coelba). Garante resiliência, tratamento de falhas e automação segura de protocolos.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/python-automation/python-concessionarias-automation-best-practices/SKILL.md",
-        "languages": [
-            "Python"
         ],
-        "frameworks": [],
-        "libs": [
-            "Requests",
-            "Selenium"
-        ]
+        "local_path": "created-skills/project-setup/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 7 (Aderência a módulo específico do projeto (gemini).), SocialMedia: 3 (Baixa aderência, aplicável apenas como suporte secundário (ui).), Agentedebolso: 6 (Aderência a módulo específico do projeto (gemini).). Nota Máxima: 7/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 7/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 2 skill(s) concorrente(s): [01M0GCFD37DB7ANDGZHKZP6G22, 01M0GCFD3F39P5PTXGT35BTE7H]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FM2QXVR4AZP8HS2XR) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 7
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 3
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 6
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FM2QXVR4AZP8HS2XR"
     },
     {
         "id": "01M0G4G52FGT31WKMJ1B9SRF3B",
@@ -1143,7 +2899,41 @@
         "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
         "languages": [],
         "frameworks": [],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 3 (Baixa aderência, aplicável apenas como suporte secundário (systematic-debugging).), SocialMedia: 4 (Utilidade moderada em práticas gerais (systematic-debugging, ui).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (systematic-debugging).). Nota Máxima: 4/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 4/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 2 skill(s) concorrente(s): [01M0G4G52FBKP8E6N9AP4K3RB9, 01M0GCFD1T3SED27G3D4NQEYC2]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 2 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FGT31WKMJ1B9SRF3B) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 3
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 4
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FGT31WKMJ1B9SRF3B"
     },
     {
         "id": "01M0G4G52FEQE51DMZ9YKMEYCA",
@@ -1158,7 +2948,41 @@
         "frameworks": [],
         "libs": [
             "ESLint"
-        ]
+        ],
+        "local_path": "created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (laravel, vue).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, laravel).), Agentedebolso: 8 (Forte aderência funcional e técnica (laravel, vue).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0G4G52FEG48KKZ383TGPX52]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52FEQE51DMZ9YKMEYCA) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52FEQE51DMZ9YKMEYCA"
     },
     {
         "id": "01M0G4G52F477ME1WMWZNJDX3J",
@@ -1173,7 +2997,41 @@
             "TypeScript"
         ],
         "frameworks": [],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 6 (Aderência a módulo específico do projeto (typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (typescript, ui, ux).), Agentedebolso: 3 (Baixa aderência, aplicável apenas como suporte secundário (typescript).). Nota Máxima: 6/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 6/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0GCFD3EC7HME73YP75JDZ00]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52F477ME1WMWZNJDX3J) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 6
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 5
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 3
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52F477ME1WMWZNJDX3J"
     },
     {
         "id": "01M0G4G52FB0505WH8S40NG5M9",
@@ -1190,7 +3048,37 @@
         "frameworks": [],
         "libs": [
             "EfiPay SDK"
-        ]
+        ],
+        "local_path": "created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, efi, inter).), SocialMedia: 7 (Aderência a módulo específico do projeto (laravel).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (laravel, efi, inter).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 7
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FSR9AMFSDH0NFKVA1",
@@ -1207,7 +3095,37 @@
         "frameworks": [],
         "libs": [
             "EfiPay SDK"
-        ]
+        ],
+        "local_path": "created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, efi, typescript).), SocialMedia: 6 (Aderência a módulo específico do projeto (vue).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, efi).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 6
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F89MV92CC8JTBEX4D",
@@ -1224,7 +3142,37 @@
         "frameworks": [],
         "libs": [
             "ESLint"
-        ]
+        ],
+        "local_path": "created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 8 (Forte aderência funcional e técnica (inter, typescript).), SocialMedia: 5 (Boa utilidade para padrões gerais de engenharia e stack (javascript, typescript, ui).), Agentedebolso: 7 (Aderência a módulo específico do projeto (inter).). Nota Máxima: 8/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 8/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 8
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 5
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 7
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FQ8N5D73J59PY8MH4",
@@ -1248,7 +3196,37 @@
             "@maxvue/max-use",
             "Axios",
             "Pinia"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FMY72CNEFPYVGGCK1",
@@ -1270,7 +3248,37 @@
             "@maxvue/max-pinia",
             "@maxvue/max-use",
             "Axios"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, vue 3).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (laravel, vue, vue 3).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FHZWZ0HXJ6BHDPQKS",
@@ -1288,7 +3296,37 @@
         "frameworks": [
             "Vue.js"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, boleto).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, vue 3).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, vue 3).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FE13XJ9SAZPCH9XWS",
@@ -1311,7 +3349,37 @@
             "ESLint",
             "Pinia",
             "Stylelint"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-pinia).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (social media, vue, vue 3).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-pinia).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FBQ3RGEF7PC4ZNGMC",
@@ -1331,7 +3399,37 @@
         ],
         "libs": [
             "@maxvue/max-components-ui"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FPPR93JC232GM9B5A",
@@ -1352,7 +3450,37 @@
         "libs": [
             "@maxvue/max-use",
             "Day.js"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-use).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F6TCCATTNQD1F1K3V",
@@ -1370,7 +3498,37 @@
         "frameworks": [
             "Vue.js"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, typescript).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, vue 3).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, vue 3).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FR45GY3Q2E1Y36D87",
@@ -1391,7 +3549,37 @@
         "libs": [
             "ESLint",
             "Stylelint"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, typescript).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, vue 3).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, vue 3).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F736SSZVZDWV8HQ5Q",
@@ -1416,7 +3604,37 @@
             "@maxvue/max-use",
             "Pinia",
             "Vue Router"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, unocss).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FJ4QZKB4R0K2TGM0R",
@@ -1438,7 +3656,37 @@
             "@maxvue/max-components-ui",
             "@maxvue/max-pinia",
             "Pinia"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FPRWYTT588CZRBTYB",
@@ -1458,27 +3706,37 @@
         ],
         "libs": [
             "@maxvue/max-use"
-        ]
-    },
-    {
-        "id": "01M0G4G52FHSY8P8Y6AG6P8QGP",
-        "skill_name": "vue-max-components-ui-development-best-practices",
-        "description_en": "Use when developing, modifying, or creating components within the @maxvue/max-components-ui library. Triggers on changes inside the MaxComponentsUi project, adding new PrimeVue wraps, implementing InputBase wrappers, running generateResolver.ts script, writing tests for UI components using Vitest and @vue/test-utils, or working on the active PrimeVue-independence migration.",
-        "description_pt_br": "Use ao desenvolver, modifying, ou criação de components within the @maxvue/max-components-ui library. Acionado em changes inside the MaxComponentsUi project, adding new PrimeVue wraps, implementing InputBase wrappers, running generateResolver.ts script, escrita de tests para UI components usando Vitest e @vue/test-utils, ou working em the active PrimeVue-independence migration.",
-        "promo_en": "Production-grade frontend standard for max components ui development in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-        "promo_pt_br": "Padrão de excelência frontend para max components ui development em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
-        "repo_name": "max",
-        "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-components-ui-development-best-practices/SKILL.md",
-        "languages": [
-            "JavaScript",
-            "TypeScript"
         ],
-        "frameworks": [
-            "Vue.js"
+        "local_path": "created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-use).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
         ],
-        "libs": [
-            "@maxvue/max-components-ui"
-        ]
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FN919TBC6AS95B5SQ",
@@ -1498,7 +3756,37 @@
         ],
         "libs": [
             "@maxvue/max-components-ui"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-components-ui).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F058W41SS9BH3M23N",
@@ -1521,7 +3809,37 @@
             "@maxvue/max-components-ui",
             "@maxvue/max-pinia",
             "@maxvue/max-use"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, unocss).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FCX379X4PKE3XTT1X",
@@ -1547,7 +3865,37 @@
             "Axios",
             "Pinia",
             "Vue Router"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, unocss).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F35ZFHS7Y30QK1X9N",
@@ -1568,7 +3916,41 @@
         "libs": [
             "@maxvue/max-use",
             "Vitest"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-use).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Sobreposição identificada com 1 skill(s) concorrente(s): [01M0G4G52FHSY8P8Y6AG6P8QGP]."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Duplicidade real confirmada por análise de conteúdo interno com 1 skill(s) concorrente(s). Não devem ser utilizadas juntas."
+            },
+            {
+                "Fase6_Eleicao": "Fase 6 (Eleição): Eleita a MELHOR SKILL do grupo concorrente (ID: 01M0G4G52F35ZFHS7Y30QK1X9N) por maior aderência técnica aos projetos."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": [],
+        "overlaps_best_id": "01M0G4G52F35ZFHS7Y30QK1X9N"
     },
     {
         "id": "01M0G4G52F9X8JJ3EV6AHP7MTG",
@@ -1588,7 +3970,37 @@
         ],
         "libs": [
             "@maxvue/max-use"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-use).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-use).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FD6G89W0Q773PB3KM",
@@ -1610,7 +4022,37 @@
             "@maxvue/max-pinia",
             "Axios",
             "Pinia"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-pinia).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-pinia).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FDY6EWRN5N76EG8NB",
@@ -1631,7 +4073,37 @@
         "libs": [
             "@maxvue/max-pinia",
             "Pinia"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-pinia).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-pinia).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FW4DTJ525TRMKE93A",
@@ -1652,7 +4124,37 @@
         "libs": [
             "Axios",
             "Pinia"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, typescript).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, pinia).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, vue 3).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FBKC0FDXJBMR25V6R",
@@ -1674,7 +4176,37 @@
             "@maxvue/max-components-ui",
             "Pinia",
             "Vue Toastify"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, max-components-ui).), SocialMedia: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, pinia).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-components-ui).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 10
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F0CEX4Y8AWFQVWR1T",
@@ -1694,7 +4226,37 @@
         ],
         "libs": [
             "Pinia"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, efi).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, pinia).), Agentedebolso: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, efi).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 9
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52F7HCNBBVQ423KY0TJ",
@@ -1716,7 +4278,37 @@
         ],
         "libs": [
             "@maxvue/max-components-ui"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, unocss).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, max-components-ui).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, tailwind).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FJ69WE0FRS2ZJTDD0",
@@ -1736,7 +4328,37 @@
         ],
         "libs": [
             "Vitest"
-        ]
+        ],
+        "local_path": "created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, typescript).), SocialMedia: 9 (Excelente alinhamento com pacotes e serviços essenciais (vue, vue 3, pinia).), Agentedebolso: 8 (Forte aderência funcional e técnica (vue, vue 3).). Nota Máxima: 9/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 9/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 9
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 9
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 8
+            }
+        ],
+        "overlaps_ids": []
     },
     {
         "id": "01M0G4G52FFKRZ5RZHFQ5YXYEZ",
@@ -1754,6 +4376,36 @@
         "frameworks": [
             "Vue.js"
         ],
-        "libs": []
+        "libs": [],
+        "local_path": "created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
+        "details": [
+            {
+                "Fase1": "Fase 1 (Filtro): Notas atribuídas - engeapp: 10 (Altíssimo alinhamento direto com a arquitetura core (vue, vue 3, unocss).), SocialMedia: 8 (Forte aderência funcional e técnica (vue, vue 3).), Agentedebolso: 10 (Altíssimo alinhamento direto com a arquitetura core (whatsapp, vue, vue 3).). Nota Máxima: 10/10."
+            },
+            {
+                "Fase2": "Fase 2 (Confirmação): Relevância confirmada com nota máxima 10/10. Mantida no catálogo."
+            },
+            {
+                "Fase4_Duplicidades": "Fase 4 (Duplicidades): Nenhuma sobreposição ou duplicidade detectada no escopo de description_en."
+            },
+            {
+                "Fase5_Refutacao": "Fase 5 (Refutação): Skill única validada. Nenhuma duplicidade concorrente."
+            }
+        ],
+        "importance_in": [
+            {
+                "project": "engeapp",
+                "importance": 10
+            },
+            {
+                "project": "SocialMedia",
+                "importance": 8
+            },
+            {
+                "project": "Agentedebolso",
+                "importance": 10
+            }
+        ],
+        "overlaps_ids": []
     }
 ]

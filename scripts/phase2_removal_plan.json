@@ -1,0 +1,810 @@
+[
+  {
+    "id": "01M0G4G52FFK0NC3SB0NJAH78C",
+    "catalog": "other_skills.json",
+    "skill_name": "django-pro",
+    "local_path": "other_skills/curated-youtube/django-pro/SKILL.md",
+    "description": "Specialized AI agent skill for django pro providing best practices and automated workflows.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD189489RBESVM0T152B",
+    "catalog": "awesome_skills.json",
+    "skill_name": "add-app-clip",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/add-app-clip/SKILL.md",
+    "description": "Add an iOS App Clip target to an Expo app. Use when the user mentions App Clip, AASA, apple-app-site-association, appcli",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BF659FF5JCR1CMA9R",
+    "catalog": "awesome_skills.json",
+    "skill_name": "android_ui_verification",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/android_ui_verification/SKILL.md",
+    "description": "Automated end-to-end UI testing and verification on an Android Emulator using ADB.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1B3QMHKQ43HEFCE0XK",
+    "catalog": "awesome_skills.json",
+    "skill_name": "android-cli",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/android-cli/SKILL.md",
+    "description": "Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnosti",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BGZVD3GVFXW8GWHBC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "android-dev",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/android-dev/SKILL.md",
+    "description": "Production-grade Android app development guide covering native (Kotlin/Java), cross-platform (Flutter, RN, KMM), and hyb",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1B3K9760W8THMKDQMC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "android-jetpack-compose-expert",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/android-jetpack-compose-expert/SKILL.md",
+    "description": "Expert guidance for building modern Android UIs with Jetpack Compose, covering state management, navigation, performance",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BDWQ97B5A5Y36N7RA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "android-ui-journey-testing",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/android-ui-journey-testing/SKILL.md",
+    "description": "XML-specified Android UI journey testing, interactive step execution, assertion verification, and JSON outcome reporting",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BKDSHDSFEZQ4KAGKK",
+    "catalog": "awesome_skills.json",
+    "skill_name": "angular",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/angular/SKILL.md",
+    "description": "Modern Angular (v20+) expert with deep knowledge of Signals, Standalone Components, Zoneless applications, SSR/Hydration",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BTD6JK4QRXYEXQC6V",
+    "catalog": "awesome_skills.json",
+    "skill_name": "angular-best-practices",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/angular-best-practices/SKILL.md",
+    "description": "Angular performance optimization and best practices guide. Use when writing, reviewing, or refactoring Angular code for ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1B602GAKVMX48WT591",
+    "catalog": "awesome_skills.json",
+    "skill_name": "angular-migration",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/angular-migration/SKILL.md",
+    "description": "Master AngularJS to Angular migration, including hybrid apps, component conversion, dependency injection changes, and ro",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BKJAHZ0REWMCET8R5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "angular-state-management",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/angular-state-management/SKILL.md",
+    "description": "Master modern Angular state management with Signals, NgRx, and RxJS. Use when setting up global state, managing componen",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BC4R3Z2JMVVAE1Q6B",
+    "catalog": "awesome_skills.json",
+    "skill_name": "angular-ui-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/angular-ui-patterns/SKILL.md",
+    "description": "Modern Angular UI patterns for loading states, error handling, and data display. Use when building UI components, handli",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1BZAE9CGY79E3ZQWTT",
+    "catalog": "awesome_skills.json",
+    "skill_name": "anti-ui-slop",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/anti-ui-slop/SKILL.md",
+    "description": "Stop coding agents from shipping generic UI with UIZZE's 800,000+ real web and iOS screens, product-specific contracts, ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1CRW0JV5XP8JB01MNY",
+    "catalog": "awesome_skills.json",
+    "skill_name": "aomi-transact",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/aomi-transact/SKILL.md",
+    "description": "Build natural-language crypto/DeFi agents and EVM MCP plugins (Claude Code, Cursor, Codex, Gemini). Aomi turns prompts i",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1EQZMF6ZXYJ6JXDYYX",
+    "catalog": "awesome_skills.json",
+    "skill_name": "audit-skills",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/audit-skills/SKILL.md",
+    "description": "Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identify malicious patterns",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1FTHC7ZHGF8RCK4PKG",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-agents-persistent-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-agents-persistent-dotnet/SKILL.md",
+    "description": "Azure AI Agents Persistent SDK for .NET. Low-level SDK for creating and managing AI agents with threads, messages, runs,",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1GAQG1VBXSVNXT1082",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-document-intelligence-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-document-intelligence-dotnet/SKILL.md",
+    "description": "Azure AI Document Intelligence SDK for .NET. Extract text, tables, and structured data from documents using prebuilt and",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1GVWWAKVM4M3AY85CW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-openai-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-openai-dotnet/SKILL.md",
+    "description": "Azure OpenAI SDK for .NET. Client library for Azure OpenAI and OpenAI services. Use for chat completions, embeddings, im",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1GV173VK0N3FCVDCJQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-projects-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-projects-dotnet/SKILL.md",
+    "description": "Azure AI Projects SDK for .NET. High-level client for Azure AI Foundry projects including agents, connections, datasets,",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1GD1VQNCAY9RWVVKA9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-voicelive-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-voicelive-dotnet/SKILL.md",
+    "description": "Azure AI Voice Live SDK for .NET. Build real-time voice AI applications with bidirectional WebSocket communication.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1HMMRTH4NTE1SMRFD4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-eventgrid-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-eventgrid-dotnet/SKILL.md",
+    "description": "Azure Event Grid SDK for .NET. Client library for publishing and consuming events with Azure Event Grid. Use for event-d",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1HE4GEXFDQBT34BKD5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-eventhub-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-eventhub-dotnet/SKILL.md",
+    "description": "Azure Event Hubs SDK for .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1HPYM6TKKTW16X4AB4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-identity-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-identity-dotnet/SKILL.md",
+    "description": "Azure Identity SDK for .NET. Authentication library for Azure SDK clients using Microsoft Entra ID. Use for DefaultAzure",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1JF8343P13E0TF0EPC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-maps-search-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-maps-search-dotnet/SKILL.md",
+    "description": "Azure Maps SDK for .NET. Location-based services including geocoding, routing, rendering, geolocation, and weather. Use ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1JZNR7TQRS90JSMM8B",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-apicenter-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-apicenter-dotnet/SKILL.md",
+    "description": "Azure API Center SDK for .NET. Centralized API inventory management with governance, versioning, and discovery.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1JQVW6EM5KCDVF7TA5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-apimanagement-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-apimanagement-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for API Management in .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1JKQG830P1D4FPTT3X",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-applicationinsights-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-applicationinsights-dotnet/SKILL.md",
+    "description": "Azure Application Insights SDK for .NET. Application performance monitoring and observability resource management.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1JYCKDESBC0V1TFJWF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-arizeaiobservabilityeval-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-arizeaiobservabilityeval-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Arize AI Observability and Evaluation (.NET).",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1J5RHCB7D44PGJ0GBR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-botservice-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-botservice-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Bot Service in .NET. Management plane operations for creating and managing Azure Bot reso",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1JZD70YJ1C1CSE8ZJS",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-fabric-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-fabric-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Fabric in .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1J9GY6ARZ0EVHV075C",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-mongodbatlas-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-mongodbatlas-dotnet/SKILL.md",
+    "description": "Manage MongoDB Atlas Organizations as Azure ARM resources with unified billing through Azure Marketplace.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1JFPGC5GF6KYVT3ZRB",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-weightsandbiases-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-weightsandbiases-dotnet/SKILL.md",
+    "description": "Azure Weights & Biases SDK for .NET. ML experiment tracking and model management via Azure Marketplace. Use for creating",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KKZ8VMPVVZ7DRZ074",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-resource-manager-cosmosdb-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-resource-manager-cosmosdb-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Cosmos DB in .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KPV8375F0TMNDHB63",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-resource-manager-durabletask-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-resource-manager-durabletask-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Durable Task Scheduler in .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1K6TB9VWDRK77XTSGW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-resource-manager-mysql-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-resource-manager-mysql-dotnet/SKILL.md",
+    "description": "Azure MySQL Flexible Server SDK for .NET. Database management for MySQL Flexible Server deployments.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KXS06X8AWMPG8KNV1",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-resource-manager-playwright-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-resource-manager-playwright-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Microsoft Playwright Testing in .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KCJJZ731PYB10M40T",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-resource-manager-postgresql-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-resource-manager-postgresql-dotnet/SKILL.md",
+    "description": "Azure PostgreSQL Flexible Server SDK for .NET. Database management for PostgreSQL Flexible Server deployments.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KDT8H0SVKBQQK939G",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-resource-manager-redis-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-resource-manager-redis-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Redis in .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KWPYXFTGE914PCVPF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-resource-manager-sql-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-resource-manager-sql-dotnet/SKILL.md",
+    "description": "Azure Resource Manager SDK for Azure SQL in .NET.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KCJFFAM1ZY5BSEXFY",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-search-documents-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-search-documents-dotnet/SKILL.md",
+    "description": "Azure AI Search SDK for .NET (Azure.Search.Documents). Use for building search applications with full-text, vector, sema",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1K2FBZV6J5542488KS",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-security-keyvault-keys-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-security-keyvault-keys-dotnet/SKILL.md",
+    "description": "Azure Key Vault Keys SDK for .NET. Client library for managing cryptographic keys in Azure Key Vault and Managed HSM. Us",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1KD7C1RBJKRQ3XMY8V",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-servicebus-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-servicebus-dotnet/SKILL.md",
+    "description": "Azure Service Bus SDK for .NET. Enterprise messaging with queues, topics, subscriptions, and sessions.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1NWYAZHMJMN5ZMJYAR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "binary-analysis-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/binary-analysis-patterns/SKILL.md",
+    "description": "Comprehensive patterns and techniques for analyzing compiled binaries, understanding assembly code, and reconstructing p",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1N573K14CE070ANN2Y",
+    "catalog": "awesome_skills.json",
+    "skill_name": "blockchain-developer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/blockchain-developer/SKILL.md",
+    "description": "Build production-ready Web3 applications, smart contracts, and decentralized systems. Implements DeFi protocols, NFT pla",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1N8J2S3MGCF09XT524",
+    "catalog": "awesome_skills.json",
+    "skill_name": "boost-asio-pro",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/boost-asio-pro/SKILL.md",
+    "description": "Use when writing asynchronous C++ networking code with Boost.Asio or standalone Asio — TCP/UDP servers and clients, SSL/",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1Y9Q31WAYWYMM4AA80",
+    "catalog": "awesome_skills.json",
+    "skill_name": "csharp",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/csharp/SKILL.md",
+    "description": "Language-specific super-code guidelines for csharp.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1YFJ6D9KGAP3CP7Z5N",
+    "catalog": "awesome_skills.json",
+    "skill_name": "csharp-pro",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/csharp-pro/SKILL.md",
+    "description": "Write modern C# code with advanced features like records, pattern matching, and async/await. Optimizes .NET applications",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD1YHZ12QS57JJZDPVWT",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dart",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/dart/SKILL.md",
+    "description": "Language-specific super-code guidelines for dart.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD21K1P6QGG0X5XJ6P45",
+    "catalog": "awesome_skills.json",
+    "skill_name": "diagnose-android-overheating",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/diagnose-android-overheating/SKILL.md",
+    "description": "Use when diagnosing Android overheating, idle heat, thermal throttling, charging or radio heat, or abnormal battery drai",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD22BY70Q5XGTKPD42WR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "django-access-review",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/django-access-review/SKILL.md",
+    "description": "django-access-review",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD22KXFY9VBNYZK9PFPM",
+    "catalog": "awesome_skills.json",
+    "skill_name": "django-perf-review",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/django-perf-review/SKILL.md",
+    "description": "Django performance code review. Use when asked to \"review Django performance\", \"find N+1 queries\", \"optimize Django\", \"c",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD22Y7Y3DXNDCC7XVRYM",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dotnet-architect",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/dotnet-architect/SKILL.md",
+    "description": "Expert .NET backend architect specializing in C#, ASP.NET Core, Entity Framework, Dapper, and enterprise application pat",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD22PJG2B9AH2V9QC7EV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dotnet-backend",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/dotnet-backend/SKILL.md",
+    "description": "Build ASP.NET Core 8+ backend services with EF Core, auth, background jobs, and production API patterns.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2241PMT1GHYJZ2WRFK",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dotnet-backend-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/dotnet-backend-patterns/SKILL.md",
+    "description": "Master C#/.NET patterns for building production-grade APIs, MCP servers, and enterprise backends with modern best practi",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2372DZQNKN4X0WG3D1",
+    "catalog": "awesome_skills.json",
+    "skill_name": "earllm-build",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/earllm-build/SKILL.md",
+    "description": "Build, maintain, and extend the EarLLM One Android project — a Kotlin/Compose app that connects Bluetooth earbuds to an ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD23CGH8DR3BMV1PB78P",
+    "catalog": "awesome_skills.json",
+    "skill_name": "emblemai-crypto-wallet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/emblemai-crypto-wallet/SKILL.md",
+    "description": "Crypto wallet management across 7 blockchains via EmblemAI Agent Hustle API. Balance checks, token swaps, portfolio anal",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD24FT49NF38YQ2Z73FW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "engine-selection",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/game-development/engine-selection/SKILL.md",
+    "description": "Selects game engines and frameworks by platform, genre, and architecture (full canvas shell vs hybrid DOM shell + guest ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD25WNB3MN498M3R4CZ1",
+    "catalog": "awesome_skills.json",
+    "skill_name": "expo-brownfield",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/expo-brownfield/SKILL.md",
+    "description": "Integrate Expo and React Native into an existing native iOS or Android app. Use when the user mentions brownfield, embed",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD25TBR60XJ0RN23KF4J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "expo-deployment",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/expo-deployment/SKILL.md",
+    "description": "Deploy Expo apps to production with EAS — build and submit to the iOS App Store, Google Play Store, and TestFlight, conf",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD25CT5BB5EHWG9KRNTX",
+    "catalog": "awesome_skills.json",
+    "skill_name": "expo-ui",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/expo-ui/SKILL.md",
+    "description": "Build native UI with the @expo/ui package: real SwiftUI on iOS and Jetpack Compose on Android rendered from React in an ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD25FNM6KJ2KHXZGC1W3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "expo-ui-jetpack-compose",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/expo-ui-jetpack-compose/SKILL.md",
+    "description": "expo-ui-jetpack-compose",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD252XVT437MDPY511VT",
+    "catalog": "awesome_skills.json",
+    "skill_name": "expo-ui-swift-ui",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/expo-ui-swift-ui/SKILL.md",
+    "description": "expo-ui-swift-ui",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD27VWGT8HFN8BKAXK45",
+    "catalog": "awesome_skills.json",
+    "skill_name": "flutter-expert",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/flutter-expert/SKILL.md",
+    "description": "Master Flutter development with Dart 3, advanced widgets, and multi-platform deployment.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD289QM51T9GG9H5GKVE",
+    "catalog": "awesome_skills.json",
+    "skill_name": "game-development",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/game-development/SKILL.md",
+    "description": "Game development orchestrator. Routes by platform, dimension, and engine fit (web 2D/3D, hybrid DOM+canvas, narrative to",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2A58V8A896ZW63M1HP",
+    "catalog": "awesome_skills.json",
+    "skill_name": "godot-4-migration",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/godot-4-migration/SKILL.md",
+    "description": "Specialized guide for migrating Godot 3.x projects to Godot 4 (GDScript 2.0), covering syntax changes, Tweens, and expor",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2A6T7CQXA42KMP1YK9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "godot-gdscript-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/godot-gdscript-patterns/SKILL.md",
+    "description": "Master Godot 4 GDScript patterns including signals, scenes, state machines, and optimization. Use when building Godot ga",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2DNPV6AK2ZGSTQ2CN7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "huggingface-local-models",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/huggingface-local-models/SKILL.md",
+    "description": "Use to select models to run locally with llama.cpp and GGUF on CPU, Mac Metal, CUDA, or ROCm. Covers finding GGUFs, quan",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2FS05HTDQ4VEY10RQ4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ios-debugger-agent",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ios-debugger-agent/SKILL.md",
+    "description": "Debug the current iOS project on a booted simulator with XcodeBuildMCP.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2FEDT7ZPYB16YYZ7MR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ios-developer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ios-developer/SKILL.md",
+    "description": "Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, SwiftUI, UIKit integration, Core Data, networking, a",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2GBHQZ1RA402HQWGJA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "kotlin",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/kotlin/SKILL.md",
+    "description": "Language-specific super-code guidelines for kotlin.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2GQMDJY5MR5AWV2CXB",
+    "catalog": "awesome_skills.json",
+    "skill_name": "kotlin-coroutines-expert",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/kotlin-coroutines-expert/SKILL.md",
+    "description": "Expert patterns for Kotlin Coroutines and Flow, covering structured concurrency, error handling, and testing.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2KMZSK2DP2XR7R4687",
+    "catalog": "awesome_skills.json",
+    "skill_name": "m365-agents-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/m365-agents-dotnet/SKILL.md",
+    "description": "Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with ASP.NET Core hosting, Ag",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2KZYDP2HVF51M0MCWA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "macos-menubar-tuist-app",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/macos-menubar-tuist-app/SKILL.md",
+    "description": "Build, refactor, or review SwiftUI macOS menubar apps that use Tuist.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2KC9VF8R7K60HWBWKJ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "macos-screen-recorder",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/macos-screen-recorder/SKILL.md",
+    "description": "macOS screen recorder that captures the main display PLUS system audio via ScreenCaptureKit — no BlackHole/loopback driv",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2K15E7RBCDF3Z33FZX",
+    "catalog": "awesome_skills.json",
+    "skill_name": "macos-spm-app-packaging",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/macos-spm-app-packaging/SKILL.md",
+    "description": "Scaffold, build, sign, and package SwiftPM macOS apps without Xcode projects.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2ME54WX8J9DN2SMPBG",
+    "catalog": "awesome_skills.json",
+    "skill_name": "makepad-deployment",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/makepad-deployment/SKILL.md",
+    "description": "CRITICAL: Use for Makepad packaging and deployment. Triggers on:\ndeploy, package, APK, IPA, 打包, 部署,\ncargo-packager, carg",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2MF3TCEDKDN94C02FP",
+    "catalog": "awesome_skills.json",
+    "skill_name": "makepad-platform",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/makepad-platform/SKILL.md",
+    "description": "CRITICAL: Use for Makepad cross-platform support. Triggers on:\nmakepad platform, makepad os, makepad macos, makepad wind",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2NH27JECGF23181H60",
+    "catalog": "awesome_skills.json",
+    "skill_name": "markstream-angular",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-angular/SKILL.md",
+    "description": "Integrate the alpha markstream-angular renderer into Angular 20+ applications with standalone components, signals, safe ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2NKXAW9WCSRY200RYN",
+    "catalog": "awesome_skills.json",
+    "skill_name": "markstream-svelte",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-svelte/SKILL.md",
+    "description": "Integrate the beta markstream-svelte renderer into Svelte 5 or SvelteKit with runes, explicit CSS, smooth streaming, wor",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2P4NESGBWDMH1R3R4A",
+    "catalog": "awesome_skills.json",
+    "skill_name": "microsoft-azure-webjobs-extensions-authentication-events-dotnet",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/microsoft-azure-webjobs-extensions-authentication-events-dotnet/SKILL.md",
+    "description": "Microsoft Entra Authentication Events SDK for .NET. Azure Functions triggers for custom authentication extensions.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD2P7J45Q7GTPP9Q9WH2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "mobile-developer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/mobile-developer/SKILL.md",
+    "description": "Develop React Native, Flutter, or native mobile apps with modern architecture patterns. Masters cross-platform developme",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD30S7G1GH7E3AR59NK2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "python-development",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/python-development/SKILL.md",
+    "description": "You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD30PX4DQZNRV4T8NBEE",
+    "catalog": "awesome_skills.json",
+    "skill_name": "python-development-python-scaffold",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/python-development-python-scaffold/SKILL.md",
+    "description": "You are a Python project architecture expert specializing in scaffolding production-ready Python applications. Generate ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD39C3DS45JV01RTN0F7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "solidity-security",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/solidity-security/SKILL.md",
+    "description": "Master smart contract security best practices, vulnerability prevention, and secure Solidity development patterns.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3BY624SSH87BKWTXC3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "swift",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/swift/SKILL.md",
+    "description": "Language-specific super-code guidelines for swift.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3BE8HNV1ZPQ9D97CQC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "swift-concurrency-expert",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/swift-concurrency-expert/SKILL.md",
+    "description": "Review and fix Swift concurrency issues such as actor isolation and Sendable violations.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3BQGV3M26D0KPN0ZNC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "swiftui-expert-skill",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/swiftui-expert-skill/SKILL.md",
+    "description": "Use when writing, reviewing, or refactoring SwiftUI code for iOS or macOS, including state management and `@Observable` ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3BJ5RCF1932N60T5VC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "swiftui-liquid-glass",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/swiftui-liquid-glass/SKILL.md",
+    "description": "Implement or review SwiftUI Liquid Glass APIs with correct fallbacks and modifier order.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3BYC8HNWRRCK8TJD5X",
+    "catalog": "awesome_skills.json",
+    "skill_name": "swiftui-performance-audit",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/swiftui-performance-audit/SKILL.md",
+    "description": "Audit SwiftUI performance issues from code review and profiling evidence.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3B5D4KY1740BJM3W6A",
+    "catalog": "awesome_skills.json",
+    "skill_name": "swiftui-ui-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/swiftui-ui-patterns/SKILL.md",
+    "description": "Apply proven SwiftUI UI patterns for navigation, sheets, async state, and reusable screens.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3BA5B87FASXM3VWWPJ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "swiftui-view-refactor",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/swiftui-view-refactor/SKILL.md",
+    "description": "Refactor SwiftUI views into smaller components with stable, explicit data flow.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3F5RP10FXQJZCQYP9K",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ui-slop-score",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ui-slop-score/SKILL.md",
+    "description": "Score a rendered web or iOS screen for generic UI risk before it ships. Use when a user asks whether a UI looks generic ",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3FYS6HY7KYZSJHY98V",
+    "catalog": "awesome_skills.json",
+    "skill_name": "uizze-ui-research",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/uizze-ui-research/SKILL.md",
+    "description": "Use when building or reviewing web and iOS UI and you need real references from the free UIZZE public catalog, a structu",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3FNM892X2RZBBCVEP3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "unity-ai-game-creator",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/unity-ai-game-creator/SKILL.md",
+    "description": "Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene blueprints, music/SFX prom",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3F39D11719D6J99V7T",
+    "catalog": "awesome_skills.json",
+    "skill_name": "unity-developer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/unity-developer/SKILL.md",
+    "description": "Build Unity games with optimized C# scripts, efficient rendering, and proper asset management. Masters Unity 6 LTS, URP/",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3FNECBEB8QX32ZQPC9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "unity-ecs-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/unity-ecs-patterns/SKILL.md",
+    "description": "Production patterns for Unity's Data-Oriented Technology Stack (DOTS) including Entity Component System, Job System, and",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3G8WE4SSN972PJZ1KX",
+    "catalog": "awesome_skills.json",
+    "skill_name": "unreal-engine-cpp-pro",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/unreal-engine-cpp-pro/SKILL.md",
+    "description": "Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3GW8JJ1DN1S3ANS461",
+    "catalog": "awesome_skills.json",
+    "skill_name": "update-swiftui-apis",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/update-swiftui-apis/SKILL.md",
+    "description": "Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with modern replacements. Use",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3JAHD88A2TXFSXD8HJ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "web3-testing",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/web3-testing/SKILL.md",
+    "description": "Master comprehensive testing strategies for smart contracts using Hardhat, Foundry, and advanced testing patterns.",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3K0FBR0900GCH0WC68",
+    "catalog": "awesome_skills.json",
+    "skill_name": "widget-based-design",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/widget-based-design/SKILL.md",
+    "description": "Web and App implementation guide for Widget-Based Design. Trigger when user wants modular blocks, iOS Home Screen aesthe",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  },
+  {
+    "id": "01M0GCFD3NSFFGDF89XQ79KX53",
+    "catalog": "awesome_skills.json",
+    "skill_name": "zeroize-audit",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/zeroize-audit/SKILL.md",
+    "description": "Detects missing zeroization of sensitive data in source code and identifies zeroization removed by compiler optimization",
+    "reason": "Tecnologia/domínio incompatível com a stack PHP/Laravel + Vue 3 + TS do ecossistema."
+  }
+]

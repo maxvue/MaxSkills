@@ -1,0 +1,2981 @@
+[
+  {
+    "id": "01M0GCFD3F39P5PTXGT35BTE7H",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ui-setup",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ui-setup/SKILL.md",
+    "best_id": "01M0G4G52FM2QXVR4AZP8HS2XR",
+    "best_name": "project-setup",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [index.json] project-setup."
+  },
+  {
+    "id": "01M0GCFD37DB7ANDGZHKZP6G22",
+    "catalog": "awesome_skills.json",
+    "skill_name": "setup-help",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/setup-help/SKILL.md",
+    "best_id": "01M0G4G52FM2QXVR4AZP8HS2XR",
+    "best_name": "project-setup",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [index.json] project-setup."
+  },
+  {
+    "id": "01M0G4G52FBQ06VE4HY7HGXBEW",
+    "catalog": "index.json",
+    "skill_name": "python-concessionarias-automation-best-practices",
+    "local_path": "created-skills/python-automation/python-concessionarias-automation-best-practices/SKILL.md",
+    "best_id": "01M0G4G52FV8AC72Q93QPP5PPE",
+    "best_name": "python-concessionarias-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] python-concessionarias-automation."
+  },
+  {
+    "id": "01M0G4G52FBKP8E6N9AP4K3RB9",
+    "catalog": "other_skills.json",
+    "skill_name": "systematic-debugging",
+    "local_path": "other_skills/curated-youtube/systematic-debugging/SKILL.md",
+    "best_id": "01M0G4G52FGT31WKMJ1B9SRF3B",
+    "best_name": "systematic-debugging-best-practices",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [index.json] systematic-debugging-best-practices."
+  },
+  {
+    "id": "01M0GCFD1T3SED27G3D4NQEYC2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "code-showcase-systematic-debugging",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/code-showcase-systematic-debugging/SKILL.md",
+    "best_id": "01M0G4G52FGT31WKMJ1B9SRF3B",
+    "best_name": "systematic-debugging-best-practices",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [index.json] systematic-debugging-best-practices."
+  },
+  {
+    "id": "01M0G4G52FEG48KKZ383TGPX52",
+    "catalog": "other_skills.json",
+    "skill_name": "technical-documentation",
+    "local_path": "other_skills/curated-youtube/technical-documentation/SKILL.md",
+    "best_id": "01M0G4G52FEQE51DMZ9YKMEYCA",
+    "best_name": "technical-documentation-best-practices",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [index.json] technical-documentation-best-practices."
+  },
+  {
+    "id": "01M0GCFD3EC7HME73YP75JDZ00",
+    "catalog": "awesome_skills.json",
+    "skill_name": "typescript-advanced-types",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/typescript-advanced-types/SKILL.md",
+    "best_id": "01M0G4G52F477ME1WMWZNJDX3J",
+    "best_name": "typescript-advanced-types-best-practices",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [index.json] typescript-advanced-types-best-practices."
+  },
+  {
+    "id": "01M0G4G52FHSY8P8Y6AG6P8QGP",
+    "catalog": "index.json",
+    "skill_name": "vue-max-components-ui-development-best-practices",
+    "local_path": "created-skills/frontEnd/vue-max-components-ui-development-best-practices/SKILL.md",
+    "best_id": "01M0G4G52F35ZFHS7Y30QK1X9N",
+    "best_name": "vue-max-use-development-best-practices",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [index.json] vue-max-use-development-best-practices."
+  },
+  {
+    "id": "01M0GCFD388HFDP9WE32PHWZ31",
+    "catalog": "awesome_skills.json",
+    "skill_name": "skill-creator-ms",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/skill-creator-ms/SKILL.md",
+    "best_id": "01M0G4G52FCRTTHSA4Z23Q336F",
+    "best_name": "skill-creator",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] skill-creator."
+  },
+  {
+    "id": "01M0GCFD1S39XQTYVSPF7X3XG7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "code-review-ai-ai-review",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/code-review-ai-ai-review/SKILL.md",
+    "best_id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
+    "best_name": "code-review",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] code-review."
+  },
+  {
+    "id": "01M0GCFD3FEB49NJFJ97M0ZMN3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ui-review",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ui-review/SKILL.md",
+    "best_id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
+    "best_name": "code-review",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] code-review."
+  },
+  {
+    "id": "01M0GCFD2X5KJSJ1ZTR7TZ55YC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "performance-testing-review-ai-review",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/performance-testing-review-ai-review/SKILL.md",
+    "best_id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
+    "best_name": "code-review",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] code-review."
+  },
+  {
+    "id": "01M0GCFD3GH9TJ78AF1VYH4KQ3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "using-superpowers",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/using-superpowers/SKILL.md",
+    "best_id": "01M0G4G52FVBQNA612AE7T78GH",
+    "best_name": "superpowers",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] superpowers."
+  },
+  {
+    "id": "01M0GCFD37S6KC5ZZF7BRP3VJR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "shadcn",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/shadcn/SKILL.md",
+    "best_id": "01M0G4G52FASG08WQAJCM01AT2",
+    "best_name": "shadcn-ui",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] shadcn-ui."
+  },
+  {
+    "id": "01M0GCFD2554A452TZCY0JP0TB",
+    "catalog": "awesome_skills.json",
+    "skill_name": "fastapi-pro",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/fastapi-pro/SKILL.md",
+    "best_id": "01M0G4G52F1C753JPHMPTS9EMK",
+    "best_name": "fastapi-templates",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] fastapi-templates."
+  },
+  {
+    "id": "01M0G4G52F5K1CDG8SC52QJVP9",
+    "catalog": "other_skills.json",
+    "skill_name": "ais-os",
+    "local_path": "other_skills/curated-youtube/ais-os/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FPAF7NXX28YZW5QWG",
+    "catalog": "other_skills.json",
+    "skill_name": "e2e-testing-patterns",
+    "local_path": "other_skills/curated-youtube/e2e-testing-patterns/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F7JJDSHVVZEMSBEFR",
+    "catalog": "other_skills.json",
+    "skill_name": "code-refactoring",
+    "local_path": "other_skills/curated-youtube/code-refactoring/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FGKVZ0F7H7ETQ12B1",
+    "catalog": "other_skills.json",
+    "skill_name": "document-skills",
+    "local_path": "other_skills/curated-youtube/document-skills/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F7GJH34QTMX9Q6WTE",
+    "catalog": "other_skills.json",
+    "skill_name": "claude-api",
+    "local_path": "other_skills/curated-youtube/claude-api/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FANN9BZTTSSHYFNZK",
+    "catalog": "other_skills.json",
+    "skill_name": "vibe-to-spec",
+    "local_path": "other_skills/curated-youtube/vibe-to-spec/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F6MFSCRGE7KZ27HSN",
+    "catalog": "other_skills.json",
+    "skill_name": "terraform-skill",
+    "local_path": "other_skills/curated-youtube/terraform-skill/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FS49WVEBA5YQ7MZJB",
+    "catalog": "other_skills.json",
+    "skill_name": "static-analysis-and-linting",
+    "local_path": "other_skills/curated-youtube/static-analysis-and-linting/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FECGJ2KD891NSKYV9",
+    "catalog": "other_skills.json",
+    "skill_name": "workflow-automation",
+    "local_path": "other_skills/curated-youtube/workflow-automation/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F3SRQWXBDZMGMN6EC",
+    "catalog": "other_skills.json",
+    "skill_name": "agents-md",
+    "local_path": "other_skills/curated-youtube/agents-md/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F8ZRPGN8NMN2MDZ5B",
+    "catalog": "other_skills.json",
+    "skill_name": "database-migrations",
+    "local_path": "other_skills/curated-youtube/database-migrations/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FZR92M0YQPQ6GP7GA",
+    "catalog": "other_skills.json",
+    "skill_name": "api-testing-mock",
+    "local_path": "other_skills/curated-youtube/api-testing-mock/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FCM9MZ8V37A6W1RNW",
+    "catalog": "other_skills.json",
+    "skill_name": "fullstack-scaffolder",
+    "local_path": "other_skills/curated-youtube/fullstack-scaffolder/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FSMRJV3XMA8SHWNC8",
+    "catalog": "other_skills.json",
+    "skill_name": "marketing-copy-generator",
+    "local_path": "other_skills/curated-youtube/marketing-copy-generator/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FJ41WHT0JD7W7VH61",
+    "catalog": "other_skills.json",
+    "skill_name": "n8n-webhook-automation",
+    "local_path": "other_skills/curated-youtube/n8n-webhook-automation/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F4Z3FNZVNF5678NBN",
+    "catalog": "other_skills.json",
+    "skill_name": "nextjs-app-router",
+    "local_path": "other_skills/curated-youtube/nextjs-app-router/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F1F45ZSJZNSWZJ002",
+    "catalog": "other_skills.json",
+    "skill_name": "design-system-tokens",
+    "local_path": "other_skills/curated-youtube/design-system-tokens/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FF1ZWWGP3EXWMHRXH",
+    "catalog": "other_skills.json",
+    "skill_name": "figma-to-code",
+    "local_path": "other_skills/curated-youtube/figma-to-code/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FVB482W6EPGBXGXPV",
+    "catalog": "other_skills.json",
+    "skill_name": "pixel-perfect-ui",
+    "local_path": "other_skills/curated-youtube/pixel-perfect-ui/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FYT3CZ23JQSYW385K",
+    "catalog": "other_skills.json",
+    "skill_name": "lucide-icons",
+    "local_path": "other_skills/curated-youtube/lucide-icons/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FMVG4CBAN01J1M82S",
+    "catalog": "other_skills.json",
+    "skill_name": "backend-architect",
+    "local_path": "other_skills/curated-youtube/backend-architect/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F3SRX4CKY8TK6YARN",
+    "catalog": "other_skills.json",
+    "skill_name": "sql-sentinel",
+    "local_path": "other_skills/curated-youtube/sql-sentinel/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F6K0HHC22K4JC6PM5",
+    "catalog": "other_skills.json",
+    "skill_name": "postgres-best-practices",
+    "local_path": "other_skills/curated-youtube/postgres-best-practices/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FAZ2EZBWSTRFKD82K",
+    "catalog": "other_skills.json",
+    "skill_name": "kubernetes-architect",
+    "local_path": "other_skills/curated-youtube/kubernetes-architect/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FEZQ5BVAY2QKSEFHV",
+    "catalog": "other_skills.json",
+    "skill_name": "gcp-cloud-run",
+    "local_path": "other_skills/curated-youtube/gcp-cloud-run/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FQHRSR36TQ5RRWA8M",
+    "catalog": "other_skills.json",
+    "skill_name": "aws-serverless",
+    "local_path": "other_skills/curated-youtube/aws-serverless/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FNQC5NB0ZEW17XXCZ",
+    "catalog": "other_skills.json",
+    "skill_name": "verification-before-completion",
+    "local_path": "other_skills/curated-youtube/verification-before-completion/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F69JCBK3ES7RH56CB",
+    "catalog": "other_skills.json",
+    "skill_name": "project-memory-manager",
+    "local_path": "other_skills/curated-youtube/project-memory-manager/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FE9JS25WSWZA38TPF",
+    "catalog": "other_skills.json",
+    "skill_name": "changelog-generator",
+    "local_path": "other_skills/curated-youtube/changelog-generator/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FQW6YR9VYJTQ7PHPW",
+    "catalog": "other_skills.json",
+    "skill_name": "auto-commenter",
+    "local_path": "other_skills/curated-youtube/auto-commenter/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F9NV7JMDYFSRKNXTE",
+    "catalog": "other_skills.json",
+    "skill_name": "enterprise-agent-routing",
+    "local_path": "other_skills/curated-youtube/enterprise-agent-routing/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F83XWWXZQTFHZCC8H",
+    "catalog": "other_skills.json",
+    "skill_name": "cmux",
+    "local_path": "other_skills/curated-youtube/cmux/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FD2HR91SGSCCEA8FE",
+    "catalog": "other_skills.json",
+    "skill_name": "docx",
+    "local_path": "other_skills/curated-youtube/docx/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F4Y1VJKPPECPTCGM7",
+    "catalog": "other_skills.json",
+    "skill_name": "pdf",
+    "local_path": "other_skills/curated-youtube/pdf/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FXYCE5PM8JXBPE6JT",
+    "catalog": "other_skills.json",
+    "skill_name": "llm-prompt-optimizer",
+    "local_path": "other_skills/curated-youtube/llm-prompt-optimizer/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FJD9C3R5VZMVJXG8J",
+    "catalog": "other_skills.json",
+    "skill_name": "deepseek-reasoner-harness",
+    "local_path": "other_skills/curated-youtube/deepseek-reasoner-harness/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FRPQ6RKRSD7JVYA5M",
+    "catalog": "other_skills.json",
+    "skill_name": "claude-code-hooks",
+    "local_path": "other_skills/curated-youtube/claude-code-hooks/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F4WMBQJYAM9Y7GAXT",
+    "catalog": "other_skills.json",
+    "skill_name": "autoresearch-self-annealing",
+    "local_path": "other_skills/curated-youtube/autoresearch-self-annealing/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FSJ5FECY4DYXB29TG",
+    "catalog": "other_skills.json",
+    "skill_name": "python-tool-executor",
+    "local_path": "other_skills/curated-youtube/python-tool-executor/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FHQ36908PJ8G6PSN3",
+    "catalog": "other_skills.json",
+    "skill_name": "aios-agent-layer",
+    "local_path": "other_skills/curated-youtube/aios-agent-layer/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FJDPZ7YR2TGVZTWVA",
+    "catalog": "other_skills.json",
+    "skill_name": "loop-engineering",
+    "local_path": "other_skills/curated-youtube/loop-engineering/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FMCAG9T1SZAB8Y0J0",
+    "catalog": "other_skills.json",
+    "skill_name": "data-science-eda",
+    "local_path": "other_skills/curated-youtube/data-science-eda/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F4Y9SYVTAQGJ6KB5E",
+    "catalog": "other_skills.json",
+    "skill_name": "python-dependency-manager",
+    "local_path": "other_skills/curated-youtube/python-dependency-manager/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FW5FYCCE19G8GGK6M",
+    "catalog": "other_skills.json",
+    "skill_name": "landing-page-generator",
+    "local_path": "other_skills/curated-youtube/landing-page-generator/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FAFJGK4N7R0PNQC67",
+    "catalog": "other_skills.json",
+    "skill_name": "builder-visual-copilot",
+    "local_path": "other_skills/curated-youtube/builder-visual-copilot/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FVY4EYMFZQ7C08QZH",
+    "catalog": "other_skills.json",
+    "skill_name": "microservices-patterns",
+    "local_path": "other_skills/curated-youtube/microservices-patterns/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F316FSX9EAYHEE40D",
+    "catalog": "other_skills.json",
+    "skill_name": "bigquery-sql",
+    "local_path": "other_skills/curated-youtube/bigquery-sql/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FEMNP5MK9SH34TAC0",
+    "catalog": "other_skills.json",
+    "skill_name": "gcp-data-pipelines",
+    "local_path": "other_skills/curated-youtube/gcp-data-pipelines/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FPT34P9RB5PVJPW1D",
+    "catalog": "other_skills.json",
+    "skill_name": "graphify",
+    "local_path": "other_skills/curated-youtube/graphify/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52FMMGCXXNNJXGRCFSG",
+    "catalog": "other_skills.json",
+    "skill_name": "obsidian-sync",
+    "local_path": "other_skills/curated-youtube/obsidian-sync/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0G4G52F7KGFWPWDHATEYVX9",
+    "catalog": "other_skills.json",
+    "skill_name": "ai-productivity-pack",
+    "local_path": "other_skills/curated-youtube/ai-productivity-pack/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0GCFD1ACXZ4YFY4TX2H0WHR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "agents-v2-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/agents-v2-py/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0GCFD1CBGNS6Z9HGK9F96KW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "api-testing-observability-api-mock",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/api-testing-observability-api-mock/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0GCFD2SZMP5JEAVM2KTEKH5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "nextjs-app-router-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/nextjs-app-router-patterns/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0GCFD2CJZZRTNWQWM8K0G9K",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hosted-agents-v2-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hosted-agents-v2-py/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0GCFD319V4015K9HZNG4AXF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "react-nextjs-development",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/react-nextjs-development/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0GCFD2CK92QHVJ19SZXDFD9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hosted-agents",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hosted-agents/SKILL.md",
+    "best_id": "01M0G4G52FHV0YSD6V1ZJMX69R",
+    "best_name": "vue-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [other_skills.json] vue-components."
+  },
+  {
+    "id": "01M0GCFD18QYZZFC7MBDN8KJ6X",
+    "catalog": "awesome_skills.json",
+    "skill_name": "3d-games",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/game-development/3d-games/SKILL.md",
+    "best_id": "01M0GCFD179VKDN5EZRHMKKJBR",
+    "best_name": "2d-games",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] 2d-games."
+  },
+  {
+    "id": "01M0GCFD2WGGR963JH66SNBRCK",
+    "catalog": "awesome_skills.json",
+    "skill_name": "pc-games",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/game-development/pc-games/SKILL.md",
+    "best_id": "01M0GCFD179VKDN5EZRHMKKJBR",
+    "best_name": "2d-games",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] 2d-games."
+  },
+  {
+    "id": "01M0GCFD3D2F3J33BMT2F8GZZ4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "testing-qa",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/testing-qa/SKILL.md",
+    "best_id": "01M0GCFD18KWQT3TFSW2CRN77T",
+    "best_name": "ab-testing",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] ab-testing."
+  },
+  {
+    "id": "01M0GCFD23ZEY8W9JW70W05SZ4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "e2e-testing",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/e2e-testing/SKILL.md",
+    "best_id": "01M0GCFD18KWQT3TFSW2CRN77T",
+    "best_name": "ab-testing",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] ab-testing."
+  },
+  {
+    "id": "01M0GCFD180FT6T9585HYAVKT9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "activecampaign-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/activecampaign-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1AYB7Y8Y3MH0GKGQDK",
+    "catalog": "awesome_skills.json",
+    "skill_name": "airtable-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/airtable-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1BWZ5NEPDGGERSB7JY",
+    "catalog": "awesome_skills.json",
+    "skill_name": "amplitude-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/amplitude-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1EJS2HE65JGDFGH3F7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "asana-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/asana-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1ME3A1CRZM02EXV38Y",
+    "catalog": "awesome_skills.json",
+    "skill_name": "basecamp-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/basecamp-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1Q3AP423JBZSXZKXAF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "cal-com-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/cal-com-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1QGW57TVDD6W5RXW6V",
+    "catalog": "awesome_skills.json",
+    "skill_name": "canva-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/canva-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1SW3AW2MQBAGBTQ05J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "close-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/close-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1S9ZG9AXQ4QEVAGJ41",
+    "catalog": "awesome_skills.json",
+    "skill_name": "coda-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/coda-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1WZ5WXVSX31MN91KV7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "convertkit-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/convertkit-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1Z0MRYZ0JFGM37RWJR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "datadog-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/datadog-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD21J9NRBY73AJJVTT5D",
+    "catalog": "awesome_skills.json",
+    "skill_name": "discord-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/discord-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2282YSQKWGMZ4X6AWY",
+    "catalog": "awesome_skills.json",
+    "skill_name": "docusign-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/docusign-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD267J9MD4015M716142",
+    "catalog": "awesome_skills.json",
+    "skill_name": "figma-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/figma-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD283VKJ33FGMAAV900W",
+    "catalog": "awesome_skills.json",
+    "skill_name": "freshdesk-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/freshdesk-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2A2MGSW3FT8MQDW0Q1",
+    "catalog": "awesome_skills.json",
+    "skill_name": "google-analytics-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/google-analytics-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2BVAVDQHGFN09HQGN8",
+    "catalog": "awesome_skills.json",
+    "skill_name": "helpdesk-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/helpdesk-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2FEW0FSQM5E8CSENC7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "instagram-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/instagram-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2F5GMHYJ5JPWZ9PEDZ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "intercom-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/intercom-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2G1GV46043YBWJN3GW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "jira-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/jira-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2GSKJCKFZDNVDVADB0",
+    "catalog": "awesome_skills.json",
+    "skill_name": "klaviyo-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/klaviyo-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2HAFPPM3X5KQ5DSWE5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "linear-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/linear-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2J3FY2DHF1SXFPMFNT",
+    "catalog": "awesome_skills.json",
+    "skill_name": "linkedin-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/linkedin-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2M4E4DA32V1N8MVGD3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "make-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/make-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2PFR32STVB52PR20NW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "microsoft-teams-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/microsoft-teams-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2PRXTZNV8WW54TW72P",
+    "catalog": "awesome_skills.json",
+    "skill_name": "miro-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/miro-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2ST0SX2H381SARMX9C",
+    "catalog": "awesome_skills.json",
+    "skill_name": "notion-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/notion-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2WERH90DY1X4QFJ10J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "outlook-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/outlook-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2WNDBYVZ5E1XQ4H2R3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "outlook-calendar-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/outlook-calendar-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2WVTQM9P41370YAF5Q",
+    "catalog": "awesome_skills.json",
+    "skill_name": "pagerduty-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/pagerduty-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2Y8FXV35F3WTQ7NAPM",
+    "catalog": "awesome_skills.json",
+    "skill_name": "posthog-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/posthog-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2YEN7AMRX2QKJ4CXY5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "postmark-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/postmark-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD32FNAKKC3RFZQ7N7Q8",
+    "catalog": "awesome_skills.json",
+    "skill_name": "reddit-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/reddit-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD32RANQRZNPPAKPSTBN",
+    "catalog": "awesome_skills.json",
+    "skill_name": "render-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/render-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD334YRE3K0F20C0R9WY",
+    "catalog": "awesome_skills.json",
+    "skill_name": "salesforce-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/salesforce-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3534GPFJYN916M0644",
+    "catalog": "awesome_skills.json",
+    "skill_name": "segment-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/segment-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD35S5H4B8EX8JNZB42P",
+    "catalog": "awesome_skills.json",
+    "skill_name": "sentry-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/sentry-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD37D9Z7GAJECHYJD279",
+    "catalog": "awesome_skills.json",
+    "skill_name": "shopify-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/shopify-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD39M0XAJJ25DY5WFGZ0",
+    "catalog": "awesome_skills.json",
+    "skill_name": "square-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/square-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3A82Z2A725BP8GM1KF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "stripe-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/stripe-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3CV59F5RR7CXVQHW32",
+    "catalog": "awesome_skills.json",
+    "skill_name": "telegram-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/telegram-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3DP0FSVFG0DRFB27E4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "tiktok-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/tiktok-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3E0BEJB296MFP2HM4M",
+    "catalog": "awesome_skills.json",
+    "skill_name": "twitter-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/twitter-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3H0XY9JPW2CM6J1VQQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "vercel-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/vercel-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3KGA8PM0VZFNPX1XHX",
+    "catalog": "awesome_skills.json",
+    "skill_name": "whatsapp-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/whatsapp-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3M554QP0S43FB8H1JA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "wrike-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/wrike-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3N004D3MWHZQBCB97Y",
+    "catalog": "awesome_skills.json",
+    "skill_name": "youtube-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/youtube-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3NYZXY5MTGK26RATYW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "zendesk-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/zendesk-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3NVNE43G9CSM3EK50Q",
+    "catalog": "awesome_skills.json",
+    "skill_name": "zoho-crm-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/zoho-crm-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1NZ310H9ZM8WF47CDY",
+    "catalog": "awesome_skills.json",
+    "skill_name": "bitbucket-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/bitbucket-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1R4PJ0WYAPKCE9Z885",
+    "catalog": "awesome_skills.json",
+    "skill_name": "circleci-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/circleci-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1SN8DFCE8P4TYZT20H",
+    "catalog": "awesome_skills.json",
+    "skill_name": "clickup-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/clickup-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD23YANJ8DVN17A1TW6K",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dropbox-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/dropbox-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD28T5Q25WQ44Z9C387Y",
+    "catalog": "awesome_skills.json",
+    "skill_name": "freshservice-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/freshservice-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2P3252Q2HNF08RF3G3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "mixpanel-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/mixpanel-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3DVTWS8Y5TK03BXT37",
+    "catalog": "awesome_skills.json",
+    "skill_name": "todoist-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/todoist-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3NKC3AE6MTPKGA2282",
+    "catalog": "awesome_skills.json",
+    "skill_name": "zoom-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/zoom-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2ATCS7DGQW1T3WRJFV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "gitlab-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/gitlab-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1QWS8PZ6R119YFA2GQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "calendly-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/calendly-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1VKZGM4NKD1BN38F8W",
+    "catalog": "awesome_skills.json",
+    "skill_name": "confluence-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/confluence-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2MS8S8KKMYJVGQ8G82",
+    "catalog": "awesome_skills.json",
+    "skill_name": "mailchimp-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/mailchimp-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2VNFS32DTFE8845F28",
+    "catalog": "awesome_skills.json",
+    "skill_name": "one-drive-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/one-drive-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2QY9A9PPCSYGXE9XRF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "monday-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/monday-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD2XJGTRTGDG9X4J0MXE",
+    "catalog": "awesome_skills.json",
+    "skill_name": "pipedrive-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/pipedrive-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3AZQ2HG72BJS5Z22TE",
+    "catalog": "awesome_skills.json",
+    "skill_name": "supabase-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/supabase-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD3J4FNFKMCPTSSCAJJ3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "webflow-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/webflow-automation/SKILL.md",
+    "best_id": "01M0GCFD1MZVFX58QEM779CXHD",
+    "best_name": "bamboohr-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] bamboohr-automation."
+  },
+  {
+    "id": "01M0GCFD1G1M1C7Y69J44EFA84",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-projects-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-projects-py/SKILL.md",
+    "best_id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+    "best_name": "agent-framework-azure-ai-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] agent-framework-azure-ai-py."
+  },
+  {
+    "id": "01M0GCFD1GECGK166RTWB1D05V",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-ml-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-ml-py/SKILL.md",
+    "best_id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+    "best_name": "agent-framework-azure-ai-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] agent-framework-azure-ai-py."
+  },
+  {
+    "id": "01M0GCFD1G7JKSNYVY6ANRED70",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-projects-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-projects-ts/SKILL.md",
+    "best_id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+    "best_name": "agent-framework-azure-ai-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] agent-framework-azure-ai-py."
+  },
+  {
+    "id": "01M0GCFD1GEPBNWFZ8RW37FJGP",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-projects-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-projects-java/SKILL.md",
+    "best_id": "01M0GCFD19J5M5H6H2FZCQHGB5",
+    "best_name": "agent-framework-azure-ai-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] agent-framework-azure-ai-py."
+  },
+  {
+    "id": "01M0GCFD19J2JHAMSRMWCD145P",
+    "catalog": "awesome_skills.json",
+    "skill_name": "agent-memory",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/agent-memory/SKILL.md",
+    "best_id": "01M0GCFD19NG8MWNKV6CX0ZK6F",
+    "best_name": "agent-memory-mcp",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] agent-memory-mcp."
+  },
+  {
+    "id": "01M0GCFD2PXS47QWRWY9DT922Q",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ml-engineer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ml-engineer/SKILL.md",
+    "best_id": "01M0GCFD1AK23KX3N29BJ0DTK1",
+    "best_name": "ai-engineer",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] ai-engineer."
+  },
+  {
+    "id": "01M0GCFD1PXYEB2BYFY3HV05HP",
+    "catalog": "awesome_skills.json",
+    "skill_name": "building-native-ui",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/building-native-ui/SKILL.md",
+    "best_id": "01M0GCFD1AAJP4CW6ENV72C94V",
+    "best_name": "ai-native-ui",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] ai-native-ui."
+  },
+  {
+    "id": "01M0GCFD353CSEBMJC5SHQATTE",
+    "catalog": "awesome_skills.json",
+    "skill_name": "seo",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/seo/SKILL.md",
+    "best_id": "01M0GCFD1ARYJSMTQVB7FTJSPX",
+    "best_name": "ai-seo",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] ai-seo."
+  },
+  {
+    "id": "01M0GCFD365M7NNPWF91XV11RR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "seo-geo",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/seo-geo/SKILL.md",
+    "best_id": "01M0GCFD1ARYJSMTQVB7FTJSPX",
+    "best_name": "ai-seo",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] ai-seo."
+  },
+  {
+    "id": "01M0GCFD2E1A4B5HQDD2AH56ZT",
+    "catalog": "awesome_skills.json",
+    "skill_name": "image-studio",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/image-studio/SKILL.md",
+    "best_id": "01M0GCFD1ADDJZ82SHM3HNC17T",
+    "best_name": "ai-studio-image",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] ai-studio-image."
+  },
+  {
+    "id": "01M0GCFD1D7C64P2W6WTJFJ5N1",
+    "catalog": "awesome_skills.json",
+    "skill_name": "apify-lead-generation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/apify-lead-generation/SKILL.md",
+    "best_id": "01M0GCFD1DY4RGA7SVZ2MGMNW8",
+    "best_name": "apify-brand-reputation-monitoring",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] apify-brand-reputation-monitoring."
+  },
+  {
+    "id": "01M0GCFD1DRZMH2YTVC7QDJR30",
+    "catalog": "awesome_skills.json",
+    "skill_name": "apify-market-research",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/apify-market-research/SKILL.md",
+    "best_id": "01M0GCFD1D78D3P6SYHB5GE90M",
+    "best_name": "apify-competitor-intelligence",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] apify-competitor-intelligence."
+  },
+  {
+    "id": "01M0GCFD1DQS9KARQKZX5K4VW6",
+    "catalog": "awesome_skills.json",
+    "skill_name": "architecture",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/architecture/SKILL.md",
+    "best_id": "01M0GCFD1Q8HMXB9VXGXQ8C97T",
+    "best_name": "c4-architecture-c4-architecture",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] c4-architecture-c4-architecture."
+  },
+  {
+    "id": "01M0GCFD1FEE18EYTKMJ1AKTY8",
+    "catalog": "awesome_skills.json",
+    "skill_name": "awareness-stage-mapper",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/awareness-stage-mapper/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD1NKNEM77YQPE4P0R3J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "brand-perception-psychologist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/brand-perception-psychologist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD1Y9NP07GZRTE777A51",
+    "catalog": "awesome_skills.json",
+    "skill_name": "customer-psychographic-profiler",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/customer-psychographic-profiler/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD24FB9MG5TQ4CD18H0F",
+    "catalog": "awesome_skills.json",
+    "skill_name": "emotional-arc-designer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/emotional-arc-designer/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2BDSQZG59QEKTTXBTV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "headline-psychologist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/headline-psychologist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2EZS6WZNQQZDRF404H",
+    "catalog": "awesome_skills.json",
+    "skill_name": "identity-mirror",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/identity-mirror/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2GXA043B316X14B9QR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "jobs-to-be-done-analyst",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/jobs-to-be-done-analyst/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2KD25NHRBMSNBSC1C7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "loss-aversion-designer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/loss-aversion-designer/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2T04249ZZE4V0EJ78C",
+    "catalog": "awesome_skills.json",
+    "skill_name": "objection-preemptor",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/objection-preemptor/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2V17JNKC0TCJ59PF8P",
+    "catalog": "awesome_skills.json",
+    "skill_name": "onboarding-psychologist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/onboarding-psychologist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2X8Y3TJ0KNRSRQHFCP",
+    "catalog": "awesome_skills.json",
+    "skill_name": "pitch-psychologist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/pitch-psychologist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD2YYVEYR8FWAB0Q9TB4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "price-psychology-strategist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/price-psychology-strategist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD349JWVK202FF0XBG4N",
+    "catalog": "awesome_skills.json",
+    "skill_name": "scarcity-urgency-psychologist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/scarcity-urgency-psychologist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD37WH59GXCNSTBEMWR7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "sequence-psychologist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/sequence-psychologist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD39J7S1H8T5Z8ZKG3P3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "social-proof-architect",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/social-proof-architect/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD3AHHME6A7WKGGEB82F",
+    "catalog": "awesome_skills.json",
+    "skill_name": "subject-line-psychologist",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/subject-line-psychologist/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD3EZFJ8AEQDFMD21602",
+    "catalog": "awesome_skills.json",
+    "skill_name": "trust-calibrator",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/trust-calibrator/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD3G20SHCG6S9BB56F55",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ux-persuasion-engineer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ux-persuasion-engineer/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD3HA0R1J2KPBE0CNMVD",
+    "catalog": "awesome_skills.json",
+    "skill_name": "visual-emotion-engineer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/visual-emotion-engineer/SKILL.md",
+    "best_id": "01M0GCFD1WS763R18V6A75T3K6",
+    "best_name": "copywriting-psychologist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] copywriting-psychologist."
+  },
+  {
+    "id": "01M0GCFD1FYDPYFYJJJ3JBKCHW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-contentsafety-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-contentsafety-java/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1GG44QTDDAEEP64JQF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-formrecognizer-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-formrecognizer-java/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1KNG628JED0KTP1W7J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-blob-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-blob-java/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1HT3ZJG1B93DTYA21D",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-data-tables-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-data-tables-java/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1HF8ZKXPNE57928J3M",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-identity-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-identity-java/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1KDDTK5P7MKCBZJ196",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-blob-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-blob-py/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1KS9PF7PMDWH9EFAB0",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-blob-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-blob-rust/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1HC00AZYYWCHPY34F4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-data-tables-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-data-tables-py/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1HW2QFDHGDV6JMB76N",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-identity-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-identity-ts/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1MTC7GZN9D39CXBQ5T",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-file-share-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-file-share-ts/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1H0GF544HDJQPXPB06",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-identity-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-identity-py/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1MW72DNMJZRPAW6A38",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-file-share-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-file-share-py/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1MC42FB73RCDE20NNH",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-queue-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-queue-ts/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1HM1AN23EX6ZKCTF68",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-identity-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-identity-rust/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1KB4RKB8S6P48Y95ZV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-file-datalake-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-file-datalake-py/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1M1N9N7MSCW163KJ1N",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-queue-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-queue-py/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1MPA02EKKE5B70K3PT",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-storage-queue-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-storage-queue-rust/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1KWDKPWQ6TC9WB8D91",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-servicebus-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-servicebus-rust/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1KS45YF6QFAD60Q0F9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-servicebus-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-servicebus-py/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1KME0CS8GPSZCDG7KB",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-servicebus-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-servicebus-ts/SKILL.md",
+    "best_id": "01M0GCFD1K7YCTN84EMYCNE5KP",
+    "best_name": "azure-storage-blob-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-storage-blob-ts."
+  },
+  {
+    "id": "01M0GCFD1G1S7XKW3VAVN366XA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-contentsafety-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-contentsafety-ts/SKILL.md",
+    "best_id": "01M0GCFD1GM95QZQFCNJ6MHMY4",
+    "best_name": "azure-ai-contentsafety-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-ai-contentsafety-py."
+  },
+  {
+    "id": "01M0GCFD1G7DSM7C2Z63AYV0Q2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-vision-imageanalysis-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-vision-imageanalysis-py/SKILL.md",
+    "best_id": "01M0GCFD1GH19VYWSK4R9RRRMV",
+    "best_name": "azure-ai-vision-imageanalysis-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-ai-vision-imageanalysis-java."
+  },
+  {
+    "id": "01M0GCFD1GFWC4PTGAF8W6NYDD",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-voicelive-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-voicelive-java/SKILL.md",
+    "best_id": "01M0GCFD1GMA5TGGGYRDEJBNET",
+    "best_name": "azure-ai-voicelive-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-ai-voicelive-ts."
+  },
+  {
+    "id": "01M0GCFD1GJJ7JJEMGR398TJJQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-ai-voicelive-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-ai-voicelive-py/SKILL.md",
+    "best_id": "01M0GCFD1GMA5TGGGYRDEJBNET",
+    "best_name": "azure-ai-voicelive-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-ai-voicelive-ts."
+  },
+  {
+    "id": "01M0GCFD1G2NE7SMQC60KET6P9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-appconfiguration-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-appconfiguration-py/SKILL.md",
+    "best_id": "01M0GCFD1GTJTKNCMZQDG6GMV2",
+    "best_name": "azure-appconfiguration-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-appconfiguration-java."
+  },
+  {
+    "id": "01M0GCFD1G027FEJ779X9XJ1C0",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-appconfiguration-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-appconfiguration-ts/SKILL.md",
+    "best_id": "01M0GCFD1GTJTKNCMZQDG6GMV2",
+    "best_name": "azure-appconfiguration-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-appconfiguration-java."
+  },
+  {
+    "id": "01M0GCFD1HAWB3PPRR2HQ971QA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-cosmos-db-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-cosmos-db-py/SKILL.md",
+    "best_id": "01M0GCFD1HG9JETW0RCXTFJNRA",
+    "best_name": "azure-cosmos-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-cosmos-ts."
+  },
+  {
+    "id": "01M0GCFD1H8N36N2A6ANN9DBJ9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-cosmos-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-cosmos-py/SKILL.md",
+    "best_id": "01M0GCFD1HG9JETW0RCXTFJNRA",
+    "best_name": "azure-cosmos-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-cosmos-ts."
+  },
+  {
+    "id": "01M0GCFD1HNJVBFP3KTPDHWR08",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-cosmos-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-cosmos-rust/SKILL.md",
+    "best_id": "01M0GCFD1HG9JETW0RCXTFJNRA",
+    "best_name": "azure-cosmos-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-cosmos-ts."
+  },
+  {
+    "id": "01M0GCFD1HPP44P0Q12RZ7WPA7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-eventgrid-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-eventgrid-py/SKILL.md",
+    "best_id": "01M0GCFD1H6SD7CGNTPGKTA3F2",
+    "best_name": "azure-eventgrid-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-eventgrid-java."
+  },
+  {
+    "id": "01M0GCFD1H9HYD6HPQ4C9YQ1YC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-eventhub-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-eventhub-java/SKILL.md",
+    "best_id": "01M0GCFD1HMMQ0SE5VTG2YQJJ8",
+    "best_name": "azure-eventhub-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-eventhub-py."
+  },
+  {
+    "id": "01M0GCFD1HW4VQJBHRKRZFWE00",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-eventhub-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-eventhub-rust/SKILL.md",
+    "best_id": "01M0GCFD1HMMQ0SE5VTG2YQJJ8",
+    "best_name": "azure-eventhub-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-eventhub-py."
+  },
+  {
+    "id": "01M0GCFD1H6MWQZ1VKX22QRGH5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-eventhub-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-eventhub-ts/SKILL.md",
+    "best_id": "01M0GCFD1HMMQ0SE5VTG2YQJJ8",
+    "best_name": "azure-eventhub-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-eventhub-py."
+  },
+  {
+    "id": "01M0GCFD1HFKE9V86WTF5QT26J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-functions",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-functions/SKILL.md",
+    "best_id": "01M0GCFD37VXGN4PKAY2AR3HGG",
+    "best_name": "shopify-apps",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] shopify-apps."
+  },
+  {
+    "id": "01M0GCFD33G4GME1V1JDS46W4Q",
+    "catalog": "awesome_skills.json",
+    "skill_name": "salesforce-development",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/salesforce-development/SKILL.md",
+    "best_id": "01M0GCFD37VXGN4PKAY2AR3HGG",
+    "best_name": "shopify-apps",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] shopify-apps."
+  },
+  {
+    "id": "01M0GCFD354B2T51WJXMJEZP4E",
+    "catalog": "awesome_skills.json",
+    "skill_name": "segment-cdp",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/segment-cdp/SKILL.md",
+    "best_id": "01M0GCFD37VXGN4PKAY2AR3HGG",
+    "best_name": "shopify-apps",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] shopify-apps."
+  },
+  {
+    "id": "01M0GCFD1J49A1XKEBFSM143ZQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-keyvault-certificates-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-keyvault-certificates-rust/SKILL.md",
+    "best_id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "best_name": "azure-keyvault-keys-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-keyvault-keys-ts."
+  },
+  {
+    "id": "01M0GCFD1J2V3KEFZZG3WJC322",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-keyvault-keys-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-keyvault-keys-rust/SKILL.md",
+    "best_id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "best_name": "azure-keyvault-keys-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-keyvault-keys-ts."
+  },
+  {
+    "id": "01M0GCFD1JWTXJ26PC21R2EN20",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-keyvault-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-keyvault-py/SKILL.md",
+    "best_id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "best_name": "azure-keyvault-keys-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-keyvault-keys-ts."
+  },
+  {
+    "id": "01M0GCFD1JVHNH90SF78F4VEVH",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-keyvault-secrets-rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-keyvault-secrets-rust/SKILL.md",
+    "best_id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "best_name": "azure-keyvault-keys-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-keyvault-keys-ts."
+  },
+  {
+    "id": "01M0GCFD1K6XFE3ABRPGW1WKSS",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-security-keyvault-keys-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-security-keyvault-keys-java/SKILL.md",
+    "best_id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "best_name": "azure-keyvault-keys-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-keyvault-keys-ts."
+  },
+  {
+    "id": "01M0GCFD1J0FQG0JPABHN162QS",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-keyvault-secrets-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-keyvault-secrets-ts/SKILL.md",
+    "best_id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "best_name": "azure-keyvault-keys-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-keyvault-keys-ts."
+  },
+  {
+    "id": "01M0GCFD1KV8QPA5XSVFH7BVCS",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-security-keyvault-secrets-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-security-keyvault-secrets-java/SKILL.md",
+    "best_id": "01M0GCFD1JPDZTTVS3FX3EGH8H",
+    "best_name": "azure-keyvault-keys-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-keyvault-keys-ts."
+  },
+  {
+    "id": "01M0GCFD1J7RERN63CZBQX07NM",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-messaging-webpubsubservice-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-messaging-webpubsubservice-py/SKILL.md",
+    "best_id": "01M0GCFD1JYYRPKWSX61WN6Y6N",
+    "best_name": "azure-messaging-webpubsub-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-messaging-webpubsub-java."
+  },
+  {
+    "id": "01M0GCFD1M7S0P6Y046XHJAAQ4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-web-pubsub-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-web-pubsub-ts/SKILL.md",
+    "best_id": "01M0GCFD1JYYRPKWSX61WN6Y6N",
+    "best_name": "azure-messaging-webpubsub-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-messaging-webpubsub-java."
+  },
+  {
+    "id": "01M0GCFD1J7F2X2GZ3CV9ZT3NA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-apimanagement-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-apimanagement-py/SKILL.md",
+    "best_id": "01M0GCFD1J4Q23R2RDACGGKPZJ",
+    "best_name": "azure-mgmt-apicenter-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-mgmt-apicenter-py."
+  },
+  {
+    "id": "01M0GCFD1JJ0J5Y0ZV67VRZMWQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-botservice-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-botservice-py/SKILL.md",
+    "best_id": "01M0GCFD1J4Q23R2RDACGGKPZJ",
+    "best_name": "azure-mgmt-apicenter-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-mgmt-apicenter-py."
+  },
+  {
+    "id": "01M0GCFD1JGAMD6BS85JME1SFB",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-mgmt-fabric-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-mgmt-fabric-py/SKILL.md",
+    "best_id": "01M0GCFD1J4Q23R2RDACGGKPZJ",
+    "best_name": "azure-mgmt-apicenter-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-mgmt-apicenter-py."
+  },
+  {
+    "id": "01M0GCFD1JAT93XHJYE0K0Y5T8",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-monitor-ingestion-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-monitor-ingestion-java/SKILL.md",
+    "best_id": "01M0GCFD1JGSKC5712A26BR7A0",
+    "best_name": "azure-monitor-ingestion-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-monitor-ingestion-py."
+  },
+  {
+    "id": "01M0GCFD1K0JFCBQS26DBKA172",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-monitor-query-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-monitor-query-py/SKILL.md",
+    "best_id": "01M0GCFD1JGSKC5712A26BR7A0",
+    "best_name": "azure-monitor-ingestion-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-monitor-ingestion-py."
+  },
+  {
+    "id": "01M0GCFD1K0CQNFQVFQWK293JR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-monitor-query-java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-monitor-query-java/SKILL.md",
+    "best_id": "01M0GCFD1JGSKC5712A26BR7A0",
+    "best_name": "azure-monitor-ingestion-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-monitor-ingestion-py."
+  },
+  {
+    "id": "01M0GCFD1JC5N3HGT1NAW6J33D",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-monitor-opentelemetry-exporter-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-monitor-opentelemetry-exporter-py/SKILL.md",
+    "best_id": "01M0GCFD1JCAFAK1XNZ163X95R",
+    "best_name": "azure-monitor-opentelemetry-exporter-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-monitor-opentelemetry-exporter-java."
+  },
+  {
+    "id": "01M0GCFD1KXH32MF2V8WCTXNDG",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-monitor-opentelemetry-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-monitor-opentelemetry-py/SKILL.md",
+    "best_id": "01M0GCFD1JCAFAK1XNZ163X95R",
+    "best_name": "azure-monitor-opentelemetry-exporter-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-monitor-opentelemetry-exporter-java."
+  },
+  {
+    "id": "01M0GCFD1K17GJ416Y67NQX7AA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-monitor-opentelemetry-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-monitor-opentelemetry-ts/SKILL.md",
+    "best_id": "01M0GCFD1JCAFAK1XNZ163X95R",
+    "best_name": "azure-monitor-opentelemetry-exporter-java",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-monitor-opentelemetry-exporter-java."
+  },
+  {
+    "id": "01M0GCFD1KZJW26Z897AVD9213",
+    "catalog": "awesome_skills.json",
+    "skill_name": "azure-search-documents-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/azure-search-documents-ts/SKILL.md",
+    "best_id": "01M0GCFD1K4TB657CT17AR354G",
+    "best_name": "azure-search-documents-py",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] azure-search-documents-py."
+  },
+  {
+    "id": "01M0GCFD2PGDSCWH68VMTPDP48",
+    "catalog": "awesome_skills.json",
+    "skill_name": "mobile-security-coder",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/mobile-security-coder/SKILL.md",
+    "best_id": "01M0GCFD1M7EXR68185CS3K22D",
+    "best_name": "backend-security-coder",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] backend-security-coder."
+  },
+  {
+    "id": "01M0GCFD28Y6NF5V72KBFZSC25",
+    "catalog": "awesome_skills.json",
+    "skill_name": "frontend-security-coder",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/frontend-security-coder/SKILL.md",
+    "best_id": "01M0GCFD1M7EXR68185CS3K22D",
+    "best_name": "backend-security-coder",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] backend-security-coder."
+  },
+  {
+    "id": "01M0GCFD1MJMGM7QB8ANHJBDWV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "bash",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/bash/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD1QJBY2C2SGTKXFBZS5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "c",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/c/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD1XPK57BC2FNNPA9VB7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "cpp",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/cpp/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD2367TKXS0T0VFGK8V5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "elixir",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/elixir/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD2AAWG0GF0ZNE8028TN",
+    "catalog": "awesome_skills.json",
+    "skill_name": "go",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/go/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD2FG4BPHJJMH19VK42J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "java",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/java/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD2X0PAH4SRH42V0M64J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "php",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/php/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD30H0ANQQZE5M38QRXR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "python",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/python/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD33BXAS1BW8CPJSQQXB",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ruby",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/ruby/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD33ZERVXM8TV5TEQ9PP",
+    "catalog": "awesome_skills.json",
+    "skill_name": "rust",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/rust/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD34EAQHWP62XPV1XJN2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "scala",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/super-code/scala/SKILL.md",
+    "best_id": "01M0GCFD3ENP9Q0WQS17N5MNG0",
+    "best_name": "typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] typescript."
+  },
+  {
+    "id": "01M0GCFD1NCCD2PKYT797AC2JV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "brand-guidelines-community",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/brand-guidelines-community/SKILL.md",
+    "best_id": "01M0GCFD1NBHF5TFC9ZVBYWVVQ",
+    "best_name": "brand-guidelines-anthropic",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] brand-guidelines-anthropic."
+  },
+  {
+    "id": "01M0GCFD1P9Z2Y1NJDX57CHXM2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "browser-extension-builder",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/browser-extension-builder/SKILL.md",
+    "best_id": "01M0GCFD3CPSBR3DD0XNB1X00Z",
+    "best_name": "telegram-bot-builder",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] telegram-bot-builder."
+  },
+  {
+    "id": "01M0GCFD2RM4XY3A1HZ4X6G5VH",
+    "catalog": "awesome_skills.json",
+    "skill_name": "neo-brutalism",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/neo-brutalism/SKILL.md",
+    "best_id": "01M0GCFD1PED1TN1JEH6GYMJ56",
+    "best_name": "brutalism",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] brutalism."
+  },
+  {
+    "id": "01M0GCFD2CX58Y6ZSQBTVA1EQC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hr-pro",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hr-pro/SKILL.md",
+    "best_id": "01M0GCFD1QQKZJYN2N7SJ59QQN",
+    "best_name": "c-pro",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] c-pro."
+  },
+  {
+    "id": "01M0GCFD3FYFRKHN68RBJG4Z8P",
+    "catalog": "awesome_skills.json",
+    "skill_name": "ui-component",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/ui-component/SKILL.md",
+    "best_id": "01M0GCFD1Q23SZXZ4KF1CT9BWG",
+    "best_name": "c4-component",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] c4-component."
+  },
+  {
+    "id": "01M0GCFD1Q4JJXPMT5BCKSZ43N",
+    "catalog": "awesome_skills.json",
+    "skill_name": "cc-skill-strategic-compact",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/cc-skill-strategic-compact/SKILL.md",
+    "best_id": "01M0GCFD1Q7XN4NTN4Q8S5MSPK",
+    "best_name": "cc-skill-continuous-learning",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] cc-skill-continuous-learning."
+  },
+  {
+    "id": "01M0GCFD2SHZC465RTN0D1TM41",
+    "catalog": "awesome_skills.json",
+    "skill_name": "neumorphism",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/neumorphism/SKILL.md",
+    "best_id": "01M0GCFD1SQ4WCQWVE9KJHAMGP",
+    "best_name": "claymorphism",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] claymorphism."
+  },
+  {
+    "id": "01M0GCFD229DN97X8YE274PPA7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "documentation-generation-doc-generate",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/documentation-generation-doc-generate/SKILL.md",
+    "best_id": "01M0GCFD1SAXTCG549X1ZPJVNQ",
+    "best_name": "code-documentation-doc-generate",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] code-documentation-doc-generate."
+  },
+  {
+    "id": "01M0GCFD1WTGRC5RSKXAGGD2D0",
+    "catalog": "awesome_skills.json",
+    "skill_name": "context-management-context-restore",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/context-management-context-restore/SKILL.md",
+    "best_id": "01M0GCFD1S8WJMXYVYT4SS9290",
+    "best_name": "code-refactoring-context-restore",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] code-refactoring-context-restore."
+  },
+  {
+    "id": "01M0GCFD1WG94A3HDXVVH89HKR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "context-management-context-save",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/context-management-context-save/SKILL.md",
+    "best_id": "01M0GCFD1S8WJMXYVYT4SS9290",
+    "best_name": "code-refactoring-context-restore",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] code-refactoring-context-restore."
+  },
+  {
+    "id": "01M0GCFD1TH5GZNWA5JF5WT5J9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "codebase-cleanup-refactor-clean",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/codebase-cleanup-refactor-clean/SKILL.md",
+    "best_id": "01M0GCFD1SNGDED7Z7SRBW09RP",
+    "best_name": "code-refactoring-refactor-clean",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] code-refactoring-refactor-clean."
+  },
+  {
+    "id": "01M0GCFD1TH4W2MMB19CEDT2YX",
+    "catalog": "awesome_skills.json",
+    "skill_name": "codebase-cleanup-tech-debt",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/codebase-cleanup-tech-debt/SKILL.md",
+    "best_id": "01M0GCFD1S1QPH35VDM7WT3498",
+    "best_name": "code-refactoring-tech-debt",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] code-refactoring-tech-debt."
+  },
+  {
+    "id": "01M0GCFD1W3B1AD5KSNWMF8PQW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "core-components",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/core-components/SKILL.md",
+    "best_id": "01M0GCFD1T22T3X2MBE3TKHETJ",
+    "best_name": "code-showcase-core-components",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] code-showcase-core-components."
+  },
+  {
+    "id": "01M0GCFD1TNTTEWNJRBVCX9NB5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "code-showcase-react-ui-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/code-showcase-react-ui-patterns/SKILL.md",
+    "best_id": "01M0GCFD31FRMPEEVWEFMVGTTB",
+    "best_name": "react-patterns",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] react-patterns."
+  },
+  {
+    "id": "01M0GCFD31WCQW5D4XFMMDCKB8",
+    "catalog": "awesome_skills.json",
+    "skill_name": "react-ui-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/react-ui-patterns/SKILL.md",
+    "best_id": "01M0GCFD31FRMPEEVWEFMVGTTB",
+    "best_name": "react-patterns",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] react-patterns."
+  },
+  {
+    "id": "01M0GCFD3DSTJ2XHN7W9KP21P0",
+    "catalog": "awesome_skills.json",
+    "skill_name": "testing-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/testing-patterns/SKILL.md",
+    "best_id": "01M0GCFD1TN35A6HDCHQCHZ6FX",
+    "best_name": "code-showcase-testing-patterns",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] code-showcase-testing-patterns."
+  },
+  {
+    "id": "01M0GCFD20M9PEZSYG3WZBKFCR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dependency-management-deps-audit",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/dependency-management-deps-audit/SKILL.md",
+    "best_id": "01M0GCFD1T34535SRZ4M6DX600",
+    "best_name": "codebase-cleanup-deps-audit",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] codebase-cleanup-deps-audit."
+  },
+  {
+    "id": "01M0GCFD35NMNG1PEKQYEA9RB1",
+    "catalog": "awesome_skills.json",
+    "skill_name": "security-scanning-security-dependencies",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/security-scanning-security-dependencies/SKILL.md",
+    "best_id": "01M0GCFD1T34535SRZ4M6DX600",
+    "best_name": "codebase-cleanup-deps-audit",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] codebase-cleanup-deps-audit."
+  },
+  {
+    "id": "01M0GCFD1XW8HJ1648BBQM3FS5",
+    "catalog": "awesome_skills.json",
+    "skill_name": "crossframe-suite",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/crossframe-suite/SKILL.md",
+    "best_id": "01M0GCFD1XA0JE0N8JE24PQ16V",
+    "best_name": "crossframe",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] crossframe."
+  },
+  {
+    "id": "01M0GCFD3BYQ3WBVXD4MY1R29E",
+    "catalog": "awesome_skills.json",
+    "skill_name": "synthwave",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/synthwave/SKILL.md",
+    "best_id": "01M0GCFD1Y87ESGAEXSP2AEXYA",
+    "best_name": "cyberpunk-ui",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] cyberpunk-ui."
+  },
+  {
+    "id": "01M0GCFD1ZQDG2P9YE30AMQJRV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dbos-golang",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/dbos-golang/SKILL.md",
+    "best_id": "01M0GCFD1ZX56Y7GD6SW4NAH5N",
+    "best_name": "dbos-typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] dbos-typescript."
+  },
+  {
+    "id": "01M0GCFD1ZKJWXXSM18SHK5C0P",
+    "catalog": "awesome_skills.json",
+    "skill_name": "dbos-python",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/dbos-python/SKILL.md",
+    "best_id": "01M0GCFD1ZX56Y7GD6SW4NAH5N",
+    "best_name": "dbos-typescript",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] dbos-typescript."
+  },
+  {
+    "id": "01M0GCFD1ZYQSNGG019ZDXJVQ9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "debugging-toolkit-smart-debug",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/debugging-toolkit-smart-debug/SKILL.md",
+    "best_id": "01M0GCFD1ZQTXDE1VSAY2DBD7C",
+    "best_name": "debugging-toolkit",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] debugging-toolkit."
+  },
+  {
+    "id": "01M0GCFD24V6FZBQ20TF2E6949",
+    "catalog": "awesome_skills.json",
+    "skill_name": "error-diagnostics-smart-debug",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/error-diagnostics-smart-debug/SKILL.md",
+    "best_id": "01M0GCFD1ZQTXDE1VSAY2DBD7C",
+    "best_name": "debugging-toolkit",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] debugging-toolkit."
+  },
+  {
+    "id": "01M0GCFD20GKRE1SSXEMZ0PQ9W",
+    "catalog": "awesome_skills.json",
+    "skill_name": "design-it",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/SKILL.md",
+    "best_id": "01M0GCFD200MMSYQE7JZ2V9V7E",
+    "best_name": "design-ux",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] design-ux."
+  },
+  {
+    "id": "01M0GCFD20NZX24Q4SEDB7N8RE",
+    "catalog": "awesome_skills.json",
+    "skill_name": "design-md",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-md/SKILL.md",
+    "best_id": "01M0GCFD200MMSYQE7JZ2V9V7E",
+    "best_name": "design-ux",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] design-ux."
+  },
+  {
+    "id": "01M0GCFD3EVZA1N37RQ4YBG75J",
+    "catalog": "awesome_skills.json",
+    "skill_name": "tool-design",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/tool-design/SKILL.md",
+    "best_id": "01M0GCFD200MMSYQE7JZ2V9V7E",
+    "best_name": "design-ux",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] design-ux."
+  },
+  {
+    "id": "01M0GCFD206J59RGM08VB27R5Z",
+    "catalog": "awesome_skills.json",
+    "skill_name": "design-spatial",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-spatial/SKILL.md",
+    "best_id": "01M0GCFD39HPYZ41EHGQ9BENWB",
+    "best_name": "spatial-design",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] spatial-design."
+  },
+  {
+    "id": "01M0GCFD394SB29XC0GS1JZ3E6",
+    "catalog": "awesome_skills.json",
+    "skill_name": "spatial-computing-ui",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/spatial-computing-ui/SKILL.md",
+    "best_id": "01M0GCFD39HPYZ41EHGQ9BENWB",
+    "best_name": "spatial-design",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] spatial-design."
+  },
+  {
+    "id": "01M0GCFD21P0E8NH7ZFFDHSQDF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "development",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/development/SKILL.md",
+    "best_id": "01M0GCFD2ZHB8HMYK9GC35P70Q",
+    "best_name": "project-development",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] project-development."
+  },
+  {
+    "id": "01M0GCFD22QTGPV6NRNRPJFXKK",
+    "catalog": "awesome_skills.json",
+    "skill_name": "documentation-templates",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/documentation-templates/SKILL.md",
+    "best_id": "01M0GCFD22E9RDHVHEREF30MAR",
+    "best_name": "documentation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] documentation."
+  },
+  {
+    "id": "01M0GCFD2YQPTWS5WJ9517YBV3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "pptx-official",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/pptx-official/SKILL.md",
+    "best_id": "01M0GCFD222E107F4J5XEFA4BW",
+    "best_name": "docx-official",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] docx-official."
+  },
+  {
+    "id": "01M0GCFD24J58GZ8NBC9TZ6TV7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "error-diagnostics-error-analysis",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/error-diagnostics-error-analysis/SKILL.md",
+    "best_id": "01M0GCFD245M2DAVHSSM0GPA99",
+    "best_name": "error-debugging-error-analysis",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] error-debugging-error-analysis."
+  },
+  {
+    "id": "01M0GCFD24V5RGMMFVTT7RM9C7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "error-diagnostics-error-trace",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/error-diagnostics-error-trace/SKILL.md",
+    "best_id": "01M0GCFD245M2DAVHSSM0GPA99",
+    "best_name": "error-debugging-error-analysis",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] error-debugging-error-analysis."
+  },
+  {
+    "id": "01M0GCFD24S1EJQ6BC2EH3EREN",
+    "catalog": "awesome_skills.json",
+    "skill_name": "error-debugging-error-trace",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/error-debugging-error-trace/SKILL.md",
+    "best_id": "01M0GCFD245M2DAVHSSM0GPA99",
+    "best_name": "error-debugging-error-analysis",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] error-debugging-error-analysis."
+  },
+  {
+    "id": "01M0GCFD2TT23YMN4S82ZZRDRX",
+    "catalog": "awesome_skills.json",
+    "skill_name": "observability-monitoring-monitor-setup",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/observability-monitoring-monitor-setup/SKILL.md",
+    "best_id": "01M0GCFD245M2DAVHSSM0GPA99",
+    "best_name": "error-debugging-error-analysis",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] error-debugging-error-analysis."
+  },
+  {
+    "id": "01M0GCFD24S46F4CRZBWXHAGG0",
+    "catalog": "awesome_skills.json",
+    "skill_name": "error-debugging-multi-agent-review",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/error-debugging-multi-agent-review/SKILL.md",
+    "best_id": "01M0GCFD2X04MEFQR033R9YR8G",
+    "best_name": "performance-testing-review-multi-agent-review",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] performance-testing-review-multi-agent-review."
+  },
+  {
+    "id": "01M0GCFD26E61KD6T9KYKJH0AD",
+    "catalog": "awesome_skills.json",
+    "skill_name": "flat-design-2",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/flat-design-2/SKILL.md",
+    "best_id": "01M0GCFD26VK67AMK9WEQH1N1Q",
+    "best_name": "flat-design",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] flat-design."
+  },
+  {
+    "id": "01M0GCFD2PXC40SWFF8EWF02Z1",
+    "catalog": "awesome_skills.json",
+    "skill_name": "minimalism",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/minimalism/SKILL.md",
+    "best_id": "01M0GCFD26VK67AMK9WEQH1N1Q",
+    "best_name": "flat-design",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] flat-design."
+  },
+  {
+    "id": "01M0GCFD27DA3ZM8XZJ06YHANH",
+    "catalog": "awesome_skills.json",
+    "skill_name": "fp-either-ref",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/fp-either-ref/SKILL.md",
+    "best_id": "01M0GCFD277Z28R181555X3PN4",
+    "best_name": "fp-taskeither-ref",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] fp-taskeither-ref."
+  },
+  {
+    "id": "01M0GCFD271JJK3TEZY3QWDR2A",
+    "catalog": "awesome_skills.json",
+    "skill_name": "fp-ts-errors",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/fp-ts-errors/SKILL.md",
+    "best_id": "01M0GCFD275PQ07T09ZA95Y0S2",
+    "best_name": "fp-errors",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] fp-errors."
+  },
+  {
+    "id": "01M0GCFD27TPKQQHCZXWN2S2X9",
+    "catalog": "awesome_skills.json",
+    "skill_name": "fp-ts-pragmatic",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/fp-ts-pragmatic/SKILL.md",
+    "best_id": "01M0GCFD2793PAFFPET286D9P4",
+    "best_name": "fp-pragmatic",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] fp-pragmatic."
+  },
+  {
+    "id": "01M0GCFD27ADD2JVSGC2AG9N6D",
+    "catalog": "awesome_skills.json",
+    "skill_name": "fp-ts-react",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/fp-ts-react/SKILL.md",
+    "best_id": "01M0GCFD27433HTKNYZV1H637N",
+    "best_name": "fp-react",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] fp-react."
+  },
+  {
+    "id": "01M0GCFD286PE84TJYX1CDVPQC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "frontend-mobile-development-component-scaffold",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/frontend-mobile-development-component-scaffold/SKILL.md",
+    "best_id": "01M0GCFD2FYZ8V93M1PSZQN3W6",
+    "best_name": "javascript-typescript-typescript-scaffold",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] javascript-typescript-typescript-scaffold."
+  },
+  {
+    "id": "01M0GCFD3BQNXNZHM86THA35Z3",
+    "catalog": "awesome_skills.json",
+    "skill_name": "systems-programming-rust-project",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/systems-programming-rust-project/SKILL.md",
+    "best_id": "01M0GCFD2FYZ8V93M1PSZQN3W6",
+    "best_name": "javascript-typescript-typescript-scaffold",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] javascript-typescript-typescript-scaffold."
+  },
+  {
+    "id": "01M0GCFD281J1RWP50W0VNPAQ4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "frontend-slides-frontend-slides",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/frontend-slides-frontend-slides/SKILL.md",
+    "best_id": "01M0GCFD2863AN2PJJ9V3MV5J7",
+    "best_name": "frontend-slides",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] frontend-slides."
+  },
+  {
+    "id": "01M0GCFD294Y4TGVQ39CQ3KV7F",
+    "catalog": "awesome_skills.json",
+    "skill_name": "gemini-live-api-dev",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/gemini-live-api-dev/SKILL.md",
+    "best_id": "01M0GCFD29XHBT2ZX38XRSVDD5",
+    "best_name": "gemini-api-dev",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] gemini-api-dev."
+  },
+  {
+    "id": "01M0GCFD2A83K8QPK63TB5Q2KV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "gmail-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/gmail-automation/SKILL.md",
+    "best_id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+    "best_name": "google-calendar-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] google-calendar-automation."
+  },
+  {
+    "id": "01M0GCFD2BYMG0AZWKZ0E3PVG4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "google-docs-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/google-docs-automation/SKILL.md",
+    "best_id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+    "best_name": "google-calendar-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] google-calendar-automation."
+  },
+  {
+    "id": "01M0GCFD2B9A3RHPMJEAJEEHJN",
+    "catalog": "awesome_skills.json",
+    "skill_name": "google-drive-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/google-drive-automation/SKILL.md",
+    "best_id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+    "best_name": "google-calendar-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] google-calendar-automation."
+  },
+  {
+    "id": "01M0GCFD2BX0S3SPRX1XTTPQ0A",
+    "catalog": "awesome_skills.json",
+    "skill_name": "google-sheets-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/google-sheets-automation/SKILL.md",
+    "best_id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+    "best_name": "google-calendar-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] google-calendar-automation."
+  },
+  {
+    "id": "01M0GCFD2B00J2NVRB26Y1RM12",
+    "catalog": "awesome_skills.json",
+    "skill_name": "google-slides-automation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/google-slides-automation/SKILL.md",
+    "best_id": "01M0GCFD2AXJM9TPS6BZ0NSF4R",
+    "best_name": "google-calendar-automation",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] google-calendar-automation."
+  },
+  {
+    "id": "01M0GCFD2GP73H15NM6P2RS03Z",
+    "catalog": "awesome_skills.json",
+    "skill_name": "julia-pro",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/julia-pro/SKILL.md",
+    "best_id": "01M0GCFD2AZ4B2N4DE73SZ95M5",
+    "best_name": "golang-pro",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] golang-pro."
+  },
+  {
+    "id": "01M0GCFD2B7TD29TA6B5VQTKXR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "grill-with-docs",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/grill-with-docs/SKILL.md",
+    "best_id": "01M0GCFD2B435R2A2J4142A91A",
+    "best_name": "grill-me",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] grill-me."
+  },
+  {
+    "id": "01M0GCFD2B4DSQR2SGMKW9XH3Q",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hasdata-cli",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hasdata-cli/SKILL.md",
+    "best_id": "01M0GCFD2B1J83FTEXH34PT8M4",
+    "best_name": "hasdata",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] hasdata."
+  },
+  {
+    "id": "01M0GCFD2CPAFMTA6PKSH0NVK8",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hig-components-layout",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hig-components-layout/SKILL.md",
+    "best_id": "01M0GCFD2C4QM1V69KCVSJ0ZS5",
+    "best_name": "hig-components-content",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] hig-components-content."
+  },
+  {
+    "id": "01M0GCFD2CZMGPY09S3GW3MQZA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hig-components-menus",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hig-components-menus/SKILL.md",
+    "best_id": "01M0GCFD2CQKECEREWE3P9YWQ0",
+    "best_name": "hig-components-controls",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] hig-components-controls."
+  },
+  {
+    "id": "01M0GCFD2CVRBJSVCMEMT4CAE6",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hig-inputs",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hig-inputs/SKILL.md",
+    "best_id": "01M0GCFD2CQKECEREWE3P9YWQ0",
+    "best_name": "hig-components-controls",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] hig-components-controls."
+  },
+  {
+    "id": "01M0GCFD2CA4TJF8N7A9NQZG3W",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hig-technologies",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hig-technologies/SKILL.md",
+    "best_id": "01M0GCFD2CQKECEREWE3P9YWQ0",
+    "best_name": "hig-components-controls",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] hig-components-controls."
+  },
+  {
+    "id": "01M0GCFD2C961DWVS3NA2CD8TS",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hig-foundations",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hig-foundations/SKILL.md",
+    "best_id": "01M0GCFD2CS3MQFEYA3489P6W7",
+    "best_name": "hig-patterns",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] hig-patterns."
+  },
+  {
+    "id": "01M0GCFD2C3YE8JGN4WMA4NFVV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "hig-platforms",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/hig-platforms/SKILL.md",
+    "best_id": "01M0GCFD2CS3MQFEYA3489P6W7",
+    "best_name": "hig-patterns",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] hig-patterns."
+  },
+  {
+    "id": "01M0GCFD2FFZGMH2CJ6JCRYV60",
+    "catalog": "awesome_skills.json",
+    "skill_name": "internal-comms-community",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/internal-comms-community/SKILL.md",
+    "best_id": "01M0GCFD2FEBY91SFAF0CZES0B",
+    "best_name": "internal-comms-anthropic",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] internal-comms-anthropic."
+  },
+  {
+    "id": "01M0GCFD3D2JSES8XRSJENV9MJ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "to-issues",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/to-issues/SKILL.md",
+    "best_id": "01M0GCFD2F95FM7KR3KRFAM4DH",
+    "best_name": "issues",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] issues."
+  },
+  {
+    "id": "01M0GCFD2KG509CEXSZJ674NBF",
+    "catalog": "awesome_skills.json",
+    "skill_name": "m365-agents-py",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/m365-agents-py/SKILL.md",
+    "best_id": "01M0GCFD2K5DGYXRRQF91QBGTA",
+    "best_name": "m365-agents-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] m365-agents-ts."
+  },
+  {
+    "id": "01M0GCFD33P16QQVAWKSHA8ACR",
+    "catalog": "awesome_skills.json",
+    "skill_name": "robius-event-action",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/robius-event-action/SKILL.md",
+    "best_id": "01M0GCFD2MASKPC4QPCDGW29H8",
+    "best_name": "makepad-event-action",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] makepad-event-action."
+  },
+  {
+    "id": "01M0GCFD2NRSYA0Q0035ND9N73",
+    "catalog": "awesome_skills.json",
+    "skill_name": "markstream-vue2-vite",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-vue2-vite/SKILL.md",
+    "best_id": "01M0GCFD2NMY7M3831PDDBWQM3",
+    "best_name": "markstream-vue2",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] markstream-vue2."
+  },
+  {
+    "id": "01M0GCFD2NKCTV7CWP6Q7NX2DS",
+    "catalog": "awesome_skills.json",
+    "skill_name": "markstream-vue2-cli",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/markstream-vue2-cli/SKILL.md",
+    "best_id": "01M0GCFD2NMY7M3831PDDBWQM3",
+    "best_name": "markstream-vue2",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] markstream-vue2."
+  },
+  {
+    "id": "01M0GCFD3HY5ZS30AN02ZBE4QA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "vibrant-maximalism",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/design-it/vibrant-maximalism/SKILL.md",
+    "best_id": "01M0GCFD2N14VNFSABDNJ834MQ",
+    "best_name": "maximalism",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] maximalism."
+  },
+  {
+    "id": "01M0GCFD2NGW13T4ARD33WQAFV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "mcp-builder-ms",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/mcp-builder-ms/SKILL.md",
+    "best_id": "01M0GCFD2N70YEQNP9CNMR8N51",
+    "best_name": "mcp-builder",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] mcp-builder."
+  },
+  {
+    "id": "01M0GCFD2W91DH31Q4EGEHQTEG",
+    "catalog": "awesome_skills.json",
+    "skill_name": "performance-engineer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/performance-engineer/SKILL.md",
+    "best_id": "01M0GCFD2S5M9DRXVGSATMCX5B",
+    "best_name": "network-engineer",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] network-engineer."
+  },
+  {
+    "id": "01M0GCFD301W2M4KF7YVC06QAE",
+    "catalog": "awesome_skills.json",
+    "skill_name": "python-patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/python-patterns/SKILL.md",
+    "best_id": "01M0GCFD2SQG30XAMXS29Q8CAY",
+    "best_name": "nodejs-best-practices",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] nodejs-best-practices."
+  },
+  {
+    "id": "01M0GCFD2VCPWF6QVB03RMY9E2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "odoo-woocommerce-bridge",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/odoo-woocommerce-bridge/SKILL.md",
+    "best_id": "01M0GCFD2VBG4R912K6TTC0GEE",
+    "best_name": "odoo-shopify-integration",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] odoo-shopify-integration."
+  },
+  {
+    "id": "01M0GCFD2W9P7DTBWEBGZTC8W4",
+    "catalog": "awesome_skills.json",
+    "skill_name": "patterns",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/monopoly/patterns/SKILL.md",
+    "best_id": "01M0GCFD35XXJENZBN8MQKSB5A",
+    "best_name": "security-checklist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] security-checklist."
+  },
+  {
+    "id": "01M0GCFD34GBXJEPYGMXR7SZHY",
+    "catalog": "awesome_skills.json",
+    "skill_name": "scale-benchmarks",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/monopoly/scale-benchmarks/SKILL.md",
+    "best_id": "01M0GCFD35XXJENZBN8MQKSB5A",
+    "best_name": "security-checklist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] security-checklist."
+  },
+  {
+    "id": "01M0GCFD3C8RRFVDQVCHP28PB7",
+    "catalog": "awesome_skills.json",
+    "skill_name": "tech-matrix",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/monopoly/tech-matrix/SKILL.md",
+    "best_id": "01M0GCFD35XXJENZBN8MQKSB5A",
+    "best_name": "security-checklist",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] security-checklist."
+  },
+  {
+    "id": "01M0GCFD2YP6WV7P493XA3AE5C",
+    "catalog": "awesome_skills.json",
+    "skill_name": "pr-writer",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/pr-writer/SKILL.md",
+    "best_id": "01M0GCFD3M9AM03YPXZX0HPJYJ",
+    "best_name": "writer",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] writer."
+  },
+  {
+    "id": "01M0GCFD2Z4SZC9NHBJR5TD68H",
+    "catalog": "awesome_skills.json",
+    "skill_name": "production-audit",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/production-audit/SKILL.md",
+    "best_id": "01M0GCFD2Z5MNX947GZTDX7XMS",
+    "best_name": "production-code-audit",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] production-code-audit."
+  },
+  {
+    "id": "01M0GCFD2Z1WQQHCZYKPG07ZKA",
+    "catalog": "awesome_skills.json",
+    "skill_name": "programmatic-seo",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/programmatic-seo/SKILL.md",
+    "best_id": "01M0GCFD369A3NBJC1NTAVT72P",
+    "best_name": "seo-programmatic",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] seo-programmatic."
+  },
+  {
+    "id": "01M0GCFD2Z0M7PKAFXBGXZ2S77",
+    "catalog": "awesome_skills.json",
+    "skill_name": "project-skill-audit",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/project-skill-audit/SKILL.md",
+    "best_id": "01M0GCFD370N7HAQ090AVGNEC4",
+    "best_name": "skill-audit",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] skill-audit."
+  },
+  {
+    "id": "01M0GCFD310S6PPFNXSC5F18YG",
+    "catalog": "awesome_skills.json",
+    "skill_name": "rayden-use",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/rayden-use/SKILL.md",
+    "best_id": "01M0GCFD31JXBTA4CY4AXDM02A",
+    "best_name": "rayden-code",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] rayden-code."
+  },
+  {
+    "id": "01M0GCFD3N3B0B4N7KGYXNMFYC",
+    "catalog": "awesome_skills.json",
+    "skill_name": "zustand-store-ts",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/zustand-store-ts/SKILL.md",
+    "best_id": "01M0GCFD31EC5GPPDS5YQFPBRF",
+    "best_name": "react-flow-node-ts",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] react-flow-node-ts."
+  },
+  {
+    "id": "01M0GCFD35HZSPBJPBFE35K83C",
+    "catalog": "awesome_skills.json",
+    "skill_name": "semgrep-rule-variant-creator",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/semgrep-rule-variant-creator/SKILL.md",
+    "best_id": "01M0GCFD35BSGY11WSABBST7SH",
+    "best_name": "semgrep-rule-creator",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] semgrep-rule-creator."
+  },
+  {
+    "id": "01M0GCFD35JNN4G49W2NR94PFV",
+    "catalog": "awesome_skills.json",
+    "skill_name": "senior-fullstack",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/senior-fullstack/SKILL.md",
+    "best_id": "01M0GCFD358KJGDSFQCTBDVCZ7",
+    "best_name": "senior-architect",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] senior-architect."
+  },
+  {
+    "id": "01M0GCFD3K5R4F8ABHT54PJR6K",
+    "catalog": "awesome_skills.json",
+    "skill_name": "windows-privilege-escalation",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/windows-privilege-escalation/SKILL.md",
+    "best_id": "01M0GCFD37BR0SNQ6WWJX1N1PN",
+    "best_name": "shodan-reconnaissance",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] shodan-reconnaissance."
+  },
+  {
+    "id": "01M0GCFD3MWPPW4NCKFNB9619F",
+    "catalog": "awesome_skills.json",
+    "skill_name": "xss-html-injection",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/xss-html-injection/SKILL.md",
+    "best_id": "01M0GCFD39JY9XFDDANQNPGWFS",
+    "best_name": "sql-injection-testing",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] sql-injection-testing."
+  },
+  {
+    "id": "01M0GCFD3BN99T00E3RG9RENK2",
+    "catalog": "awesome_skills.json",
+    "skill_name": "tdd-workflow",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/tdd-workflow/SKILL.md",
+    "best_id": "01M0GCFD3BF0W43CP7SF1FYMC1",
+    "best_name": "tdd",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] tdd."
+  },
+  {
+    "id": "01M0GCFD3BJDBZD5Q0B0GWEHEQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "tdd-workflows",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/tdd-workflows/SKILL.md",
+    "best_id": "01M0GCFD3CEFDRH58QCF0DM3CX",
+    "best_name": "tdd-workflows-tdd-refactor",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] tdd-workflows-tdd-refactor."
+  },
+  {
+    "id": "01M0GCFD3BXGDNV5J0NG8G79NW",
+    "catalog": "awesome_skills.json",
+    "skill_name": "tdd-workflows-tdd-cycle",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-cycle/SKILL.md",
+    "best_id": "01M0GCFD3CEFDRH58QCF0DM3CX",
+    "best_name": "tdd-workflows-tdd-refactor",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] tdd-workflows-tdd-refactor."
+  },
+  {
+    "id": "01M0GCFD3KAQ4Y505FRSSKV8VQ",
+    "catalog": "awesome_skills.json",
+    "skill_name": "wordpress",
+    "local_path": "other_skills/Agentic Awesome Skills/skills/wordpress/SKILL.md",
+    "best_id": "01M0GCFD3KX5ZPE36BTR2BJVJN",
+    "best_name": "wordpress-plugin-development",
+    "reason": "Duplicata preterida em favor da skill eleita como melhor: [awesome_skills.json] wordpress-plugin-development."
+  }
+]
