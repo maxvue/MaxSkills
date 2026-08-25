@@ -18,42 +18,9 @@ autônomo (Claude Code) do início ao fim, com orquestração multi-agente.
 > refutação, remoção/merge de conteúdo) — **não carregue a skill-creator ali**, ela não agrega e só
 > consome tokens à toa.
 
-## Modelo por tipo de subagente
+### Agente principal (orquestrador): **Gemini 3.7 Flash (High)**
 
-Fixe o modelo de cada `agent()` via `opts.model` conforme o tipo de trabalho — não deixe no padrão
-indiscriminadamente. A régua:
-
-- **Opus** → julgamento factual/crítico: confrontar afirmação × código real, decidir
-  estado/destino, **refutar** um achado arquitetural/estrutural. Erro aqui é caro (gera FALHA/RESIDUAL
-  que só uma outra passada de Opus detecta). Use Opus em: Fase 1 (auditoria unificada — o veredito de
-  bloat e o resumo-map pegam carona no mesmo contexto já pago, ver lá), Fase 2 (cluster e judge de
-  redundância), Etapas 1–3 do plano (remoção/merge, Críticas, Ruins) e Fase 7 (verificação final).
-- **Sonnet** → trabalho mecânico/padronizado: sem julgamento fino, resultado é
-  determinístico o bastante para não precisar do modelo mais forte. Use Sonnet em: Etapas 4–5 do
-  plano (Regulares/podas de formatação, Boas — headings, description 200–400, refs).
-- **Fase 3 (revisor adversarial) é a exceção — modelo variável por problema.** Não é Opus fixo nem
-  Sonnet fixo: o agente que encontrou cada problema (Fase 1 ou o judge da Fase 2) já anexa um campo
-  `reviewModel: "sonnet" | "opus"` classificando se é uma checagem factual pontual (Sonnet resolve)
-  ou um julgamento arquitetural amplo (precisa de Opus). A Fase 3 propaga esse valor por chamada —
-  ver detalhe lá.
-
-Ao escrever o script do `Workflow`, declare o modelo por chamada:
-`agent(prompt, { schema, phase: 'Auditar', model: 'opus' })` (julgamento) ou
-`agent(prompt, { schema, phase: 'Podar', model: 'sonnet' })` (mecânico). Se o modelo da sessão principal
-já for Opus, é seguro omitir `model` nas chamadas de julgamento (herdam o da sessão) e só declarar
-`sonnet` explicitamente nas mecânicas — mas prefira declarar sempre os dois lados, para o runbook funcionar igual
-independente do modelo em que a sessão principal estiver rodando.
-
-> **Sempre a versão mais recente disponível.** "Opus"/"Sonnet" aqui designam a **família** de
-> modelo, nunca uma versão específica — este runbook não fixa (nem deve fixar) número de versão em
-> lugar nenhum. Ao rodar, use a versão mais recente de cada família disponível na sessão (ex.: se
-> houver Opus 4.9/5 disponível no futuro, use-a — não a versão que existia quando este arquivo foi
-> escrito). Não hardcode um `model` com sufixo de versão (`'claude-opus-4-8'`) neste runbook; use o
-> alias de família (`'opus'` / `'sonnet'`) para que ele resolva automaticamente para a mais recente.
-
-### Agente principal (orquestrador): **Opus**
-
-Rode a sessão principal em **Opus**. O motivo não é os subagentes (esses têm `model` declarado por
+Rode a sessão principal em **Gemini 3.7 Flash (High)**. O motivo não é os subagentes (esses têm `model` declarado por
 chamada e não herdam nada) — é o que o próprio orquestrador faz sozinho:
 - A **conciliação (Fase 4) roda inline no agente principal** — recalcular estados e atribuir
   destinos é julgamento, e um erro ali contamina todo o plano.
@@ -65,7 +32,7 @@ chamada e não herdam nada) — é o que o próprio orquestrador faz sozinho:
   (~90%); economizar no principal rende pouco e concentra risco.
 
 *Exceção:* re-execuções em base já polida (esperando o no-op da Fase 5) podem rodar com o principal
-em Sonnet — ali só há orquestração de auditoria e a apresentação de "nada a fazer".
+em Gemini 3.7 Flash (High) — ali só há orquestração de auditoria e a apresentação de "nada a fazer".
 
 ---
 
@@ -134,7 +101,7 @@ passar todos os itens de uma vez.
 
 ---
 
-## Fase 1 — Auditoria unificada (1 subagente verificador por skill) — **Opus**
+## Fase 1 — Auditoria unificada (1 subagente verificador por skill) — **Gemini 3.7 Flash (High)**
 
 > **Execute as Fases 1–5 automaticamente, sem pedir confirmação.** São read-only (nenhuma edição em
 > skills, arquivos ou git). Vá direto da Fase 1 à Fase 5; só pare cedo no no-op (Fase 5).
@@ -178,14 +145,14 @@ palavras-chave. É extração mecânica; não gaste raciocínio extra aqui.
 **`reviewModel` — classifique cada problema/corte:** quem encontrou o problema é quem está em melhor
 posição para julgar sua complexidade (o revisor da Fase 3, sem esse contexto prévio, teria que
 redescobri-la do zero). Critério:
-- `"sonnet"` — problema **factual pontual e localizado**: 1 citação (nome de rota/config/tabela/
+- `"Gemini 3.7 Flash (High)"` — problema **factual pontual e localizado**: 1 citação (nome de rota/config/tabela/
   coluna/classe/caminho) que basta abrir 1 arquivo e comparar para confirmar/refutar. A maioria dos
   cortes de bloat cai aqui (checagem local — "essa seção repete a de cima, sim/não").
-- `"opus"` — problema **arquitetural/estrutural**: afirma um fluxo, contrato ou design que só se
+- `"Gemini 3.7 Flash (High)"` — problema **arquitetural/estrutural**: afirma um fluxo, contrato ou design que só se
   julga entendendo como várias peças se encaixam (ex.: "o multi-tenant usa X padrão", "o guard de
-  rota segue Y lógica") — exige julgamento amplo, não uma checagem isolada. Em bloat, use `"opus"`
+  rota segue Y lógica") — exige julgamento amplo, não uma checagem isolada. Em bloat, use `"Gemini 3.7 Flash (High)"`
   só quando o corte depende de julgar se a seção documenta algo raro/não-óbvio do projeto.
-- Na dúvida, classifique como `"opus"` (custo do falso-negativo aqui é maior que o de gastar mais).
+- Na dúvida, classifique como `"Gemini 3.7 Flash (High)"` (custo do falso-negativo aqui é maior que o de gastar mais).
 
 **Saída estruturada** (um objeto por skill, com os 3 sinais):
 
@@ -196,12 +163,12 @@ redescobri-la do zero). Critério:
   "state": "Excelente | Boa | Regular | Ruim | Crítica",
   "problemCount": 0,
   "problems": [
-    { "text": "1 problema concreto, com evidência (arquivo/linha real ou trecho da skill)", "reviewModel": "sonnet | opus" }
+    { "text": "1 problema concreto, com evidência (arquivo/linha real ou trecho da skill)", "reviewModel": "Gemini 3.7 Flash (High) | Gemini 3.7 Flash (High)" }
   ],
   "bloatVerdict": "ENXUTA | PODAR | INCHADA",
   "estimatedCutPct": 0,
   "cuts": [
-    { "text": "seção/trecho a remover ou condensar, com o porquê", "reviewModel": "sonnet | opus" }
+    { "text": "seção/trecho a remover ou condensar, com o porquê", "reviewModel": "Gemini 3.7 Flash (High) | Gemini 3.7 Flash (High)" }
   ],
   "mapSummary": {
     "tema": "1 frase",
@@ -230,21 +197,21 @@ Régua de bloat:
 
 ---
 
-## Fase 2 — Redundância entre skills (cluster → judge) — **Opus**
+## Fase 2 — Redundância entre skills (cluster → judge) — **Gemini 3.7 Flash (High)**
 
 Redundância é um julgamento **entre pares** — não paraleliza de forma ingênua. Se você der lotes
 cegos a N agentes, cada um só vê o próprio lote e **nunca compara** uma skill do lote 1 com uma do
 lote 7 → duas skills quase idênticas em pastas diferentes escapam. O insumo desta fase são os
 `mapSummary` que a Fase 1 já produziu (não há passada de "map" separada — foi fundida na Fase 1).
 
-**2.1 Cluster (1 agente — BARREIRA) — Opus.** Com a tabela de TODOS os `mapSummary` da Fase 1 junta,
+**2.1 Cluster (1 agente — BARREIRA) — Gemini 3.7 Flash (High).** Com a tabela de TODOS os `mapSummary` da Fase 1 junta,
 agrupa candidatos a sobreposição por afinidade (tema + entidades em comum). Ainda que o agrupamento
 seja barato, é aqui que se decide quais skills são candidatas a MERGE/DEMARCAR — um julgamento cujo
 erro (deixar passar um cluster de duplicatas, ou juntar skills que não se sobrepõem) se propaga para
-o Judge; use Opus. Saída: lista de **clusters suspeitos** (2–4 skills cada), ex.:
+o Judge; use Gemini 3.7 Flash (High). Saída: lista de **clusters suspeitos** (2–4 skills cada), ex.:
 `vue-axios ↔ vue-pinia ↔ vue-max-use-usecachedapi` (todos falam de fetch/cache).
 
-**2.2 Judge (fan-out, 1 agente/cluster) — Opus.** Cada agente lê **só as skills daquele cluster** e
+**2.2 Judge (fan-out, 1 agente/cluster) — Gemini 3.7 Flash (High).** Cada agente lê **só as skills daquele cluster** e
 decide se são de fato redundantes — julgamento factual/crítico, não mecânico:
 
 ```json
@@ -254,7 +221,7 @@ decide se são de fato redundantes — julgamento factual/crítico, não mecâni
   "into": "skill que absorve (se MERGE)",
   "rationale": "por que; o que cada uma tem de único",
   "mergePlan": "como fundir sem perda de conteúdo (se MERGE)",
-  "reviewModel": "sonnet | opus"
+  "reviewModel": "Gemini 3.7 Flash (High) | Gemini 3.7 Flash (High)"
 }
 ```
 
@@ -262,8 +229,8 @@ decide se são de fato redundantes — julgamento factual/crítico, não mecâni
 - **DEMARCAR** — manter ambas, mas com escopos/cross-refs claros para os gatilhos não conflitarem.
 - **FALSO-POSITIVO** — parecem, mas cobrem coisas distintas; deixar como está.
 
-`reviewModel` aqui costuma ser `"opus"` (comparar 2-4 skills inteiras exige julgamento amplo), mas
-use `"sonnet"` nos casos óbvios — ex.: duas skills que são cópias quase literais uma da outra, onde
+`reviewModel` aqui costuma ser `"Gemini 3.7 Flash (High)"` (comparar 2-4 skills inteiras exige julgamento amplo), mas
+use `"Gemini 3.7 Flash (High)"` nos casos óbvios — ex.: duas skills que são cópias quase literais uma da outra, onde
 a checagem é só confirmar a sobreposição, não julgar nuance.
 
 > **Barreira obrigatória:** o passo 2.1 precisa dos `mapSummary` de TODAS as skills → a Fase 1 deve
@@ -282,7 +249,7 @@ assumindo por padrão que a acusação **pode estar errada**.
 problema já anexou.** Quem viu o problema primeiro está em melhor posição para julgar sua
 complexidade do que um revisor sem esse contexto, que teria que redescobri-la do zero. Ao montar a
 chamada de cada revisor, leia `problem.reviewModel` e propague direto:
-`agent(prompt, { schema, phase: 'Revisar', model: problem.reviewModel })`. Não force Opus em tudo
+`agent(prompt, { schema, phase: 'Revisar', model: problem.reviewModel })`. Não force Gemini 3.7 Flash (High) em tudo
 por padrão — isso desperdiça o ganho de ter a classificação vinda da origem.
 
 **Saída estruturada** (um objeto por problema):
@@ -298,8 +265,8 @@ por padrão — isso desperdiça o ganho de ter a classificação vinda da orige
 ```
 
 > Se o volume for grande, agrupe por skill (1 revisor refuta a lista da skill) — mas **só agrupe
-> problemas com o mesmo `reviewModel`** (não misture um lote `sonnet` com um problema `opus`; nesse
-> caso o lote inteiro rodaria no modelo mais caro à toa, ou o problema `opus` seria mal avaliado).
+> problemas com o mesmo `reviewModel`** (não misture um lote `Gemini 3.7 Flash (High)` com um problema `Gemini 3.7 Flash (High)`; nesse
+> caso o lote inteiro rodaria no modelo mais caro à toa, ou o problema `Gemini 3.7 Flash (High)` seria mal avaliado).
 > Mantenha o veredito **por problema**.
 
 ---
@@ -394,21 +361,21 @@ Cada subagente de correção **edita o `SKILL.md` in-place**, ancorado no códig
 3 e 5 (que reescrevem estrutura/description) carregam a `skill-creator`; as Etapas 1 e 4 são
 técnicas/mecânicas e não precisam dela (ver regra de uso restrito no topo do documento).
 
-- **Etapa 1 — Remoções + Merges → 1 subagente por remoção/merge. Opus.** Executa primeiro:
+- **Etapa 1 — Remoções + Merges → 1 subagente por remoção/merge. Gemini 3.7 Flash (High).** Executa primeiro:
   apaga as REMOVER e funde as FUNDIR (sem perda de conteúdo). **Atualiza `manifests/` e o sync de
   skills** a cada remoção/rename. Encolhe o conjunto para as etapas seguintes.
-- **Etapa 2 — Críticas (das que sobraram) → 1 subagente por skill. Opus.** Reescrita
+- **Etapa 2 — Críticas (das que sobraram) → 1 subagente por skill. Gemini 3.7 Flash (High).** Reescrita
   profunda: remover seções fabricadas, reconstruir a arquitetura conforme o projeto, corrigir a
   description. Onde o tema não existe no projeto, **não inventar**: reduzir o escopo ao real e
   sinalizar ao humano.
-- **Etapa 3 — Ruins → 1 subagente por skill. Opus.** Correções medianas: nomes de config/
+- **Etapa 3 — Ruins → 1 subagente por skill. Gemini 3.7 Flash (High).** Correções medianas: nomes de config/
   env/rota/tabela/coluna reais, remover mecanismos inexistentes, alinhar a convenção de rotas Ziggy.
-- **Etapa 4 — Regulares + podas de bloat → lotes de 3–5 skills/agente. Sonnet.**
+- **Etapa 4 — Regulares + podas de bloat → lotes de 3–5 skills/agente. Gemini 3.7 Flash (High).**
   Correções superficiais em lote temático **junto** com os cortes de bloat (PODAR/INCHADA) definidos
   na Fase 1. Monte os lotes agrupando por prefixo/pasta (`laravel-*`, `vue-*`) e, dentro disso, por
   área do projeto que a skill mais referencia (Stores, Controllers, componentes Max*, etc.) — skills
   do mesmo grupo tendem a citar os mesmos arquivos reais, maximizando o reaproveitamento de leitura.
-- **Etapa 5 — Boas → lotes de 3–5 skills/agente. Sonnet.** Só nível-skill: headings, seções em
+- **Etapa 5 — Boas → lotes de 3–5 skills/agente. Gemini 3.7 Flash (High).** Só nível-skill: headings, seções em
   pt-BR, refs quebradas, description 200–400. Sem tocar em técnica — por isso lotes maiores cabem
   bem aqui (é ajuste mecânico, baixo risco de um erro contaminar as demais skills do lote).
 
@@ -433,7 +400,7 @@ briefing antes de editar. Faça o subagente **retornar** um resumo estruturado:
 
 ---
 
-## Fase 7 — Verificação adversarial final — **Opus**
+## Fase 7 — Verificação adversarial final — **Gemini 3.7 Flash (High)**
 
 Após as 5 etapas do plano, dispare **1 verificador por skill de alto risco** (todas as Críticas +
 Ruins + as que sofreram merge) tentando **refutar** a versão final contra o código real — veredito
@@ -464,11 +431,15 @@ para a próxima passada não repetir os mesmos erros.
 
 ---
 
-## Ferramentas Anthropic a usar
+## Ferramentas a usar
 
-A única dependência obrigatória é a **`skill-creator@claude-plugins-official`** — e vale explorar
-duas capacidades internas dela (não é preciso nenhum plugin de terceiros; o diferencial da auditoria
-é ler o código real em `projects/` com Grep/Read/Glob):
+As únicas dependências (SKILLS) obrigatórias para esta execução são:
+1. skill-audit
+2. skill-creator
+3. skill-optimizer
+4. manage-skills
+
+O diferencial da auditoria é ler o código real em `projects/` com Grep/Read/Glob):
 
 - **Description-improver (otimizador de *triggering*)** — nas Etapas 2, 3 e 5 (as que reescrevem
   `description`), use o passo do skill-creator dedicado a otimizar a description para a skill disparar
@@ -504,7 +475,7 @@ duas capacidades internas dela (não é preciso nenhum plugin de terceiros; o di
   triplicaria a leitura para o mesmo resultado.
 - **1 agente por unidade só onde há julgamento crítico** (Fase 1; Fase 2 cluster/judge; Fase 3 —
   modelo do `reviewModel` de cada problema; Etapas 1–3 do plano; Fase 7). **Lotes de 3–5 skills por
-  agente onde o trabalho é mecânico/padronizado** (Etapas 4–5 — Sonnet): o ganho não é só menos
+  agente onde o trabalho é mecânico/padronizado** (Etapas 4–5 — Gemini 3.7 Flash (High)): o ganho não é só menos
   chamadas, é que o agente do lote reaproveita a leitura de `projects/` entre as skills do mesmo
   tema, em vez de cada skill pagar sozinha o custo de reabrir os mesmos arquivos do zero.
 - **Dentro do mesmo tema, prefira `pipeline` a `parallel`** para encadear lotes sucessivos no mesmo
