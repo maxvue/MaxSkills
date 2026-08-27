@@ -5,7 +5,7 @@
     "description_en": "Use when building new UI or remodeling Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Covers core design mandate, aesthetics, typography, colors, layout, motion, and accessible production code.",
     "description_pt_br": "Use ao construir novas interfaces (UI) ou remodelar telas Engeapp screens (Vue 3 + UnoCSS attributify presetMaxUno + @maxvue/max-components-ui). Cobre core design mandate, aesthetics, typography, colors, layout, motion, e accessible production code.",
     "promo_en": "Standardized engineering practices for frontend design. Enhances project stability, maintainability, and implementation velocity.",
-    "promo_pt_br": "Boas práticas de engenharia de software para frontend design, promovendo maior estabilidade, manutenibilidade e velocidade de entrega.",
+    "promo_pt_br": "Crie interfaces memoráveis em Vue 3, UnoCSS e componentes Max, aplicando direção estética autoral, alto acabamento visual e código limpo pronto para produção.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
     "languages": [
@@ -43,7 +43,7 @@
     "description_en": "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar, testar ou monitorar AI agents no Laravel (laravel/ai). Cobre agent classes, ferramentas de function calling, saídas estruturadas em JSON, Pest testes de com fakeAgent, métricas de consumo de tokens, e AgentHealthScore rules. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for ai agents ecosystem in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para ai agents ecosystem no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Construa e monitore agentes de IA com laravel/ai (aiSDK), estruturando tools via JsonSchema, structured outputs, rastreamento de custos em tokens e testes em Pest com fakeAgent.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
     "languages": [
@@ -82,7 +82,7 @@
     "description_en": "Use when creating, reviewing, or debugging bank ticket (TRT/homologation) AI payment workflows and processing architecture via AgentBankTicketProcessor or AgentAiBilletReader (OCR) with Efí SDK. Covers processing best practices, TRT homologation, and ticket processor.",
     "description_pt_br": "Use ao criar, revisar ou depurar bank ticket (TRT/homologation) AI payment workflows e processamento de architecture via AgentBankTicketProcessor ou AgentAiBilletReader (OCR) com Efí SDK. Cobre processamento de best practices, TRT homologation, e ticket processor.",
     "promo_en": "Enterprise guidelines and architectural standards for ai bank ticket processing in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para ai bank ticket processing no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Automatize a leitura por OCR e processamento de boletos bancários (taxas de TRT e homologação solar) integrando agentes de IA com SDK da Efí no Laravel.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
     "languages": [
@@ -121,7 +121,7 @@
     "description_en": "Use when extracting technical specifications from solar inverter/module datasheets (PDFs) via AgentDatasheetReader, production pipeline, grounding rules, output schemas, electrical specs, and JSON validation. Covers extraction pipeline and validation rules.",
     "description_pt_br": "Use quando para extração de technical specifications de solar inverter/module datasheets (PDFs) via AgentDatasheetReader, production pipeline, grounding rules, output schemas, electrical specs, e JSON validation. Cobre extraction pipeline e validation rules.",
     "promo_en": "Enterprise guidelines and architectural standards for ai datasheet extraction in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para ai datasheet extraction no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Extraia e normalize especificações elétricas de inversores e módulos solares em PDFs de datasheets via AgentDatasheetReader e Gemini, com validação estrita de JSON.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
     "languages": [
@@ -160,7 +160,7 @@
     "description_en": "Use when implementing or debugging CAPTCHA resolution services (Anti-Captcha) in Laravel, including ImageToText tasks, API keys, error handling, timeouts, and logging. Covers objectives and core workflows.",
     "description_pt_br": "Use ao implementar ou depurar CAPTCHA resolution services (Anti-Captcha) no Laravel, incluindo ImageToText tasks, API keys, error tratamento de, timeouts, e logging. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for anticaptcha integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para anticaptcha integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integre a resolução automatizada de captchas de imagem no Laravel com a API do Anti-Captcha, configurando polling assíncrono, timeouts e tratamento resiliente de erros.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
     "languages": [
@@ -199,7 +199,7 @@
     "description_en": "Use when creating, debugging, or extending external HTTP API integrations over BaseApi in Engeapp. Triggers when configuring connector classes in app/Http/Integrations/, defining Attributes.json and EndPoints.json schemas, managing OAuth2 token lifecycle, or configuring request caching rules.",
     "description_pt_br": "Use when creating, debugging, or extending external HTTP API integrations over BaseApi in Engeapp. Triggers when configuring connector classes in app/Http/Integrations/, defining Attributes.json and EndPoints.json schemas, managing OAuth2 token lifecycle, or configuring request caching rules.",
     "promo_en": "Enterprise guidelines and architectural standards for api integration patterns in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para api integration patterns no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Desenvolva integrações HTTP no Laravel estendendo BaseApi com mapeamento declarativo em JSON para endpoints e atributos, autenticação OAuth2 e cache de requisições.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
     "languages": [
@@ -238,7 +238,7 @@
     "description_en": "Use when creating or reviewing authorization in Laravel via spatie/laravel-permission. Covers roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia integration. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar ou revisar authorization no Laravel via spatie/laravel-permission. Cobre roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), e Vue SPA MaxPinia integration. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for authorization policies gates in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para authorization policies gates no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gerencie controle de acesso RBAC e multi-tenant no Laravel via spatie/laravel-permission, unificando permissões nomeadas em pt-BR, Gates nativos e Policies por empresa.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
     "languages": [
@@ -277,7 +277,7 @@
     "description_en": "Use when querying, validating, or caching Brazilian CNPJ and CEP postal data in Engeapp backend services. Triggers when working with ApiCnpjService fallback providers (ReceitaWS, OpenCNPJ, CnpjAberto), ApiCepService resolution chain, or local address cache models.",
     "description_pt_br": "Use when querying, validating, or caching Brazilian CNPJ and CEP postal data in Engeapp backend services. Triggers when working with ApiCnpjService fallback providers (ReceitaWS, OpenCNPJ, CnpjAberto), ApiCepService resolution chain, or local address cache models.",
     "promo_en": "Enterprise guidelines and architectural standards for brazilian data queries in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para brazilian data queries no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Consulte dados de CNPJ e CEP no Laravel com cadeia de fallback inteligente entre múltiplos provedores (ReceitaWS, OpenCNPJ, CnpjAberto) e cache estratégico de 3 meses.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
     "languages": [
@@ -314,7 +314,7 @@
     "description_en": "Use when validating, formatting, or sanitizing Brazilian documents (CPF, CNPJ, CEP, phone numbers) and currency values (BRL, pt-BR) across Laravel backend and Vue 3 / MaxUse frontend. Covers Brazilian localization best practices and document validation.",
     "description_pt_br": "Use quando para validação de, formatação de, ou sanitização de Brazilian documents (CPF, CNPJ, CEP, phone numbers) e currency values (BRL, pt-BR) across Laravel backend e Vue 3 / MaxUse frontend. Cobre Brazilian localization best practices e document validation.",
     "promo_en": "Enterprise guidelines and architectural standards for brazilian localization in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para brazilian localization no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Valide e formate CPF, CNPJ, CEP e telefones com Lacus\\BrUtils e helpers dedicados, garantindo sanitização numérica no banco e valores em BRL precisos em PHP e Vue 3.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
     "languages": [
@@ -353,7 +353,7 @@
     "description_en": "Use when integrating, configuring, or debugging Brazilian payment gateways in Engeapp. Covers Efí SDK (EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas HTTP service for mobile recharges (CellChargeService), Banco Inter webhook placeholders, and webhook idempotency patterns.",
     "description_pt_br": "Use when integrating, configuring, or debugging Brazilian payment gateways in Engeapp. Covers Efí SDK (EfiPay, efiOptions, ProcessEfiWebhookJob), Asaas HTTP service for mobile recharges (CellChargeService), Banco Inter webhook placeholders, and webhook idempotency patterns.",
     "promo_en": "Enterprise guidelines and architectural standards for brazilian payments integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para brazilian payments integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integre gateways brasileiros no Laravel: processe pagamentos com SDK da Efí/Gerencianet, recargas via API Asaas e trate webhooks com DTOs e controle de idempotência.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
     "languages": [
@@ -393,7 +393,7 @@
     "description_en": "Use when creating, modifying, or debugging web browser automation tasks (Selenium WebDriver, Dusk, Puppeteer, Python RPA) in Laravel or backend microservices. Covers browser automation, driver configuration, and element interactions.",
     "description_pt_br": "Use ao criar, modificar ou depurar web browser automation tasks (Selenium WebDriver, Dusk, Puppeteer, Python RPA) no Laravel ou backend microservices. Cobre browser automation, driver configuration, e element interactions.",
     "promo_en": "Enterprise guidelines and architectural standards for browser automation webdriver in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para browser automation webdriver no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Automação de navegador com php-webdriver e Firefox/geckodriver no Laravel, gerenciando portas dinâmicas no Redis e ciclo de vida seguro de processos.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
     "languages": [
@@ -433,7 +433,7 @@
     "description_en": "Use when implementing, configuring, or debugging cache in Engeapp (Laravel 13 + Octane, phpredis store). Covers Cache::remember pattern, TTLs, invalidation via Cache::forget (Models/Observers), key conventions, tags/locks, and deploy caches.",
     "description_pt_br": "Use ao implementar, configurar ou depurar cache no Engeapp (Laravel 13 + Octane, phpredis store). Cobre Cache::remember pattern, TTLs, invalidation via Cache::forget (Models/Observers), key conventions, tags/locks, e deploy caches.",
     "promo_en": "Enterprise guidelines and architectural standards for cache in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para cache no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Estratégias de cache com phpredis no Laravel Octane, cobrindo convenções de chaves, invalidação via Observers/Models e uso correto de Cache::remember.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
     "languages": [
@@ -473,7 +473,7 @@
     "description_en": "Use when configuring, debugging, or migrating cloud storage drivers in Engeapp Laravel backend. Covers custom Seafile WebDAV adapter in AppServiceProvider, FilesHelpers (resolveLocalDiskPath, saveToRemoteDisk), temporaryUrl, and Spatie Media Library disks.",
     "description_pt_br": "Use when configuring, debugging, or migrating cloud storage drivers in Engeapp Laravel backend. Covers custom Seafile WebDAV adapter in AppServiceProvider, FilesHelpers (resolveLocalDiskPath, saveToRemoteDisk), temporaryUrl, and Spatie Media Library disks.",
     "promo_en": "Enterprise guidelines and architectural standards for cloud storage integrations in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para cloud storage integrations no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integração de storage remoto com driver customizado Seafile via WebDAV (Flysystem e SabreDAV), helpers de arquivo local/remoto e Spatie Media Library.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
     "languages": [
@@ -512,7 +512,7 @@
     "description_en": "Use when managing energy concessionaires, subsidiaries, RPAs, and connection standards (phases, voltage, breaker, cables) in Engeapp, and electrical parameters for PV sizing. Covers concessionaire regulations and electrical connection standards.",
     "description_pt_br": "Use ao gerenciar energy concessionaires, subsidiaries, RPAs, e connection standards (phases, voltage, breaker, cables) no Engeapp, e electrical parameters para PV sizing. Cobre concessionaire regulations e electrical connection standards.",
     "promo_en": "Enterprise guidelines and architectural standards for concessionaires connection regulation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para concessionaires connection regulation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gestão de concessionárias de energia, filiais e parâmetros técnicos de conexão elétrica (fases, tensão, disjuntores e cabos) para projetos solares.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
     "languages": [
@@ -549,7 +549,7 @@
     "description_en": "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, and background job processing. Covers objectives and core workflows.",
     "description_pt_br": "Use ao projetar ou modifying digital signature integrations (Autentique, Clicksign) no Laravel. Cobre document upload, signers, secure webhooks, e background job processamento de. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for digital signatures integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para digital signatures integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integração de assinaturas digitais via API do Autentique no Laravel, com injeção segura de dependências, tratamento de webhooks e logs dedicados.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
     "languages": [
@@ -588,7 +588,7 @@
     "description_en": "Use when implementing or managing Instagram editorial calendar events in Engeapp. Covers Event lifecycle states (CalendarEventStatusEnum), EventObserver job orchestration (CopywriterJob, GraphicEditorJob, ArtAnalystJob), Horizon gemini queue configuration, and slide-level revision workflows.",
     "description_pt_br": "Use when implementing or managing Instagram editorial calendar events in Engeapp. Covers Event lifecycle states (CalendarEventStatusEnum), EventObserver job orchestration (CopywriterJob, GraphicEditorJob, ArtAnalystJob), Horizon gemini queue configuration, and slide-level revision workflows.",
     "promo_en": "Enterprise guidelines and architectural standards for editorial calendar event workflow in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para editorial calendar event workflow no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Orquestração do ciclo de vida de eventos do calendário editorial com enums e EventObserver disparando jobs de IA para redação e criação de artes.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
     "languages": [
@@ -625,7 +625,7 @@
     "description_en": "Use when performing electrical sizing, circuit breaker calculation, cable sizing, voltage drop verification, or inverter/module matching via getWireSize, getCircuitBrake, getInverter, or NBR 5410 standards. Covers electrical sizing, breaker calculations, and cable sizing standards.",
     "description_pt_br": "Use quando para performing electrical sizing, circuit breaker calculation, cable sizing, voltage drop verification, ou inverter/module matching via getWireSize, getCircuitBrake, getInverter, ou NBR 5410 standards. Cobre electrical sizing, breaker calculations, e cable sizing standards.",
     "promo_en": "Enterprise guidelines and architectural standards for electrical calculations dimensioning in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para electrical calculations dimensioning no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Dimensionamento elétrico automatizado no Laravel com getWireSize e getCircuitBrake para cálculo de cabos, disjuntores e normas da NBR 5410.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
     "languages": [
@@ -662,7 +662,7 @@
     "description_en": "Use when managing solar PV project homologation in Engeapp. Covers concessionaire regulations via ConcessionaireSubsidiaryRegulation, HasProtocol trait, Protocol::booted hook, and Vue SPA MaxPinia integration. Covers objectives and connection regulations.",
     "description_pt_br": "Use ao gerenciar solar PV project homologation no Engeapp. Cobre concessionaire regulations via ConcessionaireSubsidiaryRegulation, HasProtocol trait, Protocol::booted hook, e Vue SPA MaxPinia integration. Cobre objectives e connection regulations.",
     "promo_en": "Enterprise guidelines and architectural standards for engeapp project homologation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para engeapp project homologation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Fluxo de homologação fotovoltaica no Laravel e Vue SPA, validando regras técnicas por concessionária e sincronizando protocolos com o planner.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
     "languages": [
@@ -701,7 +701,7 @@
     "description_en": "Use when defining, refactoring, or debugging exception handling and logging in Engeapp. Covers custom Exceptions (ShouldntReport, failed() job callback), context()/render()/report(), logging channels, defensive try-catch in services.",
     "description_pt_br": "Use ao definir, refatorar ou depurar exception tratamento de e logging no Engeapp. Cobre custom Exceptions (ShouldntReport, failed() job callback), context()/render()/report(), logging channels, defensive try-catch in services.",
     "promo_en": "Enterprise guidelines and architectural standards for exception handling logging in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para exception handling logging no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Tratamento de exceções e logs estruturados no Laravel, usando ShouldntReport para retentativas de jobs de IA e relatórios no callback failed().",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
     "languages": [
@@ -740,7 +740,7 @@
     "description_en": "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar, applying, ou validação de discount coupons, referral rules, ou financial discounts no Laravel. Cobre coupon validation logic, payment adjustments, e expiration checks. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for finance coupons discounts in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para finance coupons discounts no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Validação e aplicação de cupons e descontos financeiros no Laravel, controlando expiração, limites de uso por integrador e prevenção de concorrência.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
     "languages": [
@@ -777,7 +777,7 @@
     "description_en": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, avoiding memory leaks, managing singletons, and tuning Caddyfile workers. Covers objectives and core workflows.",
     "description_pt_br": "Use ao configurar, deploying, ou depuração de Laravel Octane em FrankenPHP in production, escrita de stateless PHP code, avoiding memory leaks, gerenciamento de singletons, e tuning Caddyfile workers. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for frankenphp octane in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para frankenphp octane no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Otimize o Laravel Octane no FrankenPHP com gerenciamento seguro de singletons, ciclo de vida de workers, controle de vazamento de memória e deploys sem downtime.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
     "languages": [
@@ -816,7 +816,7 @@
     "description_en": "Use when managing media uploads and multimodal processing via Google AI File API with Gemini SDK in Laravel. Covers video, audio, or PDF file processing, temp uploads, active state polling, and cleanup. Covers objectives and core workflows.",
     "description_pt_br": "Use ao gerenciar media uploads e multimodal processamento de via Google AI File API com Gemini SDK no Laravel. Cobre video, audio, ou PDF file processamento de, temp uploads, active state polling, e cleanup. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for gemini file api media integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para gemini file api media integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Faça upload e processe mídias pesadas (vídeos e áudios >20MB) via Google AI File API e Gemini SDK no Laravel com jobs em fila e baixo uso de memória.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
     "languages": [
@@ -855,7 +855,7 @@
     "description_en": "Use when interacting with Gemini API using google-gemini-php/laravel SDK. Covers GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, and exception handling. Covers objectives, Facade model, and Gemini API schemas.",
     "description_pt_br": "Use quando para interação com Gemini API usando google-gemini-php/laravel SDK. Cobre GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, e exception tratamento de. Cobre objectives, Facade model, e Gemini API schemas.",
     "promo_en": "Enterprise guidelines and architectural standards for gemini php sdk in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para gemini php sdk no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integre o SDK Gemini no Laravel com respostas JSON estruturadas, fallback em cascata de modelos (2.5 e 3.x) e processamento multimodal seguro via Blobs.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
     "languages": [
@@ -894,7 +894,7 @@
     "description_en": "Use when creating, modifying, or testing global helper functions in Engeapp (app/Helpers/). Covers domain helper files, camelCase naming, composer autoload registration, Octane statelessness, and Pest unit tests.",
     "description_pt_br": "Use ao criar, modifying, ou testes de global helper functions no Engeapp (app/Helpers/). Cobre domain helper files, camelCase naming, composer autoload registration, Octane statelessness, e Pest unit tests.",
     "promo_en": "Enterprise guidelines and architectural standards for global helpers in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para global helpers no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Padronize e organize funções helper globais sem classes em app/Helpers, com nomes em camelCase, autoload no Composer e compatibilidade total com Octane.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
     "languages": [
@@ -931,7 +931,7 @@
     "description_en": "Use when implementing or debugging SLA tracking, business-day calculations, or deadlines in Engeapp backend. Covers DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween). Covers objectives and core workflows.",
     "description_pt_br": "Use ao implementar ou depurar SLA tracking, business-day calculations, ou deadlines no Engeapp backend. Cobre DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween). Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for holiday sla calculation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para holiday sla calculation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Calcule prazos de SLA, horas comerciais e dias úteis com o DatesHelper, considerando feriados nacionais e estaduais para homologações solares.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
     "languages": [
@@ -968,7 +968,7 @@
     "description_en": "Use when creating, reviewing, or debugging queue Jobs, Horizon supervisors, retries, backoff, timeouts, API rate limiting, idempotency guards, and HasAgentAiRequest trait. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar, revisar ou depurar queue Jobs, Horizon supervisors, retries, backoff, timeouts, API rate limiting, idempotency guards, e HasAgentAiRequest trait. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for jobs queues horizon in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para jobs queues horizon no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Estruture jobs assíncronos no Laravel Horizon com retries customizados, backoff exponencial, controle de timeouts e isolamento de falhas de APIs externas.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
     "languages": [
@@ -1007,7 +1007,7 @@
     "description_en": "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar, atualização de, ou depuração de WebRTC audio/video services usando LiveKit Server SDK (agence104/livekit-server-sdk) no Laravel. Cobre AccessToken com VideoGrant, RoomServiceClient, e error logging. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for livekit server sdk in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para livekit server sdk no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integre WebRTC com LiveKit Server SDK no Laravel para gerar tokens de acesso seguros, criar salas dinâmicas e gerenciar participantes de áudio e vídeo.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
     "languages": [
@@ -1046,7 +1046,7 @@
     "description_en": "Use when managing file uploads and attachments with Spatie Media Library in Engeapp. Covers HasMedia/InteractsWithMedia models, custom Media model, domain disks (projects/whatsapp), conversions, and media.* routes.",
     "description_pt_br": "Use ao gerenciar file uploads e attachments com Spatie Media Library no Engeapp. Cobre HasMedia/InteractsWithMedia models, custom Media model, domain disks (projects/whatsapp), conversions, e media.* routes.",
     "promo_en": "Enterprise guidelines and architectural standards for media library in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para media library no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gerencie uploads e anexos com Spatie Media Library usando model customizado com ULID, coleções dedicadas e discos segmentados por domínio.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
     "languages": [
@@ -1085,7 +1085,7 @@
     "description_en": "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Covers objectives, architectural structure, and Meta API endpoints.",
     "description_pt_br": "Use ao implementar ou depurar Meta Graph API (Instagram/Facebook) no Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, e MetaWebhookJob. Cobre objectives, architectural structure, e Meta API endpoints.",
     "promo_en": "Enterprise guidelines and architectural standards for meta graph api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para meta graph api integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Publique fotos, reels e carrosséis no Instagram e Facebook via Meta Graph API, gerenciando webhooks, métricas e comentários com o MetaService.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
     "languages": [
@@ -1124,7 +1124,7 @@
     "description_en": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar, revisar ou depurar database migrations, seeders, ou model factories no Laravel. Cobre schema definitions, foreign keys, database seeders, e factory states. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for migrations seeders factories in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para migrations seeders factories no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Crie migrations resilientes com classes anônimas e ULIDs, seeders idempotentes e model factories padronizados para consistência do banco de dados.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
     "languages": [
@@ -1161,7 +1161,7 @@
     "description_en": "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies. Covers objectives, tenant scoping, and user permission models.",
     "description_pt_br": "Use ao projetar, revisão de, ou depuração de multi-company tenant isolation no Engeapp (tenant is solar_company_id). Cobre scopeForUserTenant scope, User::allowedSolarCompanyIds(), e tenant resolving Policies. Cobre objectives, tenant scoping, e user permission models.",
     "promo_en": "Enterprise guidelines and architectural standards for multitenancy data isolation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para multitenancy data isolation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gerencie o isolamento multiempresa no Laravel via local scopes com scopeForUserTenant e allowedSolarCompanyIds, garantindo acesso seguro a múltiplos clientes sem global scopes.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
     "languages": [
@@ -1198,7 +1198,7 @@
     "description_en": "Use when generating, rendering, extracting text, validating, or converting PDFs to images in Engeapp. Covers DomPDF via HasDocument trait, FPDI/TCPDF via PdfEdit, pdfIsValid() validation, and File::createThumbnailFromPdf().",
     "description_pt_br": "Use quando para geração de, rendering, extração de text, validação de, ou converting PDFs para images no Engeapp. Cobre DomPDF via HasDocument trait, FPDI/TCPDF via PdfEdit, pdfIsValid() validation, e File::createThumbnailFromPdf().",
     "promo_en": "Enterprise guidelines and architectural standards for pdf handling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para pdf handling no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gere e manipule PDFs no Laravel usando DomPDF, TCPDF com FPDI via PdfEdit, validação de arquivos e conversão para thumbnails e imagens com baixo consumo de memória.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
     "languages": [
@@ -1237,7 +1237,7 @@
     "description_en": "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, and Pail log tailing. Covers objectives and core workflows.",
     "description_pt_br": "Use ao configurar, otimização de, ou depuração de Laravel 13 profiling tools no Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, e Pail log tailing. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for performance and profiling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para performance and profiling no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Identifique gargalos e queries lentas no Laravel com Laravel Pulse, Clockwork e LaraDumps ds(), otimizando o uso de CPU, memória e cache Redis com telemetria precisa.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
     "languages": [
@@ -1277,7 +1277,7 @@
     "description_en": "Use when writing, debugging, or reviewing Unit, Feature, or Architecture tests with Pest PHP in Laravel. Covers test creation, assertions, mocking dependencies, factory usage, database setup, arch() rules, and Http::fake().",
     "description_pt_br": "Use quando para escrita de, depuração de, ou revisão de Unit, Feature, ou Architecture tests com Pest PHP no Laravel. Cobre test creation, assertions, mocking dependencies, factory usage, database setup, arch() rules, e Http::fake().",
     "promo_en": "Enterprise guidelines and architectural standards for pest testing in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para pest testing no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Crie testes funcionais, unitários e de arquitetura com Pest PHP no Laravel, usando a sintaxe expect(), DatabaseTransactions e mocks seguros de banco e requisições HTTP.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
     "languages": [
@@ -1316,7 +1316,7 @@
     "description_en": "Use when formatting, statically analyzing, or refactoring PHP 8.4+ code in Engeapp backend. Covers Laravel Pint code formatting (--dirty), Larastan/PHPStan static analysis (phpstan.neon level 1), Rector refactoring rules, and Barryvdh IDE Helper generation.",
     "description_pt_br": "Use when formatting, statically analyzing, or refactoring PHP 8.4+ code in Engeapp backend. Covers Laravel Pint code formatting (--dirty), Larastan/PHPStan static analysis (phpstan.neon level 1), Rector refactoring rules, and Barryvdh IDE Helper generation.",
     "promo_en": "Enterprise guidelines and architectural standards for php code quality tooling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para php code quality tooling no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Automatize o pipeline de qualidade PHP 8.4+ no Laravel com Laravel Pint (--dirty), análise estática Larastan/PHPStan, refatorações via Rector e Barryvdh IDE Helper.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
     "languages": [
@@ -1353,7 +1353,7 @@
     "description_en": "Use when creating, reviewing, or debugging Power of Attorney PDF generation in Laravel via PowerAttorneyService, formatting legal addresses, and rendering DomPDF documents. Covers document generation and DomPDF rendering.",
     "description_pt_br": "Use ao criar, revisar ou depurar Power of Attorney PDF generation no Laravel via PowerAttorneyService, formatação de legal addresses, e rendering DomPDF documents. Cobre document generation e DomPDF rendering.",
     "promo_en": "Enterprise guidelines and architectural standards for power of attorney generation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para power of attorney generation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gere procurações jurídicas em PDF para PF e PJ via PowerAttorneyService e DomPDF, com formatação automática de endereços, dados de sócios e assinatura digital.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
     "languages": [
@@ -1392,7 +1392,7 @@
     "description_en": "Use when generating, customizing, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers SVG/PNG outputs, base64 encoding for Blade/APIs, logos, and labels. Covers objectives and core workflows.",
     "description_pt_br": "Use quando para geração de, customizing, rendering, ou testes de QR Codes no Laravel usando endroid/qr-code. Cobre SVG/PNG outputs, base64 encoding para Blade/APIs, logos, e labels. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for qrcode generation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para qrcode generation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gere QR Codes customizados em PNG ou SVG com a biblioteca endroid/qr-code, incluindo suporte a logos embutidos, labels, correção de erro e saída em Base64 para Blade.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
     "languages": [
@@ -1431,7 +1431,7 @@
     "description_en": "Use when configuring, optimizing, or debugging rate limits for HTTP routes, APIs, logins, or queues in Laravel. Covers named limiters in AppServiceProvider, throttle middleware, manual FormRequest throttling, and 429 response customization.",
     "description_pt_br": "Use ao configurar, otimização de, ou depuração de rate limits para HTTP routes, APIs, logins, ou queues no Laravel. Cobre named limiters in AppServiceProvider, throttle middleware, manual FormRequest throttling, e 429 response customization.",
     "promo_en": "Enterprise guidelines and architectural standards for rate limiting in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para rate limiting no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Proteja rotas, autenticação e filas contra abusos e ataques de força bruta no Laravel com RateLimiter nomeados no AppServiceProvider e middleware throttle customizado.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
     "languages": [
@@ -1468,7 +1468,7 @@
     "description_en": "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues). Covers objectives and core workflows.",
     "description_pt_br": "Use ao configurar, otimização de, ou depuração de Redis connections no Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, e Horizon queues). Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for redis integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para redis integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Configure conexões de alta performance no Laravel com driver phpredis, conexões persistentes, pipelines atômicos, prefixos semânticos de chaves e filas no Horizon.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
     "languages": [
@@ -1507,7 +1507,7 @@
     "description_en": "Use when configuring, optimizing, debugging, or deploying Laravel Reverb WebSocket server in Engeapp. Covers WebSocket configuration, Vite client broadcasting, Caddy WSS reverse proxy, Supervisor, and live events.",
     "description_pt_br": "Use ao configurar, otimização de, depuração de, ou deploying Laravel Reverb WebSocket server no Engeapp. Cobre WebSocket configuration, Vite client broadcasting, Caddy WSS reverse proxy, Supervisor, e live events.",
     "promo_en": "Enterprise guidelines and architectural standards for reverb websockets in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para reverb websockets no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Implemente comunicação em tempo real e WebSockets no Laravel usando servidor Reverb, proxy reverso TLS/WSS e integração client-side com Laravel Echo e Vue.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
     "languages": [
@@ -1546,7 +1546,7 @@
     "description_en": "Use when implementing or optimizing full-text search (Laravel Scout + Meilisearch) in Engeapp. Covers HasScoutMeilisearch trait, toSearchableArray, meilisearchSettings, index configuration, and searchSafe macro fallback.",
     "description_pt_br": "Use ao implementar ou otimização de full-text search (Laravel Scout + Meilisearch) no Engeapp. Cobre HasScoutMeilisearch trait, toSearchableArray, meilisearchSettings, index configuration, e searchSafe macro fallback.",
     "promo_en": "Enterprise guidelines and architectural standards for scout searchable in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para scout searchable no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Padroniza busca full-text com Laravel Scout e Meilisearch usando a trait HasScoutMeilisearch, configuração de índices por model e a macro searchSafe() com fallback seguro.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
     "languages": [
@@ -1586,7 +1586,7 @@
     "description_en": "Use when designing, reviewing, or debugging Laravel application security. Covers Eloquent encryption, mass assignment protection, SQLi/IDOR mitigation, secure controllers, file upload hardening, security headers, and OWASP Top 10.",
     "description_pt_br": "Use ao projetar, revisão de, ou depuração de Laravel application security. Cobre Eloquent encryption, mass assignment protection, SQLi/IDOR mitigation, secure controllers, file upload hardening, security headers, e OWASP Top 10.",
     "promo_en": "Enterprise guidelines and architectural standards for security hardening in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para security hardening no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Aplica hardening de segurança no Laravel contra OWASP Top 10 com criptografia Eloquent de PIIs, proteção de mass assignment, queries parametrizadas e upload seguro de arquivos.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
     "languages": [
@@ -1625,7 +1625,7 @@
     "description_en": "Use when creating or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Container, PHP 8 constructor property promotion, dependency injection, and Octane memory safety. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar ou registering Laravel Service Providers, binding services (bind, singleton, scoped) para the Container, PHP 8 constructor property promotion, dependency injection, e Octane memory safety. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for service providers dependency injection in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para service providers dependency injection no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Registra Service Providers e gerencia injeção de dependências no Laravel com bindings adequados (bind, singleton, scoped) e prevenção de memory leaks no Laravel Octane.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
     "languages": [
@@ -1664,7 +1664,7 @@
     "description_en": "Use when creating, refactoring, or reviewing Laravel Service classes, applying Single Responsibility Principle, dependency injection, and standardized error handling. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar, refatoração de, ou revisão de Laravel Service classes, applying Single Responsibility Principle, dependency injection, e standardized error tratamento de. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for services in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para services no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Centraliza a lógica de negócio em classes de Service em app/Services, aplicando injeção de dependências no PHP 8, uso de DTOs tipados (app/Data) e tratamento padronizado de exceções.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
     "languages": [
@@ -1701,7 +1701,7 @@
     "description_en": "Use when managing social media credentials (Meta: Instagram/Facebook) in Engeapp. Covers SocialMediaCredential model (encrypted access_token, token_expires_at), manual rotation via Ziggy routes, and MetaService resolution.",
     "description_pt_br": "Use ao gerenciar social media credentials (Meta: Instagram/Facebook) no Engeapp. Cobre SocialMediaCredential model (encrypted access_token, token_expires_at), manual rotation via Ziggy routes, e MetaService resolution.",
     "promo_en": "Enterprise guidelines and architectural standards for social media oauth token lifecycle management in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para social media oauth token lifecycle management no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gerencia credenciais de publicação da Meta (Instagram e Facebook) por empresa, com tokens cifrados em repouso no model, controle de expiração e integração via MetaService.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
     "languages": [
@@ -1742,7 +1742,7 @@
     "description_en": "Use when implementing or debugging social login OAuth workflows with Laravel Socialite (Google/Facebook) in Engeapp. Covers services.php configs, guest auth routes (social.providers, social.redirect, social.callback), UserSolarCompany auto-provisioning, and Pest mocking.",
     "description_pt_br": "Use when implementing or debugging social login OAuth workflows with Laravel Socialite (Google/Facebook) in Engeapp. Covers services.php configs, guest auth routes (social.providers, social.redirect, social.callback), UserSolarCompany auto-provisioning, and Pest mocking.",
     "promo_en": "Enterprise guidelines and architectural standards for socialite oauth integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para socialite oauth integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Implementa login social OAuth com Laravel Socialite para Google e Facebook, com rotas guest dedicadas, provisionamento por e-mail e mocks completos para testes no Pest.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
     "languages": [
@@ -1783,7 +1783,7 @@
     "description_en": "Use when creating, configuring, or debugging Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, and Studio Totem integration. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar, configuring, ou depuração de Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, e Studio Totem integration. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for task scheduling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para task scheduling no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Configura agendamento de tarefas e cron jobs em routes/console.php, aplicando prevenção de sobreposição (withoutOverlapping), execução em background e integração com Studio Totem.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
     "languages": [
@@ -1820,7 +1820,7 @@
     "description_en": "Use when configuring, optimizing, or debugging with Laravel Telescope in Engeapp. Covers config/telescope.php watchers, TelescopeServiceProvider filters, hideSensitiveRequestDetails, viewTelescope gate, and entry pruning.",
     "description_pt_br": "Use ao configurar, otimização de, ou depuração de com Laravel Telescope no Engeapp. Cobre config/telescope.php watchers, TelescopeServiceProvider filters, hideSensitiveRequestDetails, viewTelescope gate, e entry pruning.",
     "promo_en": "Enterprise guidelines and architectural standards for telescope debugging in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para telescope debugging no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Configura e depura requisições, queries e jobs com Laravel Telescope via TelescopeServiceProvider, aplicando mascaramento de dados sensíveis e filtros de gravação por ambiente.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
     "languages": [
@@ -1860,7 +1860,7 @@
     "description_en": "Use when maintaining or debugging Trello API integration in Engeapp (TrelloService), reading config/api.php, handling webhooks via ProcessTrelloWebhookJob, and running trello Artisan commands. Covers objectives and core workflows.",
     "description_pt_br": "Use ao manter ou depurar Trello API integration no Engeapp (TrelloService), reading config/api.php, tratamento de webhooks via ProcessTrelloWebhookJob, e running trello Artisan commands. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for trello api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para trello api integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integra a API do Trello via TrelloService com autenticação por chave/token, leitura de boards e cards, processamento de webhooks e sincronização assíncrona por jobs e comandos.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
     "languages": [
@@ -1899,7 +1899,7 @@
     "description_en": "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Covers objectives, TypeScript DTO transformation, and language rules.",
     "description_pt_br": "Use ao configurar, atualização de, ou geração de TypeScript types/interfaces de PHP DTOs e Enums no Laravel usando Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Cobre objectives, TypeScript DTO transformation, e language rules.",
     "promo_en": "Enterprise guidelines and architectural standards for typescript transformer in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para typescript transformer no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gera tipos e interfaces TypeScript para o Vue 3 a partir de DTOs do Spatie e Enums do PHP, sincronizando recursos em resources/Types/generated.d.ts via Artisan.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
     "languages": [
@@ -1937,7 +1937,7 @@
     "description_en": "Use when implementing, reviewing, or debugging user impersonation (login-as) in Engeapp with lab404/laravel-impersonate. Covers can_impersonate boolean column checks, Ziggy named routes (user.impersonate.*), Vue TopMenu banner UI, and Pest integration tests.",
     "description_pt_br": "Use when implementing, reviewing, or debugging user impersonation (login-as) in Engeapp with lab404/laravel-impersonate. Covers can_impersonate boolean column checks, Ziggy named routes (user.impersonate.*), Vue TopMenu banner UI, and Pest integration tests.",
     "promo_en": "Enterprise guidelines and architectural standards for user impersonation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para user impersonation no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Implemente impersonação de usuários (login-as) com lab404/laravel-impersonate, validação de can_impersonate no controller, rotas Ziggy e banner no TopMenu em Vue.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
     "languages": [
@@ -1976,7 +1976,7 @@
     "description_en": "Use when handling geographic coordinates (Decimal, UTM, DMS) in Engeapp. Covers validating Spatie Data DTOs, persisting LocationCoordinate JSON, integrating Google Maps, and converting UTM/DMS/Decimal via utm-latlng.",
     "description_pt_br": "Use ao tratar ou manipular geographic coordinates (Decimal, UTM, DMS) no Engeapp. Cobre validação de Spatie Data DTOs, persistência de LocationCoordinate JSON, integrating Google Maps, e converting UTM/DMS/Decimal via utm-latlng.",
     "promo_en": "Enterprise guidelines and architectural standards for vue geocoordinates maps in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para vue geocoordinates maps no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Gerencie coordenadas Decimal, UTM e DMS integrando Spatie Data DTOs no Laravel com conversão via utm-latlng e mapas interativos na store Vue do MaxPinia.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
     "languages": [
@@ -2019,7 +2019,7 @@
     "description_en": "Use when implementing or debugging authentication in Engeapp (Laravel + Ziggy + Vue Router + MaxPinia): AuthenticatedSessionController, cookie sessions, MaxAuthCard, useLogin/useUser stores, and social login redirects. Covers objectives and central authentication stack.",
     "description_pt_br": "Use ao implementar ou depurar authentication no Engeapp (Laravel + Ziggy + Vue Router + MaxPinia): AuthenticatedSessionController, cookie sessions, MaxAuthCard, useLogin/useUser stores, e social login redirects. Cobre objectives e central authentication stack.",
     "promo_en": "Enterprise guidelines and architectural standards for vue login maxauthcard in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para vue login maxauthcard no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Estruture autenticação por sessão e cookies no Laravel com Ziggy, componente visual MaxAuthCard e gerenciamento de estado via stores useLogin e useUser no Vue.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
     "languages": [
@@ -2067,7 +2067,7 @@
     "description_en": "Use when integrating VueFinder file manager with Spatie MediaLibrary in Engeapp. Covers upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), and VueFinder JSON enrichment. Covers objectives and core workflows.",
     "description_pt_br": "Use quando para integrating VueFinder file manager com Spatie MediaLibrary no Engeapp. Cobre upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), e VueFinder JSON enrichment. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for vuefinder media library integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para vuefinder media library integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Sincronize em tempo real operações do gerenciador VueFinder (upload, rename, move) com Spatie MediaLibrary no banco, tratando streaming HTTP e Flysystem.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
     "languages": [
@@ -2110,7 +2110,7 @@
     "description_en": "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Covers objectives and core workflows.",
     "description_pt_br": "Use ao criar ou depurar WhatsApp Cloud API integrations, tratamento de webhooks, queued job processamento de, sending template/interactive messages, processamento de incoming messages, e gerenciamento de state. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for whatsapp cloud api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para whatsapp cloud api integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Integre a WhatsApp Cloud API no Laravel com validação de webhooks Meta, jobs assíncronos em fila, envio de mensagens interativas e controle de rate limit.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
     "languages": [
@@ -2149,7 +2149,7 @@
     "description_en": "Use when configuring, generating, or consuming Ziggy named routes in Engeapp Vue 3 SPA. Covers config/ziggy.php, artisan ziggy:generate --types, auto-imported route() helper, setRouteResolver integration in MaxUse, and MaxPinia store options.get.route contracts.",
     "description_pt_br": "Use when configuring, generating, or consuming Ziggy named routes in Engeapp Vue 3 SPA. Covers config/ziggy.php, artisan ziggy:generate --types, auto-imported route() helper, setRouteResolver integration in MaxUse, and MaxPinia store options.get.route contracts.",
     "promo_en": "Enterprise guidelines and architectural standards for ziggy routing integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
-    "promo_pt_br": "Diretrizes empresariais e padrões arquiteturais para ziggy routing integration no ecossistema Laravel. Assegura tipagem consistente, isolamento de regras de negócio, alta confiabilidade e código limpo nas APIs e serviços.",
+    "promo_pt_br": "Elimine URLs estáticas no front Vue 3 SPA gerando tipos TypeScript com Ziggy e integrando rotas nomeadas diretamente nos helpers apiGetRoute e MaxPinia.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
     "languages": [
@@ -2188,7 +2188,7 @@
     "description_en": "Use when you need historical context on how a feature was built, why a past decision was made, or the validation/test-count trail for a completed milestone in this project — the changelog of every marco/fase from Marco 1 through the most recent branch, moved out of CLAUDE.md so it isn't always loaded.",
     "description_pt_br": "Use quando precisar de contexto histórico sobre como uma funcionalidade foi construída ou o motivo de decisões passadas, ou the trilha de validação e contagem de testes para marcos concluídos neste projeto — o changelog de cada marco/fase desde o Marco 1 até a branch mais recente, movido para fora do CLAUDE.md para não ser carregado constantemente.",
     "promo_en": "Structured change tracking and project history standard. Captures key architectural decisions, feature implementations, and evolutionary milestones across the repository.",
-    "promo_pt_br": "Estrutura para registro cronológico e histórico de decisões arquiteturais do projeto. Facilita o acompanhamento de evolução técnica e marcos de desenvolvimento.",
+    "promo_pt_br": "Consulte o histórico detalhado de decisões arquiteturais, evolução dos marcos de desenvolvimento e validações de testes Pest concluídos no projeto.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-history/SKILL.md",
     "languages": [],
@@ -2223,7 +2223,7 @@
     "description_en": "Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.",
     "description_pt_br": "Use ao configurar este projeto do zero em uma nova máquina ou quando passos de onboarding forem necessários (instalação de dependências, configuração do .env, inicialização do banco de dados e serviços dev). Não necessário para o dia a dia em ambientes já configurados.",
     "promo_en": "Unified project bootstrapping and environment setup guide. Guarantees consistent developer onboarding, standard tooling configurations, and reproducible environments.",
-    "promo_pt_br": "Guia unificado de inicialização e configuração de ambientes de desenvolvimento. Garante padronização de dependências, ferramentas de linting e agilidade no onboarding.",
+    "promo_pt_br": "Guia de setup do ambiente com Composer, npm, chaves .env, bootstrap idempotente do banco, Horizon, Redis e comandos smoke test com Gemini e OneTrainer.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-setup/SKILL.md",
     "languages": [],
@@ -2259,7 +2259,7 @@
     "description_en": "Use when investigating unexpected behavior, test failures, build errors, or performance issues. Enforces root-cause analysis before proposing fixes based on log evidence. Covers systematic debugging methodology and log inspection.",
     "description_pt_br": "Use ao investigar comportamentos inesperados, falhas de testes, erros de build ou problemas de desempenho. Exige análise de causa raiz antes de propor correções com base em evidências de logs. Cobre metodologia sistemática de depuração e inspeção de logs.",
     "promo_en": "Systematic root-cause debugging methodology and investigation workflow. Enforces hypothesis verification and log evidence before code modifications, eliminating guesswork and recurring bugs.",
-    "promo_pt_br": "Metodologia sistemática de depuração e análise de causa raiz. Elimina adivinhações ao exigir evidências concretas em logs e testes antes de qualquer alteração de código.",
+    "promo_pt_br": "Metodologia de investigação de causa raiz para bugs e falhas de teste, rastreando logs do Laravel, status de stores MaxPinia e tráfego de rede no DevTools.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
     "languages": [],
@@ -2292,7 +2292,7 @@
     "description_en": "Use when writing or improving technical documentation: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, and Laravel/Vue doc patterns. Covers best practices, debugging strategies, and objectives.",
     "description_pt_br": "Use ao escrever ou aprimorar documentação técnica: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, e Laravel/Vue doc patterns. Cobre melhores práticas, estratégias de depuração e objetivos.",
     "promo_en": "Standardized framework for writing maintainable, clear, and actionable technical documentation across APIs, frontend components, architecture decision records (ADRs), and guides.",
-    "promo_pt_br": "Diretrizes completas para criação e manutenção de documentação técnica profissional: READMEs, especificações de endpoints, componentes de UI, ADRs e changelogs.",
+    "promo_pt_br": "Escreva documentação técnica de APIs, controllers Laravel, componentes Vue, ADRs e tipagens JSDoc/TSDoc com foco em clareza, CI/CD e visual profissional.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
     "languages": [],
@@ -2327,7 +2327,7 @@
     "description_en": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config. Covers objectives and core workflows.",
     "description_pt_br": "Use ao projetar arquiteturas TypeScript type-safe ou resolver problemas avançados de tipagem: generics, conditional types, mapped types, template literals, utility types, branded types, e strict config. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Advanced TypeScript engineering standard for advanced types. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-    "promo_pt_br": "Padrão avançado de engenharia em TypeScript para advanced types. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
+    "promo_pt_br": "Domine sistemas de tipos avançados em TypeScript com generics, conditional types, mapped types e branded types para criar contratos type-safe e bibliotecas robustas.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
     "languages": [
@@ -2362,7 +2362,7 @@
     "description_en": "Use when designing, implementing, reviewing, or debugging a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, and idempotency. NOT for Engeapp payment integration (which runs on PHP/Laravel with efipay and inter-co SDKs).",
     "description_pt_br": "Use ao projetar, implementar, revisar ou depurar a pure TypeScript zero-framework subscription billing engine: subscription state machine, decoupled payment gateway interface, canonical webhook parser, e idempotency. NOT para Engeapp payment integration (which runs em PHP/Laravel com efipay e inter-co SDKs).",
     "promo_en": "Advanced TypeScript engineering standard for billing core architecture. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-    "promo_pt_br": "Padrão avançado de engenharia em TypeScript para billing core architecture. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
+    "promo_pt_br": "Implemente um motor de faturamento de assinaturas em TypeScript puro, com máquina de estados, parser canônico de webhooks e integração desacoplada de gateways.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
     "languages": [
@@ -2399,7 +2399,7 @@
     "description_en": "Use when designing, implementing, configuring, or debugging the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Triggers on files modifying EfiGateway code, managing Efí API client credentials (client_id/client_secret), setting up OAuth2/mTLS authentication, executing Pix charges (createPixCharge/getCharge) via Efí, and parsing Efí webhooks.",
     "description_pt_br": "Use ao projetar, implementar, configurar ou depurar the Efí payment gateway (EfiGateway) inside the @maxvue/max-banks package. Acionado em files modifying EfiGateway code, gerenciamento de Efí API client credentials (client_id/client_secret), configuração de OAuth2/mTLS authentication, execução de Pix charges (createPixCharge/getCharge) via Efí, e análise e conversão de Efí webhooks.",
     "promo_en": "Advanced TypeScript engineering standard for max banks efi gateway. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-    "promo_pt_br": "Padrão avançado de engenharia em TypeScript para max banks efi gateway. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
+    "promo_pt_br": "Integre o gateway Efí no pacote @maxvue/max-banks com autenticação mTLS/OAuth2, cobranças Pix automáticas e processamento resiliente de webhooks.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
     "languages": [
@@ -2436,7 +2436,7 @@
     "description_en": "Use when solving TypeScript and JavaScript tooling issues: compiler performance (slow tsc), project references with per-package composite, JS to TS migration, module resolution errors, ESM/CJS interop, and tsc debugging. Focuses on ESM-first, moduleResolution bundler, ESLint, typescript-eslint, and Vitest. Triggers on tsconfig, build speed, and type errors.",
     "description_pt_br": "Use quando para solving TypeScript e JavaScript tooling issues: compiler performance (slow tsc), project references com per-package composite, JS para TS migration, module resolution errors, ESM/CJS interop, e tsc depuração de. Focuses em ESM-first, moduleResolution bundler, ESLint, typescript-eslint, e Vitest. Acionado em tsconfig, build speed, e type errors.",
     "promo_en": "Advanced TypeScript engineering standard for tooling monorepo. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
-    "promo_pt_br": "Padrão avançado de engenharia em TypeScript para tooling monorepo. Garante tipagem estrita, contratos de dados resilientes, segurança em tempo de compilação e manutenibilidade em monorepos.",
+    "promo_pt_br": "Otimize a performance do compilador TypeScript, configure project references em monorepos e resolva problemas de interoperabilidade ESM/CJS e bundler.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
     "languages": [
@@ -2473,7 +2473,7 @@
     "description_en": "Use when configuring, optimizing, or debugging Vue 3 auto-imports via unplugin-auto-import and unplugin-vue-components in Engeapp. Covers vite.config.ts setup, auto-import.d.ts, auto-import-components.d.ts, MaxComponentsUiResolver, and maxUseAutoImport integration.",
     "description_pt_br": "Use when configuring, optimizing, or debugging Vue 3 auto-imports via unplugin-auto-import and unplugin-vue-components in Engeapp. Covers vite.config.ts setup, auto-import.d.ts, auto-import-components.d.ts, MaxComponentsUiResolver, and maxUseAutoImport integration.",
     "promo_en": "Production-grade frontend standard for auto import components in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para auto import components em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Configure unplugin-auto-import e unplugin-vue-components no Vite para importar APIs, componentes Max* e stores com tipagem TypeScript automática.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
     "languages": [
@@ -2517,7 +2517,7 @@
     "description_en": "Use when integrating Vue 3 front-end with Laravel backend API using @maxvue/max-use HTTP helpers (apiGetRoute, apiPostRoute, apiPutRoute, apiDeleteRoute). Covers Ziggy named routes resolution, credentials handling, return contracts, and MaxPinia store data flow.",
     "description_pt_br": "Use when integrating Vue 3 front-end with Laravel backend API using @maxvue/max-use HTTP helpers (apiGetRoute, apiPostRoute, apiPutRoute, apiDeleteRoute). Covers Ziggy named routes resolution, credentials handling, return contracts, and MaxPinia store data flow.",
     "promo_en": "Production-grade frontend standard for axios api integration in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para axios api integration em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Conecte o Vue 3 ao Laravel usando helpers do @maxvue/max-use e rotas nomeadas Ziggy, integrando cache e deduplicação de dados nas stores MaxPinia.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
     "languages": [
@@ -2559,7 +2559,7 @@
     "description_en": "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting. Covers objectives and core workflows.",
     "description_pt_br": "Use quando para validação de, formatação de, análise e conversão de, ou tratamento de bank slip data (boletos) no Vue 3 usando @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, e payment input formatação de. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for boleto utils in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para boleto utils em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Valide e formate boletos bancários com @mrmgomes/boleto-utils, manipulando linhas digitáveis, códigos de barras e datas de vencimento no Vue 3.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
     "languages": [
@@ -2597,7 +2597,7 @@
     "description_en": "Use when building, styling, or debugging Vue 3 brand positioning and character components/stores in SocialMedia module (TabBrandPositioning, TabCharacters, TabThemes, useBrandPositioning, useSocialMediaCharacters). Covers brand positioning, character management, and social media stores.",
     "description_pt_br": "Use ao construir, styling, ou depuração de Vue 3 brand positioning e character components/stores in SocialMedia module (TabBrandPositioning, TabCharacters, TabThemes, useBrandPositioning, useSocialMediaCharacters). Cobre brand positioning, character management, e social media stores.",
     "promo_en": "Production-grade frontend standard for brand positioning character management in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para brand positioning character management em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Construa interfaces de posicionamento de marca e personas em Vue 3 com componentes MaxGrid, salvamento automático e stores Pinia dedicadas.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
     "languages": [
@@ -2640,7 +2640,7 @@
     "description_en": "Use when building complex modal forms in Vue 3 with auto-save, live sync indicators, and multi-tab layouts using @maxvue/max-components-ui (MaxModal), max-use, and max-pinia stores. Covers complex modal forms, auto-save state, and multi-tab layouts.",
     "description_pt_br": "Use ao construir complex modal forms no Vue 3 com auto-save, live sync indicators, e multi-tab layouts usando @maxvue/max-components-ui (MaxModal), max-use, e max-pinia stores. Cobre complex modal forms, auto-save state, e multi-tab layouts.",
     "promo_en": "Production-grade frontend standard for complex modal forms autosave in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para complex modal forms autosave em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Crie modais com abas e formulários complexos usando MaxModal do @maxvue/max-components-ui com sincronização e auto-save integrados ao MaxPinia.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
     "languages": [
@@ -2680,7 +2680,7 @@
     "description_en": "Use when formatting, parsing, comparing, or manipulating dates and times in Vue 3 SFCs and Pinia stores in Engeapp. Covers @maxvue/max-use date composables (useDateFormat, useTimeAgo, addTime, diffInDays, isSameDay), Day.js plugins, and Brazilian pt-BR format standards.",
     "description_pt_br": "Use when formatting, parsing, comparing, or manipulating dates and times in Vue 3 SFCs and Pinia stores in Engeapp. Covers @maxvue/max-use date composables (useDateFormat, useTimeAgo, addTime, diffInDays, isSameDay), Day.js plugins, and Brazilian pt-BR format standards.",
     "promo_en": "Production-grade frontend standard for dayjs date manipulation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para dayjs date manipulation em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Formate e compare datas em português no Vue 3 usando composables do @maxvue/max-use (useDateFormat, useTimeAgo) com suporte a Day.js avançado.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
     "languages": [
@@ -2721,7 +2721,7 @@
     "description_en": "Use when diagnosing or fixing Vue 3 reactivity bugs, computed refs, refs not updating, watcher timing, stale data, null template refs, lifecycle hook issues, and async component warnings. Covers best practices, debugging strategies, and objectives.",
     "description_pt_br": "Use quando para diagnosing ou fixing Vue 3 reactivity bugs, computed refs, refs not atualização de, watcher timing, stale data, null template refs, lifecycle hook issues, e async component warnings. Cobre melhores práticas, estratégias de depuração e objetivos.",
     "promo_en": "Production-grade frontend standard for debugging in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para debugging em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Diagnostique e resolva falhas de reatividade no Vue 3, como refs desestruturadas, perdas de rastreamento em computed, desvios de watchers e desempacotamento indevido em templates.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
     "languages": [
@@ -2759,7 +2759,7 @@
     "description_en": "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, indent, quotes, comma-dangle, and pseudo-element overrides. Covers objectives, ESLint/Stylelint standards, and execution commands.",
     "description_pt_br": "Use quando para running ou fixing ESLint (flat config) e Stylelint no Vue 3 SFCs e SCSS. Cobre block-order template/script/style, indent, quotes, comma-dangle, e pseudo-element overrides. Cobre objectives, ESLint/Stylelint standards, e execution commands.",
     "promo_en": "Production-grade frontend standard for eslint stylelint quality standards in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para eslint stylelint quality standards em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Aplique e corrija padrões de código no frontend com ESLint 10 e Stylelint 17, padronizando a ordem de blocos SFC (template/script/style), indentação de 4 espaços e estilos SCSS.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
     "languages": [
@@ -2800,7 +2800,7 @@
     "description_en": "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing. Covers objectives, project stack, and frontend bug fixing.",
     "description_pt_br": "Use quando para diagnosing e fixing front-end bugs no Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, e routing. Cobre objectives, project stack, e frontend bug fixing.",
     "promo_en": "Production-grade frontend standard for frontend bug fixing in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para frontend bug fixing em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Identifique e corrija bugs em aplicações Vue 3 com TypeScript, UnoCSS, MaxPinia e MaxComponentsUi, resolvendo erros de build do Vite, quebras de layout e falhas de reatividade.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
     "languages": [
@@ -2845,7 +2845,7 @@
     "description_en": "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card. Covers objectives and core workflows.",
     "description_pt_br": "Use ao implementar ou validação de masked inputs no Vue 3 com Maska v3, libphonenumber-js, card-validator, e @polvo-labs/card-type para phone, CPF, CNPJ, currency, CEP, license plate, e credit card. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for inputs masks validation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para inputs masks validation em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Implemente inputs com máscaras dinâmicas e validação para CPF/CNPJ, CEP, moeda, telefone e cartão de crédito com Maska e MaxComponentsUi, extraindo o valor bruto sem formatação.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
     "languages": [
@@ -2887,7 +2887,7 @@
     "description_en": "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Covers objectives and core workflows.",
     "description_pt_br": "Use ao implementar ou depurar keyboard shortcuts, hotkeys, focus management, e keyboard navigation no Vue 3 usando useMagicKeys, useActiveElement, e key modifiers. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for keyboard shortcuts navigation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para keyboard shortcuts navigation em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Crie atalhos de teclado e gerencie o foco no Vue 3 com useMagicKeys e useActiveElement, evitando conflitos acidentais durante a digitação em inputs e textareas.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
     "languages": [
@@ -2927,7 +2927,7 @@
     "description_en": "Use when implementing tooltips, popovers, dropdown menus, and confirmation dialogs in Vue 3 SFCs. Covers PrimeVue v-tooltip directive registered via MaxComponentsUi, MaxPopover, MaxPopoverConfirm, MaxIconConfirm, and MaxPopoverMenu components with SCSS styling.",
     "description_pt_br": "Use when implementing tooltips, popovers, dropdown menus, and confirmation dialogs in Vue 3 SFCs. Covers PrimeVue v-tooltip directive registered via MaxComponentsUi, MaxPopover, MaxPopoverConfirm, MaxIconConfirm, and MaxPopoverMenu components with SCSS styling.",
     "promo_en": "Production-grade frontend standard for max components ui popovers confirmations in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para max components ui popovers confirmations em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Adicione tooltips, menus suspensos, popovers e caixas de confirmação no Vue 3 usando MaxPopover, MaxPopoverConfirm e a diretiva v-tooltip do PrimeVue com estilos em SCSS.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
     "languages": [
@@ -2967,7 +2967,7 @@
     "description_en": "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Covers component props/events/slots, composables, and cached store configurations. Covers objectives, component props, composables, and API navigation.",
     "description_pt_br": "Use quando para referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, e MaxPinia. Cobre component props/events/slots, composables, e cached store configurations. Cobre objectives, component props, composables, e API navigation.",
     "promo_en": "Production-grade frontend standard for max ecosystem api reference in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para max ecosystem api reference em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Consulte a referência de props, slots, eventos e contratos de API das bibliotecas MaxComponentsUi, MaxUse e MaxPinia para desenvolvimento no frontend.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
     "languages": [
@@ -3010,7 +3010,7 @@
     "description_en": "Use when developing Vue 3 Single File Components (<script setup lang='ts'>) in Engeapp. Covers template structure, UnoCSS styling, MaxComponentsUi elements, MaxUse composables, MaxPinia cached stores, forms, tables, and Ziggy named routes.",
     "description_pt_br": "Use when developing Vue 3 Single File Components (<script setup lang='ts'>) in Engeapp. Covers template structure, UnoCSS styling, MaxComponentsUi elements, MaxUse composables, MaxPinia cached stores, forms, tables, and Ziggy named routes.",
     "promo_en": "Production-grade frontend standard for max stack frontend in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para max stack frontend em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Construa Single File Components com <script setup lang='ts'>, estilização UnoCSS, stores com auto-save em MaxPinia e rotas nomeadas via Ziggy integradas ao Laravel.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
     "languages": [
@@ -3056,7 +3056,7 @@
     "description_en": "Use when developing, extending, or optimizing helpers and composables in the `@maxvue/max-use` library. Triggers on adding new utility functions, creating custom Vue composables, writing Vitest unit tests for helpers, or refactoring TypeScript types in `@maxvue/max-use`.",
     "description_pt_br": "Use ao desenvolver, extending, ou otimização de helpers e composables in the `@maxvue/max-use` library. Acionado em adding new utility functions, criação de custom Vue composables, escrita de Vitest unit tests para helpers, ou refatoração de TypeScript types in `@maxvue/max-use`.",
     "promo_en": "Production-grade frontend standard for max use development in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para max use development em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Desenvolva e estenda composables reativos e utilitários em @maxvue/max-use utilizando toValue, MaybeRefOrGetter, tipagem estrita em TypeScript e testes com Vitest.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
     "languages": [
@@ -3097,7 +3097,7 @@
     "description_en": "Use when implementing or debugging Vue 3 code with useRefCachedApi (or useCachedApi, useSharedCacheApi, useInCacheApi) from @maxvue/max-use to cache GET requests in localStorage with background revalidation. Covers objectives, composable signatures, and cached state management.",
     "description_pt_br": "Use ao implementar ou depurar Vue 3 code com useRefCachedApi (ou useCachedApi, useSharedCacheApi, useInCacheApi) de @maxvue/max-use para cache GET requests in localStorage com background revalidation. Cobre objectives, composable signatures, e cached state management.",
     "promo_en": "Production-grade frontend standard for max use usecachedapi state cache in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para max use usecachedapi state cache em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Faça cache de requisições GET no localStorage com carregamento síncrono inicial e revalidação assíncrona em segundo plano usando useRefCachedApi do @maxvue/max-use.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
     "languages": [
@@ -3137,7 +3137,7 @@
     "description_en": "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store. Covers objectives and core workflows.",
     "description_pt_br": "Use ao construir ou depuração de official Meta API (Instagram/Facebook) credentials UI no Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, e Pinia store. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for meta api oauth integration in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para meta api oauth integration em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Interface em Vue 3 para inserção e armazenamento seguro de IDs e tokens da Meta API (Facebook e Instagram), sem fluxos client-side complexos e com integração direta via store Pinia e Ziggy.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
     "languages": [
@@ -3179,7 +3179,7 @@
     "description_en": "Use when creating, reviewing, or debugging Pinia stores in Vue 3 with @maxvue/max-pinia plugin. Every page-level GET MUST go through a MaxPinia store (one-shot lookups may use apiGetRoute). Covers objectives and best practices, Registro main.",
     "description_pt_br": "Use ao criar, revisar ou depurar Pinia stores no Vue 3 com @maxvue/max-pinia plugin. Toda requisição GET de nível de página DEVE passar por uma store MaxPinia (consultas pontuais podem usar apiGetRoute). Cobre objetivos e melhores práticas, registro no main.ts.",
     "promo_en": "Production-grade frontend standard for pinia state management in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para pinia state management em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Gerenciamento de estado em Vue 3 com Pinia e plugin @maxvue/max-pinia, oferecendo cache offline automático via LocalForage, sincronização GET e auto-save reativo com debounce.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
     "languages": [
@@ -3220,7 +3220,7 @@
     "description_en": "Use when implementing, styling, or debugging the RSS news moderation panel (TabNewsItems.vue) in EngeApp Vue 3. Covers useSocialMediaNewsStore (axios and Ziggy news routes), incremental limit/offset pagination, pending/archived tabs via archived prop, keyword grouping, and editorial theme approval.",
     "description_pt_br": "Use ao implementar, styling, ou depuração de the RSS news moderation panel (TabNewsItems.vue) no Engeapp Vue 3. Cobre useSocialMediaNewsStore (axios e Ziggy news routes), incremental limit/offset pagination, pending/archived tabs via archived prop, keyword grouping, e editorial theme approval.",
     "promo_en": "Production-grade frontend standard for rss news moderation dashboard in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para rss news moderation dashboard em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Painel de moderação de notícias RSS do Google News em Vue 3, com paginação incremental limit/offset, filtros por abas e aprovação direta para criação de temas editoriais.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
     "languages": [
@@ -3261,7 +3261,7 @@
     "description_en": "Use when displaying toast notifications or floating feedback alerts in Vue 3 applications. Covers MaxToast container mounting in App.vue, Toast.show({ title, severity }) helper from @maxvue/max-components-ui, and useToastStore queue lifecycle.",
     "description_pt_br": "Use when displaying toast notifications or floating feedback alerts in Vue 3 applications. Covers MaxToast container mounting in App.vue, Toast.show({ title, severity }) helper from @maxvue/max-components-ui, and useToastStore queue lifecycle.",
     "promo_en": "Production-grade frontend standard for toast notifications toastify in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para toast notifications toastify em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Notificações flutuantes em Vue 3 com MaxToast do @maxvue/max-components-ui, incluindo fila em store Pinia, alertas por severidade, barra de progresso e pausa automática ao passar o mouse.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
     "languages": [
@@ -3303,7 +3303,7 @@
     "description_en": "Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, tsconfig.json, and module declarations. Covers objectives, SFC structure, and TypeScript declarations.",
     "description_pt_br": "Use quando para escrita de, revisão de, ou depuração de Vue 3 components, composables, Pinia stores, ou utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, tsconfig.json, e module declarations. Cobre objectives, SFC structure, e TypeScript declarations.",
     "promo_en": "Production-grade frontend standard for typescript in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para typescript em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Padronização e tipagem estrita para Vue 3 com TypeScript, cobrindo a ordem de blocos em SFCs, defineProps/defineEmits fortemente tipados e integração de DTOs e composables reativos.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
     "languages": [
@@ -3343,7 +3343,7 @@
     "description_en": "Use when styling templates, styles, and layouts in Vue 3 with UnoCSS + presetMaxUno: attributify classes/attributes, color shortcuts, transformerVariantGroup, params.scss, SCSS scoped blocks, and dark mode via useDark. Covers objectives and core workflows.",
     "description_pt_br": "Use quando para styling templates, styles, e layouts no Vue 3 com UnoCSS + presetMaxUno: attributify classes/attributes, color shortcuts, transformerVariantGroup, params.scss, SCSS scoped blocks, e dark mode via useDark. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for unocss styling in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para unocss styling em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Estilização de templates Vue 3 com UnoCSS e presetMaxUno, trazendo atalhos utilitários de dimensões, tipografia, modo escuro com useDark e mapeamento das variáveis oficiais do tema Aura.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
     "languages": [
@@ -3385,7 +3385,7 @@
     "description_en": "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Covers objectives and core workflows.",
     "description_pt_br": "Use quando para escrita de ou atualização de front-end unit/integration tests com Vitest e Vue Test Utils para Vue 3 components, MaxPinia stores, e composables in tests/Js/, incluindo API mocking. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for vitest testing in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para vitest testing em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Testes unitários e de integração no front-end Vue 3 com Vitest e Vue Test Utils, com foco em stubs de componentes pesados, isolamento de stores Pinia e simulação precisa de eventos e APIs.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
     "languages": [
@@ -3425,7 +3425,7 @@
     "description_en": "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates. Covers objectives and core workflows.",
     "description_pt_br": "Use ao projetar, construção de, ou depuração de Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, e templates. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for whatsapp interactive messages simulator in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
-    "promo_pt_br": "Padrão de excelência frontend para whatsapp interactive messages simulator em aplicações Vue 3. Acelera o desenvolvimento de interfaces reativas, garante gerenciamento de estado previsível e padroniza a experiência do usuário.",
+    "promo_pt_br": "Simulador e editor de mensagens do WhatsApp em Vue 3, com layout dividido em edição e preview em tempo real para botões CTA, respostas rápidas, listas e cabeçalhos de mídia.",
     "repo_name": "max",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
     "languages": [
