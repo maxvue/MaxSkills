@@ -45,9 +45,9 @@ Use `Spatie\PdfToText\Pdf::getText($path)`. O engeapp centraliza a validação n
 * Depende do binário `pdftotext` (poppler) no PATH; passe caminho customizado se necessário.
 
 ### 2.2 Conversão para imagem (spatie/pdf-to-image) — padrão em uso
-Existem dois caminhos distintos e não relacionados de conversão PDF→imagem no engeapp:
-1. `App\MediaLibrary\ImageGenerators\Pdf`, registrado em `config/media-library.php`, usado pelo pipeline de conversões do Spatie Media Library.
-2. `App\Models\File\File::createThumbnailFromPdf()`, que instancia `Spatie\PdfToImage\Pdf` diretamente e é o padrão real de thumbnail em uso: `new Pdf($this->path)`, depois `resolution(400)->selectPage(1)->format(OutputFormat::Png)->save($temp_path)`, seguido de `resizeImage()` e `@unlink()` do temporário. Não depende do ImageGenerator do Media Library.
+Existem dois caminhos de conversão PDF→imagem no engeapp:
+1. `App\MediaLibrary\ImageGenerators\Pdf`, registrado em `config/media-library.php`, usado pelo pipeline de conversões do **Spatie Media Library** (padrão oficial para models com mídia, conforme a skill `laravel-media-library-best-practices`).
+2. `App\Models\File\File::createThumbnailFromPdf()`, que instancia `Spatie\PdfToImage\Pdf` diretamente no model `File` legado para compatibilidade histórica: `new Pdf($this->path)`, depois `resolution(400)->selectPage(1)->format(OutputFormat::Png)->save($temp_path)`, seguido de `resizeImage()` e `@unlink()` do temporário. Não adote esse formato para novas entidades — use Spatie Media Library.
 
 * Gere sempre `.png`, não `.jpg`, para evitar que o Imagick produza fundo preto em PDFs com fundo transparente.
 * O engeapp usa `spatie/pdf-to-image` `^3.3` (3.4.0 instalado). A API v3 é a única válida: `resolution()`, `selectPage()`, `format(OutputFormat::Png)`, `save()`. Os métodos da v2 (`setResolution`, `setPage`, `setOutputFormat`, `saveImage`) **não existem mais** e lançam `Error: Call to undefined method` — não `Exception`.
@@ -76,4 +76,5 @@ Ao chamar um método removido por upgrade de biblioteca, o PHP lança `Error`. U
 * **NÃO** use CSS Flexbox ou Grid para páginas do DomPDF.
 * **NÃO** processe extração/conversão pesada de PDF de forma síncrona na thread HTTP — enfileire.
 * **NÃO** assuma `pdftotext` (poppler) ou `Imagick`/Ghostscript instalados sem verificar.
+* **NÃO** crie novos fluxos ou relacionamentos acoplados ao model `File` legado; anexe mídias e documentos através do Spatie Media Library (`HasMedia`/`InteractsWithMedia`).
 * **NÃO** registre dados sensíveis do documento em exceções de extração.

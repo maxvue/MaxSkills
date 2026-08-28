@@ -12,7 +12,7 @@ Fornecer diretrizes sólidas e padrões estruturados para criar, formatar e vali
 Toda a lógica vive em `App\Services\Signature\PowerAttorneyService` (`app/Services/Signature/PowerAttorneyService.php`), operando sobre o modelo `App\Models\Project\ProjectPowerOfAttorneyDocument`. Ancore qualquer alteração nestes três métodos — abra-os antes de editar:
 - `generateData(string $project_id): ProjectPowerOfAttorneyDocument` — carrega o `Project` com as relações necessárias, define `type_signature = 'digital'` e `status = 'editing'`, monta o `text_content` (HTML) conforme PF/PJ e persiste o documento.
 - `getAddress(?Location $location): ?string` — helper que compõe a string de endereço a partir de `location.address.cep.city`; retorna `null` se a cidade não existir.
-- `createPdf(ProjectPowerOfAttorneyDocument $power_of_attorney, string $type_document): File` — renderiza o HTML em PDF (DomPDF), salva no disco remoto do projeto e cria o registro `File`.
+- `createPdf(ProjectPowerOfAttorneyDocument $power_of_attorney, string $type_document): File` — renderiza o HTML em PDF (DomPDF), salva no disco remoto do projeto e cria o registro no model `File` legado (dívida técnica do service; novos fluxos de anexos no ecossistema devem usar o Spatie Media Library conforme a skill `laravel-media-library-best-practices`).
 
 ## Instruções
 1. **Mapeamento do Tipo de Cliente (PF vs PJ)**:
@@ -40,4 +40,5 @@ Toda a lógica vive em `App\Services\Signature\PowerAttorneyService` (`app/Servi
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
 - NÃO deixe fixos (hardcode) os dados regionais da concessionária ou do projetista (designer); sempre resolva-os através de relações (ex: `$project->concessionaire`, `$project->designer`). Nota: o `generateData()` atual ainda viola isso — usa fallbacks fixos para `designer_name`/`designer_document` e grava o endereço do projetista como string totalmente literal em vez de resolvê-lo por relação; trate como débito técnico a corrigir, não como padrão a seguir.
 - NÃO gere HTML com CPFs ou CNPJs crus e não formatados; sempre aplique funções helper de formatação/sanitização (ex: `formatCpfCnpj`).
+- NÃO gere novos registros acoplados ao model `File` legado em novas features ou refatorações; o padrão oficial de arquivos e anexos do projeto é o Spatie Media Library (consulte `laravel-media-library-best-practices`).
 - NÃO prossiga com a geração do PDF se campos cruciais de cliente/localização estiverem null; use verificações de validação para garantir dados limpos previamente.

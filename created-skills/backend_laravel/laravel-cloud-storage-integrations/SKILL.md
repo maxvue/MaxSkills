@@ -30,7 +30,7 @@ Configurar, integrar, testar e manter armazenamento remoto de forma segura no en
 
 ### 4. Segurança de Arquivos e URLs Temporárias
 * Mantenha arquivos de projeto privados por padrão (os discos de projeto vivem em `app/private/...`).
-* `temporaryUrl()` já é usado hoje em disco arbitrário: `File::getTempUrlAttribute()` (`app/Models/File/File.php:326`) chama `Storage::disk($this->disk)->temporaryUrl($this->relative_path, now()->addMinutes(10))`, o que funciona em discos locais com `'serve' => true` (ex.: os discos `image` e `images` em `config/filesystems.php`). Atenção ao migrar esse disco para `driver => 'seafile'`: o `WebDAVAdapter` não implementa `temporaryUrl()`, quebrando esse acessor — nesse caso, sirva o arquivo pela aplicação após autorização em vez de gerar URL pré-assinada.
+* `temporaryUrl()` é encontrado no model `File` legado: `File::getTempUrlAttribute()` (`app/Models/File/File.php:326`) chama `Storage::disk($this->disk)->temporaryUrl($this->relative_path, now()->addMinutes(10))`, o que funciona em discos locais com `'serve' => true` (ex.: os discos `image` e `images` em `config/filesystems.php`). Atenção ao migrar esse disco para `driver => 'seafile'`: o `WebDAVAdapter` não implementa `temporaryUrl()`, quebrando esse acessor — sirva o arquivo pela aplicação após autorização (ou use as rotas dedicadas do Spatie Media Library `media.view`/`media.download`) em vez de gerar URL pré-assinada.
 
 ### 5. Tratamento de Exceções, Logging e Testes
 * **Resiliência:** Falhas de rede e timeouts são comuns em WebDAV. Envolva operações de storage em try-catch e registre contexto de erro descritivo.
