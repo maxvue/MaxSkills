@@ -7,7 +7,7 @@
     "promo_en": "Standardized engineering practices for frontend design. Enhances project stability, maintainability, and implementation velocity.",
     "promo_pt_br": "Crie interfaces visuais marcantes e profissionais para aplicações web modernas. Este guia orienta o desenvolvimento de telas atraentes e acessíveis, unindo tipografia refinada, paletas de cores harmônicas, animações suaves e código limpo, garantindo uma experiência de uso agradável e pronta para produção no dia a dia.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -16,7 +16,7 @@
       "Vue.js"
     ],
     "libs": [],
-    "local_path": "created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -45,7 +45,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for ai agents ecosystem in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Construa e monitore agentes de inteligência artificial autônomos integrados ao backend do sistema. A funcionalidade permite executar tarefas automatizadas com respostas estruturadas e confiáveis, além de oferecer acompanhamento do consumo de processamento e testes contínuos para garantir estabilidade.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -55,7 +55,7 @@
     "libs": [
       "Pest PHP"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -84,7 +84,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for ai bank ticket processing in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize a leitura e o pagamento de boletos bancários no sistema utilizando inteligência artificial. A solução extrai dados como código de barras, valores e datas de vencimento diretamente de documentos em PDF ou imagens, agilizando a quitação de taxas e reduzindo erros em rotinas financeiras.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -94,7 +94,7 @@
     "libs": [
       "EfiPay SDK"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -123,7 +123,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for ai datasheet extraction in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Extraia especificações técnicas de catálogos e fichas de equipamentos solares em PDF de forma automatizada com inteligência artificial. O processo identifica dados elétricos cruciais como tensão, corrente e potência, organizando as informações com precisão para agilizar cadastros e projetos de engenharia.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -133,7 +133,7 @@
     "libs": [
       "Google Gemini SDK"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -162,7 +162,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for anticaptcha integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Integre serviços de resolução automática de desafios visuais e captchas de imagem em rotinas automatizadas. A ferramenta permite que sistemas realizem consultas em portais externos sem interrupções manuais, gerenciando tempos de resposta, tentativas e falhas com segurança e alta confiabilidade.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -172,7 +172,7 @@
     "libs": [
       "AntiCaptcha API"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -201,7 +201,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for api integration patterns in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Padronize a integração com serviços e APIs web externas de forma simples e escalável. O modelo organiza rotas, parâmetros e autenticações de maneira declarativa, incluindo armazenamento em cache para respostas frequentes e tratamento seguro de falhas na comunicação entre sistemas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -211,7 +211,7 @@
     "libs": [
       "EfiPay SDK"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -240,7 +240,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for authorization policies gates in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie o controle de acesso e as permissões de usuários com segurança em sistemas com múltiplos clientes ou empresas. A ferramenta organiza perfis, regras de visualização e edição de maneira centralizada, assegurando que cada usuário acesse exclusivamente os dados e recursos autorizados para seu nível.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -250,7 +250,7 @@
     "libs": [
       "Spatie Permission"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -279,7 +279,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for brazilian data queries in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Consulte dados de endereços por CEP e informações cadastrais de empresas por CNPJ com rapidez e alta disponibilidade. O sistema utiliza múltiplos provedores de contingência para evitar quedas e armazena os dados em cache, agilizando o preenchimento automático de formulários e cadastros.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -287,7 +287,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -316,7 +316,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for brazilian localization in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Valide e formate documentos nacionais como CPF, CNPJ, CEP e números de telefone com precisão no sistema. A solução padroniza a digitação do usuário, limpa caracteres especiais para salvar no banco de dados e formata valores monetários em Real de forma consistente em todas as telas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -326,7 +326,7 @@
     "libs": [
       "Eloquent ORM"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -355,7 +355,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for brazilian payments integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Integre serviços de cobrança e pagamentos brasileiros como Pix, boletos bancários e cartões de forma direta e segura. A funcionalidade automatiza a emissão de cobranças, recebe confirmações em tempo real e impede transações duplicadas, simplificando o fluxo financeiro da aplicação.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -366,7 +366,7 @@
       "Asaas API",
       "EfiPay SDK"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -395,7 +395,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for browser automation webdriver in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize a navegação na internet para preencher formulários, baixar documentos e consultar portais governamentais ou de concessionárias. A solução controla navegadores em segundo plano com estabilidade, permitindo executar tarefas repetitivas com rapidez e sem intervenção humana.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -406,7 +406,7 @@
       "Redis",
       "Selenium"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -435,7 +435,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for cache in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Acelere o tempo de resposta da aplicação e reduza o consumo do banco de dados utilizando armazenamento temporário em memória. A estratégia define padrões eficientes para guardar consultas frequentes e atualizar os dados automaticamente sempre que houver novas alterações no sistema.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -446,7 +446,7 @@
       "FrankenPHP",
       "Redis"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-cache-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -475,7 +475,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for cloud storage integrations in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie o envio, armazenamento e visualização de arquivos e documentos em servidores de nuvem com total segurança. A funcionalidade oferece suporte a links temporários protegidos para compartilhamento e organiza anexos de projetos de forma centralizada e escalável.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -485,7 +485,7 @@
     "libs": [
       "AWS S3"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-cloud-storage-integrations/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -514,7 +514,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for concessionaires connection regulation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie as normas técnicas e exigências elétricas de diferentes distribuidoras de energia do país em um só lugar. A solução padroniza parâmetros de tensão, número de fases, bitolas de cabos e disjuntores para garantir a conformidade técnica e rápida aprovação de projetos solares.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -522,7 +522,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -551,7 +551,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for digital signatures integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize o envio, acompanhamento e coleta de assinaturas eletrônicas em contratos e propostas comerciais. A integração conecta a aplicação a plataformas especializadas, gerenciando prazos com signatários e arquivando os documentos assinados com validade jurídica de forma ágil.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -561,7 +561,7 @@
     "libs": [
       "Google Calendar API"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -590,7 +590,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for editorial calendar event workflow in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Organize o planejamento e a produção de conteúdos para redes sociais em um fluxo de trabalho estruturado. A ferramenta orquestra a criação de legendas com inteligência artificial, a geração de artes visuais e as etapas de revisão da equipe, facilitando o gerenciamento de postagens.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -598,7 +598,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -627,7 +627,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for electrical calculations dimensioning in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Realize dimensionamentos elétricos automáticos e precisos para sistemas de energia solar. A ferramenta calcula a bitola correta de condutores, disjuntores de proteção e compatibilidade entre inversores e painéis conforme normas técnicas, reduzindo erros e acelerando o projeto técnico.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -635,7 +635,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -664,7 +664,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for engeapp project homologation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Acompanhe todo o processo de homologação de projetos fotovoltaicos junto às concessionárias de energia. O fluxo valida critérios técnicos exigidos pela distribuidora, controla etapas do pedido e sincroniza os protocolos de atendimento diretamente no painel de acompanhamento.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -674,7 +674,7 @@
     "libs": [
       "Ziggy"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -703,7 +703,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for exception handling logging in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Monitore e registre ocorrências e erros do sistema com mensagens claras e detalhadas para diagnóstico rápido. A solução organiza o histórico de falhas em tarefas de segundo plano e serviços externos de forma estruturada, facilitando a manutenção e a estabilidade da aplicação.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -713,7 +713,7 @@
     "libs": [
       "Slack API"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-exception-handling-logging/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -742,7 +742,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for finance coupons discounts in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie e valide cupons de desconto e condições promocionais no fechamento de pedidos com segurança. O recurso controla datas de validade, limites de utilização por cliente e impede aplicações indevidas simultâneas, garantindo total transparência e precisão nas regras financeiras.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -750,7 +750,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -779,7 +779,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for frankenphp octane in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Acelere a performance de aplicações Laravel executando o sistema diretamente na memória com servidores modernos. Aprenda a gerenciar o ciclo de vida dos processos, evitar vazamentos de memória, reaproveitar conexões com segurança e realizar atualizações em produção sem interromper o serviço aos usuários.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -789,7 +789,7 @@
     "libs": [
       "FrankenPHP"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -818,7 +818,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for gemini file api media integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Processe arquivos pesados de vídeo, áudio e documentos no Laravel integrando inteligência artificial sem sobrecarregar a memória do servidor. Saiba como enviar grandes mídias em segundo plano, monitorar o processamento automaticamente e liberar espaço temporário com segurança e estabilidade.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -828,7 +828,7 @@
     "libs": [
       "Google Gemini SDK"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -857,7 +857,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for gemini php sdk in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Integre recursos de inteligência artificial generativa em aplicações Laravel de forma estruturada e confiável. Obtenha respostas padronizadas em formatos organizados, processe múltiplos formatos como imagens e documentos em tempo real e garanta alta disponibilidade com planos de contingência entre modelos de IA.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -867,7 +867,7 @@
     "libs": [
       "Google Gemini SDK"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -896,7 +896,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for global helpers in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Organize e padronize funções utilitárias globais em projetos Laravel para simplificar tarefas do dia a dia. Aprenda a estruturar arquivos por domínio de negócio, carregar funções de forma automática, manter a compatibilidade com servidores em memória e garantir a qualidade do código com testes automatizados.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -904,7 +904,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -933,7 +933,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for holiday sla calculation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Calcule prazos de entrega, limites de atendimento e horas comerciais em sistemas Laravel levando em conta feriados e dias úteis. Garanta previsões precisas para fluxos de aprovação e operações de suporte, respeitando calendários regionais e horários de funcionamento da sua empresa.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -941,7 +941,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -970,7 +970,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for jobs queues horizon in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Execute tarefas em segundo plano no Laravel com alta resiliência e controle total de filas. Configure tentativas automáticas com intervalos inteligentes, controle limites de tempo para evitar travamentos e monitore o processamento assíncrono para garantir que falhas externas não afetem a experiência do usuário.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -980,7 +980,7 @@
     "libs": [
       "Laravel Horizon"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1009,7 +1009,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for livekit server sdk in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Crie salas de videoconferência e transmissões de áudio em tempo real integrando servidores de comunicação ao Laravel. Gere tokens de acesso seguros com controle de permissões por participante, gerencie salas interativas dinamicamente e acompanhe eventos de conexão com estabilidade e baixa latência.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1019,7 +1019,7 @@
     "libs": [
       "LiveKit"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1048,7 +1048,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for media library in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie uploads, anexos e mídias no Laravel com organização e segurança em diferentes discos de armazenamento. Associe arquivos a registros do sistema de forma simplificada, gere miniaturas automaticamente e controle o acesso a documentos confidenciais com regras claras de validação e entrega.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1058,7 +1058,7 @@
     "libs": [
       "Spatie MediaLibrary"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1087,7 +1087,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for meta graph api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize publicações e interações nas redes sociais do Facebook e Instagram diretamente pelo Laravel. Publique fotos, carrosséis e vídeos, responda a comentários de clientes, receba notificações de eventos em tempo real e acompanhe métricas de alcance e engajamento das postagens da sua marca.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1097,7 +1097,7 @@
     "libs": [
       "Meta Graph API"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1126,7 +1126,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for migrations seeders factories in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Estruture o banco de dados da sua aplicação Laravel com migrações seguras, dados iniciais reutilizáveis e geradores de registros para testes. Mantenha esquemas de tabelas consistentes entre ambientes de desenvolvimento e produção, facilitando atualizações seguras sem perda de dados.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1134,7 +1134,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1163,7 +1163,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for multitenancy data isolation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Garanta o isolamento total de dados entre diferentes empresas em sistemas multi-inquilino no Laravel. Controle o acesso de usuários para que visualizem apenas as informações e projetos autorizados, aplicando filtros seguros nas consultas e políticas de permissão sem comprometer a estabilidade do sistema.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1171,7 +1171,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1200,7 +1200,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for pdf handling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gere, edite e valide documentos em PDF no Laravel com rapidez e baixo consumo de memória. Crie relatórios personalizados a partir de modelos visuais, junte ou modifique páginas de arquivos existentes e converta documentos em imagens para pré-visualização prática na interface do usuário.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1210,7 +1210,7 @@
     "libs": [
       "DomPDF"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1239,7 +1239,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for performance and profiling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Monitore e otimize a velocidade da sua aplicação Laravel identificando consultas lentas ao banco e gargalos no servidor. Utilize ferramentas modernas de diagnóstico e telemetria para inspecionar requisições, reduzir o consumo de memória e melhorar a experiência de navegação de todos os usuários.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1250,7 +1250,7 @@
       "Pest PHP",
       "Redis"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1279,7 +1279,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for pest testing in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Escreva testes automatizados elegantes e eficientes no Laravel para garantir que cada funcionalidade do sistema opere sem falhas. Valide regras de negócio, simule integrações externas com segurança e aplique testes de arquitetura para manter o código limpo, estável e fácil de manter ao longo do tempo.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1289,7 +1289,7 @@
     "libs": [
       "Pest PHP"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1318,7 +1318,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for php code quality tooling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Mantenha o código PHP do seu projeto Laravel sempre padronizado, seguro e livre de erros silenciosos. Automatize a formatação visual, execute verificações estáticas para identificar problemas antes do deploy e aplique melhorias contínuas de sintaxe para elevar a produtividade da equipe.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1326,7 +1326,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1355,7 +1355,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for power of attorney generation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gere procurações jurídicas personalizadas em PDF para pessoas físicas e jurídicas de forma automática no Laravel. Padronize a formatação de dados cadastrais, endereços e informações de sócios, garantindo documentos legíveis, consistentes e prontos para assinatura digital ou física com total validade.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1365,7 +1365,7 @@
     "libs": [
       "DomPDF"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1394,7 +1394,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for qrcode generation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Crie e personalize códigos QR em imagens de alta resolução ou vetores diretamente no Laravel. Adicione logotipos centrais, textos informativos e níveis de correção de erro sob medida, gerando códigos prontos para exibição em telas, notas fiscais, crachás ou relatórios para impressão.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1404,7 +1404,7 @@
     "libs": [
       "BaconQrCode"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1433,7 +1433,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for rate limiting in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Proteja sua aplicação Laravel contra abusos, acessos maliciosos e sobrecarga de tráfego configurando limites inteligentes de requisições. Bloqueie tentativas repetidas de invasão em telas de login, controle o uso de serviços públicos e assegure estabilidade contínua para usuários legítimos.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1441,7 +1441,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1470,7 +1470,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for redis integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Aumente a velocidade de resposta do sistema utilizando armazenamento em memória para cache e processamento de filas no Laravel. Otimize o acesso ao banco em alta performance, execute operações simultâneas de forma segura e mantenha a estabilidade mesmo em instabilidades de rede.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1480,7 +1480,7 @@
     "libs": [
       "Redis"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1509,7 +1509,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for reverb websockets in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Implemente comunicação em tempo real na sua aplicação Laravel para atualizar telas instantaneamente sem recarregar a página. Transmita notificações ao vivo, mensagens de chat e alterações de status com segurança e alta capacidade de conexões simultâneas entre servidores e navegadores.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1519,7 +1519,7 @@
     "libs": [
       "Laravel Reverb"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1548,7 +1548,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for scout searchable in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Implemente buscas textuais ultrarrápidas e inteligentes em toda a aplicação. A ferramenta automatiza a indexação de dados, simplifica a filtragem de informações e garante alta disponibilidade ao alternar suavemente para o banco de dados caso o serviço de busca fique temporariamente indisponível.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1559,7 +1559,7 @@
       "Laravel Scout",
       "Meilisearch"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1588,7 +1588,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for security hardening in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Reforce a segurança do sistema contra vulnerabilidades e ataques cibernéticos. O recurso protege dados sensíveis com criptografia automática, valida permissões de acesso com rigor, previne injeções maliciosas no banco de dados e assegura o envio confiável de arquivos corporativos com tranquilidade.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1598,7 +1598,7 @@
     "libs": [
       "Eloquent ORM"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1627,7 +1627,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for service providers dependency injection in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Organize a inicialização de serviços e a injeção de dependências no backend com máxima eficiência. A funcionalidade gerencia o ciclo de vida dos componentes, evita vazamentos de memória em servidores de alta performance e desacopla a arquitetura para facilitar testes e manutenções contínuas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1637,7 +1637,7 @@
     "libs": [
       "FrankenPHP"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1666,7 +1666,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for services in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Centralize as regras de negócio em camadas de serviço organizadas e reutilizáveis. O padrão mantém os controladores enxutos, padroniza o tratamento de erros, melhora a legibilidade do código e permite que equipes desenvolvam funcionalidades complexas com maior velocidade e segurança.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1674,7 +1674,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1703,7 +1703,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for social media oauth token lifecycle management in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie com total segurança as credenciais e tokens de acesso para publicações no Instagram e Facebook. A solução criptografa chaves de acesso por empresa, monitora datas de expiração e automatiza a comunicação com as redes sociais sem expor dados confidenciais dos clientes.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1715,7 +1715,7 @@
       "LinkedIn API",
       "TikTok API"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1744,7 +1744,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for socialite oauth integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Permita que os usuários façam login com apenas um clique utilizando suas contas do Google ou Facebook. O sistema cria ou vincula as contas automaticamente de forma segura, oferece uma experiência de acesso ágil e intuitiva, e simplifica o fluxo de autenticação para o usuário final.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1756,7 +1756,7 @@
       "Pest PHP",
       "Ziggy"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1785,7 +1785,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for task scheduling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize rotinas e tarefas periódicas em segundo plano com controle e estabilidade. O recurso agenda relatórios, limpezas e sincronizações automáticas, evitando travamentos por sobreposição de tarefas e garantindo que o sistema opere com alta disponibilidade sem sobrecarregar o servidor.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1793,7 +1793,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1822,7 +1822,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for telescope debugging in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Monitore e depure o comportamento da aplicação em tempo real com facilidade. A ferramenta rastreia requisições lentas, consultas ao banco de dados, falhas e tarefas em fila, ocultando automaticamente dados sensíveis e oferecendo visibilidade completa para identificar gargalos rapidamente.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1833,7 +1833,7 @@
       "Laravel Telescope",
       "Requests"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1862,7 +1862,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for trello api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Conecte o sistema diretamente aos quadros do Trello para sincronizar tarefas, listas e anexos de forma automatizada. A integração processa atualizações em tempo real, organiza fluxos de trabalho da equipe e elimina a necessidade de copiar manualmente informações entre plataformas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1872,7 +1872,7 @@
     "libs": [
       "Trello API"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1901,7 +1901,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for typescript transformer in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Sincronize automaticamente os tipos de dados do backend com a interface do usuário. A ferramenta converte estruturas e opções do sistema em definições tipadas no frontend, eliminando divergências de dados entre as camadas, reduzindo erros de desenvolvimento e acelerando a criação de telas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
     "languages": [
       "PHP",
       "TypeScript"
@@ -1910,7 +1910,7 @@
       "Laravel"
     ],
     "libs": [],
-    "local_path": "created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1939,7 +1939,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for user impersonation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Permita que administradores autorizados visualizem o sistema exatamente como outro usuário para prestar suporte rápido e resolver dúvidas. A funcionalidade inclui controle estrito de permissões, alternância segura entre contas e um aviso visual claro enquanto a sessão simulada estiver ativa.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -1949,7 +1949,7 @@
     "libs": [
       "Ziggy"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -1978,7 +1978,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for vue geocoordinates maps in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie coordenadas geográficas e mapas interativos com precisão e facilidade. O sistema converte automaticamente localizações entre formatos decimais, UTM e graus, minutos e segundos, garantindo compatibilidade com o padrão brasileiro de navegação e exibição em mapas visuais.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "PHP",
@@ -1992,7 +1992,7 @@
       "@maxvue/max-pinia",
       "Eloquent ORM"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2021,7 +2021,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for vue login maxauthcard in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Estruture um fluxo completo e seguro de autenticação com interface moderna e responsiva. O recurso padroniza a tela de acesso com suporte a cookies protegidos, opção de lembrar usuário, login social integrado e gerenciamento centralizado do perfil logado em toda a navegação.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "PHP",
@@ -2040,7 +2040,7 @@
       "Vue Router",
       "Ziggy"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2069,7 +2069,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for vuefinder media library integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie arquivos, pastas e documentos com sincronização automática entre o disco e o banco de dados. Permite que os usuários enviem, renomeiem, organizem e visualizem mídias com facilidade em um gerenciador intuitivo, mantendo todos os registros sempre atualizados e sem arquivos órfãos.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
     "languages": [
       "JavaScript",
       "PHP",
@@ -2083,7 +2083,7 @@
       "Spatie MediaLibrary",
       "VueFinder"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2112,7 +2112,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for whatsapp cloud api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Integre o atendimento da sua empresa diretamente ao WhatsApp oficial para envio e recebimento de mensagens. A solução processa conversas em segundo plano, suporta botões interativos e mensagens estruturadas, garantindo entregas rápidas, seguras e com proteção contra limites de envio.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -2122,7 +2122,7 @@
     "libs": [
       "WhatsApp Cloud API"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2151,7 +2151,7 @@
     "promo_en": "Enterprise guidelines and architectural standards for ziggy routing integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Elimine endereços de URL fixos e conecte o backend à interface visual de forma inteligente e segura. A funcionalidade permite chamar serviços por nomes amigáveis com autopreenchimento no código, garantindo que qualquer alteração nas rotas seja refletida automaticamente no sistema sem quebras.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
     "languages": [
       "PHP"
     ],
@@ -2161,7 +2161,7 @@
     "libs": [
       "Ziggy"
     ],
-    "local_path": "created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2190,13 +2190,13 @@
     "promo_en": "Structured change tracking and project history standard. Captures key architectural decisions, feature implementations, and evolutionary milestones across the repository.",
     "promo_pt_br": "Acesse a linha do tempo completa e o histórico de decisões do projeto. O registro detalha a evolução das etapas de desenvolvimento, motivos de escolhas arquiteturais e histórico de validações de testes, permitindo que novos membros e gestores compreendam rapidamente a trajetória do software.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-history/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/project-history/SKILL.md",
     "languages": [],
     "frameworks": [
       "UnoCSS"
     ],
     "libs": [],
-    "local_path": "created-skills/project-history/SKILL.md",
+    "local_path": "all_skills/created-skills/project-history/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2225,14 +2225,14 @@
     "promo_en": "Unified project bootstrapping and environment setup guide. Guarantees consistent developer onboarding, standard tooling configurations, and reproducible environments.",
     "promo_pt_br": "Configure o ambiente completo de desenvolvimento do projeto em minutos a partir do zero. O guia orienta a instalação de dependências, configuração de variáveis, preparação do banco de dados e ativação de serviços em segundo plano, garantindo uma inicialização rápida e sem complicações.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/project-setup/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/project-setup/SKILL.md",
     "languages": [],
     "frameworks": [],
     "libs": [
       "Google Gemini SDK",
       "Redis"
     ],
-    "local_path": "created-skills/project-setup/SKILL.md",
+    "local_path": "all_skills/created-skills/project-setup/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2261,11 +2261,11 @@
     "promo_en": "Systematic root-cause debugging methodology and investigation workflow. Enforces hypothesis verification and log evidence before code modifications, eliminating guesswork and recurring bugs.",
     "promo_pt_br": "Diagnostique e resolva problemas e comportamentos inesperados com base em evidências reais. Esta metodologia estruturada orienta a investigação da causa raiz de erros antes de propor soluções, eliminando suposições e garantindo correções definitivas e seguras para a estabilidade do sistema.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
     "languages": [],
     "frameworks": [],
     "libs": [],
-    "local_path": "created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2294,13 +2294,13 @@
     "promo_en": "Standardized framework for writing maintainable, clear, and actionable technical documentation across APIs, frontend components, architecture decision records (ADRs), and guides.",
     "promo_pt_br": "Crie documentações técnicas claras, organizadas e profissionais para sistemas, serviços e componentes visuais. O método orienta a elaboração de manuais práticos, referências de integração e registros de decisões arquiteturais para facilitar a colaboração e o aprendizado de toda a equipe.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
     "languages": [],
     "frameworks": [],
     "libs": [
       "ESLint"
     ],
-    "local_path": "created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2329,13 +2329,13 @@
     "promo_en": "Advanced TypeScript engineering standard for advanced types. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
     "promo_pt_br": "Aprenda a criar tipos avançados e seguros em TypeScript para blindar seu código contra erros em tempo de desenvolvimento. Descubra como modelar regras de negócio complexas, construir estruturas reutilizáveis e garantir contratos de dados consistentes para projetos e bibliotecas de alta confiabilidade.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
     "languages": [
       "TypeScript"
     ],
     "frameworks": [],
     "libs": [],
-    "local_path": "created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2364,7 +2364,7 @@
     "promo_en": "Advanced TypeScript engineering standard for billing core architecture. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
     "promo_pt_br": "Construa um motor completo de cobranças e assinaturas recorrentes com arquitetura limpa em TypeScript. Aprenda a gerenciar o ciclo de vida de pagamentos, controlar estados de faturas, processar notificações automáticas com segurança e integrar diferentes meios de pagamento sem acoplamento.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
     "languages": [
       "TypeScript"
     ],
@@ -2372,7 +2372,7 @@
     "libs": [
       "EfiPay SDK"
     ],
-    "local_path": "created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2401,7 +2401,7 @@
     "promo_en": "Advanced TypeScript engineering standard for max banks efi gateway. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
     "promo_pt_br": "Integre serviços financeiros da Efí de forma segura e eficiente, automatizando a geração de cobranças Pix imediatas ou com vencimento. Implemente autenticação com certificados digitais, consulta de status em tempo real e tratamento confiável de notificações automáticas de pagamento.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
     "languages": [
       "TypeScript"
     ],
@@ -2409,7 +2409,7 @@
     "libs": [
       "EfiPay SDK"
     ],
-    "local_path": "created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2438,7 +2438,7 @@
     "promo_en": "Advanced TypeScript engineering standard for tooling monorepo. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
     "promo_pt_br": "Otimize a infraestrutura de compilação e o ecossistema de ferramentas em projetos TypeScript e monorepositórios. Melhore o tempo de build, organize o compartilhamento de código entre múltiplos pacotes e resolva com facilidade problemas de compatibilidade entre módulos e empacotadores modernos.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
     "languages": [
       "TypeScript"
     ],
@@ -2446,7 +2446,7 @@
     "libs": [
       "ESLint"
     ],
-    "local_path": "created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2475,7 +2475,7 @@
     "promo_en": "Production-grade frontend standard for auto import components in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Agilize o desenvolvimento no Vue 3 configurando a importação automática de componentes, funções reativas e estados globais. Elimine importações manuais repetitivas no código-fonte enquanto preserva o suporte completo a sugestões inteligentes e validação estrita de tipos no editor.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2490,7 +2490,7 @@
       "Axios",
       "Pinia"
     ],
-    "local_path": "created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2519,7 +2519,7 @@
     "promo_en": "Production-grade frontend standard for axios api integration in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padronize a comunicação HTTP entre o frontend em Vue 3 e o backend em Laravel com máxima eficiência. Aprenda a consultar rotas nomeadas com segurança, gerenciar autenticação por sessão, tratar erros de requisição de forma consistente e alimentar os estados da aplicação sem redundâncias.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2532,7 +2532,7 @@
       "@maxvue/max-use",
       "Axios"
     ],
-    "local_path": "created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2561,7 +2561,7 @@
     "promo_en": "Production-grade frontend standard for boleto utils in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Valide e formate boletos bancários de forma simples e precisa em interfaces Vue. Calcule automaticamente datas de vencimento, valores e dígitos verificadores a partir de linhas digitáveis ou códigos de barras, oferecendo uma experiência de pagamento fluida e sem erros de preenchimento.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2570,7 +2570,7 @@
       "Vue.js"
     ],
     "libs": [],
-    "local_path": "created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2599,7 +2599,7 @@
     "promo_en": "Production-grade frontend standard for brand positioning character management in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Desenvolva telas completas para gerenciamento de posicionamento de marca, perfis de personas e temas de comunicação no Vue 3. Crie formulários intuitivos com salvamento automático, upload de imagens de referência e sincronização contínua de dados com a camada de estado da aplicação.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2613,7 +2613,7 @@
       "Pinia",
       "Stylelint"
     ],
-    "local_path": "created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2642,7 +2642,7 @@
     "promo_en": "Production-grade frontend standard for complex modal forms autosave in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Construa modais com formulários complexos e navegação em abas no Vue 3, oferecendo salvamento automático e indicadores visuais de sincronização. Evite perdas acidentais de dados pelo usuário, aplicando técnicas inteligentes de atualização e controle de estado sem exigir botões manuais de salvar.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2653,7 +2653,7 @@
     "libs": [
       "@maxvue/max-components-ui"
     ],
-    "local_path": "created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2682,7 +2682,7 @@
     "promo_en": "Production-grade frontend standard for dayjs date manipulation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Formate, calcule e compare datas e horários com precisão em interfaces Vue 3, seguindo o padrão brasileiro. Apresente datas relativas amigáveis, gerencie diferenças de fusos horários e faça operações de prazos e intervalos de maneira reativa e totalmente à prova de falhas de renderização.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2694,7 +2694,7 @@
       "@maxvue/max-use",
       "Day.js"
     ],
-    "local_path": "created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2723,7 +2723,7 @@
     "promo_en": "Production-grade frontend standard for debugging in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Identifique e solucione rapidamente bugs comuns e complexos no Vue 3. Diagnostique problemas onde a tela não atualiza com o estado, perdas de reatividade em objetos desestruturados, falhas em propriedades computadas, disparos incorretos de observadores e avisos no ciclo de vida dos componentes.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2732,7 +2732,7 @@
       "Vue.js"
     ],
     "libs": [],
-    "local_path": "created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2761,7 +2761,7 @@
     "promo_en": "Production-grade frontend standard for eslint stylelint quality standards in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Garanta a qualidade e a padronização do código frontend em projetos Vue. Aplique regras automáticas de estilo para scripts, templates e folhas de estilo, corrigindo inconsistências visuais, problemas de indentação e ordem de blocos para manter a base de código limpa, organizada e legível.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2773,7 +2773,7 @@
       "ESLint",
       "Stylelint"
     ],
-    "local_path": "created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2802,7 +2802,7 @@
     "promo_en": "Production-grade frontend standard for frontend bug fixing in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Solucione defeitos visuais, lógicos e de integração no frontend de aplicações Vue de forma estruturada. Investigue a causa raiz de problemas em telas, falhas de sincronização de dados com o servidor, quebras de layout responsivo e comportamentos inesperados do usuário sem mascarar sintomas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2818,7 +2818,7 @@
       "Pinia",
       "Vue Router"
     ],
-    "local_path": "created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2847,7 +2847,7 @@
     "promo_en": "Production-grade frontend standard for inputs masks validation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Crie campos de formulário inteligentes com máscaras automáticas e validações em tempo real no Vue. Formate com precisão dados como CPF, CNPJ, telefone, CEP, valores monetários e cartões de crédito, garantindo que o usuário digite com facilidade e o sistema armazene os dados limpos e válidos.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2860,7 +2860,7 @@
       "@maxvue/max-pinia",
       "Pinia"
     ],
-    "local_path": "created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2889,7 +2889,7 @@
     "promo_en": "Production-grade frontend standard for keyboard shortcuts navigation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Implemente atalhos de teclado ágeis e navegação acessível em aplicações Vue. Permita acionar ações rápidas com combinações de teclas sem conflitar com a digitação em formulários, gerenciando o foco de elementos visuais e melhorando a produtividade do usuário nas tarefas cotidianas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2900,7 +2900,7 @@
     "libs": [
       "@maxvue/max-use"
     ],
-    "local_path": "created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2929,7 +2929,7 @@
     "promo_en": "Production-grade frontend standard for max components ui popovers confirmations in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Incorpore dicas contextuais flutuantes, menus suspensos e confirmações de ações rápidas em telas Vue. Apresente informações complementares ao passar o cursor, solicite confirmações claras antes de operações críticas ou exclusões e organize ações secundárias em menus compactos e elegantes.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2940,7 +2940,7 @@
     "libs": [
       "@maxvue/max-components-ui"
     ],
-    "local_path": "created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -2969,7 +2969,7 @@
     "promo_en": "Production-grade frontend standard for max ecosystem api reference in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Consulte o catálogo de referência rápida para os componentes de interface, funções auxiliares e gerenciadores de estado do projeto. Encontre facilmente propriedades disponíveis, eventos emitidos, tipos de dados e contratos de uso para acelerar o desenvolvimento do frontend no dia a dia.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -2983,7 +2983,7 @@
       "@maxvue/max-pinia",
       "@maxvue/max-use"
     ],
-    "local_path": "created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3012,7 +3012,7 @@
     "promo_en": "Production-grade frontend standard for max stack frontend in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Construa interfaces modernas e performáticas em Vue 3 integradas ao backend Laravel. Aprenda a estruturar telas completas, organizar componentes visuais, aplicar estilos com classes utilitárias e gerenciar dados de formulários e tabelas seguindo as melhores práticas do ecossistema da aplicação.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3029,7 +3029,7 @@
       "Pinia",
       "Vue Router"
     ],
-    "local_path": "created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3058,7 +3058,7 @@
     "promo_en": "Production-grade frontend standard for max use development in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Desenvolva funções utilitárias e funções reativas reutilizáveis de alta qualidade no Vue 3. Aprenda a manipular variáveis comuns ou dinâmicas com segurança, criar lógicas compartilhadas entre componentes, garantir tipagem precisa e escrever testes automatizados para validar cada comportamento.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3070,7 +3070,7 @@
       "@maxvue/max-use",
       "Vitest"
     ],
-    "local_path": "created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3099,7 +3099,7 @@
     "promo_en": "Production-grade frontend standard for max use usecachedapi state cache in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Acelere o carregamento de telas no Vue 3 através de cache local de requisições com atualização transparente em segundo plano. Exiba dados salvos instantaneamente para o usuário na inicialização da página enquanto consulta a API de forma assíncrona para sincronizar novas alterações.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3110,7 +3110,7 @@
     "libs": [
       "@maxvue/max-use"
     ],
-    "local_path": "created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3139,7 +3139,7 @@
     "promo_en": "Production-grade frontend standard for meta api oauth integration in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Interface segura para conexão de contas de redes sociais como Facebook e Instagram. Permite aos gestores inserir identificadores de páginas e tokens de acesso oficiais de forma simples e direta, mantendo as chaves protegidas e garantindo a integração correta das plataformas no sistema.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3152,7 +3152,7 @@
       "Axios",
       "Pinia"
     ],
-    "local_path": "created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3181,7 +3181,7 @@
     "promo_en": "Production-grade frontend standard for pinia state management in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Gerenciamento inteligente de dados e estado da aplicação com salvamento automático em segundo plano e cache local no navegador. Proporciona carregamento instantâneo de telas, navegação mais fluida para os usuários e sincronização segura com o servidor sem travamentos.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3193,7 +3193,7 @@
       "@maxvue/max-pinia",
       "Pinia"
     ],
-    "local_path": "created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3222,7 +3222,7 @@
     "promo_en": "Production-grade frontend standard for rss news moderation dashboard in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Painel de moderação para acompanhar notícias e tendências em tempo real. Permite que gestores e criadores de conteúdo organizem artigos por palavras-chave, aprovem matérias promissoras transformando-as em temas para publicação ou arquivem conteúdos irrelevantes com facilidade.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3234,7 +3234,7 @@
       "Axios",
       "Pinia"
     ],
-    "local_path": "created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3263,7 +3263,7 @@
     "promo_en": "Production-grade frontend standard for toast notifications toastify in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Sistema de notificações e alertas visuais flutuantes que informa o usuário sobre o resultado de suas ações no sistema. Exibe mensagens elegantes de sucesso, aviso ou erro, com temporizador automático inteligente que pausa ao passar o cursor do mouse sobre o aviso.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3276,7 +3276,7 @@
       "Pinia",
       "Vue Toastify"
     ],
-    "local_path": "created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3305,7 +3305,7 @@
     "promo_en": "Production-grade frontend standard for typescript in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Boas práticas e padronização para desenvolvimento no front-end com tipagem estrita de dados. Garante maior qualidade de código, previne falhas na interface antes que cheguem aos usuários e assegura que as informações trafegadas estejam sempre alinhadas com o servidor.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3316,7 +3316,7 @@
     "libs": [
       "Pinia"
     ],
-    "local_path": "created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3345,7 +3345,7 @@
     "promo_en": "Production-grade frontend standard for unocss styling in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Diretrizes para estilização moderna e ágil de interfaces, aplicando cores padronizadas, espaçamentos consistentes e suporte automático ao modo escuro. Garante um visual refinado e uniforme em todo o sistema, além de facilitar a manutenção e acelerar a criação de telas.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3358,7 +3358,7 @@
     "libs": [
       "@maxvue/max-components-ui"
     ],
-    "local_path": "created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3387,7 +3387,7 @@
     "promo_en": "Production-grade frontend standard for vitest testing in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrões para criação de testes automatizados no front-end, validando o comportamento de telas, botões e fluxos de dados em ambiente isolado. Garante estabilidade nas entregas de novas funcionalidades e assegura que o sistema continue funcionando perfeitamente sem regressões.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3398,7 +3398,7 @@
     "libs": [
       "Vitest"
     ],
-    "local_path": "created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
@@ -3427,7 +3427,7 @@
     "promo_en": "Production-grade frontend standard for whatsapp interactive messages simulator in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Simulador visual e interativo de mensagens para WhatsApp que divide a tela entre edição e prévia em tempo real. Permite criar modelos de mensagens com botões de ação rápida, menus de listas e imagens, validando limites de texto para garantir mensagens perfeitas antes do envio.",
     "repo_name": "max",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
     "languages": [
       "JavaScript",
       "TypeScript"
@@ -3436,7 +3436,7 @@
       "Vue.js"
     ],
     "libs": [],
-    "local_path": "created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
+    "local_path": "all_skills/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
     "importance_in": [
       {
         "project": "engeapp",
