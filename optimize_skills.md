@@ -1,23 +1,28 @@
 # Auditar, Corrigir e Otimizar Skills (High-Efficiency Runbook)
 
-Runbook de alta eficiência para auditar, validar, corrigir e otimizar **todas as skills de `all_skills/`** contra o código real dos projetos de referência em `projects/`. Projetado para ser executado por um agente autônomo do início ao fim, com orquestração multi-agente otimizada para **mínimo consumo de tokens**, **máxima agilidade/paralelismo** e **zero perda de rigor técnico**.
+Runbook de alta eficiência para auditar, validar, corrigir e otimizar **todas as skills de `all_skills/`** aplicando **Regras Adaptativas por Domínio** contra o código real dos projetos de referência em `projects/`. Projetado para ser executado por um agente autônomo do início ao fim, com orquestração multi-agente otimizada para **mínimo consumo de tokens**, **máxima agilidade/paralelismo seguro** e **zero perda de rigor técnico**.
 
 > **Idioma:** conduza toda a conversa com o humano em **pt-BR**.  
 > **Escopo:** somente `all_skills/`. Não altere qualquer coisa fora deste escopo.  
+> **Regras Adaptativas por Domínio:**  
+> - **Skills Proprietárias (`created-skills/`):** auditadas com rigor máximo contra os projetos locais em `projects/` (Engeapp, MaxComponentsUi, MaxPinia, MaxUse, Ziggy, PHP 8.4/Laravel 13).  
+> - **Skills Externas e Terceiros (`Agentic Awesome Skills/` e `curated-youtube/`):** auditadas contra qualidade intrínseca (sintaxe YAML íntegra, `description` entre 200–400 chars, ausência de comandos perigosos e eliminação de bloat/redundância). **Nunca force convenções do Engeapp (ex: MaxPinia, MaxComponentsUi) sobre ferramentas externas (ex: AWS, Docker, React, Django)**.  
 > **Ferramenta de apoio (uso restrito — não carregar em toda fase):** a `skill-creator` é referência de boa `SKILL.md` (description acionável de 200–400 chars, progressive disclosure, instruções imperativas com o *porquê*). **Só carregue a skill-creator quando a tarefa envolve julgar/reescrever FORMA ou `description`** — ou seja, apenas em: Fase 1 quando o problema encontrado for de forma/gatilho, Etapas 2 e 3 do plano (reescrita de Críticas/Ruins), e Etapa 5 (Boas). Nas Fases 0.5, 2, 3 e nas Etapas 1 e 4 do plano, a tarefa é puramente técnica/factual (redundância, refutação, remoção/merge, podas) — **não carregue a skill-creator ali**, ela não agrega e consome tokens inutilmente.
 
 ---
 
-## Taxonomia de Tiers de Modelos e Roteamento de Custo
+## Taxonomia de Tiers de Modelos e Mapeamento de Ferramentas
 
-A eficiência de custo e velocidade deste runbook apoia-se em uma separação rigorosa de **2 Tiers de Modelos**:
+A eficiência de custo e velocidade deste runbook apoia-se em uma separação rigorosa de **2 Tiers de Modelos**, mapeados diretamente para a ferramenta `invoke_subagent`:
 
-| Tier | Modelos Recomendados | Perfil de Custo / Latência | Casos de Uso no Runbook |
-| :--- | :--- | :--- | :--- |
-| **Tier 1 (Fast / Economic)** | `Gemini 3.7 Flash` / `Flash-Lite` / `Claude 3.5 Haiku` | **Muito Baixo Custo / Ultra Rápido** (~75-80% do volume total de chamadas) | • Fase 1 (Auditoria Unificada padrão)<br>• Fase 3 (Revisão adversarial de checagens pontuais/locais)<br>• Fase 6: Etapa 4 (Regulares e Bloat) e Etapa 5 (Boas) |
-| **Tier 2 (High-Reasoning)** | `Gemini 3.7 Flash (High)` / `Pro` / `Claude 3.7 Sonnet` | **Alto Raciocínio / Julgamento Complexo** (~20-25% do volume total) | • Agente Principal (Orquestrador)<br>• Fase 2 (Cluster & Judge de redundâncias)<br>• Fase 3 (Revisão adversarial de contratos arquiteturais)<br>• Fase 4 (Conciliação inline)<br>• Fase 6: Etapas 1, 2 e 3 (Remoções, Merges, Críticas, Ruins)<br>• Fase 7 (Verificação adversarial final) |
+| Tier | Modelos Conceituais | Parâmetro invoke_subagent | Perfil de Custo / Latência | Casos de Uso no Runbook |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tier 1 (Fast / Economic)** | `Gemini Flash` / `Claude Haiku` | `Model: 'flash'` (ou `'flash_lite'`) | **Muito Baixo Custo / Ultra Rápido** (~75-80% do volume total de chamadas) | • Fase 1 (Auditoria Unificada em lotes)<br>• Fase 3 (Revisão adversarial pontual)<br>• Fase 6: Etapa 4 e Etapa 5 |
+| **Tier 2 (High-Reasoning)** | `Gemini Flash (High)` / `Pro` / `Claude Sonnet` | `Model: 'pro'` (ou `'inherit'`) | **Alto Raciocínio / Julgamento Complexo** (~20-25% do volume total) | • Agente Principal (Orquestrador)<br>• Fase 2 (Cluster & Judge)<br>• Fase 3 (Revisão adversarial arquitetural)<br>• Fase 4 (Conciliação inline)<br>• Fase 6: Etapas 1, 2 e 3<br>• Fase 7 (Verificação final) |
 
-### Agente Principal (Orquestrador): **Tier 2 — Gemini 3.7 Flash (High)**
+> ⚠️ **Restrição Crítica de Ferramenta:** A ferramenta `invoke_subagent` aceita estritamente o enum `['inherit', 'flash_lite', 'flash', 'pro']`. Nunca passe nomes comerciais livres (ex: `"Claude 3.5 Haiku"` ou `"Gemini 3.7 Flash"`) no parâmetro `Model`, pois isso causa erro fatal de validação de schema.
+
+### Agente Principal (Orquestrador): **Tier 2 — 'pro' ou 'inherit'**
 Rode a sessão principal sempre em Tier 2. O motivo:
 - A **conciliação (Fase 4) roda inline no orquestrador** — recalcular estados e arbitrar destinos com precedência estrita exige alto discernimento.
 - O orquestrador é a **rede de segurança entre fases**: valida a integridade das saídas antes de disparar a próxima etapa.
@@ -27,14 +32,21 @@ Rode a sessão principal sempre em Tier 2. O motivo:
 
 ## 0. Verdade-base do projeto (verificar antes, nunca assumir de memória)
 
-Os projetos reais ficam em `projects/` (symlinks). Hoje: `engeapp` (Laravel 13 + PHP 8.4 + MySQL, front Vue 3 SPA), `MaxComponentsUi`, `MaxPinia`, `MaxUse`, `AgenteDeBolso`, `SocialMedia`, `MaxCode`. **Confirme quais existem** com `ls projects/` no início — se houver alvos de skill sem projeto correspondente, avalie pelo que der para inferir e registre como *limitação*, não como erro.
+Os projetos reais disponíveis ficam em `projects/` (symlinks). Hoje:
+- `projects/engeapp` (Laravel 13 + PHP 8.4 + MySQL, front Vue 3 SPA)
+- `projects/MaxComponentsUi` (Biblioteca de componentes Vue 3 locais)
+- `projects/MaxPinia` (Camada de cache e persistência de stores)
+- `projects/MaxUse` (Utilitários e integração de rotas Ziggy no front)
+- `projects/MaxCode` (Sidecar e ferramentas do agente)
+
+**Confirme quais existem** com `ls -l projects/` no início — repositórios citados em skills sem correspondente em `projects/` (ex.: legados como `SocialMedia` ou `AgenteDeBolso`) devem ser avaliados pelo que der para inferir e registrados como *limitação contextual*, nunca como erro da skill.
 
 Convenções fundamentais confirmadas no código real:
 - **Rotas do front = NOMES Ziggy pontilhados**, não caminhos `/api/...`. Os helpers `apiGetRoute('cliente.data', params)` / `apiPostRoute('cliente.save', payload)` do `@maxvue/max-use` recebem o **nome** da rota. Ziggy **está** configurado (`resources/app.ts`: `ZiggyVue` + `route`).
-- **Sem libs cruas de terceiros:** nada de `vueuse`/`lodash`/`primevue` direto. Usar `@maxvue/max-use` (reexporta VueUse + utilitários) e componentes `Max*` de `@maxvue/max-components-ui`.
+- **Sem libs cruas de terceiros no ecossistema Engeapp:** nada de `vueuse`/`lodash`/`primevue` direto. Usar `@maxvue/max-use` (reexporta VueUse + utilitários) e componentes `Max*` de `@maxvue/max-components-ui`.
 - **Contrato MaxPinia:** store com `isCached = ref(true)` + `options` (`get.route`, `save`, `key`, `enabled`), `data`, `status.server.get.is_requested`/`is_success`. A chave real de cache do LocalForage é `getKey() = store.$id + (store.id ?? options.id)` — **`options.key` NÃO é a chave de cache** (é convenção que casa com `$id`). Todo GET de página passa por store MaxPinia.
 - **Sem camada `services/` no front.** Mutações via `apiPostRoute` a partir de stores.
-- **Laravel é v13 / PHP 8.4.**.
+- **Laravel é v13 / PHP 8.4.** Nenhuma menção a AdonisJS em `created-skills/`.
 - Comentários de código nas skills em **pt-BR**.
 
 ---
@@ -59,32 +71,41 @@ Fase 8    Versionamento (git)           → ⛔ commit/push/merge SÓ sob pedido
 
 ## Fase 0.5 — Pré-Triagem Determinística (Zero-Token Fast-Path)
 
-Antes de invocar qualquer modelo LLM, o agente orquestrador roda uma varredura estática e instantânea (via comandos shell / scripts em milissegundos) para extrair defeitos sintáticos e literais óbvios:
+Antes de invocar qualquer modelo LLM, o agente orquestrador roda a varredura estática e instantânea através do script em `docs/scripts/pre_triage.py` (executa em milissegundos sem consumo de tokens):
 
+```bash
+python3 docs/scripts/pre_triage.py --target all_skills --output docs/reports/pre_triage.json
+```
+
+O script automatiza:
 1. **Checagem de YAML Frontmatter & Tamanho de Description:**
-   - Detectar `description` ausente, sem aspas contendo dois-pontos (`:`), ou fora da faixa de **200 a 400 caracteres**.
-2. **Scan de Violações Literais de Convenção:**
-   - Ocorrências de `adonis`, `AdonisJS`, rotas cruas `/api/` no frontend, imports diretos de `lodash` ou `vueuse`.
-3. **Mapeamento de Arquivos Existentes:**
-   - Lista exata de todos os `SKILL.md` alvos em `all_skills/`.
+   - Detecta `description` ausente, sintaxe YAML inválida, ou fora da faixa de **200 a 400 caracteres**.
+2. **Scan de Violações Adaptativas de Convenção:**
+   - Detecta ocorrências de `adonis`, `AdonisJS`, rotas cruas `/api/` no frontend, e imports diretos de `lodash` ou `vueuse` restritos ao escopo de `created-skills/`.
+3. **Mapeamento Estruturado de Todas as 881 Skills:**
+   - Classifica as skills por domínio (`created-skills`, `awesome-skills`, `curated-youtube`) e gera o relatório estruturado em `docs/reports/pre_triage.json`.
 
-> **Ganho de Eficiência:** Os subagentes da Fase 1 já recebem essa lista de fatos pré-computados em seu briefing de entrada, eliminando buscas cegas e focando 100% de seu tempo de inferência na validação técnica de código profundo.
+> **Ganho de Eficiência:** Os subagentes da Fase 1 já recebem essa lista de fatos pré-computados em seu briefing de entrada, eliminando buscas cegas e focando 100% de seu tempo de inferência na validação técnica profunda.
 
 ---
 
-## Fase 1 — Auditoria Unificada (1 verificador por skill) — **Tier 1 (Fast)**
+## Fase 1 — Auditoria Unificada (Lotes Seguros com Batching) — **Tier 1 (Fast)**
 
-Uma única passada produz os **três sinais por skill** (conformidade + bloat + resumo-map), aproveitando o mesmo contexto carregado:
+Para auditar as 881 skills com estabilidade e evitar erros de taxa (HTTP 429), esgotamento de contexto ou limites de subprocessos, a auditoria adota **Orquestração em Lotes Controlados (Safe Batching)**:
 
-1. Liste os alvos: `find all_skills -name SKILL.md`.
-2. Dispare **1 subagente verificador por `SKILL.md`** em **Tier 1 (Fast)**.
+1. Carregue a lista de alvos a partir de `docs/reports/pre_triage.json`.
+2. Dispare verificadores em **lotes concorrentes de 5 a 10 subagentes por rodada** em **Tier 1** (`invoke_subagent` com `Model: 'flash'` ou `'flash_lite'`).
+3. Recomenda-se processar modularmente por domínio:
+   - **Lote A (Prioritário):** `created-skills/` (88 skills proprietárias — auditoria profunda de stack).
+   - **Lote B:** `curated-youtube/` (30 skills — auditoria de escopo e qualidade).
+   - **Lote C:** `Agentic Awesome Skills/` (763 skills — auditoria em blocos por categoria).
 
 **Ação do verificador (3 sinais na mesma chamada):**
 
-**(a) Conformidade:**
+**(a) Conformidade Adaptativa:**
 - Ler o `SKILL.md` e referências dele.
-- Para cada afirmação técnica (rota, classe, config, tabela/coluna, componente, lib, método), abrir os projetos `projects/` (`Grep`/`Read`) e confirmar/refutar.
-- Conferir detalhadamnte o conteúdo da Skill contra as convenções da Seção 0.
+- **Se a skill pertencer a `created-skills/`:** para cada afirmação técnica (rota, classe, config, tabela/coluna, componente, lib, método), abrir os projetos `projects/` (`Grep`/`Read`) e confirmar/refutar contra as convenções da Seção 0.
+- **Se a skill for externa (`Awesome Skills` ou `curated-youtube`):** verificar a coerência e exatidão técnica da ferramenta ensinada (ex.: Docker, Git, AWS), sem forçar padrões do Engeapp sobre ela.
 
 **(b) Descrição:**
 - Verificar se o campo description da SKILL está em conformidade com as seguintes regras:
@@ -107,9 +128,8 @@ Uma única passada produz os **três sinais por skill** (conformidade + bloat + 
 - Redundância interna e preâmbulos verbosos que não afetam o comportamento do agente.
 - Arquivos órfãos em `references/` ou `rules/`.
 
-**(d) Front-End ** 
-- Específico para Skills de FrontEnd - Pular esta etapa quando a skill não for sobre o front-end**
-- Verificar se o conteúdo da SKILL está em conformidade com as seguintes regras para o front-end
+**(d) Front-End (Específico para Skills de FrontEnd do ecossistema Engeapp/MaxVue):**
+- Pular esta etapa quando a skill não for sobre o front-end do projeto:
   - Para componentes genéricos e de uso recorrente, sempre adotar a biblioteca local MaxComponentsUi.
     - Exemplos:
       - Botões: MaxButton, MaxIconButton, MaxIconButtonConfirm, MaxButtonConfirm
@@ -121,13 +141,12 @@ Uma única passada produz os **três sinais por skill** (conformidade + bloat + 
       - Formulários -> MaxGrid
       - Titulos -> MaxTitle1 e MaxTitle2
   - Para Funções Helpers no Frontend, sempre adotar "MaxUse".
-  - Para Funções Helpers no Frontend, nunca adotar "VueUse" nem tampouco "Lodash".
-    - MaxUse possui as funções de VueUse e Lodash próprias.
+  - Para Funções Helpers no Frontend, nunca adotar "VueUse" nem tampouco "Lodash" (MaxUse possui as funções de VueUse e Lodash próprias).
   - Para Salvamentos no Frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia".
-  - Para Cache no Frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia"
-  - Para Salvamentos Automáticos no frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia"
-  - O Formato dos nomes de arquivos pinia deverá ser "Use{NomeStore}.Store.ts" Ex: "UseSystm.Store.ts"
-  - No front-end, não fazer uso de classes de estilo. Ex: class="p-4 rounded-2xl" Os estilos devem estar na seção <style>
+  - Para Cache no Frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia".
+  - Para Salvamentos Automáticos no frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia".
+  - O Formato dos nomes de arquivos pinia deverá ser `Use{NomeStore}.Store.ts` (ex: `UseSystm.Store.ts`).
+  - **Classes no front-end:** não fazer uso de **classes utilitárias inline** no template (ex.: classes utilitárias inline de Tailwind/UnoCSS como `class="p-4 rounded-2xl"`). Adotar classes semânticas no template (ex.: `class="contact-info"`, `class="payment-content"`) com estilização isolada na seção `<style lang="scss">`.
 
 **(e) Resumo-map:**
 - Extração concisa: tema (1 frase), entidades citadas (libs, rotas, componentes, classes) e ~10 palavras-chave.
@@ -229,12 +248,12 @@ Qualquer problema **não CONFIRMADO** pela revisão adversarial da Fase 3 é **S
 
 ## Fase 5 — Tabela Consolidada (1 Linha por Skill)
 
-> **Regra Obrigatória:** A tabela apresentada ao humano deve conter **exatamente N linhas** (onde N = total de `SKILL.md` auditados), ordenada por severidade (`Crítica → Ruim → Regular → Boa → Excelente`) e nº de problemas decrescente:
+> **Regra Obrigatória:** A tabela apresentada ao humano deve conter **exatamente N linhas** (onde N = total de `SKILL.md` auditados), ordenada por severidade (`Crítica → Ruim → Regular → Boa → Excelente`) e nº de problemas decrescente. O relatório completo é salvo em `docs/reports/fase_5_consolidado.md`:
 
 | # | Skill | Estado | Nº de problemas | Destino | Descrição dos problemas |
 |---|-------|--------|------------------|---------|--------------------------|
-| 1 | `laravel-editorial-calendar-event-workflow` | Crítica | 9 | CORRIGIR | Ensina `AiPipeline`/trait `AdvancesEventStatus` inexistentes — real é `EventObserver::updated()`. |
-| 2 | `laravel-social-media-oauth-token-lifecycle` | Crítica | 8 | CORRIGIR | Ensina padrão Strategy e colunas cifradas inexistentes no projeto. |
+| 1 | `vue-axios-api-integration-best-practices` | Regular | 1 | CORRIGIR | Uso de rotas cruas `/api/...` no frontend — deve adotar Ziggy com `@maxvue/max-use`. |
+| 2 | `frontend-design-best-practices` | Boa | 0 | MANTER | 100% aderente ao design system Engeapp, Vue 3 e MaxComponentsUi. |
 | … | … | … | … | … | … |
 
 Acompanhada de:
@@ -254,7 +273,11 @@ Se todas as skills resultarem em destino **`MANTER`** (zero problemas confirmado
 Ao receber aprovação, execute as etapas organizadas para encolher a base e maximizar o reaproveitamento de contexto:
 
 - **Etapa 1 — Remoções + Merges (Tier 2):**  
-  Apaga as skills `REMOVER`, executa a fusão das skills `FUNDIR` sem perda de conteúdo e atualiza `manifests/` e arquivos de sincronização. Encolhe o total de skills para as etapas seguintes.
+  Apaga as skills `REMOVER`, executa a fusão das skills `FUNDIR` sem perda de conteúdo e atualiza os manifestos de índice correspondentes na raiz:
+  - `index.json` (para `created-skills/`)
+  - `awesome_skills.json` (para `Agentic Awesome Skills/`)
+  - `other_skills.json` (para `curated-youtube/`)  
+  Encolhe o total de skills para as etapas seguintes.
 - **Etapa 2 — Críticas (Tier 2 + skill-creator):**  
   Reescrita profunda: remove seções inventadas, reconstrói a arquitetura conforme o código real e recalibra a `description` (200–400 chars).
 - **Etapa 3 — Ruins (Tier 2 + skill-creator):**  
@@ -285,10 +308,11 @@ Dispara 1 verificador em **Tier 2 (High-Reasoning)** para cada skill de alto ris
 
 - [ ] **YAML Válido:** Frontmatter íntegro em todo `SKILL.md` (strings com `:` sempre entre aspas).
 - [ ] **`description` Otimizada:** Entre 200 e 400 caracteres, acionável e fiel ao código real.
-- [ ] **0 Menções a AdonisJS:** Nenhuma referência à stack legada em `all_skills/`.
+- [ ] **0 Menções a AdonisJS em `created-skills/`:** Nenhuma referência à stack legada no ecossistema Engeapp.
 - [ ] **0 Rotas `/api/...` no Frontend:** Utilização estrita de rotas Ziggy pontilhadas com `@maxvue/max-use`.
 - [ ] **0 Violações MaxPinia:** Contrato `getKey()` respeitado, sem confusão com `options.key`.
-- [ ] **Manifestos e Syncs Atualizados:** `manifests/` consistente após qualquer remoção ou merge.
+- [ ] **Manifestos e Índices Atualizados:** `index.json`, `awesome_skills.json` e `other_skills.json` consistentes após qualquer remoção ou merge.
+- [ ] **Relatórios Arquivados em `docs/reports/`:** Registro auditável de todas as fases mantido na pasta `docs/reports/`.
 
 ---
 
