@@ -7,7 +7,7 @@
     "promo_en": "Coordinates specialized subagents in parallel to solve complex architectures while preserving primary session token context.",
     "promo_pt_br": "Coordene múltiplos agentes de inteligência artificial em um fluxo de trabalho unificado. O sistema identifica automaticamente as ferramentas disponíveis, seleciona as mais adequadas para o objetivo desejado e executa tarefas complexas de ponta a ponta sem necessidade de intervenção manual constante.",
     "repo_name": "Antigravity",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/agent-orchestrator/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/agent-orchestrator/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
       "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -64,7 +64,8 @@
     "libs": [
       "asyncio",
       "pydantic"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/agent-orchestrator/SKILL.md"
   },
   {
     "id": "01M0G4G52F32ZTYMTYQK259587",
@@ -74,7 +75,7 @@
     "promo_en": "Enables agents to navigate the web, test user journeys, verify UI rendering visually, and automate complex web portals.",
     "promo_pt_br": "Automatize a navegação na web com alta confiabilidade para testes de ponta a ponta e extração de dados. O sistema preenche formulários, contorna bloqueios comuns, interage com páginas dinâmicas e executa fluxos complexos de forma estável, sem falhas causadas por lentidão ou mudanças visuais.",
     "repo_name": "Playwright",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/browser-automation/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/browser-automation/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
       "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -152,7 +153,8 @@
       "playwright-core",
       "cheerio",
       "browser-use"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/browser-automation/SKILL.md"
   },
   {
     "id": "01M0G4G52F9TT91W6TR5FTQXT9",
@@ -162,7 +164,7 @@
     "promo_en": "Designs and provisions scalable, cost-efficient cloud infrastructure with automated IaC blueprints.",
     "promo_pt_br": "Desenvolva projetos de infraestrutura em nuvem seguros, escaláveis e com custos controlados. Aplique as melhores práticas para arquiteturas modernas, automação de servidores como código e estratégias de alta disponibilidade, garantindo máxima eficiência operacional para sistemas corporativos.",
     "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/cloud-architect/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/cloud-architect/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
       "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -201,7 +203,8 @@
     "libs": [
       "tflint",
       "checkov"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/cloud-architect/SKILL.md"
   },
   {
     "id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
@@ -211,7 +214,7 @@
     "promo_en": "Acts as an automated senior engineer reviewing diffs to catch subtle bugs, logic flaws, and architectural debt before merging.",
     "promo_pt_br": "Avalie a qualidade de códigos e alterações antes de integrá-los ao projeto principal. A análise cobre conformidade funcional, boas práticas de segurança, clareza na escrita, desempenho e padrões de arquitetura, identificando falhas precocemente e elevando o nível técnico do software entregue.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/code-review/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/code-review/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
       "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -289,7 +292,8 @@
       "Ruff",
       "Mypy",
       "PHPStan"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/code-review/SKILL.md"
   },
   {
     "id": "01M0G4G52FE36M320YYCE4WKRV",
@@ -299,7 +303,7 @@
     "promo_en": "Drastically slashes LLM token consumption while boosting reasoning accuracy through smart context hygiene.",
     "promo_pt_br": "Estruture as regras, documentações e instruções do seu projeto para que assistentes inteligentes compreendam o contexto com perfeição. Evite respostas incorretas, otimize o uso de informações essenciais e mantenha a consistência do time durante todas as fases de criação do software.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/context-engineering/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/context-engineering/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
       "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -352,7 +356,8 @@
     "libs": [
       "tiktoken",
       "langchain-core"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/context-engineering/SKILL.md"
   },
   {
     "id": "01M0G4G52FHZMPGHHTZFX8Q0XN",
@@ -362,7 +367,7 @@
     "promo_en": "Acts as a safety shield preventing autonomous agents from accidentally deleting production data or running dangerous operations.",
     "promo_pt_br": "Proteja seus sistemas e ambientes de produção contra comandos perigosos e erros humanos acidentais. O mecanismo detecta ações de risco, como exclusão indevida de dados ou arquivos críticos, criando uma camada de segurança que previne perdas irreparáveis durante tarefas automatizadas.",
     "repo_name": "Agentic Engineering",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/damage-control/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/damage-control/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
       "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -391,7 +396,8 @@
       "Python"
     ],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/damage-control/SKILL.md"
   },
   {
     "id": "01M0G4G52FPHZ3VCA06Z2NTCG5",
@@ -401,7 +407,7 @@
     "promo_en": "Optimizes relational databases to handle high throughput queries with minimal latency and smart indexing strategies.",
     "promo_pt_br": "Identifique gargalos de desempenho e acelere o tempo de resposta em bancos de dados relacionais e não relacionais. Obtenha diagnósticos precisos sobre consultas lentas, sugestões de índices eficientes e ajustes estruturais para suportar grandes volumes de requisições com estabilidade.",
     "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/database-optimizer/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/database-optimizer/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
       "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -439,7 +445,8 @@
     "libs": [
       "pg_stat_statements",
       "prisma-client"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/database-optimizer/SKILL.md"
   },
   {
     "id": "01M0G4G52FPQGPD3CF1ZW3BKSB",
@@ -449,7 +456,7 @@
     "promo_en": "Conducts deep internet research across technical documentations and papers to compile cited, authoritative summaries.",
     "promo_pt_br": "Conduza pesquisas aprofundadas e estruturadas na internet para tomada de decisões estratégicas. O assistente navega por múltiplas fontes, sintetiza informações relevantes, compara tendências de mercado e entrega relatórios completos com referências confiáveis de forma totalmente autônoma.",
     "repo_name": "GPT Researcher",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/deep-research/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/deep-research/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
       "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -503,7 +510,8 @@
       "DuckDuckGo-Search",
       "arxiv",
       "newspaper3k"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/deep-research/SKILL.md"
   },
   {
     "id": "01M0G4G52F4V1VXAMC0WYZZ9Z7",
@@ -513,7 +521,7 @@
     "promo_en": "Produces lightweight, secure, and production-ready containerized microservices and reproducible dev environments.",
     "promo_pt_br": "Crie e configure contêineres otimizados, seguros e prontos para produção. Aprenda a reduzir o tamanho das imagens, acelerar processos de compilação, proteger ambientes contra vulnerabilidades e estruturar a comunicação entre múltiplos serviços de forma simples, estável e escalável.",
     "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/docker-expert/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/docker-expert/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
       "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -558,7 +566,8 @@
     ],
     "libs": [
       "docker-py"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/docker-expert/SKILL.md"
   },
   {
     "id": "01M0G4G52F1C753JPHMPTS9EMK",
@@ -568,7 +577,7 @@
     "promo_en": "Builds async Python microservices with automatic OpenAPI docs, dependency injection, and clean layered architecture.",
     "promo_pt_br": "Acelere o desenvolvimento de serviços modernos em Python com arquitetura limpa e assíncrona de alta performance. Conte com estruturas prontas para tratamento de falhas, injeção de dependências, conexão com bancos de dados e documentação interativa automática para suas integrações.",
     "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/fastapi-templates/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/fastapi-templates/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_antigravity_try_11",
       "https://www.youtube.com/watch?v=matthew_best_agentic_12",
@@ -614,7 +623,8 @@
       "SQLAlchemy 2.0",
       "Uvicorn",
       "Alembic"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/fastapi-templates/SKILL.md"
   },
   {
     "id": "01M0G4G52FH90TKJ99SM1D454A",
@@ -624,7 +634,7 @@
     "promo_en": "Elevates AI-generated web interfaces from generic mockups to polished, accessible, and distinctive production-ready designs.",
     "promo_pt_br": "Desenvolva interfaces visuais autênticas, elegantes e memoráveis, fugindo do visual genérico de modelos prontos. Defina combinações de fontes expressivas, paletas de cores harmoniosas e layouts sob medida que valorizam a identidade da sua marca e encantam os usuários finais.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/frontend-design/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/frontend-design/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
       "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -697,7 +707,8 @@
       "Radix UI",
       "Lucide Icons",
       "Framer Motion"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/frontend-design/SKILL.md"
   },
   {
     "id": "01M0G4G52FGN0MWZAFZYXN7109",
@@ -707,7 +718,7 @@
     "promo_en": "Drives autonomous development at maximum speed while keeping rigorous quality checks in place.",
     "promo_pt_br": "Acelere a execução de projetos técnicos transformando ideias em entregas concretas e validadas em tempo recorde. Esse método ágil estrutura o trabalho em etapas objetivas com verificações constantes, eliminando travamentos e garantindo que cada funcionalidade funcione perfeitamente.",
     "repo_name": "GSD",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/get-shit-done/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/get-shit-done/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
       "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -726,7 +737,8 @@
       "Shell"
     ],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/get-shit-done/SKILL.md"
   },
   {
     "id": "01M0G4G52F663YHJWYW67CP8KR",
@@ -736,7 +748,7 @@
     "promo_en": "Enforces clean Git versioning discipline, worktree isolation for parallel agents, and seamless collaborative workflows.",
     "promo_pt_br": "Organize o histórico de versões do seu projeto com fluxos de trabalho eficientes e colaborativos. Aprenda a padronizar entregas pequenas e rastreáveis, gerenciar ramificações de código de forma limpa, resolver divergências sem traumas e manter a base do sistema sempre estável e confiável.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/git-workflow/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/git-workflow/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
       "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -789,7 +801,8 @@
     "libs": [
       "conventional-changelog",
       "simple-git"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/git-workflow/SKILL.md"
   },
   {
     "id": "01M0G4G52F3YQWZTYC3K1S074P",
@@ -799,7 +812,7 @@
     "promo_en": "Enables multiple AI agents to develop, test, and build features in parallel without stepping on each other's branch workspaces.",
     "promo_pt_br": "Trabalhe em diferentes ramificações do projeto ao mesmo tempo sem precisar alternar de tela ou clonar o repositório novamente. Permite testar ideias, corrigir falhas urgentes e rodar múltiplos fluxos de desenvolvimento de forma isolada, rápida e sem perigo de conflitos no código.",
     "repo_name": "Cole Medin",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/git-worktree/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/git-worktree/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=cole_skills_masterclass_31",
       "https://www.youtube.com/watch?v=mckay_skill_md_power_32",
@@ -839,7 +852,8 @@
       "Git"
     ],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/git-worktree/SKILL.md"
   },
   {
     "id": "01M0G4G52FF04J8FCWYMH48QBD",
@@ -849,7 +863,7 @@
     "promo_en": "Transforms complex software architectures and flows into crisp, embeddable Mermaid diagrams automatically.",
     "promo_pt_br": "Transforme ideias e arquiteturas complexas em diagramas visuais claros e elegantes para documentação técnica. Gere fluxogramas, modelos conceituais de dados e gráficos de processos a partir de instruções simples em texto, facilitando o alinhamento visual entre equipes e gestores.",
     "repo_name": "Mckay Wrigley",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/mermaid-diagrammer/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/mermaid-diagrammer/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
       "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -870,7 +884,8 @@
     "frameworks": [],
     "libs": [
       "mermaid-cli"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md"
   },
   {
     "id": "01M0G4G52FSJ578YDABJWPFQM4",
@@ -880,7 +895,7 @@
     "promo_en": "Prevents runaway coding by ensuring every task is planned, implemented in isolated chunks, and verified before completion.",
     "promo_pt_br": "Organize o desenvolvimento de projetos em três etapas bem definidas: planejamento, implementação e validação. Esse processo estruturado divide desafios grandes em metas graduais e checagens pontuais, evitando retrabalho, garantindo o foco e entregando soluções robustas sem desvios.",
     "repo_name": "Cole Medin",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/piv-loop/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/piv-loop/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_opencode_ollama_21",
       "https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22",
@@ -918,7 +933,8 @@
       "Markdown"
     ],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/piv-loop/SKILL.md"
   },
   {
     "id": "01M0G4G52F953EWRK967AST11H",
@@ -928,7 +944,7 @@
     "promo_en": "Automates the creation of comprehensive unit and integration test suites with mocks and coverage reports.",
     "promo_pt_br": "Crie rotinas completas de testes automatizados para verificar a estabilidade do seu software em diferentes linguagens. Desenvolva testes de unidade e integração com simulações inteligentes de cenários, detectando problemas antes da publicação e garantindo alta cobertura de qualidade.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/pytest-and-jest-automation/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=ai_jason_top_7_skills_41",
       "https://www.youtube.com/watch?v=david_top_10_skills_42",
@@ -966,7 +982,8 @@
       "pytest-asyncio",
       "pytest-mock",
       "@testing-library/jest-dom"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md"
   },
   {
     "id": "01M0G4G52FV8AC72Q93QPP5PPE",
@@ -976,7 +993,7 @@
     "promo_en": "Specialized automation skill for scraping utility portals, submitting TRT protocols, and parsing energy billing invoices in Brazil.",
     "promo_pt_br": "Automatize tarefas burocráticas em portais de concessionárias de energia e órgãos reguladores. O robô preenche cadastros, submete projetos técnicos, consulta andamentos de processos e emite documentos operacionais de forma automática, economizando horas de trabalho repetitivo do time.",
     "repo_name": "MaxSkills",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/python-concessionarias-automation/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/python-concessionarias-automation/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=matthew_subagents_multiagent_91",
       "https://www.youtube.com/watch?v=nate_multiagent_teams_92",
@@ -1001,7 +1018,8 @@
       "PyMuPDF",
       "pdfplumber",
       "beautifulsoup4"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/python-concessionarias-automation/SKILL.md"
   },
   {
     "id": "01M0XEW2JAAC9XDNKBQAX1W48T",
@@ -1011,7 +1029,7 @@
     "promo_en": "Production-ready guidelines and agentic workflows for react components. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Facilita a criação de componentes de interface modernos e acessíveis para a web com React e TypeScript. Auxilia no desenvolvimento de telas fluidas, gerenciamento eficiente de estados, criação de lógicas visuais reutilizáveis e conformidade com regras de acessibilidade, tornando suas aplicações mais organizadas e fáceis de manter.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/react-components/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/react-components/SKILL.md",
     "recomends": [],
     "stars": 24500,
     "languages": [
@@ -1029,7 +1047,8 @@
       "Zustand",
       "TanStack Query",
       "Lucide React"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/react-components/SKILL.md"
   },
   {
     "id": "01M0G4G52FV5WNNFWAXJX7HKYG",
@@ -1039,7 +1058,7 @@
     "promo_en": "Protects applications by auditing source code for security vulnerabilities, compliance risks, and hardcoded credentials before deployment.",
     "promo_pt_br": "Estrutura auditorias completas de segurança para aplicações web e APIs. Ajuda a identificar vulnerabilidades antes que sejam exploradas, testando falhas de autenticação, injeções maliciosas e brechas em bibliotecas, oferecendo relatórios detalhados com passos práticos para proteger seu sistema contra ataques.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/security-audit/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/security-audit/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
       "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -1096,7 +1115,8 @@
       "pip-audit",
       "npm-audit",
       "Semgrep"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/security-audit/SKILL.md"
   },
   {
     "id": "01M0XEW2JAC4WCETPW2WFG47VG",
@@ -1106,7 +1126,7 @@
     "promo_en": "Production-ready guidelines and agentic workflows for shadcn ui. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Agiliza a construção de interfaces visuais modernas e acessíveis integrando blocos de componentes prontos e personalizáveis. Permite estilizar botões, formulários e janelas modais de forma rápida e padronizada, acelerando o desenvolvimento frontend em projetos React e Next.js sem abrir mão do controle visual total.",
     "repo_name": "ShadcnUi",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/shadcn-ui/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/shadcn-ui/SKILL.md",
     "recomends": [],
     "stars": 76000,
     "languages": [
@@ -1125,7 +1145,8 @@
       "tailwind-merge",
       "clsx",
       "lucide-react"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/shadcn-ui/SKILL.md"
   },
   {
     "id": "01M0G4G52FCRTTHSA4Z23Q336F",
@@ -1135,7 +1156,7 @@
     "promo_en": "Empowers developers to build, test, and distribute custom, modular AI agent skills with rigorous evaluation benchmarks.",
     "promo_pt_br": "Auxilia na criação, teste e aprimoramento contínuo de novas habilidades para assistentes de inteligência artificial. Permite estruturar fluxos de trabalho sob medida, rodar testes comparativos e avaliar resultados práticos, garantindo que o assistente execute tarefas complexas com máxima precisão e confiabilidade.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/skill-creator/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/skill-creator/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
       "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -1191,7 +1212,8 @@
       "jsonschema",
       "pydantic",
       "yaml"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/skill-creator/SKILL.md"
   },
   {
     "id": "01M0G4G52FVBQNA612AE7T78GH",
@@ -1201,7 +1223,7 @@
     "promo_en": "Transforms autonomous coding into a reliable, high-velocity engineering loop with built-in quality gates.",
     "promo_pt_br": "Organiza o fluxo de desenvolvimento de software em etapas estruturadas, combinando planejamento prévio, criação de testes antes da implementação e revisões criteriosas de qualidade. Transforma tarefas complexas em entregas seguras, reduzindo erros e garantindo que o código final seja robusto e confiável.",
     "repo_name": "Superpowers",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/superpowers/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/superpowers/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
       "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -1231,7 +1253,8 @@
       "TypeScript"
     ],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/superpowers/SKILL.md"
   },
   {
     "id": "01M0XEW2JAT5P44JP04K17RRDZ",
@@ -1241,7 +1264,7 @@
     "promo_en": "Production-ready guidelines and agentic workflows for tailwind css. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Facilita a estilização de páginas e sistemas web por meio de utilitários CSS modernos. Permite criar layouts atraentes, totalmente responsivos e adaptáveis a dispositivos móveis ou telas grandes, além de configurar temas claros e escuros de forma ágil, padronizada e com excelente desempenho visual.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/tailwind-css/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/tailwind-css/SKILL.md",
     "recomends": [],
     "stars": 24500,
     "languages": [
@@ -1260,7 +1283,8 @@
       "postcss",
       "autoprefixer",
       "tailwind-merge"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/tailwind-css/SKILL.md"
   },
   {
     "id": "01M0G4G52FQ2GH4WZB4MDWRTW6",
@@ -1270,7 +1294,7 @@
     "promo_en": "Guarantees production-grade code quality and zero regressions by turning coding agents into disciplined TDD practitioners.",
     "promo_pt_br": "Aplica a metodologia de desenvolvimento orientada a testes, garantindo que testes automatizados sejam escritos antes de qualquer linha de código de produção. Essa abordagem previne falhas lógicas, documenta o comportamento esperado e permite refatorar sistemas com total segurança e confiança técnica.",
     "repo_name": "Anthropic",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/test-driven-development/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/test-driven-development/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=FqR8_claude_skills_01",
       "https://www.youtube.com/watch?v=HW5rAXDEKV5W1SATq7utplfY6xu11070c1eTS8_Sk0CtIKQKS4P1SsAPaGsoTXq22YEAE_Z1EqXVfOZhhDDZYOWGWAAGj7cH4oJPWPbAe7Ij4ts-Hije6HqibvPvf6D6bseVjixgkR",
@@ -1342,7 +1366,8 @@
       "@testing-library/react",
       "@testing-library/vue",
       "unittest.mock"
-    ]
+    ],
+    "local_path": "all_skills/curated-youtube/test-driven-development/SKILL.md"
   },
   {
     "id": "01M0XEW2JBXNG2CKHRMHAMGG12",
@@ -1352,7 +1377,7 @@
     "promo_en": "Production-ready guidelines and agentic workflows for the library. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Gerencia e sincroniza um catálogo centralizado de instruções personalizadas, perfis de agentes e ferramentas reutilizáveis entre diferentes projetos. Garante que as melhores soluções criadas para sua rotina de trabalho estejam sempre acessíveis, versionadas e prontas para uso em qualquer ambiente de desenvolvimento.",
     "repo_name": "The Library",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/the-library/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/the-library/SKILL.md",
     "recomends": [],
     "stars": 3200,
     "languages": [
@@ -1361,7 +1386,8 @@
       "Shell"
     ],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/the-library/SKILL.md"
   },
   {
     "id": "01M0G4G52F5Y1T4W98MNDFXK8H",
@@ -1371,7 +1397,7 @@
     "promo_en": "Dramatically cuts API costs and boosts model response speed by trimming redundant tokens from conversation contexts.",
     "promo_pt_br": "Otimiza o uso de modelos de inteligência artificial reduzindo o consumo de dados nas conversas e requisições. Remove informações repetitivas ou desnecessárias do contexto, acelerando o tempo de resposta do assistente e diminuindo significativamente os custos operacionais com provedores de IA no dia a dia.",
     "repo_name": "Nate Herk",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/token-optimization/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/token-optimization/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=david_technical_doc_skills_81",
       "https://www.youtube.com/watch?v=indydevdan_graphify_memory_82",
@@ -1390,7 +1416,8 @@
       "Markdown"
     ],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/token-optimization/SKILL.md"
   },
   {
     "id": "01M0G4G52FHV0YSD6V1ZJMX69R",
@@ -1400,7 +1427,7 @@
     "promo_en": "Enhances AI agent performance in vue components with structured execution patterns and error-prevention guidelines.",
     "promo_pt_br": "Orienta o desenvolvimento de componentes modernos e reativos para a web com Vue 3. Ajuda a estruturar interfaces modulares, isolar a lógica de negócios de forma limpa e organizar elementos visuais reutilizáveis, proporcionando facilidade de manutenção e alto desempenho para sistemas frontend interativos.",
     "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/curated-youtube/vue-components/SKILL.md",
+    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/all_skills/curated-youtube/vue-components/SKILL.md",
     "recomends": [
       "https://www.youtube.com/watch?v=builder_ui_ux_skills_51",
       "https://www.youtube.com/watch?v=nate_frontend_skills_52",
@@ -1416,6 +1443,7 @@
     "stars": 4500,
     "languages": [],
     "frameworks": [],
-    "libs": []
+    "libs": [],
+    "local_path": "all_skills/curated-youtube/vue-components/SKILL.md"
   }
 ]
