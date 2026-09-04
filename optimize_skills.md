@@ -1,9 +1,9 @@
 # Auditar, Corrigir e Otimizar Skills (High-Efficiency Runbook)
 
-Runbook de alta eficiência para auditar, validar, corrigir e otimizar **todas as skills de `created-skills/`** contra o código real dos projetos de referência em `projects/`. Projetado para ser executado por um agente autônomo do início ao fim, com orquestração multi-agente otimizada para **mínimo consumo de tokens**, **máxima agilidade/paralelismo** e **zero perda de rigor técnico**.
+Runbook de alta eficiência para auditar, validar, corrigir e otimizar **todas as skills de `all_skills/`** contra o código real dos projetos de referência em `projects/`. Projetado para ser executado por um agente autônomo do início ao fim, com orquestração multi-agente otimizada para **mínimo consumo de tokens**, **máxima agilidade/paralelismo** e **zero perda de rigor técnico**.
 
 > **Idioma:** conduza toda a conversa com o humano em **pt-BR**.  
-> **Escopo:** somente `created-skills/`. **NÃO** altere `awesome-skills/`, `created-skills-adonis/` nem qualquer coisa fora de `created-skills/`.  
+> **Escopo:** somente `all_skills/`. Não altere qualquer coisa fora deste escopo.  
 > **Ferramenta de apoio (uso restrito — não carregar em toda fase):** a `skill-creator` é referência de boa `SKILL.md` (description acionável de 200–400 chars, progressive disclosure, instruções imperativas com o *porquê*). **Só carregue a skill-creator quando a tarefa envolve julgar/reescrever FORMA ou `description`** — ou seja, apenas em: Fase 1 quando o problema encontrado for de forma/gatilho, Etapas 2 e 3 do plano (reescrita de Críticas/Ruins), e Etapa 5 (Boas). Nas Fases 0.5, 2, 3 e nas Etapas 1 e 4 do plano, a tarefa é puramente técnica/factual (redundância, refutação, remoção/merge, podas) — **não carregue a skill-creator ali**, ela não agrega e consome tokens inutilmente.
 
 ---
@@ -34,7 +34,7 @@ Convenções fundamentais confirmadas no código real:
 - **Sem libs cruas de terceiros:** nada de `vueuse`/`lodash`/`primevue` direto. Usar `@maxvue/max-use` (reexporta VueUse + utilitários) e componentes `Max*` de `@maxvue/max-components-ui`.
 - **Contrato MaxPinia:** store com `isCached = ref(true)` + `options` (`get.route`, `save`, `key`, `enabled`), `data`, `status.server.get.is_requested`/`is_success`. A chave real de cache do LocalForage é `getKey() = store.$id + (store.id ?? options.id)` — **`options.key` NÃO é a chave de cache** (é convenção que casa com `$id`). Todo GET de página passa por store MaxPinia.
 - **Sem camada `services/` no front.** Mutações via `apiPostRoute` a partir de stores.
-- **Laravel é v13 / PHP 8.4.** **Nenhuma menção a AdonisJS** em `created-skills/`.
+- **Laravel é v13 / PHP 8.4.**.
 - Comentários de código nas skills em **pt-BR**.
 
 ---
@@ -66,7 +66,7 @@ Antes de invocar qualquer modelo LLM, o agente orquestrador roda uma varredura e
 2. **Scan de Violações Literais de Convenção:**
    - Ocorrências de `adonis`, `AdonisJS`, rotas cruas `/api/` no frontend, imports diretos de `lodash` ou `vueuse`.
 3. **Mapeamento de Arquivos Existentes:**
-   - Lista exata de todos os `SKILL.md` alvos em `created-skills/`.
+   - Lista exata de todos os `SKILL.md` alvos em `all_skills/`.
 
 > **Ganho de Eficiência:** Os subagentes da Fase 1 já recebem essa lista de fatos pré-computados em seu briefing de entrada, eliminando buscas cegas e focando 100% de seu tempo de inferência na validação técnica de código profundo.
 
@@ -76,22 +76,60 @@ Antes de invocar qualquer modelo LLM, o agente orquestrador roda uma varredura e
 
 Uma única passada produz os **três sinais por skill** (conformidade + bloat + resumo-map), aproveitando o mesmo contexto carregado:
 
-1. Liste os alvos: `find created-skills -name SKILL.md`.
+1. Liste os alvos: `find all_skills -name SKILL.md`.
 2. Dispare **1 subagente verificador por `SKILL.md`** em **Tier 1 (Fast)**.
 
 **Ação do verificador (3 sinais na mesma chamada):**
 
 **(a) Conformidade:**
 - Ler o `SKILL.md` e referências dele.
-- Para cada afirmação técnica (rota, classe, config, tabela/coluna, componente, lib, método), abrir o arquivo correspondente em `projects/` (`Grep`/`Read`) e confirmar/refutar.
-- Conferir contra as convenções da Seção 0.
+- Para cada afirmação técnica (rota, classe, config, tabela/coluna, componente, lib, método), abrir os projetos `projects/` (`Grep`/`Read`) e confirmar/refutar.
+- Conferir detalhadamnte o conteúdo da Skill contra as convenções da Seção 0.
 
-**(b) Bloat:**
+**(b) Descrição:**
+- Verificar se o campo description da SKILL está em conformidade com as seguintes regras:
+  - O Campo description existe e seu conteúdo está entre 200 e 400 Caracteres;
+  - O Campo description descreve claramente o que a Skill faz;
+  - O Campo description permite inferir de forma clara e fácil quando ela deve ser usada;
+  - O Campo description contém termos semanticamente discriminantes;
+  - O Campo description representa corretamente o conteúdo real da Skill;
+  - O Campo description cobre as principais intenções que deveriam ativá-la;
+  - O Campo description evita ser genérica demais;
+  - O Campo description evita ser ampla demais;
+  - O Campo description evita ser restritiva demais;
+  - O Campo description evita linguagem promocional ou sem valor de roteamento;
+  - O Campo description evita procedimentos que deveriam estar no corpo da Skill;
+  - O Campo description evita redundâncias;
+  - O Campo description evita repetir informações sem ganho semântico.
+
+**(c) Bloat:**
 - Seções mortas que não correspondem a nada usável no projeto.
 - Redundância interna e preâmbulos verbosos que não afetam o comportamento do agente.
 - Arquivos órfãos em `references/` ou `rules/`.
 
-**(c) Resumo-map:**
+**(d) Front-End ** 
+- Específico para Skills de FrontEnd - Pular esta etapa quando a skill não for sobre o front-end**
+- Verificar se o conteúdo da SKILL está em conformidade com as seguintes regras para o front-end
+  - Para componentes genéricos e de uso recorrente, sempre adotar a biblioteca local MaxComponentsUi.
+    - Exemplos:
+      - Botões: MaxButton, MaxIconButton, MaxIconButtonConfirm, MaxButtonConfirm
+      - Tabs: MaxTabs
+      - Tabelas: MaxTable ou MaxTableFields
+      - Inputs: MaxInput* (MaxInputText, MaxInputCep, MaxInputPhone, MaxInputCpfCnpj, etc. )
+      - Select: MaxInputSelect
+      - Select em formato de Badge (Tag): MaxTagSelect
+      - Formulários -> MaxGrid
+      - Titulos -> MaxTitle1 e MaxTitle2
+  - Para Funções Helpers no Frontend, sempre adotar "MaxUse".
+  - Para Funções Helpers no Frontend, nunca adotar "VueUse" nem tampouco "Lodash".
+    - MaxUse possui as funções de VueUse e Lodash próprias.
+  - Para Salvamentos no Frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia".
+  - Para Cache no Frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia"
+  - Para Salvamentos Automáticos no frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia"
+  - O Formato dos nomes de arquivos pinia deverá ser "Use{NomeStore}.Store.ts" Ex: "UseSystm.Store.ts"
+  - No front-end, não fazer uso de classes de estilo. Ex: class="p-4 rounded-2xl" Os estilos devem estar na seção <style>
+
+**(e) Resumo-map:**
 - Extração concisa: tema (1 frase), entidades citadas (libs, rotas, componentes, classes) e ~10 palavras-chave.
 
 **Classificação de `reviewModel` para a Fase 3:**
@@ -116,7 +154,7 @@ Uma única passada produz os **três sinais por skill** (conformidade + bloat + 
   "mapSummary": {
     "tema": "1 frase",
     "entidades": ["libs/classes/rotas/componentes citados"],
-    "keywords": ["~10 palavras-chave"]
+    "keywords": ["10 a 20 palavras-chave"]
   },
   "summary": "veredito em 1 frase"
 }
@@ -137,7 +175,7 @@ Cada subagente lê apenas as skills do seu cluster e emite o julgamento:
 ```json
 {
   "cluster": ["skillA", "skillB"],
-  "recommendation": "MERGE | DEMARCAR | FALSO-POSITIVO",
+  "recommendation": "MERGE | LAPIDAR | DEMARCAR | FALSO-POSITIVO",
   "into": "skill destino (se MERGE)",
   "rationale": "motivo e o que cada uma possui de exclusivo",
   "mergePlan": "como fundir sem perda de conteúdo (se MERGE)",
@@ -145,6 +183,7 @@ Cada subagente lê apenas as skills do seu cluster e emite o julgamento:
 }
 ```
 - **MERGE:** fundir em uma única skill abrangente sem perda de conteúdo.
+- **LAPIDAR:** manter ambas mas ajustar o conteúdo interno para que cada uma cumpra apenas com seu próprio escopo e elimine os conflitos internos existentes.
 - **DEMARCAR:** manter ambas com descrições e gatilhos estritamente delimitados para evitar conflito.
 - **FALSO-POSITIVO:** cobrem domínios distintos; manter separadas.
 
@@ -246,7 +285,7 @@ Dispara 1 verificador em **Tier 2 (High-Reasoning)** para cada skill de alto ris
 
 - [ ] **YAML Válido:** Frontmatter íntegro em todo `SKILL.md` (strings com `:` sempre entre aspas).
 - [ ] **`description` Otimizada:** Entre 200 e 400 caracteres, acionável e fiel ao código real.
-- [ ] **0 Menções a AdonisJS:** Nenhuma referência à stack legada em `created-skills/`.
+- [ ] **0 Menções a AdonisJS:** Nenhuma referência à stack legada em `all_skills/`.
 - [ ] **0 Rotas `/api/...` no Frontend:** Utilização estrita de rotas Ziggy pontilhadas com `@maxvue/max-use`.
 - [ ] **0 Violações MaxPinia:** Contrato `getKey()` respeitado, sem confusão com `options.key`.
 - [ ] **Manifestos e Syncs Atualizados:** `manifests/` consistente após qualquer remoção ou merge.
