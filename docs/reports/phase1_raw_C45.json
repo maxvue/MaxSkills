@@ -1,0 +1,459 @@
+[
+  {
+    "skillName": "moodle-external-api-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/moodle-external-api-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 153 caracteres (< 200 chars) e sem gatilho formal de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de termos discriminantes essenciais na description (ex.: external_api, execute_parameters, execute_returns, services.php) e referência morta no corpo (linha 555 aponta para 'create_quiz_from_categories.php' inexistente).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover referência a arquivo anexo ausente create_quiz_from_categories.php e condensar seções finais repetitivas de guidelines/limitations.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento de web services e APIs externas customizadas para plugins do Moodle LMS com arquitetura de três métodos.",
+      "entidades": [
+        "external_api",
+        "external_function_parameters",
+        "external_single_structure",
+        "external_multiple_structure",
+        "external_value",
+        "db/services.php",
+        "$DB",
+        "validate_parameters",
+        "validate_context",
+        "require_capability"
+      ],
+      "keywords": [
+        "moodle",
+        "lms",
+        "external-api",
+        "web-services",
+        "rest",
+        "ajax",
+        "execute_parameters",
+        "execute",
+        "execute_returns",
+        "services.php",
+        "moodle-plugin",
+        "php",
+        "capabilities",
+        "context",
+        "sql-injection"
+      ]
+    },
+    "summary": "Conteúdo técnico robusto para APIs Moodle, demandando expansão semântica da description com gatilho formal e remoção de referência a anexo ausente."
+  },
+  {
+    "skillName": "moyu",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/moyu/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta com 154 caracteres (< 200 chars) carecendo de gatilho padronizado 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ruído estilístico e preâmbulo manifesto de persona ('You are a Staff engineer... You do not grind. You moyu') e menção externa a 'Compatibility with PUA'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Podar introdução em tom de manifesto de persona e seção 'Compatibility with PUA', preservando as regras de contenção de escopo e checklist de intervenção L1-L4.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guardrail comportamental anti-over-engineering para agentes de código manterem escopo restrito e menor diff possível.",
+      "entidades": [
+        "Moyu Checklist",
+        "Anti-Grinding Table",
+        "Over-Engineering Detection Levels (L1-L4)",
+        "Scope Control"
+      ],
+      "keywords": [
+        "anti-over-engineering",
+        "scope-control",
+        "minimal-diff",
+        "yagni",
+        "guardrails",
+        "code-restraint",
+        "refactoring-restraint",
+        "non-breaking",
+        "junior-vs-senior"
+      ]
+    },
+    "summary": "Guardrail comportamental útil para contenção de escopo, necessitando expansão da description com gatilho formal e poda de manifesto pessoal e referências externas irrelevantes."
+  },
+  {
+    "skillName": "multi-agent-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/multi-agent-patterns/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais multi-agente focados em isolamento de contexto, coordenação distribuída, topologias supervisor/swarm e mitigação de gargalos de contexto.",
+      "entidades": [
+        "Supervisor/Orchestrator",
+        "Peer-to-Peer/Swarm",
+        "Hierarchical",
+        "forward_message",
+        "LangGraph",
+        "AutoGen",
+        "CrewAI",
+        "context isolation"
+      ],
+      "keywords": [
+        "multi-agent",
+        "supervisor-pattern",
+        "swarm",
+        "context-isolation",
+        "agent-handoff",
+        "parallel-agents",
+        "langgraph",
+        "autogen",
+        "crewai",
+        "consensus",
+        "debate-protocol",
+        "token-economics"
+      ]
+    },
+    "summary": "Skill exemplar de padrões multi-agente, com descrição ideal de 284 chars, discriminantes ricos e conteúdo técnico de altíssimo nível."
+  },
+  {
+    "skillName": "multi-agent-task-orchestrator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/multi-agent-task-orchestrator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description muito curta com 114 caracteres (< 200 chars) e sem gatilho explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes de implementação na description (ex.: SQLite task_registry.db, SequenceMatcher, NOT-blocks e scoring de keywords).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Orquestração de tarefas multi-agente com registro SQLite anti-duplicação, roteamento por pontuação de palavras-chave e quality gates determinísticos.",
+      "entidades": [
+        "Task Orchestrator",
+        "task_registry.db",
+        "SequenceMatcher",
+        "NOT-blocks",
+        "Quality Gates",
+        "Heartbeat Monitoring"
+      ],
+      "keywords": [
+        "multi-agent",
+        "task-orchestrator",
+        "anti-duplication",
+        "task-registry",
+        "sqlite",
+        "quality-gates",
+        "routing",
+        "heartbeat",
+        "task-delegation",
+        "sequence-matcher"
+      ]
+    },
+    "summary": "Arquitetura prática de orquestrador excelente e concisa, requerendo expansão da description para incluir gatilho 'Use when...' e discriminantes de implementação."
+  },
+  {
+    "skillName": "multi-platform-apps-multi-platform",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/multi-platform-apps-multi-platform/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta com 161 caracteres (< 200 chars), sem discriminantes tecnológicos específicos (Next.js, SwiftUI, Compose, Tauri) e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Vazamento de meta-prompting/reasoning no corpo da skill: '[Extended thinking: This workflow orchestrates multiple specialized agents...]' na linha 13.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Tautologia vazia nas seções 'Use this skill when' / 'Do not use this skill when' ('Working on multi-platform feature development workflow tasks...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Placeholders não resolvidos de template ($ARGUMENTS) e referência morta para 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover bloco '[Extended thinking: ...]', eliminar tautologia nas seções de gatilho, limpar placeholders $ARGUMENTS e remover referência a arquivo inexistente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Fluxo de desenvolvimento cross-platform baseado em API-first e paralelização de desenvolvimento para Web, iOS, Android e Desktop.",
+      "entidades": [
+        "OpenAPI 3.1",
+        "React/Next.js 14",
+        "SwiftUI",
+        "Jetpack Compose",
+        "Tauri 2.0/Electron",
+        "Kotlin Multiplatform",
+        "TanStack Query"
+      ],
+      "keywords": [
+        "multi-platform",
+        "cross-platform",
+        "api-first",
+        "openapi",
+        "nextjs",
+        "swiftui",
+        "compose",
+        "tauri",
+        "electron",
+        "feature-parity",
+        "parallel-development"
+      ]
+    },
+    "summary": "Estrutura de fluxo multi-plataforma útil, porém prejudicada por vazamentos de extended thinking, tautologias, placeholders não preenchidos e description deficiente."
+  },
+  {
+    "skillName": "n8n-agents",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/n8n-agents/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 126 caracteres (< 200 chars) e sem gatilho de ativação explícito ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes técnicos centrais das conexões ai_* (ai_languageModel, ai_memory, ai_tool, ai_outputParser) e nós @n8n/n8n-nodes-langchain.* na description.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Projeto e configuração aprofundada de agentes de IA, sub-nodes LangChain, memory, ferramentas e human-in-the-loop no n8n.",
+      "entidades": [
+        "@n8n/n8n-nodes-langchain.agent",
+        "ai_languageModel",
+        "ai_memory",
+        "ai_tool",
+        "ai_outputParser",
+        "$fromAI()",
+        "outputParserStructured",
+        "memoryBufferWindow",
+        "toolWorkflow"
+      ],
+      "keywords": [
+        "n8n",
+        "ai-agent",
+        "langchain",
+        "sub-nodes",
+        "fromAI",
+        "rag",
+        "vector-store",
+        "structured-output",
+        "memory",
+        "human-review",
+        "hitl",
+        "chat-agent"
+      ]
+    },
+    "summary": "Guia canônico e profundo de agentes n8n, necessitando expansão da description para incluir gatilho 'Use when...' e discriminantes de conexão LangChain."
+  },
+  {
+    "skillName": "n8n-binary-and-data",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/n8n-binary-and-data/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta com 125 caracteres (< 200 chars) e sem gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de menção expressa aos discriminantes $binary, $json, getBinaryDataBuffer e passthroughBinaryImages na description.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gestão de arquivos e dados binários em workflows n8n, separação estrita entre $binary e $json e fronteiras de ferramentas de agentes de IA.",
+      "entidades": [
+        "$binary",
+        "$json",
+        "getBinaryDataBuffer",
+        "binaryPropertyName",
+        "responseFormat: \"file\"",
+        "combineByPosition",
+        "passthroughBinaryImages"
+      ],
+      "keywords": [
+        "n8n",
+        "binary-data",
+        "files",
+        "upload",
+        "download",
+        "$binary",
+        "$json",
+        "code-node",
+        "cdn",
+        "r2",
+        "s3",
+        "multimodal",
+        "agent-boundary"
+      ]
+    },
+    "summary": "Guia técnico de alta precisão sobre o ciclo de vida binário no n8n, com necessidade de expansão da description para 200-400 chars e gatilho formal."
+  },
+  {
+    "skillName": "n8n-code-tool",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/n8n-code-tool/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta com 139 caracteres (< 200 chars) e sem gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de menção explícita ao nó @n8n/n8n-nodes-langchain.toolCode e ao contrato estrito 'string in, string out' na description.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento e depuração de ferramentas inline JavaScript/Python para o Custom Code Tool do n8n LangChain.",
+      "entidades": [
+        "@n8n/n8n-nodes-langchain.toolCode",
+        "query",
+        "_query",
+        "specifyInputSchema",
+        "DynamicStructuredTool",
+        "ai_tool"
+      ],
+      "keywords": [
+        "n8n",
+        "code-tool",
+        "toolCode",
+        "langchain",
+        "custom-code",
+        "javascript",
+        "python",
+        "dynamic-structured-tool",
+        "sandbox",
+        "string-in-string-out"
+      ]
+    },
+    "summary": "Excelente esclarecimento da distinção entre Code Node e Custom Code Tool no n8n, requerendo ajuste de extensão e gatilho na description."
+  },
+  {
+    "skillName": "n8n-expression-syntax",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/n8n-expression-syntax/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar a seção final de resumo (linhas 504 a 520) que reitera de forma redundante as mesmas 5 regras e erros comuns já tabelados anteriormente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Sintaxe de expressões dinâmicas no n8n, interpolação com chaves duplas e navegação de variáveis globais e nós.",
+      "entidades": [
+        "{{ }}",
+        "$json",
+        "$node",
+        "$now",
+        "$env",
+        "DateTime (Luxon)",
+        "$json.body"
+      ],
+      "keywords": [
+        "n8n",
+        "expressions",
+        "syntax",
+        "double-curly-braces",
+        "$json",
+        "$node",
+        "webhook-body",
+        "luxon",
+        "datetime",
+        "expression-debugging"
+      ]
+    },
+    "summary": "Skill de sintaxe n8n exemplar e precisa, com description balanceada em 228 chars e gatilhos ideais."
+  },
+  {
+    "skillName": "n8n-node-configuration",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/n8n-node-configuration/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Condensar duplicações entre a árvore de decisão do get_node e as seções finais de Do/Don't e Summary.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração orientada a operações e dependências dinâmicas de propriedades (displayOptions) em nós do n8n.",
+      "entidades": [
+        "get_node",
+        "validate_node",
+        "displayOptions",
+        "search_properties",
+        "detail: \"standard\"",
+        "detail: \"full\""
+      ],
+      "keywords": [
+        "n8n",
+        "node-configuration",
+        "displayOptions",
+        "property-dependencies",
+        "get_node",
+        "validate_node",
+        "progressive-disclosure",
+        "slack",
+        "httpRequest"
+      ]
+    },
+    "summary": "Guia prático de alta fidelidade sobre dependências de propriedades no n8n, com description exemplar e aderência total."
+  }
+]

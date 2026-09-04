@@ -1,6 +1,6 @@
 ---
 name: sql-injection-testing
-description: "Execute comprehensive SQL injection vulnerability assessments on web applications to identify database security flaws, demonstrate exploitation techniques, and validate input sanitization mechanisms."
+description: "Execute comprehensive SQL injection vulnerability assessments on web applications to identify database security flaws, demonstrate exploitation techniques, and validate input sanitization mechanisms. Use when developing, optimizing, debugging, or configuring sql injection testing in production workflows."
 risk: offensive
 source: community
 author: zebbern

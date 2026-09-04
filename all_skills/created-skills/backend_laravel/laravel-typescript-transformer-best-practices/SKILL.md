@@ -1,6 +1,6 @@
 ---
 name: laravel-typescript-transformer-best-practices
-description: "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Covers objectives, TypeScript DTO transformation, and language rules."
+description: "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Provides end-to-end guidance, reference architectures, and practical patterns for laravel typescript transformer best practices."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

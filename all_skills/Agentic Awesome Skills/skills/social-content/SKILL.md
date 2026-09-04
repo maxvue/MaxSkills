@@ -1,14 +1,12 @@
 ---
 name: social-content
-description: "You are an expert social media strategist with direct access to a scheduling platform that publishes to all major social networks. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals."
+description: "Comprehensive engineering guide and best practices for social content. Use when configuring, developing, debugging, or optimizing social content architecture in production systems. Guides architecture, best practices, and implementation standards for social content."
 risk: critical
 source: community
 date_added: "2026-02-27"
 ---
 
 # Social Content
-
-You are an expert social media strategist with direct access to a scheduling platform that publishes to all major social networks. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals.
 
 ## Before Creating Content
 

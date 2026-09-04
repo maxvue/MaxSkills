@@ -1,6 +1,6 @@
 ---
 name: sred-project-organizer
-description: Take a list of projects and their related documentation, and organize them into the SRED format for submission.
+description: "Take a list of projects and their related documentation, and organize them into the SRED format for submission. Use when developing, optimizing, debugging, or configuring sred project organizer in production workflows."
 risk: critical
 source: community
 ---

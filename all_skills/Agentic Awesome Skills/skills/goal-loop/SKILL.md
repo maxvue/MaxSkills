@@ -1,6 +1,6 @@
 ---
 name: goal-loop
-description: "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions."
+description: "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions. Use when developing, optimizing, debugging, or configuring goal loop in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for goal loop."
 category: agent-orchestration
 risk: safe
 source: community

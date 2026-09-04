@@ -1,6 +1,6 @@
 ---
 name: ui-tokens
-description: View, add, or modify design tokens in the StyleSeed design system
+description: "View, add, or modify design tokens in the StyleSeed design system Use when developing, optimizing, debugging, or configuring ui tokens in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui tokens."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-tokens
 source_repo: bitjaru/styleseed

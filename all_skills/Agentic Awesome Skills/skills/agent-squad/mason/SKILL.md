@@ -1,6 +1,6 @@
 ---
 name: mason
-description: "Produces clean, functional code that matches the architecture and checklists."
+description: "Produces clean, functional code that matches the architecture and checklists. Use when developing, optimizing, debugging, or configuring agent squad/mason in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for mason."
 risk: safe
 source: community
 date_added: "2026-06-11"

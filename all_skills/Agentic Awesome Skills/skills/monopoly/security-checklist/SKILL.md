@@ -1,6 +1,6 @@
 ---
 name: security-checklist
-description: Reference document for monopoly security-checklist.
+description: "Reference document for monopoly security-checklist. Use when developing, optimizing, debugging, or configuring security checklist in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for security checklist."
 source: community
 risk: safe
 reports-to: monopoly
@@ -9,7 +9,7 @@ reports-to: monopoly
 # MONOPOLY — Security Hardening Checklist
 
 ## When to Use
-- Use this skill when the task matches this description: Reference document for monopoly security-checklist.
+- Use this skill when the task matches this description: "Reference document for monopoly security-checklist. Use when developing, optimizing, debugging, or configuring security checklist in production workflows."
 
 ## Network Security
 - [ ] All services inside private VPC; only LB/API GW exposed publicly

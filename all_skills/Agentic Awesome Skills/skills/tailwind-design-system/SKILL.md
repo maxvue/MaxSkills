@@ -1,6 +1,6 @@
 ---
 name: tailwind-design-system
-description: "Build production-ready design systems with Tailwind CSS, including design tokens, component variants, responsive patterns, and accessibility."
+description: "Build production-ready design systems with Tailwind CSS, including design tokens, component variants, responsive patterns, and accessibility. Use when developing, optimizing, debugging, or configuring tailwind design system in production workflows."
 risk: safe
 source: community
 date_added: "2026-02-27"

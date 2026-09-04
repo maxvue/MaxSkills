@@ -1,6 +1,6 @@
 ---
 name: github-actions-advanced
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring github actions advanced in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for github actions advanced."
   Design, debug, and harden GitHub Actions CI/CD workflows, including reusable
   workflows, matrix builds, self-hosted runners, OIDC authentication, caching,
   environments, secrets, and release automation.

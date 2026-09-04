@@ -1,0 +1,532 @@
+[
+  {
+    "skillName": "ui-score",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-score/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 181 caracteres (abaixo dos 200 caracteres mínimos recomendados) e ausência de cláusula condicional de ativação explícita ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inconsistência matemática no texto upstream: afirma avaliar em 'six weighted categories', mas lista 7 na tabela somando 100 pontos; em seguida, os subtítulos das deduções estipulam tetos que somam 110 pontos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Metadado frontmatter 'risk: critical' superdimensionado para uma ferramenta de auditoria de código UI que apenas executa leituras e cálculos estáticos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Avaliação quantitativa (0-100) da qualidade de design e aderência à linguagem StyleSeed com relatório de piores violações e Quality Gate.",
+      "entidades": [
+        "StyleSeed",
+        "/ss-score",
+        "/ss-review",
+        "/ss-lint",
+        "/ss-motion",
+        "DESIGN-LANGUAGE.md",
+        "VISUAL-CRAFT.md"
+      ],
+      "keywords": [
+        "ui-score",
+        "design-language",
+        "styleseed",
+        "quality-gate",
+        "color-discipline",
+        "typography-hierarchy",
+        "layout-rhythm",
+        "cards-elevation",
+        "states-a11y",
+        "motion-interaction",
+        "coherence",
+        "visual-craft",
+        "score-gain"
+      ]
+    },
+    "summary": "Skill bem estruturada para pontuação quantitativa de UI com Quality Gate operacional, exigindo expansão da description e correção das inconsistências numéricas upstream."
+  },
+  {
+    "skillName": "ui-skills-root",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-skills-root/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta de apenas 104 caracteres, sem o gatilho formal 'Use when...' e sem detalhar as categorias de inspeção e comandos da CLI.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Classificação de risco frontmatter como 'risk: critical', inadequada para um roteador de contexto declarativo de linha de comando.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Roteamento inteligente de contexto para agentes de IA selecionarem o conjunto mínimo de skills de UI via CLI npx ui-skills.",
+      "entidades": [
+        "npx ui-skills",
+        "ui-skills CLI",
+        "Codex",
+        "Cursor",
+        "Claude Code",
+        "ibelick/ui-skills"
+      ],
+      "keywords": [
+        "ui-skills-root",
+        "cli-routing",
+        "context-selection",
+        "ui-skills",
+        "category-inspection",
+        "minimal-context",
+        "agent-routing",
+        "stack-selection",
+        "ui-craft"
+      ]
+    },
+    "summary": "Roteador de contexto conciso e direto para o ecossistema ui-skills, necessitando expansão semântica da description e calibração do nível de risco."
+  },
+  {
+    "skillName": "ui-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Stub vazio gerado por automação contendo apenas 29 linhas, sem nenhum conteúdo instrucional, padrões técnicos ou regras de UI concretas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description de 73 caracteres ('Opinionated, evolving constraints to guide agents when building interfaces') puramente abstrata, sem gatilho 'Use when...' e sem termos discriminantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância extrema: a frase da description é repetida literalmente no Overview, no When to Use e no Instructions, sem adicionar qualquer instrução técnica útil.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência completa de ganho semântico para o agente, poluindo o catálogo de skills com um placeholder não funcional.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 80,
+    "cuts": [
+      {
+        "text": "Remover as seções tautológicas Overview, When to Use e Instructions (linhas 11-24), substituindo o arquivo por conteúdo instrucional real de UI ou deprecando o artefato em favor de ui-skills-root.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Stub vazio e tautológico de regras de interface para agentes, desprovido de instruções práticas ou discriminantes operacionais.",
+      "entidades": [
+        "ibelick/ui-skills"
+      ],
+      "keywords": [
+        "ui-skills",
+        "stub",
+        "placeholder",
+        "empty-skill",
+        "tautology",
+        "missing-instructions",
+        "interface-guidelines"
+      ]
+    },
+    "summary": "Skill crítica em estado de stub vazio que se limita a replicar uma frase genérica sem fornecer diretrizes operacionais de interface."
+  },
+  {
+    "skillName": "ui-tokens",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-tokens/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente reduzida com 69 caracteres, omitindo o gatilho formal 'Use when...' e os termos técnicos essenciais (Tailwind v4 @theme inline, CSS custom properties :root, tokens/*.json).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de variáveis de script de template bash/CLI não interpoladas nas linhas 26-27 ('Action: **$0** | Token type: **$1**' e 'Arguments: $ARGUMENTS').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado de risco 'risk: critical' incoerente com o propósito de gerenciar tokens de estilo em arquivos JSON e CSS locais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover os resquícios de variáveis não resolvidas de template de CLI das linhas 26-27 (Action: **$0** | Token type: **$1** | Arguments: $ARGUMENTS).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Visualização, adição e modificação de design tokens no StyleSeed sincronizando arquivos JSON com CSS custom properties e Tailwind v4.",
+      "entidades": [
+        "StyleSeed",
+        "Tailwind v4",
+        "tokens/colors.json",
+        "tokens/typography.json",
+        "tokens/spacing.json",
+        "tokens/radii.json",
+        "tokens/shadows.json",
+        "css/theme.css",
+        "css/fonts.css",
+        "css/base.css",
+        "@theme inline"
+      ],
+      "keywords": [
+        "ui-tokens",
+        "design-tokens",
+        "styleseed",
+        "css-variables",
+        "tailwind-v4",
+        "theme-css",
+        "colors-json",
+        "typography-tokens",
+        "radii",
+        "dark-mode",
+        "semantic-tokens"
+      ]
+    },
+    "summary": "Fluxo claro e objetivo para sincronização de tokens JSON/CSS, prejudicado por description com 69 caracteres e variáveis de template não interpoladas."
+  },
+  {
+    "skillName": "ui-update",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-update/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 86 caracteres, sem gatilho condicional 'Use when...' e omitindo os artefatos centrais mantidos (DESIGN-LANGUAGE.md, CLAUDE.md Golden Rules, .cursorrules).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta explicitar na description os mecanismos de proteção de arquivos locais (theme.css e components/ preservados) e aprovação de diffs.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Atualização assistida e segura do motor StyleSeed através de inspeção de versão, clone temporário pinado e revisão de diffs.",
+      "entidades": [
+        "StyleSeed",
+        "DESIGN-LANGUAGE.md",
+        "CLAUDE.md",
+        ".cursorrules",
+        "theme.css",
+        "git",
+        "bitjaru/styleseed",
+        "engine/VERSION"
+      ],
+      "keywords": [
+        "ui-update",
+        "styleseed",
+        "engine-update",
+        "version-check",
+        "git-clone",
+        "diff-review",
+        "golden-rules",
+        "cursorrules",
+        "safe-update",
+        "worktree-backup"
+      ]
+    },
+    "summary": "Excelente procedimento de atualização segura com controle estrito de permissões e isolamento de diffs, necessitando apenas expansão semântica na description."
+  },
+  {
+    "skillName": "ui-ux-designer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-ux-designer/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description de 139 caracteres com linguagem promocional ('Masters user research, accessibility standards, and modern design tools') e ausência de gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a recurso inexistente no repositório local na linha 24 ('resources/implementation-playbook.md'), induzindo o agente a falhas de leitura.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo excessivamente inchado no estilo persona genérica de IA (213 linhas de tópicos conceituais) sem exemplos práticos de código ou regras acionáveis, além de ativações tautológicas ('Working on ui ux designer tasks').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Classificação de risco frontmatter como 'critical' para um documento puramente conceitual de orientação de design.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover referência fantasma a resources/implementation-playbook.md (linha 24) e as seções tautológicas de 'Use this skill when' / 'Do not use this skill when' (linhas 9-18).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar as listas extensas de persona em 'Capabilities', 'Behavioral Traits' e 'Knowledge Base' (linhas 32-186), transformando-as em diretrizes técnicas e acionáveis.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Persona e diretrizes gerais de design UI/UX abrangendo design systems, acessibilidade WCAG, ferramentas como Figma e pesquisa com usuários.",
+      "entidades": [
+        "Figma",
+        "Style Dictionary",
+        "Storybook",
+        "Chromatic",
+        "WCAG 2.1/2.2",
+        "iOS HIG",
+        "Material Design"
+      ],
+      "keywords": [
+        "ui-ux-designer",
+        "design-systems",
+        "wireframes",
+        "accessibility",
+        "user-research",
+        "wcag",
+        "figma-variables",
+        "atomic-design",
+        "interaction-design",
+        "information-architecture"
+      ]
+    },
+    "summary": "Skill inchada com formato de persona genérica, link quebrado para playbook inexistente e ausência de diretrizes operacionais concretas."
+  },
+  {
+    "skillName": "ui-ux-pro-max",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-ux-pro-max/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 178 caracteres, abaixo dos 200 recomendados, omitindo menção ao script CLI Python embutido ('scripts/search.py') e à base de raciocínio de design.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção '### When to Use' duplicada e tautológica no final do documento (linhas 355-357: 'This skill is applicable to execute the workflow...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão desnecessária de comandos de administração de sistema (sudo apt, brew, winget para instalação de python3 nas linhas 106-120), fora do escopo de design e introduzindo ruído.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o bloco duplicado '### When to Use' nas linhas 355-357.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar instruções operacionais de instalação de Python no sistema operacional (linhas 104-120), retendo apenas a validação da versão instalada.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Base de inteligência de design UI/UX com motor CLI em Python para recomendação de sistemas de design, estilos, paletas e regras por stack.",
+      "entidades": [
+        "scripts/search.py",
+        "ui-reasoning.csv",
+        "Tailwind CSS",
+        "React",
+        "Vue",
+        "Next.js",
+        "Svelte",
+        "SwiftUI",
+        "Flutter",
+        "shadcn/ui",
+        "Heroicons",
+        "Lucide"
+      ],
+      "keywords": [
+        "ui-ux-pro-max",
+        "design-intelligence",
+        "search-cli",
+        "accessibility-rules",
+        "color-palettes",
+        "typography-pairings",
+        "ux-guidelines",
+        "html-tailwind",
+        "touch-targets",
+        "responsive-design",
+        "design-system-generation"
+      ]
+    },
+    "summary": "Excelente base de conhecimento com motor de busca CLI funcional em Python e regras priorizadas por impacto, necessitando poda de comandos de sysadmin e duplicação."
+  },
+  {
+    "skillName": "ui-visual-validator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-visual-validator/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description de 128 caracteres com adjetivos promocionais ('Rigorous visual validation expert specializing in...') e sem gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a recurso inexistente no repositório na linha 24 ('resources/implementation-playbook.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Tautologias de ativação no bloco inicial (linhas 9-18: 'Working on ui visual validator tasks or workflows').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Prolixidade em seções de persona ('Behavioral Traits' e 'Forbidden Behaviors') que repetem conceitualmente a seção metodológica 'Core Principles'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover referência a resources/implementation-playbook.md (linha 24) e tautologias do bloco 'Use this skill when' (linhas 9-18).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar as seções de traços e comportamentos proibidos de persona (linhas 179-199) nas diretrizes sólidas de 'Core Principles' e 'Analysis Process'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia rigorosa e cética de validação visual de interfaces baseada em evidências, medições empíricas e conformidade WCAG.",
+      "entidades": [
+        "Chromatic",
+        "Percy",
+        "Applitools",
+        "BackstopJS",
+        "Playwright",
+        "Cypress",
+        "Jest Image Snapshot",
+        "Storybook",
+        "WCAG 2.1/2.2"
+      ],
+      "keywords": [
+        "ui-visual-validator",
+        "visual-regression",
+        "pixel-diff",
+        "screenshot-analysis",
+        "skeptical-verification",
+        "layout-shift",
+        "wcag-contrast",
+        "responsive-breakpoints",
+        "focus-indicators"
+      ]
+    },
+    "summary": "Protocolo de inspeção visual cética e checklists de alta qualidade metodológica, prejudicado por link fantasma, tautologias e description curta com tom promocional."
+  },
+  {
+    "skillName": "uncle-bob-craft",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/uncle-bob-craft/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres (abaixo dos 200 caracteres mínimos), necessitando incorporar discriminantes explícitos como Dependency Rule, SOLID, code smells e Clean Architecture.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Tags e categorização frontmatter poderiam enfatizar a distinção entre regras arquiteturais e o escopo de linters/formatadores automáticos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Aplicação dos princípios de artesanato de software de Robert C. Martin (Clean Architecture, Clean Code, SOLID) para code review e refatoração.",
+      "entidades": [
+        "Robert C. Martin",
+        "Clean Architecture",
+        "The Clean Coder",
+        "Clean Agile",
+        "SOLID",
+        "Dependency Rule",
+        "@clean-code",
+        "reference.md",
+        "references/clean-architecture.md"
+      ],
+      "keywords": [
+        "uncle-bob-craft",
+        "clean-architecture",
+        "clean-coder",
+        "clean-agile",
+        "solid",
+        "dependency-rule",
+        "code-smells",
+        "refactoring",
+        "code-review",
+        "design-patterns",
+        "software-craftsmanship"
+      ]
+    },
+    "summary": "Skill exemplar de artesanato de código com integridade estrutural e arquivos de referência existentes, requerendo apenas expansão de discriminantes na description."
+  },
+  {
+    "skillName": "uniprot-database",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/uniprot-database/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Quebra de integridade interna no documento: referencia scripts locais ('scripts/uniprot_client.py' nas linhas 123 e 180) e quatro arquivos em 'references/' (api_fields.md, id_mapping_databases.md, query_syntax.md, api_examples.md nas linhas 182-186) que não existem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Metadado de licença anotado como 'license: Unknown' no frontmatter, recomendando padronização de licença de dados biomédicos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover referências locais a scripts e arquivos markdown inexistentes nas linhas 123 e 179-187, mantendo os links diretos para a documentação online da REST API.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Acesso direto via REST API e consultas estruturadas ao banco de dados de sequências e anotações proteicas UniProt (Swiss-Prot/TrEMBL).",
+      "entidades": [
+        "UniProt REST API",
+        "UniProtKB",
+        "Swiss-Prot",
+        "TrEMBL",
+        "FASTA",
+        "bioservices",
+        "Unipressed",
+        "Ensembl",
+        "RefSeq",
+        "PDB",
+        "AlphaFoldDB"
+      ],
+      "keywords": [
+        "uniprot-database",
+        "rest-api",
+        "protein-sequence",
+        "fasta-retrieval",
+        "id-mapping",
+        "swiss-prot",
+        "trembl",
+        "gene-ontology",
+        "batch-retrieval",
+        "bioinformatics"
+      ]
+    },
+    "summary": "Excelente description e documentação clara de endpoints da REST API UniProt, comprometida pela inclusão de referências a scripts e arquivos de suporte locais inexistentes."
+  }
+]

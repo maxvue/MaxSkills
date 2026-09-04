@@ -1,6 +1,6 @@
 ---
 name: warehouse
-description: "Plan and review read-only data warehouse analysis with explicit scope, privacy, provenance, and validation checks."
+description: "Plan and review read-only data warehouse analysis with explicit scope, privacy, provenance, and validation checks. Use when developing, optimizing, debugging, or configuring warehouse in production workflows."
 category: data
 risk: critical
 source: self

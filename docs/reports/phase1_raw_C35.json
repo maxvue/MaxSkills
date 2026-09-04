@@ -1,0 +1,558 @@
+[
+  {
+    "skillName": "hugo-to-markdown",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugo-to-markdown/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter terminando em reticências ('...then produce Markdown...'), cortando o raciocínio sintático e violando os Critérios 1 e 5.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância textual na seção '## When to Use' (linhas 14-16), que replica ipsissimis litteris a descrição truncada com as reticências.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate genérico de repositório upstream na seção '## Limitations' (linhas 197-202) sem regras específicas para o contexto do Hugo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover ou reescrever a seção '## When to Use' para evitar duplicação inútil da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover as linhas 197-202 ('## Limitations') que consistem em avisos genéricos repetidos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Conversão determinística e offline de sites de documentação Hugo em Markdown padrão com mapeamento de shortcodes, render-hooks e front-matter.",
+      "entidades": [
+        "hugo.toml",
+        "archetypes/*",
+        "layouts/_shortcodes",
+        "layouts/_markup",
+        "content",
+        "scripts/inventory_hugo_rules.py",
+        "scripts/check_standard_markdown.py",
+        "Goldmark"
+      ],
+      "keywords": [
+        "hugo",
+        "markdown",
+        "shortcodes",
+        "render-hooks",
+        "front-matter",
+        "archetypes",
+        "goldmark",
+        "static-site-generator",
+        "documentation",
+        "conversion",
+        "offline",
+        "pandoc"
+      ]
+    },
+    "summary": "Excelente skill técnica para conversão de sites Hugo em Markdown, necessitando apenas da correção do truncamento da descrição e remoção de redundâncias de abertura."
+  },
+  {
+    "skillName": "hybrid-cloud-networking",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hybrid-cloud-networking/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description excessivamente curta com apenas 135 caracteres (abaixo da faixa recomendada de 200 a 400 caracteres) e sem cláusula explícita de gatilho ('Use when...') (Critérios 1 e 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivo vago e promocional ('high-performance') sem fundamentação técnica na descrição (Critério 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de truísmos óbvios e circulares em '## Do not use this skill when' ('The task is unrelated to hybrid cloud networking') e instruções genéricas vazias em '## Instructions' (Critérios 7 e 12).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Redundância imediata na linha 11 repetindo a frase da description após o título H1.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 16,
+    "cuts": [
+      {
+        "text": "Eliminar a seção '## Do not use this skill when' (linhas 13-17) por conter truísmos circulares vazios.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover seção '## Instructions' (linhas 18-24) e '## Limitations' (linhas 243-247) que contêm boilerplate genérico de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar repetição da linha 11 e condensar 'Purpose' e 'Use this skill when' para enxugar o preâmbulo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração de conectividade híbrida e segura entre ambientes on-premises e nuvens públicas (AWS, Azure, GCP) via VPN IPsec, Direct Connect, ExpressRoute e BGP.",
+      "entidades": [
+        "aws_vpn_gateway",
+        "aws_customer_gateway",
+        "aws_vpn_connection",
+        "azurerm_virtual_network_gateway",
+        "AWS Direct Connect",
+        "Azure ExpressRoute",
+        "GCP Cloud Interconnect",
+        "BGP"
+      ],
+      "keywords": [
+        "hybrid-cloud",
+        "aws",
+        "azure",
+        "gcp",
+        "vpn",
+        "ipsec",
+        "direct-connect",
+        "expressroute",
+        "transit-gateway",
+        "vwan",
+        "bgp",
+        "ecmp",
+        "terraform",
+        "networking"
+      ]
+    },
+    "summary": "Guia prático de IaC para redes híbridas multicloud, prejudicado por descrição curta sem gatilho explícito e preâmbulos com truísmos desnecessários."
+  },
+  {
+    "skillName": "hyperexecute-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hyperexecute-skill/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada com vírgula e reticências no final ('...matrix execution,...'), cortando a sentença (Critérios 1 e 5).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Repetição literal da descrição truncada na seção '## When to Use' (linhas 14-16) com erro sintático de concatenação ('you need operates...') (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção '## Limitations' (linhas 61-66) composta inteiramente por boilerplate genérico pré-fabricado de upstream.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção '## When to Use' redundante ou convertê-la em lista acionável de gatilhos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover o bloco genérico '## Limitations' das linhas 61-66.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração completa e depuração de testes distribuídos na nuvem através do LambdaTest HyperExecute CLI e hyperexecute.yaml.",
+      "entidades": [
+        "hyperexecute.yaml",
+        "scripts/doctor.js",
+        "scripts/validate-config.js",
+        "scripts/build-command.js",
+        "scripts/summarize-artifacts.js",
+        "LT_USERNAME",
+        "LT_ACCESS_KEY"
+      ],
+      "keywords": [
+        "hyperexecute",
+        "lambdatest",
+        "testmu-ai",
+        "cli",
+        "yaml",
+        "cloud-testing",
+        "autosplit",
+        "matrix-execution",
+        "ci-cd",
+        "artifacts-triage"
+      ]
+    },
+    "summary": "Excelente operador do LambdaTest HyperExecute com scripts de apoio úteis, demandando apenas sanar o truncamento da descrição e limpar duplicações."
+  },
+  {
+    "skillName": "iconsax-library",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/iconsax-library/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description de apenas 87 caracteres (muito abaixo do limite de 200 caracteres), desprovida de gatilho explícito e com vocabulário promocional ('premium UI/UX design') (Critérios 1, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem fortemente promocional e hiperbólica ao longo de todo o corpo ('far superior to generic default sets', 'highest-tier professional icons', 'distinctly premium feel') (Critério 10).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Diretiva coercitiva abusiva e dogmática em 'Strict Rules' ('ABSOLUTE MANDATE: Agents MUST utilize this skill... DO NOT use common, generic... icons') tentando aprisionar o comportamento do modelo (Critério 10).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ausência quase total de utilidade técnica: não fornece pacotes npm, nem componentes SVG/código real, resumindo-se a divulgar a ferramenta web comercial (Critérios 2, 4 e 13).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Eliminar a seção de mandatos coercitivos 'Strict Rules' (linhas 34-39).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover adjetivos promocionais e hyperlinks meramente comerciais, substituindo por referências técnicas reais de SVG/pacotes npm.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover a seção genérica 'Limitations' (linhas 40-44).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia conceitual para utilização da biblioteca de ícones Iconsax e seu serviço de geração web por IA em interfaces visuais.",
+      "entidades": [
+        "Iconsax",
+        "Iconsax AI",
+        "Linear",
+        "Bold",
+        "Bulk",
+        "Two-tone"
+      ],
+      "keywords": [
+        "iconsax",
+        "icons",
+        "svg",
+        "ui-design",
+        "ux",
+        "design-system",
+        "icon-library",
+        "two-tone",
+        "bold",
+        "linear"
+      ]
+    },
+    "summary": "Skill fraca e de baixa densidade técnica, dominada por retórica promocional, mandatos dogmáticos e descrição de 87 caracteres sem gatilhos."
+  },
+  {
+    "skillName": "idea-autopsy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/idea-autopsy/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description possui 169 caracteres (abaixo da faixa recomendada de 200 a 400 caracteres) e não inclui a cláusula formal 'Use when...' (Critérios 1 e 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia cética para validação prévia de ideias de negócios através de checklist de cinco filtros, kill-list e verificação na biblioteca de anúncios.",
+      "entidades": [
+        "REJECTION.md",
+        "Meta Ad Library",
+        "kill-pattern",
+        "free-AI"
+      ],
+      "keywords": [
+        "idea-validation",
+        "business-ideas",
+        "rejection-list",
+        "kill-pattern",
+        "ad-library",
+        "founder",
+        "market-validation",
+        "startup",
+        "mvp-test",
+        "viability"
+      ]
+    },
+    "summary": "Metodologia altamente substantiva, objetiva e enxuta para validação de ideias, necessitando unicamente de expansão da description para atingir 200-400 chars com gatilho."
+  },
+  {
+    "skillName": "idea-refine",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/idea-refine/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada no final com reticências ('Triggers on...'), quebrando o encerramento sintático (Critérios 1 e 5).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dupla redundância textual: a seção '## When to Use' (linhas 14-16) replica a descrição truncada com erro sintático ('you need refines...'), repetida de novo na linha 19 (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância conceitual entre as seções 'Anti-patterns to Avoid' (linhas 153-162) e 'Red Flags' (linhas 169-178), que espelham rigorosamente os mesmos tópicos (Critério 12).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção '## Limitations' (linhas 191-196) constituída por boilerplate genérico de repositório upstream.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover as duplicações de texto em 'When to Use' e na linha 19.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Unificar e condensar 'Anti-patterns to Avoid' e 'Red Flags' para extinguir repetições idênticas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover o bloco '## Limitations' genérico das linhas 191-196.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Refinamento estruturado de conceitos e hipóteses de produto em fases divergente e convergente, culminando em one-pager com escopo de MVP.",
+      "entidades": [
+        "docs/ideas/",
+        "AskUserQuestion",
+        "frameworks.md",
+        "refinement-criteria.md",
+        "examples.md"
+      ],
+      "keywords": [
+        "idea-refinement",
+        "divergent-thinking",
+        "convergent-thinking",
+        "mvp-scope",
+        "how-might-we",
+        "assumptions",
+        "not-doing-list",
+        "product-design",
+        "ideation"
+      ]
+    },
+    "summary": "Processo de refinamento de produtos bem estruturado, exigindo apenas reparo da description truncada e consolidação de seções redundantes."
+  },
+  {
+    "skillName": "image-generator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/image-generator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description cita denominação informal ('Nano Banana Pro model') em conjunto com o identificador oficial (`gemini-3-pro-image-preview`), introduzindo ruído léxico (Critério 4/5).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Forte redundância de código: a seção 'Complete Example (File-Based)' (linhas 158-204) duplica quase linha por linha o script e curl já explicados nos Steps 1 a 3 (linhas 73-156) (Critério 12).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Repetição literal da description na seção 'When to Use' (linhas 26-29) e presença de boilerplate genérico de limitations no rodapé (linhas 507-512).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover ou condensar a seção 'Complete Example (File-Based)' (linhas 158-204), eliminando o script Python e curl duplicados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Eliminar o preâmbulo redundante em 'When to Use' e o bloco final de limitations genérico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração e edição multimodal de imagens via API REST e SDKs do Google Gemini (gemini-3-pro-image-preview) com gerenciamento de payloads temporários em base64.",
+      "entidades": [
+        "gemini-3-pro-image-preview",
+        "GEMINI_API_KEY",
+        "google.genai",
+        "@google/genai",
+        "SynthID",
+        "GenerateContentConfig"
+      ],
+      "keywords": [
+        "image-generation",
+        "gemini",
+        "multimodal",
+        "image-editing",
+        "inpainting",
+        "style-transfer",
+        "base64",
+        "api-rest",
+        "visual-assets",
+        "google-ai"
+      ]
+    },
+    "summary": "Guia detalhado e prático para geração/edição com Gemini API, carecendo de ajuste de nomenclatura informal e desduplicação de código."
+  },
+  {
+    "skillName": "imagen",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/imagen/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta com 153 caracteres (< 200 caracteres), contendo buzzword promocional ('seamless') e ausência de cláusula de gatilho explícita ('Use when...') (Critérios 1, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de boilerplate genérico de limitations de upstream (linhas 80-84) sem contextualização técnica para criação de imagens.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o bloco '## Limitations' (linhas 80-84) contendo texto genérico repetido.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração de assets gráficos e imagens de placeholder para UI e documentação através de script Python chamando Google Gemini.",
+      "entidades": [
+        "gemini-3-pro-image-preview",
+        "GEMINI_API_KEY",
+        "scripts/generate_image.py"
+      ],
+      "keywords": [
+        "imagen",
+        "gemini",
+        "image-generation",
+        "ui-assets",
+        "placeholders",
+        "documentation-diagrams",
+        "python",
+        "cross-platform",
+        "png"
+      ]
+    },
+    "summary": "Wrapper funcional e direto para geração de imagens via Gemini em Python, necessitando enriquecer a descrição e remover limitations genérico."
+  },
+  {
+    "skillName": "improve-codebase-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/improve-codebase-architecture/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description de apenas 124 caracteres (muito abaixo de 200 caracteres), sem cláusula explícita de condição de uso ('Use when...') (Critérios 1 e 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância textual na seção '## When to Use' (linhas 26-29), que duplica a descrição.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dependência não declarada de comandos e vocabulários de skills externas (`/codebase-design`, `/grilling`, `/domain-modeling`) sem verificação de disponibilidade no ambiente local (Critério 5).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção de encerramento '## Limitations' (linhas 93-98) utiliza boilerplate genérico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover repetição literal em 'When to Use' (linhas 26-29).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover bloco '## Limitations' (linhas 93-98) por ser texto de preenchimento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria arquitetural de módulos em bases de código para aprofundamento de interfaces e eliminação de acoplamento com relatórios visuais em HTML gerados em runtime.",
+      "entidades": [
+        "CONTEXT.md",
+        "docs/adr/",
+        "HTML-REPORT.md",
+        "Tailwind CSS",
+        "Mermaid.js",
+        "/codebase-design",
+        "/grilling"
+      ],
+      "keywords": [
+        "architecture-review",
+        "deep-modules",
+        "codebase-design",
+        "refactoring",
+        "html-report",
+        "mermaid",
+        "adr",
+        "software-design",
+        "testability",
+        "locality"
+      ]
+    },
+    "summary": "Metodologia de ponta para revisão arquitetural profunda com relatórios visuais em HTML, demandando expansão da descrição e desduplicação."
+  },
+  {
+    "skillName": "indexing-issue-auditor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/indexing-issue-auditor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 153 caracteres (< 200 caracteres) utilizando qualificativo genérico ('High-level') em vez de termos operacionais estritos (Critérios 1, 7).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho formulado como 'Invoke to scan...' em vez do padrão declarativo de gatilho ('Use when auditing local or live web environments...') (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria técnica detalhada de arquitetura web e SEO para diagnóstico de falhas de indexação, sitemaps, redirecionamentos e otimização de crawl budget.",
+      "entidades": [
+        "Google Search Console",
+        "sitemap.xml",
+        "robots.txt",
+        "hreflang",
+        "Next.js",
+        "Nuxt",
+        "SSR Hydration",
+        "Topical SEO Silo"
+      ],
+      "keywords": [
+        "technical-seo",
+        "indexing-audit",
+        "crawl-budget",
+        "search-console",
+        "sitemap",
+        "robots-txt",
+        "clean-url",
+        "redirect-chains",
+        "orphan-pages",
+        "internal-linking"
+      ]
+    },
+    "summary": "Framework analítico de SEO técnico exemplar, com fases bem delineadas e tabela de controle padronizada, carecendo apenas de expansão na descrição."
+  }
+]

@@ -1,0 +1,390 @@
+[
+  {
+    "skillName": "codebase-audit-pre-push",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/codebase-audit-pre-push/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta com 157 caracteres (abaixo da faixa recomendada de 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita de gatilho de ativação ('Use when...', 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos semanticamente discriminantes específicos do checklist na description (.gitignore, secrets, SQL injection, N+1 queries, npm audit).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Checklist rigoroso pré-push para auditoria de repositório, higienização de arquivos temporários, eliminação de dead code e mitigação de vulnerabilidades de segurança e escalabilidade.",
+      "entidades": [".gitignore", ".env", ".env.example", "npm audit", "bcrypt", "argon2", "console.log", "debugger", "JOIN", "LIMIT"],
+      "keywords": [
+        "pre-push audit",
+        "codebase review",
+        "dead code",
+        "junk files",
+        "secrets detection",
+        "gitignore",
+        "sql injection",
+        "n+1 queries",
+        "code quality",
+        "production readiness",
+        "security audit",
+        "scalability",
+        "npm audit"
+      ]
+    },
+    "summary": "Checklist pré-push de alta qualidade técnica e sem bloat, necessitando apenas de expansão da description com gatilho formal e termos discriminantes."
+  },
+  {
+    "skillName": "codebase-cleanup-deps-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/codebase-cleanup-deps-audit/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Presença de placeholder não renderizado cru no corpo do arquivo: linha 30 contém '## Requirements\\n$ARGUMENTS'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description escrita em formato de roleplay ('You are a dependency security expert...') em vez de definição factual de ação com gatilho formal ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância literal entre a description do frontmatter e a introdução da linha 11 do SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria de segurança de dependências, detecção de vulnerabilidades conhecidas, conformidade de licenças e gestão de riscos na cadeia de suprimentos.",
+      "entidades": ["resources/implementation-playbook.md", "$ARGUMENTS", "staging", "vulnerability scanner", "license compliance"],
+      "keywords": [
+        "dependency audit",
+        "vulnerability scanning",
+        "license compliance",
+        "supply chain security",
+        "outdated packages",
+        "cve remediation",
+        "dependency management",
+        "security analysis",
+        "package manifest",
+        "transitive dependencies"
+      ]
+    },
+    "summary": "Conteúdo técnico válido porém com placeholder cru não expandido ($ARGUMENTS) e description em estilo de personificação sem gatilho formal."
+  },
+  {
+    "skillName": "codebase-to-wordpress-converter",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/codebase-to-wordpress-converter/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description insuficiente com apenas 128 caracteres, violando a extensão mínima recomendada de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de vocabulário promocional e exagerado na description ('Expert skill', 'pixel-perfect', 'converting any codebase').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho formal 'Use when...' e omissão de discriminantes centrais presentes no texto (ACF, wp_head, wp_footer, register_nav_menus, walker).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Conversão sistemática e forense de frontends estáticos ou em React/Next.js para temas WordPress preservando fidelidade visual absoluta, classes Tailwind e SEO.",
+      "entidades": ["wp_head()", "wp_footer()", "get_header()", "get_footer()", "register_nav_menus()", "Custom_Tailwind_Walker", "get_template_directory_uri()", "get_page_by_path()", "ACF", "the_title()", "the_content()"],
+      "keywords": [
+        "wordpress conversion",
+        "react to wordpress",
+        "theme development",
+        "acf",
+        "tailwind css",
+        "wp hooks",
+        "dom preservation",
+        "ui lock",
+        "seo preservation",
+        "walker nav menu",
+        "template hierarchy",
+        "forensic audit"
+      ]
+    },
+    "summary": "Instruções técnicas e exemplos sólidos para migração WordPress, demandando revisão da description para eliminar adjetivos promocionais e incluir gatilhos claros."
+  },
+  {
+    "skillName": "cohesivity",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cohesivity/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Provisionamento seguro de serviços de infraestrutura headless (banco de dados, hosting, auth, APIs de IA) via API Cohesivity com rigorosa governança de consentimento e proteção de segredos.",
+      "entidades": ["Cohesivity API", ".cohesivity", "POST /api/genesis", "coh_management_key", "coh_application_key", "Postgres", "Redis", "Cloudflare Workers", "Railway", "Steel Browser", "Neon", "umask 077"],
+      "keywords": [
+        "cohesivity",
+        "headless backend",
+        "infrastructure provisioning",
+        "ephemeral tenant",
+        "consent gates",
+        "cloud hosting",
+        "railway deploy",
+        "steel browser",
+        "control plane",
+        "data plane",
+        "agent infrastructure",
+        "credential security"
+      ]
+    },
+    "summary": "Padrão exemplar de segurança, consent gates, description de 220 caracteres com gatilho impecável e conformidade semântica total."
+  },
+  {
+    "skillName": "comfyui-gateway",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/comfyui-gateway/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Sintaxe Markdown corrompida: bloco de código iniciado na linha 348 foi truncado abruptamente na linha 405 ('│   ├── workflows/             # User-added wor') e nunca foi fechado.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description curta (149 caracteres), sem verbo de ação claro, desprovida de cláusula 'Use when...' e idêntica ao texto da seção Overview.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de seções com boilerplate vazio e genérico descolado do domínio ('## Best Practices' e '## Common Pitfalls' com frases como 'Provide clear, specific context' e 'Using this skill for tasks outside its domain').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico das seções Best Practices e Common Pitfalls (linhas 407-418) e corrigir o fechamento da árvore de arquivos truncada na linha 405.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gateway REST API em Fastify e TypeScript para orquestração de servidores ComfyUI, gestão de filas BullMQ, templates parametrizados e entrega de imagens geradas.",
+      "entidades": ["Fastify", "BullMQ", "ComfyUI Client", "Zod", "better-sqlite3", "MinIO/S3", "Pino", "HMAC-SHA256", "SDXL", "CLIPTextEncode", "KSampler"],
+      "keywords": [
+        "comfyui gateway",
+        "api gateway",
+        "image generation",
+        "bullmq",
+        "workflow templates",
+        "job queue",
+        "rate limiting",
+        "webhooks",
+        "caching",
+        "stable diffusion",
+        "sdxl",
+        "fastify"
+      ]
+    },
+    "summary": "Arquitetura técnica robusta para ComfyUI, prejudicada por bloco de código markdown não fechado, árvore truncada e boilerplate genérico."
+  },
+  {
+    "skillName": "commit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/commit/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente autoritária e monopolista ('ALWAYS use this skill when committing code changes — never commit directly without it. Trigger on any commit...'), tentando sequestrar todas as operações git do agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Desalinhamento de escopo na description: declara abranger 'any commit', enquanto o conteúdo interno impõe regras estritas e proprietárias do ecossistema Sentry (SENTRY-1234, Sentry commit types, Claude Co-Authored-By footer).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padronização de mensagens de commit e proteção de branch de acordo com as convenções de engenharia da Sentry e formato Conventional Commits.",
+      "entidades": ["git branch", "create-branch", "Conventional Commits", "Sentry", "Linear", "GH Issues", "Co-Authored-By"],
+      "keywords": [
+        "conventional commits",
+        "sentry commit messages",
+        "git branch protection",
+        "commit format",
+        "issue references",
+        "co-authored-by",
+        "feature branch",
+        "breaking change",
+        "git workflow",
+        "commit types"
+      ]
+    },
+    "summary": "Convenções de commit úteis e bem estruturadas, porém com description imperativa/monopolista que oculta a especificidade para projetos Sentry."
+  },
+  {
+    "skillName": "competitor-tracking",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/competitor-tracking/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter terminando com reticências abruptas: 'Trigger phrases: ... \"what...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corrupção e corte no corpo do texto: a seção '## When to Use' (linha 16) repete o texto da description e é cortada igualmente no meio da frase com 'what...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação imediata e desorganizada de parágrafos introdutórios entre as linhas 16 e 19.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Corrigir e condensar as linhas 14 a 20 eliminando a duplicação truncada de When to Use e o corte 'what...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework sistemático de inteligência competitiva e rastreamento de concorrentes para ferramentas de desenvolvedor (DevTools), abrangendo produtos, preços, sentimento e battlecards.",
+      "entidades": ["gh api", "archive.org", "GitHub", "Discord", "Reddit", "Stack Overflow", "npm", "PyPI"],
+      "keywords": [
+        "competitor tracking",
+        "competitive intelligence",
+        "developer tools",
+        "pricing analysis",
+        "battlecard creation",
+        "sentiment monitoring",
+        "social listening",
+        "churn signals",
+        "feature matrix",
+        "market positioning"
+      ]
+    },
+    "summary": "Excelente framework estratégico para DevTools, prejudicado por texto truncado com reticências no frontmatter e na seção When to Use."
+  },
+  {
+    "skillName": "compile-knowledge",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/compile-knowledge/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Ausência de cláusula explícita de condição de uso ('Use when...', 'Ative quando...') na description, embora o ganho semântico e extensão (217 chars) sejam de alto nível.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Compilação de descobertas e fatos não-óbvios em notas atômicas interligadas por wiki-links com índice mantido para persistência de memória entre sessões de agentes.",
+      "entidades": ["markdown", "[[wiki-links]]", "MEMORY.md", "memory/", "wiki/index.md", "valid_to", "supersedes", "confidence", "provenance"],
+      "keywords": [
+        "knowledge compilation",
+        "atomic notes",
+        "wiki links",
+        "persistent memory",
+        "agent memory",
+        "zettelkasten",
+        "markdown index",
+        "durable knowledge",
+        "retrieval",
+        "karpathy method",
+        "knowledge hygiene"
+      ]
+    },
+    "summary": "Guia conceitual e metodológico primoroso para memória durável de agentes, dependendo apenas da adição formal de gatilho na description para nota máxima."
+  },
+  {
+    "skillName": "comprehensive-review-pr-enhance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/comprehensive-review-pr-enhance/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração de descrições estruturadas de Pull Requests a partir de git diffs, com categorização de alterações, avaliação de riscos, cobertura de testes e checklists contextuais.",
+      "entidades": ["git diff", "git cherry-pick", "markdown template", "OAuth2 PKCE", "resources/implementation-playbook.md"],
+      "keywords": [
+        "pull request",
+        "pr description",
+        "git diff",
+        "code review",
+        "risk assessment",
+        "review checklist",
+        "pr template",
+        "testing summary",
+        "pr splitting",
+        "change categorization"
+      ]
+    },
+    "summary": "Execução perfeita com description de 272 caracteres altamente discriminante, gatilhos claros, estrutura concisa e zero desperdício textual."
+  },
+  {
+    "skillName": "computer-use-agents",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/computer-use-agents/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Volume desproporcional e inflado (2167 linhas, 67 KB), contendo implementações exaustivas de classes completas em Python, Dockerfiles e scripts que deveriam estar modularizados em playbooks.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Desorganização estrutural: a seção principal '## When to Use' está posicionada no final do arquivo (linha 2151) em vez do topo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho formal explícito 'Use when...' na description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 45,
+    "cuts": [
+      {
+        "text": "Condensar implementações de código completas repetitivas (ActionLogger, SandboxedAgent, ConfirmedComputerUseAgent, geradores de curvas de Bezier) transferindo-as para arquivos em resources/ e mantendo os padrões arquiteturais e sharp edges essenciais no SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura, isolamento em sandbox Docker, mitigação de injeção de prompt e automação de controle visual/DOM para agentes de uso de computador (Computer Use).",
+      "entidades": ["Anthropic Computer Use API", "BetaToolComputerUse20241022", "pyautogui", "xdotool", "Playwright", "Docker", "Xvfb", "x11vnc", "fluxbox", "PIL"],
+      "keywords": [
+        "computer use agents",
+        "desktop automation",
+        "vision agents",
+        "docker sandbox",
+        "anthropic computer use",
+        "playwright",
+        "action logging",
+        "prompt injection defense",
+        "screen control",
+        "bot detection evasion",
+        "humanized input"
+      ]
+    },
+    "summary": "Documento enciclopédico de altíssimo valor técnico sobre Computer Use, porém estruturalmente inchado (2167 linhas) com seções fora de ordem e sem modularização."
+  }
+]

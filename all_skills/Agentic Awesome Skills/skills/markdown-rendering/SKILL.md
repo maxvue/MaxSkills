@@ -1,6 +1,6 @@
 ---
 name: markdown-rendering
-description: "Open Markdown reliably in cmux panes and recover from blank rendered surfaces."
+description: "Open Markdown reliably in cmux panes and recover from blank rendered surfaces. Use when developing, optimizing, debugging, or configuring markdown rendering in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for markdown rendering."
 category: productivity
 risk: safe
 source: community

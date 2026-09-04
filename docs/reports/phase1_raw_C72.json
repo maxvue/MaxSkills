@@ -1,0 +1,518 @@
+[
+  {
+    "skillName": "ux-flow",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ux-flow/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão insuficiente da description (74 caracteres, abaixo do limiar de 200 a 400 caracteres), carecendo de densidade de escopo e contexto de atuação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula formal de gatilho/ativação ('Use when...') e omissão de termos discriminantes essenciais como Hick's Law, Miller's Law, Progressive Disclosure, Hub & Spoke e diagramação ASCII.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Acoplamento excessivo com arquivos e convenções específicas do repositório upstream bitjaru/styleseed (`CLAUDE.md`, `DESIGN-LANGUAGE.md`, `components/patterns/`, `/ss-page`, `/ss-copy`), gerando falhas operacionais em projetos genéricos que não contam com esses artefatos locais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o bloco genérico de Limitations (linhas 69-74) e placeholders avulsos como `$0` e `$ARGUMENTS` (linhas 26-27), desacoplando referências restritivas ao repositório styleseed.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Design e estruturação de fluxos de navegação e arquitetura da informação aplicando heurísticas de UX clássicas como Hick's Law e Miller's Law.",
+      "entidades": [
+        "PageShell",
+        "TopBar",
+        "BottomNav",
+        "CLAUDE.md",
+        "DESIGN-LANGUAGE.md",
+        "/ss-page",
+        "/ss-copy"
+      ],
+      "keywords": [
+        "ux-flow",
+        "user flow",
+        "navigation",
+        "progressive disclosure",
+        "miller's law",
+        "hick's law",
+        "hub and spoke",
+        "linear flow",
+        "tab navigation",
+        "ascii diagram",
+        "information architecture",
+        "skeleton screens",
+        "page composition"
+      ]
+    },
+    "summary": "Skill com bons princípios heurísticos de UX, mas com description excessivamente curta (74 chars) e dependência estrita de convenções de arquivos locais do repositório styleseed."
+  },
+  {
+    "skillName": "uxui-principles",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/uxui-principles/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 138 caracteres, insuficiente frente à recomendação de 200 a 400 caracteres, e sem cláusula explícita de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência dos 168 princípios prometidos no corpo do documento; o arquivo opera apenas como metadados/índice apontando para 5 sub-skills externas e comando de instalação `npx skills add`.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Falta de auto-suficiência cognitiva: a skill delega a avaliação para uma API remota proprietária (uxuiprinciples.com) ou ferramentas não empacotadas no arquivo, não fornecendo heurísticas utilizáveis de forma autônoma pelo modelo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 25,
+    "cuts": [
+      {
+        "text": "Eliminar instruções de instalação de pacotes externos (`npx skills add`) e referências a endpoints proprietários externos, substituindo pela descrição concreta das regras essenciais de UX/UI.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Índice avaliativo de interfaces baseado em 168 princípios de UX/UI, detecção de antipatterns e injeção de contexto para vibe coding.",
+      "entidades": [
+        "uxui-evaluator",
+        "interface-auditor",
+        "ai-interface-reviewer",
+        "flow-checker",
+        "vibe-coding-advisor",
+        "uxuiprinciples API"
+      ],
+      "keywords": [
+        "uxui-principles",
+        "ux evaluation",
+        "ui principles",
+        "antipatterns",
+        "ux smells",
+        "ai interface",
+        "trust",
+        "transparency",
+        "flow checker",
+        "heuristic evaluation",
+        "accessibility",
+        "vibe coding"
+      ]
+    },
+    "summary": "Mero catálogo agregador que promete 168 princípios e detecção de antipatterns, mas não embute o conhecimento no arquivo, delegando a pacotes npx e APIs externas."
+  },
+  {
+    "skillName": "variant-analysis",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/variant-analysis/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Descoberta e busca sistemática de variantes de vulnerabilidades e bugs em bases de código a partir de padrões conhecidos utilizando CodeQL, Semgrep e ripgrep.",
+      "entidades": [
+        "CodeQL",
+        "Semgrep",
+        "ripgrep",
+        "python.ql",
+        "javascript.ql",
+        "python.yaml",
+        "METHODOLOGY.md"
+      ],
+      "keywords": [
+        "variant-analysis",
+        "security audit",
+        "vulnerability hunting",
+        "pattern-based analysis",
+        "codeql",
+        "semgrep",
+        "ripgrep",
+        "taint tracking",
+        "data flow",
+        "false positive rate",
+        "iterative generalization",
+        "root cause",
+        "exploitability",
+        "edge cases"
+      ]
+    },
+    "summary": "Skill exemplar, com description perfeitamente calibrada (247 chars), processo metodológico claro em 5 etapas, critérios de ferramenta bem definidos e zero bloat."
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (131 caracteres, longe do ideal de 200 a 400) e desprovida de cláusula de ativação ('Use when...') ou discriminantes operacionais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Tautologia absoluta: o arquivo de 29 linhas repete a mesma frase genérica quatro vezes ('Overview', 'When to Use', 'Instructions', 'Description') sem introduzir nenhuma instrução técnica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inexistência total de conteúdo técnico: ausência de comandos da CLI Varlock, padrões de configuração, regras de variáveis ou exemplos, constituindo um placeholder inútil para um link externo do GitHub.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 80,
+    "cuts": [
+      {
+        "text": "Eliminar o loop tautológico de repetições da mesma frase e preencher o documento com o manual prático e comandos do utilitário Varlock.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gestão segura de variáveis de ambiente para prevenir vazamento de segredos em sessões Claude, terminais, logs e commits.",
+      "entidades": [
+        "varlock",
+        "wrsmith108/varlock-claude-skill"
+      ],
+      "keywords": [
+        "varlock",
+        "environment variables",
+        "secrets management",
+        "security",
+        "claude sessions",
+        "git commits",
+        "terminal exposure",
+        "leak prevention",
+        "credentials",
+        "env"
+      ]
+    },
+    "summary": "Skill crítica e inoperante em estado de stub puro, contendo uma única frase repetida 4 vezes em seções vazias sem qualquer comando ou instrução técnica do Varlock."
+  },
+  {
+    "skillName": "vector-database-engineer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vector-database-engineer/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter YAML terminando abruptamente com 'and similar' (198 caracteres), rompendo a gramática e completude semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Emprego de linguagem promocional e persona inflada na description ('Expert in...', 'Masters Pinecone...'), violando a diretriz anti-marketing (Critério 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de fórmula formal 'Use when...' na description e presença de instruções genéricas e vazias ('Clarify goals, constraints... Provide actionable steps...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo superficial e sem implementações: não há queries, schemas ou configurações reais para Pinecone, Qdrant, Milvus ou pgvector no corpo da skill, delegando o valor prático inteiramente a um arquivo externo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 25,
+    "cuts": [
+      {
+        "text": "Remover a subseção tautológica 'Do not use this skill when: The task is unrelated to vector database engineer' (linhas 13-17).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Substituir as instruções genéricas de agente ('Clarify goals, constraints...') por diretrizes arquiteturais de parametrização vetorial e estratégias de indexação.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura, seleção e otimização de bancos de dados vetoriais, modelos de embeddings e estratégias de busca híbrida para sistemas RAG.",
+      "entidades": [
+        "Pinecone",
+        "Weaviate",
+        "Qdrant",
+        "Milvus",
+        "pgvector",
+        "HNSW",
+        "IVF",
+        "PQ",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "vector-database",
+        "embeddings",
+        "semantic search",
+        "rag",
+        "pinecone",
+        "weaviate",
+        "qdrant",
+        "milvus",
+        "pgvector",
+        "hnsw",
+        "ivf",
+        "quantization",
+        "hybrid search",
+        "chunking",
+        "metadata filtering",
+        "latency vs recall"
+      ]
+    },
+    "summary": "Skill prejudicada por description truncada ('and similar') e hiperbólica ('Expert in... Masters...'), além de instruções vazias e dependência total de playbook externo."
+  },
+  {
+    "skillName": "vector-index-tuning",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vector-index-tuning/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description levemente curta (171 caracteres, abaixo do limiar de 200 a 400 caracteres), omitindo índices e parâmetros específicos (M, efConstruction, efSearch, SQ/PQ).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo do SKILL.md excessivamente enxuto e conceitual (51 linhas), transferindo dados numéricos de parametrização e benchmarks para `resources/implementation-playbook.md` sem prover referência rápida no arquivo principal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a redundância da referência duplicada ao arquivo `resources/implementation-playbook.md` presente na linha 35 e novamente na linha 45.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização de índices vetoriais de alta performance focada no ajuste fino de parâmetros HNSW, técnicas de quantização e trade-offs entre latência, recall e memória.",
+      "entidades": [
+        "HNSW",
+        "SQ",
+        "PQ",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "vector-index-tuning",
+        "hnsw",
+        "quantization",
+        "scalar quantization",
+        "product quantization",
+        "latency",
+        "recall",
+        "qps",
+        "memory budget",
+        "vector search",
+        "benchmark",
+        "staging validation"
+      ]
+    },
+    "summary": "Skill tecnicamente bem orientada quanto a trade-offs de índices vetoriais, porém concisa em excesso no arquivo principal (171 chars na description e delegação total de parâmetros a playbook)."
+  },
+  {
+    "skillName": "vercel-ai-sdk-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vercel-ai-sdk-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description ligeiramente abaixo do patamar de 200 caracteres (179 caracteres) e contendo tom de persona artificial ('Expert in the Vercel AI SDK...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de fórmula explícita de condição de uso ('Use when...') diretamente na description do cabeçalho YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento de chatbots, geração de texto e interfaces generativas em streaming com React e Next.js utilizando o Vercel AI SDK Core e UI.",
+      "entidades": [
+        "generateText",
+        "streamText",
+        "generateObject",
+        "useChat",
+        "useCompletion",
+        "tool",
+        "toDataStreamResponse",
+        "ai",
+        "@ai-sdk/react",
+        "@ai-sdk/openai",
+        "zod"
+      ],
+      "keywords": [
+        "vercel-ai-sdk",
+        "streamtext",
+        "generatetext",
+        "generateobject",
+        "usechat",
+        "usecompletion",
+        "tool calling",
+        "zod schema",
+        "streaming ui",
+        "nextjs",
+        "react",
+        "maxduration",
+        "maxsteps",
+        "chatbots"
+      ]
+    },
+    "summary": "Excelente conteúdo técnico com código TypeScript moderno e soluções de timeout de streaming, demandando apenas ajustes na description (expandir para 200-400 chars e remover persona)."
+  },
+  {
+    "skillName": "vercel-optimize",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vercel-optimize/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (143 caracteres, abaixo da faixa ideal de 200 a 400), omitindo termos discriminantes de relevância como Observability Plus, Next.js App/Pages Router, SvelteKit, Nuxt e Vercel CLI metrics/usage.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula formal de gatilho/ativação ('Use when...') no frontmatter YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria orientada à observabilidade para otimização de custo e performance em aplicações hospedadas na Vercel com base em telemetria de produção.",
+      "entidades": [
+        "vercel CLI",
+        "Observability Plus",
+        "signals.json",
+        "gate-investigations.mjs",
+        "collect-signals.mjs",
+        "scan-codebase.mjs",
+        "verify-and-regen.mjs",
+        "Fluid compute"
+      ],
+      "keywords": [
+        "vercel-optimize",
+        "observability",
+        "metrics",
+        "cost optimization",
+        "performance audit",
+        "vercel cli",
+        "nextjs",
+        "sveltekit",
+        "nuxt",
+        "deterministic gates",
+        "code scans",
+        "fluid compute",
+        "cache policy"
+      ]
+    },
+    "summary": "Pipeline robusto e de altíssima precisão técnica criado pela equipe da Vercel Labs, necessitando somente da calibração da description (atualmente em 143 chars sem gatilho formal)."
+  },
+  {
+    "skillName": "vercel-react-view-transitions",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vercel-react-view-transitions/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description abaixo da faixa ideal (151 caracteres, recomendados 200-400), omitindo elementos discriminantes como `<ViewTransition>`, `addTransitionType`, `startTransition` e `Suspense`.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de fórmula explícita de condição de ativação ('Use when...') no metadado YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação de transições de interface e animações de elementos compartilhados no React e Next.js com View Transition API nativa e suporte a acessibilidade.",
+      "entidades": [
+        "ViewTransition",
+        "startTransition",
+        "useDeferredValue",
+        "Suspense",
+        "addTransitionType",
+        "document.startViewTransition",
+        "::view-transition-old",
+        "::view-transition-new"
+      ],
+      "keywords": [
+        "view-transitions",
+        "react",
+        "nextjs",
+        "shared element",
+        "spatial navigation",
+        "transition types",
+        "directional slides",
+        "reduced motion",
+        "enter exit",
+        "morph animation",
+        "suspense reveal",
+        "css pseudo-elements"
+      ]
+    },
+    "summary": "Guia técnico impecável sobre a nova API ViewTransition do React e Next.js, requerendo apenas enriquecimento da description para atingir o padrão de 200 a 400 caracteres com gatilho formal."
+  },
+  {
+    "skillName": "vibecode-production-qa-validator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vibecode-production-qa-validator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Ausência de fórmula de ativação formal ('Use when...') na description YAML, apesar da boa densidade textual (247 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural: as linhas 429 a 469 reproduzem um 'Master Checklist' que repete integralmente as 13 fases já discriminadas nos blocos precedentes.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Podar a seção 'Master Checklist' (linhas 429-469) que duplica desnecessariamente os itens das 13 fases operacionais apresentadas ao longo do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Protocolo de validação de qualidade e prontidão de produção em 13 fases para aplicações fullstack Next.js com scripts bash de automação.",
+      "entidades": [
+        "npx tsc",
+        "eslint",
+        "next build",
+        "curl",
+        "robots.txt",
+        "sitemap.xml",
+        "Lighthouse",
+        "npm audit",
+        "DOMPurify",
+        "Prisma"
+      ],
+      "keywords": [
+        "qa-validator",
+        "nextjs",
+        "production readiness",
+        "seo tags",
+        "og images",
+        "auth session",
+        "route regression",
+        "page speed",
+        "lazy load",
+        "vulnerability scan",
+        "error boundaries",
+        "clean code",
+        "lighthouse"
+      ]
+    },
+    "summary": "Checklist operacional de QA para Next.js prático e rico em scripts bash executáveis, com necessidade de podar checklist redundante final e incluir gatilho 'Use when...' na description."
+  }
+]

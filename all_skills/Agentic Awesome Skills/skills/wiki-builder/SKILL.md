@@ -1,6 +1,6 @@
 ---
 name: wiki-builder
-description: "Create and maintain reusable research wikis with source provenance, configurable structure, and local markdown outputs."
+description: "Create and maintain reusable research wikis with source provenance, configurable structure, and local markdown outputs. Use when developing, optimizing, debugging, or configuring wiki builder in production workflows."
 category: "knowledge-management"
 risk: "safe"
 source: "official"

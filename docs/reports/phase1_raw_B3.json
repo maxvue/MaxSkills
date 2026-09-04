@@ -1,0 +1,320 @@
+[
+  {
+    "skillName": "react-components",
+    "skillPath": "curated-youtube/react-components/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 139 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem cláusula explícita de condição de uso / gatilho ('Use when...' ou 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Divergência severa de fidelidade entre a descrição e o corpo: a descrição promete padrões de produção para React 19, custom hooks, isolamento de estado e WCAG, porém o arquivo é um stub scaffold de 65 linhas sem nenhum padrão de código, hook ou diretriz técnica implementada.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Corpo composto por boilerplate repetitivo que apenas espelha campos do frontmatter YAML em seções redundantes de Overview e Stack, além de URLs fictícias/simuladas de vídeos do YouTube ('builder_ui_ux_skills_51', etc.).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Remover seções redundantes de 'Visão Geral (Overview)' bilíngue e 'Stack Tecnológica' que duplicam o frontmatter, e substituir o preâmbulo genérico por instruções e padrões técnicos reais de componentes React 19.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de arquitetura e desenvolvimento de componentes para React 19 com TypeScript, hooks customizados e acessibilidade WCAG.",
+      "entidades": ["React 19", "Next.js", "Vite", "TypeScript", "Radix UI", "Zustand", "TanStack Query", "Lucide React"],
+      "keywords": ["react", "components", "typescript", "tsx", "hooks", "state", "isolation", "wcag", "accessibility", "radix", "zustand", "tanstack", "vite", "nextjs"]
+    },
+    "summary": "Skill configurada como template stub genérico sem corpo técnico real e com descrição subdimensionada sem gatilho de ativação."
+  },
+  {
+    "skillName": "security-audit",
+    "skillPath": "curated-youtube/security-audit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 156 caracteres, abaixo do intervalo recomendado de 200 a 400 caracteres, necessitando de expansão de cobertura e termos discriminantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita de gatilho contextual ('Use when...') diretamente na description do frontmatter YAML, embora exista seção 'When to Use' no corpo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Workflow orquestrador de auditoria de segurança abrangendo testes web, segurança de APIs, pentesting, varredura de vulnerabilidades e hardening.",
+      "entidades": ["OWASP Top 10", "Burp Suite", "Metasploit", "Shodan", "scanning-tools", "vulnerability-scanner", "sql-injection-testing", "xss-html-injection", "idor-testing"],
+      "keywords": ["security", "audit", "pentest", "vulnerability", "reconnaissance", "owasp", "api-security", "hardening", "shodan", "sql-injection", "xss", "idor", "burp-suite", "metasploit", "reporting"]
+    },
+    "summary": "Workflow de auditoria e orquestração de segurança robusto e de alta qualidade, exigindo apenas expansão e inclusão de gatilho na description."
+  },
+  {
+    "skillName": "shadcn-ui",
+    "skillPath": "curated-youtube/shadcn-ui/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 143 caracteres (abaixo do limiar de 200 chars) e sem declaração explícita de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de fidelidade técnica ao corpo: promete automação e integração de componentes Radix UI e Tailwind CSS, mas o arquivo é um stub scaffold de 65 linhas sem instruções sobre a CLI da shadcn ('npx shadcn@latest add'), components.json, utilitário cn ou componentes reais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de ruído estrutural com repetição literal dos campos do YAML nas seções de Overview e Stack, e inclusão de URLs simuladas de vídeos do YouTube.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Podar blocos duplicados de Visão Geral e Stack Tecnológica que espelham o frontmatter, substituindo as diretrizes genéricas por exemplos práticos de instalação, configuração e estilização do shadcn/ui.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Instalação, configuração e customização de componentes headless Radix UI integrados com Tailwind CSS para React e Next.js.",
+      "entidades": ["shadcn/ui", "Radix UI", "Tailwind CSS", "React", "Next.js", "Vite", "Remix", "@radix-ui/react-primitives", "tailwind-merge", "clsx", "lucide-react"],
+      "keywords": ["shadcn", "radix-ui", "tailwind", "components", "react", "nextjs", "vite", "remix", "tailwind-merge", "clsx", "accessibility", "primitives", "copy-paste"]
+    },
+    "summary": "Template stub oco sem instruções reais de instalação ou integração de shadcn/ui e com descrição curta sem gatilho."
+  },
+  {
+    "skillName": "skill-creator",
+    "skillPath": "curated-youtube/skill-creator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de comentários informais, digressões e frases em caixa alta no corpo do documento (ex: 'Cool? Cool.', 'billions a year in economic value', 'Sorry in advance but I'm gonna go all caps here') que destoam do tom técnico e conciso.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar diálogos conversacionais e avisos informais nas seções introdutórias e de suporte Cowork, focando exclusivamente na especificação do fluxo de evals, grading, benchmarking e otimização.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Pipeline estruturado para criação, avaliação empírica, benchmarking e otimização de triggering de skills para Claude.",
+      "entidades": ["generate_review.py", "run_loop.py", "package_skill.py", "evals.json", "grading.json", "benchmark.json", "timing.json", "Claude CLI", "Cowork", "agents/grader.md", "agents/comparator.md", "agents/analyzer.md"],
+      "keywords": ["skill-creator", "evals", "benchmark", "triggering", "optimization", "subagents", "grading", "variance-analysis", "prompt-engineering", "progressive-disclosure", "packaging", "claude-code"]
+    },
+    "summary": "Skill oficial excelente e altamente detalhada com description ideal, necessitando apenas de poda leve de diálogos conversacionais no corpo."
+  },
+  {
+    "skillName": "superpowers",
+    "skillPath": "curated-youtube/superpowers/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 136 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem condição de gatilho contextual ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivos promocionais não técnicos no frontmatter e na visão geral ('Complete agentic engineering workflow', 'reliable, high-velocity engineering loop') sem suporte factual.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo stub oco: não implementa nenhuma instrução, especificação técnica, regra de TDD ou ciclo de subagentes do framework Superpowers, consistindo em scaffold genérico de 65 linhas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Substituir o boilerplate genérico de 65 linhas pelas rotinas operacionais reais do framework Superpowers (planejamento estruturado, templates de especificação e ciclo de subagentes).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework de engenharia agentic integrando planejamento arquitetural estruturado, especificações técnicas, TDD e ciclos de revisão com subagentes.",
+      "entidades": ["Superpowers", "Markdown", "Shell", "TypeScript"],
+      "keywords": ["agentic", "workflow", "planning", "technical-specs", "tdd", "subagents", "review-cycles", "quality-gates", "architecture", "error-prevention"]
+    },
+    "summary": "Stub com linguagem promocional, descrição curta sem gatilho e total ausência das regras operacionais do framework no corpo."
+  },
+  {
+    "skillName": "tailwind-css",
+    "skillPath": "curated-youtube/tailwind-css/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 138 caracteres, abaixo da faixa recomendada de 200-400 chars, e sem cláusula explícita de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo stub de 65 linhas desprovido de conteúdo técnico: não traz regras de classes utilitárias responsivas, tokens de design, diretrizes mobile-first nem configuração de dark mode ou Tailwind CSS v4 (@theme).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Redundância estrutural decorrente da duplicação dos metadados do YAML nas seções Overview e Stack Tecnológica, acompanhadas de links simulados de YouTube.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Remover o template de 65 linhas e incorporar diretrizes técnicas reais para estilização com classes utilitárias, mapeamento de temas e suporte a Tailwind CSS v3 e v4.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Mapeamento de design tokens, arquitetura de layout utilitário responsivo, abordagem mobile-first e configuração de dark mode no Tailwind CSS v3 e v4.",
+      "entidades": ["Tailwind CSS v3/v4", "PostCSS", "Autoprefixer", "tailwind-merge", "Next.js", "Vue", "React"],
+      "keywords": ["tailwind", "css", "utility-first", "design-tokens", "mobile-first", "responsive", "dark-mode", "postcss", "autoprefixer", "tailwind-merge", "styling"]
+    },
+    "summary": "Scaffold genérico de 65 linhas que duplica metadados e não implementa as técnicas de estilização com Tailwind CSS."
+  },
+  {
+    "skillName": "test-driven-development",
+    "skillPath": "curated-youtube/test-driven-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (83 caracteres), muito abaixo do limite ideal de 200 caracteres, omitindo termos discriminantes essenciais como Red-Green-Refactor, Iron Law e testes unitários.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condição de disparo hiper-ampla e genérica ('Use when implementing any feature or bugfix...'), gerando risco de falso-positivo para qualquer tarefa de implementação antes de avaliar se TDD se aplica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia estrita de Test-Driven Development (TDD) baseada no ciclo Red-Green-Refactor, na Iron Law de verificação de falha prévia e na eliminação de racionalizações.",
+      "entidades": ["npm test", "Jest", "Vitest", "TypeScript", "writing-good-tests.md"],
+      "keywords": ["tdd", "test-driven-development", "red-green-refactor", "unit-testing", "jest", "vitest", "assertions", "failing-test", "minimal-code", "refactoring", "regression-prevention"]
+    },
+    "summary": "Excelente e rigoroso guia prático de TDD com diagramas e exemplos claros, exigindo unicamente expansão e calibração de discriminantes na description."
+  },
+  {
+    "skillName": "the-library",
+    "skillPath": "curated-youtube/the-library/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 128 caracteres (abaixo dos 200 chars ideais) e sem cláusula condicional de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo stub oco (65 linhas): não documenta nenhuma rotina prática de sincronização, versionamento, comandos de terminal ou gerenciamento do catálogo descentralizado de skills.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ruído estrutural com repetição literal dos campos do frontmatter YAML nas seções de Overview e Stack, acompanhado de links placeholder de YouTube.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Eliminar os blocos redundantes de Overview e Stack e documentar o procedimento técnico real de catálogo e sincronização de skills entre ambientes.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Catálogo descentralizado e sistema de sincronização privada para distribuição e versionamento de skills de IA, personas e kits de prompts.",
+      "entidades": ["The Library", "TypeScript", "Markdown", "Shell"],
+      "keywords": ["library", "skills", "catalog", "synchronization", "versioning", "agent-personas", "prompt-kits", "distribution", "decentralized"]
+    },
+    "summary": "Template stub oco sem instruções reais de sincronização e com description subdimensionada sem gatilho de ativação."
+  },
+  {
+    "skillName": "token-optimization",
+    "skillPath": "curated-youtube/token-optimization/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (128 caracteres), sem gatilho contextual ('Use when...') e com afirmação promocional quantitativa sem validação ('by up to 80%').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo stub de 65 linhas desprovido de técnicas reais de budgeting de contexto, medição de tokens, compressão de prompts ou desconexão de MCPs ociosos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Estrutura inchada por repetição inútil dos metadados do YAML em seções redundantes de Overview e Stack com links mockados de YouTube.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Remover os blocos repetitivos de Visão Geral e Stack Tecnológica e substituir as diretrizes genéricas por rotinas práticas de pruning de histórico e otimização de ferramentas MCP.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Técnicas de dimensionamento de contexto, compressão de prompts, desconexão de ferramentas MCP ociosas e redução de custos de inferência com LLMs.",
+      "entidades": ["Python", "Markdown", "MCP Tools", "LLM Context Window"],
+      "keywords": ["token-optimization", "context-window", "budgeting", "prompt-compression", "idle-tools", "token-reduction", "cost-reduction", "mcp-pruning", "llm-efficiency"]
+    },
+    "summary": "Stub genérico com marketing na description e corpo sem instruções práticas de gerenciamento e economia de tokens."
+  },
+  {
+    "skillName": "vue-components",
+    "skillPath": "curated-youtube/vue-components/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description de 101 caracteres totalmente genérica ('Specialized AI agent skill for vue components providing best practices and automated workflows') com ausência total de termos discriminantes (sem citação a Vue 3, Composition API, SFC, script setup, props ou emits).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência completa de cláusula condicional de ativação / gatilho contextual ('Use when...') no frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadados de stack técnicos no frontmatter YAML completamente vazios (languages: [], frameworks: [], libs: []).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo stub scaffold de 65 linhas desprovido de qualquer código ou instrução de desenvolvimento de componentes em Vue 3.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 45,
+    "cuts": [
+      {
+        "text": "Remover integralmente o scaffold genérico de 65 linhas e reescrever o SKILL.md com padrões reais de Vue 3 (Composition API, script setup, reatividade e tipagem TypeScript).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento de Single File Components (SFC) em Vue 3 utilizando Composition API, script setup e padrões estruturados de reatividade.",
+      "entidades": ["Vue 3", "Vue.js Core", "Composition API", "Single File Components (SFC)", "TypeScript"],
+      "keywords": ["vue", "components", "vue3", "sfc", "composition-api", "script-setup", "reactivity", "props", "emits", "lifecycle", "frontend"]
+    },
+    "summary": "Skill em estado crítico devido a description genérica sem discriminantes nem gatilhos, stack vazia no YAML e corpo stub sem conteúdo técnico."
+  }
+]

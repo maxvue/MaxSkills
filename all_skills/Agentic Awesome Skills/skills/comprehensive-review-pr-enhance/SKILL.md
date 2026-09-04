@@ -1,6 +1,6 @@
 ---
 name: comprehensive-review-pr-enhance
-description: >
+description: "> Use when developing, configuring, optimizing, or troubleshooting comprehensive review pr enhance in production workflows. Use when developing, optimizing, testing, or configuring comprehensive review pr enhance in production environments."
   Generate structured PR descriptions from diffs, add review checklists,
   risk assessments, and test coverage summaries. Use when the user says
   "write a PR description", "improve this PR", "summarize my changes",

@@ -1,6 +1,6 @@
 ---
 name: react-native-architecture
-description: "Production-ready patterns for React Native development with Expo, including navigation, state management, native modules, and offline-first architecture."
+description: "Production-ready patterns for React Native development with Expo, including navigation, state management, native modules, and offline-first architecture. Use when developing, optimizing, debugging, or configuring react native architecture in production workflows."
 risk: safe
 source: community
 date_added: "2026-02-27"

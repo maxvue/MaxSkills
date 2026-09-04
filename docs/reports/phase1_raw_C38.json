@@ -1,0 +1,587 @@
+[
+  {
+    "skillName": "legacy-modernizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/legacy-modernizer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com apenas 167 caracteres (abaixo da faixa ideal de 200-400 chars) e sem cláusula formal de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes arquiteturais cruciais na description presentes no corpo da skill, como Strangler Fig pattern, feature flags e shims/adapters.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seções tautológicas vazias em 'Use this skill when' (linhas 9-13) e 'Do not use this skill when' (linhas 14-18), que apenas repetem o nome da skill sem especificar critérios operacionais reais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência morta/órfã na linha 24 ao arquivo 'resources/implementation-playbook.md', inexistente no repositório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 25,
+    "cuts": [
+      {
+        "text": "Remover as seções tautológicas 'Use this skill when' (linhas 9-13) e 'Do not use this skill when' (linhas 14-18) que ecoam o nome da skill sem valor semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar o bloco genérico de 'Instructions' (linhas 19-25) e a referência ao playbook inexistente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Planejamento e execução de modernização incremental de software legado via Strangler Fig pattern, testes de regressão, shims e feature flags.",
+      "entidades": [
+        "Strangler fig pattern",
+        "jQuery",
+        "React",
+        "Java 8",
+        "Java 17",
+        "Python 2",
+        "Python 3",
+        "ORMs",
+        "Feature flags",
+        "API versioning"
+      ],
+      "keywords": [
+        "legacy modernization",
+        "refactoring",
+        "technical debt",
+        "strangler fig",
+        "framework migration",
+        "feature flags",
+        "compatibility shims",
+        "test coverage",
+        "monolith decomposition",
+        "backward compatibility",
+        "database modernization",
+        "deprecation warnings",
+        "rollback procedures"
+      ]
+    },
+    "summary": "Skill conceitualmente válida para refatoração incremental, mas penalizada por description subdimensionada sem discriminantes e preâmbulo com boilerplate tautológico órfão."
+  },
+  {
+    "skillName": "leiloeiro-risco",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/leiloeiro-risco/SKILL.md",
+    "state": "Regular",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description curta (153 caracteres), sem pontuação diacrítica ('Analise', 'leiloes', 'imoveis', 'cenarios') e sem cláusula condicional de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Sintaxe Markdown corrompida na tabela de reforma (linhas 159-161), onde a tabela foi interrompida abruptamente em '|----------------|---' sem cabeçalhos completos nem dados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Caminho absoluto local Windows hardcoded do autor na linha 427 ('python C:\\Users\\renat\\skills\\agent-orchestrator\\scripts\\scan_registry.py').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Acoplamento e referências a ecossistema externo privado do autor (linhas 438-464: 'agent-orchestrator', 'skill-sentinel', 'log_action', 'check_rate'), inoperantes para agentes externos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Linha 99 truncada ('**Ação:** Sempre obter certidão') precedendo o título da Categoria 2 sem contextualização completa.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover os blocos de instalação e execução vinculados a orquestrador privado e paths Windows C:\\Users\\renat (linhas 419-465).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corrigir ou remover a tabela de custos de reforma incompleta e quebrada (linhas 159-161).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar seções genéricas de 'Best Practices' e 'Common Pitfalls' (linhas 477-488) não específicas do domínio.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria e quantificação de riscos jurídicos, financeiros e operacionais em arrematação de imóveis em leilões judiciais e extrajudiciais brasileiros.",
+      "entidades": [
+        "Art. 903 CPC",
+        "Lei 8.009/1990",
+        "Súmula STJ 478",
+        "Tema 1.113 STJ",
+        "Lei 9.514/1997",
+        "CEMADEN",
+        "PJE",
+        "e-SAJ",
+        "Junta Comercial",
+        "ITBI",
+        "IPTU propter rem"
+      ],
+      "keywords": [
+        "leilão de imóveis",
+        "risco jurídico",
+        "bem de família",
+        "ônus reais",
+        "débitos propter rem",
+        "arrematação",
+        "stress test",
+        "ROI ponderado",
+        "ITBI",
+        "valor venal",
+        "matrícula atualizada",
+        "imissão na posse",
+        "evicção",
+        "hasta pública"
+      ]
+    },
+    "summary": "Conteúdo jurídico e imobiliário brasileiro riquíssimo e aprofundado, porém prejudicado por tabela markdown quebrada, path Windows pessoal hardcoded e referências inoperantes a orquestrador proprietário."
+  },
+  {
+    "skillName": "libreoffice/base",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/libreoffice/base/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description extremamente curta com apenas 80 caracteres (muito abaixo do piso de 200 chars) e sem gatilho explícito ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de discriminantes essenciais na description presentes no corpo da skill, como formato nativo ODB, API Python UNO, bancos HSQLDB/Firebird, ODBC/JDBC e CLI 'soffice --base'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Nome da skill no frontmatter definido como 'base', excessivamente genérico e com elevado risco de colisão no catálogo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, gerenciamento e automação de bancos de dados ODB no LibreOffice Base via CLI soffice e scripts Python UNO.",
+      "entidades": [
+        "LibreOffice Base",
+        "soffice",
+        "uno",
+        "UnoUrlResolver",
+        "DatabaseDocument",
+        "HSQLDB",
+        "Firebird",
+        "MySQL",
+        "PostgreSQL",
+        "SQLite",
+        "ODBC",
+        "JDBC",
+        "pyodbc",
+        "sqlalchemy"
+      ],
+      "keywords": [
+        "libreoffice base",
+        "odb format",
+        "uno api",
+        "python uno",
+        "database automation",
+        "sql queries",
+        "forms",
+        "reports",
+        "embedded hsqldb",
+        "firebird",
+        "mysql connection",
+        "postgresql connection",
+        "odbc",
+        "jdbc"
+      ]
+    },
+    "summary": "Documentação enxuta e tecnicamente precisa sobre automação do LibreOffice Base com Python UNO, necessitando de expansão da description para 200-400 caracteres e qualificação do nome no frontmatter."
+  },
+  {
+    "skillName": "libreoffice/writer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/libreoffice/writer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta com 108 caracteres (abaixo da faixa de 200-400 chars) e sem condição de disparo declarada ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description de discriminantes práticos do corpo, como CLI 'soffice --headless', API Python UNO, biblioteca odfpy e manipulação direta de content.xml em templates.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Nome da skill no frontmatter definido como 'writer', genérico e passível de conflito com outros processadores de texto.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, conversão em lote (ODT/DOCX/PDF), mala direta e automação de documentos no LibreOffice Writer via CLI soffice e Python UNO/odfpy.",
+      "entidades": [
+        "LibreOffice Writer",
+        "soffice",
+        "uno",
+        "TextDocument",
+        "odfpy",
+        "OpenDocumentText",
+        "ezodf",
+        "content.xml",
+        "PDF/A"
+      ],
+      "keywords": [
+        "libreoffice writer",
+        "odt conversion",
+        "docx to pdf",
+        "batch conversion",
+        "mail merge",
+        "template generation",
+        "python uno",
+        "odfpy",
+        "headless soffice",
+        "document automation",
+        "xml template injection"
+      ]
+    },
+    "summary": "Guia técnico de alta utilidade e sem ruído estrutural para geração e conversão de documentos com LibreOffice Writer, demandando ampliação semântica da description e namespace no frontmatter."
+  },
+  {
+    "skillName": "lightning-architecture-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/lightning-architecture-review/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de excelente densidade (260 caracteres), porém sem prefixar o gatilho padronizado 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de três bullets genéricos de instrução nas linhas 20-25 ('Clarify goals...', 'Apply relevant...') comuns a templates de skills.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover os 3 bullets genéricos de instruções (linhas 20-25) preservando o foco estrito na arquitetura SuperScalar e protocolos Lightning.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Avaliação arquitetural de protocolos Bitcoin Lightning Network, channel factories, modelos de confiança e saídas unilaterais Layer 2.",
+      "entidades": [
+        "Bitcoin",
+        "Lightning Network",
+        "SuperScalar",
+        "Decker-Wattenhofer invalidation trees",
+        "timeout-signature trees",
+        "Poon-Dryja channels",
+        "HTLC",
+        "PTLC",
+        "Watchtowers",
+        "LSP",
+        "UTXO"
+      ],
+      "keywords": [
+        "bitcoin",
+        "lightning network",
+        "channel factories",
+        "superscalar",
+        "decker-wattenhofer",
+        "poon-dryja",
+        "htlc",
+        "ptlc",
+        "watchtower",
+        "liveness guarantees",
+        "on-chain footprint",
+        "unilateral exit",
+        "layer 2 scaling"
+      ]
+    },
+    "summary": "Skill de altíssimo rigor técnico e vocabulário discriminante para análise de escalabilidade Layer 2 em Bitcoin, com description no padrão ideal de extensão e densidade."
+  },
+  {
+    "skillName": "linkedin-cli",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linkedin-cli/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 147 caracteres (< 200 chars), omitindo discriminantes essenciais como o pacote `@linkedapi/linkedin-cli`, Linked API tokens, browser cloud headless e flags globais '--json -q'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Duplicação estrutural da seção 'When to Use' (linhas 9-11 e linhas 38-46).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência na description de menção explícita à dependência do serviço SaaS de terceiro (app.linkedapi.io) para execução operacional do CLI.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Fundir ou remover a primeira ocorrência da seção 'When to Use' (linhas 9-11), mantendo a versão mais detalhada das linhas 38-46.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação completa de operações no LinkedIn e Sales Navigator via CLI @linkedapi/linkedin-cli com saídas JSON estruturadas.",
+      "entidades": [
+        "linkedin-cli",
+        "@linkedapi/linkedin-cli",
+        "Linked API",
+        "app.linkedapi.io",
+        "Sales Navigator",
+        "InMail",
+        "Social Selling Index (SSI)"
+      ],
+      "keywords": [
+        "linkedin automation",
+        "linkedin cli",
+        "linkedapi",
+        "profile fetch",
+        "company search",
+        "connection management",
+        "inmail",
+        "sales navigator",
+        "ssi stats",
+        "post creation",
+        "workflow automation",
+        "json output"
+      ]
+    },
+    "summary": "Manual de referência completo e exaustivo para automação CLI do LinkedIn, exigindo apenas desduplicação de seções e ampliação da description com identificação do pacote npm."
+  },
+  {
+    "skillName": "linkedin-content-generator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linkedin-content-generator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 177 caracteres (< 200 chars) contendo termo buzzword ('AI-powered') e sem cláusula condicional clara de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de jargão inflado ('reinforcement-learning personal memory system') para descrever um sistema simples de registro cumulativo em memory.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Comandos de shell com paths fixos acoplados à pasta local do Claude Code (~/.claude/skills/...), reduzindo a portabilidade para outros ambientes de agentes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Condensar blocos repetitivos de instalação e comandos duplicados com paths absolutos (linhas 60-70 e 424-434).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Desinflar a terminologia promocional de 'reinforcement-learning' em favor de 'feedback-based memory system'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework para geração de conteúdo no LinkedIn (posts, carrosséis, newsletters e calendários de 30 dias) com persistência local de preferências.",
+      "entidades": [
+        "linkedin-content-generator",
+        "generate_post.py",
+        "memory_manager.py",
+        "utils.py",
+        "memory.md",
+        "Claude Code"
+      ],
+      "keywords": [
+        "linkedin content",
+        "carousel generator",
+        "newsletter",
+        "content calendar",
+        "copywriting",
+        "hooks",
+        "seo rules",
+        "memory.md",
+        "feedback loop",
+        "personal brand",
+        "audience engagement"
+      ]
+    },
+    "summary": "Suíte robusta com regras algorítmicas de SEO para LinkedIn e 7 comandos práticos, necessitando de ajustes na description (remover 'AI-powered', expandir para 200+ chars) e desinflação de termos de marketing."
+  },
+  {
+    "skillName": "linkedin-post-writer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linkedin-post-writer/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description de altíssima densidade semântica com 198 caracteres (apenas 2 caracteres abaixo do piso de 200 chars), necessitando da cláusula introdutória padronizada 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Redação de posts para LinkedIn orientada por 16 fórmulas de ganchos indexadas a objetivos de engajamento e regras anti-IA.",
+      "entidades": [
+        "F1 a F16 formulas",
+        "Platform Risk Anaphora",
+        "R.I.P. Obituary",
+        "Odd-Precision Money Ledger",
+        "Contrarian + Receipts",
+        "hook-formulas.md",
+        "LinkedIn algorithm 2026"
+      ],
+      "keywords": [
+        "linkedin copywriting",
+        "hook formulas",
+        "engagement goals",
+        "post drafting",
+        "ai tell scrubbing",
+        "b2b copy",
+        "text formatting",
+        "lead magnets",
+        "contrast hooks",
+        "personal branding"
+      ]
+    },
+    "summary": "Skill exemplar com 16 fórmulas comprovadas de ganchos, regras rígidas contra clichês de IA e parâmetros algorítmicos precisos, com zero bloat e conteúdo 100% acionável."
+  },
+  {
+    "skillName": "linkedin-profile-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linkedin-profile-optimizer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres contendo jargões vazios e hiperbólicos ('High-intent expert', 'top 1% positioning') que violam o Critério 10 (Linguagem Anti-Promocional) e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de terminologias e posturas informais/subjetivas no corpo da skill (ex: 'roast' do perfil, tom 'Osho-style / Reflective', 'Red Thread') sem formalização técnica objetiva.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Omissão de termos discriminantes técnicos das seções do LinkedIn na description (Headline, About, Featured, Experience Action-Result, Skills clustering).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover ou reescrever as menções a tons informais/subjetivos como 'Osho-style' (linha 116) e termos coloquiais como 'roast' (linhas 25, 60).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar exemplos conversacionais extensos (linhas 120-141) em tabelas diretas de transformação de currículo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria, reestruturação e otimização de seções de perfis no LinkedIn com metodologia Action-Result e verificação anti-alucinação.",
+      "entidades": [
+        "LinkedIn Profile",
+        "Headline",
+        "About",
+        "Featured section",
+        "Experience",
+        "Skills & SEO",
+        "Action-Result formula"
+      ],
+      "keywords": [
+        "linkedin profile",
+        "profile audit",
+        "headline optimization",
+        "about section",
+        "experience bullet points",
+        "action result",
+        "personal brand",
+        "skill clustering",
+        "keyword optimization",
+        "social proof",
+        "recruiter searchability"
+      ]
+    },
+    "summary": "Contém salvaguardas úteis contra alucinação e modelo Action-Result, mas sofre com linguagem promocional no frontmatter ('top 1%', 'expert') e jargões informais de coaching no corpo."
+  },
+  {
+    "skillName": "linkerd-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linkerd-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description muito curta com apenas 109 caracteres (< 200 chars), contendo adjetivos promocionais ('lightweight, security-first service mesh') e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total na description dos CRDs discriminantes detalhados nos templates da skill: ServiceProfile, TrafficSplit, ServerAuthorization, HTTPRoute, mTLS e linkerd viz.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Boilerplate tautológico de template genérico nas linhas 13-24 com referência a arquivo fantasma ('resources/implementation-playbook.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inversão estrutural com a seção 'Do not use this skill when' posicionada antes de 'Use this skill when'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo genérico e tautológico de template das linhas 13-24, incluindo a referência órfã ao playbook inexistente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de produção para service mesh Linkerd no Kubernetes cobrindo mTLS automático, roteamento de tráfego, autorizações e topologia multi-cluster.",
+      "entidades": [
+        "Linkerd",
+        "Kubernetes",
+        "ServiceProfile",
+        "TrafficSplit",
+        "Server",
+        "ServerAuthorization",
+        "HTTPRoute",
+        "linkerd-proxy",
+        "linkerd viz",
+        "linkerd multicluster",
+        "mTLS"
+      ],
+      "keywords": [
+        "linkerd",
+        "service mesh",
+        "kubernetes",
+        "mtls",
+        "serviceprofile",
+        "trafficsplit",
+        "canary deployment",
+        "serverauthorization",
+        "httproute",
+        "multicluster",
+        "retries",
+        "retry budgets",
+        "timeouts",
+        "linkerd viz"
+      ]
+    },
+    "summary": "Excelente coleção de manifestos Kubernetes e padrões de produção para Linkerd, carecendo de uma description expandida com CRDs discriminantes e eliminação do bloco boilerplate inicial."
+  }
+]

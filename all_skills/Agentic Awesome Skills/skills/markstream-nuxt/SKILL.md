@@ -1,6 +1,6 @@
 ---
 name: markstream-nuxt
-description: "Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit CSS, and browser-only optional peers."
+description: "Integrate markstream-vue into Nuxt 3 or 4 with SSR-safe client boundaries, renderer modes, explicit CSS, and browser-only optional peers. Use when developing, optimizing, debugging, or configuring markstream nuxt in production workflows."
 category: frontend
 risk: critical
 source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-nuxt

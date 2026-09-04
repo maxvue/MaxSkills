@@ -1,6 +1,6 @@
 ---
 name: web-media-getter
-description: "One query across free image / video / GIF APIs (stock + historical/archival + GIF engines), returning normalized, license-tagged results with optional top-K download + attribution sidecar. The retrieval peer to local semantic search and generative media."
+description: "One query across free image / video / GIF APIs (stock + historical/archival + GIF engines), returning normalized, license-tagged results with optional top-K download + attribution sidecar. The retrieval peer to local semantic search and generative media. Use when developing, optimizing, debugging, or configuring web media getter in production workflows."
 risk: safe
 source: community
 source_type: community

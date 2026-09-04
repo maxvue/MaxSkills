@@ -1,6 +1,6 @@
 ---
 name: stitch-design-taste
-description: "Use when generating Google Stitch DESIGN.md systems for premium typography, color, layout, motion intent, and anti-generic UI rules."
+description: "Use when generating Google Stitch DESIGN.md systems for premium typography, color, layout, motion intent, and anti-generic UI rules. Guides architecture, best practices, and implementation standards for stitch design taste."
 category: frontend
 risk: safe
 source: community

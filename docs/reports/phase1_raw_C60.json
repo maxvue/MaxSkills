@@ -1,0 +1,252 @@
+[
+  {
+    "skillName": "seo-aeo-landing-page-writer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-aeo-landing-page-writer/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração de landing pages completas e estruturadas otimizadas para ranqueamento SEO, citação em motores de resposta de IA (AEO) e conversão.",
+      "entidades": ["SEO-AEO Engine", "Perplexity", "ChatGPT", "G2", "Syncro"],
+      "keywords": ["landing page", "AEO citation", "SEO ranking", "conversion", "hero section", "FAQ", "comparison table", "social proof", "call to action", "narrative arc", "extraction sentence"]
+    },
+    "summary": "Skill exemplar com description equilibrada de 216 caracteres, gatilhos claros, estrutura enxuta e diretrizes práticas para AEO e SEO."
+  },
+  {
+    "skillName": "seo-aeo-meta-description-generator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-aeo-meta-description-generator/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação de variantes de títulos, meta descriptions, previews de SERP e tags de compartilhamento social (OG e Twitter Card).",
+      "entidades": ["Open Graph", "Twitter Card", "SERP", "LinkedIn", "X", "WhatsApp"],
+      "keywords": ["meta description", "title tag", "SERP preview", "Open Graph", "Twitter Card", "CTR mechanics", "benefit lead", "question hook", "social proof", "character limits"]
+    },
+    "summary": "Skill de alta qualidade com description de 231 caracteres perfeitamente calibrada, discriminantes fortes e conteúdo conciso sem bloat."
+  },
+  {
+    "skillName": "seo-cannibalization-detector",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-cannibalization-detector/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 182 caracteres, abaixo da faixa ideal de 200 a 400 caracteres, utilizando 'Use PROACTIVELY' em caixa alta sem especificar gatilhos ou intenções técnicas detalhadas.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de instrução de boilerplate genérico com referência a arquivo fantasma inexistente 'resources/implementation-playbook.md' (linhas 20-25).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções tautológicas 'Use this skill when' e 'Do not use this skill when' (linhas 9-18) que apenas repetem o nome da própria skill sem valor semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover blocos tautológicos '## Use this skill when' e '## Do not use this skill when' (linhas 9-18).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar a instrução que aponta para o arquivo inexistente 'resources/implementation-playbook.md' (linhas 20-25).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Detecção e resolução de canibalização de palavras-chave e sobreposição de intenção de busca entre páginas concorrentes.",
+      "entidades": ["Google Search Console", "Canonical tags", "301 redirects"],
+      "keywords": ["keyword cannibalization", "keyword overlap", "search intent", "topic clustering", "consolidation", "differentiation", "canonical tags", "301 redirect", "internal linking"]
+    },
+    "summary": "Conteúdo técnico útil sobre canibalização, porém prejudicado por boilerplate genérico com arquivo inexistente e seções tautológicas."
+  },
+  {
+    "skillName": "seo-competitor-pages",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-competitor-pages/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação de páginas de comparação competitiva ('X vs Y') e alternativas otimizadas para SEO e conversão com esquemas JSON-LD.",
+      "entidades": ["Product", "SoftwareApplication", "ItemList", "G2", "Capterra", "TrustPilot", "JSON-LD"],
+      "keywords": ["competitor comparison", "alternatives pages", "vs pages", "feature matrix", "schema markup", "conversion rate optimization", "comparison intent", "fairness guidelines", "pricing comparison"]
+    },
+    "summary": "Skill de alto nível, com description exemplar de 301 caracteres, ricos esquemas JSON-LD, matrizes de comparação e diretrizes de integridade."
+  },
+  {
+    "skillName": "seo-content-planner",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-content-planner/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 191 caracteres, abaixo da faixa de 200-400 chars, omitindo discriminantes presentes no arquivo como 'pillar pages', 'intent mapping' e 'topical authority'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a arquivo fantasma inexistente 'resources/implementation-playbook.md' (linhas 26-30).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções circulares 'Use this skill when' e 'Do not use this skill when' (linhas 15-24) que apenas ecoam o nome da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover as seções tautológicas 'Use this skill when' e 'Do not use this skill when' (linhas 15-24).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover a chamada para o playbook fantasma 'resources/implementation-playbook.md' (linhas 26-30).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Planejamento editorial SEO, criação de topic clusters, pilares de conteúdo e calendários de publicação.",
+      "entidades": ["Topic clusters", "Pillar pages", "Content calendars"],
+      "keywords": ["content planning", "topic clusters", "pillar page", "content gap", "content calendar", "search intent", "internal linking", "content outline", "topical authority"]
+    },
+    "summary": "Boa arquitetura de topic clusters e planejamento de conteúdo, mas traz ruído de boilerplate genérico com referência a arquivo inexistente."
+  },
+  {
+    "skillName": "seo-content-refresher",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-content-refresher/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 187 caracteres (< 200 chars), com gatilho vago ('Use PROACTIVELY for older content') e ausência de termos discriminantes como 'content decay' ou 'ranking drops'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência morta ao arquivo inexistente 'resources/implementation-playbook.md' na seção Instructions (linhas 20-25).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções redundantes e circulares 'Use this skill when' e 'Do not use this skill when' (linhas 9-18).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover os blocos tautológicos '## Use this skill when' e '## Do not use this skill when' (linhas 9-18).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Excluir a referência ao playbook inexistente 'resources/implementation-playbook.md' (linhas 20-25).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Atualização e revitalização de conteúdos legados (content decay) para preservar ranqueamento e sinais de frescor.",
+      "entidades": ["WordPress", "Static site generators", "Schema modified date", "E-E-A-T"],
+      "keywords": ["content freshness", "content decay", "ranking drops", "outdated statistics", "case studies", "modified date", "E-E-A-T", "refresh priority", "seasonal update"]
+    },
+    "summary": "Guia sólido de renovação de conteúdo contra content decay, contaminado por boilerplate tautológico comum do repositório de origem."
+  },
+  {
+    "skillName": "seo-dataforseo",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-dataforseo/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração operacional com o servidor MCP DataForSEO para extração em tempo real de dados de SERP, palavras-chave, backlinks e visibilidade em IA.",
+      "entidades": ["DataForSEO MCP server", "Google SERP", "YouTube", "ChatGPT web scraper", "Google Trends", "Lighthouse", "WHOIS"],
+      "keywords": ["DataForSEO", "MCP tools", "SERP organic", "backlinks", "keyword difficulty", "search volume", "GEO visibility", "LLM mentions", "API credits", "domain intersection", "Lighthouse"]
+    },
+    "summary": "Skill extremamente abrangente e detalhada (79 ferramentas MCP documentadas, gestão de créditos de API e comandos estruturados) com description perfeita."
+  },
+  {
+    "skillName": "seo-drift",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-drift/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com apenas 139 caracteres (< 200 chars), desprovida de cláusula explícita de condição de uso / gatilho ('Use when monitoring post-migration regressions, CMS redeployments, or unprompted ranking drops').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Monitoramento comparativo e baseline temporal de SEO para detecção precoce de regressões técnicas, indexação e perda de posicionamento.",
+      "entidades": ["Google Search Console", "nowork-studio/NotFair", "Robots directives", "Schema markup"],
+      "keywords": ["SEO drift", "baseline snapshot", "regression testing", "search console", "indexation drift", "canonical changes", "noindex regression", "ranking drops", "severity levels"]
+    },
+    "summary": "Excelente protocolo de baseline e detecção de regressões pós-deploy/migração, necessitando apenas expandir a description e incluir gatilho claro."
+  },
+  {
+    "skillName": "seo-forensic-incident-response",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-forensic-incident-response/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 167 caracteres (< 200 chars), necessitando de padronização com cláusula de gatilho explícita ('Use when investigating sudden organic traffic drops, suspected penalties, core update hits or major technical crawl failures').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Resposta forense estruturada a incidentes de SEO para investigar quedas abruptas de tráfego, penalidades manuais e impactos de core updates.",
+      "entidades": ["Google Search Console", "Google Analytics (GA4)", "Matomo", "Googlebot", "CDN logs"],
+      "keywords": ["forensic SEO", "incident response", "traffic crash", "core update", "manual action", "crawlability", "root-cause analysis", "hypothesis building", "triage", "recovery plan"]
+    },
+    "summary": "Excelente metodologia investigativa de causa-raiz para quedas críticas de tráfego, exigindo apenas refinamento e expansão da description para a faixa de 200-400 chars."
+  },
+  {
+    "skillName": "seo-fundamentals",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-fundamentals/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com apenas 153 caracteres (< 200 chars), formulada como frase nominal estática sem verbo de ação claro de agente e sem cláusula de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' no corpo do arquivo (linhas 172-174) é genérica e tautológica ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Condensar ou substituir a seção genérica '## When to Use' (linhas 172-174) por gatilhos contextuais reais ou removê-la.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Princípios fundamentais e arquiteturais de SEO com foco em E-E-A-T, Core Web Vitals, semântica técnica e qualidade de conteúdo.",
+      "entidades": ["E-E-A-T", "Core Web Vitals (LCP, INP, CLS)", "Schema.org", "XML sitemaps", "robots.txt"],
+      "keywords": ["SEO fundamentals", "E-E-A-T", "Core Web Vitals", "LCP", "INP", "CLS", "technical SEO", "structured data", "crawling", "indexing", "content quality"]
+    },
+    "summary": "Conteúdo conceitual sólido e moderno sobre avaliação de qualidade por buscadores, necessitando de reestruturação da description e eliminação de seção tautológica no rodapé."
+  }
+]

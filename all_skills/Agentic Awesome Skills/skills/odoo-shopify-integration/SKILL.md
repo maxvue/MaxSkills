@@ -1,6 +1,6 @@
 ---
 name: odoo-shopify-integration
-description: "Connect Odoo with Shopify: sync products, inventory, orders, and customers using the Shopify API and Odoo's external API or connector modules."
+description: "Connect Odoo with Shopify: sync products, inventory, orders, and customers using the Shopify API and Odoo's external API or connector modules. Use when developing, optimizing, debugging, or configuring odoo shopify integration in production workflows."
 risk: critical
 source: community
 ---

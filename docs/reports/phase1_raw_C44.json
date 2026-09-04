@@ -1,0 +1,299 @@
+[
+  {
+    "skillName": "molykit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/molykit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição utiliza prefixo artificial de urgência ('CRITICAL:') e adota formato de lista de palavras-chave ('Triggers on: BotClient, OpenAI...') em vez de sentença descritiva fluida com gatilho contextualizado ('Use when...'), além de omitir a menção ao framework Makepad e à linguagem Rust.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de caminho absoluto de máquina local de usuário na linha 16 ('**Source codebase**: /Users/zhangalex/Work/Projects/FW/robius/moly/moly-kit'), configurando ruído e vazamento de ambiente de desenvolvimento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover menção a caminho pessoal '/Users/zhangalex/...' (linha 16) e condensar o boilerplate genérico de limitações (linhas 368-371).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de desenvolvimento de interfaces de chat de IA multiplataforma (Native e WASM) com Rust e Makepad utilizando o toolkit MolyKit.",
+      "entidades": ["MolyKit", "Makepad", "PlatformSend", "ThreadToken", "AbortOnDropHandle", "BotClient", "BotContext", "PromptInput", "Avatar", "Messages", "Slot", "UiRunner", "OpenAIClient"],
+      "keywords": ["molykit", "makepad", "rust", "wasm", "ai chat", "botclient", "platformsend", "threadtoken", "promptinput", "avatar", "messages", "sse streaming", "cross-platform async", "abortondrophandle"]
+    },
+    "summary": "Conteúdo técnico em Rust e Makepad de excelente qualidade, necessitando apenas despoluir a descrição (remover 'CRITICAL:' e keyword dump) e expurgar caminho local pessoal."
+  },
+  {
+    "skillName": "monopoly",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monopoly/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Descrição com tom autopromocional e focado em persona ('MONOPOLY is a Senior System Design Engineer skill...', 'Proactively engages') e gatilhos genéricos, sem incluir termos discriminantes essenciais de padrões abordados (CQRS, Saga, Circuit Breaker, sharding).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção introdutória e final excessivamente carregadas de roleplay e slogans vazios ('world-class Senior System Design Engineer with 20+ years of experience architecting systems at companies like Google...', 'Own Every Block of Your Architecture').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Instruções orientam a consulta de múltiplos arquivos de referência locais inexistentes no diretório ('references/patterns.md', 'references/tech-matrix.md', 'references/scale-benchmarks.md', 'references/cost-estimation.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo de roleplay/persona da linha 11 e o slogan de encerramento da linha 399.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover ou incorporar inline as referências e a tabela de arquivos ausentes em 'references/' (linhas 331, 353, 374-383).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e blueprinting de sistemas distribuídos de backend, cálculo de capacidade de escala, auditoria de gargalos e padrões de resiliência.",
+      "entidades": ["ALB", "CloudFront", "Kong", "Redis", "Kafka", "PostgreSQL", "CQRS", "Saga Pattern", "Circuit Breaker", "Bulkhead", "Strangler Fig", "Outbox Pattern"],
+      "keywords": ["system design", "distributed systems", "scalability", "microservices", "load balancing", "caching", "sharding", "event streaming", "cqrs", "saga pattern", "capacity estimation", "spof audit"]
+    },
+    "summary": "Guia robusto de engenharia de sistemas distribuídos prejudicado por roleplay inflado e referências quebradas para arquivos de documentação inexistentes."
+  },
+  {
+    "skillName": "security-checklist",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monopoly/security-checklist/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Descrição severamente estéril e tautológica com apenas 53 caracteres ('Reference document for monopoly security-checklist.'), violando a extensão mínima recomendada (200-400 chars) e omitindo completamente ações, condições de uso ('Use when...') e termos discriminantes (VPC, WAF, OAuth 2.0, TLS, RBAC, SBOM, GDPR).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de atributo proprietário não-padrão 'reports-to: monopoly' no frontmatter YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Checklist conciso de endurecimento (hardening) de segurança para infraestrutura em nuvem, controle de acesso, APIs e conformidade regulatória.",
+      "entidades": ["VPC", "WAF", "OAuth 2.0", "OIDC", "JWT", "RBAC", "ABAC", "TLS 1.3", "HashiCorp Vault", "AWS Secrets Manager", "Snyk", "Trivy", "GDPR", "PCI-DSS", "SOC 2"],
+      "keywords": ["security checklist", "hardening", "network security", "vpc", "waf", "oauth2", "jwt revocation", "sql injection", "tls encryption", "secrets manager", "sbom", "incident response", "soc2"]
+    },
+    "summary": "Checklist de segurança enxuto e operacionalmente excelente, comprometido apenas por uma descrição tautológica de 53 caracteres e metadado não-padrão."
+  },
+  {
+    "skillName": "monorepo-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monorepo-architect/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Descrição truncada no frontmatter YAML terminando abruptamente em vírgula ('...Use PROACTIVELY for monorepo setup,'), revelando texto cortado e quebra sintática.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem promocional e artificial na descrição e corpo ('Expert in monorepo architecture...', 'Masters Nx, Turborepo...', 'Use PROACTIVELY').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A linha 23 instrui o agente a abrir 'resources/implementation-playbook.md', porém a pasta 'resources/' e o arquivo não existem.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo estritamente teórico e superficial, limitando-se a listas de tópicos sem nenhum exemplo prático de configuração (ausência de exemplos de turbo.json, nx.json, pnpm-workspace.yaml).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover seção tautológica e vazia 'Do not use this skill when' (linhas 13-17) e o boilerplate repetitivo de limitações (linhas 66-70).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover a menção ao arquivo inexistente 'resources/implementation-playbook.md' na linha 23.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes e estratégias de seleção de ferramentas, orquestração de tarefas e gerenciamento de dependências em monorepos.",
+      "entidades": ["Nx", "Turborepo", "Bazel", "Lerna"],
+      "keywords": ["monorepo", "turborepo", "nx", "bazel", "lerna", "build caching", "remote caching", "dependency graph", "affected detection", "task orchestration", "workspace configuration"]
+    },
+    "summary": "Skill genérica e superficial, com descrição sintaticamente truncada em vírgula, tom promocional e instrução para ler playbook inexistente."
+  },
+  {
+    "skillName": "monte-carlo-analyze-root-cause",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monte-carlo-analyze-root-cause/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição no frontmatter foi cortada no final terminando com reticências no meio de uma enumeração de gatilho ('...incidents, alerts, or...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Instrui expressamente o agente a usar a ferramenta de leitura para consultar 10 arquivos de playbook em 'references/*.md' (linhas 27-30, 107, 151-160, 177, 197), porém o diretório 'references/' não existe na pasta da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Remover chamadas a arquivos ausentes em 'references/' ou incorporar as heurísticas fundamentais de investigação de frescor, volume e schema diretamente no corpo do SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Investigação sistemática e determinação de causa-raiz para incidentes de frescor, volume e pipelines de dados via Monte Carlo MCP.",
+      "entidades": ["Monte Carlo MCP", "get_alerts", "run_troubleshooting_agent", "get_troubleshooting_agent_results", "get_asset_lineage", "get_field_lineage", "get_table_freshness", "get_query_rca", "get_change_timeline", "Airflow", "dbt", "Databricks"],
+      "keywords": ["monte carlo", "root cause analysis", "data incidents", "data observability", "freshness delay", "volume anomaly", "schema change", "lineage tracing", "blast radius", "troubleshooting agent", "etl failure", "data profiling"]
+    },
+    "summary": "Fluxo investigativo de alta densidade técnica com ferramentas Monte Carlo MCP, prejudicado por descrição truncada no frontmatter e links para 10 playbooks inexistentes."
+  },
+  {
+    "skillName": "monte-carlo-monitoring-advisor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monte-carlo-monitoring-advisor/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Descrição com 172 caracteres (abaixo dos 200 caracteres mínimos recomendados) e desprovida de cláusula formal explícita de condição de uso / gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Instruções de roteamento nas linhas 27-29 e 129-133 determinam a leitura de procedimentos em 'references/data-monitor-creation.md' e 'references/agent-monitor-creation.md', os quais não existem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Remover ou sanar instruções de leitura direcionadas para arquivos ausentes em 'references/' (linhas 25-30, 129-133).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Análise de cobertura de observabilidade de dados, descoberta de tabelas desmonitoradas com anomalias e recomendação de monitores via Monte Carlo MCP.",
+      "entidades": ["Monte Carlo MCP", "get_warehouses", "get_use_cases", "get_use_case_tables", "get_monitors", "get_unmonitored_tables_with_anomalies", "create_or_update_table_monitor", "create_or_update_agent_metric_monitor"],
+      "keywords": ["monte carlo", "monitoring advisor", "data coverage", "coverage gaps", "golden tables", "use cases", "table monitors", "agent observability", "unmonitored tables", "monitors-as-code", "tag monitors"]
+    },
+    "summary": "Procedimento profundo de mapeamento de use cases e gaps de cobertura de dados, necessitando expandir a descrição e ajustar referências a arquivos ausentes."
+  },
+  {
+    "skillName": "monte-carlo-performance-diagnosis",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monte-carlo-performance-diagnosis/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição termina truncada no frontmatter YAML com reticências no meio da frase de ativação ('...Activates when a user asks about...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linhas 27-29 orientam a leitura de arquivos inexistentes no diretório ('references/investigation-tiers.md' e 'references/query-analysis.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Remover a menção aos arquivos inexistentes em 'references/' nas linhas 25-29.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico estruturado em níveis de desempenho, queries lentas e degradação de latência em pipelines de dados via Monte Carlo MCP.",
+      "entidades": ["Monte Carlo MCP", "get_jobs_performance", "get_top_slow_queries", "get_tables_for_job", "get_tasks_performance", "get_change_timeline", "get_query_rca", "get_query_latency_distribution", "Airflow", "dbt", "Databricks"],
+      "keywords": ["monte carlo", "performance diagnosis", "slow queries", "expensive queries", "pipeline bottleneck", "latency distribution", "query rca", "change timeline", "airflow jobs", "dbt performance", "databricks"]
+    },
+    "summary": "Abordagem precisa em dois níveis para gargalos de performance em pipelines, requerendo correção da descrição truncada e expurgo de referências a arquivos ausentes."
+  },
+  {
+    "skillName": "monte-carlo-prevent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monte-carlo-prevent/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Descrição com 122 caracteres (abaixo dos 200 mínimos recomendados) e com gatilho redigido de forma implícita ('before SQL/dbt edits') em vez de cláusula direta ('Use when modifying dbt models or SQL files...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Inspeção preventiva de blast radius, saúde de tabelas, linhagem e cobertura de monitoramento como barreira antes de edições em modelos dbt.",
+      "entidades": ["Monte Carlo MCP", "testConnection", "search", "getTable", "getAssetLineage", "getAlerts", "getMonitors", "createValidationMonitorMac", "dbt"],
+      "keywords": ["monte carlo", "change impact assessment", "blast radius", "dbt models", "sql edits", "table health", "lineage", "pre-edit gate", "monitors-as-code", "alert triage"]
+    },
+    "summary": "Skill exemplar com gating pré-edição rigoroso e referências completas e verificadas em disco, necessitando apenas de expansão semântica na descrição."
+  },
+  {
+    "skillName": "monte-carlo-remediation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monte-carlo-remediation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Descrição bem estruturada com 257 caracteres, porém ausente da fórmula explícita de gatilho inicial ('Use when...' ou 'Ative quando...') recomendada pelo runbook.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linhas 27-29, 238, 266 e 301 referenciam arquivos de playbooks em 'references/' ('patterns.md', 'tool-discovery.md', 'safety.md') que não estão presentes no diretório.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Remover menções a arquivos ausentes em 'references/' ou incorporar inline as diretrizes essenciais de safety rails e descoberta de ferramentas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Investigação, descoberta de capacidades e execução controlada com safety-rails para remediação de incidentes de dados via Monte Carlo MCP.",
+      "entidades": ["Monte Carlo MCP", "get_alerts", "alert_assessment", "run_troubleshooting_agent", "get_troubleshooting_agent_results", "get_asset_lineage", "get_downstream_bi_reports", "get_table", "get_monitors", "update_alert", "create_or_update_alert_comment"],
+      "keywords": ["monte carlo", "remediation", "incident response", "data quality alerts", "root cause analysis", "blast radius", "tool discovery", "safe execution", "alert update", "airflow retry", "dbt rerun"]
+    },
+    "summary": "Excelente fluxo operacional de remediação com safety-rails e descrição de alta densidade, restando padronizar o gatilho inicial e remover referências ausentes."
+  },
+  {
+    "skillName": "monte-carlo-validation-notebook",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/monte-carlo-validation-notebook/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Descrição com apenas 104 caracteres (abaixo dos 200 recomendados), omitindo gatilho formal 'Use when...' e discriminantes-chave abordados na skill (Monte Carlo Bridge, Snowflake, BigQuery, parâmetros dev/prod, branch local).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração automatizada de notebooks SQL com queries analíticas de validação pré e pós-deploy para alterações em modelos dbt em PRs ou branches locais.",
+      "entidades": ["Monte Carlo Bridge", "dbt", "gh CLI", "resolve_dbt_schema.py", "generate_notebook_url.py", "Snowflake", "BigQuery", "Redshift"],
+      "keywords": ["monte carlo", "validation notebook", "dbt models", "pr validation", "before after comparison", "sql notebook", "schema resolution", "data diff", "null rate check", "uniqueness check", "mc bridge"]
+    },
+    "summary": "Implementação técnica exemplar e completa com scripts auxiliares em Python funcionais e presentes, exigindo apenas a expansão da descrição para a faixa ideal."
+  }
+]

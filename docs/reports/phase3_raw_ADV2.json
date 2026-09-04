@@ -1,0 +1,261 @@
+[
+  {
+    "skillName": "laravel-anticaptcha-integration-best-practices",
+    "problem": "A description possui 198 caracteres, ficando ligeiramente abaixo da faixa recomendada de 200 a 400 caracteres (Critério 1).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md:3 (string com 198 caracteres, abaixo do limiar de 200)",
+    "correctedDescription": "Use when integrating or debugging Anti-Captcha services in Laravel, using App\\Classes\\Anticaptcha wrapper classes (Anticaptcha, AnticaptchaBase, ImageToText), configuring ANTICAPTCHA_KEY, handling timeouts, and routing logs to the dedicated anticaptcha channel."
+  },
+  {
+    "skillName": "laravel-anticaptcha-integration-best-practices",
+    "problem": "Presença da frase de preenchimento 'Covers objectives and core workflows.' na description (Critério 12), além da omissão de termos discriminantes das classes reais do wrapper como Anticaptcha e AnticaptchaBase (Critério 4).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md:3 e projects/engeapp/app/Classes/Anticaptcha/ (classes Anticaptcha.php e AnticaptchaBase.php omitidas da description, enquanto boilerplate genérico foi incluído)",
+    "correctedDescription": "Use when integrating or debugging Anti-Captcha services in Laravel, using App\\Classes\\Anticaptcha wrapper classes (Anticaptcha, AnticaptchaBase, ImageToText), configuring ANTICAPTCHA_KEY, handling timeouts, and routing logs to the dedicated anticaptcha channel."
+  },
+  {
+    "skillName": "laravel-frankenphp-octane-best-practices",
+    "problem": "A description cita 'tuning Caddyfile workers', enquanto o conteúdo e a infraestrutura do Engeapp explicam que o Caddyfile é gerado pelo Octane e não deve ser editado manualmente, devendo referenciar 'tuning worker CLI options' ou 'worker process management' (critério 5).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md:3,25 (a linha 25 afirma categoricamente: 'Não escreva o Caddyfile à mão. O próprio Octane gera e gerencia o Caddyfile... engeapp NÃO possui Caddyfile manual — controle os workers exclusivamente pelas flags de CLI')",
+    "correctedDescription": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, preventing memory leaks, scoping services vs singletons, tuning worker CLI options (--workers, --max-requests), and managing Supervisor restarts."
+  },
+  {
+    "skillName": "laravel-frankenphp-octane-best-practices",
+    "problem": "A description finaliza com a sentença redundante de preenchimento 'Covers objectives and core workflows.' (critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md:3 (frase genérica de padding no final da description)",
+    "correctedDescription": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, preventing memory leaks, scoping services vs singletons, tuning worker CLI options (--workers, --max-requests), and managing Supervisor restarts."
+  },
+  {
+    "skillName": "laravel-performance-and-profiling-best-practices",
+    "problem": "A description encerra com a expressão genérica de preenchimento 'Covers objectives and core workflows.', que dilui a densidade semântica e poderia ser substituída por termos discriminantes concretos como gates de autorização ou comandos CLI.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md:3 (presença da cauda genérica 'Covers objectives and core workflows.')",
+    "correctedDescription": "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse (viewPulse gate, Redis ingestion), Clockwork timelines, LaraDumps ds(), Debugbar CLI, Log Viewer access control, and real-time log streaming with Artisan Pail."
+  },
+  {
+    "skillName": "vue-brand-positioning-character-management-best-practices",
+    "problem": "A description contém cauda redundante 'Covers brand positioning, character management, and social media stores.' que duplica os termos do gatilho inicial (Critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md:3 (a cauda repete literalmente termos já contidos na primeira oração da description)",
+    "correctedDescription": "Use when building, styling, or debugging Vue 3 brand positioning and character components or stores in SocialMedia module (TabBrandPositioning, TabCharacters, TabThemes, useBrandPositioningStore, useSocialMediaCharacters, MaxModal deletion dialogs, and Ziggy routes)."
+  },
+  {
+    "skillName": "vue-brand-positioning-character-management-best-practices",
+    "problem": "A numeração de seções salta de '## Instruções' diretamente para '### 2. Formulários de Posicionamento de Marca', omitindo a seção 1.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md:11-15 (a primeira subseção sob Instruções é rotulada como 2, sem que haja seção 1)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vue-max-stack-frontend-best-practices",
+    "problem": "Exemplo ensina classes e atributos utilitários inline no template (ex: s100 flex flex-col, s-70 w-max-400) — adotar classes semânticas e estilizar em <style lang=\"scss\">.",
+    "verdict": "REFUTADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md:22,27,30,95 e dezenas de componentes em projects/engeapp/resources/Vue/ (ex: ModalSendEmail.vue:4-10, ProjectsListSection.vue:2, ModalAdminUser.vue:5-8). O uso de atributos utilitários inline (s100, s-70, w-max-400, flex, flex-col) reflete a convenção canônica de UnoCSS attributify (presetMaxUno) estabelecida para todo o ecossistema Engeapp/MaxVue. Exigir classes semânticas em <style lang=\"scss\"> para layout básico contraria diretamente a arquitetura de front-end do projeto.",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "project-history",
+    "problem": "A descrição omite totalmente o nome do projeto ('SocialMedia') e usa a expressão genérica 'in this project', gerando risco crítico de falso-positivo de ativação em qualquer projeto do repositório/workspace (violação dos critérios 4, 7 e 8).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:3 (uso de 'in this project' sem discriminar o módulo 'SocialMedia', atraindo solicitações de outros projetos como EngeApp, MaxPinia, etc.)",
+    "correctedDescription": "Use when retrieving historical decisions, milestone architecture (Marcos 1-5, Fases 1-7), test counts, or feature changelogs in the SocialMedia module, including Gemini AI pipeline, LoRA GPU training, and Engeapp alignments."
+  },
+  {
+    "skillName": "project-history",
+    "problem": "A descrição contém ruído meta-operacional ('moved out of CLAUDE.md so it isn't always loaded'), violando os critérios 10 e 11 (linguagem anti-promocional e ausência de procedimentos operacionais/justificativas meta na description).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:3 (frase 'moved out of CLAUDE.md so it isn't always loaded' é metadado procedimental que polui a janela de contexto e o roteador)",
+    "correctedDescription": "Use when retrieving historical decisions, milestone architecture (Marcos 1-5, Fases 1-7), test counts, or feature changelogs in the SocialMedia module, including Gemini AI pipeline, LoRA GPU training, and Engeapp alignments."
+  },
+  {
+    "skillName": "project-history",
+    "problem": "A seção '## Instruções' é meramente decorativa/oca ('Siga as instruções e padrões descritos na documentação.'), sem procedimentos cognitivos reais ou diretrizes de consulta histórica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:36-38 (a seção Instruções consiste apenas em 'Siga as instruções e padrões descritos na documentação.', sem diretrizes de consulta ao histórico)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Extensão insuficiente da description (132 caracteres, violando o piso de 200 caracteres).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:3 (string com 126 caracteres sem aspas / 132 com aspas, violando o limiar de 200 a 400)",
+    "correctedDescription": "Use when creating, managing, or pruning isolated Git worktrees for parallel agent development, using CLI commands like git worktree add, remove, list, and prune to prevent branch collision and lock contention across workspaces."
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Ausência de gatilho explícito ('Use when...') na description.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:3 (a description começa com 'Strict task isolation...', sem o gatilho 'Use when...')",
+    "correctedDescription": "Use when creating, managing, or pruning isolated Git worktrees for parallel agent development, using CLI commands like git worktree add, remove, list, and prune to prevent branch collision and lock contention across workspaces."
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Ausência total de comandos CLI de git worktree (como 'git worktree add', 'remove', 'list', 'prune') no corpo da skill, tornando-a inoperante.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:1-65 (o arquivo é um scaffold genérico de 65 linhas sem nenhum comando executável de git worktree)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Uso do boilerplate vazio repetitivo com justificativa circular ('rotinas de pytest-and-jest-automation') e links sintéticos de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:43,60-64 (tautologia citando o slug da skill na linha 43 e URLs de YouTube sintéticas com slugs fictícios nas linhas 60-64)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Metadados de repositório apontam para 'Anthropic' com URL 'karanb192/awesome-claude-skills', inflando métricas (24500 stars de um repositório curado geral).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:5-7 (repositório atribuído a 'Anthropic' com URL pessoal 'karanb192/awesome-claude-skills' e contagem de stars agregada do repositório lista)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Substituir o template estéril (linhas 40-55) por padrões acionáveis de testes (fixtures do Pytest, mocks com pytest-mock, render e queries do Jest/testing-library, comandos de cobertura de código).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:40-55 (o conteúdo atual consiste em tópicos abstratos sem nenhum trecho de código, fixture, mock ou asserção)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Quebra crítica de portabilidade: Todos os comandos de instalação e execução contêm caminhos absolutos hardcoded de máquina Windows local ('C:\\Users\\renat\\skills\\ai-studio-image\\...'), quebrando imediatamente a execução em qualquer outro ambiente (linhas 73, 81, 87, 123, 161, 166, 193, 230).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:73,81,87,123,166,193,230 (caminhos absolutos do ambiente local do autor C:\\Users\\renat\\... presentes em comandos executáveis de shell e python)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Critérios 1 e 3: Description curta em português com 161 caracteres (< 200) e ausência de gatilho explícito 'Use when...' ou 'Ative quando...'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:3 (possui 153 caracteres sem aspas, abaixo do limiar de 200, e não possui o gatilho 'Use when...')",
+    "correctedDescription": "Use when generating humanized, realistic photographs via Google AI Studio (Gemini API), producing influencer or educational style images with natural lighting, subtle lens imperfections, and portrait or landscape aspect ratios."
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Inconsistência linguística: SKILL.md e description redigidos em português em repositório majoritariamente de língua inglesa.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:3,21,25,44 (o arquivo mescla estrutura de títulos em inglês com conteúdo em português sem acentos no repositório de Agentic Awesome Skills)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Description corrompida e truncada no meio de um marcador markdown ('AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1.'), omitindo totalmente o propósito prático e discriminantes da skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:3 (description truncada abruptamente em '> 1.', sem explicar o propósito técnico da skill)",
+    "correctedDescription": "Use when identifying, analyzing, or defending against binary anti-reversing mechanisms in authorized environments, including anti-debugging hooks (IsDebuggerPresent, ptrace), timing checks, code obfuscation, and packing defenses."
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Tripla redundância de avisos jurídicos quase idênticos no início do arquivo (linhas 9-12, 14-22 e 23-29), além de duplicação da seção de referências (linhas 55 e 57-60).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:9-29,55,57-60 (três blockquotes consecutivos de aviso legal/autorização e menção duplicada a resources/implementation-playbook.md)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "SKILL.md desprovido de comandos ou substância técnica real (apenas passos abstratos de 1 linha), delegando tudo sem orientações mínimas sobre anti-debugging, ofuscação ou análise de binários.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:43-49 (apenas quatro linhas com instruções abstratas genéricas sem comandos práticos ou técnicas)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Ausência completa de ganho semântico para o agente, poluindo o catálogo de skills com um placeholder não funcional.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:1-29 (arquivo com 29 linhas que apenas repete a frase 'Opinionated, evolving constraints...' sem nenhuma orientação aplicável)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Remover as seções tautológicas Overview, When to Use e Instructions (linhas 11-24), substituindo o arquivo por conteúdo instrucional real de UI ou deprecando o artefato em favor de ui-skills-root.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:11-24 e all_skills/Agentic Awesome Skills/skills/ui-skills-root/SKILL.md:1-73 (as seções são cópias redundantes e ui-skills-root já implementa o roteador e comandos CLI reais da ferramenta)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Remover seções vazias de persona conversacional: 'Behavioral Traits' (linhas 93-102), 'Knowledge Base' (linhas 103-112), 'Response Approach' (linhas 113-122) e 'Example Interactions' (linhas 123-132).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:93-132 (40 linhas de estilo chatbot/persona conversacional que consomem contexto desnecessariamente sem fornecer valor acionável a agentes de código)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Substituir as tautologias em 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e ferramentas concretas de contexto.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:9-18 (linhas 11-12 dizem 'Working on cloud architect tasks... Needing guidance for cloud architect', tautologias circulares sem discriminação)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Description com 143 caracteres (abaixo do limiar de 200 chars) e sem declaração explícita de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:3 (possui 135 caracteres sem aspas / 137 com aspas, abaixo de 200 caracteres, e não contém 'Use when...')",
+    "correctedDescription": "Use when initializing or adding shadcn/ui components in React, Next.js, or Vite projects, configuring components.json, utilizing the cn() helper (tailwind-merge/clsx), and customizing Radix UI primitives with Tailwind CSS."
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Ausência de fidelidade técnica ao corpo: promete automação e integração de componentes Radix UI e Tailwind CSS, mas o arquivo é um stub scaffold de 65 linhas sem instruções sobre a CLI da shadcn ('npx shadcn@latest add'), components.json, utilitário cn ou componentes reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:1-65 (scaffold genérico sem sintaxe CLI de shadcn, components.json ou snippets de código)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Presença de ruído estrutural com repetição literal dos campos do YAML nas seções de Overview e Stack, e inclusão de URLs simuladas de vídeos do YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:15-37,58-65 (repetição redundante do frontmatter no corpo do arquivo e links fictícios para o YouTube)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Description curta (128 caracteres), sem gatilho contextual ('Use when...') e com afirmação promocional quantitativa sem validação ('by up to 80%').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:3 (possui 126 caracteres, omite 'Use when...' e contém a expressão promocional infundada 'by up to 80%')",
+    "correctedDescription": "Use when reducing LLM token consumption and managing context window limits, applying prompt compression techniques, dynamic tool/MCP detachment, message history pruning, and token budgeting strategies across agent workflows."
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Corpo stub de 65 linhas desprovido de técnicas reais de budgeting de contexto, medição de tokens, compressão de prompts ou desconexão de MCPs ociosos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:40-55 (conteúdo genérico boilerplate sem exemplos de cálculo de tokens, estratégias de pruning ou scripts)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Estrutura inchada por repetição inútil dos metadados do YAML em seções redundantes de Overview e Stack com links mockados de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:15-37,58-65 (duplicação do frontmatter nas seções Overview e Stack e 5 URLs sintéticas de vídeos)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mcp-server-routing + mcp-tool-developer",
+    "problem": "Proposta de MERGE: Ambas as skills abordam a engenharia integral de servidores e ferramentas do Model Context Protocol (MCP) com SDKs oficiais em TypeScript e Python, validação de schemas (Zod/Pydantic), suporte a transportes (stdio, SSE, Streamable HTTP) e inspeção com MCP Inspector. curated-youtube/mcp-server-routing possui uma discrepância nominal grave entre seu diretório e seu frontmatter (name: mcp-builder, sem nenhuma rotina de roteamento de requisições), porém carrega recursos valiosos de referência (mcp_best_practices, node_mcp_server, python_mcp_server, evaluation.md) e scripts. Já mcp-tool-developer possui uma interface limpa, moderna (API McpServer) e padronizada. A unificação sob mcp-tool-developer elimina a sobreposição e corrige a anomalia nominal do repositório.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/SKILL.md:2-3 (name: mcp-builder) vs all_skills/Agentic Awesome Skills/skills/mcp-tool-developer/SKILL.md:1-3. Ambas cobrem o mesmo escopo de desenvolvimento MCP (TypeScript/Python, transportes stdio/SSE/Streamable HTTP). A anomalia de nomenclatura entre o diretório mcp-server-routing e o nome mcp-builder corrobora a necessidade de unificação sob mcp-tool-developer sem perda de granularidade.",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mcp-server-routing + mcp-tool-developer",
+    "problem": "Plano de integracao: Eleger mcp-tool-developer como a skill canônica unificada de desenvolvimento MCP. Integrar ao seu SKILL.md os padrões avançados de mcp-server-routing: anotações de hint (readOnlyHint, destructiveHint, idempotentHint), boas práticas de design e o fluxo de criação de suítes de avaliação (10 QA pairs em XML). Mover e vincular as pastas reference/ e scripts/ de mcp-server-routing para a estrutura de mcp-tool-developer, eliminando em seguida o diretório redundante curated-youtube/mcp-server-routing.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/reference/ (arquivos node_mcp_server.md, python_mcp_server.md, evaluation.md, mcp_best_practices.md) e mcp-tool-developer/SKILL.md:73-87. A migração dos recursos para mcp-tool-developer enriquece a skill canônica com referências técnicas robustas enquanto remove o diretório redundante mcp-server-routing.",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vector-database-engineer + vector-index-tuning",
+    "problem": "Proposta de MERGE: 'vector-index-tuning' é um subconjunto estritamente operacional da competência mais ampla de 'vector-database-engineer'. Enquanto 'vector-database-engineer' define a arquitetura macro de bancos vetoriais, modelos de embedding, chunking, busca híbrida e RAG, ela contém apenas 69 linhas em formato de tópicos e cita explicitamente 'resources/implementation-playbook.md' — arquivo inexistente em seu próprio diretório. Em contrapartida, 'vector-index-tuning' possui um SKILL.md de 51 linhas acompanhado exatamente pelo robusto 'resources/implementation-playbook.md' (508 linhas com algoritmos, matrizes de quantização e benchmarks empíricos em Python com hnswlib/faiss). Manter duas skills separadas fragmenta a engenharia de bancos de dados vetoriais e causa colisão direta de roteamento quando o usuário solicita otimização de latência, memória e recall (HNSW/PQ) em um banco vetorial.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/vector-database-engineer/SKILL.md:23 (referência órfã a resources/implementation-playbook.md inexistente localmente) e all_skills/Agentic Awesome Skills/skills/vector-index-tuning/resources/implementation-playbook.md:1-508 (o arquivo referenciado está presente em vector-index-tuning). A fusão consolida o ciclo de vida completo de bancos vetoriais da arquitetura ao ajuste fino de índices.",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vector-database-engineer + vector-index-tuning",
+    "problem": "Plano de integracao: 1. Mover 'resources/implementation-playbook.md' de 'vector-index-tuning' para 'vector-database-engineer/resources/implementation-playbook.md', resolvendo a dependência quebrada. 2. Incorporar na descrição e na seção 'Use this skill when' de 'vector-database-engineer' os gatilhos específicos de tuning de hiperparâmetros HNSW (M, efConstruction, efSearch), estratégias de quantização (FP16, INT8, PQ, binária) e benchmarking de recall vs latência. 3. Incorporar o checklist de segurança e plano de rollback pré-reindexação em produção presente em 'vector-index-tuning'. 4. Descontinuar e remover o diretório 'vector-index-tuning', unificando a engenharia de bancos vetoriais da arquitetura ao fine-tuning de índice.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/vector-database-engineer/SKILL.md:23-43 e all_skills/Agentic Awesome Skills/skills/vector-index-tuning/SKILL.md:13-46. O plano repara a dependência quebrada, enriquece a skill principal com benchmarks práticos e segurança de rollback, e elimina a duplicidade conceitual.",
+    "correctedDescription": ""
+  }
+]

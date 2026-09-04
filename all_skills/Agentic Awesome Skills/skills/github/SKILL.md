@@ -1,6 +1,6 @@
 ---
 name: github
-description: "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries."
+description: "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. Use when developing, optimizing, debugging, or configuring github in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for github."
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"

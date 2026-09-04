@@ -1,0 +1,444 @@
+[
+  {
+    "skillName": "manifest",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/manifest/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 156 caracteres (abaixo da faixa ideal de 200 a 400 caracteres) e carente de termos discriminantes essenciais como comandos da CLI do Claude ('claude plugins', 'claude gateway') e configuração de endpoints OTLP.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Instalação e configuração do plugin de telemetria e observabilidade Manifest para agentes Claude via CLI e OTLP.",
+      "entidades": [
+        "claude gateway",
+        "claude plugins",
+        "claude config",
+        "Manifest",
+        "OTLP",
+        "diagnostics-otel"
+      ],
+      "keywords": [
+        "manifest",
+        "observability",
+        "telemetry",
+        "claude gateway",
+        "claude plugins",
+        "api key",
+        "otlp",
+        "endpoint",
+        "monitoring",
+        "troubleshooting",
+        "diagnostics-otel",
+        "gateway.log"
+      ]
+    },
+    "summary": "Guia técnico direto para configuração do plugin Manifest no Claude CLI, demandando apenas ampliação da description para 200-400 caracteres com discriminantes do gateway e OTLP."
+  },
+  {
+    "skillName": "markdown-rendering",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/markdown-rendering/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description excessivamente concisa (82 caracteres, muito abaixo dos 200-400 caracteres), desprovida de cláusula explícita de gatilho ('Use when...') e sem discriminantes dos comandos operacionais do cmux ('cmux markdown open', 'move-surface', 'close-surface').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Abertura e recuperação confiável de renderização de arquivos Markdown em painéis do multiplexador cmux contornando telas em branco.",
+      "entidades": [
+        "cmux",
+        "cmux markdown open",
+        "cmux list-panes",
+        "cmux close-surface",
+        "move-surface",
+        "$CMUX_WORKSPACE_ID"
+      ],
+      "keywords": [
+        "cmux",
+        "markdown",
+        "rendering",
+        "pane",
+        "surface",
+        "blank surface",
+        "workspace",
+        "move-surface",
+        "direction right",
+        "terminal multiplexer",
+        "layout",
+        "close-surface"
+      ]
+    },
+    "summary": "Procedimento cirúrgico e eficaz para contornar o bug de superfície em branco no cmux ao renderizar Markdown, necessitando de description expandida com gatilho e comandos discriminantes."
+  },
+  {
+    "skillName": "marketing-ideas",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/marketing-ideas/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "O catálogo central com as 140 ideias de marketing prometido na introdução foi omitido no corpo do arquivo com um placeholder residual de refatoração ('*(Library unchanged; same ideas as previous revision, omitted here for brevity but assumed intact in file.)*') e não existe em nenhum arquivo auxiliar no diretório.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description com 147 caracteres (abaixo dos 200-400 recomendados), sem cláusula explícita de gatilho ('Use when...') e sem discriminantes da fórmula MFS e dimensões de viabilidade.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Apresenta seção final 'When to Use' (linhas 226-228) de caráter puramente tautológico e redundante ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover ou substituir a Seção 4 fantasma contendo nota de omissão de LLM, e podar o bloco final redundante 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Seleção, pontuação e priorização de ideias e estratégias de marketing para produtos SaaS através do Marketing Feasibility Score (MFS).",
+      "entidades": [
+        "Marketing Feasibility Score (MFS)",
+        "Impact",
+        "Fit",
+        "Speed to Signal",
+        "Effort",
+        "Cost"
+      ],
+      "keywords": [
+        "marketing ideas",
+        "SaaS growth",
+        "MFS",
+        "feasibility scoring",
+        "prioritization",
+        "impact",
+        "fit",
+        "speed to signal",
+        "effort",
+        "cost",
+        "pre-launch",
+        "early stage",
+        "growth",
+        "scale"
+      ]
+    },
+    "summary": "Framework de pontuação de viabilidade MFS bem estruturado, porém em estado ruim devido ao truncamento do catálogo de 140 ideias com placeholder de LLM e description deficiente."
+  },
+  {
+    "skillName": "marketing-plan",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/marketing-plan/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description termina abruptamente com reticências ('...'), é redigida primariamente como condição circunstancial ('When the user needs...') sem verbo imperativo de ação principal ('Develop...'), e repete múltiplos termos sinônimos sem ganhos semânticos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Elaboração de plano abrangente e executável de marketing de 12 meses nível fCMO estruturado pelo framework AARRR e ancorado em estágios de financiamento.",
+      "entidades": [
+        "AARRR",
+        "fCMO",
+        "Notion",
+        "marketing-ideas",
+        "product-marketing",
+        "GA4 MCP",
+        "Stripe MCP",
+        "Ahrefs"
+      ],
+      "keywords": [
+        "marketing plan",
+        "AARRR",
+        "fCMO",
+        "GTM",
+        "go-to-market",
+        "acquisition",
+        "activation",
+        "retention",
+        "referral",
+        "revenue",
+        "budget planning",
+        "CAC",
+        "S-curves",
+        "funding stage",
+        "roadmap"
+      ]
+    },
+    "summary": "Excelente playbook estratégico de marketing nível fractional CMO com vasta documentação de suporte em referências, demandando apenas saneamento da description truncada com reticências."
+  },
+  {
+    "skillName": "marketing-psychology",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/marketing-psychology/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A Seção 4 ('Mental Model Library (Canonical)') foi truncada e substituída por resíduos textuais de LLM/commit ('✅ Library unchanged / ✅ Your original content preserved in full / *(All models from your provided draft remain valid and included)*'), deixando a skill sem os modelos mentais detalhados prometidos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description curta (147 caracteres, abaixo dos 200-400), sem cláusula explícita de gatilho ('Use when...') e sem discriminantes da fórmula PLFS ou nomes de modelos conceituais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final 'When to Use' (linhas 260-262) é completamente tautológica e redundante ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover ou reintegrar a Seção 4 eliminando o texto de scaffold de IA, e podar o bloco final tautológico 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Aplicação de ciência comportamental e modelos cognitivos a decisões de marketing priorizados pelo Psychological Leverage & Feasibility Score (PLFS).",
+      "entidades": [
+        "Psychological Leverage & Feasibility Score (PLFS)",
+        "Paradox of Choice",
+        "Loss Aversion",
+        "Anchoring",
+        "Framing Effect",
+        "Social Proof"
+      ],
+      "keywords": [
+        "marketing psychology",
+        "mental models",
+        "PLFS",
+        "behavioral science",
+        "ethical persuasion",
+        "paradox of choice",
+        "anchoring",
+        "loss aversion",
+        "framing",
+        "social proof",
+        "decision making",
+        "friction reduction"
+      ]
+    },
+    "summary": "Apresenta metodologia rigorosa de pontuação PLFS e guardrails éticos, porém está em estado ruim devido à Seção 4 corrompida por placeholder residual de LLM e description sem gatilho."
+  },
+  {
+    "skillName": "markstream-custom-components",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/markstream-custom-components/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 151 caracteres (abaixo dos 200-400 recomendados), sem cláusula explícita de gatilho ('Use when...') e omitindo discriminantes de APIs centrais como 'setCustomComponents', 'customId', 'streamingComponents' e 'htmlComponents'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Customização de renderizadores de nós e inclusão de tags seguras no Markstream para Vue, React, Svelte e Angular com escopo isolado.",
+      "entidades": [
+        "markstream-react",
+        "markstream-vue",
+        "MarkdownRender",
+        "setCustomComponents",
+        "customId",
+        "streamingComponents",
+        "htmlComponents"
+      ],
+      "keywords": [
+        "markstream",
+        "custom components",
+        "node renderers",
+        "vue",
+        "react",
+        "svelte",
+        "angular",
+        "streaming markdown",
+        "customHtmlTags",
+        "htmlPolicy",
+        "thinking tag",
+        "scoped mapping"
+      ]
+    },
+    "summary": "Guia conciso e de alta qualidade técnica para substituição de nós e tags customizadas no Markstream em múltiplos frameworks, necessitando expansão da description com gatilho e APIs-chave."
+  },
+  {
+    "skillName": "markstream-install",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/markstream-install/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 139 caracteres (abaixo da faixa ideal de 200-400 caracteres), desprovida de cláusula explícita de gatilho ('Use when...') e sem discriminantes dos pacotes individuais por framework ('markstream-vue', 'markstream-react') ou flags de streaming.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Instalação e configuração de renderizadores Markstream com suporte a streaming de Markdown para Vue 2/3, React, Next.js, Svelte, Angular e Nuxt.",
+      "entidades": [
+        "markstream-vue",
+        "markstream-react",
+        "markstream-svelte",
+        "markstream-angular",
+        "markstream-vue2",
+        "MarkdownRender",
+        "KaTeX"
+      ],
+      "keywords": [
+        "markstream",
+        "installation",
+        "streaming markdown",
+        "vue",
+        "react",
+        "nextjs",
+        "nuxt",
+        "svelte",
+        "angular",
+        "css layers",
+        "tailwind",
+        "katex",
+        "typewriter",
+        "smooth-streaming"
+      ]
+    },
+    "summary": "Manual de integração completo e meticuloso para Markstream em todos os principais frameworks modernos, com pendência estrita à ampliação e estruturação de gatilho da description."
+  },
+  {
+    "skillName": "markstream-migration",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/markstream-migration/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 169 caracteres (abaixo dos 200-400 caracteres recomendados), sem cláusula explícita de gatilho ('Use when...') e sem citar nominalmente as bibliotecas substituídas ('react-markdown', 'markdown-it', 'marked').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Migração e auditoria de renderizadores legados de Markdown para o ecossistema Markstream preservando políticas de segurança e semântica de streaming.",
+      "entidades": [
+        "markstream-react",
+        "MarkdownRender",
+        "react-markdown",
+        "markdown-it",
+        "marked"
+      ],
+      "keywords": [
+        "markstream",
+        "migration",
+        "react-markdown",
+        "markdown-it",
+        "marked",
+        "streaming markdown",
+        "security policy",
+        "sanitization",
+        "smoothStreaming",
+        "typewriter",
+        "node mapping"
+      ]
+    },
+    "summary": "Roteiro objetivo e consistente para migrar de bibliotecas clássicas de Markdown para o Markstream, exigindo apenas expansão da description com menção expressa aos renderers substituídos e gatilho de ativação."
+  },
+  {
+    "skillName": "markstream-nuxt",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/markstream-nuxt/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 139 caracteres (abaixo da meta de 200-400), sem cláusula explícita de gatilho ('Use when...') e sem discriminantes de SSR boundaries como '<ClientOnly>' e plugins client-safe.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração de markstream-vue em aplicações Nuxt 3 ou 4 com respeito a boundaries de SSR, hidratação e streaming em tempo real.",
+      "entidades": [
+        "markstream-vue",
+        "MarkdownRender",
+        "Nuxt 3",
+        "Nuxt 4",
+        "<ClientOnly>"
+      ],
+      "keywords": [
+        "nuxt",
+        "vue",
+        "ssr",
+        "markstream-vue",
+        "streaming markdown",
+        "client-only",
+        "hydration",
+        "chat mode",
+        "smooth-streaming",
+        "typewriter",
+        "optional peers"
+      ]
+    },
+    "summary": "Orientação cirúrgica para configuração segura de streaming Markdown em Nuxt 3/4 evitando problemas de hidratação e SSR, necessitando enriquecimento da description."
+  },
+  {
+    "skillName": "markstream-react",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/markstream-react/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres (abaixo dos 200-400 caracteres), sem cláusula explícita de gatilho ('Use when...') e omitindo discriminantes de subpath exports ('markstream-react/next', 'markstream-react/server') e props de streaming.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração do renderizador markstream-react em React 18+ e Next.js com controle de boundaries client/server e propriedades de streaming.",
+      "entidades": [
+        "markstream-react",
+        "markstream-react/next",
+        "markstream-react/server",
+        "MarkdownRender",
+        "React 18",
+        "Next.js"
+      ],
+      "keywords": [
+        "markstream-react",
+        "react",
+        "nextjs",
+        "streaming markdown",
+        "ssr",
+        "client components",
+        "server components",
+        "typewriter",
+        "smoothStreaming",
+        "component overrides",
+        "htmlPolicy"
+      ]
+    },
+    "summary": "Guia prático e seguro para uso de markstream-react em React 18 e Next.js com separação de entrypoints client/server, requerendo expansão da description com gatilho e subpath exports."
+  }
+]

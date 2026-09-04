@@ -1,0 +1,409 @@
+[
+  {
+    "skillName": "vue-vitest-testing-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A descrição no frontmatter contém o trecho genérico redundante 'Covers objectives and core workflows.' ao final, violando os critérios 10, 12 e 13 (redundância de preenchimento e redução da densidade semântica útil). Recomenda-se remover o trecho ou substituí-lo por discriminantes mais específicos (ex.: stubs de MaxComponentsUi, apiGetRoute).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões, configuração e estratégias de isolamento para testes unitários e de integração no front-end Vue 3 com Vitest, Vue Test Utils e MaxPinia no Engeapp.",
+      "entidades": [
+        "Vitest",
+        "Vue Test Utils",
+        "@maxvue/max-pinia",
+        "createMaxPinia",
+        "@maxvue/max-components-ui",
+        "MaxInputText",
+        "MaxIcon",
+        "MaxButton",
+        "@maxvue/max-use",
+        "apiGetRoute",
+        "apiPostRoute",
+        "Ziggy",
+        "Axios"
+      ],
+      "keywords": [
+        "vitest",
+        "vue-test-utils",
+        "max-pinia",
+        "createMaxPinia",
+        "mocking",
+        "stubs",
+        "jsdom",
+        "happy-dom",
+        "apiGetRoute",
+        "apiPostRoute",
+        "ziggy",
+        "flushPromises",
+        "MaxComponentsUi",
+        "unit-testing",
+        "integration-testing",
+        "frontend-isolation"
+      ]
+    },
+    "summary": "Skill técnica de alta precisão e perfeitamente aderente ao stack front-end do Engeapp, necessitando apenas da remoção de frase genérica de preenchimento na descrição."
+  },
+  {
+    "skillName": "vue-whatsapp-interactive-messages-simulator-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A descrição no frontmatter inclui a frase de boilerplate 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica e violando os critérios 10 e 12.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de UI/UX, arquitetura de componentes Vue 3 e estilização SCSS/UnoCSS para simulação de mensagens interativas do WhatsApp e templates no EngeApp.",
+      "entidades": [
+        "ChatMessageMain",
+        "ChatMessageContent",
+        "ChatMessageImageBaloon",
+        "ChatMessageButtonOptions",
+        "ChatInputTemplatesPopover.vue",
+        "getListTemplates.Store.ts",
+        "@maxvue/max-pinia",
+        "@maxvue/max-components-ui",
+        "Botao",
+        "MaxButton",
+        "InputField",
+        "UnoCSS",
+        "Ziggy"
+      ],
+      "keywords": [
+        "whatsapp",
+        "simulador",
+        "interactive-messages",
+        "quick-replies",
+        "list-messages",
+        "cta-buttons",
+        "templates",
+        "ChatMessageMain",
+        "ChatInputTemplatesPopover",
+        "computed-validation",
+        "MaxComponentsUi",
+        "UnoCSS",
+        "SCSS",
+        "max-pinia",
+        "ziggy"
+      ]
+    },
+    "summary": "Conteúdo perfeitamente ancorado nos componentes reais de chat do Engeapp, requerendo apenas o corte de boilerplate genérico na descrição."
+  },
+  {
+    "skillName": "project-history",
+    "skillPath": "created-skills/project-history/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A descrição omite totalmente o nome do projeto ('SocialMedia') e usa a expressão genérica 'in this project', gerando risco crítico de falso-positivo de ativação em qualquer projeto do repositório/workspace (violação dos critérios 4, 7 e 8).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A descrição contém ruído meta-operacional ('moved out of CLAUDE.md so it isn't always loaded'), violando os critérios 10 e 11 (linguagem anti-promocional e ausência de procedimentos operacionais/justificativas meta na description).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção '## Instruções' é meramente decorativa/oca ('Siga as instruções e padrões descritos na documentação.'), sem procedimentos cognitivos reais ou diretrizes de consulta histórica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inversão estrutural grave: a totalidade do arquivo (~31KB) consiste em um changelog factual massivo despejado diretamente dentro da seção '## Objetivo', descaracterizando a estrutura de uma skill acionável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 80,
+    "cuts": [
+      {
+        "text": "Mover o changelog detalhado dos Marcos 1 a 5 e Fases 1 a 7 (linhas 13-35, ~31KB) para um arquivo de referência dedicado (ex.: references/changelog-socialmedia.md), mantendo no SKILL.md apenas o guia cognitivo de consulta histórica e decisões arquiteturais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Substituir o texto vazio de '## Instruções' ('Siga as instruções e padrões descritos na documentação.') por instruções acionáveis de rastreamento e busca de contexto histórico do projeto SocialMedia.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Registro cronológico de marcos, validações, testes e decisões de arquitetura da aplicação SocialMedia (multi-tenancy, agentes de IA, LoRA e filas).",
+      "entidades": [
+        "SocialMedia",
+        "Laravel",
+        "Sanctum",
+        "Pest",
+        "Gemini",
+        "Horizon",
+        "OneTrainer",
+        "ComfyUI",
+        "MetaWebhookController",
+        "MaxTabs"
+      ],
+      "keywords": [
+        "changelog",
+        "socialmedia",
+        "marcos",
+        "pest-tests",
+        "multi-tenancy",
+        "gemini-ai",
+        "lora-training",
+        "comfyui",
+        "onetrainer",
+        "horizon-queues",
+        "soft-deletes",
+        "client_enabled",
+        "maxtabs"
+      ]
+    },
+    "summary": "Skill estruturalmente desvirtuada com mais de 31KB de changelog sob Objetivo, instruções vazias e descrição ambígua que omite o nome do projeto SocialMedia, gerando alto risco de falsos disparos."
+  },
+  {
+    "skillName": "project-setup",
+    "skillPath": "created-skills/project-setup/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A descrição utiliza termos genéricos ('this project') sem identificar explicitamente que o setup refere-se exclusivamente ao projeto 'SocialMedia', induzindo acionamento errôneo e execução de scripts indevidos em outros projetos (violação dos critérios 4, 7 e 8).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inversão estrutural e seção morta: todos os comandos de instalação, flags de ambiente e smoke tests estão alocados sob '## Objetivo', enquanto a seção '## Instruções' possui apenas o placeholder vazio 'Siga as instruções e padrões descritos na documentação.'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Quebra de encapsulamento: o conteúdo aponta para arquivos externos inexistentes no contexto da skill ('ver Ambiente de Dev no CLAUDE.md', 'ver regra 16 do CLAUDE.md').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o placeholder vazio 'Siga as instruções e padrões descritos na documentação.' em '## Instruções' e realocar os passos operacionais de '## Objetivo' para '## Instruções'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Substituir as referências externas a 'CLAUDE.md' por instruções autossuficientes dentro da própria skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Roteiro de setup, configuração de ambiente (.env), bootstrap de banco e inicialização de serviços de background para o projeto SocialMedia.",
+      "entidades": [
+        "SocialMedia",
+        "Laravel",
+        "PostgreSQL",
+        "Redis",
+        "Horizon",
+        "OneTrainer",
+        "ComfyUI",
+        "Gemini",
+        "Caddy",
+        "Vite"
+      ],
+      "keywords": [
+        "setup",
+        "socialmedia",
+        "onboarding",
+        "composer",
+        "npm",
+        "db:bootstrap",
+        "env",
+        "redis",
+        "horizon",
+        "gemini",
+        "onetrainer",
+        "comfyui",
+        "smoke-test"
+      ]
+    },
+    "summary": "Skill com inversão de seções e descrição ambígua que omite o nome do projeto SocialMedia, criando risco de execução de setup e comandos incompatíveis em outros repositórios."
+  },
+  {
+    "skillName": "typescript-advanced-types-best-practices",
+    "skillPath": "created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A descrição contém a frase de preenchimento redundante 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica (violação dos critérios 10, 12 e 13).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Modelagem avançada de tipos seguros, generics, tipos condicionais, mapeados e configurações de rigor em TypeScript alinhadas ao ecossistema Max*.",
+      "entidades": [
+        "TypeScript",
+        "generics",
+        "conditional types",
+        "mapped types",
+        "template literals",
+        "branded types",
+        "AssertEqual",
+        "Vitest",
+        "tsconfig.json",
+        "MaxUse",
+        "MaxPinia",
+        "MaxComponentsUi",
+        "engeapp"
+      ],
+      "keywords": [
+        "typescript",
+        "generics",
+        "conditional-types",
+        "mapped-types",
+        "template-literals",
+        "utility-types",
+        "branded-types",
+        "satisfies",
+        "as-const",
+        "strict-config",
+        "AssertEqual",
+        "type-safety",
+        "compiler-inferences"
+      ]
+    },
+    "summary": "Excelente guia de engenharia de tipos TypeScript alinhado com fidelidade estrita aos tsconfigs reais do ecossistema, requerendo apenas o corte de boilerplate na descrição."
+  },
+  {
+    "skillName": "typescript-billing-core-architecture-best-practices",
+    "skillPath": "created-skills/typescript/typescript-billing-core-architecture-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura limpa de motor de cobrança e assinaturas em TypeScript puro desacoplado de frameworks, com máquina de estados, gateway agnóstico e parser de webhooks.",
+      "entidades": [
+        "PaymentGateway",
+        "EfiGateway",
+        "InterGateway",
+        "CanonicalWebhookEvent",
+        "InvalidTransitionError",
+        "Money",
+        "Laravel 13",
+        "efipay/sdk-php-apis-efi",
+        "inter-co/pj-sdk-php",
+        "ProcessEfiWebhookJob",
+        "Horizon"
+      ],
+      "keywords": [
+        "typescript",
+        "billing-core",
+        "subscription",
+        "state-machine",
+        "payment-gateway",
+        "idempotency",
+        "webhook-parser",
+        "mTLS",
+        "money-cents",
+        "clean-architecture",
+        "zero-framework",
+        "laravel-comparison"
+      ]
+    },
+    "summary": "Skill exemplar com descrição precisa, gatilho negativo indispensável diferenciando a lib TS da integração PHP real do Engeapp, e especificações técnicas impecáveis."
+  },
+  {
+    "skillName": "typescript-max-banks-efi-gateway-best-practices",
+    "skillPath": "created-skills/typescript/typescript-max-banks-efi-gateway-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação do adaptador Efí (EfiGateway) em TypeScript para o pacote @maxvue/max-banks, cobrindo autenticação OAuth2/mTLS, emissão Pix e processamento de webhooks.",
+      "entidades": [
+        "@maxvue/max-banks",
+        "EfiGateway",
+        "PaymentGateway",
+        "EfiHttpClient",
+        "CanonicalWebhookEvent",
+        "InvalidPixPayloadError",
+        "AuthenticationError",
+        "Pix",
+        "Axios",
+        "https.Agent",
+        "efipay/sdk-php-apis-efi"
+      ],
+      "keywords": [
+        "efi",
+        "max-banks",
+        "efigateway",
+        "pix",
+        "createPixCharge",
+        "getCharge",
+        "oauth2",
+        "mTLS",
+        "p12-certificate",
+        "webhook",
+        "endToEndId",
+        "idempotency",
+        "centavos"
+      ]
+    },
+    "summary": "Skill exemplar com discriminação semântica detalhada, demarcação transparente entre convenção-alvo e monólito PHP existente, e rigor nos fluxos mTLS e Pix da Efí."
+  },
+  {
+    "skillName": "typescript-tooling-monorepo-best-practices",
+    "skillPath": "created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes práticas de compilação, diagnóstico de desempenho, ESLint, referências composite e resolução de módulos TypeScript/Vue no ecossistema Engeapp/Max*.",
+      "entidades": [
+        "TypeScript",
+        "vue-tsc",
+        "tsgo",
+        "ESLint",
+        "typescript-eslint",
+        "Vitest",
+        "MaxUse",
+        "MaxPinia",
+        "MaxComponentsUi",
+        "engeapp",
+        "tsconfig.json"
+      ],
+      "keywords": [
+        "typescript",
+        "vue-tsc",
+        "tsgo",
+        "tooling",
+        "compiler-performance",
+        "composite",
+        "moduleResolution-bundler",
+        "skipLibCheck",
+        "ESM",
+        "CJS",
+        "eslint",
+        "monorepo",
+        "build-speed"
+      ]
+    },
+    "summary": "Skill de altíssimo nível técnico, sem bloat, perfeitamente calibrada com o ecossistema real de tooling dos pacotes Max* e Engeapp."
+  }
+]

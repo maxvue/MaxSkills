@@ -1,6 +1,6 @@
 ---
 name: repo-maintainer
-description: "Audit and repair repository hygiene across artifacts, dependencies, CI, docs, Git state, and code-quality signals. Use for repository maintenance, cleanup, health checks, or pre-release hardening."
+description: "Audit and repair repository hygiene across artifacts, dependencies, CI, docs, Git state, and code-quality signals. Use for repository maintenance, cleanup, health checks, or pre-release hardening. Use when developing, optimizing, debugging, or configuring repo maintainer in production workflows."
 risk: critical
 source: https://github.com/Wolfe-Jam/faf-skills/tree/main/skills/repo-maintainer
 source_repo: Wolfe-Jam/faf-skills

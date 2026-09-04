@@ -1,0 +1,466 @@
+[
+  {
+    "skillName": "debugger",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/debugger/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 108 caracteres (abaixo do limiar mínimo de 200-400 chars) e é hipergenérica ('Use proactively when encountering any issues'), falhando nos critérios de gatilho claro, termos discriminantes e ausência de generalismo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O corpo do arquivo é dominado por boilerplate sintético tautológico ('Use this skill when working on debugger tasks', 'Do not use when the task is unrelated to debugger', 'open resources/implementation-playbook.md' inexistente).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O conteúdo técnico é extremamente superficial e genérico, limitando-se a um checklist óbvio de 5 passos sem detalhar ferramentas reais (gdb, lldb, pdb, dap) nem metodologias concretas de instrumentação.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover linhas 13 a 28 (seções 'Use this skill when', 'Do not use this skill when' e 'Instructions' com referências a playbooks inexistentes), que consistem em puro ruído sintético tautológico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Processo genérico de diagnóstico de causa raiz, análise de stack trace e isolamento de falhas.",
+      "entidades": [
+        "stack trace",
+        "debug logging",
+        "variable states",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "debugger",
+        "root cause analysis",
+        "stack trace",
+        "error isolation",
+        "reproduction steps",
+        "hypothesis testing",
+        "debug logging",
+        "minimal fix",
+        "test verification",
+        "defect prevention"
+      ]
+    },
+    "summary": "Skill superficial e inflada por boilerplate tautológico, apresentando description hipergenérica de 108 caracteres sem ferramentas concretas."
+  },
+  {
+    "skillName": "debugging-code",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/debugging-code/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description no frontmatter foi truncada abruptamente com reticências ('produces...') e omite o discriminante essencial da ferramenta de CLI utilizada ('dap' / DAP CLI / Debug Adapter Protocol).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação textual no corpo entre as linhas 16 e 19-21, repetindo redundantemente o texto de abertura da description dentro da seção 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a linha 16 que repete verbatim o cabeçalho truncado da description, unificando a seção 'When to Use' diretamente a partir da linha 19.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Depuração interativa de código-fonte via DAP CLI com gerenciamento de breakpoints, inspeção de call stack e avaliação de expressões em runtime.",
+      "entidades": [
+        "dap",
+        "Debug Adapter Protocol",
+        "dlv",
+        "Go",
+        "Python",
+        "Node.js/TypeScript",
+        "Rust",
+        "C/C++"
+      ],
+      "keywords": [
+        "dap",
+        "debug adapter protocol",
+        "interactive debugging",
+        "breakpoints",
+        "conditional breakpoints",
+        "invariant breakpoints",
+        "call stack",
+        "step in",
+        "step out",
+        "dap eval",
+        "live state inspection",
+        "session isolation"
+      ]
+    },
+    "summary": "Guia prático e aprofundado de depuração via DAP CLI, necessitando sanar a description truncada e eliminar pequenas redundâncias na introdução."
+  },
+  {
+    "skillName": "debugging-toolkit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/debugging-toolkit/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 101 caracteres (abaixo de 200) e é puramente tautológica ('Use when working with debugging toolkit smart debug'), sem clareza de ação, discriminação ou valor semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo é um mero stub/alias de redirecionamento de 36 linhas desprovido de qualquer instrução, comando ou procedimento prático de depuração.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Aponta para caminho relativo de vault inexistente na árvore de trabalho local ('skill-libraries/code-quality/debugging-toolkit-smart-debug/SKILL.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o bloco redundante de Limitations e Examples das linhas 24 a 35 caso a skill permaneça apenas como link de redirecionamento canônico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Redirecionamento de alias para a skill canônica debugging-toolkit-smart-debug.",
+      "entidades": [
+        "debugging-toolkit-smart-debug",
+        "skill-libraries/code-quality"
+      ],
+      "keywords": [
+        "debugging-toolkit",
+        "alias",
+        "smart debug",
+        "canonical redirect",
+        "code quality",
+        "discoverability"
+      ]
+    },
+    "summary": "Stub de alias sem conteúdo técnico próprio, apontando para vault externo e com description curta e tautológica."
+  },
+  {
+    "skillName": "deepapi",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/deepapi/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description tem apenas 111 caracteres (abaixo de 200) e não explicita as plataformas e integrações suportadas (LinkedIn, GitHub, X/Twitter, YouTube, Deep Research).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de endpoints legados repetidos com documentação quase duplicada (linhas 423-498: /v1/scrape/linkedin, /v1/scrape/github, /v1/scrape/twitter).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Condensar os blocos de endpoints legados repetidos das linhas 423 a 498 como notas de compatibilidade na tabela principal, poupando ~75 linhas de código redundante.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Execução de scraping web estruturado, pesquisa aprofundada e gestão segura de emails através da API DeepAPI com controle de teto de custos.",
+      "entidades": [
+        "DeepAPI",
+        "DEEPAPI_API_KEY",
+        "DEEPAPI_API_BASE_URL",
+        "Idempotency-Key",
+        "LinkedIn",
+        "GitHub",
+        "X/Twitter",
+        "YouTube"
+      ],
+      "keywords": [
+        "DeepAPI",
+        "web scraping",
+        "LinkedIn profile scraping",
+        "Twitter search",
+        "YouTube transcripts",
+        "GitHub profile",
+        "deep research",
+        "email drafts",
+        "idempotency",
+        "spend cap",
+        "maxCostUsd"
+      ]
+    },
+    "summary": "Excelente especificação de API com fortes guardrails de segurança e custo, necessitando enriquecer a description com as plataformas suportadas e podar endpoints legados."
+  },
+  {
+    "skillName": "defuddle",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/defuddle/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Extração de conteúdo textual e markdown limpo de páginas web via CLI Defuddle com remoção de ruídos de navegação para economia de tokens.",
+      "entidades": [
+        "Defuddle CLI",
+        "defuddle parse",
+        "WebFetch",
+        "npm",
+        "markdown"
+      ],
+      "keywords": [
+        "defuddle",
+        "markdown extraction",
+        "web scraping",
+        "clean reader",
+        "token optimization",
+        "cli",
+        "content distillation",
+        "metadata extraction",
+        "article parsing"
+      ]
+    },
+    "summary": "Skill exemplar com description de alta densidade semântica (261 chars), gatilhos contrastantes claros e instruções de CLI totalmente enxutas."
+  },
+  {
+    "skillName": "delegating-to-agents",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/delegating-to-agents/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 104 caracteres (abaixo de 200) e omite os termos discriminantes técnicos fundamentais abordados no documento (cmux, TUI, Codex CLI, Pi Agent, Hermes).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de gatilho formal 'Use when...' discriminando o despacho de tarefas de longa duração e comunicação via terminal multiplexado.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Orquestração e delegação de tarefas autônomas para agentes de IA locais e de terminal via cmux com regras estritas de prompt em TUI.",
+      "entidades": [
+        "cmux",
+        "Codex CLI",
+        "Pi Agent",
+        "Claude Code",
+        "Hermes",
+        "OpenRouter",
+        "opus-4.8-fast",
+        "PTY"
+      ],
+      "keywords": [
+        "agent delegation",
+        "orchestration",
+        "cmux",
+        "terminal agents",
+        "TUI",
+        "Codex CLI",
+        "Pi Agent",
+        "Hermes",
+        "Claude Code",
+        "polling",
+        "prompt formatting"
+      ]
+    },
+    "summary": "Instruções operacionais precisas para comunicação e delegação entre agentes via cmux, necessitando apenas enriquecer a description com os discriminantes técnicos."
+  },
+  {
+    "skillName": "deployment-pipeline-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/deployment-pipeline-design/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 104 caracteres (abaixo de 200), não possui gatilho 'Use when...' e omite ferramentas discriminantes cobertas no documento (GitHub Actions, GitLab CI, Argo Rollouts, Trivy, Prometheus).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de boilerplate sintético tautológico nas linhas 13-24 ('The task is unrelated to deployment pipeline design', 'open resources/implementation-playbook.md' inexistente).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover linhas 13 a 24 com instruções tautológicas de gerador ('Do not use this skill when' e 'Instructions'), unificando a introdução diretamente em 'Purpose' e 'Pipeline Stages'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais para pipelines CI/CD multi-estágio com portões de aprovação manual e estratégias de entrega progressiva.",
+      "entidades": [
+        "GitHub Actions",
+        "GitLab CI",
+        "Azure Pipelines",
+        "Kubernetes",
+        "Argo Rollouts",
+        "Flagsmith",
+        "Trivy",
+        "Prometheus"
+      ],
+      "keywords": [
+        "CI/CD",
+        "deployment pipeline",
+        "approval gates",
+        "canary deployment",
+        "blue-green",
+        "rolling update",
+        "automated rollback",
+        "Argo Rollouts",
+        "health check",
+        "DORA metrics",
+        "trivy scan"
+      ]
+    },
+    "summary": "Compêndio sólido de arquitetura CI/CD e estratégias de release, precisando podar boilerplate sintético inicial e expandir a description com discriminantes."
+  },
+  {
+    "skillName": "design-philosophy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/design-philosophy/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 195 caracteres (ligeiramente abaixo do limiar de 200) e contém linguagem ligeiramente subjetiva ('unmistakable art-like aesthetic').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância textual no corpo entre as linhas 17 e 20, repetindo de forma quase idêntica a frase da description dentro de 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar as linhas 17 e 20 eliminando a duplicação imediata da frase de introdução.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Direção de arte e formulação de manifestos conceituais para guiar estéticas visuais arrojadas em projetos de frontend.",
+      "entidades": [
+        "design-philosophy",
+        "reference.md",
+        "Jazz quote principle"
+      ],
+      "keywords": [
+        "design philosophy",
+        "art direction",
+        "visual manifesto",
+        "craftsmanship",
+        "visual hierarchy",
+        "space and form",
+        "color and material",
+        "scale and rhythm",
+        "composition",
+        "high-concept"
+      ]
+    },
+    "summary": "Diretriz concisa de direção de arte e conceituação estética para frontend, requerendo pequeno ajuste de extensão na description e remoção de frase redundante."
+  },
+  {
+    "skillName": "design-system",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/design-system/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description no frontmatter foi cortada no meio de uma frase com reticências: '(Aesthetic direction lives in...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dependência de links e seções relativas a outros arquivos do pacote original ('design-spatial §2' e '../design-spatial/SKILL.md') que reduzem a auto-suficiência da skill se usada isoladamente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Invariantes mecânicas de implementação de design frontend cobrindo tokens, tipografia tabular, eliminação de FOUT, estabilidade de chrome e scrollytelling.",
+      "entidades": [
+        "WOFF2",
+        "document.fonts",
+        "APCA",
+        "WCAG 2",
+        "IntersectionObserver",
+        "Framer Motion",
+        "GLTFLoader",
+        "Three.js",
+        "React Suspense"
+      ],
+      "keywords": [
+        "design system",
+        "token architecture",
+        "FOUT prevention",
+        "layout shift",
+        "CLS",
+        "APCA contrast",
+        "nested radii",
+        "concentric curves",
+        "scrollytelling",
+        "typography hierarchy",
+        "chrome stability"
+      ]
+    },
+    "summary": "Guia técnico de engenharia de design de altíssimo nível, demandando apenas a correção da description truncada no frontmatter."
+  },
+  {
+    "skillName": "design-taste-frontend",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/design-taste-frontend/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 139 caracteres (abaixo de 200), emprega termos vagos e valorativos ('high-agency', 'strict design taste') e omite as tecnologias-chave reguladas (React, Next.js RSC, Tailwind CSS, Framer Motion).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de gatilho explícito na description descrevendo a supressão sistemática de clichês visuais de LLMs (centramento forçado, botões roxos com brilho, excesso de cards).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e restrições de engenharia de design para React, Next.js e Tailwind, focadas em neutralizar vieses estéticos e vícios estruturais de IA.",
+      "entidades": [
+        "React",
+        "Next.js RSC",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Phosphor Icons",
+        "Radix UI",
+        "GSAP",
+        "ThreeJS"
+      ],
+      "keywords": [
+        "frontend design",
+        "design engineering",
+        "anti-slop",
+        "React Server Components",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Bento grid",
+        "typography",
+        "liquid glass",
+        "perpetual micro-interactions",
+        "bias correction"
+      ]
+    },
+    "summary": "Manual de design engineering altamente refinado e sem bloat contra vícios de LLMs, precisando expandir a description com as bibliotecas discriminantes e eliminar jargões valorativos."
+  }
+]

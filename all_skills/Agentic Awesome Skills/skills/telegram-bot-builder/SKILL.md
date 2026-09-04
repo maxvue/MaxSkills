@@ -1,6 +1,6 @@
 ---
 name: telegram-bot-builder
-description: Expert in building Telegram bots that solve real problems - from
+description: "Expert in building Telegram bots that solve real problems - from Use when developing, optimizing, debugging, or configuring telegram bot builder in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for telegram bot builder."
   simple automation to complex AI-powered bots. Covers bot architecture, the
   Telegram Bot API, user experience, monetization strategies, and scaling bots
   to thousands of users.

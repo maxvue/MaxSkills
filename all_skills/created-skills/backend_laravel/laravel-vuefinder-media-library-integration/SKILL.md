@@ -1,6 +1,6 @@
 ---
 name: laravel-vuefinder-media-library-integration
-description: "Use when integrating VueFinder file manager with Spatie MediaLibrary in Engeapp. Covers upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), and VueFinder JSON enrichment. Covers objectives and core workflows."
+description: "Use when integrating VueFinder file manager with Spatie MediaLibrary in Engeapp. Covers upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), and VueFinder JSON enrichment."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

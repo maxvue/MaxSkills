@@ -1,6 +1,6 @@
 ---
 name: laravel-browser-automation-webdriver
-description: "Use when creating, modifying, or debugging web browser automation tasks (Selenium WebDriver, Dusk, Puppeteer, Python RPA) in Laravel or backend microservices. Covers browser automation, driver configuration, and element interactions."
+description: "Browser automation in Laravel using App\Classes\Browser\Browser, Facebook WebDriver, and headless Firefox via geckodriver. Use when automating web navigation, screenshots, scraping, or Redis queue-driven browser jobs."
 author: Johnattas Conrady Gomes Santana
 ---
 # Automação de Navegador com WebDriver no engeapp

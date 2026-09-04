@@ -1,6 +1,6 @@
 ---
 name: python-pro
-description: Master Python 3.12+ with modern features, async programming, performance optimization, and production-ready practices. Expert in the latest Python ecosystem including uv, ruff, pydantic, and FastAPI.
+description: "Comprehensive engineering guide and best practices for python pro. Use when configuring, developing, debugging, or optimizing python pro architecture in production systems. Guides architecture, best practices, and implementation standards for python pro."
 risk: critical
 source: community
 date_added: '2026-02-27'

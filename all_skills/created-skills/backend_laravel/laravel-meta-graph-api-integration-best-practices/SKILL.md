@@ -1,6 +1,6 @@
 ---
 name: laravel-meta-graph-api-integration-best-practices
-description: "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Covers objectives, architectural structure, and Meta API endpoints."
+description: "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Provides end-to-end guidance, reference architectures, and practical patterns for laravel meta graph api integration best practices."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

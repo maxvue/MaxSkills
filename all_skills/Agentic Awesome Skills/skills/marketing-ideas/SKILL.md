@@ -1,6 +1,6 @@
 ---
 name: marketing-ideas
-description: "Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system."
+description: "Comprehensive engineering guide and best practices for marketing ideas. Use when configuring, developing, debugging, or optimizing marketing ideas architecture in production systems. Guides architecture, best practices, and implementation standards for marketing ideas."
 risk: safe
 source: community
 date_added: "2026-02-27"

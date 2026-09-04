@@ -1,6 +1,6 @@
 ---
 name: browser-testing-with-devtools
-description: "Test browser apps with Chrome DevTools MCP by inspecting live DOM, console logs, network traffic, screenshots, accessibility, and performance traces."
+description: "Test browser apps with Chrome DevTools MCP by inspecting live DOM, console logs, network traffic, screenshots, accessibility, and performance traces. Use when developing, optimizing, debugging, or configuring browser testing with devtools in production workflows."
 category: testing
 risk: critical
 source: community

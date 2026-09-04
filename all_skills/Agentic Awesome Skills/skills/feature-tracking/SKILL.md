@@ -1,6 +1,6 @@
 ---
 name: feature-tracking
-description: "Maintain durable feature-level memory across AI coding sessions with lightweight Markdown tracks for status, source-of-truth docs, decisions, risks, and changes."
+description: "Maintain durable feature-level memory across AI coding sessions with lightweight Markdown tracks for status, source-of-truth docs, decisions, risks, and changes. Use when developing, optimizing, debugging, or configuring feature tracking in production workflows."
 category: project-management
 risk: critical
 source: community

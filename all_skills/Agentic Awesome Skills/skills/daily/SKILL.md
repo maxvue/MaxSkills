@@ -1,6 +1,6 @@
 ---
 name: daily
-description: Documentation and capabilities reference for Daily
+description: "Documentation and capabilities reference for Daily Use when developing, optimizing, debugging, or configuring daily in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for daily."
 metadata:
   mintlify-proj: daily
   version: "1.0"

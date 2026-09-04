@@ -1,0 +1,129 @@
+Você é o Revisor Adversarial da Fase 3 para o lote ADV6.
+Sua missão é atuar como Advogado do Diabo e avaliar rigorosamente os seguintes 15 micro-lotes de problemas/cortes contra o código real em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ e os arquivos SKILL.md:
+
+### Micro-Lote [MB_CREATED_006] - Skill: laravel-digital-signatures-integration
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-digital-signatures-integration
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém a frase redundante de preenchimento 'Covers objectives and core workflows.' no final (critério 12), devendo ser eliminada ou substituída por termos discriminantes como 'ProjectPowerOfAttorneyDocument' ou 'ReloadPowerAttorneyStatusJob'.
+
+### Micro-Lote [MB_CREATED_014] - Skill: laravel-livekit-server-sdk-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description encerra com boilerplate genérico ('Covers objectives and core workflows.'), gerando redundância sintática.
+  2. Corpo da skill duplica uma implementação completa de 146 linhas do LiveKitService com docblocks extensos, sobrecarregando o arquivo com código boilerplate que poderia ser condensado nos trechos operacionais críticos.
+  3. Condensar o esqueleto completo da classe LiveKitService.php nas linhas 53 a 199, focando nos trechos cruciais (sanitização ws->http, instanciação com RoomCreateOptions e tratamento de ListParticipantsResponse) e eliminando docblocks prolixos.
+
+### Micro-Lote [MB_CREATED_022] - Skill: laravel-reverb-websockets-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description menciona 'Caddy WSS reverse proxy', porém o SKILL.md ensina e detalha na Seção 2 exclusivamente a configuração de reverse proxy com Nginx, gerando divergência de fidelidade semântica.
+
+### Micro-Lote [MB_CREATED_030] - Skill: vue-frontend-bug-fixing-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém cauda redundante 'Covers objectives, project stack, and frontend bug fixing.' que enfraquece a densidade do gatilho (Critérios 7 e 12).
+
+### Micro-Lote [MB_CREATED_038] - Skill: vue-typescript-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description cita 'tsconfig.json', tópico ausente no corpo do documento (fidelidade estrita comprometida), além de meta-ruído ('Covers objectives...').
+  2. Restrição na linha 106 sugere permissividade com classes utilitárias do UnoCSS inline, em desacordo com a diretriz de classes semânticas em <style lang="scss">.
+
+### Micro-Lote [MB_CREATED_046] - Skill: typescript-advanced-types-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A descrição contém a frase de preenchimento redundante 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica (violação dos critérios 10, 12 e 13).
+
+### Micro-Lote [MB_CRIT_054] - Skill: mermaid-diagrammer
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/mermaid-diagrammer/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Corpo composto pelo mesmo boilerplate genérico e circular de outras skills do lote, com links sintéticos de YouTube.
+  2. Substituir as seções genéricas vazias (linhas 40-55) por diretrizes concretas de sintaxe Mermaid (flowcharts, sequence, ERD, C4), escape de nós e renderização via mermaid-cli.
+  3. Remover os links sintéticos de YouTube (linhas 58-64).
+
+### Micro-Lote [MB_CRIT_062] - Skill: fal-audio
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. A tag description possui apenas 60 caracteres (muito abaixo do piso de 200 chars), não apresenta cláusula 'Use when...' e carece totalmente de discriminantes técnicos dos modelos suportados.
+  2. O arquivo é um stub oco (placeholder) de apenas 29 linhas que repete a mesma frase tautológica três vezes ('Overview', 'When to Use' e 'Instructions') sem ensinar nenhuma API, endpoint, SDK ou parâmetro.
+  3. Ausência total de exemplos de código ou instruções práticas para integração com a plataforma fal.ai (nem Python SDK, nem @fal-ai/serverless-client, nem endpoints REST).
+
+### Micro-Lote [MB_CRIT_070] - Skill: makepad-skills
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Skill consiste em um stub oco de apenas 29 linhas que não fornece nenhum código, shader, arquitetura ou instrução concreta sobre Makepad em Rust.
+  2. Redundância quádrupla idêntica: a mesma frase genérica é repetida na description, Overview, When to Use e Instructions.
+  3. Description de 111 caracteres puramente descritiva, sem discriminantes técnicos ou condições reais de disparo.
+
+### Micro-Lote [MB_CRIT_078] - Skill: rayden-code
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Dependência fantasma crítica: a skill afirma explicitamente na visão geral e passos (linhas 18, 31 e 88) carregar o arquivo 'RAYDEN_RULES.md' (34 componentes, props, tokens e anti-patterns), mas o arquivo não existe no repositório, inviabilizando sua execução confiável.
+  2. Description muito curta (104 caracteres), sem gatilho formal 'Use when...' e com adjetivo promocional/marketing vago ('premium layout patterns').
+  3. Remover a dependência ao arquivo fantasma 'RAYDEN_RULES.md' e embutir a especificação real dos 34 componentes diretamente na skill ou fornecer o arquivo ausente.
+
+### Micro-Lote [MB_CRIT_086] - Skill: aws-skills
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Remover ou substituir integralmente o arquivo; 90% do conteúdo é repetição de boilerplate sem qualquer substância técnica.
+
+### Micro-Lote [MB_CURATED_094] - Skill: database-optimizer
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/database-optimizer/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Remover blocos de persona vazia: 'Behavioral Traits' (linhas 122-133), 'Knowledge Base' (linhas 134-143), 'Response Approach' (linhas 144-154) e 'Example Interactions' (linhas 155-164).
+  2. Substituir o preâmbulo circular de 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e comandos de ativação reais.
+
+### Micro-Lote [MB_CURATED_102] - Skill: tailwind-css
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/tailwind-css/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description com 138 caracteres, abaixo da faixa recomendada de 200-400 chars, e sem cláusula explícita de ativação ('Use when...').
+  2. Corpo stub de 65 linhas desprovido de conteúdo técnico: não traz regras de classes utilitárias responsivas, tokens de design, diretrizes mobile-first nem configuração de dark mode ou Tailwind CSS v4 (@theme).
+  3. Redundância estrutural decorrente da duplicação dos metadados do YAML nas seções Overview e Stack Tecnológica, acompanhadas de links simulados de YouTube.
+
+### Micro-Lote [MB_PHASE2_110] - Skill: vue-max-stack-frontend-best-practices + vue-typescript-best-practices
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de LAPIDAR: 'vue-max-stack-frontend-best-practices' é o guia macro de arquitetura de Single File Components (SFC) no ecossistema Max (estrutura de templates, componentes Max*, formulários com MaxGrid e visão geral da stack). 'vue-typescript-best-practices' deve ser o guia focado em tipagem estática e segurança de tipos (defineProps/defineEmits tipados, DTOs gerados via spatie/laravel-typescript-transformer, tipos de template refs). No entanto, 'vue-typescript-best-practices' repete longas explicações sobre o funcionamento funcional do cache/auto-save do MaxPinia e a resolução de rotas sem prefixo api/ (seções 5 e 6), invadindo o escopo da skill macro. A recomendação é LAPIDAR: enxugar essas seções em 'vue-typescript-best-practices' para focar puramente em como TIPAR as stores e propriedades (interfaces, genéricos, contratos DTO), deixando os preceitos arquiteturais do ecossistema a cargo de 'vue-max-stack-frontend-best-practices', e calibrar os gatilhos 'Use when...' para distinguir scaffold/composição de SFCs de tipagem estática TypeScript.
+  2. Plano de integracao: Ajustar escopos sem perdas
+
+### Micro-Lote [MB_PHASE2_118] - Skill: fp-types-ref + fp-taskeither-ref
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: Ambas as skills são cheatsheets curtas de referência rápida (79 e 116 linhas, respectivamente) voltadas para a biblioteca fp-ts. fp-types-ref já atua como ponto de entrada para a escolha de tipos (Option vs Either vs Task vs TaskEither), enquanto fp-taskeither-ref isola a sintaxe de TaskEither de maneira excessivamente fragmentada. Manter micro-skills separadas para referências sintáticas da mesma biblioteca dispersa a base de conhecimento e sobrecarrega o roteador do orquestrador. A recomendação é MERGE: unificar fp-taskeither-ref dentro de fp-types-ref, formando uma folha de referência rápida completa e concisa sobre os tipos e operadores fundamentais do fp-ts.
+  2. Plano de integracao: 1. Em fp-types-ref, manter a árvore de decisão de tipos e a tabela de imports. 2. Incorporar as seções de fp-taskeither-ref ('Create', 'Transform', 'Execute', 'Common Patterns' e 'vs async/await') sob uma seção dedicada 'TaskEither Reference' em fp-types-ref. 3. Atualizar o frontmatter de fp-types-ref incluindo as tags de fp-taskeither-ref (taskeither, async, promise) e expandindo a descrição e cláusula 'When to Use' para cobrir tanto seleção de tipos quanto sintaxe rápida de TaskEither. 4. Descontinuar e remover a pasta/arquivo de fp-taskeither-ref.
+
+Diretrizes de Avaliação:
+1. Abra o arquivo SKILL.md da skill com view_file.
+2. Quando a acusação envolver conformidade técnica com o código de Engeapp/MaxVue, abra e confira os arquivos em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ (projects/engeapp, projects/MaxComponentsUi, projects/MaxPinia, projects/MaxUse, projects/MaxCode).
+3. Para cada problema listado, decida:
+   - CONFIRMADO: se o defeito técnico, não conformidade ou necessidade de corte/merge for real e comprovado.
+   - REFUTADO: se for falso positivo, exagero, código existente ou sugestão puramente cosmética.
+4. Forneça evidence concreta (arquivo e linha/trecho).
+5. Se CONFIRMADO e envolver a description, proponha correctedDescription calibrada (200-400 chars). Senão, deixe string vazia.
+
+Retorne SEMPRE um array JSON contendo um objeto para CADA problema avaliado no formato:
+[
+  {
+    "skillName": "nome da skill",
+    "problem": "texto exato ou resumo fiel do problema",
+    "verdict": "CONFIRMADO | REFUTADO",
+    "evidence": "arquivo e linha/trecho real",
+    "correctedDescription": "string se CONFIRMADO e impreciso, senao """
+  }
+]
+Salve o resultado em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/docs/reports/phase3_raw_ADV6.json usando write_to_file (sem ArtifactMetadata) e envie o resultado para o orquestrador via send_message.

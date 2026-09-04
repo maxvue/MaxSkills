@@ -1,6 +1,6 @@
 ---
 name: tavily-web
-description: "Web search, content extraction, crawling, and research capabilities using Tavily API. Use when you need to search the web for current information, extracting content from URLs, or crawling websites."
+description: "Comprehensive engineering guide and best practices for tavily web. Use when configuring, developing, debugging, or optimizing tavily web architecture in production systems. Guides architecture, best practices, and implementation standards for tavily web."
 risk: critical
 source: community
 date_added: "2026-02-27"

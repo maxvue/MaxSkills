@@ -1,6 +1,6 @@
 ---
 name: modellix
-description: "Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (model run --wait, task download)."
+description: "Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (model run --wait, task download). Use when developing, optimizing, debugging, or configuring modellix in production workflows."
 category: creative
 risk: critical
 source: community

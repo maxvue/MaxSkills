@@ -1,6 +1,6 @@
 ---
 name: devops-deploy
-description: "DevOps e deploy de aplicacoes — Docker, CI/CD com GitHub Actions, AWS Lambda, SAM, Terraform, infraestrutura como codigo e monitoramento."
+description: "Comprehensive engineering guide and best practices for devops deploy. Use when configuring, developing, debugging, or optimizing devops deploy architecture in production systems. Guides architecture, best practices, and implementation standards for devops deploy."
 risk: critical
 source: community
 date_added: '2026-03-06'

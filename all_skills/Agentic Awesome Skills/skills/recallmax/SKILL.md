@@ -1,6 +1,6 @@
 ---
 name: recallmax
-description: "FREE — God-tier long-context memory for AI agents. Injects 500K-1M clean tokens, auto-summarizes with tone/intent preservation, compresses 14-turn history into 800 tokens."
+description: "Comprehensive engineering guide and best practices for recallmax. Use when configuring, developing, debugging, or optimizing recallmax architecture in production systems. Guides architecture, best practices, and implementation standards for recallmax."
 category: memory
 risk: safe
 source: community

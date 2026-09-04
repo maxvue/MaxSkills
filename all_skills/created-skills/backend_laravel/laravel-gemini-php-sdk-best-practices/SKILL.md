@@ -1,6 +1,6 @@
 ---
 name: laravel-gemini-php-sdk-best-practices
-description: "Use when interacting with Gemini API using google-gemini-php/laravel SDK. Covers GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, and exception handling. Covers objectives, Facade model, and Gemini API schemas."
+description: "Use when interacting with Gemini API using google-gemini-php/laravel SDK. Covers GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, and exception handling."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

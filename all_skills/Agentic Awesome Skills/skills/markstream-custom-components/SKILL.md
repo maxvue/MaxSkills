@@ -1,6 +1,6 @@
 ---
 name: markstream-custom-components
-description: "Override Markstream node renderers and add trusted custom tags across Vue, React, Svelte, and Angular using scoped or renderer-local mappings."
+description: "Override Markstream node renderers and add trusted custom tags across Vue, React, Svelte, and Angular using scoped or renderer-local mappings. Use when developing, optimizing, debugging, or configuring markstream custom components in production workflows."
 category: frontend
 risk: critical
 source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-custom-components

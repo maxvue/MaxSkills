@@ -1,0 +1,219 @@
+[
+  {
+    "skillName": "laravel-electrical-calculations-dimensioning-best-practices",
+    "problem": "A description repete no encerramento 'Covers electrical sizing, breaker calculations, and cable sizing standards.', duplicando exatamente os conceitos já expressos na oração inicial (critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when performing electrical sizing, circuit breaker calculation, cable sizing, voltage drop verification, or inverter/module matching in Laravel using getWireSize, getCircuitBrake, getInverter, ElectricalHelper, and NBR 5410 standards."
+  },
+  {
+    "skillName": "laravel-meta-graph-api-integration-best-practices",
+    "problem": "Description conclui com cláusula boilerplate ('Covers objectives, architectural structure, and Meta API endpoints.') que adiciona termos vagos e repete a raiz sintática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, and carousels via media containers, managing comments and insights via MetaService handlers, handling MetaWebhookJob, or configuring token authentication."
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "problem": "Duplicação estrutural de diretrizes: A seção '## Idioma' (linhas 26-28) repete de forma redundante a mesma diretriz da seção '## Restrições' (linhas 29-30).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md:26-30",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "problem": "Ruído na cauda da description: 'Covers objectives, TypeScript DTO transformation, and language rules.' adiciona termos genéricos e meta-regras desnecessárias.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when configuring, updating, or generating TypeScript types and interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer, FlatGlobalWriter, or running php artisan typescript:transform."
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "problem": "Remover a seção duplicada '## Idioma' (linhas 26-28) consolidando a diretriz sob '## Restrições'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md:26-30",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vue-inputs-masks-validation-best-practices",
+    "problem": "A description possui cauda genérica 'Covers objectives and core workflows.' que não agrega valor semântico (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or validating masked inputs in Vue 3 using Maska v3, MaxComponentsUi (MaxInputCpfCnpj, MaxInputCep, MaxPhoneField), libphonenumber-js, and card-validator for phone, CPF, CNPJ, currency, CEP, and credit cards."
+  },
+  {
+    "skillName": "vue-unocss-styling-best-practices",
+    "problem": "Exemplo ensina classes utilitárias inline no template — adotar classes semânticas e estilizar em <style lang=\"scss\">.",
+    "verdict": "REFUTADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md:49-54",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vue-unocss-styling-best-practices",
+    "problem": "Description contém meta-ruído de preenchimento ('Covers objectives and core workflows.').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when styling templates and layouts in Vue 3 using UnoCSS and presetMaxUno: attributify classes and attributes, theme color shortcuts, transformerVariantGroup, params.scss, SCSS blocks, and dark mode configuration with @maxvue/max-use."
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Extensão insuficiente da description (124 caracteres, violando a faixa ideal de 200 a 400 caracteres).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:3",
+    "correctedDescription": "Use when executing autonomous end-to-end engineering tasks or feature delivery workflows requiring structured plan-execute-verify iterations, task checklists, minimal context pollution, and automated verification before final commit."
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Ausência total de condição de gatilho formal ('Use when...' ou 'Ative quando...') na description.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:3",
+    "correctedDescription": "Use when executing autonomous end-to-end engineering tasks or feature delivery workflows requiring structured plan-execute-verify iterations, task checklists, minimal context pollution, and automated verification before final commit."
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Uso de vocabulário promocional e adjetivos vazios de marketing na description ('High-velocity autonomous engineering', 'minimal friction', 'velocidade máxima').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:3,18",
+    "correctedDescription": "Use when executing autonomous end-to-end engineering tasks or feature delivery workflows requiring structured plan-execute-verify iterations, task checklists, minimal context pollution, and automated verification before final commit."
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Extensão insuficiente da description (144 caracteres) e ausência de cláusula de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:3",
+    "correctedDescription": "Use when breaking down complex software engineering tasks into sequential Plan, Implement, and Validate (PIV) cycles with strict transition gates, preventing scope creep and unverified code changes through iterative milestone execution."
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Ausência de especificação técnica do loop Plan-Implement-Validate: não define formato de planos, critérios para portões de validação (gates) nem regras de transição entre estados.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:49-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Corpo estruturado sobre o mesmo boilerplate genérico repetitivo, com tautologias ('rotinas de piv-loop') e links sintéticos de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:43,60-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "Dependência externa exclusiva para terceiros através de link sem documentação local dos modelos de áudio (STT/TTS).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:21-23",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "O arquivo atual é 80%+ composto de tautologias e boilerplate de limitações sem nenhuma documentação técnica; necessita ser reconstruído do zero com exemplos reais ou removido.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Ausência total de ganho semântico e procedimentos reais, servindo apenas como redirecionador raso para link externo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:11-24",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "O arquivo inteiro é redundante e oco; necessita de reescrita completa baseada no repositório upstream ou exclusão/descarte do stub.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "react-flow-node-ts",
+    "problem": "Dependência fantasma: a seção Quick Start instrui explicitamente a copiar modelos de 'assets/template.tsx' e 'assets/types.template.ts', porém o diretório 'assets/' não existe na skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md:15,22-23",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "react-flow-node-ts",
+    "problem": "Overfitting e acoplamento a projeto proprietário externo: o passo a passo exige paths inexistentes ('src/frontend/src/types/index.ts', 'src/frontend/src/store/app-store.ts') e componentes específicos ('AddBlockMenu', 'ConnectMenu'), além de description curta (124 chars) sem 'Use when...'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md:3,64-70",
+    "correctedDescription": "Use when implementing custom React Flow node components with TypeScript, including custom node data interfaces, input/output Handle configurations, NodeResizer integrations, and state store bindings in flow-based canvases."
+  },
+  {
+    "skillName": "react-flow-node-ts",
+    "problem": "Eliminar referências ao diretório fantasma 'assets/' e desvincular o passo a passo dos caminhos rígidos e menus ('AddBlockMenu', 'ConnectMenu') do projeto upstream particular.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md:15,22-23,64-70",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Description com apenas 163 caracteres (abaixo da faixa ideal de 200-400 chars) e sem gatilho explícito de contexto ('Use when...' ou 'Ative quando...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:3",
+    "correctedDescription": "Use when coordinating multi-agent workflows across multiple skills, discovering available tools via automated registry scanning, matching user queries against skill capabilities, or generating pipeline execution plans."
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Forte acoplamento a scripts em caminhos locais específicos ('agent-orchestrator/scripts/') e tabela estática hardcoded do ecossistema do autor ('junta-leiloeiros', 'whatsapp-cloud-api') que não generalizam.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:60,69,83,290-299",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Presença de seções finais de boilerplate genérico ('Best Practices', 'Common Pitfalls', 'Limitations') sem discriminantes operacionais reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:301-322",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mcp-server-routing",
+    "problem": "Divergência severa de escopo e nomenclatura: o diretório é denominado 'mcp-server-routing', enquanto o nome da skill no frontmatter é 'mcp-builder' e todo o conteúdo trata da criação e avaliação de servidores MCP (Python/TypeScript), sem relação com roteamento.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/SKILL.md:1-11",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mcp-server-routing",
+    "problem": "A description utiliza adjetivo qualitativo ('high-quality MCP servers') que poderia ser substituído por termos técnicos mais objetivos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/SKILL.md:3",
+    "correctedDescription": "Use when designing, implementing, or testing Model Context Protocol (MCP) servers in TypeScript (MCP SDK) or Python (FastMCP) to expose tools, resources, and prompts over stdio or streamable HTTP transports."
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Remover o template de 65 linhas e incorporar diretrizes técnicas reais para estilização com classes utilitárias, mapeamento de temas e suporte a Tailwind CSS v3 e v4.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:1-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "typescript-advanced-types-best-practices + typescript-pro",
+    "problem": "Proposta de MERGE: typescript-pro é uma skill genérica e rasa (59 linhas) da comunidade que aborda exatamente o mesmo escopo técnico de typescript-advanced-types-best-practices (205 linhas), a qual é altamente customizada, alinhada aos projetos reais do repositório e substancialmente mais profunda. O conteúdo de typescript-pro consiste em diretrizes conceituais abstratas de generics, conditional types, mapped types, tsconfig estrito e testes que já constam implementados, com exemplos reais de código e validações práticas (satisfies, template literals, branded types, compiler testing com AssertEqual) na skill de types avançados. Manter ambas ativas provocaria colisão direta de ativação no orquestrador ao direcionar tarefas de modelagem e resolução de tipos em TypeScript.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-pro/SKILL.md:1-59 e all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md:1-205",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "typescript-advanced-types-best-practices + typescript-pro",
+    "problem": "Plano de integracao: Absorver em typescript-advanced-types-best-practices as poucas menções complementares de typescript-pro, especificamente a referência a decorators/metadados e declarações ambient (.d.ts). Consolidar no frontmatter de typescript-advanced-types-best-practices os gatilhos explícitos de 'Use this skill when' e 'Do not use this skill when' derivados de typescript-pro para prevenir ambiguidades de roteamento. Desativar/remover typescript-pro do catálogo de skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-pro/SKILL.md:10-21,33,51 e all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md:3,200-205",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ui-skills + ui-skills-root",
+    "problem": "Proposta de MERGE: A skill 'ui-skills' é apenas um stub genérico e placeholder redundante originário do mesmo repositório upstream ('ibelick/ui-skills'), sem ferramentas ou orientações acionáveis. Já 'ui-skills-root' é a implementação oficial e operacional do roteador de UI Skills, contendo CLI ('npx ui-skills'), protocolo de roteamento em 7 etapas e regras estritas de seleção. Manter ambas gera confusão direta no orquestrador.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:1-29 e all_skills/Agentic Awesome Skills/skills/ui-skills-root/SKILL.md:1-73",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ui-skills + ui-skills-root",
+    "problem": "Plano de integracao: Absorver eventuais metadados contextuais ou referências upstream de 'ui-skills' em 'ui-skills-root', atualizando a descrição do 'ui-skills-root' para deixar explícito que é a porta de entrada para todas as UI skills do ecossistema ibelick, e remover a pasta/stub 'ui-skills'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:3,5 e all_skills/Agentic Awesome Skills/skills/ui-skills-root/SKILL.md:3,5,19-21",
+    "correctedDescription": "Use before starting UI-related work to select and load the minimal required UI guidance context from the ibelick/ui-skills catalog using the ui-skills CLI (npx ui-skills start/categories/get) and 7-step routing protocol."
+  }
+]

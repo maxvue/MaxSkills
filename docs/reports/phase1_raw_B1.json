@@ -1,0 +1,536 @@
+[
+  {
+    "skillName": "agent-orchestrator",
+    "skillPath": "curated-youtube/agent-orchestrator/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 163 caracteres (abaixo da faixa ideal de 200-400 chars) e sem gatilho explícito de contexto ('Use when...' ou 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Forte acoplamento a scripts em caminhos locais específicos ('agent-orchestrator/scripts/') e tabela estática hardcoded do ecossistema do autor ('junta-leiloeiros', 'whatsapp-cloud-api') que não generalizam.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seções finais de boilerplate genérico ('Best Practices', 'Common Pitfalls', 'Limitations') sem discriminantes operacionais reais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover seções genéricas 'Best Practices', 'Common Pitfalls' e 'Limitations' (linhas 301-322), pois contêm apenas advertências vazias de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a tabela 'Skills Atuais Do Ecossistema' (linhas 290-300) em um exemplo conceitual ilustrativo para evitar acoplamento a artefatos locais obsoletos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração autônoma de múltiplos agentes através de auto-discovery de skills, matching por relevância e criação de pipelines de execução.",
+      "entidades": [
+        "scan_registry.py",
+        "match_skills.py",
+        "orchestrate.py",
+        "registry.json",
+        "projects.json",
+        "Claude Code (.claude/skills)"
+      ],
+      "keywords": [
+        "orchestration",
+        "multi-agent",
+        "workflow",
+        "registry",
+        "auto-discovery",
+        "capabilities",
+        "matching",
+        "pipeline",
+        "sequential-pipeline",
+        "parallel-execution",
+        "data-flow",
+        "skills-management"
+      ]
+    },
+    "summary": "Skill com conceitos e algoritmos de orquestração úteis, porém acoplada a scripts de ambiente local e com description curta sem gatilhos claros."
+  },
+  {
+    "skillName": "api-design",
+    "skillPath": "curated-youtube/api-design/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Pequena divergência no nome do frontmatter ('api-and-interface-design') em relação ao diretório pai ('api-design').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e padrões arquiteturais para design de contratos de API REST e interfaces TypeScript estáveis, tipadas e retrocompatíveis.",
+      "entidades": [
+        "REST",
+        "GraphQL",
+        "TypeScript",
+        "Zod (safeParse)",
+        "Hyrum's Law",
+        "Branded Types",
+        "Discriminated Unions",
+        "HTTP Status Codes",
+        "PATCH"
+      ],
+      "keywords": [
+        "api-design",
+        "rest",
+        "graphql",
+        "typescript",
+        "contracts",
+        "hyrums-law",
+        "validation",
+        "zod",
+        "pagination",
+        "patch",
+        "error-handling",
+        "branded-types",
+        "discriminated-unions",
+        "module-boundaries"
+      ]
+    },
+    "summary": "Excelente padrão arquitetural com description exemplar (260 chars), regras claras de Hyrum's Law, validação Zod nas bordas e zero bloat."
+  },
+  {
+    "skillName": "browser-automation",
+    "skillPath": "curated-youtube/browser-automation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description narrativa e conceitual (230 chars) sem cláusula de gatilho explícita ('Use when...') e sem menção às ferramentas discriminantes centrais (Playwright, Puppeteer).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Redundância estrutural evidente entre a seção 'Sharp Edges' e a seção 'Validation Checks', repetindo regras sobre waitForTimeout, setTimeout e seletores CSS quase ipsis litteris.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Desduplicar ou fundir a seção 'Validation Checks' (linhas 1002-1083) com 'Sharp Edges', eliminando mensagens repetitivas de validação estática.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover a lista redundante 'When to Use' com keywords soltas nas linhas 1099-1112, integrando os discriminantes diretamente à description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação e teste end-to-end em navegadores headless e web scraping resiliente com Playwright e Puppeteer.",
+      "entidades": [
+        "Playwright",
+        "Puppeteer",
+        "puppeteer-extra-plugin-stealth",
+        "playwright-extra",
+        "Chromium",
+        "p-limit",
+        "getByRole",
+        "storageState",
+        "trace-viewer"
+      ],
+      "keywords": [
+        "browser-automation",
+        "playwright",
+        "puppeteer",
+        "web-scraping",
+        "e2e-testing",
+        "auto-wait",
+        "stealth",
+        "locators",
+        "anti-bot",
+        "headless-browser",
+        "network-interception",
+        "test-isolation",
+        "parallel-scraping"
+      ]
+    },
+    "summary": "Conteúdo técnico impecável sobre Playwright, auto-waits e stealth, necessitando apenas de ajuste de gatilhos na description e poda de duplicações internas."
+  },
+  {
+    "skillName": "cloud-architect",
+    "skillPath": "curated-youtube/cloud-architect/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (183 chars), redigida em tom promocional/persona ('Expert cloud architect specializing in...') sem cláusula de ativação ('Use when...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Estrutura no formato de prompt de persona conversacional ('You are a cloud architect...'), desprovida de snippets executáveis de IaC ou arquitetura prática.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções circulares de gatilho ('Use this skill when: Working on cloud architect tasks') e referência a playbook externo inexistente ('resources/implementation-playbook.md').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover seções vazias de persona conversacional: 'Behavioral Traits' (linhas 93-102), 'Knowledge Base' (linhas 103-112), 'Response Approach' (linhas 113-122) e 'Example Interactions' (linhas 123-132).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Substituir as tautologias em 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e ferramentas concretas de contexto.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Planejamento e desenho de infraestrutura multi-cloud escalável, segura e orientada a FinOps em AWS, Azure e GCP utilizando IaC.",
+      "entidades": [
+        "AWS (EC2, Lambda, EKS, RDS, S3)",
+        "Azure (AKS, Functions)",
+        "GCP (GKE, Cloud SQL)",
+        "Terraform",
+        "OpenTofu",
+        "AWS CDK",
+        "Pulumi",
+        "ArgoCD",
+        "Open Policy Agent (OPA)"
+      ],
+      "keywords": [
+        "cloud-architecture",
+        "aws",
+        "azure",
+        "gcp",
+        "multi-cloud",
+        "iac",
+        "terraform",
+        "opentofu",
+        "cdk",
+        "finops",
+        "serverless",
+        "microservices",
+        "kubernetes",
+        "disaster-recovery",
+        "zero-trust",
+        "cost-optimization"
+      ]
+    },
+    "summary": "Catálogo conceitual correto de nuvem e IaC, mas estruturado como prompt de persona vazio e sem snippets práticos, acumulando ~35% de bloat."
+  },
+  {
+    "skillName": "code-review",
+    "skillPath": "curated-youtube/code-review/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Divergência menor de nomenclatura: o campo name no frontmatter é 'code-review-and-quality', enquanto o diretório é 'code-review'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria e revisão multidimensional de código em cinco eixos estruturais (corretude, legibilidade, arquitetura, segurança e performance) com quality gates antes do merge.",
+      "entidades": [
+        "Git PRs",
+        "GitHub Actions",
+        "npm audit",
+        "Multi-model review pattern",
+        "Prefixos de severidade (Critical, Nit, Optional, FYI)"
+      ],
+      "keywords": [
+        "code-review",
+        "quality-gates",
+        "correctness",
+        "readability",
+        "architecture",
+        "security",
+        "performance",
+        "pull-requests",
+        "refactoring",
+        "dead-code",
+        "change-sizing",
+        "multi-model-review",
+        "dependency-discipline"
+      ]
+    },
+    "summary": "Referência absoluta em qualidade de skill com checklist prático, métricas de diff (~100-300 linhas), rotulagem por severidade e description perfeitamente calibrada (247 chars)."
+  },
+  {
+    "skillName": "context-engineering",
+    "skillPath": "curated-youtube/context-engineering/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Curadoria sistemática de contexto e arquivos de regras (rules files) para otimização da atenção de agentes e eliminação de alucinações.",
+      "entidades": [
+        "CLAUDE.md",
+        ".cursorrules",
+        "AGENTS.md",
+        "MCP (Context7, Chrome DevTools, PostgreSQL)",
+        "Zod"
+      ],
+      "keywords": [
+        "context-engineering",
+        "rules-files",
+        "claude-md",
+        "cursorrules",
+        "mcp",
+        "context-window",
+        "hallucination-prevention",
+        "token-optimization",
+        "prompt-engineering",
+        "confusion-management",
+        "context-packing",
+        "brain-dump"
+      ]
+    },
+    "summary": "Guia prático e impecável para gestão de contexto hierárquico em 5 níveis, rules files e MCP, com description exemplar (204 chars) e zero ruído."
+  },
+  {
+    "skillName": "damage-control",
+    "skillPath": "curated-youtube/damage-control/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description muito curta (130 chars < 200) e desprovida de qualquer gatilho 'Use when...' ou discriminantes de ferramentas reais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de conteúdo operacional executável: o corpo não ensina nem implementa regras de interceptação de comandos destrutivos (rm -rf, DROP, git reset --hard).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo bilíngue puramente tautológico que repete as mesmas frases genéricas em português e inglês.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Estrutura de stub/placeholder raspado de metadados de vídeos do YouTube com listas vazias no frontmatter ('frameworks: []', 'libs: []').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 60,
+    "cuts": [
+      {
+        "text": "Remover seções de texto duplicado pt-BR/EN na Visão Geral (linhas 15-28).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar a lista de links genéricos do YouTube (linhas 58-65) e a seção de diretrizes genéricas vazias (linhas 49-55), substituindo por regras reais de sandbox/interceptação.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Conceito de interceptação de comandos de alto risco e guardrails de segurança contra perda acidental de dados.",
+      "entidades": [
+        "Shell",
+        "Python",
+        "Git",
+        "SQL",
+        "Sandboxes",
+        "YouTube links"
+      ],
+      "keywords": [
+        "damage-control",
+        "command-interceptor",
+        "guardrail",
+        "sandbox",
+        "data-loss-prevention",
+        "destructive-commands",
+        "safety-shield",
+        "git-wipes",
+        "high-risk-operations"
+      ]
+    },
+    "summary": "Stub vazio de 65 linhas sem qualquer implementação técnica de interceptação ou comandos perigosos, consistindo apenas em metadados genéricos de raspagem."
+  },
+  {
+    "skillName": "database-optimizer",
+    "skillPath": "curated-youtube/database-optimizer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (121 chars), promocional ('Expert database optimizer specializing in...') e sem gatilhos explícitos ('Use when...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Formatação em estilo persona ('You are a database optimization expert...') sem snippets práticos de queries, índices ou configurações reais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Gatilhos circulares/tautológicos ('Use this skill when: Working on database optimizer tasks') e apontamento para playbook inexistente ('resources/implementation-playbook.md').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover blocos de persona vazia: 'Behavioral Traits' (linhas 122-133), 'Knowledge Base' (linhas 134-143), 'Response Approach' (linhas 144-154) e 'Example Interactions' (linhas 155-164).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Substituir o preâmbulo circular de 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e comandos de ativação reais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização de consultas, resolução de N+1, arquiteturas de cache e estratégias de indexação avançada em bancos de dados relacionais e NoSQL.",
+      "entidades": [
+        "PostgreSQL",
+        "MySQL",
+        "SQL Server",
+        "MongoDB",
+        "DynamoDB",
+        "Redis",
+        "pg_stat_statements",
+        "EXPLAIN ANALYZE",
+        "B-tree",
+        "GIN",
+        "BRIN",
+        "pgbench",
+        "sysbench"
+      ],
+      "keywords": [
+        "database-optimization",
+        "query-tuning",
+        "explain-analyze",
+        "indexing",
+        "b-tree",
+        "gin-index",
+        "n-plus-one",
+        "caching",
+        "redis",
+        "sharding",
+        "partitioning",
+        "postgresql",
+        "mysql",
+        "performance-monitoring"
+      ]
+    },
+    "summary": "Amplo inventário conceitual de performance de bancos de dados, prejudicado por formato de persona, ausência de código prático e description curta/promocional."
+  },
+  {
+    "skillName": "deep-research",
+    "skillPath": "curated-youtube/deep-research/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (113 chars < 200), carecendo de gatilhos 'Use when...' e termos discriminantes centrais como Gemini Deep Research API, GEMINI_API_KEY e relatórios citados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Leve duplicação textual interna entre 'When to Use This Skill' (linhas 15-22) e 'Best Use Cases' (linhas 95-101).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Pesquisa autônoma aprofundada multi-fonte com síntese automatizada em relatórios citados via API do Gemini Deep Research.",
+      "entidades": [
+        "Gemini API (Google AI Studio)",
+        "GEMINI_API_KEY",
+        "Python 3.8+",
+        "httpx",
+        "scripts/research.py",
+        "--query",
+        "--stream",
+        "--format"
+      ],
+      "keywords": [
+        "deep-research",
+        "gemini-api",
+        "autonomous-research",
+        "market-analysis",
+        "technical-research",
+        "literature-review",
+        "web-search",
+        "report-synthesis",
+        "cli",
+        "streaming",
+        "google-ai-studio"
+      ]
+    },
+    "summary": "Skill CLI altamente funcional e objetiva com comandos claros e métricas de custo/tempo, exigindo apenas expansão semântica da description para 200-400 chars com gatilhos."
+  },
+  {
+    "skillName": "docker-expert",
+    "skillPath": "curated-youtube/docker-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description (263 chars) redigida como prompt de persona ('You are an advanced Docker containerization expert with comprehensive...'), violando o critério anti-promocional e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Resíduos conversacionais no corpo ('When invoked: 0. If the issue requires... Example to output: Stopping here', 'I provide comprehensive...') e seção tautológica 'When to Use' ao final.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover introdução conversacional de subagente nas linhas 14-24 e parágrafo em primeira pessoa na linha 410.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar a seção vazia 'When to Use' (linhas 412-414) que apenas diz 'This skill is applicable to execute the workflow or actions described in the overview'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização, hardening de segurança e orquestração de imagens e contêineres Docker com multi-stage builds e Docker Compose para produção.",
+      "entidades": [
+        "Docker",
+        "Dockerfile",
+        "Docker Compose",
+        "BuildKit (--mount=type=cache/secret)",
+        "Docker Scout",
+        "Distroless",
+        "Alpine",
+        "docker buildx",
+        "HEALTHCHECK"
+      ],
+      "keywords": [
+        "docker",
+        "containerization",
+        "dockerfile",
+        "docker-compose",
+        "multi-stage-build",
+        "buildkit",
+        "security-hardening",
+        "distroless",
+        "non-root",
+        "layer-caching",
+        "orchestration",
+        "cross-platform",
+        "healthcheck",
+        "docker-scout"
+      ]
+    },
+    "summary": "Excelente conteúdo prático de Dockerfile multi-stage, cache BuildKit e Docker Compose, com necessidade de despersonalizar a description e podar resíduos conversacionais."
+  }
+]

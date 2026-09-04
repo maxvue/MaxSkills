@@ -1,0 +1,468 @@
+[
+  {
+    "skillName": "protect-mcp-governance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/protect-mcp-governance/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description possui apenas 139 caracteres (abaixo da faixa recomendada de 200 a 400 caracteres) e não inclui cláusula condicional de acionamento explícita ('Use when...') para orientar o roteamento do agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Governança, interceptação e controle de acesso a ferramentas MCP com políticas Cedar e verificação de recibos assinados via Ed25519.",
+      "entidades": [
+        "protect-mcp",
+        "Cedar",
+        "AWS Verified Permissions",
+        "Ed25519",
+        "@veritasacta/verify",
+        "Claude Code",
+        "IETF draft-farley-acta-signed-receipts",
+        "protect-mcp.config.json"
+      ],
+      "keywords": [
+        "mcp-governance",
+        "cedar-policy",
+        "ed25519",
+        "signed-receipts",
+        "shadow-mode",
+        "enforce-mode",
+        "tool-call-interception",
+        "veritasacta",
+        "claude-code-hooks",
+        "cryptographic-audit",
+        "access-control",
+        "authorization-policy"
+      ]
+    },
+    "summary": "Skill tecnicamente excelente e estruturada para governança de MCP, necessitando apenas expandir a descrição para 200-400 chars com cláusula 'Use when...'."
+  },
+  {
+    "skillName": "protocol-reverse-engineering",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/protocol-reverse-engineering/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description possui 147 caracteres (abaixo dos 200 recomendados), carece de gatilho condicional 'Use when...' e usa adjetivo inflado ('Comprehensive techniques') sem citar ferramentas reais cobertas pelo playbook (Wireshark, tcpdump, tshark, mitmproxy).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md funciona como um casulo oco (38 linhas) que delega todo o conhecimento para um playbook anexo, sem fornecer diretrizes essenciais ou comandos rápidos de captura no arquivo principal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "As seções 'Use this skill when' e 'Do not use this skill when' são tautologias vazias ('Working on protocol reverse engineering tasks / The task is unrelated to protocol reverse engineering').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover as seções tautológicas de gatilho ('Use this skill when / Do not use...') e integrar um resumo operacional direto das ferramentas de captura e análise do playbook.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Engenharia reversa e análise de tráfego de protocolos de rede via captura e inspeção de pacotes.",
+      "entidades": [
+        "Wireshark",
+        "tshark",
+        "tcpdump",
+        "mitmproxy",
+        "Burp Suite",
+        "TLS",
+        "PCAP"
+      ],
+      "keywords": [
+        "protocol-reverse-engineering",
+        "wireshark",
+        "tcpdump",
+        "tshark",
+        "mitmproxy",
+        "packet-capture",
+        "network-analysis",
+        "traffic-inspection",
+        "pcap",
+        "stream-following",
+        "tls-decryption",
+        "protocol-dissection"
+      ]
+    },
+    "summary": "SKILL.md é um stub oco dependente de playbook externo com tautologias e description curta sem discriminantes de ferramentas."
+  },
+  {
+    "skillName": "prototype",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/prototype/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 184 caracteres (ligeiramente abaixo dos 200 mínimos) e ausência de cláusula condicional padronizada de acionamento ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação rápida de protótipos descartáveis para validação de máquina de estados/lógica de negócios ou variações radicais de UI.",
+      "entidades": [
+        "LOGIC.md",
+        "UI.md",
+        "claude-code",
+        "codex-cli",
+        "cursor",
+        "Matt Pocock"
+      ],
+      "keywords": [
+        "rapid-prototyping",
+        "throwaway-code",
+        "state-machine-validation",
+        "ui-variations",
+        "terminal-app",
+        "design-exploration",
+        "single-command-run",
+        "in-memory-state",
+        "interactive-terminal",
+        "route-variants"
+      ]
+    },
+    "summary": "Metodologia sólida e enxuta para prototipagem rápida descartável de UI e lógica de negócios, necessitando apenas ajuste fino de gatilho na descrição."
+  },
+  {
+    "skillName": "pubmed-database",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pubmed-database/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Acesso programático via API REST E-utilities e consultas avançadas com vocabulário MeSH na base biomédica PubMed.",
+      "entidades": [
+        "PubMed",
+        "NCBI E-utilities",
+        "ESearch",
+        "EFetch",
+        "ESummary",
+        "EPost",
+        "ELink",
+        "Bio.Entrez",
+        "MeSH",
+        "NLM",
+        "PMC"
+      ],
+      "keywords": [
+        "pubmed",
+        "ncbi-eutilities",
+        "mesh-terms",
+        "biomedical-search",
+        "esearch",
+        "efetch",
+        "literature-review",
+        "citation-management",
+        "boolean-queries",
+        "pico-framework",
+        "rest-api",
+        "batch-retrieval"
+      ]
+    },
+    "summary": "Skill completa, tecnicamente rigorosa e com descrição perfeitamente calibrada para consulta avançada ao PubMed e NCBI E-utilities."
+  },
+  {
+    "skillName": "puppeteer-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/puppeteer-skill/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 172 caracteres (abaixo de 200) e uso de formatação mecânica 'Triggers on:' em vez de uma cláusula condicional de uso fluida ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro gramatical no corpo do SKILL.md ('when you need generates...') resultante de concatenação automática crua da description na seção 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Automação de navegador web, web scraping, interceptação de rede e geração de PDF via Puppeteer e Chrome headless.",
+      "entidades": [
+        "Puppeteer",
+        "Chrome",
+        "LambdaTest",
+        "TestMu AI",
+        "Page Object Pattern"
+      ],
+      "keywords": [
+        "puppeteer",
+        "browser-automation",
+        "headless-chrome",
+        "web-scraping",
+        "pdf-generation",
+        "network-interception",
+        "waitforselector",
+        "cdp",
+        "mock-api",
+        "page-object"
+      ]
+    },
+    "summary": "Guia prático conciso para automação com Puppeteer, necessitando apenas padronizar a descrição com 'Use when...' e corrigir concordância na introdução."
+  },
+  {
+    "skillName": "pydantic-ai",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pydantic-ai/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (138 caracteres), com adjetivo promocional ('production-ready'), sem gatilho explícito 'Use when...' e sem citar discriminantes cruciais presentes na skill como 'RunContext', 'ModelRetry' e 'TestModel'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento de agentes autônomos tipados em Python utilizando PydanticAI, com injeção de dependências e saídas estruturadas.",
+      "entidades": [
+        "PydanticAI",
+        "Agent",
+        "RunContext",
+        "ModelRetry",
+        "TestModel",
+        "FunctionModel",
+        "Pydantic BaseModel",
+        "FastAPI",
+        "OpenAI",
+        "Anthropic Claude"
+      ],
+      "keywords": [
+        "pydantic-ai",
+        "ai-agents",
+        "type-safety",
+        "structured-outputs",
+        "dependency-injection",
+        "runcontext",
+        "modelretry",
+        "testmodel",
+        "tool-calling",
+        "agent-testing",
+        "llm-pipelines",
+        "streaming"
+      ]
+    },
+    "summary": "Excelente documentação técnica e moderna de PydanticAI, demandando apenas enriquecer a descrição para 200-400 caracteres com gatilho e discriminantes de API."
+  },
+  {
+    "skillName": "pydantic-models-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pydantic-models-py/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description extremamente deficiente com apenas 82 caracteres, sem cláusula 'Use when...' e desprovida de termos discriminantes fundamentais do padrão multi-model do Pydantic.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção Quick Start referencia arquivo inexistente ('assets/template.py'), caracterizando instrução quebrada e inviável para o agente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de acoplamento arbitrário com backend específico ('src/backend/app/models/' e Cosmos DB 'doc_type') em uma skill que deveria ser genérica para modelos Pydantic, além de seção 'When to Use' tautológica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover a menção ao arquivo fantasma 'assets/template.py' e a seção tautológica 'When to Use', substituindo o acoplamento de 'src/backend/app/models/' por diretrizes agnósticas de arquitetura de schemas Pydantic.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Modelagem de schemas Pydantic utilizando padrão multi-model (Base, Create, Update, Response, InDB) e mapeamento camelCase/snake_case.",
+      "entidades": [
+        "Pydantic",
+        "BaseModel",
+        "Field",
+        "Config.populate_by_name",
+        "FastAPI"
+      ],
+      "keywords": [
+        "pydantic",
+        "basemodel",
+        "multi-model-pattern",
+        "api-contracts",
+        "populate-by-name",
+        "field-alias",
+        "camelcase-mapping",
+        "dto-patterns",
+        "request-validation",
+        "response-model"
+      ]
+    },
+    "summary": "Skill com padrão multi-model útil, porém prejudicada por referência a template inexistente, description de apenas 82 chars e tautologias."
+  },
+  {
+    "skillName": "pypict-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 24 caracteres ('Pairwise test generation'), configurando ausência quase absoluta de discriminantes semânticos e sem gatilhos operacionais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Arquivo SKILL.md consiste em um casulo oco (hollow stub) de 29 linhas sem código, sem sintaxe de definição de parâmetros PICT e sem exemplos de uso prático do pypict.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções 'When to Use' e 'Instructions' constituem tautologias puras que apenas repetem o nome da tarefa sem fornecer instruções acionáveis ao agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 25,
+    "cuts": [
+      {
+        "text": "Eliminar o texto tautológico e substituir a totalidade do arquivo por um guia técnico real com a API do pypict, formato de modelos PICT e geração combinatorial de testes.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração combinatória de casos de teste pairwise utilizando pypict (wrapper do Microsoft PICT).",
+      "entidades": [
+        "pypict",
+        "PICT (Pairwise Independent Combinatorial Testing)",
+        "Python"
+      ],
+      "keywords": [
+        "pairwise-testing",
+        "combinatorial-testing",
+        "pypict",
+        "test-matrix",
+        "test-case-generation",
+        "all-pairs",
+        "software-testing",
+        "boundary-value-testing"
+      ]
+    },
+    "summary": "Skill em estado crítico por ser um stub oco de 29 linhas sem código ou exemplos técnicos e description de 24 caracteres."
+  },
+  {
+    "skillName": "pytest-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pytest-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description foi corrompida por truncamento mecânico com reticências ('Python...') ao final e apresenta redundância excessiva repetindo três vezes as mesmas palavras-chave e gatilhos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivo promocional vazio ('production-grade') violando o critério de redação anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' no corpo reproduz literalmente a descrição truncada, herdando erro de concordância gramatical ('when you need generates...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Construção de suítes de testes unitários e de integração em Python com pytest, fixtures estruturadas, parametrização e mocking.",
+      "entidades": [
+        "pytest",
+        "pytest-mock",
+        "conftest.py",
+        "unittest.mock",
+        "pyproject.toml",
+        "pytest-xdist"
+      ],
+      "keywords": [
+        "pytest",
+        "python-testing",
+        "fixtures",
+        "parametrize",
+        "conftest",
+        "mocking",
+        "test-markers",
+        "pytest-raises",
+        "pytest-approx",
+        "assertions",
+        "test-lifecycle",
+        "pyproject-toml"
+      ]
+    },
+    "summary": "Conteúdo técnico robusto e bem exemplificado para testes com pytest, porém prejudicado por description truncada com reticências e tripla redundância de termos."
+  },
+  {
+    "skillName": "python-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/python-pro/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com linguagem promocional explícita ('Master Python 3.12+', 'Expert in the latest...') sem gatilho de ativação 'Use when...' e escopo excessivamente amplo que abrange todo o ecossistema Python.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Arquivo estruturado como 'God Prompt' de persona inflada ('You are a Python expert specializing in...') contendo zero exemplos de código executável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Forte redundância interna entre as seções 'Capabilities', 'Knowledge Base', 'Behavioral Traits' e 'Response Approach', listando repetidamente as mesmas bibliotecas sem aprofundamento técnico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Eliminar o preâmbulo de persona ('You are a Python expert...'), as seções redundantes 'Behavioral Traits', 'Knowledge Base' e 'Response Approach' (~60 linhas), condensando as capacidades em padrões práticos e trechos de código com uv, ruff e Python 3.12+.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Boas práticas de desenvolvimento em Python 3.12+ com ferramentas modernas como uv, ruff, pyright e padrões assíncronos.",
+      "entidades": [
+        "Python 3.12+",
+        "uv",
+        "ruff",
+        "pyright",
+        "mypy",
+        "FastAPI",
+        "Pydantic",
+        "pytest"
+      ],
+      "keywords": [
+        "python-3-12",
+        "modern-python",
+        "uv-package-manager",
+        "ruff-linter",
+        "type-hints",
+        "asyncio",
+        "structural-pattern-matching",
+        "dataclasses",
+        "pyproject-toml",
+        "fastapi"
+      ]
+    },
+    "summary": "Skill genérica estilo persona inflada sem exemplos práticos de código, com severo ruído estrutural redundante e tom promocional na descrição."
+  }
+]

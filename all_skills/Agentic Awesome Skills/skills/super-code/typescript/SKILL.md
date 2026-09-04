@@ -1,6 +1,6 @@
 ---
 name: typescript
-description: "Language-specific super-code guidelines for typescript."
+description: "Language-specific super-code guidelines for typescript. Use when developing, optimizing, debugging, or configuring typescript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for typescript."
 risk: safe
 source: community
 date_added: "2026-06-16"

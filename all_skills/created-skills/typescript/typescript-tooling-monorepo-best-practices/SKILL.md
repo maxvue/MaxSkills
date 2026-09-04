@@ -96,3 +96,22 @@ Em pacotes compartilhados (`MaxUse`, `MaxComponentsUi`):
 - **Sem `tsc` puro para Vue:** Nunca execute `tsc --noEmit` direto onde há arquivos `.vue` — use `vue-tsc`.
 - **Sem `baseUrl`:** Não adicione `baseUrl` ao `tsconfig.json` (causa TS5101 no TS 6+).
 - **Escopo Estrito:** Para lógica pura de types avançados (generics/mapped types/conditional types), utilize `typescript-advanced-types-best-practices`.
+
+### Diagnósticos Avançados de Compilação e Tooling CLI
+
+Ao diagnosticar problemas de compilação lenta ou resolução de módulos em monorepos:
+
+```bash
+# Diagnóstico de resolução de tipos e módulos
+npx tsc --noEmit --traceResolution > resolution-trace.txt
+
+# Profiling de tempo e memória de checagem de tipos
+npx tsc --noEmit --extendedDiagnostics --generateTrace ./tsc-trace
+
+# Análise de traces de performance
+npx @typescript/analyze-trace ./tsc-trace
+```
+
+#### Migração e Tooling: Biome vs ESLint + Prettier
+- **Biome:** recomendado para novos pacotes e monorepos buscando velocidade máxima (10-25x mais rápido em lint/formatting).
+- **ESLint + typescript-eslint:** adotar quando houver regras semânticas customizadas que necessitam do Type Information do compilador (ex: `@typescript-eslint/no-floating-promises`).

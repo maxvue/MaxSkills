@@ -1,0 +1,526 @@
+[
+  {
+    "skillName": "sred-project-organizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sred-project-organizer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description muito curta (112 caracteres, abaixo da faixa recomendada de 200 a 400 chars) e sem cláusula formal de ativação 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes cruciais na description citados no corpo (Notion MCP, Linear MCP, gh CLI, Canadian SR&ED tax incentive, Technical Uncertainties).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dependência de arquivos de referência locais inexistentes no diretório da skill (${CLAUDE_SKILL_ROOT}/references/SRED.md e project-template.md) e inclusão de link privado e inacessível do Notion corporativo da Sentry (sentry/SRED-Work-Summary-2026-...).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o link Notion corporativo inacessível (l. 125) e o bloco de boilerplate genérico de limitações (l. 136-139).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Organização e sumarização de documentação anual de engenharia no formato SR&ED para submissão de incentivo fiscal canadense via Notion, Linear e GitHub.",
+      "entidades": [
+        "Notion MCP",
+        "Linear MCP",
+        "GitHub CLI (gh)",
+        "SRED (Canada Revenue Agency)",
+        "Technical Uncertainties",
+        "SREDable Projects"
+      ],
+      "keywords": [
+        "SRED",
+        "SR&ED",
+        "tax incentive",
+        "Canada Revenue Agency",
+        "Notion MCP",
+        "Linear MCP",
+        "gh CLI",
+        "Technical Uncertainties",
+        "work summary",
+        "pull requests",
+        "R&D tax credits",
+        "project classification"
+      ]
+    },
+    "summary": "Skill funcional para formatação fiscal canadense SR&ED, porém prejudicada por description curta sem gatilho, referências locais inexistentes e links privados externos."
+  },
+  {
+    "skillName": "ssh-penetration-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ssh-penetration-testing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description não possui a fórmula formal de acionamento 'Use when...' e apresenta redundância interna entre a primeira e a segunda frase.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite ferramentas e técnicas essenciais demonstradas na skill, tais como Hydra, Medusa, ssh-audit, Metasploit, Paramiko, port forwarding e SOCKS proxy.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção '## Purpose' (l. 19-21) duplica textualmente a description, e a seção '## When to Use' (l. 498-499) contém apenas uma frase tautológica genérica sem valor semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Eliminar a seção duplicada '## Purpose' (l. 19-21), remover a seção tautológica '## When to Use' (l. 498-499) e condensar a tabela 'Quick Reference' (l. 434-470) que apenas repete comandos já documentados nas 10 fases anteriores.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia completa de avaliação de segurança ofensiva e testes de penetração em serviços SSH com confirmação mandante de escopo.",
+      "entidades": [
+        "OpenSSH",
+        "Nmap",
+        "Hydra",
+        "Medusa",
+        "ssh-audit",
+        "Metasploit",
+        "Paramiko",
+        "ProxyJump",
+        "proxychains"
+      ],
+      "keywords": [
+        "SSH",
+        "penetration testing",
+        "Nmap NSE",
+        "Hydra",
+        "Medusa",
+        "ssh-audit",
+        "Metasploit",
+        "Paramiko",
+        "port forwarding",
+        "SOCKS proxy",
+        "ProxyJump",
+        "credential attacks",
+        "CVE-2018-15473",
+        "banner grabbing"
+      ]
+    },
+    "summary": "Excelente guia de pentest SSH com salvaguarda explícita de autorização, demandando inclusão de gatilho 'Use when...', discriminantes de ferramentas e poda de tabelas repetidas."
+  },
+  {
+    "skillName": "sshepherd",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sshepherd/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 178 caracteres, abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description não inclui a cláusula formal de gatilho 'Use when...' no YAML frontmatter, embora esteja presente de forma detalhada no corpo do arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "CLI em Bun/TypeScript para operações remotas de servidor via SSH sob modelo zero-knowledge sem exposição de credenciais ao agente.",
+      "entidades": [
+        "sshepherd CLI",
+        "OpenSSH",
+        "Bun",
+        "Envelope<T>",
+        "~/.ssh/config",
+        "~/.config/sshepherd/targets.toml",
+        "Docker",
+        "Systemd",
+        "Postgres (psql)"
+      ],
+      "keywords": [
+        "sshepherd",
+        "zero-knowledge",
+        "SSH ops",
+        "DevOps CLI",
+        "Bun",
+        "health checks",
+        "docker control",
+        "systemd",
+        "log tailing",
+        "Postgres introspection",
+        "declarative deploy",
+        "ssh alias"
+      ]
+    },
+    "summary": "Skill exemplar de DevOps zero-knowledge com comandos precisos e enxutos, necessitando apenas ampliar a description para 200-400 chars com gatilho 'Use when...'."
+  },
+  {
+    "skillName": "startup-metrics-framework",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/startup-metrics-framework/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (154 caracteres, abaixo do intervalo de 200-400 chars) e sem acionador 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite termos discriminantes cruciais presentes no playbook da skill (MRR, ARR, CAC, LTV, Churn, Burn Rate, Runway, Rule of 40).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md funciona apenas como um stub/wrapper oco de 38 linhas com seções de boilerplate tautológico gerado em massa ('Do not use this skill when: The task is unrelated to startup metrics framework'), isolando todo o conteúdo substancial em resources/.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate tautológico das seções 'Do not use this skill when' (l. 18-21) e 'Limitations' (l. 34-37) do SKILL.md, incorporando um resumo conciso das principais fórmulas diretamente no arquivo principal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework de cálculo, monitoramento e otimização de métricas financeiras e de tração para startups do estágio Seed à Series A.",
+      "entidades": [
+        "MRR",
+        "ARR",
+        "CAC",
+        "LTV",
+        "Churn Rate",
+        "Burn Rate",
+        "Runway",
+        "Burn Multiple",
+        "Rule of 40",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "startup metrics",
+        "MRR",
+        "ARR",
+        "CAC",
+        "LTV",
+        "unit economics",
+        "burn rate",
+        "runway",
+        "churn",
+        "CAC payback",
+        "SaaS metrics",
+        "Series A",
+        "fundraising benchmarks"
+      ]
+    },
+    "summary": "Excelente playbook técnico de métricas de startups contido em um SKILL.md oco com boilerplate repetitivo e description abaixo do padrão de tamanho e discriminantes."
+  },
+  {
+    "skillName": "stitch-design-taste",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/stitch-design-taste/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 135 caracteres, significativamente abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite discriminantes essenciais especificados no corpo da skill, como tokens de layout, proibições estritas (Inter, brilhos neon, emojis) e física de mola (spring physics).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração de sistemas de design semânticos em DESIGN.md compatíveis com Google Stitch para criar interfaces visuais refinadas e livres de clichês de IA.",
+      "entidades": [
+        "Google Stitch (labs.google.com/stitch)",
+        "DESIGN.md",
+        "Geist",
+        "Satoshi",
+        "Fraunces",
+        "CSS Grid",
+        "clamp()",
+        "Spring Physics"
+      ],
+      "keywords": [
+        "Google Stitch",
+        "DESIGN.md",
+        "design system",
+        "typography",
+        "color palette",
+        "layout principles",
+        "spring physics",
+        "anti-slop",
+        "banned fonts",
+        "responsive design",
+        "micro-interactions",
+        "UI taste"
+      ]
+    },
+    "summary": "Especialização de altíssima qualidade em design tokens anti-genéricos para Google Stitch, requerendo apenas ampliação da description para 200-400 chars com seus discriminantes proibitivos."
+  },
+  {
+    "skillName": "stitch-ui-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/stitch-ui-design/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description utiliza linguagem promocional/marketing ('Expert guidance', 'high-quality UI designs') violando o Critério 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description não inclui gatilho formal no padrão 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seções finais de puro preenchimento e boilerplate: '## Conclusion' (l. 375-380), '## When to Use' genérica (l. 381-383) e '## Limitations' (l. 384-388).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Podar as seções '## Conclusion' (l. 375-380), a tautológica '## When to Use' (l. 381-383) e o boilerplate repetitivo de '## Limitations' (l. 384-388).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Engenharia de prompts estruturados para prototipagem e geração de interfaces web e mobile com Google Stitch e Gemini 2.5 Flash.",
+      "entidades": [
+        "Google Stitch",
+        "Gemini 2.5 Flash",
+        "Figma",
+        "HTML/CSS",
+        "React",
+        "Vue",
+        "Svelte"
+      ],
+      "keywords": [
+        "Google Stitch",
+        "prompt engineering",
+        "UI design",
+        "wireframes",
+        "multi-screen flows",
+        "responsive UI",
+        "Figma export",
+        "Gemini 2.5 Flash",
+        "design-to-code",
+        "component specs",
+        "annotate to edit"
+      ]
+    },
+    "summary": "Excelente manual de engenharia de prompts para UI no Google Stitch, necessitando expurgar adjetivos promocionais da description e eliminar seções de fechamento redundantes."
+  },
+  {
+    "skillName": "stride-analysis-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/stride-analysis-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 172 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite os seis pilares da metodologia STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege) e artefatos de modelagem como DFDs e matrizes de mitigação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md é um hollow stub de 42 linhas com boilerplate genérico ('Do not use this skill when: The task is unrelated to stride analysis patterns'), deixando todo o conteúdo denso em resources/.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o bloco tautológico 'Do not use this skill when' (l. 22-26) e 'Limitations' (l. 38-42) no SKILL.md, incorporando a matriz de categorias STRIDE diretamente no documento raiz.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Identificação sistemática de ameaças à segurança de sistemas utilizando a metodologia STRIDE, diagramas de fluxo de dados e matrizes de controle.",
+      "entidades": [
+        "STRIDE",
+        "Data Flow Diagrams (DFD)",
+        "Trust Boundaries",
+        "Threat Analysis Matrix",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "STRIDE",
+        "threat modeling",
+        "Spoofing",
+        "Tampering",
+        "Repudiation",
+        "Information Disclosure",
+        "Denial of Service",
+        "Elevation of Privilege",
+        "trust boundaries",
+        "DFD",
+        "security controls",
+        "mitigation matrix"
+      ]
+    },
+    "summary": "Rico playbook de threat modeling STRIDE penalizado por um SKILL.md anêmico com boilerplate de template e description sem a discriminação das 6 categorias."
+  },
+  {
+    "skillName": "styleseed-design-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/styleseed-design-review/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description está truncada no final terminando abruptamente com reticências ('...or when asked to make UI look more professional, polished, or...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de vocabulário subjetivo e promocional na description ('looks AI-generated', 'tells you exactly why', 'professional, polished').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite os elementos centrais do funcionamento da skill: a rubrica de 7 categorias (Coerência, Cores, Tipografia, Layout, Estados, UX Writing, Movimento) e o score quantitativo de 0 a 100.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Rubrica e metodologia de pontuação de 0 a 100 para revisão de design e eliminação de vícios e inconsistências visuais em código frontend React/Tailwind.",
+      "entidades": [
+        "StyleSeed",
+        "React",
+        "Tailwind CSS",
+        "WCAG AA",
+        "prefers-reduced-motion"
+      ],
+      "keywords": [
+        "StyleSeed",
+        "design review",
+        "UI score",
+        "rubric",
+        "Tailwind CSS",
+        "React",
+        "coherence",
+        "color discipline",
+        "hierarchy",
+        "spacing",
+        "states",
+        "UX writing",
+        "WCAG AA"
+      ]
+    },
+    "summary": "Rubrica quantitativa rigorosa de qualidade visual para frontend, prejudicada no frontmatter por uma description truncada com reticências e termos promocionais."
+  },
+  {
+    "skillName": "supabase-postgres-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/supabase-postgres-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 197 caracteres, ficando marginalmente abaixo do intervalo mínimo de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite termos discriminantes de alto valor técnico presentes nas 8 categorias da skill, tais como Row-Level Security (RLS), connection pooling, índices parciais, locking/deadlocks e EXPLAIN ANALYZE.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia oficial da Supabase para otimização de consultas, segurança RLS, concorrência e melhores práticas de schema no PostgreSQL.",
+      "entidades": [
+        "PostgreSQL",
+        "Supabase",
+        "Row-Level Security (RLS)",
+        "EXPLAIN ANALYZE",
+        "pg_stat_statements",
+        "Connection Pooling"
+      ],
+      "keywords": [
+        "Supabase",
+        "Postgres",
+        "PostgreSQL",
+        "RLS",
+        "Row-Level Security",
+        "query performance",
+        "indexes",
+        "connection pooling",
+        "deadlock",
+        "locks",
+        "partitioning",
+        "pg_stat_statements",
+        "EXPLAIN ANALYZE"
+      ]
+    },
+    "summary": "Excelente compêndio oficial do Supabase referenciando 34 regras práticas de Postgres, necessitando apenas estender a description acima de 200 chars com as categorias técnicas discriminantes."
+  },
+  {
+    "skillName": "supabase",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/supabase/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description está truncada no final terminando abruptamente com reticências ('...auth issues (login, logout,...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Abertura da description ('Use when doing ANY task involving Supabase') é excessivamente genérica e viola o equilíbrio de amplitude ao tentar capturar todo e qualquer comando.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção '## When to Use' (l. 16) repete integralmente no corpo do documento a mesma frase truncada com reticências da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes essenciais, convenções de CLI/MCP e checklist de armadilhas de segurança para desenvolvimento e gestão de banco de dados no ecossistema Supabase.",
+      "entidades": [
+        "Supabase",
+        "PostgreSQL",
+        "supabase-js",
+        "@supabase/ssr",
+        "Supabase CLI",
+        "Supabase MCP Server",
+        "Next.js",
+        "Row-Level Security (RLS)",
+        "security_invoker"
+      ],
+      "keywords": [
+        "Supabase",
+        "Supabase CLI",
+        "Supabase MCP",
+        "supabase-js",
+        "@supabase/ssr",
+        "Row-Level Security",
+        "RLS",
+        "Next.js",
+        "Edge Functions",
+        "Storage",
+        "Realtime",
+        "security_invoker",
+        "SECURITY DEFINER",
+        "JWT",
+        "migration"
+      ]
+    },
+    "summary": "Manual oficial indispensável com checklist rigoroso de segurança Supabase/Postgres, demandando correção do truncamento na description e calibração de amplitude de disparo."
+  }
+]

@@ -1,6 +1,6 @@
 ---
 name: grok-build
-description: "Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while the orchestrating agent plans, writes task specs, reviews every diff, and owns the result."
+description: "Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while the orchestrating agent plans, writes task specs, reviews every diff, and owns the result. Use when developing, optimizing, debugging, or configuring grok build in production workflows."
 category: agent-orchestration
 risk: critical
 source: https://github.com/sanjay3290/ai-skills/tree/main/skills/grok-build

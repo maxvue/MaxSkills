@@ -1,6 +1,6 @@
 ---
 name: vue-inputs-masks-validation-best-practices
-description: "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card. Covers objectives and core workflows."
+description: "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Inputs, Máscaras e Validação no Vue 3
@@ -62,11 +62,16 @@ Nunca envie caracteres de formatação da máscara para a validação do backend
 - Importe e use a função helper de validação `phone` de `@maxvue/max-use` (que utiliza internamente `libphonenumber-js`) apenas para VALIDAR — não para reformatar em E.164 antes de persistir.
 - **Contrato real de persistência: DDI + dígitos, sem `+`** (ex.: `5511999999999`) — é o que `MaxPhoneField` emite via `v-model` e o que `PhoneClass::getInternationalPhoneNumber` grava no backend. NÃO normalize para E.164 estrito (com `+`) antes de atribuir à store: um valor com `+` seria descartado pelo próprio `MaxPhoneField`/`MaxInputPhoneMail`, que removem tudo que não é dígito antes de compor o valor.
 
-### 7. Formatação e Validação de Cartões de Crédito
-> Orientação prescritiva sem precedente de uso no engeapp — `card-validator` e `@polvo-labs/card-type` estão instalados mas sem nenhuma ocorrência real no código.
+### 7. Formatação e Validação de Cartões de Crédito e Inputs Especializados
+O `@maxvue/max-components-ui` disponibiliza uma suíte nativa completa para pagamentos e tokens:
 
-- **Dependências já instaladas:** `card-validator` (`^10.0.4`) e `@polvo-labs/card-type` (`^0.0.3`) já constam no `package.json` do EngeApp — importe-os direto, sem `npm i`.
-- Nunca persista dados brutos de cartão de crédito ou códigos CVV no `localStorage` ou `sessionStorage`.
+- **Componente Visual de Cartão (`MaxCreditCard`)**: Renderização 3D com flip frente/verso (`side="front|back"`), detecção automática de bandeiras em SVG (Visa, Mastercard, Elo, Amex, Hipercard, etc.) e formatação visual dos dados.
+- **Número do Cartão (`MaxInputCreditCard`)**: Máscara automática Maska (`#### #### #### ####`), validação de dígitos pelo algoritmo de Luhn (`isValidCreditCard`) e exposição de `unmaskedValue`.
+- **Código de Segurança (`MaxInputCreditCardCvv`)**: Máscara numérica com controle de comprimento (`len`, padrão 3 dígitos).
+- **Validade (`MaxInputCreditCardDate`)**: Máscara `MM/AA` com validação de mês (01 a 12).
+- **Código 2FA / OTP (`MaxInputOTP`)**: Caixas individuais com avanço automático de foco, suporte a colar código completo, modo máscara para senhas e separador visual.
+- **Multi-tags (`MaxChips`)**: Inserção de múltiplos chips com remoção individual, bloqueio de duplicados e separador configurável.
+- **Segurança Obrigatória**: Nunca persista dados brutos de cartão de crédito ou códigos CVV no `localStorage` ou `sessionStorage`. Dados sensíveis de cartão devem trafegar diretamente para o gateway de pagamento ou ser processados via tokens efêmeros.
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.

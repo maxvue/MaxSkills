@@ -1,0 +1,137 @@
+Você é o Revisor Adversarial da Fase 3 para o lote ADV3.
+Sua missão é atuar como Advogado do Diabo e avaliar rigorosamente os seguintes 16 micro-lotes de problemas/cortes contra o código real em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ e os arquivos SKILL.md:
+
+### Micro-Lote [MB_CREATED_003] - Skill: laravel-authorization-policies-gates
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description termina com a frase de preenchimento genérica 'Covers objectives and core workflows.', infringindo os critérios de ausência de redundâncias e densidade de ganho semântico (Critérios 12 e 13).
+
+### Micro-Lote [MB_CREATED_011] - Skill: laravel-gemini-file-api-media-integration-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description contém frase boilerplate de preenchimento ('Covers objectives and core workflows.') que gera redundância de 'Covers' e reduz a densidade semântica.
+  2. Description cita processamento de áudio e PDF ('Covers video, audio, or PDF file processing'), o que colide com a seção 1 do próprio SKILL.md, que instrui a NÃO usar a Google File API para áudio e PDFs no engeapp (já cobertos pelo Laravel AI SDK), restringindo o nicho real a arquivos de vídeo e grandes mídias (> 20MB).
+
+### Micro-Lote [MB_CREATED_019] - Skill: laravel-power-of-attorney-generation-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description apresenta redundância interna direta no fechamento ('...rendering DomPDF documents. Covers document generation and DomPDF rendering.'), repetindo a menção a DomPDF e geração de documentos.
+
+### Micro-Lote [MB_CREATED_027] - Skill: vue-complex-modal-forms-autosave-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description cita 'max-use', mas o corpo da skill não detalha nem exemplifica o uso direto dessa lib, focando em MaxModal e MaxPinia (Critério 5).
+  2. A description possui cauda repetitiva 'Covers complex modal forms, auto-save state, and multi-tab layouts.' que duplica o gatilho (Critério 12).
+
+### Micro-Lote [MB_CREATED_035] - Skill: vue-max-use-usecachedapi-state-cache-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description contém meta-ruído de preenchimento ('Covers objectives...') que reduz a densidade semântica da frase final.
+
+### Micro-Lote [MB_CREATED_043] - Skill: project-history
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-history/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Inversão estrutural grave: a totalidade do arquivo (~31KB) consiste em um changelog factual massivo despejado diretamente dentro da seção '## Objetivo', descaracterizando a estrutura de uma skill acionável.
+  2. Mover o changelog detalhado dos Marcos 1 a 5 e Fases 1 a 7 (linhas 13-35, ~31KB) para um arquivo de referência dedicado (ex.: references/changelog-socialmedia.md), mantendo no SKILL.md apenas o guia cognitivo de consulta histórica e decisões arquiteturais.
+  3. Substituir o texto vazio de '## Instruções' ('Siga as instruções e padrões descritos na documentação.') por instruções acionáveis de rastreamento e busca de contexto histórico do projeto SocialMedia.
+
+### Micro-Lote [MB_CRIT_051] - Skill: git-worktree
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/git-worktree/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Corpo composto por template repetitivo copiado com diretrizes vazias e 'Quando Usar' tautológico ('rotinas de git-worktree').
+  2. Links sintéticos de YouTube ('cole_skills_masterclass_31', etc.) sem correspondência factual com conteúdos reais.
+  3. Substituir integralmente o boilerplate genérico das linhas 40-55 por fluxos reais de trabalho com worktrees para agentes paralelos, comandos CLI e convenções de diretório.
+
+### Micro-Lote [MB_CRIT_059] - Skill: pytest-and-jest-automation
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/pytest-and-jest-automation/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Remover os links sintéticos de YouTube (linhas 58-64).
+
+### Micro-Lote [MB_CRIT_067] - Skill: ai-studio-image
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Boilerplate genérico desconectado nas seções 'Best Practices' e 'Common Pitfalls' (linhas 300-311), contendo placeholders genéricos sem relação com geração de imagem.
+  2. Substituir com urgência todos os caminhos absolutos locais 'C:\Users\renat\skills\ai-studio-image\' por caminhos relativos ao projeto ('scripts/...').
+  3. Remover o boilerplate descontextualizado de 'Best Practices' e 'Common Pitfalls' (linhas 300-311).
+
+### Micro-Lote [MB_CRIT_075] - Skill: anti-reversing-techniques
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Fundir os três blocos redundantes de avisos legais e confirmação obrigatória (linhas 9-29) em um único aviso de conformidade sucinto de 4 linhas.
+  2. Remover a seção duplicada '## Resources' (linhas 57-60) que repete verbatim o link para 'resources/implementation-playbook.md' já fornecido na linha 55.
+
+### Micro-Lote [MB_CRIT_083] - Skill: varlock-claude-skill
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description curta (131 caracteres, longe do ideal de 200 a 400) e desprovida de cláusula de ativação ('Use when...') ou discriminantes operacionais.
+  2. Tautologia absoluta: o arquivo de 29 linhas repete a mesma frase genérica quatro vezes ('Overview', 'When to Use', 'Instructions', 'Description') sem introduzir nenhuma instrução técnica.
+  3. Inexistência total de conteúdo técnico: ausência de comandos da CLI Varlock, padrões de configuração, regras de variáveis ou exemplos, constituindo um placeholder inútil para um link externo do GitHub.
+
+### Micro-Lote [MB_CURATED_091] - Skill: damage-control
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/damage-control/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description muito curta (130 chars < 200) e desprovida de qualquer gatilho 'Use when...' ou discriminantes de ferramentas reais.
+  2. Ausência total de conteúdo operacional executável: o corpo não ensina nem implementa regras de interceptação de comandos destrutivos (rm -rf, DROP, git reset --hard).
+  3. Conteúdo bilíngue puramente tautológico que repete as mesmas frases genéricas em português e inglês.
+
+### Micro-Lote [MB_CURATED_099] - Skill: shadcn-ui
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/shadcn-ui/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Podar blocos duplicados de Visão Geral e Stack Tecnológica que espelham o frontmatter, substituindo as diretrizes genéricas por exemplos práticos de instalação, configuração e estilização do shadcn/ui.
+
+### Micro-Lote [MB_CURATED_107] - Skill: token-optimization
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/token-optimization/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Remover os blocos repetitivos de Visão Geral e Stack Tecnológica e substituir as diretrizes genéricas por rotinas práticas de pruning de histórico e otimização de ferramentas MCP.
+
+### Micro-Lote [MB_PHASE2_115] - Skill: pytest-and-jest-automation + javascript-testing-patterns
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de LAPIDAR: javascript-testing-patterns é uma skill de alta fidelidade e profundidade técnica (possuindo um playbook detalhado de 1.025 linhas) com foco estrito e abrangente no ecossistema JavaScript e TypeScript (Jest, Vitest, Testing Library, Supertest, mocking e testes de integração). Por outro lado, pytest-and-jest-automation foi originada a partir de pytest-automation (upstream da Anthropic focado em testes Python com pytest), mas sofreu uma extensão inadequada em seu nome e metadados para incluir Jest e Vitest, embora seu corpo seja um stub sem implementação de código JS. A recomendação não é MERGE porque os domínios de linguagem fundamentais (Python vs JavaScript/TypeScript) devem permanecer desacoplados para manter a integridade dos prompts de agentes. A recomendação técnica é LAPIDAR: purgar de pytest-and-jest-automation qualquer referência a Jest, Vitest, JavaScript e TypeScript, especializando seu conteúdo estritamente para automação de testes em Python (pytest, fixtures, parametrize, mocks e coverage), enquanto javascript-testing-patterns retém com exclusividade todo o escopo de testes em JS/TS.
+  2. Plano de integracao: Ajustar escopos sem perdas
+
+### Micro-Lote [MB_PHASE2_123] - Skill: skill-creator + skill-writer
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: Ambas as skills competem diretamente pelo mesmo propósito canônico de criar, redigir e iterar sobre Agent Skills ('Use when asked to create, write, or update skills'). 'skill-creator' (da suíte oficial Anthropic / curated-youtube) é um framework executável e iterativo de 33 KB com subagentes especializados (grader, comparator, analyzer), suíte de benchmark e visualizador iterativo de reviews via script Python ('generate_review.py'), além de otimização de gatilhos ('run_loop.py'). 'skill-writer' (do Agentic Awesome Skills) é uma implementação documental que traz taxonomias conceituais valiosas (padrões de workflow, padrões de saída determinísticos, matriz de decisão de modos e gates de profundidade). Manter ambas como skills ativas causa fragmentação e colisão de ativação primária pelo orquestrador. A fusão em 'skill-creator' consolida a melhor suíte de execução dinâmica com os melhores princípios de arquitetura estática.
+  2. Plano de integracao: 1. Adotar 'skill-creator' como skill destino canônica devido à sua infraestrutura completa de execução ('eval-viewer/', 'scripts/', 'agents/').
+2. Migrar os guias de design e padrões arquiteturais de 'skill-writer/references/' (notadamente 'workflow-patterns.md', 'output-patterns.md', 'mode-selection.md' e 'design-principles.md') para dentro da pasta 'references/' de 'skill-creator'.
+3. Adicionar na seção de redação ('Write the SKILL.md / Skill Writing Guide') de 'skill-creator' referências explícitas a essas taxonomias de padrões estruturais para quando o usuário desejar uma abordagem estática sem rodar evals completas.
+4. Descontinuar 'skill-writer' no catálogo de skills para eliminar conflito de orquestração.
+
+Diretrizes de Avaliação:
+1. Abra o arquivo SKILL.md da skill com view_file.
+2. Quando a acusação envolver conformidade técnica com o código de Engeapp/MaxVue, abra e confira os arquivos em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ (projects/engeapp, projects/MaxComponentsUi, projects/MaxPinia, projects/MaxUse, projects/MaxCode).
+3. Para cada problema listado, decida:
+   - CONFIRMADO: se o defeito técnico, não conformidade ou necessidade de corte/merge for real e comprovado.
+   - REFUTADO: se for falso positivo, exagero, código existente ou sugestão puramente cosmética.
+4. Forneça evidence concreta (arquivo e linha/trecho).
+5. Se CONFIRMADO e envolver a description, proponha correctedDescription calibrada (200-400 chars). Senão, deixe string vazia.
+
+Retorne SEMPRE um array JSON contendo um objeto para CADA problema avaliado no formato:
+[
+  {
+    "skillName": "nome da skill",
+    "problem": "texto exato ou resumo fiel do problema",
+    "verdict": "CONFIRMADO | REFUTADO",
+    "evidence": "arquivo e linha/trecho real",
+    "correctedDescription": "string se CONFIRMADO e impreciso, senao """
+  }
+]
+Salve o resultado em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/docs/reports/phase3_raw_ADV3.json usando write_to_file (sem ArtifactMetadata) e envie o resultado para o orquestrador via send_message.

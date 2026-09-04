@@ -1,0 +1,219 @@
+[
+  {
+    "skillName": "laravel-digital-signatures-integration",
+    "problem": "A description contém a frase redundante de preenchimento 'Covers objectives and core workflows.' no final (critério 12), devendo ser eliminada ou substituída por termos discriminantes como 'ProjectPowerOfAttorneyDocument' ou 'ReloadPowerAttorneyStatusJob'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md:3",
+    "correctedDescription": "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, ProjectPowerOfAttorneyDocument, and ReloadPowerAttorneyStatusJob queue processing."
+  },
+  {
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "problem": "Description encerra com boilerplate genérico ('Covers objectives and core workflows.'), gerando redundância sintática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging."
+  },
+  {
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "problem": "Corpo da skill duplica uma implementação completa de 146 linhas do LiveKitService com docblocks extensos, sobrecarregando o arquivo com código boilerplate que poderia ser condensado nos trechos operacionais críticos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md:53-199",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "problem": "Condensar o esqueleto completo da classe LiveKitService.php nas linhas 53 a 199, focando nos trechos cruciais (sanitização ws->http, instanciação com RoomCreateOptions e tratamento de ListParticipantsResponse) e eliminando docblocks prolixos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md:53-199",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "laravel-reverb-websockets-best-practices",
+    "problem": "A description menciona 'Caddy WSS reverse proxy', porém o SKILL.md ensina e detalha na Seção 2 exclusivamente a configuração de reverse proxy com Nginx, gerando divergência de fidelidade semântica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md:3,42-60",
+    "correctedDescription": "Use when configuring, optimizing, debugging, or deploying Laravel Reverb WebSocket server in Engeapp. Covers WebSocket configuration, Vite client broadcasting, Nginx WSS reverse proxy, Supervisor, and live events."
+  },
+  {
+    "skillName": "vue-frontend-bug-fixing-best-practices",
+    "problem": "A description contém cauda redundante 'Covers objectives, project stack, and frontend bug fixing.' que enfraquece a densidade do gatilho (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing."
+  },
+  {
+    "skillName": "vue-typescript-best-practices",
+    "problem": "Description cita 'tsconfig.json', tópico ausente no corpo do documento (fidelidade estrita comprometida), além de meta-ruído ('Covers objectives...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, DTO consumption, and template ref types."
+  },
+  {
+    "skillName": "vue-typescript-best-practices",
+    "problem": "Restrição na linha 106 sugere permissividade com classes utilitárias do UnoCSS inline, em desacordo com a diretriz de classes semânticas em <style lang=\"scss\">.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:106 (em confronto com optimize_skills.md:164)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "typescript-advanced-types-best-practices",
+    "problem": "A descrição contém a frase de preenchimento redundante 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica (violação dos critérios 10, 12 e 13).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config."
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Corpo composto pelo mesmo boilerplate genérico e circular de outras skills do lote, com links sintéticos de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:40-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Substituir as seções genéricas vazias (linhas 40-55) por diretrizes concretas de sintaxe Mermaid (flowcharts, sequence, ERD, C4), escape de nós e renderização via mermaid-cli.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:40-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Remover os links sintéticos de YouTube (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:58-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "A tag description possui apenas 60 caracteres (muito abaixo do piso de 200 chars), não apresenta cláusula 'Use when...' e carece totalmente de discriminantes técnicos dos modelos suportados.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:3",
+    "correctedDescription": "Use when implementing text-to-speech (TTS) or speech-to-text (STT) audio pipelines via fal.ai client SDKs. Covers audio model endpoints (e.g. whisper, chatterbox, f5-tts), request payload formatting, webhook callbacks, and audio output handling."
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "O arquivo é um stub oco (placeholder) de apenas 29 linhas que repete a mesma frase tautológica três vezes ('Overview', 'When to Use' e 'Instructions') sem ensinar nenhuma API, endpoint, SDK ou parâmetro.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "Ausência total de exemplos de código ou instruções práticas para integração com a plataforma fal.ai (nem Python SDK, nem @fal-ai/serverless-client, nem endpoints REST).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Skill consiste em um stub oco de apenas 29 linhas que não fornece nenhum código, shader, arquitetura ou instrução concreta sobre Makepad em Rust.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Redundância quádrupla idêntica: a mesma frase genérica é repetida na description, Overview, When to Use e Instructions.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:3,13,17,21",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Description de 111 caracteres puramente descritiva, sem discriminantes técnicos ou condições reais de disparo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:3",
+    "correctedDescription": "Use when building cross-platform native UI applications in Rust using the Makepad framework. Covers Makepad DSL widgets, custom live shader coding (makepad-platform), event handling loop, and cargo-makepad packaging for desktop, web, or mobile."
+  },
+  {
+    "skillName": "rayden-code",
+    "problem": "Dependência fantasma crítica: a skill afirma explicitamente na visão geral e passos (linhas 18, 31 e 88) carregar o arquivo 'RAYDEN_RULES.md' (34 componentes, props, tokens e anti-patterns), mas o arquivo não existe no repositório, inviabilizando sua execução confiável.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md:18,31,88 (arquivo RAYDEN_RULES.md inexiste no repositório)",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "rayden-code",
+    "problem": "Description muito curta (104 caracteres), sem gatilho formal 'Use when...' e com adjetivo promocional/marketing vago ('premium layout patterns').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md:3",
+    "correctedDescription": "Use when generating React and Tailwind CSS components using the Rayden UI component library (@raydenui/ui). Covers component scaffolding, props validation, design token classes, layout patterns, and design-system guidelines."
+  },
+  {
+    "skillName": "rayden-code",
+    "problem": "Remover a dependência ao arquivo fantasma 'RAYDEN_RULES.md' e embutir a especificação real dos 34 componentes diretamente na skill ou fornecer o arquivo ausente.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md:31,88",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "Remover ou substituir integralmente o arquivo; 90% do conteúdo é repetição de boilerplate sem qualquer substância técnica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:1-29",
+    "correctedDescription": "Use when designing, automating, or deploying cloud infrastructure on AWS. Covers infrastructure-as-code (CDK, CloudFormation, Terraform), IAM least-privilege security, serverless patterns (Lambda, API Gateway), and S3/RDS storage architecture."
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Remover blocos de persona vazia: 'Behavioral Traits' (linhas 122-133), 'Knowledge Base' (linhas 134-143), 'Response Approach' (linhas 144-154) e 'Example Interactions' (linhas 155-164).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:122-164",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Substituir o preâmbulo circular de 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e comandos de ativação reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:9-18",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Description com 138 caracteres, abaixo da faixa recomendada de 200-400 chars, e sem cláusula explícita de ativação ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:3",
+    "correctedDescription": "Use when styling web applications using Tailwind CSS (v3 or v4). Covers utility class composition, responsive layouts, design token customization via @theme, arbitrary values, and dark mode configuration with PostCSS or Tailwind CLI."
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Corpo stub de 65 linhas desprovido de conteúdo técnico: não traz regras de classes utilitárias responsivas, tokens de design, diretrizes mobile-first nem configuração de dark mode ou Tailwind CSS v4 (@theme).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:13-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Redundância estrutural decorrente da duplicação dos metadados do YAML nas seções Overview e Stack Tecnológica, acompanhadas de links simulados de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:15-37,58-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vue-max-stack-frontend-best-practices + vue-typescript-best-practices",
+    "problem": "Proposta de LAPIDAR: 'vue-max-stack-frontend-best-practices' é o guia macro de arquitetura de Single File Components (SFC) no ecossistema Max (estrutura de templates, componentes Max*, formulários com MaxGrid e visão geral da stack). 'vue-typescript-best-practices' deve ser o guia focado em tipagem estática e segurança de tipos (defineProps/defineEmits tipados, DTOs gerados via spatie/laravel-typescript-transformer, tipos de template refs). No entanto, 'vue-typescript-best-practices' repete longas explicações sobre o funcionamento funcional do cache/auto-save do MaxPinia e a resolução de rotas sem prefixo api/ (seções 5 e 6), invadindo o escopo da skill macro. A recomendação é LAPIDAR: enxugar essas seções em 'vue-typescript-best-practices' para focar puramente em como TIPAR as stores e propriedades (interfaces, genéricos, contratos DTO), deixando os preceitos arquiteturais do ecossistema a cargo de 'vue-max-stack-frontend-best-practices', e calibrar os gatilhos 'Use when...' para distinguir scaffold/composição de SFCs de tipagem estática TypeScript.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:65-103 vs all_skills/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md:1-106",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vue-max-stack-frontend-best-practices + vue-typescript-best-practices",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:65-103",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fp-types-ref + fp-taskeither-ref",
+    "problem": "Proposta de MERGE: Ambas as skills são cheatsheets curtas de referência rápida (79 e 116 linhas, respectivamente) voltadas para a biblioteca fp-ts. fp-types-ref já atua como ponto de entrada para a escolha de tipos (Option vs Either vs Task vs TaskEither), enquanto fp-taskeither-ref isola a sintaxe de TaskEither de maneira excessivamente fragmentada. Manter micro-skills separadas para referências sintáticas da mesma biblioteca dispersa a base de conhecimento e sobrecarrega o roteador do orquestrador. A recomendação é MERGE: unificar fp-taskeither-ref dentro de fp-types-ref, formando uma folha de referência rápida completa e concisa sobre os tipos e operadores fundamentais do fp-ts.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fp-types-ref/SKILL.md:1-79 e all_skills/Agentic Awesome Skills/skills/fp-taskeither-ref/SKILL.md:1-116",
+    "correctedDescription": "Use when selecting or implementing fp-ts types in TypeScript. Quick reference for Option, Either, Task, and TaskEither: decision tree, common imports, constructor methods, pipe chaining, error handling, and async transformation patterns."
+  },
+  {
+    "skillName": "fp-types-ref + fp-taskeither-ref",
+    "problem": "Plano de integracao: 1. Em fp-types-ref, manter a árvore de decisão de tipos e a tabela de imports. 2. Incorporar as seções de fp-taskeither-ref ('Create', 'Transform', 'Execute', 'Common Patterns' e 'vs async/await') sob uma seção dedicada 'TaskEither Reference' em fp-types-ref. 3. Atualizar o frontmatter de fp-types-ref incluindo as tags de fp-taskeither-ref (taskeither, async, promise) e expandindo a descrição e cláusula 'When to Use' para cobrir tanto seleção de tipos quanto sintaxe rápida de TaskEither. 4. Descontinuar e remover a pasta/arquivo de fp-taskeither-ref.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fp-types-ref/SKILL.md:1-79 e all_skills/Agentic Awesome Skills/skills/fp-taskeither-ref/SKILL.md:1-116",
+    "correctedDescription": ""
+  }
+]

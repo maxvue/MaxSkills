@@ -1,0 +1,565 @@
+[
+  {
+    "skillName": "native-data-fetching",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/native-data-fetching/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Gatilho excessivamente amplo na description: abre com 'Use when implementing or debugging ANY network request, API call, or data fetching' com 'ANY' em maiúsculas e sem delimitar inicialmente o escopo ao ecossistema Expo/React Native, gerando alto risco de falsos positivos em requisições de backend ou web geral.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Erro de formatação de markdown nas linhas 505 e 507: 'EXPO*PUBLIC*' utiliza asteriscos sem código inline ou escape, renderizando itálico quebrado.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de requisições de rede, cache, resiliência offline e loaders para Expo e React Native.",
+      "entidades": [
+        "fetch",
+        "@tanstack/react-query",
+        "QueryClient",
+        "useQuery",
+        "useMutation",
+        "SWR",
+        "expo-secure-store",
+        "@react-native-community/netinfo",
+        "AbortController",
+        "EXPO_PUBLIC_*",
+        "useLoaderData"
+      ],
+      "keywords": [
+        "Expo",
+        "React Native",
+        "networking",
+        "fetch",
+        "TanStack Query",
+        "React Query",
+        "SWR",
+        "cache",
+        "offline",
+        "NetInfo",
+        "expo-secure-store",
+        "auth token",
+        "error handling",
+        "AbortController",
+        "EXPO_PUBLIC",
+        "loaders",
+        "useLoaderData"
+      ]
+    },
+    "summary": "Conteúdo prático e bem estruturado para Expo networking; requer refinamento do gatilho na description para evitar ativação fora do ecossistema React Native."
+  },
+  {
+    "skillName": "neon-ai-gateway",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/neon-ai-gateway/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter: a sentença final termina abruptamente com 'or...' (288 chars), evidenciando corte inadvertido no texto de metadados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho excessivamente abrangente sem delimitação de contexto: 'Use when a user wants to call an LLM, add AI/chat/an agent to their app' não restringe ao contexto de banco ou branches Neon, gerando risco severo de sobreacionamento para qualquer chamada genérica de IA.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Camada unificada de inferência e roteamento de múltiplos provedores de LLMs integrada a branches Neon.",
+      "entidades": [
+        "@neon/config",
+        "defineConfig",
+        "@neon/ai-sdk-provider",
+        "@ai-sdk/openai",
+        "ai",
+        "generateText",
+        "streamText",
+        "Mastra",
+        "@mastra/core/agent",
+        "OpenAI",
+        "neon.ts",
+        "OPENAI_BASE_URL",
+        "NEON_AI_GATEWAY_BASE_URL"
+      ],
+      "keywords": [
+        "Neon",
+        "AI Gateway",
+        "LLMs",
+        "OpenAI",
+        "Anthropic",
+        "Gemini",
+        "Databricks",
+        "Vercel AI SDK",
+        "Mastra",
+        "branch-scoped",
+        "neon.ts",
+        "streaming",
+        "SSE",
+        "multi-provider",
+        "inference",
+        "chat completions"
+      ]
+    },
+    "summary": "Documentação técnica densa e precisa sobre o gateway Neon, mas penalizada por description truncada com 'or...' e gatilho excessivamente amplo."
+  },
+  {
+    "skillName": "neon-functions",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/neon-functions/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter: termina abruptamente em 'a WebSocket or server-sent-events (SSE)...' com reticências sem fechar a oração (300 chars).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho com amplitude descalibrada: 'Use when a user wants to host an API, an AI agent with long streaming responses...' não condiciona explicitamente à infraestrutura Neon, favorecendo sobreacionamento.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Funções HTTP Node.js serverless de longa duração executadas ao lado dos dados em branches Neon.",
+      "entidades": [
+        "neon.ts",
+        "Hono",
+        "drizzle-orm/node-postgres",
+        "pg.Pool",
+        "ws",
+        "WebSocketServer",
+        "@modelcontextprotocol/sdk",
+        "@hono/mcp",
+        "better-auth",
+        "jose",
+        "jwtVerify",
+        "DATABASE_URL",
+        "DATABASE_URL_UNPOOLED"
+      ],
+      "keywords": [
+        "Neon Functions",
+        "Node.js 24",
+        "Hono",
+        "serverless",
+        "WebSocket",
+        "SSE",
+        "long-running",
+        "Postgres",
+        "LISTEN/NOTIFY",
+        "MCP server",
+        "Drizzle ORM",
+        "pg pool",
+        "JWT auth",
+        "neon dev",
+        "neon deploy"
+      ]
+    },
+    "summary": "Excelente profundidade arquitetural em funções serverless de streaming e WebSockets, porém com description truncada e gatilho sem restrição ao ambiente Neon."
+  },
+  {
+    "skillName": "neon-object-storage",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/neon-object-storage/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter: termina abruptamente em 'or user-generated files for their...' (297 chars).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho desprovido de discriminante de contexto: 'Use when a user wants object storage, a bucket, blob/file storage...' pode capturar qualquer solicitação genérica de upload ou S3 em projetos alheios ao Neon.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Armazenamento de objetos compatível com S3 integrado e sincronizado com o versionamento por branch do Neon.",
+      "entidades": [
+        "neon.ts",
+        "defineConfig",
+        "@neon/config",
+        "files-sdk",
+        "files-sdk/neon",
+        "@aws-sdk/client-s3",
+        "S3Client",
+        "PutObjectCommand",
+        "GetObjectCommand",
+        "getSignedUrl",
+        "AWS_ACCESS_KEY_ID",
+        "AWS_ENDPOINT_URL_S3"
+      ],
+      "keywords": [
+        "Neon",
+        "Object Storage",
+        "S3",
+        "buckets",
+        "blob storage",
+        "branching",
+        "files-sdk",
+        "AWS SDK",
+        "presigned URLs",
+        "copy-on-write",
+        "neon deploy",
+        "us-east-2"
+      ]
+    },
+    "summary": "Guia técnico direto e de alta qualidade sobre buckets branchable no Neon, necessitando correção da description truncada e delimitação do gatilho."
+  },
+  {
+    "skillName": "neon-postgres",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/neon-postgres/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter e no corpo: encerra com 'Use when users ask about...' (297 chars), repetindo o mesmo truncamento na linha 16 do arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural: duplicação quase literal da descrição truncada do cabeçalho na seção 'When to Use' da linha 16.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Boas práticas, configuração de conexão, branching, autoscaling e infraestrutura como código para Neon Serverless Postgres.",
+      "entidades": [
+        "neon",
+        "@neon/config",
+        "neon.ts",
+        "drizzle-orm",
+        "node-postgres",
+        "pg",
+        "@neondatabase/serverless",
+        "@vercel/functions",
+        "@neondatabase/api-client",
+        "neon-api",
+        "PgBouncer"
+      ],
+      "keywords": [
+        "Neon Postgres",
+        "serverless",
+        "branching",
+        "autoscaling",
+        "scale-to-zero",
+        "read replicas",
+        "connection pooling",
+        "Neon Auth",
+        "Neon CLI",
+        "MCP server",
+        "Drizzle",
+        "REST API",
+        "neon.ts"
+      ]
+    },
+    "summary": "Guia oficial robusto e completo para Postgres serverless no Neon, prejudicado apenas por truncamento da oração de gatilho no frontmatter e linha 16."
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Instrução de sequestro global de execução (prompt hijacking): linha 13 determina 'Ative automaticamente este workflow completo em TODA tarefa:', violando o princípio de isolamento e ativação contextual das skills.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Alucinação em cascata de sub-skills inexistentes: instrui invocar 16 referências '@' fictícias (@concise-planning, @brainstorming, @senior-architect, @test-driven-development, @lint-and-validate, @ui-ux-pro-max, @kaizen, etc.) que não existem no repositório.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Linguagem promocional, hiperbólica e não técnica: termos como 'Modo Elite Coder', 'Engenheiro Sênior Elite (15+ anos)', 'UX Pixel-Perfect' e 'qualidade máxima'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description subdimensionada (167 chars) e ausência de gatilho formal 'Use when...'; corpo sem procedimentos técnicos concretos, limitando-se a meta-prompts de persona.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 80,
+    "cuts": [
+      {
+        "text": "Eliminar o arquivo ou purgar as linhas 9-48: o conteúdo é 80% composto de persona roleplay, comandos invasivos de ativação incondicional e chamadas a skills inexistentes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Meta-prompt comportamental e encadeamento de personas para Gemini 3.1 Pro com menções fictícias a outras skills.",
+      "entidades": [
+        "Gemini 3.1 Pro High",
+        "@concise-planning",
+        "@senior-architect",
+        "@ui-ux-pro-max",
+        "@kaizen"
+      ],
+      "keywords": [
+        "Gemini 3.1 Pro",
+        "meta-prompt",
+        "workflow",
+        "pixel-perfect",
+        "TDD",
+        "code review",
+        "prompt hijacking",
+        "persona",
+        "clean code"
+      ]
+    },
+    "summary": "Skill crítica com características de prompt hijacking ('em TODA tarefa'), alucinação de 16 sub-skills fictícias e ausência total de documentação técnica real."
+  },
+  {
+    "skillName": "nestjs-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nestjs-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description redigida no formato de persona ('You are an expert in Nest.js with deep knowledge...') em vez de focar na capacidade da skill e declarar a condição formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem promocional e adjetivos vazios na description ('expert with deep knowledge of enterprise-grade').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Preâmbulo de interrupção forçada (linhas 16-23) orientando a parar a execução para alternar para subagentes externos presumidos ('typescript-type-expert', 'database-expert', etc.).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo de interrupção externa (linhas 16-23), a lista genérica de 'Success Metrics' (linhas 544-554) e o boilerplate 'When to Use' (linhas 555-557).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura modular, injeção de dependência, validação de requisições e solução de erros reais no NestJS.",
+      "entidades": [
+        "NestJS",
+        "@nestjs/core",
+        "@nestjs/common",
+        "@nestjs/testing",
+        "@nestjs/typeorm",
+        "@nestjs/mongoose",
+        "@nestjs/passport",
+        "@nestjs/jwt",
+        "@nestjs/config",
+        "class-validator",
+        "class-transformer",
+        "TypeORM",
+        "Supertest"
+      ],
+      "keywords": [
+        "NestJS",
+        "dependency injection",
+        "modules",
+        "controllers",
+        "guards",
+        "interceptors",
+        "pipes",
+        "TypeORM",
+        "Mongoose",
+        "Passport",
+        "JWT",
+        "Jest",
+        "Supertest",
+        "circular dependency",
+        "forwardRef"
+      ]
+    },
+    "summary": "Manual técnico sólido com abordagem pragmática baseada em problemas reais do GitHub/SO; necessita apenas converter a description de persona para 'Use when...' e podar seções acessórias."
+  },
+  {
+    "skillName": "network-101",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/network-101/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Ausência de cláusula condicional explícita ('Use when...') na description, iniciando diretamente com o verbo 'Configure and test...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância interna de exemplos: a seção 'Examples' (linhas 298-346) replica quase integralmente comandos e passos já exibidos no 'Core Workflow'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção de encerramento 'When to Use' (linhas 358-360) com texto genérico de preenchimento ('applicable to execute the workflow or actions described in the overview').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Fundir/remover a seção 'Examples' (linhas 298-346) para eliminar repetição do 'Core Workflow' e retirar o encerramento genérico de 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração controlada e teste de enumeração de serviços de rede (HTTP, HTTPS, SNMP, SMB) para laboratórios de segurança ofensiva.",
+      "entidades": [
+        "apache2",
+        "IIS",
+        "openssl",
+        "snmpd",
+        "snmpwalk",
+        "onesixtyone",
+        "samba",
+        "smbd",
+        "smbclient",
+        "smbmap",
+        "enum4linux",
+        "nmap"
+      ],
+      "keywords": [
+        "networking",
+        "pentest",
+        "HTTP",
+        "HTTPS",
+        "SNMP",
+        "SMB",
+        "enumeration",
+        "log analysis",
+        "Apache",
+        "Samba",
+        "openssl",
+        "smbclient",
+        "snmpwalk",
+        "firewall",
+        "lab setup"
+      ]
+    },
+    "summary": "Guia seguro e bem calibrado com travas de autorização prévias para labs ofensivos; ganha qualidade com a poda de exemplos redundantes e ajuste de gatilho."
+  },
+  {
+    "skillName": "network-engineer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/network-engineer/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Referência interna quebrada para arquivo inexistente: linha 24 instrui abrir 'resources/implementation-playbook.md', porém nenhum arquivo ou diretório além de SKILL.md existe na skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description excessivamente curta (125 chars, muito aquém dos 200 chars mínimos recomendados) baseada em persona promocional ('Expert network engineer specializing in...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilhos tautológicos e vazios nas seções 'Use this skill when' ('Working on network engineer tasks') e 'Do not use' ('The task is unrelated to network engineer').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de procedimentos ou configurações executáveis: 90% do arquivo é uma listagem enciclopédica de tópicos e nomes de ferramentas sem instruções técnicas acionáveis.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Bloat de persona: seções 'Behavioral Traits' (linhas 124-135) e 'Response Approach' (linhas 146-156) contêm orientações genéricas de roleplay de IA.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 60,
+    "cuts": [
+      {
+        "text": "Remover tautologias das linhas 9-18, a referência inexistente da linha 24 e condensar os blocos conceituais e comportamentais redundantes (~60% do arquivo).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Catálogo conceitual de tópicos e tecnologias de redes cloud, segurança perimetral e balanceamento.",
+      "entidades": [
+        "AWS VPC",
+        "Azure Virtual Networks",
+        "GCP VPC",
+        "Envoy",
+        "Traefik",
+        "Istio",
+        "Route 53",
+        "Let's Encrypt",
+        "WireGuard",
+        "Cilium",
+        "Calico",
+        "Terraform",
+        "Ansible"
+      ],
+      "keywords": [
+        "cloud networking",
+        "VPC",
+        "load balancer",
+        "DNS",
+        "TLS",
+        "PKI",
+        "zero trust",
+        "service mesh",
+        "container networking",
+        "SDN",
+        "traffic management",
+        "network security"
+      ]
+    },
+    "summary": "Skill inflada estilo 'currículo', sem exemplos reais de configuração, link quebrado para playbook inexistente e gatilhos tautológicos."
+  },
+  {
+    "skillName": "nextjs-seo-indexing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nextjs-seo-indexing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Fórmula de ativação na description pode ser aprimorada: inicia diretamente com 'Fix SEO indexing issues...' em vez de prefixar formalmente com 'Use when fixing SEO indexing issues...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diagnóstico e correção de problemas de indexação, sitemaps, canonicals e crawl budget no Next.js App Router.",
+      "entidades": [
+        "Next.js App Router",
+        "metadata",
+        "generateMetadata",
+        "generateStaticParams",
+        "next.config.js",
+        "redirects",
+        "sitemap.js",
+        "robots.js",
+        "Google Search Console"
+      ],
+      "keywords": [
+        "Next.js",
+        "SEO",
+        "indexing",
+        "Search Console",
+        "canonical",
+        "noindex",
+        "sitemap",
+        "robots.txt",
+        "crawl budget",
+        "generateMetadata",
+        "generateStaticParams",
+        "redirects",
+        "static rendering"
+      ]
+    },
+    "summary": "Excelente conteúdo técnico para SEO no Next.js App Router, sem ruído estrutural e com description densa de 201 chars, necessitando apenas leve refinamento sintático no gatilho."
+  }
+]

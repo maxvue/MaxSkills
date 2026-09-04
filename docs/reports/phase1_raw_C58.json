@@ -1,0 +1,504 @@
+[
+  {
+    "skillName": "aws-secrets-rotation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/security/aws-secrets-rotation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 72 caracteres, ficando substancialmente abaixo do piso de 200 caracteres recomendado e omitindo gatilho explícito de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Menção pontual à ferramenta Kiro CLI no final do documento que não agrega ganho semântico à rotação no AWS Secrets Manager.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Automação e monitoramento de rotação de credenciais de banco de dados e chaves de API com AWS Secrets Manager e funções Lambda.",
+      "entidades": [
+        "AWS Secrets Manager",
+        "AWS Lambda",
+        "Amazon RDS",
+        "boto3",
+        "MySQL",
+        "CloudWatch Alarms",
+        "Stripe API",
+        "jq"
+      ],
+      "keywords": [
+        "secrets rotation",
+        "secrets manager",
+        "aws lambda",
+        "rds credentials",
+        "api keys",
+        "boto3",
+        "cloudwatch alarms",
+        "awspending",
+        "awscurrent",
+        "createSecret",
+        "setSecret",
+        "testSecret",
+        "finishSecret",
+        "compliance report",
+        "secret rotation audit"
+      ]
+    },
+    "summary": "Skill técnica sólida com implementações reais de Lambda e CLI, necessitando apenas de expansão da description para 200-400 caracteres com gatilho claro."
+  },
+  {
+    "skillName": "security-and-hardening",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/security-and-hardening/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia de boas práticas de segurança defensiva, modelagem de ameaças STRIDE e mitigação OWASP para aplicações web e LLMs.",
+      "entidades": [
+        "OWASP Top 10",
+        "STRIDE",
+        "Zod",
+        "bcrypt",
+        "Helmet",
+        "DOMPurify",
+        "Express",
+        "Prisma",
+        "ipaddr.js",
+        "OWASP Top 10 for LLM Applications"
+      ],
+      "keywords": [
+        "security hardening",
+        "threat modeling",
+        "input validation",
+        "injection",
+        "broken access control",
+        "xss",
+        "ssrf",
+        "prompt injection",
+        "session security",
+        "rate limiting",
+        "supply chain hygiene",
+        "secrets management",
+        "owasp llm"
+      ]
+    },
+    "summary": "Skill exemplar de altíssima qualidade técnica, com description calibrada e cobertura defensiva profunda para código web e IA."
+  },
+  {
+    "skillName": "security-auditor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/security-auditor/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 115 caracteres, usa linguagem promocional ('Expert security auditor specializing in...') e não possui cláusula clara de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Estrutura do documento inflada em formato de persona de prompt de LLM com extensa lista de buzzwords enciclopédicas (criptografia quântica, homomórfica, computação confidencial) sem procedimentos técnicos reais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções 'Behavioral Traits', 'Knowledge Base' e 'Response Approach' são altamente redundantes e genéricas, diluindo a aplicabilidade prática.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover preâmbulo de persona e podar a seção 'Capabilities' eliminando tópicos periféricos não implementados (como quantum-safe e homomorphic encryption).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Condensar as seções redundantes 'Behavioral Traits', 'Knowledge Base' e 'Response Approach' em instruções de auditoria acionáveis.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria e avaliação de vulnerabilidades em DevSecOps, conformidade regulatória e testes de segurança de aplicações.",
+      "entidades": [
+        "OWASP ASVS",
+        "SonarQube",
+        "Semgrep",
+        "Snyk",
+        "Burp Suite",
+        "OWASP ZAP",
+        "OPA",
+        "OAuth 2.0",
+        "GDPR",
+        "HIPAA",
+        "SOC 2"
+      ],
+      "keywords": [
+        "security audit",
+        "devsecops",
+        "vulnerability assessment",
+        "threat modeling",
+        "sast",
+        "dast",
+        "access control",
+        "compliance",
+        "codeql",
+        "zero trust",
+        "pentest",
+        "data flow analysis"
+      ]
+    },
+    "summary": "Skill inflada por buzzwords enciclopédicas e persona de LLM, com description promocional e curta sem gatilho de ativação."
+  },
+  {
+    "skillName": "security-bluebook-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/security-bluebook-builder/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "O passo central do workflow instrui carregar 'references/bluebook_template.md', porém esse arquivo template não existe no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A description carece de cláusula explícita de ativação condicional ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação de documento de política de segurança (Blue Book) com regras RFC (MUST/SHOULD/CAN), limites de confiança e gates de segurança.",
+      "entidades": [
+        "Blue Book document",
+        "RFC 2119 keywords",
+        "Threat Model",
+        "Trust Boundaries"
+      ],
+      "keywords": [
+        "security policy",
+        "bluebook",
+        "threat model",
+        "trust boundaries",
+        "authentication",
+        "data classification",
+        "security gates",
+        "incident response",
+        "compliance",
+        "access control"
+      ]
+    },
+    "summary": "Estrutura concisa e bem definida para criação de políticas de segurança, mas prejudicada pela ausência do template bluebook_template.md referenciado."
+  },
+  {
+    "skillName": "security-compliance-compliance-check",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/security-compliance-compliance-check/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description foi redigida como formulação de persona ('You are a compliance expert specializing in...') e não possui gatilho formal de uso ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de placeholder não tratado '$ARGUMENTS' na seção '## Requirements', indicando artefato inacabado de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o placeholder órfão '$ARGUMENTS' da seção Requirements.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria e implementação prática de controles de conformidade para frameworks regulatórios (GDPR, HIPAA, SOC 2, PCI-DSS).",
+      "entidades": [
+        "GDPR",
+        "HIPAA",
+        "SOC2",
+        "PCI-DSS",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "regulatory compliance",
+        "compliance check",
+        "gdpr",
+        "hipaa",
+        "soc2",
+        "pci-dss",
+        "gap analysis",
+        "audit trail",
+        "consent management",
+        "technical controls",
+        "data privacy"
+      ]
+    },
+    "summary": "Conteúdo complementar rico no playbook, mas o SKILL.md contém resíduo de template $ARGUMENTS e description em formato persona sem gatilho."
+  },
+  {
+    "skillName": "security-requirement-extraction",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/security-requirement-extraction/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Extração e formalização de requisitos de segurança a partir de modelos de ameaça e histórias de usuário.",
+      "entidades": [
+        "implementation-playbook.md",
+        "Threat Models",
+        "Security User Stories",
+        "Acceptance Criteria"
+      ],
+      "keywords": [
+        "security requirements",
+        "threat modeling",
+        "user stories",
+        "acceptance criteria",
+        "test cases",
+        "abuse cases",
+        "compliance mapping",
+        "security architecture"
+      ]
+    },
+    "summary": "Skill exemplar e bem estruturada, description precisa com gatilho e playbook técnico de suporte bem delineado."
+  },
+  {
+    "skillName": "security-scanning-security-hardening",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/security-scanning-security-hardening/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description possui 124 caracteres, sem termos discriminantes suficientes e sem cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Vazamento evidente de pensamento interno de LLM ('[Extended thinking: This workflow implements a defense-in-depth...]') no início do corpo da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ocorrência repetida de placeholders não tratados '$ARGUMENTS' em 14 etapas distintas do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Acoplamento rígido com uma arquitetura externa fictícia de subagentes ('subagent_type=backend-api-security::backend-architect', etc.) que não existem no ambiente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o bloco de vazamento de raciocínio de LLM '[Extended thinking: ...]'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar os placeholders repetitivos '$ARGUMENTS' e simplificar as chamadas sintéticas de subagentes inexistentes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração em fases de varreduras SAST/DAST, correção de vulnerabilidades críticas e endurecimento de infraestrutura e aplicações.",
+      "entidades": [
+        "Semgrep",
+        "SonarQube",
+        "OWASP ZAP",
+        "Snyk",
+        "Trivy",
+        "GitLeaks",
+        "TruffleHog",
+        "DOMPurify",
+        "HashiCorp Vault",
+        "Splunk"
+      ],
+      "keywords": [
+        "vulnerability scanning",
+        "sast",
+        "dast",
+        "sbom",
+        "threat modeling",
+        "stride",
+        "security hardening",
+        "secrets management",
+        "penetration testing",
+        "siem",
+        "defense in depth"
+      ]
+    },
+    "summary": "Possui bom roteiro conceitual de segurança defensiva, mas está poluída com extended thinking vazado, placeholders $ARGUMENTS e orquestração fictícia de subagentes."
+  },
+  {
+    "skillName": "seek-and-analyze-video",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seek-and-analyze-video/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description tem apenas 111 caracteres, não inclui cláusula 'Use when...' e adota linguagem promocional para um produto proprietário ('Memories.ai Large Visual Memory Model').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O fluxo operacional instrui o carregamento obrigatório de arquivos de referência ('video_qa.md', 'social_research.md') que inexistem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Promete uma tabela de roteamento de 21 comandos de API (como caption_video, chat_video, search_audio) que não estão presentes nem documentados na skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover instruções de roteamento que exigem o carregamento de arquivos inexistentes ('video_qa.md', 'social_research.md') e definir diretamente os parâmetros ou ferramentas reais de integração.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Análise e pesquisa de conteúdo de vídeo (YouTube, TikTok, gravações) e perguntas e respostas com modelos de memória visual.",
+      "entidades": [
+        "Memories.ai",
+        "Large Visual Memory Model (LVMM)",
+        "YouTube",
+        "TikTok",
+        "Instagram"
+      ],
+      "keywords": [
+        "video analysis",
+        "visual memory",
+        "video intelligence",
+        "meeting summarization",
+        "video qa",
+        "social media research",
+        "transcript extraction",
+        "multimodal ai",
+        "audio search"
+      ]
+    },
+    "summary": "Conceito interessante para análise multimodal de vídeo, mas incompleta por referenciar arquivos inexistentes e APIs proprietárias não documentadas no repositório."
+  },
+  {
+    "skillName": "selenium-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/selenium-skill/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description termina abruptamente com reticências ('...automate with WebDriver, run...') e contém viés comercial promocional ('TestMu AI cloud with 3000+ browser/OS combinations').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A mesma frase truncada com reticências da description é repetida na seção 'When to Use' do corpo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "As seções 'Reference Files' e 'Advanced Playbook' listam 10 arquivos no diretório 'reference/' (como python-patterns.md, playbook.md, cloud-integration.md) que inexistem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover a tabela de referências quebradas para arquivos inexistentes em 'reference/' e os resumos de seções do playbook ausente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Substituir a frase truncada com reticências na introdução e na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação de scripts de automação de testes end-to-end com Selenium WebDriver em Java com Page Object Model e WebDriverWait.",
+      "entidades": [
+        "Selenium WebDriver",
+        "ChromeDriver",
+        "RemoteWebDriver",
+        "WebDriverWait",
+        "ExpectedConditions",
+        "JUnit 5",
+        "Maven",
+        "TestMu AI / LambdaTest"
+      ],
+      "keywords": [
+        "selenium webdriver",
+        "automated testing",
+        "page object model",
+        "explicit waits",
+        "locators",
+        "junit 5",
+        "cross browser",
+        "e2e testing",
+        "test automation",
+        "remote webdriver"
+      ]
+    },
+    "summary": "Bons exemplos de automação em Java, mas descrição mutilada/truncada com reticências, viés promocional comercial e 10 referências quebradas para arquivos inexistentes."
+  },
+  {
+    "skillName": "semgrep-rule-creator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/semgrep-rule-creator/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 184 caracteres, ficando ligeiramente abaixo do mínimo recomendado de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O texto cita os arquivos 'quick-reference.md' e 'workflow.md' como obrigatórios ('you MUST see workflow.md'), porém ambos inexistem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A seção Documentation impõe como obrigatório executar WebFetch em 5 URLs externas antes de criar qualquer regra, gerando fragilidade e lentidão para agentes autônomos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover referências mandatórias aos arquivos inexistentes 'quick-reference.md' e 'workflow.md'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Converter o requisito mandatório de WebFetch prévio na documentação externa em links de referência opcionais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação, validação orientada a testes e otimização de regras estáticas customizadas e regras de taint mode para o Semgrep.",
+      "entidades": [
+        "Semgrep",
+        "semgrep CLI",
+        "AST",
+        "taint mode",
+        "pattern-sources",
+        "pattern-sinks"
+      ],
+      "keywords": [
+        "semgrep",
+        "custom rules",
+        "static analysis",
+        "sast",
+        "taint analysis",
+        "pattern matching",
+        "test driven rules",
+        "ruleid",
+        "security patterns",
+        "vulnerability detection"
+      ]
+    },
+    "summary": "Excelente guia técnico para desenvolvimento de regras Semgrep orientado a testes, precisando apenas de ajuste nas referências a arquivos ausentes e ligeira expansão da description."
+  }
+]

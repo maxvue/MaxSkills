@@ -1,6 +1,6 @@
 ---
 name: pdf-conversion-router
-description: Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structured notes and the agent must choose the best extraction route, settings, and cleanup strategy for maximum fidelity and readability.
+description: "Use when converting a PDF into another format such as Markdown, HTML, text, JSON, DOCX, or structured notes and the agent must choose the best extraction route, settings, and cleanup strategy for maximum fidelity and readability."
 risk: safe
 source: community
 date_added: "2026-05-23"

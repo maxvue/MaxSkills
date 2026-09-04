@@ -1,6 +1,6 @@
 ---
 name: mdpr-skill
-description: "Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic renderer boundaries."
+description: "Review MDPR Markdown presentation workflows with semantic hints, visual checks, and deterministic renderer boundaries. Use when developing, optimizing, debugging, or configuring mdpr skill in production workflows."
 category: productivity
 risk: safe
 source: community

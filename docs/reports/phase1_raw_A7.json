@@ -1,0 +1,484 @@
+[
+  {
+    "skillName": "vue-boleto-utils-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém cauda genérica/redundante 'Covers objectives and core workflows.' ao final, que reduz a densidade informativa (Critérios 7 e 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Validação, formatação e manipulação de dados de boletos bancários no Vue 3 com @mrmgomes/boleto-utils.",
+      "entidades": [
+        "@mrmgomes/boleto-utils",
+        "validarBoleto",
+        "Boleto",
+        "MaxInputText",
+        "useBoleto",
+        "presetMaxUno"
+      ],
+      "keywords": [
+        "boleto",
+        "linha digitavel",
+        "codigo de barras",
+        "validarBoleto",
+        "vencimento",
+        "valor",
+        "sanitize",
+        "useBoleto",
+        "MaxInputText",
+        "Date",
+        "banco",
+        "arrecadacao",
+        "convenio",
+        "TypeScript"
+      ]
+    },
+    "summary": "Excelente rigor técnico corrigindo o mismatch de .d.ts da lib e usando MaxInputText; requer apenas podar a cauda genérica da description."
+  },
+  {
+    "skillName": "vue-brand-positioning-character-management-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description contém cauda redundante 'Covers brand positioning, character management, and social media stores.' que duplica os termos do gatilho inicial (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A numeração de seções salta de '## Instruções' diretamente para '### 2. Formulários de Posicionamento de Marca', omitindo a seção 1.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de desenvolvimento e stores para posicionamento de marca e gestão de personagens no módulo SocialMedia do Engeapp.",
+      "entidades": [
+        "TabBrandPositioning",
+        "TabCharacters",
+        "TabThemes",
+        "useBrandPositioningStore",
+        "useSocialMediaCharacters.Store",
+        "useSocialMediaThemes.Store",
+        "MaxInputTextArea",
+        "MaxGrid",
+        "MaxInputFileUploadBig",
+        "MaxModal",
+        "Toast",
+        "MaxTitle2"
+      ],
+      "keywords": [
+        "brand positioning",
+        "personas",
+        "characters",
+        "useBrandPositioningStore",
+        "MaxPinia",
+        "auto-save",
+        "Ziggy",
+        "rotas pontilhadas",
+        "MaxModal",
+        "MaxInputFileUploadBig",
+        "MaxGrid",
+        "TabThemes",
+        "ThemeCard",
+        "UnoCSS",
+        "attributify"
+      ]
+    },
+    "summary": "Alta especificidade distinguindo MaxPinia de stores manuais e rotas Ziggy; necessita ajustar numeração de seções e cauda da description."
+  },
+  {
+    "skillName": "vue-complex-modal-forms-autosave-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description cita 'max-use', mas o corpo da skill não detalha nem exemplifica o uso direto dessa lib, focando em MaxModal e MaxPinia (Critério 5).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description possui cauda repetitiva 'Covers complex modal forms, auto-save state, and multi-tab layouts.' que duplica o gatilho (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões para modais complexos de múltiplas abas com salvamento automático reativo via MaxPinia e MaxComponentsUi.",
+      "entidades": [
+        "@maxvue/max-components-ui",
+        "MaxModal",
+        "@maxvue/max-pinia",
+        "useCharacterStore",
+        "MaxInputText",
+        "MaxInputTextArea",
+        "MaxTagSelect",
+        "MaxButton",
+        "MaxIconButton",
+        "MaxIcon",
+        "useModalStore"
+      ],
+      "keywords": [
+        "MaxModal",
+        "auto-save",
+        "MaxPinia",
+        "debounce",
+        "store.status.server.save",
+        "is_requesting",
+        "is_success_now",
+        "multi-tab",
+        "is_show",
+        "noButton",
+        "toggle",
+        "hide",
+        "saveInServer",
+        "reload",
+        "formularios complexos"
+      ]
+    },
+    "summary": "Documentação precisa dos métodos reais de MaxModal e ciclo de auto-save do MaxPinia; requer limpeza da cauda e alinhamento de menção a max-use."
+  },
+  {
+    "skillName": "vue-dayjs-date-manipulation-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-dayjs-date-manipulation-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Manipulação, formatação e comparação segura de datas no Vue 3 priorizando composables do @maxvue/max-use e Day.js estendido.",
+      "entidades": [
+        "@maxvue/max-use",
+        "useDateFormat",
+        "useTimeAgo",
+        "addTime",
+        "diffInDays",
+        "isSameDay",
+        "isPast",
+        "isFuture",
+        "inDateInterval",
+        "hasPassedHours",
+        "timeAgo",
+        "dayjs",
+        "dayjs/plugin/utc",
+        "dayjs/plugin/timezone",
+        "dayjs/plugin/customParseFormat"
+      ],
+      "keywords": [
+        "datas",
+        "useDateFormat",
+        "useTimeAgo",
+        "addTime",
+        "diffInDays",
+        "isSameDay",
+        "Day.js",
+        "pt-BR",
+        "America/Sao_Paulo",
+        "fuso horario",
+        "customParseFormat",
+        "MaxUse",
+        "Engeapp",
+        "parse seguro",
+        "formatacao"
+      ]
+    },
+    "summary": "Perfeita aderência ao código real do Engeapp, priorizando MaxUse e documentando plugins Day.js sem qualquer pendência semântica ou estrutural."
+  },
+  {
+    "skillName": "vue-debugging-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém cauda de preenchimento genérico 'Covers best practices, debugging strategies, and objectives.' sem valor discriminante (Critérios 7 e 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia e roteador de diagnóstico para bugs de reatividade, ciclo de vida, watchers, templates e async components no Vue 3.",
+      "entidades": [
+        "Vue 3",
+        "ref",
+        "computed",
+        "watch",
+        "watchEffect",
+        "defineProps",
+        "defineEmits",
+        "defineModel",
+        "KeepAlive",
+        "Transition",
+        "Teleport",
+        "Suspense",
+        "UnoCSS",
+        "apiPostRoute",
+        "MaxInputCheckbox"
+      ],
+      "keywords": [
+        "reatividade",
+        "debugging",
+        "computed",
+        "watchers",
+        "template refs",
+        "desestruturacao",
+        "proxy identity",
+        "unwrapping",
+        "nextTick",
+        "v-model",
+        "fallthrough attrs",
+        "lifecycle hooks",
+        "TypeScript",
+        "shallowRef",
+        "memory leak"
+      ]
+    },
+    "summary": "Excelente arquitetura de roteador para 90 guias de referência adaptados ao projeto; pendência restrita à cauda genérica da description."
+  },
+  {
+    "skillName": "vue-eslint-stylelint-quality-standards",
+    "skillPath": "created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém cauda genérica/redundante 'Covers objectives, ESLint/Stylelint standards, and execution commands.' (Critérios 7 e 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões estritos de linting e formatação no frontend com ESLint 10 (flat config) e Stylelint 17 para SFC Vue 3 e SCSS.",
+      "entidades": [
+        "eslint.config.js",
+        ".stylelintrc.json",
+        "CLAUDE.md",
+        "@stylistic/eslint-plugin",
+        "@stylistic/stylelint-plugin",
+        "stylelint-scss",
+        "MaxComponentsUi",
+        "MaxUse",
+        "tsgo"
+      ],
+      "keywords": [
+        "ESLint",
+        "Stylelint",
+        "flat config",
+        "vue/block-order",
+        "indent",
+        "quotes",
+        "comma-dangle",
+        "single quotes",
+        "SCSS",
+        "npm run lint",
+        "npm run format",
+        "typecheck",
+        "tsgo",
+        "ignorePattern",
+        "scoped"
+      ]
+    },
+    "summary": "Mapeamento rigoroso e preciso das regras reais em eslint.config.js e .stylelintrc.json; requer apenas podar a cauda genérica da description."
+  },
+  {
+    "skillName": "vue-frontend-bug-fixing-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém cauda redundante 'Covers objectives, project stack, and frontend bug fixing.' que enfraquece a densidade do gatilho (Critérios 7 e 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e fluxo de diagnóstico de causa raiz para correção de bugs no frontend do Engeapp (Vue 3, MaxPinia, UnoCSS, MaxUse).",
+      "entidades": [
+        "Vue 3",
+        "TypeScript",
+        "@maxvue/max-pinia",
+        "@maxvue/max-use",
+        "@maxvue/max-components-ui",
+        "UnoCSS",
+        "presetMaxUno",
+        "apiGetRoute",
+        "apiPostRoute",
+        "storage/libs/"
+      ],
+      "keywords": [
+        "bug fixing",
+        "causa raiz",
+        "MaxPinia",
+        "isCached",
+        "getKey",
+        "auto-save",
+        "MaxUse",
+        "rotas Ziggy",
+        "MaxComponentsUi",
+        "UnoCSS",
+        "attributify",
+        "typecheck:tsgo",
+        "lint",
+        "storage/libs",
+        "DTOs"
+      ]
+    },
+    "summary": "Perfeita aliança com a stack Engeapp (MaxPinia getKey, Ziggy, UnoCSS e storage/libs); necessita apenas remoção da cauda boilerplate da description."
+  },
+  {
+    "skillName": "vue-inputs-masks-validation-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui cauda genérica 'Covers objectives and core workflows.' que não agrega valor semântico (Critérios 7 e 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação de máscaras de entrada e validações em formulários Vue 3 com MaxComponentsUi, Maska v3, libphonenumber-js e MaxPinia.",
+      "entidades": [
+        "MaxComponentsUi",
+        "MaxInputCpfCnpj",
+        "MaxInputCep",
+        "MaxInputNumber",
+        "MaxInputPhoneMail",
+        "MaxPhoneField",
+        "vMaska",
+        "maska/vue",
+        "@maxvue/max-use",
+        "onlyNumbers",
+        "libphonenumber-js",
+        "@maxvue/max-pinia",
+        "PhoneClass"
+      ],
+      "keywords": [
+        "mascaras",
+        "inputs",
+        "CPF",
+        "CNPJ",
+        "CEP",
+        "telefone",
+        "MaxPhoneField",
+        "MaxInputPhoneMail",
+        "MaxInputNumber",
+        "vMaska",
+        "unmasked",
+        "sanitizacao",
+        "MaxPinia",
+        "Laravel 13",
+        "422 validation"
+      ]
+    },
+    "summary": "Excelente alinhamento com os componentes Max* e contrato de telefone no backend; pendência unicamente na cauda genérica da description."
+  },
+  {
+    "skillName": "vue-keyboard-shortcuts-navigation-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém cauda genérica 'Covers objectives and core workflows.' (Critérios 7 e 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento de atalhos de teclado, hotkeys reativas e foco acessível no Vue 3 com composables do @maxvue/max-use e modificadores nativos.",
+      "entidades": [
+        "@maxvue/max-use",
+        "useMagicKeys",
+        "useActiveElement",
+        "whenever",
+        "MaxInputText",
+        "MaxComponentsUi"
+      ],
+      "keywords": [
+        "atalhos de teclado",
+        "keyboard shortcuts",
+        "hotkeys",
+        "useMagicKeys",
+        "useActiveElement",
+        "whenever",
+        "isTyping",
+        "exact modifier",
+        "prevent modifier",
+        "focus trap",
+        "modais",
+        "acessibilidade",
+        "WAI-ARIA",
+        "Vue 3"
+      ]
+    },
+    "summary": "Práticas sólidas de atalhos reativos encapsulados via MaxUse e modificadores Vue; requer apenas eliminação do boilerplate final da description."
+  },
+  {
+    "skillName": "vue-max-components-ui-popovers-confirmations-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-max-components-ui-popovers-confirmations-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de implementação de tooltips PrimeVue, popovers, menus suspensos e confirmações com a biblioteca MaxComponentsUi.",
+      "entidades": [
+        "@maxvue/max-components-ui",
+        "v-tooltip",
+        "MaxPopover",
+        "MaxPopoverConfirm",
+        "MaxIconConfirm",
+        "MaxPopoverMenu",
+        "useConfirmStore",
+        "goToRoute",
+        "@maxvue/max-use"
+      ],
+      "keywords": [
+        "v-tooltip",
+        "PrimeVue",
+        "MaxPopover",
+        "MaxPopoverConfirm",
+        "MaxIconConfirm",
+        "MaxPopoverMenu",
+        "useConfirmStore",
+        "goToRoute",
+        "Ziggy",
+        "tooltips",
+        "popovers",
+        "dropdown menu",
+        "confirmacao",
+        "SCSS",
+        "MaxComponentsUi"
+      ]
+    },
+    "summary": "Excepcional precisão técnica destacando a verdade-base do v-tooltip (PrimeVue vs floating-vue) e APIs completas do MaxComponentsUi sem pendências."
+  }
+]

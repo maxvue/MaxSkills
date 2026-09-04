@@ -1,6 +1,6 @@
 ---
 name: agent-harness-fault-injection
-description: "Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, checkpoint, memory, or orchestration failures."
+description: "Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, checkpoint, memory, or orchestration failures. Guides architecture, best practices, and implementation standards for agent harness fault injection."
 category: development
 risk: safe
 source: self

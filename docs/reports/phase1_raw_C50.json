@@ -1,0 +1,547 @@
+[
+  {
+    "skillName": "pdf-official",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pdf-official/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description (247 chars) carece de gatilho condicional explícito ('Use when...') e omitiu bibliotecas Python e binários CLI fundamentais detalhados no conteúdo (pypdf, pdfplumber, reportlab, qpdf, pdftotext, pytesseract).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redação da description em tom passivo de introdução de manual ('This guide covers essential PDF processing operations...') ao invés de destacar as ações e capacidades operacionais do agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seção de encerramento padronizada/boilerplate ('When to Use' e 'Limitations', linhas 298-305) com texto genérico de template ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção 'When to Use' e 'Limitations' redundantes no final (linhas 298-305), que apenas duplicam preâmbulos com texto de template vazio.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Processamento, extração de texto/tabelas, manipulação (merge, split, rotação, marca d'água) e geração de PDFs com bibliotecas Python e utilitários de linha de comando.",
+      "entidades": [
+        "pypdf",
+        "PdfReader",
+        "PdfWriter",
+        "pdfplumber",
+        "reportlab",
+        "canvas.Canvas",
+        "SimpleDocTemplate",
+        "pdftotext",
+        "qpdf",
+        "pdftk",
+        "pytesseract",
+        "pdfimages"
+      ],
+      "keywords": [
+        "pdf",
+        "pypdf",
+        "pdfplumber",
+        "reportlab",
+        "qpdf",
+        "pdftotext",
+        "pdftk",
+        "ocr",
+        "pytesseract",
+        "merge pdf",
+        "split pdf",
+        "extract tables",
+        "watermark",
+        "encrypt pdf",
+        "pdf forms"
+      ]
+    },
+    "summary": "Manual técnico prático e robusto para manipulação de PDFs em Python/CLI; necessita de gatilho 'Use when' e inclusão de discriminantes na description, além da remoção do boilerplate final."
+  },
+  {
+    "skillName": "pentest-commands",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pentest-commands/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description (226 chars) carece de gatilho condicional 'Use when...' e contém adjetivo promocional vazio ('comprehensive command reference') sem citar as ferramentas discriminantes reais presentes (nmap, msfconsole, sqlmap, nikto, hydra, john the ripper, aircrack-ng, tshark).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Repetição desnecessária de avisos de autorização no preâmbulo (linhas 10-14, 15-23 e 24-25 repetem avisos similares de 'Authorized Use Only' três vezes consecutivas).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final 'When to Use' (linhas 457-459) é resíduo de boilerplate genérico ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar os avisos redundantes de autorização no preâmbulo (linhas 10-25) mantendo apenas o mandatory confirmation gate e remover a seção 'When to Use' boilerplate final (linhas 457-459).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Referência de comandos para testes de penetração autorizados, escaneamento de rede, exploração, cracking de credenciais e auditoria de vulnerabilidades web.",
+      "entidades": [
+        "nmap",
+        "msfconsole",
+        "msfvenom",
+        "nikto",
+        "sqlmap",
+        "hydra",
+        "john",
+        "ssh2john",
+        "zip2john",
+        "airmon-ng",
+        "airodump-ng",
+        "aireplay-ng",
+        "aircrack-ng",
+        "tshark"
+      ],
+      "keywords": [
+        "pentest",
+        "nmap",
+        "port scan",
+        "metasploit",
+        "msfvenom",
+        "nikto",
+        "sqlmap",
+        "hydra",
+        "brute force",
+        "john the ripper",
+        "aircrack-ng",
+        "tshark",
+        "packet capture",
+        "vulnerability scan"
+      ]
+    },
+    "summary": "Guia de comandos de pentest estruturado e seguro com gate obrigatório de confirmação; necessita citar as ferramentas na description e podar repetições de preâmbulo e boilerplate final."
+  },
+  {
+    "skillName": "people-data",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/people-data/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 172 caracteres (abaixo da faixa ideal de 200 a 400 chars) e carece de gatilho condicional explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite termos discriminantes da interface MCP real como o endpoint '/mcp/people-data' e as ferramentas 'linkedin_person_profile', 'linkedin_email_lookup' e 'youtube_email_finder'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Pesquisa de perfis profissionais no LinkedIn, enriquecimento de contatos corporativos e descoberta de e-mails comerciais públicos de canais do YouTube via MCP.",
+      "entidades": [
+        "/mcp/people-data",
+        "linkedin_person_profile",
+        "linkedin_email_lookup",
+        "linkedin_phone_lookup",
+        "linkedin_people_search",
+        "youtube_email_finder"
+      ],
+      "keywords": [
+        "linkedin",
+        "youtube",
+        "people-search",
+        "email lookup",
+        "phone lookup",
+        "mcp server",
+        "contact enrichment",
+        "business contacts",
+        "b2b research"
+      ]
+    },
+    "summary": "Skill concisa, segura e tecnicamente enxuta para consultas de dados via MCP; requer apenas expansão da description para >= 200 chars com gatilho 'Use when'."
+  },
+  {
+    "skillName": "performance-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/performance-optimizer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente curta com apenas 130 caracteres (abaixo dos 200 recomendados), sem gatilho 'Use when...' e com generalismo ('code, databases, and APIs') omitindo os tópicos técnicos discriminantes (N+1 queries, indexes, caching, memoization, lazy loading, memory leaks, streams).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate de template genérico no fechamento do arquivo (linhas 385-395), contendo referências sem contexto e cláusulas padronizadas vazias.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover o bloco final de 'Related Skills' e 'Limitations' boilerplate (linhas 385-395).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico e mitigação prática de gargalos de performance em consultas SQL, APIs de backend Node.js, componentes React e rotinas com vazamento de memória.",
+      "entidades": [
+        "EXPLAIN ANALYZE",
+        "CREATE INDEX",
+        "Promise.all",
+        "React.memo",
+        "React.lazy",
+        "useMemo",
+        "fs.createReadStream",
+        "Chrome DevTools",
+        "Lighthouse",
+        "node --prof"
+      ],
+      "keywords": [
+        "performance",
+        "bottleneck",
+        "optimization",
+        "n+1 queries",
+        "sql index",
+        "explain analyze",
+        "caching",
+        "lazy load",
+        "react memo",
+        "bundle size",
+        "memory leak",
+        "streaming"
+      ]
+    },
+    "summary": "Guia prático de otimização de código, queries e renderização; necessita de ampliação da description para 200-400 chars com 'Use when...' e exclusão do boilerplate final."
+  },
+  {
+    "skillName": "performance-profiling",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/performance-profiling/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de apenas 84 caracteres (severamente insuficiente), redigida de forma telegráfica sem clareza de ação e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de discriminantes técnicos na description, omitindo Core Web Vitals (LCP, INP, CLS), Lighthouse, DevTools Performance/Memory e análise de bundle.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate de template residual nas seções finais 'When to Use' e 'Limitations' (linhas 147-154) que repete texto vazio.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o bloco final de template 'When to Use' e 'Limitations' (linhas 147-154).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes e fluxos de profiling de aplicações web frontend com foco em Core Web Vitals, análise de bundle e abas Performance/Memory do DevTools.",
+      "entidades": [
+        "scripts/lighthouse_audit.py",
+        "Core Web Vitals",
+        "LCP",
+        "INP",
+        "CLS",
+        "DevTools Performance",
+        "DevTools Memory",
+        "DevTools Network",
+        "Bundle analyzer"
+      ],
+      "keywords": [
+        "performance profiling",
+        "core web vitals",
+        "lcp",
+        "inp",
+        "cls",
+        "lighthouse",
+        "devtools",
+        "bundle analysis",
+        "heap snapshot",
+        "long tasks",
+        "layout thrashing"
+      ]
+    },
+    "summary": "Tabelas objetivas sobre Web Vitals e DevTools prejudicadas por description telegráfica de 84 caracteres sem gatilhos e boilerplate residual."
+  },
+  {
+    "skillName": "photopea-embedded-editor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/photopea-embedded-editor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres (abaixo de 200) e sem fórmula de gatilho 'Use when...' (embora o corpo contenha seção explícita e rica de 'When to Use This Skill').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description não menciona explicitamente métodos centrais de integração como 'Photopea.createEmbed', 'pea.runScript' e o uso do Live Messaging API.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Incorporação e controle do editor gráfico Photopea em aplicações web via wrapper photopea.js e automação via API de scripting do Photoshop CC 2015.",
+      "entidades": [
+        "photopea.js",
+        "Photopea.createEmbed",
+        "pea.runScript",
+        "pea.loadAsset",
+        "pea.openFromURL",
+        "pea.exportImage",
+        "app.activeDocument",
+        "ArtLayer",
+        "TextItem",
+        "Selection",
+        "SolidColor",
+        "BlendMode",
+        "saveToOE",
+        "echoToOE"
+      ],
+      "keywords": [
+        "photopea",
+        "photopea.js",
+        "image editor iframe",
+        "psd automation",
+        "photoshop script api",
+        "artlayer",
+        "textitem",
+        "selection",
+        "blendmode",
+        "canvas resize",
+        "export png webp",
+        "action manager"
+      ]
+    },
+    "summary": "Manual técnico exaustivo, aprofundado e de alta qualidade para embutir e scriptar o Photopea; description requer apenas expansão para 200-400 chars com 'Use when'."
+  },
+  {
+    "skillName": "php-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/php-pro/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description (167 chars) adota linguagem de meta-prompt imperativo promocional ('Use PROACTIVELY for high-performance PHP applications.') em vez de um gatilho condicional neutro ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite discriminantes fundamentais do PHP 8+ tratados no documento, como match expressions, enums, attributes e constructor property promotion.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções iniciais 'Use this skill when' e 'Do not use this skill when' (linhas 15-24) são tautológicas e vazias ('Working on php pro tasks', 'The task is unrelated to php pro').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de instruções genéricas vazias e limitações de template que somam quase 30% do arquivo (22 de 74 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover o bloco tautológico de gatilhos vazios (linhas 15-24) e as limitações de template (linhas 70-74), reescrevendo as diretrizes para focar puramente em PHP 8+ e SPL.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Boas práticas de desenvolvimento em PHP moderno com ênfase em generators, iteradores, estruturas de dados SPL e recursos tipados do PHP 8+.",
+      "entidades": [
+        "generators",
+        "iterators",
+        "SplQueue",
+        "SplStack",
+        "SplHeap",
+        "ArrayObject",
+        "PHP 8+",
+        "match",
+        "enums",
+        "attributes",
+        "constructor property promotion",
+        "union types",
+        "stream filters"
+      ],
+      "keywords": [
+        "php",
+        "php 8",
+        "generators",
+        "iterators",
+        "spl data structures",
+        "splqueue",
+        "type safety",
+        "match expressions",
+        "enums",
+        "constructor promotion",
+        "psr standards",
+        "memory efficiency"
+      ]
+    },
+    "summary": "Diretrizes válidas sobre PHP 8+ e SPL penalizadas por 30% de boilerplate tautológico/vazio e description com tom imperativo promocional."
+  },
+  {
+    "skillName": "pi-custom-model",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pi-custom-model/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente curta com 88 caracteres (abaixo da faixa de 200-400 chars) e sem fórmula de gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite termos técnicos cruciais para resolução do problema: arquivos de configuração ('~/.pi/agent/models.json', 'settings.json'), atalhos OpenRouter (':nitro', ':floor', ':exacto') e o sintoma de fallback silencioso.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Registro de slugs e metadados de modelos customizados e variantes OpenRouter no CLI Pi Agent para evitar fallback silencioso.",
+      "entidades": [
+        "~/.pi/agent/settings.json",
+        "~/.pi/agent/models.json",
+        "~/.pi/agent/auth.json",
+        "OpenRouter",
+        "pi --list-models",
+        "moonshotai/kimi-k2.6"
+      ],
+      "keywords": [
+        "pi agent",
+        "custom model",
+        "openrouter",
+        "model slug",
+        "nitro",
+        "floor",
+        "exacto",
+        "models.json",
+        "settings.json",
+        "silent fallback",
+        "model registry"
+      ]
+    },
+    "summary": "Instruções cirúrgicas e enxutas para solucionar o fallback silencioso de modelos no Pi Agent; necessita apenas de expansão da description para 200-400 chars com 'Use when'."
+  },
+  {
+    "skillName": "pilot-protocol",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pilot-protocol/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta com 119 caracteres (abaixo dos 200 chars recomendados) redigida como pitch promocional ('Give an AI agent a permanent network address...') em vez de síntese operacional técnica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de gatilho condicional 'Use when...' na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão dos comandos discriminantes da ferramenta de linha de comando na description (pilotctl, daemon start, send-message, handshake, appstore).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação de rede overlay P2P, tunelamento criptografado, troca de mensagens autenticadas entre agentes de IA e instalação de apps com pilotctl.",
+      "entidades": [
+        "pilotctl",
+        "pilotctl daemon start",
+        "pilotctl info",
+        "pilotctl send-message",
+        "pilotctl handshake",
+        "pilotctl trust",
+        "pilotctl appstore",
+        "~/.pilot/identity.json"
+      ],
+      "keywords": [
+        "pilot protocol",
+        "pilotctl",
+        "overlay network",
+        "p2p messaging",
+        "agent networking",
+        "encrypted tunnel",
+        "nat traversal",
+        "service agents",
+        "appstore",
+        "agent-to-agent"
+      ]
+    },
+    "summary": "Documentação enxuta e prática para comunicação segura entre agentes via pilotctl; necessita expandir a description para 200-400 chars com discriminantes e tom neutro."
+  },
+  {
+    "skillName": "pipecat-friday-agent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pipecat-friday-agent/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 114 caracteres (abaixo de 200 chars) e sem gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de marketing temático ('Iron Man-inspired tactical voice assistant') sem contextualizar os componentes operacionais do pipeline.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description de tecnologias-chave detalhadas no documento: Silero VAD, Whisper STT, TTS nova e o adaptador de schema 'GoogleSafeContext'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover o bloco final de limitações genéricas de template (linhas 81-85).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e montagem de assistente de voz conversacional de baixa latência combinando o pipeline do Pipecat com Silero VAD, OpenAI Whisper/TTS e Gemini LLM.",
+      "entidades": [
+        "Pipecat",
+        "pipecat-ai",
+        "Silero VAD",
+        "OpenAI Whisper",
+        "OpenAI TTS (nova)",
+        "Google Gemini 2.5 Flash",
+        "GoogleSafeContext",
+        "GoogleSafeMessage",
+        "scripts/friday_agent.py"
+      ],
+      "keywords": [
+        "pipecat",
+        "voice assistant",
+        "stt",
+        "tts",
+        "whisper",
+        "gemini",
+        "silero vad",
+        "low-latency audio",
+        "voice pipeline",
+        "googlesafecontext"
+      ]
+    },
+    "summary": "Blueprint conciso de pipeline de áudio multimodal com Pipecat; requer despersonalização de marketing na description, inclusão de gatilho 'Use when' e poda do boilerplate final."
+  }
+]

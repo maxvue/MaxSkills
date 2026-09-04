@@ -1,6 +1,6 @@
 ---
 name: code-review-checklist
-description: "Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability"
+description: "Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability Use when developing, optimizing, debugging, or configuring code review checklist in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"

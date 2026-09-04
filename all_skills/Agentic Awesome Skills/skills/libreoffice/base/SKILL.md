@@ -1,6 +1,6 @@
 ---
 name: base
-description: "Database management, forms, reports, and data operations with LibreOffice Base."
+description: "Database management, forms, reports, and data operations with LibreOffice Base. Use when developing, optimizing, debugging, or configuring libreoffice/base in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for base."
 category: database-processing
 risk: safe
 source: personal

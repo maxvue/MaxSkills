@@ -1,6 +1,6 @@
 ---
 name: monopoly
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring monopoly in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for monopoly. Use when developing, optimizing, testing, or configuring monopoly in production environments."
   MONOPOLY is a Senior System Design Engineer skill for architecting, reviewing, and scaling systems. Triggers on requests involving architecture, databases, scaling, microservices, or infrastructure design. Proactively engages to design resilient backend systems.
 risk: none
 source: community

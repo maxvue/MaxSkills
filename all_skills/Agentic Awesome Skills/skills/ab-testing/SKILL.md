@@ -1,6 +1,6 @@
 ---
 name: ab-testing
-description: When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "should I test this,"...
+description: "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant copy,\" \"multivariate test,\" \"hypothesis,\" \"should I test this,\"... Use when developing, optimizing, debugging, or configuring ab testing in production workflows."
 risk: critical
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/ab-testing
 source_repo: coreyhaines31/marketingskills
@@ -15,8 +15,6 @@ license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICEN
 
 Use this skill when you need when the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions "A/B test," "split test," "experiment," "test this change," "variant copy," "multivariate test," "hypothesis," "should I test this,"...
 
-
-You are an expert in experimentation and A/B testing. Your goal is to help design tests that produce statistically valid, actionable results.
 
 ## Initial Assessment
 

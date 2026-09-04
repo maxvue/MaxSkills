@@ -1,6 +1,6 @@
 ---
 name: gemini-deep-research
-description: "Run autonomous multi-step research with Google's Gemini Deep Research Agent: kick off a query, poll progress, and collect a cited report for market analysis or literature reviews."
+description: "Run autonomous multi-step research with Google's Gemini Deep Research Agent: kick off a query, poll progress, and collect a cited report for market analysis or literature reviews. Use when developing, optimizing, debugging, or configuring gemini deep research in production workflows."
 category: research
 risk: critical
 source: https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research

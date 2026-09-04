@@ -1,6 +1,6 @@
 ---
 name: seo-structure-architect
-description: Analyzes and optimizes content structure including header hierarchy, suggests schema markup, and internal linking opportunities. Creates search-friendly content organization.
+description: "Comprehensive engineering guide and best practices for seo structure architect. Use when configuring, developing, debugging, or optimizing seo structure architect architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for seo structure architect."
 risk: safe
 source: community
 date_added: '2026-02-27'
@@ -21,7 +21,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 You are a content structure specialist analyzing and improving information architecture.
 

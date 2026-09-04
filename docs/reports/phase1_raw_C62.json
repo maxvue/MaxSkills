@@ -1,0 +1,443 @@
+[
+  {
+    "skillName": "seo-technical",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-technical/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 200 caracteres, mas não inclui a cláusula explícita de gatilho de ativação ('Use when auditing technical SEO...' ou 'Ative quando...') exigida pelo Critério 3.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria técnica aprofundada de SEO abordando rastreabilidade, indexabilidade, Core Web Vitals, rendering de JavaScript e gestão de crawlers de IA.",
+      "entidades": [
+        "robots.txt",
+        "JSON-LD",
+        "Core Web Vitals",
+        "LCP",
+        "INP",
+        "CLS",
+        "DataForSEO",
+        "CrUX",
+        "Lighthouse",
+        "IndexNow",
+        "Googlebot",
+        "GPTBot",
+        "ClaudeBot",
+        "PerplexityBot"
+      ],
+      "keywords": [
+        "technical SEO",
+        "crawlability",
+        "indexability",
+        "robots.txt",
+        "Core Web Vitals",
+        "INP",
+        "LCP",
+        "CLS",
+        "canonical tags",
+        "structured data",
+        "JSON-LD",
+        "AI crawlers",
+        "JavaScript rendering",
+        "IndexNow",
+        "HSTS",
+        "CSP",
+        "security headers"
+      ]
+    },
+    "summary": "Guia técnico de auditoria de SEO completo e atualizado com diretrizes para crawlers de IA e JS SEO, necessitando apenas da inclusão formal de gatilho 'Use when' na description."
+  },
+  {
+    "skillName": "sharp-coder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sharp-coder/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description utiliza 'Triggers on...' em vez da cláusula padrão recomendada 'Use when...' para o gatilho de ativação (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes de metaprompting combinando rigor cirúrgico de engenharia e compressão extrema de linguagem para economia de tokens em respostas de LLM.",
+      "entidades": [
+        "THINK layer",
+        "SPEAK layer",
+        "caveman mode",
+        "wenyan",
+        "Auto-clarity"
+      ],
+      "keywords": [
+        "caveman compression",
+        "token efficiency",
+        "surgical edits",
+        "simplicity first",
+        "minimal code",
+        "goal-driven execution",
+        "auto-clarity",
+        "brevity",
+        "coding discipline",
+        "karpathy guidelines"
+      ]
+    },
+    "summary": "Skill de alto valor para controle de concisão e disciplina de codificação com excelente densidade conceitual, requerendo apenas padronização do gatilho 'Use when'."
+  },
+  {
+    "skillName": "shopify-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/shopify-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 104 caracteres, ficando muito abaixo da extensão ideal de 200 a 400 caracteres (Critério 1), e não inclui a cláusula formal de gatilho 'Use when...' (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate duplicado e vago na seção 'When to Use' no rodapé do arquivo (linhas 367-369) repetindo desnecessariamente a seção funcional já declarada no topo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover a seção redundante '## When to Use' no final do documento (linhas 367-369), preservando a seção detalhada e funcional do topo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento de aplicações, extensões de checkout/admin e temas para o ecossistema Shopify utilizando GraphQL e Liquid.",
+      "entidades": [
+        "Shopify CLI",
+        "@shopify/cli",
+        "GraphQL Admin API",
+        "Polaris UI",
+        "Liquid",
+        "@shopify/ui-extensions-react/checkout",
+        "Shopify Functions",
+        "Metafields"
+      ],
+      "keywords": [
+        "Shopify apps",
+        "checkout extensions",
+        "admin extensions",
+        "Liquid themes",
+        "GraphQL Admin API",
+        "Polaris UI",
+        "metafields",
+        "webhooks",
+        "OAuth",
+        "session tokens",
+        "GDPR webhooks",
+        "Shopify Functions"
+      ]
+    },
+    "summary": "Skill técnica rica e prática sobre Shopify com GraphQL e Liquid, necessitando de expansão da description para a faixa 200-400 chars e poda de boilerplate redundante no rodapé."
+  },
+  {
+    "skillName": "similarity-search-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/similarity-search-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 171 caracteres, ficando abaixo do limiar de 200 caracteres (Critério 1), carecendo de termos discriminantes essenciais como métricas de distância e tipos de índice presentes nos recursos (Critério 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "SKILL.md excessivamente raso (42 linhas) funcionando como invólucro esquelético que delega todo o conhecimento real a arquivo de recursos, contendo seções de instruções vazias ('Clarify goals, constraints...') e negação tautológica ('Do not use when the task is unrelated').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica 'Do not use this skill when' (linhas 22-26) e condensar as instruções procedurais genéricas (linhas 27-33) que não agregam valor semântico ao LLM.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de busca por similaridade vetorial e otimização de indexação para sistemas RAG e busca semântica.",
+      "entidades": [
+        "Pinecone",
+        "HNSW",
+        "IVF-PQ",
+        "Cosine distance",
+        "Euclidean (L2)",
+        "Dot Product",
+        "Vector Databases"
+      ],
+      "keywords": [
+        "similarity search",
+        "vector database",
+        "nearest neighbor",
+        "semantic search",
+        "RAG retrieval",
+        "embeddings",
+        "cosine distance",
+        "HNSW",
+        "IVF-PQ",
+        "Pinecone",
+        "hybrid search",
+        "latency optimization"
+      ]
+    },
+    "summary": "Invólucro raso para busca vetorial com description curta e boilerplate tautológico, exigindo enriquecimento conceitual no arquivo principal e corte de ruído."
+  },
+  {
+    "skillName": "site-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/site-architecture/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Redundância interna entre as seções 'Before Planning' (linhas 25-50) e 'Task-Specific Questions' (linhas 347-355), que formulam exatamente as mesmas perguntas de descoberta com ligeira variação de redação.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Consolidar ou remover a lista 'Task-Specific Questions' (linhas 347-355) para evitar duplicação com o checklist inicial de 'Before Planning' (linhas 25-50).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Planejamento e reestruturação da hierarquia de páginas, rotas amigáveis, sistemas de navegação e malha de links internos para websites.",
+      "entidades": [
+        "Mermaid",
+        "ASCII Tree",
+        "3-Click Rule",
+        "Hub-and-spoke model",
+        "Breadcrumbs",
+        "301 redirects"
+      ],
+      "keywords": [
+        "site architecture",
+        "page hierarchy",
+        "information architecture",
+        "URL structure",
+        "internal linking",
+        "breadcrumbs",
+        "hub and spoke",
+        "header navigation",
+        "footer navigation",
+        "3-click rule",
+        "visual sitemap",
+        "orphan pages"
+      ]
+    },
+    "summary": "Excelente guia de arquitetura de informação e estrutura de URLs com description modelar, contendo apenas pequena duplicação interna de perguntas de diagnóstico."
+  },
+  {
+    "skillName": "skill-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/skill-audit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 110 caracteres (< 200), carece de gatilho formal 'Use when...' (Critério 3) e utiliza linguagem sensacionalista/alarmista com estatística de choque ('7.5% of 14,706 skills are malicious. Audit before you trust.') violando o Critério 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes técnicos operacionais na description (como prompt injection, payload obfuscation, credential exfiltration) (Critério 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria e escaneamento estático de segurança pré-instalação para detectar injeção de prompt, código malicioso e riscos de supply chain em skills de agentes.",
+      "entidades": [
+        "SKILL.md",
+        "OpenClaw",
+        "RankClaw",
+        "Vett.sh",
+        "Prompt Injection",
+        "Supply Chain Security"
+      ],
+      "keywords": [
+        "pre-install security",
+        "skill audit",
+        "prompt injection",
+        "malicious detection",
+        "credential theft",
+        "data exfiltration",
+        "supply chain risks",
+        "permission audit",
+        "repo intelligence",
+        "static analysis",
+        "obfuscated code"
+      ]
+    },
+    "summary": "Framework prático e eficiente de auditoria de segurança em 6 fases, necessitando de reescrita técnica e sóbria da description para expurgar estatística alarmista e adicionar gatilho."
+  },
+  {
+    "skillName": "skill-improver",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/skill-improver/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Ciclo iterativo automatizado de refinamento e revisão de skills do Claude Code utilizando o agente skill-reviewer até aprovação de padrões de qualidade.",
+      "entidades": [
+        "plugin-dev",
+        "skill-reviewer",
+        "SKILL.md",
+        "YAML frontmatter",
+        "<skill-improvement-complete>"
+      ],
+      "keywords": [
+        "skill improvement",
+        "skill reviewer",
+        "iterative refinement",
+        "Claude Code skills",
+        "quality standards",
+        "frontmatter validation",
+        "fix-review loop",
+        "issue categorization",
+        "stop hook",
+        "automated review"
+      ]
+    },
+    "summary": "Skill modelar com aderência exemplar aos 13 critérios semânticos, description de alta densidade e processo iterativo de qualidade sem ruídos."
+  },
+  {
+    "skillName": "skill-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/skill-optimizer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 172 caracteres, ficando abaixo do mínimo ideal de 200 caracteres (Critério 1), e carece da cláusula formal de gatilho 'Use when...' (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Otimização empírica e estática de skills de agentes de IA através de mineração de transcripts JSONL de sessões e análise de 8 dimensões de desempenho.",
+      "entidades": [
+        "Claude Code",
+        "Codex",
+        "JSONL transcripts",
+        "SKILL.md",
+        "Memento-Skills",
+        "IFEval",
+        "CSO (Claude/Agent Search Optimization)"
+      ],
+      "keywords": [
+        "skill optimizer",
+        "session transcripts",
+        "static analysis",
+        "trigger rate",
+        "undertrigger detection",
+        "workflow completion",
+        "token economics",
+        "CSO",
+        "cross-skill conflicts",
+        "progressive disclosure",
+        "composite score"
+      ]
+    },
+    "summary": "Framework analítico robusto e fundamentado em pesquisas empíricas para otimização de acionamento de skills, necessitando apenas de ajuste de extensão e gatilho na description."
+  },
+  {
+    "skillName": "skill-scanner",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/skill-scanner/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 161 caracteres (< 200 chars) e não possui a cláusula explícita de acionamento 'Use when...' na sua redação (Critérios 1 e 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Protocolo de varredura estática e comportamental de segurança para homologação de skills de agentes antes de sua instalação.",
+      "entidades": [
+        "scan_skill.py",
+        "uv run",
+        "CLAUDE_SKILL_ROOT",
+        "SKILL.md",
+        "prompt-injection-patterns.md",
+        "dangerous-code-patterns.md",
+        "permission-analysis.md"
+      ],
+      "keywords": [
+        "security scanner",
+        "static analysis",
+        "prompt injection",
+        "malicious code",
+        "excessive permissions",
+        "secret exposure",
+        "supply chain risks",
+        "least privilege",
+        "behavioral analysis",
+        "false positive filtering"
+      ]
+    },
+    "summary": "Excelente scanner de segurança com fluxo detalhado em 8 fases e bundled script, demandando expansão moderada na description para incorporar gatilho 'Use when'."
+  },
+  {
+    "skillName": "skill-seekers",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description mal formatada (108 chars) iniciando com hífen residual de scraping ('-Automatically...'), contendo termo promocional ('in minutes') e sem gatilho formal 'Use when...' (Critérios 1, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Arquivo SKILL.md é um stub oco gerado por scraping mecânico (29 linhas) sem qualquer instrução técnica, parâmetros, comandos ou scripts, limitando-se a repetir 3 vezes a mesma frase truncada e remeter a um link externo do GitHub.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 80,
+    "cuts": [
+      {
+        "text": "O arquivo inteiro é um placeholder oco; deve ser reescrito com instruções e comandos reais de CLI/scaffolding da ferramenta ou descartado por inexistência de conteúdo operacional.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Placeholder oco pretendendo conversão automática de documentações web, repositórios e arquivos PDF em skills de IA.",
+      "entidades": [
+        "Claude AI skills",
+        "GitHub",
+        "PDFs"
+      ],
+      "keywords": [
+        "skill generation",
+        "documentation scraper",
+        "PDF extraction",
+        "GitHub repository scraper",
+        "hollow stub",
+        "agent skills",
+        "auto skill creation"
+      ]
+    },
+    "summary": "Skill em estado crítico: stub oco derivado de scraping bruto, sem instruções operacionais e com descrição malformada contendo hífens residuais e marketing."
+  }
+]

@@ -1,0 +1,456 @@
+[
+  {
+    "skillName": "python-testing-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/python-testing-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de seções tautológicas genéricas em 'Do not use this skill when' (linhas 26-30) e 'Limitations' (linhas 42-45) que repetem o nome da skill sem adicionar critérios técnicos reais de exclusão.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover boilerplate tautológico em 'Do not use this skill when' (linhas 26-30) e 'Limitations' (linhas 42-45), mantendo o SKILL.md puramente como roteador sem ruído.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégias abrangentes de testes unitários, TDD, mocks e fixtures em Python com pytest.",
+      "entidades": [
+        "pytest",
+        "fixtures",
+        "pytest-mock",
+        "unittest.mock",
+        "hypothesis",
+        "pytest-asyncio",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "python",
+        "pytest",
+        "fixtures",
+        "mocking",
+        "tdd",
+        "parameterization",
+        "unit testing",
+        "integration testing",
+        "async testing",
+        "hypothesis",
+        "ci/cd",
+        "test infrastructure",
+        "factories"
+      ]
+    },
+    "summary": "Skill bem estruturada que delega a um playbook rico de 21KB, com description bem calibrada (201 chars), necessitando apenas de poda de boilerplate tautológico no SKILL.md."
+  },
+  {
+    "skillName": "quit-sponsor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/quit-sponsor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 191 caracteres (ligeiramente abaixo do piso ideal de 200 chars) e sem a cláusula de disparo explícita 'Use when...' recomendada pelas diretrizes semânticas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Apoio e coaching empático baseado em evidências para cessação do tabagismo com protocolos estritos de segurança médica.",
+      "entidades": [
+        "CDC quitting guidance",
+        "WHO tobacco cessation guideline",
+        "NICE NG209",
+        "quitline",
+        "metrox-eth/quit-sponsor"
+      ],
+      "keywords": [
+        "quit-smoking",
+        "smoking cessation",
+        "craving",
+        "relapse prevention",
+        "tobacco",
+        "harm reduction",
+        "habit tracking",
+        "health coaching",
+        "withdrawal",
+        "nicotine",
+        "clinical escalation",
+        "data minimization"
+      ]
+    },
+    "summary": "Excepcional implementação de conduta ética e baseada em evidências para cessação tabágica, densa e sem bloat, carecendo unicamente de cláusula formal de gatilho na description."
+  },
+  {
+    "skillName": "radix-ui-design-system",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/radix-ui-design-system/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 177 caracteres (abaixo da faixa ideal de 200 a 400 chars) e ausência de cláusula explícita de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento de design systems e bibliotecas de componentes acessíveis e headless utilizando primitivas do Radix UI em React.",
+      "entidades": [
+        "Radix UI",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-select",
+        "@radix-ui/react-tabs",
+        "@radix-ui/react-tooltip",
+        "class-variance-authority",
+        "framer-motion",
+        "cmdk",
+        "shadcn/ui"
+      ],
+      "keywords": [
+        "radix ui",
+        "design system",
+        "headless ui",
+        "primitives",
+        "wai-aria",
+        "accessibility",
+        "compound components",
+        "asChild",
+        "cva",
+        "tailwind",
+        "react",
+        "focus management",
+        "dialog",
+        "dropdown",
+        "theming"
+      ]
+    },
+    "summary": "Guia técnico extremamente denso e completo (854 linhas) cobrindo acessibilidade, theming e padrões compostos com Radix UI, com pendência limitada ao ajuste de gatilho na description."
+  },
+  {
+    "skillName": "rag-implementation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/rag-implementation/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 171 caracteres (< 200 chars), redação em estilo de definição nominal sem verbo imperativo de ação e desprovida de cláusula de gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo atua meramente como um roteador de bundle superficial, sem exemplos de código ou regras técnicas próprias, composto por repetições triviais de 'Copy-Paste Prompts' delegando a outras sub-skills.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover ou condensar blocos repetitivos de 'Copy-Paste Prompts' em cada uma das 8 fases (linhas 40-44, 58-62, 76-80, etc.), que poluem o documento com invocações redundantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração em fases de um fluxo de implementação de sistemas RAG (Retrieval-Augmented Generation).",
+      "entidades": [
+        "ai-product",
+        "rag-engineer",
+        "embedding-strategies",
+        "vector-database-engineer",
+        "similarity-search-patterns",
+        "hybrid-search-implementation",
+        "prompt-caching",
+        "llm-evaluation"
+      ],
+      "keywords": [
+        "rag",
+        "retrieval augmented generation",
+        "embeddings",
+        "vector database",
+        "chunking",
+        "retrieval",
+        "hybrid search",
+        "reranking",
+        "llm integration",
+        "prompt caching",
+        "evaluation",
+        "semantic search"
+      ]
+    },
+    "summary": "Meta-orquestrador em bundle com ausência de densidade técnica própria e seções repetitivas de prompts, além de description curta sem gatilho de ativação."
+  },
+  {
+    "skillName": "rayden-code",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Dependência fantasma crítica: a skill afirma explicitamente na visão geral e passos (linhas 18, 31 e 88) carregar o arquivo 'RAYDEN_RULES.md' (34 componentes, props, tokens e anti-patterns), mas o arquivo não existe no repositório, inviabilizando sua execução confiável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description muito curta (104 caracteres), sem gatilho formal 'Use when...' e com adjetivo promocional/marketing vago ('premium layout patterns').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a dependência ao arquivo fantasma 'RAYDEN_RULES.md' e embutir a especificação real dos 34 componentes diretamente na skill ou fornecer o arquivo ausente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração de código React e Tailwind CSS com componentes do design system Rayden UI / Rayna UI.",
+      "entidades": [
+        "@raydenui/ui",
+        "RAYDEN_RULES.md",
+        "Rayna UI",
+        "Rayden Code",
+        "rayden-use"
+      ],
+      "keywords": [
+        "rayden ui",
+        "rayna ui",
+        "react",
+        "tailwind css",
+        "design system",
+        "ui components",
+        "design tokens",
+        "dashboard",
+        "vibe coding",
+        "code generation"
+      ]
+    },
+    "summary": "Skill em estado crítico devido à ausência total do arquivo essencial RAYDEN_RULES.md no qual todo o seu catálogo de 34 componentes e regras se apoia, somado a uma description deficiente."
+  },
+  {
+    "skillName": "react-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia oficial da Vercel para otimização sistemática de performance em aplicações React e Next.js com 45 regras priorizadas.",
+      "entidades": [
+        "Vercel",
+        "Next.js",
+        "React",
+        "React.cache()",
+        "next/dynamic",
+        "SWR",
+        "AGENTS.md",
+        "rules/"
+      ],
+      "keywords": [
+        "react",
+        "next.js",
+        "vercel",
+        "performance optimization",
+        "waterfalls",
+        "bundle size",
+        "server-side rendering",
+        "client-side fetching",
+        "re-render",
+        "memoization",
+        "swr",
+        "dynamic imports",
+        "code splitting"
+      ]
+    },
+    "summary": "Padrão de excelência: description perfeitamente calibrada (254 chars com 'Use when...'), catálogo de alta qualidade indexando 45 regras da Vercel e AGENTS.md robusto."
+  },
+  {
+    "skillName": "react-component-performance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-component-performance/SKILL.md",
+    "state": "Regular",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description criticamente curta (72 caracteres contra os 200 recomendados), sem cláusula de disparo 'Use when...' e com omissão total de discriminantes essenciais presentes no conteúdo (React DevTools Profiler, Flamegraph, useCallback, useMemo, React.memo).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diagnóstico de gargalos de renderização e técnicas de memoização e isolamento de estado em componentes React via DevTools Profiler.",
+      "entidades": [
+        "React DevTools Profiler",
+        "Flamegraph",
+        "useCallback",
+        "useMemo",
+        "React.memo",
+        "references/examples.md"
+      ],
+      "keywords": [
+        "react performance",
+        "profiler",
+        "flamegraph",
+        "re-renders",
+        "memoization",
+        "ticking state",
+        "useCallback",
+        "useMemo",
+        "react.memo",
+        "virtualization",
+        "render hotspots",
+        "baseline profiling"
+      ]
+    },
+    "summary": "Conteúdo instrutivo excelente e conciso com exemplos de antes/depois, porém rebaixada para Regular devido à description extremamente truncada (72 chars) e carente de discriminantes."
+  },
+  {
+    "skillName": "react-flow-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-flow-architect/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 147 caracteres (< 200 chars) e sem oração formal de gatilho ('Use when...'), omitindo menções explícitas a Dagre auto-layout e renderização incremental.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura e engenharia de alta performance para grafos interativos complexos em ReactFlow com árvores hierárquicas e Dagre.",
+      "entidades": [
+        "ReactFlow",
+        "dagre",
+        "useReactFlow",
+        "Node",
+        "Edge",
+        "Position",
+        "lodash/debounce"
+      ],
+      "keywords": [
+        "reactflow",
+        "node graph",
+        "dagre layout",
+        "hierarchical navigation",
+        "tree nodes",
+        "incremental rendering",
+        "undo redo reducer",
+        "history management",
+        "memoization",
+        "focus mode",
+        "graph analyzer"
+      ]
+    },
+    "summary": "Implementação arquitetural robusta e de alta densidade técnica para grafos em ReactFlow, necessitando apenas expandir a description para atingir o padrão ideal."
+  },
+  {
+    "skillName": "react-flow-node-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Dependência fantasma: a seção Quick Start instrui explicitamente a copiar modelos de 'assets/template.tsx' e 'assets/types.template.ts', porém o diretório 'assets/' não existe na skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Overfitting e acoplamento a projeto proprietário externo: o passo a passo exige paths inexistentes ('src/frontend/src/types/index.ts', 'src/frontend/src/store/app-store.ts') e componentes específicos ('AddBlockMenu', 'ConnectMenu'), além de description curta (124 chars) sem 'Use when...'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Eliminar referências ao diretório fantasma 'assets/' e desvincular o passo a passo dos caminhos rígidos e menus ('AddBlockMenu', 'ConnectMenu') do projeto upstream particular.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento de nós customizados tipados em TypeScript com NodeResizer e handles para React Flow.",
+      "entidades": [
+        "React Flow",
+        "NodeResizer",
+        "Handle",
+        "Position",
+        "Node",
+        "useAppStore"
+      ],
+      "keywords": [
+        "react flow",
+        "custom nodes",
+        "typescript",
+        "node types",
+        "nodedata",
+        "node resizer",
+        "handle",
+        "store integration",
+        "canvas",
+        "types.template.ts"
+      ]
+    },
+    "summary": "Skill crítica que aponta para templates inexistentes na pasta assets/ e prescreve integrações acopladas a uma arquitetura arbitrária de projeto externo."
+  },
+  {
+    "skillName": "react-native-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-native-architecture/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 157 caracteres (< 200 chars), formulada como frase nominal sem verbo de ação imperativo e sem gatilho explícito ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de boilerplate tautológico em 'Do not use this skill when' (linhas 22-26: 'The task is unrelated to react native architecture') e 'Limitations'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Eliminar boilerplate genérico tautológico das seções 'Do not use this skill when' (linhas 22-26) e 'Limitations' (linhas 38-42).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de arquitetura móvel corporativa com Expo e React Native abordando offline-first, módulos nativos e navegação.",
+      "entidades": [
+        "React Native",
+        "Expo",
+        "Expo Router",
+        "MMKV",
+        "WatermelonDB",
+        "Zustand",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "react native",
+        "expo",
+        "mobile architecture",
+        "offline-first",
+        "native modules",
+        "expo router",
+        "state management",
+        "mobile navigation",
+        "mmkv",
+        "watermelondb",
+        "mobile ci/cd"
+      ]
+    },
+    "summary": "SKILL.md bem organizado que delega para um playbook detalhado de 17KB, precisando apenas de ajustes na description (157 chars sem gatilho) e poda de boilerplate tautológico."
+  }
+]

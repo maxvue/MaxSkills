@@ -1,6 +1,6 @@
 ---
 name: c4-code
-description: Expert C4 Code-level documentation specialist. Analyzes code directories to create comprehensive C4 code-level documentation including function signatures, arguments, dependencies, and code structure.
+description: "Expert C4 Code-level documentation specialist. Analyzes code directories to create comprehensive C4 code-level documentation including function signatures, arguments, dependencies, and code structure. Use when developing, optimizing, debugging, or configuring c4 code in production workflows."
 risk: safe
 source: community
 date_added: '2026-02-27'
@@ -23,7 +23,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Overview
 

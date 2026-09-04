@@ -1,0 +1,487 @@
+[
+  {
+    "skillName": "super-code",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/super-code/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 141 caracteres, ficando abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional explícito padronizado ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Desequilíbrio de amplitude ao declarar aplicação estrita sobre 'all coding tasks', o que gera sobreposição excessiva de intenções para uma skill especializada.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e estilo de codificação para maximizar densidade, corretude e código idiomático minimizando sobrecarga de tokens e aplicando patches cirúrgicos.",
+      "entidades": [
+        "bash/SKILL.md",
+        "typescript/SKILL.md",
+        "python/SKILL.md",
+        "@karpathy-guidelines",
+        "User::isActive",
+        "users.stream()"
+      ],
+      "keywords": [
+        "code compression",
+        "token efficiency",
+        "idiomatic code",
+        "surgical diffs",
+        "file editing",
+        "anti-patterns",
+        "refactoring",
+        "boilerplate reduction",
+        "dead code removal",
+        "minimal correct shape"
+      ]
+    },
+    "summary": "Diretrizes operacionais densas para geração de código conciso e patches cirúrgicos; requer expansão da description para 200-400 caracteres com gatilho condicional explícito."
+  },
+  {
+    "skillName": "typescript",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/super-code/typescript/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 56 caracteres, apresentando extensão crítica muito abaixo do limiar de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão total de gatilho condicional ('Use when...') e de termos discriminantes vitais (como destructuring, Promise.all, type guards, React memoization) na description.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia prático de padrões idiomáticos e concisos para TypeScript, JavaScript e React com pares comparativos de anti-padrão e solução recomendada.",
+      "entidades": [
+        "Promise.all",
+        "Object.entries",
+        "Object.assign",
+        "HTMLDivElement",
+        "Record<string, unknown>",
+        "useMemo",
+        "useCallback",
+        "useState",
+        "useEffect",
+        "React"
+      ],
+      "keywords": [
+        "typescript",
+        "javascript",
+        "react",
+        "destructuring",
+        "spread operator",
+        "async/await",
+        "type inference",
+        "type guards",
+        "optional chaining",
+        "nullish coalescing",
+        "anti-patterns"
+      ]
+    },
+    "summary": "Excelente folha de referência prática com pares de certo/errado para TypeScript e React; necessita de reformulação e expansão da description para 200-400 caracteres."
+  },
+  {
+    "skillName": "supply-chain-risk-auditor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/supply-chain-risk-auditor/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Referência pendente a arquivo companion inexistente: o texto instrui o modelo a iniciar o relatório 'based on results-template.md in this directory', porém 'results-template.md' não existe no repositório.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A description possui 187 caracteres, ligeiramente abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria heurística de dependências de software para identificação de riscos de cadeia de suprimentos como mantenedores únicos, abandono e ausência de contato de segurança.",
+      "entidades": [
+        "gh",
+        "results-template.md",
+        "results.md",
+        ".supply-chain-risk-auditor",
+        "SECURITY.md",
+        "CONTRIBUTING.md",
+        "README.md"
+      ],
+      "keywords": [
+        "supply chain",
+        "dependency risk",
+        "security audit",
+        "maintainer risk",
+        "cve",
+        "github cli",
+        "unmaintained packages",
+        "deserialization",
+        "ffi",
+        "security contact"
+      ]
+    },
+    "summary": "Metodologia objetiva para avaliar riscos de cadeia de suprimentos em dependências, classificada como Regular devido à dependência de template ausente (results-template.md)."
+  },
+  {
+    "skillName": "sveltekit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sveltekit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 126 caracteres, abaixo do intervalo ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta gatilho explícito no formato padronizado 'Use when...' na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento full-stack com SvelteKit cobrindo roteamento baseado em arquivos, carregamento de dados SSR/SSG, rotas de API e ações de formulário.",
+      "entidades": [
+        "@sveltejs/kit",
+        "+page.svelte",
+        "+page.server.ts",
+        "+layout.svelte",
+        "+server.ts",
+        "hooks.server.ts",
+        "PageServerLoad",
+        "Actions",
+        "use:enhance",
+        "event.locals"
+      ],
+      "keywords": [
+        "sveltekit",
+        "svelte",
+        "ssr",
+        "ssg",
+        "form actions",
+        "file-based routing",
+        "progressive enhancement",
+        "prerender",
+        "load functions",
+        "server endpoints",
+        "csrf protection"
+      ]
+    },
+    "summary": "Guia técnico detalhado, de alta fidelidade e preciso para SvelteKit; requer inclusão de gatilho explícito e expansão da description para 200-400 caracteres."
+  },
+  {
+    "skillName": "tailwind-design-system",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tailwind-design-system/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "O arquivo SKILL.md funciona como um stub excessivamente raso (42 linhas) com instruções genéricas de template ('Clarify goals, constraints...'), delegando todo conteúdo útil para o arquivo de recursos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A seção 'Do not use this skill when' contém anti-gatilhos tautológicos vazios ('The task is unrelated to tailwind design system').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description possui 146 caracteres, abaixo dos 200 a 400 caracteres recomendados, sem gatilho explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover anti-gatilhos tautológicos na seção 'Do not use this skill when' e instruções genéricas de boilerplate (linhas 22 a 31).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de design systems com Tailwind CSS, tokens semânticos, variantes de componentes via CVA e acessibilidade.",
+      "entidades": [
+        "tailwind.config.ts",
+        "class-variance-authority",
+        "cva",
+        "cn",
+        "Slot",
+        "ButtonProps",
+        "globals.css",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "tailwind css",
+        "design system",
+        "design tokens",
+        "cva",
+        "class-variance-authority",
+        "component variants",
+        "dark mode",
+        "accessibility",
+        "css variables",
+        "theming"
+      ]
+    },
+    "summary": "Estrutura frágil com SKILL.md atuando como stub com anti-gatilhos tautológicos; estado Regular exigindo poda de boilerplate e ajuste de description."
+  },
+  {
+    "skillName": "tailwind-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tailwind-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 116 caracteres, ficando abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redação da description construída como frase nominal sem verbo de ação claro nem gatilho explícito no formato 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões e arquitetura moderna para Tailwind CSS v4 com configuração CSS-first, diretiva @theme, container queries e cores OKLCH.",
+      "entidades": [
+        "@theme",
+        "Oxide",
+        "@container",
+        "@sm:",
+        "oklch",
+        "--color-primary",
+        "--spacing-md",
+        "tailwind-patterns"
+      ],
+      "keywords": [
+        "tailwind v4",
+        "css-first",
+        "container queries",
+        "oxide compiler",
+        "oklch",
+        "theme directive",
+        "modern layout",
+        "bento grid",
+        "design tokens",
+        "css variables",
+        "performance"
+      ]
+    },
+    "summary": "Guia conciso, técnico e de ponta sobre Tailwind CSS v4; necessita de verbo de ação, gatilho formal e expansão na description."
+  },
+  {
+    "skillName": "taisly-social-media-posting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/taisly-social-media-posting/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 139 caracteres, ficando abaixo da meta de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do termo de gatilho condicional explícito ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Planejamento e publicação de vídeos curtos em redes sociais com Taisly Agent Kit mediante portões de aprovação e proteção de credenciais.",
+      "entidades": [
+        "taisly/agent",
+        "Taisly Agent Kit",
+        "Taisly MCP",
+        "Taisly CLI",
+        "Taisly SDK",
+        "TikTok",
+        "Instagram Reels",
+        "YouTube Shorts"
+      ],
+      "keywords": [
+        "social media",
+        "video publishing",
+        "mcp server",
+        "approval gate",
+        "tiktok",
+        "instagram reels",
+        "youtube shorts",
+        "metadata validation",
+        "cli",
+        "sdk"
+      ]
+    },
+    "summary": "Fluxo seguro com portões estritos de aprovação humana para publicação em redes sociais; requer apenas expansão de tamanho e gatilho padronizado na description."
+  },
+  {
+    "skillName": "talivia-agent-kit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/talivia-agent-kit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 126 caracteres, abaixo do limiar recomendado de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional explícito padronizado ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração e verificação de analytics de receita e atribuição de tráfego com Talivia via MCP com rigorosos portões de segurança e consentimento.",
+      "entidades": [
+        "talivia_account_status",
+        "talivia_websites_list",
+        "talivia_setup_status_get",
+        "talivia_tracking_snippet_get",
+        "talivia_framework_install_plan_get",
+        "talivia_tracker_verify",
+        "talivia_payment_connect_start",
+        "talivia-group/agent"
+      ],
+      "keywords": [
+        "talivia",
+        "revenue analytics",
+        "attribution",
+        "mcp server",
+        "tracking snippet",
+        "payment connect",
+        "read-only safety",
+        "traffic attribution",
+        "visitor journeys"
+      ]
+    },
+    "summary": "Excelente integração MCP de analytics de receita com guardrails de segurança exemplares; necessita de gatilho explícito e expansão na description."
+  },
+  {
+    "skillName": "tavily-web",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tavily-web/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Conteúdo operacional oco: o SKILL.md não fornece parâmetros da API, esquemas de payload, opções de profundidade de busca, endpoints ou código funcional de chamada.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de 'Examples' e 'Troubleshooting' atuam como meros placeholders que redirecionam para repositórios externos no GitHub sem conteúdo real.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Passo a passo inútil para o agente ('Use naturally in Claude Code conversations') sem comandos ou ferramentas discriminantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover placeholders vazios de exemplos e troubleshooting (linhas 29 a 37) e substituí-los por especificações reais dos parâmetros da API Tavily.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Integração de busca na web, extração de conteúdo e crawling via API externa do Tavily.",
+      "entidades": [
+        "BenedictKing/tavily-web",
+        "Tavily API",
+        "context7-auto-research",
+        "exa-search",
+        "firecrawl-scraper"
+      ],
+      "keywords": [
+        "tavily",
+        "web search",
+        "content extraction",
+        "web crawling",
+        "research",
+        "api key",
+        "external search",
+        "search engine"
+      ]
+    },
+    "summary": "Skill superficial em formato de casca vazia delegando exemplos e troubleshooting para links do GitHub sem fornecer documentação técnica ou código executável."
+  },
+  {
+    "skillName": "tdd-orchestrator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd-orchestrator/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description viola o critério de linguagem anti-promocional ao utilizar termos grandiosos ('Master TDD orchestrator specializing in...') e não inclui gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência pendente a arquivo companion inexistente: instrui a abertura de 'resources/implementation-playbook.md' (linha 24), porém o diretório de recursos inexiste na skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ausência completa de código executável, testes funcionais ou especificações práticas, limitando-se a 208 linhas de persona inflada e listas teóricas de consultoria.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Anti-gatilhos e gatilhos tautológicos vazios ('Working on tdd orchestrator tasks...', 'The task is unrelated to tdd orchestrator').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Eliminar personas infladas ('Elite TDD orchestrator...', 'You are an expert...'), preâmbulos tautológicos (linhas 9-24) e dezenas de tópicos genéricos de consultoria sem exemplos de código.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Coordenação do ciclo red-green-refactor e governança de práticas de desenvolvimento orientado a testes (TDD) para equipes e múltiplos agentes.",
+      "entidades": [
+        "Kent Beck",
+        "Chicago School",
+        "London School",
+        "JUnit",
+        "NUnit",
+        "pytest",
+        "Jest",
+        "Hypothesis",
+        "QuickCheck",
+        "fast-check"
+      ],
+      "keywords": [
+        "tdd",
+        "test-driven development",
+        "red-green-refactor",
+        "unit testing",
+        "integration testing",
+        "mutation testing",
+        "property-based testing",
+        "mocking",
+        "test pyramid",
+        "refactoring"
+      ]
+    },
+    "summary": "Conteúdo altamente inchado e promocional com persona inflada, link quebrado para playbook inexistente e ausência de código executável; estado Ruim."
+  }
+]

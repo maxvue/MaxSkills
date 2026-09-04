@@ -1,6 +1,6 @@
 ---
 name: data-scientist
-description: Expert data scientist for advanced analytics, machine learning, and statistical modeling. Handles complex data analysis, predictive modeling, and business intelligence.
+description: "Comprehensive engineering guide and best practices for data scientist. Use when configuring, developing, debugging, or optimizing data scientist architecture in production systems. Guides architecture, best practices, and implementation standards for data scientist."
 risk: critical
 source: community
 date_added: '2026-02-27'

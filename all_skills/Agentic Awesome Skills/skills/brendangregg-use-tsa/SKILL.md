@@ -1,6 +1,6 @@
 ---
 name: brendangregg-use-tsa
-description: "Methodical performance troubleshooting and root-cause analysis with Brendan Gregg's USE and TSA methods, plus evidence-backed RCA and postmortem reports."
+description: "Methodical performance troubleshooting and root-cause analysis with Brendan Gregg's USE and TSA methods, plus evidence-backed RCA and postmortem reports. Use when developing, optimizing, debugging, or configuring brendangregg use tsa in production workflows."
 category: devops
 risk: safe
 source: community

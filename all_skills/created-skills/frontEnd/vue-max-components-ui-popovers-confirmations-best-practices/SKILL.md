@@ -10,13 +10,12 @@ Fornecer diretrizes, padrões de design e exemplos claros para a implementação
 
 > **Verdade-base sobre tooltips:** a diretiva `v-tooltip` NÃO vem do `floating-vue`. Ela é o `primevue/tooltip`, registrado em `@maxvue/max-components-ui` (`app.directive('tooltip', Tooltip)`). O pacote `floating-vue` até consta no `package.json`, mas é uma **dependência morta**: nunca é registrada como plugin nem usada em `resources/`/`src/`. Portanto NÃO existem `VDropdown`, `VMenu`, temas FloatingVue nem o evento `@apply-show`. Não os utilize — esta skill cobre todos os casos de tooltip/popover/menu do projeto.
 >
-> **v-tooltip aceita string OU objeto (nativo do PrimeVue):** na maioria dos casos o valor é uma string com o texto. Quando precisar de HTML ou de controlar delay, use o objeto do PrimeVue `{ value, escape: false, showDelay, hideDelay, class, autoHide }` — é o padrão real usado em produção no engeapp (ex.: `FormEditModule.vue`, `ChatStatus.vue`). O que NÃO funciona é a forma de objeto do FloatingVue (`{ content, placement, delay }`). A posição continua vindo sempre do modificador `.top`/`.right`/`.bottom`/`.left`.
+Padronizar a criação e manutenção de dicas visuais flutuantes (tooltips), popovers ricos, painéis deslizantes (drawers), menus de contexto e caixas de diálogo de confirmação rápida no front-end em Vue 3 (Engeapp), utilizando exclusivamente os componentes e diretivas fornecidos pelo `@maxvue/max-components-ui`.
 
 ## Instruções
 
-1. **Diretiva v-tooltip (PrimeVue) para tooltips de texto no hover:**
-   - Ver a Verdade-base acima para a forma string vs. objeto aceita.
-   - Defina a posição por **modificador**: `v-tooltip.top`, `v-tooltip.right`, `v-tooltip.bottom`, `v-tooltip.left`. Sem modificador, o PrimeVue usa `right` como padrão.
+1. **Uso de Tooltips com a Diretiva `v-tooltip`:**
+   - Use a diretiva nativa `v-tooltip` do PrimeVue (registrada automaticamente pelo plugin `install` do MaxComponentsUi).
    - Prefira posicionar explicitamente: `v-tooltip.top="'Atualizar últimas mensagens'"`.
    - Mantenha a diretiva e todos os atributos **inline, na mesma linha** do elemento.
    - Aplique a diretiva no componente Max ou no elemento que já existe no template (ex.: `MaxIconButton`, `Icon`), nunca introduzindo `<button>` nativo só por causa da tooltip.
@@ -31,15 +30,11 @@ Fornecer diretrizes, padrões de design e exemplos claros para a implementação
    - Use a propriedade `no-picker` para ocultar a seta indicadora em forma de triângulo, se necessário.
    - Exponha os métodos `show()`, `hide()` e `toggle()` via Template Refs se o controle manual for necessário. **Atenção:** `show()` é apenas um alias de `toggle()` — chamar `show()` com o popover já aberto FECHA o popover. Só `hide()` é idempotente/seguro para forçar fechamento.
 
-3. **Prompts de Confirmação Rápida (`MaxIconConfirm` & `MaxPopoverConfirm`):**
+3. **Prompts de Confirmação Rápida (`MaxButtonConfirm`, `MaxIconConfirm` & `MaxPopoverConfirm`):**
    - NÃO construa popovers de confirmação personalizados usando HTML puro.
    - Em vez disso, coloque o componente global `MaxPopoverConfirm` uma única vez no layout principal do sistema (ou reutilize a instância global existente).
-   - Use o componente `MaxIconConfirm` como o botão de gatilho em seu template. Ele calcula automaticamente as coordenadas de posicionamento e atualiza a store do Pinia `useConfirmStore`.
-   - Configure as seguintes props no `MaxIconConfirm`:
-     - `message`: O texto de confirmação para o usuário (padrão: "Deseja continuar?").
-     - `messageIcon`: Ícone exibido ao lado da mensagem (padrão: `null`).
-     - `acceptProps`: Objeto contendo `{ label, icon, action }` para o botão de confirmação.
-     - `rejectProps`: Objeto contendo `{ label, icon, action }` para o botão de cancelamento.
+   - Use `MaxButtonConfirm` quando precisar de um botão completo com rótulo textual e confirmação (props `:accept="fn"`, `:reject="fn"`, `message="Deseja continuar?"`).
+   - Use `MaxIconConfirm` quando precisar de um botão compacto apenas com ícone (props `message`, `:acceptProps="{ label, icon, action }"`, `:rejectProps="{ label, icon, action }"`). Ambos calculam automaticamente as coordenadas de posicionamento e atualizam a store Pinia `useConfirmStore`.
 
 4. **Uso do MaxPopoverMenu:**
    - Utilize `MaxPopoverMenu` para menus dropdown contextuais (ex: ações de linhas de tabelas, menus de perfil) baseados no componente Menu do PrimeVue.
@@ -51,6 +46,13 @@ Fornecer diretrizes, padrões de design e exemplos claros para a implementação
      - `data`: Payload de dados associados ao item.
    - Personalize o botão de gatilho com o slot `#button` ou deixe renderizar o `MaxButton` padrão do componente.
    - Personalize itens de lista individuais com o slot `#item="{ data }"`.
+
+5. **Uso do MaxDrawer (Painel Deslizante / Slide-Over):**
+   - Utilize `MaxDrawer` para painéis laterais de edição rápida, filtros avançados e detalhes contextuais que deslizam sobre a página.
+   - Controle reativamente a abertura com `v-model:visible="exibirDrawer"`.
+   - Defina a borda de surgimento com `position`: `'right'` (padrão), `'left'`, `'top'`, `'bottom'` ou `'full'`.
+   - O componente ativa internamente bloqueio de rolagem do body (`useScrollLock`), captura acessível de foco (`useFocusTrap`) e fechamento via tecla Escape (`closeOnEscape`) ou clique fora da gaveta (`dismissable`).
+   - Use os slots `#header` (cabeçalho), `#footer` (rodapé de ações) e `#default` (corpo).
 
 ## Restrições
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR). Este é o idioma padrão de conversação Agente↔Humano, sempre, sem exceção — independentemente do idioma em que o conteúdo/corpo desta skill está escrito.
@@ -164,5 +166,47 @@ const menuItems = ref<MenuItem[]>([
     data: { id: 123 }
   }
 ]);
+</script>
+```
+
+### 5. Confirmação com MaxButtonConfirm e Painel Deslizante com MaxDrawer
+```vue
+<template>
+  <div class="acoes-container" flex items-center gap-2>
+    <!-- Botão de exclusão com popover de confirmação ancorado -->
+    <MaxButtonConfirm
+      label="Excluir"
+      icon="mdi:trash-can"
+      severity="danger"
+      message="Confirma a exclusão deste item?"
+      :accept="excluirItem"
+    />
+
+    <!-- Botão que abre gaveta lateral de edição -->
+    <MaxButton label="Filtros" icon="mdi:filter" @click="gavetaAberta = true" />
+
+    <!-- Painel deslizante lateral (slide-over) -->
+    <MaxDrawer v-model:visible="gavetaAberta" header="Filtros Rápidos" position="right">
+      <p>Conteúdo do formulário de filtros contextuais.</p>
+      <template #footer>
+        <div flex justify-end gap-2>
+          <MaxButton label="Fechar" severity="secondary" @click="gavetaAberta = false" />
+          <MaxButton label="Aplicar" @click="aplicarFiltros" />
+        </div>
+      </template>
+    </MaxDrawer>
+  </div>
+</template>
+
+<script setup lang="ts">
+const gavetaAberta = ref(false);
+
+function excluirItem(): void {
+  console.log('Item excluído!');
+}
+
+function aplicarFiltros(): void {
+  gavetaAberta.value = false;
+}
 </script>
 ```

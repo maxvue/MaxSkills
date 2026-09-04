@@ -1,0 +1,512 @@
+[
+  {
+    "skillName": "privacy-mask",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/privacy-mask/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description truncada no YAML terminando com reticências incompletas ('and...') e sem fechamento de frase (Critérios 1 e 5).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito padronizado no formato 'Use when...' ou 'Ative quando...' na description (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Detecção e anonimização/mascaramento local de dados sensíveis (PII) em imagens e screenshots usando OCR e NER.",
+      "entidades": [
+        "privacy-mask CLI",
+        "Tesseract OCR",
+        "RapidOCR",
+        "GLiNER",
+        "regex rules"
+      ],
+      "keywords": [
+        "privacy-mask",
+        "PII",
+        "redaction",
+        "anonymization",
+        "OCR",
+        "Tesseract",
+        "RapidOCR",
+        "GLiNER",
+        "bounding-box",
+        "credentials",
+        "API keys",
+        "screenshots",
+        "offline masking",
+        "regex detection"
+      ]
+    },
+    "summary": "Skill enxuta e funcional com CLI offline de alta utilidade, requerendo apenas o fechamento da description truncada e adição de gatilho padronizado."
+  },
+  {
+    "skillName": "product-decision-agent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/product-decision-agent/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description em chinês sem padronização do gatilho formal em formato reconhecível ('Use when...') para orquestradores multilíngues (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes em inglês no frontmatter description para facilitar indexação e roteamento por agentes globais (Critérios 4 e 6).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Framework de tomada de decisão de produto e resolução de gargalos operacionais e estratégicos no contexto do mercado chinês.",
+      "entidades": [
+        "quality_gate.py",
+        "reasoning-engine.md",
+        "product-playbooks.md",
+        "DAU/MAU",
+        "A/B Test",
+        "OKR/KPI"
+      ],
+      "keywords": [
+        "product decision",
+        "feature prioritization",
+        "core bottleneck",
+        "stopping list",
+        "roadmap",
+        "A/B testing",
+        "growth",
+        "retention",
+        "PMF",
+        "OKR",
+        "KPI",
+        "operational decision",
+        "Chinese internet"
+      ]
+    },
+    "summary": "Excelente framework cognitivo de decisão e priorização de produto com raciocínio silencioso e scripts de quality gate, necessitando apenas de padronização de gatilho na description."
+  },
+  {
+    "skillName": "product-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/product-design/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com tom promocional ('nivel Apple') e sem cláusula formal de gatilho 'Use when...' (Critérios 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Contaminação de escopo no corpo do SKILL.md por artefatos de um projeto fictício específico denominado 'Auri' (linhas 93, 218-233, 271-283, 293-301) em meio a diretrizes gerais de design (Critérios 5 e 8).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de template tautológicas e redundantes em 'When to Use This Skill' ('When you need specialized assistance...'), 'Do Not Use' e 'Related Skills' (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover seções tautológicas de template 'When to Use This Skill' (linhas 28-36) e 'Best Practices/Common Pitfalls/Related Skills' (linhas 341-359).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar ou expurgar referências hardcoded ao projeto proprietário 'Auri' (linhas 218-233 e 271-303), convertendo-os em exemplos genéricos de tokens e voice UI.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia abrangente de design de produto, design systems, UX flows, acessibilidade e tokens visuais.",
+      "entidades": [
+        "Figma",
+        "FigJam",
+        "Zeroheight",
+        "Lottie",
+        "Mobbin",
+        "Screenlane",
+        "WCAG 2.1 AA",
+        "Inter",
+        "JetBrains Mono"
+      ],
+      "keywords": [
+        "product design",
+        "design system",
+        "design tokens",
+        "UX flow",
+        "accessibility",
+        "WCAG AA",
+        "typography",
+        "color palette",
+        "spacing grid",
+        "motion design",
+        "UI critique",
+        "onboarding",
+        "empty states"
+      ]
+    },
+    "summary": "Conteúdo rico sobre design systems e UX, porém poluído com artefatos de um projeto específico (Auri), tom promocional e boilerplate tautológico."
+  },
+  {
+    "skillName": "product-inventor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/product-inventor/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (191 chars), hiper-promocional ('Design Alchemist de nivel maximo', 'execucao impecavel nivel Jobs/Apple') e sem gatilho formal 'Use when...' (Critérios 1, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes técnicos centrais na description, deixando de citar Next.js 15, Tailwind CSS 4, Framer Motion, TanStack Query, Zod e tokens oklch ensinados no documento (Critérios 4 e 13).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de manifesto grandiloquente na abertura e blocos tautológicos de template nas seções de ativação e finalização (Critérios 10 e 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Podar blocos de template vazios 'When to Use This Skill' (linhas 27-36) e 'Best Practices / Common Pitfalls / Related Skills' (linhas 643-661).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar preâmbulo em tom de manifesto (linhas 39-45) focando nas diretrizes técnicas executáveis.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Concepção, arquitetura de interface e implementação front-end moderna de produtos digitais com foco em diferenciação.",
+      "entidades": [
+        "Next.js 15",
+        "Tailwind CSS 4",
+        "Framer Motion",
+        "shadcn/ui",
+        "TanStack Query v5",
+        "Zustand",
+        "React Hook Form",
+        "Zod",
+        "Lucide React"
+      ],
+      "keywords": [
+        "product invention",
+        "killer interaction",
+        "design system",
+        "Next.js 15",
+        "Tailwind CSS 4",
+        "Framer Motion",
+        "oklch tokens",
+        "Zod",
+        "TanStack Query",
+        "mobile-first",
+        "accessibility",
+        "microinteractions",
+        "UI engineering"
+      ]
+    },
+    "summary": "Skill técnica substancial com stack moderna de UI engineering, mas prejudicada por retórica promocional exagerada e seções tautológicas de template."
+  },
+  {
+    "skillName": "product-manager",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/product-manager/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (147 chars) baseada em contagem promocional de marketing ('6 knowledge domains, 30+ frameworks, 12 templates...') sem discriminantes de aplicação nem gatilho 'Use when...' (Critérios 1, 3, 4 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Discrepância severa entre conteúdo prometido e entregue: afirma conter 12 templates embutidos e 32 métricas com fórmulas exatas, mas o SKILL.md de 54 linhas contém apenas stubs e o diretório não possui nenhum outro arquivo ou template (Critérios 5 e 6).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção 'Compatibility' funcionando como ruído publicitário listando 14+ ferramentas de IA externas (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover seção de marketing 'Compatibility' (linhas 42-45) e substituir promessas de '12 built-in templates' e 'exact formulas' por conteúdo real ou referências externas adequadas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework conceitual e catálogo de referência para gestão de produto e métricas SaaS.",
+      "entidades": [
+        "RICE scoring",
+        "MoSCoW",
+        "Jobs-to-be-Done",
+        "Kano Model",
+        "MRR",
+        "ARR",
+        "CAC",
+        "LTV",
+        "Net Revenue Retention"
+      ],
+      "keywords": [
+        "product management",
+        "saas metrics",
+        "RICE",
+        "MoSCoW",
+        "JTBD",
+        "Kano model",
+        "MRR",
+        "ARR",
+        "churn rate",
+        "CAC",
+        "LTV",
+        "PRD",
+        "roadmapping",
+        "opportunity solution tree"
+      ]
+    },
+    "summary": "Skill superficial de 54 linhas que opera como teaser promocional, prometendo templates e fórmulas exatas que não constam no repositório local."
+  },
+  {
+    "skillName": "product-marketing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/product-marketing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description truncada terminando abruptamente com reticências ('...or wants to...') (Critérios 1 e 5).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação sintática defeituosa na seção 'When to Use' (linha 16: 'Use this skill when you need when the user wants to create... or wants to...') (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação e manutenção de documento canônico de contexto de marketing, posicionamento e personas de produto.",
+      "entidades": [
+        ".agents/product-marketing.md",
+        "ICP",
+        "JTBD Four Forces",
+        "B2B Buyer Personas"
+      ],
+      "keywords": [
+        "product marketing",
+        "marketing context",
+        "positioning",
+        "ICP",
+        "ideal customer profile",
+        "JTBD",
+        "customer pain points",
+        "competitive landscape",
+        "differentiation",
+        "objections",
+        "brand voice",
+        "switching dynamics",
+        "proof points"
+      ]
+    },
+    "summary": "Excelente skill com template de 12 seções estruturado para persistir o posicionamento de marketing em arquivo canônico, requerendo apenas conserto de truncamento na description."
+  },
+  {
+    "skillName": "production-code-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/production-code-audit/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description sem gatilho formal 'Use when...' e com termos promocionais/buzzwords ('corporate-level professional quality with optimizations') (Critérios 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Bloat severo decorrente de 256 linhas de chat simulado fictício com logs prolixos (linhas 120-376 ocupando ~46% do arquivo) gerando consumo excessivo de contexto (Critério 12 e Bloat).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Prescrição arriscada de automação cega sem interação humana ('Fix everything automatically without asking the user for input') em tarefas críticas de refatoração estrutural (Critérios 7 e 11).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Condensar drasticamente ou remover os três longos diálogos e logs simulados (linhas 120-376) que consomem 256 linhas de contexto repetitivo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ajustar a diretiva de 'Fix everything automatically without asking' para prever etapas de confirmação e revisão humana em mudanças críticas de arquitetura e segurança.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria sistemática de código para segurança, desempenho, arquitetura, testes e conformidade com padrões de produção.",
+      "entidades": [
+        "OWASP Top 10",
+        "Zod",
+        "Winston",
+        "Sentry",
+        "Prometheus",
+        "Redis",
+        "bcrypt",
+        "SQL Injection",
+        "N+1 Query"
+      ],
+      "keywords": [
+        "code audit",
+        "production ready",
+        "OWASP Top 10",
+        "SQL injection",
+        "XSS",
+        "hardcoded secrets",
+        "N+1 query",
+        "Redis caching",
+        "database indexes",
+        "test coverage",
+        "health checks",
+        "architecture refactoring"
+      ]
+    },
+    "summary": "Checklist abrangente e sólido de auditoria e segurança para produção, mas gravemente inflado por transcrições fictícias de chat e diretivas arriscadas de automação cega."
+  },
+  {
+    "skillName": "progressive-estimation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/progressive-estimation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta com 133 caracteres, abaixo da faixa ideal de 200 a 400 caracteres (Critério 1).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito 'Use when...' e omissão de discriminantes chave como cálculo de 3 pontos, intervalos de confiança P50/P75/P90 e dimensionamento T-shirt XS-XL (Critérios 3 e 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estimativa estatística de desenvolvimento para equipes híbridas humano+agente utilizando distribuição PERT e calibração contínua.",
+      "entidades": [
+        "PERT statistics",
+        "P50/P75/P90 confidence bands",
+        "Linear",
+        "JIRA",
+        "ClickUp",
+        "GitHub Issues"
+      ],
+      "keywords": [
+        "progressive estimation",
+        "PERT",
+        "three-point estimation",
+        "confidence intervals",
+        "sprint planning",
+        "hybrid development",
+        "agent multipliers",
+        "velocity modeling",
+        "calibration feedback",
+        "task classification",
+        "backlog sizing"
+      ]
+    },
+    "summary": "Skill enxuta, pragmática e fundamentada em estatística PERT para equipes que utilizam IA, necessitando somente da expansão de sua description."
+  },
+  {
+    "skillName": "project-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/project-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 181 caracteres (abaixo dos 200 chars ideais) e sem gatilho padronizado 'Use when...' / 'Activate when...' (Critérios 1 e 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes essenciais na description presentes no conteúdo, como pipeline em 5 estágios (acquire-prepare-process-parse-render), state machine via filesystem e architectural reduction (Critérios 4 e 13).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia de arquitetura de projetos com LLM, pipelines idempotentes baseados em filesystem e desenvolvimento assistido por agentes.",
+      "entidades": [
+        "Karpathy HN Time Capsule",
+        "Vercel d0",
+        "Manus context engineering",
+        "Unix primitives (grep, cat, find, ls)"
+      ],
+      "keywords": [
+        "project development",
+        "task-model fit",
+        "LLM pipeline",
+        "staged architecture",
+        "filesystem state machine",
+        "idempotency",
+        "structured output",
+        "prompt design",
+        "architectural reduction",
+        "cost estimation",
+        "agent-assisted development",
+        "Bitter Lesson"
+      ]
+    },
+    "summary": "Metodologia de ponta e altíssima densidade intelectual para arquitetura de software com LLM e pipelines idempotentes, necessitando apenas de refinamento na description."
+  },
+  {
+    "skillName": "prompt-engineering-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/prompt-engineering-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (116 chars), imperativa/promocional ('Master advanced prompt engineering techniques...') e sem cláusula 'Use when...' (Critérios 1, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes técnicos essenciais na description (Few-Shot, Chain-of-Thought, Progressive Disclosure, Self-Consistency, integração RAG e verificação) (Critérios 4 e 13).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões avançados de engenharia de prompts, raciocínio estruturado, seleção dinâmica de exemplos e templates modulares.",
+      "entidades": [
+        "PromptTemplate",
+        "FewShotSelector",
+        "Chain-of-Thought (CoT)",
+        "optimize-prompt.py",
+        "RAG"
+      ],
+      "keywords": [
+        "prompt engineering",
+        "few-shot learning",
+        "chain-of-thought",
+        "progressive disclosure",
+        "template systems",
+        "system prompt design",
+        "self-consistency",
+        "prompt optimization",
+        "RAG integration",
+        "semantic similarity",
+        "verification loop"
+      ]
+    },
+    "summary": "Excelente conjunto de padrões técnicos com implementação em código, templates e scripts complementares, exigindo reescrita substancial de sua description para atingir os padrões semânticos."
+  }
+]

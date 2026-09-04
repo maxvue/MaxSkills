@@ -1,0 +1,512 @@
+[
+  {
+    "skillName": "expo-module",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/expo-module/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A tag description (278 chars) foi truncada abruptamente com reticências ('...building or modifying native modules...'), deixando a oração do gatilho 'Use when' sintaticamente incompleta.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância e sobreposição quase textual entre 'Core File Shapes' (linhas 77-79) e 'Module Structure Reference' (linhas 81-84).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Consolidar as seções repetidas 'Core File Shapes' e 'Module Structure Reference' e remover o boilerplate genérico de limitações nas linhas 148-152.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento e scaffolding de módulos nativos e views para Expo em Swift, Kotlin e TypeScript usando a Expo Modules API",
+      "entidades": [
+        "Expo Modules API",
+        "create-expo-module",
+        "ExpoModulesCore",
+        "ModuleDefinition",
+        "requireNativeModule",
+        "expo-module.config.json"
+      ],
+      "keywords": [
+        "expo-module",
+        "native modules",
+        "swift",
+        "kotlin",
+        "typescript",
+        "ios",
+        "android",
+        "module definition",
+        "native views",
+        "shared objects",
+        "config plugins",
+        "autolinking",
+        "lifecycle hooks"
+      ]
+    },
+    "summary": "Guia oficial robusto e completo para criação de módulos nativos Expo com DSL unificada Swift/Kotlin, necessitando apenas completar a description cortada e remover seção duplicada."
+  },
+  {
+    "skillName": "fal-audio",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A tag description possui apenas 60 caracteres (muito abaixo do piso de 200 chars), não apresenta cláusula 'Use when...' e carece totalmente de discriminantes técnicos dos modelos suportados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo é um stub oco (placeholder) de apenas 29 linhas que repete a mesma frase tautológica três vezes ('Overview', 'When to Use' e 'Instructions') sem ensinar nenhuma API, endpoint, SDK ou parâmetro.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de exemplos de código ou instruções práticas para integração com a plataforma fal.ai (nem Python SDK, nem @fal-ai/serverless-client, nem endpoints REST).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Dependência externa exclusiva para terceiros através de link sem documentação local dos modelos de áudio (STT/TTS).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 80,
+    "cuts": [
+      {
+        "text": "O arquivo atual é 80%+ composto de tautologias e boilerplate de limitações sem nenhuma documentação técnica; necessita ser reconstruído do zero com exemplos reais ou removido.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Placeholder sem conteúdo técnico para modelos de áudio TTS/STT via fal.ai",
+      "entidades": [
+        "fal.ai"
+      ],
+      "keywords": [
+        "fal-audio",
+        "fal.ai",
+        "text-to-speech",
+        "speech-to-text",
+        "audio models",
+        "tts",
+        "stt"
+      ]
+    },
+    "summary": "Stub oco que não fornece código, endpoints ou parâmetros da API fal.ai, consistindo em tautologias redundantes e description de 60 caracteres."
+  },
+  {
+    "skillName": "fal-upscale",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A tag description possui apenas 59 caracteres (muito abaixo do piso de 200 chars), sem cláusula de ativação formal 'Use when...' e sem termos discriminantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo é um stub/placeholder vazio de 29 linhas que repete a mesma frase genérica em Overview, When to Use e Instructions sem fornecer conteúdo técnico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de implementações, modelos suportados (ex: Real-ESRGAN, Clarity, CCSR, AuraSR), chamadas de API, endpoints ou SDKs fal.ai.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Delegação completa para URL externa do GitHub sem qualquer utilidade autônoma para agentes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 80,
+    "cuts": [
+      {
+        "text": "Remover a estrutura oca de 29 linhas que consiste em boilerplate e tautologias sem dados, substituindo-a por implementações concretas de upscale com fal.ai ou expurgando a skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Placeholder oco sem conteúdo operacional para upscale de imagens e vídeos via fal.ai",
+      "entidades": [
+        "fal.ai"
+      ],
+      "keywords": [
+        "fal-upscale",
+        "fal.ai",
+        "upscale",
+        "image enhancement",
+        "video resolution",
+        "super-resolution"
+      ]
+    },
+    "summary": "Casca vazia desprovida de documentação técnica ou código executável de upscale, limitando-se a tautologias circulares."
+  },
+  {
+    "skillName": "feature-tracking",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/feature-tracking/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A tag description possui 159 caracteres (abaixo da faixa recomendada de 200 a 400 chars) e não inclui a cláusula explícita de condição de uso 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Leve redundância conceitual entre as seções 'Best Practices', 'Common Pitfalls' e 'Limitations' quanto ao risco de planos obsoletos e duplicação de PRDs.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Condensar sobreposições entre 'Common Pitfalls' e 'Best Practices' para focar diretamente nas diretrizes prescritivas de rastreamento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Memória persistente de funcionalidades em arquivos Markdown para sessões de desenvolvimento com agentes de IA",
+      "entidades": [
+        "docs/features/",
+        "docs/features/README.md",
+        "PRD",
+        "Conductor tracks"
+      ],
+      "keywords": [
+        "feature-tracking",
+        "project memory",
+        "source of truth",
+        "session handoff",
+        "decisions",
+        "known risks",
+        "changelog",
+        "markdown tracks",
+        "brownfield",
+        "ai agents"
+      ]
+    },
+    "summary": "Skill madura e bem estruturada para memória nativa de features em Markdown, necessitando apenas enriquecer a description para 200+ chars com gatilho formal."
+  },
+  {
+    "skillName": "find-bugs",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/find-bugs/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A tag description possui 196 caracteres (levemente abaixo dos 200 chars recomendados) e poderia incorporar termos discriminantes adicionais como OWASP, checklist e diff do git.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de linguagem em primeira pessoa na linha 82 ('I'll decide what to address') gerando inconsistência de persona para um prompt de skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a frase em 1ª pessoa da linha 82 e o bloco de Limitations padronizado genérico das linhas 84-87.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria estruturada de segurança, vulnerabilidades e bugs em diffs de branches locais com checklist OWASP",
+      "entidades": [
+        "git diff",
+        "gh repo view",
+        "OWASP"
+      ],
+      "keywords": [
+        "find-bugs",
+        "security review",
+        "code audit",
+        "git diff",
+        "injection",
+        "xss",
+        "csrf",
+        "idor",
+        "race conditions",
+        "toctou",
+        "authentication",
+        "authorization",
+        "code quality"
+      ]
+    },
+    "summary": "Guia metódico de revisão de segurança de código em branches com checklist detalhado (OWASP), requerendo apenas ajuste mínimo na description e remoção de 1ª pessoa."
+  },
+  {
+    "skillName": "find-complementary-founders",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/find-complementary-founders/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A seção 'Offer optional project support once' (linhas 383-408) introduz lógica de growth hacking/solicitação de estrela no GitHub atrelada ao fluxo da skill, criando ruído operacional desnecessário.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Forte acoplamento operacional com a plataforma externa Moltbook e scripts em Python específicos do repositório findMate, tornando a skill muito dependente de um ecossistema proprietário.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover ou condensar a seção 'Offer optional project support once' (growth hack de GitHub stars) e enxugar os detalhes de transporte do Moltbook.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Protocolo de avaliação de competências e pareamento privativo de cofundadores e parceiros de projetos entre agentes de IA",
+      "entidades": [
+        "FindMate",
+        "Moltbook",
+        "scripts/assess_profile.py",
+        "scripts/validate_profile.py",
+        "scripts/profile_card.py",
+        "scripts/match_profiles.py",
+        "scripts/moltbook_publish.py",
+        "scripts/github_thread.py"
+      ],
+      "keywords": [
+        "find-complementary-founders",
+        "cofounder matching",
+        "partner discovery",
+        "zero-to-one",
+        "one-to-ten",
+        "pseudonymous profile",
+        "privacy-first",
+        "profile validation",
+        "collaboration",
+        "business strategy"
+      ]
+    },
+    "summary": "Protocolo muito completo e orientado à privacidade para matching de fundadores baseado em evidências, com excelente description, contendo apenas leve ruído de growth hacking (GitHub star)."
+  },
+  {
+    "skillName": "firebase",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/firebase/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description adota tom conversacional, opinativo e promocional ('Firebase gives you a complete backend in minutes...'), sem ação prescritiva clara e sem a cláusula de gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite discriminantes essenciais presentes no arquivo, como Firestore v9 modular SDK, Cloud Functions v2, Security Rules e Admin SDK.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Mistura inconsistente de sintaxes de comentários nos exemplos JavaScript/Rules, utilizando caracteres de comentário Python ('# MODULAR IMPORTS:') e docstrings triplas ('\"\"\"...\"\"\"') antes do código JS.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' (linhas 680-691) lista 10 repetições mecânicas da frase 'User mentions or implies: <termo>' em formato redundante de baixa densidade.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a lista mecânica repetitiva de gatilhos nas linhas 680-691 e eliminar docstrings de estilo Python dos snippets de JavaScript.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura, modelagem de dados, regras de segurança e integração de backend serverless com Firebase e Firestore v9 modular",
+      "entidades": [
+        "Firebase Modular SDK (v9+)",
+        "getFirestore",
+        "initializeApp",
+        "Cloud Functions v2",
+        "@firebase/rules-unit-testing",
+        "firebase-admin",
+        "reactfire",
+        "vuefire",
+        "angularfire"
+      ],
+      "keywords": [
+        "firebase",
+        "firestore",
+        "security rules",
+        "cloud functions v2",
+        "realtime database",
+        "batch writes",
+        "transactions",
+        "social login",
+        "oauth",
+        "modular sdk",
+        "onSnapshot",
+        "denormalization"
+      ]
+    },
+    "summary": "Guia técnico rico com excelentes padrões para Firebase v9 e Firestore, prejudicado por uma description informal/promocional sem gatilho formal e sintaxe de comentário Python misturada em blocos JS."
+  },
+  {
+    "skillName": "firecrawl-scraper",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/firecrawl-scraper/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "O arquivo funciona apenas como um instalador/ponteiro de metadados externos ('npx skills add -g BenedictKing/firecrawl-scraper'), sem conter nenhuma especificação técnica interna da API Firecrawl.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de documentação de endpoints (/v1/scrape, /v1/crawl), esquemas de parâmetros, exemplos em Python/TypeScript ou tratamento de payloads e respostas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções 'Examples' e 'Troubleshooting' vazias, delegando integralmente para o repositório no GitHub sem autonomia para o agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 60,
+    "cuts": [
+      {
+        "text": "Eliminar seções vazias de redirecionamento ('See GitHub Repository') e substituir o comando 'npx skills add' por documentação real da API REST/SDK do Firecrawl.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Invólucro preliminar para web scraping e crawling via Firecrawl API",
+      "entidades": [
+        "Firecrawl API",
+        "BenedictKing/firecrawl-scraper"
+      ],
+      "keywords": [
+        "firecrawl-scraper",
+        "firecrawl",
+        "web scraping",
+        "crawling",
+        "pdf parsing",
+        "screenshots",
+        "content extraction"
+      ]
+    },
+    "summary": "Skill oca reduzida a um comando npx de instalação e links para GitHub, carecendo de qualquer especificação técnica ou código funcional de scraping."
+  },
+  {
+    "skillName": "firmware-analyst",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/firmware-analyst/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A tag description tem apenas 116 caracteres (muito abaixo dos 200 chars), usa personificação auto-elogiosa ('Expert firmware analyst specializing in...') e não possui a cláusula 'Use when...' nem discriminantes de ferramentas.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro crítico de formatação markdown: um bloco de código fecha com '```' na linha 35 sem ter sido aberto previamente, corrompendo a renderização das linhas 23-35.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "As seções 'Use this skill when' e 'Do not use this skill when' (linhas 47-56) sofreram alucinação/corrupção de scraping, restringindo absurdamente o escopo para 'download from vendor tasks'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Referência a arquivo fantasma: linha 62 orienta a abrir 'resources/implementation-playbook.md', porém o diretório resources não existe no pacote da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Corrigir a abertura do bloco de código desbalanceado na linha 23, remover a seção corrompida 'download from vendor' (linhas 47-56) e expurgar a menção ao arquivo inexistente implementation-playbook.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Análise de segurança, engenharia reversa e emulação de firmware para sistemas embarcados e IoT",
+      "entidades": [
+        "binwalk v3",
+        "Ghidra",
+        "QEMU",
+        "Firmadyne",
+        "jefferson",
+        "ubi_reader",
+        "checksec",
+        "unsquashfs"
+      ],
+      "keywords": [
+        "firmware-analyst",
+        "embedded systems",
+        "iot security",
+        "hardware reverse engineering",
+        "binwalk",
+        "ghidra",
+        "firmadyne",
+        "qemu",
+        "squashfs",
+        "jtag",
+        "uart",
+        "vulnerability assessment"
+      ]
+    },
+    "summary": "Guia avançado de análise de firmware e IoT com ferramentas reais, mas prejudicado por bloco markdown desbalanceado, referências a arquivos fantasmas e seções 'When to use' corrompidas."
+  },
+  {
+    "skillName": "fixing-metadata",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fixing-metadata/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A tag description (279 chars) termina abruptamente com reticências ('...setting up canonical...'), deixando a cláusula final do gatilho incompleta.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' (linhas 14-16) copia verbatim o texto truncado da description com reticências no final.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural entre '## when to apply' (linhas 25-35) e '## When to Use', bem como repetição de orientações entre '## Workflow' (linhas 18-24) e '## review guidance' (linhas 112-119).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover a seção duplicada 'When to Use' truncada (linhas 14-16), unificar 'Workflow' com 'review guidance' e podar o boilerplate genérico de Limitations.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria, correção e padronização de metadados HTML, tags Open Graph, Twitter cards, JSON-LD e SEO",
+      "entidades": [
+        "HTML metadata",
+        "Open Graph",
+        "Twitter cards",
+        "JSON-LD",
+        "robots directives",
+        "canonical URLs"
+      ],
+      "keywords": [
+        "fixing-metadata",
+        "seo",
+        "open graph",
+        "twitter cards",
+        "meta description",
+        "canonical",
+        "json-ld",
+        "favicon",
+        "manifest",
+        "robots meta",
+        "html lang",
+        "hreflang"
+      ]
+    },
+    "summary": "Guia prático e assertivo para implementação e saneamento de metadados SEO/OG, necessitando completar a description cortada e podar seções redundantes de gatilho e workflow."
+  }
+]

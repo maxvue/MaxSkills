@@ -1,6 +1,6 @@
 ---
 name: longbridge-market-data
-description: Real-time quotes, K-line charts, order book, trade ticks, intraday capital flow, market sentiment temperature, trading session schedule, security lists, exchange rates, and IPO calendar for HK/US/A-share/SG via Longbridge. Also covers ADR premium and FX carry frameworks. Triggers:...
+description: "Comprehensive engineering guide and best practices for longbridge market data. Use when configuring, developing, debugging, or optimizing longbridge market data architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for longbridge market data."
 risk: critical
 source: https://github.com/longbridge/skills/tree/main/skills/longbridge-market-data
 source_repo: longbridge/skills

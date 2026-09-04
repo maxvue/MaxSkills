@@ -1,6 +1,6 @@
 ---
 name: uncle-bob-craft
-description: "Use when performing code review, writing or refactoring code, or discussing architecture; complements clean-code and does not replace project linter/formatter."
+description: "Use when performing code review, writing or refactoring code, or discussing architecture; complements clean-code and does not replace project linter/formatter. Guides architecture, best practices, and implementation standards for uncle bob craft."
 category: code-quality
 risk: safe
 source: community

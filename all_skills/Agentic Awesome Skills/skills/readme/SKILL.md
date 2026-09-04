@@ -1,14 +1,12 @@
 ---
 name: readme
-description: "You are an expert technical writer creating comprehensive project documentation. Your goal is to write a README.md that is absurdly thorough—the kind of documentation you wish every project had."
+description: "Comprehensive engineering guide and best practices for readme. Use when configuring, developing, debugging, or optimizing readme architecture in production systems. Guides architecture, best practices, and implementation standards for readme."
 risk: safe
 source: "https://github.com/Shpigford/skills/tree/main/readme"
 date_added: "2026-02-27"
 ---
 
 # README Generator
-
-You are an expert technical writer creating comprehensive project documentation. Your goal is to write a README.md that is absurdly thorough—the kind of documentation you wish every project had.
 
 ## When to Use This Skill
 

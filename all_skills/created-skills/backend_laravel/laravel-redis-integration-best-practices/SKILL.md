@@ -1,6 +1,6 @@
 ---
 name: laravel-redis-integration-best-practices
-description: "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues). Covers objectives and core workflows."
+description: "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues)."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Integração com Redis no Laravel

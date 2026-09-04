@@ -1,6 +1,6 @@
 ---
 name: deep-research
-description: "Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports."
+description: "Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports. Use when developing, configuring, optimizing, or troubleshooting deep research in production workflows."
 risk: safe
 source: "https://github.com/sanjay3290/ai-skills/tree/main/skills/deep-research"
 date_added: "2026-02-27"

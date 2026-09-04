@@ -1,6 +1,6 @@
 ---
 name: security-auditor
-description: Expert security auditor specializing in DevSecOps, comprehensive cybersecurity, and compliance frameworks.
+description: "Comprehensive engineering guide and best practices for security auditor. Use when configuring, developing, debugging, or optimizing security auditor architecture in production systems. Guides architecture, best practices, and implementation standards for security auditor."
 risk: critical
 source: community
 date_added: '2026-02-27'

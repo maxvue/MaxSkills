@@ -1,6 +1,6 @@
 ---
 name: frontend-developer
-description: Build React components, implement responsive layouts, and handle client-side state management. Masters React 19, Next.js 15, and modern frontend architecture.
+description: "Comprehensive engineering guide and best practices for frontend developer. Use when configuring, developing, debugging, or optimizing frontend developer architecture in production systems. Guides architecture, best practices, and implementation standards for frontend developer."
 risk: critical
 source: community
 date_added: '2026-02-27'

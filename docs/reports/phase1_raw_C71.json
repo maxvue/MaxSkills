@@ -1,0 +1,469 @@
+[
+  {
+    "skillName": "unit-testing-test-generate",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/unit-testing-test-generate/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description muito curta (114 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres) e sem cláusula explícita de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivos vagos/promocionais na description ('comprehensive, maintainable', 'strong coverage') e ausência de termos discriminantes técnicos fundamentais (pytest, jest, AST, coverage analyzer, React Testing Library).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Estrutura instrucional excessivamente acoplada a geradores de código Python com AST e templates de string rígidos em vez de diretrizes heurísticas para geração de testes pelo agente LLM.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Condensar classes auxiliares rígidas em Python (TestGenerator e CoverageAnalyzer) em diretrizes conceituais de teste para LLMs.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover o bloco genérico e redundante de limitações ao final do arquivo (linhas 324-328).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração automatizada de testes unitários multilinguagem (Python, JS/TS, React) com análise estrutural de código, cobertura e mocks.",
+      "entidades": [
+        "pytest",
+        "jest",
+        "ast",
+        "TestGenerator",
+        "CoverageAnalyzer",
+        "@testing-library/react",
+        "unittest.mock"
+      ],
+      "keywords": [
+        "unit tests",
+        "pytest",
+        "jest",
+        "ast analysis",
+        "mock fixtures",
+        "react testing library",
+        "coverage gaps",
+        "edge cases",
+        "test generator",
+        "assertions"
+      ]
+    },
+    "summary": "Skill funcional para scaffolding de testes, porém limitada por description curta e geradores rígidos de string via AST que demandam poda e semantização."
+  },
+  {
+    "skillName": "unship",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/unship/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description concisa demais (107 caracteres, abaixo do ideal de 200-400), sem cláusula de gatilho ('Use when...') e sem discriminantes técnicos essenciais como '@unship/cli', 'data-unship-pick' e 'data-unship-option'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Fluxo de trabalho local para comparar variantes de interface geradas por agentes em código real e remover código temporário descartado.",
+      "entidades": [
+        "@unship/cli",
+        "unship doctor",
+        "unship setup",
+        "unship check",
+        "data-unship-pick",
+        "data-unship-option"
+      ],
+      "keywords": [
+        "ui variants",
+        "unship",
+        "local preview",
+        "frontend iteration",
+        "cleanup temporary code",
+        "browser picker",
+        "coding agents",
+        "html data attributes"
+      ]
+    },
+    "summary": "Conteúdo de excelente qualidade e precisão operacional para comparação local de UI, exigindo apenas expansão e inclusão de gatilhos na description."
+  },
+  {
+    "skillName": "unslop-commit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/unslop-commit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada abruptamente com reticências ('...'), cortando as instruções finais de formatação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description viola o critério de ausência de procedimentos operacionais ao detalhar regras mecânicas de caracteres ('Subject ≤72 chars (aim ≤50)').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro gramatical no corpo sob 'When to Use' ('Use this skill when you need rewrites commit messages...') resultante de cópia da description truncada.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Reescrita e padronização de mensagens de commit no padrão Conventional Commits eliminando clichês e vocabulário artificial de IA.",
+      "entidades": [
+        "Conventional Commits",
+        "git commit",
+        "feat",
+        "fix",
+        "chore",
+        "refactor",
+        "BREAKING CHANGE"
+      ],
+      "keywords": [
+        "commit messages",
+        "conventional commits",
+        "unslop",
+        "humanize commits",
+        "git",
+        "imperative mood",
+        "anti-slop",
+        "subject line",
+        "commit body"
+      ]
+    },
+    "summary": "Excelente especificação de estilo e saneamento de commits, necessitando apenas reparar o truncamento da description e ajustar seu foco conceitual."
+  },
+  {
+    "skillName": "unslop-file",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/unslop-file/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter terminando com '...\"', sem fechamento textual adequado.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inconsistência operacional crítica: as instruções exigem executar 'python3 -m scripts <filepath>' e 'humanize --deterministic', mas o diretório 'scripts/' irmão não existe no pacote da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Falha gramatical em 'When to Use' ('Use this skill when you need humanize...') e ausência de cláusula de ativação formal 'Use when...' na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Humanização de documentações e arquivos de contexto em linguagem natural removendo tiques, jargões e vocabulário artificial de IA.",
+      "entidades": [
+        "CLAUDE.md",
+        "AGENTS.md",
+        "Anthropic SDK",
+        "audit.json",
+        "scripts",
+        "humanize"
+      ],
+      "keywords": [
+        "humanize",
+        "ai-isms",
+        "unslop",
+        "burstiness",
+        "markdown files",
+        "claude.md",
+        "stock vocab",
+        "anti-sycophancy",
+        "deterministic pass",
+        "prose editing"
+      ]
+    },
+    "summary": "Conjunto valioso de regras de desoxigenação textual de IA, porém prejudicado por dependência de scripts ausentes e description truncada."
+  },
+  {
+    "skillName": "usage-based-pricing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/usage-based-pricing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description recorre a keyword stuffing ('Trigger phrases: usage-based pricing, API pricing...') em vez de formular uma condição semântica de gatilho natural.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro gramatical em 'When to Use' ('Use this skill when you need design pricing models...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Links quebrados para skills externas inexistentes no repositório local (`/devmarketing-skills/skills/free-tier-strategy` e correlatas).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Condensar faturas simuladas, exemplos prolixos e remover referências quebradas a caminhos externos de skills, economizando cerca de 15% do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia estratégico para concepção e transparência de modelos de precificação baseados em uso para produtos e APIs de desenvolvedores.",
+      "entidades": [
+        "Stripe Billing",
+        "Orb",
+        "Lago",
+        "Metronome",
+        "Chargebee",
+        "AWS Lambda",
+        "Cloudflare",
+        "Segment"
+      ],
+      "keywords": [
+        "usage-based pricing",
+        "metered billing",
+        "api pricing",
+        "spending caps",
+        "cost calculator",
+        "developer billing",
+        "tier comparison",
+        "mau pricing",
+        "pricing transparency"
+      ]
+    },
+    "summary": "Excelente compêndio sobre precificação para desenvolvedores, necessitando refatorar o keyword stuffing da description e podar 15% de exemplos e links quebrados."
+  },
+  {
+    "skillName": "user-thoughts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/user-thoughts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 185 caracteres, situando-se ligeiramente abaixo do patamar de 200 caracteres para atender plenamente à densidade ideal de 200-400 chars.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Persistência contínua de decisões arquiteturais, restrições e preferências do usuário em uma base mdbase local entre sessões de agentes.",
+      "entidades": [
+        ".ustht",
+        "define.ini",
+        "mdbase",
+        "sortin.py",
+        "resort",
+        "init.py",
+        "show_raw.py",
+        "show_mdbase.py"
+      ],
+      "keywords": [
+        "project memory",
+        "mdbase",
+        "user intent",
+        "decision persistence",
+        "session memory",
+        "ustht",
+        "context retention",
+        "architecture decisions",
+        "runtime modes"
+      ]
+    },
+    "summary": "Skill modelar com arquitetura local completa, scripts auxiliares empacotados e governança estrita de memória persistente, com leve necessidade de expansão na description."
+  },
+  {
+    "skillName": "using-neon",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/using-neon/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Skill oca estruturada exclusivamente em tabelas que apontam para 14 arquivos no diretório 'references/' inexistentes no repositório.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description puramente promocional e definicional sobre o Neon copiada verbatim para a introdução, sem cláusula de gatilho ('Use when...') nem indicação de ações concretas.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Comandos curl indicam URL incorreta para documentação ('https://neon.com/llms.txt'), divergindo do domínio oficial 'neon.tech'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 50,
+    "cuts": [
+      {
+        "text": "Eliminar tabelas de links mortos para 'references/*.md' e substituir por instruções substantivas e autossuficientes de conexão, drivers e CLI do Neon.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia de referência e integração com o banco de dados serverless Postgres da plataforma Neon.",
+      "entidades": [
+        "Neon",
+        "Postgres",
+        "@neondatabase/serverless",
+        "Drizzle ORM",
+        "@neondatabase/auth",
+        "@neondatabase/neon-js",
+        "neon-api"
+      ],
+      "keywords": [
+        "neon",
+        "serverless postgres",
+        "database branching",
+        "autoscaling",
+        "drizzle orm",
+        "connection pooling",
+        "neon-js",
+        "scale-to-zero"
+      ]
+    },
+    "summary": "Skill em estado ruim por constituir uma casca oca de links mortos para referências ausentes, com description promocional e URL incorreta."
+  },
+  {
+    "skillName": "ux-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ux-audit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente concisa (95 caracteres, muito abaixo dos 200 caracteres mínimos) e sem gatilho formal ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro gramatical no corpo sob 'When to Use' ('Use this skill when you need audit screens...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Menção a comandos de skills externas do ecossistema upstream styleseed (`/ss-a11y`, `/ss-review`, etc.) sem contexto ou garantia de disponibilidade.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria heurística de usabilidade e experiência do usuário em interfaces mobile baseada nas 10 heurísticas de Nielsen e padrões de tela sensível ao toque.",
+      "entidades": [
+        "Nielsen Usability Heuristics",
+        "Lucide",
+        "BottomNav",
+        "pb-safe",
+        "skeleton screens"
+      ],
+      "keywords": [
+        "ux audit",
+        "heuristics",
+        "usability",
+        "nielsen",
+        "touch targets",
+        "mobile ux",
+        "dark patterns",
+        "empty states",
+        "error recovery"
+      ]
+    },
+    "summary": "Checklist objetivo e muito prático para auditoria de telas mobile, demandando apenas enriquecimento da description e saneamento de referências de upstream."
+  },
+  {
+    "skillName": "ux-copy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ux-copy/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Exigência mandatória de leitura de arquivos inexistentes no pacote da skill ('Read engine/UX-WRITING.md first' e 'DESIGN-LANGUAGE.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description curta (122 caracteres, abaixo de 200 chars) e sem cláusula explícita de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falha gramatical em 'When to Use' ('Use this skill when you need generate UX microcopy...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração de microcopy e textos de interface (CTAs, erros, toasts, empty states) com voz ativa e tom casual-polido.",
+      "entidades": [
+        "CTA",
+        "EmptyState",
+        "Toast Notifications",
+        "Confirmation Dialogs"
+      ],
+      "keywords": [
+        "ux copy",
+        "microcopy",
+        "button labels",
+        "error messages",
+        "empty states",
+        "toasts",
+        "tone of voice",
+        "ux writing",
+        "active voice"
+      ]
+    },
+    "summary": "Regras de redação de microcopy bem estruturadas, prejudicadas pela menção a arquivos upstream inexistentes como leitura prévia obrigatória e description subdimensionada."
+  },
+  {
+    "skillName": "ux-feedback",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ux-feedback/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description muito curta (95 caracteres, muito abaixo dos 200 chars recomendados) e desprovida de cláusula de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Instruções citam leitura de arquivo de design system upstream não empacotado ('DESIGN-LANGUAGE.md') no passo 2.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro gramatical em 'When to Use' ('Use this skill when you need add appropriate user feedback states...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação dos quatro estados canônicos de feedback (loading skeleton, empty state, erro e sucesso toast) em componentes React/Tailwind.",
+      "entidades": [
+        "EmptyState",
+        "AlertCircle",
+        "Button",
+        "animate-pulse",
+        "prefers-reduced-motion",
+        "toast"
+      ],
+      "keywords": [
+        "feedback states",
+        "skeleton loading",
+        "empty state",
+        "error state",
+        "toast notification",
+        "data card",
+        "tailwind",
+        "react",
+        "ux feedback"
+      ]
+    },
+    "summary": "Padrões de implementação de estados de feedback em React extremamente limpos e completos, precisando apenas de ajustes na description e remoção de menção a arquivo externo ausente."
+  }
+]

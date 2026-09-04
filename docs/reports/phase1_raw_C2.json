@@ -1,0 +1,503 @@
+[
+  {
+    "skillName": "agent-framework-azure-ai-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-framework-azure-ai-py/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 88 caracteres ('Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK.'), abaixo da faixa recomendada de 200 a 400 caracteres, e desprovida de cláusula condicional de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite termos técnicos discriminantes centrais detalhados no arquivo, como AzureAIAgentsProvider, HostedCodeInterpreterTool, HostedWebSearchTool, MCPStreamableHTTPTool, threads persistentes e streaming de respostas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A seção '## Reference Files' (linhas 330-336) referencia arquivos locais inexistentes (references/tools.md, references/mcp.md, references/threads.md, references/advanced.md) que não foram incluídos no pacote da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a lista de arquivos de referência inexistentes em '## Reference Files' (L330-336) e podar o boilerplate genérico das seções '## When to Use' e '## Limitations' (L337-344).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de agentes persistentes na plataforma Azure AI Foundry utilizando o Microsoft Agent Framework Python SDK com ferramentas hospedadas, integração MCP e gerenciamento de conversação em threads.",
+      "entidades": [
+        "AzureAIAgentsProvider",
+        "HostedCodeInterpreterTool",
+        "HostedFileSearchTool",
+        "HostedWebSearchTool",
+        "HostedMCPTool",
+        "MCPStreamableHTTPTool",
+        "AzureCliCredential",
+        "DefaultAzureCredential",
+        "AgentThread",
+        "Pydantic"
+      ],
+      "keywords": [
+        "azure-ai-foundry",
+        "agent-framework",
+        "python-sdk",
+        "azure-identity",
+        "hosted-tools",
+        "bing-search",
+        "code-interpreter",
+        "mcp-streamable",
+        "agent-threads",
+        "multi-turn",
+        "structured-outputs",
+        "asyncio",
+        "streaming-responses"
+      ]
+    },
+    "summary": "Implementação técnica de excelência para Azure AI Foundry, necessitando expansão da description com gatilho e expurgo de referências a arquivos inexistentes."
+  },
+  {
+    "skillName": "agent-harness-fault-injection",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-harness-fault-injection/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 141 caracteres ('Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker, checkpoint, memory, or orchestration failures.'), abaixo dos 200-400 caracteres ideais, focando apenas no gatilho e omitindo os artefatos concretos gerados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite os vereditos padronizados emitidos pelo harness (recovered, contained_failure, unrecoverable, inconclusive) e os contratos de recuperação durável e idempotência.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Injeção determinística de falhas em harness de testes para validar resiliência, isolamento, contratos de recuperação de estado e orquestração de agentes.",
+      "entidades": [
+        "RecoveryContract",
+        "DeterministicInjectionSchedule",
+        "FaultMatrix",
+        "HarnessEvidence",
+        "contained_failure",
+        "recovered",
+        "unrecoverable",
+        "inconclusive"
+      ],
+      "keywords": [
+        "fault-injection",
+        "agent-harness",
+        "deterministic-recovery",
+        "state-machine",
+        "checkpoint-store",
+        "mcp-timeout",
+        "worker-restart",
+        "branch-join",
+        "budget-tracking",
+        "evidence-timeline",
+        "idempotency-key"
+      ]
+    },
+    "summary": "Skill de engenharia de confiabilidade e resiliência impecável e densa, sem qualquer bloat, demandando apenas ampliação da description."
+  },
+  {
+    "skillName": "agent-manager-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-manager-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta de 109 caracteres ('Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly scheduling.') sem o gatilho canônico explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo anêmico (apenas 48 linhas no total) e excessivamente dependente de clonagem de repositório git externo (fractalmind-ai/agent-manager-skill), sem documentar schemas de configuração da pasta agents/, sintaxe cron interna ou tratamento de erros.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seção de limitações genérica em formato boilerplate (linhas 44-48) consumindo 10% do conteúdo total do arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate estéril de '## Limitations' (L44-48) e substituir o passo de dependência cega 'git clone' por definições inline estruturadas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gerenciamento e execução paralela de múltiplos agentes locais de linha de comando em sessões tmux com agendamento via cron.",
+      "entidades": [
+        "tmux",
+        "python3",
+        "main.py",
+        "fractalmind-ai/agent-manager-skill"
+      ],
+      "keywords": [
+        "agent-manager",
+        "tmux-sessions",
+        "cli-agents",
+        "cron-scheduling",
+        "process-monitoring",
+        "task-assignment",
+        "doctor-command",
+        "tail-logs",
+        "multi-agent-cli"
+      ]
+    },
+    "summary": "Skill rasa que age meramente como wrapper de repositório externo, necessitando de documentação intrínseca das configurações e expansão da description."
+  },
+  {
+    "skillName": "agent-memory-mcp",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-memory-mcp/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 133 caracteres ('A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Architecture, Patterns, Decisions).'), abaixo dos 200-400 chars e sem cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não cita as ferramentas MCP centrais que o servidor disponibiliza (memory_search, memory_write, memory_read, memory_stats) nem a interface de dashboard.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de encerramento redundantes e genéricas em '## When to Use' (L97-99) e '## Limitations' (L100-105).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Eliminar o boilerplate das seções '## When to Use' (L97-99) e '## Limitations' (L100-105) preservando o aviso de segurança de commit pin.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Servidor MCP em Node.js para gerenciamento e persistência de memória de longo prazo pesquisável em projetos de IA com dashboard integrado.",
+      "entidades": [
+        "Node.js",
+        "npm",
+        "memory_search",
+        "memory_write",
+        "memory_read",
+        "memory_stats",
+        "webzler/agentMemory"
+      ],
+      "keywords": [
+        "mcp-server",
+        "agent-memory",
+        "persistent-memory",
+        "knowledge-management",
+        "architecture-decisions",
+        "memory-dashboard",
+        "memory-stats",
+        "node-mcp",
+        "memory-search"
+      ]
+    },
+    "summary": "Boa especificação de servidor MCP para memória persistente com revisão cuidadosa de segurança, exigindo enriquecimento da description e poda de boilerplate."
+  },
+  {
+    "skillName": "agent-memory-systems",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-memory-systems/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 241 caracteres mas inicia com preâmbulo retórico/promocional ('Memory is the cornerstone of intelligent agents. Without it, every interaction starts from zero...'), violando o Critério 10 e carecendo de gatilho explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Apesar da riqueza técnica do arquivo (mais de 1000 linhas), a description omite frameworks fundamentais abordados como CoALA, LangMem, MemGPT/Letta, Qdrant, Pinecone e técnicas de decaimento de memória.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Redundâncias estruturais: repetição literal da abertura nas linhas 14-17, lista anêmica de Capabilities (L37-49), lista excessiva de 13 variações de 'User mentions or implies' em '## When to Use' (L1071-1084) e boilerplate genérico em '## Limitations' (L1085-1089).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Condensar a lista de Capabilities (L37-49), podar a lista redundante de gatilhos textuais em '## When to Use' (L1071-1084) e remover o boilerplate de limitações (L1085-1089).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura aprofundada de sistemas de memória para agentes cobrindo memória semântica, episódica, procedural, seleção de vector stores, estratégias de chunking e decaimento temporal.",
+      "entidades": [
+        "CoALA",
+        "LangMem",
+        "MemGPT",
+        "Letta",
+        "Mem0",
+        "Pinecone",
+        "Qdrant",
+        "Weaviate",
+        "ChromaDB",
+        "pgvector",
+        "RecursiveCharacterTextSplitter",
+        "SemanticChunker",
+        "MarkdownHeaderTextSplitter",
+        "CrossEncoder"
+      ],
+      "keywords": [
+        "agent-memory",
+        "semantic-memory",
+        "episodic-memory",
+        "procedural-memory",
+        "vector-stores",
+        "chunking-strategies",
+        "contextual-chunking",
+        "background-memory",
+        "memory-decay",
+        "temporal-scoring",
+        "conflict-resolution",
+        "token-budget"
+      ]
+    },
+    "summary": "Tratado enciclopédico de alta densidade e código executável sobre arquitetura cognitiva de memória, necessitando remoção de retórica na description e poda de listas redundantes."
+  },
+  {
+    "skillName": "agent-orchestration-improve-agent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-orchestration-improve-agent/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Vazamento evidente de artefato de raciocínio de modelo de linguagem (Extended Thinking leak) na linha 13: '[Extended thinking: Agent optimization requires a data-driven approach combining performance metrics...]'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description com apenas 116 caracteres ('Systematic improvement of existing agents through performance analysis, prompt engineering, and continuous iteration.'), muito curta, genérica e sem o gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de comandos e ferramentas conceituais hipotéticas não padronizadas sem executável real no workspace (ex: 'context-manager: analyze-agent-performance', 'prompt-engineer: chain-of-thought-optimization', 'parallel-test-runner').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Boilerplate genérico em '## Limitations' (linhas 354-358) e redação discursiva redundante nas fases de métricas e A/B testing.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o leak '[Extended thinking: ...]' (linha 13), podar o boilerplate de limitações (L354-358) e condensar listas redundantes de critérios de avaliação humana e métricas operacionais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Processo de melhoria contínua de agentes de IA através de análise de métricas de baseline, engenharia de prompts, testes A/B e implantação gradual com gatilhos de rollback.",
+      "entidades": [
+        "ChainOfThought",
+        "FewShotExampleOptimization",
+        "ConstitutionalAI",
+        "ABTestingFramework",
+        "StagedRollout",
+        "CanaryRelease"
+      ],
+      "keywords": [
+        "agent-optimization",
+        "performance-metrics",
+        "prompt-engineering",
+        "failure-mode-analysis",
+        "ab-testing",
+        "few-shot-tuning",
+        "constitutional-ai",
+        "staged-rollout",
+        "canary-deployment",
+        "rollback-triggers",
+        "token-efficiency"
+      ]
+    },
+    "summary": "Playbook conceitual válido para ciclo de vida de agentes, porém comprometido por vazamento de prompt de raciocínio, pseudotools e description deficiente."
+  },
+  {
+    "skillName": "agent-qa-authoring",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-qa-authoring/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 138 caracteres ('Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while preserving canonical IDs and schema contracts.'), abaixo de 200 caracteres e sem cláusula condicional explícita 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não discrimina nominalmente as ferramentas MCP essenciais (agent_qa_discover, agent_qa_generate_id, agent_qa_validate_definition) nem os contratos de prefixos de ID (t_, s_, h_, r_, obs_).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, edição, validação e execução de suítes, testes e hooks do Agent QA via MCP e CLI respeitando contratos rígidos de schema e IDs canônicos.",
+      "entidades": [
+        "agent_qa_discover",
+        "agent_qa_get_config",
+        "agent_qa_generate_id",
+        "agent_qa_validate_test",
+        "agent_qa_validate_suite",
+        "agent_qa_validate_definition",
+        "agent_qa_enqueue_test_run",
+        "npx agent-qa"
+      ],
+      "keywords": [
+        "agent-qa",
+        "qa-authoring",
+        "canonical-ids",
+        "schema-validation",
+        "mcp-tools",
+        "cli-fallback",
+        "test-suites",
+        "test-hooks",
+        "preconditions",
+        "web-testing",
+        "mobile-testing"
+      ]
+    },
+    "summary": "Skill concisa e altamente técnica sobre autoria e validação de testes Agent QA sem bloat, necessitando apenas expansão da description com gatilho condicional."
+  },
+  {
+    "skillName": "agent-qa-debug-fix",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-qa-debug-fix/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 143 caracteres ('Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local code without hiding product or infrastructure defects.'), abaixo dos 200-400 chars e sem 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite as ferramentas de inspeção de evidências (agent_qa_get_run, agent_qa_get_run_artifact, agent_qa_classify_failure) e a regra central de correção mínima e não mascaramento de falhas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Depuração e aplicação de patches mínimos em testes falhos de Agent QA a partir de evidências MCP, artefatos e logs locais sem mascarar defeitos reais do produto.",
+      "entidades": [
+        "agent_qa_get_run",
+        "agent_qa_get_run_steps",
+        "agent_qa_get_run_artifact",
+        "agent_qa_get_run_logs",
+        "agent_qa_classify_failure",
+        "agent_qa_validate_definition"
+      ],
+      "keywords": [
+        "agent-qa",
+        "debugging",
+        "patch-verification",
+        "mcp-evidence",
+        "artifact-inspection",
+        "minimal-change",
+        "defect-classification",
+        "self-healing",
+        "root-cause-analysis"
+      ]
+    },
+    "summary": "Excelente diretriz de depuração baseada em evidências reais para Agent QA sem bloat, demandando apenas adequação da description à faixa de 200-400 caracteres."
+  },
+  {
+    "skillName": "agent-qa-result-triage",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-qa-result-triage/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 126 caracteres ('Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence, and actionable next steps.'), abaixo da extensão recomendada e sem gatilho explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não cita as categorias fixas de classificação (como timeout, element_not_found, assertion_failure, hook_failure) nem o encaminhamento estruturado para agent-qa-debug-fix.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Triagem e classificação taxonômica de execuções com falha do Agent QA a partir de evidências MCP, logs e artefatos, com determinação de confiança e próximos passos.",
+      "entidades": [
+        "agent_qa_get_run",
+        "agent_qa_get_run_artifact",
+        "agent_qa_get_run_steps",
+        "agent_qa_get_run_logs",
+        "agent_qa_classify_failure",
+        "agent-qa-debug-fix"
+      ],
+      "keywords": [
+        "result-triage",
+        "agent-qa",
+        "failure-classification",
+        "timeout",
+        "appium-startup",
+        "browser-disconnect",
+        "element-not-found",
+        "assertion-failure",
+        "mcp-evidence",
+        "triage-confidence"
+      ]
+    },
+    "summary": "Guia de triagem operacional límpido, estritamente categorizado e sem bloat, necessitando apenas de ajuste semântico na description para 200-400 caracteres."
+  },
+  {
+    "skillName": "agent-self-scheduling",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-self-scheduling/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 106 caracteres ('Schedule AI agent runs with cron, loops, or external clocks while avoiding unsafe tight autonomous timers.'), abaixo da faixa de 200-400 chars e sem gatilho canônico explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não discrimina os modelos arquiteturais e ferramentas tratadas no documento (Camp A: Claude Code, Codex, Pi com cron/systemd vs Camp B: Hermes gateway scheduler com zero-token mode, cmux hooks e heartbeat patterns).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais para agendamento seguro e recorrente de agentes de IA usando cron, systemd timers, loops externos e schedulers embutidos como Hermes e cmux.",
+      "entidades": [
+        "claude-code",
+        "codex",
+        "pi",
+        "hermes",
+        "cmux",
+        "cron",
+        "systemd"
+      ],
+      "keywords": [
+        "agent-scheduling",
+        "cron-jobs",
+        "systemd-timer",
+        "heartbeat-pattern",
+        "hermes-gateway",
+        "zero-token-mode",
+        "cmux-hooks",
+        "one-shot-agents",
+        "autonomous-timers",
+        "permission-flags",
+        "amnesiac-runs"
+      ]
+    },
+    "summary": "Excelente compêndio prático sobre automação e agendamento seguro de agentes autônomos, sem bloat, exigindo expansão da description com gatilho e entidades discriminantes."
+  }
+]

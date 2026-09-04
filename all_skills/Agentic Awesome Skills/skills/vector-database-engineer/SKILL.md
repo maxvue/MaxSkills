@@ -66,3 +66,24 @@ Expert in vector databases, embedding strategies, and semantic search implementa
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+
+### Index Fine-Tuning Guidelines (HNSW & Quantization)
+
+Consulte o guia completo em `resources/implementation-playbook.md` para benchmarks e rotinas em Python com hnswlib/faiss.
+
+#### Matriz de Hiperparâmetros HNSW:
+- **`M` (conexões bidirecionais por nó):**
+  - Textos/busca geral: `16` (padrão)
+  - Alta dimensionalidade / precisão crítica: `32` a `64`
+- **`efConstruction` (profundidade de exploração na indexação):**
+  - Padrão: `64` a `128`
+  - Alta revocação (>98% recall): `200` a `400`
+- **`efSearch` (profundidade de exploração em runtime na query):**
+  - Baixa latência (<5ms): `16` a `32`
+  - Balanceado: `64`
+  - Máxima revocação: `128` a `256`
+
+#### Estratégias de Quantização:
+- **FP16:** 50% economia de memória, perda desprezível de recall (<0.1%).
+- **INT8 (Scalar Quantization):** 75% economia de memória, perda <1% de recall.
+- **Product Quantization (PQ):** 85-95% economia de memória, ideal para bases > 10M de vetores em RAM limitada.

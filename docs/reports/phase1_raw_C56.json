@@ -1,0 +1,496 @@
+[
+  {
+    "skillName": "remote-gpu-trainer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/remote-gpu-trainer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 213 caracteres e excelente densidade técnica, mas não utiliza a cláusula canônica de gatilho 'Use when...' no frontmatter (inicia diretamente no imperativo 'Deploy, monitor, and debug... on RENTED/remote instances...'), o que reduz a padronização de ativação do agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Orquestração, monitoramento durável, triagem de falhas (OOM/NaN) e desligamento seguro de faturamento para treinos de GPU em instâncias alugadas ou remotas.",
+      "entidades": [
+        "AutoDL",
+        "RunPod",
+        "vast.ai",
+        "Lambda",
+        "Slurm",
+        "Kubernetes",
+        "torchrun",
+        "accelerate",
+        "DeepSpeed",
+        "FSDP",
+        "PyTorch",
+        "nvidia-smi",
+        "tmux"
+      ],
+      "keywords": [
+        "remote GPU",
+        "GPU rental",
+        "spot preemption",
+        "resumable training",
+        "AutoDL",
+        "RunPod",
+        "vast.ai",
+        "Slurm",
+        "CUDA OOM",
+        "loss NaN",
+        "tmux",
+        "billing safety",
+        "teardown gate",
+        "durable monitoring",
+        "health patrol",
+        "checkpoint resume"
+      ]
+    },
+    "summary": "Skill robusta e de alta qualidade técnica para gestão de treinos em GPUs remotas, necessitando apenas da inclusão formal da cláusula 'Use when...' na description."
+  },
+  {
+    "skillName": "remotion-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/remotion-best-practices/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão extremamente reduzida da description (54 caracteres), violando severamente o piso recomendado de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional 'Use when...' e de clareza de ação na description, funcionando como mero título ('Best practices for Remotion - Video creation in React').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão total de termos discriminantes essenciais cobertos no catálogo de regras, tais como Three.js, Mediabunny, audio/video trimming, SRT captions, Lottie, TailwindCSS, transitions e dynamic calculateMetadata.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Melhores práticas e padrões de desenvolvimento para criação e composição de vídeos programáticos em React utilizando a biblioteca Remotion.",
+      "entidades": [
+        "Remotion",
+        "React",
+        "Three.js",
+        "React Three Fiber",
+        "Mediabunny",
+        "TailwindCSS",
+        "Lottie",
+        "@remotion/captions"
+      ],
+      "keywords": [
+        "Remotion",
+        "React video",
+        "video composition",
+        "animations",
+        "audio trimming",
+        "calculateMetadata",
+        "captions",
+        "SRT subtitles",
+        "Mediabunny",
+        "Three.js",
+        "Lottie",
+        "TailwindCSS",
+        "transitions",
+        "spring animations",
+        "dynamic metadata"
+      ]
+    },
+    "summary": "Guia de regras valioso para Remotion em React, porém prejudicado por uma description telegráfica de 54 caracteres sem discriminantes nem cláusula de gatilho."
+  },
+  {
+    "skillName": "repo-maintainer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/repo-maintainer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Acoplamento desnecessário a regras específicas do repositório upstream 'agentic-awesome-skills' (linhas 32-34 citando antigravity-maintainer-batch-release e npm run merge:batch) e contratos FAF (linha 90), comprometendo a universalidade da skill para repositórios genéricos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A description possui 199/200 caracteres, operando no limiar exato inferior e com margem para enriquecer discriminantes de validação de PRs e hygiene.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover as linhas 32-35 (regras e comandos específicos do repo agentic-awesome-skills) e linhas 90-91 (inspeção de comandos FAF) para manter o guia 100% agnóstico e reutilizável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria e reparo sistemático da higiene de repositórios de software abrangendo dependências, artefatos, pipelines de CI, documentação e qualidade de código.",
+      "entidades": [
+        "Git",
+        "CI/CD",
+        "package.json",
+        "lockfile",
+        "AGENTS.md",
+        "worktrees",
+        "pull requests"
+      ],
+      "keywords": [
+        "repository maintenance",
+        "git hygiene",
+        "dependency audit",
+        "CI health",
+        "branch protection",
+        "code quality",
+        "repo cleanup",
+        "pre-release hardening",
+        "lockfile agreement",
+        "secrets exposure",
+        "dead code",
+        "PR policy"
+      ]
+    },
+    "summary": "Excelente roteiro de manutenção e auditoria de repositórios, demandando desvinculação de diretivas específicas do repositório upstream agentic-awesome-skills."
+  },
+  {
+    "skillName": "resolving-merge-conflicts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/resolving-merge-conflicts/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 71 caracteres, severamente abaixo da faixa padrão recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de termos discriminantes na description sobre os passos reais do fluxo: resolução de hunks, verificação automatizada (typecheck, tests, format) e rastreamento de intenção em commits/PRs.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Regra dogmática inflexível no passo 3 ('Always resolve; never --abort'), que pode induzir o agente a comportamentos de risco quando um merge/rebase for incorreto ou destrutivo e a intenção do desenvolvedor for abortar.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Resolução estruturada de conflitos de merge e rebase no Git preservando as intenções originais de ambas as ramificações e validando via suíte de testes.",
+      "entidades": [
+        "Git",
+        "git merge",
+        "git rebase",
+        "git diff",
+        "git log"
+      ],
+      "keywords": [
+        "merge conflicts",
+        "git rebase",
+        "git merge",
+        "conflict resolution",
+        "hunk resolution",
+        "commit intent",
+        "automated checks",
+        "typecheck",
+        "git stage",
+        "conflict markers",
+        "trade-off analysis"
+      ]
+    },
+    "summary": "Instrução concisa para resolução de conflitos Git, mas com description telegráfica de 71 caracteres e diretiva rígida anti-abort que carece de flexibilidade operacional."
+  },
+  {
+    "skillName": "review-and-simplify-changes",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/review-and-simplify-changes/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter com quebra sintática de reticências inacabadas ('...'), terminando abruptamente em '\"review...' aos 268 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Replicação exata do texto truncado no corpo da skill (linha 16: 'Use when the user asks to \"simplify code\", \"review changed code\", \"check for code reuse\", \"review code quality\", \"review...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Acoplamento exclusivo à ferramenta proprietária Codex CLI (citação direta a 'Codex sub-agents', 'apply_patch' e sub-agentes com roles explorer/reviewer do Codex), limitando o uso agnóstico por outros orquestradores de IA.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a linha 16 que repete o gatilho truncado da description e condensar as limitações genéricas redundantes nas linhas 198-203.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Revisão paralela de diffs do Git estruturada em quatro pilares (reuso, qualidade, eficiência e clareza) com aplicação prudente de correções que preservam comportamento.",
+      "entidades": [
+        "Git",
+        "git diff",
+        "AGENTS.md",
+        "Codex CLI",
+        "sub-agents"
+      ],
+      "keywords": [
+        "code review",
+        "simplify changes",
+        "git diff review",
+        "code reuse",
+        "code quality",
+        "efficiency review",
+        "standards review",
+        "safe refactoring",
+        "behavior-preserving fixes",
+        "parallel review",
+        "diff inspection"
+      ]
+    },
+    "summary": "Estrutura conceitual excelente de revisão multi-perspectiva, porém comprometida por truncamento sintático da description no frontmatter/corpo e forte acoplamento ao Codex CLI."
+  },
+  {
+    "skillName": "review-animations",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/review-animations/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 128 caracteres, ficando abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite termos técnicos altamente discriminantes presentes no corpo da skill, como CSS transitions, Framer Motion, WAAPI, keyframes, transform-origin, sub-300ms e prefers-reduced-motion, restringindo-se a termos genéricos ('craft, performance, accessibility').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Revisão técnica especializada de código de animações e motion design em interfaces frontend com critérios rigorosos de aceleração por GPU, curvas de easing, timing e acessibilidade.",
+      "entidades": [
+        "CSS transitions",
+        "CSS keyframes",
+        "Framer Motion",
+        "WAAPI",
+        "cubic-bezier",
+        "Radix UI"
+      ],
+      "keywords": [
+        "animation review",
+        "motion design",
+        "CSS transitions",
+        "Framer Motion",
+        "WAAPI",
+        "GPU-only properties",
+        "prefers-reduced-motion",
+        "transform-origin",
+        "spring physics",
+        "easing curves",
+        "sub-300ms",
+        "motion craft",
+        "interruptible animations"
+      ]
+    },
+    "summary": "Guia técnico de altíssimo nível para revisão de animações e motion design, necessitando apenas expandir a description para 200-400 caracteres com seus termos discriminantes."
+  },
+  {
+    "skillName": "revops",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/revops/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura e otimização de operações de receita (RevOps), padronizando ciclo de vida de leads, pontuação fit/engagement, roteamento ágil e automações de CRM entre marketing, vendas e CS.",
+      "entidades": [
+        "HubSpot",
+        "Salesforce",
+        "Calendly",
+        "SavvyCal",
+        "Clearbit",
+        "Apollo",
+        "ZoomInfo",
+        "ActiveCampaign",
+        "Zapier"
+      ],
+      "keywords": [
+        "RevOps",
+        "revenue operations",
+        "lead lifecycle",
+        "lead scoring",
+        "MQL",
+        "SQL",
+        "lead routing",
+        "speed-to-lead",
+        "pipeline stages",
+        "CRM automation",
+        "deal desk",
+        "dedup",
+        "CAC",
+        "LTV to CAC",
+        "pipeline velocity"
+      ]
+    },
+    "summary": "Skill de alta excelência técnica e semântica, com description exemplar de 216 caracteres, gatilhos claros e documentação operacional completa para RevOps."
+  },
+  {
+    "skillName": "riffkit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/riffkit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 191 caracteres (ligeiramente abaixo dos 200 chars) e utiliza tom promocional e publicitário ('winning TikTok', 'proven video's emotion formula'), em desacordo com o critério de linguagem anti-promocional.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ausência do prefixo formal de gatilho 'Use when...' na description e omissão de discriminantes técnicos de sua API REST (endpoints /api/riffs, vee_session, batch polling).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração com a API hosted do Riffkit para análise da estrutura emocional de vídeos curtos do TikTok e geração automatizada de criativos publicitários em 9 idiomas.",
+      "entidades": [
+        "Riffkit API",
+        "TikTok",
+        "Meta Ads",
+        "TikTok Ads",
+        "vee_session"
+      ],
+      "keywords": [
+        "Riffkit",
+        "TikTok video",
+        "UGC ads",
+        "short-form video",
+        "video localization",
+        "AI video generation",
+        "video marketing",
+        "ad creative",
+        "vee_session",
+        "billable render",
+        "content anchor",
+        "batch tasks"
+      ]
+    },
+    "summary": "Integração segura com a API do Riffkit contendo fortes salvaguardas de faturamento e tokens, necessitando de ajustes na description para eliminar viés promocional e padronizar o gatilho."
+  },
+  {
+    "skillName": "robius-app-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/robius-app-architecture/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description adota antipadrão de 'keyword stuffing' ('Triggers on: Tokio, async, submit_async_request, 异步, 架构, SignalToUI...'), gerando baixa coesão sintática e semântica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Uso de artifício apelativo de prompt engineering ('CRITICAL: Use for...'), violando o critério de linguagem sóbria e descritiva.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão das tecnologias centrais 'Makepad' e 'Rust' no frontmatter da description, acompanhada da inclusão de termos amplos e genéricos ('Tokio, async, 异步, 架构'), provocando alto risco de sobre-ativação para qualquer aplicação assíncrona em Rust.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais para aplicações Makepad em Rust, sincronizando a thread de renderização de interface com o runtime assíncrono Tokio através de canais MPSC e filas lock-free SegQueue.",
+      "entidades": [
+        "Makepad",
+        "Robius",
+        "Robrix",
+        "Moly",
+        "Tokio",
+        "Crossbeam (SegQueue)",
+        "Rust"
+      ],
+      "keywords": [
+        "Robius",
+        "Makepad",
+        "Rust GUI",
+        "Tokio runtime",
+        "async UI",
+        "Crossbeam SegQueue",
+        "SignalToUI",
+        "Cx post_action",
+        "MatchEvent",
+        "lock-free queue",
+        "worker task",
+        "Robrix",
+        "Moly",
+        "app architecture"
+      ]
+    },
+    "summary": "Conteúdo arquitetural de alta sofisticação para Makepad/Rust, mas com description comprometida por keyword stuffing, apelo de criticidade artificial e omissão dos termos vitais Makepad e Rust."
+  },
+  {
+    "skillName": "robot-framework-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/robot-framework-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter terminando abruptamente com reticências no meio de uma lista ('Triggers on: \"Robot Framework\", \"*** Test Cases ***\",...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Repetição do texto truncado no corpo da skill (linha 16) com falha gramatical ('Use this skill when you need generates Robot Framework tests...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de links remotos hardcoded para o GitHub upstream (linha 19: https://github.com/LambdaTest/agent-skills/tree/main/...) em vez de referências relativas limpas à documentação local.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover a linha 16 que duplica o texto truncado e converter as URLs absolutas do GitHub na linha 19 para links relativos locais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento e automação de testes de aceitação e integração para interfaces web e APIs REST utilizando a sintaxe keyword-driven do Robot Framework em Python.",
+      "entidades": [
+        "Robot Framework",
+        "SeleniumLibrary",
+        "RequestsLibrary",
+        "Python",
+        "LambdaTest",
+        "pabot"
+      ],
+      "keywords": [
+        "Robot Framework",
+        "SeleniumLibrary",
+        "RequestsLibrary",
+        "keyword-driven testing",
+        ".robot file",
+        "UI automation",
+        "API testing",
+        "data-driven tests",
+        "pabot",
+        "LambdaTest",
+        "custom keywords",
+        "test execution"
+      ]
+    },
+    "summary": "Skill prática e bem estruturada para testes com Robot Framework, prejudicada pelo truncamento abrupto de sua description no frontmatter e repetição com erro sintático no corpo."
+  }
+]

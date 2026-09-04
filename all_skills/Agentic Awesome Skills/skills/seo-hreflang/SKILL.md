@@ -1,6 +1,6 @@
 ---
 name: seo-hreflang
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring seo hreflang in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo hreflang. Use when developing, optimizing, testing, or configuring seo hreflang in production environments."
   Hreflang and international SEO audit, validation, and generation. Detects
   common mistakes, validates language/region codes, and generates correct
   hreflang implementations. Use when user says "hreflang", "i18n SEO",

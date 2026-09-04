@@ -1,6 +1,6 @@
 ---
 name: effective-agent-skills
-description: "Author and review high-quality agent skills with triggers, progressive disclosure, and safety notes."
+description: "Author and review high-quality agent skills with triggers, progressive disclosure, and safety notes. Use when developing, optimizing, debugging, or configuring effective agent skills in production workflows."
 category: development
 risk: safe
 source: community

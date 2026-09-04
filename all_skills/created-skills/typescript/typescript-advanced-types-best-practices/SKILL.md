@@ -1,6 +1,6 @@
 ---
 name: typescript-advanced-types-best-practices
-description: "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config. Covers objectives and core workflows."
+description: "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, decorators, ambient declarations (.d.ts), and strict tsconfig settings."
 author: Johnattas Conrady Gomes Santana
 ---
 # Tipos Avançados e Boas Práticas em TypeScript
@@ -202,3 +202,30 @@ O Vitest está disponível nos projetos Max*/engeapp (é o runner de testes), ma
 - Não trate a saída como substituto para validação ou testes específicos do ambiente.
 - Para geração de documentação (TypeDoc, JSDoc), use a skill de documentação.
 - Para ferramental (Biome vs ESLint), desempenho do compilador tsc, monorepo (Nx/Turborepo/project references), migração JS→TS, module resolution e ESM/CJS, veja a skill typescript-tooling-monorepo-best-practices.
+
+### Decorators e Declarações Ambient (.d.ts)
+
+Para padrões corporativos e bibliotecas, utilize declarações de tipo ambient e decorators tipados:
+
+```typescript
+// Declaração de módulo ambient (.d.ts)
+declare module 'legacy-library' {
+  export interface Config {
+    apiKey: string;
+    timeout?: number;
+  }
+  export function initialize(config: Config): boolean;
+}
+
+// Stage 3 Decorator com verificação estática
+function logged<This, Args extends any[], Return>(
+  target: (this: This, ...args: Args) => Return,
+  context: ClassMethodDecoratorContext<This, (this: This, ...args: Args) => Return>
+) {
+  const methodName = String(context.name);
+  return function (this: This, ...args: Args): Return {
+    console.log(`[LOG] Chamando ${methodName}`);
+    return target.call(this, ...args);
+  };
+}
+```

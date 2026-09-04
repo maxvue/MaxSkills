@@ -1,0 +1,503 @@
+[
+  {
+    "skillName": "plaid-fintech",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/plaid-fintech/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description utiliza linguagem promocional ('Expert patterns', 'best practices') e carece de gatilho explícito condicional ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final 'When to Use' apresenta repetições excessivas ('User mentions or implies: ...' repetido 9 vezes) e 'Limitations' consiste em boilerplate genérico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Condensar a lista repetitiva de 9 linhas de 'When to Use' e remover o boilerplate genérico de 'Limitations' (linhas 848-863).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Integração segura com a API do Plaid cobrindo Link tokens, sincronização incremental de transações, Auth para transferências ACH, validação de saldo em tempo real e verificação criptográfica de webhooks.",
+      "entidades": [
+        "Configuration",
+        "PlaidApi",
+        "PlaidEnvironments",
+        "Products",
+        "CountryCode",
+        "linkTokenCreate",
+        "itemPublicTokenExchange",
+        "transactionsSync",
+        "authGet",
+        "identityGet",
+        "identityMatch",
+        "accountsBalanceGet",
+        "accountsGet",
+        "usePlaidLink",
+        "jwksClient"
+      ],
+      "keywords": [
+        "plaid",
+        "link-token",
+        "access-token",
+        "public-token",
+        "transactions-sync",
+        "ach-transfers",
+        "identity-verification",
+        "balance-check",
+        "webhook-verification",
+        "idempotency",
+        "es256",
+        "jwks",
+        "fintech",
+        "compliance"
+      ]
+    },
+    "summary": "Skill robusta e de alta qualidade técnica para integração do Plaid, necessitando apenas de refinamento da description e poda de listas redundantes no rodapé."
+  },
+  {
+    "skillName": "planning-with-files",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/planning-with-files/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description crítica e insuficiente: possui apenas 81 caracteres (muito abaixo do mínimo de 200 chars) e utiliza metáfora/marketing ('Work like Manus') em vez de clareza de ação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho operacional claro ('Use when...') e omissão de termos discriminantes essenciais presentes no arquivo (task_plan.md, findings.md, progress.md, 3-strike protocol, 2-action rule).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dependência de referências a scripts e templates externos relativos (${CLAUDE_PLUGIN_ROOT}/templates) sem fallback explícito inline no documento principal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento de memória de trabalho persistente e contexto de agentes em disco através de arquivos markdown estruturados e protocolos de recuperação de erro.",
+      "entidades": [
+        "task_plan.md",
+        "findings.md",
+        "progress.md",
+        "scripts/init-session.sh",
+        "scripts/check-complete.sh"
+      ],
+      "keywords": [
+        "context-management",
+        "working-memory",
+        "task-plan",
+        "findings",
+        "progress-tracking",
+        "2-action-rule",
+        "3-strike-protocol",
+        "agent-persistence",
+        "error-logging",
+        "decision-matrix",
+        "markdown-planning",
+        "reboot-test"
+      ]
+    },
+    "summary": "Excelente padrão de persistência de contexto em arquivos markdown, prejudicado por uma description excessivamente curta e metafórica que requer reescrita completa."
+  },
+  {
+    "skillName": "playwright-java",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/playwright-java/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 154 caracteres está abaixo da faixa ideal (200-400 chars) e carece da cláusula formal de ativação 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso do adjetivo vazio 'enterprise-grade' na description e no corpo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Automação e scaffolding de testes ponta a ponta (E2E) com Playwright Java utilizando Page Object Model, execução paralela thread-safe e relatórios Allure.",
+      "entidades": [
+        "Playwright",
+        "Browser",
+        "BrowserContext",
+        "Page",
+        "ThreadLocal",
+        "Locator",
+        "BaseTest",
+        "BasePage",
+        "JUnit 5",
+        "AllureJunit5",
+        "APIRequestContext",
+        "APIResponse",
+        "SoftAssertions"
+      ],
+      "keywords": [
+        "playwright",
+        "java",
+        "page-object-model",
+        "junit5",
+        "allure-reporting",
+        "parallel-execution",
+        "thread-local",
+        "e2e-testing",
+        "locators",
+        "network-mocking",
+        "hybrid-testing",
+        "traces",
+        "ci-cd"
+      ]
+    },
+    "summary": "Guia técnico impecável para Playwright em Java, demandando apenas expansão da description para incluir gatilho condicional explícito e atingir 200-400 chars."
+  },
+  {
+    "skillName": "podcast-generation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/podcast-generation/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 81 caracteres (limite mínimo é 200 chars), omissa quanto à arquitetura de streaming WebSocket, conversão de PCM para WAV e reprodução em frontend.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de gatilho operacional 'Use when...' na description e presença do adjetivo vazio 'real audio'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' no corpo é um placeholder inútil e tautológico: 'This skill is applicable to execute the workflow or actions described in the overview.'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica 'When to Use' (linhas 126-127) e o boilerplate genérico de 'Limitations' (linhas 129-133), substituindo por condições reais de ativação.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração e streaming de áudio falado a partir de texto utilizando Azure OpenAI Realtime API via WebSocket, conversão de PCM bruto para WAV e reprodução web.",
+      "entidades": [
+        "AsyncOpenAI",
+        "client.realtime.connect",
+        "gpt-realtime-mini",
+        "output_modalities",
+        "pcm_to_wav",
+        "Blob",
+        "Audio"
+      ],
+      "keywords": [
+        "azure-openai",
+        "realtime-api",
+        "gpt-realtime-mini",
+        "websocket",
+        "text-to-speech",
+        "audio-streaming",
+        "pcm-to-wav",
+        "voice-options",
+        "audio-blob",
+        "audio-playback",
+        "base64-audio"
+      ]
+    },
+    "summary": "Implementação técnica enxuta para streaming de voz via Azure Realtime, mas com description truncada de 81 chars e seção 'When to Use' tautológica."
+  },
+  {
+    "skillName": "polis-protocol",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/polis-protocol/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 156 caracteres (abaixo de 200 chars) e não inicia com o gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de tom promocional ('self-improving team') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Coordenação multiagente agnóstica de fornecedores com roteamento adaptativo baseado em histórico de execução e governança por emendas em markdown.",
+      "entidades": [
+        "_polis/",
+        "CONSTITUTION.md",
+        "init_polis.py",
+        "route_contract.py",
+        "polis route",
+        "polis contract settle",
+        "polis reconcile",
+        "polis reserve",
+        "polis guardrail"
+      ],
+      "keywords": [
+        "multi-agent",
+        "polis-protocol",
+        "agent-coordination",
+        "task-routing",
+        "bandit-router",
+        "capability-cards",
+        "contracts",
+        "governance",
+        "file-locking",
+        "git-auditing",
+        "vendor-agnostic"
+      ]
+    },
+    "summary": "Excelente protocolo de governança multiagente e orquestração baseada em markdown com fortes travas de segurança, precisando apenas de ajuste de extensão na description."
+  },
+  {
+    "skillName": "postgres-readonly-queries",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/postgres-readonly-queries/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 133 caracteres (abaixo do limiar de 200 chars) e ausência de cláusula explícita de ativação 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Execução segura de consultas SQL estritamente somente-leitura em bancos PostgreSQL com gerenciamento de múltiplas conexões e proteção em camadas contra mutações acidentais.",
+      "entidades": [
+        "connections.json",
+        "psycopg2-binary",
+        "query.py",
+        "readonly=True",
+        "statement_timeout"
+      ],
+      "keywords": [
+        "postgresql",
+        "read-only",
+        "sql-queries",
+        "schema-inspection",
+        "defense-in-depth",
+        "multi-connection",
+        "statement-timeout",
+        "memory-protection",
+        "psycopg2",
+        "data-safety",
+        "query-validation"
+      ]
+    },
+    "summary": "Skill muito segura e prática para execução de consultas analíticas e inspeção de schema em PostgreSQL, carecendo apenas de expansão da description para 200-400 caracteres."
+  },
+  {
+    "skillName": "postgresql",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/postgresql/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 144 caracteres (abaixo de 200 chars) e carece de gatilho explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de clichê genérico ('best-practices') e falta de menção a discriminantes vitais detalhados no corpo (BIGINT identity, TIMESTAMPTZ, JSONB, GIN/GiST, particionamento, RLS).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Design avançado de esquemas de banco de dados PostgreSQL cobrindo tipagem estrita, indexação especializada, particionamento declarativo, RLS e otimização para altas cargas de escrita e leitura.",
+      "entidades": [
+        "BIGINT GENERATED ALWAYS AS IDENTITY",
+        "TIMESTAMPTZ",
+        "JSONB",
+        "GIN",
+        "GiST",
+        "BRIN",
+        "EXCLUDE USING gist",
+        "ROW LEVEL SECURITY",
+        "TOAST",
+        "TimescaleDB",
+        "pgvector"
+      ],
+      "keywords": [
+        "postgresql",
+        "schema-design",
+        "table-design",
+        "data-types",
+        "indexing",
+        "b-tree",
+        "gin-index",
+        "gist-index",
+        "row-level-security",
+        "partitioning",
+        "hot-updates",
+        "mvcc",
+        "toast",
+        "jsonb"
+      ]
+    },
+    "summary": "Guia de excelência técnica profunda para modelagem de banco de dados no PostgreSQL, demandando apenas adequação da description à faixa de 200-400 chars com discriminantes e gatilho."
+  },
+  {
+    "skillName": "postman-newman-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/postman-newman-automation/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description termina abruptamente com reticências no meio de uma frase ('integrate...'), evidenciando truncamento mecânico e corte de sintaxe.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seção parasitária e desconectada ('After Completing the Newman Commands', linhas 287-304) que força prompts de interação sobre design de documentação de API, herdada de template de terceiros.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção desconexa 'After Completing the Newman Commands' (linhas 287-305) que induz fluxo conversacional sobre design de documentação alheio à automação com Newman.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração de comandos Newman CLI, scripts de shell e pipelines Jenkins para execução automatizada de coleções do Postman em ambientes locais e de CI/CD.",
+      "entidades": [
+        "Newman",
+        "newman-reporter-htmlextra",
+        "newman-reporter-junit",
+        "Jenkinsfile",
+        "publishHTML",
+        "npm"
+      ],
+      "keywords": [
+        "postman",
+        "newman-cli",
+        "jenkins-pipeline",
+        "ci-cd",
+        "api-testing",
+        "shell-automation",
+        "htmlextra-reporter",
+        "junit-reporter",
+        "collection-runner",
+        "environment-variables",
+        "data-driven-testing"
+      ]
+    },
+    "summary": "Skill prática para automação de testes Postman via Newman CLI e Jenkins, porém com description truncada em reticências e trecho parasitário no final que deve ser podado."
+  },
+  {
+    "skillName": "pr-merge-champion",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pr-merge-champion/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 147 caracteres (abaixo de 200 chars) e sem inclusão de gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Termos aspiracionais/promocionais na description ('quick approval', 'champion').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia e verificação sistemática para preparação, auditoria local de diffs e documentação estruturada de pull requests visando revisões eficientes.",
+      "entidades": [
+        "git rebase",
+        "git status --porcelain",
+        "git diff",
+        "CONTRIBUTING.md",
+        "pull request template"
+      ],
+      "keywords": [
+        "pull-request",
+        "code-review",
+        "git-workflow",
+        "self-review",
+        "clean-diff",
+        "rebase",
+        "pr-description",
+        "linting",
+        "verification-checklist",
+        "git-status",
+        "debug-cleanup"
+      ]
+    },
+    "summary": "Playbook limpo e pragmático para preparação e autorrevisão de pull requests, exigindo apenas expansão da description para 200-400 chars com gatilho condicional explícito."
+  },
+  {
+    "skillName": "prisma-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/prisma-expert/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description escrita como persona em segunda pessoa com adjetivos promocionais vazios ('You are an expert in Prisma ORM with deep knowledge...') em vez de focar na ação e nas condições de uso ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Extensão de 182 caracteres (abaixo de 200 chars) e redundância total com o parágrafo inicial do corpo (linha 11).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' no corpo é um placeholder tautológico inútil ('This skill is applicable to execute the workflow or actions described in the overview.') que não auxilia na inferência.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Substituir a seção tautológica 'When to Use' (linhas 360-361) por condições reais de gatilho ou eliminá-la, além de condensar o boilerplate de 'Limitations' (linhas 363-367).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico, modelagem de relações, resolução de migrações, prevenção de N+1 e gerenciamento de conexões/transações com Prisma ORM em Node.js/TypeScript.",
+      "entidades": [
+        "PrismaClient",
+        "prisma validate",
+        "prisma migrate diff",
+        "prisma migrate deploy",
+        "prisma migrate resolve",
+        "$transaction",
+        "$queryRaw",
+        "schema.prisma"
+      ],
+      "keywords": [
+        "prisma-orm",
+        "prisma-client",
+        "schema-design",
+        "prisma-migrate",
+        "query-optimization",
+        "n-plus-one",
+        "interactive-transactions",
+        "connection-pooling",
+        "relation-modeling",
+        "serverless",
+        "typescript"
+      ]
+    },
+    "summary": "Excelente guia prático para Prisma ORM e resolução de gargalos comuns, necessitando de reforma na description para eliminar persona promocional e preencher critérios de extensão e gatilho."
+  }
+]

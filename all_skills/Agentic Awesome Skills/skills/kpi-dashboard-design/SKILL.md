@@ -1,6 +1,6 @@
 ---
 name: kpi-dashboard-design
-description: "Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions."
+description: "Comprehensive patterns for designing effective Key Performance Indicator (KPI) dashboards that drive business decisions. Use when developing, optimizing, debugging, or configuring kpi dashboard design in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -20,7 +20,7 @@ Comprehensive patterns for designing effective Key Performance Indicator (KPI) d
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Use this skill when
 

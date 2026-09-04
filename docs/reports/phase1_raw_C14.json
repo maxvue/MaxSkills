@@ -1,0 +1,604 @@
+[
+  {
+    "skillName": "c4-architecture-c4-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/c4-architecture-c4-architecture/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description excessivamente curta com 133 caracteres (abaixo da faixa recomendada de 200 a 400 caracteres), violando o Critério 1.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita de condição de acionamento ('Use when...' ou 'Ative quando...') na description, violando o Critério 3.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes fundamentais presentes no workflow (como diagramas Mermaid C4, especificações OpenAPI 3.1, orquestração dos 4 níveis Code/Component/Container/Context e coordenação de subagentes), violando o Critério 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Vazamento de scaffolding/prompt interno de LLM na linha 13 ('[Extended thinking: This workflow implements...]') e referência a arquivo inexistente 'resources/implementation-playbook.md' na linha 30.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover o bloco residual de scaffolding '[Extended thinking...]' (linha 13) e o bloco de instruções genéricas com link para playbook inexistente (linhas 15 a 31).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar seções redundantes de coordenação e limitations repetitivas no final do arquivo (linhas 394 a 398).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração completa de documentação e diagramação arquitetural de repositórios nos 4 níveis do modelo C4 (Code, Component, Container, Context) em fluxo bottom-up.",
+      "entidades": [
+        "C4 model",
+        "Mermaid C4Context",
+        "Mermaid C4Container",
+        "Mermaid C4Component",
+        "OpenAPI 3.1",
+        "c4-code",
+        "c4-component",
+        "c4-container",
+        "c4-context",
+        "C4-Documentation/"
+      ],
+      "keywords": [
+        "c4 architecture",
+        "bottom-up analysis",
+        "software architecture",
+        "mermaid c4",
+        "c4context",
+        "c4container",
+        "c4component",
+        "code level",
+        "component level",
+        "container level",
+        "context level",
+        "openapi 3.1",
+        "personas",
+        "user journeys",
+        "system context",
+        "deployment units"
+      ]
+    },
+    "summary": "Workflow orquestrador C4 robusto e completo, mas com description curta de 133 chars sem gatilho de uso, além de vazamento de scaffolding 'Extended thinking' e link morto para playbook."
+  },
+  {
+    "skillName": "c4-code",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/c4-code/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description formulada como persona promocional ('Expert C4 Code-level documentation specialist.') sem cláusula de gatilho 'Use when...', violando os Critérios 3 e 10.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Omissão na description de discriminantes práticos tratados no corpo da skill, como diagramas Mermaid (classDiagram e flowchart) e distinção entre paradigmas OOP vs Funcional/Procedural, violando o Critério 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de boilerplate tautológico com placeholders não preenchidos ('[directory name]') nas seções 'Use this skill when' / 'Do not use' e link para arquivo inexistente 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erros sintáticos de formatação markdown com marcadores de blocos de código quadruplicados/soltos (linhas 94, 206, 241).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o bloco inicial de boilerplate genérico com placeholders literais não substituídos '[directory name]' e referência ao playbook inexistente (linhas 11 a 27).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corrigir e expurgar as fences de código soltas/duplicadas nas linhas 94, 206 e 241.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração de documentação detalhada no nível C4 Code com assinaturas completas de funções, classes, dependências e diagramas Mermaid orientados a paradigmas OOP e funcional.",
+      "entidades": [
+        "C4 Code",
+        "Mermaid classDiagram",
+        "Mermaid flowchart",
+        "c4-code-*.md",
+        "OOP",
+        "Functional Programming"
+      ],
+      "keywords": [
+        "c4 code",
+        "function signatures",
+        "class diagrams",
+        "flowchart",
+        "dependency graph",
+        "data pipeline",
+        "oop",
+        "functional programming",
+        "code level",
+        "code structure",
+        "internal dependencies",
+        "mermaid diagram"
+      ]
+    },
+    "summary": "Excelente template para documentação no nível C4 Code com suporte a múltiplos paradigmas, mas comprometido por persona na description, placeholders literais não preenchidos e fences de código mal formatadas."
+  },
+  {
+    "skillName": "c4-component",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/c4-component/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description inicia com persona promocional ('Expert C4 Component-level documentation specialist.') em vez de gatilho acionável ('Use when...'), violando os Critérios 3 e 10.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Omissão de termos discriminantes centrais presentes na skill, como notação Mermaid C4Component, Container_Boundary, ComponentDb e protocolos de interface (REST, GraphQL, gRPC), violando o Critério 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Boilerplate tautológico no topo contendo placeholders literais não preenchidos ('[component name]') e referência a playbook inexistente ('resources/implementation-playbook.md').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Artefatos de markdown com fechamentos desbalanceados de código de quatro crases soltos no texto (linhas 92, 102, 123).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo repetitivo de 'Use this skill when' / 'Do not use' com placeholders '[component name]' e referência ao playbook inexistente (linhas 11 a 27).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover marcadores de blocos markdown espúrios/desbalanceados nas linhas 92, 102 e 123.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Síntese de elementos de código em componentes lógicos de arquitetura C4, documentação de interfaces operacionais e diagramação Mermaid C4Component.",
+      "entidades": [
+        "C4Component",
+        "Container_Boundary",
+        "ComponentDb",
+        "c4-component.md",
+        "REST",
+        "GraphQL",
+        "gRPC"
+      ],
+      "keywords": [
+        "c4 component",
+        "component boundary",
+        "mermaid c4component",
+        "container boundary",
+        "interfaces",
+        "master component index",
+        "component relationships",
+        "software architecture",
+        "logical grouping",
+        "code synthesis"
+      ]
+    },
+    "summary": "Documentação e diagramação de componentes C4 sólida e bem instruída, porém prejudicada por persona na description, placeholders literais e artefatos de marcação markdown."
+  },
+  {
+    "skillName": "c4-container",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/c4-container/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description severamente curta de apenas 56 caracteres ('Expert C4 Container-level documentation specialist.'), puramente promocional de persona, violando criticamente os Critérios 1, 2, 3 e 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de discriminantes essenciais tratados no conteúdo (diagramas Mermaid C4Container, especificações OpenAPI 3.1 YAML, Dockerfiles, manifestos Kubernetes, filas e bancos de dados), violando os Critérios 4 e 6.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de boilerplate tautológico genérico com referência a 'resources/implementation-playbook.md' inexistente (linhas 11 a 27).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Fechamentos de bloco de código quadruplicados/órfãos que poluem a estrutura do documento (linhas 99, 109, 141).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico de abertura e o link para playbook inexistente (linhas 11 a 27).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Expurgar as fences órfãs de código nas linhas 99, 109 e 141.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Mapeamento de componentes para unidades de deployment em containers C4, elaboração de especificações OpenAPI 3.1 e diagramação Mermaid C4Container.",
+      "entidades": [
+        "C4Container",
+        "System_Boundary",
+        "ContainerDb",
+        "Container_Queue",
+        "OpenAPI 3.1",
+        "Dockerfile",
+        "Kubernetes manifests"
+      ],
+      "keywords": [
+        "c4 container",
+        "mermaid c4container",
+        "deployment architecture",
+        "openapi 3.1",
+        "docker",
+        "kubernetes",
+        "microservices",
+        "api specifications",
+        "container boundaries",
+        "scaling",
+        "infrastructure",
+        "system deployment"
+      ]
+    },
+    "summary": "Excelente conteúdo para o nível C4 Container incluindo especificações OpenAPI 3.1 e Docker/K8s, mas com description inaceitável de 56 caracteres sem discriminantes e ruídos de marcação."
+  },
+  {
+    "skillName": "c4-context",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/c4-context/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de 183 caracteres abaixo da faixa mínima (200-400 caracteres) iniciando com declaração de persona ('Expert C4 Context-level...') e sem cláusula de gatilho 'Use when...', violando os Critérios 1, 3 e 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description da notação Mermaid C4Context, distinção entre personas humanas e programáticas, e integração de jornadas de usuário, violando o Critério 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Boilerplate tautológico no início (linhas 11 a 27) com link de playbook inexistente e fence de código isolada na linha 87 gerando defeito visual no markdown.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o bloco introdutório tautológico de instruções e referência a playbook inexistente (linhas 11 a 27).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover a fence de código órfã na linha 87.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Definição do contexto global de sistemas C4 com mapeamento de personas humanas e programáticas, jornadas de usuário, sistemas externos e diagramas Mermaid C4Context.",
+      "entidades": [
+        "C4Context",
+        "Person",
+        "System",
+        "System_Ext",
+        "SystemDb",
+        "c4-context.md"
+      ],
+      "keywords": [
+        "c4 context",
+        "system context diagram",
+        "mermaid c4context",
+        "personas",
+        "user journeys",
+        "external systems",
+        "system boundary",
+        "stakeholder documentation",
+        "high level architecture",
+        "programmatic users"
+      ]
+    },
+    "summary": "Instruções claras para o nível C4 Context voltadas a stakeholders técnicos e de negócio, com description que precisa de gatilho estruturado e eliminação de fence órfã."
+  },
+  {
+    "skillName": "canvas-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/canvas-design/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description com 172 caracteres em formato de meta-instrução com texto em caixa alta ('These are instructions... EXPRESSED VISUALLY') sem gatilho 'Use when...', violando os Critérios 1, 2, 3 e 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Vazamento direto de prompt de sistema e menção nominal acoplada a modelo de IA específico ('the next Claude' nas linhas 51 e 83), quebrando a portabilidade agêntica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo operando como técnica de simulação/jailbreak de esforço de LLM, instruindo explicitamente a IA a fingir esforço humano ('To achieve human-crafted quality (not AI-generated)... repeat phrases like meticulously crafted, the product of deep expertise' nas linhas 50 e 116).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Dependência hardcoded de diretório local arbitrário não fornecido nem validado ('./canvas-fonts' na linha 110).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais genéricas de 'When to Use' e 'Limitations' puramente preenchidas com texto de template vazio (linhas 134 a 141).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Expurgar instruções de simulação de esforço humano, repetição forçada de adjetivos de marketing ('meticulously crafted') e menções nominais a 'next Claude' (linhas 50-51, 83, 116, 124-128).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover a dependência cega de './canvas-fonts' e condensar os exemplos prolixos de movimentos estéticos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Definição de manifestos de filosofia de design visual e sua materialização gráfica como peças artísticas de página única em PDF ou PNG.",
+      "entidades": [
+        ".md",
+        ".pdf",
+        ".png",
+        "Brutalist Joy",
+        "Chromatic Silence",
+        "Concrete Poetry",
+        "Analog Meditation"
+      ],
+      "keywords": [
+        "visual design",
+        "design philosophy",
+        "art manifesto",
+        "composition",
+        "minimal text",
+        "spatial expression",
+        "pdf export",
+        "png export",
+        "typography",
+        "canvas layout",
+        "visual hierarchy",
+        "color theory"
+      ]
+    },
+    "summary": "Skill conceitual de design visual severamente comprometida por meta-instruções de fingir esforço humano ('not AI-generated'), menção explícita a 'next Claude' e description com caixa alta."
+  },
+  {
+    "skillName": "carrier-relationship-management",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/carrier-relationship-management/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 184 caracteres iniciando com jargão promocional ('Codified expertise for...') sem gatilho explícito 'Use when...' e omitindo discriminantes operacionais cruciais como FMCSA SAFER, DAT RateView, scorecards OTD e FSC tables, violando os Critérios 1, 3, 4 e 10.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção 'When to Use' duplicada de forma redundante no início do documento (linhas 9 a 11) e no final (linhas 184 a 190), violando o Critério 12.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Unificar a seção 'When to Use', removendo o bloco duplicado nas linhas 184 a 190.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gestão estratégica do ciclo de vida de transportadoras, negociação de frete rodoviário, scorecards de performance e compliance regulatório FMCSA.",
+      "entidades": [
+        "FMCSA SAFER",
+        "DAT RateView",
+        "Greenscreens",
+        "TMS",
+        "Carrier411",
+        "CSA scores",
+        "BOL",
+        "Class 8 trucks"
+      ],
+      "keywords": [
+        "carrier management",
+        "freight rates",
+        "linehaul",
+        "fuel surcharge",
+        "fmcsa safer",
+        "tender acceptance",
+        "on-time delivery",
+        "otd",
+        "rfp process",
+        "routing guide",
+        "ltl",
+        "truckload",
+        "detention fees",
+        "carrier scorecard",
+        "csa scores",
+        "double-brokering",
+        "logistics procurement"
+      ]
+    },
+    "summary": "Manual de logística e frete de altíssima densidade técnica e precisão operacional, necessitando apenas de ajuste na description para 200-400 chars com discriminantes e eliminação da seção 'When to Use' duplicada."
+  },
+  {
+    "skillName": "cc-skill-backend-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cc-skill-backend-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta de 153 caracteres sem cláusula de gatilho acionável ('Use when...'), violando os Critérios 1 e 3.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes centrais presentes na skill, como Repository Pattern, Cache-Aside com Redis, transações Supabase RPC/PLpgSQL, RBAC, filas assíncronas JobQueue e exponential backoff, violando o Critério 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Condensar a seção genérica de fechamento 'When to Use / Limitations' nas linhas 587 a 594.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais e boas práticas de backend para TypeScript, Node.js, Express e rotas de API Next.js abrangendo camadas de dados, resiliência, caching e autenticação.",
+      "entidades": [
+        "Next.js API routes",
+        "Express",
+        "Supabase",
+        "Redis",
+        "Zod",
+        "JWT",
+        "PostgreSQL PL/pgSQL"
+      ],
+      "keywords": [
+        "backend patterns",
+        "repository pattern",
+        "service layer",
+        "cache-aside",
+        "redis",
+        "jwt auth",
+        "rbac",
+        "rate limiting",
+        "job queue",
+        "exponential backoff",
+        "n+1 query",
+        "structured logging",
+        "zod validation",
+        "api error handling",
+        "node.js"
+      ]
+    },
+    "summary": "Excelente compêndio prático de padrões de arquitetura backend com implementações funcionais em TypeScript, demandando apenas expansão da description para 200-400 chars com discriminantes e gatilho."
+  },
+  {
+    "skillName": "cc-skill-clickhouse-io",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cc-skill-clickhouse-io/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 147 caracteres (abaixo dos 200 caracteres mínimos) sem fórmula de ativação ('Use when...'), violando os Critérios 1 e 3.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes arquiteturais cruciais do ClickHouse tratados no documento, como motores MergeTree, ReplacingMergeTree, AggregatingMergeTree, Materialized Views com sumMerge/uniqMerge, e pipelines CDC via PostgreSQL, violando o Critério 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Condensar o boilerplate genérico de fechamento 'When to Use / Limitations' nas linhas 434 a 441.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Modelagem de tabelas OLAP, otimização de consultas agregadas, Materialized Views e pipelines de ingestão de alto desempenho no ClickHouse.",
+      "entidades": [
+        "ClickHouse",
+        "MergeTree",
+        "ReplacingMergeTree",
+        "AggregatingMergeTree",
+        "Materialized Views",
+        "PostgreSQL CDC",
+        "system.query_log",
+        "system.parts"
+      ],
+      "keywords": [
+        "clickhouse",
+        "olap",
+        "mergetree",
+        "replacingmergetree",
+        "aggregatingmergetree",
+        "materialized views",
+        "summerge",
+        "uniqmerge",
+        "bulk insert",
+        "time series",
+        "funnel analysis",
+        "cohort analysis",
+        "query optimization",
+        "cdc",
+        "data engineering"
+      ]
+    },
+    "summary": "Guia técnico de modelagem e consultas OLAP no ClickHouse de alto nível com comandos SQL e código Node.js práticos; necessita apenas de ajuste na description para 200-400 chars com gatilho e termos discriminantes."
+  },
+  {
+    "skillName": "cc-skill-coding-standards",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cc-skill-coding-standards/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de apenas 125 caracteres (abaixo de 200 caracteres mínimos), violando o Critério 1.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Descrição genérica ('Universal coding standards, best practices...') sem verbo de ação claro nem gatilho 'Use when...', violando os Critérios 3 e 7.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Omissão de termos discriminantes centrais presentes no guia (imutabilidade funcional, hooks customizados, padronização de resposta ApiResponse, validação Zod, AAA testing e code smells), violando o Critério 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Condensar o boilerplate genérico de encerramento 'When to Use / Limitations' nas linhas 525 a 532.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de qualidade de código, TypeScript estrito, desenvolvimento idiomático em React/Next.js, validação com Zod, testes AAA e eliminação de code smells.",
+      "entidades": [
+        "TypeScript",
+        "React",
+        "Next.js App Router",
+        "Zod",
+        "JSDoc",
+        "Jest/Testing"
+      ],
+      "keywords": [
+        "coding standards",
+        "typescript",
+        "react hooks",
+        "immutability",
+        "zod schema",
+        "aaa pattern",
+        "code smells",
+        "early returns",
+        "rest api conventions",
+        "performance optimization",
+        "usememo",
+        "lazy loading",
+        "kiss",
+        "dry",
+        "yagni"
+      ]
+    },
+    "summary": "Excelente manual de boas práticas para TypeScript, React e Next.js com exemplos didáticos e concisos; requer apenas ampliação da description para 200-400 chars com discriminantes e gatilho 'Use when...'."
+  }
+]

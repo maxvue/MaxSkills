@@ -1,6 +1,6 @@
 ---
 name: vue-keyboard-shortcuts-navigation-best-practices
-description: "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Covers objectives and core workflows."
+description: "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Provides end-to-end guidance, reference architectures, and practical patterns for vue keyboard shortcuts navigation best practices."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

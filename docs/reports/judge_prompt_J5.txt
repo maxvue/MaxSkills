@@ -1,0 +1,46 @@
+Você é o Juiz de IA para a Fase 2 (Redundância Inter-Skills) do lote J5.
+Avalie os seguintes 5 clusters de skills:
+
+Cluster 21:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-red/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-refactor/SKILL.md
+
+Cluster 22:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/unit-testing-test-generate/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/test-automator/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/test-fixing/SKILL.md
+
+Cluster 23:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-transcript/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-summarizer/SKILL.md
+
+Cluster 24:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-full/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-notetaker/SKILL.md
+
+Cluster 25:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wordpress-plugin-development/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wp-guard/SKILL.md
+
+Para CADA cluster:
+1. Leia o SKILL.md de cada skill do cluster usando view_file.
+2. Analise escopo, ferramentas, código, arquitetura e intenções.
+3. Decida a recomendação técnica:
+   - MERGE: quando uma skill é subconjunto óbvio de outra, ou quando são stubs duplicados, ou quando abordam exatamente a mesma funcionalidade de modo fragmentado. Indique a skill destino em "into" e detalhe o "mergePlan".
+   - LAPIDAR: manter ambas, mas ajustar o conteúdo interno para que cada uma cumpra estritamente seu escopo e elimine sobreposições internas.
+   - DEMARCAR: manter ambas completas, bastando calibrar as descrições e gatilhos Use when... para que não haja colisão de ativação pelo orquestrador.
+   - FALSO-POSITIVO: as skills parecem similares apenas pelo nome ou termos genéricos, mas seus domínios, ferramentas e propósitos são substancialmente distintos.
+
+Retorne SEMPRE um array JSON contendo um objeto para cada cluster avaliado no formato padrao:
+[
+  {
+    "cluster": ["skillNameA", "skillNameB"],
+    "recommendation": "MERGE | LAPIDAR | DEMARCAR | FALSO-POSITIVO",
+    "into": "nome da skill destino se MERGE, senao null",
+    "rationale": "justificativa detalhada do veredito",
+    "mergePlan": "detalhes de preservacao de conteudo sem perda se MERGE, senao null",
+    "reviewModel": "Tier 1 (Fast) | Tier 2 (High-Reasoning)"
+  }
+]
+Envie o resultado OBRIGATORIAMENTE via send_message para o orquestrador.

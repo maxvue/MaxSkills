@@ -1,0 +1,439 @@
+[
+  {
+    "skillName": "orchestrate-batch-refactor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/orchestrate-batch-refactor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description excessivamente concisa (98 caracteres, abaixo da faixa ideal de 200 a 400 chars) e sem cláusula condicional de ativação ('Use when...'). Faltam termos discriminantes sobre a dinâmica de subagentes (explorer/worker), propriedade estrita de arquivos e mitigação de merge conflicts.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Orquestração e decomposição de refatorações de grande porte em pacotes de trabalho conscientes de dependências com agentes de análise e execução paralela.",
+      "entidades": [
+        "explorer agents",
+        "worker agents",
+        "references/work-packet-template.md",
+        "references/agent-prompt-templates.md"
+      ],
+      "keywords": [
+        "batch refactor",
+        "dependency graph",
+        "work packets",
+        "parallel analysis",
+        "sub-agents",
+        "file ownership",
+        "merge conflicts",
+        "behavior parity",
+        "validation gates",
+        "multi-agent orchestration"
+      ]
+    },
+    "summary": "Conteúdo metodológico sólido e limpo sobre orquestração de refatores, requerendo apenas expansão da description para 200-400 caracteres com cláusula 'Use when...'."
+  },
+  {
+    "skillName": "osterwalder-canvas-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/osterwalder-canvas-architect/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (104 caracteres, <200 chars) com tom de persona ('Iterative consultant agent...'), ausência de cláusula condicional 'Use when...' e omissão dos termos discriminantes dos blocos do BMC (Value Proposition, Customer Segments, Channels, Cost Structure, Revenue Streams).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Modelagem, validação e auditoria iterativa da coerência lógica de modelos de negócio utilizando o framework Business Model Canvas de 9 blocos de Alexander Osterwalder.",
+      "entidades": [
+        "Business Model Canvas (BMC)",
+        "Alexander Osterwalder"
+      ],
+      "keywords": [
+        "business model canvas",
+        "osterwalder",
+        "bmc",
+        "value proposition",
+        "customer segments",
+        "cost structure",
+        "revenue streams",
+        "channels",
+        "customer relationships",
+        "key activities",
+        "key resources",
+        "key partners",
+        "strategic pivot"
+      ]
+    },
+    "summary": "Guia conciso e metodologicamente correto para modelagem de BMC, demandando apenas enriquecimento semântico da description para a faixa de 200-400 chars com 'Use when...'."
+  },
+  {
+    "skillName": "outreachagent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/outreachagent/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 151 caracteres (abaixo do limiar de 200 chars) e sem prefixo de ativação 'Use when...', omitindo referências discriminantes chave como a API REST pública ('api.outreachagent.dev/v1'), simulação prévia ('/simulate') e salvaguardas contra prompt injection via e-mails recebidos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Operação e automação resiliente de campanhas de e-mail cold outbound para agentes de IA via API REST com portões de aprovação e simulação sem efeitos colaterais.",
+      "entidades": [
+        "OutreachAgent",
+        "https://api.outreachagent.dev/v1",
+        "@outreachagent/sdk-ts",
+        "@outreachagent/contracts",
+        "OpenAPI 3.1"
+      ],
+      "keywords": [
+        "cold outreach",
+        "email sequences",
+        "inbox management",
+        "deliverability",
+        "reply-aware",
+        "pacing",
+        "human approval gates",
+        "simulation dry-run",
+        "untrusted email input",
+        "webhooks",
+        "bounce rate",
+        "rest api"
+      ]
+    },
+    "summary": "Excelente rigor técnico com código TypeScript robusto e proteção contra injeção em e-mails, exigindo somente ajuste da description para 200-400 caracteres com 'Use when...'."
+  },
+  {
+    "skillName": "page-cro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/page-cro/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description telegráfica (72 caracteres), sem gatilho condicional 'Use when...' e sem discriminantes essenciais como Page Conversion Readiness Index, Value Proposition Clarity, hierarquia de CTA e diretrizes de testes A/B.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Artefato de formatação Markdown quebrado na linha 340, apresentando fechamento de bloco de código '```' órfão sem abertura correspondente, corrompendo a renderização do texto.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate genérico e tautológico colado nas linhas 342-348 ('## When to Use: This skill is applicable to execute the workflow or actions described in the overview. ## Limitations...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o fechamento de código órfão '```' na linha 340 e podar a seção redundante de boilerplate artificial nas linhas 342-348.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico de conversão em páginas individuais através do Page Conversion Readiness & Impact Index, com priorização de hipóteses de teste e otimização de mensagens.",
+      "entidades": [
+        "Page Conversion Readiness & Impact Index",
+        "A/B Testing Framework"
+      ],
+      "keywords": [
+        "page cro",
+        "conversion rate optimization",
+        "readiness index",
+        "value proposition",
+        "cta hierarchy",
+        "traffic-message match",
+        "trust signals",
+        "ux barriers",
+        "objection handling",
+        "a/b testing guardrails",
+        "landing page",
+        "hypotheses"
+      ]
+    },
+    "summary": "Arcabouço diagnóstico de CRO sólido, classificado como Regular devido a backticks órfãos, boilerplate duplicado no final e description deficiente de 72 caracteres."
+  },
+  {
+    "skillName": "pagespeed-enhancer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pagespeed-enhancer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 184 caracteres (ligeiramente abaixo do piso de 200 chars) e sem gatilho explícito 'Use when...', carecendo de menção a Core Web Vitals (LCP, FCP, CLS, TBT), cabeçalhos de segurança (CSP, HSTS) e otimização de mídia (WebP/AVIF).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria e remediação em lotes estruturados dos quatro pilares do PageSpeed Insights/Lighthouse (Performance, Acessibilidade, Melhores Práticas e SEO) com matriz de risco e rollback.",
+      "entidades": [
+        "Lighthouse",
+        "PageSpeed Insights",
+        "Core Web Vitals",
+        "Content-Security-Policy",
+        "Netlify headers",
+        "Vercel headers",
+        "sharp",
+        "cwebp"
+      ],
+      "keywords": [
+        "pagespeed",
+        "lighthouse",
+        "core web vitals",
+        "lcp",
+        "fcp",
+        "cls",
+        "tbt",
+        "render-blocking css",
+        "unused javascript",
+        "webp avif",
+        "csp headers",
+        "hsts",
+        "wcag aa",
+        "seo meta tags",
+        "rollback checklist"
+      ]
+    },
+    "summary": "Manual de engenharia de performance e conformidade web de altíssima qualidade técnica, bastando expandir a description para 200-400 chars com o gatilho 'Use when...'."
+  },
+  {
+    "skillName": "paid-ads",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/paid-ads/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description escrita em tom de persona promocional ('You are an expert performance marketer with direct access to ad platform accounts...'), violando a diretriz anti-persona/anti-promocional, e sem gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes essenciais na description cobrindo as plataformas abordadas (Google Ads, Meta Ads, LinkedIn Ads, TikTok, Twitter/X) e métodos (PAS/BAB copy, CPA/ROAS, retargeting).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate genérico colado nas linhas 556-563 ('## When to Use: This skill is applicable to execute the workflow or actions described in the overview...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Podar as linhas 556-563 que contêm seção de boilerplate genérico repetitivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégia, estruturação de contas, copywriting persuasivo e otimização contínua de campanhas de anúncios pagos multicanal para aquisição de clientes.",
+      "entidades": [
+        "Google Ads",
+        "Meta Ads",
+        "LinkedIn Ads",
+        "Twitter/X Ads",
+        "TikTok Ads",
+        "Google Analytics 4"
+      ],
+      "keywords": [
+        "paid ads",
+        "performance marketing",
+        "google ads",
+        "meta ads",
+        "linkedin ads",
+        "cpa",
+        "roas",
+        "pas copy",
+        "bab copy",
+        "retargeting funnel",
+        "lookalike audiences",
+        "conversion api",
+        "utm tracking"
+      ]
+    },
+    "summary": "Extensa base de conhecimento sobre tráfego pago multicanal, rebaixada para Regular devido a description baseada em persona sem discriminantes e presença de boilerplate genérico no final."
+  },
+  {
+    "skillName": "pakistan-payments-stack",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pakistan-payments-stack/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 198 caracteres, ligeiramente abaixo do limiar de 200 chars, e sem cláusula formal de ativação 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de caracteres '?' resultantes de problemas de codificação de apóstrofos e aspas curvas nas linhas 30 e 148 ('Pakistan?s payment systems regime' e '?Validate this implementation...?').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura e integração de meios de pagamento paquistaneses (JazzCash, Easypaisa, Raast) em PKR com resiliência de webhooks, idempotência e conciliação financeira diária.",
+      "entidades": [
+        "JazzCash Online Payment Gateway",
+        "Easypaisa / Easypay",
+        "State Bank of Pakistan (SBP)",
+        "Raast DFS",
+        "PaymentsService",
+        "WebhookIngest",
+        "BillingDB"
+      ],
+      "keywords": [
+        "pakistan payments",
+        "pkr billing",
+        "jazzcash",
+        "easypaisa",
+        "raast",
+        "sbp psp",
+        "payment gateway",
+        "webhook verification",
+        "idempotency",
+        "daily reconciliation",
+        "saas billing",
+        "financial auditability"
+      ]
+    },
+    "summary": "Arquitetura exemplar de pagamentos com estrito controle anti-alucinação de APIs, necessitando apenas de ajuste na description para 200-400 chars com 'Use when...' e correção dos caracteres '?' corrompidos."
+  },
+  {
+    "skillName": "papers-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/papers-skill/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 181 caracteres (<200 chars), sem cláusula condicional 'Use when...' e iniciando com fórmula genérica de preâmbulo ('Skill for academic research workflows: ...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Fluxo de pesquisa de literatura acadêmica através de CLI autônomo em Python integrado às APIs Semantic Scholar e arXiv com extração de texto via PyMuPDF.",
+      "entidades": [
+        "Semantic Scholar API",
+        "arXiv API",
+        "PyMuPDF (fitz)",
+        "httpx",
+        "scripts/papers.py",
+        "papers-mcp"
+      ],
+      "keywords": [
+        "academic research",
+        "semantic scholar",
+        "arxiv",
+        "citations",
+        "literature scan",
+        "pymupdf",
+        "pdf text extraction",
+        "doi",
+        "paper metadata",
+        "reading list",
+        "python cli"
+      ]
+    },
+    "summary": "Ferramenta de pesquisa científica bem construída e apoiada por script CLI autocontido, necessitando apenas refatoração da description para atingir 200-400 chars com 'Use when...'."
+  },
+  {
+    "skillName": "pci-compliance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pci-compliance/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description concisa (139 caracteres) com imperativo ('Master PCI DSS...'), sem gatilho 'Use when...' e sem discriminantes técnicos importantes como níveis SAQ (SAQ A, SAQ A-EP, SAQ D), mascaramento de PAN, tokenização Stripe, AES-256-GCM e logs imutáveis.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de links mortos/fantasmas apontando para 8 arquivos e pastas locais inexistentes na linha 23 ('resources/implementation-playbook.md') e linhas 454-463 ('references/data-minimization.md', 'references/tokenization.md', 'references/encryption.md', 'references/access-control.md', 'references/audit-logging.md', 'assets/pci-compliance-checklist.md', 'assets/encrypted-storage.py', 'scripts/audit-payment-system.sh'), dado que o diretório contém apenas o arquivo SKILL.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção '## Resources' (linhas 454-463) e a linha 23 que referenciam 8 arquivos e diretórios inexistentes no pacote.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Conformidade técnica com o padrão PCI DSS para manuseio seguro de dados de cartão de crédito, tokenização via processadores, criptografia AES-256-GCM e redução de escopo de auditoria.",
+      "entidades": [
+        "PCI DSS",
+        "Stripe.js",
+        "AESGCM",
+        "Fernet",
+        "Flask Talisman",
+        "Luhn Algorithm",
+        "SAQ A / SAQ A-EP / SAQ D"
+      ],
+      "keywords": [
+        "pci compliance",
+        "pci dss",
+        "cardholder data",
+        "tokenization",
+        "pan masking",
+        "cvv prohibition",
+        "aes-256-gcm",
+        "data minimization",
+        "audit logging",
+        "access control",
+        "saq levels",
+        "scope reduction"
+      ]
+    },
+    "summary": "Conteúdo instrutivo com código Python de criptografia e mascaramento de PAN, classificada como Regular por referenciar arquivos locais inexistentes e description deficiente de 139 chars."
+  },
+  {
+    "skillName": "pdf-conversion-router",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pdf-conversion-router/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Roteamento determinístico e validação de fidelidade estrutural na conversão de documentos PDF para Markdown, HTML, JSON ou DOCX com tratamento especializado de tabelas.",
+      "entidades": [
+        "opendataloader-pdf",
+        "pdftotext",
+        "pdfinfo",
+        "--table-method cluster",
+        "markdown-with-html"
+      ],
+      "keywords": [
+        "pdf conversion",
+        "opendataloader-pdf",
+        "markdown-with-html",
+        "table extraction",
+        "cluster method",
+        "ocr preprocessing",
+        "slide decks",
+        "medical reports",
+        "document fidelity",
+        "boundary artifacts",
+        "repair pass"
+      ]
+    },
+    "summary": "Skill exemplar com conformidade de 100% aos 13 critérios semânticos, description de 247 caracteres com gatilho impecável e heurísticas técnicas de altíssimo nível."
+  }
+]

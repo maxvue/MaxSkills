@@ -1,6 +1,6 @@
 ---
 name: react-component-performance
-description: Diagnose slow React components and suggest targeted performance fixes.
+description: "Diagnose slow React components and suggest targeted performance fixes. Use when developing, optimizing, debugging, or configuring react component performance in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for react component performance."
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"

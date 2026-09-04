@@ -1,6 +1,6 @@
 ---
 name: compile-knowledge
-description: "Compile durable, non-obvious findings into an interlinked markdown knowledge store — atomic files, [[wiki-links]], a maintained index — so an agent gets smarter across sessions instead of relearning the same facts."
+description: "Compile durable, non-obvious findings into an interlinked markdown knowledge store — atomic files, [[wiki-links]], a maintained index — so an agent gets smarter across sessions instead of relearning the same facts. Use when developing, optimizing, debugging, or configuring compile knowledge in production workflows."
 category: productivity
 risk: safe
 source: https://github.com/5dive-ai/skills/tree/main/compile-knowledge

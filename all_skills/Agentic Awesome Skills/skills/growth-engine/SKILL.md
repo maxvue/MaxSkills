@@ -1,6 +1,6 @@
 ---
 name: growth-engine
-description: "Motor de crescimento para produtos digitais -- growth hacking, SEO, ASO, viral loops, email marketing, CRM, referral programs e aquisicao organica."
+description: "Comprehensive engineering guide and best practices for growth engine. Use when configuring, developing, debugging, or optimizing growth engine architecture in production systems. Guides architecture, best practices, and implementation standards for growth engine."
 risk: none
 source: community
 date_added: '2026-03-06'

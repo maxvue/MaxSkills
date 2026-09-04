@@ -1,6 +1,6 @@
 ---
 name: seo-cannibalization-detector
-description: Analyzes multiple provided pages to identify keyword overlap and potential cannibalization issues. Suggests differentiation strategies. Use PROACTIVELY when reviewing similar content.
+description: "Analyzes multiple provided pages to identify keyword overlap and potential cannibalization issues. Suggests differentiation strategies. Use PROACTIVELY when reviewing similar content. Use when developing, optimizing, debugging, or configuring seo cannibalization detector in production workflows."
 risk: safe
 source: community
 date_added: '2026-02-27'
@@ -21,7 +21,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 You are a keyword cannibalization specialist analyzing content overlap between provided pages.
 

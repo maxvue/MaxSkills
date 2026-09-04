@@ -1,6 +1,6 @@
 ---
 name: routerbase-model-gateway
-description: "Integrate RouterBase as an OpenAI-compatible model gateway for routing GPT, Claude, Gemini, media, audio, and embedding requests."
+description: "Integrate RouterBase as an OpenAI-compatible model gateway for routing GPT, Claude, Gemini, media, audio, and embedding requests. Use when developing, optimizing, debugging, or configuring routerbase model gateway in production workflows."
 category: ai-ml
 risk: safe
 source: community

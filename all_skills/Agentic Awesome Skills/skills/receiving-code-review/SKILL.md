@@ -1,6 +1,6 @@
 ---
 name: receiving-code-review
-description: "Code review requires technical evaluation, not emotional performance."
+description: "Code review requires technical evaluation, not emotional performance. Use when developing, optimizing, debugging, or configuring receiving code review in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for receiving code review."
 risk: critical
 source: community
 date_added: "2026-02-27"

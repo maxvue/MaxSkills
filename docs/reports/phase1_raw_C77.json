@@ -1,0 +1,174 @@
+[
+  {
+    "skillName": "youtube-seo-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-seo-optimizer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A tag 'description' possui apenas 180 caracteres (abaixo da faixa ideal de 200 a 400 caracteres) e usa gatilho informal ('Use for new or underperforming content') em vez da cláusula explícita padronizada 'Use when...' detalhando gatilhos de títulos, tags e capítulos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Leve adjetivação vazia ('complete YouTube & podcast SEO packages') na descrição sem discriminar explicitamente o suporte a YouTube Shorts e otimizações locais/geo presentes no corpo do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Condensar as seções repetitivas de scorecard e action plans nos Modos B (linhas 365-383, 449-470), D (linhas 571-590, 648-669) e F (linhas 743-757, 806-819), unificando os templates de auditoria via parâmetros e reduzindo ~110 linhas redundantes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração e auditoria aprofundada de pacotes de SEO para vídeos regulares, podcasts e shorts do YouTube com pesquisa de palavras-chave ao vivo.",
+      "entidades": [
+        "web_search",
+        "web_fetch",
+        "YouTube Studio",
+        "Spotify",
+        "Apple Podcasts",
+        "Instagram Reels",
+        "TikTok"
+      ],
+      "keywords": [
+        "YouTube SEO",
+        "podcast SEO",
+        "video metadata",
+        "title optimization",
+        "description structure",
+        "tags strategy",
+        "hashtags",
+        "video chapters",
+        "timestamps",
+        "SEO audit",
+        "CTR optimization",
+        "YouTube Shorts",
+        "local SEO",
+        "keyword research",
+        "AB title testing",
+        "pinned comment",
+        "cards and end screens"
+      ]
+    },
+    "summary": "Skill robusta e de alta qualidade técnica para otimização e auditoria de SEO no YouTube, necessitando apenas de expansão calibrada na description e enxugamento das tabelas repetidas de auditoria."
+  },
+  {
+    "skillName": "youtube-summarizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-summarizer/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "A tag 'description' possui apenas 124 caracteres (muito abaixo do intervalo de 200 a 400 chars), não possui gatilho formal 'Use when...' e usa termos genéricos/buzzwords ('comprehensive, detailed summaries using intelligent analysis frameworks') sem citar a biblioteca youtube-transcript-api nem o framework STAR+R-I-S-E.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência crítica a componente inexistente: as instruções (linhas 271 e 299) mandam aplicar o 'enhanced prompt from Phase 2 (STAR + R-I-S-E framework)', porém nenhuma 'Phase 2' nem o prompt em si existem no arquivo, quebrando a execução do modelo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Corrupção e truncamento no documento: a seção de exemplos pula do Step 5 direto para 'Example 2: Missing Dependency' (linha 348) e 'Example 4: Invalid URL' (linha 377), omitindo completamente os Exemplos 1 e 3.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Sintaxe markdown corrompida: delimitadores de código de fechamento soltos (crases triplas nas linhas 402 e 416 sem abertura correspondente) e fragmentos de texto desconexos de um tutorial de machine learning (linhas 397-417).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ruído estrutural e de instrumentação: inclusão de barras de progresso ASCII ('[████░░░░░░░░░░░░░░░░] 20%') e caixas decorativas desenhadas que poluem a janela de contexto do agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 32,
+    "cuts": [
+      {
+        "text": "Remover seções corrompidas, exemplos órfãos (Ex 2 e Ex 4) e fragmentos soltos com crases não balanceadas (linhas 348-417, ~70 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar simulação de barras de progresso ASCII e caixas de status de terminal (linhas 73-101, ~28 linhas) que introduzem ruído inútil para agentes de IA.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração de transcrições de vídeos do YouTube via youtube-transcript-api e geração de resumos estruturados.",
+      "entidades": [
+        "youtube-transcript-api",
+        "YouTubeTranscriptApi",
+        "TranscriptsDisabled",
+        "NoTranscriptFound",
+        "pip",
+        "Python 3",
+        "STAR + R-I-S-E"
+      ],
+      "keywords": [
+        "youtube transcript",
+        "transcript extraction",
+        "video summarization",
+        "youtube-transcript-api",
+        "STAR framework",
+        "RISE framework",
+        "video metadata",
+        "captions",
+        "subtitles",
+        "educational videos",
+        "error handling",
+        "transcript availability"
+      ]
+    },
+    "summary": "Skill severamente comprometida por truncamento de texto, ausência do prompt prometido da 'Phase 2', blocos markdown quebrados e ruído de barras de progresso ASCII, classificada como Ruim."
+  },
+  {
+    "skillName": "youtube-transcript",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-transcript/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A tag 'description' possui apenas 96 caracteres (muito abaixo do piso de 200 a 400 caracteres) e omite a condição explícita 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A descrição emprega termo vago ('local fallback tooling') em vez de especificar discriminantes essenciais como a ferramenta 'yt-dlp', o formato 'json3' e extração de legendas/subtitles.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Extração de transcrições e legendas do YouTube via DeepAPI com fallback local resiliente via yt-dlp e parsing de json3.",
+      "entidades": [
+        "DeepAPI",
+        "POST /v1/scrape/youtube/transcript",
+        "DEEPAPI_API_KEY",
+        "yt-dlp",
+        "json3",
+        "curl",
+        "jq",
+        "python3"
+      ],
+      "keywords": [
+        "YouTube transcript",
+        "captions",
+        "subtitles",
+        "DeepAPI",
+        "yt-dlp",
+        "transcript scraping",
+        "json3 parsing",
+        "rolling captions",
+        "idempotency key",
+        "bot detection",
+        "rate limit 429",
+        "video metadata",
+        "speech extraction",
+        "caption download"
+      ]
+    },
+    "summary": "Skill concisa, de altíssima eficiência e excelente tratamento de fallbacks técnicos e rate limit, necessitando apenas da expansão semântica e inclusão de discriminantes na description."
+  }
+]

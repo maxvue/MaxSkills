@@ -1,6 +1,6 @@
 ---
 name: architect-review
-description: "Master software architect specializing in modern architecture"
+description: "Comprehensive engineering guide and best practices for architect review. Use when configuring, developing, debugging, or optimizing architect review architecture in production systems. Guides architecture, best practices, and implementation standards for architect review."
 risk: safe
 source: community
 date_added: "2026-02-27"

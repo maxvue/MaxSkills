@@ -1,6 +1,6 @@
 ---
 name: vercel-optimize
-description: "Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans, and version-aware recommendations."
+description: "Audit deployed Vercel apps for cost and performance issues using metrics, project config, code scans, and version-aware recommendations. Use when developing, optimizing, debugging, or configuring vercel optimize in production workflows."
 risk: safe
 source: "https://github.com/vercel-labs/agent-skills"
 date_added: "2026-06-02"

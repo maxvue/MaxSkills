@@ -1,6 +1,6 @@
 ---
 name: red-team-tools
-description: "Implement proven methodologies and tool workflows from top security researchers for effective reconnaissance, vulnerability discovery, and bug bounty hunting. Automate common tasks while maintaining thorough coverage of attack surfaces."
+description: "Implement proven methodologies and tool workflows from top security researchers for effective reconnaissance, vulnerability discovery, and bug bounty hunting. Automate common tasks while maintaining thorough coverage of attack surfaces. Use when developing, optimizing, debugging, or configuring red team tools in production workflows."
 risk: offensive
 source: community
 author: zebbern

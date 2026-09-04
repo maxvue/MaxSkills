@@ -1,64 +1,29 @@
 ---
 name: piv-loop
-description: "Plan-Implement-Validate (PIV) structured engineering loop breaking complex tasks into clear milestones with strict validation gates."
-description_pt_br: "Framework que divide desenvolvimento em Planejamento, Implementação e Validação."
-repository: "Cole Medin"
-url_skill: "https://github.com/colemedin/agentic-workflows"
-stars: 2800
-languages: ["Markdown"]
-frameworks: []
-libs: []
+description: "Plan-Implement-Verify engineering feedback loop for autonomous coding tasks. Use when executing multi-step refactors, feature builds, or bugfixes requiring structured task decomposition and rigorous verification gating."
+risk: safe
+source: curated-youtube
 ---
+# Plan-Implement-Verify (PIV) Loop
 
-# Skill: piv-loop
+## When to Use
+- Executing non-trivial code modifications that span multiple files or layers.
+- Preventing regression errors through mandatory verification gates before marking tasks complete.
+- Structuring subagent delegations with clear input criteria, execution boundaries, and test validation.
 
-## 📖 Visão Geral (Overview)
+## Protocol Phases
 
-### Português (pt-BR)
-Evita desvios de código garantindo que toda tarefa seja planejada, implementada em etapas isoladas e verificada antes da conclusão.
+### 1. Plan (Planejamento)
+- Inspecione a base de código e identifique os arquivos exatos a serem modificados.
+- Defina o critério de aceitação observável (teste automatizado, comando CLI ou validação de tipo).
+- Mapeie riscos potenciais e efeitos colaterais.
 
-**Descrição Detalhada:**
-Framework que divide desenvolvimento em Planejamento, Implementação e Validação.
+### 2. Implement (Implementação)
+- Faça alterações cirúrgicas e contíguas.
+- Siga estritamente as convenções de estilo do repositório.
+- Não refatore código não relacionado fora do escopo do plano.
 
-### English
-Prevents runaway coding by ensuring every task is planned, implemented in isolated chunks, and verified before completion.
-
-**Detailed Description:**
-Plan-Implement-Validate (PIV) structured engineering loop breaking complex tasks into clear milestones with strict validation gates.
-
----
-
-## 🛠️ Stack Tecnológica e Requisitos
-
-- **Linguagens Otimizadas:** Markdown
-- **Frameworks Compatíveis:** Geral / Específico do projeto
-- **Bibliotecas e Dependências:** Padrão
-- **Repositório Oficial:** [Cole Medin](https://github.com/colemedin/agentic-workflows)
-
----
-
-## 🎯 Quando Usar (When to Use)
-
-Use esta skill sempre que o agente ou desenvolvedor precisar de:
-1. Execução determinística e de alta fidelidade para rotinas de `piv-loop`.
-2. Aplicação das melhores práticas de arquitetura, consistência e prevenção de erros.
-3. Padronização nos padrões de código e economia no consumo de contexto e tokens.
-
----
-
-## 📋 Diretrizes de Execução e Melhores Práticas
-
-1. **Investigação Prévia:** Analise o contexto e os arquivos antes de aplicar alterações.
-2. **Isolamento Seguro:** Realize testes e modificações com isolamento de ambiente (worktrees ou sandboxes).
-3. **Validação Contínua:** Execute suítes de testes automatizados e verifique integridade após cada etapa.
-4. **Documentação Integrada:** Mantenha registros claros das decisões e passos executados.
-
----
-
-## 📺 Vídeos de Referência no YouTube
-
-- [Vídeo Recomendado 1](https://www.youtube.com/watch?v=matthew_opencode_ollama_21)
-- [Vídeo Recomendado 2](https://www.youtube.com/watch?v=indydevdan_opencode_vs_claude_22)
-- [Vídeo Recomendado 3](https://www.youtube.com/watch?v=worldofai_opencode_skills_23)
-- [Vídeo Recomendado 4](https://www.youtube.com/watch?v=cole_opencode_walkthrough_24)
-- [Vídeo Recomendado 5](https://www.youtube.com/watch?v=pe_opencode_deepseek_25)
+### 3. Verify (Verificação Obrigatória)
+- Execute a suíte de testes relevante para a alteração.
+- Valide checagem estática de tipos (`tsc --noEmit` ou `phpstan`).
+- Se houver falha, analise o traceback e retorne à fase de Implementação sem reescrever todo o plano.

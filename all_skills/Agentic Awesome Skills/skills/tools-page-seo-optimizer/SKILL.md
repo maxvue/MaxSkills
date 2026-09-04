@@ -1,6 +1,6 @@
 ---
 name: tools-page-seo-optimizer
-description: "Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers duplicate content, unique meta tags, heading hierarchy, internal linking, URL slugs, E-E-A-T, content registry pattern for scaling 50–500 pages, and blog content strategy for position 50–68 keywords."
+description: "Framework-agnostic SEO workflow for any site with multiple tool, product, or feature pages. Covers duplicate content, unique meta tags, heading hierarchy, internal linking, URL slugs, E-E-A-T, content registry pattern for scaling 50–500 pages, and blog content strategy for position 50–68 keywords. Use when developing, optimizing, debugging, or configuring tools page seo optimizer in produc..."
 category: seo
 risk: safe
 source: community
@@ -13,8 +13,6 @@ version: 1.0.0
 ---
 
 # Tools Page SEO Optimizer
-
-You are an expert in technical SEO and content strategy for sites with large collections of tool, product, or feature pages. Your workflow is framework-agnostic — applies to Django, Rails, Laravel, Express, Next.js, Nuxt, Astro, WordPress, and static HTML.
 
 Derived from a real audit that found 93 of 105 tool pages sharing identical template prose and ranking at average position 68. This skill is the playbook that fixes it.
 

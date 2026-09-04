@@ -1,0 +1,205 @@
+[
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "problem": "Distorção semântica severa na description: cita tecnologias como Dusk, Puppeteer, Python RPA e microsserviços de backend que não existem nem no SKILL.md nem no engeapp, violando o Critério 5 (Fidelidade Estrita ao Conteúdo Real) e Critério 8 (Equilíbrio de Amplitude).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md:3 e ausência de dusk/puppeteer em projects/engeapp/composer.json",
+    "correctedDescription": "Use when implementing or debugging browser automation in Laravel using App\\Classes\\Browser, php-webdriver, and geckodriver (Firefox). Covers element selection, dynamic Redis port management (44500-44599), screenshots via GD, alert handling, and cleanup lifecycles in engeapp."
+  },
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "problem": "Omissão dos discriminantes semânticos reais na description: não cita Firefox, geckodriver, a classe App\\Classes\\Browser, nem o pool de portas gerenciado em Redis (Critério 4).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md:3 em contraste com as linhas 8-28",
+    "correctedDescription": "Use when implementing or debugging browser automation in Laravel using App\\Classes\\Browser, php-webdriver, and geckodriver (Firefox). Covers element selection, dynamic Redis port management (44500-44599), screenshots via GD, alert handling, and cleanup lifecycles in engeapp."
+  },
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "problem": "Frase genérica redundante ao final da description ('Covers browser automation, driver configuration, and element interactions.') violando o Critério 12.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging browser automation in Laravel using App\\Classes\\Browser, php-webdriver, and geckodriver (Firefox). Covers element selection, dynamic Redis port management (44500-44599), screenshots via GD, alert handling, and cleanup lifecycles in engeapp."
+  },
+  {
+    "skillName": "laravel-holiday-sla-calculation-best-practices",
+    "problem": "Description finaliza com frase boilerplate genérica ('Covers objectives and core workflows.') que consome caracteres sem valor semântico discriminante.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging SLA tracking, business-day calculations, or deadlines in Engeapp backend. Covers DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween) and HolidayService caching."
+  },
+  {
+    "skillName": "laravel-redis-integration-best-practices",
+    "problem": "A description contém o filler genérico 'Covers objectives and core workflows.' no encerramento, o que gera redundância estilística e dilui o ganho semântico.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues)."
+  },
+  {
+    "skillName": "vue-eslint-stylelint-quality-standards",
+    "problem": "A description contém cauda genérica/redundante 'Covers objectives, ESLint/Stylelint standards, and execution commands.' (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md:3",
+    "correctedDescription": "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, 4-space indent, single quotes, comma-dangle, member delimiters, and pseudo-element overrides (v-deep)."
+  },
+  {
+    "skillName": "vue-pinia-state-management-best-practices",
+    "problem": "Description possui fragmento truncado com meta-ruído de preenchimento ('Covers objectives and best practices, Registro main.').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, reviewing, or debugging Pinia stores in Vue 3 with @maxvue/max-pinia plugin. Enforces that page-level GETs route through MaxPinia stores with LocalForage offline caching, debounced auto-save, and Ziggy route resolution."
+  },
+  {
+    "skillName": "project-setup",
+    "problem": "Remover o placeholder vazio 'Siga as instruções e padrões descritos na documentação.' em '## Instruções' e realocar os passos operacionais de '## Objetivo' para '## Instruções'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-setup/SKILL.md:8-31",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "project-setup",
+    "problem": "Substituir as referências externas a 'CLAUDE.md' por instruções autossuficientes dentro da própria skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-setup/SKILL.md:21-22",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Description com apenas 135 caracteres e sem cláusula de ativação formal ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:3",
+    "correctedDescription": "Use when generating or rendering Mermaid syntax diagrams in markdown or documentation, including flowcharts, sequence diagrams, class diagrams, ERDs, state machines, and C4 architecture models with syntax validation."
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Ausência total de blocos de sintaxe Mermaid, convenções de diagramação ou exemplos práticos no corpo da skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:12-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Metadados incorretos no frontmatter: repositório aponta para 'mckaywrigley/chatbot-ui' em vez de ferramentas ou documentações de Mermaid.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:5-6",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "vue-components",
+    "problem": "Corpo stub scaffold de 65 linhas desprovido de qualquer código ou instrução de desenvolvimento de componentes em Vue 3.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/vue-components/SKILL.md:1-65",
+    "correctedDescription": "Use when authoring, structuring, or refactoring Vue 3 Single File Components (SFC) with Composition API (<script setup>), TypeScript props/emits contracts, slots, and reactive primitives."
+  },
+  {
+    "skillName": "vue-components",
+    "problem": "Remover integralmente o scaffold genérico de 65 linhas e reescrever o SKILL.md com padrões reais de Vue 3 (Composition API, script setup, reatividade e tipagem TypeScript).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/vue-components/SKILL.md:1-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Remover as regras de execução cega que proíbem o agente de consultar o usuário ou confirmar comandos críticos (linhas 105-116).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:105-116",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Podar o excesso de seções teóricas repetitivas sobre 37 tipos de agentes e referências desnecessárias a threads do Hacker News e padrões informais (linhas 68-93 e 698-721).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:68-93, 411-425, 698-721",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Condensar os fluxos de trabalho e diagramas ASCII redundantes para um guia direto focado no ciclo SDLC e gestão de contexto.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:130-410",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pypict-skill",
+    "problem": "Eliminar o texto tautológico e substituir a totalidade do arquivo por um guia técnico real com a API do pypict, formato de modelos PICT e geração combinatorial de testes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md:1-29",
+    "correctedDescription": "Use when designing combinatorial test suites or generating pairwise (all-pairs) test cases using pypict/PICT. Covers model definition (parameters, values, sub-models, constraints), executing generation, and parsing test matrices."
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "Description excessivamente curta (80 caracteres), sem gatilho 'Use when...', sem discriminantes técnicos específicos e puramente genérica ('AWS development with infrastructure automation and cloud architecture patterns').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:3",
+    "correctedDescription": "Use when architecting, deploying, or troubleshooting AWS cloud infrastructure and serverless workloads. Covers AWS CDK, CloudFormation, IAM least-privilege policies, Lambda, API Gateway, S3, and ECS/Fargate container deployments."
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "O arquivo SKILL.md é um stub vazio de apenas 29 linhas que apenas repete a mesma frase genérica em 4 seções diferentes sem fornecer nenhum padrão, instrução ou código prático.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "Ausência total de valor operacional para um agente de IA; a skill atua apenas como redirecionador raso para um repositório GitHub externo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:20-24",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Description excessivamente curta (121 chars), promocional ('Expert database optimizer specializing in...') e sem gatilhos explícitos ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:3",
+    "correctedDescription": "Use when diagnosing slow SQL queries, resolving N+1 bottlenecks, tuning indexes (B-tree, GIN, composite), analyzing EXPLAIN execution plans, or designing caching and partitioning strategies for relational and NoSQL databases."
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Formatação em estilo persona ('You are a database optimization expert...') sem snippets práticos de queries, índices ou configurações reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:26-121",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Gatilhos circulares/tautológicos ('Use this skill when: Working on database optimizer tasks') e apontamento para playbook inexistente ('resources/implementation-playbook.md').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:9-12, 24",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "superpowers",
+    "problem": "Substituir o boilerplate genérico de 65 linhas pelas rotinas operacionais reais do framework Superpowers (planejamento estruturado, templates de especificação e ciclo de subagentes).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/superpowers/SKILL.md:1-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "laravel-ziggy-routing-integration-best-practices + vue-axios-api-integration-best-practices",
+    "problem": "Proposta de LAPIDAR: 'laravel-ziggy-routing-integration-best-practices' lida com a infraestrutura de geração e exposição de rotas nomeadas via Tighten Ziggy (artisan ziggy:generate, config/ziggy.php, tipos RouteList e bootstrap do resolvedor de rotas em app.ts). 'vue-axios-api-integration-best-practices' foca no cliente HTTP frontend (@maxvue/max-use: apiGetRoute, apiPostRoute, contratos de retorno e credenciais de sessão). Contudo, a skill de axios duplica integralmente o trecho de código e a explicação detalhada de 'setRouteResolver' em resources/app.ts (Regra 3), além de repetir preceitos sobre rotas nomeadas. A recomendação é LAPIDAR: manter ambas as skills devido a seus objetivos arquiteturais distintos (geração/resolução de rotas vs transporte HTTP), mas refinar 'vue-axios-api-integration-best-practices' para focar puramente em mutações HTTP, tratamento de retornos e erros, removendo a duplicação do bootstrap do resolver que pertence canonicamente à skill de Ziggy.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md:21-41 em relação a all_skills/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md:75-100",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "laravel-ziggy-routing-integration-best-practices + vue-axios-api-integration-best-practices",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md:21-41 e all_skills/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md:75-100",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "emil-design-eng + review-animations",
+    "problem": "Proposta de LAPIDAR: Ambas as skills têm origem comum (emilkowalski/skills). emil-design-eng é um repositório conceitual e prático extenso (700+ linhas) sobre design engineering, física de springs, clip-path, easings e heurísticas de UI, mas incorpora indevidamente uma seção mandatória de revisão de código ('Review Format (Required)') e checklists que colidem diretamente com a função de review-animations. review-animations, por sua vez, é um subagente/revisor especializado com 'disable-model-invocation: true' desenhado estritamente para code review de diffs com postura rigorosa e veredicto formal Block/Approve. A recomendação é LAPIDAR: remover a formatação coercitiva de code review de emil-design-eng para que esta atue como mentora e guia de implementação de UI craft, mantendo review-animations focada na auditoria passiva de motion diffs, demarcando os gatilhos para evitar sobreposição.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/emil-design-eng/SKILL.md:61-84 e all_skills/Agentic Awesome Skills/skills/review-animations/SKILL.md:1-45",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "emil-design-eng + review-animations",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/emil-design-eng/SKILL.md:61-84 e all_skills/Agentic Awesome Skills/skills/review-animations/SKILL.md:1-45",
+    "correctedDescription": ""
+  }
+]

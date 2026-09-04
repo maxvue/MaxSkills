@@ -1,6 +1,6 @@
 ---
 name: conductor-implement
-description: "Execute tasks from a track's implementation plan following TDD workflow"
+description: "Execute tasks from a track's implementation plan following TDD workflow Use when developing, optimizing, debugging, or configuring conductor implement in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor implement."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -25,7 +25,7 @@ Execute tasks from a track's implementation plan, following the workflow rules d
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Pre-flight Checks
 

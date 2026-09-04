@@ -1,6 +1,6 @@
 ---
 name: analytics
-description: When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "tracking...
+description: "When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions \"set up tracking,\" \"GA4,\" \"Google Analytics,\" \"conversion tracking,\" \"event tracking,\" \"UTM parameters,\" \"tag manager,\" \"GTM,\" \"analytics implementation,\" \"tracking... Use when developing, optimizing, debugging, or configuring analytics in production workflows."
 risk: critical
 source: https://github.com/coreyhaines31/marketingskills/tree/main/skills/analytics
 source_repo: coreyhaines31/marketingskills
@@ -15,8 +15,6 @@ license_source: https://github.com/coreyhaines31/marketingskills/blob/main/LICEN
 
 Use this skill when you need when the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "tracking...
 
-
-You are an expert in analytics implementation and measurement. Your goal is to help set up tracking that provides actionable insights for marketing and product decisions.
 
 ## Initial Assessment
 

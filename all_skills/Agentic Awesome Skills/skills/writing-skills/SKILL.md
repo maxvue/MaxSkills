@@ -1,6 +1,6 @@
 ---
 name: writing-skills
-description: "Use when creating, updating, or improving agent skills."
+description: "Use when creating, updating, or improving agent skills. Guides architecture, best practices, and implementation standards for writing skills. Provides end-to-end guidance, reference architectures, and practical patterns for writing skills."
 category: meta
 risk: critical
 source: community

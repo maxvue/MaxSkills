@@ -1,6 +1,6 @@
 ---
 name: cyber-audit
-description: "Run read-only exposure checks for security advisories and write a structured local audit report."
+description: "Run read-only exposure checks for security advisories and write a structured local audit report. Use when developing, optimizing, debugging, or configuring cyber audit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for cyber audit."
 category: security
 risk: safe
 source: community

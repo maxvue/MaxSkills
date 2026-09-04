@@ -1,6 +1,6 @@
 ---
 name: moyu
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring moyu in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for moyu. Use when developing, optimizing, testing, or configuring moyu in production environments."
   Anti-over-engineering guardrail that activates when an AI coding agent expands
   scope, adds abstractions, or changes files the user did not request.
 risk: safe

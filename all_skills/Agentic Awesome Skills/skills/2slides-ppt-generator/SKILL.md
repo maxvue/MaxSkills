@@ -1,6 +1,6 @@
 ---
 name: 2slides-ppt-generator
-description: "AI-powered presentation generation via the 2slides API — create slides from text, match a reference image style, summarize documents into decks, add AI voice narration, and export pages/audio. Use for any \"make slides\", \"create a deck\", or \"slides from this document\" request."
+description: "AI-powered presentation generation via the 2slides API — create slides from text, match a reference image style, summarize documents into decks, add AI voice narration, and export pages/audio. Use for any \\"make slides\\", \\"create a deck\\", or \\"slides from this document\\" request. Use when developing, optimizing, debugging, or configuring 2slides ppt generator in production workflows."
 category: api-integration
 risk: safe
 source: community

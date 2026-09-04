@@ -1,0 +1,226 @@
+[
+  {
+    "skillName": "laravel-engeapp-project-homologation-best-practices",
+    "problem": "A description termina com o filler redundante 'Covers objectives and connection regulations.' (critério 12), gerando repetição de termos já enunciados na primeira sentença.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when managing solar PV project homologation in Engeapp. Covers concessionaire regulations via ConcessionaireSubsidiaryRegulation, HasProtocol trait, Protocol::booted hook, and Vue SPA MaxPinia integration."
+  },
+  {
+    "skillName": "laravel-migrations-seeders-factories-best-practices",
+    "problem": "Description encerra com o fragmento genérico repetitivo ('Covers objectives and core workflows.').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel and Engeapp. Covers anonymous migrations, ULID char(26) primary keys, resilient foreign key definitions, idempotent seeders, and typed factory states with fake() helpers."
+  },
+  {
+    "skillName": "laravel-migrations-seeders-factories-best-practices",
+    "problem": "Description omitiu menção a convenções e termos discriminantes centrais do Engeapp detalhados no corpo da skill, como chaves ULID char(26), anonymous migrations e factory helpers tipados.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md:3, 12-30, 71-101",
+    "correctedDescription": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel and Engeapp. Covers anonymous migrations, ULID char(26) primary keys, resilient foreign key definitions, idempotent seeders, and typed factory states with fake() helpers."
+  },
+  {
+    "skillName": "laravel-vue-geocoordinates-maps-best-practices",
+    "problem": "Discrepância semântica na description (Critério 5): a description afirma 'Covers validating Spatie Data DTOs', porém as Seções 1 e Restrições do próprio SKILL.md determinam explicitamente que o backend não valida coordenadas ('NÃO invente uma camada de validação... hoje o fluxo real persiste $request->all() via fill()/save(), sem validação') e que os Spatie Data DTOs atuam estritamente como classes de transferência/tipagem para o TypeScript Transformer.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md:3, 17, 51",
+    "correctedDescription": "Use when handling geographic coordinates (Decimal, UTM, DMS) in Engeapp. Covers Spatie Data DTOs for TypeScript generation, persisting LocationCoordinate JSON, integrating MaxMaps wrapper, and converting UTM/DMS/Decimal via utm-latlng in useCoordinates Store."
+  },
+  {
+    "skillName": "vue-keyboard-shortcuts-navigation-best-practices",
+    "problem": "A description contém cauda genérica 'Covers objectives and core workflows.' (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 and MaxVue using useMagicKeys, useActiveElement, and key modifiers without collision in text inputs."
+  },
+  {
+    "skillName": "vue-vitest-testing-best-practices",
+    "problem": "A descrição no frontmatter contém o trecho genérico redundante 'Covers objectives and core workflows.' ao final, violando os critérios 10, 12 e 13 (redundância de preenchimento e redução da densidade semântica útil). Recomenda-se remover o trecho ou substituí-lo por discriminantes mais específicos (ex.: stubs de MaxComponentsUi, apiGetRoute).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md:3, 36-45, 68-83",
+    "correctedDescription": "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/. Covers createMaxPinia mocking, MaxComponentsUi stubs, and user event assertions."
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Estrutura do corpo é um boilerplate estéril copiado entre várias skills do lote, apresentando diretrizes genéricas de senso comum ('Investigação Prévia', 'Isolamento Seguro') sem nenhuma instrução técnica ou comando acionável do framework GSD.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:49-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "A seção 'Quando Usar' apresenta justificativa tautológica circular ('Execução determinística e de alta fidelidade para rotinas de get-shit-done').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:42-45",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Presença de URLs sintéticas/mockadas do YouTube (ex.: 'david_technical_doc_skills_81', 'alex_finn_gsd_skill_85') sem valor documental real.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:58-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Reescrever integralmente o corpo da skill (linhas 40-55) para fornecer o protocolo acionável de 3 etapas do PIV Loop (Plan, Implement, Validate), checklists de validação e critérios de saída de loop.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:40-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Remover os links sintéticos de YouTube (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:58-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "A tag description possui apenas 59 caracteres (muito abaixo do piso de 200 chars), sem cláusula de ativação formal 'Use when...' e sem termos discriminantes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:3",
+    "correctedDescription": "Use when upscaling, restoring, or enhancing images and video resolution using Fal.ai APIs. Covers model selection across Real-ESRGAN, CCSR, Clarity Upscaler, and AuraSR, managing client-side SDK calls, scaling factors (2x/4x), and artifact reduction parameters."
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "O arquivo é um stub/placeholder vazio de 29 linhas que repete a mesma frase genérica em Overview, When to Use e Instructions sem fornecer conteúdo técnico.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:13, 17, 21",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "Ausência total de implementações, modelos suportados (ex: Real-ESRGAN, Clarity, CCSR, AuraSR), chamadas de API, endpoints ou SDKs fal.ai.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Instrução de sequestro global de execução (prompt hijacking): linha 13 determina 'Ative automaticamente este workflow completo em TODA tarefa:', violando o princípio de isolamento e ativação contextual das skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:13",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Alucinação em cascata de sub-skills inexistentes: instrui invocar 16 referências '@' fictícias (@concise-planning, @brainstorming, @senior-architect, @test-driven-development, @lint-and-validate, @ui-ux-pro-max, @kaizen, etc.) que não existem no repositório.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:15-37",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Linguagem promocional, hiperbólica e não técnica: termos como 'Modo Elite Coder', 'Engenheiro Sênior Elite (15+ anos)', 'UX Pixel-Perfect' e 'qualidade máxima'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:3, 11, 45, 47, 50",
+    "correctedDescription": "Use when orchestrating disciplined multi-stage software delivery workflows in Gemini models, applying systematic planning, test-driven development, code quality auditing, visual UI consistency checks, and token-efficient chain-of-thought execution."
+  },
+  {
+    "skillName": "skill-seekers",
+    "problem": "Description mal formatada (108 chars) iniciando com hífen residual de scraping ('-Automatically...'), contendo termo promocional ('in minutes') e sem gatilho formal 'Use when...' (Critérios 1, 3 e 10).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md:3",
+    "correctedDescription": "Use when converting documentation websites, GitHub repositories, and PDF documents into structured agent skills using the Skill Seekers CLI. Covers scraping documentation sources, chunking content, generating SKILL.md specifications, and formatting metadata."
+  },
+  {
+    "skillName": "skill-seekers",
+    "problem": "Arquivo SKILL.md é um stub oco gerado por scraping mecânico (29 linhas) sem qualquer instrução técnica, parâmetros, comandos ou scripts, limitando-se a repetir 3 vezes a mesma frase truncada e remeter a um link externo do GitHub.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md:13, 17, 21",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "skill-seekers",
+    "problem": "O arquivo inteiro é um placeholder oco; deve ser reescrito com instruções e comandos reais de CLI/scaffolding da ferramenta ou descartado por inexistência de conteúdo operacional.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Remover seções genéricas 'Best Practices', 'Common Pitfalls' e 'Limitations' (linhas 301-322), pois contêm apenas advertências vazias de template.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:301-322",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Condensar a tabela 'Skills Atuais Do Ecossistema' (linhas 290-300) em um exemplo conceitual ilustrativo para evitar acoplamento a artefatos locais obsoletos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:290-300",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Description com 139 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem cláusula explícita de condição de uso / gatilho ('Use when...' ou 'Ative quando...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:3",
+    "correctedDescription": "Use when developing, structuring, or refactoring modern React 19 and TypeScript components, implementing custom hooks, managing isolated state, and ensuring WCAG accessibility compliance with Radix UI primitives."
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Divergência severa de fidelidade entre a descrição e o corpo: a descrição promete padrões de produção para React 19, custom hooks, isolamento de estado e WCAG, porém o arquivo é um stub scaffold de 65 linhas sem nenhum padrão de código, hook ou diretriz técnica implementada.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:3, 12-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Corpo composto por boilerplate repetitivo que apenas espelha campos do frontmatter YAML em seções redundantes de Overview e Stack, além de URLs fictícias/simuladas de vídeos do YouTube ('builder_ui_ux_skills_51', etc.).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:15-37, 49-55, 60-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Description com 128 caracteres (abaixo dos 200 chars ideais) e sem cláusula condicional de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:3",
+    "correctedDescription": "Use when managing, distributing, or synchronizing private agent skills, personas, and prompt catalogs across repositories and machines using The Library tooling. Covers decentralized skill registration, versioning, and environment synchronization."
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Corpo stub oco (65 linhas): não documenta nenhuma rotina prática de sincronização, versionamento, comandos de terminal ou gerenciamento do catálogo descentralizado de skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:13-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Ruído estrutural com repetição literal dos campos do frontmatter YAML nas seções de Overview e Stack, acompanhado de links placeholder de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:15-37, 58-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "typescript-tooling-monorepo-best-practices + typescript-expert",
+    "problem": "Proposta de MERGE: typescript-expert é um monolito de 432 linhas da comunidade com alta redundância interna e externa. Sua seção de Type-Level Programming (branded types, conditional types, recursive types, satisfies) já é coberta de forma canônica por typescript-advanced-types-best-practices e infringe a demarcação explícita de escopo estabelecida no repositório. Por outro lado, a sua porção de infraestrutura, diagnósticos do compilador CLI (--traceResolution, --generateTrace), monorepo (composite, project references) e migração de ferramentas (Biome vs ESLint, ts-migrate) sobrepõe-se diretamente a typescript-tooling-monorepo-best-practices (que inclusive já mantém um cheatsheet derivado de typescript-expert como referência). A unificação em typescript-tooling-monorepo-best-practices centraliza toda a governança de build, tooling e arquitetura de pacotes na skill criada sob medida para o ecossistema do projeto.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-expert/SKILL.md:59-100, 183-292; all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md:8-98; all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/references/typescript-cheatsheet.md:1-7",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "typescript-tooling-monorepo-best-practices + typescript-expert",
+    "problem": "Plano de integracao: Transferir para typescript-tooling-monorepo-best-practices os tópicos práticos de tooling avançado presentes em typescript-expert: diagnósticos avançados de compilação CLI (npx tsc --traceResolution, --generateTrace e análise de memória), estratégias de migração incremental (allowJs/checkJs, ts-migrate) e o comparativo de decisão Biome vs ESLint. Descartar integralmente a seção de Type-Level Programming de typescript-expert, pois sua autoridade pertence exclusivamente a typescript-advanced-types-best-practices. Desativar typescript-expert do catálogo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-expert/SKILL.md:183-292; all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md:31-98",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "tdd-workflows-tdd-green + tdd-workflows-tdd-red + tdd-workflows-tdd-refactor",
+    "problem": "Proposta de LAPIDAR: As três skills representam as fases especializadas do ciclo canônico de TDD (Red, Green e Refactor). A separação modular por fase é uma prática sólida em sistemas agentic, pois cada etapa impõe restrições mutuamente exclusivas ao modelo (no Red é proibido escrever código de produção; no Green é proibido antecipar refatorações; no Refactor é proibido alterar comportamento ou adicionar novos testes). No entanto, o cluster necessita de profunda lapidação interna: 'tdd-workflows-tdd-green' teve seu SKILL.md corrompido/truncado (começa abruptamente sem bloco de código e suas diretrizes essenciais foram isoladas indevidamente em 'resources/implementation-playbook.md'), enquanto 'tdd-workflows-tdd-refactor' possui metadados tautológicos genéricos e referências a arquivos inexistentes. É necessário restaurar o corpo de 'tdd-workflows-tdd-green', aprimorar o conteúdo de 'tdd-workflows-tdd-refactor' e calibrar rigorosamente as transições de fase entre as três skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/SKILL.md:8-24; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/resources/implementation-playbook.md:1-60; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-refactor/SKILL.md:3, 11, 24",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "tdd-workflows-tdd-green + tdd-workflows-tdd-red + tdd-workflows-tdd-refactor",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/SKILL.md:8-82; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-refactor/SKILL.md:1-60; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-red/SKILL.md:1-60",
+    "correctedDescription": ""
+  }
+]

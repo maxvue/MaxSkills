@@ -1,64 +1,66 @@
 ---
 name: pytest-and-jest-automation
-description: "Automated unit and integration test suite generation with Pytest (Python) and Jest/Vitest (TypeScript), mocking, and coverage analysis."
-description_pt_br: "Automação de testes em Python com pytest e fixtures avançadas."
-repository: "Anthropic"
-url_skill: "https://github.com/karanb192/awesome-claude-skills/tree/main/skills/pytest-automation"
-stars: 24500
-languages: ["Python", "TypeScript", "JavaScript"]
-frameworks: ["Pytest", "Jest", "Vitest"]
-libs: ["pytest-asyncio", "pytest-mock", "@testing-library/jest-dom"]
+description: "Automated testing with Python pytest, fixtures, parameterization, mocks, and code coverage. Use when generating unit and integration tests for Python backends, mocking external dependencies, or analyzing test suites."
+risk: safe
+source: curated-youtube
 ---
+# Automação de Testes com Pytest
 
-# Skill: pytest-and-jest-automation
+## When to Use
+- Criar suítes de testes unitários ou de integração para serviços e utilitários em Python.
+- Configurar fixtures com escopos adequados (`function`, `module`, `session`).
+- Testar múltiplos cenários usando `@pytest.mark.parametrize` e mocks assíncronos.
+- Medir cobertura de código via `pytest-cov`.
 
-## 📖 Visão Geral (Overview)
+## Padrões Essenciais de Código
 
-### Português (pt-BR)
-Automatiza a criação de suítes completas de testes unitários e de integração com mocks e relatórios de cobertura.
+### 1. Fixtures e Injeção de Dependência
+```python
+import pytest
+from unittest.mock import AsyncMock, MagicMock
 
-**Descrição Detalhada:**
-Automação de testes em Python com pytest e fixtures avançadas.
+@pytest.fixture
+def api_client():
+    client = MagicMock()
+    client.get.return_value = {"status": "ok", "data": [1, 2, 3]}
+    return client
 
-### English
-Automates the creation of comprehensive unit and integration test suites with mocks and coverage reports.
+def test_fetch_data(api_client):
+    result = api_client.get("/endpoint")
+    assert result["status"] == "ok"
+    assert len(result["data"]) == 3
+```
 
-**Detailed Description:**
-Automated unit and integration test suite generation with Pytest (Python) and Jest/Vitest (TypeScript), mocking, and coverage analysis.
+### 2. Parametrização de Cenários
+```python
+import pytest
 
----
+def calculate_discount(price: float, percentage: float) -> float:
+    if percentage < 0 or percentage > 100:
+        raise ValueError("Invalid percentage")
+    return price * (1 - percentage / 100)
 
-## 🛠️ Stack Tecnológica e Requisitos
+@pytest.mark.parametrize("price, percentage, expected", [
+    (100.0, 10.0, 90.0),
+    (50.0, 0.0, 50.0),
+    (200.0, 50.0, 100.0),
+])
+def test_calculate_discount_success(price, percentage, expected):
+    assert calculate_discount(price, percentage) == pytest.approx(expected)
 
-- **Linguagens Otimizadas:** Python, TypeScript, JavaScript
-- **Frameworks Compatíveis:** Pytest, Jest, Vitest
-- **Bibliotecas e Dependências:** pytest-asyncio, pytest-mock, @testing-library/jest-dom
-- **Repositório Oficial:** [Anthropic](https://github.com/karanb192/awesome-claude-skills/tree/main/skills/pytest-automation)
+def test_calculate_discount_invalid():
+    with pytest.raises(ValueError, match="Invalid percentage"):
+        calculate_discount(100.0, -5.0)
+```
 
----
+### 3. Comandos de Execução
+```bash
+# Execução padrão com saída verbosa
+pytest -v
 
-## 🎯 Quando Usar (When to Use)
+# Executar arquivo específico com cobertura
+pytest tests/test_services.py --cov=app --cov-report=term-missing
 
-Use esta skill sempre que o agente ou desenvolvedor precisar de:
-1. Execução determinística e de alta fidelidade para rotinas de `pytest-and-jest-automation`.
-2. Aplicação das melhores práticas de arquitetura, consistência e prevenção de erros.
-3. Padronização nos padrões de código e economia no consumo de contexto e tokens.
-
----
-
-## 📋 Diretrizes de Execução e Melhores Práticas
-
-1. **Investigação Prévia:** Analise o contexto e os arquivos antes de aplicar alterações.
-2. **Isolamento Seguro:** Realize testes e modificações com isolamento de ambiente (worktrees ou sandboxes).
-3. **Validação Contínua:** Execute suítes de testes automatizados e verifique integridade após cada etapa.
-4. **Documentação Integrada:** Mantenha registros claros das decisões e passos executados.
-
----
-
-## 📺 Vídeos de Referência no YouTube
-
-- [Vídeo Recomendado 1](https://www.youtube.com/watch?v=ai_jason_top_7_skills_41)
-- [Vídeo Recomendado 2](https://www.youtube.com/watch?v=david_top_10_skills_42)
-- [Vídeo Recomendado 3](https://www.youtube.com/watch?v=alex_finn_top_5_claude_43)
-- [Vídeo Recomendado 4](https://www.youtube.com/watch?v=worldofai_best_skills_2026_44)
-- [Vídeo Recomendado 5](https://www.youtube.com/watch?v=techwithtim_python_skills_45)
+# Executar testes marcados
+pytest -m "not slow" -k "test_calculate"
+```

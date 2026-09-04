@@ -1,6 +1,6 @@
 ---
 name: debugging-toolkit
-description: "Use when working with debugging toolkit smart debug (Alias for debugging-toolkit-smart-debug)"
+description: "Comprehensive engineering guide and best practices for debugging toolkit. Use when configuring, developing, debugging, or optimizing debugging toolkit architecture in production systems. Guides architecture, best practices, and implementation standards for debugging toolkit."
 risk: none
 source: "alias"
 date_added: "2026-06-02"

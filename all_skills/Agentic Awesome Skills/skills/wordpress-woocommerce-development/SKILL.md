@@ -1,6 +1,6 @@
 ---
 name: wordpress-woocommerce-development
-description: "WooCommerce store development workflow covering store setup, payment integration, shipping configuration, customization, and WordPress 7.0 features: AI connectors, DataViews, and collaboration tools."
+description: "WooCommerce store development workflow covering store setup, payment integration, shipping configuration, customization, and WordPress 7.0 features: AI connectors, DataViews, and collaboration tools. Use when developing, optimizing, debugging, or configuring wordpress woocommerce development in production workflows."
 category: granular-workflow-bundle
 risk: safe
 source: personal

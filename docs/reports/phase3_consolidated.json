@@ -1,0 +1,2002 @@
+[
+  {
+    "skillName": "laravel-ai-agents-ecosystem",
+    "problem": "A frase final da description ('Covers objectives and core workflows.') é um clichê genérico de preenchimento (padding) que viola o Critério 12 (Ausência de Redundâncias) e reduz a densidade semântica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md:3",
+    "correctedDescription": "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "laravel-finance-coupons-discounts-best-practices",
+    "problem": "A description apresenta no final o texto de preenchimento 'Covers objectives and core workflows.' (critério 12), sem agregar ganho semântico e repetindo a ideia de cobertura geral.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "laravel-multitenancy-data-isolation-best-practices",
+    "problem": "Description traz cauda boilerplate redundante ('Covers objectives, tenant scoping, and user permission models.') que duplica o conceito de tenant scoping e inclui termos genéricos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "vue-boleto-utils-best-practices",
+    "problem": "A description contém cauda genérica/redundante 'Covers objectives and core workflows.' ao final, que reduz a densidade informativa (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "vue-max-ecosystem-api-reference",
+    "problem": "Description possui redundância textual interna repetindo termos ('Covers component props...') e meta-ruído de preenchimento ('Covers objectives').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md:3",
+    "correctedDescription": "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Provides definitive contracts for component props, events, slots, composable signatures, and cached store configurations.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "vue-whatsapp-interactive-messages-simulator-best-practices",
+    "problem": "A descrição no frontmatter inclui a frase de boilerplate 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica e violando os critérios 10 e 12.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Eliminar as seções genéricas de 'Diretrizes de Execução' (linhas 49-55) e 'Quando Usar' circular (linhas 40-47), substituindo por mecânicas reais de decomposição de tarefas e loops de execução do GSD.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:40-55",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Remover a lista de vídeos de referência do YouTube com links sintéticos (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:58-64",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Description abaixo da faixa ideal (144 caracteres) e sem cláusula de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:3",
+    "correctedDescription": "Use when configuring, scaffolding, or generating automated unit and integration tests using Pytest for Python or Jest and Vitest for TypeScript, including fixtures, mock setups, async assertions, and coverage analysis.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Inconsistência entre 'description' (cita Pytest, Jest e Vitest) e 'description_pt_br' (restringe-se unicamente a Python com pytest).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:3-4,21,27",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Ausência total de código, fixtures, padrões de mock ou exemplos de configuração para qualquer um dos frameworks citados (Pytest, Jest, Vitest).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:1-65",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "Delegação completa para URL externa do GitHub sem qualquer utilidade autônoma para agentes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:23",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "Remover a estrutura oca de 29 linhas que consiste em boilerplate e tautologias sem dados, substituindo-a por implementações concretas de upscale com fal.ai ou expurgando a skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Description subdimensionada (167 chars) e ausência de gatilho formal 'Use when...'; corpo sem procedimentos técnicos concretos, limitando-se a meta-prompts de persona.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:3,11-47",
+    "correctedDescription": "Use when orchestrating full-cycle software engineering and pixel-perfect UI/UX design workflows optimized for Gemini 3.1 Pro High reasoning modes, enforcing strict TDD, clean code refactoring, visual alignment checks, and token-efficient execution.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Eliminar o arquivo ou purgar as linhas 9-48: o conteúdo é 80% composto de persona roleplay, comandos invasivos de ativação incondicional e chamadas a skills inexistentes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:9-48",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Stub vazio gerado por automação contendo apenas 29 linhas, sem nenhum conteúdo instrucional, padrões técnicos ou regras de UI concretas.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Description de 73 caracteres ('Opinionated, evolving constraints to guide agents when building interfaces') puramente abstrata, sem gatilho 'Use when...' e sem termos discriminantes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:3",
+    "correctedDescription": "Use when designing and implementing modern web user interfaces, applying strict design constraints, responsive layout rules, accessible color contrast, typography scales, spacing tokens, and component micro-interactions.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Redundância extrema: a frase da description é repetida literalmente no Overview, no When to Use e no Instructions, sem adicionar qualquer instrução técnica útil.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:3,13,17,21",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Description curta (183 chars), redigida em tom promocional/persona ('Expert cloud architect specializing in...') sem cláusula de ativação ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:3",
+    "correctedDescription": "Use when architecting multi-cloud infrastructure on AWS, Azure, or GCP, designing IaC modules with Terraform, OpenTofu, or CDK, implementing FinOps cost optimizations, and structuring high-availability microservices or serverless systems.",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Estrutura no formato de prompt de persona conversacional ('You are a cloud architect...'), desprovida de snippets executáveis de IaC ou arquitetura prática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:26-132",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Seções circulares de gatilho ('Use this skill when: Working on cloud architect tasks') e referência a playbook externo inexistente ('resources/implementation-playbook.md').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:11,24",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Remover seções redundantes de 'Visão Geral (Overview)' bilíngue e 'Stack Tecnológica' que duplicam o frontmatter, e substituir o preâmbulo genérico por instruções e padrões técnicos reais de componentes React 19.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:15-55",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Eliminar os blocos redundantes de Overview e Stack e documentar o procedimento técnico real de catálogo e sincronização de skills entre ambientes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:15-55",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "api-design + api-and-interface-design",
+    "problem": "Proposta de MERGE: Trata-se de uma duplicação física exata (100% idêntica byte a byte, com 308 linhas) entre o catálogo curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design. Ambos os arquivos compartilham inclusive o mesmo frontmatter com name: api-and-interface-design, mesma descrição, mesma autoria e mesmo código. A existência da pasta curated-youtube/api-design é uma cópia não consolidada do mesmo módulo da comunidade (addyosmani/agent-skills).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/api-design/SKILL.md:1-308 e all_skills/Agentic Awesome Skills/skills/api-and-interface-design/SKILL.md:1-308",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "api-design + api-and-interface-design",
+    "problem": "Plano de integracao: Remover a pasta duplicada curated-youtube/api-design do repositório, preservando api-and-interface-design como a entrada canônica única no catálogo. Nenhuma alteração textual ou de conteúdo é necessária dada a total paridade entre os arquivos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "seo-meta-optimizer + seo-aeo-meta-description-generator",
+    "problem": "Proposta de MERGE: Ambas as skills implementam a mesma funcionalidade de forma fragmentada e redundante: criação de títulos e meta descrições otimizados para SEO e taxa de clique (CTR), geração de 3 variações A/B por página e tags de compartilhamento social. 'seo-meta-optimizer' possui um escopo mais canônico (incluindo URLs, suporte a CMS como WordPress/Yoast/RankMath e frameworks como Next.js/Astro), porém contém boilerplate genérico e referências a arquivos inexistentes. Já 'seo-aeo-meta-description-generator' traz frameworks de redação de CTR robustos (V1 Benefício, V2 Pergunta, V3 Prova Social) e regras explícitas para Open Graph e Twitter Cards, mas tem nomenclatura excessivamente restrita. A unificação sob 'seo-meta-optimizer' consolida as melhores práticas de ambas em uma skill completa e elimina a ambiguidade para o orquestrador.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/seo-meta-optimizer/SKILL.md:1-97 e all_skills/Agentic Awesome Skills/skills/seo-aeo-meta-description-generator/SKILL.md:1-93",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "seo-meta-optimizer + seo-aeo-meta-description-generator",
+    "problem": "Plano de integracao: 1. Destino: 'seo-meta-optimizer'. 2. Incorporar a estrutura de 3 ângulos de CTR de 'seo-aeo-meta-description-generator' (V1 Benefit Lead, V2 Question Hook, V3 Social Proof/Specificity) nas regras de geração de variações. 3. Absorver a seção de tags sociais (Open Graph e Twitter Card tags) e SERP preview de 'seo-aeo-meta-description-generator'. 4. Preservar as regras de estrutura de URL, limites de caracteres/pixels, integrações de CMS (Yoast/RankMath) e componentes de frameworks (Astro/Next.js) já presentes em 'seo-meta-optimizer'. 5. Remover o boilerplate vazio e a referência ao arquivo inexistente 'resources/implementation-playbook.md' de 'seo-meta-optimizer'. 6. Depreciar e remover 'seo-aeo-meta-description-generator' redirecionando seus gatilhos para 'seo-meta-optimizer'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/seo-meta-optimizer/SKILL.md:24,70-90 e all_skills/Agentic Awesome Skills/skills/seo-aeo-meta-description-generator/SKILL.md:26-45",
+    "correctedDescription": "",
+    "batch": "ADV1"
+  },
+  {
+    "skillName": "laravel-anticaptcha-integration-best-practices",
+    "problem": "A description possui 198 caracteres, ficando ligeiramente abaixo da faixa recomendada de 200 a 400 caracteres (Critério 1).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md:3 (string com 198 caracteres, abaixo do limiar de 200)",
+    "correctedDescription": "Use when integrating or debugging Anti-Captcha services in Laravel, using App\\Classes\\Anticaptcha wrapper classes (Anticaptcha, AnticaptchaBase, ImageToText), configuring ANTICAPTCHA_KEY, handling timeouts, and routing logs to the dedicated anticaptcha channel.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "laravel-anticaptcha-integration-best-practices",
+    "problem": "Presença da frase de preenchimento 'Covers objectives and core workflows.' na description (Critério 12), além da omissão de termos discriminantes das classes reais do wrapper como Anticaptcha e AnticaptchaBase (Critério 4).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md:3 e projects/engeapp/app/Classes/Anticaptcha/ (classes Anticaptcha.php e AnticaptchaBase.php omitidas da description, enquanto boilerplate genérico foi incluído)",
+    "correctedDescription": "Use when integrating or debugging Anti-Captcha services in Laravel, using App\\Classes\\Anticaptcha wrapper classes (Anticaptcha, AnticaptchaBase, ImageToText), configuring ANTICAPTCHA_KEY, handling timeouts, and routing logs to the dedicated anticaptcha channel.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "laravel-frankenphp-octane-best-practices",
+    "problem": "A description cita 'tuning Caddyfile workers', enquanto o conteúdo e a infraestrutura do Engeapp explicam que o Caddyfile é gerado pelo Octane e não deve ser editado manualmente, devendo referenciar 'tuning worker CLI options' ou 'worker process management' (critério 5).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md:3,25 (a linha 25 afirma categoricamente: 'Não escreva o Caddyfile à mão. O próprio Octane gera e gerencia o Caddyfile... engeapp NÃO possui Caddyfile manual — controle os workers exclusivamente pelas flags de CLI')",
+    "correctedDescription": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, preventing memory leaks, scoping services vs singletons, tuning worker CLI options (--workers, --max-requests), and managing Supervisor restarts.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "laravel-frankenphp-octane-best-practices",
+    "problem": "A description finaliza com a sentença redundante de preenchimento 'Covers objectives and core workflows.' (critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md:3 (frase genérica de padding no final da description)",
+    "correctedDescription": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, preventing memory leaks, scoping services vs singletons, tuning worker CLI options (--workers, --max-requests), and managing Supervisor restarts.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "laravel-performance-and-profiling-best-practices",
+    "problem": "A description encerra com a expressão genérica de preenchimento 'Covers objectives and core workflows.', que dilui a densidade semântica e poderia ser substituída por termos discriminantes concretos como gates de autorização ou comandos CLI.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md:3 (presença da cauda genérica 'Covers objectives and core workflows.')",
+    "correctedDescription": "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse (viewPulse gate, Redis ingestion), Clockwork timelines, LaraDumps ds(), Debugbar CLI, Log Viewer access control, and real-time log streaming with Artisan Pail.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "vue-brand-positioning-character-management-best-practices",
+    "problem": "A description contém cauda redundante 'Covers brand positioning, character management, and social media stores.' que duplica os termos do gatilho inicial (Critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md:3 (a cauda repete literalmente termos já contidos na primeira oração da description)",
+    "correctedDescription": "Use when building, styling, or debugging Vue 3 brand positioning and character components or stores in SocialMedia module (TabBrandPositioning, TabCharacters, TabThemes, useBrandPositioningStore, useSocialMediaCharacters, MaxModal deletion dialogs, and Ziggy routes).",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "vue-brand-positioning-character-management-best-practices",
+    "problem": "A numeração de seções salta de '## Instruções' diretamente para '### 2. Formulários de Posicionamento de Marca', omitindo a seção 1.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md:11-15 (a primeira subseção sob Instruções é rotulada como 2, sem que haja seção 1)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "vue-max-stack-frontend-best-practices",
+    "problem": "Exemplo ensina classes e atributos utilitários inline no template (ex: s100 flex flex-col, s-70 w-max-400) — adotar classes semânticas e estilizar em <style lang=\"scss\">.",
+    "verdict": "REFUTADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md:22,27,30,95 e dezenas de componentes em projects/engeapp/resources/Vue/ (ex: ModalSendEmail.vue:4-10, ProjectsListSection.vue:2, ModalAdminUser.vue:5-8). O uso de atributos utilitários inline (s100, s-70, w-max-400, flex, flex-col) reflete a convenção canônica de UnoCSS attributify (presetMaxUno) estabelecida para todo o ecossistema Engeapp/MaxVue. Exigir classes semânticas em <style lang=\"scss\"> para layout básico contraria diretamente a arquitetura de front-end do projeto.",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "project-history",
+    "problem": "A descrição omite totalmente o nome do projeto ('SocialMedia') e usa a expressão genérica 'in this project', gerando risco crítico de falso-positivo de ativação em qualquer projeto do repositório/workspace (violação dos critérios 4, 7 e 8).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:3 (uso de 'in this project' sem discriminar o módulo 'SocialMedia', atraindo solicitações de outros projetos como EngeApp, MaxPinia, etc.)",
+    "correctedDescription": "Use when retrieving historical decisions, milestone architecture (Marcos 1-5, Fases 1-7), test counts, or feature changelogs in the SocialMedia module, including Gemini AI pipeline, LoRA GPU training, and Engeapp alignments.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "project-history",
+    "problem": "A descrição contém ruído meta-operacional ('moved out of CLAUDE.md so it isn't always loaded'), violando os critérios 10 e 11 (linguagem anti-promocional e ausência de procedimentos operacionais/justificativas meta na description).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:3 (frase 'moved out of CLAUDE.md so it isn't always loaded' é metadado procedimental que polui a janela de contexto e o roteador)",
+    "correctedDescription": "Use when retrieving historical decisions, milestone architecture (Marcos 1-5, Fases 1-7), test counts, or feature changelogs in the SocialMedia module, including Gemini AI pipeline, LoRA GPU training, and Engeapp alignments.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "project-history",
+    "problem": "A seção '## Instruções' é meramente decorativa/oca ('Siga as instruções e padrões descritos na documentação.'), sem procedimentos cognitivos reais ou diretrizes de consulta histórica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:36-38 (a seção Instruções consiste apenas em 'Siga as instruções e padrões descritos na documentação.', sem diretrizes de consulta ao histórico)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Extensão insuficiente da description (132 caracteres, violando o piso de 200 caracteres).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:3 (string com 126 caracteres sem aspas / 132 com aspas, violando o limiar de 200 a 400)",
+    "correctedDescription": "Use when creating, managing, or pruning isolated Git worktrees for parallel agent development, using CLI commands like git worktree add, remove, list, and prune to prevent branch collision and lock contention across workspaces.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Ausência de gatilho explícito ('Use when...') na description.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:3 (a description começa com 'Strict task isolation...', sem o gatilho 'Use when...')",
+    "correctedDescription": "Use when creating, managing, or pruning isolated Git worktrees for parallel agent development, using CLI commands like git worktree add, remove, list, and prune to prevent branch collision and lock contention across workspaces.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Ausência total de comandos CLI de git worktree (como 'git worktree add', 'remove', 'list', 'prune') no corpo da skill, tornando-a inoperante.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:1-65 (o arquivo é um scaffold genérico de 65 linhas sem nenhum comando executável de git worktree)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Uso do boilerplate vazio repetitivo com justificativa circular ('rotinas de pytest-and-jest-automation') e links sintéticos de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:43,60-64 (tautologia citando o slug da skill na linha 43 e URLs de YouTube sintéticas com slugs fictícios nas linhas 60-64)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Metadados de repositório apontam para 'Anthropic' com URL 'karanb192/awesome-claude-skills', inflando métricas (24500 stars de um repositório curado geral).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:5-7 (repositório atribuído a 'Anthropic' com URL pessoal 'karanb192/awesome-claude-skills' e contagem de stars agregada do repositório lista)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Substituir o template estéril (linhas 40-55) por padrões acionáveis de testes (fixtures do Pytest, mocks com pytest-mock, render e queries do Jest/testing-library, comandos de cobertura de código).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:40-55 (o conteúdo atual consiste em tópicos abstratos sem nenhum trecho de código, fixture, mock ou asserção)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Quebra crítica de portabilidade: Todos os comandos de instalação e execução contêm caminhos absolutos hardcoded de máquina Windows local ('C:\\Users\\renat\\skills\\ai-studio-image\\...'), quebrando imediatamente a execução em qualquer outro ambiente (linhas 73, 81, 87, 123, 161, 166, 193, 230).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:73,81,87,123,166,193,230 (caminhos absolutos do ambiente local do autor C:\\Users\\renat\\... presentes em comandos executáveis de shell e python)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Critérios 1 e 3: Description curta em português com 161 caracteres (< 200) e ausência de gatilho explícito 'Use when...' ou 'Ative quando...'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:3 (possui 153 caracteres sem aspas, abaixo do limiar de 200, e não possui o gatilho 'Use when...')",
+    "correctedDescription": "Use when generating humanized, realistic photographs via Google AI Studio (Gemini API), producing influencer or educational style images with natural lighting, subtle lens imperfections, and portrait or landscape aspect ratios.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Inconsistência linguística: SKILL.md e description redigidos em português em repositório majoritariamente de língua inglesa.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:3,21,25,44 (o arquivo mescla estrutura de títulos em inglês com conteúdo em português sem acentos no repositório de Agentic Awesome Skills)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Description corrompida e truncada no meio de um marcador markdown ('AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1.'), omitindo totalmente o propósito prático e discriminantes da skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:3 (description truncada abruptamente em '> 1.', sem explicar o propósito técnico da skill)",
+    "correctedDescription": "Use when identifying, analyzing, or defending against binary anti-reversing mechanisms in authorized environments, including anti-debugging hooks (IsDebuggerPresent, ptrace), timing checks, code obfuscation, and packing defenses.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Tripla redundância de avisos jurídicos quase idênticos no início do arquivo (linhas 9-12, 14-22 e 23-29), além de duplicação da seção de referências (linhas 55 e 57-60).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:9-29,55,57-60 (três blockquotes consecutivos de aviso legal/autorização e menção duplicada a resources/implementation-playbook.md)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "SKILL.md desprovido de comandos ou substância técnica real (apenas passos abstratos de 1 linha), delegando tudo sem orientações mínimas sobre anti-debugging, ofuscação ou análise de binários.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:43-49 (apenas quatro linhas com instruções abstratas genéricas sem comandos práticos ou técnicas)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Ausência completa de ganho semântico para o agente, poluindo o catálogo de skills com um placeholder não funcional.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:1-29 (arquivo com 29 linhas que apenas repete a frase 'Opinionated, evolving constraints...' sem nenhuma orientação aplicável)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Remover as seções tautológicas Overview, When to Use e Instructions (linhas 11-24), substituindo o arquivo por conteúdo instrucional real de UI ou deprecando o artefato em favor de ui-skills-root.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:11-24 e all_skills/Agentic Awesome Skills/skills/ui-skills-root/SKILL.md:1-73 (as seções são cópias redundantes e ui-skills-root já implementa o roteador e comandos CLI reais da ferramenta)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Remover seções vazias de persona conversacional: 'Behavioral Traits' (linhas 93-102), 'Knowledge Base' (linhas 103-112), 'Response Approach' (linhas 113-122) e 'Example Interactions' (linhas 123-132).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:93-132 (40 linhas de estilo chatbot/persona conversacional que consomem contexto desnecessariamente sem fornecer valor acionável a agentes de código)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Substituir as tautologias em 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e ferramentas concretas de contexto.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:9-18 (linhas 11-12 dizem 'Working on cloud architect tasks... Needing guidance for cloud architect', tautologias circulares sem discriminação)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Description com 143 caracteres (abaixo do limiar de 200 chars) e sem declaração explícita de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:3 (possui 135 caracteres sem aspas / 137 com aspas, abaixo de 200 caracteres, e não contém 'Use when...')",
+    "correctedDescription": "Use when initializing or adding shadcn/ui components in React, Next.js, or Vite projects, configuring components.json, utilizing the cn() helper (tailwind-merge/clsx), and customizing Radix UI primitives with Tailwind CSS.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Ausência de fidelidade técnica ao corpo: promete automação e integração de componentes Radix UI e Tailwind CSS, mas o arquivo é um stub scaffold de 65 linhas sem instruções sobre a CLI da shadcn ('npx shadcn@latest add'), components.json, utilitário cn ou componentes reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:1-65 (scaffold genérico sem sintaxe CLI de shadcn, components.json ou snippets de código)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Presença de ruído estrutural com repetição literal dos campos do YAML nas seções de Overview e Stack, e inclusão de URLs simuladas de vídeos do YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:15-37,58-65 (repetição redundante do frontmatter no corpo do arquivo e links fictícios para o YouTube)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Description curta (128 caracteres), sem gatilho contextual ('Use when...') e com afirmação promocional quantitativa sem validação ('by up to 80%').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:3 (possui 126 caracteres, omite 'Use when...' e contém a expressão promocional infundada 'by up to 80%')",
+    "correctedDescription": "Use when reducing LLM token consumption and managing context window limits, applying prompt compression techniques, dynamic tool/MCP detachment, message history pruning, and token budgeting strategies across agent workflows.",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Corpo stub de 65 linhas desprovido de técnicas reais de budgeting de contexto, medição de tokens, compressão de prompts ou desconexão de MCPs ociosos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:40-55 (conteúdo genérico boilerplate sem exemplos de cálculo de tokens, estratégias de pruning ou scripts)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Estrutura inchada por repetição inútil dos metadados do YAML em seções redundantes de Overview e Stack com links mockados de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:15-37,58-65 (duplicação do frontmatter nas seções Overview e Stack e 5 URLs sintéticas de vídeos)",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "mcp-server-routing + mcp-tool-developer",
+    "problem": "Proposta de MERGE: Ambas as skills abordam a engenharia integral de servidores e ferramentas do Model Context Protocol (MCP) com SDKs oficiais em TypeScript e Python, validação de schemas (Zod/Pydantic), suporte a transportes (stdio, SSE, Streamable HTTP) e inspeção com MCP Inspector. curated-youtube/mcp-server-routing possui uma discrepância nominal grave entre seu diretório e seu frontmatter (name: mcp-builder, sem nenhuma rotina de roteamento de requisições), porém carrega recursos valiosos de referência (mcp_best_practices, node_mcp_server, python_mcp_server, evaluation.md) e scripts. Já mcp-tool-developer possui uma interface limpa, moderna (API McpServer) e padronizada. A unificação sob mcp-tool-developer elimina a sobreposição e corrige a anomalia nominal do repositório.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/SKILL.md:2-3 (name: mcp-builder) vs all_skills/Agentic Awesome Skills/skills/mcp-tool-developer/SKILL.md:1-3. Ambas cobrem o mesmo escopo de desenvolvimento MCP (TypeScript/Python, transportes stdio/SSE/Streamable HTTP). A anomalia de nomenclatura entre o diretório mcp-server-routing e o nome mcp-builder corrobora a necessidade de unificação sob mcp-tool-developer sem perda de granularidade.",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "mcp-server-routing + mcp-tool-developer",
+    "problem": "Plano de integracao: Eleger mcp-tool-developer como a skill canônica unificada de desenvolvimento MCP. Integrar ao seu SKILL.md os padrões avançados de mcp-server-routing: anotações de hint (readOnlyHint, destructiveHint, idempotentHint), boas práticas de design e o fluxo de criação de suítes de avaliação (10 QA pairs em XML). Mover e vincular as pastas reference/ e scripts/ de mcp-server-routing para a estrutura de mcp-tool-developer, eliminando em seguida o diretório redundante curated-youtube/mcp-server-routing.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/reference/ (arquivos node_mcp_server.md, python_mcp_server.md, evaluation.md, mcp_best_practices.md) e mcp-tool-developer/SKILL.md:73-87. A migração dos recursos para mcp-tool-developer enriquece a skill canônica com referências técnicas robustas enquanto remove o diretório redundante mcp-server-routing.",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "vector-database-engineer + vector-index-tuning",
+    "problem": "Proposta de MERGE: 'vector-index-tuning' é um subconjunto estritamente operacional da competência mais ampla de 'vector-database-engineer'. Enquanto 'vector-database-engineer' define a arquitetura macro de bancos vetoriais, modelos de embedding, chunking, busca híbrida e RAG, ela contém apenas 69 linhas em formato de tópicos e cita explicitamente 'resources/implementation-playbook.md' — arquivo inexistente em seu próprio diretório. Em contrapartida, 'vector-index-tuning' possui um SKILL.md de 51 linhas acompanhado exatamente pelo robusto 'resources/implementation-playbook.md' (508 linhas com algoritmos, matrizes de quantização e benchmarks empíricos em Python com hnswlib/faiss). Manter duas skills separadas fragmenta a engenharia de bancos de dados vetoriais e causa colisão direta de roteamento quando o usuário solicita otimização de latência, memória e recall (HNSW/PQ) em um banco vetorial.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/vector-database-engineer/SKILL.md:23 (referência órfã a resources/implementation-playbook.md inexistente localmente) e all_skills/Agentic Awesome Skills/skills/vector-index-tuning/resources/implementation-playbook.md:1-508 (o arquivo referenciado está presente em vector-index-tuning). A fusão consolida o ciclo de vida completo de bancos vetoriais da arquitetura ao ajuste fino de índices.",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "vector-database-engineer + vector-index-tuning",
+    "problem": "Plano de integracao: 1. Mover 'resources/implementation-playbook.md' de 'vector-index-tuning' para 'vector-database-engineer/resources/implementation-playbook.md', resolvendo a dependência quebrada. 2. Incorporar na descrição e na seção 'Use this skill when' de 'vector-database-engineer' os gatilhos específicos de tuning de hiperparâmetros HNSW (M, efConstruction, efSearch), estratégias de quantização (FP16, INT8, PQ, binária) e benchmarking de recall vs latência. 3. Incorporar o checklist de segurança e plano de rollback pré-reindexação em produção presente em 'vector-index-tuning'. 4. Descontinuar e remover o diretório 'vector-index-tuning', unificando a engenharia de bancos vetoriais da arquitetura ao fine-tuning de índice.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/vector-database-engineer/SKILL.md:23-43 e all_skills/Agentic Awesome Skills/skills/vector-index-tuning/SKILL.md:13-46. O plano repara a dependência quebrada, enriquece a skill principal com benchmarks práticos e segurança de rollback, e elimina a duplicidade conceitual.",
+    "correctedDescription": "",
+    "batch": "ADV2"
+  },
+  {
+    "skillName": "laravel-authorization-policies-gates",
+    "problem": "A description termina com a frase de preenchimento genérica 'Covers objectives and core workflows.', infringindo os critérios de ausência de redundâncias e densidade de ganho semântico (Critérios 12 e 13).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md:3",
+    "correctedDescription": "Use when creating or reviewing authorization in Laravel backend via spatie/laravel-permission. Covers roles, permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia auth integration.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "laravel-gemini-file-api-media-integration-best-practices",
+    "problem": "Description contém frase boilerplate de preenchimento ('Covers objectives and core workflows.') que gera redundância de 'Covers' e reduz a densidade semântica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when managing large media uploads (>20MB or videos) via Google AI File API with Gemini PHP SDK in Laravel. Covers video processing, queued uploads via Horizon, active state polling, and cleanup where Laravel AI SDK cannot be used.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "laravel-gemini-file-api-media-integration-best-practices",
+    "problem": "Description cita processamento de áudio e PDF ('Covers video, audio, or PDF file processing'), o que colide com a seção 1 do próprio SKILL.md, que instrui a NÃO usar a Google File API para áudio e PDFs no engeapp (já cobertos pelo Laravel AI SDK), restringindo o nicho real a arquivos de vídeo e grandes mídias (> 20MB).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md:3,15-16",
+    "correctedDescription": "Use when managing large media uploads (>20MB or videos) via Google AI File API with Gemini PHP SDK in Laravel. Covers video processing, queued uploads via Horizon, active state polling, and cleanup where Laravel AI SDK cannot be used.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "laravel-power-of-attorney-generation-best-practices",
+    "problem": "A description apresenta redundância interna direta no fechamento ('...rendering DomPDF documents. Covers document generation and DomPDF rendering.'), repetindo a menção a DomPDF e geração de documentos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, reviewing, or debugging Power of Attorney PDF generation in Laravel via PowerAttorneyService. Covers PF/PJ legal entity formatting, address composition via Location relations, and DomPDF rendering.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "vue-complex-modal-forms-autosave-best-practices",
+    "problem": "A description cita 'max-use', mas o corpo da skill não detalha nem exemplifica o uso direto dessa lib, focando em MaxModal e MaxPinia (Critério 5).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md:3,16,23,30-48",
+    "correctedDescription": "Use when building complex modal forms in Vue 3 with auto-save, live sync indicators, and multi-tab layouts using @maxvue/max-components-ui (MaxModal) and @maxvue/max-pinia cached store persistence with debounced sync.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "vue-complex-modal-forms-autosave-best-practices",
+    "problem": "A description possui cauda repetitiva 'Covers complex modal forms, auto-save state, and multi-tab layouts.' que duplica o gatilho (Critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when building complex modal forms in Vue 3 with auto-save, live sync indicators, and multi-tab layouts using @maxvue/max-components-ui (MaxModal) and @maxvue/max-pinia cached store persistence with debounced sync.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "vue-max-use-usecachedapi-state-cache-best-practices",
+    "problem": "Description contém meta-ruído de preenchimento ('Covers objectives...') que reduz a densidade semântica da frase final.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging Vue 3 state cache with useRefCachedApi, useCachedApi, useSharedCacheApi, or useInCacheApi from @maxvue/max-use. Covers localStorage sync, background API revalidation, and composable signatures.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "project-history",
+    "problem": "Inversão estrutural grave: a totalidade do arquivo (~31KB) consiste em um changelog factual massivo despejado diretamente dentro da seção '## Objetivo', descaracterizando a estrutura de uma skill acionável.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:8-35",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "project-history",
+    "problem": "Mover o changelog detalhado dos Marcos 1 a 5 e Fases 1 a 7 (linhas 13-35, ~31KB) para um arquivo de referência dedicado (ex.: references/changelog-socialmedia.md), mantendo no SKILL.md apenas o guia cognitivo de consulta histórica e decisões arquiteturais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:13-35",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "project-history",
+    "problem": "Substituir o texto vazio de '## Instruções' ('Siga as instruções e padrões descritos na documentação.') por instruções acionáveis de rastreamento e busca de contexto histórico do projeto SocialMedia.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:36-38",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Corpo composto por template repetitivo copiado com diretrizes vazias e 'Quando Usar' tautológico ('rotinas de git-worktree').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:40-55",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Links sintéticos de YouTube ('cole_skills_masterclass_31', etc.) sem correspondência factual com conteúdos reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:58-64",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Substituir integralmente o boilerplate genérico das linhas 40-55 por fluxos reais de trabalho com worktrees para agentes paralelos, comandos CLI e convenções de diretório.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:40-55",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Remover os links sintéticos de YouTube (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:58-64",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Boilerplate genérico desconectado nas seções 'Best Practices' e 'Common Pitfalls' (linhas 300-311), contendo placeholders genéricos sem relação com geração de imagem.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:300-311",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Substituir com urgência todos os caminhos absolutos locais 'C:\\Users\\renat\\skills\\ai-studio-image\\' por caminhos relativos ao projeto ('scripts/...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:73,81,87,123,161,166,193,230,248,270",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Remover o boilerplate descontextualizado de 'Best Practices' e 'Common Pitfalls' (linhas 300-311).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:300-311",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Fundir os três blocos redundantes de avisos legais e confirmação obrigatória (linhas 9-29) em um único aviso de conformidade sucinto de 4 linhas.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:9-29",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Remover a seção duplicada '## Resources' (linhas 57-60) que repete verbatim o link para 'resources/implementation-playbook.md' já fornecido na linha 55.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:55,57-60",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "problem": "Description curta (131 caracteres, longe do ideal de 200 a 400) e desprovida de cláusula de ativação ('Use when...') ou discriminantes operacionais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md:3",
+    "correctedDescription": "Use when configuring secure environment variable injection and preventing secrets exposure in Claude sessions, terminals, logs, and git commits. Covers Varlock CLI workflows, env masking, and leak prevention.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "problem": "Tautologia absoluta: o arquivo de 29 linhas repete a mesma frase genérica quatro vezes ('Overview', 'When to Use', 'Instructions', 'Description') sem introduzir nenhuma instrução técnica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md:3,13,17,21",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "problem": "Inexistência total de conteúdo técnico: ausência de comandos da CLI Varlock, padrões de configuração, regras de variáveis ou exemplos, constituindo um placeholder inútil para um link externo do GitHub.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md:19-24",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Description muito curta (130 chars < 200) e desprovida de qualquer gatilho 'Use when...' ou discriminantes de ferramentas reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:3",
+    "correctedDescription": "Use when executing high-risk CLI operations, terminal commands, or database migrations to prevent accidental data loss. Covers intercepting destructive commands (rm -rf, DROP, git reset --hard) and sandbox guardrails.",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Ausência total de conteúdo operacional executável: o corpo não ensina nem implementa regras de interceptação de comandos destrutivos (rm -rf, DROP, git reset --hard).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:40-55",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Conteúdo bilíngue puramente tautológico que repete as mesmas frases genéricas em português e inglês.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:15-28",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Podar blocos duplicados de Visão Geral e Stack Tecnológica que espelham o frontmatter, substituindo as diretrizes genéricas por exemplos práticos de instalação, configuração e estilização do shadcn/ui.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:15-37,49-55",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Remover os blocos repetitivos de Visão Geral e Stack Tecnológica e substituir as diretrizes genéricas por rotinas práticas de pruning de histórico e otimização de ferramentas MCP.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:15-37,49-55",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "pytest-and-jest-automation + javascript-testing-patterns",
+    "problem": "Proposta de LAPIDAR: javascript-testing-patterns é uma skill de alta fidelidade e profundidade técnica (possuindo um playbook detalhado de 1.025 linhas) com foco estrito e abrangente no ecossistema JavaScript e TypeScript (Jest, Vitest, Testing Library, Supertest, mocking e testes de integração). Por outro lado, pytest-and-jest-automation foi originada a partir de pytest-automation (upstream da Anthropic focado em testes Python com pytest), mas sofreu uma extensão inadequada em seu nome e metadados para incluir Jest e Vitest, embora seu corpo seja um stub sem implementação de código JS. A recomendação não é MERGE porque os domínios de linguagem fundamentais (Python vs JavaScript/TypeScript) devem permanecer desacoplados para manter a integridade dos prompts de agentes. A recomendação técnica é LAPIDAR: purgar de pytest-and-jest-automation qualquer referência a Jest, Vitest, JavaScript e TypeScript, especializando seu conteúdo estritamente para automação de testes em Python (pytest, fixtures, parametrize, mocks e coverage), enquanto javascript-testing-patterns retém com exclusividade todo o escopo de testes em JS/TS.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/javascript-testing-patterns/resources/implementation-playbook.md:1-1025; all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:1-11",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "pytest-and-jest-automation + javascript-testing-patterns",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:1-11",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "skill-creator + skill-writer",
+    "problem": "Proposta de MERGE: Ambas as skills competem diretamente pelo mesmo propósito canônico de criar, redigir e iterar sobre Agent Skills ('Use when asked to create, write, or update skills'). 'skill-creator' (da suíte oficial Anthropic / curated-youtube) é um framework executável e iterativo de 33 KB com subagentes especializados (grader, comparator, analyzer), suíte de benchmark e visualizador iterativo de reviews via script Python ('generate_review.py'), além de otimização de gatilhos ('run_loop.py'). 'skill-writer' (do Agentic Awesome Skills) é uma implementação documental que traz taxonomias conceituais valiosas (padrões de workflow, padrões de saída determinísticos, matriz de decisão de modos e gates de profundidade). Manter ambas como skills ativas causa fragmentação e colisão de ativação primária pelo orquestrador. A fusão em 'skill-creator' consolida a melhor suíte de execução dinâmica com os melhores princípios de arquitetura estática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/skill-creator/SKILL.md:1-4; all_skills/Agentic Awesome Skills/skills/skill-writer/SKILL.md:1-4,13-30",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "skill-creator + skill-writer",
+    "problem": "Plano de integracao: 1. Adotar 'skill-creator' como skill destino canônica devido à sua infraestrutura completa de execução ('eval-viewer/', 'scripts/', 'agents/'). 2. Migrar os guias de design e padrões arquiteturais de 'skill-writer/references/' (notadamente 'workflow-patterns.md', 'output-patterns.md', 'mode-selection.md' e 'design-principles.md') para dentro da pasta 'references/' de 'skill-creator'. 3. Adicionar na seção de redação ('Write the SKILL.md / Skill Writing Guide') de 'skill-creator' referências explícitas a essas taxonomias de padrões estruturais para quando o usuário desejar uma abordagem estática sem rodar evals completas. 4. Descontinuar 'skill-writer' no catálogo de skills para eliminar conflito de orquestração.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-writer/references/; all_skills/curated-youtube/skill-creator/references/",
+    "correctedDescription": "",
+    "batch": "ADV3"
+  },
+  {
+    "skillName": "laravel-brazilian-localization-best-practices",
+    "problem": "A description contém frase final redundante ('Covers Brazilian localization best practices and document validation.'), repetindo os termos já apresentados no gatilho de uso e reduzindo a densidade semântica (Critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when validating, formatting, or sanitizing Brazilian documents (CPF, CNPJ, CEP, phone numbers) and currency values (BRL, pt-BR) in Laravel models, Form Requests, observers, and controllers with BrUtils, StringsHelper, and number_format.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "laravel-gemini-php-sdk-best-practices",
+    "problem": "Description encerra com cláusula redundante ('Covers objectives, Facade model, and Gemini API schemas.') que repete termos já introduzidos e agrega ruído com termos genéricos ('objectives').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when integrating with Gemini API using google-gemini-php/laravel SDK in Laravel backend. Covers Gemini facade usage, model fallback cascades (3.x/2.5), GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), and error handling.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "laravel-qrcode-generation-best-practices",
+    "problem": "A description contém a frase genérica e redundante 'Covers objectives and core workflows.' no encerramento, reduzindo a densidade semântica final.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when generating, customizing, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers Builder pattern, SVG/PNG writers, base64 data URIs for Blade/APIs, embedded logos, error correction levels, and validation.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "vue-debugging-best-practices",
+    "problem": "A description contém cauda de preenchimento genérico 'Covers best practices, debugging strategies, and objectives.' sem valor discriminante (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-debugging-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when diagnosing or fixing Vue 3 reactivity bugs, computed refs, refs not updating (.value access), watcher timing/flush, stale reactive data, null template refs, lifecycle hook issues, proxy identity hazards, and async component warnings.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "vue-meta-api-oauth-integration-best-practices",
+    "problem": "Exemplo ensina estilo inline style=\"text-align: right;\" e atributo utilitário s50 no template sem bloco <style lang=\"scss\"> scoped.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md:54 e ausência do bloco <style lang=\"scss\"> scoped exigido pelas diretrizes em projects/engeapp/CLAUDE.md:108-109",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "vue-meta-api-oauth-integration-best-practices",
+    "problem": "Description contém meta-ruído de preenchimento genérico ('Covers objectives and core workflows.').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store without client-side OAuth popups.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "project-setup",
+    "problem": "A descrição utiliza termos genéricos ('this project') sem identificar explicitamente que o setup refere-se exclusivamente ao projeto 'SocialMedia', induzindo acionamento errôneo e execução de scripts indevidos em outros projetos (violação dos critérios 4, 7 e 8).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-setup/SKILL.md:3,6,18",
+    "correctedDescription": "Use when setting up the SocialMedia project from scratch on a new machine or running onboarding tasks (installing dependencies, configuring .env with Gemini/Meta/LoRA keys, bootstrapping socialmedia DB, starting Caddy/Vite/Horizon/Redis).",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "project-setup",
+    "problem": "Inversão estrutural e seção morta: todos os comandos de instalação, flags de ambiente e smoke tests estão alocados sob '## Objetivo', enquanto a seção '## Instruções' possui apenas o placeholder vazio 'Siga as instruções e padrões descritos na documentação.'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-setup/SKILL.md:8-31",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "project-setup",
+    "problem": "Quebra de encapsulamento: o conteúdo aponta para arquivos externos inexistentes no contexto da skill ('ver Ambiente de Dev no CLAUDE.md', 'ver regra 16 do CLAUDE.md').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-setup/SKILL.md:21-22",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Remover a lista de vídeos recomendados com URLs sintéticas (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:58-64",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "vue-components",
+    "problem": "Description de 101 caracteres totalmente genérica ('Specialized AI agent skill for vue components providing best practices and automated workflows') com ausência total de termos discriminantes (sem citação a Vue 3, Composition API, SFC, script setup, props ou emits).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/vue-components/SKILL.md:3",
+    "correctedDescription": "Use when building, refactoring, or structuring Vue 3 components using Single File Components (SFC) with <script setup lang=\"ts\">. Covers typed defineProps, defineEmits, slots, provide/inject, and MaxComponentsUi design system integration.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "vue-components",
+    "problem": "Ausência completa de cláusula condicional de ativação / gatilho contextual ('Use when...') no frontmatter.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/vue-components/SKILL.md:3",
+    "correctedDescription": "Use when building, refactoring, or structuring Vue 3 components using Single File Components (SFC) with <script setup lang=\"ts\">. Covers typed defineProps, defineEmits, slots, provide/inject, and MaxComponentsUi design system integration.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "vue-components",
+    "problem": "Metadados de stack técnicos no frontmatter YAML completamente vazios (languages: [], frameworks: [], libs: []).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/vue-components/SKILL.md:8-10",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "A description é um amontoado promocional de versões e buzzwords sem ação clara, sem gatilho 'Use when...' e com apenas 161 caracteres ('Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:3",
+    "correctedDescription": "Use when orchestrating multi-agent autonomous engineering workflows with structured planning, subagent task queuing, and continuous verification loops under explicit user-configured autonomy constraints.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Violação severa de segurança operacional e governança de agente: impõe regras explícitas para desativar a supervisão humana ('NEVER ask questions', 'NEVER wait for confirmation', 'NEVER stop voluntarily') e força loops infinitos descontrolados.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:109-112",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Documento hipertrofiado com 728 linhas (>28 KB) repleto de ruído conceitual, tabelas gigantescas de agentes e buzzwords de redes sociais ('Boris Cherny patterns', 'HN Production 2025', 37 agent types).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:1-728",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "pypict-skill",
+    "problem": "Description com apenas 24 caracteres ('Pairwise test generation'), configurando ausência quase absoluta de discriminantes semânticos e sem gatilhos operacionais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md:3",
+    "correctedDescription": "Use when designing combinatorial or pairwise test suites using pypict / Microsoft PICT. Covers defining parameter models, sub-model constraints, seed combinations, and generating orthogonal test matrices for QA validation.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "pypict-skill",
+    "problem": "Arquivo SKILL.md consiste em um casulo oco (hollow stub) de 29 linhas sem código, sem sintaxe de definição de parâmetros PICT e sem exemplos de uso prático do pypict.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "pypict-skill",
+    "problem": "Seções 'When to Use' e 'Instructions' constituem tautologias puras que apenas repetem o nome da tarefa sem fornecer instruções acionáveis ao agente.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md:17,21",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "problem": "Eliminar o loop tautológico de repetições da mesma frase e preencher o documento com o manual prático e comandos do utilitário Varlock.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md:13,17,21",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Estrutura de stub/placeholder raspado de metadados de vídeos do YouTube com listas vazias no frontmatter ('frameworks: []', 'libs: []').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:9-10",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Remover seções de texto duplicado pt-BR/EN na Visão Geral (linhas 15-28).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:15-28",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Eliminar a lista de links genéricos do YouTube (linhas 58-65) e a seção de diretrizes genéricas vazias (linhas 49-55), substituindo por regras reais de sandbox/interceptação.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:49-65",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "superpowers",
+    "problem": "Description com 136 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem condição de gatilho contextual ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/superpowers/SKILL.md:3",
+    "correctedDescription": "Use when structuring agentic engineering workflows requiring architectural planning, technical design specifications, test-driven development (TDD), two-stage subagent code reviews, and quality gates.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "superpowers",
+    "problem": "Uso de adjetivos promocionais não técnicos no frontmatter e na visão geral ('Complete agentic engineering workflow', 'reliable, high-velocity engineering loop') sem suporte factual.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/superpowers/SKILL.md:3,18,24",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "superpowers",
+    "problem": "Corpo stub oco: não implementa nenhuma instrução, especificação técnica, regra de TDD ou ciclo de subagentes do framework Superpowers, consistindo em scaffold genérico de 65 linhas.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/superpowers/SKILL.md:40-65",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "laravel-brazilian-localization-best-practices + vue-inputs-masks-validation-best-practices",
+    "problem": "Proposta de LAPIDAR: Embora pertençam a camadas distintas (backend Laravel vs. frontend Vue 3), 'laravel-brazilian-localization-best-practices' possui uma seção inteira (seção 2, ~40% do arquivo) detalhando componentes de UI do Vue 3 (MaxInputCpfCnpj, MaxInputCep, MaxInputPhoneMail, InputNumber) e helpers de validação do TypeScript (@maxvue/max-use/validations). Isso duplica diretamente o conteúdo e as responsabilidades de 'vue-inputs-masks-validation-best-practices', que já é a skill especializada em inputs mascarados, validação e manipulação de formulários Vue 3. A recomendação é LAPIDAR: manter ambas as skills separadas por camada, mas remover/enxugar a seção redundante de componentes Vue da skill backend de localização, mantendo nela apenas a lógica Laravel/PHP (sanitização no banco, BrUtils, StringsHelper, number_format, NumberToWords) e um link de referência para a skill de frontend; e calibrar os gatilhos 'Use when...' para que não haja sobreposição de chamada.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md:80-135 e all_skills/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md:13-18,44-58",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "laravel-brazilian-localization-best-practices + vue-inputs-masks-validation-best-practices",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "Segregação estrita entre lógica backend (BrUtils, StringsHelper, number_format, NumberToWords) e camada frontend UI (MaxInput*, formatCurrency, v-maska) eliminando a duplicação na skill backend.",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "ad-creative + paid-ads",
+    "problem": "Proposta de LAPIDAR: ad-creative e paid-ads representam papéis complementares mas distintos em marketing de crescimento: ad-creative foca na geração textual e visual, variação para testes A/B, restrições de caracteres e iteração baseada em métricas criativas, enquanto paid-ads foca na estratégia de mídia paga, arquitetura de campanhas, alocação de orçamento, bid strategies e rastreamento (GA4/pixels). Contudo, paid-ads inclui seções redundantes de fórmulas de copywriting (PAS, BAB, headlines) e possui gatilhos de ativação excessivamente genéricos, gerando colisão. A recomendação é LAPIDAR: remover o bloco de fórmulas de copy de paid-ads substituindo-o por referência delegatória a ad-creative, e calibrar o 'Use when...' de paid-ads para focar exclusivamente em gestão de tráfego, orçamentos e configuração de contas.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/paid-ads/SKILL.md:149-200 e all_skills/Agentic Awesome Skills/skills/ad-creative/SKILL.md:1-250",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "ad-creative + paid-ads",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "Especialização das personas (media buying vs ad creative copywriter) com remoção de frameworks PAS/BAB em paid-ads e delegação para ad-creative.",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "skill-scanner + skill-audit",
+    "problem": "Proposta de MERGE: Ambas as skills abordam exatamente a mesma funcionalidade com o mesmo propósito: análise estática e comportamental de segurança pré-instalação de skills de agentes de terceiros para detectar injeção de prompt, código malicioso, exfiltração de credenciais, abuso de permissões e riscos de supply chain. 'skill-scanner' possui uma arquitetura de avaliação mais robusta em 8 fases estruturadas, incluindo análise comportamental (envenenamento de 'CLAUDE.md' e 'MEMORY.md'), formato de vulnerabilidades com IDs específicos ('[SKILL-SEC-XXX]') e diferenciação criteriosa entre código atacante e código que documenta ameaças (minimizando falsos positivos). Já 'skill-audit' contribui com checagens valiosas de engenharia social (urgência, falsa autoridade e comandos ocultos em comentários), inteligência de repositório (idade da conta, fazendas de estrelas), escala de risco de 0 a 100 e catálogo de vetores reais documentados. Manter ambas separadas é redundância direta de catálogo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-scanner/SKILL.md:1-18 e all_skills/Agentic Awesome Skills/skills/skill-audit/SKILL.md:1-35",
+    "correctedDescription": "Use when evaluating or auditing third-party agent skills before installation or execution. Detects prompt injection, malicious code, credential exfiltration, excessive permissions, social engineering, and supply chain threats.",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "skill-scanner + skill-audit",
+    "problem": "Plano de integracao: 1. Adotar 'skill-scanner' como skill destino canônica, mantendo sua estrutura em 8 fases e formato de relatório vulnerabilidade por vulnerabilidade. 2. Incorporar em 'skill-scanner' as etapas de 'Social Engineering Check' (detecção de urgência fabricada, autoridade falsa e instruções ocultas em comentários) e 'Repo Intelligence' (avaliação de antiguidade de conta, perfil de repositórios e anomalias de estrelas) provenientes de 'skill-audit'. 3. Adicionar a escala de risco numérico (0-39 Seguro, 40-69 Médio Risco, 70-100 Crítico) e os exemplos de ataques reais documentados de 'skill-audit' dentro das diretrizes de avaliação de 'skill-scanner'. 4. Calibrar a descrição de 'skill-scanner' para cobrir explicitamente o gatilho pré-instalação ('Use when evaluating or auditing third-party agent skills before installation...'). 5. Descontinuar/remover 'skill-audit' do catálogo de skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "Fusão completa unificando detecção estática (scan_skill.py) e inteligência contextual sem sobreposição de ferramentas no catálogo.",
+    "correctedDescription": "",
+    "batch": "ADV4"
+  },
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "problem": "Distorção semântica severa na description: cita tecnologias como Dusk, Puppeteer, Python RPA e microsserviços de backend que não existem nem no SKILL.md nem no engeapp, violando o Critério 5 (Fidelidade Estrita ao Conteúdo Real) e Critério 8 (Equilíbrio de Amplitude).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md:3 e ausência de dusk/puppeteer em projects/engeapp/composer.json",
+    "correctedDescription": "Use when implementing or debugging browser automation in Laravel using App\\Classes\\Browser, php-webdriver, and geckodriver (Firefox). Covers element selection, dynamic Redis port management (44500-44599), screenshots via GD, alert handling, and cleanup lifecycles in engeapp.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "problem": "Omissão dos discriminantes semânticos reais na description: não cita Firefox, geckodriver, a classe App\\Classes\\Browser, nem o pool de portas gerenciado em Redis (Critério 4).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md:3 em contraste com as linhas 8-28",
+    "correctedDescription": "Use when implementing or debugging browser automation in Laravel using App\\Classes\\Browser, php-webdriver, and geckodriver (Firefox). Covers element selection, dynamic Redis port management (44500-44599), screenshots via GD, alert handling, and cleanup lifecycles in engeapp.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "problem": "Frase genérica redundante ao final da description ('Covers browser automation, driver configuration, and element interactions.') violando o Critério 12.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging browser automation in Laravel using App\\Classes\\Browser, php-webdriver, and geckodriver (Firefox). Covers element selection, dynamic Redis port management (44500-44599), screenshots via GD, alert handling, and cleanup lifecycles in engeapp.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "laravel-holiday-sla-calculation-best-practices",
+    "problem": "Description finaliza com frase boilerplate genérica ('Covers objectives and core workflows.') que consome caracteres sem valor semântico discriminante.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging SLA tracking, business-day calculations, or deadlines in Engeapp backend. Covers DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween) and HolidayService caching.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "laravel-redis-integration-best-practices",
+    "problem": "A description contém o filler genérico 'Covers objectives and core workflows.' no encerramento, o que gera redundância estilística e dilui o ganho semântico.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues).",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "vue-eslint-stylelint-quality-standards",
+    "problem": "A description contém cauda genérica/redundante 'Covers objectives, ESLint/Stylelint standards, and execution commands.' (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md:3",
+    "correctedDescription": "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, 4-space indent, single quotes, comma-dangle, member delimiters, and pseudo-element overrides (v-deep).",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "vue-pinia-state-management-best-practices",
+    "problem": "Description possui fragmento truncado com meta-ruído de preenchimento ('Covers objectives and best practices, Registro main.').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, reviewing, or debugging Pinia stores in Vue 3 with @maxvue/max-pinia plugin. Enforces that page-level GETs route through MaxPinia stores with LocalForage offline caching, debounced auto-save, and Ziggy route resolution.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "project-setup",
+    "problem": "Remover o placeholder vazio 'Siga as instruções e padrões descritos na documentação.' em '## Instruções' e realocar os passos operacionais de '## Objetivo' para '## Instruções'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-setup/SKILL.md:8-31",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "project-setup",
+    "problem": "Substituir as referências externas a 'CLAUDE.md' por instruções autossuficientes dentro da própria skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-setup/SKILL.md:21-22",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Description com apenas 135 caracteres e sem cláusula de ativação formal ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:3",
+    "correctedDescription": "Use when generating or rendering Mermaid syntax diagrams in markdown or documentation, including flowcharts, sequence diagrams, class diagrams, ERDs, state machines, and C4 architecture models with syntax validation.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Ausência total de blocos de sintaxe Mermaid, convenções de diagramação ou exemplos práticos no corpo da skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:12-65",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Metadados incorretos no frontmatter: repositório aponta para 'mckaywrigley/chatbot-ui' em vez de ferramentas ou documentações de Mermaid.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:5-6",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "vue-components",
+    "problem": "Corpo stub scaffold de 65 linhas desprovido de qualquer código ou instrução de desenvolvimento de componentes em Vue 3.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/vue-components/SKILL.md:1-65",
+    "correctedDescription": "Use when authoring, structuring, or refactoring Vue 3 Single File Components (SFC) with Composition API (<script setup>), TypeScript props/emits contracts, slots, and reactive primitives.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "vue-components",
+    "problem": "Remover integralmente o scaffold genérico de 65 linhas e reescrever o SKILL.md com padrões reais de Vue 3 (Composition API, script setup, reatividade e tipagem TypeScript).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/vue-components/SKILL.md:1-65",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Remover as regras de execução cega que proíbem o agente de consultar o usuário ou confirmar comandos críticos (linhas 105-116).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:105-116",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Podar o excesso de seções teóricas repetitivas sobre 37 tipos de agentes e referências desnecessárias a threads do Hacker News e padrões informais (linhas 68-93 e 698-721).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:68-93, 411-425, 698-721",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "loki-mode",
+    "problem": "Condensar os fluxos de trabalho e diagramas ASCII redundantes para um guia direto focado no ciclo SDLC e gestão de contexto.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md:130-410",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "pypict-skill",
+    "problem": "Eliminar o texto tautológico e substituir a totalidade do arquivo por um guia técnico real com a API do pypict, formato de modelos PICT e geração combinatorial de testes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md:1-29",
+    "correctedDescription": "Use when designing combinatorial test suites or generating pairwise (all-pairs) test cases using pypict/PICT. Covers model definition (parameters, values, sub-models, constraints), executing generation, and parsing test matrices.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "Description excessivamente curta (80 caracteres), sem gatilho 'Use when...', sem discriminantes técnicos específicos e puramente genérica ('AWS development with infrastructure automation and cloud architecture patterns').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:3",
+    "correctedDescription": "Use when architecting, deploying, or troubleshooting AWS cloud infrastructure and serverless workloads. Covers AWS CDK, CloudFormation, IAM least-privilege policies, Lambda, API Gateway, S3, and ECS/Fargate container deployments.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "O arquivo SKILL.md é um stub vazio de apenas 29 linhas que apenas repete a mesma frase genérica em 4 seções diferentes sem fornecer nenhum padrão, instrução ou código prático.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "Ausência total de valor operacional para um agente de IA; a skill atua apenas como redirecionador raso para um repositório GitHub externo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:20-24",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Description excessivamente curta (121 chars), promocional ('Expert database optimizer specializing in...') e sem gatilhos explícitos ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:3",
+    "correctedDescription": "Use when diagnosing slow SQL queries, resolving N+1 bottlenecks, tuning indexes (B-tree, GIN, composite), analyzing EXPLAIN execution plans, or designing caching and partitioning strategies for relational and NoSQL databases.",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Formatação em estilo persona ('You are a database optimization expert...') sem snippets práticos de queries, índices ou configurações reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:26-121",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Gatilhos circulares/tautológicos ('Use this skill when: Working on database optimizer tasks') e apontamento para playbook inexistente ('resources/implementation-playbook.md').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:9-12, 24",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "superpowers",
+    "problem": "Substituir o boilerplate genérico de 65 linhas pelas rotinas operacionais reais do framework Superpowers (planejamento estruturado, templates de especificação e ciclo de subagentes).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/superpowers/SKILL.md:1-65",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "laravel-ziggy-routing-integration-best-practices + vue-axios-api-integration-best-practices",
+    "problem": "Proposta de LAPIDAR: 'laravel-ziggy-routing-integration-best-practices' lida com a infraestrutura de geração e exposição de rotas nomeadas via Tighten Ziggy (artisan ziggy:generate, config/ziggy.php, tipos RouteList e bootstrap do resolvedor de rotas em app.ts). 'vue-axios-api-integration-best-practices' foca no cliente HTTP frontend (@maxvue/max-use: apiGetRoute, apiPostRoute, contratos de retorno e credenciais de sessão). Contudo, a skill de axios duplica integralmente o trecho de código e a explicação detalhada de 'setRouteResolver' em resources/app.ts (Regra 3), além de repetir preceitos sobre rotas nomeadas. A recomendação é LAPIDAR: manter ambas as skills devido a seus objetivos arquiteturais distintos (geração/resolução de rotas vs transporte HTTP), mas refinar 'vue-axios-api-integration-best-practices' para focar puramente em mutações HTTP, tratamento de retornos e erros, removendo a duplicação do bootstrap do resolver que pertence canonicamente à skill de Ziggy.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md:21-41 em relação a all_skills/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md:75-100",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "laravel-ziggy-routing-integration-best-practices + vue-axios-api-integration-best-practices",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md:21-41 e all_skills/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md:75-100",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "emil-design-eng + review-animations",
+    "problem": "Proposta de LAPIDAR: Ambas as skills têm origem comum (emilkowalski/skills). emil-design-eng é um repositório conceitual e prático extenso (700+ linhas) sobre design engineering, física de springs, clip-path, easings e heurísticas de UI, mas incorpora indevidamente uma seção mandatória de revisão de código ('Review Format (Required)') e checklists que colidem diretamente com a função de review-animations. review-animations, por sua vez, é um subagente/revisor especializado com 'disable-model-invocation: true' desenhado estritamente para code review de diffs com postura rigorosa e veredicto formal Block/Approve. A recomendação é LAPIDAR: remover a formatação coercitiva de code review de emil-design-eng para que esta atue como mentora e guia de implementação de UI craft, mantendo review-animations focada na auditoria passiva de motion diffs, demarcando os gatilhos para evitar sobreposição.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/emil-design-eng/SKILL.md:61-84 e all_skills/Agentic Awesome Skills/skills/review-animations/SKILL.md:1-45",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "emil-design-eng + review-animations",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/emil-design-eng/SKILL.md:61-84 e all_skills/Agentic Awesome Skills/skills/review-animations/SKILL.md:1-45",
+    "correctedDescription": "",
+    "batch": "ADV5"
+  },
+  {
+    "skillName": "laravel-digital-signatures-integration",
+    "problem": "A description contém a frase redundante de preenchimento 'Covers objectives and core workflows.' no final (critério 12), devendo ser eliminada ou substituída por termos discriminantes como 'ProjectPowerOfAttorneyDocument' ou 'ReloadPowerAttorneyStatusJob'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md:3",
+    "correctedDescription": "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, ProjectPowerOfAttorneyDocument, and ReloadPowerAttorneyStatusJob queue processing.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "problem": "Description encerra com boilerplate genérico ('Covers objectives and core workflows.'), gerando redundância sintática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "problem": "Corpo da skill duplica uma implementação completa de 146 linhas do LiveKitService com docblocks extensos, sobrecarregando o arquivo com código boilerplate que poderia ser condensado nos trechos operacionais críticos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md:53-199",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "problem": "Condensar o esqueleto completo da classe LiveKitService.php nas linhas 53 a 199, focando nos trechos cruciais (sanitização ws->http, instanciação com RoomCreateOptions e tratamento de ListParticipantsResponse) e eliminando docblocks prolixos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md:53-199",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "laravel-reverb-websockets-best-practices",
+    "problem": "A description menciona 'Caddy WSS reverse proxy', porém o SKILL.md ensina e detalha na Seção 2 exclusivamente a configuração de reverse proxy com Nginx, gerando divergência de fidelidade semântica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md:3,42-60",
+    "correctedDescription": "Use when configuring, optimizing, debugging, or deploying Laravel Reverb WebSocket server in Engeapp. Covers WebSocket configuration, Vite client broadcasting, Nginx WSS reverse proxy, Supervisor, and live events.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "vue-frontend-bug-fixing-best-practices",
+    "problem": "A description contém cauda redundante 'Covers objectives, project stack, and frontend bug fixing.' que enfraquece a densidade do gatilho (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "vue-typescript-best-practices",
+    "problem": "Description cita 'tsconfig.json', tópico ausente no corpo do documento (fidelidade estrita comprometida), além de meta-ruído ('Covers objectives...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, DTO consumption, and template ref types.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "vue-typescript-best-practices",
+    "problem": "Restrição na linha 106 sugere permissividade com classes utilitárias do UnoCSS inline, em desacordo com a diretriz de classes semânticas em <style lang=\"scss\">.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:106 (em confronto com optimize_skills.md:164)",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "typescript-advanced-types-best-practices",
+    "problem": "A descrição contém a frase de preenchimento redundante 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica (violação dos critérios 10, 12 e 13).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Corpo composto pelo mesmo boilerplate genérico e circular de outras skills do lote, com links sintéticos de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:40-65",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Substituir as seções genéricas vazias (linhas 40-55) por diretrizes concretas de sintaxe Mermaid (flowcharts, sequence, ERD, C4), escape de nós e renderização via mermaid-cli.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:40-55",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "problem": "Remover os links sintéticos de YouTube (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mermaid-diagrammer/SKILL.md:58-64",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "A tag description possui apenas 60 caracteres (muito abaixo do piso de 200 chars), não apresenta cláusula 'Use when...' e carece totalmente de discriminantes técnicos dos modelos suportados.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:3",
+    "correctedDescription": "Use when implementing text-to-speech (TTS) or speech-to-text (STT) audio pipelines via fal.ai client SDKs. Covers audio model endpoints (e.g. whisper, chatterbox, f5-tts), request payload formatting, webhook callbacks, and audio output handling.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "O arquivo é um stub oco (placeholder) de apenas 29 linhas que repete a mesma frase tautológica três vezes ('Overview', 'When to Use' e 'Instructions') sem ensinar nenhuma API, endpoint, SDK ou parâmetro.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "Ausência total de exemplos de código ou instruções práticas para integração com a plataforma fal.ai (nem Python SDK, nem @fal-ai/serverless-client, nem endpoints REST).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Skill consiste em um stub oco de apenas 29 linhas que não fornece nenhum código, shader, arquitetura ou instrução concreta sobre Makepad em Rust.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Redundância quádrupla idêntica: a mesma frase genérica é repetida na description, Overview, When to Use e Instructions.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:3,13,17,21",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Description de 111 caracteres puramente descritiva, sem discriminantes técnicos ou condições reais de disparo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:3",
+    "correctedDescription": "Use when building cross-platform native UI applications in Rust using the Makepad framework. Covers Makepad DSL widgets, custom live shader coding (makepad-platform), event handling loop, and cargo-makepad packaging for desktop, web, or mobile.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "rayden-code",
+    "problem": "Dependência fantasma crítica: a skill afirma explicitamente na visão geral e passos (linhas 18, 31 e 88) carregar o arquivo 'RAYDEN_RULES.md' (34 componentes, props, tokens e anti-patterns), mas o arquivo não existe no repositório, inviabilizando sua execução confiável.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md:18,31,88 (arquivo RAYDEN_RULES.md inexiste no repositório)",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "rayden-code",
+    "problem": "Description muito curta (104 caracteres), sem gatilho formal 'Use when...' e com adjetivo promocional/marketing vago ('premium layout patterns').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md:3",
+    "correctedDescription": "Use when generating React and Tailwind CSS components using the Rayden UI component library (@raydenui/ui). Covers component scaffolding, props validation, design token classes, layout patterns, and design-system guidelines.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "rayden-code",
+    "problem": "Remover a dependência ao arquivo fantasma 'RAYDEN_RULES.md' e embutir a especificação real dos 34 componentes diretamente na skill ou fornecer o arquivo ausente.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md:31,88",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "aws-skills",
+    "problem": "Remover ou substituir integralmente o arquivo; 90% do conteúdo é repetição de boilerplate sem qualquer substância técnica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md:1-29",
+    "correctedDescription": "Use when designing, automating, or deploying cloud infrastructure on AWS. Covers infrastructure-as-code (CDK, CloudFormation, Terraform), IAM least-privilege security, serverless patterns (Lambda, API Gateway), and S3/RDS storage architecture.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Remover blocos de persona vazia: 'Behavioral Traits' (linhas 122-133), 'Knowledge Base' (linhas 134-143), 'Response Approach' (linhas 144-154) e 'Example Interactions' (linhas 155-164).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:122-164",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "database-optimizer",
+    "problem": "Substituir o preâmbulo circular de 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e comandos de ativação reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/database-optimizer/SKILL.md:9-18",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Description com 138 caracteres, abaixo da faixa recomendada de 200-400 chars, e sem cláusula explícita de ativação ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:3",
+    "correctedDescription": "Use when styling web applications using Tailwind CSS (v3 or v4). Covers utility class composition, responsive layouts, design token customization via @theme, arbitrary values, and dark mode configuration with PostCSS or Tailwind CLI.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Corpo stub de 65 linhas desprovido de conteúdo técnico: não traz regras de classes utilitárias responsivas, tokens de design, diretrizes mobile-first nem configuração de dark mode ou Tailwind CSS v4 (@theme).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:13-65",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Redundância estrutural decorrente da duplicação dos metadados do YAML nas seções Overview e Stack Tecnológica, acompanhadas de links simulados de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:15-37,58-64",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "vue-max-stack-frontend-best-practices + vue-typescript-best-practices",
+    "problem": "Proposta de LAPIDAR: 'vue-max-stack-frontend-best-practices' é o guia macro de arquitetura de Single File Components (SFC) no ecossistema Max (estrutura de templates, componentes Max*, formulários com MaxGrid e visão geral da stack). 'vue-typescript-best-practices' deve ser o guia focado em tipagem estática e segurança de tipos (defineProps/defineEmits tipados, DTOs gerados via spatie/laravel-typescript-transformer, tipos de template refs). No entanto, 'vue-typescript-best-practices' repete longas explicações sobre o funcionamento funcional do cache/auto-save do MaxPinia e a resolução de rotas sem prefixo api/ (seções 5 e 6), invadindo o escopo da skill macro. A recomendação é LAPIDAR: enxugar essas seções em 'vue-typescript-best-practices' para focar puramente em como TIPAR as stores e propriedades (interfaces, genéricos, contratos DTO), deixando os preceitos arquiteturais do ecossistema a cargo de 'vue-max-stack-frontend-best-practices', e calibrar os gatilhos 'Use when...' para distinguir scaffold/composição de SFCs de tipagem estática TypeScript.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:65-103 vs all_skills/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md:1-106",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "vue-max-stack-frontend-best-practices + vue-typescript-best-practices",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md:65-103",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "fp-types-ref + fp-taskeither-ref",
+    "problem": "Proposta de MERGE: Ambas as skills são cheatsheets curtas de referência rápida (79 e 116 linhas, respectivamente) voltadas para a biblioteca fp-ts. fp-types-ref já atua como ponto de entrada para a escolha de tipos (Option vs Either vs Task vs TaskEither), enquanto fp-taskeither-ref isola a sintaxe de TaskEither de maneira excessivamente fragmentada. Manter micro-skills separadas para referências sintáticas da mesma biblioteca dispersa a base de conhecimento e sobrecarrega o roteador do orquestrador. A recomendação é MERGE: unificar fp-taskeither-ref dentro de fp-types-ref, formando uma folha de referência rápida completa e concisa sobre os tipos e operadores fundamentais do fp-ts.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fp-types-ref/SKILL.md:1-79 e all_skills/Agentic Awesome Skills/skills/fp-taskeither-ref/SKILL.md:1-116",
+    "correctedDescription": "Use when selecting or implementing fp-ts types in TypeScript. Quick reference for Option, Either, Task, and TaskEither: decision tree, common imports, constructor methods, pipe chaining, error handling, and async transformation patterns.",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "fp-types-ref + fp-taskeither-ref",
+    "problem": "Plano de integracao: 1. Em fp-types-ref, manter a árvore de decisão de tipos e a tabela de imports. 2. Incorporar as seções de fp-taskeither-ref ('Create', 'Transform', 'Execute', 'Common Patterns' e 'vs async/await') sob uma seção dedicada 'TaskEither Reference' em fp-types-ref. 3. Atualizar o frontmatter de fp-types-ref incluindo as tags de fp-taskeither-ref (taskeither, async, promise) e expandindo a descrição e cláusula 'When to Use' para cobrir tanto seleção de tipos quanto sintaxe rápida de TaskEither. 4. Descontinuar e remover a pasta/arquivo de fp-taskeither-ref.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fp-types-ref/SKILL.md:1-79 e all_skills/Agentic Awesome Skills/skills/fp-taskeither-ref/SKILL.md:1-116",
+    "correctedDescription": "",
+    "batch": "ADV6"
+  },
+  {
+    "skillName": "laravel-electrical-calculations-dimensioning-best-practices",
+    "problem": "A description repete no encerramento 'Covers electrical sizing, breaker calculations, and cable sizing standards.', duplicando exatamente os conceitos já expressos na oração inicial (critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when performing electrical sizing, circuit breaker calculation, cable sizing, voltage drop verification, or inverter/module matching in Laravel using getWireSize, getCircuitBrake, getInverter, ElectricalHelper, and NBR 5410 standards.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "laravel-meta-graph-api-integration-best-practices",
+    "problem": "Description conclui com cláusula boilerplate ('Covers objectives, architectural structure, and Meta API endpoints.') que adiciona termos vagos e repete a raiz sintática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, and carousels via media containers, managing comments and insights via MetaService handlers, handling MetaWebhookJob, or configuring token authentication.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "problem": "Duplicação estrutural de diretrizes: A seção '## Idioma' (linhas 26-28) repete de forma redundante a mesma diretriz da seção '## Restrições' (linhas 29-30).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md:26-30",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "problem": "Ruído na cauda da description: 'Covers objectives, TypeScript DTO transformation, and language rules.' adiciona termos genéricos e meta-regras desnecessárias.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when configuring, updating, or generating TypeScript types and interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer, FlatGlobalWriter, or running php artisan typescript:transform.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "problem": "Remover a seção duplicada '## Idioma' (linhas 26-28) consolidando a diretriz sob '## Restrições'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md:26-30",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "vue-inputs-masks-validation-best-practices",
+    "problem": "A description possui cauda genérica 'Covers objectives and core workflows.' que não agrega valor semântico (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or validating masked inputs in Vue 3 using Maska v3, MaxComponentsUi (MaxInputCpfCnpj, MaxInputCep, MaxPhoneField), libphonenumber-js, and card-validator for phone, CPF, CNPJ, currency, CEP, and credit cards.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "vue-unocss-styling-best-practices",
+    "problem": "Exemplo ensina classes utilitárias inline no template — adotar classes semânticas e estilizar em <style lang=\"scss\">.",
+    "verdict": "REFUTADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md:49-54",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "vue-unocss-styling-best-practices",
+    "problem": "Description contém meta-ruído de preenchimento ('Covers objectives and core workflows.').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when styling templates and layouts in Vue 3 using UnoCSS and presetMaxUno: attributify classes and attributes, theme color shortcuts, transformerVariantGroup, params.scss, SCSS blocks, and dark mode configuration with @maxvue/max-use.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Extensão insuficiente da description (124 caracteres, violando a faixa ideal de 200 a 400 caracteres).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:3",
+    "correctedDescription": "Use when executing autonomous end-to-end engineering tasks or feature delivery workflows requiring structured plan-execute-verify iterations, task checklists, minimal context pollution, and automated verification before final commit.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Ausência total de condição de gatilho formal ('Use when...' ou 'Ative quando...') na description.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:3",
+    "correctedDescription": "Use when executing autonomous end-to-end engineering tasks or feature delivery workflows requiring structured plan-execute-verify iterations, task checklists, minimal context pollution, and automated verification before final commit.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Uso de vocabulário promocional e adjetivos vazios de marketing na description ('High-velocity autonomous engineering', 'minimal friction', 'velocidade máxima').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:3,18",
+    "correctedDescription": "Use when executing autonomous end-to-end engineering tasks or feature delivery workflows requiring structured plan-execute-verify iterations, task checklists, minimal context pollution, and automated verification before final commit.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Extensão insuficiente da description (144 caracteres) e ausência de cláusula de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:3",
+    "correctedDescription": "Use when breaking down complex software engineering tasks into sequential Plan, Implement, and Validate (PIV) cycles with strict transition gates, preventing scope creep and unverified code changes through iterative milestone execution.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Ausência de especificação técnica do loop Plan-Implement-Validate: não define formato de planos, critérios para portões de validação (gates) nem regras de transição entre estados.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:49-55",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Corpo estruturado sobre o mesmo boilerplate genérico repetitivo, com tautologias ('rotinas de piv-loop') e links sintéticos de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:43,60-64",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "Dependência externa exclusiva para terceiros através de link sem documentação local dos modelos de áudio (STT/TTS).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:21-23",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "fal-audio",
+    "problem": "O arquivo atual é 80%+ composto de tautologias e boilerplate de limitações sem nenhuma documentação técnica; necessita ser reconstruído do zero com exemplos reais ou removido.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "Ausência total de ganho semântico e procedimentos reais, servindo apenas como redirecionador raso para link externo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:11-24",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "makepad-skills",
+    "problem": "O arquivo inteiro é redundante e oco; necessita de reescrita completa baseada no repositório upstream ou exclusão/descarte do stub.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "react-flow-node-ts",
+    "problem": "Dependência fantasma: a seção Quick Start instrui explicitamente a copiar modelos de 'assets/template.tsx' e 'assets/types.template.ts', porém o diretório 'assets/' não existe na skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md:15,22-23",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "react-flow-node-ts",
+    "problem": "Overfitting e acoplamento a projeto proprietário externo: o passo a passo exige paths inexistentes ('src/frontend/src/types/index.ts', 'src/frontend/src/store/app-store.ts') e componentes específicos ('AddBlockMenu', 'ConnectMenu'), além de description curta (124 chars) sem 'Use when...'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md:3,64-70",
+    "correctedDescription": "Use when implementing custom React Flow node components with TypeScript, including custom node data interfaces, input/output Handle configurations, NodeResizer integrations, and state store bindings in flow-based canvases.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "react-flow-node-ts",
+    "problem": "Eliminar referências ao diretório fantasma 'assets/' e desvincular o passo a passo dos caminhos rígidos e menus ('AddBlockMenu', 'ConnectMenu') do projeto upstream particular.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md:15,22-23,64-70",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Description com apenas 163 caracteres (abaixo da faixa ideal de 200-400 chars) e sem gatilho explícito de contexto ('Use when...' ou 'Ative quando...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:3",
+    "correctedDescription": "Use when coordinating multi-agent workflows across multiple skills, discovering available tools via automated registry scanning, matching user queries against skill capabilities, or generating pipeline execution plans.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Forte acoplamento a scripts em caminhos locais específicos ('agent-orchestrator/scripts/') e tabela estática hardcoded do ecossistema do autor ('junta-leiloeiros', 'whatsapp-cloud-api') que não generalizam.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:60,69,83,290-299",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Presença de seções finais de boilerplate genérico ('Best Practices', 'Common Pitfalls', 'Limitations') sem discriminantes operacionais reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:301-322",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "mcp-server-routing",
+    "problem": "Divergência severa de escopo e nomenclatura: o diretório é denominado 'mcp-server-routing', enquanto o nome da skill no frontmatter é 'mcp-builder' e todo o conteúdo trata da criação e avaliação de servidores MCP (Python/TypeScript), sem relação com roteamento.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/SKILL.md:1-11",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "mcp-server-routing",
+    "problem": "A description utiliza adjetivo qualitativo ('high-quality MCP servers') que poderia ser substituído por termos técnicos mais objetivos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/mcp-server-routing/SKILL.md:3",
+    "correctedDescription": "Use when designing, implementing, or testing Model Context Protocol (MCP) servers in TypeScript (MCP SDK) or Python (FastMCP) to expose tools, resources, and prompts over stdio or streamable HTTP transports.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "tailwind-css",
+    "problem": "Remover o template de 65 linhas e incorporar diretrizes técnicas reais para estilização com classes utilitárias, mapeamento de temas e suporte a Tailwind CSS v3 e v4.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/tailwind-css/SKILL.md:1-65",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "typescript-advanced-types-best-practices + typescript-pro",
+    "problem": "Proposta de MERGE: typescript-pro é uma skill genérica e rasa (59 linhas) da comunidade que aborda exatamente o mesmo escopo técnico de typescript-advanced-types-best-practices (205 linhas), a qual é altamente customizada, alinhada aos projetos reais do repositório e substancialmente mais profunda. O conteúdo de typescript-pro consiste em diretrizes conceituais abstratas de generics, conditional types, mapped types, tsconfig estrito e testes que já constam implementados, com exemplos reais de código e validações práticas (satisfies, template literals, branded types, compiler testing com AssertEqual) na skill de types avançados. Manter ambas ativas provocaria colisão direta de ativação no orquestrador ao direcionar tarefas de modelagem e resolução de tipos em TypeScript.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-pro/SKILL.md:1-59 e all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md:1-205",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "typescript-advanced-types-best-practices + typescript-pro",
+    "problem": "Plano de integracao: Absorver em typescript-advanced-types-best-practices as poucas menções complementares de typescript-pro, especificamente a referência a decorators/metadados e declarações ambient (.d.ts). Consolidar no frontmatter de typescript-advanced-types-best-practices os gatilhos explícitos de 'Use this skill when' e 'Do not use this skill when' derivados de typescript-pro para prevenir ambiguidades de roteamento. Desativar/remover typescript-pro do catálogo de skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-pro/SKILL.md:10-21,33,51 e all_skills/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md:3,200-205",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "ui-skills + ui-skills-root",
+    "problem": "Proposta de MERGE: A skill 'ui-skills' é apenas um stub genérico e placeholder redundante originário do mesmo repositório upstream ('ibelick/ui-skills'), sem ferramentas ou orientações acionáveis. Já 'ui-skills-root' é a implementação oficial e operacional do roteador de UI Skills, contendo CLI ('npx ui-skills'), protocolo de roteamento em 7 etapas e regras estritas de seleção. Manter ambas gera confusão direta no orquestrador.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:1-29 e all_skills/Agentic Awesome Skills/skills/ui-skills-root/SKILL.md:1-73",
+    "correctedDescription": "",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "ui-skills + ui-skills-root",
+    "problem": "Plano de integracao: Absorver eventuais metadados contextuais ou referências upstream de 'ui-skills' em 'ui-skills-root', atualizando a descrição do 'ui-skills-root' para deixar explícito que é a porta de entrada para todas as UI skills do ecossistema ibelick, e remover a pasta/stub 'ui-skills'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:3,5 e all_skills/Agentic Awesome Skills/skills/ui-skills-root/SKILL.md:3,5,19-21",
+    "correctedDescription": "Use before starting UI-related work to select and load the minimal required UI guidance context from the ibelick/ui-skills catalog using the ui-skills CLI (npx ui-skills start/categories/get) and 7-step routing protocol.",
+    "batch": "ADV7"
+  },
+  {
+    "skillName": "laravel-engeapp-project-homologation-best-practices",
+    "problem": "A description termina com o filler redundante 'Covers objectives and connection regulations.' (critério 12), gerando repetição de termos já enunciados na primeira sentença.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when managing solar PV project homologation in Engeapp. Covers concessionaire regulations via ConcessionaireSubsidiaryRegulation, HasProtocol trait, Protocol::booted hook, and Vue SPA MaxPinia integration.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "laravel-migrations-seeders-factories-best-practices",
+    "problem": "Description encerra com o fragmento genérico repetitivo ('Covers objectives and core workflows.').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel and Engeapp. Covers anonymous migrations, ULID char(26) primary keys, resilient foreign key definitions, idempotent seeders, and typed factory states with fake() helpers.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "laravel-migrations-seeders-factories-best-practices",
+    "problem": "Description omitiu menção a convenções e termos discriminantes centrais do Engeapp detalhados no corpo da skill, como chaves ULID char(26), anonymous migrations e factory helpers tipados.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md:3, 12-30, 71-101",
+    "correctedDescription": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel and Engeapp. Covers anonymous migrations, ULID char(26) primary keys, resilient foreign key definitions, idempotent seeders, and typed factory states with fake() helpers.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "laravel-vue-geocoordinates-maps-best-practices",
+    "problem": "Discrepância semântica na description (Critério 5): a description afirma 'Covers validating Spatie Data DTOs', porém as Seções 1 e Restrições do próprio SKILL.md determinam explicitamente que o backend não valida coordenadas ('NÃO invente uma camada de validação... hoje o fluxo real persiste $request->all() via fill()/save(), sem validação') e que os Spatie Data DTOs atuam estritamente como classes de transferência/tipagem para o TypeScript Transformer.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md:3, 17, 51",
+    "correctedDescription": "Use when handling geographic coordinates (Decimal, UTM, DMS) in Engeapp. Covers Spatie Data DTOs for TypeScript generation, persisting LocationCoordinate JSON, integrating MaxMaps wrapper, and converting UTM/DMS/Decimal via utm-latlng in useCoordinates Store.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "vue-keyboard-shortcuts-navigation-best-practices",
+    "problem": "A description contém cauda genérica 'Covers objectives and core workflows.' (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 and MaxVue using useMagicKeys, useActiveElement, and key modifiers without collision in text inputs.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "vue-vitest-testing-best-practices",
+    "problem": "A descrição no frontmatter contém o trecho genérico redundante 'Covers objectives and core workflows.' ao final, violando os critérios 10, 12 e 13 (redundância de preenchimento e redução da densidade semântica útil). Recomenda-se remover o trecho ou substituí-lo por discriminantes mais específicos (ex.: stubs de MaxComponentsUi, apiGetRoute).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md:3, 36-45, 68-83",
+    "correctedDescription": "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/. Covers createMaxPinia mocking, MaxComponentsUi stubs, and user event assertions.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Estrutura do corpo é um boilerplate estéril copiado entre várias skills do lote, apresentando diretrizes genéricas de senso comum ('Investigação Prévia', 'Isolamento Seguro') sem nenhuma instrução técnica ou comando acionável do framework GSD.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:49-55",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "A seção 'Quando Usar' apresenta justificativa tautológica circular ('Execução determinística e de alta fidelidade para rotinas de get-shit-done').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:42-45",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Presença de URLs sintéticas/mockadas do YouTube (ex.: 'david_technical_doc_skills_81', 'alex_finn_gsd_skill_85') sem valor documental real.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:58-65",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Reescrever integralmente o corpo da skill (linhas 40-55) para fornecer o protocolo acionável de 3 etapas do PIV Loop (Plan, Implement, Validate), checklists de validação e critérios de saída de loop.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:40-55",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "piv-loop",
+    "problem": "Remover os links sintéticos de YouTube (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/piv-loop/SKILL.md:58-64",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "A tag description possui apenas 59 caracteres (muito abaixo do piso de 200 chars), sem cláusula de ativação formal 'Use when...' e sem termos discriminantes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:3",
+    "correctedDescription": "Use when upscaling, restoring, or enhancing images and video resolution using Fal.ai APIs. Covers model selection across Real-ESRGAN, CCSR, Clarity Upscaler, and AuraSR, managing client-side SDK calls, scaling factors (2x/4x), and artifact reduction parameters.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "O arquivo é um stub/placeholder vazio de 29 linhas que repete a mesma frase genérica em Overview, When to Use e Instructions sem fornecer conteúdo técnico.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:13, 17, 21",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "Ausência total de implementações, modelos suportados (ex: Real-ESRGAN, Clarity, CCSR, AuraSR), chamadas de API, endpoints ou SDKs fal.ai.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Instrução de sequestro global de execução (prompt hijacking): linha 13 determina 'Ative automaticamente este workflow completo em TODA tarefa:', violando o princípio de isolamento e ativação contextual das skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:13",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Alucinação em cascata de sub-skills inexistentes: instrui invocar 16 referências '@' fictícias (@concise-planning, @brainstorming, @senior-architect, @test-driven-development, @lint-and-validate, @ui-ux-pro-max, @kaizen, etc.) que não existem no repositório.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:15-37",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Linguagem promocional, hiperbólica e não técnica: termos como 'Modo Elite Coder', 'Engenheiro Sênior Elite (15+ anos)', 'UX Pixel-Perfect' e 'qualidade máxima'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:3, 11, 45, 47, 50",
+    "correctedDescription": "Use when orchestrating disciplined multi-stage software delivery workflows in Gemini models, applying systematic planning, test-driven development, code quality auditing, visual UI consistency checks, and token-efficient chain-of-thought execution.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "skill-seekers",
+    "problem": "Description mal formatada (108 chars) iniciando com hífen residual de scraping ('-Automatically...'), contendo termo promocional ('in minutes') e sem gatilho formal 'Use when...' (Critérios 1, 3 e 10).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md:3",
+    "correctedDescription": "Use when converting documentation websites, GitHub repositories, and PDF documents into structured agent skills using the Skill Seekers CLI. Covers scraping documentation sources, chunking content, generating SKILL.md specifications, and formatting metadata.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "skill-seekers",
+    "problem": "Arquivo SKILL.md é um stub oco gerado por scraping mecânico (29 linhas) sem qualquer instrução técnica, parâmetros, comandos ou scripts, limitando-se a repetir 3 vezes a mesma frase truncada e remeter a um link externo do GitHub.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md:13, 17, 21",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "skill-seekers",
+    "problem": "O arquivo inteiro é um placeholder oco; deve ser reescrito com instruções e comandos reais de CLI/scaffolding da ferramenta ou descartado por inexistência de conteúdo operacional.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md:1-29",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Remover seções genéricas 'Best Practices', 'Common Pitfalls' e 'Limitations' (linhas 301-322), pois contêm apenas advertências vazias de template.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:301-322",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "agent-orchestrator",
+    "problem": "Condensar a tabela 'Skills Atuais Do Ecossistema' (linhas 290-300) em um exemplo conceitual ilustrativo para evitar acoplamento a artefatos locais obsoletos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/agent-orchestrator/SKILL.md:290-300",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Description com 139 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem cláusula explícita de condição de uso / gatilho ('Use when...' ou 'Ative quando...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:3",
+    "correctedDescription": "Use when developing, structuring, or refactoring modern React 19 and TypeScript components, implementing custom hooks, managing isolated state, and ensuring WCAG accessibility compliance with Radix UI primitives.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Divergência severa de fidelidade entre a descrição e o corpo: a descrição promete padrões de produção para React 19, custom hooks, isolamento de estado e WCAG, porém o arquivo é um stub scaffold de 65 linhas sem nenhum padrão de código, hook ou diretriz técnica implementada.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:3, 12-65",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Corpo composto por boilerplate repetitivo que apenas espelha campos do frontmatter YAML em seções redundantes de Overview e Stack, além de URLs fictícias/simuladas de vídeos do YouTube ('builder_ui_ux_skills_51', etc.).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:15-37, 49-55, 60-64",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Description com 128 caracteres (abaixo dos 200 chars ideais) e sem cláusula condicional de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:3",
+    "correctedDescription": "Use when managing, distributing, or synchronizing private agent skills, personas, and prompt catalogs across repositories and machines using The Library tooling. Covers decentralized skill registration, versioning, and environment synchronization.",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Corpo stub oco (65 linhas): não documenta nenhuma rotina prática de sincronização, versionamento, comandos de terminal ou gerenciamento do catálogo descentralizado de skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:13-65",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Ruído estrutural com repetição literal dos campos do frontmatter YAML nas seções de Overview e Stack, acompanhado de links placeholder de YouTube.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:15-37, 58-64",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "typescript-tooling-monorepo-best-practices + typescript-expert",
+    "problem": "Proposta de MERGE: typescript-expert é um monolito de 432 linhas da comunidade com alta redundância interna e externa. Sua seção de Type-Level Programming (branded types, conditional types, recursive types, satisfies) já é coberta de forma canônica por typescript-advanced-types-best-practices e infringe a demarcação explícita de escopo estabelecida no repositório. Por outro lado, a sua porção de infraestrutura, diagnósticos do compilador CLI (--traceResolution, --generateTrace), monorepo (composite, project references) e migração de ferramentas (Biome vs ESLint, ts-migrate) sobrepõe-se diretamente a typescript-tooling-monorepo-best-practices (que inclusive já mantém um cheatsheet derivado de typescript-expert como referência). A unificação em typescript-tooling-monorepo-best-practices centraliza toda a governança de build, tooling e arquitetura de pacotes na skill criada sob medida para o ecossistema do projeto.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-expert/SKILL.md:59-100, 183-292; all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md:8-98; all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/references/typescript-cheatsheet.md:1-7",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "typescript-tooling-monorepo-best-practices + typescript-expert",
+    "problem": "Plano de integracao: Transferir para typescript-tooling-monorepo-best-practices os tópicos práticos de tooling avançado presentes em typescript-expert: diagnósticos avançados de compilação CLI (npx tsc --traceResolution, --generateTrace e análise de memória), estratégias de migração incremental (allowJs/checkJs, ts-migrate) e o comparativo de decisão Biome vs ESLint. Descartar integralmente a seção de Type-Level Programming de typescript-expert, pois sua autoridade pertence exclusivamente a typescript-advanced-types-best-practices. Desativar typescript-expert do catálogo.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/typescript-expert/SKILL.md:183-292; all_skills/created-skills/typescript/typescript-tooling-monorepo-best-practices/SKILL.md:31-98",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "tdd-workflows-tdd-green + tdd-workflows-tdd-red + tdd-workflows-tdd-refactor",
+    "problem": "Proposta de LAPIDAR: As três skills representam as fases especializadas do ciclo canônico de TDD (Red, Green e Refactor). A separação modular por fase é uma prática sólida em sistemas agentic, pois cada etapa impõe restrições mutuamente exclusivas ao modelo (no Red é proibido escrever código de produção; no Green é proibido antecipar refatorações; no Refactor é proibido alterar comportamento ou adicionar novos testes). No entanto, o cluster necessita de profunda lapidação interna: 'tdd-workflows-tdd-green' teve seu SKILL.md corrompido/truncado (começa abruptamente sem bloco de código e suas diretrizes essenciais foram isoladas indevidamente em 'resources/implementation-playbook.md'), enquanto 'tdd-workflows-tdd-refactor' possui metadados tautológicos genéricos e referências a arquivos inexistentes. É necessário restaurar o corpo de 'tdd-workflows-tdd-green', aprimorar o conteúdo de 'tdd-workflows-tdd-refactor' e calibrar rigorosamente as transições de fase entre as três skills.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/SKILL.md:8-24; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/resources/implementation-playbook.md:1-60; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-refactor/SKILL.md:3, 11, 24",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  },
+  {
+    "skillName": "tdd-workflows-tdd-green + tdd-workflows-tdd-red + tdd-workflows-tdd-refactor",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/SKILL.md:8-82; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-refactor/SKILL.md:1-60; all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-red/SKILL.md:1-60",
+    "correctedDescription": "",
+    "batch": "ADV8"
+  }
+]

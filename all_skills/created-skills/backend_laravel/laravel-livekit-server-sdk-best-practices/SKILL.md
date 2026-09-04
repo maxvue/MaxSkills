@@ -1,6 +1,6 @@
 ---
 name: laravel-livekit-server-sdk-best-practices
-description: "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging. Covers objectives and core workflows."
+description: "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas do LiveKit Server SDK no Laravel

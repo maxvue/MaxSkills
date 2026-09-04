@@ -1,6 +1,6 @@
 ---
 name: n8n-code-tool
-description: Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sandbox limits, and return formats.
+description: "Write and debug JavaScript or Python for the AI-callable n8n Custom Code Tool, including schemas, sandbox limits, and return formats. Use when developing, optimizing, debugging, or configuring n8n code tool in production workflows."
 risk: critical
 source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-code-tool
 source_repo: czlonkowski/n8n-skills

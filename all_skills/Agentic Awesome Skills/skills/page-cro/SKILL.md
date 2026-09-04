@@ -1,6 +1,6 @@
 ---
 name: page-cro
-description: Analyze and optimize individual pages for conversion performance.
+description: "Analyze and optimize individual pages for conversion performance. Use when developing, optimizing, debugging, or configuring page cro in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for page cro."
 risk: none
 source: community
 date_added: '2026-02-27'

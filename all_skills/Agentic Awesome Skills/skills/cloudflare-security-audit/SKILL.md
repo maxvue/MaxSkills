@@ -1,6 +1,6 @@
 ---
 name: "cloudflare-security-audit"
-description: "Audit authorized codebases for exploitable vulnerabilities using scoped reconnaissance, adversarial review, validation, and structured reporting."
+description: "Audit authorized codebases for exploitable vulnerabilities using scoped reconnaissance, adversarial review, validation, and structured reporting. Use when developing, optimizing, debugging, or configuring cloudflare security audit in production workflows."
 risk: "offensive"
 source: "community"
 source_repo: "cloudflare/security-audit-skill"

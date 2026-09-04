@@ -1,6 +1,6 @@
 ---
 name: agent-framework-azure-ai-py
-description: "Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK."
+description: "Build persistent agents on Azure AI Foundry using the Microsoft Agent Framework Python SDK. Use when developing, optimizing, debugging, or configuring agent framework azure ai py in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"

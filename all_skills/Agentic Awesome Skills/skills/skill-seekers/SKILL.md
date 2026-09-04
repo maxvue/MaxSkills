@@ -1,6 +1,6 @@
 ---
 name: skill-seekers
-description: "-Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI skills in minutes."
+description: "Automated extraction and compilation tool to convert documentation sites, GitHub repositories, and technical guides into structured Agent Skills. Use when packaging third-party docs or SDKs into SKILL.md packages."
 risk: safe
 source: "https://github.com/yusufkaraaslan/Skill_Seekers"
 date_added: "2026-02-27"

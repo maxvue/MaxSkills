@@ -1,6 +1,6 @@
 ---
 name: llm-ops
-description: "LLM Operations -- RAG, embeddings, vector databases, fine-tuning, prompt engineering avancado, custos de LLM, evals de qualidade e arquiteturas de IA para producao."
+description: "LLM Operations -- RAG, embeddings, vector databases, fine-tuning, prompt engineering avancado, custos de LLM, evals de qualidade e arquiteturas de IA para producao. Use when developing, optimizing, debugging, or configuring llm ops in production workflows."
 risk: safe
 source: community
 date_added: '2026-03-06'

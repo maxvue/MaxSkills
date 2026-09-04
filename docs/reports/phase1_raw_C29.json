@@ -1,0 +1,601 @@
+[
+  {
+    "skillName": "fp-taskeither-ref",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-taskeither-ref/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão insuficiente na description (126 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres), reduzindo sua densidade semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes operacionais centrais na description, como pipe, TE.tryCatch, TE.flatMap, TE.match e sequenceT.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Classificação inconsistente de metadados no frontmatter com 'risk: critical' para um documento puramente de referência sintática sem comandos executáveis destrutivos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico da seção 'Limitations' (linhas 112-115) e a seção redundante 'When to Use' (linhas 14-18) para manter apenas os exemplos de código.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia de referência rápida e padrões de composição funcional assíncrona para TaskEither da biblioteca fp-ts em TypeScript.",
+      "entidades": [
+        "fp-ts/TaskEither",
+        "fp-ts/function",
+        "fp-ts/Apply",
+        "TaskEither",
+        "pipe",
+        "TE.tryCatch",
+        "TE.flatMap",
+        "TE.map",
+        "TE.orElse",
+        "TE.match",
+        "sequenceT"
+      ],
+      "keywords": [
+        "fp-ts",
+        "TaskEither",
+        "TypeScript",
+        "programação funcional",
+        "pipe",
+        "TE.tryCatch",
+        "TE.flatMap",
+        "TE.map",
+        "TE.match",
+        "sequenceT",
+        "tratamento assíncrono de erros",
+        "Promise",
+        "Either",
+        "typed errors"
+      ]
+    },
+    "summary": "Referência técnica enxuta e correta para fp-ts TaskEither, necessitando apenas de expansão de densidade na description."
+  },
+  {
+    "skillName": "fp-types-ref",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-types-ref/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente concisa (132 caracteres), ficando abaixo do limite inferior de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes chaves na description como TaskOption, flow, pipe, pattern matching e métodos O.match/E.match.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o bloco genérico de Limitations (linhas 75-79), que contém apenas advertências robóticas sem valor prático.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Cheat-sheet e árvore de decisão para seleção de tipos de abstração funcional no ecossistema fp-ts em TypeScript.",
+      "entidades": [
+        "fp-ts",
+        "Option",
+        "Either",
+        "Task",
+        "TaskEither",
+        "TaskOption",
+        "pipe",
+        "flow",
+        "O.fromNullable",
+        "O.match",
+        "E.match"
+      ],
+      "keywords": [
+        "fp-ts",
+        "TypeScript",
+        "Option",
+        "Either",
+        "Task",
+        "TaskEither",
+        "TaskOption",
+        "pipe",
+        "flow",
+        "árvore de decisão de tipos",
+        "programação funcional",
+        "pattern matching",
+        "tratamento de erros"
+      ]
+    },
+    "summary": "Excelente cheat-sheet de tipos fp-ts com árvore de decisão clara, carecendo apenas de maior extensão e densidade na description."
+  },
+  {
+    "skillName": "frontend-api-integration-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-api-integration-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Ausência de cláusula de gatilho explícita ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de buzzword promocional ('Production-ready') na abertura da description violando a diretriz de linguagem anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de componentes e métodos discriminantes centrais na description, tais como AbortController, ApiError, exponential backoff e request deduplication.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Condensar as seções 'Examples', 'Best Practices', 'Anti-Patterns' e 'Common Pitfalls' (linhas 213-326), que repetem os mesmos tópicos de deduplicação e cancelamento em formatos variados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de resiliência e integração entre frontend e APIs REST cobrindo cancelamento com AbortController, retry exponencial e deduplicação.",
+      "entidades": [
+        "AbortController",
+        "ApiError",
+        "fetchWithBackoff",
+        "useDebounce",
+        "dedupedFetch",
+        "apiClient",
+        "useEffect"
+      ],
+      "keywords": [
+        "API integration",
+        "AbortController",
+        "race condition",
+        "request cancellation",
+        "exponential backoff",
+        "retry",
+        "request deduplication",
+        "optimistic UI",
+        "debouncing",
+        "error normalization",
+        "React",
+        "JavaScript"
+      ]
+    },
+    "summary": "Skill muito prática e bem codificada para integração de APIs no front, necessitando de poda em seções redundantes e ajuste no gatilho da description."
+  },
+  {
+    "skillName": "frontend-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-architecture/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada bruscamente com reticências ('...'), indicando corte mecânico de caracteres que deixou a redação incompleta.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência da fórmula de gatilho explícita ('Use when...') no frontmatter da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de instruções de publicação e distribuição do pacote (skills.sh / npx skills add) no corpo que constituem metadados de tooling externos irrelevantes para o runtime.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção 'Publishing / installing this skill' (linhas 406-414), pois orientações sobre publicação externa não auxiliam na geração de código.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura frontend modular e agnóstica para React e React Native estruturada em feature modules, páginas em diretórios e separação entre server e UI state.",
+      "entidades": [
+        "Zustand",
+        "Redux Toolkit",
+        "MobX",
+        "Jotai",
+        "TanStack Query",
+        "RTK Query",
+        "Next.js App Router",
+        "Expo Router",
+        "Tamagui",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "frontend architecture",
+        "feature modules",
+        "React",
+        "React Native",
+        "server state",
+        "UI state",
+        "barrel imports",
+        "component promotion",
+        "co-located styles",
+        "Next.js",
+        "Expo",
+        "Zustand",
+        "TanStack Query"
+      ]
+    },
+    "summary": "Guia arquitetural de referência para React e React Native de altíssimo nível, prejudicado apenas por description truncada com reticências e ruído de publicação."
+  },
+  {
+    "skillName": "frontend-data-contracts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-data-contracts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description cortada no meio da frase com reticências ('a single...'), quebrando a integridade sintática do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de gatilho explícito 'Use when...' na description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de seção de distribuição externa ('Publishing / installing this skill') no corpo do documento desnecessária para o runtime.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Eliminar a seção 'Publishing / installing this skill' (linhas 318-326) contendo comandos de npx skills add e arquivos de steering.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Definição de fronteira tipada e contratos de dados na borda de rede frontend mediante parse-don't-validate, ApiError unificado e tipos nominais branded.",
+      "entidades": [
+        "apiClient",
+        "ApiError",
+        "Zod",
+        "Valibot",
+        "Brand",
+        "TanStack Query",
+        "RTK Query",
+        "SWR"
+      ],
+      "keywords": [
+        "data contracts",
+        "type safety",
+        "network boundary",
+        "parse don't validate",
+        "Zod",
+        "branded types",
+        "ApiError",
+        "response envelope",
+        "React",
+        "React Native",
+        "TanStack Query",
+        "field errors"
+      ]
+    },
+    "summary": "Trabalho primoroso sobre disciplina de tipagem e parse na fronteira de rede, necessitando apenas da correção da description cortada e remoção de metadados de instalação."
+  },
+  {
+    "skillName": "frontend-dev-guidelines",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-dev-guidelines/SKILL.md",
+    "state": "Regular",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description inicia com persona vazia ('You are a senior frontend engineer operating under strict architectural and performance standards') em vez de declarar a ação técnica da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho excessivamente amplo e genérico na description ('Use when creating components or pages, adding new features, or fetching or mutating data'), englobando qualquer tarefa de desenvolvimento sem discriminar o escopo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Omissão total na description das dependências tecnológicas e dogmas obrigatórios do arquivo, tais como MUI v7, TanStack Router, Suspense-first com useSuspenseQuery e índice FFCI.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description ligeiramente abaixo do limite mínimo (194 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância interna com múltiplas seções 'When to Use' (linhas 90-100 e 363-365) e checklist repetitivo de validação.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Simplificar a seção 1 (Frontend Feasibility & Complexity Index - FFCI), reduzindo o aparato pseudo-matemático de pontuação que não possui utilidade acionável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover a seção duplicada 'When to Use' no final (linhas 363-365) e consolidar os checklists.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes estritas e opinativas para desenvolvimento de componentes e rotas em React com foco em Suspense-first, MUI v7 e TanStack Router.",
+      "entidades": [
+        "useSuspenseQuery",
+        "@tanstack/react-query",
+        "TanStack Router",
+        "createFileRoute",
+        "@mui/material",
+        "Grid",
+        "useMuiSnackbar",
+        "SuspenseLoader"
+      ],
+      "keywords": [
+        "React",
+        "Suspense",
+        "useSuspenseQuery",
+        "TanStack Router",
+        "MUI v7",
+        "Material UI",
+        "feature-based",
+        "TypeScript",
+        "lazy loading",
+        "code splitting",
+        "anti-patterns",
+        "performance"
+      ]
+    },
+    "summary": "Conjunto de diretrizes opinativo e funcional, mas penalizado por description com persona genérica que oculta o stack de MUI v7 / TanStack Router e por redundâncias estruturais."
+  },
+  {
+    "skillName": "frontend-developer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-developer/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta (164 caracteres) com adjetivação promocional ('Masters React 19, Next.js 15, and modern frontend architecture') e sem gatilho explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Amplitude desmedida: tenta abraçar a totalidade da engenharia frontend (React 19, Next.js 15, SSR, RSC, Zustand, Redux, Tailwind, Playwright, CI/CD, pagamentos, CMS), perdendo qualquer foco discriminante.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Natureza puramente de persona/currículo sem prescrições arquiteturais concretas, códigos executáveis ou padrões de implementação detalhados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de ruído comportamental ('Behavioral Traits', 'Knowledge Base') que inflam o documento sem ganho operacional real.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 25,
+    "cuts": [
+      {
+        "text": "Remover ou condensar as seções 'Behavioral Traits' (linhas 127-138) e 'Knowledge Base' (linhas 139-150), que funcionam apenas como enchimento de prompt de persona sem procedimentos reais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Condensar a taxonomia massiva de Capabilities em diretrizes concretas ou desmembrar em skills especializadas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Catálogo exaustivo de competências e diretrizes de alto nível para atuação como desenvolvedor especialista em React 19 e Next.js 15.",
+      "entidades": [
+        "React 19",
+        "Next.js 15",
+        "Server Components",
+        "Server Actions",
+        "Zustand",
+        "TanStack Query",
+        "Tailwind CSS",
+        "Playwright",
+        "Storybook"
+      ],
+      "keywords": [
+        "React 19",
+        "Next.js 15",
+        "App Router",
+        "Server Components",
+        "Server Actions",
+        "TypeScript",
+        "Zustand",
+        "TanStack Query",
+        "Tailwind CSS",
+        "Core Web Vitals",
+        "acessibilidade",
+        "WCAG",
+        "Playwright"
+      ]
+    },
+    "summary": "Documento genérico estruturado como currículo/persona sem prescrições técnicas acionáveis, com description promocional hiper-ampla."
+  },
+  {
+    "skillName": "frontend-lighthouse",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-lighthouse/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (143 caracteres), abaixo do limiar de 200 a 400 caracteres recomendado.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita de gatilho ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes centrais na description, como @lhci/cli, lighthouserc.cjs, TBT, LCP, CLS e GitHub Actions.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção 'Publishing / installing this skill' (linhas 335-343) com instruções de distribuição em skills.sh/npx.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de portão de qualidade de performance em CI/CD via Lighthouse CI com orçamentos estritos de Core Web Vitals e amostragem por mediana.",
+      "entidades": [
+        "@lhci/cli",
+        "lighthouserc.cjs",
+        "GitHub Actions",
+        "Largest Contentful Paint (LCP)",
+        "Cumulative Layout Shift (CLS)",
+        "Total Blocking Time (TBT)",
+        "Next.js"
+      ],
+      "keywords": [
+        "Lighthouse CI",
+        "Core Web Vitals",
+        "LCP",
+        "CLS",
+        "TBT",
+        "INP",
+        "performance budgets",
+        "CI/CD",
+        "GitHub Actions",
+        "lighthouserc",
+        "median-run",
+        "auditoria web"
+      ]
+    },
+    "summary": "Guia de implementação de Lighthouse CI de excelente qualidade prática, necessitando apenas de ajuste na extensão e gatilho da description."
+  },
+  {
+    "skillName": "frontend-mobile-security-xss-scan",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-mobile-security-xss-scan/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description cortada abruptamente no meio da palavra ('...identify injection poi'), rompendo a integridade sintática do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description adota tom de persona ('You are a frontend security specialist...') e omite gatilho padronizado 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de placeholder não preenchido ('$ARGUMENTS') na seção Requirements (linhas 27-30), evidenciando template inacabado.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Discrepância de escopo: o título indica 'mobile-security', mas o documento trata exclusivamente de código web tradicional (React, Vue, Angular, DOM).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de 'When to Use' e 'Do not use' utilizam tautologia circular vazia ('Working on xss vulnerability scanner for frontend code tasks').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o placeholder quebrado '$ARGUMENTS' na seção Requirements (linhas 27-30).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Substituir a implementação de scanner ingênuo em TypeScript (linhas 49-152) por regras reais de ESLint e Semgrep já citadas no documento.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Identificação estática e mitigação de vulnerabilidades de Cross-Site Scripting (XSS) em aplicações web com React, Vue e JavaScript puro.",
+      "entidades": [
+        "DOMPurify",
+        "dangerouslySetInnerHTML",
+        "v-html",
+        "innerHTML",
+        "eslint-plugin-security",
+        "Semgrep",
+        "CWE-79"
+      ],
+      "keywords": [
+        "XSS",
+        "Cross-Site Scripting",
+        "DOMPurify",
+        "segurança frontend",
+        "sanitização",
+        "vulnerabilidades",
+        "CWE-79",
+        "dangerouslySetInnerHTML",
+        "v-html",
+        "Semgrep",
+        "ESLint"
+      ]
+    },
+    "summary": "Skill com problemas graves de acabamento (description cortada no meio da palavra, placeholder $ARGUMENTS quebrado e scanner ingênuo), embora os exemplos de correção com DOMPurify sejam válidos."
+  },
+  {
+    "skillName": "frontend-observability",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-observability/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada com reticências ('...can never...'), resultando em frase inacabada.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito 'Use when...' no frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de seção de distribuição externa ('Publishing / installing this skill') no corpo do documento alheia ao runtime.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção 'Publishing / installing this skill' (linhas 420-428) com instruções irrelevantes de npx skills add.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Sistema resiliente de observabilidade e telemetria para React e React Native com taxonomia tipada, fan-out não-bloqueante e RUM de Core Web Vitals.",
+      "entidades": [
+        "useAnalytics",
+        "AnalyticsProvider",
+        "ANALYTICS_EVENTS",
+        "web-vitals",
+        "Firebase Analytics",
+        "Google Analytics 4",
+        "Microsoft Clarity",
+        "ErrorBoundary"
+      ],
+      "keywords": [
+        "observability",
+        "telemetria",
+        "analytics",
+        "Core Web Vitals",
+        "RUM",
+        "React",
+        "React Native",
+        "event taxonomy",
+        "consent management",
+        "GDPR",
+        "web-vitals",
+        "error tracking",
+        "fan-out"
+      ]
+    },
+    "summary": "Arquitetura de observabilidade e RUM de altíssima qualidade técnica, exigindo apenas correção da description truncada e poda da seção de publicação."
+  }
+]

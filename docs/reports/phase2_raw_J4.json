@@ -1,0 +1,58 @@
+[
+  {
+    "cluster": [
+      "ui-skills",
+      "ui-skills-root"
+    ],
+    "recommendation": "MERGE",
+    "into": "ui-skills-root",
+    "rationale": "A skill 'ui-skills' é apenas um stub genérico e placeholder redundante originário do mesmo repositório upstream ('ibelick/ui-skills'), sem ferramentas ou orientações acionáveis. Já 'ui-skills-root' é a implementação oficial e operacional do roteador de UI Skills, contendo CLI ('npx ui-skills'), protocolo de roteamento em 7 etapas e regras estritas de seleção. Manter ambas gera confusão direta no orquestrador.",
+    "mergePlan": "Absorver eventuais metadados contextuais ou referências upstream de 'ui-skills' em 'ui-skills-root', atualizando a descrição do 'ui-skills-root' para deixar explícito que é a porta de entrada para todas as UI skills do ecossistema ibelick, e remover a pasta/stub 'ui-skills'.",
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "ui-tokens",
+      "ui-pattern"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora compartilhem o prefixo 'ui-' e pertençam ao mesmo ecossistema (StyleSeed), atuam em domínios arquiteturais complementares e distintos: 'ui-tokens' gerencia a camada de dados e variáveis CSS/JSON de design tokens (cores, espaçamentos, tipografia), enquanto 'ui-pattern' gera composições estruturais de layouts e componentes visuais (grids, cards, form sections). Ambas já possuem documentação madura com fronteiras de uso e regras 'When NOT to use' que evitam sobreposição mútua.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "ui-ux-designer",
+      "ui-ux-pro-max",
+      "ui-visual-validator"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As três skills são especialistas complementares em fases distintas do ciclo de vida de UI/UX: concepção, ideação, wireframing e pesquisa de usuário ('ui-ux-designer'); geração assistida de design system, tokens e guidelines para código frontend com CLI executável ('ui-ux-pro-max'); e garantia de qualidade visual, testes de regressão com screenshots e auditoria de conformidade pós-renderização ('ui-visual-validator'). As três devem ser preservadas integralmente, sendo necessário apenas calibrar suas descrições e gatilhos 'Use when...' e 'Do not use when...' para eliminar ambiguidades que possam confundir o roteamento do orquestrador.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "ui-a11y",
+      "ui-lint"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora ambas atuem na verificação estática de código no ecossistema StyleSeed, seus objetivos, critérios e ferramentas são substancialmente distintos: 'ui-lint' é um linter sintático ultrarrápido baseado em grep/regex para detectar anti-patterns de Tailwind v4 e convenções de código, enquanto 'ui-a11y' realiza auditoria detalhada de conformidade estrutural com os padrões de acessibilidade WCAG 2.2 AA (contraste, touch targets, ARIA, foco). As skills já definem escopos claros e exclusões mútuas.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "tdd",
+      "tdd-orchestrator"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As skills operam em níveis de abstração distintos e complementares do Test-Driven Development: 'tdd' (de Matt Pocock) é um guia tático e focado na prática diária do desenvolvedor na codificação (fatias verticais, tracer bullets, micro-ciclo Red-Green-Refactor, regras de mock em boundaries), enquanto 'tdd-orchestrator' foca no nível estratégico e organizacional (governança de testes, pipelines de CI/CD, métricas corporativas, pirâmide de testes e coordenação multi-agente). Ambas devem ser mantidas, ajustando os gatilhos para que 'tdd' seja acionado em implementação prática de código e 'tdd-orchestrator' em planejamento de arquitetura, governança e orquestração de testes.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  }
+]

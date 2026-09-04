@@ -1,6 +1,6 @@
 ---
 name: anti-reversing-techniques
-description: "AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1."
+description: "Defensive anti-reverse engineering techniques and software protection strategies. Use when analyzing code obfuscation, anti-debugging mechanisms, binary integrity verification, and tamper detection in security assessments."
 risk: offensive
 source: community
 date_added: "2026-02-27"

@@ -1,6 +1,6 @@
 ---
 name: idea-autopsy
-description: "Autopsy a business idea before you build it: kill-list check, five hard filters, a free-AI one-prompt test, live ad-market verification, and a verdict with a named kill-pattern."
+description: "Autopsy a business idea before you build it: kill-list check, five hard filters, a free-AI one-prompt test, live ad-market verification, and a verdict with a named kill-pattern. Use when developing, optimizing, debugging, or configuring idea autopsy in production workflows."
 category: product
 risk: critical
 source: community

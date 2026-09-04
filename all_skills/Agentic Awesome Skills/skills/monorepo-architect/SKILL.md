@@ -1,6 +1,6 @@
 ---
 name: monorepo-architect
-description: "Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx, Turborepo, Bazel, and Lerna for efficient multi-project development. Use PROACTIVELY for monorepo setup,"
+description: "Comprehensive engineering guide and best practices for monorepo architect. Use when configuring, developing, debugging, or optimizing monorepo architect architecture in production systems. Guides architecture, best practices, and implementation standards for monorepo architect."
 risk: safe
 source: community
 date_added: "2026-02-27"
@@ -20,7 +20,7 @@ Expert in monorepo architecture, build systems, and dependency management at sca
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Capabilities
 

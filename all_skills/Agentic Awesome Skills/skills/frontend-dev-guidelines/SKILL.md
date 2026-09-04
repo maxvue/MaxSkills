@@ -1,6 +1,6 @@
 ---
 name: frontend-dev-guidelines
-description: "You are a senior frontend engineer operating under strict architectural and performance standards. Use when creating components or pages, adding new features, or fetching or mutating data."
+description: "You are a senior frontend engineer operating under strict architectural and performance standards. Use when creating components or pages, adding new features, or fetching or mutating data. Guides architecture, best practices, and implementation standards for frontend dev guidelines."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,6 +1,6 @@
 ---
 name: quit-sponsor
-description: "Helps an AI agent provide non-judgmental, evidence-informed quit-smoking support with user-consented tracking, craving check-ins, and escalation to human or clinical help. Not medical care."
+description: "Helps an AI agent provide non-judgmental, evidence-informed quit-smoking support with user-consented tracking, craving check-ins, and escalation to human or clinical help. Not medical care. Use when developing, optimizing, debugging, or configuring quit sponsor in production workflows."
 category: personal-development
 risk: safe
 source: community

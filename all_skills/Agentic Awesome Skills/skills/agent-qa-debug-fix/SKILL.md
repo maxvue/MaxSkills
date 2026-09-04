@@ -1,6 +1,6 @@
 ---
 name: agent-qa-debug-fix
-description: "Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local code without hiding product or infrastructure defects."
+description: "Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local code without hiding product or infrastructure defects. Use when developing, optimizing, debugging, or configuring agent qa debug fix in production workflows."
 category: testing
 risk: critical
 source: https://github.com/vostride/agent-qa/tree/main/skills/agent-qa-debug-fix

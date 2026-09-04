@@ -1,0 +1,487 @@
+[
+  {
+    "skillName": "socialclaw",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/socialclaw/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description (219 caracteres) está no tamanho ideal, porém é redigida em tom estritamente declarativo/promocional de produto ('Agent-first social media publishing skill...'), sem a cláusula de ativação explícita 'Use when...' (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo altamente conceitual e superficial: o SKILL.md funciona como um stub de serviço comercial de terceiros (getsocialclaw.com), contendo apenas passos genéricos em texto ('Step 1: Create a Campaign', 'Step 2: Upload Media') sem apresentar parâmetros de API, payloads JSON ou comandos práticos da CLI.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A seção 'Source' (linhas 102-105) é redundante em relação aos metadados de 'source_repo' e 'license_source' já informados no frontmatter YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção redundante '## Source' e condensar os passos abstratos em instruções orientadas a fluxos técnicos objetivos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Publicação e agendamento multiplataforma de postagens sociais via API do serviço SocialClaw.",
+      "entidades": [
+        "SocialClaw",
+        "npm socialclaw",
+        "SOCIALCLAW_API_KEY",
+        "X",
+        "LinkedIn",
+        "Instagram",
+        "Facebook Pages",
+        "TikTok",
+        "Discord",
+        "Telegram",
+        "YouTube",
+        "Reddit",
+        "WordPress",
+        "Pinterest"
+      ],
+      "keywords": [
+        "socialclaw",
+        "social media",
+        "publishing",
+        "scheduling",
+        "campaigns",
+        "x",
+        "twitter",
+        "linkedin",
+        "instagram",
+        "tiktok",
+        "discord",
+        "telegram",
+        "reddit",
+        "multi-platform",
+        "api key"
+      ]
+    },
+    "summary": "Skill funcionalmente rasa que atua como vitrine de serviço comercial externo, carecendo de exemplos de código acionáveis e gatilho 'Use when...' na description."
+  },
+  {
+    "skillName": "software-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/software-architecture/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Violação grave de escopo e generalismo na description ('in any case that relates to software development'), caracterizando tentativa de sequestro universal de interações de programação (quebra dos Critérios 7 e 8). Extensão ligeiramente curta (196 chars).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Duplicação textual redundante explícita dentro do próprio SKILL.md: os itens 'Mixing business logic with UI components' e 'Database queries directly in controllers' aparecem idênticos nas linhas 51-52 ('Separation of Concerns') e nas linhas 63-64 ('Poor Architectural Choices').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' (linhas 80-81) consiste em preâmbulo vazio tautológico ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Prescrições rasas e opinativas de formatação/lint misturadas com slogans genéricos de Clean Architecture sem código prático ou discriminantes arquiteturais sólidos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 22,
+    "cuts": [
+      {
+        "text": "Remover os blocos textuais duplicados das linhas 63-64 e o preâmbulo tautológico 'When to Use' das linhas 80-81, além de reescrever a description para restringir o gatilho a decisões arquiteturais de Clean Architecture e DDD.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes genéricas de estilo de código, modularização e princípios básicos de Clean Architecture e Domain-Driven Design.",
+      "entidades": [
+        "Clean Architecture",
+        "Domain Driven Design",
+        "npm",
+        "cockatiel",
+        "Auth0",
+        "Supabase",
+        "Redux",
+        "Zustand"
+      ],
+      "keywords": [
+        "software architecture",
+        "clean architecture",
+        "domain-driven design",
+        "early return",
+        "decomposition",
+        "anti-patterns",
+        "separation of concerns",
+        "library-first",
+        "refactoring"
+      ]
+    },
+    "summary": "Skill excessivamente genérica com tentativa de sequestro universal de tarefas de código, redundâncias textuais explícitas e regras superficiais de lint."
+  },
+  {
+    "skillName": "source-driven-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/source-driven-development/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia rigorosa para fundamentar implementações de software em documentações técnicas oficiais atualizadas, prevenindo padrões obsoletos e alucinações de API.",
+      "entidades": [
+        "package.json",
+        "composer.json",
+        "pyproject.toml",
+        "Cargo.toml",
+        "react.dev",
+        "MDN",
+        "useActionState",
+        "React 19"
+      ],
+      "keywords": [
+        "source-driven development",
+        "official documentation",
+        "source citations",
+        "framework versions",
+        "anti-hallucination",
+        "code verification",
+        "api reference",
+        "best practices",
+        "deprecation"
+      ]
+    },
+    "summary": "Skill exemplar de Addy Osmani com metodologia impecável (DETECT-FETCH-IMPLEMENT-CITE), description cirúrgica (226 chars) e zero ruído estrutural."
+  },
+  {
+    "skillName": "spark-optimization",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/spark-optimization/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de produção para otimização de jobs Apache Spark em PySpark, abrangendo particionamento, join strategies, mitigação de skew, shuffle e alocação de memória.",
+      "entidades": [
+        "Apache Spark",
+        "PySpark",
+        "SparkSession",
+        "StorageLevel",
+        "Parquet",
+        "Delta Lake",
+        "AQE",
+        "KryoSerializer"
+      ],
+      "keywords": [
+        "spark optimization",
+        "pyspark",
+        "shuffle",
+        "data skew",
+        "salting",
+        "broadcast join",
+        "partitioning",
+        "coalesce",
+        "caching",
+        "memory tuning",
+        "aqe",
+        "z-ordering"
+      ]
+    },
+    "summary": "Excelente skill técnica com description precisa (202 chars), padrões de código PySpark acionáveis e arquitetura de otimização de alto nível sem bloat."
+  },
+  {
+    "skillName": "spec-to-code-compliance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/spec-to-code-compliance/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria determinística e não-alucinante de conformidade entre especificações/whitepapers e implementações de código para protocolos blockchain.",
+      "entidades": [
+        "Spec-IR",
+        "Code-IR",
+        "Alignment-IR",
+        "Divergence Findings",
+        "spec-compliance-checker"
+      ],
+      "keywords": [
+        "compliance",
+        "blockchain audit",
+        "smart contracts",
+        "whitepapers",
+        "intermediate representation",
+        "spec-to-code",
+        "invariants",
+        "anti-hallucination",
+        "verification",
+        "divergence"
+      ]
+    },
+    "summary": "Skill de auditoria determinística de ponta com 7 fases bem delineadas, regras anti-alucinação estritas e description ideal de 247 caracteres."
+  },
+  {
+    "skillName": "spline-3d-integration",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/spline-3d-integration/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 133 caracteres, situando-se significativamente abaixo do piso recomendado de 200 caracteres (Critério 1), omitindo stacks detalhadas (Vanilla, Next.js, Vue) e recursos de exportação e otimização.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'Strict Rules' (linhas 83-85) impõe um 'ABSOLUTE MANDATE' com tom marqueteiro e promissório ('build modern, creative, and visually stunning UI/UX', 'create highly immersive, wow-factor premium experiences'), violando frontalmente a linguagem anti-promocional e sóbria exigida pelo Critério 10.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção promocional 'Strict Rules' (linhas 83-85) e expandir a description para cobrir as bibliotecas suportadas (@splinetool/react-spline, runtime, vue-spline).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Integração e controle em tempo de execução de cenas 3D interativas do Spline.design em aplicações web.",
+      "entidades": [
+        "Spline.design",
+        "@splinetool/react-spline",
+        "@splinetool/runtime",
+        "<spline-viewer>",
+        "@splinetool/vue-spline",
+        ".splinecode"
+      ],
+      "keywords": [
+        "spline",
+        "3d",
+        "spline.design",
+        "webgl",
+        "interactive 3d",
+        "react-spline",
+        "nextjs",
+        "vue",
+        "runtime api",
+        "splinecode",
+        "camera control",
+        "3d scenes"
+      ]
+    },
+    "summary": "Boa estrutura modular com guias e exemplos práticos, necessitando de expansão da description (133 chars) e eliminação de diretivas promocionais de 'wow-factor'."
+  },
+  {
+    "skillName": "sql-injection-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sql-injection-testing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description (207 caracteres) é formulada no imperativo operacional ('Execute comprehensive SQL injection...') sem cláusula explícita de condição de uso ('Use when...' / Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seção final tautológica e residual de template nas linhas 467-468 ('## When to Use\\nThis skill is applicable to execute the workflow or actions described in the overview.'), que adiciona ruído sem ganho semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a seção redundante 'When to Use' no final do arquivo (linhas 467-468) e padronizar o gatilho 'Use when...' na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Avaliação de segurança e detecção de vulnerabilidades de injeção de SQL em aplicações web através de técnicas in-band, blind e out-of-band.",
+      "entidades": [
+        "SQL Injection",
+        "Burp Suite",
+        "MySQL",
+        "MSSQL",
+        "PostgreSQL",
+        "Oracle",
+        "information_schema"
+      ],
+      "keywords": [
+        "sql injection",
+        "sqli",
+        "pentesting",
+        "union-based",
+        "blind boolean",
+        "time-based",
+        "error-based",
+        "out-of-band",
+        "filter bypass",
+        "authentication bypass",
+        "vulnerability assessment"
+      ]
+    },
+    "summary": "Excelente manual técnico de testes de SQL injection com gates de segurança responsáveis, necessitando apenas de ajuste de gatilho na description e poda de ruído residual."
+  },
+  {
+    "skillName": "sql-optimization-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sql-optimization-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description (141 caracteres) está abaixo do piso de 200 caracteres (Critério 1), carece de gatilho 'Use when...' (Critério 3) e utiliza jargão promocional ('lightning-fast operations' / Critério 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md é praticamente um casulo vazio (44 linhas) que delega quase todo o conhecimento a 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Mais de 40% do SKILL.md é composto por seções genéricas e vazias de boilerplate copiado de templates ('Do not use this skill when: The task is unrelated to sql optimization patterns', 'Instructions: Clarify goals, constraints...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Eliminar o boilerplate oco de 'Do not use this skill when' e 'Instructions' das linhas 24-35 e absorver os conceitos centrais do playbook de recursos no próprio SKILL.md, eliminando o adjetivo 'lightning-fast'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização sistemática de consultas SQL, indexação estratégica e análise de planos de execução de bancos relacionais.",
+      "entidades": [
+        "EXPLAIN",
+        "implementation-playbook.md",
+        "SQL Indexes"
+      ],
+      "keywords": [
+        "sql optimization",
+        "indexing",
+        "explain plan",
+        "query performance",
+        "n+1 queries",
+        "slow queries",
+        "database tuning",
+        "query execution plan"
+      ]
+    },
+    "summary": "Casulo vazio de 44 linhas repleto de boilerplate tautológico e description promocional curta (141 chars), dependendo inteiramente de recurso externo."
+  },
+  {
+    "skillName": "sql-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sql-pro/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta (174 caracteres, < 200) com tom promocional de persona ('Master modern SQL...', 'Expert in performance tuning...') e ausência de cláusula de gatilho 'Use when...' (Critérios 1, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Mega-persona inflacionária e generalista que tenta abranger simultaneamente cloud databases, data warehouses, NoSQL, graph, time-series, CI/CD, CDC, compliance e machine learning sem limites operacionais claros (quebra dos Critérios 7 e 8).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ausência completa de código prático, sintaxe ou scripts de otimização acionáveis: 100% do SKILL.md são listas enciclopédicas de tópicos curriculares ('Capabilities', 'Behavioral Traits', 'Knowledge Base').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Falta de densidade de ganho semântico (Critério 13): atua apenas como prompt inflacionado de persona consultiva.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 50,
+    "cuts": [
+      {
+        "text": "Podar as longas listas curriculares de tecnologias não relacionadas e focar o conteúdo em técnicas reais de SQL analítico/otimização com exemplos concretos de queries.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Persona generalista de especialista em arquitetura, modelagem e otimização de bancos de dados SQL, NoSQL e sistemas analíticos em nuvem.",
+      "entidades": [
+        "Snowflake",
+        "BigQuery",
+        "Redshift",
+        "Databricks",
+        "CockroachDB",
+        "TimescaleDB",
+        "Neo4j",
+        "PostgreSQL",
+        "Aurora"
+      ],
+      "keywords": [
+        "sql",
+        "oltp",
+        "olap",
+        "htap",
+        "cloud database",
+        "data modeling",
+        "window functions",
+        "cte",
+        "indexing",
+        "data warehouse",
+        "query tuning"
+      ]
+    },
+    "summary": "Persona inflacionária repleta de buzzwords e listas curriculares sem código prático, com description curta e promocional que tenta cobrir todo o ecossistema de dados."
+  },
+  {
+    "skillName": "sqlmap-database-pentesting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sqlmap-database-pentesting/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 109 caracteres (severamente abaixo do piso de 200 caracteres / Critério 1) e não inclui a cláusula de condição de uso 'Use when...' (Critério 3), omitindo discriminantes como enumeração de tabelas/colunas, extração de dados e bypass de WAF.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final tautológica de template residual nas linhas 417-418 ('## When to Use\\nThis skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a seção final tautológica das linhas 417-418 e reescrever a description para a faixa de 200-400 caracteres com gatilho 'Use when...' e menção explícita a enumeração e tamper scripts.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de testes de invasão e exploração de injeção de SQL em bancos de dados utilizando a ferramenta de linha de comando SQLMap.",
+      "entidades": [
+        "SQLMap",
+        "Burp Suite",
+        "Kali Linux",
+        "tamper scripts",
+        "MySQL",
+        "PostgreSQL",
+        "MSSQL",
+        "Oracle"
+      ],
+      "keywords": [
+        "sqlmap",
+        "sql injection",
+        "database enumeration",
+        "data dumping",
+        "pentesting",
+        "tamper scripts",
+        "automated sqli",
+        "waf bypass",
+        "security assessment",
+        "command line"
+      ]
+    },
+    "summary": "Excelente e prático guia operacional de CLI do SQLMap com gates de segurança responsáveis, demandando apenas expansão da description (109 chars) e poda de linha residual."
+  }
+]

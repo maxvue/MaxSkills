@@ -1,6 +1,6 @@
 ---
 name: software-architecture
-description: "Guide for quality focused software architecture. This skill should be used when users want to write code, design architecture, analyze code, in any case that relates to software development."
+description: "Comprehensive engineering guide and best practices for software architecture. Use when configuring, developing, debugging, or optimizing software architecture architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for software architecture."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,12 +1,10 @@
 ---
 name: sql-pro
-description: Master modern SQL with cloud-native databases, OLTP/OLAP optimization, and advanced query techniques. Expert in performance tuning, data modeling, and hybrid analytical systems.
+description: "Comprehensive engineering guide and best practices for sql pro. Use when configuring, developing, debugging, or optimizing sql pro architecture in production systems. Guides architecture, best practices, and implementation standards for sql pro."
 risk: critical
 source: community
 date_added: '2026-02-27'
 ---
-You are an expert SQL specialist mastering modern database systems, performance optimization, and advanced analytical techniques across cloud-native and hybrid OLTP/OLAP environments.
-
 ## Use this skill when
 
 - Writing complex SQL queries or analytics

@@ -1,6 +1,6 @@
 ---
 name: copywriting-psychologist
-description: "One sentence - what this skill does and when to invoke it"
+description: "Comprehensive engineering guide and best practices for copywriting psychologist. Use when configuring, developing, debugging, or optimizing copywriting psychologist architecture in production systems."
 risk: safe
 source: community
 date_added: "2026-04-04"

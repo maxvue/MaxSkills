@@ -1,0 +1,219 @@
+[
+  {
+    "skillName": "laravel-authorization-policies-gates",
+    "problem": "A description termina com a frase de preenchimento genérica 'Covers objectives and core workflows.', infringindo os critérios de ausência de redundâncias e densidade de ganho semântico (Critérios 12 e 13).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md:3",
+    "correctedDescription": "Use when creating or reviewing authorization in Laravel backend via spatie/laravel-permission. Covers roles, permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia auth integration."
+  },
+  {
+    "skillName": "laravel-gemini-file-api-media-integration-best-practices",
+    "problem": "Description contém frase boilerplate de preenchimento ('Covers objectives and core workflows.') que gera redundância de 'Covers' e reduz a densidade semântica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when managing large media uploads (>20MB or videos) via Google AI File API with Gemini PHP SDK in Laravel. Covers video processing, queued uploads via Horizon, active state polling, and cleanup where Laravel AI SDK cannot be used."
+  },
+  {
+    "skillName": "laravel-gemini-file-api-media-integration-best-practices",
+    "problem": "Description cita processamento de áudio e PDF ('Covers video, audio, or PDF file processing'), o que colide com a seção 1 do próprio SKILL.md, que instrui a NÃO usar a Google File API para áudio e PDFs no engeapp (já cobertos pelo Laravel AI SDK), restringindo o nicho real a arquivos de vídeo e grandes mídias (> 20MB).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md:3,15-16",
+    "correctedDescription": "Use when managing large media uploads (>20MB or videos) via Google AI File API with Gemini PHP SDK in Laravel. Covers video processing, queued uploads via Horizon, active state polling, and cleanup where Laravel AI SDK cannot be used."
+  },
+  {
+    "skillName": "laravel-power-of-attorney-generation-best-practices",
+    "problem": "A description apresenta redundância interna direta no fechamento ('...rendering DomPDF documents. Covers document generation and DomPDF rendering.'), repetindo a menção a DomPDF e geração de documentos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, reviewing, or debugging Power of Attorney PDF generation in Laravel via PowerAttorneyService. Covers PF/PJ legal entity formatting, address composition via Location relations, and DomPDF rendering."
+  },
+  {
+    "skillName": "vue-complex-modal-forms-autosave-best-practices",
+    "problem": "A description cita 'max-use', mas o corpo da skill não detalha nem exemplifica o uso direto dessa lib, focando em MaxModal e MaxPinia (Critério 5).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md:3,16,23,30-48",
+    "correctedDescription": "Use when building complex modal forms in Vue 3 with auto-save, live sync indicators, and multi-tab layouts using @maxvue/max-components-ui (MaxModal) and @maxvue/max-pinia cached store persistence with debounced sync."
+  },
+  {
+    "skillName": "vue-complex-modal-forms-autosave-best-practices",
+    "problem": "A description possui cauda repetitiva 'Covers complex modal forms, auto-save state, and multi-tab layouts.' que duplica o gatilho (Critério 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when building complex modal forms in Vue 3 with auto-save, live sync indicators, and multi-tab layouts using @maxvue/max-components-ui (MaxModal) and @maxvue/max-pinia cached store persistence with debounced sync."
+  },
+  {
+    "skillName": "vue-max-use-usecachedapi-state-cache-best-practices",
+    "problem": "Description contém meta-ruído de preenchimento ('Covers objectives...') que reduz a densidade semântica da frase final.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when implementing or debugging Vue 3 state cache with useRefCachedApi, useCachedApi, useSharedCacheApi, or useInCacheApi from @maxvue/max-use. Covers localStorage sync, background API revalidation, and composable signatures."
+  },
+  {
+    "skillName": "project-history",
+    "problem": "Inversão estrutural grave: a totalidade do arquivo (~31KB) consiste em um changelog factual massivo despejado diretamente dentro da seção '## Objetivo', descaracterizando a estrutura de uma skill acionável.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:8-35",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "project-history",
+    "problem": "Mover o changelog detalhado dos Marcos 1 a 5 e Fases 1 a 7 (linhas 13-35, ~31KB) para um arquivo de referência dedicado (ex.: references/changelog-socialmedia.md), mantendo no SKILL.md apenas o guia cognitivo de consulta histórica e decisões arquiteturais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:13-35",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "project-history",
+    "problem": "Substituir o texto vazio de '## Instruções' ('Siga as instruções e padrões descritos na documentação.') por instruções acionáveis de rastreamento e busca de contexto histórico do projeto SocialMedia.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/project-history/SKILL.md:36-38",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Corpo composto por template repetitivo copiado com diretrizes vazias e 'Quando Usar' tautológico ('rotinas de git-worktree').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:40-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Links sintéticos de YouTube ('cole_skills_masterclass_31', etc.) sem correspondência factual com conteúdos reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:58-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "git-worktree",
+    "problem": "Substituir integralmente o boilerplate genérico das linhas 40-55 por fluxos reais de trabalho com worktrees para agentes paralelos, comandos CLI e convenções de diretório.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/git-worktree/SKILL.md:40-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Remover os links sintéticos de YouTube (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:58-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Boilerplate genérico desconectado nas seções 'Best Practices' e 'Common Pitfalls' (linhas 300-311), contendo placeholders genéricos sem relação com geração de imagem.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:300-311",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Substituir com urgência todos os caminhos absolutos locais 'C:\\Users\\renat\\skills\\ai-studio-image\\' por caminhos relativos ao projeto ('scripts/...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:73,81,87,123,161,166,193,230,248,270",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ai-studio-image",
+    "problem": "Remover o boilerplate descontextualizado de 'Best Practices' e 'Common Pitfalls' (linhas 300-311).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md:300-311",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Fundir os três blocos redundantes de avisos legais e confirmação obrigatória (linhas 9-29) em um único aviso de conformidade sucinto de 4 linhas.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:9-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "problem": "Remover a seção duplicada '## Resources' (linhas 57-60) que repete verbatim o link para 'resources/implementation-playbook.md' já fornecido na linha 55.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md:55,57-60",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "problem": "Description curta (131 caracteres, longe do ideal de 200 a 400) e desprovida de cláusula de ativação ('Use when...') ou discriminantes operacionais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md:3",
+    "correctedDescription": "Use when configuring secure environment variable injection and preventing secrets exposure in Claude sessions, terminals, logs, and git commits. Covers Varlock CLI workflows, env masking, and leak prevention."
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "problem": "Tautologia absoluta: o arquivo de 29 linhas repete a mesma frase genérica quatro vezes ('Overview', 'When to Use', 'Instructions', 'Description') sem introduzir nenhuma instrução técnica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md:3,13,17,21",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "varlock-claude-skill",
+    "problem": "Inexistência total de conteúdo técnico: ausência de comandos da CLI Varlock, padrões de configuração, regras de variáveis ou exemplos, constituindo um placeholder inútil para um link externo do GitHub.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md:19-24",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Description muito curta (130 chars < 200) e desprovida de qualquer gatilho 'Use when...' ou discriminantes de ferramentas reais.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:3",
+    "correctedDescription": "Use when executing high-risk CLI operations, terminal commands, or database migrations to prevent accidental data loss. Covers intercepting destructive commands (rm -rf, DROP, git reset --hard) and sandbox guardrails."
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Ausência total de conteúdo operacional executável: o corpo não ensina nem implementa regras de interceptação de comandos destrutivos (rm -rf, DROP, git reset --hard).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:40-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "damage-control",
+    "problem": "Conteúdo bilíngue puramente tautológico que repete as mesmas frases genéricas em português e inglês.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/damage-control/SKILL.md:15-28",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "shadcn-ui",
+    "problem": "Podar blocos duplicados de Visão Geral e Stack Tecnológica que espelham o frontmatter, substituindo as diretrizes genéricas por exemplos práticos de instalação, configuração e estilização do shadcn/ui.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/shadcn-ui/SKILL.md:15-37,49-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "token-optimization",
+    "problem": "Remover os blocos repetitivos de Visão Geral e Stack Tecnológica e substituir as diretrizes genéricas por rotinas práticas de pruning de histórico e otimização de ferramentas MCP.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/token-optimization/SKILL.md:15-37,49-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation + javascript-testing-patterns",
+    "problem": "Proposta de LAPIDAR: javascript-testing-patterns é uma skill de alta fidelidade e profundidade técnica (possuindo um playbook detalhado de 1.025 linhas) com foco estrito e abrangente no ecossistema JavaScript e TypeScript (Jest, Vitest, Testing Library, Supertest, mocking e testes de integração). Por outro lado, pytest-and-jest-automation foi originada a partir de pytest-automation (upstream da Anthropic focado em testes Python com pytest), mas sofreu uma extensão inadequada em seu nome e metadados para incluir Jest e Vitest, embora seu corpo seja um stub sem implementação de código JS. A recomendação não é MERGE porque os domínios de linguagem fundamentais (Python vs JavaScript/TypeScript) devem permanecer desacoplados para manter a integridade dos prompts de agentes. A recomendação técnica é LAPIDAR: purgar de pytest-and-jest-automation qualquer referência a Jest, Vitest, JavaScript e TypeScript, especializando seu conteúdo estritamente para automação de testes em Python (pytest, fixtures, parametrize, mocks e coverage), enquanto javascript-testing-patterns retém com exclusividade todo o escopo de testes em JS/TS.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/javascript-testing-patterns/resources/implementation-playbook.md:1-1025; all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:1-11",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation + javascript-testing-patterns",
+    "problem": "Plano de integracao: Ajustar escopos sem perdas",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:1-11",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "skill-creator + skill-writer",
+    "problem": "Proposta de MERGE: Ambas as skills competem diretamente pelo mesmo propósito canônico de criar, redigir e iterar sobre Agent Skills ('Use when asked to create, write, or update skills'). 'skill-creator' (da suíte oficial Anthropic / curated-youtube) é um framework executável e iterativo de 33 KB com subagentes especializados (grader, comparator, analyzer), suíte de benchmark e visualizador iterativo de reviews via script Python ('generate_review.py'), além de otimização de gatilhos ('run_loop.py'). 'skill-writer' (do Agentic Awesome Skills) é uma implementação documental que traz taxonomias conceituais valiosas (padrões de workflow, padrões de saída determinísticos, matriz de decisão de modos e gates de profundidade). Manter ambas como skills ativas causa fragmentação e colisão de ativação primária pelo orquestrador. A fusão em 'skill-creator' consolida a melhor suíte de execução dinâmica com os melhores princípios de arquitetura estática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/skill-creator/SKILL.md:1-4; all_skills/Agentic Awesome Skills/skills/skill-writer/SKILL.md:1-4,13-30",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "skill-creator + skill-writer",
+    "problem": "Plano de integracao: 1. Adotar 'skill-creator' como skill destino canônica devido à sua infraestrutura completa de execução ('eval-viewer/', 'scripts/', 'agents/'). 2. Migrar os guias de design e padrões arquiteturais de 'skill-writer/references/' (notadamente 'workflow-patterns.md', 'output-patterns.md', 'mode-selection.md' e 'design-principles.md') para dentro da pasta 'references/' de 'skill-creator'. 3. Adicionar na seção de redação ('Write the SKILL.md / Skill Writing Guide') de 'skill-creator' referências explícitas a essas taxonomias de padrões estruturais para quando o usuário desejar uma abordagem estática sem rodar evals completas. 4. Descontinuar 'skill-writer' no catálogo de skills para eliminar conflito de orquestração.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/skill-writer/references/; all_skills/curated-youtube/skill-creator/references/",
+    "correctedDescription": ""
+  }
+]

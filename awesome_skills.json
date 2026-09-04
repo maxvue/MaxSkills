@@ -3467,32 +3467,6 @@
     "libs": []
   },
   {
-    "id": "01M0GCFD25TD0XJE5R61PN8A0Z",
-    "skill_name": "fal-audio",
-    "description_en": "Text-to-speech and speech-to-text using fal.ai audio models",
-    "description_pt_br": "Diretrizes e automações para fal audio. Text-to-speech and speech-to-text using fal.ai audio models",
-    "promo_en": "Production-ready guidelines and agentic workflows for fal audio. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Gera locuções realistas a partir de textos e transcreve áudios com extrema precisão utilizando modelos avançados de inteligência artificial. Ideal para criar narrações automáticas, legendar vídeos, converter reuniões gravadas em atas e integrar recursos de voz interativos em aplicativos modernos.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/fal-audio/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
-    "id": "01M0GCFD2561JQT70P7036HSEF",
-    "skill_name": "fal-upscale",
-    "description_en": "Upscale and enhance image and video resolution using AI",
-    "description_pt_br": "Diretrizes e automações para fal upscale. Upscale and enhance image and video resolution using AI",
-    "promo_en": "Production-ready guidelines and agentic workflows for fal upscale. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Aprimora a qualidade visual de imagens e vídeos através de inteligência artificial, restaurando detalhes perdidos e ampliando a resolução sem distorções. Perfeito para recuperar mídias antigas, otimizar fotos de produtos para comércio eletrônico e melhorar materiais visuais para campanhas digitais.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/fal-upscale/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
     "id": "01M0GCFD268AA8E8JD5S7JD92B",
     "skill_name": "feature-tracking",
     "description_en": "Maintain durable feature-level memory across AI coding sessions with lightweight Markdown tracks for status, source-of-truth docs, decisions, risks, and changes.",
@@ -3728,19 +3702,6 @@
     "languages": [
       "TypeScript"
     ],
-    "frameworks": [],
-    "libs": []
-  },
-  {
-    "id": "01M0XEVQ2GW6YW00KY5RKJ5GVC",
-    "skill_name": "fp-taskeither-ref",
-    "description_en": "Quick reference for TaskEither. Use when user needs async error handling, API calls, or Promise-based operations that can fail.",
-    "description_pt_br": "Referência rápida de TaskEither. Use quando o usuário precisar de tratamento de erros assíncrono, chamadas de API ou operações baseadas em Promise que podem falhar.",
-    "promo_en": "Production-ready guidelines and agentic workflows for fp taskeither ref. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Oferece um guia de referência rápida para orquestrar tarefas assíncronas complexas que dependem de respostas da rede ou banco de dados. Permite executar ações simultâneas, recuperar falhas com segurança e encadear passos de forma lógica, garantindo estabilidade no fluxo da aplicação.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/fp-taskeither-ref/SKILL.md",
-    "languages": [],
     "frameworks": [],
     "libs": []
   },
@@ -5426,19 +5387,6 @@
     "libs": []
   },
   {
-    "id": "01M0XEVQ2H277GP1N6EAE4TF9Q",
-    "skill_name": "makepad-skills",
-    "description_en": "Makepad UI development skills for Rust apps: setup, patterns, shaders, packaging, and troubleshooting.",
-    "description_pt_br": "Skills de desenvolvimento de UI com Makepad para aplicações Rust: configuração, padrões, shaders, empacotamento e resolução de problemas.",
-    "promo_en": "Production-ready guidelines and agentic workflows for makepad skills. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Desenvolva interfaces visuais completas, modernas e de alto desempenho para aplicativos em linguagem Rust. Domine a organização de componentes, criação de efeitos visuais com sombreadores gráficos, empacotamento de software multiplataforma e correção prática de problemas na criação de telas fluidas.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/makepad-skills/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
     "id": "01M0GCFD2MQQGCTH1QWFDY6X0E",
     "skill_name": "manage-skills",
     "description_en": "Discover, list, create, edit, toggle, copy, move, and delete AI agent skills across 11 tools (Cursor, Claude, Agents, Windsurf, Copilot, Codex, Cline, Aider, Continue, Roo Code, Augment)",
@@ -7036,19 +6984,6 @@
     ]
   },
   {
-    "id": "01M0XEVQ2HHNBFEEV71DBM83QZ",
-    "skill_name": "pypict-skill",
-    "description_en": "Pairwise (all-pairs) test case generation using Microsoft PICT, for combinatorial test coverage.",
-    "description_pt_br": "Geração de casos de teste pairwise (todos os pares) com o Microsoft PICT, para cobertura de testes combinatórios.",
-    "promo_en": "Production-ready guidelines and agentic workflows for pypict skill. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Gere combinações inteligentes de casos de teste para validar múltiplos cenários sem desperdício de tempo. A técnica identifica as interações mais importantes entre diferentes configurações e opções do sistema, alcançando máxima cobertura de qualidade com uma quantidade significativamente reduzida de testes executados.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/pypict-skill/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
     "id": "01M0GCFD30S2VN5RX241KRHPX5",
     "skill_name": "pytest-skill",
     "description_en": "Generates production-grade pytest tests in Python with fixtures, parametrize, markers, mocking, and conftest patterns. Use when user mentions \"pytest\", \"conftest\", \"@pytest.fixture\", \"@pytest.mark\", \"Python test\". Triggers on: \"pytest\", \"conftest\", \"Python test\", \"parametrize\", \"Python...",
@@ -7897,19 +7832,6 @@
     "libs": []
   },
   {
-    "id": "01M0GCFD35XVRZTQPB4CBHD6WN",
-    "skill_name": "seo-aeo-meta-description-generator",
-    "description_en": "Writes 3 title tag variants and 3 meta description variants per page with SERP preview, OG tags, and Twitter Card tags. Activate when the user wants to write meta tags, title tags, or social sharing tags for any page.",
-    "description_pt_br": "Diretrizes e automações para seo aeo meta description generator. Writes 3 title tag variants and 3 meta description variants per page with SERP preview, OG tags, and Twitter Card tags. Activate when the user wants to write meta tags, title tags, or social sharing tags for any page.",
-    "promo_en": "Production-ready guidelines and agentic workflows for seo aeo meta description generator. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Crie títulos e descrições chamativas para destacar suas páginas nos resultados de pesquisa e em compartilhamentos sociais. A ferramenta gera opções focadas em aumentar os cliques do público, apresentando benefícios claros, perguntas curiosas e prévias visuais.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/seo-aeo-meta-description-generator/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
     "id": "01M0GCFD364VRSRJHQW09VS9YM",
     "skill_name": "seo-cannibalization-detector",
     "description_en": "Analyzes multiple provided pages to identify keyword overlap and potential cannibalization issues. Suggests differentiation strategies. Use PROACTIVELY when reviewing similar content.",
@@ -8213,19 +8135,6 @@
     "libs": []
   },
   {
-    "id": "01M0GCFD370N7HAQ090AVGNEC4",
-    "skill_name": "skill-audit",
-    "description_en": "Pre-install security scanner for AI agent skills. 7.5% of 14,706 skills are malicious. Audit before you trust.",
-    "description_pt_br": "Diretrizes e automações para skill audit. Pre-install security scanner for AI agent skills. 7.5% of 14,706 skills are malicious. Audit before you trust.",
-    "promo_en": "Production-ready guidelines and agentic workflows for skill audit. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Verifique a segurança de novas extensões e habilidades de agentes inteligentes antes de instalá-las. A ferramenta analisa minuciosamente códigos em busca de instruções maliciosas ocultas, permissões abusivas e riscos de vazamento, protegendo seus dados e seu ambiente de trabalho.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/skill-audit/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
     "id": "01M0GCFD38A23J90ZG7HMDNN11",
     "skill_name": "skill-improver",
     "description_en": "Iteratively improve a Claude Code skill using the skill-reviewer agent until it meets quality standards. Use when improving a skill with multiple quality issues, iterating on a new skill until it meets standards, or automated fix-review cycles instead of manual editing.",
@@ -8273,19 +8182,6 @@
     "promo_pt_br": "Converta rapidamente portais de documentação, manuais em PDF e repositórios de código em habilidades completas para assistentes de inteligência artificial. Automatize a extração e a formatação do conhecimento técnico, economizando horas de trabalho e configuração manual.",
     "repo_name": "Awesome",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/skill-seekers/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
-    "id": "01M0GCFD38PYF9EZGHKJDD2CJY",
-    "skill_name": "skill-writer",
-    "description_en": "Create and improve agent skills following the Agent Skills specification. Use when asked to create, write, or update skills.",
-    "description_pt_br": "Diretrizes e automações para skill writer. Create and improve agent skills following the Agent Skills specification. Use when asked to create, write, or update skills.",
-    "promo_en": "Production-ready guidelines and agentic workflows for skill writer. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Crie e estruture habilidades profissionais para agentes inteligentes seguindo padrões recomendados de mercado. Defina termos de acionamento precisos, instruções claras e exemplos práticos de uso, garantindo que o assistente compreenda exatamente quando e como atuar.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/skill-writer/SKILL.md",
     "languages": [],
     "frameworks": [],
     "libs": []
@@ -9131,34 +9027,6 @@
     "libs": []
   },
   {
-    "id": "01M0XEVQ2HXNBXYG18JF3X4ZJF",
-    "skill_name": "typescript-expert",
-    "description_en": "TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimization, monorepo management, migration strategies, and modern tooling.",
-    "description_pt_br": "Especialista em TypeScript e JavaScript com conhecimento profundo de programação em nível de tipos, otimização de desempenho, gerenciamento de monorepos, estratégias de migração e ferramental moderno.",
-    "promo_en": "Production-ready guidelines and agentic workflows for typescript expert. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Resolva desafios avançados em projetos corporativos TypeScript com auxílio especializado. Obtenha suporte prático para gerenciar múltiplos pacotes, diagnosticar lentidão de compilação, estruturar regras estritas de tipos e acelerar testes com as ferramentas mais modernas do ecossistema.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/typescript-expert/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
-    "id": "01M0GCFD3F438Q07KWHF3EW153",
-    "skill_name": "typescript-pro",
-    "description_en": "Master TypeScript with advanced types, generics, and strict type safety. Handles complex type systems, decorators, and enterprise-grade patterns.",
-    "description_pt_br": "Diretrizes e automações para typescript pro. Master TypeScript with advanced types, generics, and strict type safety. Handles complex type systems, decorators, and enterprise-grade patterns.",
-    "promo_en": "Production-ready guidelines and agentic workflows for typescript pro. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Eleve o nível do seu código estruturando arquiteturas seguras e escaláveis em TypeScript. Conte com orientações para modelar contratos estritos de dados, utilizar tipos genéricos complexos e configurar o compilador para evitar falhas em produção antes mesmo da execução.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/typescript-pro/SKILL.md",
-    "languages": [
-      "TypeScript"
-    ],
-    "frameworks": [],
-    "libs": []
-  },
-  {
     "id": "01M0XEVQ2JG3AQ5FJ9PQ5R022A",
     "skill_name": "ui-a11y",
     "description_en": "Audit a component or page for accessibility issues and fix them",
@@ -9232,19 +9100,6 @@
     "promo_pt_br": "Avalie a qualidade visual e técnica de suas telas recebendo uma nota de 0 a 100 baseada em boas práticas de design. O diagnóstico detalha notas por categorias como cores, espaçamento, contraste e tipografia, gerando uma lista com as correções prioritárias a fazer.",
     "repo_name": "Awesome",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/ui-score/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
-    "id": "01M0XEVQ2JKW6339MGWA1E7TBT",
-    "skill_name": "ui-skills",
-    "description_en": "Opinionated, evolving constraints to guide agents when building interfaces",
-    "description_pt_br": "Restrições opinativas e em evolução para guiar agentes na construção de interfaces",
-    "promo_en": "Production-ready guidelines and agentic workflows for ui skills. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Oriente o desenvolvimento de interfaces com diretrizes práticas e padrões visuais consagrados. A ferramenta define regras claras de espaçamento, hierarquia e interação para construir telas elegantes e consistentes, economizando tempo na criação de novos produtos.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/ui-skills/SKILL.md",
     "languages": [],
     "frameworks": [],
     "libs": []
@@ -9529,19 +9384,6 @@
     "libs": []
   },
   {
-    "id": "01M0XEVQ2JVRHBPD0EJ87M899E",
-    "skill_name": "varlock-claude-skill",
-    "description_en": "Secure environment variable management ensuring secrets are never exposed in Claude sessions, terminals, logs, or git commits",
-    "description_pt_br": "Gerenciamento seguro de variáveis de ambiente, garantindo que segredos nunca sejam expostos em sessões do Claude, terminais, logs ou commits do git",
-    "promo_en": "Production-ready guidelines and agentic workflows for varlock claude skill. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Mantenha senhas, chaves de integração e credenciais confidenciais totalmente protegidas durante o desenvolvimento. Evite que dados sigilosos vazem acidentalmente em conversas com assistentes, relatórios do sistema, telas de comando ou repositórios compartilhados de código.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/varlock-claude-skill/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
     "id": "01M0GCFD3HFB9QHKQAJRRXJPNC",
     "skill_name": "vector-database-engineer",
     "description_en": "Expert in vector databases, embedding strategies, and semantic search implementation. Masters Pinecone, Weaviate, Qdrant, Milvus, and pgvector for RAG applications, recommendation systems, and similar",
@@ -9550,19 +9392,6 @@
     "promo_pt_br": "Construa sistemas de busca inteligente baseados no significado do conteúdo em vez de apenas palavras exatas. Organize bases de dados modernas para alimentar assistentes virtuais, sistemas de recomendação e consultas contextuais com respostas rápidas e muito mais precisas.",
     "repo_name": "Awesome",
     "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/vector-database-engineer/SKILL.md",
-    "languages": [],
-    "frameworks": [],
-    "libs": []
-  },
-  {
-    "id": "01M0XEVQ2JMJRSM8RE3W4MSR98",
-    "skill_name": "vector-index-tuning",
-    "description_en": "Optimize vector index performance for latency, recall, and memory. Use when tuning HNSW parameters, selecting quantization strategies, or scaling vector search infrastructure.",
-    "description_pt_br": "Otimize o desempenho de índices vetoriais em latência, recall e memória. Use ao ajustar parâmetros HNSW, escolher estratégias de quantização ou escalar a infraestrutura de busca vetorial.",
-    "promo_en": "Production-ready guidelines and agentic workflows for vector index tuning. Enforces best practices, maintainability, and error-free execution.",
-    "promo_pt_br": "Ajuste e otimize o desempenho de sistemas de busca semântica e recuperação de informações em larga escala. Encontre o equilíbrio ideal entre rapidez nas pesquisas, baixo consumo de memória do servidor e alta precisão nos resultados mesmo com grandes volumes de registros.",
-    "repo_name": "Awesome",
-    "url_skill": "https://raw.githubusercontent.com/maxvue/MaxSkills/main/other_skills/Agentic%20Awesome%20Skills/skills/vector-index-tuning/SKILL.md",
     "languages": [],
     "frameworks": [],
     "libs": []

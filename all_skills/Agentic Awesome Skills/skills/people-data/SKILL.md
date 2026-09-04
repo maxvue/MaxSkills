@@ -1,6 +1,6 @@
 ---
 name: people-data
-description: "Research LinkedIn professional profiles and public business-contact data, including email/phone lookup, people search, and YouTube channel business-email discovery."
+description: "Research LinkedIn professional profiles and public business-contact data, including email/phone lookup, people search, and YouTube channel business-email discovery. Use when developing, optimizing, debugging, or configuring people data in production workflows."
 category: research
 risk: safe
 source: https://github.com/agentbody/skills/blob/main/skills/people-data/SKILL.md

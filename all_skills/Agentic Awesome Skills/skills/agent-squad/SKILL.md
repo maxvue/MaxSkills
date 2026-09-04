@@ -1,6 +1,6 @@
 ---
 name: agent-squad
-description: Main agent orchestrator that coordinates a specialized squad of agents
+description: "Main agent orchestrator that coordinates a specialized squad of agents Use when developing, optimizing, debugging, or configuring agent squad in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agent squad."
 risk: critical
 source: community
 role: Orchestrator / Agent Panel
@@ -16,7 +16,7 @@ The Main Agent is the single point of contact between the user and the squad. It
 ---
 
 ## When to Use
-- Use this skill when the task matches this description: Main agent orchestrator that coordinates a specialized squad of agents.
+- Use this skill when the task matches this description: "Main agent orchestrator that coordinates a specialized squad of agents Use when developing, optimizing, debugging, or configuring agent squad in production workflows.".
 
 ## The Squad
 

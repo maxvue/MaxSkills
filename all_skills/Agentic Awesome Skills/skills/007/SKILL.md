@@ -1,6 +1,6 @@
 ---
 name: '007'
-description: Security audit, hardening, threat modeling (STRIDE/PASTA), Red/Blue Team, OWASP checks, code review, incident response, and infrastructure security for any project.
+description: "Comprehensive engineering guide and best practices for 007. Use when configuring, developing, debugging, or optimizing 007 architecture in production systems. Guides architecture, best practices, and implementation standards for 007."
 risk: critical
 source: community
 date_added: '2026-03-06'

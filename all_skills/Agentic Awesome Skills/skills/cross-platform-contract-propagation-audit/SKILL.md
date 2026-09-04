@@ -1,6 +1,6 @@
 ---
 name: cross-platform-contract-propagation-audit
-description: "Use when auditing whether a field, enum, flag, or API contract propagates consistently across storage, services, clients, analytics, and tests."
+description: "Use when auditing whether a field, enum, flag, or API contract propagates consistently across storage, services, clients, analytics, and tests. Guides architecture, best practices, and implementation standards for cross platform contract propagation audit."
 category: development
 risk: safe
 source: self

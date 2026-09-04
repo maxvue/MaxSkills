@@ -1,6 +1,6 @@
 ---
 name: seo-page
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring seo page in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo page. Use when developing, optimizing, testing, or configuring seo page in production environments."
   Deep single-page SEO analysis covering on-page elements, content quality,
   technical meta tags, schema, images, and performance. Use when user says
   "analyze this page", "check page SEO", or provides a single URL for review.

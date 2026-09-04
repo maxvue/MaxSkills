@@ -1,0 +1,191 @@
+[
+  {
+    "skillName": "laravel-ai-agents-ecosystem",
+    "problem": "A frase final da description ('Covers objectives and core workflows.') é um clichê genérico de preenchimento (padding) que viola o Critério 12 (Ausência de Redundâncias) e reduz a densidade semântica.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md:3",
+    "correctedDescription": "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules."
+  },
+  {
+    "skillName": "laravel-finance-coupons-discounts-best-practices",
+    "problem": "A description apresenta no final o texto de preenchimento 'Covers objectives and core workflows.' (critério 12), sem agregar ganho semântico e repetindo a ideia de cobertura geral.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks."
+  },
+  {
+    "skillName": "laravel-multitenancy-data-isolation-best-practices",
+    "problem": "Description traz cauda boilerplate redundante ('Covers objectives, tenant scoping, and user permission models.') que duplica o conceito de tenant scoping e inclui termos genéricos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies."
+  },
+  {
+    "skillName": "vue-boleto-utils-best-practices",
+    "problem": "A description contém cauda genérica/redundante 'Covers objectives and core workflows.' ao final, que reduz a densidade informativa (Critérios 7 e 12).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting."
+  },
+  {
+    "skillName": "vue-max-ecosystem-api-reference",
+    "problem": "Description possui redundância textual interna repetindo termos ('Covers component props...') e meta-ruído de preenchimento ('Covers objectives').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md:3",
+    "correctedDescription": "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Provides definitive contracts for component props, events, slots, composable signatures, and cached store configurations."
+  },
+  {
+    "skillName": "vue-whatsapp-interactive-messages-simulator-best-practices",
+    "problem": "A descrição no frontmatter inclui a frase de boilerplate 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica e violando os critérios 10 e 12.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md:3",
+    "correctedDescription": "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates."
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Eliminar as seções genéricas de 'Diretrizes de Execução' (linhas 49-55) e 'Quando Usar' circular (linhas 40-47), substituindo por mecânicas reais de decomposição de tarefas e loops de execução do GSD.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:40-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "get-shit-done",
+    "problem": "Remover a lista de vídeos de referência do YouTube com links sintéticos (linhas 58-64).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/get-shit-done/SKILL.md:58-64",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Description abaixo da faixa ideal (144 caracteres) e sem cláusula de gatilho ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:3",
+    "correctedDescription": "Use when configuring, scaffolding, or generating automated unit and integration tests using Pytest for Python or Jest and Vitest for TypeScript, including fixtures, mock setups, async assertions, and coverage analysis."
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Inconsistência entre 'description' (cita Pytest, Jest e Vitest) e 'description_pt_br' (restringe-se unicamente a Python com pytest).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:3-4,21,27",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "problem": "Ausência total de código, fixtures, padrões de mock ou exemplos de configuração para qualquer um dos frameworks citados (Pytest, Jest, Vitest).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/pytest-and-jest-automation/SKILL.md:1-65",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "Delegação completa para URL externa do GitHub sem qualquer utilidade autônoma para agentes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:23",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "fal-upscale",
+    "problem": "Remover a estrutura oca de 29 linhas que consiste em boilerplate e tautologias sem dados, substituindo-a por implementações concretas de upscale com fal.ai ou expurgando a skill.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Description subdimensionada (167 chars) e ausência de gatilho formal 'Use when...'; corpo sem procedimentos técnicos concretos, limitando-se a meta-prompts de persona.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:3,11-47",
+    "correctedDescription": "Use when orchestrating full-cycle software engineering and pixel-perfect UI/UX design workflows optimized for Gemini 3.1 Pro High reasoning modes, enforcing strict TDD, clean code refactoring, visual alignment checks, and token-efficient execution."
+  },
+  {
+    "skillName": "nerdzao-elite-gemini-high",
+    "problem": "Eliminar o arquivo ou purgar as linhas 9-48: o conteúdo é 80% composto de persona roleplay, comandos invasivos de ativação incondicional e chamadas a skills inexistentes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md:9-48",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Stub vazio gerado por automação contendo apenas 29 linhas, sem nenhum conteúdo instrucional, padrões técnicos ou regras de UI concretas.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:1-29",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Description de 73 caracteres ('Opinionated, evolving constraints to guide agents when building interfaces') puramente abstrata, sem gatilho 'Use when...' e sem termos discriminantes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:3",
+    "correctedDescription": "Use when designing and implementing modern web user interfaces, applying strict design constraints, responsive layout rules, accessible color contrast, typography scales, spacing tokens, and component micro-interactions."
+  },
+  {
+    "skillName": "ui-skills",
+    "problem": "Redundância extrema: a frase da description é repetida literalmente no Overview, no When to Use e no Instructions, sem adicionar qualquer instrução técnica útil.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md:3,13,17,21",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Description curta (183 chars), redigida em tom promocional/persona ('Expert cloud architect specializing in...') sem cláusula de ativação ('Use when...').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:3",
+    "correctedDescription": "Use when architecting multi-cloud infrastructure on AWS, Azure, or GCP, designing IaC modules with Terraform, OpenTofu, or CDK, implementing FinOps cost optimizations, and structuring high-availability microservices or serverless systems."
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Estrutura no formato de prompt de persona conversacional ('You are a cloud architect...'), desprovida de snippets executáveis de IaC ou arquitetura prática.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:26-132",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "cloud-architect",
+    "problem": "Seções circulares de gatilho ('Use this skill when: Working on cloud architect tasks') e referência a playbook externo inexistente ('resources/implementation-playbook.md').",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/cloud-architect/SKILL.md:11,24",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "react-components",
+    "problem": "Remover seções redundantes de 'Visão Geral (Overview)' bilíngue e 'Stack Tecnológica' que duplicam o frontmatter, e substituir o preâmbulo genérico por instruções e padrões técnicos reais de componentes React 19.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/react-components/SKILL.md:15-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "the-library",
+    "problem": "Eliminar os blocos redundantes de Overview e Stack e documentar o procedimento técnico real de catálogo e sincronização de skills entre ambientes.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/the-library/SKILL.md:15-55",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "api-design + api-and-interface-design",
+    "problem": "Proposta de MERGE: Trata-se de uma duplicação física exata (100% idêntica byte a byte, com 308 linhas) entre o catálogo curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design. Ambos os arquivos compartilham inclusive o mesmo frontmatter com name: api-and-interface-design, mesma descrição, mesma autoria e mesmo código. A existência da pasta curated-youtube/api-design é uma cópia não consolidada do mesmo módulo da comunidade (addyosmani/agent-skills).",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/api-design/SKILL.md:1-308 e all_skills/Agentic Awesome Skills/skills/api-and-interface-design/SKILL.md:1-308",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "api-design + api-and-interface-design",
+    "problem": "Plano de integracao: Remover a pasta duplicada curated-youtube/api-design do repositório, preservando api-and-interface-design como a entrada canônica única no catálogo. Nenhuma alteração textual ou de conteúdo é necessária dada a total paridade entre os arquivos.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "seo-meta-optimizer + seo-aeo-meta-description-generator",
+    "problem": "Proposta de MERGE: Ambas as skills implementam a mesma funcionalidade de forma fragmentada e redundante: criação de títulos e meta descrições otimizados para SEO e taxa de clique (CTR), geração de 3 variações A/B por página e tags de compartilhamento social. 'seo-meta-optimizer' possui um escopo mais canônico (incluindo URLs, suporte a CMS como WordPress/Yoast/RankMath e frameworks como Next.js/Astro), porém contém boilerplate genérico e referências a arquivos inexistentes. Já 'seo-aeo-meta-description-generator' traz frameworks de redação de CTR robustos (V1 Benefício, V2 Pergunta, V3 Prova Social) e regras explícitas para Open Graph e Twitter Cards, mas tem nomenclatura excessivamente restrita. A unificação sob 'seo-meta-optimizer' consolida as melhores práticas de ambas em uma skill completa e elimina a ambiguidade para o orquestrador.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/seo-meta-optimizer/SKILL.md:1-97 e all_skills/Agentic Awesome Skills/skills/seo-aeo-meta-description-generator/SKILL.md:1-93",
+    "correctedDescription": ""
+  },
+  {
+    "skillName": "seo-meta-optimizer + seo-aeo-meta-description-generator",
+    "problem": "Plano de integracao: 1. Destino: 'seo-meta-optimizer'. 2. Incorporar a estrutura de 3 ângulos de CTR de 'seo-aeo-meta-description-generator' (V1 Benefit Lead, V2 Question Hook, V3 Social Proof/Specificity) nas regras de geração de variações. 3. Absorver a seção de tags sociais (Open Graph e Twitter Card tags) e SERP preview de 'seo-aeo-meta-description-generator'. 4. Preservar as regras de estrutura de URL, limites de caracteres/pixels, integrações de CMS (Yoast/RankMath) e componentes de frameworks (Astro/Next.js) já presentes em 'seo-meta-optimizer'. 5. Remover o boilerplate vazio e a referência ao arquivo inexistente 'resources/implementation-playbook.md' de 'seo-meta-optimizer'. 6. Depreciar e remover 'seo-aeo-meta-description-generator' redirecionando seus gatilhos para 'seo-meta-optimizer'.",
+    "verdict": "CONFIRMADO",
+    "evidence": "all_skills/Agentic Awesome Skills/skills/seo-meta-optimizer/SKILL.md:24,70-90 e all_skills/Agentic Awesome Skills/skills/seo-aeo-meta-description-generator/SKILL.md:26-45",
+    "correctedDescription": ""
+  }
+]

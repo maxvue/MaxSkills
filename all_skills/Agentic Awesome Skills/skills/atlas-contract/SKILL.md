@@ -1,6 +1,6 @@
 ---
 name: atlas-contract
-description: "Goal-integrity skill. Use for backend/API/persistence, preserve/do-not-change, tests/validation, mocks, rework, multi-part requests. Emits Goal Contracts, Deviation Notices, Phase Checks, Final Audits. Skip for Q&A or trivial edits."
+description: "Goal-integrity skill. Use for backend/API/persistence, preserve/do-not-change, tests/validation, mocks, rework, multi-part requests. Emits Goal Contracts, Deviation Notices, Phase Checks, Final Audits. Skip for Q&A or trivial edits. Use when developing, optimizing, debugging, or configuring atlas contract in production workflows."
 risk: critical
 source: community
 source_repo: wede-wx/atlas

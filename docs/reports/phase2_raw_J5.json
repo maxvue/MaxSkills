@@ -1,0 +1,59 @@
+[
+  {
+    "cluster": [
+      "tdd-workflows-tdd-green",
+      "tdd-workflows-tdd-red",
+      "tdd-workflows-tdd-refactor"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "As três skills representam as fases especializadas do ciclo canônico de TDD (Red, Green e Refactor). A separação modular por fase é uma prática sólida em sistemas agentic, pois cada etapa impõe restrições mutuamente exclusivas ao modelo (no Red é proibido escrever código de produção; no Green é proibido antecipar refatorações; no Refactor é proibido alterar comportamento ou adicionar novos testes). No entanto, o cluster necessita de profunda lapidação interna: 'tdd-workflows-tdd-green' teve seu SKILL.md corrompido/truncado (começa abruptamente sem bloco de código e suas diretrizes essenciais foram isoladas indevidamente em 'resources/implementation-playbook.md'), enquanto 'tdd-workflows-tdd-refactor' possui metadados tautológicos genéricos e referências a arquivos inexistentes. É necessário restaurar o corpo de 'tdd-workflows-tdd-green', aprimorar o conteúdo de 'tdd-workflows-tdd-refactor' e calibrar rigorosamente as transições de fase entre as três skills.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "unit-testing-test-generate",
+      "test-automator",
+      "test-fixing"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As três skills cobrem estágios claramente complementares e distintos do ciclo de qualidade de software: 'unit-testing-test-generate' é focada na análise estática (AST) e geração de novos testes unitários para código-fonte desprovido de cobertura; 'test-fixing' foca exclusivamente na triagem sistemática, categorização de erros e correção de suítes de testes quebradas; já 'test-automator' atua como meta-arquiteto de qualidade para pipelines de CI/CD, frameworks E2E (Playwright, Selenium, Appium), testes de performance e ferramentas low-code. A sobreposição existente é puramente descritiva, causada por gatilhos genéricos (placeholders) em 'test-automator'. A solução consiste em demarcar os gatilhos 'Use when...' / 'Do not use when...', assegurando que 'test-automator' delegue explicitamente a geração de testes unitários para 'unit-testing-test-generate' e a correção de testes falhos para 'test-fixing'.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "youtube-transcript",
+      "youtube-summarizer"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas as skills possuem implementações e propósitos finais distintos, embora compartilhem a etapa intermediária de obtenção do texto de vídeos do YouTube. 'youtube-transcript' é um utilitário técnico de baixo nível para extração de transcrições e legendas brutas (via DeepAPI ou fallback local yt-dlp/json3) persistindo arquivos .txt sem processamento semântico. Já 'youtube-summarizer' é um gerador de documentação analítica e pedagógica que utiliza 'youtube-transcript-api' para alimentar o framework de síntese estruturada STAR + R-I-S-E em Markdown. O conflito atual surge porque 'youtube-summarizer' lista como gatilho 'User needs transcripts from YouTube videos for analysis'. A calibração dos gatilhos 'Use when...' resolverá a ambiguidade: 'youtube-transcript' deve ser o ponto de contato exclusivo para extração de transcrições/legendas puras, enquanto 'youtube-summarizer' deve ser ativada apenas quando o usuário solicitar síntese, resumo ou análise do conteúdo do vídeo.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "youtube-full",
+      "youtube-notetaker"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "As skills coincidem apenas no prefixo 'youtube', pertencendo a categorias e arquiteturas completamente diferentes. 'youtube-full' é um cliente de API REST em nuvem sem estado (via TranscriptAPI) projetado para ambientes serverless e cloud onde yt-dlp é bloqueado, cobrindo busca de vídeos, listagem de canais, monitoramento de uploads e transcrições via chamadas HTTP leves. Em contrapartida, 'youtube-notetaker' é um pipeline multimídia local complexo que baixa vídeos em MP4 via yt-dlp, usa ffmpeg para detecção de cenas e corte de slides em JPG, compõe notas de estudo em Markdown e inicializa um servidor local em Python ('serve.py') para disponibilizar um visualizador web interativo. Não há sobreposição funcional, de ferramentas ou de caso de uso.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "wordpress-plugin-development",
+      "wp-guard"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "As duas skills representam papéis complementares clássicos do ciclo de engenharia: 'wordpress-plugin-development' é o gerador/arquiteto (Builder), guiando o scaffolding e desenvolvimento de novos plugins, hooks, admin screens com DataViews e novidades do WordPress 7.0 (Abilities API e AI Connectors). Por sua vez, 'wp-guard' é um guardrail cognitivo de auditoria de segurança e integridade (Linter/Auditor pré-embarque), inspecionando código gerado contra falhas graves (escape tardio, sanitização precoce, nonces/capabilities, SQLi via prepare, i18n e performance). A própria documentação de 'wp-guard' pontua expressamente que não define arquitetura ou regras de negócio, mas apenas audita como o código é entregue. Seus domínios e propósitos são substancialmente distintos.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  }
+]

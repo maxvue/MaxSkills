@@ -1,0 +1,375 @@
+[
+  {
+    "skillName": "laravel-security-hardening-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-security-hardening-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes de hardening de segurança e boas práticas para proteção de dados, APIs e arquivos no Laravel e Engeapp.",
+      "entidades": [
+        "AppServiceProvider",
+        "StoreDocumentRequest",
+        "ClientPolicy",
+        "ProjectPolicy",
+        "config/filesystems.php",
+        "bootstrap/app.php",
+        "spatie/laravel-permission",
+        "DB::select",
+        "DB::raw"
+      ],
+      "keywords": [
+        "laravel security",
+        "hardening",
+        "eloquent encryption",
+        "mass assignment",
+        "sqli mitigation",
+        "idor",
+        "scoped bindings",
+        "blade escaping",
+        "file uploads",
+        "csrf tokens",
+        "cors",
+        "owasp",
+        "sanitization",
+        "policies"
+      ]
+    },
+    "summary": "Skill altamente consistente, rigorosamente alinhada ao código real do Engeapp e com description densa e discriminante."
+  },
+  {
+    "skillName": "laravel-service-providers-dependency-injection-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-service-providers-dependency-injection-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões para criação de Service Providers, injeção de dependência via construtor PHP 8 e bindings seguros contra vazamento de memória no Laravel Octane.",
+      "entidades": [
+        "SignatureServiceProvider",
+        "bootstrap/providers.php",
+        "vinicinbgs\\Autentique\\Documents",
+        "AppServiceProvider",
+        "HorizonServiceProvider",
+        "TelescopeServiceProvider",
+        "TypeScriptTransformerServiceProvider",
+        "Service Container"
+      ],
+      "keywords": [
+        "service providers",
+        "dependency injection",
+        "service container",
+        "singleton",
+        "scoped binding",
+        "bind",
+        "laravel octane",
+        "constructor property promotion",
+        "pest testing",
+        "autentique",
+        "stateless"
+      ]
+    },
+    "summary": "Excelente especificação de injeção de dependência e ciclo de vida de bindings com exemplos reais do projeto."
+  },
+  {
+    "skillName": "laravel-services-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes para arquitetura, injeção de dependências e tratamento de erros em classes de Service no Laravel.",
+      "entidades": [
+        "App\\Services",
+        "App\\Data",
+        "OrderData",
+        "OrderProcessingService",
+        "GatewayService",
+        "PaymentFailedException",
+        "Log facade"
+      ],
+      "keywords": [
+        "laravel services",
+        "single responsibility principle",
+        "dependency injection",
+        "dtos",
+        "domain exceptions",
+        "error logging",
+        "octane compatibility",
+        "service layer",
+        "constructor property promotion"
+      ]
+    },
+    "summary": "Estrutura enxuta e alinhada à arquitetura do projeto (foco em Services em vez de Actions e tipagem com DTOs)."
+  },
+  {
+    "skillName": "laravel-social-media-oauth-token-lifecycle-management-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-social-media-oauth-token-lifecycle-management-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Armazenamento seguro, ciclo de vida e rotação manual de credenciais e tokens OAuth da Meta (Instagram/Facebook) no Engeapp.",
+      "entidades": [
+        "SocialMediaCredential",
+        "MetaService",
+        "MetaRequestTrait",
+        "SocialMediaCredentialController",
+        "EventApi",
+        "calendar_social_media_credentials",
+        "SocialMediaCredentialFactory"
+      ],
+      "keywords": [
+        "meta api",
+        "instagram",
+        "facebook",
+        "oauth tokens",
+        "social media credentials",
+        "token lifecycle",
+        "encrypted cast",
+        "multi-tenant",
+        "solar_company_id",
+        "ziggy routes",
+        "graph api"
+      ]
+    },
+    "summary": "Excelente aderência à realidade do projeto, cobrindo o modelo multi-tenant e tratamento de tokens da Meta."
+  },
+  {
+    "skillName": "laravel-socialite-oauth-integration-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-socialite-oauth-integration-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação, provisionamento e testes do fluxo de autenticação social OAuth (Google e Facebook) com Laravel Socialite no Engeapp.",
+      "entidades": [
+        "SocialiteController",
+        "UserSolarCompany",
+        "User",
+        "useLogin.Store.ts",
+        "config/services.php",
+        "routes/auth.php",
+        "Laravel\\Socialite\\Facades\\Socialite"
+      ],
+      "keywords": [
+        "laravel socialite",
+        "oauth2",
+        "google login",
+        "facebook login",
+        "user provisioning",
+        "ziggy routes",
+        "pest mocking",
+        "auth session",
+        "error query-string",
+        "multi-tenant"
+      ]
+    },
+    "summary": "Excelente especificação do fluxo OAuth real, mapeando particularidades como o vínculo por e-mail e rotas Ziggy de autenticação."
+  },
+  {
+    "skillName": "laravel-task-scheduling-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de agendamento de tarefas em background, prevenção de sobreposição e integração com Studio Totem no Laravel 13.",
+      "entidades": [
+        "Schedule facade",
+        "Studio\\Totem\\Totem",
+        "routes/console.php",
+        "task_results table",
+        "config/totem.php",
+        "AppServiceProvider",
+        "Log::channel('jobs')"
+      ],
+      "keywords": [
+        "task scheduling",
+        "laravel scheduler",
+        "cron jobs",
+        "withoutoverlapping",
+        "runinbackground",
+        "ononeserver",
+        "studio totem",
+        "task_results",
+        "artisan command",
+        "queue jobs"
+      ]
+    },
+    "summary": "Excelente profundidade técnica integrando o scheduler do Laravel 13 ao Studio Totem com controle de retenção."
+  },
+  {
+    "skillName": "laravel-telescope-debugging-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-telescope-debugging-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração, filtragem por ambiente, sanitização de dados e poda de registros do Laravel Telescope no Engeapp.",
+      "entidades": [
+        "TelescopeServiceProvider",
+        "Laravel\\Telescope\\Telescope",
+        "config/telescope.php",
+        "bootstrap/providers.php",
+        "viewTelescope gate",
+        "telescope_entries table"
+      ],
+      "keywords": [
+        "laravel telescope",
+        "debugging",
+        "telemetry",
+        "watchers",
+        "telescope filter",
+        "hide sensitive request details",
+        "viewtelescope gate",
+        "telescope prune",
+        "query watcher",
+        "model watcher"
+      ]
+    },
+    "summary": "Excelente detalhamento sobre a arquitetura do TelescopeServiceProvider e filtros de ambiente no Engeapp."
+  },
+  {
+    "skillName": "laravel-trello-api-integration",
+    "skillPath": "created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de consumo, webhook e comandos Artisan para integração com a API do Trello no Engeapp.",
+      "entidades": [
+        "TrelloService",
+        "TrelloWebhookController",
+        "ProcessTrelloWebhookJob",
+        "SyncToTrelloJob",
+        "RegisterTrelloWebhook",
+        "SyncCardTrello",
+        "config/api.php",
+        "config/logging.php"
+      ],
+      "keywords": [
+        "trello api",
+        "trelloservice",
+        "webhook",
+        "process trello webhook job",
+        "synccardtrello",
+        "register trello webhook",
+        "artisan commands",
+        "cards",
+        "attachments",
+        "oauth headers",
+        "cache remember"
+      ]
+    },
+    "summary": "Excelente ancoragem contextual mapeando a Fase 1 e métodos ativos do TrelloService sem inventar configurações."
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Duplicação estrutural de diretrizes: A seção '## Idioma' (linhas 26-28) repete de forma redundante a mesma diretriz da seção '## Restrições' (linhas 29-30).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ruído na cauda da description: 'Covers objectives, TypeScript DTO transformation, and language rules.' adiciona termos genéricos e meta-regras desnecessárias.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 13,
+    "cuts": [
+      {
+        "text": "Remover a seção duplicada '## Idioma' (linhas 26-28) consolidando a diretriz sob '## Restrições'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração e sincronização automática de tipos TypeScript a partir de DTOs e Enums PHP via Spatie TypeScript Transformer no Laravel e Vue 3.",
+      "entidades": [
+        "TypeScriptTransformerServiceProvider",
+        "Spatie\\LaravelData\\Data",
+        "FlatGlobalWriter",
+        "CustomDataClassTransformer",
+        "EnumTransformer",
+        "resources/Types/generated.d.ts",
+        "php artisan typescript:transform"
+      ],
+      "keywords": [
+        "typescript transformer",
+        "spatie",
+        "dtos",
+        "enums",
+        "typescript types",
+        "data collections",
+        "php artisan typescript:transform",
+        "generated.d.ts",
+        "vue 3",
+        "laravel data"
+      ]
+    },
+    "summary": "Conteúdo técnico de pipeline preciso e fiel, necessitando apenas da remoção de redundância nas seções de idioma e polimento final na description."
+  },
+  {
+    "skillName": "laravel-user-impersonation-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-user-impersonation-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e fluxos seguros para impersonação de usuário (login-as) no Engeapp com lab404/laravel-impersonate, rotas Ziggy e integração frontend Vue/MaxPinia.",
+      "entidades": [
+        "UserExecuteController",
+        "Lab404\\Impersonate\\Models\\Impersonate",
+        "useUser.Store.ts",
+        "UserSection.vue",
+        "routes/web/Web.User.Route.php",
+        "TakeImpersonation",
+        "LeaveImpersonation"
+      ],
+      "keywords": [
+        "user impersonation",
+        "login-as",
+        "laravel-impersonate",
+        "can_impersonate",
+        "ziggy routes",
+        "vue topmenu",
+        "pest tests",
+        "maxpinia",
+        "apiGetRoute",
+        "apiPostRoute"
+      ]
+    },
+    "summary": "Excelente skill conectando perfeitamente o model, rotas nomeadas Ziggy, store MaxPinia e camada visual do layout."
+  }
+]

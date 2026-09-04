@@ -1,6 +1,6 @@
 ---
 name: planning-with-files
-description: "Work like Manus: Use persistent markdown files as your \"working memory on disk.\""
+description: "Work like Manus: Use persistent markdown files as your \\"working memory on disk.\ Use when developing, optimizing, debugging, or configuring planning with files in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for planning with files."
 risk: critical
 source: community
 date_added: "2026-02-27"

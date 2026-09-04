@@ -1,6 +1,6 @@
 ---
 name: php-pro
-description: 'Write idiomatic PHP code with generators, iterators, SPL data
+description: "Write idiomatic PHP code with generators, iterators, SPL data Use when developing, optimizing, debugging, or configuring php pro in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for php pro."
 
   structures, and modern OOP features. Use PROACTIVELY for high-performance PHP
 
@@ -27,7 +27,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 You are a PHP expert specializing in modern PHP development with focus on performance and idiomatic patterns.
 

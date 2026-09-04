@@ -1,6 +1,6 @@
 ---
 name: vue-meta-api-oauth-integration-best-practices
-description: "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store. Covers objectives and core workflows."
+description: "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

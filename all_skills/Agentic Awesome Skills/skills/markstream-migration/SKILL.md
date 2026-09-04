@@ -1,6 +1,6 @@
 ---
 name: markstream-migration
-description: "Audit and migrate an existing Markdown renderer to Markstream while preserving custom renderers, security policy, streaming behavior, and explicit parity gaps."
+description: "Audit and migrate an existing Markdown renderer to Markstream while preserving custom renderers, security policy, streaming behavior, and explicit parity gaps. Use when developing, optimizing, debugging, or configuring markstream migration in production workflows."
 category: frontend
 risk: critical
 source: https://github.com/Simon-He95/markstream-vue/tree/main/.agents/skills/markstream-migration

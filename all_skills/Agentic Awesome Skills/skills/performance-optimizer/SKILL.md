@@ -1,6 +1,6 @@
 ---
 name: performance-optimizer
-description: "Identifies and fixes performance bottlenecks in code, databases, and APIs. Measures before and after to prove improvements."
+description: "Identifies and fixes performance bottlenecks in code, databases, and APIs. Measures before and after to prove improvements. Use when developing, optimizing, debugging, or configuring performance optimizer in production workflows."
 category: development
 risk: safe
 source: community

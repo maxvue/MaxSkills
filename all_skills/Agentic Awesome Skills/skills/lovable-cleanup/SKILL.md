@@ -1,6 +1,6 @@
 ---
 name: lovable-cleanup
-description: "Audits and strips Lovable scaffolding from Vite + React projects — removes lovable-tagger, swaps placeholder assets, prunes unused Radix deps, and cleans generated docs so the codebase ships as yours."
+description: "Audits and strips Lovable scaffolding from Vite + React projects — removes lovable-tagger, swaps placeholder assets, prunes unused Radix deps, and cleans generated docs so the codebase ships as yours. Use when developing, optimizing, debugging, or configuring lovable cleanup in production workflows."
 risk: safe
 source: community
 source_repo: whoisabhishekadhikari/lovable-cleanup

@@ -1,6 +1,6 @@
 ---
 name: user-thoughts
-description: >-
+description: ">- Use when developing, optimizing, debugging, or configuring user thoughts in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for user thoughts. Use when developing, optimizing, testing, or configuring user thoughts in production environments."
   Persist user decisions and project constraints to mdbase across sessions.
   Trigger on /user-thoughts or /ustht, or when the user discusses architecture,
   tech stack, rules, UI/UX, or project memory.

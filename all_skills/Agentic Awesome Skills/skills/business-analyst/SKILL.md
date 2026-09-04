@@ -1,6 +1,6 @@
 ---
 name: business-analyst
-description: Master modern business analysis with AI-powered analytics, real-time dashboards, and data-driven insights. Build comprehensive KPI frameworks, predictive models, and strategic recommendations.
+description: "Comprehensive engineering guide and best practices for business analyst. Use when configuring, developing, debugging, or optimizing business analyst architecture in production systems. Guides architecture, best practices, and implementation standards for business analyst."
 risk: safe
 source: community
 date_added: '2026-02-27'
@@ -21,9 +21,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
-
-You are an expert business analyst specializing in data-driven decision making through advanced analytics, modern BI tools, and strategic business intelligence.
+- If detailed examples are required, open ``.
 
 ## Purpose
 

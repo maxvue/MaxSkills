@@ -1,6 +1,6 @@
 ---
 name: project-setup
-description: Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.
+description: "Environment bootstrapping and local setup instructions for the SocialMedia project (PHP 8.2+, Laravel, Redis, MySQL, Horizon). Use when configuring a new developer environment or running migration commands for SocialMedia."
 author: Johnattas Conrady Gomes Santana
 ---
 # Setup — SocialMedia

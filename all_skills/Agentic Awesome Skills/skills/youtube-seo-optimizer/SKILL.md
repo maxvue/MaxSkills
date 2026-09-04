@@ -1,6 +1,6 @@
 ---
 name: youtube-seo-optimizer
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring youtube seo optimizer in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for youtube seo optimizer."
   Generate complete YouTube & podcast SEO packages with live-researched keywords —
   titles, descriptions, tags, hashtags, chapters, and audit fixes. Use for new or
   underperforming content.

@@ -1,0 +1,473 @@
+[
+  {
+    "skillName": "devrel-content",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/devrel-content/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A descrição YAML (292 caracteres) é truncada abruptamente no final ('...or \"content for...'), violando os critérios (1) e (12) por corte de sentença e lista redundante de gatilhos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gagueira gramatical na linha 16 da introdução ('when you need when the user wants to create...'), denotando concatenação malfeita de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Classificação de risco desproporcional (risk: critical) para elaboração de conteúdo técnico e menção promocional de ferramenta proprietária (Octolens) com link externo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover inserção promocional da ferramenta Octolens e condensar templates de comparação/blog post repetitivos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação de conteúdo técnico para desenvolvedores abrangendo tutoriais, artigos em blogs, guias comparativos e práticas de DevRel/SEO.",
+      "entidades": [
+        "Ahrefs",
+        "SEMrush",
+        "Google Search Console",
+        "Octolens",
+        "Grammarly",
+        "Axios",
+        "Node.js"
+      ],
+      "keywords": [
+        "devrel",
+        "technical-writing",
+        "tutorials",
+        "blog-posts",
+        "seo",
+        "code-examples",
+        "developer-marketing",
+        "content-framework",
+        "copy-paste-test",
+        "comparisons",
+        "style-guide",
+        "metrics"
+      ]
+    },
+    "summary": "Guia sólido de redação técnica com templates úteis, prejudicado por descrição truncada no frontmatter, gagueira textual e link promocional."
+  },
+  {
+    "skillName": "diagnosing-bugs",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/diagnosing-bugs/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição possui 161 caracteres, ficando ligeiramente abaixo do limiar ótimo de 200 caracteres e omitindo termos técnicos discriminantes presentes no texto (feedback loops, repro minimisation, ranking de hipóteses e test seams).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de placeholder tautológico na linha 27 ('Use when this workflow matches the user request: Use this skill for its documented workflow.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover apenas a linha 27 tautológica de 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Disciplina e loop estruturado em 6 fases para reprodução, diagnóstico, minimização e correção de bugs complexos e regressões de desempenho.",
+      "entidades": [
+        "Playwright",
+        "Puppeteer",
+        "git bisect",
+        "performance.now()",
+        "CONTEXT.md"
+      ],
+      "keywords": [
+        "debugging",
+        "bug-diagnosis",
+        "feedback-loop",
+        "bisect",
+        "fuzzing",
+        "regression-test",
+        "instrumentation",
+        "minimisation",
+        "reproducibility",
+        "root-cause",
+        "post-mortem"
+      ]
+    },
+    "summary": "Fluxo metodológico de depuração de altíssima qualidade técnica e densidade prática, necessitando apenas de expansão na descrição e remoção de uma linha tautológica."
+  },
+  {
+    "skillName": "differential-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/differential-review/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Descrição com apenas 60 caracteres ('Security-focused code review for PRs, commits, and diffs.'), sem gatilhos explícitos ('Use when...'), sem discriminantes semânticos (auth, crypto, blast radius, adversarial modeling) e violando severamente o limite mínimo de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dependência crítica de 4 arquivos inexistentes no diretório (methodology.md, adversarial.md, reporting.md e patterns.md), tornando a árvore de decisão e as instruções operacionais inexecutáveis pelo agente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Invocações de ferramentas externas e skills não empacotadas (audit-context-building e CLI fictício issue-writer) que quebram o isolamento operacional.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover árvore de decisão e referências aos 4 arquivos markdown fantasmas ausentes, consolidando o núcleo analítico diretamente no SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Revisão de segurança diferencial focada em PRs e diffs que afetam lógica de alto risco como autenticação, criptografia e movimentação de valores.",
+      "entidades": [
+        "git blame",
+        "issue-writer",
+        "audit-context-building",
+        "CVE"
+      ],
+      "keywords": [
+        "security-review",
+        "differential-review",
+        "git-blame",
+        "blast-radius",
+        "adversarial-analysis",
+        "auth",
+        "crypto",
+        "vulnerability",
+        "exploitability",
+        "code-diff"
+      ]
+    },
+    "summary": "Conceito valioso de revisão de segurança, mas severamente comprometido por descrição minúscula e referências estruturais a 4 arquivos de documentação inexistentes."
+  },
+  {
+    "skillName": "discord-bot-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/discord-bot-architect/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Descrição com 195 caracteres, no limiar mínimo, sem cláusula explícita de ativação ('Use when...') e com vocabulário promocional/genérico ('Specialized skill for building production-ready Discord bots').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Extensão excessiva (1460 linhas) contendo repetições de regras operacionais em seções como 'Validation Checks' (linhas 1360-1440) que redundam o conteúdo de 'Sharp Edges'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Condensar a seção 'Validation Checks' que duplica as diretrizes já explicadas em 'Sharp Edges' e 'Patterns'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e desenvolvimento de bots para Discord com Discord.js v14 (JS/TS) e Pycord (Python), abrangendo slash commands, componentes interativos, rate limits e sharding.",
+      "entidades": [
+        "Client",
+        "GatewayIntentBits",
+        "SlashCommandBuilder",
+        "ActionRowBuilder",
+        "ShardingManager",
+        "Pycord",
+        "commands.Bot",
+        "AutoShardedBot"
+      ],
+      "keywords": [
+        "discord",
+        "discord-js",
+        "pycord",
+        "slash-commands",
+        "gateway-intents",
+        "rate-limiting",
+        "sharding",
+        "modals",
+        "buttons",
+        "embeds",
+        "interactions"
+      ]
+    },
+    "summary": "Guia arquitetural extremamente detalhado e rico em código funcional para Discord.js e Pycord, demandando apenas alinhamento de gatilho na descrição e poda de validações redundantes."
+  },
+  {
+    "skillName": "distribute-skill-to-all-agents",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/distribute-skill-to-all-agents/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Descrição com apenas 104 caracteres ('Distribute a skill across configured agent skill folders while respecting local symlink layouts.'), sem gatilho ('Use when...') e omitindo os agentes específicos atendidos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Acoplamento e suposições rígidas de ambiente pessoal ('The user has 4 agent skill locations on his MacBook') que forçam caminhos específicos para Codex (~/.agents/skills), Claude Code (~/.claude/skills), Pi (~/.pi/agent/skills) e Hermes (~/.hermes/skills), quebrando em ambientes divergentes sem aviso prévio.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Distribuição e sincronização de skills entre pastas de múltiplos agentes locais através de layouts de symlinks e cópia manual.",
+      "entidades": [
+        "Claude Code",
+        "OpenAI Codex",
+        "Pi Agent",
+        "Hermes Agent",
+        "rsync",
+        "symlinks"
+      ],
+      "keywords": [
+        "skill-distribution",
+        "symlinks",
+        "claude-code",
+        "codex",
+        "pi-agent",
+        "hermes-agent",
+        "synchronization",
+        "multi-agent",
+        "local-agents"
+      ]
+    },
+    "summary": "Procedimento direto e sem bloat, porém dependente de premissas estritas do ambiente pessoal do autor original e com descrição deficiente."
+  },
+  {
+    "skillName": "distributed-debugging-debug-trace",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/distributed-debugging-debug-trace/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A descrição (268 caracteres) adota tom de dramatização/persona em primeira pessoa ('You are a debugging expert specializing in...'), em vez de formato de capacidade do agente com 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de placeholder de template não expandido na linha 30: '$ARGUMENTS'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md atua apenas como fachada delegadora para 'resources/implementation-playbook.md' sem sintetizar parâmetros operacionais essenciais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração de ambientes de depuração distribuída, tracing observável entre múltiplos serviços e padronização de logs de diagnóstico.",
+      "entidades": [
+        "resources/implementation-playbook.md",
+        "correlation IDs",
+        "trace spans"
+      ],
+      "keywords": [
+        "distributed-debugging",
+        "distributed-tracing",
+        "observability",
+        "trace-spans",
+        "correlation-id",
+        "logging-standards",
+        "diagnostic-tools",
+        "sampling"
+      ]
+    },
+    "summary": "Mecanismo válido de roteamento para um playbook externo de 40KB, com necessidade de despersonalizar a descrição e sanar o placeholder '$ARGUMENTS'."
+  },
+  {
+    "skillName": "docs-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/docs-architect/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Referência fantasma na linha 24 para 'resources/implementation-playbook.md', diretório que não existe na pasta da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de gatilho repletas de boilerplate tautológico nas linhas 9-18 ('Working on docs architect tasks or workflows', 'The task is unrelated to docs architect').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Descrição com 200 caracteres no limite inferior, sem prefixo 'Use when...', com adjetivos promocionais ('comprehensive technical documentation') e persona injetada na linha 26 ('You are a technical documentation architect...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover a linha 24 com link para recurso inexistente e podar o bloco tautológico de When to Use / Do not use das linhas 9-18.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e produção de documentação técnica abrangente e manuais de longo formato a partir da análise profunda de código-fonte.",
+      "entidades": [
+        "Markdown",
+        "Architecture Overview",
+        "Data Models",
+        "Design Decisions"
+      ],
+      "keywords": [
+        "technical-documentation",
+        "docs-architect",
+        "system-architecture",
+        "codebase-analysis",
+        "manuals",
+        "progressive-disclosure",
+        "data-models",
+        "api-documentation"
+      ]
+    },
+    "summary": "Guia conceitual de documentação prejudicado por referências a arquivos fantasmas e seções tautológicas de template."
+  },
+  {
+    "skillName": "docs-as-marketing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/docs-as-marketing/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A descrição é truncada abruptamente com reticências ('...and...') aos 273 caracteres, carece de prefixo 'Use when...' e carrega adjetivação promocional ('powerful marketing channel', 'exceptional information architecture').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gagueira gramatical na linha 16 da introdução ('Use this skill when you need transform documentation into a powerful marketing channel...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadados com classificação errônea 'risk: critical' para uma skill estritamente voltada a redação e estruturação de documentação.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover trechos repetitivos de retórica de marketing e condensar a introdução redundante.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégia de documentação orientada à aquisição e retenção de desenvolvedores, otimizando quickstarts, referências de API e arquitetura da informação.",
+      "entidades": [
+        "Twilio",
+        "GitBook",
+        "ReadMe",
+        "Mintlify",
+        "Docusaurus",
+        "Algolia DocSearch"
+      ],
+      "keywords": [
+        "developer-marketing",
+        "documentation",
+        "quickstart-optimization",
+        "information-architecture",
+        "api-reference",
+        "seo-for-docs",
+        "developer-experience",
+        "dx",
+        "conversion"
+      ]
+    },
+    "summary": "Excelente roteiro prático para documentação orientada a DevRel, sofrendo de descrição truncada no frontmatter, gagueira na introdução e classificação indevida de risco crítico."
+  },
+  {
+    "skillName": "docs-guard",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/docs-guard/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição possui 153 caracteres (abaixo dos 200 caracteres ideais) e omite gatilho padronizado ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Início do corpo na linha 17 utiliza fraseado de persona ('You are reviewing generated or changed documentation...'), além de 'risk: critical' para uma rotina puramente defensiva de auditoria.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria e checagem de veracidade de documentação técnica contra o código real para prevenir alucinações e drift de APIs geradas por IA.",
+      "entidades": [
+        "README",
+        "PHPDoc",
+        "JSDoc",
+        "CLAUDE.md",
+        "AGENTS.md",
+        "references/verification.md",
+        "references/code-samples.md",
+        "references/docstrings.md",
+        "references/review-checklist.md"
+      ],
+      "keywords": [
+        "docs-guard",
+        "fact-checking",
+        "hallucination-prevention",
+        "api-verification",
+        "docstrings",
+        "drift-detection",
+        "code-samples",
+        "documentation-audit",
+        "quality-assurance"
+      ]
+    },
+    "summary": "Skill de auditoria de documentação de excepcional rigor e integridade técnica, com todas as referências presentes e 0% de bloat, necessitando apenas de ajuste na descrição."
+  },
+  {
+    "skillName": "documentation-and-adrs",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/documentation-and-adrs/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Embora a descrição (236 caracteres) seja clara e tenha gatilhos explícitos, ela não cita o acrônimo ADR nem os termos Architecture Decision Records ou OpenAPI, que são componentes centrais da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Registro de decisões de arquitetura de software (ADRs), documentação de APIs públicas, comentários inline de intenção e manutenção de changelogs para agentes e humanos.",
+      "entidades": [
+        "Prisma",
+        "PostgreSQL",
+        "OpenAPI",
+        "Swagger",
+        "CLAUDE.md",
+        "TypeScript"
+      ],
+      "keywords": [
+        "adr",
+        "architecture-decision-records",
+        "api-documentation",
+        "openapi",
+        "changelog",
+        "inline-comments",
+        "technical-decisions",
+        "developer-context",
+        "architecture",
+        "tradeoffs"
+      ]
+    },
+    "summary": "Guia prático e exemplar para registro de decisões arquiteturais e documentação perene, precisando apenas incluir o termo 'ADR' expressamente na descrição."
+  }
+]

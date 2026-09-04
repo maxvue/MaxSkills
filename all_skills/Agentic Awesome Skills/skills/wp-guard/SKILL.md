@@ -1,6 +1,6 @@
 ---
 name: "wp-guard"
-description: "Review generated or changed WordPress plugins, themes, and blocks for security, internationalization, performance, and API correctness."
+description: "Review generated or changed WordPress plugins, themes, and blocks for security, internationalization, performance, and API correctness. Use when developing, optimizing, debugging, or configuring wp guard in production workflows."
 risk: "offensive"
 source: "community"
 source_repo: "amElnagdy/guard-skills"

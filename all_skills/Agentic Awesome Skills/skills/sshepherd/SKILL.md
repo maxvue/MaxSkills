@@ -1,6 +1,6 @@
 ---
 name: sshepherd
-description: "Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgres introspection, and declarative deploys, without ever exposing credentials to the agent."
+description: "Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgres introspection, and declarative deploys, without ever exposing credentials to the agent. Use when developing, optimizing, debugging, or configuring sshepherd in production workflows."
 category: devops
 risk: critical
 source: community

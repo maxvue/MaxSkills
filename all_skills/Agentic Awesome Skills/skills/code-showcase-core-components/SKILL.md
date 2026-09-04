@@ -1,6 +1,6 @@
 ---
 name: code-showcase-core-components
-description: Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library.
+description: "Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library. Guides architecture, best practices, and implementation standards for code showcase core components."
 risk: none
 source: https://github.com/ChrisWiles/claude-code-showcase/tree/main/.claude/skills/core-components
 source_repo: ChrisWiles/claude-code-showcase

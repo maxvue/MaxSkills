@@ -1,6 +1,6 @@
 ---
 name: youtube-notetaker
-description: "Turn YouTube talks into local study notes with slides, transcripts, editable annotations, and a markdown-backed viewer."
+description: "Turn YouTube talks into local study notes with slides, transcripts, editable annotations, and a markdown-backed viewer. Use when developing, optimizing, debugging, or configuring youtube notetaker in production workflows."
 category: "video"
 risk: "safe"
 source: "official"

@@ -1,6 +1,6 @@
 ---
 name: brain-to-docs
-description: "Interview the user to turn project vision and decisions into README and ADR documentation."
+description: "Interview the user to turn project vision and decisions into README and ADR documentation. Use when developing, optimizing, debugging, or configuring brain to docs in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for brain to docs."
 category: productivity
 risk: critical
 source: community

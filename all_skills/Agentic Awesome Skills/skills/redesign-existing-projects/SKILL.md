@@ -1,6 +1,6 @@
 ---
 name: redesign-existing-projects
-description: "Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium design fixes without rewrites."
+description: "Use when upgrading existing websites or apps by auditing generic UI patterns and applying premium design fixes without rewrites. Guides architecture, best practices, and implementation standards for redesign existing projects."
 category: frontend
 risk: safe
 source: community

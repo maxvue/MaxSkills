@@ -1,6 +1,6 @@
 ---
 name: youtube-full
-description: "Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI — no yt-dlp, no Google API key, works from any cloud server."
+description: "Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI — no yt-dlp, no Google API key, works from any cloud server. Use when developing, optimizing, debugging, or configuring youtube full in production workflows."
 category: api-integration
 risk: safe
 source: community

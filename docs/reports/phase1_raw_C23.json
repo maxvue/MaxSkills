@@ -1,0 +1,431 @@
+[
+  {
+    "skillName": "design-thinking",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/design-thinking/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Definição de direção estética, tom, propósito e repertório conceitual cross-domain para interfaces frontend antes da codificação.",
+      "entidades": [
+        "document.fonts.ready",
+        "prefers-reduced-motion",
+        "design-system",
+        "design"
+      ],
+      "keywords": [
+        "design thinking",
+        "frontend design",
+        "visual hierarchy",
+        "color world",
+        "review bar",
+        "cross-domain lens",
+        "cinema",
+        "architecture",
+        "automotive",
+        "industrial design",
+        "typography",
+        "rule of thirds",
+        "progressive disclosure",
+        "restraint",
+        "affordances"
+      ]
+    },
+    "summary": "Skill conceitual madura, de alta densidade semântica e perfeitamente alinhada com princípios arquiteturais de design frontend."
+  },
+  {
+    "skillName": "design-ux",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/design-ux/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description YAML termina truncada com reticências ('Scores the RENDERED UI against Nielsen\\'s 10 +...'), cortando a frase e omitindo os add-ons de interação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de termos em caixa alta desnecessária ('INTERACTIVE', 'RENDERED') e gírias/coloquialismo informal ('sucks to use') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria heurística de usabilidade baseada nas 10 heurísticas de Nielsen e princípios de interação moderna em interfaces renderizadas.",
+      "entidades": [
+        "Nielsen 10",
+        "design-spatial",
+        "design-thinking",
+        "Fitts Law",
+        "Steve Krug",
+        "Web Interface Guidelines"
+      ],
+      "keywords": [
+        "usability audit",
+        "heuristic evaluation",
+        "nielsen heuristics",
+        "interaction design",
+        "fitts law",
+        "affordances",
+        "idempotency",
+        "tooltip timing",
+        "scroll restore",
+        "error prevention",
+        "progressive disclosure",
+        "user control"
+      ]
+    },
+    "summary": "Excelente guia de auditoria heurística com scorecard prático, prejudicado apenas por truncamento e coloquialismo na descrição YAML."
+  },
+  {
+    "skillName": "deterministic-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/deterministic-design/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Ausência de gatilho explícito no formato canônico ('Use when...' ou 'Ative quando...') na description YAML, embora haja seção 'When to Use' no corpo markdown.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de metadados administrativos e ruído de empacotamento upstream do autor original no corpo do texto (linhas 48-51: 'In central this lives as a subdir of ckw-design; it publishes separately as deterministic-design-skill...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o parágrafo de metadados de distribuição upstream (linhas 48-51) para manter foco exclusivo na execução da auditoria determinística.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Meta-skill para verificação matemática e determinística de layout de interfaces aliada a auditoria visual de usabilidade.",
+      "entidades": [
+        "layout-audit.js",
+        "design-spatial",
+        "design-ux",
+        "Nielsen Heuristics"
+      ],
+      "keywords": [
+        "deterministic layout",
+        "layout audit",
+        "centroid balance",
+        "optical center",
+        "pixel oracle",
+        "usability audit",
+        "vision critique",
+        "screenshot analysis",
+        "8-pt grid"
+      ]
+    },
+    "summary": "Meta-skill sólida que orquestra auditoria matemática e heurística, precisando apenas de gatilho formal na descrição e corte de ruído de empacotamento upstream."
+  },
+  {
+    "skillName": "devcontainer-setup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/devcontainer-setup/SKILL.md",
+    "state": "Regular",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Referências órfãs a diretórios e arquivos inexistentes no pacote da skill: linha 83 manda carregar templates da pasta 'resources/', e linhas 250-252 referenciam 'references/dockerfile-best-practices.md' e 'references/features-vs-dockerfile.md', inexistentes no repositório local.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração automatizada de ambientes de desenvolvimento conteinerizados (.devcontainer) com Claude Code e suporte multiliguagem.",
+      "entidades": [
+        "devcontainer.json",
+        "Dockerfile",
+        "uv",
+        "fnm",
+        "ast-grep",
+        "ghcr.io/devcontainers/features/rust",
+        "ghcr.io/devcontainers/features/go",
+        "post_install.py",
+        "install.sh"
+      ],
+      "keywords": [
+        "devcontainer",
+        "docker",
+        "claude code",
+        "python uv",
+        "node fnm",
+        "rust-analyzer",
+        "go tools",
+        "persistent volumes",
+        "network isolation",
+        "vscode extensions",
+        "container sandboxing"
+      ]
+    },
+    "summary": "Excelente descrição e arquitetura de configuração conteinerizada, mas dependente de arquivos locais órfãos ausentes do pacote."
+  },
+  {
+    "skillName": "developer-audience-context",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/developer-audience-context/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description YAML truncada abruptamente com reticências e aspas abertas no final: 'Trigger phrases include \"developer persona,\" \"target developers,\" \"who are our developers,\" \"developer...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estruturação e manutenção de documento fundacional de contexto e persona de desenvolvedor para estratégias técnicas de produto e marketing.",
+      "entidades": [
+        ".agents/developer-audience-context.md",
+        "Octolens",
+        "GitHub Search",
+        "Google Alerts"
+      ],
+      "keywords": [
+        "developer audience",
+        "developer persona",
+        "pain points",
+        "technical trust signals",
+        "differentiators",
+        "conversion actions",
+        "voice and tone",
+        "developer marketing",
+        "product positioning",
+        "verbatim language"
+      ]
+    },
+    "summary": "Skill fundacional robusta para mapeamento de personas e dores técnicas, exigindo apenas a conclusão da descrição truncada."
+  },
+  {
+    "skillName": "developer-newsletter",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/developer-newsletter/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estratégia, redação técnica, entregabilidade e crescimento de newsletters voltadas para a comunidade de desenvolvedores.",
+      "entidades": [
+        ".agents/developer-audience-context.md",
+        "Resend",
+        "Buttondown",
+        "ConvertKit",
+        "Beehiiv",
+        "React Email",
+        "SPF",
+        "DKIM",
+        "DMARC",
+        "Octolens"
+      ],
+      "keywords": [
+        "developer newsletter",
+        "email marketing",
+        "technical writing",
+        "deliverability",
+        "open rate benchmarks",
+        "subject lines",
+        "code in email",
+        "growth tactics",
+        "email hygiene",
+        "spam prevention"
+      ]
+    },
+    "summary": "Skill exemplar, completa e altamente acionável para criação e gestão de newsletters técnicas, com descrição perfeita."
+  },
+  {
+    "skillName": "developer-sandbox",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/developer-sandbox/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description YAML truncada abruptamente no final da lista de trigger phrases: 'Trigger phrases: \"developer...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura, UX e estratégia de playgrounds interativos e ambientes de sandbox para demonstração técnica de produtos sem fricção.",
+      "entidades": [
+        "Monaco Editor",
+        "CodeMirror",
+        "WebContainers",
+        "Firecracker",
+        "gVisor",
+        "esbuild-wasm",
+        "StackBlitz",
+        "CodeSandbox"
+      ],
+      "keywords": [
+        "interactive playground",
+        "developer sandbox",
+        "pre-populated examples",
+        "progressive gating",
+        "client-side sandbox",
+        "server-side sandbox",
+        "monaco editor",
+        "signup conversion",
+        "code embedding",
+        "time to hello world"
+      ]
+    },
+    "summary": "Guia técnico de primeira linha sobre arquitetura de sandboxes e playgrounds interativos para desenvolvedores, com descrição truncada."
+  },
+  {
+    "skillName": "developer-seo",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/developer-seo/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description YAML truncada abruptamente na enumeração final de gatilhos: 'Use when asked about: - SEO for...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estratégias de SEO técnico voltadas para comportamento de busca de desenvolvedores, erros de programação e conteúdo de documentação.",
+      "entidades": [
+        "Google Search Console",
+        "Ahrefs",
+        "Semrush",
+        "Screaming Frog",
+        "Algolia",
+        "Octolens"
+      ],
+      "keywords": [
+        "developer seo",
+        "error message seo",
+        "technical long-tail",
+        "how-to guides",
+        "documentation architecture",
+        "code snippet optimization",
+        "technical backlinks",
+        "search intent",
+        "comparison content"
+      ]
+    },
+    "summary": "Excelente conteúdo sobre SEO técnico para documentações e mensagens de erro, necessitando apenas reparar o truncamento no gatilho da descrição."
+  },
+  {
+    "skillName": "developer-signup-flow",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/developer-signup-flow/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description YAML truncada com vírgula e reticências no final da lista de trigger phrases: ',...\".",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de caminhos fictícios upstream no corpo do documento (linhas 29 e 389-391: '/devmarketing-skills/skills/developer-audience-context', etc.) em vez de referências relativas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Otimização de fluxos de cadastro e autenticação de baixa fricção para desenvolvedores com geração imediata de credenciais de API.",
+      "entidades": [
+        "GitHub OAuth",
+        "Stripe",
+        "Vercel",
+        "Clerk",
+        "Auth0",
+        "WorkOS",
+        "Supabase Auth",
+        "Unkey",
+        "Amplitude",
+        "Mixpanel"
+      ],
+      "keywords": [
+        "developer signup",
+        "oauth flow",
+        "api key generation",
+        "progressive profiling",
+        "frictionless onboarding",
+        "time to first api call",
+        "github oauth",
+        "conversion funnel",
+        "activation rate"
+      ]
+    },
+    "summary": "Guia altamente qualificado para onboarding e autenticação de desenvolvedores, prejudicado apenas por truncamento na descrição e caminhos upstream no corpo."
+  },
+  {
+    "skillName": "devops-deploy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/devops-deploy/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description YAML curta (147 caracteres, bem abaixo da faixa ideal de 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de condição ou gatilho explícito de ativação ('Use when...', 'Ative quando...') na description YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inconsistência técnica flagrante: a description e as tags anunciam Terraform, mas o conteúdo real não possui nenhuma linha, arquivo ou instrução sobre Terraform (trata apenas de Docker, AWS SAM e GitHub Actions).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Acoplamento e dados hardcoded de projeto particular ('Auri'): nomes de tabelas DynamoDB ('auri-users'), funções ('AuriFunction'), bancos ('auri'), tokens e mensagens de bot do Telegram em vez de templates genéricos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover seções de boilerplate genérico tautológico ('When to Use This Skill', 'Do Not Use This Skill When', 'Best Practices', 'Common Pitfalls') nas linhas 29-38 e 284-295.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Práticas de conteinerização, deploy serverless via AWS SAM e pipelines de CI/CD com GitHub Actions.",
+      "entidades": [
+        "Docker",
+        "Docker Compose",
+        "AWS SAM",
+        "AWS Lambda",
+        "DynamoDB",
+        "GitHub Actions",
+        "FastAPI",
+        "Boto3",
+        "CloudWatch"
+      ],
+      "keywords": [
+        "devops",
+        "docker",
+        "aws sam",
+        "lambda",
+        "github actions",
+        "ci-cd pipeline",
+        "health check",
+        "cloudwatch alarms",
+        "serverless",
+        "production checklist"
+      ]
+    },
+    "summary": "Skill defasada com promessa não cumprida de Terraform, description curta e sem gatilhos, acoplada a projeto privado ('Auri') e com seções genéricas dispensáveis."
+  }
+]

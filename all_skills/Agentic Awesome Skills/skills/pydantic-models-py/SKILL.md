@@ -1,6 +1,6 @@
 ---
 name: pydantic-models-py
-description: "Create Pydantic models following the multi-model pattern for clean API contracts."
+description: "Comprehensive engineering guide and best practices for pydantic models py. Use when configuring, developing, debugging, or optimizing pydantic models py architecture in production systems. Guides architecture, best practices, and implementation standards for pydantic models py."
 risk: critical
 source: community
 date_added: "2026-02-27"

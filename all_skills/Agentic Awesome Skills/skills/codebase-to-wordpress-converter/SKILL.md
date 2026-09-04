@@ -1,6 +1,6 @@
 ---
 name: codebase-to-wordpress-converter
-description: "Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, and dynamic WordPress theme."
+description: "Expert skill for converting any codebase (React/HTML/Next.js) into a pixel-perfect, SEO-optimized, and dynamic WordPress theme. Use when developing, optimizing, debugging, or configuring codebase to wordpress converter in production workflows."
 risk: safe
 source: community
 date_added: "2026-04-12"

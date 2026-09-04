@@ -1,0 +1,487 @@
+[
+  {
+    "cluster": [
+      "laravel-brazilian-localization-best-practices",
+      "vue-inputs-masks-validation-best-practices"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "Embora pertençam a camadas distintas (backend Laravel vs. frontend Vue 3), 'laravel-brazilian-localization-best-practices' possui uma seção inteira (seção 2, ~40% do arquivo) detalhando componentes de UI do Vue 3 (MaxInputCpfCnpj, MaxInputCep, MaxInputPhoneMail, InputNumber) e helpers de validação do TypeScript (@maxvue/max-use/validations). Isso duplica diretamente o conteúdo e as responsabilidades de 'vue-inputs-masks-validation-best-practices', que já é a skill especializada em inputs mascarados, validação e manipulação de formulários Vue 3. A recomendação é LAPIDAR: manter ambas as skills separadas por camada, mas remover/enxugar a seção redundante de componentes Vue da skill backend de localização, mantendo nela apenas a lógica Laravel/PHP (sanitização no banco, BrUtils, StringsHelper, number_format, NumberToWords) e um link de referência para a skill de frontend; e calibrar os gatilhos 'Use when...' para que não haja sobreposição de chamada.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J1"
+  },
+  {
+    "cluster": [
+      "laravel-ziggy-routing-integration-best-practices",
+      "vue-axios-api-integration-best-practices"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "'laravel-ziggy-routing-integration-best-practices' lida com a infraestrutura de geração e exposição de rotas nomeadas via Tighten Ziggy (artisan ziggy:generate, config/ziggy.php, tipos RouteList e bootstrap do resolvedor de rotas em app.ts). 'vue-axios-api-integration-best-practices' foca no cliente HTTP frontend (@maxvue/max-use: apiGetRoute, apiPostRoute, contratos de retorno e credenciais de sessão). Contudo, a skill de axios duplica integralmente o trecho de código e a explicação detalhada de 'setRouteResolver' em resources/app.ts (Regra 3), além de repetir preceitos sobre rotas nomeadas. A recomendação é LAPIDAR: manter ambas as skills devido a seus objetivos arquiteturais distintos (geração/resolução de rotas vs transporte HTTP), mas refinar 'vue-axios-api-integration-best-practices' para focar puramente em mutações HTTP, tratamento de retornos e erros, removendo a duplicação do bootstrap do resolver que pertence canonicamente à skill de Ziggy.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J1"
+  },
+  {
+    "cluster": [
+      "frontend-design-best-practices",
+      "vue-unocss-styling-best-practices"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As duas skills operam em níveis de abstração completamente distintos e complementares no frontend: 'frontend-design-best-practices' aborda a direção de arte, mandato estético, ritmo visual, diferenciação e combate a layouts genéricos de IA (design thinking e UX); enquanto 'vue-unocss-styling-best-practices' é estritamente técnica, ensinando a sintaxe do UnoCSS, regras do presetMaxUno, params.scss, seletores de atributos e suporte a dark mode via CSS variables. Não há duplicação de regras no corpo dos documentos, mas seus gatilhos 'Use when...' atuais colidem quando o prompt menciona desenvolvimento/remodelagem de UI com UnoCSS. A recomendação é DEMARCAR: manter ambos os arquivos íntegros e calibrar suas descrições/gatilhos para que o orquestrador direcione tarefas conceituais de design e layout para 'frontend-design-best-practices', e tarefas de codificação de classes/estilos e sintaxe UnoCSS para 'vue-unocss-styling-best-practices'.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J1"
+  },
+  {
+    "cluster": [
+      "vue-max-stack-frontend-best-practices",
+      "vue-typescript-best-practices"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "'vue-max-stack-frontend-best-practices' é o guia macro de arquitetura de Single File Components (SFC) no ecossistema Max (estrutura de templates, componentes Max*, formulários com MaxGrid e visão geral da stack). 'vue-typescript-best-practices' deve ser o guia focado em tipagem estática e segurança de tipos (defineProps/defineEmits tipados, DTOs gerados via spatie/laravel-typescript-transformer, tipos de template refs). No entanto, 'vue-typescript-best-practices' repete longas explicações sobre o funcionamento funcional do cache/auto-save do MaxPinia e a resolução de rotas sem prefixo api/ (seções 5 e 6), invadindo o escopo da skill macro. A recomendação é LAPIDAR: enxugar essas seções em 'vue-typescript-best-practices' para focar puramente em como TIPAR as stores e propriedades (interfaces, genéricos, contratos DTO), deixando os preceitos arquiteturais do ecossistema a cargo de 'vue-max-stack-frontend-best-practices', e calibrar os gatilhos 'Use when...' para distinguir scaffold/composição de SFCs de tipagem estática TypeScript.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J1"
+  },
+  {
+    "cluster": [
+      "project-history",
+      "project-setup"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "O cluster foi agrupado unicamente pela semelhança léxica do prefixo 'project-'. 'project-history' é um log cronológico extenso (~31 KB) documentando marcos concluídos, decisões de arquitetura e validações de testes desde o Marco 1 até a Fase 7, servindo como base de conhecimento histórica. 'project-setup' é um guia estritamente operacional (~3 KB) com comandos de terminal (composer, npm, artisan db:bootstrap, redis, horizon) para subir o ambiente do zero em uma nova máquina. Os escopos, ferramentas, ciclos de vida e intenções são completamente ortogonais. Trata-se de um claro falso-positivo; ambas devem ser preservadas sem qualquer alteração de conteúdo ou mescla.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J1"
+  },
+  {
+    "cluster": [
+      "typescript-advanced-types-best-practices",
+      "typescript-pro"
+    ],
+    "recommendation": "MERGE",
+    "into": "typescript-advanced-types-best-practices",
+    "rationale": "typescript-pro é uma skill genérica e rasa (59 linhas) da comunidade que aborda exatamente o mesmo escopo técnico de typescript-advanced-types-best-practices (205 linhas), a qual é altamente customizada, alinhada aos projetos reais do repositório e substancialmente mais profunda. O conteúdo de typescript-pro consiste em diretrizes conceituais abstratas de generics, conditional types, mapped types, tsconfig estrito e testes que já constam implementados, com exemplos reais de código e validações práticas (satisfies, template literals, branded types, compiler testing com AssertEqual) na skill de types avançados. Manter ambas ativas provocaria colisão direta de ativação no orquestrador ao direcionar tarefas de modelagem e resolução de tipos em TypeScript.",
+    "mergePlan": "Absorver em typescript-advanced-types-best-practices as poucas menções complementares de typescript-pro, especificamente a referência a decorators/metadados e declarações ambient (.d.ts). Consolidar no frontmatter de typescript-advanced-types-best-practices os gatilhos explícitos de 'Use this skill when' e 'Do not use this skill when' derivados de typescript-pro para prevenir ambiguidades de roteamento. Desativar/remover typescript-pro do catálogo de skills.",
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J2"
+  },
+  {
+    "cluster": [
+      "typescript-tooling-monorepo-best-practices",
+      "typescript-expert"
+    ],
+    "recommendation": "MERGE",
+    "into": "typescript-tooling-monorepo-best-practices",
+    "rationale": "typescript-expert é um monolito de 432 linhas da comunidade com alta redundância interna e externa. Sua seção de Type-Level Programming (branded types, conditional types, recursive types, satisfies) já é coberta de forma canônica por typescript-advanced-types-best-practices e infringe a demarcação explícita de escopo estabelecida no repositório. Por outro lado, a sua porção de infraestrutura, diagnósticos do compilador CLI (--traceResolution, --generateTrace), monorepo (composite, project references) e migração de ferramentas (Biome vs ESLint, ts-migrate) sobrepõe-se diretamente a typescript-tooling-monorepo-best-practices (que inclusive já mantém um cheatsheet derivado de typescript-expert como referência). A unificação em typescript-tooling-monorepo-best-practices centraliza toda a governança de build, tooling e arquitetura de pacotes na skill criada sob medida para o ecossistema do projeto.",
+    "mergePlan": "Transferir para typescript-tooling-monorepo-best-practices os tópicos práticos de tooling avançado presentes em typescript-expert: diagnósticos avançados de compilação CLI (npx tsc --traceResolution, --generateTrace e análise de memória), estratégias de migração incremental (allowJs/checkJs, ts-migrate) e o comparativo de decisão Biome vs ESLint. Descartar integralmente a seção de Type-Level Programming de typescript-expert, pois sua autoridade pertence exclusivamente a typescript-advanced-types-best-practices. Desativar typescript-expert do catálogo.",
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J2"
+  },
+  {
+    "cluster": [
+      "api-design",
+      "api-and-interface-design"
+    ],
+    "recommendation": "MERGE",
+    "into": "api-and-interface-design",
+    "rationale": "Trata-se de uma duplicação física exata (100% idêntica byte a byte, com 308 linhas) entre o catálogo curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design. Ambos os arquivos compartilham inclusive o mesmo frontmatter com name: api-and-interface-design, mesma descrição, mesma autoria e mesmo código. A existência da pasta curated-youtube/api-design é uma cópia não consolidada do mesmo módulo da comunidade (addyosmani/agent-skills).",
+    "mergePlan": "Remover a pasta duplicada curated-youtube/api-design do repositório, preservando api-and-interface-design como a entrada canônica única no catálogo. Nenhuma alteração textual ou de conteúdo é necessária dada a total paridade entre os arquivos.",
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J2"
+  },
+  {
+    "cluster": [
+      "mcp-server-routing",
+      "mcp-tool-developer"
+    ],
+    "recommendation": "MERGE",
+    "into": "mcp-tool-developer",
+    "rationale": "Ambas as skills abordam a engenharia integral de servidores e ferramentas do Model Context Protocol (MCP) com SDKs oficiais em TypeScript e Python, validação de schemas (Zod/Pydantic), suporte a transportes (stdio, SSE, Streamable HTTP) e inspeção com MCP Inspector. curated-youtube/mcp-server-routing possui uma discrepância nominal grave entre seu diretório e seu frontmatter (name: mcp-builder, sem nenhuma rotina de roteamento de requisições), porém carrega recursos valiosos de referência (mcp_best_practices, node_mcp_server, python_mcp_server, evaluation.md) e scripts. Já mcp-tool-developer possui uma interface limpa, moderna (API McpServer) e padronizada. A unificação sob mcp-tool-developer elimina a sobreposição e corrige a anomalia nominal do repositório.",
+    "mergePlan": "Eleger mcp-tool-developer como a skill canônica unificada de desenvolvimento MCP. Integrar ao seu SKILL.md os padrões avançados de mcp-server-routing: anotações de hint (readOnlyHint, destructiveHint, idempotentHint), boas práticas de design e o fluxo de criação de suítes de avaliação (10 QA pairs em XML). Mover e vincular as pastas reference/ e scripts/ de mcp-server-routing para a estrutura de mcp-tool-developer, eliminando em seguida o diretório redundante curated-youtube/mcp-server-routing.",
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J2"
+  },
+  {
+    "cluster": [
+      "pytest-and-jest-automation",
+      "javascript-testing-patterns"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "javascript-testing-patterns é uma skill de alta fidelidade e profundidade técnica (possuindo um playbook detalhado de 1.025 linhas) com foco estrito e abrangente no ecossistema JavaScript e TypeScript (Jest, Vitest, Testing Library, Supertest, mocking e testes de integração). Por outro lado, pytest-and-jest-automation foi originada a partir de pytest-automation (upstream da Anthropic focado em testes Python com pytest), mas sofreu uma extensão inadequada em seu nome e metadados para incluir Jest e Vitest, embora seu corpo seja um stub sem implementação de código JS. A recomendação não é MERGE porque os domínios de linguagem fundamentais (Python vs JavaScript/TypeScript) devem permanecer desacoplados para manter a integridade dos prompts de agentes. A recomendação técnica é LAPIDAR: purgar de pytest-and-jest-automation qualquer referência a Jest, Vitest, JavaScript e TypeScript, especializando seu conteúdo estritamente para automação de testes em Python (pytest, fixtures, parametrize, mocks e coverage), enquanto javascript-testing-patterns retém com exclusividade todo o escopo de testes em JS/TS.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J2"
+  },
+  {
+    "cluster": [
+      "ad-creative",
+      "paid-ads"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "ad-creative e paid-ads representam papéis complementares mas distintos em marketing de crescimento: ad-creative foca na geração textual e visual, variação para testes A/B, restrições de caracteres e iteração baseada em métricas criativas, enquanto paid-ads foca na estratégia de mídia paga, arquitetura de campanhas, alocação de orçamento, bid strategies e rastreamento (GA4/pixels). Contudo, paid-ads inclui seções redundantes de fórmulas de copywriting (PAS, BAB, headlines) e possui gatilhos de ativação excessivamente genéricos, gerando colisão. A recomendação é LAPIDAR: remover o bloco de fórmulas de copy de paid-ads substituindo-o por referência delegatória a ad-creative, e calibrar o 'Use when...' de paid-ads para focar exclusivamente em gestão de tráfego, orçamentos e configuração de contas.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J3"
+  },
+  {
+    "cluster": [
+      "agent-qa-debug-fix",
+      "agent-qa-result-triage"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas as skills integram o framework Agent QA compondo um pipeline de qualidade de duas etapas: agent-qa-result-triage é uma ferramenta segura (risk: safe) de análise e classificação diagnóstica somente-leitura de execuções com falha, enquanto agent-qa-debug-fix é uma ferramenta crítica (risk: critical) responsável por aplicar patches em código/YAML e executar validações locais. A separação respeita o princípio de privilégio mínimo e governança de segurança para agentes autônomos. As skills já referenciam uma à outra internamente. A recomendação é DEMARCAR: manter ambas intactas e calibrar estritamente suas descrições e cláusulas 'Use when...' para que o orquestrador direcione triagens/diagnósticos para agent-qa-result-triage e reserve agent-qa-debug-fix para a execução pós-diagnóstico de correções no código.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J3"
+  },
+  {
+    "cluster": [
+      "emil-design-eng",
+      "review-animations"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "Ambas as skills têm origem comum (emilkowalski/skills). emil-design-eng é um repositório conceitual e prático extenso (700+ linhas) sobre design engineering, física de springs, clip-path, easings e heurísticas de UI, mas incorpora indevidamente uma seção mandatória de revisão de código ('Review Format (Required)') e checklists que colidem diretamente com a função de review-animations. review-animations, por sua vez, é um subagente/revisor especializado com 'disable-model-invocation: true' desenhado estritamente para code review de diffs com postura rigorosa e veredicto formal Block/Approve. A recomendação é LAPIDAR: remover a formatação coercitiva de code review de emil-design-eng para que esta atue como mentora e guia de implementação de UI craft, mantendo review-animations focada na auditoria passiva de motion diffs, demarcando os gatilhos para evitar sobreposição.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J3"
+  },
+  {
+    "cluster": [
+      "fp-errors",
+      "fp-pragmatic"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas foram desenvolvidas pelo mesmo autor (kadu) para TypeScript com fp-ts, mas cumprem papéis de escopo e audiência distintos. fp-pragmatic é um guia introdutório e arquitetural focado no princípio 80/20, pragmatismo e legibilidade, orientando desenvolvedores sobre quando NÃO usar FP e cobrindo conceitos básicos (Pipe, Option, Either inicial). fp-errors é um guia técnico avançado focado exclusivamente na modelagem e resiliência de erros sem exceções, aprofundando em TaskEither, acumulação de erros com NonEmptyArray via Applicative Validation, Do notation, retries e bulk operations com sucesso parcial. Um MERGE prejudicaria a clareza didática de fp-pragmatic e geraria um arquivo massivo (>1400 linhas). A recomendação é DEMARCAR: calibrar as descrições e gatilhos para que fp-pragmatic seja acionada para governança, mindset funcional e boas práticas, e fp-errors seja acionada exclusivamente quando houver demanda explícita de arquitetura de erros e validações complexas.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J3"
+  },
+  {
+    "cluster": [
+      "fp-types-ref",
+      "fp-taskeither-ref"
+    ],
+    "recommendation": "MERGE",
+    "into": "fp-types-ref",
+    "rationale": "Ambas as skills são cheatsheets curtas de referência rápida (79 e 116 linhas, respectivamente) voltadas para a biblioteca fp-ts. fp-types-ref já atua como ponto de entrada para a escolha de tipos (Option vs Either vs Task vs TaskEither), enquanto fp-taskeither-ref isola a sintaxe de TaskEither de maneira excessivamente fragmentada. Manter micro-skills separadas para referências sintáticas da mesma biblioteca dispersa a base de conhecimento e sobrecarrega o roteador do orquestrador. A recomendação é MERGE: unificar fp-taskeither-ref dentro de fp-types-ref, formando uma folha de referência rápida completa e concisa sobre os tipos e operadores fundamentais do fp-ts.",
+    "mergePlan": "1. Em fp-types-ref, manter a árvore de decisão de tipos e a tabela de imports. 2. Incorporar as seções de fp-taskeither-ref ('Create', 'Transform', 'Execute', 'Common Patterns' e 'vs async/await') sob uma seção dedicada 'TaskEither Reference' em fp-types-ref. 3. Atualizar o frontmatter de fp-types-ref incluindo as tags de fp-taskeither-ref (taskeither, async, promise) e expandindo a descrição e cláusula 'When to Use' para cobrir tanto seleção de tipos quanto sintaxe rápida de TaskEither. 4. Descontinuar e remover a pasta/arquivo de fp-taskeither-ref.",
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J3"
+  },
+  {
+    "cluster": [
+      "ui-skills",
+      "ui-skills-root"
+    ],
+    "recommendation": "MERGE",
+    "into": "ui-skills-root",
+    "rationale": "A skill 'ui-skills' é apenas um stub genérico e placeholder redundante originário do mesmo repositório upstream ('ibelick/ui-skills'), sem ferramentas ou orientações acionáveis. Já 'ui-skills-root' é a implementação oficial e operacional do roteador de UI Skills, contendo CLI ('npx ui-skills'), protocolo de roteamento em 7 etapas e regras estritas de seleção. Manter ambas gera confusão direta no orquestrador.",
+    "mergePlan": "Absorver eventuais metadados contextuais ou referências upstream de 'ui-skills' em 'ui-skills-root', atualizando a descrição do 'ui-skills-root' para deixar explícito que é a porta de entrada para todas as UI skills do ecossistema ibelick, e remover a pasta/stub 'ui-skills'.",
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J4"
+  },
+  {
+    "cluster": [
+      "ui-tokens",
+      "ui-pattern"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora compartilhem o prefixo 'ui-' e pertençam ao mesmo ecossistema (StyleSeed), atuam em domínios arquiteturais complementares e distintos: 'ui-tokens' gerencia a camada de dados e variáveis CSS/JSON de design tokens (cores, espaçamentos, tipografia), enquanto 'ui-pattern' gera composições estruturais de layouts e componentes visuais (grids, cards, form sections). Ambas já possuem documentação madura com fronteiras de uso e regras 'When NOT to use' que evitam sobreposição mútua.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J4"
+  },
+  {
+    "cluster": [
+      "ui-ux-designer",
+      "ui-ux-pro-max",
+      "ui-visual-validator"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As três skills são especialistas complementares em fases distintas do ciclo de vida de UI/UX: concepção, ideação, wireframing e pesquisa de usuário ('ui-ux-designer'); geração assistida de design system, tokens e guidelines para código frontend com CLI executável ('ui-ux-pro-max'); e garantia de qualidade visual, testes de regressão com screenshots e auditoria de conformidade pós-renderização ('ui-visual-validator'). As três devem ser preservadas integralmente, sendo necessário apenas calibrar suas descrições e gatilhos 'Use when...' e 'Do not use when...' para eliminar ambiguidades que possam confundir o roteamento do orquestrador.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J4"
+  },
+  {
+    "cluster": [
+      "ui-a11y",
+      "ui-lint"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora ambas atuem na verificação estática de código no ecossistema StyleSeed, seus objetivos, critérios e ferramentas são substancialmente distintos: 'ui-lint' é um linter sintático ultrarrápido baseado em grep/regex para detectar anti-patterns de Tailwind v4 e convenções de código, enquanto 'ui-a11y' realiza auditoria detalhada de conformidade estrutural com os padrões de acessibilidade WCAG 2.2 AA (contraste, touch targets, ARIA, foco). As skills já definem escopos claros e exclusões mútuas.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J4"
+  },
+  {
+    "cluster": [
+      "tdd",
+      "tdd-orchestrator"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As skills operam em níveis de abstração distintos e complementares do Test-Driven Development: 'tdd' (de Matt Pocock) é um guia tático e focado na prática diária do desenvolvedor na codificação (fatias verticais, tracer bullets, micro-ciclo Red-Green-Refactor, regras de mock em boundaries), enquanto 'tdd-orchestrator' foca no nível estratégico e organizacional (governança de testes, pipelines de CI/CD, métricas corporativas, pirâmide de testes e coordenação multi-agente). Ambas devem ser mantidas, ajustando os gatilhos para que 'tdd' seja acionado em implementação prática de código e 'tdd-orchestrator' em planejamento de arquitetura, governança e orquestração de testes.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J4"
+  },
+  {
+    "cluster": [
+      "tdd-workflows-tdd-green",
+      "tdd-workflows-tdd-red",
+      "tdd-workflows-tdd-refactor"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "As três skills representam as fases especializadas do ciclo canônico de TDD (Red, Green e Refactor). A separação modular por fase é uma prática sólida em sistemas agentic, pois cada etapa impõe restrições mutuamente exclusivas ao modelo (no Red é proibido escrever código de produção; no Green é proibido antecipar refatorações; no Refactor é proibido alterar comportamento ou adicionar novos testes). No entanto, o cluster necessita de profunda lapidação interna: 'tdd-workflows-tdd-green' teve seu SKILL.md corrompido/truncado (começa abruptamente sem bloco de código e suas diretrizes essenciais foram isoladas indevidamente em 'resources/implementation-playbook.md'), enquanto 'tdd-workflows-tdd-refactor' possui metadados tautológicos genéricos e referências a arquivos inexistentes. É necessário restaurar o corpo de 'tdd-workflows-tdd-green', aprimorar o conteúdo de 'tdd-workflows-tdd-refactor' e calibrar rigorosamente as transições de fase entre as três skills.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J5"
+  },
+  {
+    "cluster": [
+      "unit-testing-test-generate",
+      "test-automator",
+      "test-fixing"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As três skills cobrem estágios claramente complementares e distintos do ciclo de qualidade de software: 'unit-testing-test-generate' é focada na análise estática (AST) e geração de novos testes unitários para código-fonte desprovido de cobertura; 'test-fixing' foca exclusivamente na triagem sistemática, categorização de erros e correção de suítes de testes quebradas; já 'test-automator' atua como meta-arquiteto de qualidade para pipelines de CI/CD, frameworks E2E (Playwright, Selenium, Appium), testes de performance e ferramentas low-code. A sobreposição existente é puramente descritiva, causada por gatilhos genéricos (placeholders) em 'test-automator'. A solução consiste em demarcar os gatilhos 'Use when...' / 'Do not use when...', assegurando que 'test-automator' delegue explicitamente a geração de testes unitários para 'unit-testing-test-generate' e a correção de testes falhos para 'test-fixing'.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J5"
+  },
+  {
+    "cluster": [
+      "youtube-transcript",
+      "youtube-summarizer"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas as skills possuem implementações e propósitos finais distintos, embora compartilhem a etapa intermediária de obtenção do texto de vídeos do YouTube. 'youtube-transcript' é um utilitário técnico de baixo nível para extração de transcrições e legendas brutas (via DeepAPI ou fallback local yt-dlp/json3) persistindo arquivos .txt sem processamento semântico. Já 'youtube-summarizer' é um gerador de documentação analítica e pedagógica que utiliza 'youtube-transcript-api' para alimentar o framework de síntese estruturada STAR + R-I-S-E em Markdown. O conflito atual surge porque 'youtube-summarizer' lista como gatilho 'User needs transcripts from YouTube videos for analysis'. A calibração dos gatilhos 'Use when...' resolverá a ambiguidade: 'youtube-transcript' deve ser o ponto de contato exclusivo para extração de transcrições/legendas puras, enquanto 'youtube-summarizer' deve ser ativada apenas quando o usuário solicitar síntese, resumo ou análise do conteúdo do vídeo.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J5"
+  },
+  {
+    "cluster": [
+      "youtube-full",
+      "youtube-notetaker"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "As skills coincidem apenas no prefixo 'youtube', pertencendo a categorias e arquiteturas completamente diferentes. 'youtube-full' é um cliente de API REST em nuvem sem estado (via TranscriptAPI) projetado para ambientes serverless e cloud onde yt-dlp é bloqueado, cobrindo busca de vídeos, listagem de canais, monitoramento de uploads e transcrições via chamadas HTTP leves. Em contrapartida, 'youtube-notetaker' é um pipeline multimídia local complexo que baixa vídeos em MP4 via yt-dlp, usa ffmpeg para detecção de cenas e corte de slides em JPG, compõe notas de estudo em Markdown e inicializa um servidor local em Python ('serve.py') para disponibilizar um visualizador web interativo. Não há sobreposição funcional, de ferramentas ou de caso de uso.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J5"
+  },
+  {
+    "cluster": [
+      "wordpress-plugin-development",
+      "wp-guard"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "As duas skills representam papéis complementares clássicos do ciclo de engenharia: 'wordpress-plugin-development' é o gerador/arquiteto (Builder), guiando o scaffolding e desenvolvimento de novos plugins, hooks, admin screens com DataViews e novidades do WordPress 7.0 (Abilities API e AI Connectors). Por sua vez, 'wp-guard' é um guardrail cognitivo de auditoria de segurança e integridade (Linter/Auditor pré-embarque), inspecionando código gerado contra falhas graves (escape tardio, sanitização precoce, nonces/capabilities, SQLi via prepare, i18n e performance). A própria documentação de 'wp-guard' pontua expressamente que não define arquitetura ou regras de negócio, mas apenas audita como o código é entregue. Seus domínios e propósitos são substancialmente distintos.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J5"
+  },
+  {
+    "cluster": [
+      "wordpress-theme-development",
+      "wordpress-woocommerce-development"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora ambas compartilhem o prefixo 'wordpress-' e façam referência ao ecossistema moderno do WordPress 7.0 (como DataViews e admin refresh), seus domínios técnicos e propósitos arquiteturais são completamente distintos. 'wordpress-theme-development' foca estritamente na arquitetura de temas, hierarquia de templates (index, single, archive, 404), theme.json, blocos Gutenberg e estilização frontend. Já 'wordpress-woocommerce-development' foca nas regras de negócio de e-commerce, configuração de catálogo, métodos de envio, integração com gateways de pagamento (Stripe, PayPal), Abilities API para inventário e pedidos, e detecção de fraudes. Não há sobreposição de ativação nem redundância técnica entre desenvolvimento de temas e arquitetura de loja virtual.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J6"
+  },
+  {
+    "cluster": [
+      "wordpress-penetration-testing",
+      "wp-site-health-auditor"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Trata-se de uma falsa equivalência motivada por palavras-chave em comum ('wordpress', 'security'). 'wordpress-penetration-testing' é uma skill de segurança ofensiva (pentesting) baseada em ferramentas de ataque externas (WPScan, Metasploit, Nmap, exploração de CVEs, enumeração de usuários e ataques de força bruta). Em contrapartida, 'wp-site-health-auditor' é uma skill de manutenção defensiva e administração de sistemas focada em interpretar o painel interno 'Site Health' (Ferramentas > Diagnóstico) do WordPress e aplicar correções seguras de configuração com rotinas de backup, WP-CLI e validação de linting PHP. Os perfis de usuário, ferramentas, posturas de segurança (ofensiva vs. corretiva interna) e objetivos são completamente diferentes.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J6"
+  },
+  {
+    "cluster": [
+      "sendblue-api",
+      "sendblue-cli",
+      "sendblue-notify"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "O trio forma uma suíte oficial coesa de três camadas complementares para Sendblue: protocolo de integração HTTP/REST ('sendblue-api'), ferramenta CLI de terminal ('sendblue-cli') e padrão de orquestração de notificações com gating de duração ('sendblue-notify'). A fragmentação modular é conceitualmente correta e intencional. No entanto, existe colisão direta de gatilhos de ativação ('Use when...') entre 'sendblue-cli' e 'sendblue-notify': ambas reivindicam frases como 'ping my phone', 'notify on completion' e 'text me when X finishes'. A demarcação é necessária para calibrar os gatilhos: 'sendblue-cli' deve responder exclusivamente a comandos diretos de shell, autenticação e gerenciamento de credenciais via @sendblue/cli, enquanto 'sendblue-notify' deve ter a exclusividade sobre padrões de alerta assíncrono de finalização de tarefas ('text me when done') e integração com Stop hooks.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J6"
+  },
+  {
+    "cluster": [
+      "seo-images",
+      "seo-image-gen"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "As skills cobrem fases opostas do ciclo de vida de mídia e foram projetadas intencionalmente para atuar em cadeia, como explicitado na seção 'Cross-Skill Integration' de 'seo-image-gen'. 'seo-images' é uma ferramenta de auditoria e diagnóstico estático que inspeciona tags <img> existentes (texto alternativo, formatos WebP/AVIF, Core Web Vitals/CLS, tamanhos e lazy loading). Por outro lado, 'seo-image-gen' é um pipeline generativo ativo que cria novos arquivos visuais para SEO (cards Open Graph, banners hero, assets de schema) integrando a extensão MCP 'banana' e modelos de geração de imagem Gemini. Não há redundância funcional nem colisão de triggers entre auditoria estática e geração generativa de imagens.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J6"
+  },
+  {
+    "cluster": [
+      "seo-meta-optimizer",
+      "seo-aeo-meta-description-generator"
+    ],
+    "recommendation": "MERGE",
+    "into": "seo-meta-optimizer",
+    "rationale": "Ambas as skills implementam a mesma funcionalidade de forma fragmentada e redundante: criação de títulos e meta descrições otimizados para SEO e taxa de clique (CTR), geração de 3 variações A/B por página e tags de compartilhamento social. 'seo-meta-optimizer' possui um escopo mais canônico (incluindo URLs, suporte a CMS como WordPress/Yoast/RankMath e frameworks como Next.js/Astro), porém contém boilerplate genérico e referências a arquivos inexistentes. Já 'seo-aeo-meta-description-generator' traz frameworks de redação de CTR robustos (V1 Benefício, V2 Pergunta, V3 Prova Social) e regras explícitas para Open Graph e Twitter Cards, mas tem nomenclatura excessivamente restrita. A unificação sob 'seo-meta-optimizer' consolida as melhores práticas de ambas em uma skill completa e elimina a ambiguidade para o orquestrador.",
+    "mergePlan": "1. Destino: 'seo-meta-optimizer'.\n2. Incorporar a estrutura de 3 ângulos de CTR de 'seo-aeo-meta-description-generator' (V1 Benefit Lead, V2 Question Hook, V3 Social Proof/Specificity) nas regras de geração de variações.\n3. Absorver a seção de tags sociais (Open Graph e Twitter Card tags) e SERP preview de 'seo-aeo-meta-description-generator'.\n4. Preservar as regras de estrutura de URL, limites de caracteres/pixels, integrações de CMS (Yoast/RankMath) e componentes de frameworks (Astro/Next.js) já presentes em 'seo-meta-optimizer'.\n5. Remover o boilerplate vazio e a referência ao arquivo inexistente 'resources/implementation-playbook.md' de 'seo-meta-optimizer'.\n6. Depreciar e remover 'seo-aeo-meta-description-generator' redirecionando seus gatilhos para 'seo-meta-optimizer'.",
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J6"
+  },
+  {
+    "cluster": [
+      "seo-aeo-content-cluster",
+      "seo-aeo-content-quality-auditor"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "seo-aeo-content-cluster atua no planejamento macroestratégico de autoridade tópica, arquitetura de conteúdo e mapeamento de links internos entre pillar pages e cluster articles (etapa pré-redação). Já seo-aeo-content-quality-auditor é uma ferramenta de auditoria e pontuação de qualidade técnica (score SEO/AEO, legibilidade, densidade de palavras-chave e checklists de correção com níveis de severidade) aplicada a textos já existentes (etapa pós-redação). Embora compartilhem o prefixo de domínio seo-aeo-content-, seus objetivos, ciclo de vida editorial, dados de entrada e saídas são completamente distintos e complementares no pipeline, sem qualquer sobreposição funcional.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J7"
+  },
+  {
+    "cluster": [
+      "seo-aeo-blog-writer",
+      "seo-aeo-landing-page-writer"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas as skills pertencem ao framework seo-aeo-engine e aplicam convenções de redação AEO (definição em blockquote após H1, tabela comparativa e FAQ estruturado para extração por LLMs com respostas <50 palavras). No entanto, atendem a formatos de conteúdo e intenções de busca fundamentalmente divergentes: seo-aeo-blog-writer é direcionada à redação de artigos editoriais long-form (800-3000 palavras) com foco informativo e educativo para construção de autoridade tópica, enquanto seo-aeo-landing-page-writer é especializada em páginas de conversão comercial/vendas para produtos e serviços (narrativa: Hero -> Problema -> Solução -> Benefícios -> Prova Social -> CTAs -> Comparativo -> FAQ). Devem ser mantidas separadas e completas, porém com calibração em seus metadados de ativação ('description' e 'When to Use') introduzindo demarcadores explícitos e gatilhos negativos para evitar que o orquestrador direcione solicitações genéricas de conteúdo AEO para a skill inadequada.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J7"
+  },
+  {
+    "cluster": [
+      "seo-sitemap",
+      "seo-hreflang"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Tratam-se de domínios técnicos de SEO completamente distintos. seo-sitemap foca exclusivamente na geração, auditoria e governança de sitemaps XML para indexação e rastreamento geral (limite de 50k URLs, status HTTP 200, lastmod, diretivas robots.txt, sitemap index e qualidade de programmatic SEO). Já seo-hreflang foca em SEO internacional e regional (códigos ISO 639-1 e ISO 3166-1, reciprocidade bidirecional obrigatória, tag x-default e alinhamento canônico), que pode ser implementado via HTML head, HTTP headers ou sitemaps com namespace xhtml. O agrupamento ocorreu apenas por similaridade sintática no prefixo seo- e menção ao protocolo sitemap. Não há sobreposição de responsabilidades.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J7"
+  },
+  {
+    "cluster": [
+      "threejs-lighting",
+      "threejs-materials"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Iluminação e Materiais são pilares ortogonais e canônicos da computação gráfica 3D e do Three.js. threejs-lighting foca exclusivamente em emissores e propriedades de iluminação (Ambient, Directional, Point, Spot, RectArea), configuração de mapas de sombras (frustum, bias, normalBias, ContactShadows) e IBL (PMREMGenerator, RGBELoader, LightProbes). threejs-materials foca na resposta de superfície de geometrias e sombreamento (MeshStandard, MeshPhysical, MeshLambert, MeshToon, ShaderMaterial, TSL/NodeMaterial, clearcoat, roughness, transmission, IOR). Ambas são skills densas (>490 e >550 linhas) de alta especialização técnica que já se complementam nativamente. Uma fusão prejudicaria severamente a modularidade e o consumo contextual das diretrizes de 3D.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J7"
+  },
+  {
+    "cluster": [
+      "unslop-commit",
+      "unslop-file"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora originárias do mesmo repositório upstream (unslop), tratam-se de utilitários com interfaces, mecânicas de execução e contextos de aplicação disjuntos. unslop-commit é um assistente de fluxo Git que sintetiza/reescreve mensagens de commit no padrão Conventional Commits (imperativo, limite de caracteres ≤72, remoção de buzzwords de IA), operando de forma puramente textual sem tocar no sistema de arquivos. Já unslop-file é uma ferramenta CLI que executa scripts Python locais contra arquivos em disco (CLAUDE.md, documentações markdown, etc.), criando backups .original.md e aplicando passes determinísticos via regex ou LLM preservando estritamente blocos de código e comandos. Os gatilhos e propósitos não colidem.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J7"
+  },
+  {
+    "cluster": [
+      "vercel-optimize",
+      "vercel-ai-sdk-expert",
+      "vercel-react-view-transitions"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "O agrupamento decorre unicamente da coincidência do prefixo 'vercel-', mas as três skills operam em domínios arquiteturais e camadas de desenvolvimento completamente distintos, sem qualquer sobreposição de ferramentas ou intenções: (1) 'vercel-optimize' foca em infraestrutura, observabilidade e profiling de produção para deploys na Vercel (CLI v53+, Observability Plus, métricas de funções serverless, análise de custos e cache); (2) 'vercel-ai-sdk-expert' foca em engenharia de software para aplicações de IA generativa com a biblioteca Vercel AI SDK ('ai', '@ai-sdk/react'), cobrindo streaming de chat, geração estruturada de JSON com Zod, tool calling e generative UI; (3) 'vercel-react-view-transitions' foca em animações de UI e transições de tela no frontend com a API nativa React View Transitions ('<ViewTransition>', 'document.startViewTransition', shared elements e classes CSS). Não há concorrência de escopo, arquivos ou gatilhos de ativação.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J8"
+  },
+  {
+    "cluster": [
+      "vector-database-engineer",
+      "vector-index-tuning"
+    ],
+    "recommendation": "MERGE",
+    "into": "vector-database-engineer",
+    "rationale": "'vector-index-tuning' é um subconjunto estritamente operacional da competência mais ampla de 'vector-database-engineer'. Enquanto 'vector-database-engineer' define a arquitetura macro de bancos vetoriais, modelos de embedding, chunking, busca híbrida e RAG, ela contém apenas 69 linhas em formato de tópicos e cita explicitamente 'resources/implementation-playbook.md' — arquivo inexistente em seu próprio diretório. Em contrapartida, 'vector-index-tuning' possui um SKILL.md de 51 linhas acompanhado exatamente pelo robusto 'resources/implementation-playbook.md' (508 linhas com algoritmos, matrizes de quantização e benchmarks empíricos em Python com hnswlib/faiss). Manter duas skills separadas fragmenta a engenharia de bancos de dados vetoriais e causa colisão direta de roteamento quando o usuário solicita otimização de latência, memória e recall (HNSW/PQ) em um banco vetorial.",
+    "mergePlan": "1. Mover 'resources/implementation-playbook.md' de 'vector-index-tuning' para 'vector-database-engineer/resources/implementation-playbook.md', resolvendo a dependência quebrada.\n2. Incorporar na descrição e na seção 'Use this skill when' de 'vector-database-engineer' os gatilhos específicos de tuning de hiperparâmetros HNSW (M, efConstruction, efSearch), estratégias de quantização (FP16, INT8, PQ, binária) e benchmarking de recall vs latência.\n3. Incorporar o checklist de segurança e plano de rollback pré-reindexação em produção presente em 'vector-index-tuning'.\n4. Descontinuar e remover o diretório 'vector-index-tuning', unificando a engenharia de bancos vetoriais da arquitetura ao fine-tuning de índice.",
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J8"
+  },
+  {
+    "cluster": [
+      "skill-creator",
+      "skill-writer"
+    ],
+    "recommendation": "MERGE",
+    "into": "skill-creator",
+    "rationale": "Ambas as skills competem diretamente pelo mesmo propósito canônico de criar, redigir e iterar sobre Agent Skills ('Use when asked to create, write, or update skills'). 'skill-creator' (da suíte oficial Anthropic / curated-youtube) é um framework executável e iterativo de 33 KB com subagentes especializados (grader, comparator, analyzer), suíte de benchmark e visualizador iterativo de reviews via script Python ('generate_review.py'), além de otimização de gatilhos ('run_loop.py'). 'skill-writer' (do Agentic Awesome Skills) é uma implementação documental que traz taxonomias conceituais valiosas (padrões de workflow, padrões de saída determinísticos, matriz de decisão de modos e gates de profundidade). Manter ambas como skills ativas causa fragmentação e colisão de ativação primária pelo orquestrador. A fusão em 'skill-creator' consolida a melhor suíte de execução dinâmica com os melhores princípios de arquitetura estática.",
+    "mergePlan": "1. Adotar 'skill-creator' como skill destino canônica devido à sua infraestrutura completa de execução ('eval-viewer/', 'scripts/', 'agents/').\n2. Migrar os guias de design e padrões arquiteturais de 'skill-writer/references/' (notadamente 'workflow-patterns.md', 'output-patterns.md', 'mode-selection.md' e 'design-principles.md') para dentro da pasta 'references/' de 'skill-creator'.\n3. Adicionar na seção de redação ('Write the SKILL.md / Skill Writing Guide') de 'skill-creator' referências explícitas a essas taxonomias de padrões estruturais para quando o usuário desejar uma abordagem estática sem rodar evals completas.\n4. Descontinuar 'skill-writer' no catálogo de skills para eliminar conflito de orquestração.",
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J8"
+  },
+  {
+    "cluster": [
+      "skill-improver",
+      "skill-optimizer"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As duas skills tratam de fases complementares, mas metodologicamente distintas, do ciclo de vida de manutenção de skills: (1) 'skill-optimizer' é uma ferramenta analítica de diagnóstico estritamente somente-leitura ('Read-only: never modify skill files. Only output report'), analisando telemetria real de uso através de mineração de transcripts JSONL de sessões passadas em 8 dimensões empíricas (taxa real de acionamento vs keywords, undertriggering, sentimento pós-execução, conclusão de workflow e economia de tokens); (2) 'skill-improver' é um ciclo de remediação ativa e edição de arquivos (read-write), projetado para executar loops contínuos de correção de lint/estrutura em um arquivo 'SKILL.md' específico até obter aprovação do agente 'skill-reviewer' (finalizando com o hook de parada '<skill-improvement-complete>'). Embora o nome 'optimizer' sugira alteração de arquivos, a skill é estritamente de auditoria diagnóstica de telemetria da biblioteca, enquanto 'skill-improver' é de refatoração automatizada de código. Ambas devem coexistir, necessitando apenas de demarcação clara de gatilhos nas descrições para direcionar diagnósticos de telemetria a 'skill-optimizer' e refatoração direta a 'skill-improver'.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)",
+    "batch": "J8"
+  },
+  {
+    "cluster": [
+      "skill-scanner",
+      "skill-audit"
+    ],
+    "recommendation": "MERGE",
+    "into": "skill-scanner",
+    "rationale": "Ambas as skills abordam exatamente a mesma funcionalidade com o mesmo propósito: análise estática e comportamental de segurança pré-instalação de skills de agentes de terceiros para detectar injeção de prompt, código malicioso, exfiltração de credenciais, abuso de permissões e riscos de supply chain. 'skill-scanner' possui uma arquitetura de avaliação mais robusta em 8 fases estruturadas, incluindo análise comportamental (envenenamento de 'CLAUDE.md' e 'MEMORY.md'), formato de vulnerabilidades com IDs específicos ('[SKILL-SEC-XXX]') e diferenciação criteriosa entre código atacante e código que documenta ameaças (minimizando falsos positivos). Já 'skill-audit' contribui com checagens valiosas de engenharia social (urgência, falsa autoridade e comandos ocultos em comentários), inteligência de repositório (idade da conta, fazendas de estrelas), escala de risco de 0 a 100 e catálogo de vetores reais documentados. Manter ambas separadas é redundância direta de catálogo.",
+    "mergePlan": "1. Adotar 'skill-scanner' como skill destino canônica, mantendo sua estrutura em 8 fases e formato de relatório vulnerabilidade por vulnerabilidade.\n2. Incorporar em 'skill-scanner' as etapas de 'Social Engineering Check' (detecção de urgência fabricada, autoridade falsa e instruções ocultas em comentários) e 'Repo Intelligence' (avaliação de antiguidade de conta, perfil de repositórios e anomalias de estrelas) provenientes de 'skill-audit'.\n3. Adicionar a escala de risco numérico (0-39 Seguro, 40-69 Médio Risco, 70-100 Crítico) e os exemplos de ataques reais documentados de 'skill-audit' dentro das diretrizes de avaliação de 'skill-scanner'.\n4. Calibrar a descrição de 'skill-scanner' para cobrir explicitamente o gatilho pré-instalação ('Use when evaluating or auditing third-party agent skills before installation...').\n5. Descontinuar/remover 'skill-audit' do catálogo de skills.",
+    "reviewModel": "Tier 2 (High-Reasoning)",
+    "batch": "J8"
+  }
+]

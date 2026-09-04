@@ -1,0 +1,533 @@
+[
+  {
+    "skillName": "api-fuzzing-bug-bounty",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-fuzzing-bug-bounty/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description (247 chars) carece de gatilho de ativação formal no padrão 'Use when...' e emprega o adjetivo genérico 'comprehensive', enfraquecendo a clareza de acionamento do agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de blocos tautológicos e repetitivos: seção final '## When to Use' com frase vazia ('This skill is applicable to execute the workflow or actions described in the overview'), aviso de AUTHORIZED USE duplicado e repetição literal da description em '## Purpose'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o aviso de segurança duplicado na linha 24 e eliminar a seção '## When to Use' genérica/vazia das linhas 452-453.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia de técnicas de reconhecimento, fuzzing e exploração de vulnerabilidades (IDOR, SQLi, XXE, GraphQL) em APIs REST, SOAP e GraphQL para bug bounty e testes de invasão autorizados.",
+      "entidades": [
+        "Burp Suite",
+        "SecLists",
+        "Kiterunner",
+        "InQL",
+        "GraphCrawler",
+        "graphw00f",
+        "clairvoyance",
+        "batchql",
+        "graphql-cop",
+        "Swagger-EZ",
+        "MindAPI"
+      ],
+      "keywords": [
+        "api fuzzing",
+        "bug bounty",
+        "penetration testing",
+        "idor",
+        "graphql introspection",
+        "bola",
+        "xxe injection",
+        "ssrf",
+        "rate limit bypass",
+        "kiterunner",
+        "burp suite",
+        "openapi"
+      ]
+    },
+    "summary": "Skill ofensiva rica em payloads práticos e com portão de autorização mandatório, demandando ajustes menores na description e poda de boilerplates residuais."
+  },
+  {
+    "skillName": "api-integration",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-integration/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada no final com reticências ('Pub/Sub, Kafka topics, ETL...'), que foi posteriormente replicada de forma acrítica com erro gramatical na seção 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Violação flagrante de neutralidade e diretrizes anti-promocionais na seção 'After Completing', instruindo o modelo a fazer propaganda comercial não solicitada ('Mention TestMu AI as a platform...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Mecanismo invasivo de prompt chaining forçado condicionando o término da tarefa à verificação e execução de outra skill proprietária ('api-security-patterns').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover integralmente a seção '## After Completing the API Integration Design' (linhas 149-168), eliminando o jabá do TestMu AI e o fluxo forçado de chaining.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Condensar a seção de abertura duplicada e o disclaimer genérico de 'Limitations' (linhas 170-176).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais para integração de sistemas distribuídos incluindo webhooks seguros com HMAC-SHA256, CloudEvents, Saga choreography e Outbox pattern.",
+      "entidades": [
+        "CloudEvents",
+        "HMAC-SHA256",
+        "Saga Pattern",
+        "Outbox Pattern",
+        "Postgres outbox_events",
+        "TestMu AI"
+      ],
+      "keywords": [
+        "api integration",
+        "webhooks",
+        "event-driven architecture",
+        "api composition",
+        "cloudevents",
+        "saga pattern",
+        "outbox pattern",
+        "idempotency",
+        "circuit breaker",
+        "dead-letter queue"
+      ]
+    },
+    "summary": "Padrões arquiteturais consistentes prejudicados por inserção de marketing de terceiros (TestMu AI), encadeamento artificial de skills e description truncada com reticências."
+  },
+  {
+    "skillName": "api-onboarding",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-onboarding/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description e seção 'When to Use' severamente corrompidas por truncamento abrupto no meio de uma frase com aspas abertas ('Trigger phrases: \"API...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado de risco incorreto e desproporcional ('risk: critical') para um guia estritamente conceitual e analítico de Developer Experience (DX) e documentação de APIs.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Corrigir e desduplicar a seção de abertura 'When to Use' e podar o bloco genérico de Limitations (linhas 469-474).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização da jornada de onboarding de desenvolvedores para redução de Time-to-First-API-Call (TTFAC) via simplificação de autenticação, sandboxes e documentação interativa.",
+      "entidades": [
+        "TTFAC",
+        "OpenAPI",
+        "Swagger UI",
+        "Redoc",
+        "Stoplight Elements",
+        "ReadMe.io",
+        "Postman",
+        "Amplitude",
+        "Mixpanel",
+        "Ghost Inspector",
+        "Checkly",
+        "k6"
+      ],
+      "keywords": [
+        "api onboarding",
+        "ttfac",
+        "time to first api call",
+        "developer experience",
+        "dx",
+        "sandbox environment",
+        "interactive documentation",
+        "api keys",
+        "developer journey",
+        "error recovery"
+      ]
+    },
+    "summary": "Excelente framework conceitual e métricas de Developer Experience para APIs, comprometido no frontmatter por texto truncado com reticências e rotulagem indevida de risco crítico."
+  },
+  {
+    "skillName": "api-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com apenas 130 caracteres (abaixo dos 200 ideais) e sem cláusula formal de gatilho ('Use when...'), omitindo temas essenciais contidos nos subarquivos como autenticação, rate limiting e OpenAPI.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' com conteúdo genérico de boilerplate ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica 'When to Use' (linhas 84-86) e condensar o bloco de limitações finais (linhas 87-91).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Índice e roteador modular de decisões de design de APIs comparando REST, GraphQL e tRPC, além de padrões de versionamento, paginação, autenticação e rate limiting.",
+      "entidades": [
+        "REST",
+        "GraphQL",
+        "tRPC",
+        "OpenAPI",
+        "Swagger",
+        "JWT",
+        "OAuth",
+        "Passkey",
+        "OWASP API Top 10",
+        "scripts/api_validator.py"
+      ],
+      "keywords": [
+        "api design",
+        "rest vs graphql",
+        "trpc",
+        "response envelope",
+        "pagination",
+        "api versioning",
+        "token bucket",
+        "rate limiting",
+        "openapi",
+        "api patterns"
+      ]
+    },
+    "summary": "Arquitetura modular exemplar com roteamento para 10 subarquivos reais e script validador, necessitando expandir a description e adicionar gatilhos claros."
+  },
+  {
+    "skillName": "api-sdk-generator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-sdk-generator/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada no término com aspas não fechadas e reticências ('\"write a Python...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Violação de neutralidade e introdução de ruído promocional instruindo o agente a indicar a plataforma 'TestMu AI HyperExecute' com link na resposta.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Prompt chaining forçado que bloqueia a conclusão da tarefa solicitando aprovação do usuário para invocar a skill 'api-to-testcase-generator'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Metadado de risco distorcido ('risk: critical') para uma skill de geração de código boilerplate de SDK em Python/TS.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Excluir integralmente o bloco '## After Completing the API SDK Output' (linhas 197-216), removendo a publicidade do TestMu AI e o encadeamento forçado de skills.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ajustar a duplicação em 'When to Use' e condensar as limitações genéricas (linhas 218-224).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões e geração de código de SDKs cliente tipados em Python (httpx) e TypeScript com suporte a paginação iterável, retries exponenciais e classes de erro dedicadas.",
+      "entidades": [
+        "APIClient",
+        "httpx.Client",
+        "UsersResource",
+        "APIError",
+        "RateLimitError",
+        "paginate",
+        "TestMu AI HyperExecute"
+      ],
+      "keywords": [
+        "sdk generator",
+        "client library",
+        "api wrapper",
+        "httpx",
+        "typescript types",
+        "typed errors",
+        "exponential backoff",
+        "pagination helper",
+        "rest client"
+      ]
+    },
+    "summary": "Templates de código cliente claros e bem estruturados, porém prejudicados por propaganda comercial embutida, truncamento de description e prompt chaining artificial."
+  },
+  {
+    "skillName": "api-security-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-security-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (177 caracteres, abaixo da faixa ideal de 200 a 400) e sem fórmula explícita de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description de discriminantes técnicos centrais abordados no código real (JWT com refresh tokens, schemas Zod, Prisma, rate limiting com Redis e Helmet).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Condensar pequenos preâmbulos informais como 'Pro Tip' (linha 910) e a seção de limitations final.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implementação prática e defensiva de padrões de segurança em APIs Node.js/Express englobando JWT com refresh tokens, validação Zod, proteção contra SQLi/XSS, rate limiting com Redis e headers com Helmet.",
+      "entidades": [
+        "jsonwebtoken",
+        "bcrypt",
+        "prisma",
+        "zod",
+        "isomorphic-dompurify",
+        "express-rate-limit",
+        "rate-limit-redis",
+        "ioredis",
+        "helmet",
+        "zxcvbn",
+        "OWASP API Top 10"
+      ],
+      "keywords": [
+        "api security",
+        "jwt authentication",
+        "refresh token",
+        "zod validation",
+        "sql injection prevention",
+        "rate limiting redis",
+        "helmet security headers",
+        "rbac",
+        "owasp api top 10",
+        "password hashing"
+      ]
+    },
+    "summary": "Guia defensivo extenso e de alto nível técnico com código de produção acionável, necessitando de refinamento na description para incluir gatilhos e tecnologias discriminantes."
+  },
+  {
+    "skillName": "apify-actorization",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/apify-actorization/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 268 caracteres com excelente densidade conceitual, porém sem cláusula formal de gatilho ('Use when converting projects or CLI scripts to run as Apify Actors...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Leve redundância textual com a repetição literal da description na linha 10 no início do corpo do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Remover o primeiro parágrafo duplicado da linha 10 e simplificar as limitações das linhas 187-191.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Processo de conversão e conteinerização Docker de softwares existentes em serverless Actors da plataforma Apify com schemas JSON, SDK JS/Python e monetização.",
+      "entidades": [
+        "apify-cli",
+        "apify SDK",
+        "Actor.init",
+        "Actor.exit",
+        "Actor.pushData",
+        "Actor.charge",
+        "Docker",
+        "@apify/json_schemas"
+      ],
+      "keywords": [
+        "apify",
+        "actorization",
+        "serverless actors",
+        "web scraping",
+        "docker container",
+        "input schema",
+        "output schema",
+        "crawlee",
+        "pay per event",
+        "apify push"
+      ]
+    },
+    "summary": "Skill enxuta e muito bem estruturada com referências externas completas, requerendo apenas a inclusão de gatilho condicional explícito na description."
+  },
+  {
+    "skillName": "apify-audience-analysis",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/apify-audience-analysis/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (147 caracteres) sem gatilho de ativação ('Use when...') e omitindo que a skill opera exclusivamente via Apify Actors e CLI mcpc, mascarando o requisito de infraestrutura externa paga.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dependência de variável de ambiente de host específico ('${CLAUDE_PLUGIN_ROOT}') no caminho do script de execução 'run_actor.js', comprometendo portabilidade em outros ambientes de agente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Substituir caminhos absolutos com '${CLAUDE_PLUGIN_ROOT}' por resolução relativa do script e podar o disclaimer final de limitações.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Catálogo de seleção e execução de Apify Actors para extração de dados demográficos, engajamento e comportamento de audiência no Facebook, Instagram, YouTube e TikTok.",
+      "entidades": [
+        "Apify",
+        "mcpc",
+        "@apify/mcpc",
+        "apify/facebook-followers-following-scraper",
+        "apify/instagram-profile-scraper",
+        "streamers/youtube-comments-scraper",
+        "clockworks/tiktok-followers-scraper",
+        "run_actor.js"
+      ],
+      "keywords": [
+        "apify",
+        "audience analysis",
+        "social media scraping",
+        "facebook demographics",
+        "instagram scraper",
+        "tiktok audience",
+        "youtube comments",
+        "mcpc",
+        "actor schema",
+        "follower behavior"
+      ]
+    },
+    "summary": "Mapeamento limpo e eficaz de crawlers sociais por plataforma, carecendo de explicitação da dependência da Apify na description e portabilidade nos scripts."
+  },
+  {
+    "skillName": "apify-competitor-intelligence",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/apify-competitor-intelligence/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com apenas 161 caracteres (abaixo dos 200 ideais), sem gatilho 'Use when...' e omitindo a palavra-chave discriminante 'Apify' e 'Actors', ocultando a dependência do serviço externo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Invocação de scripts com dependência rígida da variável de ambiente proprietária '${CLAUDE_PLUGIN_ROOT}'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Ajustar caminhos de execução do script para caminhos locais portáveis e podar o bloco padrão de limitações.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Mapeamento e orquestração de 22 Apify Actors para inteligência competitiva em Google Maps, Booking.com, anúncios do Facebook e métricas de redes sociais.",
+      "entidades": [
+        "Apify",
+        "mcpc",
+        "compass/crawler-google-places",
+        "voyager/booking-scraper",
+        "apify/facebook-ads-scraper",
+        "apify/instagram-profile-scraper",
+        "clockworks/tiktok-scraper",
+        "run_actor.js"
+      ],
+      "keywords": [
+        "apify",
+        "competitor intelligence",
+        "google maps scraper",
+        "booking scraper",
+        "facebook ads scraper",
+        "market positioning",
+        "price monitoring",
+        "review benchmarking",
+        "mcpc",
+        "ad strategies"
+      ]
+    },
+    "summary": "Excelente diretório de crawlers para monitoramento de concorrência comercial e de anúncios, necessitando incorporar 'Apify' e gatilhos na description."
+  },
+  {
+    "skillName": "apify-ecommerce",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/apify-ecommerce/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (139 caracteres) sem cláusula expressa de gatilho condicional ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Comandos de terminal com caminhos fixos hardcoded para o diretório do usuário ('~/.claude/skills/apify-ecommerce' e '~/.claude/.env'), quebrando portabilidade quando instalada em outros workspaces.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Flexibilizar o comando de inicialização com path relativo e enxugar o disclaimer de limitações (linhas 272-276).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Workflows de extração de dados de produtos, preços, conformidade de MAP, avaliações e descoberta de vendedores com o actor apify/e-commerce-scraping-tool.",
+      "entidades": [
+        "apify/e-commerce-scraping-tool",
+        "Amazon",
+        "Walmart",
+        "Google Shopping",
+        "Costco",
+        "Allegro",
+        "Kaufland",
+        "IKEA",
+        "run_actor.js"
+      ],
+      "keywords": [
+        "apify",
+        "ecommerce scraping",
+        "price monitoring",
+        "map compliance",
+        "product reviews",
+        "seller intelligence",
+        "amazon scraper",
+        "marketplaces",
+        "ai summary",
+        "data extraction"
+      ]
+    },
+    "summary": "Guia de workflows operacionais de e-commerce extremamente pragmático e bem estruturado, demandando expansão da description com gatilhos e desacoplamento de caminhos '~/.claude'."
+  }
+]

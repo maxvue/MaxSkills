@@ -1,6 +1,6 @@
 ---
 name: improve-codebase-architecture
-description: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
+description: "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick. Use when developing, optimizing, debugging, or configuring improve codebase architecture in production workflows."
 disable-model-invocation: true
 category: "development"
 risk: "safe"

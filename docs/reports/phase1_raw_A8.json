@@ -1,0 +1,435 @@
+[
+  {
+    "skillName": "vue-max-ecosystem-api-reference",
+    "skillPath": "created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description possui redundância textual interna repetindo termos ('Covers component props...') e meta-ruído de preenchimento ('Covers objectives').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Catálogo e fonte única de consulta rápida de APIs, props, composables e contratos das bibliotecas MaxComponentsUi, MaxUse e MaxPinia.",
+      "entidades": [
+        "MaxComponentsUi",
+        "MaxPinia",
+        "MaxUse",
+        "Toast",
+        "useConfirmStore",
+        "useRefCached"
+      ],
+      "keywords": [
+        "api",
+        "catálogo",
+        "componentes",
+        "composables",
+        "emits",
+        "maxcomponentsui",
+        "maxpinia",
+        "maxuse",
+        "props",
+        "referência",
+        "slots",
+        "stores"
+      ]
+    },
+    "summary": "Referência de APIs concisa e bem estruturada com progressive disclosure, necessitando apenas de ajuste redacional na description para eliminar redundância."
+  },
+  {
+    "skillName": "vue-max-stack-frontend-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
+    "state": "Regular",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Exemplo ensina classes e atributos utilitários inline no template (ex: s100 flex flex-col, s-70 w-max-400) — adotar classes semânticas e estilizar em <style lang=\"scss\">.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e padrões canônicos para desenvolvimento front-end com Vue 3 SFC, MaxComponentsUi, MaxUse, MaxPinia e rotas Ziggy no EngeApp.",
+      "entidades": [
+        "MaxButton",
+        "MaxComponentsUi",
+        "MaxGrid",
+        "MaxInputCep",
+        "MaxInputCpfCnpj",
+        "MaxInputSelect",
+        "MaxInputText",
+        "MaxLoader",
+        "MaxPinia",
+        "MaxTitle1",
+        "MaxTitle2",
+        "MaxUse",
+        "Toast",
+        "apiGetRoute",
+        "apiPostRoute"
+      ],
+      "keywords": [
+        "atributos",
+        "composition",
+        "engeapp",
+        "forms",
+        "inline",
+        "laravel",
+        "maxcomponentsui",
+        "maxpinia",
+        "maxuse",
+        "pinia",
+        "rotas",
+        "sfc",
+        "typescript",
+        "unocss",
+        "vue3",
+        "ziggy"
+      ]
+    },
+    "summary": "Guia fundamental do front-end com ótima densidade conceitual, pendente de correção técnica nos exemplos de template para adotar classes semânticas com SCSS."
+  },
+  {
+    "skillName": "vue-max-use-development-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-max-use-development-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões rígidos para criação, extensão e teste de composables reativos e helpers puros na biblioteca @maxvue/max-use.",
+      "entidades": [
+        "MaxUse",
+        "MaybeRefOrGetter",
+        "Vitest",
+        "apiGetRoute",
+        "apiPostRoute",
+        "effectScope",
+        "getRoute",
+        "goToRoute",
+        "setRouteResolver",
+        "toValue"
+      ],
+      "keywords": [
+        "autoimport",
+        "composables",
+        "effectscope",
+        "helpers",
+        "maxuse",
+        "maybereforgetter",
+        "reatividade",
+        "testes",
+        "tovalue",
+        "tree-shaking",
+        "typescript",
+        "vitest"
+      ]
+    },
+    "summary": "Totalmente aderente aos padrões de engenharia, tipagem TypeScript, Vitest e arquitetura interna do MaxUse sem pendências."
+  },
+  {
+    "skillName": "vue-max-use-usecachedapi-state-cache-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description contém meta-ruído de preenchimento ('Covers objectives...') que reduz a densidade semântica da frase final.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento de cache de requisições GET em localStorage com revalidação em segundo plano usando useRefCachedApi do @maxvue/max-use.",
+      "entidades": [
+        "MaxPinia",
+        "MaxUse",
+        "apiGetRoute",
+        "apiPostRoute",
+        "useCachedApi",
+        "useInCacheApi",
+        "useRefCachedApi",
+        "useSharedCacheApi"
+      ],
+      "keywords": [
+        "background",
+        "cache",
+        "composables",
+        "defaultvalue",
+        "get",
+        "localstorage",
+        "options",
+        "revalidação",
+        "sync",
+        "usecachedapi",
+        "userefcachedapi",
+        "watch",
+        "ziggy"
+      ]
+    },
+    "summary": "Excelente especificação de caching e ciclo de vida da API, exigindo apenas lapidação redacional no fechamento da description."
+  },
+  {
+    "skillName": "vue-meta-api-oauth-integration-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Exemplo ensina estilo inline style=\"text-align: right;\" e atributo utilitário s50 no template sem bloco <style lang=\"scss\"> scoped.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description contém meta-ruído de preenchimento genérico ('Covers objectives and core workflows.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Interface e store Pinia para cadastro e persistência manual de credenciais da Meta API (Instagram/Facebook) sem fluxo popup OAuth.",
+      "entidades": [
+        "MaxButton",
+        "MaxComponentsUi",
+        "MaxGrid",
+        "MaxInputSwitch",
+        "MaxInputText",
+        "MaxTitle2",
+        "Toast",
+        "useSocialMediaCredentialsStore"
+      ],
+      "keywords": [
+        "credentials",
+        "external_account_id",
+        "facebook",
+        "instagram",
+        "manual",
+        "meta",
+        "pinia",
+        "socialmedia",
+        "tabcredentials",
+        "toast",
+        "token"
+      ]
+    },
+    "summary": "Descreve com precisão a tela manual de credenciais do EngeApp, necessitando sanar estilo inline no template e meta-ruído na description."
+  },
+  {
+    "skillName": "vue-pinia-state-management-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description possui fragmento truncado com meta-ruído de preenchimento ('Covers objectives and best practices, Registro main.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura padrão de gerenciamento de estado com Pinia e plugin @maxvue/max-pinia com cache offline, revalidação e auto-save debounced.",
+      "entidades": [
+        "MaxInputText",
+        "MaxPinia",
+        "apiGetRoute",
+        "apiPostRoute",
+        "createMaxPinia",
+        "defineStore",
+        "useBrandPositioningStore",
+        "useLoadingStore",
+        "useSystemStore",
+        "useUserStore"
+      ],
+      "keywords": [
+        "autosave",
+        "cache",
+        "debounce",
+        "iscached",
+        "localforage",
+        "maxpinia",
+        "options",
+        "pinia",
+        "reload",
+        "revalidação",
+        "status",
+        "stores"
+      ]
+    },
+    "summary": "Documentação canônica robusta e de alta precisão técnica sobre o MaxPinia, necessitando somente de ajuste textual no final da description."
+  },
+  {
+    "skillName": "vue-rss-news-moderation-dashboard-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-rss-news-moderation-dashboard-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura e UX do painel de moderação de notícias RSS com paginação incremental, aprovação de temas e atualização em tempo real via Echo.",
+      "entidades": [
+        "MaxButton",
+        "MaxIcon",
+        "Toast",
+        "useEcho",
+        "useSocialMediaNewsStore",
+        "useSolarCompanyStore"
+      ],
+      "keywords": [
+        "echo",
+        "engeapp",
+        "keywords",
+        "moderação",
+        "notícias",
+        "paginação",
+        "rss",
+        "tabnewsitems",
+        "temas",
+        "websocket",
+        "ziggy"
+      ]
+    },
+    "summary": "Documentação exemplar, hiper-fiel ao código real do EngeApp, sem bloat e perfeitamente aderente aos 13 critérios semânticos."
+  },
+  {
+    "skillName": "vue-toast-notifications-toastify-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-toast-notifications-toastify-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrão de notificações flutuantes na UI com MaxToast, helper Toast.show do MaxComponentsUi e migração do legado vue3-toastify.",
+      "entidades": [
+        "MaxComponentsUi",
+        "MaxPopoverConfirm",
+        "MaxToast",
+        "Toast",
+        "apiGetRoute",
+        "useToastStore"
+      ],
+      "keywords": [
+        "alertas",
+        "app.vue",
+        "feedback",
+        "fila",
+        "maxtoast",
+        "notificações",
+        "severidade",
+        "timers",
+        "toast",
+        "vue3-toastify"
+      ]
+    },
+    "summary": "Guia de referência canônico completo, de alta qualidade e totalmente alinhado aos padrões e ciclo de vida visual do projeto."
+  },
+  {
+    "skillName": "vue-typescript-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description cita 'tsconfig.json', tópico ausente no corpo do documento (fidelidade estrita comprometida), além de meta-ruído ('Covers objectives...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Restrição na linha 106 sugere permissividade com classes utilitárias do UnoCSS inline, em desacordo com a diretriz de classes semânticas em <style lang=\"scss\">.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Convenções de tipagem estrita com TypeScript para SFC Vue 3, defineProps/defineEmits, DTOs Spatie do Laravel 13 e stores MaxPinia.",
+      "entidades": [
+        "MaxPinia",
+        "MaxUse",
+        "apiGetRoute",
+        "apiPostRoute",
+        "defineComponent",
+        "defineEmits",
+        "defineProps",
+        "defineStore",
+        "useActiveUserStore",
+        "useClienteStore"
+      ],
+      "keywords": [
+        "defineemits",
+        "defineprops",
+        "dto",
+        "interfaces",
+        "pinia",
+        "sfc",
+        "spatie",
+        "stores",
+        "types",
+        "typescript",
+        "vue3"
+      ]
+    },
+    "summary": "Conteúdo de tipagem e integração com backend de alto valor, mas com descrição prometendo assunto ausente e menção permissiva a utilitários inline."
+  },
+  {
+    "skillName": "vue-unocss-styling-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Exemplo ensina classes utilitárias inline no template — adotar classes semânticas e estilizar em <style lang=\"scss\">.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description contém meta-ruído de preenchimento ('Covers objectives and core workflows.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estilização de templates e layouts no Vue 3 com UnoCSS, presetMaxUno, atributos semânticos de tema, variáveis CSS e suporte a dark mode.",
+      "entidades": [
+        "MaxButton",
+        "MaxComponentsUi",
+        "presetAttributify",
+        "presetIcons",
+        "presetMaxUno",
+        "presetWind3",
+        "transformerVariantGroup",
+        "useColorMode",
+        "useDark"
+      ],
+      "keywords": [
+        "attributify",
+        "classes",
+        "dark-mode",
+        "params.scss",
+        "presetmaxuno",
+        "scss",
+        "styling",
+        "temas",
+        "tokens",
+        "unocss"
+      ]
+    },
+    "summary": "Explica com profundidade os presets e tokens do tema MaxUno, porém contradiz a convenção de arquitetura ao prescrever classes utilitárias inline no template."
+  }
+]

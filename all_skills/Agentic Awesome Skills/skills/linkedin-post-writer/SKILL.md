@@ -1,6 +1,6 @@
 ---
 name: linkedin-post-writer
-description: "Draft LinkedIn posts from 16 tested hook formulas mapped to engagement goals (comments, reposts, likes, saves), with 2026 algorithm formatting rules and an AI-tell scrub pass before publishing."
+description: "Draft LinkedIn posts from 16 tested hook formulas mapped to engagement goals (comments, reposts, likes, saves), with 2026 algorithm formatting rules and an AI-tell scrub pass before publishing. Use when developing, configuring, optimizing, or troubleshooting linkedin post writer in production workflows."
 category: marketing
 risk: none
 source: community

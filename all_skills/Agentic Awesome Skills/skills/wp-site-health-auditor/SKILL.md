@@ -1,6 +1,6 @@
 ---
 name: wp-site-health-auditor
-description: "Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP snippets. Use for site health, recommended improvements, or critical issue reports."
+description: "Turns a WordPress Site Health report into a risk-tiered, backup-first fix plan with exact WP-CLI/PHP snippets. Use for site health, recommended improvements, or critical issue reports. Use when developing, optimizing, debugging, or configuring wp site health auditor in production workflows."
 category: development
 risk: critical
 source: self

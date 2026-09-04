@@ -1,6 +1,6 @@
 ---
 name: videodb
-description: Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spoken indexes, search with timestamps, edit timelines, add overlays/subtitles, generate media, and create real-time alerts.
+description: "Video and audio perception, indexing, and editing. Ingest files/URLs/live streams, build visual/spoken indexes, search with timestamps, edit timelines, add overlays/subtitles, generate media, and create real-time alerts. Use when developing, optimizing, debugging, or configuring videodb in production workflows."
 category: media
 risk: safe
 source: community

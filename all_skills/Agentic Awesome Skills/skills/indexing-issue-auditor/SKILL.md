@@ -1,6 +1,6 @@
 ---
 name: indexing-issue-auditor
-description: "High-level technical SEO and site architecture auditor. Invoke to scan local or live environments for indexing, crawl budget, and structural errors."
+description: "High-level technical SEO and site architecture auditor. Invoke to scan local or live environments for indexing, crawl budget, and structural errors. Use when developing, optimizing, debugging, or configuring indexing issue auditor in production workflows."
 category: growth
 risk: safe
 source: self

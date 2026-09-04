@@ -1,6 +1,6 @@
 ---
 name: wordpress-plugin-development
-description: "WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, REST API, security best practices, and WordPress 7.0 features: Real-Time Collaboration, AI Connectors, Abilities API, DataViews, and PHP-only blocks."
+description: "WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, REST API, security best practices, and WordPress 7.0 features: Real-Time Collaboration, AI Connectors, Abilities API, DataViews, and PHP-only blocks. Use when developing, optimizing, debugging, or configuring wordpress plugin development in production workflows."
 category: granular-workflow-bundle
 risk: safe
 source: personal

@@ -1,6 +1,6 @@
 ---
 name: ux-copy
-description: Generate UX microcopy (button labels, error messages, empty states, toasts) following a casual-but-polite voice and tone
+description: "Generate UX microcopy (button labels, error messages, empty states, toasts) following a casual-but-polite voice and tone Use when developing, optimizing, debugging, or configuring ux copy in production workflows."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-copy
 source_repo: bitjaru/styleseed

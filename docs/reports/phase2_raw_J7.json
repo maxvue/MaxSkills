@@ -1,0 +1,57 @@
+[
+  {
+    "cluster": [
+      "seo-aeo-content-cluster",
+      "seo-aeo-content-quality-auditor"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "seo-aeo-content-cluster atua no planejamento macroestratégico de autoridade tópica, arquitetura de conteúdo e mapeamento de links internos entre pillar pages e cluster articles (etapa pré-redação). Já seo-aeo-content-quality-auditor é uma ferramenta de auditoria e pontuação de qualidade técnica (score SEO/AEO, legibilidade, densidade de palavras-chave e checklists de correção com níveis de severidade) aplicada a textos já existentes (etapa pós-redação). Embora compartilhem o prefixo de domínio seo-aeo-content-, seus objetivos, ciclo de vida editorial, dados de entrada e saídas são completamente distintos e complementares no pipeline, sem qualquer sobreposição funcional.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "seo-aeo-blog-writer",
+      "seo-aeo-landing-page-writer"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas as skills pertencem ao framework seo-aeo-engine e aplicam convenções de redação AEO (definição em blockquote após H1, tabela comparativa e FAQ estruturado para extração por LLMs com respostas <50 palavras). No entanto, atendem a formatos de conteúdo e intenções de busca fundamentalmente divergentes: seo-aeo-blog-writer é direcionada à redação de artigos editoriais long-form (800-3000 palavras) com foco informativo e educativo para construção de autoridade tópica, enquanto seo-aeo-landing-page-writer é especializada em páginas de conversão comercial/vendas para produtos e serviços (narrativa: Hero -> Problema -> Solução -> Benefícios -> Prova Social -> CTAs -> Comparativo -> FAQ). Devem ser mantidas separadas e completas, porém com calibração em seus metadados de ativação ('description' e 'When to Use') introduzindo demarcadores explícitos e gatilhos negativos para evitar que o orquestrador direcione solicitações genéricas de conteúdo AEO para a skill inadequada.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "seo-sitemap",
+      "seo-hreflang"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Tratam-se de domínios técnicos de SEO completamente distintos. seo-sitemap foca exclusivamente na geração, auditoria e governança de sitemaps XML para indexação e rastreamento geral (limite de 50k URLs, status HTTP 200, lastmod, diretivas robots.txt, sitemap index e qualidade de programmatic SEO). Já seo-hreflang foca em SEO internacional e regional (códigos ISO 639-1 e ISO 3166-1, reciprocidade bidirecional obrigatória, tag x-default e alinhamento canônico), que pode ser implementado via HTML head, HTTP headers ou sitemaps com namespace xhtml. O agrupamento ocorreu apenas por similaridade sintática no prefixo seo- e menção ao protocolo sitemap. Não há sobreposição de responsabilidades.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "threejs-lighting",
+      "threejs-materials"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Iluminação e Materiais são pilares ortogonais e canônicos da computação gráfica 3D e do Three.js. threejs-lighting foca exclusivamente em emissores e propriedades de iluminação (Ambient, Directional, Point, Spot, RectArea), configuração de mapas de sombras (frustum, bias, normalBias, ContactShadows) e IBL (PMREMGenerator, RGBELoader, LightProbes). threejs-materials foca na resposta de superfície de geometrias e sombreamento (MeshStandard, MeshPhysical, MeshLambert, MeshToon, ShaderMaterial, TSL/NodeMaterial, clearcoat, roughness, transmission, IOR). Ambas são skills densas (>490 e >550 linhas) de alta especialização técnica que já se complementam nativamente. Uma fusão prejudicaria severamente a modularidade e o consumo contextual das diretrizes de 3D.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "unslop-commit",
+      "unslop-file"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora originárias do mesmo repositório upstream (unslop), tratam-se de utilitários com interfaces, mecânicas de execução e contextos de aplicação disjuntos. unslop-commit é um assistente de fluxo Git que sintetiza/reescreve mensagens de commit no padrão Conventional Commits (imperativo, limite de caracteres ≤72, remoção de buzzwords de IA), operando de forma puramente textual sem tocar no sistema de arquivos. Já unslop-file é uma ferramenta CLI que executa scripts Python locais contra arquivos em disco (CLAUDE.md, documentações markdown, etc.), criando backups .original.md e aplicando passes determinísticos via regex ou LLM preservando estritamente blocos de código e comandos. Os gatilhos e propósitos não colidem.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  }
+]

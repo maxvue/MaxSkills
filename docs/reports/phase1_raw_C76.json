@@ -1,0 +1,483 @@
+[
+  {
+    "skillName": "workflow-orchestration-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/workflow-orchestration-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 181 caracteres (<200), iniciando com termo promocional 'Master...' e sem cláusula explícita de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a recurso inexistente no corpo da skill: linha 28 orienta 'open resources/implementation-playbook.md', porém o diretório resources não existe no pacote da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de template tautológicas e genéricas nas linhas 13-22 ('Working on workflow orchestration patterns tasks or workflows / The task is unrelated...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover preâmbulo genérico e tautológico de 'Use this skill when' / 'Do not use this skill when' (linhas 13-22) e a instrução com link quebrado para playbook inexistente (linha 28).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e padrões de orquestração de workflows distribuídos com Temporal, separando Workflows determinísticos de Activities com tolerância a falhas.",
+      "entidades": [
+        "Temporal",
+        "docs.temporal.io",
+        "workflow.now()",
+        "workflow.random()",
+        "workflow.get_version()",
+        "Event History",
+        "Saga Pattern"
+      ],
+      "keywords": [
+        "Temporal",
+        "workflow orchestration",
+        "activities",
+        "determinism",
+        "saga pattern",
+        "compensation",
+        "idempotency",
+        "retry policies",
+        "heartbeats",
+        "entity workflows",
+        "fan-out fan-in",
+        "distributed transactions"
+      ]
+    },
+    "summary": "Conteúdo técnico profundo sobre Temporal, mas com description curta/promocional, seções tautológicas de template e referência a playbook inexistente."
+  },
+  {
+    "skillName": "workflow-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/workflow-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description abaixo da extensão ideal (183 caracteres < 200), embora possua gatilho e termos discriminantes adequados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Arquivo SKILL.md excessivamente esvaziado (43 linhas) atuando como mero casulo/stub que delega 100% da lógica para resources/implementation-playbook.md sem resumir o ciclo TDD essencial no documento principal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia de implementação TDD do Conductor cobrindo ciclo red-green-refactor, checkpoints de fases, gestão de commits git e protocolo de verificação.",
+      "entidades": [
+        "Conductor",
+        "plan.md",
+        "pytest",
+        "spec.md",
+        "tech-stack.md",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "TDD",
+        "red-green-refactor",
+        "conductor",
+        "phase checkpoints",
+        "git commits",
+        "verification protocol",
+        "quality assurance",
+        "pytest",
+        "test coverage",
+        "task lifecycle"
+      ]
+    },
+    "summary": "Documento enxuto com bom roteamento para playbook detalhado, porém com SKILL.md oco e description ligeiramente abaixo de 200 caracteres."
+  },
+  {
+    "skillName": "wp-guard",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wp-guard/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (133 caracteres < 200) e sem gatilho condicional explícito ('Use when reviewing...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de banner boilerplate descontextualizado de segurança ofensiva (linhas 14-27 'Mandatory confirmation gate / probes, exploits...'), inconsistente com uma skill estática e defensiva de code review.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Classificação de risco no frontmatter definida como 'offensive', quando a ferramenta é estritamente defensiva e focada em auditoria de código gerado.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Podar as linhas 14 a 27 contendo aviso de uso ofensivo e gate de autorização de exploits/probes irrelevante para code-guard estático.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria defensiva e guard rails de código WordPress (plugins, temas e blocos) cobrindo sanitização, escaping, nonces, permissões, SQL prepare e i18n.",
+      "entidades": [
+        "WordPress",
+        "esc_html()",
+        "esc_attr()",
+        "esc_url()",
+        "wp_kses()",
+        "wp_unslash()",
+        "current_user_can()",
+        "check_admin_referer()",
+        "$wpdb->prepare()",
+        "wp_remote_get()",
+        "wp_enqueue_script()",
+        "WP_Query",
+        "WPCS"
+      ],
+      "keywords": [
+        "WordPress",
+        "wp-guard",
+        "sanitization",
+        "escaping",
+        "nonces",
+        "capability checks",
+        "sql injection",
+        "wpdb prepare",
+        "xss",
+        "i18n",
+        "wp-cron",
+        "performance",
+        "code review"
+      ]
+    },
+    "summary": "Excelente conjunto defensivo de regras WordPress, necessitando apenas de expansão da description e remoção de boilerplate de segurança ofensiva descontextualizado."
+  },
+  {
+    "skillName": "wp-site-health-auditor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wp-site-health-auditor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description ligeiramente abaixo do piso de 200 caracteres (185 caracteres), embora contenha gatilhos e discriminantes técnicos sólidos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Triagem e resolução estruturada em camadas de risco para relatórios do WordPress Site Health com foco em backups prévios e comandos WP-CLI/PHP.",
+      "entidades": [
+        "WordPress Site Health",
+        "wp-config.php",
+        ".htaccess",
+        "php.ini",
+        ".user.ini",
+        "WP-CLI",
+        "wp search-replace",
+        "Redis Object Cache",
+        "UpdraftPlus"
+      ],
+      "keywords": [
+        "wordpress",
+        "site health",
+        "wp-cli",
+        "backup-first",
+        "wp-config",
+        "htaccess",
+        "php.ini",
+        "upload_max_filesize",
+        "post_max_size",
+        "object cache",
+        "redis",
+        "search-replace",
+        "dry-run",
+        "triage"
+      ]
+    },
+    "summary": "Skill de alta excelência técnica e defensiva sobre WordPress Site Health, requerendo apenas ajuste marginal de extensão na description."
+  },
+  {
+    "skillName": "writing-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/writing-skills/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description criticamente subespecificada e curta (56 caracteres < 200), sem menção a arquiteturas em camadas (Tier 1/2/3), CSO, anti-rationalization ou templates.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes na description que permitam ao agente roteador discernir a skill frente a outras de redação/documentação geral.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Framework e árvore de decisão para criação, refatoração, teste e padronização de skills de agentes de IA em três camadas arquiteturais.",
+      "entidades": [
+        "CSO",
+        "Anti-Rationalization",
+        "Tier 1 Architecture",
+        "Tier 2 Architecture",
+        "Tier 3 Architecture",
+        "OpenCode",
+        "SKILL.md"
+      ],
+      "keywords": [
+        "skill creation",
+        "agent skills",
+        "tier architecture",
+        "CSO",
+        "search optimization",
+        "anti-rationalization",
+        "skill standards",
+        "pre-deploy checklist",
+        "red-green-refactor",
+        "skill testing"
+      ]
+    },
+    "summary": "Framework modular robusto com riquíssimo acervo de referências, mas com description truncada de apenas 56 caracteres e ausência de termos discriminantes."
+  },
+  {
+    "skillName": "x-twitter-scraper",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/x-twitter-scraper/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 172 caracteres (<200 chars), necessitando de leve expansão com contexto de integração e gating de aprovação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Nome da skill sugere 'scraper' por extração HTML tradicional, enquanto o conteúdo é um cliente/wrapper documentado da API comercial e MCP da plataforma Xquik.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração com a API Xquik e MCP para consulta de tweets, métricas de engajamento, extração de seguidores e automações aprovadas no X/Twitter.",
+      "entidades": [
+        "Xquik",
+        "x-developer",
+        "npm",
+        "REST API",
+        "MCP StreamableHTTP",
+        "OpenAPI",
+        "Twitter/X API"
+      ],
+      "keywords": [
+        "twitter",
+        "x",
+        "xquik",
+        "tweet search",
+        "user lookup",
+        "follower export",
+        "mcp",
+        "webhooks",
+        "giveaways",
+        "bulk extraction",
+        "rest api",
+        "automation"
+      ]
+    },
+    "summary": "Guia sólido de integração com a API Xquik e MCP com estrito controle de segurança para ações de escrita, com description ligeiramente abaixo de 200 caracteres."
+  },
+  {
+    "skillName": "xiaohongshu-content-strategist",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/xiaohongshu-content-strategist/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description abaixo do piso de 200 caracteres (167 caracteres) e sem gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de vocabulário promocional e de marketing na description ('Create viral...', 'China's #1 lifestyle platform'), violando o critério 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de discriminantes na description sobre a estrutura técnica do pacote de conteúdo gerado (cover image brief, CTR de títulos, estratégias de comentários).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estratégia de criação e otimização de conteúdo nativo para a plataforma Xiaohongshu (RED) com foco em taxa de salvamento, CTR de capa e SEO em mandarim.",
+      "entidades": [
+        "Xiaohongshu",
+        "小红书",
+        "RED algorithm",
+        "wechat-official-account-strategist",
+        "chinese-market-content-engineer"
+      ],
+      "keywords": [
+        "xiaohongshu",
+        "red",
+        "content strategy",
+        "save rate",
+        "click-through rate",
+        "cover image",
+        "chinese market",
+        "lifestyle marketing",
+        "seo",
+        "hashtags",
+        "engagement"
+      ]
+    },
+    "summary": "Estratégia prática e bem detalhada para Xiaohongshu, necessitando de neutralização de termos promocionais e adição de gatilho na description."
+  },
+  {
+    "skillName": "yao-meta-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/yao-meta-skill/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia Skill OS 2.0 para especificação, compilação intermediária (Skill IR), avaliação de qualidade e empacotamento governado de skills de agentes.",
+      "entidades": [
+        "Skill OS 2.0",
+        "Skill IR",
+        "Skill Atlas",
+        "Review Studio",
+        "interface.yaml",
+        "manifest.json",
+        "reports/output_quality_scorecard.md"
+      ],
+      "keywords": [
+        "skill authoring",
+        "skill engineering",
+        "skill ir",
+        "governed package",
+        "evals",
+        "operating modes",
+        "packaging contracts",
+        "telemetry drift",
+        "artifact design",
+        "skillops"
+      ]
+    },
+    "summary": "Skill exemplar e integralmente consistente com arquitetura governada, referências completas e description ideal de 213 caracteres sem marketing."
+  },
+  {
+    "skillName": "youtube-full",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-full/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres (<200 chars) e sem cláusula formal de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de métricas promocionais de adoção no corpo do texto (linhas 25-27: 'Processes 500K+ transcripts daily, fast... 686 installs via the skills CLI').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover frases promocionais/métricas de vaidade nas linhas 25-27 ('Processes 500K+ transcripts daily... 686 installs via the skills CLI').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração de transcrições do YouTube, busca de vídeos e monitoramento de canais em ambientes de nuvem utilizando a TranscriptAPI sem dependência de yt-dlp.",
+      "entidades": [
+        "TranscriptAPI",
+        "transcriptapi.com",
+        "get_transcript()",
+        "search_youtube()",
+        "get_channel_videos()",
+        "channel_latest()",
+        "yt-dlp",
+        "ingest-youtube"
+      ],
+      "keywords": [
+        "youtube",
+        "transcripts",
+        "transcriptapi",
+        "video search",
+        "channel monitoring",
+        "cloud server",
+        "api key",
+        "quotas",
+        "playlists",
+        "research corpus"
+      ]
+    },
+    "summary": "Excelente integração API para superar bloqueios de IP de nuvem no YouTube, com pequenas frases promocionais a podar e description a expandir."
+  },
+  {
+    "skillName": "youtube-notetaker",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/youtube-notetaker/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (119 caracteres < 200), carecendo de gatilho explícito ('Use when...') e menção às ferramentas essenciais do pipeline (yt-dlp, ffmpeg, PyYAML).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro de formatação/conteúdo truncado na linha 27: seção 'When to Use' contém apenas 'Use when this workflow matches the user request: >' seguido de quebras de linha em branco sem nenhum conteúdo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Corrigir/remover o bloco truncado na linha 27 ('Use when this workflow matches the user request: >') que ficou vazio.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Pipeline automatizado com ffmpeg e yt-dlp para extrair slides, transcrever e gerar notas de estudo em Markdown com servidor local interativo.",
+      "entidades": [
+        "yt-dlp",
+        "ffmpeg",
+        "Pillow",
+        "PyYAML",
+        "scripts/serve.py",
+        "scripts/detect_slides.sh",
+        "scripts/contact_sheet.py",
+        "scripts/extract_slides.py",
+        "reference/artifact.html"
+      ],
+      "keywords": [
+        "youtube",
+        "notetaker",
+        "study notes",
+        "slide extraction",
+        "ffmpeg",
+        "scene detection",
+        "transcripts",
+        "vtt",
+        "contact sheet",
+        "local viewer",
+        "serve.py",
+        "markdown library"
+      ]
+    },
+    "summary": "Pipeline prático e completo com scripts funcionais, prejudicado por bloco markdown truncado/incompleto na seção When to Use e description curta."
+  }
+]

@@ -1,0 +1,405 @@
+[
+  {
+    "skillName": "laravel-pdf-handling-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-pdf-handling-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de manipulação de PDF no Engeapp com DomPDF via HasDocument, templates dinâmicos TCPDF/FPDI via PdfEdit e extração/conversão via spatie/pdf-to-text e spatie/pdf-to-image.",
+      "entidades": [
+        "Barryvdh\\DomPDF\\Facade\\Pdf",
+        "App\\Traits\\HasDocument",
+        "App\\Classes\\PdfEdit",
+        "setasign\\Fpdi\\Tcpdf\\Fpdi",
+        "Spatie\\PdfToText\\Pdf",
+        "pdfIsValid",
+        "Spatie\\PdfToImage\\Pdf",
+        "App\\MediaLibrary\\ImageGenerators\\Pdf",
+        "App\\Models\\File\\File",
+        "resizeImage",
+        "Intervention\\Image\\ImageManager"
+      ],
+      "keywords": [
+        "pdf",
+        "dompdf",
+        "tcpdf",
+        "fpdi",
+        "PdfEdit",
+        "HasDocument",
+        "pdfIsValid",
+        "pdf-to-text",
+        "pdf-to-image",
+        "intervention-image",
+        "spatie-media-library",
+        "thumbnail",
+        "coordinates",
+        "engeapp",
+        "poppler"
+      ]
+    },
+    "summary": "Skill excelente com documentação técnica precisa e discriminante cobrindo as especificidades reais do ecossistema Engeapp."
+  },
+  {
+    "skillName": "laravel-performance-and-profiling-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description encerra com a expressão genérica de preenchimento 'Covers objectives and core workflows.', que dilui a densidade semântica e poderia ser substituída por termos discriminantes concretos como gates de autorização ou comandos CLI.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes de instrumentação, profiling e depuração no Laravel 13 utilizando Pulse, Clockwork, LaraDumps, Debugbar, Log Viewer e Laravel Pail.",
+      "entidades": [
+        "Gate::define('viewPulse')",
+        "Pulse::user()",
+        "clock()",
+        "LaraDumps ds()",
+        "debugbar:find",
+        "php artisan pail",
+        "Log Viewer",
+        "viewLogViewer"
+      ],
+      "keywords": [
+        "performance",
+        "profiling",
+        "pulse",
+        "clockwork",
+        "laradumps",
+        "debugbar",
+        "pail",
+        "log-viewer",
+        "telescope",
+        "debugging",
+        "telemetria",
+        "n-plus-1",
+        "artisan-pail",
+        "benchmarking"
+      ]
+    },
+    "summary": "Skill com conteúdo técnico conciso e rigoroso sobre ferramentas de profiling, demandando apenas a remoção de frase de preenchimento na description."
+  },
+  {
+    "skillName": "laravel-pest-testing-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-pest-testing-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Convenções e padrões para desenvolvimento de testes funcionais, unitários e arquiteturais utilizando Pest PHP no ecossistema Engeapp.",
+      "entidades": [
+        "Pest PHP",
+        "test()",
+        "it()",
+        "expect()",
+        "arch()",
+        "DatabaseTransactions",
+        "Model::factory()",
+        "Http::fake()",
+        "Http::preventStrayRequests()",
+        "Http::sequence()"
+      ],
+      "keywords": [
+        "pest-php",
+        "unit-test",
+        "feature-test",
+        "architecture-test",
+        "arch",
+        "expect",
+        "database-transactions",
+        "factory",
+        "http-fake",
+        "mocking",
+        "assertions",
+        "fakes",
+        "testing-best-practices"
+      ]
+    },
+    "summary": "Skill excelente com diretrizes realistas sobre Pest v3 e isolamento de banco de dados compatíveis com o código real do Engeapp."
+  },
+  {
+    "skillName": "laravel-php-code-quality-tooling",
+    "skillPath": "created-skills/backend_laravel/laravel-php-code-quality-tooling/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Pipeline e padrões de qualidade de código PHP 8.4+ integrando Laravel Pint, Larastan/PHPStan, Rector e Barryvdh IDE Helper no Engeapp.",
+      "entidades": [
+        "Laravel Pint",
+        "vendor/bin/pint --dirty",
+        "Larastan",
+        "phpstan.neon",
+        "RectorConfig",
+        "RemoveFuncCallRector",
+        "ide-helper:generate",
+        "ide-helper:models -M --nowrite",
+        "composer run format"
+      ],
+      "keywords": [
+        "pint",
+        "phpstan",
+        "larastan",
+        "rector",
+        "ide-helper",
+        "code-quality",
+        "static-analysis",
+        "refactoring",
+        "php-8-4",
+        "linting",
+        "formatting",
+        "pre-commit",
+        "dirty-flag"
+      ]
+    },
+    "summary": "Skill excelente com instruções cirúrgicas e comandos exatos alinhados à esteira de formatação e análise estática do projeto."
+  },
+  {
+    "skillName": "laravel-power-of-attorney-generation-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description apresenta redundância interna direta no fechamento ('...rendering DomPDF documents. Covers document generation and DomPDF rendering.'), repetindo a menção a DomPDF e geração de documentos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração, formatação e validação de Procurações em PDF via PowerAttorneyService e DomPDF no backend Laravel do Engeapp.",
+      "entidades": [
+        "App\\Services\\Signature\\PowerAttorneyService",
+        "App\\Models\\Project\\ProjectPowerOfAttorneyDocument",
+        "Barryvdh\\DomPDF\\Facade\\Pdf",
+        "generateData",
+        "getAddress",
+        "createPdf",
+        "App\\Models\\File\\File"
+      ],
+      "keywords": [
+        "power-of-attorney",
+        "procuracao",
+        "PowerAttorneyService",
+        "dompdf",
+        "legal-documents",
+        "address-formatting",
+        "digital-signature",
+        "pf-pj",
+        "ProjectPowerOfAttorneyDocument",
+        "pdf-generation"
+      ]
+    },
+    "summary": "Skill com regras de negócio e mapeamento de código precisos no PowerAttorneyService, necessitando apenas da eliminação de redundância na description."
+  },
+  {
+    "skillName": "laravel-qrcode-generation-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém a frase genérica e redundante 'Covers objectives and core workflows.' no encerramento, reduzindo a densidade semântica final.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de geração, estilização, cache e testes funcionais de QR Codes com endroid/qr-code v6 no Laravel/Engeapp.",
+      "entidades": [
+        "Endroid\\QrCode\\Builder\\Builder",
+        "Endroid\\QrCode\\Writer\\PngWriter",
+        "Endroid\\QrCode\\Writer\\SvgWriter",
+        "Endroid\\QrCode\\ErrorCorrectionLevel",
+        "Endroid\\QrCode\\Encoding\\Encoding",
+        "Endroid\\QrCode\\Label\\LabelAlignment",
+        "Pest test()"
+      ],
+      "keywords": [
+        "qrcode",
+        "endroid-qr-code",
+        "png-writer",
+        "svg-writer",
+        "base64-data-uri",
+        "error-correction",
+        "logo-punchout",
+        "labels",
+        "pest-php",
+        "cache",
+        "pix-qrcode"
+      ]
+    },
+    "summary": "Skill muito bem construída para a versão 6 do endroid/qr-code, requerendo apenas o corte de filler redundante na description."
+  },
+  {
+    "skillName": "laravel-rate-limiting-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-rate-limiting-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes para implementação e configuração de rate limiting e throttling no Laravel 13 em rotas HTTP, APIs, FormRequests e filas.",
+      "entidades": [
+        "Illuminate\\Support\\Facades\\RateLimiter",
+        "Illuminate\\Cache\\RateLimiting\\Limit",
+        "App\\Http\\Requests\\Auth\\LoginRequest",
+        "Redis::throttle",
+        "Route::middleware('throttle:...)",
+        "Illuminate\\Auth\\Events\\Lockout"
+      ],
+      "keywords": [
+        "rate-limiting",
+        "throttling",
+        "throttle-middleware",
+        "RateLimiter",
+        "Limit::perMinute",
+        "brute-force",
+        "LoginRequest",
+        "Lockout",
+        "429-too-many-requests",
+        "redis-throttle",
+        "app-service-provider"
+      ]
+    },
+    "summary": "Skill excelente com documentação técnica precisa sobre rate limiters nomeados, inline e throttling de login do Engeapp."
+  },
+  {
+    "skillName": "laravel-redis-integration-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém o filler genérico 'Covers objectives and core workflows.' no encerramento, o que gera redundância estilística e dilui o ganho semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração de conexões, controle de concorrência com operações atômicas (HSETNX, Cache::lock) e resiliência com Redis no Engeapp.",
+      "entidades": [
+        "Illuminate\\Support\\Facades\\Redis",
+        "Illuminate\\Support\\Facades\\Cache",
+        "RedisException",
+        "App\\Classes\\Browser",
+        "App\\Services\\Finance\\TrtPaymentSchedulingService",
+        "phpredis",
+        "config/database.php"
+      ],
+      "keywords": [
+        "redis",
+        "phpredis",
+        "hsetnx",
+        "atomic-operations",
+        "cache-lock",
+        "concurrency",
+        "redis-prefix",
+        "redis-exception",
+        "horizon",
+        "cache-tags",
+        "failover"
+      ]
+    },
+    "summary": "Skill robusta que documenta operações atômicas reais e resiliência no Redis, necessitando unicamente podar a oração de preenchimento na description."
+  },
+  {
+    "skillName": "laravel-reverb-websockets-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
+    "state": "Regular",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description menciona 'Caddy WSS reverse proxy', porém o SKILL.md ensina e detalha na Seção 2 exclusivamente a configuração de reverse proxy com Nginx, gerando divergência de fidelidade semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração de ambiente, reverse proxy Nginx, gestão com Supervisor e escalabilidade horizontal do Laravel Reverb no Engeapp.",
+      "entidades": [
+        "Laravel Reverb",
+        "config/reverb.php",
+        "Nginx reverse proxy",
+        "Supervisor",
+        "php artisan reverb:start",
+        "ShouldBroadcast",
+        "resources/Js/configureReverbEcho.js"
+      ],
+      "keywords": [
+        "reverb",
+        "websockets",
+        "wss",
+        "nginx-reverse-proxy",
+        "supervisor",
+        "real-time",
+        "vite-echo",
+        "should-broadcast",
+        "redis-scaling",
+        "event-broadcasting",
+        "reverb-start"
+      ]
+    },
+    "summary": "Skill bem detalhada tecnicamente, porém com divergência semântica na description (cita proxy Caddy quando ensina proxy Nginx)."
+  },
+  {
+    "skillName": "laravel-scout-searchable-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-scout-searchable-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação de busca full-text com Laravel Scout e Meilisearch via HasScoutMeilisearch e macro searchSafe com fallback LIKE no Engeapp.",
+      "entidades": [
+        "Laravel Scout",
+        "Meilisearch",
+        "App\\Traits\\HasScoutMeilisearch",
+        "App\\Classes\\meilisearchSettings",
+        "searchSafe macro",
+        "App\\Models\\SupportChat\\SupportContact",
+        "App\\Models\\Lists\\City"
+      ],
+      "keywords": [
+        "scout",
+        "meilisearch",
+        "HasScoutMeilisearch",
+        "searchSafe",
+        "full-text-search",
+        "toSearchableArray",
+        "meilisearchSettings",
+        "fallback-like",
+        "filterable-attributes",
+        "searchable-attributes"
+      ]
+    },
+    "summary": "Skill excelente com profunda fidelidade arquitetural às traits proprietárias de Meilisearch e macro searchSafe do Engeapp."
+  }
+]

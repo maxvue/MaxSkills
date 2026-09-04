@@ -1,0 +1,58 @@
+[
+  {
+    "cluster": [
+      "vercel-optimize",
+      "vercel-ai-sdk-expert",
+      "vercel-react-view-transitions"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "O agrupamento decorre unicamente da coincidência do prefixo 'vercel-', mas as três skills operam em domínios arquiteturais e camadas de desenvolvimento completamente distintos, sem qualquer sobreposição de ferramentas ou intenções: (1) 'vercel-optimize' foca em infraestrutura, observabilidade e profiling de produção para deploys na Vercel (CLI v53+, Observability Plus, métricas de funções serverless, análise de custos e cache); (2) 'vercel-ai-sdk-expert' foca em engenharia de software para aplicações de IA generativa com a biblioteca Vercel AI SDK ('ai', '@ai-sdk/react'), cobrindo streaming de chat, geração estruturada de JSON com Zod, tool calling e generative UI; (3) 'vercel-react-view-transitions' foca em animações de UI e transições de tela no frontend com a API nativa React View Transitions ('<ViewTransition>', 'document.startViewTransition', shared elements e classes CSS). Não há concorrência de escopo, arquivos ou gatilhos de ativação.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "vector-database-engineer",
+      "vector-index-tuning"
+    ],
+    "recommendation": "MERGE",
+    "into": "vector-database-engineer",
+    "rationale": "'vector-index-tuning' é um subconjunto estritamente operacional da competência mais ampla de 'vector-database-engineer'. Enquanto 'vector-database-engineer' define a arquitetura macro de bancos vetoriais, modelos de embedding, chunking, busca híbrida e RAG, ela contém apenas 69 linhas em formato de tópicos e cita explicitamente 'resources/implementation-playbook.md' — arquivo inexistente em seu próprio diretório. Em contrapartida, 'vector-index-tuning' possui um SKILL.md de 51 linhas acompanhado exatamente pelo robusto 'resources/implementation-playbook.md' (508 linhas com algoritmos, matrizes de quantização e benchmarks empíricos em Python com hnswlib/faiss). Manter duas skills separadas fragmenta a engenharia de bancos de dados vetoriais e causa colisão direta de roteamento quando o usuário solicita otimização de latência, memória e recall (HNSW/PQ) em um banco vetorial.",
+    "mergePlan": "1. Mover 'resources/implementation-playbook.md' de 'vector-index-tuning' para 'vector-database-engineer/resources/implementation-playbook.md', resolvendo a dependência quebrada.\n2. Incorporar na descrição e na seção 'Use this skill when' de 'vector-database-engineer' os gatilhos específicos de tuning de hiperparâmetros HNSW (M, efConstruction, efSearch), estratégias de quantização (FP16, INT8, PQ, binária) e benchmarking de recall vs latência.\n3. Incorporar o checklist de segurança e plano de rollback pré-reindexação em produção presente em 'vector-index-tuning'.\n4. Descontinuar e remover o diretório 'vector-index-tuning', unificando a engenharia de bancos vetoriais da arquitetura ao fine-tuning de índice.",
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "skill-creator",
+      "skill-writer"
+    ],
+    "recommendation": "MERGE",
+    "into": "skill-creator",
+    "rationale": "Ambas as skills competem diretamente pelo mesmo propósito canônico de criar, redigir e iterar sobre Agent Skills ('Use when asked to create, write, or update skills'). 'skill-creator' (da suíte oficial Anthropic / curated-youtube) é um framework executável e iterativo de 33 KB com subagentes especializados (grader, comparator, analyzer), suíte de benchmark e visualizador iterativo de reviews via script Python ('generate_review.py'), além de otimização de gatilhos ('run_loop.py'). 'skill-writer' (do Agentic Awesome Skills) é uma implementação documental que traz taxonomias conceituais valiosas (padrões de workflow, padrões de saída determinísticos, matriz de decisão de modos e gates de profundidade). Manter ambas como skills ativas causa fragmentação e colisão de ativação primária pelo orquestrador. A fusão em 'skill-creator' consolida a melhor suíte de execução dinâmica com os melhores princípios de arquitetura estática.",
+    "mergePlan": "1. Adotar 'skill-creator' como skill destino canônica devido à sua infraestrutura completa de execução ('eval-viewer/', 'scripts/', 'agents/').\n2. Migrar os guias de design e padrões arquiteturais de 'skill-writer/references/' (notadamente 'workflow-patterns.md', 'output-patterns.md', 'mode-selection.md' e 'design-principles.md') para dentro da pasta 'references/' de 'skill-creator'.\n3. Adicionar na seção de redação ('Write the SKILL.md / Skill Writing Guide') de 'skill-creator' referências explícitas a essas taxonomias de padrões estruturais para quando o usuário desejar uma abordagem estática sem rodar evals completas.\n4. Descontinuar 'skill-writer' no catálogo de skills para eliminar conflito de orquestração.",
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "skill-improver",
+      "skill-optimizer"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As duas skills tratam de fases complementares, mas metodologicamente distintas, do ciclo de vida de manutenção de skills: (1) 'skill-optimizer' é uma ferramenta analítica de diagnóstico estritamente somente-leitura ('Read-only: never modify skill files. Only output report'), analisando telemetria real de uso através de mineração de transcripts JSONL de sessões passadas em 8 dimensões empíricas (taxa real de acionamento vs keywords, undertriggering, sentimento pós-execução, conclusão de workflow e economia de tokens); (2) 'skill-improver' é um ciclo de remediação ativa e edição de arquivos (read-write), projetado para executar loops contínuos de correção de lint/estrutura em um arquivo 'SKILL.md' específico até obter aprovação do agente 'skill-reviewer' (finalizando com o hook de parada '<skill-improvement-complete>'). Embora o nome 'optimizer' sugira alteração de arquivos, a skill é estritamente de auditoria diagnóstica de telemetria da biblioteca, enquanto 'skill-improver' é de refatoração automatizada de código. Ambas devem coexistir, necessitando apenas de demarcação clara de gatilhos nas descrições para direcionar diagnósticos de telemetria a 'skill-optimizer' e refatoração direta a 'skill-improver'.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "skill-scanner",
+      "skill-audit"
+    ],
+    "recommendation": "MERGE",
+    "into": "skill-scanner",
+    "rationale": "Ambas as skills abordam exatamente a mesma funcionalidade com o mesmo propósito: análise estática e comportamental de segurança pré-instalação de skills de agentes de terceiros para detectar injeção de prompt, código malicioso, exfiltração de credenciais, abuso de permissões e riscos de supply chain. 'skill-scanner' possui uma arquitetura de avaliação mais robusta em 8 fases estruturadas, incluindo análise comportamental (envenenamento de 'CLAUDE.md' e 'MEMORY.md'), formato de vulnerabilidades com IDs específicos ('[SKILL-SEC-XXX]') e diferenciação criteriosa entre código atacante e código que documenta ameaças (minimizando falsos positivos). Já 'skill-audit' contribui com checagens valiosas de engenharia social (urgência, falsa autoridade e comandos ocultos em comentários), inteligência de repositório (idade da conta, fazendas de estrelas), escala de risco de 0 a 100 e catálogo de vetores reais documentados. Manter ambas separadas é redundância direta de catálogo.",
+    "mergePlan": "1. Adotar 'skill-scanner' como skill destino canônica, mantendo sua estrutura em 8 fases e formato de relatório vulnerabilidade por vulnerabilidade.\n2. Incorporar em 'skill-scanner' as etapas de 'Social Engineering Check' (detecção de urgência fabricada, autoridade falsa e instruções ocultas em comentários) e 'Repo Intelligence' (avaliação de antiguidade de conta, perfil de repositórios e anomalias de estrelas) provenientes de 'skill-audit'.\n3. Adicionar a escala de risco numérico (0-39 Seguro, 40-69 Médio Risco, 70-100 Crítico) e os exemplos de ataques reais documentados de 'skill-audit' dentro das diretrizes de avaliação de 'skill-scanner'.\n4. Calibrar a descrição de 'skill-scanner' para cobrir explicitamente o gatilho pré-instalação ('Use when evaluating or auditing third-party agent skills before installation...').\n5. Descontinuar/remover 'skill-audit' do catálogo de skills.",
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  }
+]

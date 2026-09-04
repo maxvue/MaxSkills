@@ -1,6 +1,6 @@
 ---
 name: seo-images
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring seo images in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo images. Use when developing, optimizing, testing, or configuring seo images in production environments."
   Image optimization analysis for SEO and performance. Checks alt text, file
   sizes, formats, responsive images, lazy loading, and CLS prevention. Use when
   user says "image optimization", "alt text", "image SEO", "image size",

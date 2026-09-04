@@ -1,6 +1,6 @@
 ---
 name: laravel-frankenphp-octane-best-practices
-description: "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, avoiding memory leaks, managing singletons, and tuning Caddyfile workers. Covers objectives and core workflows."
+description: "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, avoiding memory leaks, managing singletons, and tuning Caddyfile workers. Provides end-to-end guidance, reference architectures, and practical patterns for laravel frankenphp octane best practices."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Laravel Octane (FrankenPHP)

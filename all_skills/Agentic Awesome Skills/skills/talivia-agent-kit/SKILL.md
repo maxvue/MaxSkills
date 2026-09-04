@@ -1,6 +1,6 @@
 ---
 name: talivia-agent-kit
-description: "Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website changes and payment attribution."
+description: "Set up and verify Talivia revenue analytics through MCP, with explicit confirmation for website changes and payment attribution. Use when developing, optimizing, debugging, or configuring talivia agent kit in production workflows."
 category: marketing
 risk: critical
 source: "https://github.com/talivia-group/agent/tree/f4ed3fc6b554ad5183a57ae13ca2a9bd5162c12a"

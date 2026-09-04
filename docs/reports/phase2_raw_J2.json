@@ -1,0 +1,57 @@
+[
+  {
+    "cluster": [
+      "typescript-advanced-types-best-practices",
+      "typescript-pro"
+    ],
+    "recommendation": "MERGE",
+    "into": "typescript-advanced-types-best-practices",
+    "rationale": "typescript-pro é uma skill genérica e rasa (59 linhas) da comunidade que aborda exatamente o mesmo escopo técnico de typescript-advanced-types-best-practices (205 linhas), a qual é altamente customizada, alinhada aos projetos reais do repositório e substancialmente mais profunda. O conteúdo de typescript-pro consiste em diretrizes conceituais abstratas de generics, conditional types, mapped types, tsconfig estrito e testes que já constam implementados, com exemplos reais de código e validações práticas (satisfies, template literals, branded types, compiler testing com AssertEqual) na skill de types avançados. Manter ambas ativas provocaria colisão direta de ativação no orquestrador ao direcionar tarefas de modelagem e resolução de tipos em TypeScript.",
+    "mergePlan": "Absorver em typescript-advanced-types-best-practices as poucas menções complementares de typescript-pro, especificamente a referência a decorators/metadados e declarações ambient (.d.ts). Consolidar no frontmatter de typescript-advanced-types-best-practices os gatilhos explícitos de 'Use this skill when' e 'Do not use this skill when' derivados de typescript-pro para prevenir ambiguidades de roteamento. Desativar/remover typescript-pro do catálogo de skills.",
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "typescript-tooling-monorepo-best-practices",
+      "typescript-expert"
+    ],
+    "recommendation": "MERGE",
+    "into": "typescript-tooling-monorepo-best-practices",
+    "rationale": "typescript-expert é um monolito de 432 linhas da comunidade com alta redundância interna e externa. Sua seção de Type-Level Programming (branded types, conditional types, recursive types, satisfies) já é coberta de forma canônica por typescript-advanced-types-best-practices e infringe a demarcação explícita de escopo estabelecida no repositório. Por outro lado, a sua porção de infraestrutura, diagnósticos do compilador CLI (--traceResolution, --generateTrace), monorepo (composite, project references) e migração de ferramentas (Biome vs ESLint, ts-migrate) sobrepõe-se diretamente a typescript-tooling-monorepo-best-practices (que inclusive já mantém um cheatsheet derivado de typescript-expert como referência). A unificação em typescript-tooling-monorepo-best-practices centraliza toda a governança de build, tooling e arquitetura de pacotes na skill criada sob medida para o ecossistema do projeto.",
+    "mergePlan": "Transferir para typescript-tooling-monorepo-best-practices os tópicos práticos de tooling avançado presentes em typescript-expert: diagnósticos avançados de compilação CLI (npx tsc --traceResolution, --generateTrace e análise de memória), estratégias de migração incremental (allowJs/checkJs, ts-migrate) e o comparativo de decisão Biome vs ESLint. Descartar integralmente a seção de Type-Level Programming de typescript-expert, pois sua autoridade pertence exclusivamente a typescript-advanced-types-best-practices. Desativar typescript-expert do catálogo.",
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "api-design",
+      "api-and-interface-design"
+    ],
+    "recommendation": "MERGE",
+    "into": "api-and-interface-design",
+    "rationale": "Trata-se de uma duplicação física exata (100% idêntica byte a byte, com 308 linhas) entre o catálogo curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design. Ambos os arquivos compartilham inclusive o mesmo frontmatter com name: api-and-interface-design, mesma descrição, mesma autoria e mesmo código. A existência da pasta curated-youtube/api-design é uma cópia não consolidada do mesmo módulo da comunidade (addyosmani/agent-skills).",
+    "mergePlan": "Remover a pasta duplicada curated-youtube/api-design do repositório, preservando api-and-interface-design como a entrada canônica única no catálogo. Nenhuma alteração textual ou de conteúdo é necessária dada a total paridade entre os arquivos.",
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "mcp-server-routing",
+      "mcp-tool-developer"
+    ],
+    "recommendation": "MERGE",
+    "into": "mcp-tool-developer",
+    "rationale": "Ambas as skills abordam a engenharia integral de servidores e ferramentas do Model Context Protocol (MCP) com SDKs oficiais em TypeScript e Python, validação de schemas (Zod/Pydantic), suporte a transportes (stdio, SSE, Streamable HTTP) e inspeção com MCP Inspector. curated-youtube/mcp-server-routing possui uma discrepância nominal grave entre seu diretório e seu frontmatter (name: mcp-builder, sem nenhuma rotina de roteamento de requisições), porém carrega recursos valiosos de referência (mcp_best_practices, node_mcp_server, python_mcp_server, evaluation.md) e scripts. Já mcp-tool-developer possui uma interface limpa, moderna (API McpServer) e padronizada. A unificação sob mcp-tool-developer elimina a sobreposição e corrige a anomalia nominal do repositório.",
+    "mergePlan": "Eleger mcp-tool-developer como a skill canônica unificada de desenvolvimento MCP. Integrar ao seu SKILL.md os padrões avançados de mcp-server-routing: anotações de hint (readOnlyHint, destructiveHint, idempotentHint), boas práticas de design e o fluxo de criação de suítes de avaliação (10 QA pairs em XML). Mover e vincular as pastas reference/ e scripts/ de mcp-server-routing para a estrutura de mcp-tool-developer, eliminando em seguida o diretório redundante curated-youtube/mcp-server-routing.",
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "pytest-and-jest-automation",
+      "javascript-testing-patterns"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "javascript-testing-patterns é uma skill de alta fidelidade e profundidade técnica (possuindo um playbook detalhado de 1.025 linhas) com foco estrito e abrangente no ecossistema JavaScript e TypeScript (Jest, Vitest, Testing Library, Supertest, mocking e testes de integração). Por outro lado, pytest-and-jest-automation foi originada a partir de pytest-automation (upstream da Anthropic focado em testes Python com pytest), mas sofreu uma extensão inadequada em seu nome e metadados para incluir Jest e Vitest, embora seu corpo seja um stub sem implementação de código JS. A recomendação não é MERGE porque os domínios de linguagem fundamentais (Python vs JavaScript/TypeScript) devem permanecer desacoplados para manter a integridade dos prompts de agentes. A recomendação técnica é LAPIDAR: purgar de pytest-and-jest-automation qualquer referência a Jest, Vitest, JavaScript e TypeScript, especializando seu conteúdo estritamente para automação de testes em Python (pytest, fixtures, parametrize, mocks e coverage), enquanto javascript-testing-patterns retém com exclusividade todo o escopo de testes em JS/TS.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  }
+]

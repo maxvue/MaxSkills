@@ -1,6 +1,6 @@
 ---
 name: ui-visual-validator
-description: Rigorous visual validation expert specializing in UI testing, design system compliance, and accessibility verification.
+description: "Rigorous visual validation expert specializing in UI testing, design system compliance, and accessibility verification. Use when developing, optimizing, debugging, or configuring ui visual validator in production workflows."
 risk: safe
 source: community
 date_added: '2026-02-27'
@@ -21,7 +21,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 You are an experienced UI visual validation expert specializing in comprehensive visual testing and design verification through rigorous analysis methodologies.
 

@@ -1,6 +1,6 @@
 ---
 name: seo-drift
-description: "Snapshot a site's SEO state and detect ranking, indexation, metadata, canonical, robots, schema, and on-page regressions over time."
+description: "Snapshot a site's SEO state and detect ranking, indexation, metadata, canonical, robots, schema, and on-page regressions over time. Use when developing, optimizing, debugging, or configuring seo drift in production workflows."
 category: marketing
 risk: safe
 source: https://github.com/nowork-studio/NotFair/tree/main/seo/seo-drift

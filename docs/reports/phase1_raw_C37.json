@@ -1,0 +1,624 @@
+[
+  {
+    "skillName": "k6-load-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/k6-load-testing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description subdimensionada (159 caracteres) e sem gatilho condicional de ativação ('Use when...'), abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivo promocional vago ('Comprehensive') na abertura da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância pontual no corpo: o Example 1 (linhas 531-555) replica quase integralmente a estrutura do Quick Start e Common Options sem introduzir novos padrões.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar Example 1 e remover o bloco genérico de encerramento 'Limitations' (linhas 629-632).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de testes de carga, estresse e escalabilidade para APIs HTTP, WebSockets e browser usando k6 com integração a pipelines CI/CD.",
+      "entidades": [
+        "k6",
+        "k6/http",
+        "k6/ws",
+        "k6/browser",
+        "k6/metrics",
+        "SharedArray",
+        "GitHub Actions",
+        "GitLab CI",
+        "Grafana",
+        "InfluxDB",
+        "Prometheus"
+      ],
+      "keywords": [
+        "k6",
+        "load testing",
+        "stress test",
+        "smoke test",
+        "spike test",
+        "soak test",
+        "virtual users",
+        "vus",
+        "thresholds",
+        "sla",
+        "http_req_duration",
+        "websocket",
+        "k6 browser",
+        "sharedarray",
+        "custom metrics",
+        "counter",
+        "trend",
+        "ci-cd"
+      ]
+    },
+    "summary": "Skill tecnicamente consistente e rica em exemplos reais de k6, necessitando apenas expansão da description para incluir gatilho 'Use when...' e poda de pequenas repetições."
+  },
+  {
+    "skillName": "k8s-security-policies",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/k8s-security-policies/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description muito curta (130 caracteres) e sem cláusula condicional de uso ('Use when...'), distante dos 200-400 chars recomendados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description cita PodSecurityPolicy (recurso obsoleto e removido no Kubernetes v1.25), enquanto o corpo da skill adota corretamente Pod Security Standards (PSS) e admission control.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de preâmbulo com seções vazias de boilerplate ('Do not use this skill when', 'Instructions') que apenas aumentam ruído sem ganho semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Menção a referências e arquivos locais inexistentes no diretório da skill ('resources/implementation-playbook.md', 'assets/network-policy-template.yaml', 'references/rbac-patterns.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover preâmbulo com instruções e condições negativas óbvias (linhas 13-24) e referências a arquivos locais ausentes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover bloco genérico de Limitations no encerramento (linhas 352-355).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implementação de políticas de segurança em Kubernetes abrangendo Pod Security Standards, NetworkPolicy, RBAC de privilégio mínimo e governança via OPA Gatekeeper e Istio.",
+      "entidades": [
+        "Kubernetes",
+        "NetworkPolicy",
+        "Pod Security Standards",
+        "RBAC",
+        "Role",
+        "ClusterRole",
+        "RoleBinding",
+        "OPA Gatekeeper",
+        "ConstraintTemplate",
+        "Istio",
+        "PeerAuthentication",
+        "AuthorizationPolicy"
+      ],
+      "keywords": [
+        "kubernetes",
+        "security policies",
+        "pod security standards",
+        "pss",
+        "networkpolicy",
+        "default deny",
+        "rbac",
+        "role",
+        "clusterrole",
+        "rolebinding",
+        "gatekeeper",
+        "rego",
+        "istio",
+        "mtls",
+        "peerauthentication",
+        "securitycontext",
+        "non-root",
+        "ingress",
+        "egress"
+      ]
+    },
+    "summary": "Conteúdo prático de alto valor para segurança em Kubernetes, demandando eliminação de seções boilerplate e reformulação da description para incluir gatilhos e atualizar PodSecurityPolicy para Pod Security Standards."
+  },
+  {
+    "skillName": "kaizen",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/kaizen/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 181 caracteres, ligeiramente abaixo da faixa ideal de 200 a 400 caracteres, embora possua cláusula condicional de uso.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Acoplamento a comandos slash hipotéticos (/why, /cause-and-effect, /plan-do-check-act, /analyse-problem, /analyse) que dependem de plugins externos não definidos nesta skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Prolixidade com repetição de princípios em seções separadas de 'Remember' e blocos conceituais extensos sobre YAGNI e abstrações prematuras.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Condensar os exemplos extensos e redundantes de YAGNI/abstração prematura (linhas 525-550 e 584-601).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover referências a comandos slash não padronizados (linhas 678-689) e boilerplate genérico de Limitations (linhas 734-738).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Aplicação da filosofia Kaizen e princípios de manufatura enxuta (Poka-Yoke, Padronização e JIT/YAGNI) ao design defensivo de software em TypeScript.",
+      "entidades": [
+        "TypeScript",
+        "Result type",
+        "Branded types",
+        "NonEmptyArray",
+        "Poka-Yoke",
+        "YAGNI",
+        "Preconditions/Guards"
+      ],
+      "keywords": [
+        "kaizen",
+        "continuous improvement",
+        "poka-yoke",
+        "error proofing",
+        "type system",
+        "branded types",
+        "result pattern",
+        "defensive coding",
+        "yagni",
+        "refactoring",
+        "code quality",
+        "standardized work",
+        "guards",
+        "just in time",
+        "typescript"
+      ]
+    },
+    "summary": "Excelente fusão de metodologia Kaizen com tipagem defensiva estrita em TypeScript, necessitando apenas poda de trechos teóricos repetitivos e leve expansão da description."
+  },
+  {
+    "skillName": "keyword-extractor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/keyword-extractor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description subdimensionada (128 caracteres) que omite requisitos essenciais do formato final de saída (linha única separada por vírgulas, lowercase, até 50 termos).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de qualificador promocional/subjetivo ('highly relevant') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Alta redundância interna: as mesmas diretrizes (limite de 50 termos, sem duplicatas, lowercase, frases de 2 a 4 palavras) repetem-se quase palavra por palavra no CORE MANDATE, Step 2, Step 4 e Step 5.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Unificar e desduplicar as seções Step 2, Step 4 e Step 5 com o CORE MANDATE, eliminando checagens de validação idênticas e redundantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover seção final genérica de Limitations (linhas 163-167).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração determinística e estruturação de até 50 palavras-chave e frases de busca para SEO a partir de textos fornecidos, formatadas em linha única separada por vírgulas.",
+      "entidades": [
+        "SEO",
+        "Metadata tags",
+        "Search queries",
+        "Noun phrases",
+        "Keyword ranker"
+      ],
+      "keywords": [
+        "keyword extraction",
+        "seo keywords",
+        "metadata tags",
+        "search queries",
+        "search terms",
+        "text mining",
+        "ranking",
+        "comma-separated",
+        "lowercasing",
+        "deduplication",
+        "entities",
+        "noun phrases",
+        "relevance ranking"
+      ]
+    },
+    "summary": "Skill precisa no seu objetivo determinístico de SEO, necessitando de expansão da description para cobrir restrições de formato e eliminação de redundâncias internas nos passos de validação."
+  },
+  {
+    "skillName": "kotler-macro-analyzer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/kotler-macro-analyzer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description extremamente curta (104 caracteres) e sem cláusula disparadora explícita ('Use when...'), bem abaixo dos 200 caracteres mínimos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de adjetivo promocional/persona ('Professional... agent') na abertura da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Pressupõe a realização de pesquisas em tempo real de indicadores macroeconômicos (PIB, inflação, juros) sem explicitar ferramentas necessárias no bloco de metadados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Análise estratégica de macroambiente e entrada de mercado mapeando dimensões PESTEL para matriz SWOT fundamentada no framework de Philip Kotler.",
+      "entidades": [
+        "Philip Kotler",
+        "PESTEL",
+        "SWOT",
+        "Macro-marketing environment"
+      ],
+      "keywords": [
+        "kotler",
+        "pestel",
+        "swot",
+        "macro-environment",
+        "market entry",
+        "strategic audit",
+        "economic indicators",
+        "inflation",
+        "gdp",
+        "regulatory analysis",
+        "market research",
+        "business strategy",
+        "opportunities",
+        "threats"
+      ]
+    },
+    "summary": "Skill ultracompacta e sem gordura focada na metodologia Kotler/PESTEL/SWOT, necessitando apenas reescrever a description para atingir 200-400 chars com gatilho condicional explícito."
+  },
+  {
+    "skillName": "kpi-dashboard-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/kpi-dashboard-design/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description muito curta (130 caracteres), sem cláusula condicional de uso ('Use when...') e com adjetivos promocionais ('Comprehensive', 'effective').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite termos discriminantes das tecnologias centrais ensinadas no corpo do documento (Streamlit, Plotly, consultas SQL analíticas).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Preâmbulo redundante com instruções vazias ('Do not use this skill when', 'Instructions') e citação a arquivo externo inexistente ('resources/implementation-playbook.md').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de boilerplate final genérico de Limitations (linhas 446-449).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover preâmbulo com instruções e condições negativas vazias (linhas 13-24) e referências a arquivos locais ausentes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar boilerplate genérico de encerramento em Limitations (linhas 446-449).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Design de dashboards de KPIs executivos e operacionais com wireframes ASCII, cálculos analíticos em SQL para SaaS e protótipos interativos em Python com Streamlit e Plotly.",
+      "entidades": [
+        "KPI",
+        "Streamlit",
+        "Plotly",
+        "SQL",
+        "MRR",
+        "ARR",
+        "CAC",
+        "LTV",
+        "NPS",
+        "Stephen Few",
+        "Edward Tufte"
+      ],
+      "keywords": [
+        "kpi dashboard",
+        "executive dashboard",
+        "saas metrics",
+        "mrr",
+        "arr",
+        "cac",
+        "ltv",
+        "cohort retention",
+        "churn rate",
+        "streamlit",
+        "plotly",
+        "sql analytics",
+        "dataviz",
+        "metric cards",
+        "operations center",
+        "business intelligence"
+      ]
+    },
+    "summary": "Excelente compêndio com wireframes, queries SQL reais e código Streamlit/Plotly, demandando poda de preâmbulos boilerplate e ampliação semântica da description com gatilhos e tecnologias."
+  },
+  {
+    "skillName": "kubestellar-console",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/kubestellar-console/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (111 caracteres) sem gatilho explícito de uso ('Use when...') e com adjetivo promocional vago ('AI-powered operations').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite os componentes e restrições críticas de segurança detalhados no corpo (ponte via binário kc-agent e exigência de kubeconfig com privilégio mínimo não-admin).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Dependência mandante do binário externo kc-agent instalado separadamente via Homebrew, sem estratégia explícita de verificação prévia ou fallback.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Operação e observabilidade multi-cluster em Kubernetes através do KubeStellar Console conectado via servidor MCP kc-agent com segurança RBAC restrita.",
+      "entidades": [
+        "KubeStellar Console",
+        "kc-agent",
+        "Kubernetes",
+        "MCP Server",
+        "CNCF",
+        "Argo",
+        "Kyverno",
+        "Istio",
+        "Kubeconfig",
+        "ClusterRole"
+      ],
+      "keywords": [
+        "kubestellar",
+        "multi-cluster",
+        "kubernetes",
+        "kc-agent",
+        "mcp server",
+        "observability",
+        "rbac",
+        "least-privilege",
+        "kubeconfig",
+        "cluster-admin",
+        "edge computing",
+        "devops",
+        "debugging",
+        "cncf",
+        "agent skills"
+      ]
+    },
+    "summary": "Instruções objetivas e com forte ênfase em segurança para expor Kubernetes via MCP (kc-agent), necessitando apenas reformulação da description para 200-400 chars com gatilho condicional e termos técnicos discriminantes."
+  },
+  {
+    "skillName": "lambdatest-agent-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/lambdatest-agent-skills/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description subdimensionada (139 caracteres) e sem cláusula condicional disparadora ('Use when...'), abaixo dos 200-400 chars recomendados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso do adjetivo de marketing ('Production-grade') no início da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A skill funciona principalmente como índice/catálogo de roteamento apontando para o repositório LambdaTest/agent-skills, sem embutir os templates de código completos de cada framework individual.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Catálogo e guia de boas práticas para automação de testes cobrindo 46 frameworks (E2E, unitário, mobile e BDD) para execução local ou na nuvem LambdaTest.",
+      "entidades": [
+        "LambdaTest",
+        "Selenium",
+        "Playwright",
+        "Cypress",
+        "Appium",
+        "Jest",
+        "PyTest",
+        "JUnit 5",
+        "Vitest",
+        "Cucumber",
+        "TestNG"
+      ],
+      "keywords": [
+        "test automation",
+        "e2e testing",
+        "unit testing",
+        "mobile testing",
+        "bdd",
+        "selenium",
+        "playwright",
+        "cypress",
+        "jest",
+        "pytest",
+        "appium",
+        "lambdatest",
+        "cross-browser",
+        "test migration",
+        "page object model",
+        "cloud testing",
+        "test orchestration"
+      ]
+    },
+    "summary": "Excelente hub catalogador de 46 frameworks de automação de testes com boas diretrizes de segurança de credenciais, necessitando de ampliação da description para adicionar o gatilho 'Use when...'."
+  },
+  {
+    "skillName": "langchain-architecture",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/langchain-architecture/SKILL.md",
+    "state": "Regular",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description curta (140 caracteres) redigida em tom imperativo de curso ('Master the LangChain framework...') e desprovida de gatilho condicional de uso ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de adjetivos promocionais ('Master...', 'sophisticated LLM applications') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Desatualização crítica de código: ensina APIs legadas pré-LangChain 0.1/0.2 (como 'initialize_agent', 'LLMChain', 'SequentialChain', 'RetrievalQA' e importação de 'langchain.llms'), hoje depreciadas em favor do LCEL, 'langchain-openai' e LangGraph.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Referências a recursos locais ausentes no diretório ('references/agents.md', 'assets/agent-template.py', 'resources/implementation-playbook.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de preâmbulo e limitações com boilerplate vazio ('Do not use this skill when', 'Limitations').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover preâmbulo mecânico inútil (linhas 13-24), links para arquivos inexistentes (linhas 323-333) e boilerplate final (linhas 355-359).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar ou atualizar os exemplos de chains legadas (Pattern 3 / SequentialChain) para reduzir código obsoleto.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais para aplicações baseadas em LLM utilizando o ecossistema LangChain, compreendendo agentes ReAct, memórias de conversação, pipelines RAG e callbacks.",
+      "entidades": [
+        "LangChain",
+        "OpenAI",
+        "ConversationBufferMemory",
+        "ConversationSummaryMemory",
+        "RetrievalQA",
+        "Chroma",
+        "BaseCallbackHandler"
+      ],
+      "keywords": [
+        "langchain",
+        "llm architecture",
+        "react agent",
+        "prompt template",
+        "chains",
+        "conversation memory",
+        "vector store",
+        "rag",
+        "retrieval",
+        "callbacks",
+        "token tracking",
+        "text splitter",
+        "embeddings",
+        "sequential chain"
+      ]
+    },
+    "summary": "Visão geral estruturada sobre componentes de LLM com LangChain, classificada como Regular devido à dependência de sintaxe legada depreciada e referências a arquivos ausentes."
+  },
+  {
+    "skillName": "langfuse",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/langfuse/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de tamanho ideal (261 caracteres), mas carece de gatilho condicional explícito ('Use when...' ou 'Ative quando...') e abre com rótulo de persona ('Expert in Langfuse...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de adjetivos promocionais vazios ('open-source', 'Essential for...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ruído estrutural nos blocos telegráficos de Prerequisites e Scope com enumerações numéricas artificiais ('- 0: LLM application basics...', '- 0: Self-hosted requires infrastructure...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Limpar listas telegráficas artificiais em Prerequisites e Scope (linhas 44-57) e remover Limitations genérico ao final (linhas 499-503).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Observabilidade ponta a ponta, tracing de execuções de LLM, gestão e versionamento de prompts e avaliação automatizada com a plataforma Langfuse.",
+      "entidades": [
+        "Langfuse",
+        "OpenAI",
+        "LangChain",
+        "LlamaIndex",
+        "CallbackHandler",
+        "observe decorator",
+        "langfuse_context",
+        "ChatPromptTemplate"
+      ],
+      "keywords": [
+        "langfuse",
+        "llm observability",
+        "tracing",
+        "spans",
+        "generations",
+        "prompt management",
+        "llm evaluation",
+        "llm-as-judge",
+        "datasets",
+        "scores",
+        "callbacks",
+        "cost tracking",
+        "latency monitoring",
+        "observe decorator"
+      ]
+    },
+    "summary": "Skill exemplar com implementação moderna e precisa de observabilidade e tracing para LLMs com Langfuse, necessitando apenas refinar a description para incluir gatilhos e podar preâmbulos telegráficos."
+  }
+]

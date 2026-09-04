@@ -1,6 +1,6 @@
 ---
 name: sendblue-cli
-description: "Send iMessage and SMS from the shell via the @sendblue/cli npm package — outbound sends, contact management, and account setup with no API client or webhook server required."
+description: "Send iMessage and SMS from the shell via the @sendblue/cli npm package — outbound sends, contact management, and account setup with no API client or webhook server required. Use when developing, optimizing, debugging, or configuring sendblue cli in production workflows."
 category: api-integration
 risk: critical
 source: community

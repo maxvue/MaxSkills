@@ -1,0 +1,537 @@
+[
+  {
+    "skillName": "cc-skill-frontend-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cc-skill-frontend-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição possui apenas 130 caracteres (abaixo da faixa ideal de 200 a 400 caracteres) e não inclui gatilho explícito de inferência ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes e padrões avançados detalhados no guia, tais como compound components, custom hooks assíncronos (useQuery, useDebounce), virtualização de listas (@tanstack/react-virtual), framer-motion, error boundaries e acessibilidade/focus management.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico nas seções finais 'When to Use' e 'Limitations' (linhas 636-643), que constituem ruído padronizado sem valor técnico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de desenvolvimento frontend modernos para React e Next.js cobrindo composição de componentes, custom hooks assíncronos, gerenciamento de estado, virtualização e acessibilidade.",
+      "entidades": [
+        "React",
+        "Next.js",
+        "TabsContext",
+        "DataLoader",
+        "useToggle",
+        "useQuery",
+        "useDebounce",
+        "MarketContext",
+        "@tanstack/react-virtual",
+        "useVirtualizer",
+        "ErrorBoundary",
+        "framer-motion",
+        "AnimatePresence"
+      ],
+      "keywords": [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "compound components",
+        "render props",
+        "custom hooks",
+        "useQuery",
+        "useDebounce",
+        "useReducer",
+        "virtualization",
+        "@tanstack/react-virtual",
+        "framer-motion",
+        "error boundary",
+        "accessibility",
+        "focus management",
+        "code splitting",
+        "performance optimization"
+      ]
+    },
+    "summary": "Guia sólido de padrões frontend React/Next.js, exigindo expansão da descrição com gatilho claro e termos discriminantes, além de poda de boilerplate no rodapé."
+  },
+  {
+    "skillName": "cc-skill-security-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cc-skill-security-review/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A descrição (235 chars) abre com fórmula passiva-declarativa ('This skill ensures all code follows security best practices...') e omite tecnologias discriminantes centrais do documento como Zod, Supabase RLS, DOMPurify, CSP e express-rate-limit.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Eliminar as seções finais duplicadas e genéricas de 'When to Use' e 'Limitations' (linhas 498-505), que replicam desnecessariamente o escopo inicial.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Checklists de segurança de código e auditoria de vulnerabilidades cobrindo validação de esquemas, consultas parametrizadas, autenticação segura, sanitização XSS, CSRF, rate limiting e integridade de dependências.",
+      "entidades": [
+        "Zod",
+        "Supabase",
+        "Row Level Security (RLS)",
+        "DOMPurify",
+        "Content Security Policy (CSP)",
+        "express-rate-limit",
+        "@solana/web3.js",
+        "NextResponse",
+        "npm audit"
+      ],
+      "keywords": [
+        "security review",
+        "input validation",
+        "Zod",
+        "SQL injection",
+        "parameterized queries",
+        "JWT",
+        "httpOnly cookies",
+        "Supabase RLS",
+        "XSS",
+        "DOMPurify",
+        "CSP",
+        "CSRF",
+        "rate limiting",
+        "express-rate-limit",
+        "npm audit",
+        "Solana",
+        "OWASP"
+      ]
+    },
+    "summary": "Excelente checklist prático de segurança web e API com Zod e RLS, demandando apenas remoção de rodapé boilerplate e enriquecimento de termos discriminantes na descrição."
+  },
+  {
+    "skillName": "cdk-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cdk-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A descrição possui 172 caracteres (abaixo do piso de 200 caracteres) e omite constructs essenciais abordados no exemplo prático, como LambdaRestApi, dynamodb.Table, RemovalPolicy e tagging de infraestrutura.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover o bloco de 'Limitations' genérico nas linhas 80-84, dispensável em um arquivo conciso de 84 linhas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de infraestrutura em nuvem na AWS via AWS CDK v2, implementando padrões serverless reutilizáveis, constructs L2/L3 e boas práticas de stack e IAM.",
+      "entidades": [
+        "AWS CDK v2",
+        "aws-cdk-lib",
+        "Construct",
+        "apigateway.LambdaRestApi",
+        "lambda.Function",
+        "dynamodb.Table",
+        "cdk.RemovalPolicy",
+        "cdk.Tags",
+        "cdk.Aws.ACCOUNT_ID"
+      ],
+      "keywords": [
+        "AWS CDK",
+        "Cloud Development Kit",
+        "L2 constructs",
+        "L3 constructs",
+        "Serverless API",
+        "API Gateway",
+        "AWS Lambda",
+        "DynamoDB",
+        "IAM least privilege",
+        "RemovalPolicy",
+        "tagging",
+        "CloudWatch",
+        "TypeScript",
+        "infrastructure as code"
+      ]
+    },
+    "summary": "Guia conciso de padrões AWS CDK v2 com exemplo serverless funcional, necessitando expansão da descrição e remoção de seção genérica de limitações."
+  },
+  {
+    "skillName": "ci-cd-and-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ci-cd-and-automation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Redundância estilística na descrição, que repete a fórmula de gatilho em sequência: 'Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de componentes determinantes exemplificados no guia, como GitHub Actions, testes E2E com Playwright, migrations com Prisma e rollback automatizado no Vercel.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover o bloco boilerplate genérico de 'Limitations' nas linhas 399-404 no encerramento do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação completa de pipelines de CI/CD com GitHub Actions, quality gates rigorosos, testes de integração com Postgres, testes E2E com Playwright e estratégias de rollback.",
+      "entidades": [
+        "GitHub Actions",
+        "actions/checkout@v4",
+        "actions/setup-node@v4",
+        "Prisma",
+        "Playwright",
+        "Vercel CLI",
+        "Dependabot",
+        "Renovate",
+        "Docker Postgres Service"
+      ],
+      "keywords": [
+        "CI/CD",
+        "GitHub Actions",
+        "quality gates",
+        "Playwright",
+        "E2E testing",
+        "Prisma migrations",
+        "integration tests",
+        "Vercel",
+        "preview deployments",
+        "feature flags",
+        "rollback",
+        "npm audit",
+        "matrix builds",
+        "caching",
+        "shift left"
+      ]
+    },
+    "summary": "Guia de excelência de pipelines CI/CD com GitHub Actions e quality gates, exigindo apenas ajuste anti-redundância na descrição e poda de rodapé genérico."
+  },
+  {
+    "skillName": "cicd-automation-workflow-automate",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cicd-automation-workflow-automate/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A descrição é redigida em tom de persona de chatbot/system prompt ('You are a workflow automation expert specializing in...'), carece de gatilho explícito ('Use when...') e utiliza adjetivos promocionais vagos ('efficient CI/CD pipelines', 'accelerates delivery').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de placeholder não resolvido na linha 35 ('## Requirements\\n$ARGUMENTS'), evidenciando arquivo de template incompleto.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo principal possui apenas 60 linhas e não inclui exemplos de código reais inline, delegando o conteúdo prático para um playbook externo ('resources/implementation-playbook.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 28,
+    "cuts": [
+      {
+        "text": "Eliminar a duplicação textual da descrição nas linhas 10-11, o placeholder '$ARGUMENTS' nas linhas 34-35 e o bloco genérico de Limitations (linhas 56-60), trazendo padrões concretos do playbook diretamente para o SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de fluxos de trabalho CI/CD e pipelines no GitHub Actions com estágios de build, teste, gates de qualidade e estratégias de rollback.",
+      "entidades": [
+        "GitHub Actions",
+        "CI/CD pipelines",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "workflow automation",
+        "CI/CD",
+        "GitHub Actions",
+        "pipeline stages",
+        "quality gates",
+        "secret handling",
+        "caching",
+        "artifacts",
+        "rollout",
+        "rollback",
+        "deployment automation"
+      ]
+    },
+    "summary": "Skill excessivamente enxuta com placeholder não resolvido ($ARGUMENTS), descrição em formato de persona sem gatilho e bloat proporcionalmente alto."
+  },
+  {
+    "skillName": "ckw-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ckw-design/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Direção de design frontend, sistemas visuais e regras determinísticas de layout para interfaces web, incluindo gates de overflow horizontal e auditoria de usabilidade.",
+      "entidades": [
+        "design-thinking",
+        "design-system",
+        "design-spatial",
+        "design-ux",
+        "design-philosophy",
+        "FLUX v1",
+        "KaTeX",
+        "MathJax"
+      ],
+      "keywords": [
+        "frontend design",
+        "design system",
+        "UI aesthetics",
+        "typography",
+        "color tokens",
+        "8-point grid",
+        "spatial layout",
+        "horizontal overflow gate",
+        "flex-wrap",
+        "usabilidade",
+        "heurísticas de Nielsen",
+        "LLM cost annotation",
+        "select-all toggle"
+      ]
+    },
+    "summary": "Skill de design frontend de altíssimo nível, descrição perfeitamente calibrada, regras práticas anti-IA genérica e zero bloat."
+  },
+  {
+    "skillName": "claimable-postgres",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/claimable-postgres/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição no frontmatter (linha 3) e na seção 'When to Use' (linha 16) sofreu truncamento abrupto no scraping/sync, finalizando em reticências com aspas não fechadas ('... or \"just give me a DB...'), gerando anomalia de sintaxe e semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Incompletude da cláusula de gatilho de ativação gerada pelo corte textual defeituoso.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover o bloco genérico de Limitations no rodapé (linhas 255-260) e recompor a sentença truncada da descrição e da seção 'When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Provisionamento instantâneo de bancos de dados PostgreSQL temporários e descartáveis via Claimable Postgres da Neon (neon.new) sem necessidade de cadastro ou cartão de crédito.",
+      "entidades": [
+        "Neon",
+        "neon.new",
+        "neon-new CLI",
+        "neon-new SDK",
+        "vite-plugin-neon-new",
+        "@neon/config",
+        "neon.ts",
+        "Prisma",
+        "PostgreSQL 17"
+      ],
+      "keywords": [
+        "Neon",
+        "claimable postgres",
+        "temporary database",
+        "throwaway database",
+        "DATABASE_URL",
+        "neon.new",
+        "REST API",
+        "CLI",
+        "SDK",
+        "Vite plugin",
+        "branching",
+        "ephemeral DB",
+        "prototyping",
+        "integration testing"
+      ]
+    },
+    "summary": "Excelente documentação oficial do Neon para provisionamento instantâneo de Postgres, necessitando de correção urgente no truncamento abrupto com aspa aberta da descrição."
+  },
+  {
+    "skillName": "clarvia-aeo-check",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/clarvia-aeo-check/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição possui 172 caracteres (< 200), não apresenta o gatilho explícito 'Use when...' e adota linguagem de marketing comercial ('Search 15,400+ indexed tools before adding them to your workflow.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência no frontmatter dos nomes de ferramentas do MCP server expostas pela skill, como 'aeo_score' e 'get_score_breakdown'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 4,
+    "cuts": [
+      {
+        "text": "Remover as seções de boilerplate genérico de Limitations no rodapé (linhas 135-139).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Avaliação e pontuação de prontidão para agentes (Agent Experience Optimization - AEO) de servidores MCP, APIs e ferramentas CLI utilizando Clarvia.",
+      "entidades": [
+        "Clarvia",
+        "Clarvia AEO",
+        "clarvia-mcp-server",
+        "clarvia-action@v1",
+        "MCP (Model Context Protocol)",
+        "aeo_score",
+        "get_score_breakdown"
+      ],
+      "keywords": [
+        "Clarvia",
+        "AEO",
+        "Agent Experience Optimization",
+        "MCP server",
+        "agent-readiness",
+        "tool quality",
+        "API scoring",
+        "tool evaluation",
+        "agent compatibility",
+        "leaderboard",
+        "model context protocol"
+      ]
+    },
+    "summary": "Ferramenta de scoring AEO para servidores MCP e APIs, demandando remoção de tom promocional da descrição, inclusão de gatilho 'Use when' e poda de boilerplate."
+  },
+  {
+    "skillName": "claude-monitor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/claude-monitor/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Instruções operacionais utilizam caminhos absolutos locais do Windows ('python C:\\Users\\renat\\skills\\claude-monitor\\scripts\\health_check.py'), impedindo a execução em ambientes Linux, macOS ou em outros usuários Windows.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A descrição possui 168 caracteres (< 200) e não contém cláusula formal de ativação ('Use when...' ou 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância severa: enumera 6 variações sinônimas em inglês sob 'When to Use This Skill' (linhas 27-35) e repete integralmente a mesma lista em português sob 'Quando Usar' (linhas 47-54).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Substituir os caminhos absolutos hardcoded 'C:\\Users\\renat\\...' por referências relativas portáveis aos scripts ('scripts/health_check.py').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Eliminar a seção duplicada '## Quando Usar' (linhas 47-54), condensar os gatilhos redundantes e remover os blocos genéricos vazios de 'Do Not Use', 'Best Practices', 'Common Pitfalls' e 'Limitations'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico e monitoramento de desempenho de recursos locais (CPU, RAM, disco, processos de navegador) e latência de rede para o Claude Code.",
+      "entidades": [
+        "Claude Code",
+        "psutil",
+        "health_check.py",
+        "monitor.py",
+        "api_bench.py"
+      ],
+      "keywords": [
+        "Claude Code",
+        "performance monitoring",
+        "diagnóstico de lentidão",
+        "CPU usage",
+        "RAM consumption",
+        "disk space",
+        "network latency",
+        "browser processes",
+        "psutil",
+        "health check",
+        "Electron"
+      ]
+    },
+    "summary": "Skill de diagnóstico com utilidade técnica real, mas prejudicada por caminhos absolutos hardcoded de máquina Windows local, descrição curta sem gatilho e alto nível de ruído/duplicações."
+  },
+  {
+    "skillName": "clerk-auth",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/clerk-auth/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição possui apenas 111 caracteres (muito abaixo do piso de 200 caracteres), inicia com termo promocional ('Expert patterns...') e carece de cláusula explícita de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes vitais cobertos exaustivamente no arquivo, como Next.js App Router, ClerkProvider, Server Actions, hooks (@clerk/nextjs), verificação svix em webhooks e mitigação do CVE-2025-29927.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Condensar a enumeração repetitiva de 10 linhas em 'When to Use' (linhas 828-839) que repete 'User mentions or implies:' para cada termo, e remover o boilerplate de Limitations (linhas 840-844).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implementação e boas práticas de autenticação, autorização e gerenciamento de usuários multi-tenant com Clerk no Next.js App Router.",
+      "entidades": [
+        "@clerk/nextjs",
+        "@clerk/nextjs/server",
+        "ClerkProvider",
+        "clerkMiddleware",
+        "createRouteMatcher",
+        "auth",
+        "currentUser",
+        "useUser",
+        "useAuth",
+        "useOrganization",
+        "CreateOrganization",
+        "OrganizationProfile",
+        "Svix",
+        "Prisma",
+        "CVE-2025-29927"
+      ],
+      "keywords": [
+        "Clerk",
+        "authentication",
+        "Next.js App Router",
+        "clerkMiddleware",
+        "createRouteMatcher",
+        "multi-tenancy",
+        "organizations",
+        "role-based access",
+        "webhooks",
+        "Svix",
+        "user sync",
+        "Server Components",
+        "Client Components",
+        "session management",
+        "CVE-2025-29927"
+      ]
+    },
+    "summary": "Guia técnico avançado para autenticação Clerk em Next.js App Router com mitigação de CVE, necessitando expansão da descrição e remoção de redundâncias no rodapé."
+  }
+]

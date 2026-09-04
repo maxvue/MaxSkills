@@ -1,6 +1,6 @@
 --- 
 name: animejs-animation
-description: Advanced JavaScript animation library skill for creating complex, high-performance web animations.
+description: "Comprehensive engineering guide and best practices for animejs animation. Use when configuring, developing, debugging, or optimizing animejs animation architecture in production systems. Guides architecture, best practices, and implementation standards for animejs animation."
 risk: safe
 source: community
 date_added: "2026-03-07"

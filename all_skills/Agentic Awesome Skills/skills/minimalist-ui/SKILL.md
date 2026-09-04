@@ -1,6 +1,6 @@
 ---
 name: minimalist-ui
-description: "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts."
+description: "Use when creating clean editorial interfaces with warm monochrome palettes, crisp borders, restrained motion, and flat bento layouts. Guides architecture, best practices, and implementation standards for minimalist ui."
 category: frontend
 risk: safe
 source: community

@@ -1,6 +1,6 @@
 ---
 name: llm-application-dev-ai-assistant
-description: "You are an AI assistant development expert specializing in creating intelligent conversational interfaces, chatbots, and AI-powered applications. Design comprehensive AI assistant solutions with natur"
+description: "Comprehensive engineering guide and best practices for llm application dev ai assistant. Use when configuring, developing, debugging, or optimizing llm application dev ai assistant architecture in production systems."
 risk: safe
 source: community
 date_added: "2026-02-27"

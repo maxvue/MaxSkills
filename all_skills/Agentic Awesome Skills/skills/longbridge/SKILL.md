@@ -1,6 +1,6 @@
 ---
 name: longbridge
-description: "125+ agent skills for Longbridge Securities — real-time quotes, charts, fundamentals, portfolio analysis, options, and more for HK/US/A-share/SG markets. Trilingual: Simplified Chinese, Traditional Chinese, English."
+description: "125+ agent skills for Longbridge Securities — real-time quotes, charts, fundamentals, portfolio analysis, options, and more for HK/US/A-share/SG markets. Trilingual: Simplified Chinese, Traditional Chinese, English. Use when developing, optimizing, debugging, or configuring longbridge in production workflows."
 category: finance
 risk: critical
 source: official

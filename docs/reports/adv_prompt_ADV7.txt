@@ -1,0 +1,129 @@
+Você é o Revisor Adversarial da Fase 3 para o lote ADV7.
+Sua missão é atuar como Advogado do Diabo e avaliar rigorosamente os seguintes 15 micro-lotes de problemas/cortes contra o código real em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ e os arquivos SKILL.md:
+
+### Micro-Lote [MB_CREATED_007] - Skill: laravel-electrical-calculations-dimensioning-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description repete no encerramento 'Covers electrical sizing, breaker calculations, and cable sizing standards.', duplicando exatamente os conceitos já expressos na oração inicial (critério 12).
+
+### Micro-Lote [MB_CREATED_015] - Skill: laravel-meta-graph-api-integration-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description conclui com cláusula boilerplate ('Covers objectives, architectural structure, and Meta API endpoints.') que adiciona termos vagos e repete a raiz sintática.
+
+### Micro-Lote [MB_CREATED_023] - Skill: laravel-typescript-transformer-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Duplicação estrutural de diretrizes: A seção '## Idioma' (linhas 26-28) repete de forma redundante a mesma diretriz da seção '## Restrições' (linhas 29-30).
+  2. Ruído na cauda da description: 'Covers objectives, TypeScript DTO transformation, and language rules.' adiciona termos genéricos e meta-regras desnecessárias.
+  3. Remover a seção duplicada '## Idioma' (linhas 26-28) consolidando a diretriz sob '## Restrições'.
+
+### Micro-Lote [MB_CREATED_031] - Skill: vue-inputs-masks-validation-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description possui cauda genérica 'Covers objectives and core workflows.' que não agrega valor semântico (Critérios 7 e 12).
+
+### Micro-Lote [MB_CREATED_039] - Skill: vue-unocss-styling-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Exemplo ensina classes utilitárias inline no template — adotar classes semânticas e estilizar em <style lang="scss">.
+  2. Description contém meta-ruído de preenchimento ('Covers objectives and core workflows.').
+
+### Micro-Lote [MB_CRIT_047] - Skill: get-shit-done
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/get-shit-done/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Extensão insuficiente da description (124 caracteres, violando a faixa ideal de 200 a 400 caracteres).
+  2. Ausência total de condição de gatilho formal ('Use when...' ou 'Ative quando...') na description.
+  3. Uso de vocabulário promocional e adjetivos vazios de marketing na description ('High-velocity autonomous engineering', 'minimal friction', 'velocidade máxima').
+
+### Micro-Lote [MB_CRIT_055] - Skill: piv-loop
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/piv-loop/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Extensão insuficiente da description (144 caracteres) e ausência de cláusula de gatilho ('Use when...').
+  2. Ausência de especificação técnica do loop Plan-Implement-Validate: não define formato de planos, critérios para portões de validação (gates) nem regras de transição entre estados.
+  3. Corpo estruturado sobre o mesmo boilerplate genérico repetitivo, com tautologias ('rotinas de piv-loop') e links sintéticos de YouTube.
+
+### Micro-Lote [MB_CRIT_063] - Skill: fal-audio
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Dependência externa exclusiva para terceiros através de link sem documentação local dos modelos de áudio (STT/TTS).
+  2. O arquivo atual é 80%+ composto de tautologias e boilerplate de limitações sem nenhuma documentação técnica; necessita ser reconstruído do zero com exemplos reais ou removido.
+
+### Micro-Lote [MB_CRIT_071] - Skill: makepad-skills
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Ausência total de ganho semântico e procedimentos reais, servindo apenas como redirecionador raso para link externo.
+  2. O arquivo inteiro é redundante e oco; necessita de reescrita completa baseada no repositório upstream ou exclusão/descarte do stub.
+
+### Micro-Lote [MB_CRIT_079] - Skill: react-flow-node-ts
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Dependência fantasma: a seção Quick Start instrui explicitamente a copiar modelos de 'assets/template.tsx' e 'assets/types.template.ts', porém o diretório 'assets/' não existe na skill.
+  2. Overfitting e acoplamento a projeto proprietário externo: o passo a passo exige paths inexistentes ('src/frontend/src/types/index.ts', 'src/frontend/src/store/app-store.ts') e componentes específicos ('AddBlockMenu', 'ConnectMenu'), além de description curta (124 chars) sem 'Use when...'.
+  3. Eliminar referências ao diretório fantasma 'assets/' e desvincular o passo a passo dos caminhos rígidos e menus ('AddBlockMenu', 'ConnectMenu') do projeto upstream particular.
+
+### Micro-Lote [MB_CURATED_087] - Skill: agent-orchestrator
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/agent-orchestrator/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description com apenas 163 caracteres (abaixo da faixa ideal de 200-400 chars) e sem gatilho explícito de contexto ('Use when...' ou 'Ative quando...').
+  2. Forte acoplamento a scripts em caminhos locais específicos ('agent-orchestrator/scripts/') e tabela estática hardcoded do ecossistema do autor ('junta-leiloeiros', 'whatsapp-cloud-api') que não generalizam.
+  3. Presença de seções finais de boilerplate genérico ('Best Practices', 'Common Pitfalls', 'Limitations') sem discriminantes operacionais reais.
+
+### Micro-Lote [MB_CURATED_095] - Skill: mcp-server-routing
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/mcp-server-routing/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Divergência severa de escopo e nomenclatura: o diretório é denominado 'mcp-server-routing', enquanto o nome da skill no frontmatter é 'mcp-builder' e todo o conteúdo trata da criação e avaliação de servidores MCP (Python/TypeScript), sem relação com roteamento.
+  2. A description utiliza adjetivo qualitativo ('high-quality MCP servers') que poderia ser substituído por termos técnicos mais objetivos.
+
+### Micro-Lote [MB_CURATED_103] - Skill: tailwind-css
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/tailwind-css/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Remover o template de 65 linhas e incorporar diretrizes técnicas reais para estilização com classes utilitárias, mapeamento de temas e suporte a Tailwind CSS v3 e v4.
+
+### Micro-Lote [MB_PHASE2_111] - Skill: typescript-advanced-types-best-practices + typescript-pro
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: typescript-pro é uma skill genérica e rasa (59 linhas) da comunidade que aborda exatamente o mesmo escopo técnico de typescript-advanced-types-best-practices (205 linhas), a qual é altamente customizada, alinhada aos projetos reais do repositório e substancialmente mais profunda. O conteúdo de typescript-pro consiste em diretrizes conceituais abstratas de generics, conditional types, mapped types, tsconfig estrito e testes que já constam implementados, com exemplos reais de código e validações práticas (satisfies, template literals, branded types, compiler testing com AssertEqual) na skill de types avançados. Manter ambas ativas provocaria colisão direta de ativação no orquestrador ao direcionar tarefas de modelagem e resolução de tipos em TypeScript.
+  2. Plano de integracao: Absorver em typescript-advanced-types-best-practices as poucas menções complementares de typescript-pro, especificamente a referência a decorators/metadados e declarações ambient (.d.ts). Consolidar no frontmatter de typescript-advanced-types-best-practices os gatilhos explícitos de 'Use this skill when' e 'Do not use this skill when' derivados de typescript-pro para prevenir ambiguidades de roteamento. Desativar/remover typescript-pro do catálogo de skills.
+
+### Micro-Lote [MB_PHASE2_119] - Skill: ui-skills + ui-skills-root
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: A skill 'ui-skills' é apenas um stub genérico e placeholder redundante originário do mesmo repositório upstream ('ibelick/ui-skills'), sem ferramentas ou orientações acionáveis. Já 'ui-skills-root' é a implementação oficial e operacional do roteador de UI Skills, contendo CLI ('npx ui-skills'), protocolo de roteamento em 7 etapas e regras estritas de seleção. Manter ambas gera confusão direta no orquestrador.
+  2. Plano de integracao: Absorver eventuais metadados contextuais ou referências upstream de 'ui-skills' em 'ui-skills-root', atualizando a descrição do 'ui-skills-root' para deixar explícito que é a porta de entrada para todas as UI skills do ecossistema ibelick, e remover a pasta/stub 'ui-skills'.
+
+Diretrizes de Avaliação:
+1. Abra o arquivo SKILL.md da skill com view_file.
+2. Quando a acusação envolver conformidade técnica com o código de Engeapp/MaxVue, abra e confira os arquivos em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ (projects/engeapp, projects/MaxComponentsUi, projects/MaxPinia, projects/MaxUse, projects/MaxCode).
+3. Para cada problema listado, decida:
+   - CONFIRMADO: se o defeito técnico, não conformidade ou necessidade de corte/merge for real e comprovado.
+   - REFUTADO: se for falso positivo, exagero, código existente ou sugestão puramente cosmética.
+4. Forneça evidence concreta (arquivo e linha/trecho).
+5. Se CONFIRMADO e envolver a description, proponha correctedDescription calibrada (200-400 chars). Senão, deixe string vazia.
+
+Retorne SEMPRE um array JSON contendo um objeto para CADA problema avaliado no formato:
+[
+  {
+    "skillName": "nome da skill",
+    "problem": "texto exato ou resumo fiel do problema",
+    "verdict": "CONFIRMADO | REFUTADO",
+    "evidence": "arquivo e linha/trecho real",
+    "correctedDescription": "string se CONFIRMADO e impreciso, senao """
+  }
+]
+Salve o resultado em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/docs/reports/phase3_raw_ADV7.json usando write_to_file (sem ArtifactMetadata) e envie o resultado para o orquestrador via send_message.

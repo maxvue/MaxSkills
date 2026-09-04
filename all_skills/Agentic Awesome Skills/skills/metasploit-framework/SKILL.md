@@ -1,6 +1,6 @@
 ---
 name: metasploit-framework
-description: "⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments only. > You must have explicit, written permission from the system owner before using this tool. > Misuse of this tool is illegal and strictly prohibited."
+description: "Comprehensive engineering guide and best practices for metasploit framework. Use when configuring, developing, debugging, or optimizing metasploit framework architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for metasploit framework."
 risk: offensive
 source: community
 author: zebbern

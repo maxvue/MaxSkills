@@ -1,6 +1,6 @@
 ---
 name: ux-flow
-description: Design user flows and navigation structure following proven UX patterns
+description: "Design user flows and navigation structure following proven UX patterns Use when developing, optimizing, debugging, or configuring ux flow in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux flow."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-flow
 source_repo: bitjaru/styleseed

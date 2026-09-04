@@ -1,6 +1,6 @@
 ---
 name: "test-guard"
-description: "Review generated or changed test code against universal testing rules before it ships or is presented for approval."
+description: "Review generated or changed test code against universal testing rules before it ships or is presented for approval. Use when developing, optimizing, debugging, or configuring test guard in production workflows."
 risk: "critical"
 source: "community"
 source_repo: "amElnagdy/guard-skills"

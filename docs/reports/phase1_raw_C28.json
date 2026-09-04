@@ -1,0 +1,429 @@
+[
+  {
+    "skillName": "fixing-motion-performance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fixing-motion-performance/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria e correção de gargalos de desempenho em animações CSS/JS, eliminando layout thrashing e jank no compositor do navegador.",
+      "entidades": [
+        "FLIP",
+        "requestAnimationFrame",
+        "IntersectionObserver",
+        "scroll-timeline",
+        "view()",
+        "will-change",
+        "transform",
+        "opacity",
+        "WAAPI",
+        "GSAP"
+      ],
+      "keywords": [
+        "motion performance",
+        "layout thrashing",
+        "compositor",
+        "scroll-linked motion",
+        "blur effects",
+        "FLIP animation",
+        "requestAnimationFrame",
+        "IntersectionObserver",
+        "scroll-timeline",
+        "will-change",
+        "jank",
+        "rendering pipeline"
+      ]
+    },
+    "summary": "Skill excelente com descrição precisa de 247 caracteres, gatilhos claros, regras de priorização técnica consolidadas e conteúdo livre de bloat."
+  },
+  {
+    "skillName": "flowhunt-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/flowhunt-skill/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria de fluxos de trabalho operacionais e descoberta estruturada de oportunidades de automação com ferramentas de produtividade e CRM.",
+      "entidades": [
+        "Gmail",
+        "Google Calendar",
+        "Slack",
+        "Jira",
+        "Asana",
+        "Notion",
+        "Linear",
+        "HubSpot",
+        "Zapier",
+        "Make",
+        "n8n"
+      ],
+      "keywords": [
+        "automation discovery",
+        "workflow audit",
+        "intake questionnaire",
+        "Gmail automation",
+        "Slack workflows",
+        "task tracker",
+        "CRM automation",
+        "prioritization matrix",
+        "quick wins",
+        "Make",
+        "n8n",
+        "Zapier"
+      ]
+    },
+    "summary": "Skill excelente com questionário de intake estruturado, matriz de priorização e descrição perfeitamente dimensionada com gatilho claro."
+  },
+  {
+    "skillName": "food-database-query",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/food-database-query/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 19 caracteres ('Food Database Query') viola severamente os critérios C1, C2, C3, C4 e C7: não atinge a extensão mínima (200-400 chars), não descreve ações, omite o gatilho 'Use when...' e carece de termos discriminantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Documento inflado com roadmap futuro de produto ('扩展计划: 短期, 中期, 长期') e caminhos de arquivos privados de outro projeto Claude (.claude/commands/nutrition.md, data/food-database.json), gerando ruído conceitual.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover seção de roadmap futuro '扩展计划' (linhas 723-742) e configurações privadas de projeto em '技术实现' (linhas 775-788) que não têm utilidade operacional em tempo de execução.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar os extensos blocos de mock JSON de dados de alimentos e tabelas completas de RDA masculina/feminina (linhas 425-588) em esquemas tipados concisos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Consulta, comparação e cálculo nutricional automatizado com base em banco de dados estruturado de alimentos e parâmetros de RDA.",
+      "entidades": [
+        "food-database.json",
+        "food-categories.json",
+        "RDA",
+        "DASH",
+        "fuzzy_search",
+        "levenshtein_distance"
+      ],
+      "keywords": [
+        "nutrition calculation",
+        "food database",
+        "macronutrients",
+        "micronutrients",
+        "glycemic index",
+        "RDA",
+        "fuzzy search",
+        "dietary recommendation",
+        "portion sizing",
+        "DASH diet"
+      ]
+    },
+    "summary": "Skill com conteúdo técnico de nutrição rico, porém prejudicada por descrição vazia de 19 caracteres e seções de roadmap/caminhos de projeto que geram 30% de ruído."
+  },
+  {
+    "skillName": "fp-async",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-async/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 111 caracteres ('Practical async patterns using TaskEither - clean pipelines instead of try/catch hell, with real API examples') está abaixo da faixa recomendada (200-400 chars), omite o gatilho 'Use when...' e usa tom informal.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final 'Before/After Summary' (linhas 896-971) duplica literalmente os exemplos práticos já demonstrados com detalhes nas seções 1, 2 e 4.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover ou resumir a seção 'Before/After Summary' (linhas 896-971), pois constitui repetição integral de trechos de código apresentados anteriormente no documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões assíncronos funcionais em TypeScript com fp-ts TaskEither para orquestração de APIs, paralelismo e tratamento de erros sem try/catch.",
+      "entidades": [
+        "TaskEither",
+        "TE.tryCatch",
+        "TE.chain",
+        "TE.map",
+        "sequenceT",
+        "TE.ApplyPar",
+        "TE.traverseArray",
+        "TE.orElse",
+        "TE.Do",
+        "PrismaClient"
+      ],
+      "keywords": [
+        "fp-ts",
+        "TaskEither",
+        "async pipeline",
+        "error handling",
+        "tryCatch",
+        "parallel execution",
+        "sequenceT",
+        "traverseArray",
+        "retry exponential backoff",
+        "Prisma",
+        "Do notation"
+      ]
+    },
+    "summary": "Conteúdo excelente sobre TaskEither e pipelines assíncronos no TypeScript, demandando expansão de description com gatilho formal e remoção de duplicatas no resumo final."
+  },
+  {
+    "skillName": "fp-backend",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-backend/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description de 139 caracteres está abaixo de 200 chars e carece do padrão de gatilho explícito ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura backend funcional em Node.js e Deno utilizando ReaderTaskEither do fp-ts para injeção de dependências, persistência e middlewares tipados.",
+      "entidades": [
+        "ReaderTaskEither",
+        "TaskEither",
+        "PrismaClient",
+        "Express",
+        "Hono",
+        "PostgreSqlContainer",
+        "fast-check",
+        "vitest"
+      ],
+      "keywords": [
+        "fp-ts",
+        "ReaderTaskEither",
+        "dependency injection",
+        "backend architecture",
+        "Prisma transactions",
+        "Express middleware",
+        "Hono middleware",
+        "circuit breaker",
+        "testcontainers",
+        "property-based testing"
+      ]
+    },
+    "summary": "Guia completo de arquitetura backend funcional com ReaderTaskEither e testes avançados, necessitando unicamente de expansão da description com gatilho 'Use when...'."
+  },
+  {
+    "skillName": "fp-data-transforms",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-data-transforms/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 132 caracteres não atinge o piso de 200 caracteres, omite a menção direta a TypeScript/fp-ts e não inclui a cláusula de gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Transformações funcionais de dados em TypeScript para manipulação de arrays, objetos, agregações, normalizações e acesso seguro a valores opcionais.",
+      "entidades": [
+        "fp-ts/Array",
+        "fp-ts/Option",
+        "Array.prototype.reduce",
+        "groupBy",
+        "sumBy",
+        "deepMergeSettings"
+      ],
+      "keywords": [
+        "data transformations",
+        "functional programming",
+        "TypeScript",
+        "fp-ts Array",
+        "fp-ts Option",
+        "grouping",
+        "aggregation",
+        "normalization",
+        "null-safe access",
+        "map-reduce"
+      ]
+    },
+    "summary": "Excelente comparativo didático de transformações funcionais vs imperativas em TypeScript, precisando apenas de ajuste semântico e inclusão de gatilho na description."
+  },
+  {
+    "skillName": "fp-errors",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-errors/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description de 119 caracteres ('Stop throwing everywhere...') é curta, usa linguagem informal/promocional e não possui o gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Tratamento funcional de erros em TypeScript tratando falhas como valores através de Either e TaskEither do fp-ts.",
+      "entidades": [
+        "Either",
+        "TaskEither",
+        "E.tryCatch",
+        "E.fold",
+        "E.chain",
+        "E.chainW",
+        "sequenceS",
+        "E.getApplicativeValidation"
+      ],
+      "keywords": [
+        "fp-ts",
+        "Either",
+        "TaskEither",
+        "error handling",
+        "errors as values",
+        "railway oriented programming",
+        "fold",
+        "validation applicative",
+        "typed errors"
+      ]
+    },
+    "summary": "Guia técnico de tratamento de erros com Either/TaskEither de alto rigor técnico, necessitando somente de formalização e extensão de sua description com gatilho claro."
+  },
+  {
+    "skillName": "fp-pragmatic",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-pragmatic/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description de 130 caracteres ('A practical, jargon-free guide...') usa termos promocionais/adjetivos vazios ('jargon-free', '80/20 approach') e omite a cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Abordagem pragmática da programação funcional em TypeScript com foco em legibilidade, uso criterioso de pipe/Option/Either e identificação de anti-padrões.",
+      "entidades": [
+        "pipe",
+        "Option",
+        "Either",
+        "O.fromNullable",
+        "O.flatMap",
+        "E.tryCatch",
+        "E.fold"
+      ],
+      "keywords": [
+        "pragmatic FP",
+        "TypeScript",
+        "fp-ts",
+        "pipe",
+        "Option",
+        "Either",
+        "readability",
+        "functional refactoring",
+        "80/20 FP",
+        "error handling"
+      ]
+    },
+    "summary": "Excelente introdução aos conceitos centrais de FP com diretrizes sobre legibilidade e quando evitar abstrações complexas, requerendo apenas description técnica sem jargão promocional."
+  },
+  {
+    "skillName": "fp-react",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-react/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description de 130 caracteres está abaixo do intervalo recomendado de 200 a 400 caracteres e carece do gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões funcionais aplicados ao desenvolvimento React moderno e Next.js utilizando fp-ts para manipulação de estado, hooks, RemoteData e formulários.",
+      "entidades": [
+        "Option",
+        "Either",
+        "TaskEither",
+        "RemoteData",
+        "useActionState",
+        "useOptimistic",
+        "sequenceS",
+        "fp-ts-react-stable-hooks"
+      ],
+      "keywords": [
+        "fp-ts",
+        "React",
+        "React 19",
+        "Next.js",
+        "hooks",
+        "RemoteData",
+        "form validation",
+        "TaskEither fetching",
+        "useActionState",
+        "useOptimistic"
+      ]
+    },
+    "summary": "Skill de alta qualidade técnica abordando React moderno (18/19) e padrões funcionais sem bloat, com necessidade de ampliação da description para 200-400 chars com gatilho."
+  },
+  {
+    "skillName": "fp-refactor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fp-refactor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description de 99 caracteres ('Comprehensive guide for refactoring...') é muito curta, contém adjetivo vazio ('Comprehensive guide') e não inclui a cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estratégias de migração e refatoração de bases de código TypeScript imperativas para padrões funcionais com fp-ts e avaliação de viabilidade técnica.",
+      "entidades": [
+        "Either",
+        "TaskEither",
+        "Option",
+        "Reader",
+        "ReaderTaskEither",
+        "J.parse",
+        "A.findFirst",
+        "traverse"
+      ],
+      "keywords": [
+        "code refactoring",
+        "fp-ts migration",
+        "imperative to functional",
+        "TypeScript refactoring",
+        "try-catch to Either",
+        "null to Option",
+        "class DI to Reader",
+        "migration strategy",
+        "tradeoffs"
+      ]
+    },
+    "summary": "Guia extenso e detalhado de refatoração para fp-ts com catálogo de padrões e contra-indicações, demandando apenas adequação da description para a faixa de 200-400 chars com gatilho formal."
+  }
+]

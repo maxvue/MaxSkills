@@ -1,6 +1,6 @@
 ---
 name: api-analyzer
-description: Validates whether an API request is correct based on provided inputs (method, URL, headers, body, auth, query params). Use this skill whenever a user wants to check, validate, debug, or verify an API call — including when they paste a curl command, show endpoint details, ask "is this...
+description: "Comprehensive engineering guide and best practices for api analyzer. Use when configuring, developing, debugging, or optimizing api analyzer architecture in production systems. Guides architecture, best practices, and implementation standards for api analyzer."
 risk: none
 source: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/api-analyzer
 source_repo: LambdaTest/agent-skills

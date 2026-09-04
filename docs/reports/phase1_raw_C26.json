@@ -1,0 +1,504 @@
+[
+  {
+    "skillName": "email-sequence",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/email-sequence/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 167 caracteres (abaixo da faixa ideal de 200-400 chars) e formulada com persona de roleplay ('You are an expert in... Your goal is...'), violando a diretriz de linguagem direta e anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita de gatilho/ativação ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância e sobreposição estrutural entre 'Sequence Templates' (L110-272) e 'Email Types Reference' (L273-740), além de seções de boilerplate genérico em 'When to Use' e 'Limitations' (L930-937).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Consolidar a listagem duplicada de templates nas seções 110 e 273 em um catálogo unificado de fluxos e remover o boilerplate genérico final de limitations.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégia, copywriting e arquitetura de fluxos de email marketing para ciclo de vida do cliente (onboarding, nutrição, retenção, cobrança e reativação).",
+      "entidades": [
+        "Welcome Sequence",
+        "Lead Nurture",
+        "Onboarding",
+        "Re-Engagement",
+        "NPS Survey",
+        "Dunning / Failed Payment",
+        "onboarding-cro",
+        "copywriting"
+      ],
+      "keywords": [
+        "email marketing",
+        "email sequence",
+        "lifecycle emails",
+        "drip campaign",
+        "onboarding sequence",
+        "lead nurture",
+        "re-engagement",
+        "dunning",
+        "cancellation survey",
+        "subject lines",
+        "preview text",
+        "open rate",
+        "click-through rate",
+        "segmentation",
+        "A/B testing"
+      ]
+    },
+    "summary": "Guia abrangente de lifecycle emails com boa estrutura conceitual, necessitando reformulação da description para eliminar tom de persona e poda de templates sobrepostos."
+  },
+  {
+    "skillName": "email-systems",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/email-systems/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description (191 caracteres) é um pitch promocional com estatísticas de mercado ('Email has the highest ROI of any marketing channel. $36 for every $1 spent...'), violando frontalmente os critérios de clareza de ação e linguagem anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de condição de gatilho ('Use when...') e de termos técnicos discriminantes na description (ex.: SPF, DKIM, DMARC, Postmark, Resend, React Email, bounce webhooks).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seções residuais de boilerplate genérico em 'When to Use' e 'Limitations' (L677-684).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover preâmbulo estatístico redundante e podar seções de boilerplate genérico ao final do documento (L677-684).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Infraestrutura técnica, entregabilidade, autenticação DNS e engenharia de software para sistemas de emails transacionais e de marketing.",
+      "entidades": [
+        "Postmark",
+        "Resend",
+        "ConvertKit",
+        "Customer.io",
+        "@react-email/components",
+        "SPF",
+        "DKIM",
+        "DMARC",
+        "List-Unsubscribe"
+      ],
+      "keywords": [
+        "email deliverability",
+        "transactional email",
+        "SPF",
+        "DKIM",
+        "DMARC",
+        "bounce handling",
+        "React Email",
+        "dedicated IP",
+        "shared IP",
+        "IP warmup",
+        "List-Unsubscribe",
+        "spam complaints",
+        "rate limiting",
+        "email queue",
+        "exponential backoff",
+        "preference center"
+      ]
+    },
+    "summary": "Excelente conteúdo sobre entregabilidade e arquitetura transacional, porém rebaixada a Regular devido à description puramente publicitária e sem discriminantes operacionais."
+  },
+  {
+    "skillName": "emil-design-eng",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/emil-design-eng/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description concisa com 139 caracteres (abaixo da faixa ideal de 200-400 chars), omitindo termos técnicos discriminantes centrais como Framer Motion, física de molas (springs), CSS easing cubic-bezier, clip-path e transform-origin.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'Initial Response' (L31-37) impõe um hijack conversacional que força autopromoção de curso externo ('animations.dev') antes de atender aos pedidos do usuário.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Eliminar a instrução conversacional restritiva e o anúncio de curso em 'Initial Response' (L31-37), preservando o foco estritamente técnico.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Engenharia de design frontend, refinamento de micro-interações, física de animação e construção de componentes com alto padrão de acabamento.",
+      "entidades": [
+        "Sonner",
+        "Radix UI",
+        "Base UI",
+        "Framer Motion",
+        "useSpring",
+        "@starting-style",
+        "cubic-bezier",
+        "WAAPI"
+      ],
+      "keywords": [
+        "design engineering",
+        "micro-interactions",
+        "spring physics",
+        "Framer Motion",
+        "custom easing",
+        "cubic-bezier",
+        "perceived performance",
+        "clip-path",
+        "hardware acceleration",
+        "transform-origin",
+        "prefers-reduced-motion",
+        "UI polish",
+        "Sonner",
+        "stagger animations"
+      ]
+    },
+    "summary": "Referência de altíssima qualidade técnica para design engineering e animações com tabela comparativa obrigatória, requerendo apenas expansão da description e remoção do hijack em Initial Response."
+  },
+  {
+    "skillName": "employment-contract-templates",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/employment-contract-templates/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta com 135 caracteres (abaixo de 200 chars), sem gatilho explícito ('Use when...') e sem discriminantes fundamentais como cláusulas at-will, NDAs, non-compete e cessão de propriedade intelectual (IP assignment).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md (48 linhas) atua como mero roteador, delegando toda a substância contratual ao arquivo 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Modelos e cláusulas padrão para criação de documentação trabalhista, cartas de oferta de emprego, acordos de confidencialidade e manuais de RH.",
+      "entidades": [
+        "Offer Letter",
+        "Employment Contract",
+        "Employee Handbook",
+        "NDA",
+        "Non-Compete Agreement",
+        "IP Assignment Agreement"
+      ],
+      "keywords": [
+        "employment contract",
+        "offer letter",
+        "employee handbook",
+        "NDA",
+        "non-compete",
+        "IP assignment",
+        "at-will employment",
+        "compensation",
+        "benefits",
+        "severance",
+        "HR policies",
+        "compliance",
+        "onboarding documentation"
+      ]
+    },
+    "summary": "Arquitetura delegativa limpa apoiada em playbook detalhado com minutas contratuais, necessitando apenas de calibração da description com gatilho e termos discriminantes."
+  },
+  {
+    "skillName": "enhance-prompt",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/enhance-prompt/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 198 caracteres não possui a cláusula formal de gatilho ('Use when...' ou 'Ative quando...') recomendada nas diretrizes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Classificação de metadado 'risk: critical' no frontmatter é inconsistente para uma skill puramente textual de engenharia de prompt.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Transformação e enriquecimento de ideias vagas de interface em prompts estruturados e otimizados para geração de UI no Stitch (Google).",
+      "entidades": [
+        "Stitch",
+        "DESIGN.md",
+        "stitch-loop",
+        "design-md",
+        "Google Stitch"
+      ],
+      "keywords": [
+        "prompt engineering",
+        "Stitch",
+        "UI prompt enhancement",
+        "design system",
+        "color palette",
+        "page structure",
+        "wireframing",
+        "UI keywords",
+        "hero section",
+        "card grid",
+        "design tokens"
+      ]
+    },
+    "summary": "Skill altamente focada, coesa e enxuta para otimização de prompts no Google Stitch, exigindo apenas inclusão da cláusula de gatilho na description e correção do nível de risco."
+  },
+  {
+    "skillName": "ethical-hacking-methodology",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ethical-hacking-methodology/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description inicia com imperativo/slogan promocional ('Master the complete penetration testing lifecycle...') e omite a sintaxe padrão de gatilho ('Use when conducting authorized penetration testing engagements...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de conteúdo enciclopédico de livro didático desnecessário para execução por agentes: Phase 1 (classificação de chapéus de hackers) e Phase 8 (definições teóricas de vírus/worms).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Instruções manuais de particionamento e gravação de pendrive USB com dd para Kali Linux (Phase 9, L386-415), totalmente fora de escopo para um assistente de IA.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover Phase 1 (teoria sobre tipos de hackers), Phase 8 (taxonomia de malwares) e Phase 9 (instalação de Kali e gravação USB), focando estritamente nas fases ativas de pentest e relatórios.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia estruturada para execução de testes de intrusão autorizados com salvaguardas obrigatórias de confirmação de alvo e escopo.",
+      "entidades": [
+        "nmap",
+        "nikto",
+        "gobuster",
+        "metasploit",
+        "meterpreter",
+        "hydra",
+        "sqlmap",
+        "theHarvester",
+        "OWASP"
+      ],
+      "keywords": [
+        "ethical hacking",
+        "penetration testing",
+        "reconnaissance",
+        "nmap",
+        "metasploit",
+        "nikto",
+        "sqlmap",
+        "hydra",
+        "vulnerability analysis",
+        "privilege escalation",
+        "exploitation",
+        "persistence",
+        "OSINT",
+        "meterpreter",
+        "OWASP"
+      ]
+    },
+    "summary": "Metodologia operacional técnica acompanhada de rigoroso gate de confirmação ética, prejudicada apenas por seções didáticas supérfluas de SO e descrição promocional."
+  },
+  {
+    "skillName": "event-sourcing-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/event-sourcing-architect/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais avançados de Event Sourcing, CQRS, projeções de leitura, consistência eventual e orquestração de sagas duráveis.",
+      "entidades": [
+        "EventStore",
+        "CQRS",
+        "DBOS",
+        "Saga Orchestration",
+        "Process Manager"
+      ],
+      "keywords": [
+        "event sourcing",
+        "CQRS",
+        "event store",
+        "projections",
+        "saga orchestration",
+        "eventual consistency",
+        "audit trail",
+        "temporal queries",
+        "snapshotting",
+        "event versioning",
+        "schema evolution",
+        "idempotency",
+        "correlation IDs",
+        "compensating actions"
+      ]
+    },
+    "summary": "Padrão ouro de auditoria: description densa (288 chars) com gatilho claro e discriminantes exatos, diretrizes arquiteturais concisas e zero bloat."
+  },
+  {
+    "skillName": "exa-search",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/exa-search/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Skill oca (stub vazio): o arquivo SKILL.md (45 linhas) não contém parâmetros de requisição, endpoints REST, payloads nem SDK de uso da Exa API, limitando-se a links para o repositório GitHub e comando de instalação externa via npx.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Incapacidade de orientar operacionalmente o agente sobre busca neural, filtros por categoria ou extração de conteúdos textuais via Exa sem navegação web externa.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 50,
+    "cuts": [
+      {
+        "text": "Substituir o stub de redirecionamentos externos por documentação operacional real da Exa API (endpoints /search e /findSimilar, opções de embedding, parâmetros useAutoprompt e contents).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Busca semântica via embeddings e descoberta de conteúdo similar ou categorizado através da Exa API.",
+      "entidades": [
+        "Exa API",
+        "Claude Code"
+      ],
+      "keywords": [
+        "Exa API",
+        "semantic search",
+        "embeddings search",
+        "similar content discovery",
+        "structured research",
+        "neural search",
+        "category search",
+        "API keys"
+      ]
+    },
+    "summary": "Description adequada que encobre um corpo de skill oco e inútil para o agente, terceirizando todo o conhecimento prático para links e comandos externos."
+  },
+  {
+    "skillName": "expo-api-routes",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/expo-api-routes/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente curta com apenas 69 caracteres (muito abaixo do piso de 200 chars) e sem termos discriminantes como +api.ts, Cloudflare Workers runtime, Web Crypto e bancos edge.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de ativação/gatilho ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento, roteamento baseado em arquivos e deploy de rotas de API serverless em Expo Router com EAS Hosting sobre Cloudflare Workers.",
+      "entidades": [
+        "Expo Router",
+        "EAS Hosting",
+        "Cloudflare Workers",
+        "+api.ts",
+        "Turso",
+        "Cloudflare D1",
+        "PlanetScale",
+        "Neon",
+        "Supabase"
+      ],
+      "keywords": [
+        "expo api routes",
+        "Expo Router",
+        "+api.ts",
+        "EAS Hosting",
+        "Cloudflare Workers",
+        "serverless API",
+        "REST endpoints",
+        "CORS",
+        "edge database",
+        "Turso",
+        "Request Response API",
+        "server-side secrets",
+        "webhooks",
+        "eas deploy"
+      ]
+    },
+    "summary": "Documentação técnica oficial concisa, limpa e de alto ganho semântico, precisando unicamente da expansão da description para 200-400 chars com inclusão de gatilho."
+  },
+  {
+    "skillName": "expo-examples",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/expo-examples/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description no frontmatter (287 caracteres) possui truncamento textual abrupto e sintaxe defeituosa no encerramento: '...and you want the canonical,...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O mesmo corte textual truncado foi replicado na seção 'When to Use' no corpo do arquivo (L16).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Consulta, extração não-destrutiva e scaffolding de exemplos canônicos de integração a partir do repositório oficial expo/examples.",
+      "entidades": [
+        "expo/examples",
+        "with-stripe",
+        "with-clerk",
+        "with-supabase",
+        "with-sqlite",
+        "NativeWind",
+        "Skia",
+        "Reanimated",
+        "gh api",
+        "create-expo"
+      ],
+      "keywords": [
+        "expo examples",
+        "with-* integrations",
+        "scaffolding",
+        "config plugins",
+        "app.json",
+        "Stripe",
+        "Clerk",
+        "Supabase",
+        "NativeWind",
+        "SDK alignment",
+        "non-destructive integration",
+        "degit",
+        "sparse-checkout"
+      ]
+    },
+    "summary": "Excelente workflow para adoção canônica de bibliotecas de terceiros no Expo, necessitando apenas da correção do truncamento pontual na description e cabeçalho."
+  }
+]

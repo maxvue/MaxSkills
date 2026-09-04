@@ -1,6 +1,6 @@
 ---
 name: odoo-backup-strategy
-description: "Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures."
+description: "Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures. Use when developing, optimizing, debugging, or configuring odoo backup strategy in production workflows."
 risk: safe
 source: "self"
 ---

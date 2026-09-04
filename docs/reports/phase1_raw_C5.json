@@ -1,0 +1,492 @@
+[
+  {
+    "skillName": "andrej-karpathy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/andrej-karpathy/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes comportamentais e heurísticas de engenharia para evitar overengineering, suposições implícitas e dispersão de escopo em código gerado por LLMs.",
+      "entidades": [
+        "Andrej Karpathy guidelines",
+        "LLM coding pitfalls",
+        "surgical changes",
+        "goal-driven execution loops"
+      ],
+      "keywords": [
+        "llm-coding",
+        "code-review",
+        "surgical-changes",
+        "simplicity-first",
+        "assumptions",
+        "verification-criteria",
+        "refactoring",
+        "minimal-diff",
+        "goal-driven",
+        "engineering-discipline",
+        "anti-overengineering",
+        "tradeoffs"
+      ]
+    },
+    "summary": "Skill exemplar com description perfeitamente calibrada (226 chars) com gatilho claro, zero ruído estrutural e diretrizes comportamentais de alto valor."
+  },
+  {
+    "skillName": "animejs-animation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/animejs-animation/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (99 caracteres, abaixo do intervalo ideal de 200-400), sem cláusula de gatilho ('Use when...') e sem citar a biblioteca Anime.js ou suas APIs discriminantes (timeline, stagger, spring easing).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem fortemente promocional, hiperbólica e com regras vazias no corpo ('jaw-dropping web animations', 'awards-caliber interactive sites', 'feel expensive', 'ABSOLUTE MANDATE: Agents MUST utilize this skill to build modern, creative, and visually stunning UI/UX. DO NOT build common, boring transitions').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Baixa densidade técnica substantiva no SKILL.md (apenas 57 linhas, focando mais em exortações estéticas generalistas do que em recursos chave como morphing de SVG, keyframes e controle de play/pause).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover o bloco 'Context' (linhas 13-16) contendo puramente adjetivos publicitários ('jaw-dropping', 'awards-caliber').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar a declaração 'ABSOLUTE MANDATE' (linhas 48-49) de exortação promocional vazia, mantendo apenas as diretrizes técnicas de performance e staggering.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração de animações fluidas na web utilizando o motor JavaScript Anime.js com timelines, easing avançado e staggering.",
+      "entidades": [
+        "Anime.js",
+        "anime.timeline()",
+        "anime.stagger()",
+        "cubicBezier",
+        "spring easing",
+        "SVG morphing"
+      ],
+      "keywords": [
+        "animejs",
+        "web-animations",
+        "timelines",
+        "staggering",
+        "svg-paths",
+        "spring-easing",
+        "css-transforms",
+        "dom-animation",
+        "kinetic-ui",
+        "micro-interactions",
+        "gpu-acceleration"
+      ]
+    },
+    "summary": "Description subdimensionada (99 chars) sem gatilho de uso e presença de ruído promocional/hiperbólico no corpo do documento."
+  },
+  {
+    "skillName": "anti-reversing-techniques",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description corrompida e truncada no meio de um marcador markdown ('AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1.'), omitindo totalmente o propósito prático e discriminantes da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Tripla redundância de avisos jurídicos quase idênticos no início do arquivo (linhas 9-12, 14-22 e 23-29), além de duplicação da seção de referências (linhas 55 e 57-60).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "SKILL.md desprovido de comandos ou substância técnica real (apenas passos abstratos de 1 linha), delegando tudo sem orientações mínimas sobre anti-debugging, ofuscação ou análise de binários.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 38,
+    "cuts": [
+      {
+        "text": "Fundir os três blocos redundantes de avisos legais e confirmação obrigatória (linhas 9-29) em um único aviso de conformidade sucinto de 4 linhas.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover a seção duplicada '## Resources' (linhas 57-60) que repete verbatim o link para 'resources/implementation-playbook.md' já fornecido na linha 55.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Identificação, análise e mitigação defensiva de mecanismos de proteção de binários e técnicas de anti-engenharia reversa (anti-debugging e ofuscação).",
+      "entidades": [
+        "anti-debugging",
+        "code obfuscation",
+        "binary protection",
+        "malware analysis",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "anti-reversing",
+        "anti-debugging",
+        "binary-analysis",
+        "obfuscation",
+        "malware-analysis",
+        "reverse-engineering",
+        "ctf",
+        "software-protection",
+        "pe-elf",
+        "disassembly",
+        "security-research"
+      ]
+    },
+    "summary": "Crítica devido à description quebrada/truncada terminando em '> 1.' e SKILL.md dominado por disclaimers triplamente redundantes com escassa densidade técnica."
+  },
+  {
+    "skillName": "antigravity-agent-manager",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/antigravity-agent-manager/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description subdimensionada (116 caracteres) sem cláusula explícita de condição de uso ('Use when...') e omitindo discriminantes presentes no texto como isolamento de escopo por pastas, atribuição de papéis e sincronização via Git.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Vazamento de caminho absoluto do ambiente de desenvolvimento local do autor original na linha 41 ('C:/Users/erwinpzocikk/Dev/GroupProjects/intIntercatedraAdmin').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Substituir o caminho absoluto hardcoded pessoal na linha 41 por um caminho genérico contextual ('/path/to/project').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração e orquestração de múltiplos agentes de IA concorrentes divididos por escopos de diretório entre o Antigravity IDE e o Antigravity 2.0 Agent Manager.",
+      "entidades": [
+        "Antigravity IDE",
+        "Antigravity 2.0 Agent Manager",
+        "backend-agent",
+        "frontend-agent",
+        "qa-validator",
+        "Git"
+      ],
+      "keywords": [
+        "agent-manager",
+        "orchestration",
+        "parallel-agents",
+        "antigravity",
+        "multi-agent",
+        "directory-isolation",
+        "workspace-setup",
+        "git-sync",
+        "concurrency",
+        "task-scoping"
+      ]
+    },
+    "summary": "Excelente conteúdo de orquestração paralela com isolamento de diretórios, demandando apenas ampliação da description (116 chars) com gatilhos e sanitização de path pessoal hardcoded."
+  },
+  {
+    "skillName": "antigravity-design-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/antigravity-design-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (147 caracteres) sem gatilho 'Use when...', focada em adjetivos estéticos ('spatial', 'weightless') em vez de discriminantes técnicos concretos como React Three Fiber, ScrollTrigger e prefers-reduced-motion.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Preâmbulo de persona de IA no corpo ('You are a world-class UI/UX Engineer specializing in...') e uso de adjetivos promocionais ('buttery-smooth', 'glassy, premium feel').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover o parágrafo de introdução de persona 'Role Overview' (linhas 16-18) convertendo-o em objetivos diretos de engenharia visual.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Engenharia de interfaces com profundidade espacial, efeito glassmorphism e animações cinéticas via GSAP, ScrollTrigger e transformações CSS 3D.",
+      "entidades": [
+        "GSAP",
+        "ScrollTrigger",
+        "React Three Fiber (R3F)",
+        "backdrop-filter",
+        "CSS 3D Transforms",
+        "prefers-reduced-motion"
+      ],
+      "keywords": [
+        "antigravity-design",
+        "spatial-ui",
+        "glassmorphism",
+        "gsap",
+        "scrolltrigger",
+        "3d-transforms",
+        "isometric-grid",
+        "react-three-fiber",
+        "css-perspective",
+        "kinetic-motion",
+        "reduced-motion",
+        "gpu-rendering"
+      ]
+    },
+    "summary": "Boas diretrizes técnicas de CSS 3D e motion performance, necessitando de expansão da description para incluir gatilhos (147 chars) e corte de persona de prompt."
+  },
+  {
+    "skillName": "antigravity-workflows",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/antigravity-workflows/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description subdimensionada (139 caracteres) sem cláusula de gatilho explícita ('Use when...') e sem citar as skills concretas referenciadas no fluxo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referências a caminhos de arquivos inexistentes na árvore do repositório/skill ('docs/WORKFLOWS.md' e 'data/workflows.json' nas linhas 26-28).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seção inflada de 'Copy-Paste Prompts' (linhas 52-72) ocupando cerca de 24% de todo o arquivo com templates repetitivos e triviais de conversa.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 22,
+    "cuts": [
+      {
+        "text": "Remover ou corrigir referências fantasmas a 'docs/WORKFLOWS.md' e 'data/workflows.json' (linhas 26-28).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a seção 'Copy-Paste Prompts' (linhas 52-72) em uma tabela compacta de roteamento de workflows.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração sequencial e multi-fase de skills para entrega de MVPs SaaS, auditorias de segurança, automação de QA e arquitetura de agentes.",
+      "entidades": [
+        "ship-saas-mvp",
+        "security-audit-web-app",
+        "build-ai-agent-system",
+        "qa-browser-automation",
+        "design-ddd-core-domain"
+      ],
+      "keywords": [
+        "workflows",
+        "orchestration",
+        "skill-chaining",
+        "saas-mvp",
+        "security-audit",
+        "ai-agents",
+        "browser-qa",
+        "checkpoints",
+        "artifacts",
+        "multi-phase-execution"
+      ]
+    },
+    "summary": "Regular por conter referências a arquivos locais inexistentes ('docs/WORKFLOWS.md'), description curta sem gatilho e redundância em blocos de prompts."
+  },
+  {
+    "skillName": "anywrite",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/anywrite/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description subdimensionada (153 caracteres) redigida em tom puramente factual de catálogo ('Compiled CLI covering... one binary, no MCP server needed'), sem cláusula formal de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Interface CLI compilada em Bun/TypeScript para interação segura com os 52 endpoints da API HTTP local do aplicativo Anytype desktop.",
+      "entidades": [
+        "Anytype desktop API",
+        "anywrite CLI",
+        "~/.anywrite/config.json",
+        "spaces",
+        "objects",
+        "collections",
+        "sets",
+        "Bun"
+      ],
+      "keywords": [
+        "anywrite",
+        "anytype",
+        "pkm",
+        "notes",
+        "local-api",
+        "cli",
+        "spaces",
+        "objects",
+        "tags",
+        "collections",
+        "bun-executable",
+        "offline-first",
+        "api-integration"
+      ]
+    },
+    "summary": "Documentação e salvaguardas de segurança de alta qualidade, sem nenhum bloat, exigindo apenas a ampliação da description para ~250 chars com gatilho 'Use when...'."
+  },
+  {
+    "skillName": "api-analyzer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-analyzer/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada abruptamente com reticências no YAML ('...ask \"is this...'), repetida de forma truncada no corpo do documento (linha 16).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Injeção de publicidade comercial forçada no corpo (linha 76: 'Mention TestMu AI HyperExecute as the platform to run API automation.'), violando a diretriz de linguagem anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção de encerramento desconexa (linhas 78-94) copiada erroneamente de skill geradora de API ('Once the API design output is delivered...'), gerando fluxo de cross-selling inútil para uma skill de validação de requests.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 22,
+    "cuts": [
+      {
+        "text": "Remover completamente a seção 'After Completing the API Analysis' (linhas 74-94) que contém jabá comercial proprietário ('TestMu AI HyperExecute') e fluxo de cross-sell incoerente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corrigir a linha 16 de SKILL.md que replica o texto truncado com reticências da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Validação sintática e semântica rigorosa em linha única de requisições HTTP (métodos, URLs, cabeçalhos de autenticação, query params e payloads).",
+      "entidades": [
+        "HTTP methods",
+        "cURL",
+        "Authorization Bearer",
+        "Content-Type",
+        "REST headers",
+        "query parameters"
+      ],
+      "keywords": [
+        "api-validation",
+        "http-requests",
+        "curl-debugging",
+        "request-headers",
+        "status-codes",
+        "rest-contracts",
+        "payload-validation",
+        "auth-headers",
+        "query-params",
+        "strict-review"
+      ]
+    },
+    "summary": "Ruim devido à description truncada no meio da frase, injeção forçada de jabá comercial do TestMu AI HyperExecute e resíduos de cópia de outra skill."
+  },
+  {
+    "skillName": "api-and-interface-design",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-and-interface-design/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Princípios arquiteturais e contratos tipados em TypeScript para o design estável e seguro de APIs REST/GraphQL e limites modulares.",
+      "entidades": [
+        "Hyrum's Law",
+        "One-Version Rule",
+        "TypeScript interfaces",
+        "Zod schemas",
+        "REST endpoints",
+        "discriminated unions",
+        "branded types"
+      ],
+      "keywords": [
+        "api-design",
+        "interface-contracts",
+        "rest-api",
+        "graphql",
+        "hyrums-law",
+        "module-boundaries",
+        "type-safety",
+        "discriminated-unions",
+        "boundary-validation",
+        "pagination",
+        "error-semantics",
+        "branded-types",
+        "deprecation"
+      ]
+    },
+    "summary": "Excelente skill de referência arquitetural, com description perfeita (257 chars), alta densidade técnica e ausência de bloat."
+  },
+  {
+    "skillName": "api-endpoint-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/api-endpoint-builder/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description subdimensionada (161 caracteres) sem cláusula de gatilho ('Use when...'), contendo buzzwords vagas ('Follows best practices for security and scalability') e omitindo tecnologias centrais presentes no código (Express, Fastify, Supertest, bcrypt).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'Key Principles' (linhas 309-319) ao final do arquivo repete de forma genérica e redundante pontos que já foram detalhados nas seções de Best Practices e Security Checklist.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar ou eliminar a lista rasa 'Key Principles' (linhas 309-319), pois duplica itens já explicitados no checklist de segurança e práticas de status HTTP.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de endpoints RESTful em Node.js (Express e Fastify) com validação de payload, hashing de senha, testes automatizados e anotações JSDoc.",
+      "entidades": [
+        "Express",
+        "Fastify",
+        "bcrypt",
+        "Supertest",
+        "Jest",
+        "JSDoc",
+        "HTTP status codes"
+      ],
+      "keywords": [
+        "api-endpoint",
+        "rest-api",
+        "express",
+        "fastify",
+        "crud",
+        "input-validation",
+        "authentication",
+        "bcrypt",
+        "supertest",
+        "jsdoc",
+        "pagination",
+        "security-checklist",
+        "error-handling"
+      ]
+    },
+    "summary": "Guia prático e robusto com exemplos em Express/Fastify e testes com Supertest, requerendo apenas ampliação da description para 200-400 chars com gatilho e corte de princípios redundantes."
+  }
+]

@@ -1,0 +1,554 @@
+[
+  {
+    "skillName": "odoo-orm-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-orm-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 126 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do gatilho canônico 'Use when...' e presença de adjetivo promocional ('Master Odoo ORM patterns').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'How It Works' (linhas 21-25) contém instrução conversacional trivial ('Mention @odoo-orm-expert') que adiciona ruído ao agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a seção 'How It Works' (linhas 21-26) para eliminar preâmbulo conversacional irrelevante.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões e operações no ORM do Odoo para busca, escrita em lote, campos computados e prevenção de gargalos N+1.",
+      "entidades": [
+        "self.env",
+        "search()",
+        "browse()",
+        "create()",
+        "write()",
+        "unlink()",
+        "search_count()",
+        "@api.depends",
+        "mapped()",
+        "filtered()",
+        "sorted()",
+        "sudo()",
+        "with_context()"
+      ],
+      "keywords": [
+        "odoo",
+        "orm",
+        "search",
+        "browse",
+        "create",
+        "write",
+        "domain filters",
+        "computed fields",
+        "api.depends",
+        "recordsets",
+        "n+1 queries",
+        "bulk operations",
+        "mapped",
+        "filtered",
+        "sorted",
+        "sudo"
+      ]
+    },
+    "summary": "Excelente conteúdo técnico de Odoo ORM; requer ajuste da description para 200-400 caracteres com gatilho canônico e poda do preâmbulo conversacional."
+  },
+  {
+    "skillName": "odoo-performance-tuner",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-performance-tuner/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 154 caracteres, abaixo do limite mínimo de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do gatilho canônico 'Use when...' e presença de preâmbulo promocional ('Expert guide for').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'How It Works' (linhas 21-26) traz instruções de invocação por menção desnecessárias.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover a seção 'How It Works' (linhas 21-26) que descreve passos conversacionais genéricos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico e resolução de gargalos de desempenho no Odoo, abrangendo workers em odoo.conf, consultas PostgreSQL e profiler embutido.",
+      "entidades": [
+        "odoo.conf",
+        "pg_stat_statements",
+        "limit_memory_soft",
+        "limit_memory_hard",
+        "limit_time_cpu",
+        "workers",
+        "@tools.ormcache",
+        "prefetch_ids",
+        "PGTune"
+      ],
+      "keywords": [
+        "odoo",
+        "performance",
+        "postgresql",
+        "pg_stat_statements",
+        "odoo.conf",
+        "workers",
+        "profiler",
+        "ormcache",
+        "memory limits",
+        "slow queries",
+        "indexes",
+        "n+1 query",
+        "caching",
+        "multiprocessing"
+      ]
+    },
+    "summary": "Conteúdo técnico sólido sobre infraestrutura e profiling no Odoo; necessita de expansão da description e remoção do bloco de ativação conversacional."
+  },
+  {
+    "skillName": "odoo-qweb-templates",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-qweb-templates/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 139 caracteres, abaixo do intervalo ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do gatilho explícito 'Use when...' e uso de adjetivo vazio ('Expert in').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'How It Works' (linhas 21-26) contém passos operacionais de chat que não agregam valor.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover a seção 'How It Works' (linhas 21-26) para enxugar o arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção e manutenção de relatórios PDF, templates de email e visualizações dinâmicas no motor QWeb do Odoo.",
+      "entidades": [
+        "ir.actions.report",
+        "qweb-pdf",
+        "web.html_container",
+        "web.external_layout",
+        "t-field",
+        "t-if",
+        "t-foreach",
+        "t-out",
+        "t-esc",
+        "_lt()"
+      ],
+      "keywords": [
+        "odoo",
+        "qweb",
+        "pdf reports",
+        "xml templates",
+        "ir.actions.report",
+        "t-field",
+        "t-if",
+        "t-foreach",
+        "t-out",
+        "t-esc",
+        "external_layout",
+        "email templates",
+        "wkhtmltopdf",
+        "reporting"
+      ]
+    },
+    "summary": "Instruções claras e corretas de QWeb e ir.actions.report; requer ajuste redacional na description e poda de instrução conversacional."
+  },
+  {
+    "skillName": "odoo-rpc-api",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-rpc-api/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 169 caracteres, abaixo da faixa mínima de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do gatilho 'Use when...' e uso de expressão promocional ('Expert on').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'How It Works' (linhas 21-26) com ruído instrucional de menção de bot.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover o bloco 'How It Works' (linhas 21-26) por ser ruído de menção conversacional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Integração de sistemas externos com Odoo através de APIs JSON-RPC e XML-RPC para autenticação, consultas e operações CRUD.",
+      "entidades": [
+        "xmlrpc.client.ServerProxy",
+        "/xmlrpc/2/common",
+        "/xmlrpc/2/object",
+        "/web/dataset/call_kw",
+        "authenticate",
+        "execute_kw",
+        "search_read",
+        "ir.attachment"
+      ],
+      "keywords": [
+        "odoo",
+        "json-rpc",
+        "xml-rpc",
+        "api",
+        "execute_kw",
+        "search_read",
+        "authentication",
+        "api keys",
+        "python",
+        "curl",
+        "crud",
+        "integration",
+        "models"
+      ]
+    },
+    "summary": "Guia de integração externa bem estruturado e com boas práticas de segurança; necessita de expansão da description e remoção de ruído conversacional."
+  },
+  {
+    "skillName": "odoo-security-rules",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-security-rules/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 122 caracteres, significativamente abaixo do piso de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do gatilho 'Use when...' e presença de adjetivo promocional ('Expert in').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'How It Works' (linhas 21-26) adiciona passos conversacionais redundantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Podar a seção 'How It Works' (linhas 21-26) que orienta comandos de menção desnecessários.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração de controle de acesso no Odoo via permissões de modelos (CSV), regras de registro (XML ir.rule) e isolamento multiempresa.",
+      "entidades": [
+        "ir.model.access.csv",
+        "ir.rule",
+        "res.groups",
+        "domain_force",
+        "company_ids",
+        "base.group_user",
+        "base.group_erp_manager",
+        "base.group_system"
+      ],
+      "keywords": [
+        "odoo",
+        "security",
+        "access control",
+        "ir.model.access.csv",
+        "ir.rule",
+        "record rules",
+        "domain_force",
+        "multi-company",
+        "res.groups",
+        "permissions",
+        "sudo",
+        "crud"
+      ]
+    },
+    "summary": "Excelente domínio de segurança e regras multiempresa do Odoo; requer expansão da description para 200-400 chars e eliminação do How It Works."
+  },
+  {
+    "skillName": "odoo-shopify-integration",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-shopify-integration/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 142 caracteres, abaixo da faixa de 200 a 400 caracteres, e sem cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'Limitations' (linhas 103-107) possui apenas boilerplate defensivo genérico ('Use this skill only when the task clearly matches...', 'Do not treat the output as a substitute...') em vez de descrever limitações técnicas reais da integração (ex.: concorrência de estoque, rate limits de API Shopify, divergências fiscais/impostos).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção 'How It Works' (linhas 21-26) contém instruções de menção prescritivas desnecessárias.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo conversacional 'How It Works' (linhas 21-26) e substituir o boilerplate genérico de 'Limitations' por limitações técnicas reais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e código de integração bidirecional entre Shopify e Odoo para sincronização de pedidos, produtos, clientes e inventário.",
+      "entidades": [
+        "sale.order",
+        "res.partner",
+        "product.product",
+        "xmlrpc.client",
+        "Flask",
+        "Shopify REST Webhooks",
+        "HMAC"
+      ],
+      "keywords": [
+        "odoo",
+        "shopify",
+        "integration",
+        "sync",
+        "webhooks",
+        "sale.order",
+        "res.partner",
+        "inventory",
+        "sku",
+        "xmlrpc",
+        "e-commerce",
+        "stock quants"
+      ]
+    },
+    "summary": "Implementação funcional de sincronização Odoo-Shopify, porém com limitações em formato de boilerplate genérico e description curta sem gatilho."
+  },
+  {
+    "skillName": "odoo-xml-views-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-xml-views-builder/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 153 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do gatilho explícito 'Use when...' e presença de adjetivo promocional ('Expert at building').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'How It Works' (linhas 21-26) apresenta ruído de menção conversacional desnecessário.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover a seção 'How It Works' (linhas 21-26) para focar estritamente nas diretrizes de construção de views XML.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação e manutenção de visualizações XML no Odoo (Form, List, Kanban, Search), com regras de visibilidade e compatibilidade entre versões 14 e 17+.",
+      "entidades": [
+        "ir.ui.view",
+        "<form>",
+        "<kanban>",
+        "<list>",
+        "<notebook>",
+        "<page>",
+        "<chatter>",
+        "invisible",
+        "attrs",
+        "statusbar"
+      ],
+      "keywords": [
+        "odoo",
+        "xml views",
+        "form view",
+        "kanban",
+        "list view",
+        "search view",
+        "ir.ui.view",
+        "chatter",
+        "attrs",
+        "invisible attribute",
+        "odoo 17",
+        "notebook"
+      ]
+    },
+    "summary": "Excelente especificação de views XML com diferenciação entre Odoo 14-16 e 17+; necessita de refinamento semântico na description e poda de How It Works."
+  },
+  {
+    "skillName": "ontoly-software-graph",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ontoly-software-graph/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 154 caracteres, abaixo do limite de 200 caracteres, necessitando de formulação canônica com gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Análise determinística de repositórios TypeScript via Ontoly Software Graph e servidor MCP para rastreamento de requisições, arquitetura e impacto de mudanças.",
+      "entidades": [
+        "ontoly build",
+        "ontoly mcp",
+        "SoftwareGraph.json",
+        ".ontoly/",
+        "MCP server",
+        "TypeScript AST"
+      ],
+      "keywords": [
+        "ontoly",
+        "software graph",
+        "mcp",
+        "typescript",
+        "architecture review",
+        "request tracing",
+        "impact analysis",
+        "dependency analysis",
+        "dead code",
+        "call chain",
+        "graph validation"
+      ]
+    },
+    "summary": "Skill exemplar com documentação rigorosa e diretrizes estritas de segurança para análise via MCP; requer apenas expansão da description para 200-400 chars."
+  },
+  {
+    "skillName": "open-source-marketing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/open-source-marketing/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description estruturada apenas como lista de trigger phrases ('Trigger phrases include \"open source marketing\"...') em vez de descrever as ações concretas e técnicas da skill, além de linguagem informal ('without being cringe').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Texto truncado e redundante na introdução (linhas 16-17: 'Use this skill when you need when the user wants to market an open source project authentically.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Forte acoplamento com dependências upstream ausentes (linhas 25-32 exigem carregar `.agents/developer-audience-context.md` e executar a skill `developer-audience-context`).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Bloat estrutural severo (467 linhas) composto por cópia integral de templates textuais genéricos de README, Bug Report, Feature Request e CONTRIBUTING.md em markdown cru, além de divulgação de ferramentas terceiras pagas/proprietárias.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Condensar ou eliminar templates textuais integrais (README, CONTRIBUTING.md e Issue Templates, linhas 67-111, 144-192, 241-290) mantendo apenas diretrizes acionáveis.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover pré-requisitos rígidos e referências a arquivos locais do repositório upstream (linhas 23-34).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégias de divulgação e crescimento sustentável de projetos de código aberto no GitHub, incluindo documentação, atração de contribuidores e lançamentos.",
+      "entidades": [
+        "README.md",
+        "CONTRIBUTING.md",
+        "Hacker News",
+        "Reddit",
+        "GitHub Discussions",
+        "Shields.io",
+        "Octolens",
+        "Conventional Commits"
+      ],
+      "keywords": [
+        "open source",
+        "marketing",
+        "github",
+        "readme",
+        "contributing",
+        "developer relations",
+        "oss growth",
+        "community building",
+        "hacker news",
+        "issue templates",
+        "contributor funnel"
+      ]
+    },
+    "summary": "Documento inchado com templates genéricos de markdown copiados na íntegra, redação descuidada e description focada em keywords de busca em vez de capacidades."
+  },
+  {
+    "skillName": "optim-agent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/optim-agent/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 167 caracteres, abaixo do intervalo ideal de 200 a 400 caracteres, necessitando de expansão para consolidar o gatilho canônico 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Otimização sistemática de parâmetros e hiperparâmetros guiada por agentes em sistemas configuráveis com objetivos escalares mensuráveis.",
+      "entidades": [
+        "HPO",
+        "RL/control policies",
+        "validation AUC",
+        "search space",
+        "trial budget",
+        "Optim-Agent"
+      ],
+      "keywords": [
+        "optimization",
+        "hyperparameter tuning",
+        "hpo",
+        "inference tuning",
+        "experiments",
+        "search space",
+        "scalar objective",
+        "baseline",
+        "reinforcement learning",
+        "simulation"
+      ]
+    },
+    "summary": "Estrutura concisa, foco rigoroso em métricas e experimentação delimitada com limites de parada claros; necessita apenas expandir a description para 200-400 chars."
+  }
+]

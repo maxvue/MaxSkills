@@ -1,0 +1,540 @@
+[
+  {
+    "skillName": "react-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (104 caracteres), sem gatilho de ativação 'Use when...' e carente de termos discriminantes essenciais como React 19 hooks, Zustand e TanStack Query (Critérios 1, 3 e 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais 'When to Use' e 'Limitations' contêm boilerplate genérico e tautológico sem valor instrucional (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 11 (File Structure) depende exclusivamente de uma imagem remota hospedada em asset do GitHub, inacessível em ambientes offline e ilegível diretamente por LLMs (Critério 5).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover seções genéricas 'When to Use' e 'Limitations' (linhas 210-217) por constituírem ruído estrutural.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Substituir tag de imagem externa na seção 'File Structure' (linhas 200-205) por uma árvore textual ASCII representativa.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia de padrões arquiteturais, ciclo de vida e boas práticas para desenvolvimento com React 19 e TypeScript",
+      "entidades": [
+        "useActionState",
+        "useOptimistic",
+        "use",
+        "useState",
+        "useReducer",
+        "Zustand",
+        "TanStack Query",
+        "ReactNode",
+        "MouseEventHandler",
+        "ErrorBoundary"
+      ],
+      "keywords": [
+        "react-19",
+        "custom-hooks",
+        "compound-components",
+        "server-components",
+        "state-management",
+        "zustand",
+        "react-query",
+        "error-boundary",
+        "performance-profiling",
+        "typescript-props",
+        "testing-library",
+        "virtualization"
+      ]
+    },
+    "summary": "Conteúdo técnico sólido sobre padrões modernos de React 19, necessitando expandir a description com discriminantes e substituir imagem remota por texto."
+  },
+  {
+    "skillName": "readme",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/readme/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description formulada como prompt de roleplay ('You are an expert technical writer...') e marketing inflado ('absurdly thorough—the kind of documentation you wish every project had'), violando Critérios 2, 3 e 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Forte desacordo entre a proposta genérica de gerador de README e a implementação real, que impõe um template massivo e hiper-específico de aplicação Ruby on Rails 7.2 com Solid Queue e Inertia.js (Critérios 5 e 8).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Volume desproporcional de templates hardcoded, testes completos de Minitest/RSpec e troubleshooting exclusivo do ecossistema Rails ocupando mais de 60% do arquivo (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Condensar os templates e exemplos monolíticos focados exclusivamente em Rails, Solid Queue e Minitest (linhas 251-804) em diretrizes modulares e agnósticas de documentação.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Eliminar boilerplate genérico de 'Limitations' (linhas 845-849).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes e template para elaboração de documentação profunda de projetos de software em arquivos README.md",
+      "entidades": [
+        "ActiveRecord",
+        "Solid Queue",
+        "Kamal",
+        "Inertia.js",
+        "Docker",
+        "Minitest",
+        "RSpec",
+        "Puma"
+      ],
+      "keywords": [
+        "readme-generator",
+        "project-documentation",
+        "codebase-exploration",
+        "architecture-diagram",
+        "environment-variables",
+        "getting-started",
+        "deployment-guide",
+        "kamal",
+        "troubleshooting",
+        "docker-setup"
+      ]
+    },
+    "summary": "Apresenta fluxo válido de mapeamento de repositório, mas falha gravemente ao usar description de roleplay promocional e inflar o arquivo com templates exclusivos de Ruby on Rails."
+  },
+  {
+    "skillName": "recallmax",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/recallmax/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com linguagem de puro hype comercial e clickbait ('FREE — God-tier long-context memory for AI agents'), desprovida de gatilho de ativação (Critérios 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de implementação técnica executável: o arquivo descreve etapas teóricas de injeção e compressão sem fornecer algoritmos, prompts operacionais ou scripts reais (Critérios 5 e 11).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inclusão de links e chamadas promocionais para marketplace comercial externo ('genesis-marketplace.vercel.app') e pacotes de terceiros não auditados (Critério 10).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Encerramento com boilerplate genérico de 'Limitations' idêntico a outras skills do repositório (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover seção de links promocionais e marketplace no Vercel (linhas 69-78) por se tratar de publicidade externa não relacionada à operação da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover boilerplate genérico de 'Limitations' (linhas 79-83).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Conceitos de ampliação de janela de contexto, compressão de histórico e sumarização semântica para agentes de IA",
+      "entidades": [
+        "RecallMax",
+        "Genesis Agent Marketplace",
+        "npx"
+      ],
+      "keywords": [
+        "context-injection",
+        "adaptive-summarization",
+        "history-compression",
+        "fact-verification",
+        "long-context",
+        "memory-management",
+        "token-budget",
+        "deduplication",
+        "hallucination-prevention"
+      ]
+    },
+    "summary": "Folheto promocional disfarçado de skill com vocabulário sensacionalista ('God-tier'), dependência de links de marketplace e carência de comandos/prompts executáveis."
+  },
+  {
+    "skillName": "receiving-code-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/receiving-code-review/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 71 caracteres formulada como aforismo, carecendo de gatilho 'Use when...' e de termos discriminantes como YAGNI, gh api e verificação de compatibilidade (Critérios 1, 3 e 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais 'When to Use' e 'Limitations' contêm apenas texto tautológico e repetitivo (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover seções genéricas 'When to Use' e 'Limitations' (linhas 218-225).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Protocolo técnico e comportamental para processamento e resposta rigorosa a revisões de código e comentários de pull requests",
+      "entidades": [
+        "gh api",
+        "pull requests",
+        "YAGNI",
+        "CLAUDE.md"
+      ],
+      "keywords": [
+        "code-review",
+        "technical-verification",
+        "non-performative",
+        "yagni",
+        "pull-requests",
+        "github-comments",
+        "pushback-protocol",
+        "clarification-flow",
+        "regression-prevention",
+        "pr-feedback"
+      ]
+    },
+    "summary": "Diretriz comportamental altamente valiosa para evitar bajulação e garantir rigor técnico em code reviews, prejudicada por uma description aforística de apenas 71 caracteres."
+  },
+  {
+    "skillName": "recursive-context-pruning-token-budgeting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/recursive-context-pruning-token-budgeting/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (139 caracteres), ausente de gatilho explícito 'Use when...' e omitindo discriminantes como sharding de metadados, regra de orçamento 30/20/50 e compressão de estado abstrativo (Critérios 1, 3 e 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Controle de orçamento de tokens, poda recursiva de contexto e filtragem de preâmbulos conversacionais para agentes de IA",
+      "entidades": [
+        "Safe Response Limit",
+        "Metadata Sharding",
+        "Atomic Output",
+        "Abstractive Compression"
+      ],
+      "keywords": [
+        "token-budgeting",
+        "context-pruning",
+        "token-optimization",
+        "atomic-output",
+        "bridge-phrases-removal",
+        "metadata-sharding",
+        "context-window",
+        "compression-state",
+        "ambiguity-check",
+        "direct-to-value"
+      ]
+    },
+    "summary": "Excelente skill de otimização de contexto e economia de tokens, sem bloat, necessitando unicamente de expansão do gatilho e termos técnicos na description."
+  },
+  {
+    "skillName": "red-team-tools",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/red-team-tools/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description contém expressões promocionais ('proven methodologies', 'top security researchers') e omite gatilho de ativação explícito e nomes de ferramentas-chave como Amass, Subfinder, httpx e Nuclei (Critérios 3, 4 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Repetição do aviso de uso ético/autorizado em três blocos sucessivos e desconexos no cabeçalho do documento (linhas 10-25) (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final tautológica 'When to Use' com texto genérico ('This skill is applicable to execute the workflow...') (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Consolidar a tripla repetição do bloco 'AUTHORIZED USE ONLY' (linhas 10-25) em um único aviso de governança e confirmation gate.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover seção 'When to Use' no rodapé (linhas 329-331).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Fluxos práticos de reconhecimento de superfície de ataque, enumeração de ativos e testes de segurança defensivos/ofensivos autorizados",
+      "entidades": [
+        "Amass",
+        "Subfinder",
+        "httpx",
+        "httprobe",
+        "ffuf",
+        "Nuclei",
+        "Dalfox",
+        "waybackurls",
+        "massdns",
+        "ParamSpider"
+      ],
+      "keywords": [
+        "red-team",
+        "reconnaissance",
+        "subdomain-enumeration",
+        "vulnerability-scanning",
+        "bug-bounty",
+        "xss-hunting",
+        "nuclei-templates",
+        "content-discovery",
+        "api-fuzzing",
+        "host-discovery",
+        "authorized-testing"
+      ]
+    },
+    "summary": "Manual de pentest e bug bounty com pipelines de automação muito bem estruturados e salvaguardas éticas, requerendo limpeza de adjetivos promocionais e remoção de redundâncias no topo e rodapé."
+  },
+  {
+    "skillName": "redesign-existing-projects",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/redesign-existing-projects/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (128 caracteres) e com o adjetivo vago 'premium', omitindo os critérios específicos de tipografia, CSS Grid e microinterações auditados no corpo (Critérios 1, 4 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description da salvaguarda explícita de não realizar rewrites de arquitetura nem substituição arbitrária de bibliotecas existentes (Critério 6).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria estética e refinamento cirúrgico de interfaces frontend para eliminação de padrões genéricos de IA sem reescrita de stack",
+      "entidades": [
+        "Geist",
+        "Outfit",
+        "Tailwind CSS",
+        "CSS Grid",
+        "tabular-nums",
+        "dvh",
+        "glassmorphism",
+        "Heroicons",
+        "Phosphor"
+      ],
+      "keywords": [
+        "ui-redesign",
+        "design-audit",
+        "typography",
+        "micro-interactions",
+        "tinted-shadows",
+        "skeleton-loaders",
+        "focus-ring",
+        "optical-alignment",
+        "anti-ai-aesthetic",
+        "css-grid",
+        "empty-states",
+        "layout-hierarchy"
+      ]
+    },
+    "summary": "Excelente guia prático de refinamento visual e design taste para código legado, com conteúdo impecável e necessitando apenas de expansão de discriminantes na description."
+  },
+  {
+    "skillName": "redis-cli",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/redis-cli/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description no frontmatter truncada abruptamente com reticências ('SCAN or keyspace...'), violando o padrão de redação formal e completude (Critérios 1 e 2).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' no corpo (linhas 14-17) duplica literalmente a description truncada com reticências, inserindo texto inacabado na documentação (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover a seção 'When to Use' duplicada e truncada (linhas 14-17).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover bloco de boilerplate genérico de 'Limitations' (linhas 388-393).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Referência completa de operações, administração e inspeção de desempenho com redis-cli",
+      "entidades": [
+        "redis-cli",
+        "SCAN",
+        "HGETALL",
+        "ZRANGE",
+        "INFO",
+        "ACL",
+        "REDISCLI_AUTH",
+        "SLOWLOG",
+        "CLUSTER",
+        "MONITOR"
+      ],
+      "keywords": [
+        "redis-cli",
+        "redis-commands",
+        "keyspace-scan",
+        "latency-sampling",
+        "acl-management",
+        "bigkeys-analysis",
+        "data-types",
+        "repl-interactive",
+        "redis-security",
+        "pipeline-raw-output",
+        "replication-check"
+      ]
+    },
+    "summary": "Guia de referência técnica de altíssimo nível com complexidade algorítmica e alertas vitais de segurança, exigindo apenas a correção da description truncada e remoção de sua duplicação no corpo."
+  },
+  {
+    "skillName": "reference-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/reference-builder/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (168 caracteres), sem gatilho de uso explícito ('Use when...'), contendo adjetivos vagamente promocionais ('exhaustive', 'comprehensive') e omitindo termos como OpenAPI e schemas (Critérios 1, 3, 4 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Preâmbulo tautológico ('Use this skill when: Working on reference builder tasks...') e referência a arquivo local inexistente ('resources/implementation-playbook.md') (Critérios 3 e 5).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção final com boilerplate genérico de 'Limitations' que não agrega valor operacional (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Eliminar o preâmbulo tautológico e a referência ao playbook inexistente (linhas 9-25).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover bloco de boilerplate genérico de 'Limitations' (linhas 188-192).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padronização estrutural e templates para redação de documentação técnica de referência, catálogos de parâmetros e APIs",
+      "entidades": [
+        "OpenAPI",
+        "JSON Schema",
+        "API Reference",
+        "Markdown",
+        "Method Signatures"
+      ],
+      "keywords": [
+        "technical-reference",
+        "api-documentation",
+        "parameter-listing",
+        "configuration-guide",
+        "schema-documentation",
+        "method-signatures",
+        "error-codes",
+        "deprecation-notice",
+        "cross-referencing",
+        "compatibility-matrix"
+      ]
+    },
+    "summary": "Especificação genérica útil para documentação de referência, mas prejudicada por preâmbulo tautológico, menção a recurso fantasma inexistente e description deficiente."
+  },
+  {
+    "skillName": "referral-program",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/referral-program/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description baseada em persona/roleplay ('You are an expert in...') e marketing inflado ('turn customers into growth engines'), sem gatilho de ativação 'Use when...' (Critérios 2, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância interna direta entre os blocos de questionários de levantamento em 'Before Starting' (linhas 13-40) e 'Questions to Ask' (linhas 587-597) (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais genéricas 'When to Use' e 'Limitations' que adicionam ruído ao encerramento (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Fundir/eliminar a repetição do checklist de perguntas entre 'Before Starting' e 'Questions to Ask' (linhas 587-597).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover o encerramento genérico de 'When to Use' e 'Limitations' (linhas 607-614).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Modelagem quantitativa, arquitetura de incentivos e implementação de programas de indicação de clientes e marketing de afiliados",
+      "entidades": [
+        "K-factor",
+        "ReferralCandy",
+        "Rewardful",
+        "PartnerStack",
+        "FirstPromoter",
+        "GrowSurf",
+        "Stripe"
+      ],
+      "keywords": [
+        "referral-program",
+        "affiliate-marketing",
+        "viral-coefficient",
+        "k-factor",
+        "incentive-structure",
+        "double-sided-rewards",
+        "fraud-prevention",
+        "cac-ltv",
+        "cookie-duration",
+        "nurture-sequence",
+        "program-roi"
+      ]
+    },
+    "summary": "Excelente manual de economia de indicação e growth quantitativo, necessitando remover o tom de persona na description e eliminar a duplicidade de perguntas de levantamento."
+  }
+]

@@ -1,0 +1,434 @@
+[
+  {
+    "skillName": "laravel-ai-agents-ecosystem",
+    "skillPath": "created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A frase final da description ('Covers objectives and core workflows.') é um clichê genérico de preenchimento (padding) que viola o Critério 12 (Ausência de Redundâncias) e reduz a densidade semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes, convenções e arquitetura modular para criação, teste e monitoramento de agentes de IA usando laravel/ai no ecossistema Engeapp.",
+      "entidades": [
+        "laravel/ai",
+        "HasAgentAiRequest",
+        "Ai::fakeAgent",
+        "JsonSchema",
+        "HasStructuredOutput",
+        "AgentHealthScore",
+        "AiPricingService",
+        "agents_ai_cost",
+        "ai_models"
+      ],
+      "keywords": [
+        "laravel/ai",
+        "ai agents",
+        "function calling",
+        "tools",
+        "structured outputs",
+        "JsonSchema",
+        "Pest",
+        "fakeAgent",
+        "token cost tracking",
+        "AgentHealthScore",
+        "HasAgentAiRequest",
+        "ai_models",
+        "agents_ai_cost",
+        "health score",
+        "prompt engineering"
+      ]
+    },
+    "summary": "Skill modular de excelente qualidade técnica alinhada ao engeapp, necessitando apenas da remoção de frase de preenchimento genérica na description."
+  },
+  {
+    "skillName": "laravel-ai-bank-ticket-processing-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-ai-bank-ticket-processing-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Boas práticas e pipeline para processamento, OCR, validação e pagamento de boletos bancários (TRT e homologação solar) via agentes de IA e SDK da Efí.",
+      "entidades": [
+        "AgentBankTicketProcessor",
+        "AgentAiBilletReader",
+        "EfiPay",
+        "CheckBankTicket",
+        "PayBankTicket",
+        "SaveBankTicketToProject",
+        "GetProjectByClientName",
+        "GetProjectByDocument",
+        "App\\Models\\Project\\Project"
+      ],
+      "keywords": [
+        "boletos bancários",
+        "TRT",
+        "homologação",
+        "AgentBankTicketProcessor",
+        "AgentAiBilletReader",
+        "OCR",
+        "EfiPay",
+        "CheckBankTicket",
+        "PayBankTicket",
+        "SaveBankTicketToProject",
+        "ULID",
+        "MediaLibrary",
+        "Pest",
+        "fakeAgent",
+        "idempotência"
+      ]
+    },
+    "summary": "Excelente aderência técnica e semântica, mapeando com precisão stubs, mocks e inconsistências de schema do código real."
+  },
+  {
+    "skillName": "laravel-ai-datasheet-extraction-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-ai-datasheet-extraction-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Extração técnica, normalização e validação de especificações de datasheets de inversores e módulos solares em PDF usando AgentDatasheetReader.",
+      "entidades": [
+        "AgentDatasheetReader",
+        "GeminiDocumentService",
+        "GeminiDatasheetProcessJob",
+        "has_content()",
+        "StringsHelper",
+        "Brand",
+        "Inverter",
+        "Module",
+        "JsonSchema",
+        "Promptable"
+      ],
+      "keywords": [
+        "datasheet extraction",
+        "AgentDatasheetReader",
+        "GeminiDocumentService",
+        "solar inverters",
+        "solar modules",
+        "PDF OCR",
+        "grounding",
+        "JsonSchema",
+        "electrical specs",
+        "GeminiDatasheetProcessJob",
+        "updateOrCreate",
+        "Pest",
+        "fallback models"
+      ]
+    },
+    "summary": "Excelente precisão na descrição e no corpo do texto, cobrindo com fidelidade estrita o pipeline de extração e persistência de datasheets."
+  },
+  {
+    "skillName": "laravel-anticaptcha-integration-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 198 caracteres, ficando ligeiramente abaixo da faixa recomendada de 200 a 400 caracteres (Critério 1).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença da frase de preenchimento 'Covers objectives and core workflows.' na description (Critério 12), além da omissão de termos discriminantes das classes reais do wrapper como Anticaptcha e AnticaptchaBase (Critério 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões e diretrizes para integração, resolução e monitoramento do serviço Anti-Captcha via classes wrapper no Laravel com logging diário.",
+      "entidades": [
+        "App\\Classes\\Anticaptcha\\Anticaptcha",
+        "ImageToText",
+        "AnticaptchaBase",
+        "ANTICAPTCHA_KEY",
+        "config('app.anticaptcha')",
+        "Log::channel('anticaptcha')"
+      ],
+      "keywords": [
+        "anticaptcha",
+        "ImageToText",
+        "captcha resolution",
+        "AnticaptchaBase",
+        "polling",
+        "waitForResult",
+        "createTask",
+        "property hooks",
+        "daily logging",
+        "timeout",
+        "OCR"
+      ]
+    },
+    "summary": "Conteúdo técnico impecável sobre a integração do Anti-Captcha no Engeapp, necessitando de refinamento na description para atingir o tamanho ideal e remover preenchimento genérico."
+  },
+  {
+    "skillName": "laravel-api-integration-patterns",
+    "skillPath": "created-skills/backend_laravel/laravel-api-integration-patterns/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de arquitetura para conectores de APIs HTTP externas baseadas em BaseApi com definição por Attributes.json e EndPoints.json.",
+      "entidades": [
+        "App\\Http\\Integrations\\BaseApi",
+        "Attributes.json",
+        "EndPoints.json",
+        "WhapiCloud\\Whapi",
+        "Efi\\Efi",
+        "Cache",
+        "GuzzleHttp\\Psr7\\Response"
+      ],
+      "keywords": [
+        "BaseApi",
+        "API integration",
+        "Attributes.json",
+        "EndPoints.json",
+        "OAuth2",
+        "token caching",
+        "request cache",
+        "dynamic chaining",
+        "connectors",
+        "JSON schemas",
+        "HTTP client"
+      ]
+    },
+    "summary": "Padrão exemplar de documentação arquitetural, discriminantes claros, description perfeita e zero ruído estrutural."
+  },
+  {
+    "skillName": "laravel-authorization-policies-gates",
+    "skillPath": "created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description termina com a frase de preenchimento genérica 'Covers objectives and core workflows.', infringindo os critérios de ausência de redundâncias e densidade de ganho semântico (Critérios 12 e 13).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de autorização RBAC com spatie/laravel-permission, policies com escopo multi-tenant e integração com frontend Vue SPA MaxPinia.",
+      "entidades": [
+        "spatie/laravel-permission",
+        "HasRoles",
+        "User",
+        "ProjectPolicy",
+        "allowedSolarCompanyIds()",
+        "Gate",
+        "useUserStore",
+        "@maxvue/max-pinia",
+        "MaxButton"
+      ],
+      "keywords": [
+        "authorization",
+        "RBAC",
+        "spatie/laravel-permission",
+        "policies",
+        "gates",
+        "multi-tenant",
+        "allowedSolarCompanyIds",
+        "can middleware",
+        "MaxPinia",
+        "useUserStore",
+        "Pest",
+        "Permission::findOrCreate"
+      ]
+    },
+    "summary": "Excelente integração entre backend e frontend (Spatie e MaxPinia) sem falhas técnicas, com necessidade apenas de podar frase de preenchimento na description."
+  },
+  {
+    "skillName": "laravel-brazilian-data-queries-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-brazilian-data-queries-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e cadeias de fallback com cache de longo prazo para consulta e normalização de dados de CEP e CNPJ brasileiros.",
+      "entidades": [
+        "ApiCnpjService",
+        "ApiCepService",
+        "ReceitaWS",
+        "OpenCNPJ",
+        "CnpjAberto",
+        "CepAberto",
+        "ViaCep",
+        "OpenCep",
+        "BrasilAPI",
+        "App\\Models\\Lists\\Cep",
+        "City",
+        "State",
+        "Cache"
+      ],
+      "keywords": [
+        "CNPJ",
+        "CEP",
+        "ApiCnpjService",
+        "ApiCepService",
+        "ReceitaWS",
+        "OpenCNPJ",
+        "CnpjAberto",
+        "ViaCep",
+        "CepAberto",
+        "fallback chain",
+        "cache TTL",
+        "City",
+        "State",
+        "address normalization"
+      ]
+    },
+    "summary": "Excelente conformidade técnica com os serviços de CEP e CNPJ do engeapp, discriminantes precisos e descrição exemplar."
+  },
+  {
+    "skillName": "laravel-brazilian-localization-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém frase final redundante ('Covers Brazilian localization best practices and document validation.'), repetindo os termos já apresentados no gatilho de uso e reduzindo a densidade semântica (Critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões para validação, sanitização e formatação de documentos brasileiros e moeda BRL no backend Laravel e frontend Vue 3.",
+      "entidades": [
+        "Lacus\\BrUtils\\BrUtils",
+        "StringsHelper.php",
+        "NumberToWords",
+        "MaxInputCpfCnpj",
+        "MaxInputCep",
+        "MaxInputPhoneMail",
+        "InputNumber",
+        "@maxvue/max-use",
+        "@maxvue/max-components-ui"
+      ],
+      "keywords": [
+        "localização brasileira",
+        "CPF",
+        "CNPJ",
+        "CEP",
+        "telefone",
+        "BRL",
+        "moeda",
+        "br-utils",
+        "onlyNumbers",
+        "formatCurrency",
+        "MaxInputCpfCnpj",
+        "MaxUse",
+        "StringsHelper"
+      ]
+    },
+    "summary": "Conteúdo extremamente fiel aos pacotes e convenções do ecossistema MaxVue/Engeapp, pendente apenas de ajuste de redação na description para eliminar redundância."
+  },
+  {
+    "skillName": "laravel-brazilian-payments-integration",
+    "skillPath": "created-skills/backend_laravel/laravel-brazilian-payments-integration/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de arquitetura, conector, segurança e idempotência para integração de gateways de pagamento brasileiros no Engeapp.",
+      "entidades": [
+        "EfiPay",
+        "efiOptions()",
+        "ProcessEfiWebhookJob",
+        "CellChargeService",
+        "InterSdk",
+        "bank_webhooks",
+        "Payments",
+        "config/bank.php"
+      ],
+      "keywords": [
+        "payment gateways",
+        "Efí",
+        "EfiPay",
+        "Asaas",
+        "Banco Inter",
+        "Mercado Pago",
+        "webhooks",
+        "idempotency",
+        "ProcessEfiWebhookJob",
+        "bank_webhooks",
+        "CellChargeService",
+        "mTLS"
+      ]
+    },
+    "summary": "Excelente clareza técnica ao discriminar o status real dos múltiplos gateways (Efí em produção, Asaas para recargas, Inter em placeholder), com description precisa."
+  },
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "skillPath": "created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Distorção semântica severa na description: cita tecnologias como Dusk, Puppeteer, Python RPA e microsserviços de backend que não existem nem no SKILL.md nem no engeapp, violando o Critério 5 (Fidelidade Estrita ao Conteúdo Real) e Critério 8 (Equilíbrio de Amplitude).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Omissão dos discriminantes semânticos reais na description: não cita Firefox, geckodriver, a classe App\\Classes\\Browser, nem o pool de portas gerenciado em Redis (Critério 4).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Frase genérica redundante ao final da description ('Covers browser automation, driver configuration, and element interactions.') violando o Critério 12.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Automação de navegador com php-webdriver e Firefox geckodriver gerenciado por pool de portas Redis na classe Browser do Engeapp.",
+      "entidades": [
+        "App\\Classes\\Browser",
+        "php-webdriver/webdriver",
+        "geckodriver",
+        "Firefox",
+        "Redis (geckodriver_ports)",
+        "BrowserPlaybookExecutor",
+        "CleanupGeckodriverPorts",
+        "agent_browser"
+      ],
+      "keywords": [
+        "browser automation",
+        "php-webdriver",
+        "geckodriver",
+        "Firefox",
+        "App\\Classes\\Browser",
+        "Redis port pool",
+        "getElement",
+        "screenshot GD",
+        "BrowserPlaybookExecutor",
+        "CleanupGeckodriverPorts",
+        "agent_browser"
+      ]
+    },
+    "summary": "O corpo do SKILL.md traz uma dissecação técnica precisa e valiosa da classe Browser do engeapp, mas sua description está severamente distorcida ao prometer Dusk, Puppeteer e Python RPA."
+  }
+]

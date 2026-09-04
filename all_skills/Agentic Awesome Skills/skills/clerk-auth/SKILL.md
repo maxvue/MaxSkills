@@ -1,6 +1,6 @@
 ---
 name: clerk-auth
-description: Expert patterns for Clerk auth implementation, middleware,
+description: "Expert patterns for Clerk auth implementation, middleware, Use when developing, optimizing, debugging, or configuring clerk auth in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for clerk auth."
   organizations, webhooks, and user sync
 risk: safe
 source: vibeship-spawner-skills (Apache 2.0)

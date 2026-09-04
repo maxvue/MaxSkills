@@ -1,6 +1,6 @@
 ---
 name: trading-ledger
-description: "A trading journal that captures the decision, not just the fill: thesis, plan, and emotion at the moment of entry, written to the user's own Notion database; reviews grade decisions, not P&L."
+description: "A trading journal that captures the decision, not just the fill: thesis, plan, and emotion at the moment of entry, written to the user's own Notion database; reviews grade decisions, not P&L. Use when developing, optimizing, debugging, or configuring trading ledger in production workflows."
 category: productivity
 risk: critical
 source: community

@@ -1,6 +1,6 @@
 ---
 name: context-kit
-description: "Evaluate, adapt, and safely install Context Kit personal context artifacts for Claude Code or adjacent agent workflows."
+description: "Evaluate, adapt, and safely install Context Kit personal context artifacts for Claude Code or adjacent agent workflows. Use when developing, optimizing, debugging, or configuring context kit in production workflows."
 category: productivity
 risk: critical
 source: community

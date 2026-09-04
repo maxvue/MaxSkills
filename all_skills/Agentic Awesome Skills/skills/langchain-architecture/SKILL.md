@@ -1,6 +1,6 @@
 ---
 name: langchain-architecture
-description: "Master the LangChain framework for building sophisticated LLM applications with agents, chains, memory, and tool integration."
+description: "Master the LangChain framework for building sophisticated LLM applications with agents, chains, memory, and tool integration. Use when developing, optimizing, debugging, or configuring langchain architecture in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -20,7 +20,7 @@ Master the LangChain framework for building sophisticated LLM applications with 
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Use this skill when
 

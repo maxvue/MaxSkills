@@ -1,0 +1,535 @@
+[
+  {
+    "skillName": "test-guard",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/test-guard/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com apenas 122 caracteres (abaixo da faixa ideal de 200 a 400 caracteres) e desprovida de fórmula canônica de gatilho ('Use when...' / 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes essenciais na description (pytest, Jest, Vitest, PHPUnit, mocks de fronteira, asserções orientadas a comportamento vs implementação).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Revisão e guarda de código de testes automatizados gerados ou modificados por IA aplicando 9 regras universais de qualidade e manutenibilidade.",
+      "entidades": [
+        "pytest",
+        "PHPUnit",
+        "Jest",
+        "Vitest",
+        "Pest",
+        "WordPress",
+        "WooCommerce",
+        "Pydantic",
+        "msw",
+        "CameraHelper"
+      ],
+      "keywords": [
+        "test guard",
+        "unit testing",
+        "integration testing",
+        "mocking boundaries",
+        "behavior testing",
+        "parametrize",
+        "data-driven tests",
+        "regression tests",
+        "test naming",
+        "framework guarantees",
+        "state objects",
+        "fixtures"
+      ]
+    },
+    "summary": "Guia de regras de teste excepcional e prático, necessitando apenas expandir a description para 200-400 caracteres com gatilho e termos discriminantes das stacks."
+  },
+  {
+    "skillName": "threat-mitigation-mapping",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/threat-mitigation-mapping/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 179 caracteres (abaixo de 200) e sem citar discriminantes centrais da mitigação (defense-in-depth, STRIDE, categorias preventivas/detectivas/corretivas).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O SKILL.md principal é um stub superficial de 42 linhas com instruções genéricas e vazias ('Clarify goals, constraints...', 'Apply relevant best practices...'), delegando todo o conteúdo substancial para um playbook externo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inclusão de cláusulas negativas e limitações puramente tautológicas ('The task is unrelated to threat mitigation mapping', 'Use this skill only when the task clearly matches the scope').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover as seções tautológicas 'Do not use this skill when' (linhas 22-26) e 'Limitations' genéricas (linhas 38-42).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar as instruções vazias (linhas 28-33) trazendo os conceitos centrais do playbook (taxonomia de controles e multicamadas de defesa) para o SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Mapeamento sistemático de ameaças identificadas para controles de segurança defensivos, preventivos e corretivos em arquiteturas multicamadas.",
+      "entidades": [
+        "STRIDE",
+        "PCI-DSS",
+        "NIST 800-63B",
+        "WAF",
+        "EDR",
+        "IDS",
+        "WebAuthn",
+        "TOTP",
+        "SecurityControl",
+        "MitigationPlan"
+      ],
+      "keywords": [
+        "threat mitigation",
+        "security controls",
+        "defense in depth",
+        "preventive controls",
+        "detective controls",
+        "corrective controls",
+        "control layers",
+        "remediation roadmap",
+        "residual risk",
+        "risk treatment"
+      ]
+    },
+    "summary": "Conteúdo técnico valioso no playbook complementar, porém o SKILL.md principal atua como casca vazia com ruídos tautológicos e descrição subdimensionada."
+  },
+  {
+    "skillName": "threat-modeling-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/threat-modeling-expert/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Adoção de persona promocional na description ('Expert in...', 'Masters STRIDE...') e ênfase artificial com 'PROACTIVELY' em caixa alta, violando a diretriz anti-promocional (critério 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo da skill excessivamente esquemático e raso (69 linhas), repetindo a description ipsis litteris no título e duplicando orientações entre Safety e Best Practices ('Update threat models with architecture changes').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de disclaimer e limitações genéricas redundantes nas linhas 65-69.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Eliminar o preâmbulo redundante que replica a description (linhas 9-12) e unificar as recomendações duplicadas entre Safety e Best Practices (linhas 53 e 60).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover o bloco genérico de Limitations no encerramento (linhas 65-69).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Modelagem de ameaças e análise de arquitetura de segurança através de STRIDE, PASTA e árvores de ataque para sistemas secure-by-design.",
+      "entidades": [
+        "STRIDE",
+        "PASTA",
+        "Attack Trees",
+        "Data Flow Diagrams (DFD)",
+        "Trust Boundaries"
+      ],
+      "keywords": [
+        "threat modeling",
+        "STRIDE",
+        "PASTA",
+        "attack trees",
+        "data flow diagrams",
+        "trust boundaries",
+        "security architecture",
+        "risk prioritization",
+        "mitigation strategy",
+        "secure by design"
+      ]
+    },
+    "summary": "Estrutura conceitual válida para modelagem de ameaças, mas prejudicada por redação promocional/persona, redundâncias internas e falta de exemplos aprofundados."
+  },
+  {
+    "skillName": "threejs-lighting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/threejs-lighting/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 162 caracteres (abaixo de 200 caracteres), omitindo discriminantes técnicos cruciais presentes no arquivo (AmbientLight, DirectionalLight, RectAreaLight, PCFSoftShadowMap, PMREMGenerator, RGBELoader, shadow acne).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de rodapé boilerplate descartável com 3 itens de limitações genéricas (linhas 491-495).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 1,
+    "cuts": [
+      {
+        "text": "Podar o bloco de limitações genéricas e padronizadas no encerramento (linhas 491-495).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia técnico de configuração, tipos de luz, sombras e iluminação baseada em imagens (IBL) em cenas Three.js.",
+      "entidades": [
+        "THREE.AmbientLight",
+        "THREE.DirectionalLight",
+        "THREE.PointLight",
+        "THREE.SpotLight",
+        "THREE.RectAreaLight",
+        "RectAreaLightUniformsLib",
+        "RGBELoader",
+        "PMREMGenerator",
+        "ContactShadows",
+        "CameraHelper"
+      ],
+      "keywords": [
+        "Three.js",
+        "directional light",
+        "point light",
+        "spot light",
+        "rect area light",
+        "shadows",
+        "PCFSoftShadowMap",
+        "shadow bias",
+        "shadow acne",
+        "IBL",
+        "HDR environment",
+        "light probes",
+        "three-point lighting"
+      ]
+    },
+    "summary": "Excelente e aprofundado guia técnico para iluminação no Three.js, necessitando apenas de expansão da description para atingir 200-400 caracteres com discriminantes."
+  },
+  {
+    "skillName": "threejs-materials",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/threejs-materials/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 178 caracteres (abaixo de 200 caracteres), deixando de fora termos discriminantes avançados como MeshPhysicalMaterial (clearcoat, transmission), NodeMaterial/TSL para WebGPU e ShaderMaterial GLSL.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de repetição superficial de 'When to Use' e cláusulas de limitações genéricas no rodapé (linhas 547-554).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 1,
+    "cuts": [
+      {
+        "text": "Remover a seção repetida de 'When to Use' e as limitações genéricas de rodapé (linhas 547-554).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração detalhada de materiais PBR, shaders customizados GLSL e sistema moderno NodeMaterial/TSL para WebGPU em Three.js.",
+      "entidades": [
+        "THREE.MeshStandardMaterial",
+        "THREE.MeshPhysicalMaterial",
+        "THREE.MeshBasicMaterial",
+        "THREE.MeshPhongMaterial",
+        "THREE.ShaderMaterial",
+        "THREE.RawShaderMaterial",
+        "MeshStandardNodeMaterial",
+        "TSL",
+        "RGBELoader"
+      ],
+      "keywords": [
+        "Three.js",
+        "materials",
+        "PBR",
+        "roughness",
+        "metalness",
+        "clearcoat",
+        "transmission",
+        "IOR",
+        "ShaderMaterial",
+        "GLSL",
+        "NodeMaterial",
+        "TSL",
+        "WebGPU",
+        "textures",
+        "alphaTest"
+      ]
+    },
+    "summary": "Manual de referência técnica de altíssimo nível para materiais no Three.js, com pequena carência de extensão na description e rodapé dispensável."
+  },
+  {
+    "skillName": "time-ledger",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/time-ledger/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 169 caracteres (abaixo de 200 caracteres) e sem o prefixo explícito de condição de uso ('Use when...' / 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de discriminantes operacionais na description (conector Notion MCP, data_source_id, reconciliação em lote, tratamento do formato 'date:Date:start').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Rastreamento e reconciliação conversacional de tempo integrando relatórios em linguagem natural com bancos de dados estruturados no Notion via MCP.",
+      "entidades": [
+        "Notion MCP Server",
+        "create-pages",
+        "query",
+        "update-page",
+        "data_source_id",
+        "Claude"
+      ],
+      "keywords": [
+        "time tracking",
+        "Notion database",
+        "natural language logging",
+        "activity categorization",
+        "minutes",
+        "compounding tags",
+        "batch reconcile",
+        "zero-config",
+        "honesty contract",
+        "productivity"
+      ]
+    },
+    "summary": "Excelente skill de produtividade com regras de parser estritas e tratamento de edge cases do Notion MCP, requerendo apenas adequação de extensão e gatilho na description."
+  },
+  {
+    "skillName": "tools-page-seo-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tools-page-seo-optimizer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Ausência de fórmula canônica de ativação/gatilho explícito ('Use when...' / 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de tópicos padronizados genéricos e tautológicos em 'When to Use' e 'Limitations' no rodapé (linhas 605-614).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 1,
+    "cuts": [
+      {
+        "text": "Remover o rodapé de tautologias genéricas em 'When to Use' e 'Limitations' (linhas 605-607 e 611-614).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Playbook técnico de SEO agnóstico de framework para sites e diretórios programáticos com coleções extensas de páginas de ferramentas e produtos.",
+      "entidades": [
+        "Google Search Console",
+        "E-E-A-T",
+        "JSON-LD",
+        "PageRank",
+        "Core Web Vitals",
+        "sitemap.xml",
+        "robots.txt",
+        "schema-markup-generator"
+      ],
+      "keywords": [
+        "technical SEO",
+        "tools pages",
+        "programmatic SEO",
+        "duplicate content",
+        "content registry",
+        "meta titles",
+        "meta descriptions",
+        "heading hierarchy",
+        "internal linking",
+        "hub and spoke",
+        "url slugs",
+        "E-E-A-T",
+        "live verification"
+      ]
+    },
+    "summary": "Playbook técnico completo, prático e de altíssimo rigor para SEO de diretórios e páginas de ferramentas, precisando apenas de gatilho explícito na description e limpeza de rodapé."
+  },
+  {
+    "skillName": "top-web-vulnerabilities",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/top-web-vulnerabilities/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Ausência de cláusula explícita de gatilho ('Use when...' / 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivos genéricos ('comprehensive', 'full spectrum') na description sem citar vulnerabilidades ou padrões concretos (OWASP Top 10, SQLi, XSS, SSRF, IDOR, XXE).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final '## When to Use' constituída por uma frase vazia e genérica de preenchimento automático (linhas 560-562).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 1,
+    "cuts": [
+      {
+        "text": "Remover a seção vazia de preenchimento '## When to Use' no encerramento (linhas 560-562).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Catálogo estruturado de referência para as 100 principais vulnerabilidades web organizadas por categorias, causas-raiz, impactos e mitigações alinhadas ao OWASP Top 10.",
+      "entidades": [
+        "OWASP Top 10",
+        "Burp Suite",
+        "OWASP ZAP",
+        "CWE/SANS Top 25",
+        "ASVS",
+        "NIST CSF"
+      ],
+      "keywords": [
+        "web security",
+        "vulnerabilities",
+        "OWASP",
+        "SQL injection",
+        "XSS",
+        "SSRF",
+        "IDOR",
+        "XXE",
+        "access control",
+        "security misconfiguration",
+        "authentication bypass",
+        "security headers",
+        "remediation"
+      ]
+    },
+    "summary": "Excelente compêndio taxonômico de segurança web com mapeamento OWASP, demandando reformulação da description para incluir 'Use when...' com termos discriminantes e exclusão de rodapé vazio."
+  },
+  {
+    "skillName": "trading-ledger",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/trading-ledger/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 194 caracteres (ligeiramente abaixo dos 200 caracteres recomendados) e ausência de fórmula canônica de gatilho ('Use when...' / 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de termos discriminantes operacionais na description (conector Notion MCP, gradação de execução contra o plano, tracking comportamental de opções e ações).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diário de trading comportamental estruturado em banco de dados Notion via MCP com registro de tese, plano de saída e avaliação de disciplina operacional.",
+      "entidades": [
+        "Notion MCP Server",
+        "create-pages",
+        "query",
+        "update-page",
+        "Market Wizards",
+        "US Options",
+        "US Stocks",
+        "Crypto"
+      ],
+      "keywords": [
+        "trading journal",
+        "trading ledger",
+        "trade execution",
+        "entry thesis",
+        "contingency plan",
+        "emotion tagging",
+        "execution grading",
+        "Notion database",
+        "trade review",
+        "discipline",
+        "risk management"
+      ]
+    },
+    "summary": "Skill exemplar de diário de operações com ênfase na disciplina e integração Notion MCP, necessitando somente de pequeno enriquecimento de gatilho e termos discriminantes na description."
+  },
+  {
+    "skillName": "transformers-js",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/transformers-js/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada e cortada abruptamente no final com reticências ('and...'), gerando frase incompleta no frontmatter YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de termo promocional vazio ('state-of-the-art') na description, em desconformidade com a linguagem anti-promocional (critério 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de fórmula canônica de gatilho ('Use when...') e de termos discriminantes técnicos fundamentais na description (pipeline API, WebGPU, WASM, quantização q4/q8, ONNX, @huggingface/transformers).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seção genérica de limitações padronizadas no encerramento (linhas 694-699).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 1,
+    "cuts": [
+      {
+        "text": "Remover o bloco padronizado de Limitations genéricas no final do documento (linhas 694-699).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Execução de modelos de machine learning para NLP, visão computacional e áudio diretamente em JavaScript/TypeScript usando Transformers.js, WebGPU e WASM.",
+      "entidades": [
+        "@huggingface/transformers",
+        "@huggingface/tokenizers",
+        "Hugging Face Hub",
+        "ONNX",
+        "WebGPU",
+        "WASM",
+        "ModelRegistry",
+        "TextStreamer"
+      ],
+      "keywords": [
+        "transformers.js",
+        "machine learning",
+        "client-side ML",
+        "ONNX runtime",
+        "WebGPU",
+        "WASM",
+        "pipeline API",
+        "text generation",
+        "speech recognition",
+        "object detection",
+        "embeddings",
+        "quantization",
+        "memory disposal"
+      ]
+    },
+    "summary": "Documentação oficial extensa e completa de Transformers.js, prejudicada na description por corte abrupto com reticências e adjetivação de marketing."
+  }
+]

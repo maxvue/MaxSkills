@@ -1,6 +1,6 @@
 ---
 name: youtube-transcript
-description: "Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output."
+description: "Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output. Use when developing, optimizing, debugging, or configuring youtube transcript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for youtube transcript."
 category: research
 risk: safe
 source: community

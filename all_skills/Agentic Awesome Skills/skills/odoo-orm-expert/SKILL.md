@@ -1,6 +1,6 @@
 ---
 name: odoo-orm-expert
-description: "Master Odoo ORM patterns: search, browse, create, write, domain filters, computed fields, and performance-safe query techniques."
+description: "Master Odoo ORM patterns: search, browse, create, write, domain filters, computed fields, and performance-safe query techniques. Use when developing, optimizing, debugging, or configuring odoo orm expert in production workflows."
 risk: safe
 source: "self"
 ---

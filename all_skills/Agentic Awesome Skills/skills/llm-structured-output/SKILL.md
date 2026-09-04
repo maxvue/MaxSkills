@@ -1,6 +1,6 @@
 ---
 name: llm-structured-output
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring llm structured output in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for llm structured output."
   Get reliable JSON, enums, and typed objects from LLMs using response_format, tool_use, and schema-constrained decoding across OpenAI, Anthropic, and Google APIs.
 risk: safe
 source: community

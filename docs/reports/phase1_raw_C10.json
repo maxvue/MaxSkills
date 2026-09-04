@@ -1,0 +1,563 @@
+[
+  {
+    "skillName": "azure-ai-vision-imageanalysis-java",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-ai-vision-imageanalysis-java/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 173 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres (Critério 1). Necessita enriquecimento com termos discriminantes como o artefato Maven 'azure-ai-vision-imageanalysis' e classes essenciais (ImageAnalysisClient, VisualFeatures, BinaryData).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância de ativação e ruído estrutural com a presença de '## Trigger Phrases' (linhas 283-292) e blocos boilerplate vazios '## When to Use' e '## Limitations' (linhas 293-300).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 7,
+    "cuts": [
+      {
+        "text": "Remover '## Trigger Phrases' (linhas 283-292) e seções genéricas '## When to Use' e '## Limitations' (linhas 293-300), eliminando cerca de 18 linhas de ruído sem perda técnica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Análise de imagens, OCR, detecção de objetos e pessoas utilizando o Azure AI Vision Image Analysis SDK para Java.",
+      "entidades": [
+        "com.azure:azure-ai-vision-imageanalysis",
+        "ImageAnalysisClient",
+        "ImageAnalysisAsyncClient",
+        "ImageAnalysisClientBuilder",
+        "VisualFeatures",
+        "ImageAnalysisOptions",
+        "ImageAnalysisResult",
+        "KeyCredential",
+        "DefaultAzureCredentialBuilder",
+        "DetectedTextBlock",
+        "BinaryData"
+      ],
+      "keywords": [
+        "azure ai vision",
+        "image analysis java",
+        "ocr text extraction",
+        "image captioning",
+        "dense captions",
+        "object detection",
+        "smart cropping",
+        "people detection",
+        "tagging",
+        "visual features",
+        "binarydata",
+        "async client",
+        "azure sdk java"
+      ]
+    },
+    "summary": "Conteúdo técnico funcional e preciso para Java, requerendo apenas expansão da description (>200 chars) e poda de seções boilerplate."
+  },
+  {
+    "skillName": "azure-ai-voicelive-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-ai-voicelive-ts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description muito concisa (133 caracteres, bem abaixo da faixa 200-400) e sem cláusula condicional de gatilho explícita ('Use when...'). Faltam termos discriminantes cruciais como o pacote '@azure/ai-voicelive', VoiceLiveClient, VAD e function calling.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de encerramento padronizado com boilerplate genérico nas seções '## When to Use' e '## Limitations' (linhas 468-475).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 4,
+    "cuts": [
+      {
+        "text": "Remover o bloco genérico final '## When to Use' e '## Limitations' (linhas 468-475), podando 8 linhas de preenchimento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de assistentes de voz em tempo real e conversação bidirecional via WebSockets com Azure AI Voice Live SDK em TypeScript/JavaScript.",
+      "entidades": [
+        "@azure/ai-voicelive",
+        "@azure/identity",
+        "VoiceLiveClient",
+        "VoiceLiveSession",
+        "VoiceLiveSubscription",
+        "VoiceLiveSessionHandlers",
+        "DefaultAzureCredential",
+        "AzureKeyCredential",
+        "InteractiveBrowserCredential",
+        "gpt-4o-realtime-preview",
+        "ServerEventUnion"
+      ],
+      "keywords": [
+        "azure voice live",
+        "real-time voice ai",
+        "websocket voice",
+        "bidirectional audio",
+        "server vad",
+        "azure semantic vad",
+        "function calling",
+        "pcm16 audio",
+        "speech transcription",
+        "streaming audio delta",
+        "gpt-4o realtime",
+        "voice assistants nodejs"
+      ]
+    },
+    "summary": "Excelente profundidade técnica cobrindo WebSockets, VAD semântico e streaming de áudio em tempo real, carecendo de ajuste de gatilho e extensão na description."
+  },
+  {
+    "skillName": "azure-cosmos-java",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-cosmos-java/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 128 caracteres (abaixo dos 200-400 caracteres) sem cláusula de acionamento explícita ('Use when...'). Ausência de discriminantes centrais como o artefato 'azure-cosmos', CosmosAsyncClient e operações CRUD com particionamento.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções de encerramento boilerplate '## When to Use' e '## Limitations' (linhas 260-267) sem utilidade prática.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 4,
+    "cuts": [
+      {
+        "text": "Remover o bloco boilerplate final de '## When to Use' e '## Limitations' (linhas 260-267), eliminando 8 linhas não discriminantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Operações no Azure Cosmos DB NoSQL API em Java utilizando clientes síncronos e assíncronos reativos com Project Reactor.",
+      "entidades": [
+        "com.azure:azure-cosmos",
+        "CosmosClient",
+        "CosmosAsyncClient",
+        "CosmosDatabase",
+        "CosmosAsyncDatabase",
+        "CosmosContainer",
+        "CosmosAsyncContainer",
+        "CosmosClientBuilder",
+        "ConsistencyLevel",
+        "PartitionKey",
+        "CosmosQueryRequestOptions",
+        "CosmosPagedIterable",
+        "CosmosException"
+      ],
+      "keywords": [
+        "azure cosmos db java",
+        "nosql api",
+        "reactive cosmos",
+        "project reactor",
+        "partition key",
+        "request units ru",
+        "consistency levels",
+        "crud operations",
+        "query items",
+        "direct mode",
+        "rate limiting 429",
+        "azure-cosmos"
+      ]
+    },
+    "summary": "Excelente implementação síncrona e reativa para Cosmos DB em Java, necessitando de ampliação da description e inclusão do gatilho 'Use when...'."
+  },
+  {
+    "skillName": "azure-cosmos-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-cosmos-ts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 178 caracteres, ligeiramente abaixo dos 200 caracteres ideais. Pode ser enriquecida com termos discriminantes presentes no documento, como partition keys hierárquicas (MultiHash), concorrência otimista com ETags e operações de patch.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de encerramento boilerplate padronizado ('## When to Use' e '## Limitations', linhas 474-481).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Excluir seções boilerplate de encerramento '## When to Use' e '## Limitations' (linhas 474-481).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Operações no plano de dados do Azure Cosmos DB NoSQL com o SDK oficial @azure/cosmos em TypeScript/JavaScript.",
+      "entidades": [
+        "@azure/cosmos",
+        "@azure/identity",
+        "CosmosClient",
+        "Database",
+        "Container",
+        "Item",
+        "Items",
+        "SqlQuerySpec",
+        "BulkOperationType",
+        "PatchOperation",
+        "PartitionKeyKind",
+        "PartitionKeyDefinitionVersion",
+        "ErrorResponse",
+        "DefaultAzureCredential"
+      ],
+      "keywords": [
+        "azure cosmos ts",
+        "nosql data plane",
+        "crud documents",
+        "sqlqueryspec",
+        "parameterized queries",
+        "pagination continuation token",
+        "executebulkoperations",
+        "hierarchical partition key",
+        "optimistic concurrency etag",
+        "patch operations",
+        "service layer pattern",
+        "@azure/cosmos"
+      ]
+    },
+    "summary": "Documentação exemplar com clara separação entre Data e Management Plane, service layers e ETags, necessitando apenas de expansão menor da description e remoção de boilerplate."
+  },
+  {
+    "skillName": "azure-keyvault-keys-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-keyvault-keys-ts/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Invasão de escopo severa: a skill é especificamente 'azure-keyvault-keys-ts' (@azure/keyvault-keys), mas contém uma seção inteira '## Secrets Operations' (linhas 41-97), além de trechos de backup/restore e error handling de secrets, totalizando ~75 linhas sobre segredos que pertencem a outra biblioteca (@azure/keyvault-secrets).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Código com erro em tempo de execução: na linha 38 instancia 'new SecretClient(vaultUrl, credential)', porém SecretClient não foi importado na linha 32 (onde apenas KeyClient e CryptographyClient de @azure/keyvault-keys constam), causando ReferenceError.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Dependência externa não declarada: a seção de instalação orienta apenas 'npm install @azure/keyvault-keys @azure/identity', mas as linhas 242-248 tentam importar SecretClient de '@azure/keyvault-secrets' sem instalação prévia.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description curta (168 caracteres, abaixo de 200-400 chars) que omite a classe CryptographyClient e algoritmos de cifragem/assinatura suportados (RSA-OAEP, RS256).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover completamente todas as menções, imports e seções de Secrets: instanciação de SecretClient (linha 38-39), '## Secrets Operations' completa (linhas 41-97), backup/restore de secret (linhas 222, 226), import de @azure/keyvault-secrets (linhas 242-248), tratamento de erro de secret (linhas 253-261) e boilerplate final (linhas 273-280), sanando mais de 80 linhas que quebram o código e poluem o escopo de chaves.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gerenciamento e operações criptográficas com chaves (cifragem, assinatura, verificação e rotação) usando Azure Key Vault Keys SDK em TypeScript.",
+      "entidades": [
+        "@azure/keyvault-keys",
+        "@azure/identity",
+        "KeyClient",
+        "CryptographyClient",
+        "KeyVaultKey",
+        "KeyProperties",
+        "DefaultAzureCredential",
+        "KnownEncryptionAlgorithms",
+        "KnownSignatureAlgorithms"
+      ],
+      "keywords": [
+        "azure key vault keys",
+        "cryptographyclient",
+        "rsa key",
+        "ec key",
+        "encrypt decrypt",
+        "sign verify",
+        "wrap unwrap",
+        "key rotation policy",
+        "soft-delete",
+        "purge key",
+        "backup restore key",
+        "@azure/keyvault-keys"
+      ]
+    },
+    "summary": "Skill com poluição crítica de escopo ao mesclar operações de Secrets não importadas e quebradas em uma skill de Keys, demandando poda pesada (30%) e saneamento técnico."
+  },
+  {
+    "skillName": "azure-mgmt-apicenter-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-mgmt-apicenter-py/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 130 caracteres (faixa ideal 200 a 400 caracteres). Faltam discriminantes técnicos explícitos do modelo (workspaces, api_definitions, deployments, especificações OpenAPI e esquemas de metadados customizados).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de encerramento boilerplate padronizado '## When to Use' e '## Limitations' (linhas 244-251).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Eliminar o bloco boilerplate genérico de fechamento '## When to Use' e '## Limitations' (linhas 244-251).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gerenciamento do catálogo de APIs, especificações OpenAPI, versionamento, ambientes e governança com Azure API Center SDK para Python.",
+      "entidades": [
+        "azure-mgmt-apicenter",
+        "azure-identity",
+        "ApiCenterMgmtClient",
+        "DefaultAzureCredential",
+        "Service",
+        "Api",
+        "ApiKind",
+        "LifecycleStage",
+        "ApiVersion",
+        "ApiDefinition",
+        "ApiSpecImportRequest",
+        "ApiSpecImportSourceFormat",
+        "Environment",
+        "Deployment",
+        "DeploymentState",
+        "MetadataSchema"
+      ],
+      "keywords": [
+        "azure api center",
+        "api governance python",
+        "apicentermgmtclient",
+        "api inventory",
+        "openapi import",
+        "api definitions",
+        "api versions",
+        "api deployments",
+        "metadata schemas",
+        "lifecycle stage",
+        "workspaces api"
+      ]
+    },
+    "summary": "Cobertura clara e fiel do plano de gerenciamento do Azure API Center em Python, necessitando de expansão na description e eliminação de boilerplate final."
+  },
+  {
+    "skillName": "azure-monitor-ingestion-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-monitor-ingestion-py/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de apenas 125 caracteres (muito aquém do intervalo 200-400), com omissão de termos discriminantes importantes como LogsIngestionClient, DCE (Data Collection Endpoint), DCR (Data Collection Rule) e modos síncrono/assíncrono.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação literal de código nas linhas 58-66, que repetem a inicialização de LogsIngestionClient e DefaultAzureCredential já demonstrada nas linhas 45-53.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Encerramento com boilerplate genérico não discriminante '## When to Use' e '## Limitations' (linhas 206-213).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o bloco redundante de criação do client nas linhas 58-66 e podar o boilerplate genérico de fechamento (linhas 206-213).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Ingestão de logs customizados no Azure Monitor Log Analytics utilizando a Logs Ingestion API com o SDK para Python.",
+      "entidades": [
+        "azure-monitor-ingestion",
+        "azure-identity",
+        "LogsIngestionClient",
+        "DefaultAzureCredential",
+        "AzureAuthorityHosts"
+      ],
+      "keywords": [
+        "azure monitor ingestion",
+        "log analytics custom logs",
+        "data collection endpoint dce",
+        "data collection rule dcr",
+        "stream name",
+        "upload logs",
+        "async log ingestion",
+        "gzip compression",
+        "batching behavior",
+        "partial failure callback",
+        "sovereign clouds"
+      ]
+    },
+    "summary": "Guia sólido e correto sobre envio de logs customizados via Logs Ingestion API, requerendo ampliação da description e limpeza de trechos de código duplicados."
+  },
+  {
+    "skillName": "azure-postgres-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-postgres-ts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description muito enxuta (124 caracteres, abaixo dos 200-400 chars) sem cláusula de acionamento explícita ('Use when...'). Ausência de termos discriminantes fundamentais como Microsoft Entra ID (passwordless), renovação de token com @azure/identity, connection pooling ('pg' Pool) e transações.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seções boilerplate padronizadas '## When to Use' e '## Limitations' (linhas 480-487).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover o bloco boilerplate final de encerramento '## When to Use' e '## Limitations' (linhas 480-487).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Conexão e pooling de conexões resilientes ao Azure Database for PostgreSQL Flexible Server em TypeScript utilizando pg (node-postgres) e Microsoft Entra ID passwordless.",
+      "entidades": [
+        "pg",
+        "@azure/identity",
+        "Client",
+        "Pool",
+        "PoolClient",
+        "PoolConfig",
+        "QueryResult",
+        "DatabaseError",
+        "DefaultAzureCredential"
+      ],
+      "keywords": [
+        "azure postgres flexible server",
+        "node-postgres pg",
+        "entra id passwordless",
+        "managed identity token",
+        "connection pool",
+        "parameterized queries",
+        "sql transactions",
+        "withtransaction helper",
+        "ssl rejectunauthorized",
+        "token refresh pool",
+        "typescript typed queries"
+      ]
+    },
+    "summary": "Excelente profundidade técnica cobrindo pooling, transações tipadas e renovação transparente de tokens Entra ID, necessitando enriquecer a description com gatilhos e discriminantes."
+  },
+  {
+    "skillName": "azure-speech-to-text-rest-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-speech-to-text-rest-py/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Referência a arquivo local inexistente (dead link): a linha 372 aponta para 'references/pronunciation-assessment.md', porém a subpasta 'references' e o arquivo referenciado não existem no repositório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description com 153 caracteres (abaixo dos 200-400 chars). Não inclui discriminantes como formatos de áudio (WAV PCM 16kHz, OGG OPUS), streaming em chunks ('Transfer-Encoding: chunked') e autenticação STS via token.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções de encerramento boilerplate '## When to Use' e '## Limitations' (linhas 374-381) que repetem termos vagos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Excluir a seção '## Reference Files' (linhas 368-373) devido ao link quebrado para arquivo inexistente, além de podar o boilerplate final (linhas 374-381).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Transcrição de arquivos de áudio curtos (até 60s) via Azure Speech to Text REST API sem necessidade de instalação do Speech SDK em Python.",
+      "entidades": [
+        "requests",
+        "aiohttp",
+        "Ocp-Apim-Subscription-Key",
+        "RecognitionStatus",
+        "Transfer-Encoding: chunked",
+        "/sts/v1.0/issueToken",
+        "cognitiveservices/v1"
+      ],
+      "keywords": [
+        "azure speech to text rest",
+        "short audio transcription",
+        "speech recognition rest api",
+        "wav pcm 16khz",
+        "chunked transfer encoding",
+        "sts bearer token",
+        "recognitionstatus",
+        "detailed format",
+        "profanity handling",
+        "no speech sdk",
+        "aiohttp speech"
+      ]
+    },
+    "summary": "Documentação útil para chamadas HTTP leves de Speech to Text, classificada como Regular devido a link quebrado para arquivo de referência inexistente e description reduzida."
+  },
+  {
+    "skillName": "azure-storage-blob-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-storage-blob-ts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 171 caracteres, aquém do limite mínimo de 200 caracteres. Falta mencionar recursos avançados detalhados no arquivo como geração de SAS tokens (Blob/Container/Account), streaming para grandes arquivos e suporte a diferentes tipos de blob (Block, Append, Page).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais de fechamento genérico '## When to Use' e '## Limitations' (linhas 485-492).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover o bloco boilerplate final de encerramento '## When to Use' e '## Limitations' (linhas 485-492).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gerenciamento completo do Azure Blob Storage com SDK @azure/storage-blob em TypeScript/JavaScript para ambientes Node.js e browser.",
+      "entidades": [
+        "@azure/storage-blob",
+        "@azure/identity",
+        "BlobServiceClient",
+        "ContainerClient",
+        "BlobClient",
+        "BlockBlobClient",
+        "AppendBlobClient",
+        "PageBlobClient",
+        "StorageSharedKeyCredential",
+        "BlobSASPermissions",
+        "generateBlobSASQueryParameters",
+        "RestError",
+        "DefaultAzureCredential"
+      ],
+      "keywords": [
+        "azure storage blob ts",
+        "blob upload download",
+        "sas token generation",
+        "block blob",
+        "append blob",
+        "page blob",
+        "stream upload",
+        "browser upload file",
+        "list blobs flat hierarchy",
+        "resterror handling",
+        "@azure/storage-blob",
+        "nodejs browser storage"
+      ]
+    },
+    "summary": "Documentação muito rica e completa para operações com Blob Storage em TS/JS, requerendo apenas expansão de discriminantes na description e poda de boilerplate final."
+  }
+]

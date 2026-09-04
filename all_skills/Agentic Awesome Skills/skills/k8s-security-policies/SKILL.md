@@ -1,6 +1,6 @@
 ---
 name: k8s-security-policies
-description: "Comprehensive guide for implementing NetworkPolicy, PodSecurityPolicy, RBAC, and Pod Security Standards in Kubernetes."
+description: "Comprehensive guide for implementing NetworkPolicy, PodSecurityPolicy, RBAC, and Pod Security Standards in Kubernetes. Use when developing, optimizing, debugging, or configuring k8s security policies in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -20,7 +20,7 @@ Comprehensive guide for implementing NetworkPolicy, PodSecurityPolicy, RBAC, and
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Purpose
 

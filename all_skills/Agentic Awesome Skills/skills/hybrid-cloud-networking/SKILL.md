@@ -1,6 +1,6 @@
 ---
 name: hybrid-cloud-networking
-description: "Configure secure, high-performance connectivity between on-premises and cloud environments using VPN, Direct Connect, and ExpressRoute."
+description: "Configure secure, high-performance connectivity between on-premises and cloud environments using VPN, Direct Connect, and ExpressRoute. Use when developing, optimizing, debugging, or configuring hybrid cloud networking in production workflows."
 risk: safe
 source: community
 date_added: "2026-02-27"
@@ -20,7 +20,7 @@ Configure secure, high-performance connectivity between on-premises and cloud en
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Purpose
 

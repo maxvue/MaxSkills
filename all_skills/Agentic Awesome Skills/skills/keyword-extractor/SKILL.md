@@ -1,6 +1,6 @@
 ---
 name: keyword-extractor
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring keyword extractor in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for keyword extractor."
   Extracts up to 50 highly relevant SEO keywords from text. Use when user wants to generate or extract keywords for given text.
 risk: safe
 source: original

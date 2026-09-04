@@ -1,6 +1,6 @@
 ---
 name: agent-qa-result-triage
-description: "Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence, and actionable next steps."
+description: "Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confidence, and actionable next steps. Use when developing, optimizing, debugging, or configuring agent qa result triage in production workflows."
 category: testing
 risk: safe
 source: https://github.com/vostride/agent-qa/tree/main/skills/agent-qa-result-triage

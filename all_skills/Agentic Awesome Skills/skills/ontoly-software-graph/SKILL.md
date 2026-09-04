@@ -1,6 +1,6 @@
 ---
 name: ontoly-software-graph
-description: "Use Ontoly's deterministic Software Graph, MCP server, and agent skills for architecture review, request tracing, impact analysis, and dependency analysis."
+description: "Use Ontoly's deterministic Software Graph, MCP server, and agent skills for architecture review, request tracing, impact analysis, and dependency analysis. Use when developing, optimizing, debugging, or configuring ontoly software graph in production workflows."
 category: development
 risk: critical
 source: community

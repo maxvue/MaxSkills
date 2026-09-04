@@ -1,6 +1,6 @@
 ---
 name: generate-nanobanana
-description: "Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Flash), with cost-approval gates, reference-image support, and a prompt/output log per call."
+description: "Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Flash), with cost-approval gates, reference-image support, and a prompt/output log per call. Use when developing, optimizing, debugging, or configuring generate nanobanana in production workflows."
 category: media
 risk: critical
 source: community

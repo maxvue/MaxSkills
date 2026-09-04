@@ -1,0 +1,436 @@
+[
+  {
+    "skillName": "frontend-optimistic-mutations",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-optimistic-mutations/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description termina truncada com reticências ('invalidate on...') e não possui prefixo operacional de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover as seções finais 'Publishing / installing this skill' (linhas 265-273) e 'Limitations' (linhas 274-279), que consistem em boilerplate genérico de empacotamento externo (~6% das linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Ciclo de vida de mutações otimistas, reversão de estado (rollback), coerência entre múltiplos caches e políticas de idempotência no frontend com TanStack Query, RTK Query e SWR.",
+      "entidades": [
+        "useMutation",
+        "useQueryClient",
+        "cancelQueries",
+        "getQueryData",
+        "setQueryData",
+        "getQueriesData",
+        "invalidateQueries",
+        "invoiceKeys",
+        "TanStack Query",
+        "RTK Query",
+        "SWR"
+      ],
+      "keywords": [
+        "optimistic mutations",
+        "TanStack Query",
+        "RTK Query",
+        "SWR",
+        "rollback",
+        "cache coherence",
+        "idempotency key",
+        "onMutate",
+        "onSettled",
+        "cancelQueries",
+        "React",
+        "React Native",
+        "write path",
+        "query invalidation"
+      ]
+    },
+    "summary": "Excelente conteúdo sobre arquitetura de escrita otimista e idempotência no frontend, necessitando apenas reparar a truncagem na description e podar instruções externas de instalação."
+  },
+  {
+    "skillName": "frontend-seo",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-seo/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description termina truncada com reticências ('...generates...') e não inclui cláusula de gatilho explícita ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover o rodapé de empacotamento 'Publishing / installing this skill' e 'Limitations' (linhas 697-711), que soma ~3% de ruído estrutural.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura pura de SEO baseada em builders para React e frameworks web, centralizando metadados, normalização de URLs canônicas, dados estruturados JSON-LD e feeds sitemap/robots/RSS.",
+      "entidades": [
+        "canonicalUrl",
+        "buildMetadata",
+        "sitemapEntries",
+        "robots",
+        "rssItems",
+        "structuredData",
+        "Metadata",
+        "JsonLd",
+        "SchemaType",
+        "RouteDescriptor"
+      ],
+      "keywords": [
+        "SEO",
+        "canonical URLs",
+        "JSON-LD",
+        "schema.org",
+        "Open Graph",
+        "Twitter cards",
+        "sitemap.xml",
+        "robots.txt",
+        "RSS feed",
+        "Next.js",
+        "Remix",
+        "Astro",
+        "React",
+        "metadata builders"
+      ]
+    },
+    "summary": "Implementação sólida de SEO baseada em builders puros e adaptadores enxutos, com pendência de correção da frase truncada na description e poda de boilerplate de empacotamento."
+  },
+  {
+    "skillName": "frontend-slides",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-slides/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (104 caracteres, abaixo dos 200 recomendados) e omissa em relação aos requisitos centrais de viewport fitting (100vh) e ausência de dependências (zero-dependency).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de adjetivo promocional vazio ('stunning') e ausência de gatilho semântico explícito ('Use when...') no frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação de apresentações web autocontidas em HTML/CSS com restrição estrita de visualização na viewport (100vh) e fluxo de conversão a partir de arquivos PowerPoint (PPTX).",
+      "entidades": [
+        "viewport-base.css",
+        "extract-pptx.py",
+        "STYLE_PRESETS.md",
+        "html-template.md",
+        "animation-patterns.md",
+        "AskUserQuestion"
+      ],
+      "keywords": [
+        "HTML presentations",
+        "slides",
+        "viewport fitting",
+        "100vh",
+        "PPTX conversion",
+        "CSS animations",
+        "zero-dependency",
+        "clamp",
+        "design presets",
+        "slide deck",
+        "presentation generator"
+      ]
+    },
+    "summary": "Excelente corpo técnico e fluxo estruturado de geração de slides em viewport fixa, porém penalizada por description com apenas 104 caracteres, adjetivo de marketing e falta de gatilho."
+  },
+  {
+    "skillName": "frontend-ui-dark-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-ui-dark-ts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description ligeiramente abaixo da extensão mínima (191 caracteres), contendo qualificadores subjetivos ('modern', 'tasteful animations') e carecendo de fórmula de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Sistema de design e componentes de interface React em tema escuro com TypeScript, Tailwind CSS, Framer Motion e utilitários de glassmorfismo.",
+      "entidades": [
+        "framer-motion",
+        "tailwindcss",
+        "clsx",
+        "react-router-dom",
+        "AppShell",
+        "PageTransition",
+        "fadeIn",
+        "slideUp",
+        "scaleOnHover"
+      ],
+      "keywords": [
+        "dark theme",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "glassmorphism",
+        "dashboard",
+        "admin panel",
+        "design tokens",
+        "transitions",
+        "UI components"
+      ]
+    },
+    "summary": "Guia de implementação de tema escuro prático e autocontido com tokens Tailwind e animações Framer Motion, necessitando apenas ajuste semântico na description."
+  },
+  {
+    "skillName": "frontend-ui-engineering",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/frontend-ui-engineering/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de engenharia de software frontend para construção de interfaces acessíveis (WCAG 2.1 AA), performantes e aderentes a design systems, eliminando vieses visuais de IA.",
+      "entidades": [
+        "TaskList",
+        "Card",
+        "Button",
+        "Checkbox",
+        "Dialog",
+        "useTasks",
+        "useMutation",
+        "useQueryClient",
+        "axe-core",
+        "WCAG 2.1 AA"
+      ],
+      "keywords": [
+        "UI engineering",
+        "accessibility",
+        "WCAG 2.1 AA",
+        "keyboard navigation",
+        "ARIA",
+        "state management",
+        "component composition",
+        "responsive design",
+        "optimistic updates",
+        "design system"
+      ]
+    },
+    "summary": "Skill exemplar com 100% de conformidade: description rica com gatilhos precisos (247 chars), alta densidade técnica, sem bloat e com forte ênfase em acessibilidade e arquitetura."
+  },
+  {
+    "skillName": "fsi-compliance-checker",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fsi-compliance-checker/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description não traz a cláusula de gatilho explícita ('Use when...') para orientar a seleção autônoma do agente, embora o corpo contenha condições precisas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Triagem técnica de conformidade para código, arquitetura e infraestrutura contra os controles normativos de PCI-DSS v4.0 e MAS TRM (Singapura).",
+      "entidades": [
+        "PCI-DSS v4.0",
+        "MAS TRM 2021",
+        "pci-dss.md",
+        "mas-trm.md",
+        "PAN",
+        "CVV",
+        "CDE",
+        "QSA"
+      ],
+      "keywords": [
+        "compliance",
+        "PCI-DSS",
+        "MAS TRM",
+        "fintech",
+        "banking security",
+        "control mapping",
+        "audit findings",
+        "PAN masking",
+        "financial regulations",
+        "Singapore"
+      ]
+    },
+    "summary": "Excelente skill de conformidade financeira com escopo delimitado, severidade calibrada e ausência de bloat, requerendo apenas prefixo de gatilho na description."
+  },
+  {
+    "skillName": "gdb-cli",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/gdb-cli/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (147 caracteres, abaixo do intervalo de 200 a 400) e sem a cláusula de gatilho explícita ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Automação de sessões de depuração em C/C++ usando gdb-cli para inspeção de core dumps, deadlocks e processos ativos com correlação de código-fonte.",
+      "entidades": [
+        "gdb-cli",
+        "GDB",
+        "load",
+        "attach",
+        "threads",
+        "bt",
+        "registers",
+        "locals-cmd",
+        "eval-cmd",
+        "memory",
+        "disasm"
+      ],
+      "keywords": [
+        "GDB",
+        "gdb-cli",
+        "debugging",
+        "core dump",
+        "crash analysis",
+        "deadlock",
+        "C++",
+        "C",
+        "backtrace",
+        "memory inspection",
+        "source correlation"
+      ]
+    },
+    "summary": "Ferramenta e fluxo de depuração de baixo nível consistentes e enxutos, com necessidade apenas de expandir a description e adicionar o gatilho semântico."
+  },
+  {
+    "skillName": "gemini-api-dev",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/gemini-api-dev/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description termina cortada abruptamente com reticências ('Covers SDK usage...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia de desenvolvimento com a API e SDKs atualizados do Google Gemini, cobrindo modelos recentes (Gemini 3.5/3.1, Gemma 4), multimodalidade e function calling.",
+      "entidades": [
+        "google-genai",
+        "@google/genai",
+        "gemini-3.5-flash",
+        "gemini-3.1-pro-preview",
+        "gemma-4-31b-it",
+        "Client",
+        "generate_content",
+        "search_docs"
+      ],
+      "keywords": [
+        "Gemini API",
+        "Google GenAI",
+        "Gemma 4",
+        "multimodal",
+        "function calling",
+        "structured outputs",
+        "gemini-3.5-flash",
+        "Python SDK",
+        "TypeScript SDK",
+        "Go",
+        "Java"
+      ]
+    },
+    "summary": "Documentação oficial atualizada e precisa dos modelos e SDKs do Gemini, necessitando apenas fechar a frase cortada na description."
+  },
+  {
+    "skillName": "gemini-deep-research",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/gemini-deep-research/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 178 caracteres (abaixo dos 200 recomendados) e ausência de fórmula de gatilho explícita ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Orquestração autônoma de pesquisas aprofundadas com o Gemini Deep Research Agent via script CLI Python com polling, streaming e controle de custos.",
+      "entidades": [
+        "research.py",
+        "httpx",
+        "GEMINI_API_KEY",
+        "Google AI Studio",
+        "Gemini Deep Research Agent"
+      ],
+      "keywords": [
+        "deep research",
+        "Gemini",
+        "autonomous research",
+        "market analysis",
+        "literature review",
+        "polling",
+        "streaming",
+        "cited report",
+        "Python CLI"
+      ]
+    },
+    "summary": "Skill focada e bem protegida por trava de segurança de custos ($2-5), precisando apenas de expansão de extensão e gatilho formal na description."
+  },
+  {
+    "skillName": "gemini-interactions-api",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/gemini-interactions-api/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description termina com sentença inacabada truncada com reticências ('...migrating from the old generateContent...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Referência de desenvolvimento da Interactions API do Google Gemini para conversações stateful, streaming de passos de interação, agentes gerenciados e migração de generateContent.",
+      "entidades": [
+        "client.interactions.create",
+        "client.agents.create",
+        "antigravity-preview-05-2026",
+        "deep-research-preview-04-2026",
+        "gemini-3.5-flash",
+        "google-genai",
+        "@google/genai"
+      ],
+      "keywords": [
+        "Interactions API",
+        "Gemini",
+        "Antigravity Agent",
+        "Deep Research",
+        "streaming events",
+        "multi-turn chat",
+        "function calling",
+        "managed agents",
+        "generateContent migration"
+      ]
+    },
+    "summary": "Guia técnico avançado e detalhado da nova arquitetura de interações e agentes gerenciados do Gemini, exigindo unicamente correção da frase cortada na description."
+  }
+]

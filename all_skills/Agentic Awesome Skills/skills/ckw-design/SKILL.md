@@ -1,6 +1,6 @@
 ---
 name: ckw-design
-description: "Frontend design entry point: direction, design system, visual philosophy. Use whenever building or touching the look of any web UI (components, pages, dashboards, React/Vue/HTML-CSS) or when the user says \"make this look better\", \"fix the spacing/layout\", or mentions styling, color, type, or polish."
+description: "Frontend design entry point: direction, design system, visual philosophy. Use whenever building or touching the look of any web UI (components, pages, dashboards, React/Vue/HTML-CSS) or when the user says \\"make this look better\\", \\"fix the spacing/layout\\", or mentions styling, color, type, or polish."
 risk: safe
 source: community
 source_type: community

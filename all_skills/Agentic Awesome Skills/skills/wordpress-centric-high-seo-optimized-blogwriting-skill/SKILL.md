@@ -1,6 +1,6 @@
 ---
 name: wordpress-centric-high-seo-optimized-blogwriting-skill
-description: "Generate clean, human-sounding, SEO-optimized WordPress blog posts with optional Yoast metadata, JSON-LD schema markup, and image SEO planning. Supports modular batch output."
+description: "Generate clean, human-sounding, SEO-optimized WordPress blog posts with optional Yoast metadata, JSON-LD schema markup, and image SEO planning. Supports modular batch output. Use when developing, optimizing, debugging, or configuring wordpress centric high seo optimized blogwriting skill in production workflows."
 category: content
 risk: safe
 source: self

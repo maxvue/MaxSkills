@@ -1,6 +1,6 @@
 ---
 name: ui-pattern
-description: Generate a composed UI pattern (card layout, list, form section, grid, etc.) using design system primitives
+description: "Generate a composed UI pattern (card layout, list, form section, grid, etc.) using design system primitives Use when developing, optimizing, debugging, or configuring ui pattern in production workflows."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-pattern
 source_repo: bitjaru/styleseed

@@ -1,0 +1,554 @@
+[
+  {
+    "skillName": "industrial-brutalist-ui",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/industrial-brutalist-ui/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 133 caracteres, abaixo do intervalo recomendado de 200 a 400 caracteres. Faltam discriminantes técnicos essenciais presentes no arquivo, como CSS Grid determinístico, SVG filters, Swiss industrial print, scanlines CRT e tipografia monospace para telemetria.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância de metadados: A seção '## 1. Skill Meta' repete textualmente o nome e a descrição do frontmatter YAML, criando duplicação no corpo do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Condensar ou remover a seção '## 1. Skill Meta' (linhas 29-31) para eliminar a repetição desnecessária das tags do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Sistema de design frontend focado em estética brutalista industrial suíça e interfaces de telemetria tática estilo terminal CRT com alta densidade de dados.",
+      "entidades": [
+        "Neue Haas Grotesk",
+        "Inter",
+        "JetBrains Mono",
+        "IBM Plex Mono",
+        "Playfair Display",
+        "CSS Grid",
+        "clamp()",
+        "SVG noise filters",
+        "CRT scanlines"
+      ],
+      "keywords": [
+        "brutalismo",
+        "industrial-ui",
+        "tactical-telemetry",
+        "swiss-print",
+        "crt-terminal",
+        "css-grid",
+        "typography",
+        "monospace",
+        "dithering",
+        "scanlines",
+        "bimodal-density",
+        "high-density-ui"
+      ]
+    },
+    "summary": "Guia de design coeso e consistente para interfaces brutalistas, necessitando apenas de expansão semântica na description e eliminação da seção redundante de metadados."
+  },
+  {
+    "skillName": "ingest-youtube",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ingest-youtube/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 151 caracteres (abaixo dos 200 recomendados) e ausência de prefixo de gatilho semântico explícito ('Use when...' / 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Conector e extrator de transcrições de vídeos do YouTube via yt-dlp para notas estruturadas em vaults markdown com metadados e writing seeds.",
+      "entidades": [
+        "yt-dlp",
+        "ingest.py",
+        "VTT",
+        "whisper-cpp",
+        "External Inputs/YouTube",
+        "Meta/Captures"
+      ],
+      "keywords": [
+        "youtube",
+        "transcript",
+        "yt-dlp",
+        "vtt-cleanup",
+        "markdown-vault",
+        "subtitles",
+        "knowledge-extraction",
+        "capture-seeds",
+        "automation",
+        "cli"
+      ]
+    },
+    "summary": "Skill de alta qualidade técnica com implementação real em Python, precisando apenas de ajuste semântico na description para inclusão de gatilho explícito e expansão para 200-400 caracteres."
+  },
+  {
+    "skillName": "instagram",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/instagram/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com 167 caracteres (abaixo do intervalo de 200-400 chars) e sem gatilho de ativação explícito ('Use when...' / 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Caminhos absolutos pessoais de ambiente Windows hardcoded ('C:\\Users\\renat\\skills\\instagram\\...') repetidos em mais de 30 exemplos, quebrando portabilidade e execução em outros ambientes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Markdown com blocos de código com sintaxe corrompida: delimitadores de código fechando blocos que não foram abertos (linhas 160, 176, 197, 210, 223, 236, 249, 262) e blocos abertos englobando cabeçalhos markdown indevidamente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural e boilerplate inflado: as seções das linhas 350-386 repetem literalmente comandos já fornecidos nas seções anteriores, e as seções de encerramento (linhas 398-420) contêm boilerplate genérico de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover a seção de perguntas e respostas duplicadas (linhas 350-386), pois já estão explicadas detalhadamente nas seções anteriores.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar o bloco de boilerplate genérico de template das linhas 398-420 ('Best Practices', 'Common Pitfalls', 'Limitations').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Substituir os caminhos absolutos do Windows 'C:\\Users\\renat\\skills\\instagram\\' por caminhos relativos ao diretório da skill ou scripts/.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Integração e gerenciamento completo de contas do Instagram Business/Creator via Meta Graph API, cobrindo publicação, comentários, DMs e analytics.",
+      "entidades": [
+        "Instagram Graph API",
+        "SQLite",
+        "FastAPI",
+        "Chart.js",
+        "account_setup.py",
+        "publish.py",
+        "schedule.py",
+        "comments.py",
+        "messages.py",
+        "insights.py",
+        "hashtags.py",
+        "serve_api.py"
+      ],
+      "keywords": [
+        "instagram",
+        "graph-api",
+        "oauth2",
+        "business-account",
+        "creator-account",
+        "reels",
+        "stories",
+        "carousel",
+        "insights",
+        "analytics",
+        "dms",
+        "fastapi",
+        "sqlite",
+        "rate-limits"
+      ]
+    },
+    "summary": "Skill abrangente com rica suíte de scripts em Python, porém prejudicada por caminhos de arquivos absolutos locais do Windows, markdown com blocos desformatados e duplicações desnecessárias."
+  },
+  {
+    "skillName": "javascript-mastery",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/javascript-mastery/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (135 caracteres), em linguagem promocional ('essential JavaScript concepts every developer should know'), com link markdown cru e sem termos técnicos discriminantes (closures, event loop, microtasks, hoisting, prototypes, coercion) nem gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico de 4 linhas no final ('Limitations' - linhas 650-654).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia de referência aprofundado cobrindo conceitos fundamentais, tipos, escopo, programação funcional, protótipos e concorrência no ecossistema JavaScript.",
+      "entidades": [
+        "Object.is()",
+        "Symbol",
+        "BigInt",
+        "Promise.allSettled()",
+        "queueMicrotask",
+        "Object.freeze()",
+        "Object.seal()",
+        "Map/Filter/Reduce",
+        "Currying",
+        "Composition"
+      ],
+      "keywords": [
+        "javascript",
+        "closures",
+        "event-loop",
+        "microtasks",
+        "hoisting",
+        "this-context",
+        "prototypes",
+        "type-coercion",
+        "es6",
+        "currying",
+        "functional-programming",
+        "async-await"
+      ]
+    },
+    "summary": "Excelente compêndio técnico dos fundamentos de JavaScript, exigindo apenas a reformulação semântica da description para eliminar tom de marketing e adicionar termos discriminantes e gatilho de uso."
+  },
+  {
+    "skillName": "javascript-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/javascript-pro/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (133 caracteres) iniciada com verbo imperativo promocional ('Master modern JavaScript...'), sem gatilho explícito de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo extremamente superficial e genérico com apenas 61 linhas, redigido como prompt de assistente ('You are a JavaScript expert...'), sem exemplos práticos de código ou diretrizes técnicas aprofundadas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Contradição interna de escopo: a linha 18 afirma 'Do not use this skill when: You need TypeScript architecture guidance', enquanto a linha 36 lista em Focus Areas 'TypeScript migration and type safety'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo de persona ('You are a JavaScript expert...') e os tópicos procedurais vagos que não agregam conhecimento técnico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover o boilerplate genérico de limitations no final (linhas 57-61).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes conceituais gerais para desenvolvimento com JavaScript moderno, padrões assíncronos e compatibilidade Node.js/navegador.",
+      "entidades": [
+        "ES6+",
+        "Node.js",
+        "Jest",
+        "JSDoc",
+        "Promise",
+        "Event Loop"
+      ],
+      "keywords": [
+        "javascript",
+        "es6",
+        "async-await",
+        "event-loop",
+        "microtasks",
+        "nodejs",
+        "browser-compatibility",
+        "error-handling",
+        "jest",
+        "polyfills"
+      ]
+    },
+    "summary": "Skill rasa e de teor genérico formatada como system prompt sem implementações de código, apresentando contradições internas de escopo e descrição promocional."
+  },
+  {
+    "skillName": "javascript-testing-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/javascript-testing-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 160 caracteres contendo adjetivos promocionais vazios ('Comprehensive guide', 'robust testing strategies', 'best practices') e sem termos discriminantes concretos (Jest, Vitest, Cypress, Playwright, React Testing Library, TDD, Mocks) nem gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md é apenas um invólucro oco de 44 linhas com diretrizes operacionais genéricas de template ('Clarify goals, constraints...', 'Apply relevant best practices...'), dependendo inteiramente de resources/implementation-playbook.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Remover as instruções procedurais genéricas de template de agente (linhas 29-35) que nada agregam ao conteúdo técnico do playbook.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões e estratégias de testes unitários, integração, E2E e mocking para aplicações JavaScript e TypeScript com Jest, Vitest e Testing Library.",
+      "entidades": [
+        "Jest",
+        "Vitest",
+        "Cypress",
+        "Playwright",
+        "React Testing Library",
+        "ts-jest",
+        "v8 coverage"
+      ],
+      "keywords": [
+        "javascript-testing",
+        "typescript-testing",
+        "jest",
+        "vitest",
+        "unit-tests",
+        "integration-tests",
+        "e2e",
+        "mocking",
+        "tdd",
+        "react-testing-library",
+        "test-infrastructure"
+      ]
+    },
+    "summary": "O repositório possui um playbook rico em resources/, mas o SKILL.md atua apenas como um invólucro genérico com description vazia e promocional."
+  },
+  {
+    "skillName": "javascript-typescript-typescript-scaffold",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/javascript-typescript-typescript-scaffold/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description truncada no frontmatter terminando abruptamente em '(pnpm, Vite, N\"', redigida como persona de assistente ('You are a TypeScript project architecture expert...'), sem gatilho semântico ('Use when...') e com adjetivo promocional ('expert', 'production-ready').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de placeholder de template não resolvido '$ARGUMENTS' na linha 29 sob a seção '## Requirements'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção vazia '## Requirements' com o marcador não expandido '$ARGUMENTS' (linhas 27-30).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover o preâmbulo redundante de persona na linha 11 e o boilerplate genérico de limitations no encerramento (linhas 366-370).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estruturação e scaffolding de projetos TypeScript modernos (Next.js, React + Vite, Node.js API e bibliotecas) com pnpm, tsconfig e Vitest.",
+      "entidades": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Vite",
+        "Express",
+        "Zod",
+        "pnpm",
+        "Vitest",
+        "tsx",
+        "ESLint"
+      ],
+      "keywords": [
+        "typescript",
+        "scaffolding",
+        "project-setup",
+        "pnpm",
+        "nextjs",
+        "vite",
+        "react",
+        "express",
+        "vitest",
+        "tsconfig",
+        "monorepo",
+        "build-tooling"
+      ]
+    },
+    "summary": "Apresenta excelentes modelos de configuração e arquitetura de pastas para projetos TypeScript, mas possui description truncada com estilo de persona e marcador $ARGUMENTS residual."
+  },
+  {
+    "skillName": "jest-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/jest-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description cortada com reticências '...' no final e contendo gatilhos redundantes repetidos ('Use when user mentions... Triggers on:...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a arquivo inexistente: a seção '## Deep Patterns' (linhas 159-177) aponta para 'reference/playbook.md' detalhando 12 seções (§1 a §12), mas nem o diretório reference/ nem o arquivo existem no repositório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Erro gramatical de concordância por cópia truncada na seção When to Use (linha 16: 'Use this skill when you need generates Jest unit...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a tabela da seção '## Deep Patterns' (linhas 159-177) que faz referência a um arquivo inexistente ('reference/playbook.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação de testes unitários e de integração em JavaScript e TypeScript utilizando o framework Jest, cobrindo asserções, mocks, temporizadores e Testing Library.",
+      "entidades": [
+        "Jest",
+        "@testing-library/react",
+        "@testing-library/jest-dom",
+        "jest.fn()",
+        "jest.mock()",
+        "jest.spyOn()",
+        "jest.useFakeTimers()"
+      ],
+      "keywords": [
+        "jest",
+        "unit-testing",
+        "integration-testing",
+        "mocking",
+        "spies",
+        "fake-timers",
+        "snapshots",
+        "async-testing",
+        "react-testing-library",
+        "matchers"
+      ]
+    },
+    "summary": "Guia prático com código conciso para testes com Jest, porém contém referências mortas a um playbook inexistente e description com gatilhos redundantes cortada em reticências."
+  },
+  {
+    "skillName": "junit-5-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/junit-5-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description terminando truncada com 'Triggers on:...', com gatilhos duplicados e uso de termo promocional ('production-grade').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Links e referências a arquivos inexistentes: linha 27 aponta para 'reference/spring-integration.md' e linha 216 aponta para 'reference/playbook.md' (com tabela de 11 seções), mas nenhum dos arquivos existe no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Erro gramatical idêntico decorrente de cópia automática na seção When to Use (linha 16: 'Use this skill when you need generates production-grade...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção '## Deep Patterns' (linhas 214-231) e o branch da árvore de decisão na linha 27 que apontam para arquivos inexistentes ('reference/playbook.md' e 'reference/spring-integration.md').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento de testes unitários e de integração em Java utilizando JUnit 5 (Jupiter) e Mockito, com foco em asserções, testes parametrizados e testes aninhados.",
+      "entidades": [
+        "JUnit 5",
+        "Jupiter",
+        "Mockito",
+        "@ParameterizedTest",
+        "@ValueSource",
+        "@CsvSource",
+        "@MethodSource",
+        "@ExtendWith",
+        "@Mock",
+        "@InjectMocks",
+        "Assertions",
+        "Maven/Gradle"
+      ],
+      "keywords": [
+        "junit5",
+        "java",
+        "unit-testing",
+        "mockito",
+        "parameterized-tests",
+        "jupiter",
+        "assertions",
+        "nested-tests",
+        "test-lifecycle",
+        "mocking"
+      ]
+    },
+    "summary": "Contém excelentes exemplos de código para testes modernos em Java com JUnit 5 e Mockito, mas é prejudicada por referências mortas a arquivos externos e description cortada com gatilhos duplicados."
+  },
+  {
+    "skillName": "junta-leiloeiros",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/junta-leiloeiros/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description de 161 caracteres (abaixo dos 200) sem gatilho de ativação explícito ('Use when...' / 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Caminhos absolutos locais de terceiros no Windows hardcoded ('C:\\Users\\renat\\skills\\junta-leiloeiros\\...') em múltiplos exemplos CLI e em trecho de código Python com sys.path.insert, impedindo portabilidade universal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Blocos de código markdown com delimitadores desalinhados (ex: linhas 103-111 com fechamento de bloco não aberto, e linha 168 com título markdown embutido dentro de bloco python).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de boilerplate genérico de template nas linhas 199-223 ('Best Practices', 'Common Pitfalls', 'Limitations').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Converter caminhos absolutos do Windows para caminhos relativos ao diretório da skill ou scripts/.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Eliminar o bloco de boilerplate genérico de template das linhas 199-223.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração automatizada, persistência e disponibilização via API REST dos dados de leiloeiros públicos oficiais das 27 Juntas Comerciais estaduais do Brasil.",
+      "entidades": [
+        "Juntas Comerciais (JUCESP, JUCERJA, JUCEMG, JUCIS-DF, JUCEC)",
+        "SQLite",
+        "FastAPI",
+        "Playwright",
+        "BeautifulSoup",
+        "AbstractJuntaScraper"
+      ],
+      "keywords": [
+        "leiloeiros",
+        "juntas-comerciais",
+        "web-scraping",
+        "sqlite",
+        "fastapi",
+        "jucesp",
+        "jucerja",
+        "python",
+        "brazilian-data",
+        "playwright",
+        "api-rest"
+      ]
+    },
+    "summary": "Implementação real impressionante cobrindo os 27 estados da federação com scrapers dedicados, porém afetada por caminhos hardcoded de Windows, markdown com fences desformatadas e boilerplate genérico."
+  }
+]

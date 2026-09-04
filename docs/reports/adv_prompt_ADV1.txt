@@ -1,0 +1,135 @@
+Você é o Revisor Adversarial da Fase 3 para o lote ADV1.
+Sua missão é atuar como Advogado do Diabo e avaliar rigorosamente os seguintes 16 micro-lotes de problemas/cortes contra o código real em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ e os arquivos SKILL.md:
+
+### Micro-Lote [MB_CREATED_001] - Skill: laravel-ai-agents-ecosystem
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A frase final da description ('Covers objectives and core workflows.') é um clichê genérico de preenchimento (padding) que viola o Critério 12 (Ausência de Redundâncias) e reduz a densidade semântica.
+
+### Micro-Lote [MB_CREATED_009] - Skill: laravel-finance-coupons-discounts-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description apresenta no final o texto de preenchimento 'Covers objectives and core workflows.' (critério 12), sem agregar ganho semântico e repetindo a ideia de cobertura geral.
+
+### Micro-Lote [MB_CREATED_017] - Skill: laravel-multitenancy-data-isolation-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description traz cauda boilerplate redundante ('Covers objectives, tenant scoping, and user permission models.') que duplica o conceito de tenant scoping e inclui termos genéricos.
+
+### Micro-Lote [MB_CREATED_025] - Skill: vue-boleto-utils-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém cauda genérica/redundante 'Covers objectives and core workflows.' ao final, que reduz a densidade informativa (Critérios 7 e 12).
+
+### Micro-Lote [MB_CREATED_033] - Skill: vue-max-ecosystem-api-reference
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description possui redundância textual interna repetindo termos ('Covers component props...') e meta-ruído de preenchimento ('Covers objectives').
+
+### Micro-Lote [MB_CREATED_041] - Skill: vue-whatsapp-interactive-messages-simulator-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A descrição no frontmatter inclui a frase de boilerplate 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica e violando os critérios 10 e 12.
+
+### Micro-Lote [MB_CRIT_049] - Skill: get-shit-done
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/get-shit-done/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Eliminar as seções genéricas de 'Diretrizes de Execução' (linhas 49-55) e 'Quando Usar' circular (linhas 40-47), substituindo por mecânicas reais de decomposição de tarefas e loops de execução do GSD.
+  2. Remover a lista de vídeos de referência do YouTube com links sintéticos (linhas 58-64).
+
+### Micro-Lote [MB_CRIT_057] - Skill: pytest-and-jest-automation
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/pytest-and-jest-automation/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description abaixo da faixa ideal (144 caracteres) e sem cláusula de gatilho ('Use when...').
+  2. Inconsistência entre 'description' (cita Pytest, Jest e Vitest) e 'description_pt_br' (restringe-se unicamente a Python com pytest).
+  3. Ausência total de código, fixtures, padrões de mock ou exemplos de configuração para qualquer um dos frameworks citados (Pytest, Jest, Vitest).
+
+### Micro-Lote [MB_CRIT_065] - Skill: fal-upscale
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Delegação completa para URL externa do GitHub sem qualquer utilidade autônoma para agentes.
+  2. Remover a estrutura oca de 29 linhas que consiste em boilerplate e tautologias sem dados, substituindo-a por implementações concretas de upscale com fal.ai ou expurgando a skill.
+
+### Micro-Lote [MB_CRIT_073] - Skill: nerdzao-elite-gemini-high
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description subdimensionada (167 chars) e ausência de gatilho formal 'Use when...'; corpo sem procedimentos técnicos concretos, limitando-se a meta-prompts de persona.
+  2. Eliminar o arquivo ou purgar as linhas 9-48: o conteúdo é 80% composto de persona roleplay, comandos invasivos de ativação incondicional e chamadas a skills inexistentes.
+
+### Micro-Lote [MB_CRIT_081] - Skill: ui-skills
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Stub vazio gerado por automação contendo apenas 29 linhas, sem nenhum conteúdo instrucional, padrões técnicos ou regras de UI concretas.
+  2. Description de 73 caracteres ('Opinionated, evolving constraints to guide agents when building interfaces') puramente abstrata, sem gatilho 'Use when...' e sem termos discriminantes.
+  3. Redundância extrema: a frase da description é repetida literalmente no Overview, no When to Use e no Instructions, sem adicionar qualquer instrução técnica útil.
+
+### Micro-Lote [MB_CURATED_089] - Skill: cloud-architect
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/cloud-architect/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description curta (183 chars), redigida em tom promocional/persona ('Expert cloud architect specializing in...') sem cláusula de ativação ('Use when...').
+  2. Estrutura no formato de prompt de persona conversacional ('You are a cloud architect...'), desprovida de snippets executáveis de IaC ou arquitetura prática.
+  3. Seções circulares de gatilho ('Use this skill when: Working on cloud architect tasks') e referência a playbook externo inexistente ('resources/implementation-playbook.md').
+
+### Micro-Lote [MB_CURATED_097] - Skill: react-components
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/react-components/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Remover seções redundantes de 'Visão Geral (Overview)' bilíngue e 'Stack Tecnológica' que duplicam o frontmatter, e substituir o preâmbulo genérico por instruções e padrões técnicos reais de componentes React 19.
+
+### Micro-Lote [MB_CURATED_105] - Skill: the-library
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/the-library/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Eliminar os blocos redundantes de Overview e Stack e documentar o procedimento técnico real de catálogo e sincronização de skills entre ambientes.
+
+### Micro-Lote [MB_PHASE2_113] - Skill: api-design + api-and-interface-design
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: Trata-se de uma duplicação física exata (100% idêntica byte a byte, com 308 linhas) entre o catálogo curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design. Ambos os arquivos compartilham inclusive o mesmo frontmatter com name: api-and-interface-design, mesma descrição, mesma autoria e mesmo código. A existência da pasta curated-youtube/api-design é uma cópia não consolidada do mesmo módulo da comunidade (addyosmani/agent-skills).
+  2. Plano de integracao: Remover a pasta duplicada curated-youtube/api-design do repositório, preservando api-and-interface-design como a entrada canônica única no catálogo. Nenhuma alteração textual ou de conteúdo é necessária dada a total paridade entre os arquivos.
+
+### Micro-Lote [MB_PHASE2_121] - Skill: seo-meta-optimizer + seo-aeo-meta-description-generator
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: Ambas as skills implementam a mesma funcionalidade de forma fragmentada e redundante: criação de títulos e meta descrições otimizados para SEO e taxa de clique (CTR), geração de 3 variações A/B por página e tags de compartilhamento social. 'seo-meta-optimizer' possui um escopo mais canônico (incluindo URLs, suporte a CMS como WordPress/Yoast/RankMath e frameworks como Next.js/Astro), porém contém boilerplate genérico e referências a arquivos inexistentes. Já 'seo-aeo-meta-description-generator' traz frameworks de redação de CTR robustos (V1 Benefício, V2 Pergunta, V3 Prova Social) e regras explícitas para Open Graph e Twitter Cards, mas tem nomenclatura excessivamente restrita. A unificação sob 'seo-meta-optimizer' consolida as melhores práticas de ambas em uma skill completa e elimina a ambiguidade para o orquestrador.
+  2. Plano de integracao: 1. Destino: 'seo-meta-optimizer'.
+2. Incorporar a estrutura de 3 ângulos de CTR de 'seo-aeo-meta-description-generator' (V1 Benefit Lead, V2 Question Hook, V3 Social Proof/Specificity) nas regras de geração de variações.
+3. Absorver a seção de tags sociais (Open Graph e Twitter Card tags) e SERP preview de 'seo-aeo-meta-description-generator'.
+4. Preservar as regras de estrutura de URL, limites de caracteres/pixels, integrações de CMS (Yoast/RankMath) e componentes de frameworks (Astro/Next.js) já presentes em 'seo-meta-optimizer'.
+5. Remover o boilerplate vazio e a referência ao arquivo inexistente 'resources/implementation-playbook.md' de 'seo-meta-optimizer'.
+6. Depreciar e remover 'seo-aeo-meta-description-generator' redirecionando seus gatilhos para 'seo-meta-optimizer'.
+
+Diretrizes de Avaliação:
+1. Abra o arquivo SKILL.md da skill com view_file.
+2. Quando a acusação envolver conformidade técnica com o código de Engeapp/MaxVue, abra e confira os arquivos em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ (projects/engeapp, projects/MaxComponentsUi, projects/MaxPinia, projects/MaxUse, projects/MaxCode).
+3. Para cada problema listado, decida:
+   - CONFIRMADO: se o defeito técnico, não conformidade ou necessidade de corte/merge for real e comprovado.
+   - REFUTADO: se for falso positivo, exagero, código existente ou sugestão puramente cosmética.
+4. Forneça evidence concreta (arquivo e linha/trecho).
+5. Se CONFIRMADO e envolver a description, proponha correctedDescription calibrada (200-400 chars). Senão, deixe string vazia.
+
+Retorne SEMPRE um array JSON contendo um objeto para CADA problema avaliado no formato:
+[
+  {
+    "skillName": "nome da skill",
+    "problem": "texto exato ou resumo fiel do problema",
+    "verdict": "CONFIRMADO | REFUTADO",
+    "evidence": "arquivo e linha/trecho real",
+    "correctedDescription": "string se CONFIRMADO e impreciso, senao """
+  }
+]
+Salve o resultado em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/docs/reports/phase3_raw_ADV1.json usando write_to_file (sem ArtifactMetadata) e envie o resultado para o orquestrador via send_message.

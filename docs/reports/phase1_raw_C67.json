@@ -1,0 +1,530 @@
+[
+  {
+    "skillName": "tdd-workflows-tdd-green",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Erro de sintaxe e corrupção estrutural Markdown no topo do arquivo (linhas 8 a 24): bloco de código Python iniciado sem a cerca tripla de abertura (```python), terminando com cerca de fechamento na linha 24.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description subdimensionada com apenas 93 caracteres ('Implement the minimal code needed to make failing tests pass in the TDD green phase.'), violando o critério de extensão (200-400 chars).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito de ativação na description ('Use when...' / 'Ative quando...') e baixa densidade de discriminantes semânticos dos frameworks reais contidos no corpo (Django e Express).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção final de Limitations genérica copiada como boilerplate desnecessário nas linhas 78-82.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Corrigir a abertura do bloco de código em Python antes da linha 9 e remover o bloco genérico de Limitations (linhas 78-82).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implementação do código mínimo para transição da fase Red para Green no ciclo TDD com exemplos em Django e Express.",
+      "entidades": [
+        "JsonResponse",
+        "Product",
+        "ProductListView",
+        "ListView",
+        "View",
+        "express",
+        "validateUser",
+        "userService",
+        "asyncHandler",
+        "userController"
+      ],
+      "keywords": [
+        "tdd",
+        "green phase",
+        "minimal implementation",
+        "unit testing",
+        "django",
+        "express",
+        "middleware",
+        "test driven development",
+        "refactor preparation",
+        "tracer bullet",
+        "controller",
+        "validation"
+      ]
+    },
+    "summary": "Skill funcionalmente relevante, porém comprometida por sintaxe Markdown corrompida no topo, description de 93 caracteres sem gatilho e boilerplate genérico."
+  },
+  {
+    "skillName": "tdd-workflows-tdd-red",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-red/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com apenas 95 caracteres ('Generate failing tests for the TDD red phase to define expected behavior and edge cases.'), abaixo do mínimo recomendado de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Resíduo de raciocínio de modelo / vazamento de prompt na linha 11: '[Extended thinking: Generates failing tests that properly define expected behavior using test-automator agent.]'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Acoplamento rígido a orquestrador externo/ferramenta fictícia na linha 39 ('Generate failing tests using Task tool with subagent_type=\"unit-testing::test-automator\"'), inviabilizando o uso agnóstico.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Boilerplate repetitivo de Limitations nas linhas 169-173 e uso cru de placeholders de template ($ARGUMENTS) sem diretrizes de substituição.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Eliminar o trecho de raciocínio de modelo da linha 11, a menção acoplada a subagente Task tool (linhas 37-40) e o bloco final de Limitations.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração de testes com falhas intencionais na fase Red do TDD para especificação de requisitos e casos de borda em Jest, pytest, Go e RSpec.",
+      "entidades": [
+        "Jest",
+        "Vitest",
+        "pytest",
+        "fast-check",
+        "Hypothesis",
+        "testify",
+        "RSpec",
+        "AuthService",
+        "UserRepository",
+        "vi.fn()",
+        "jest.fn()"
+      ],
+      "keywords": [
+        "tdd",
+        "red phase",
+        "failing tests",
+        "arrange act assert",
+        "jest",
+        "vitest",
+        "pytest",
+        "rspec",
+        "testify",
+        "edge cases",
+        "unit testing",
+        "property based testing",
+        "fixtures",
+        "mocking"
+      ]
+    },
+    "summary": "Contém excelentes diretrizes de testes unitários para múltiplos ecossistemas, mas apresenta description subdimensionada de 95 chars, resíduo de pensamento de LLM e acoplamento rígido a ferramenta proprietária."
+  },
+  {
+    "skillName": "tdd-workflows-tdd-refactor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-refactor/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description de apenas 54 caracteres completamente tautológica e sem valor semântico: 'Use when working with tdd workflows tdd refactor'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a arquivo fantasma inexistente na linha 24 ('open resources/implementation-playbook.md'), pois o diretório 'resources' não existe no pacote.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Resíduo de meta-prompt na linha 28: '[Extended thinking: This tool uses the tdd-orchestrator agent (opus model) for sophisticated refactoring...]'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Acoplamento rígido a subagente proprietário na linha 32 ('Use Task tool with subagent_type=\"tdd-orchestrator\"').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inconsistência de delimitadores no prompt template das linhas 34 e 190 (abertura de aspas sem fechamento correto antes do código de exemplo).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo tautológico das linhas 9-18, a referência ao arquivo fantasma da linha 24, a anotação de meta-prompt da linha 28 e a seção redundante de Limitations (linhas 192-196).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Refatoração orientada a testes para remoção de code smells, aplicação de padrões SOLID e otimização sob proteção da fase verde de TDD.",
+      "entidades": [
+        "OrderProcessor",
+        "OrderTotal",
+        "ProcessResult",
+        "ValidationResult",
+        "inventoryService",
+        "paymentService",
+        "notificationService"
+      ],
+      "keywords": [
+        "tdd",
+        "refactor phase",
+        "code smells",
+        "solid principles",
+        "extract method",
+        "value objects",
+        "dependency injection",
+        "strangler fig",
+        "branch by abstraction",
+        "mikado method",
+        "mutation testing",
+        "regression safety"
+      ]
+    },
+    "summary": "Excelente catálogo de técnicas de refatoração, mas prejudicada por description tautológica de 54 chars, arquivo fantasma referenciado e resíduos de prompt de IA."
+  },
+  {
+    "skillName": "tdd",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tdd/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 153 caracteres ('Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.'), ligeiramente abaixo do patamar ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Frase redundante e tautológica na seção de abertura (linhas 25-27): 'Use when this workflow matches the user request: Use this skill for its documented workflow.'",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a linha tautológica 27 na seção When to Use e enriquecer a description com termos discriminantes (vertical slicing, tracer bullets).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia de Test-Driven Development focada em fatiamento vertical, testes de integração de interfaces públicas e tracer bullets.",
+      "entidades": [
+        "Matt Pocock",
+        "tests.md",
+        "mocking.md",
+        "refactoring.md",
+        "CONTEXT.md"
+      ],
+      "keywords": [
+        "tdd",
+        "test driven development",
+        "red green refactor",
+        "vertical slice",
+        "tracer bullets",
+        "integration tests",
+        "public interface",
+        "anti-patterns",
+        "deep modules",
+        "mocking",
+        "regression test"
+      ]
+    },
+    "summary": "Guia conceitual de TDD exemplar com arquivos de suporte existentes e consistentes, necessitando apenas de expansão semântica na description e poda de uma linha tautológica."
+  },
+  {
+    "skillName": "technical-change-tracker",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/technical-change-tracker/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 126 caracteres sem cláusula de condição formal de disparo ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de discriminantes dos comandos da CLI (/tc init, /tc resume, /tc retro) e dos estados do ciclo de vida na description.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover bloco genérico de Limitations (linhas 62-66) preservando o conteúdo substantivo e enxuto.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Rastreamento estruturado de modificações de código em registros JSON com máquina de estados para continuidade e handoff de sessões de IA.",
+      "entidades": [
+        "Elkidogz",
+        "/tc",
+        "technical-change-skill",
+        "WCAG AA"
+      ],
+      "keywords": [
+        "change tracking",
+        "session handoff",
+        "state machine",
+        "json records",
+        "context continuity",
+        "bot continuity",
+        "audit trail",
+        "subagents",
+        "documentation",
+        "retroactive git history"
+      ]
+    },
+    "summary": "Skill compacta e bem definida para persistência de contexto e máquina de estados entre sessões de IA, necessitando apenas enriquecer sua description com gatilhos e discriminantes."
+  },
+  {
+    "skillName": "telegram-bot-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/telegram-bot-builder/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description iniciada com tom promocional e persona ('Expert in building Telegram bots that solve real problems...'), sem gatilho de ativação formal ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Múltiplas duplicações estruturais de cabeçalhos H3 e H2 consecutivos com o mesmo nome ao longo do documento (linhas 48/54: Bot Architecture, linhas 104/110: Inline Keyboards, linhas 160/166: Bot Monetization, linhas 227/233: Webhook Deployment).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seções vazias de roleplay ('Role: Telegram Bot Architect', 'You build bots that people actually use daily...') e boilerplate repetitivo de Limitations.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Desduplicar os pares de títulos H3/H2 idênticos, eliminar o parágrafo de persona das linhas 18-25 e podar o boilerplate de Limitations final.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura, desenvolvimento e monetização de bots para Telegram utilizando Telegraf, grammY, python-telegram-bot e aiogram com suporte a webhooks e teclados inline.",
+      "entidades": [
+        "Telegraf",
+        "grammY",
+        "python-telegram-bot",
+        "aiogram",
+        "Markup",
+        "Bottleneck",
+        "Express"
+      ],
+      "keywords": [
+        "telegram bot",
+        "telegram bot api",
+        "telegraf",
+        "grammy",
+        "aiogram",
+        "inline keyboard",
+        "webhooks",
+        "polling",
+        "monetization",
+        "invoices",
+        "rate limiting",
+        "session management",
+        "pagination"
+      ]
+    },
+    "summary": "Apresenta ótimos exemplos de código para Telegraf e webhooks, mas sofre com cabeçalhos duplicados em série, preâmbulo de persona de IA e description promocional."
+  },
+  {
+    "skillName": "telegram-bot-messaging",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/telegram-bot-messaging/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description de 204 caracteres densa e precisa, necessitando apenas da adição do prefixo explícito de condição ('Use when...') para aderência estrita ao Critério 3.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Envio automatizado de mensagens, arquivos e alertas via API do Telegram com fluxo de confirmação interativa com botões inline em pipelines de CI, cron e Claude Code hooks.",
+      "entidades": [
+        "telegram.sh",
+        "sanjay3290",
+        "curl",
+        "jq",
+        "TELEGRAM_BOT_TOKEN",
+        "TELEGRAM_APPROVER_IDS"
+      ],
+      "keywords": [
+        "telegram",
+        "telegram bot api",
+        "bash notifications",
+        "ci cd alerts",
+        "claude code hooks",
+        "interactive approvals",
+        "inline buttons",
+        "security gate",
+        "cron notifications",
+        "file upload",
+        "curl bot"
+      ]
+    },
+    "summary": "Skill de altíssimo padrão com scripts reais funcionais, protocolo rigoroso de segurança de tokens e aprovações, sem bloat e com description de alta densidade semântica."
+  },
+  {
+    "skillName": "test-automator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/test-automator/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description imperativa e com viés promocional ('Master AI-powered test automation... Build scalable testing strategies...'), sem gatilhos de ativação 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo inflado com catálogo exaustivo de dezenas de ferramentas citadas como buzzwords sem nenhuma linha de código, padrão de implementação ou guia acionável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Referência a arquivo fantasma inexistente na linha 24 ('open resources/implementation-playbook.md'), dado que o diretório 'resources' não existe.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Superposição massiva e redundante de tópicos de TDD que já possuem skills especializadas dedicadas, gerando ruído e dispersão cognitiva.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 50,
+    "cuts": [
+      {
+        "text": "Eliminar listas superficiais de ferramentas sem suporte prático (linhas 50-153), remover menção a arquivo fantasma e podar listas de exemplos genéricos (linhas 206-223).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Visão geral e estratégias de automação de testes cobrindo testes unitários, TDD, automação web/mobile, performance e esteiras de integração contínua.",
+      "entidades": [
+        "Playwright",
+        "Selenium",
+        "Appium",
+        "Postman",
+        "K6",
+        "JMeter",
+        "Pact",
+        "Allure",
+        "axe-core"
+      ],
+      "keywords": [
+        "test automation",
+        "quality engineering",
+        "ci cd testing",
+        "cross-browser",
+        "api testing",
+        "performance testing",
+        "playwright",
+        "selenium",
+        "test pyramid",
+        "test reporting",
+        "tdd cycle"
+      ]
+    },
+    "summary": "Skill excessivamente genérica e inchada, repleta de listas de ferramentas sem materialização técnica, com arquivo fantasma e forte sobreposição com outras skills de teste."
+  },
+  {
+    "skillName": "test-fixing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/test-fixing/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Processo sistemático e ordenado para identificação, agrupamento por tipo de falha e resolução sequencial de suítes de testes quebradas.",
+      "entidades": [
+        "pytest",
+        "make test",
+        "uv",
+        "git diff",
+        "CLAUDE.md"
+      ],
+      "keywords": [
+        "test fixing",
+        "failing tests",
+        "smart grouping",
+        "importerror",
+        "attributeerror",
+        "assertionerror",
+        "pytest markers",
+        "test diagnosis",
+        "root cause analysis",
+        "regression verification",
+        "uv run pytest",
+        "incremental fixing"
+      ]
+    },
+    "summary": "Excelente skill metodológica com fluxo algorítmico rigoroso em 5 etapas para correção de testes quebrados, descrição exemplar com 268 chars e zero bloat."
+  },
+  {
+    "skillName": "test-framework-migration-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/test-framework-migration-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada e cortada no meio de uma frase na linha 3: '...or switch from Selenium to Playwright, Playwright to...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Instrução obrigatória de leitura local ('Always read the matching reference file... reference/<source>-to-<target>.md') aponta para arquivos locais que não existem no repositório, dependendo exclusivamente de URLs remotas do GitHub.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inclusão de conteúdo e menções promocionais à plataforma de nuvem comercial TestMu nas linhas 86, 98 e na descrição do fluxo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Completar a frase truncada da description, remover as referências mandatórias a arquivos locais inexistentes ou empacotá-los localmente, e podar as menções promocionais ao TestMu.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Migração e conversão de scripts de testes automatizados entre Selenium, Playwright, Puppeteer e Cypress com mapeamento de localizadores, esperas e asserções.",
+      "entidades": [
+        "Selenium",
+        "Playwright",
+        "Puppeteer",
+        "Cypress",
+        "WebDriver",
+        "TestMu",
+        "LambdaTest"
+      ],
+      "keywords": [
+        "test migration",
+        "selenium to playwright",
+        "cypress to playwright",
+        "puppeteer",
+        "locators mapping",
+        "auto-wait",
+        "page object model",
+        "e2e testing",
+        "assertions mapping",
+        "cross-browser testing"
+      ]
+    },
+    "summary": "Mapeamento entre frameworks de teste bastante útil, porém penalizada por description truncada com reticências, arquivos de referência ausentes localmente e inserções comerciais do TestMu."
+  }
+]

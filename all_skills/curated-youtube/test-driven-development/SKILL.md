@@ -1,6 +1,6 @@
 ---
 name: test-driven-development
-description: Use when implementing any feature or bugfix, before writing implementation code
+description: "Use when implementing any feature or bugfix, before writing implementation code Provides end-to-end guidance, reference architectures, and practical patterns for test driven development. Use when developing, optimizing, testing, or configuring test driven development in production environments."
 ---
 
 # Test-Driven Development (TDD)

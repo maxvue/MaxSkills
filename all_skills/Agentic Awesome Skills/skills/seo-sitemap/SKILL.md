@@ -1,6 +1,6 @@
 ---
 name: seo-sitemap
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring seo sitemap in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo sitemap. Use when developing, optimizing, testing, or configuring seo sitemap in production environments."
   Analyze existing XML sitemaps or generate new ones with industry templates.
   Validates format, URLs, and structure. Use when user says "sitemap",
   "generate sitemap", "sitemap issues", or "XML sitemap".

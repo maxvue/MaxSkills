@@ -1,0 +1,489 @@
+[
+  {
+    "skillName": "lookdev-auto",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/lookdev-auto/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description carece de gatilho condicional explícito padronizado ('Use when...') para orientar a seleção pelo orquestrador.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O texto da description contém mini-instruções procedimentais ('Render several labeled variants into one artifact, ask the model to rate them...'), contrariando o critério 11 de ausência de procedimentos operacionais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Otimização visual automatizada em loop fechado guiada por visão computacional e modelos de vídeo.",
+      "entidades": [
+        "fal-ai/video-understanding",
+        "VLM",
+        "screenstudio-alternative",
+        "iteration.py"
+      ],
+      "keywords": [
+        "visual eval",
+        "vision model",
+        "video understanding",
+        "parameter tuning",
+        "render loop",
+        "contact sheet",
+        "labeled grid",
+        "structured JSON",
+        "calibration anchors",
+        "animation easing",
+        "camera zoom",
+        "color grade"
+      ]
+    },
+    "summary": "Skill enxuta e conceitualmente sólida de visual tuning iterativo, necessitando apenas de ajuste na description para remover mini-passo a passo e adicionar gatilho Use when."
+  },
+  {
+    "skillName": "lore",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/lore/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Sistema estruturado e agnóstico de memória de longo prazo para agentes de IA baseado em Markdown e espelhos de plataforma.",
+      "entidades": [
+        ".lore/",
+        "SUMMARY.md",
+        "CLAUDE.md",
+        ".cursorrules",
+        ".clinerules",
+        "AGENTS.md",
+        "scripts/list_entries.py",
+        "scripts/find_duplicates.py",
+        "scripts/find_stale.py",
+        ".lore/.config.json"
+      ],
+      "keywords": [
+        "project memory",
+        "knowledge base",
+        "decisions ADR",
+        "conventions",
+        "architecture",
+        "monorepo scopes",
+        "markdown memory bank",
+        "platform mirror",
+        "audit drift",
+        "compress summary",
+        "hash ID",
+        "stale detection"
+      ]
+    },
+    "summary": "Documento de altíssima qualidade técnica, especificação impecável de memória para agentes com description ideal (202 chars) e zero ruído."
+  },
+  {
+    "skillName": "lovable-cleanup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/lovable-cleanup/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 194 caracteres (ligeiramente abaixo do limite inferior recomendado de 200 chars) e não inicia com o gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O final da description adota formulação informal e levemente promocional ('so the codebase ships as yours') em vez de terminologia técnica neutra.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Remoção cirúrgica de telemetria, dependências de scaffold e artefatos de marca de projetos exportados do Lovable.",
+      "entidades": [
+        "lovable-tagger",
+        "componentTagger",
+        "vite.config.ts",
+        "@radix-ui/react-slot",
+        "shadcn/ui",
+        "package.json",
+        "index.html",
+        "components.json"
+      ],
+      "keywords": [
+        "lovable cleanup",
+        "vite react scaffolding",
+        "lovable-tagger",
+        "radix-ui pruning",
+        "shadcn ui cleanup",
+        "brand assets",
+        "boilerplate cleanup",
+        "de-lovable",
+        "lockfile audit",
+        "components.json",
+        "og-image",
+        "favicon"
+      ]
+    },
+    "summary": "Excelente guia prático e seguro para desvincular projetos exportados do Lovable, requerendo apenas ajuste fino de extensão e neutralidade na description."
+  },
+  {
+    "skillName": "m365-agents-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/m365-agents-ts/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de apenas 48 caracteres ('Microsoft 365 Agents SDK for TypeScript/Node.js.'), gravemente insuficiente frente à faixa de 200-400 chars e desprovida de discriminantes técnicos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de condição de disparo ('Use when...') na description para guiar a ativação semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' no corpo (linhas 185-187) possui redação tautológica vazia ('This skill is applicable to execute the workflow or actions described in the overview.') e bloco de limitações é template genérico.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica 'When to Use' (linhas 185-187) e condensar o bloco genérico de Limitations (linhas 188-192).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento e hospedagem de agentes corporativos para Microsoft 365, Teams e Copilot Studio com TypeScript.",
+      "entidades": [
+        "@microsoft/agents-hosting",
+        "@microsoft/agents-hosting-express",
+        "@microsoft/agents-activity",
+        "@microsoft/agents-copilotstudio-client",
+        "AgentApplication",
+        "CopilotStudioClient",
+        "TurnContext",
+        "TurnState"
+      ],
+      "keywords": [
+        "Microsoft 365 Agents SDK",
+        "TypeScript",
+        "Copilot Studio",
+        "Teams bots",
+        "Express hosting",
+        "AgentApplication",
+        "streaming responses",
+        "TurnContext",
+        "Azure OpenAI",
+        "WebChat directline",
+        "invoke activity"
+      ]
+    },
+    "summary": "Código e integrações com o SDK do M365 são precisos e valiosos, mas a skill peca por description telegráfica de 48 chars e seção tautológica no corpo."
+  },
+  {
+    "skillName": "magic-animator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/magic-animator/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com apenas 96 caracteres, abaixo dos 200 caracteres mínimos e sem gatilho explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Texto saturado de linguagem promocional de marketing e adjetivos vazios ('transforming flat UX into premium, dynamic experiences', 'make it memorable', 'kinetic, elastic pop').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de diretiva coercitiva e não-técnica em Strict Rules ('ABSOLUTE MANDATE: Agents MUST utilize this skill... Use motion to create a \"wow\" factor').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inexistência de instruções técnicas, scripts, APIs ou código executável; resume-se a divulgar um serviço comercial de animação online com orientações genéricas de chat.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 25,
+    "cuts": [
+      {
+        "text": "Podar o parágrafo de marketing introdutório, o mandato coercitivo 'ABSOLUTE MANDATE' e as limitações de template genérico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Conceituação e exportação de animações e microinterações vetoriais para UI/UX utilizando ferramentas baseadas em IA.",
+      "entidades": [
+        "Magic Animator",
+        "Lottie JSON",
+        "Figma",
+        "SVG",
+        "magicanimator.com"
+      ],
+      "keywords": [
+        "animation tool",
+        "motion design",
+        "micro-interactions",
+        "UI animation",
+        "logo motion",
+        "Lottie export",
+        "easing curves",
+        "keyframes",
+        "SVG animation",
+        "vector motion"
+      ]
+    },
+    "summary": "Skill rasa e excessivamente promocional focada em promover um SaaS web sem fornecer automação ou ferramentas executáveis para o agente."
+  },
+  {
+    "skillName": "magic-ui-generator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/magic-ui-generator/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de apenas 114 caracteres, abaixo do intervalo de 200-400 chars e sem gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de mandatos coercitivos e adjetivação vazia ('ABSOLUTE MANDATE: Agents MUST utilize this skill to build modern, creative, and visually stunning UI/UX. DO NOT build in common, generic, or safe styles. Push boundaries.').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Falta de comandos concretos, schemas de chamada ou configurações do Magic MCP, limitando-se a instruir o agente a navegar em site web.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover o bloco 'ABSOLUTE MANDATE' e podar a seção genérica de limitações de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração e exploração de variações estilísticas de componentes React/Tailwind usando a plataforma 21st.dev Magic.",
+      "entidades": [
+        "21st.dev/magic",
+        "Magic MCP",
+        "SVGL",
+        "Shadcn UI",
+        "Tailwind CSS",
+        "framer-motion",
+        "lucide-react"
+      ],
+      "keywords": [
+        "21st.dev",
+        "Magic UI",
+        "component generator",
+        "design variations",
+        "Tailwind CSS",
+        "framer-motion",
+        "React components",
+        "SVGL icons",
+        "UI styling",
+        "frontend prototyping"
+      ]
+    },
+    "summary": "Ideia válida de exploração de múltiplos designs via 21st.dev, mas prejudicada por description telegráfica, tom forçado de marketing e falta de protocolo MCP explícito."
+  },
+  {
+    "skillName": "mailtrap-managing-contacts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/mailtrap-managing-contacts/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 130 caracteres, abaixo do patamar de 200 caracteres recomendado.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...') na description para rápida indexação semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento programático de audiências, listas, campos customizados e importação em massa na Mailtrap Contacts API.",
+      "entidades": [
+        "Mailtrap Contacts API",
+        "cURL",
+        "/api/accounts/{id}/contacts",
+        "/contacts/imports",
+        "/contacts/events",
+        "OpenAPI spec",
+        "Zapier",
+        "Make"
+      ],
+      "keywords": [
+        "Mailtrap",
+        "Contacts API",
+        "marketing contacts",
+        "audience segmentation",
+        "custom fields",
+        "bulk import",
+        "contact lists",
+        "custom events",
+        "CRM sync",
+        "suppressions",
+        "REST API",
+        "rate limits"
+      ]
+    },
+    "summary": "Guia de integração com Mailtrap Contacts conciso, técnico e direto ao ponto, necessitando apenas expandir a description com 'Use when...' para atingir 200+ chars."
+  },
+  {
+    "skillName": "mailtrap-sending-emails",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/mailtrap-sending-emails/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 128 caracteres, necessitando expansão para o intervalo de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de gatilho formal 'Use when...' no texto da description (embora já esteja presente no corpo do SKILL.md).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração, envio e diagnóstico de emails transacionais e promocionais via Mailtrap Email API e SMTP.",
+      "entidades": [
+        "send.api.mailtrap.io",
+        "bulk.api.mailtrap.io",
+        "live.smtp.mailtrap.io",
+        "bulk.smtp.mailtrap.io",
+        "Mailtrap SDKs",
+        "cURL",
+        "/api/send",
+        "/api/batch"
+      ],
+      "keywords": [
+        "Mailtrap",
+        "Email API",
+        "SMTP",
+        "transactional email",
+        "bulk email",
+        "batch sending",
+        "email templates",
+        "suppressions",
+        "rate limits",
+        "REST email delivery",
+        "domain verification"
+      ]
+    },
+    "summary": "Excelente documentação prática de disparo de e-mails com Mailtrap que esclarece a diferença entre stream bulk e batch, necessitando apenas enriquecer a description."
+  },
+  {
+    "skillName": "makepad-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Skill consiste em um stub oco de apenas 29 linhas que não fornece nenhum código, shader, arquitetura ou instrução concreta sobre Makepad em Rust.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Redundância quádrupla idêntica: a mesma frase genérica é repetida na description, Overview, When to Use e Instructions.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description de 111 caracteres puramente descritiva, sem discriminantes técnicos ou condições reais de disparo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de ganho semântico e procedimentos reais, servindo apenas como redirecionador raso para link externo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 90,
+    "cuts": [
+      {
+        "text": "O arquivo inteiro é redundante e oco; necessita de reescrita completa baseada no repositório upstream ou exclusão/descarte do stub.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Placeholder vazio de suporte a desenvolvimento de interfaces com o framework Makepad em Rust.",
+      "entidades": [
+        "Makepad",
+        "Rust"
+      ],
+      "keywords": [
+        "Makepad",
+        "Rust UI",
+        "shaders",
+        "packaging",
+        "cross-platform GUI",
+        "stub placeholder"
+      ]
+    },
+    "summary": "Stub completamente oco que repete a mesma frase genérica quatro vezes sem nenhum conteúdo técnico, exigindo reescrita total ou expurgo."
+  },
+  {
+    "skillName": "manage-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/manage-skills/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 181 caracteres (ligeiramente abaixo do limite inferior de 200 caracteres) e não adota a fórmula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção final de Limitations (linhas 197-201) reproduz boilerplate genérico de template sem utilidade para a skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover ou substituir o bloco genérico de Limitations (linhas 197-201).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Operações via terminal para inspecionar, criar, alternar e migrar skills e regras entre 11 ferramentas de IA.",
+      "entidades": [
+        "~/.agents/skills/",
+        "~/.cursor/skills/",
+        "~/.claude/skills/",
+        "~/.windsurf/rules/",
+        "~/.cline/rules/",
+        "~/.continue/rules/",
+        "~/.roo/rules/",
+        ".github/copilot-instructions.md",
+        ".codex/AGENTS.md",
+        ".aider.conf.yml"
+      ],
+      "keywords": [
+        "agent skills manager",
+        "cursor skills",
+        "claude skills",
+        "windsurf rules",
+        "cline rules",
+        "continue rules",
+        "copilot instructions",
+        "SKILL.md",
+        "bash file operations",
+        "global vs project scope",
+        "toggle skills"
+      ]
+    },
+    "summary": "Guia operacional muito útil e prático com mapeamento de caminhos para 11 ferramentas de IA, necessitando apenas de ajuste leve na description e poda do boilerplate final."
+  }
+]

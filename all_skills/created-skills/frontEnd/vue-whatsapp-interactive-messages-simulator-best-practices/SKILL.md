@@ -1,6 +1,6 @@
 ---
 name: vue-whatsapp-interactive-messages-simulator-best-practices
-description: "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates. Covers objectives and core workflows."
+description: "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas para Simulador de Mensagens Interativas do WhatsApp no Vue 3

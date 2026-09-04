@@ -1,6 +1,6 @@
 ---
 name: firecrawl-scraper
-description: "Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you need deep content extraction from web pages, page interaction is required (clicking, scrolling, etc.), or you want screenshots or PDF parsing."
+description: "Comprehensive engineering guide and best practices for firecrawl scraper. Use when configuring, developing, debugging, or optimizing firecrawl scraper architecture in production systems. Guides architecture, best practices, and implementation standards for firecrawl scraper."
 risk: critical
 source: community
 date_added: "2026-02-27"

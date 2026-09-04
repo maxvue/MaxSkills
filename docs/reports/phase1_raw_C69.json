@@ -1,0 +1,572 @@
+[
+  {
+    "skillName": "tree-ring-memory",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tree-ring-memory/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 151 caracteres, abaixo do limiar recomendado de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito de ativação com cláusula 'Use when...' detalhando cenários de engajamento na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description de termos discriminantes importantes do conteúdo real, tais como CLI Rust, SQLite/FTS local e os anéis concêntricos de retenção (cambium, outer, inner, heartwood, scar, seed).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento de ciclo de vida de memória local-first para agentes de IA via CLI Tree Ring com SQLite e FTS.",
+      "entidades": [
+        "tree-ring CLI",
+        "SQLite",
+        "FTS",
+        "DOX adapter",
+        "Revolve adapter",
+        "cambium",
+        "heartwood",
+        "scar"
+      ],
+      "keywords": [
+        "tree-ring",
+        "agent-memory",
+        "local-first",
+        "sqlite",
+        "fts",
+        "recall",
+        "evidence",
+        "audit",
+        "forgetting",
+        "consolidation",
+        "rings",
+        "cambium",
+        "outer",
+        "inner",
+        "heartwood",
+        "scar",
+        "seed",
+        "redaction"
+      ]
+    },
+    "summary": "Skill de alta consistência técnica e operacional, requerendo apenas expansão da description para 200-400 caracteres com inclusão de gatilho e discriminantes dos anéis de memória."
+  },
+  {
+    "skillName": "trpc-fullstack",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/trpc-fullstack/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 138 caracteres, abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita 'Use when...' na description para acionamento contextual.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes de alto valor presentes no conteúdo: Next.js App Router context factory (fetch-based), createCallerFactory, Zod validation e TanStack React Query hooks.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico na seção 'Limitations' (linhas 463-466), que repete avisos óbvios sem ganho de instrução.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de APIs type-safe ponta a ponta com tRPC, Zod e integração com Next.js App Router e React Query.",
+      "entidades": [
+        "@trpc/server",
+        "@trpc/client",
+        "@trpc/react-query",
+        "@tanstack/react-query",
+        "zod",
+        "fetchRequestHandler",
+        "createTRPCContext",
+        "createServerContext",
+        "createCallerFactory",
+        "AppRouter"
+      ],
+      "keywords": [
+        "trpc",
+        "typescript",
+        "fullstack",
+        "nextjs",
+        "app-router",
+        "procedures",
+        "routers",
+        "middleware",
+        "zod",
+        "subscriptions",
+        "websocket",
+        "react-query",
+        "type-safety",
+        "tanstack",
+        "createCallerFactory"
+      ]
+    },
+    "summary": "Excelente guia técnico para tRPC com correta separação de contextos de execução no Next.js App Router, necessitando enriquecimento da description e poda de boilerplate genérico."
+  },
+  {
+    "skillName": "tune-monitor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/tune-monitor/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Dependência quebrada de arquivos externos locais: Phase 1.5 e Phase 5 instruem ler 'references/metric-monitor.md', 'references/custom-sql-monitor.md', 'references/validation-monitor.md' e 'references/table-monitor.md', mas o diretório references/ não existe no pacote.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A description inicia no imperativo sem cláusula formal de disparo ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância direta entre a description e o bloco 'When to Use' (linhas 14-16), que replica o texto integralmente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'Limitations' ao final (linhas 264-268) composta por boilerplate genérico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Eliminar o bloco duplicado 'When to Use' (linhas 14-16) e o boilerplate final de 'Limitations' (linhas 264-268).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Embutir inline as regras essenciais de tuning por tipo de monitor ou remover a obrigatoriedade de leitura dos arquivos inexistentes em references/.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Análise e ajuste de configurações de monitores Monte Carlo para redução de alertas e ruído operacional via MCP.",
+      "entidades": [
+        "monte-carlo-mcp",
+        "get_monitor_report",
+        "get_monitors",
+        "create_or_update_metric_monitor",
+        "create_or_update_sql_monitor",
+        "create_or_update_validation_monitor",
+        "create_or_update_table_monitor_asset_rule",
+        "MaC JSON Schema"
+      ],
+      "keywords": [
+        "monte-carlo",
+        "monitor-tuning",
+        "alert-noise",
+        "metric-monitor",
+        "sql-monitor",
+        "validation-monitor",
+        "table-monitor",
+        "data-observability",
+        "sensitivity",
+        "thresholds",
+        "anomalies",
+        "mac-yaml"
+      ]
+    },
+    "summary": "Fluxo analítico de tuning estruturado, mas prejudicado por falha funcional decorrente de arquivos locais referenciados ausentes e redundância na introdução."
+  },
+  {
+    "skillName": "typescript-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/typescript-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com 167 caracteres, abaixo do intervalo ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redação da description formulada como perfil de persona ('TypeScript and JavaScript expert with deep knowledge...') em vez de ação orientada a gatilhos ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes de alto impacto presentes no texto, como branded types, conditional types recursivos, satisfies, tsc --extendedDiagnostics, skipLibCheck e Vitest expectTypeOf.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção 'When to Use' ao final (linhas 425-427) tautológica e oca ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica 'When to Use' (linhas 425-427) e o boilerplate de 'Limitations' (linhas 428-432).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Resolução de problemas avançados em TypeScript, incluindo programação no nível de tipos, profiling de performance, diagnósticos do compilador e migração de tooling.",
+      "entidades": [
+        "tsc",
+        "typescript-eslint",
+        "Biome",
+        "Vitest",
+        "Turborepo",
+        "Nx",
+        "satisfies",
+        "extendedDiagnostics",
+        "Brand<K, T>"
+      ],
+      "keywords": [
+        "typescript",
+        "type-level-programming",
+        "branded-types",
+        "conditional-types",
+        "type-inference",
+        "extendedDiagnostics",
+        "skipLibCheck",
+        "monorepo",
+        "biome",
+        "eslint",
+        "vitest",
+        "esm",
+        "declaration-files"
+      ]
+    },
+    "summary": "Excelente profundidade técnica com diagnósticos do compilador e type-level programming, requerendo reformulação da description para estilo acionável e eliminação de seções tautológicas."
+  },
+  {
+    "skillName": "typescript-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/typescript-pro/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com 151 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem promocional na description com termos vazios como 'Master TypeScript' e 'enterprise-grade patterns', além de falta de gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo superficial e puramente declarativo (59 linhas) sem exemplos de código, snippets de configuração de tsconfig ou instruções práticas de implementação.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Sobreposição funcional e semântica com a skill vizinha 'typescript-expert', que trata o mesmo domínio com muito mais rigor técnico.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Condensar/consolidar a skill dentro de 'typescript-expert' ou reescrever o corpo substituindo preâmbulos abstratos por snippets práticos de utilitários de tipo e TSConfig.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover o boilerplate genérico de Limitations (linhas 55-59).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes conceituais gerais para desenvolvimento de arquiteturas de tipos estritas e padrões corporativos em TypeScript.",
+      "entidades": [
+        "TypeScript",
+        "TSConfig",
+        "Jest",
+        "Vitest",
+        "decorators"
+      ],
+      "keywords": [
+        "typescript",
+        "generics",
+        "conditional-types",
+        "strictness",
+        "type-safety",
+        "decorators",
+        "compiler-flags",
+        "incremental-compilation",
+        "utility-types",
+        "declaration-files"
+      ]
+    },
+    "summary": "Skill excessivamente genérica com buzzwords na description e sem código prático, devendo ser consolidada na 'typescript-expert' ou profundamente enriquecida."
+  },
+  {
+    "skillName": "ui-a11y",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-a11y/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description criticamente curta com 65 caracteres ('Audit a component or page for accessibility issues and fix them'), violando o intervalo de 200 a 400 chars.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de disparo 'Use when...' na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes cruciais da auditoria: WCAG 2.2 AA, ratios de contraste (4.5:1 / 3:1), touch targets de 44px (min-h-11), prefers-reduced-motion e tokens do design system.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a seção redundante 'When to Use' (linhas 14-16) que apenas repete a frase da description e o boilerplate de 'Limitations' (linhas 86-90).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria estática e correção de acessibilidade em componentes e páginas seguindo diretrizes WCAG 2.2 AA e tokens semânticos.",
+      "entidades": [
+        "WCAG 2.2 AA",
+        "Radix UI",
+        "prefers-reduced-motion",
+        "StyleSeed tokens",
+        "data-slot",
+        "aria-describedby"
+      ],
+      "keywords": [
+        "accessibility",
+        "a11y",
+        "wcag-2-2",
+        "color-contrast",
+        "touch-targets",
+        "keyboard-navigation",
+        "screen-reader",
+        "aria",
+        "radix-ui",
+        "prefers-reduced-motion",
+        "semantic-html",
+        "design-tokens"
+      ]
+    },
+    "summary": "Diretrizes práticas de WCAG 2.2 AA com critérios objetivos de contraste e touch targets, necessitando expansão da description curta e remoção de introdução duplicada."
+  },
+  {
+    "skillName": "ui-lint",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-lint/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta com 74 caracteres e adjetivos promocionais/vazios ('Quick automated lint', 'in seconds').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de disparo 'Use when...' na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes técnicos concretos da skill (grep patterns para hex colors hardcoded, raw pixels p-[*px], w-4 h-4 vs size-4, ml-* vs ms-*, conflito de CSS variables com namespace Tailwind v4 --text-*, helper cn()).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o bloco 'When to Use' duplicado (linhas 14-16) e o boilerplate genérico de 'Limitations' (linhas 108-112).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Verificação automatizada via grep de violações de convenções de design system, Tailwind v4 e tokens semânticos em arquivos UI.",
+      "entidades": [
+        "Tailwind CSS v4",
+        "StyleSeed",
+        "cn()",
+        "data-slot",
+        "theme.css"
+      ],
+      "keywords": [
+        "ui-lint",
+        "design-system",
+        "tailwind-v4",
+        "hardcoded-colors",
+        "raw-pixels",
+        "logical-properties",
+        "data-slot",
+        "grep",
+        "static-analysis",
+        "semantic-tokens",
+        "classnames"
+      ]
+    },
+    "summary": "Excelente conjunto de verificações estáticas com regex/grep para consistência de UI no Tailwind v4, exigindo reformulação neutra e densa da description."
+  },
+  {
+    "skillName": "ui-motion",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-motion/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description truncada terminando em reticências no frontmatter ('...Translates vibe...'), evidenciando corte acidental de texto na origem.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho formal 'Use when...' na description e no bloco de uso.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes essenciais da stack na description, como Framer Motion JSX, AnimatePresence e prefers-reduced-motion.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Substituir a frase truncada repetida no 'When to Use' (linhas 14-16) e descartar o boilerplate genérico em Limitations (linhas 178-182).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Aplicação de animações padronizadas com Framer Motion baseadas em seeds de personalidade e catálogo de movimentos contextuais do StyleSeed.",
+      "entidades": [
+        "framer-motion",
+        "@engine/motion",
+        "AnimatePresence",
+        "Spring",
+        "Silk",
+        "Snap",
+        "Float",
+        "Pulse"
+      ],
+      "keywords": [
+        "motion",
+        "framer-motion",
+        "spring",
+        "silk",
+        "snap",
+        "float",
+        "pulse",
+        "micro-interactions",
+        "transitions",
+        "prefers-reduced-motion",
+        "flip",
+        "shimmer",
+        "pop-in",
+        "stagger"
+      ]
+    },
+    "summary": "Mapeamento rigoroso e prático de animações com Framer Motion, prejudicado por uma description truncada no frontmatter que precisa de reescrita completa e fechamento semântico."
+  },
+  {
+    "skillName": "ui-page",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-page/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta com 72 caracteres ('Scaffold a new mobile page/screen using the StyleSeed layout patterns'), abaixo dos 200 chars.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de cláusula clara de gatilho de contexto ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes estruturais na description: PageShell, PageContent, TopBar, BottomNav, layout mobile de 430px, safe-area e regras de espaçamento de 6px.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Eliminar o bloco 'When to Use' redundante (linhas 14-16) e podar o boilerplate genérico de 'Limitations' (linhas 86-90).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação e estruturação de telas mobile-first utilizando padrões de layout do StyleSeed e checklist de Golden Rules.",
+      "entidades": [
+        "PageShell",
+        "PageContent",
+        "TopBar",
+        "BottomNav",
+        "StyleSeed",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "mobile-page",
+        "scaffolding",
+        "page-shell",
+        "top-bar",
+        "bottom-nav",
+        "layout-patterns",
+        "safe-area",
+        "golden-rules",
+        "touch-targets",
+        "semantic-tokens"
+      ]
+    },
+    "summary": "Padrão de página mobile sólido e bem estruturado com checklist pós-geração, necessitando de expansão da description para 200-400 chars e inclusão de discriminantes."
+  },
+  {
+    "skillName": "ui-pattern",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-pattern/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 106 caracteres, abaixo do limite mínimo de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita de condição de uso ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de enumeração genérica ('card layout, list, form section, grid, etc.') na description em vez dos discriminantes específicos do catálogo real (card-section, grid-2col, scroll-horizontal, stat-grid, data-table, detail-card, action-sheet, filter-bar).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o bloco duplicado 'When to Use' (linhas 14-16) e o boilerplate genérico de 'Limitations' (linhas 70-74).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Composição de padrões modulares de UI reutilizáveis (layouts, display de dados e elementos interativos) a partir de primitivas de design system.",
+      "entidades": [
+        "StyleSeed",
+        "Recharts",
+        "StatCard",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "ui-pattern",
+        "card-section",
+        "grid-2col",
+        "scroll-horizontal",
+        "stat-grid",
+        "data-table",
+        "detail-card",
+        "action-sheet",
+        "filter-bar",
+        "design-system",
+        "component-composition"
+      ]
+    },
+    "summary": "Catálogo conciso de componentes compostos para design system, necessitando de substituição dos termos vagos da description pelo catálogo real e expansão para 200-400 chars."
+  }
+]

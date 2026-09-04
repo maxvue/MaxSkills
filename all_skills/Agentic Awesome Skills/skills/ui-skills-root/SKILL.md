@@ -1,6 +1,6 @@
 ---
 name: ui-skills-root
-description: Use before UI-related work to select the smallest useful UI Skills context through the ui-skills CLI.
+description: "Gateway router for all UI skills (ibelick/ui-skills). Use before any UI, component, or styling work to discover and load the smallest useful skill context via npx ui-skills CLI and 7-step routing protocol."
 risk: critical
 source: https://github.com/ibelick/ui-skills/tree/main/skills/ui-skills-root
 source_repo: ibelick/ui-skills

@@ -1,0 +1,444 @@
+[
+  {
+    "skillName": "laravel-gemini-file-api-media-integration-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description contém frase boilerplate de preenchimento ('Covers objectives and core workflows.') que gera redundância de 'Covers' e reduz a densidade semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description cita processamento de áudio e PDF ('Covers video, audio, or PDF file processing'), o que colide com a seção 1 do próprio SKILL.md, que instrui a NÃO usar a Google File API para áudio e PDFs no engeapp (já cobertos pelo Laravel AI SDK), restringindo o nicho real a arquivos de vídeo e grandes mídias (> 20MB).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes para upload e processamento assíncrono de arquivos pesados de vídeo com a Google AI File API via Gemini PHP SDK e Jobs supervisionados no Laravel.",
+      "entidades": [
+        "Gemini\\Laravel\\Facades\\Gemini",
+        "Gemini\\Enums\\MimeType",
+        "Gemini\\Enums\\FileState",
+        "Gemini\\Data\\UploadedFile",
+        "Illuminate\\Support\\Facades\\Storage",
+        "App\\Jobs\\GeminiContentJob",
+        "Laravel\\Ai\\Files\\LocalDocument"
+      ],
+      "keywords": [
+        "Gemini File API",
+        "Google AI",
+        "Gemini PHP SDK",
+        "upload de vídeo",
+        "polling de status",
+        "FileState Active",
+        "ShouldQueue",
+        "Horizon",
+        "Octane",
+        "UploadedFile",
+        "MimeType",
+        "limpeza de mídia",
+        "temp files",
+        "multimodal",
+        "timeout"
+      ]
+    },
+    "summary": "Skill tecnicamente alinhada e precisa, necessitando apenas aparar o filler da description e esclarecer o foco restrito a vídeo e mídias pesadas."
+  },
+  {
+    "skillName": "laravel-gemini-php-sdk-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description encerra com cláusula redundante ('Covers objectives, Facade model, and Gemini API schemas.') que repete termos já introduzidos e agrega ruído com termos genéricos ('objectives').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração estruturada com a API Gemini no Laravel utilizando a facade google-gemini-php, GenerationConfig, schemas JSON e blobs multimodais.",
+      "entidades": [
+        "Gemini\\Laravel\\Facades\\Gemini",
+        "Gemini\\Data\\GenerationConfig",
+        "Gemini\\Data\\Schema",
+        "Gemini\\Enums\\DataType",
+        "Gemini\\Enums\\ResponseMimeType",
+        "Gemini\\Data\\Blob",
+        "Gemini\\Enums\\MimeType",
+        "App\\Jobs\\GeminiContentJob",
+        "App\\Services\\Ai\\GeminiDocumentService"
+      ],
+      "keywords": [
+        "Gemini SDK",
+        "GenerationConfig",
+        "responseSchema",
+        "JSON Schema",
+        "multimodal",
+        "Blob",
+        "Base64",
+        "MimeType",
+        "gemini-3.5-flash",
+        "gemini-3.1-flash-lite",
+        "gemini-2.5-flash",
+        "fallback em cascata",
+        "Log gemini",
+        "Structured Outputs"
+      ]
+    },
+    "summary": "Excelente acurácia arquitetural com modelos Gemini 3.x/2.5 e schemas tipados, requerendo apenas a remoção da frase filler na description."
+  },
+  {
+    "skillName": "laravel-global-helpers-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-global-helpers-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Convenções e padrões de implementação de funções helpers globais stateless em app/Helpers/ compatíveis com Octane e testadas com Pest no Engeapp.",
+      "entidades": [
+        "app/Helpers/DatesHelper.php",
+        "app/Helpers/StringsHelper.php",
+        "app/Helpers/ElectricalHelper.php",
+        "app/Helpers/ValidationHelpers.php",
+        "app/Helpers/numbersHelper.php",
+        "composer.json autoload.files",
+        "tests/Unit/Helpers/StringsHelperTest.php"
+      ],
+      "keywords": [
+        "helpers globais",
+        "camelCase",
+        "composer autoload",
+        "Octane",
+        "FrankenPHP",
+        "stateless",
+        "Pest unit tests",
+        "DatesHelper",
+        "StringsHelper",
+        "ValidationHelpers",
+        "function_exists",
+        "tipagem de retorno",
+        "strict types",
+        "Engeapp"
+      ]
+    },
+    "summary": "Perfeita adesão aos 13 critérios semânticos e conformidade cirúrgica com o código real em app/Helpers/ do Engeapp."
+  },
+  {
+    "skillName": "laravel-holiday-sla-calculation-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description finaliza com frase boilerplate genérica ('Covers objectives and core workflows.') que consome caracteres sem valor semântico discriminante.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Cálculo de prazos de SLA, dias úteis e validação de feriados nacionais e estaduais no ecossistema Engeapp usando DatesHelper e HolidayService.",
+      "entidades": [
+        "DatesHelper",
+        "addBusinessDays",
+        "isHoliday",
+        "isBusinessHours",
+        "businessMinutesBetween",
+        "App\\Services\\HolidayService",
+        "App\\Models\\Address\\Holiday",
+        "App\\Traits\\HasHoliday",
+        "Settings\\DateController"
+      ],
+      "keywords": [
+        "SLA",
+        "dias úteis",
+        "addBusinessDays",
+        "isHoliday",
+        "DatesHelper",
+        "HolidayService",
+        "Invertexto API",
+        "Cache rememberForever",
+        "Carbon",
+        "DateTime",
+        "homologação solar",
+        "America/Sao_Paulo",
+        "Pest tests",
+        "horário comercial"
+      ]
+    },
+    "summary": "Altíssima fidelidade ao código real e às nuances de tipo e cache do HolidayService, necessitando apenas expurgar o filler da description."
+  },
+  {
+    "skillName": "laravel-jobs-queues-horizon-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-jobs-queues-horizon-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes padronizadas de filas, supervisores do Horizon, estratégias de backoff, idempotência e integração de agentes IA no Laravel 13.",
+      "entidades": [
+        "Illuminate\\Contracts\\Queue\\ShouldQueue",
+        "Illuminate\\Foundation\\Queue\\Queueable",
+        "HasAgentAiRequest",
+        "app/Jobs/SendMessageWhatsappJob.php",
+        "app/Jobs/WebhookWhatsappJobExecuteJob.php",
+        "app/Jobs/CopywriterJob.php",
+        "SystemOperationEvent"
+      ],
+      "keywords": [
+        "Jobs",
+        "Queues",
+        "Horizon",
+        "supervisores",
+        "tries",
+        "backoff",
+        "timeout",
+        "HasAgentAiRequest",
+        "idempotência",
+        "early return",
+        "failed callback",
+        "Reverb WebSocket",
+        "Laravel 13",
+        "PHP 8.4",
+        "gemini-supervisor"
+      ]
+    },
+    "summary": "Excelente especificação técnica com parâmetros exatos de supervisores, retries e idempotência perfeitamente alinhados ao ecossistema Engeapp."
+  },
+  {
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description encerra com boilerplate genérico ('Covers objectives and core workflows.'), gerando redundância sintática.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo da skill duplica uma implementação completa de 146 linhas do LiveKitService com docblocks extensos, sobrecarregando o arquivo com código boilerplate que poderia ser condensado nos trechos operacionais críticos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Condensar o esqueleto completo da classe LiveKitService.php nas linhas 53 a 199, focando nos trechos cruciais (sanitização ws->http, instanciação com RoomCreateOptions e tratamento de ListParticipantsResponse) e eliminando docblocks prolixos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Integração do LiveKit Server SDK no Laravel para emissão de JWT Access Tokens e gerenciamento de salas WebRTC com RoomServiceClient.",
+      "entidades": [
+        "Agence104\\LiveKit\\AccessToken",
+        "Agence104\\LiveKit\\AccessTokenOptions",
+        "Agence104\\LiveKit\\VideoGrant",
+        "Agence104\\LiveKit\\RoomServiceClient",
+        "Agence104\\LiveKit\\RoomCreateOptions",
+        "Livekit\\ListParticipantsResponse",
+        "App\\Services\\LiveKitService",
+        "App\\Http\\Controllers\\Live\\LiveTokenController"
+      ],
+      "keywords": [
+        "LiveKit Server SDK",
+        "WebRTC",
+        "AccessToken",
+        "VideoGrant",
+        "RoomServiceClient",
+        "RoomCreateOptions",
+        "ListParticipantsResponse",
+        "LiveTokenController",
+        "salas virtuais",
+        "chamadas de voz",
+        "JWT",
+        "Laravel 13"
+      ]
+    },
+    "summary": "Instruções conceituais sólidas e precisas sobre o SDK, com oportunidade de podar a classe monolítica de exemplo e corrigir a description."
+  },
+  {
+    "skillName": "laravel-media-library-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-media-library-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento de mídia, uploads e conversões com Spatie Media Library integrado ao modelo customizado de Media e discos por domínio no Engeapp.",
+      "entidades": [
+        "Spatie\\MediaLibrary\\HasMedia",
+        "Spatie\\MediaLibrary\\InteractsWithMedia",
+        "App\\Models\\Media\\Media",
+        "App\\MediaLibrary\\LegacyPathGenerator",
+        "App\\Traits\\HasMediaAsLegacyFiles",
+        "App\\Http\\Controllers\\Media\\MediaController",
+        "App\\Models\\Project\\ProjectContract"
+      ],
+      "keywords": [
+        "Spatie Media Library",
+        "HasMedia",
+        "InteractsWithMedia",
+        "custom Media model",
+        "LegacyPathGenerator",
+        "HasMediaAsLegacyFiles",
+        "nonQueued conversions",
+        "discos por domínio",
+        "projects disk",
+        "whatsapp disk",
+        "media.view",
+        "media.download",
+        "N+1 prevention"
+      ]
+    },
+    "summary": "Documentação exemplar que reflete com total fidelidade a arquitetura proprietária de upload, discos e conversões do Engeapp."
+  },
+  {
+    "skillName": "laravel-meta-graph-api-integration-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description conclui com cláusula boilerplate ('Covers objectives, architectural structure, and Meta API endpoints.') que adiciona termos vagos e repete a raiz sintática.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração arquitetural com a Meta Graph API (Instagram e Facebook) para publicação de mídias, gestão de comentários e webhooks no Engeapp.",
+      "entidades": [
+        "App\\Services\\SocialMedia\\Meta\\MetaService",
+        "App\\Services\\SocialMedia\\Meta\\Handlers\\PublishHandler",
+        "App\\Services\\SocialMedia\\Meta\\Handlers\\CommentHandler",
+        "App\\Services\\SocialMedia\\Meta\\Handlers\\MediaHandler",
+        "App\\Services\\SocialMedia\\Meta\\MetaRequestTrait",
+        "App\\Models\\Calendar\\SocialMediaCredential",
+        "App\\Http\\Controllers\\Api\\SocialMedia\\MetaWebhookController",
+        "App\\Jobs\\MetaWebhookJob"
+      ],
+      "keywords": [
+        "Meta Graph API",
+        "Instagram",
+        "Facebook Pages",
+        "media containers",
+        "Reels",
+        "carrossel",
+        "PublishHandler",
+        "CommentHandler",
+        "MetaRequestTrait",
+        "SocialMediaCredential",
+        "MetaWebhookController",
+        "hub_challenge",
+        "MetaWebhookJob"
+      ]
+    },
+    "summary": "Arquitetura e fluxo de publicação perfeitamente descritos conforme a implementação real do Engeapp, necessitando ajuste fino na description."
+  },
+  {
+    "skillName": "laravel-migrations-seeders-factories-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description encerra com o fragmento genérico repetitivo ('Covers objectives and core workflows.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omitiu menção a convenções e termos discriminantes centrais do Engeapp detalhados no corpo da skill, como chaves ULID char(26), anonymous migrations e factory helpers tipados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais para criação de migrations anônimas com ULID, seeders idempotentes em lote e model factories tipadas no Engeapp.",
+      "entidades": [
+        "Illuminate\\Database\\Migrations\\Migration",
+        "Illuminate\\Database\\Schema\\Blueprint",
+        "Illuminate\\Database\\Eloquent\\Factories\\Factory",
+        "Database\\Seeders\\TestReferenceDataSeeder",
+        "App\\Models\\Finance\\Payments",
+        "App\\Models\\Project\\Project"
+      ],
+      "keywords": [
+        "migrations",
+        "anonymous migrations",
+        "ULID",
+        "char 26",
+        "foreign keys",
+        "try catch",
+        "database seeders",
+        "updateOrCreate",
+        "TestReferenceDataSeeder",
+        "SET FOREIGN_KEY_CHECKS",
+        "chunk",
+        "model factories",
+        "fake helper",
+        "factory states"
+      ]
+    },
+    "summary": "Padrões técnicos sólidos de persistência e schema no Engeapp; a description necessita de limpeza de boilerplate e enriquecimento de discriminantes proprietários."
+  },
+  {
+    "skillName": "laravel-multitenancy-data-isolation-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description traz cauda boilerplate redundante ('Covers objectives, tenant scoping, and user permission models.') que duplica o conceito de tenant scoping e inclui termos genéricos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Isolamento de dados multi-company no Engeapp através de local scopes explícitos por solar_company_id e validação em profundidade com Policies.",
+      "entidades": [
+        "App\\Models\\User",
+        "App\\Models\\Client\\Client",
+        "App\\Models\\Project\\Project",
+        "App\\Policies\\ProjectPolicy",
+        "App\\Policies\\ClientPolicy",
+        "tests/Feature/Integrador/SolarCompanyScopeTest.php"
+      ],
+      "keywords": [
+        "multi-company",
+        "solar_company_id",
+        "scopeForUserTenant",
+        "allowedSolarCompanyIds",
+        "UserSolarCompany",
+        "attendedCompanies",
+        "projetista",
+        "integrador",
+        "ProjectPolicy",
+        "whereHas client",
+        "designer_solar_company_id",
+        "global_admin bypass"
+      ]
+    },
+    "summary": "Excelente consistência com o modelo arquitetural explícito e multi-tenant do Engeapp, necessitando apenas expurgar o filler na description."
+  }
+]

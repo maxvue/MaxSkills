@@ -1,6 +1,6 @@
 ---
 name: context-window-management
-description: Strategies for managing LLM context windows including
+description: "Strategies for managing LLM context windows including Use when developing, optimizing, debugging, or configuring context window management in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for context window management."
   summarization, trimming, routing, and avoiding context rot
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)

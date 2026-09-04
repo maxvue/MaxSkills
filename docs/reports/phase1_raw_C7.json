@@ -1,0 +1,481 @@
+[
+  {
+    "skillName": "app-store-changelog",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/app-store-changelog/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui apenas 80 caracteres (muito abaixo do limite de 200 a 400 caracteres) e não inclui a cláusula explícita de gatilho/ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração de notas de lançamento (release notes e What's New) para a App Store a partir do histórico de commits do Git desde a última tag.",
+      "entidades": [
+        "scripts/collect_release_changes.sh",
+        "references/release-notes-guidelines.md",
+        "git",
+        "App Store"
+      ],
+      "keywords": [
+        "app-store",
+        "release-notes",
+        "changelog",
+        "git-history",
+        "git-tag",
+        "whats-new",
+        "commit-triage",
+        "ios-release",
+        "versioning",
+        "user-facing-changes"
+      ]
+    },
+    "summary": "Skill concisa e estruturada para compilação de release notes da App Store, necessitando apenas da expansão da description para 200-400 caracteres com gatilhos claros."
+  },
+  {
+    "skillName": "app-store-optimization",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/app-store-optimization/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description tem 153 caracteres (abaixo de 200 chars), usa linguagem promocional vazia ('Complete App Store Optimization (ASO) toolkit') e não apresenta gatilho explícito ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção '## How to Use' (linhas 191-227) apresenta 7 blocos repetitivos com simulação artificial de prompts ('Hey Claude—I just added the app-store-optimization skill...'), gerando ruído desnecessário.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final '## When to Use' duplicada (linhas 415-416) contendo apenas texto de placeholder tautológico ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover os 7 prompts repetitivos 'Hey Claude...' da seção '## How to Use' (linhas 191-227), condensando em intenções de uso diretas.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar a seção morta duplicada '## When to Use' no fim do arquivo (linhas 415-416).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização para lojas de aplicativos móveis (Apple App Store e Google Play Store) cobrindo pesquisa de palavras-chave, metadados, análise de concorrência e avaliações.",
+      "entidades": [
+        "Apple App Store",
+        "Google Play Store",
+        "AppNiche",
+        "keyword_analyzer.py",
+        "metadata_optimizer.py",
+        "aso_scorer.py",
+        "ab_test_planner.py"
+      ],
+      "keywords": [
+        "aso",
+        "app-store-optimization",
+        "apple-app-store",
+        "google-play-store",
+        "keyword-research",
+        "metadata-optimization",
+        "conversion-rate",
+        "ab-testing",
+        "app-reviews",
+        "app-store-connect",
+        "play-console"
+      ]
+    },
+    "summary": "Guia extenso de ASO com boas regras de metadados para iOS e Android, mas prejudicado por prompts simulados prolixos, placeholder duplicado e description promocional curta."
+  },
+  {
+    "skillName": "appdeploy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/appdeploy/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 172 caracteres (abaixo dos 200 caracteres recomendados); pode ser enriquecida mencionando ferramentas essenciais da API como 'deploy_app', 'get_app_status' e suporte a React/Next.js.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Publicação e gerenciamento de aplicações web completas (frontend, backend, banco de dados e storage) via API HTTP/JSON-RPC do AppDeploy.",
+      "entidades": [
+        "AppDeploy",
+        "api-v2.appdeploy.ai",
+        "deploy_app",
+        "get_deploy_instructions",
+        "get_app_template",
+        "get_app_status",
+        "get_apps"
+      ],
+      "keywords": [
+        "appdeploy",
+        "deployment",
+        "web-apps",
+        "json-rpc",
+        "mcp-tools",
+        "cloud-deploy",
+        "public-url",
+        "frontend-backend",
+        "react-vite",
+        "nextjs-static",
+        "curl-api"
+      ]
+    },
+    "summary": "Documentação de API HTTP/JSON-RPC limpa e bem organizada para o serviço AppDeploy, demandando apenas expansão pontual da description para 200-400 caracteres."
+  },
+  {
+    "skillName": "apple-container",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/apple-container/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 164 caracteres (abaixo de 200 chars) e não possui a cláusula explícita de gatilho de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Execução e orquestração de contêineres OCI/Linux em VMs dedicadas no macOS Apple Silicon utilizando a CLI open-source container da Apple.",
+      "entidades": [
+        "Apple container CLI",
+        "launchd",
+        "Containerization framework",
+        "Virtualization API",
+        "macOS Tahoe",
+        "macOS Sequoia",
+        "OCI"
+      ],
+      "keywords": [
+        "apple-silicon",
+        "containers",
+        "oci-images",
+        "macos-container",
+        "vm-per-container",
+        "docker-alternative",
+        "launchd",
+        "virtualization-api",
+        "apple-container-cli"
+      ]
+    },
+    "summary": "Excelente instrução técnica para a CLI open-source de contêineres da Apple no Apple Silicon, necessitando apenas da inclusão de gatilho explícito e expansão para 200-400 chars na description."
+  },
+  {
+    "skillName": "application-performance-performance-optimization",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/application-performance-performance-optimization/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Presença de vazamento de rascunho de IA não filtrado na linha 11: bloco '[Extended thinking: This workflow orchestrates...]' exposto no corpo da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Nome da skill com repetição anômala de termos ('application-performance-performance-optimization').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A skill estrutura todos os seus passos em torno de chamadas acopladas à ferramenta Task com tipos de subagente de taxonomia proprietária externa (ex.: 'subagent_type=\"database-cloud-optimization::database-optimizer\"').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A description possui 172 caracteres (abaixo do intervalo de 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover imediatamente o bloco residual '[Extended thinking: ...]' na linha 11.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a sintaxe artificial de prompts e subagentes em diretrizes práticas de otimização de performance técnica de backend, frontend e banco de dados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração de otimização de performance ponta a ponta abrangendo profiling, observabilidade, banco de dados, backend, frontend, CDN e testes de carga.",
+      "entidades": [
+        "DataDog",
+        "New Relic",
+        "OpenTelemetry",
+        "k6",
+        "Gatling",
+        "Artillery",
+        "Core Web Vitals",
+        "Lighthouse CI"
+      ],
+      "keywords": [
+        "performance-optimization",
+        "profiling",
+        "observability",
+        "flame-graphs",
+        "load-testing",
+        "core-web-vitals",
+        "database-tuning",
+        "caching",
+        "opentelemetry",
+        "k6"
+      ]
+    },
+    "summary": "Guia full-stack de performance manchado por vazamento de 'Extended thinking', duplicação no nome da skill e forte acoplamento a taxonomia arbitrária de subagentes."
+  },
+  {
+    "skillName": "applicationinsights-web-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/applicationinsights-web-ts/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Corrupção de código na linha 168: substituição automática de URL inseriu um link do GitHub dentro de uma expressão regular JavaScript ('replace(/([?&](https://github.com/.../token|sig|key)=)[^&]+/gi, ...)'), corrompendo a lógica de sanitização de tokens.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A description do frontmatter e a seção 'When to Use' (linha 16) estão truncadas abruptamente no meio da frase com reticências ('...correlated to backend...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro gramatical na cláusula de ativação da linha 16: 'when you need instrument browser/web apps' (omissão da preposição 'to').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Instrumentação de telemetria RUM (Real User Monitoring) e rastreamento de agentes GenAI no navegador com TypeScript via SDK do Azure Application Insights.",
+      "entidades": [
+        "@microsoft/applicationinsights-web",
+        "@microsoft/applicationinsights-clickanalytics-js",
+        "@microsoft/applicationinsights-react-js",
+        "ApplicationInsights",
+        "OpenTelemetry",
+        "W3C Trace Context",
+        "Azure Monitor"
+      ],
+      "keywords": [
+        "application-insights",
+        "rum",
+        "azure-monitor",
+        "telemetry",
+        "opentelemetry",
+        "genai-traces",
+        "react-plugin",
+        "distributed-tracing",
+        "traceparent",
+        "kql",
+        "typescript"
+      ]
+    },
+    "summary": "Material oficial da Microsoft de alta relevância técnica para RUM e GenAI spans no frontend, porém com código regex corrompido por link injetado e description truncada."
+  },
+  {
+    "skillName": "architect-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/architect-review/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de apenas 60 caracteres ('Master software architect specializing in modern architecture'), escrita em tom promocional de persona, sem verbos de ação operacional, sem gatilho 'Use when...' e sem discriminantes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo dominado por persona fluff e adjetivos grandiosos ('Elite software architect', 'Behavioral Traits', 'Knowledge Base') em vez de processos e heurísticas de auditoria técnica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Bloat estrutural maciço: mais de 50% do documento é uma enumeração superficial de buzzwords genéricos sob 'Capabilities' (Clean Arch, DDD, CQRS, Istio, Kafka, Kubernetes) sem métodos ou exemplos acionáveis.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 50,
+    "cuts": [
+      {
+        "text": "Remover a seção '## Behavioral Traits' (linhas 130-141) por ser ruído de prompt de persona sem utilidade operacional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar preâmbulos promocionais como '## Expert Purpose: Elite software architect...' (linhas 35-37).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Podar e reestruturar a seção '## Capabilities' (linhas 38-129), substituindo a lista de 90 linhas de buzzwords por checklists concretos de revisão arquitetural.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Avaliação e revisão arquitetural de sistemas distribuídos, padrões de design, escalabilidade, resiliência e boas práticas de engenharia de software.",
+      "entidades": [
+        "Clean Architecture",
+        "Domain-Driven Design",
+        "Microservices",
+        "Event-Driven Architecture",
+        "C4 Model",
+        "ADR",
+        "Kubernetes"
+      ],
+      "keywords": [
+        "software-architecture",
+        "architecture-review",
+        "distributed-systems",
+        "clean-architecture",
+        "domain-driven-design",
+        "microservices",
+        "event-driven",
+        "scalability",
+        "resilience",
+        "c4-model"
+      ]
+    },
+    "summary": "Skill excessivamente inflada por persona prompt ('Elite master architect') e catálogo de buzzwords sem orientações acionáveis; description de 60 caracteres totalmente deficiente."
+  },
+  {
+    "skillName": "architecture-decision-records",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/architecture-decision-records/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 172 caracteres (abaixo do intervalo de 200 a 400 chars), usa adjetivo de preenchimento ('Comprehensive patterns') e não traz a cláusula explícita de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, governança e documentação de decisões técnicas e de arquitetura através de registros ADR em diversos formatos e ciclo de vida estruturado.",
+      "entidades": [
+        "ADR",
+        "MADR",
+        "adr-tools",
+        "Michael Nygard",
+        "PostgreSQL",
+        "Kafka",
+        "EventStoreDB"
+      ],
+      "keywords": [
+        "architecture-decision-records",
+        "adr",
+        "madr",
+        "technical-decisions",
+        "adr-tools",
+        "documentation",
+        "decision-drivers",
+        "rfc",
+        "software-architecture",
+        "governance"
+      ]
+    },
+    "summary": "Guia completo e pragmático para redação e gestão de ADRs com múltiplos templates de valor real; necessita apenas de ajuste na description para 200-400 caracteres com 'Use when...'."
+  },
+  {
+    "skillName": "astro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/astro/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 144 caracteres (abaixo de 200 chars) e não inclui a cláusula explícita de gatilho/ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento de sites estáticos e dinâmicos com Astro explorando Islands Architecture, renderização com zero JS por padrão, coleções de conteúdo e SSR.",
+      "entidades": [
+        "Astro",
+        "astro:content",
+        "Zod",
+        "React",
+        "Svelte",
+        "@astrojs/rss",
+        "@astrojs/vercel",
+        "client:load",
+        "client:visible"
+      ],
+      "keywords": [
+        "astro",
+        "islands-architecture",
+        "content-collections",
+        "ssg",
+        "ssr",
+        "markdown",
+        "mdx",
+        "zero-js",
+        "partial-hydration",
+        "static-site-generator",
+        "frontend"
+      ]
+    },
+    "summary": "Documentação exemplar do framework Astro abrangendo Islands, coleções de conteúdo com Zod e adaptadores SSR; requer apenas expansão da description para 200-400 chars com 'Use when...'."
+  },
+  {
+    "skillName": "async-python-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/async-python-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 191 caracteres (abaixo de 200 chars), usa adjetivos vazios ('Comprehensive guidance... high-performance') e omite a cláusula de gatilho explícito ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md de 48 linhas atua apenas como um stub frágil com tripla repetição redundante de apontamento para 'resources/implementation-playbook.md' (linhas 36, 38 e 42), sem nenhum código ou padrão essencial incorporado.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Eliminar as menções repetitivas e redundantes a 'resources/implementation-playbook.md' nas linhas 36, 38 e 42, condensando em uma única referência limpa.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de programação assíncrona em Python com asyncio, gerenciamento de tarefas concorrentes, I/O não-bloqueante e resiliência.",
+      "entidades": [
+        "asyncio",
+        "async/await",
+        "FastAPI",
+        "aiohttp",
+        "Sanic",
+        "TaskGroup",
+        "gather"
+      ],
+      "keywords": [
+        "async-python",
+        "asyncio",
+        "coroutines",
+        "event-loop",
+        "gather",
+        "tasks",
+        "concurrency",
+        "non-blocking-io",
+        "python-async",
+        "backpressure"
+      ]
+    },
+    "summary": "Guia conceitual de asyncio cujo SKILL.md funciona como um stub com repetições redundantes da referência ao playbook externo; requer condensação e description calibrada."
+  }
+]

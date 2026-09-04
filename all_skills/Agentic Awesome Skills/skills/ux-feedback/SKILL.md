@@ -1,6 +1,6 @@
 ---
 name: ux-feedback
-description: Add appropriate user feedback states (loading, success, error, empty) to a component or page
+description: "Add appropriate user feedback states (loading, success, error, empty) to a component or page Use when developing, optimizing, debugging, or configuring ux feedback in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux feedback."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-feedback
 source_repo: bitjaru/styleseed

@@ -1,6 +1,6 @@
 ---
 name: agentic-actions-auditor
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring agentic actions auditor in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agentic actions auditor."
   Audits GitHub Actions workflows for security
   vulnerabilities in AI agent integrations 
   including Claude Code Action, 

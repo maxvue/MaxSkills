@@ -1,6 +1,6 @@
 ---
 name: mcp-tool-developer
-description: "Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with TypeScript/Python, testing, deployment, and registry publishing."
+description: "Build Model Context Protocol (MCP) servers and tools from scratch. Full-stack MCP development with TypeScript/Python, testing, deployment, and registry publishing. Use when developing, configuring, optimizing, or troubleshooting mcp tool developer in production workflows."
 category: developer-tools
 risk: safe
 source: community
@@ -130,3 +130,26 @@ Wrap an external API as an MCP tool with auth, rate limiting, and error handling
 
 - `api-integration-architect` - For API design patterns used in MCP tools
 - `security-audit-code-reviewer` - For reviewing MCP server code security
+
+### MCP Tool Annotations and Evaluation Suites
+
+Tools should declare semantic hints to help LLMs make safe, deterministic invocations:
+
+```typescript
+server.tool(
+  "query_records",
+  "Busca registros sem efeitos colaterais",
+  { filter: z.string() },
+  {
+    readOnlyHint: true,
+    idempotentHint: true,
+    destructiveHint: false
+  },
+  async ({ filter }) => ({
+    content: [{ type: "text", text: JSON.stringify(records) }]
+  }
+);
+```
+
+#### Evaluation Testing (10 QA Pairs)
+Sempre inclua na pasta `evals/` ou `reference/` uma suíte de 10 pares de avaliação contendo casos triviais, edge cases e validação de tratamento de erro para testes com MCP Inspector.

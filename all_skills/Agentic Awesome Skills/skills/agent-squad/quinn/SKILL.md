@@ -1,6 +1,6 @@
 ---
 name: quinn
-description: "Proves the system works by writing and executing comprehensive test suites."
+description: "Proves the system works by writing and executing comprehensive test suites. Use when developing, optimizing, debugging, or configuring agent squad/quinn in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for quinn."
 risk: safe
 source: community
 date_added: "2026-06-11"

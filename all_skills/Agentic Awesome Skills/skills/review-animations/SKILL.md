@@ -1,6 +1,6 @@
 ---
 name: review-animations
-description: "Use when reviewing animation and motion code against a strict craft, performance, accessibility, and interaction-quality bar."
+description: "Use when reviewing animation and motion code against a strict craft, performance, accessibility, and interaction-quality bar. Guides architecture, best practices, and implementation standards for review animations."
 category: frontend
 risk: safe
 source: community

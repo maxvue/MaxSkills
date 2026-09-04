@@ -1,6 +1,6 @@
 ---
 name: prompt-engineering-patterns
-description: "Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controllability."
+description: "Master advanced prompt engineering techniques to maximize LLM performance, reliability, and controllability. Use when developing, optimizing, debugging, or configuring prompt engineering patterns in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -20,7 +20,7 @@ Master advanced prompt engineering techniques to maximize LLM performance, relia
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Use this skill when
 

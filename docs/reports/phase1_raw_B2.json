@@ -1,0 +1,371 @@
+[
+  {
+    "skillName": "fastapi-templates",
+    "skillPath": "curated-youtube/fastapi-templates/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A seção 'Do not use this skill when' contém regras tautológicas genéricas ('The task is unrelated to fastapi project templates') que não agregam valor discriminante.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md funciona meramente como um ponteiro fino (41 linhas), delegando 100% dos exemplos ao implementation-playbook.md com instruções genéricas de preâmbulo ('Clarify goals, constraints...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica 'Do not use this skill when' (linhas 21-25), que apenas afirma não usar se o tema não for FastAPI.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a seção 'Instructions' (linhas 26-32), eliminando preâmbulos vazios e direcionando objetivamente ao implementation-playbook.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação de projetos e arquitetura de APIs assíncronas em FastAPI com injeção de dependência e roteamento modular.",
+      "entidades": ["FastAPI", "Depends", "CORSMiddleware", "Pydantic", "PostgreSQL", "MongoDB", "lifespan"],
+      "keywords": ["fastapi", "async", "depends", "dependency-injection", "middleware", "cors", "lifespan", "pydantic", "postgresql", "mongodb", "rest-api", "routers", "endpoints", "repositories", "services"]
+    },
+    "summary": "Skill tecnicamente consistente com playbook extenso de implementação, demandando apenas poda de seções tautológicas no SKILL.md."
+  },
+  {
+    "skillName": "frontend-design",
+    "skillPath": "curated-youtube/frontend-design/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description não utiliza o prefixo de gatilho imperativo padronizado 'Use when...' (utiliza 'when building new UI...'), reduzindo a assertividade da condição de ativação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não cita termos discriminantes técnicos cruciais desenvolvidos no corpo, como tokens de design (paletas hex de 4 a 6 cores), escalas tipográficas deliberadas e regras de especificidade de seletores CSS.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e princípios de design visual intencional para interfaces frontend sem recair em padrões genéricos de IA.",
+      "entidades": ["CSS", "wireframes ASCII", "tokens de design", "display/body typefaces", "media queries"],
+      "keywords": ["frontend-design", "ui", "typography", "color-palette", "layout", "wireframe", "tokens", "css-specificity", "micro-interactions", "responsive", "motion", "copy-design", "aesthetic", "design-system"]
+    },
+    "summary": "Guia de design de altíssima qualidade cognitiva e zero bloat, requerendo apenas padronização do gatilho e enriquecimento técnico da description."
+  },
+  {
+    "skillName": "get-shit-done",
+    "skillPath": "curated-youtube/get-shit-done/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 6,
+    "problems": [
+      {
+        "text": "Extensão insuficiente da description (124 caracteres, violando a faixa ideal de 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de condição de gatilho formal ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de vocabulário promocional e adjetivos vazios de marketing na description ('High-velocity autonomous engineering', 'minimal friction', 'velocidade máxima').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Estrutura do corpo é um boilerplate estéril copiado entre várias skills do lote, apresentando diretrizes genéricas de senso comum ('Investigação Prévia', 'Isolamento Seguro') sem nenhuma instrução técnica ou comando acionável do framework GSD.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A seção 'Quando Usar' apresenta justificativa tautológica circular ('Execução determinística e de alta fidelidade para rotinas de get-shit-done').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de URLs sintéticas/mockadas do YouTube (ex.: 'david_technical_doc_skills_81', 'alex_finn_gsd_skill_85') sem valor documental real.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 70,
+    "cuts": [
+      {
+        "text": "Eliminar as seções genéricas de 'Diretrizes de Execução' (linhas 49-55) e 'Quando Usar' circular (linhas 40-47), substituindo por mecânicas reais de decomposição de tarefas e loops de execução do GSD.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover a lista de vídeos de referência do YouTube com links sintéticos (linhas 58-64).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework conceitual de fluxo de trabalho de engenharia autônoma para entrega rápida de tarefas.",
+      "entidades": ["Markdown", "Shell", "GSD", "Finn-Loop"],
+      "keywords": ["get-shit-done", "gsd", "finn-loop", "autonomous-workflow", "engineering", "task-isolation", "verification", "execution", "token-economy", "workflow"]
+    },
+    "summary": "Casca vazia em formato de boilerplate repetitivo com links sintéticos e ausência total de instruções técnicas executáveis."
+  },
+  {
+    "skillName": "git-workflow",
+    "skillPath": "curated-youtube/git-workflow/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 191 caracteres, ligeiramente abaixo da extensão recomendada (200-400 chars).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O gatilho 'Use when making any code change' viola o critério de Equilíbrio de Amplitude por ser excessivamente permissivo (hiper-gatilho), arriscando a injeção indiscriminada da skill em qualquer tarefa de codificação.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Divergência entre o identificador do frontmatter (name: git-workflow-and-versioning) e o nome do diretório (git-workflow).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Práticas recomendadas de versionamento e fluxo de trabalho com Git, trunk-based development, commits atômicos e worktrees.",
+      "entidades": ["Git", "git worktree", "git bisect", "git blame", "Zod", "lint-staged", "husky", "npm test"],
+      "keywords": ["git", "trunk-based-development", "commits-atomicos", "conventional-commits", "git-worktree", "git-bisect", "branching-strategy", "pre-commit", "lint-staged", "git-blame", "feature-flags", "diff"]
+    },
+    "summary": "Excelente densidade técnica e ausência de bloat, necessitando apenas restringir o hiper-gatilho da description e sincronizar a nomenclatura."
+  },
+  {
+    "skillName": "git-worktree",
+    "skillPath": "curated-youtube/git-worktree/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Extensão insuficiente da description (132 caracteres, violando o piso de 200 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de comandos CLI de git worktree (como 'git worktree add', 'remove', 'list', 'prune') no corpo da skill, tornando-a inoperante.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Corpo composto por template repetitivo copiado com diretrizes vazias e 'Quando Usar' tautológico ('rotinas de git-worktree').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Links sintéticos de YouTube ('cole_skills_masterclass_31', etc.) sem correspondência factual com conteúdos reais.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 75,
+    "cuts": [
+      {
+        "text": "Substituir integralmente o boilerplate genérico das linhas 40-55 por fluxos reais de trabalho com worktrees para agentes paralelos, comandos CLI e convenções de diretório.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover a lista de vídeos recomendados com URLs sintéticas (linhas 58-64).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Isolamento estrito de tarefas e desenvolvimento paralelo em branches separadas utilizando Git Worktrees.",
+      "entidades": ["Git", "Bash", "Shell", "git worktree"],
+      "keywords": ["git-worktree", "git", "isolamento-de-tarefas", "branches-paralelas", "agentes-autonomos", "sandbox", "multithreading-agents", "worktree-add", "worktree-remove", "git-isolation"]
+    },
+    "summary": "Boilerplate vazio sem comandos reais de git worktree, links sintéticos e total ausência de instrução técnica."
+  },
+  {
+    "skillName": "mcp-server-routing",
+    "skillPath": "curated-youtube/mcp-server-routing/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Divergência severa de escopo e nomenclatura: o diretório é denominado 'mcp-server-routing', enquanto o nome da skill no frontmatter é 'mcp-builder' e todo o conteúdo trata da criação e avaliação de servidores MCP (Python/TypeScript), sem relação com roteamento.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A description utiliza adjetivo qualitativo ('high-quality MCP servers') que poderia ser substituído por termos técnicos mais objetivos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia completo para desenvolvimento, teste com MCP Inspector e geração de avaliações para servidores MCP em TypeScript e Python.",
+      "entidades": ["FastMCP", "Model Context Protocol", "TypeScript SDK", "Python SDK", "Zod", "Pydantic", "MCP Inspector", "Streamable HTTP", "stdio"],
+      "keywords": ["mcp", "mcp-server", "fastmcp", "typescript-sdk", "python-sdk", "zod", "pydantic", "streamable-http", "stdio", "mcp-inspector", "evaluation", "tools", "prompts", "resources"]
+    },
+    "summary": "Conteúdo técnico exemplar e rico em referências, porém com forte desacordo semântico entre o nome da pasta (routing) e a função real da skill (builder)."
+  },
+  {
+    "skillName": "mermaid-diagrammer",
+    "skillPath": "curated-youtube/mermaid-diagrammer/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com apenas 135 caracteres e sem cláusula de ativação formal ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de blocos de sintaxe Mermaid, convenções de diagramação ou exemplos práticos no corpo da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Metadados incorretos no frontmatter: repositório aponta para 'mckaywrigley/chatbot-ui' em vez de ferramentas ou documentações de Mermaid.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Corpo composto pelo mesmo boilerplate genérico e circular de outras skills do lote, com links sintéticos de YouTube.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 75,
+    "cuts": [
+      {
+        "text": "Substituir as seções genéricas vazias (linhas 40-55) por diretrizes concretas de sintaxe Mermaid (flowcharts, sequence, ERD, C4), escape de nós e renderização via mermaid-cli.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover os links sintéticos de YouTube (linhas 58-64).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração automatizada de diagramas de fluxo, sequência, arquitetura C4 e ERD utilizando sintaxe Mermaid.",
+      "entidades": ["Mermaid", "mermaid-cli", "Markdown"],
+      "keywords": ["mermaid", "flowcharts", "sequence-diagrams", "erd", "c4-architecture", "state-machines", "mermaid-cli", "diagramacao", "markdown", "architecture-diagrams"]
+    },
+    "summary": "Casca vazia em boilerplate genérico, sem qualquer instrução prática ou sintaxe Mermaid e com metadados alheios ao tema."
+  },
+  {
+    "skillName": "piv-loop",
+    "skillPath": "curated-youtube/piv-loop/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão insuficiente da description (144 caracteres) e ausência de cláusula de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de especificação técnica do loop Plan-Implement-Validate: não define formato de planos, critérios para portões de validação (gates) nem regras de transição entre estados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Corpo estruturado sobre o mesmo boilerplate genérico repetitivo, com tautologias ('rotinas de piv-loop') e links sintéticos de YouTube.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 75,
+    "cuts": [
+      {
+        "text": "Reescrever integralmente o corpo da skill (linhas 40-55) para fornecer o protocolo acionável de 3 etapas do PIV Loop (Plan, Implement, Validate), checklists de validação e critérios de saída de loop.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover os links sintéticos de YouTube (linhas 58-64).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Ciclo estruturado de engenharia em três fases (Planejar, Implementar e Validar) com marcos e portões de validação estritos.",
+      "entidades": ["Markdown", "PIV Loop", "Cole Medin"],
+      "keywords": ["piv-loop", "plan-implement-validate", "validation-gates", "engineering-loop", "task-breakdown", "milestones", "verificacao", "iteracao", "agentic-workflows", "quality-gates"]
+    },
+    "summary": "Boilerplate genérico repetitivo sem especificação técnica das fases do ciclo PIV, critérios de validação ou diretrizes operacionais."
+  },
+  {
+    "skillName": "pytest-and-jest-automation",
+    "skillPath": "curated-youtube/pytest-and-jest-automation/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description abaixo da faixa ideal (144 caracteres) e sem cláusula de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inconsistência entre 'description' (cita Pytest, Jest e Vitest) e 'description_pt_br' (restringe-se unicamente a Python com pytest).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência total de código, fixtures, padrões de mock ou exemplos de configuração para qualquer um dos frameworks citados (Pytest, Jest, Vitest).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Uso do boilerplate vazio repetitivo com justificativa circular ('rotinas de pytest-and-jest-automation') e links sintéticos de YouTube.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Metadados de repositório apontam para 'Anthropic' com URL 'karanb192/awesome-claude-skills', inflando métricas (24500 stars de um repositório curado geral).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 75,
+    "cuts": [
+      {
+        "text": "Substituir o template estéril (linhas 40-55) por padrões acionáveis de testes (fixtures do Pytest, mocks com pytest-mock, render e queries do Jest/testing-library, comandos de cobertura de código).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover os links sintéticos de YouTube (linhas 58-64).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de suítes de testes unitários e de integração com Pytest para Python e Jest/Vitest para TypeScript.",
+      "entidades": ["Pytest", "Jest", "Vitest", "pytest-asyncio", "pytest-mock", "@testing-library/jest-dom"],
+      "keywords": ["pytest", "jest", "vitest", "unit-tests", "integration-tests", "mocking", "test-fixtures", "code-coverage", "pytest-asyncio", "testing-library"]
+    },
+    "summary": "Boilerplate repetitivo sem uma única linha de teste, fixture ou mock para Pytest ou Jest/Vitest, apresentando metadados inconsistentes."
+  },
+  {
+    "skillName": "python-concessionarias-automation",
+    "skillPath": "curated-youtube/python-concessionarias-automation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Divergência entre o identificador do frontmatter (name: python-concessionarias-automation-best-practices) e o nome do diretório (python-concessionarias-automation).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural: a seção '## Objetivo' (linhas 8-9) repete ipsis litteris a description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Leve redundância interna na description ('automation scripts... Covers concessionaire regulations, RPA automation, and portal scripts').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a repetição literal da description na seção '## Objetivo' (linhas 8-9), mantendo diretamente o bloco de escopo subsequente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Boas práticas e arquitetura de automação RPA em Python para submissão e consulta de projetos fotovoltaicos em portais de concessionárias de energia e Sinceti/TRT.",
+      "entidades": ["Selenium", "requests", "functions_engeapp.py", "functions.py", "AntiCaptcha", "get_data", "registra.php", "Cemig", "Energisa", "Equatorial", "Coelba", "Sinceti", "TRT"],
+      "keywords": ["rpa", "selenium", "requests", "concessionarias-energia", "cemig", "energisa", "equatorial", "coelba", "sinceti", "trt", "engeapp", "anticaptcha", "recaptcha-v2", "get-data", "registra-php", "fotovoltaico"]
+    },
+    "summary": "Skill técnica de alto nível e profunda fidelidade arquitetural, demandando apenas sincronização de nomenclatura e eliminação de redundância no Objetivo."
+  }
+]

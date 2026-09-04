@@ -1,0 +1,127 @@
+Você é o Revisor Adversarial da Fase 3 para o lote ADV5.
+Sua missão é atuar como Advogado do Diabo e avaliar rigorosamente os seguintes 15 micro-lotes de problemas/cortes contra o código real em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ e os arquivos SKILL.md:
+
+### Micro-Lote [MB_CREATED_005] - Skill: laravel-browser-automation-webdriver
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Distorção semântica severa na description: cita tecnologias como Dusk, Puppeteer, Python RPA e microsserviços de backend que não existem nem no SKILL.md nem no engeapp, violando o Critério 5 (Fidelidade Estrita ao Conteúdo Real) e Critério 8 (Equilíbrio de Amplitude).
+  2. Omissão dos discriminantes semânticos reais na description: não cita Firefox, geckodriver, a classe App\Classes\Browser, nem o pool de portas gerenciado em Redis (Critério 4).
+  3. Frase genérica redundante ao final da description ('Covers browser automation, driver configuration, and element interactions.') violando o Critério 12.
+
+### Micro-Lote [MB_CREATED_013] - Skill: laravel-holiday-sla-calculation-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description finaliza com frase boilerplate genérica ('Covers objectives and core workflows.') que consome caracteres sem valor semântico discriminante.
+
+### Micro-Lote [MB_CREATED_021] - Skill: laravel-redis-integration-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém o filler genérico 'Covers objectives and core workflows.' no encerramento, o que gera redundância estilística e dilui o ganho semântico.
+
+### Micro-Lote [MB_CREATED_029] - Skill: vue-eslint-stylelint-quality-standards
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém cauda genérica/redundante 'Covers objectives, ESLint/Stylelint standards, and execution commands.' (Critérios 7 e 12).
+
+### Micro-Lote [MB_CREATED_037] - Skill: vue-pinia-state-management-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description possui fragmento truncado com meta-ruído de preenchimento ('Covers objectives and best practices, Registro main.').
+
+### Micro-Lote [MB_CREATED_045] - Skill: project-setup
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-setup/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Remover o placeholder vazio 'Siga as instruções e padrões descritos na documentação.' em '## Instruções' e realocar os passos operacionais de '## Objetivo' para '## Instruções'.
+  2. Substituir as referências externas a 'CLAUDE.md' por instruções autossuficientes dentro da própria skill.
+
+### Micro-Lote [MB_CRIT_053] - Skill: mermaid-diagrammer
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/mermaid-diagrammer/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description com apenas 135 caracteres e sem cláusula de ativação formal ('Use when...').
+  2. Ausência total de blocos de sintaxe Mermaid, convenções de diagramação ou exemplos práticos no corpo da skill.
+  3. Metadados incorretos no frontmatter: repositório aponta para 'mckaywrigley/chatbot-ui' em vez de ferramentas ou documentações de Mermaid.
+
+### Micro-Lote [MB_CRIT_061] - Skill: vue-components
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/vue-components/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Corpo stub scaffold de 65 linhas desprovido de qualquer código ou instrução de desenvolvimento de componentes em Vue 3.
+  2. Remover integralmente o scaffold genérico de 65 linhas e reescrever o SKILL.md com padrões reais de Vue 3 (Composition API, script setup, reatividade e tipagem TypeScript).
+
+### Micro-Lote [MB_CRIT_069] - Skill: loki-mode
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Remover as regras de execução cega que proíbem o agente de consultar o usuário ou confirmar comandos críticos (linhas 105-116).
+  2. Podar o excesso de seções teóricas repetitivas sobre 37 tipos de agentes e referências desnecessárias a threads do Hacker News e padrões informais (linhas 68-93 e 698-721).
+  3. Condensar os fluxos de trabalho e diagramas ASCII redundantes para um guia direto focado no ciclo SDLC e gestão de contexto.
+
+### Micro-Lote [MB_CRIT_077] - Skill: pypict-skill
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Eliminar o texto tautológico e substituir a totalidade do arquivo por um guia técnico real com a API do pypict, formato de modelos PICT e geração combinatorial de testes.
+
+### Micro-Lote [MB_CRIT_085] - Skill: aws-skills
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description excessivamente curta (80 caracteres), sem gatilho 'Use when...', sem discriminantes técnicos específicos e puramente genérica ('AWS development with infrastructure automation and cloud architecture patterns').
+  2. O arquivo SKILL.md é um stub vazio de apenas 29 linhas que apenas repete a mesma frase genérica em 4 seções diferentes sem fornecer nenhum padrão, instrução ou código prático.
+  3. Ausência total de valor operacional para um agente de IA; a skill atua apenas como redirecionador raso para um repositório GitHub externo.
+
+### Micro-Lote [MB_CURATED_093] - Skill: database-optimizer
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/database-optimizer/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description excessivamente curta (121 chars), promocional ('Expert database optimizer specializing in...') e sem gatilhos explícitos ('Use when...').
+  2. Formatação em estilo persona ('You are a database optimization expert...') sem snippets práticos de queries, índices ou configurações reais.
+  3. Gatilhos circulares/tautológicos ('Use this skill when: Working on database optimizer tasks') e apontamento para playbook inexistente ('resources/implementation-playbook.md').
+
+### Micro-Lote [MB_CURATED_101] - Skill: superpowers
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/superpowers/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Substituir o boilerplate genérico de 65 linhas pelas rotinas operacionais reais do framework Superpowers (planejamento estruturado, templates de especificação e ciclo de subagentes).
+
+### Micro-Lote [MB_PHASE2_109] - Skill: laravel-ziggy-routing-integration-best-practices + vue-axios-api-integration-best-practices
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de LAPIDAR: 'laravel-ziggy-routing-integration-best-practices' lida com a infraestrutura de geração e exposição de rotas nomeadas via Tighten Ziggy (artisan ziggy:generate, config/ziggy.php, tipos RouteList e bootstrap do resolvedor de rotas em app.ts). 'vue-axios-api-integration-best-practices' foca no cliente HTTP frontend (@maxvue/max-use: apiGetRoute, apiPostRoute, contratos de retorno e credenciais de sessão). Contudo, a skill de axios duplica integralmente o trecho de código e a explicação detalhada de 'setRouteResolver' em resources/app.ts (Regra 3), além de repetir preceitos sobre rotas nomeadas. A recomendação é LAPIDAR: manter ambas as skills devido a seus objetivos arquiteturais distintos (geração/resolução de rotas vs transporte HTTP), mas refinar 'vue-axios-api-integration-best-practices' para focar puramente em mutações HTTP, tratamento de retornos e erros, removendo a duplicação do bootstrap do resolver que pertence canonicamente à skill de Ziggy.
+  2. Plano de integracao: Ajustar escopos sem perdas
+
+### Micro-Lote [MB_PHASE2_117] - Skill: emil-design-eng + review-animations
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de LAPIDAR: Ambas as skills têm origem comum (emilkowalski/skills). emil-design-eng é um repositório conceitual e prático extenso (700+ linhas) sobre design engineering, física de springs, clip-path, easings e heurísticas de UI, mas incorpora indevidamente uma seção mandatória de revisão de código ('Review Format (Required)') e checklists que colidem diretamente com a função de review-animations. review-animations, por sua vez, é um subagente/revisor especializado com 'disable-model-invocation: true' desenhado estritamente para code review de diffs com postura rigorosa e veredicto formal Block/Approve. A recomendação é LAPIDAR: remover a formatação coercitiva de code review de emil-design-eng para que esta atue como mentora e guia de implementação de UI craft, mantendo review-animations focada na auditoria passiva de motion diffs, demarcando os gatilhos para evitar sobreposição.
+  2. Plano de integracao: Ajustar escopos sem perdas
+
+Diretrizes de Avaliação:
+1. Abra o arquivo SKILL.md da skill com view_file.
+2. Quando a acusação envolver conformidade técnica com o código de Engeapp/MaxVue, abra e confira os arquivos em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ (projects/engeapp, projects/MaxComponentsUi, projects/MaxPinia, projects/MaxUse, projects/MaxCode).
+3. Para cada problema listado, decida:
+   - CONFIRMADO: se o defeito técnico, não conformidade ou necessidade de corte/merge for real e comprovado.
+   - REFUTADO: se for falso positivo, exagero, código existente ou sugestão puramente cosmética.
+4. Forneça evidence concreta (arquivo e linha/trecho).
+5. Se CONFIRMADO e envolver a description, proponha correctedDescription calibrada (200-400 chars). Senão, deixe string vazia.
+
+Retorne SEMPRE um array JSON contendo um objeto para CADA problema avaliado no formato:
+[
+  {
+    "skillName": "nome da skill",
+    "problem": "texto exato ou resumo fiel do problema",
+    "verdict": "CONFIRMADO | REFUTADO",
+    "evidence": "arquivo e linha/trecho real",
+    "correctedDescription": "string se CONFIRMADO e impreciso, senao """
+  }
+]
+Salve o resultado em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/docs/reports/phase3_raw_ADV5.json usando write_to_file (sem ArtifactMetadata) e envie o resultado para o orquestrador via send_message.

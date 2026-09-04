@@ -1,0 +1,447 @@
+[
+  {
+    "skillName": "markstream-vue",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/markstream-vue/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres (abaixo da faixa ideal de 200 a 400 caracteres) e ausência de cláusula explícita de condição de uso ('Use when...') na descrição.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração e configuração do renderizador markstream-vue em aplicações Vue 3 com streaming de Markdown para IA e suporte a virtualização.",
+      "entidades": [
+        "markstream-vue",
+        "Vue 3",
+        "markstream-nuxt",
+        "MarkdownRender",
+        "shiki",
+        "stream-markdown",
+        "monaco",
+        "stream-diffs",
+        "Mermaid"
+      ],
+      "keywords": [
+        "vue3",
+        "markstream-vue",
+        "markdown",
+        "streaming",
+        "ai-chat",
+        "virtualization",
+        "shiki",
+        "monaco",
+        "chat-ui",
+        "dom-minimal",
+        "safe-html",
+        "renderer-modes"
+      ]
+    },
+    "summary": "Skill concisa e tecnicamente bem orientada para Vue 3, necessitando apenas da inclusão de gatilho explícito e expansão de tamanho na description."
+  },
+  {
+    "skillName": "mcp-tool-developer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/mcp-tool-developer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 167 caracteres (abaixo de 200 caracteres) e ausência de gatilho contextual explícito ('Use when...') no campo description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento full-stack de servidores e ferramentas no protocolo MCP (Model Context Protocol) em TypeScript e Python.",
+      "entidades": [
+        "McpServer",
+        "@modelcontextprotocol/sdk",
+        "StdioServerTransport",
+        "zod",
+        "SSE",
+        "Streamable HTTP",
+        "MCP Inspector"
+      ],
+      "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "typescript",
+        "python",
+        "stdio",
+        "sse",
+        "streamable-http",
+        "tools",
+        "resources",
+        "prompts",
+        "zod",
+        "schema",
+        "agent-tools",
+        "inspector"
+      ]
+    },
+    "summary": "Guia prático e claro para criação de servidores MCP, requerendo apenas enriquecimento da description para incluir gatilho e atingir a faixa de 200-400 chars."
+  },
+  {
+    "skillName": "mdpr-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/mdpr-skill/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description excessivamente concisa com 120 caracteres (abaixo do limiar mínimo de 200 caracteres) e sem cláusula formal de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Revisão semântica e visual de apresentações Markdown determinísticas geradas pelo runtime MDPR respeitando fronteiras de renderização.",
+      "entidades": [
+        "MDPR",
+        "mdpresent",
+        "codex-ppt",
+        "agent-hint.json",
+        "review-report.json",
+        "mdpr-theme-candidate-v1",
+        "bin/mdpr-skill.js"
+      ],
+      "keywords": [
+        "mdpr",
+        "markdown",
+        "presentations",
+        "pptx",
+        "visual-review",
+        "semantic-hints",
+        "manifest",
+        "layout-intent",
+        "theme-candidate",
+        "accessibility",
+        "deterministic-rendering"
+      ]
+    },
+    "summary": "Excelente definição de fronteiras determinísticas e schemas de auditoria para apresentações Markdown, exigindo apenas expansão e gatilho na description."
+  },
+  {
+    "skillName": "mesh-memory",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/mesh-memory/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 185 caracteres (abaixo dos 200 caracteres ideais) e sem cláusula de ativação formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Serviço de memória semântica auto-hospedado para agentes de IA via MCP utilizando PostgreSQL e pgvector para busca vetorial.",
+      "entidades": [
+        "mesh-memory",
+        "mcp_server.py",
+        "multilingual-e5-base",
+        "pgvector",
+        "PostgreSQL",
+        "mesh_focus",
+        "mesh_add",
+        "mesh_search",
+        "mesh_bytag"
+      ],
+      "keywords": [
+        "semantic-memory",
+        "mcp",
+        "pgvector",
+        "postgres",
+        "embeddings",
+        "worklogs",
+        "decisions",
+        "cross-session",
+        "workspaces",
+        "auto-tagging",
+        "multilingual-e5-base"
+      ]
+    },
+    "summary": "Documentação exemplar de ferramentas e fluxos de persistência semântica para agentes, carecendo apenas de leve calibração na description."
+  },
+  {
+    "skillName": "metasploit-framework",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/metasploit-framework/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description (257 chars) consiste integralmente de disclaimer legal de uso autorizado ('⚠️ AUTHORIZED USE ONLY...'), omitindo completamente o que a skill faz, ferramentas-chave (msfconsole, Meterpreter), módulos de exploração e gatilhos funcionais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção '## When to Use' no final do documento (linhas 495-497) contém texto tautológico vazio ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Contradição técnica entre a seção Prerequisites (afirma que a skill não exige sudo ou comandos privilegiados de host) e a tabela de Troubleshooting (instrui executar 'sudo msfdb init').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica '## When to Use' ao final do arquivo (linhas 495-497), integrando os gatilhos corretos no início do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Harmonizar a linha de resolução de banco de dados no Troubleshooting para remover comandos sudo não suportados pelas premissas da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Execução e operação do Metasploit Framework para testes de intrusão autorizados, payloads e gerenciamento de sessões Meterpreter.",
+      "entidades": [
+        "msfconsole",
+        "msfvenom",
+        "Meterpreter",
+        "msfdb",
+        "exploit/windows/smb/ms17_010_eternalblue",
+        "auxiliary/scanner",
+        "shikata_ga_nai"
+      ],
+      "keywords": [
+        "metasploit",
+        "penetration-testing",
+        "msfconsole",
+        "msfvenom",
+        "meterpreter",
+        "exploits",
+        "payloads",
+        "auxiliary",
+        "post-exploitation",
+        "reconnaissance",
+        "cve",
+        "security-audit"
+      ]
+    },
+    "summary": "Conteúdo operacional robusto com salvaguardas de autorização, porém prejudicado por description disfuncional que atua apenas como aviso legal e ruído estrutural no encerramento."
+  },
+  {
+    "skillName": "minimalist-ui",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/minimalist-ui/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 139 caracteres (abaixo de 200 caracteres), deixando de mencionar restrições tipográficas, paletas pastéis e microinterações com IntersectionObserver.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção '1. Protocol Overview' (linhas 29-32) introduz preâmbulo redundante que re-declara Name e Description em texto corrido logo após o cabeçalho.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Eliminar ou condensar o bloco '1. Protocol Overview' (linhas 29-32) para remover a duplicação textual de metadados.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes estéticas e de engenharia frontend para interfaces minimalistas editoriais com bento grids, paletas monocromáticas e micro-animações discretas.",
+      "entidades": [
+        "SF Pro Display",
+        "Newsreader",
+        "Geist Mono",
+        "Phosphor Icons",
+        "Radix UI Icons",
+        "Bento Box",
+        "Tailwind CSS"
+      ],
+      "keywords": [
+        "minimalist-ui",
+        "editorial-design",
+        "monochrome",
+        "bento-grid",
+        "typography",
+        "restrained-motion",
+        "tailwind",
+        "design-system",
+        "warm-gray",
+        "micro-interactions"
+      ]
+    },
+    "summary": "Guia de design editorial refinado com regras negativas e positivas sólidas, demandando apenas expansão da description e corte de preâmbulo redundante."
+  },
+  {
+    "skillName": "mmx-cli",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/mmx-cli/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração multimodal de conteúdo (texto, imagem, vídeo, fala, música) e busca web através da CLI mmx da plataforma MiniMax AI.",
+      "entidades": [
+        "mmx-cli",
+        "MiniMax-M3",
+        "MiniMax-M2.7",
+        "image-01",
+        "MiniMax-Hailuo-2.3",
+        "speech-2.8-hd",
+        "music-2.6-free"
+      ],
+      "keywords": [
+        "minimax",
+        "mmx",
+        "cli",
+        "image-generation",
+        "video-generation",
+        "text-to-speech",
+        "music-generation",
+        "web-search",
+        "vlm",
+        "terminal",
+        "automation"
+      ]
+    },
+    "summary": "Skill de referência com description perfeitamente balanceada (235 chars com gatilho e discriminantes), flags não-interativas para agentes e zero bloat."
+  },
+  {
+    "skillName": "mock-hunter",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/mock-hunter/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria automatizada de páginas web ativas via Playwright MCP para rastrear e classificar a proveniência real ou simulada de dados em tela.",
+      "entidades": [
+        "MockHunter",
+        "Playwright MCP",
+        "Lovable",
+        "Bolt.new",
+        "v0",
+        "Replit",
+        "mockhunter-report.md"
+      ],
+      "keywords": [
+        "mock-hunter",
+        "qa-audit",
+        "playwright",
+        "mock-data",
+        "hardcoded-values",
+        "llm-metrics",
+        "data-provenance",
+        "vibe-coding",
+        "automated-testing",
+        "web-inspection"
+      ]
+    },
+    "summary": "Auditoria de UI de alto rigor metodológico, description com 260 chars densa em termos discriminantes e salvaguardas estritas contra ações destrutivas."
+  },
+  {
+    "skillName": "modellix",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/modellix/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta com 133 caracteres (abaixo de 200 caracteres) sem cláusula de gatilho 'Use when...', omitindo famílias de modelos suportadas (Seedance, Nano Banana, Whisper, CosyVoice).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração e automação de chamadas assíncronas multimodais via modellix-cli para geração e transcrição de imagem, vídeo e áudio.",
+      "entidades": [
+        "modellix-cli",
+        "google/nano-banana-2-lite",
+        "bytedance/seedance-2.0-mini-t2v",
+        "alibaba/qwen-audio-3.0-tts-flash",
+        "openai/whisper-1",
+        "alibaba/cosyvoice-clone"
+      ],
+      "keywords": [
+        "modellix",
+        "cli",
+        "model-as-a-service",
+        "text-to-image",
+        "text-to-video",
+        "text-to-speech",
+        "speech-to-text",
+        "voice-clone",
+        "multimodal",
+        "seedance",
+        "whisper"
+      ]
+    },
+    "summary": "Documentação CLI limpa e focada em automação de tarefas generativas com espera assíncrona, requerendo expansão na description."
+  },
+  {
+    "skillName": "modern-javascript-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/modern-javascript-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 169 caracteres utiliza linguagem promocional genérica ('Comprehensive guide for mastering...', 'clean, maintainable, and performant code') sem gatilho de ativação 'Use when...' nem termos técnicos discriminantes específicos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "O SKILL.md de 44 linhas atua como um wrapper oco que delega praticamente todo o conhecimento técnico a um playbook externo ('resources/implementation-playbook.md'), sem apresentar exemplos diretos no arquivo principal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções '## Instructions' e '## Limitations' contêm texto boilerplate genérico de template ('Clarify goals, constraints...', 'Apply relevant best practices') de baixíssima densidade semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover instruções genéricas de template das linhas 29-35 e limitações vazias das linhas 40-44, incorporando diretrizes e padrões de código essenciais diretamente no SKILL.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais do JavaScript moderno (ES6+), programação funcional, manipulação de imutabilidade e concorrência assíncrona.",
+      "entidades": [
+        "ES6+",
+        "Promises",
+        "async/await",
+        "Array.prototype",
+        "Destructuring",
+        "Spread/Rest",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "javascript",
+        "es6",
+        "functional-programming",
+        "destructuring",
+        "arrow-functions",
+        "async-await",
+        "promises",
+        "immutability",
+        "composition",
+        "refactoring",
+        "clean-code"
+      ]
+    },
+    "summary": "Estrutura atuando como wrapper oco com instruções genéricas remetendo a um arquivo externo, demandando incorporação de conteúdo central e eliminação de chavões na description."
+  }
+]

@@ -1,0 +1,431 @@
+[
+  {
+    "skillName": "bilig-workpaper",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bilig-workpaper/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 120 caracteres (abaixo da faixa recomendada de 200 a 400 caracteres) e carece de cláusula formal de gatilho ('Use when...') especificando intenções como cálculos de planilhas em Node.js/TypeScript, MCP tools e validação de fórmulas XLSX sem Excel/UI.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Manipulação determinística de planilhas e fórmulas XLSX via WorkPaper JSON e MCP tools sem necessidade de Excel ou UI.",
+      "entidades": [
+        "@bilig/workpaper",
+        "WorkPaper",
+        "bilig-workpaper-mcp",
+        "bilig-mcp-challenge",
+        "exportWorkPaperDocument",
+        "serializeWorkPaperDocument"
+      ],
+      "keywords": [
+        "spreadsheets",
+        "formulas",
+        "workpaper",
+        "mcp",
+        "xlsx",
+        "typescript",
+        "bilig",
+        "recalculation",
+        "headless",
+        "deterministic",
+        "node.js"
+      ]
+    },
+    "summary": "Skill técnica sólida e enxuta para cálculo determinístico de planilhas sem UI, necessitando apenas expansão e cláusula de gatilho na description."
+  },
+  {
+    "skillName": "biopython",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/biopython/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description adota formato puramente declarativo e enciclopédico com adjetivos promocionais ('comprehensive set of freely available Python tools...') e cauda vaga ('and many other bioinformatics tasks'), sem cláusula formal de gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural com repetição de blocos ensinando busca por grep em referências (linhas 247-256 e linhas 418-432) e seção de sumário final genérica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Condensar as instruções redundantes de comandos grep para localização de referências (linhas 247-256 e 418-432) e remover a seção de sumário final repetitiva (linhas 433-443).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Processamento e análise bioinformática em Python com Biopython para sequências genéticas, alinhamentos, estruturas PDB e NCBI Entrez.",
+      "entidades": [
+        "Bio.Seq",
+        "Bio.SeqIO",
+        "Bio.Align",
+        "Bio.AlignIO",
+        "Bio.Entrez",
+        "Bio.Blast",
+        "Bio.PDB",
+        "Bio.Phylo",
+        "Bio.SeqUtils"
+      ],
+      "keywords": [
+        "biopython",
+        "bioinformatics",
+        "dna",
+        "rna",
+        "fasta",
+        "genbank",
+        "entrez",
+        "blast",
+        "pdb",
+        "phylogenetics",
+        "alignment",
+        "seqrecord",
+        "python"
+      ]
+    },
+    "summary": "Guia técnico abrangente de Biopython com leve ruído estrutural de navegação e description que necessita de conversão para formato imperativo com gatilho 'Use when'."
+  },
+  {
+    "skillName": "blueprint",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/blueprint/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description inicia no imperativo sem a cláusula formal de ativação contextual ('Use when...'), omitindo a explicitação clara de intenções como projetos de engenharia complexos com múltiplos PRs, sessões desconexas e revisão adversarial de planos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração de planos de construção técnica passo a passo com briefs de contexto independentes para execução cold-start por agentes de IA.",
+      "entidades": [
+        "/blueprint",
+        "antbotlab/blueprint",
+        "git clone",
+        "adversarial review",
+        "dependency graph"
+      ],
+      "keywords": [
+        "planning",
+        "multi-agent",
+        "cold-start",
+        "construction-plan",
+        "pull-request",
+        "dependency-graph",
+        "adversarial-review",
+        "multi-session",
+        "architecture"
+      ]
+    },
+    "summary": "Skill compacta e bem formulada para planejamento arquitetural multi-agente, necessitando apenas da cláusula de ativação formal na description."
+  },
+  {
+    "skillName": "brain-to-docs",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brain-to-docs/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém apenas 96 caracteres (muito abaixo do piso de 200 caracteres), não possui cláusula formal de gatilho ('Use when...') e omite termos discriminantes centrais do SKILL.md (entrevista estruturada de 5 perguntas, Architecture Decision Records em docs/adr/ e README).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Entrevista interativa para transformar visão de produto e decisões técnicas em documentação viva (README e ADRs).",
+      "entidades": [
+        "README.md",
+        "docs/adr/",
+        "Architecture Decision Records",
+        "ADR"
+      ],
+      "keywords": [
+        "interview",
+        "adr",
+        "architecture-decision-records",
+        "readme",
+        "documentation",
+        "product-vision",
+        "technical-decisions",
+        "markdown",
+        "brainstorming"
+      ]
+    },
+    "summary": "Processo interativo ágil para elicitação de decisões arquiteturais e visão de produto, necessitando de ampliação e cláusula de gatilho na description."
+  },
+  {
+    "skillName": "brand-guidelines",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brand-guidelines/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes de copywriting e voz de marca da Sentry para redação de interfaces, mensagens de erro e estados vazios.",
+      "entidades": [
+        "Sentry",
+        "Plain Speech",
+        "Sentry Voice",
+        "UI element guidelines",
+        "Sentry Frontend Handbook"
+      ],
+      "keywords": [
+        "copywriting",
+        "sentry",
+        "brand-guidelines",
+        "plain-speech",
+        "sentry-voice",
+        "microcopy",
+        "ux-writing",
+        "empty-states",
+        "error-messages",
+        "ui-text",
+        "onboarding"
+      ]
+    },
+    "summary": "Exemplar em todos os critérios, com description altamente densa, discriminante, gatilhos claros e corpo enxuto e prático."
+  },
+  {
+    "skillName": "brave-man",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brave-man/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description não inclui cláusula explícita de condição de uso ('Use when...') para acionamento prévio à codificação quando o usuário solicita criação de software com especificações vagas ou sumárias.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Entrevista estruturada de levantamento de requisitos para gerar um prompt.md completo antes de iniciar a codificação em nova sessão.",
+      "entidades": [
+        "prompt.md",
+        "Triage Phase",
+        "Phased Interview",
+        "Project Brief",
+        "Definition of Done"
+      ],
+      "keywords": [
+        "requirements",
+        "interview",
+        "prompt-engineering",
+        "spec-generation",
+        "scoping",
+        "clarification",
+        "project-brief",
+        "handoff",
+        "system-prompt"
+      ]
+    },
+    "summary": "Excelente metodologia para elicitação de requisitos e desacoplamento de escopo e execução, necessitando apenas de ajuste de gatilho na description."
+  },
+  {
+    "skillName": "brendangregg-use-tsa",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brendangregg-use-tsa/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 161 caracteres (abaixo dos 200 a 400 recomendados) e omite a cláusula formal de gatilho ('Use when...') para casos de servidores lentos, saturação de recursos, threads bloqueadas e regressões de latência pós-deploy.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Solução metódica de problemas de performance e análise de causa raiz no Linux utilizando os métodos USE e TSA de Brendan Gregg.",
+      "entidades": [
+        "Brendan Gregg",
+        "USE Method",
+        "TSA Method",
+        "vmstat",
+        "mpstat",
+        "pidstat",
+        "iostat",
+        "sar",
+        "perf",
+        "offcputime",
+        "flamegraph.pl",
+        "cgroup"
+      ],
+      "keywords": [
+        "performance",
+        "troubleshooting",
+        "use-method",
+        "tsa-method",
+        "linux",
+        "ebpf",
+        "cpu-saturation",
+        "flame-graphs",
+        "rca",
+        "postmortem",
+        "observability",
+        "sre",
+        "latency"
+      ]
+    },
+    "summary": "Guia operacional impecável de SRE e análise de performance Linux, requerendo apenas expansão de tamanho e inclusão de gatilho formal na description."
+  },
+  {
+    "skillName": "brevo-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brevo-automation/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 111 caracteres (muito abaixo de 200), não contém cláusula de gatilho ('Use when...') e omite a cobertura de intenções fundamentais (campanhas, templates HTML, remetentes e testes A/B).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seção final tautológica e vazia nas linhas 200-201 ('When to Use: This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica residual 'When to Use' nas linhas 200-201.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de campanhas, templates e testes A/B de email marketing no Brevo (Sendinblue) via toolkit Composio e Rube MCP.",
+      "entidades": [
+        "Brevo",
+        "Sendinblue",
+        "Rube MCP",
+        "Composio",
+        "BREVO_LIST_EMAIL_CAMPAIGNS",
+        "BREVO_UPDATE_EMAIL_CAMPAIGN",
+        "BREVO_GET_ALL_EMAIL_TEMPLATES",
+        "BREVO_CREATE_OR_UPDATE_EMAIL_TEMPLATE"
+      ],
+      "keywords": [
+        "brevo",
+        "sendinblue",
+        "email-marketing",
+        "rube-mcp",
+        "composio",
+        "campaigns",
+        "email-templates",
+        "ab-testing",
+        "senders",
+        "automation"
+      ]
+    },
+    "summary": "Guia funcional de ferramentas MCP da Brevo via Composio, prejudicado por description excessivamente curta e boilerplate tautológico no encerramento."
+  },
+  {
+    "skillName": "broken-authentication",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/broken-authentication/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description carece de cláusula explícita de condição de uso ('Use when...') e consome espaço com contextualização enciclopédica sobre ranking OWASP Top 10 em vez de foco direto em testes de segurança autorizados de autenticação e sessão.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seção tautológica e sem utilidade nas linhas 493-494 ('When to Use: This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover a seção residual redundante 'When to Use' nas linhas 493-494.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia de auditoria e teste de invasão de vulnerabilidades de autenticação e gerenciamento de sessão web (OWASP Top 10).",
+      "entidades": [
+        "OWASP",
+        "Burp Suite",
+        "Hydra",
+        "JWT",
+        "MFA/2FA",
+        "Session Fixation",
+        "HttpOnly",
+        "SameSite",
+        "X-Forwarded-For"
+      ],
+      "keywords": [
+        "broken-authentication",
+        "owasp",
+        "penetration-testing",
+        "session-management",
+        "brute-force",
+        "credential-stuffing",
+        "mfa-bypass",
+        "jwt",
+        "session-fixation",
+        "password-reset",
+        "security"
+      ]
+    },
+    "summary": "Guia abrangente de teste de invasão ético para falhas de autenticação e sessão, necessitando de poda de seção tautológica e gatilho contextual na description."
+  },
+  {
+    "skillName": "brooks-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brooks-audit/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description do frontmatter e o texto da seção 'When to Use' (linha 16) estão severamente truncados no meio da frase com reticências ('...check for circular imports, understand...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Quebra crítica de dependência interna: o arquivo instrui explicitamente a leitura de '../_shared/common.md', '../_shared/source-coverage.md' e '../_shared/decay-risks.md' (passos 1 a 3 do Setup e passos 2, 4 e 6 do Process), porém o diretório '../_shared' não existe no repositório, impedindo a execução do fluxo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria arquitetural de módulos, integridade de camadas e decadência estrutural com base em princípios clássicos de engenharia de software.",
+      "entidades": [
+        "hyhmrright/brooks-lint",
+        "architecture-guide.md",
+        "onboarding-guide.md",
+        "Mermaid dependency graph",
+        "Conway's Law"
+      ],
+      "keywords": [
+        "architecture-audit",
+        "module-dependencies",
+        "layering-integrity",
+        "structural-decay",
+        "circular-imports",
+        "mermaid",
+        "conways-law",
+        "codebase-health",
+        "brooks-lint"
+      ]
+    },
+    "summary": "Skill de auditoria arquitetural com potencial conceitual, mas em estado ruim devido a description truncada e referências a arquivos compartilhados inexistentes no repositório."
+  }
+]

@@ -1,6 +1,6 @@
 ---
 name: distribute-skill-to-all-agents
-description: "Distribute a skill across configured agent skill folders while respecting local symlink layouts."
+description: "Distribute a skill across configured agent skill folders while respecting local symlink layouts. Use when developing, optimizing, debugging, or configuring distribute skill to all agents in production workflows."
 category: development
 risk: critical
 source: community

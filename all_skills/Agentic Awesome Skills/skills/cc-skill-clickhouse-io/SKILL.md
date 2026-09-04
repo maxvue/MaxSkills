@@ -1,6 +1,6 @@
 ---
 name: cc-skill-clickhouse-io
-description: "ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads."
+description: "ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads. Use when developing, optimizing, debugging, or configuring cc skill clickhouse io in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"

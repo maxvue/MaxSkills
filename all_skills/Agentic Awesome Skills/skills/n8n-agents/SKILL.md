@@ -1,6 +1,6 @@
 ---
 name: n8n-agents
-description: Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output, and human-review flows.
+description: "Design n8n AI agents, chains, classifiers, extractors, tool calling, memory, RAG, structured output, and human-review flows. Use when developing, optimizing, debugging, or configuring n8n agents in production workflows."
 risk: critical
 source: https://github.com/czlonkowski/n8n-skills/tree/main/skills/n8n-agents
 source_repo: czlonkowski/n8n-skills

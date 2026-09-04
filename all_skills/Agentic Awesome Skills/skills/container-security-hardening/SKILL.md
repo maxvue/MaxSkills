@@ -1,6 +1,6 @@
 ---
 name: container-security-hardening
-description: >
+description: "> Use when developing, configuring, optimizing, or troubleshooting container security hardening in production workflows. Use when developing, optimizing, testing, or configuring container security hardening in production environments."
   Harden Docker/container images and runtime deployments with secure base images,
   non-root users, CVE scanning, SBOM/signing, seccomp/AppArmor, and Kubernetes
   pod security controls. Use for Dockerfile security reviews, container CVEs,

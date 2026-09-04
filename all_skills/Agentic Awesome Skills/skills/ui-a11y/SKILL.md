@@ -1,6 +1,6 @@
 ---
 name: ui-a11y
-description: Audit a component or page for accessibility issues and fix them
+description: "Audit a component or page for accessibility issues and fix them Use when developing, optimizing, debugging, or configuring ui a11y in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui a11y."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-a11y
 source_repo: bitjaru/styleseed

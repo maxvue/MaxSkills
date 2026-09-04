@@ -1,0 +1,528 @@
+[
+  {
+    "skillName": "hugging-face-datasets",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-datasets/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Critério 3 (Inferência Clara de Condição de Uso / Gatilho): A descrição de 260 caracteres descreve os recursos de forma declarativa ('Create and manage datasets on Hugging Face Hub. Supports initializing repos...'), mas carece de cláusula canônica de ativação 'Use when...' para disparos semânticos do orquestrador.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 10 (Linguagem Anti-Promocional): Uso de qualificador genérico/promocional 'for comprehensive dataset workflows' no encerramento da descrição, consumindo caracteres que deveriam expressar termos discriminantes concretos como DuckDB.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Condensar o bloco genérico de template de system prompt (linhas 401-418) e podar a seção 'Limitations' boilerplate no final (linhas 551-554).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Gerenciamento, estruturação, streaming e consulta SQL via DuckDB para datasets no Hugging Face Hub.",
+      "entidades": [
+        "huggingface_hub",
+        "duckdb",
+        "scripts/dataset_manager.py",
+        "scripts/sql_manager.py",
+        "HF MCP server",
+        "PEP 723",
+        "hf://"
+      ],
+      "keywords": [
+        "hugging face hub",
+        "datasets",
+        "duckdb",
+        "sql query",
+        "parquet",
+        "jsonl",
+        "dataset manager",
+        "row streaming",
+        "dataset templates",
+        "qa template",
+        "classification",
+        "chat template",
+        "hf protocol",
+        "hub push",
+        "mmlu"
+      ]
+    },
+    "summary": "Skill técnica robusta para criação e manipulação SQL de datasets HF; necessita apenas de gatilho explícito na descrição e condensação leve de templates genéricos."
+  },
+  {
+    "skillName": "hugging-face-evaluation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-evaluation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Critério 3 (Inferência Clara de Condição de Uso / Gatilho): A descrição de 265 caracteres possui excelente vocabulário técnico discriminante, mas carece da fórmula explícita de ativação 'Use when...' para balizar o roteador de intenções do agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar redundâncias entre o fluxo detalhado em 'Method 1' e a seção 'Commands Reference', além de podar o bloco genérico de 'Limitations' ao final.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração de tabelas de README, importação via Artificial Analysis e execução de avaliações vLLM/lighteval para metadados model-index de model cards.",
+      "entidades": [
+        "scripts/evaluation_manager.py",
+        "vLLM",
+        "lighteval",
+        "inspect-ai",
+        "Artificial Analysis API",
+        "model-index",
+        "Papers with Code",
+        "hf jobs"
+      ],
+      "keywords": [
+        "model card",
+        "evaluation",
+        "benchmark",
+        "model-index",
+        "vllm",
+        "lighteval",
+        "inspect-ai",
+        "artificial analysis",
+        "pull request",
+        "readme tables",
+        "markdown-it-py",
+        "leaderboard",
+        "mmlu",
+        "gsm8k"
+      ]
+    },
+    "summary": "Excelente skill de avaliação de modelos com salvaguardas anti-duplicação de PRs; requer apenas ajuste do gatilho 'Use when...' na descrição."
+  },
+  {
+    "skillName": "hugging-face-model-trainer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-model-trainer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 e 5 (Existência, Extensão e Fidelidade): A descrição termina truncada abruptamente com reticências ('...Includes guidance on the TRL Jobs...'), deixando a última frase incompleta no frontmatter YAML.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 3 (Inferência Clara de Condição de Uso / Gatilho): Ausência de gatilho explícito 'Use when...' no início da descrição para sinalização ao roteador de agentes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Ausência de Redundâncias): O documento replica alertas idênticos sobre persistência efêmera em jobs, timeouts recomendados e execução assíncrona em quatro seções distintas ('Prerequisites Checklist', 'Asynchronous Job Guidelines', 'Critical Directives' e 'Key Takeaways').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Podar a seção 'Key Takeaways' (linhas 738-750) que repete verbatim as diretrizes operacionais já esmiuçadas em 'Key Directives' e 'Prerequisites Checklist'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Treinamento e fine-tuning de modelos LLM e visão via TRL, Unsloth e HF Jobs com monitoramento Trackio e conversão GGUF.",
+      "entidades": [
+        "TRL",
+        "SFTTrainer",
+        "DPOTrainer",
+        "GRPOTrainer",
+        "Unsloth",
+        "hf_jobs",
+        "Trackio",
+        "GGUF",
+        "peft",
+        "LoraConfig",
+        "scripts/train_sft_example.py"
+      ],
+      "keywords": [
+        "fine-tuning",
+        "trl",
+        "sft",
+        "dpo",
+        "grpo",
+        "unsloth",
+        "hf jobs",
+        "trackio",
+        "gguf",
+        "lora",
+        "peft",
+        "gpu flavors",
+        "dataset inspector",
+        "cloud training",
+        "model selection"
+      ]
+    },
+    "summary": "Documentação técnica oficial completa, mas penalizada por descrição truncada com reticências e prolixidade redundante entre seções de checklist e takeaways."
+  },
+  {
+    "skillName": "hugging-face-paper-publisher",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-paper-publisher/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 3 (Inferência Clara de Condição de Uso / Gatilho): A descrição omite gatilho canônico no início ('Use when publishing or indexing arXiv papers...'), apresentando apenas declaração de suporte de recursos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Termos Discriminantes): Omissão do termo discriminante central 'arXiv', que é a espinha dorsal de todo o funcionamento da ferramenta no SKILL.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 10 (Linguagem Anti-Promocional): Uso do adjetivo vago e desnecessário 'professional' em 'generating professional markdown-based research articles'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover a seção de roadmap especulativo 'Future Enhancements' (linhas 626-636) e condensar duplicatas de exemplos entre 'Integration Examples' e 'Common Patterns'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Publicação, indexação arXiv, reivindicação de autoria e vinculação de artigos científicos a repositórios no Hugging Face Hub.",
+      "entidades": [
+        "scripts/paper_manager.py",
+        "PaperManager",
+        "arXiv",
+        "Hugging Face Paper Pages",
+        "hf.co/papers",
+        "BibTeX",
+        "YAML frontmatter"
+      ],
+      "keywords": [
+        "paper publisher",
+        "arxiv",
+        "paper pages",
+        "claim authorship",
+        "model card",
+        "dataset card",
+        "citations",
+        "bibtex",
+        "research article",
+        "markdown templates",
+        "visibility",
+        "paper linking"
+      ]
+    },
+    "summary": "Skill consistente para ciclo de vida de publicações acadêmicas no Hub; necessita de inclusão de 'arXiv' e fórmula de ativação na descrição, além de poda de seção de roadmap futuro."
+  },
+  {
+    "skillName": "hugging-face-papers",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-papers/SKILL.md",
+    "state": "Regular",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Critério 1 e 3 (Existência, Extensão e Gatilho): A descrição de 299 caracteres é interrompida abruptamente por reticências no meio do gatilho ('...or asks to summarize, explain,...'), quebrando a integridade sintática e semântica do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Consulta, leitura de artigos em markdown e integração com a API REST de Papers do Hugging Face.",
+      "entidades": [
+        "hf.co/papers",
+        "curl",
+        "arXiv",
+        "/api/papers",
+        "/api/daily_papers",
+        "/api/models?filter=arxiv",
+        "Authorization Bearer"
+      ],
+      "keywords": [
+        "paper pages",
+        "arxiv id",
+        "markdown papers",
+        "daily papers",
+        "papers api",
+        "metadata",
+        "paper search",
+        "claim authorship",
+        "models",
+        "datasets",
+        "spaces",
+        "curl",
+        "rest api"
+      ]
+    },
+    "summary": "Documentação REST concisa e de alta qualidade técnica; rebaixada a Regular exclusivamente pelo corte abrupto com reticências ao fim da descrição."
+  },
+  {
+    "skillName": "hugging-face-tool-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-tool-builder/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 2, 7 e 10 (Clareza, Não-Generalismo e Anti-Promocional): A descrição foi redigida como meta-prompt/instrução de roleplay para o LLM ('Your purpose is now is to create reusable command line scripts...') contendo erro gramatical grotesco ('is now is to') em vez de declarar as competências da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 3 (Inferência Clara de Condição de Uso / Gatilho): Ausência total de gatilho canônico 'Use when...' para contextualizar o acionamento semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Ausência de Redundâncias e Coerência): A linha 10 do SKILL.md replica o mesmo erro gramatical de roleplay ('Your purpose is now is to create...'), e a referência à CLI lista opções defasadas se comparada à versão oficial correspondente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Substituir o parágrafo de roleplay na linha 10 por introdução declarativa padrão de documentação técnica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento de scripts CLI componíveis e pipelines com piping sobre a API REST e CLI do Hugging Face.",
+      "entidades": [
+        "hf CLI",
+        "openapi.json",
+        "jq",
+        "references/baseline_hf_api.sh",
+        "references/hf_enrich_models.sh",
+        "HF_TOKEN"
+      ],
+      "keywords": [
+        "tool builder",
+        "cli scripts",
+        "chaining",
+        "piping",
+        "intermediate processing",
+        "openapi",
+        "jq",
+        "ndjson",
+        "rest api",
+        "hf command",
+        "shell scripts",
+        "composability"
+      ]
+    },
+    "summary": "Conteúdo operacional útil sobre chamadas shell/jq com a API HF, porém prejudicado por descrição e preâmbulo formulados como meta-prompt de roleplay com erro gramatical."
+  },
+  {
+    "skillName": "hugging-face-trackio",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-trackio/SKILL.md",
+    "state": "Regular",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Critério 1 e 5 (Existência, Extensão e Fidelidade): A descrição termina interrompida por reticências no trecho '...syncing, and...', deixando a oração final suspensa.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Rastreamento de experimentos de ML, alertas diagnósticos e persistência de métricas em HF Spaces via Trackio.",
+      "entidades": [
+        "trackio",
+        "trackio.init()",
+        "trackio.log()",
+        "trackio.alert()",
+        "AlertLevel",
+        "trackio CLI",
+        "TRL",
+        "Hugging Face Spaces"
+      ],
+      "keywords": [
+        "trackio",
+        "experiment tracking",
+        "metrics logging",
+        "alerts",
+        "webhooks",
+        "hf spaces",
+        "dashboard",
+        "autonomous ml",
+        "diagnostics",
+        "python api",
+        "cli retrieval",
+        "trl integration"
+      ]
+    },
+    "summary": "Excelente skill orientada a experimentação autônoma de ML com zero ruído estrutural; necessita apenas de fechar a frase cortada com reticências na descrição."
+  },
+  {
+    "skillName": "hugging-face-vision-trainer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hugging-face-vision-trainer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Critério 1 e 5 (Existência, Extensão e Fidelidade): A descrição atinge 299 caracteres e é cortada abruptamente no final com reticências ('...on Hugging Face Jobs...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 3 (Inferência Clara de Condição de Uso / Gatilho): Ausência de fórmula de gatilho explícita 'Use when fine-tuning or training vision models...' para o roteador de intenções.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Podar o bloco de limitações genéricas boilerplate no encerramento (linhas 602-607) e condensar os diálogos de AskUserQuestion em formato de tabela de parâmetros.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Treinamento e ajuste fino de modelos de visão (detecção de objetos D-FINE/RT-DETR, classificação timm e segmentação SAM/SAM2) no Hugging Face Jobs.",
+      "entidades": [
+        "scripts/object_detection_training.py",
+        "scripts/image_classification_training.py",
+        "scripts/sam_segmentation_training.py",
+        "scripts/dataset_inspector.py",
+        "D-FINE",
+        "RT-DETR v2",
+        "timm",
+        "SAM2",
+        "HfApi"
+      ],
+      "keywords": [
+        "vision trainer",
+        "object detection",
+        "image classification",
+        "sam2",
+        "hiera",
+        "d-fine",
+        "rt-detr",
+        "timm",
+        "transformers",
+        "hf jobs",
+        "bounding boxes",
+        "segmentation",
+        "trackio",
+        "dataset inspector"
+      ]
+    },
+    "summary": "Manual de visão computacional de altíssimo rigor técnico e especificidade; necessita apenas de ajuste de gatilho e resolução de corte por reticências na descrição."
+  },
+  {
+    "skillName": "huggingface-spaces",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/huggingface-spaces/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Critério 1 e 3 (Existência, Extensão e Gatilho): A descrição de 299 caracteres é interrompida com reticências no final da frase de ativação ('...port code onto...'), truncando a intenção de uso.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Ausência de Redundâncias): O cabeçalho '## When to Use' (linha 16) repete verbatim a descrição truncada com o corte incompleto ('...port code onto...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      {
+        "text": "Corrigir a frase truncada com reticências na seção 'When to Use' (linha 16) para manter a integridade documental.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção, deploy, gerenciamento de hardware (ZeroGPU, Dedicated) e depuração de aplicações em Hugging Face Spaces.",
+      "entidades": [
+        "hf CLI",
+        "Gradio",
+        "ZeroGPU",
+        "Docker",
+        "Static SDK",
+        "gradio_client",
+        "spaces.GPU",
+        "DiffusionPipeline",
+        "hf spaces"
+      ],
+      "keywords": [
+        "hugging face spaces",
+        "zero-gpu",
+        "gradio",
+        "docker",
+        "static sdk",
+        "blackwell wheels",
+        "dedicated gpu",
+        "storage buckets",
+        "gradio client",
+        "debugging",
+        "app deployment",
+        "app.py"
+      ]
+    },
+    "summary": "Excelente guia prático para desenvolvimento e depuração de Spaces com ZeroGPU; classificada como Regular devido ao truncamento da frase de gatilho na descrição e na seção introdutória."
+  },
+  {
+    "skillName": "huggingface-tool-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/huggingface-tool-builder/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 e 5 (Existência, Extensão e Fidelidade): A descrição de 295 caracteres sofre de corte por reticências no trecho final ('...reusable script to fetch, enrich...'), ficando inacabada.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Ausência de Redundâncias): A seção '## When to Use' (linha 16) repete exatamente a descrição truncada com as mesmas reticências finais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 7 (Não-Generalismo e Redação): A linha 19 retém o preâmbulo conversacional com erro gramatical herdado ('Your purpose is now is to create reusable command line scripts...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o parágrafo de roleplay na linha 19 ('Your purpose is now is to...') e condensar a seção 'When to Use' duplicada.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de utilitários CLI e scripts compostos para consumo, transformação e chaining da API do Hugging Face.",
+      "entidades": [
+        "hf CLI",
+        "openapi.json",
+        "jq",
+        "references/baseline_hf_api.sh",
+        "references/hf_enrich_models.sh",
+        "HF_TOKEN",
+        "huggingface-cli"
+      ],
+      "keywords": [
+        "tool builder",
+        "hugging face api",
+        "cli scripts",
+        "piping",
+        "chaining",
+        "openapi",
+        "jq",
+        "ndjson",
+        "rest api",
+        "model metadata",
+        "automation",
+        "bash",
+        "python",
+        "tsx"
+      ]
+    },
+    "summary": "Versão oficial de tool-builder para HF API; classificada como Regular devido ao truncamento da descrição, cópia idêntica na introdução e texto residual de roleplay."
+  }
+]

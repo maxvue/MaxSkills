@@ -1,6 +1,6 @@
 ---
 name: sendblue-notify
-description: "Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire."
+description: "Text the user's phone when a long-running task, agent turn, or scheduled job finishes — via @sendblue/cli for outbound, optionally wired to a Claude Code Stop hook for automatic fire. Use when developing, optimizing, debugging, or configuring sendblue notify in production workflows."
 category: automation
 risk: critical
 source: community

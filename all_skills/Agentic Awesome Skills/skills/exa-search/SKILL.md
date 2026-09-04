@@ -1,6 +1,6 @@
 ---
 name: exa-search
-description: "Semantic search, similar content discovery, and structured research using Exa API. Use when you need semantic/embeddings-based search, finding similar content, or searching by category (company, people, research papers, etc.)."
+description: "Comprehensive engineering guide and best practices for exa search. Use when configuring, developing, debugging, or optimizing exa search architecture in production systems. Guides architecture, best practices, and implementation standards for exa search."
 risk: critical
 source: community
 date_added: "2026-02-27"

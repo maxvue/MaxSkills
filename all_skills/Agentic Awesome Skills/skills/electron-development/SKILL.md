@@ -1,6 +1,6 @@
 ---
 name: electron-development
-description: "Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-process architecture, electron-builder packaging, code signing, and auto-update."
+description: "Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-process architecture, electron-builder packaging, code signing, and auto-update. Use when developing, optimizing, debugging, or configuring electron development in production workflows."
 risk: safe
 source: community
 date_added: "2026-03-12"

@@ -1,6 +1,6 @@
 ---
 name: linkerd-patterns
-description: "Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kubernetes."
+description: "Production patterns for Linkerd service mesh - the lightweight, security-first service mesh for Kubernetes. Use when developing, optimizing, debugging, or configuring linkerd patterns in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -20,7 +20,7 @@ Production patterns for Linkerd service mesh - the lightweight, security-first s
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Use this skill when
 

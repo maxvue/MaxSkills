@@ -1,6 +1,6 @@
 ---
 name: expo-api-routes
-description: Guidelines for creating API routes in Expo Router with EAS Hosting
+description: "Guidelines for creating API routes in Expo Router with EAS Hosting Use when developing, optimizing, debugging, or configuring expo api routes in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for expo api routes."
 risk: critical
 source: https://github.com/expo/skills/tree/main/plugins/expo/skills/expo-api-routes
 source_repo: expo/skills

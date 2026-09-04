@@ -1,6 +1,6 @@
 ---
 name: unit-testing-test-generate
-description: "Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case focus."
+description: "Generate comprehensive, maintainable unit tests across languages with strong coverage and edge case focus. Use when developing, optimizing, debugging, or configuring unit testing test generate in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"

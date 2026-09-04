@@ -1,6 +1,6 @@
 ---
 name: molykit
-description: |
+description: "| Use when developing, optimizing, debugging, or configuring molykit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for molykit. Use when developing, optimizing, testing, or configuring molykit in production environments."
   CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
   BotClient, OpenAI, SSE streaming, AI chat, molykit,
   PlatformSend, spawn(), ThreadToken, cross-platform async,

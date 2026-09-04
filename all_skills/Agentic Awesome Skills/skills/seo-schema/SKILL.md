@@ -1,6 +1,6 @@
 ---
 name: seo-schema
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring seo schema in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo schema. Use when developing, optimizing, testing, or configuring seo schema in production environments."
   Detect, validate, and generate Schema.org structured data. JSON-LD format
   preferred. Use when user says "schema", "structured data", "rich results",
   "JSON-LD", or "markup".

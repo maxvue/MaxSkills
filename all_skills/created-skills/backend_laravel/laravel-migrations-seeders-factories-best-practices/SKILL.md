@@ -1,6 +1,6 @@
 ---
 name: laravel-migrations-seeders-factories-best-practices
-description: "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Covers objectives and core workflows."
+description: "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Provides end-to-end guidance, reference architectures, and practical patterns for laravel migrations seeders factories best practices."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

@@ -1,6 +1,6 @@
 ---
 name: pr-merge-champion
-description: "Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-reviews, and structured documentation."
+description: "Optimize pull requests for quick approval and merging by ensuring clean diffs, comprehensive self-reviews, and structured documentation. Use when developing, optimizing, debugging, or configuring pr merge champion in production workflows."
 category: workflow
 risk: safe
 source: self

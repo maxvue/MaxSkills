@@ -1,64 +1,52 @@
 ---
 name: react-components
-description: "Production patterns for modern React 19 / TypeScript component development, custom hooks, state isolation, and accessibility."
-description_pt_br: "Boas práticas para geração e estruturação de componentes React com TypeScript."
-repository: "Anthropic"
-url_skill: "https://github.com/anthropics/skills/tree/main/react"
-stars: 24500
-languages: ["TypeScript", "JavaScript", "TSX"]
-frameworks: ["React 19", "Next.js", "Vite"]
-libs: ["Radix UI", "Zustand", "TanStack Query", "Lucide React"]
+description: "Design and implementation of modern React 19 functional components using TypeScript, hooks, and server components. Use when building modular UI components, compound component architectures, or optimizing React rendering performance."
+risk: safe
+source: curated-youtube
 ---
+# Modern React Component Architecture
 
-# Skill: react-components
+## When to Use
+- Authoring reusable React functional components with TypeScript and strict prop types.
+- Managing client-side reactive state via hooks (`useState`, `useReducer`, `useMemo`, `useCallback`).
+- Building accessible UI primitives with ARIA attributes and keyboard navigation.
 
-## 📖 Visão Geral (Overview)
+## Component Pattern Example
 
-### Português (pt-BR)
-Gera componentes React tipados e robustos aderindo a padrões modernos de arquitetura e conformidade WCAG.
+```tsx
+import React, { useState, ReactNode } from 'react';
 
-**Descrição Detalhada:**
-Boas práticas para geração e estruturação de componentes React com TypeScript.
+interface CardProps {
+  title: string;
+  children: ReactNode;
+  initialExpanded?: boolean;
+  onToggle?: (expanded: boolean) => void;
+}
 
-### English
-Generates robust, typed React components adhering to modern architectural patterns and WCAG accessibility standards.
+export function ExpandableCard({
+  title,
+  children,
+  initialExpanded = false,
+  onToggle,
+}: CardProps) {
+  const [isExpanded, setIsExpanded] = useState(initialExpanded);
 
-**Detailed Description:**
-Production patterns for modern React 19 / TypeScript component development, custom hooks, state isolation, and accessibility.
+  const handleToggle = () => {
+    const nextState = !isExpanded;
+    setIsExpanded(nextState);
+    onToggle?.(nextState);
+  };
 
----
-
-## 🛠️ Stack Tecnológica e Requisitos
-
-- **Linguagens Otimizadas:** TypeScript, JavaScript, TSX
-- **Frameworks Compatíveis:** React 19, Next.js, Vite
-- **Bibliotecas e Dependências:** Radix UI, Zustand, TanStack Query, Lucide React
-- **Repositório Oficial:** [Anthropic](https://github.com/anthropics/skills/tree/main/react)
-
----
-
-## 🎯 Quando Usar (When to Use)
-
-Use esta skill sempre que o agente ou desenvolvedor precisar de:
-1. Execução determinística e de alta fidelidade para rotinas de `react-components`.
-2. Aplicação das melhores práticas de arquitetura, consistência e prevenção de erros.
-3. Padronização nos padrões de código e economia no consumo de contexto e tokens.
-
----
-
-## 📋 Diretrizes de Execução e Melhores Práticas
-
-1. **Investigação Prévia:** Analise o contexto e os arquivos antes de aplicar alterações.
-2. **Isolamento Seguro:** Realize testes e modificações com isolamento de ambiente (worktrees ou sandboxes).
-3. **Validação Contínua:** Execute suítes de testes automatizados e verifique integridade após cada etapa.
-4. **Documentação Integrada:** Mantenha registros claros das decisões e passos executados.
-
----
-
-## 📺 Vídeos de Referência no YouTube
-
-- [Vídeo Recomendado 1](https://www.youtube.com/watch?v=builder_ui_ux_skills_51)
-- [Vídeo Recomendado 2](https://www.youtube.com/watch?v=nate_frontend_skills_52)
-- [Vídeo Recomendado 3](https://www.youtube.com/watch?v=david_pixel_perfect_skills_53)
-- [Vídeo Recomendado 4](https://www.youtube.com/watch?v=indydevdan_frontend_design_54)
-- [Vídeo Recomendado 5](https://www.youtube.com/watch?v=ai_jason_design_systems_55)
+  return (
+    <article className="border border-neutral-200 rounded-lg p-4 shadow-sm">
+      <header className="flex justify-between items-center cursor-pointer" onClick={handleToggle}>
+        <h3 className="font-semibold text-lg text-neutral-900">{title}</h3>
+        <button type="button" aria-expanded={isExpanded} className="text-sm text-neutral-500">
+          {isExpanded ? 'Recolher' : 'Expandir'}
+        </button>
+      </header>
+      {isExpanded && <div className="mt-3 text-neutral-700">{children}</div>}
+    </article>
+  );
+}
+```

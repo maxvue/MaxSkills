@@ -1,0 +1,531 @@
+[
+  {
+    "skillName": "linux-privilege-escalation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linux-privilege-escalation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 228 caracteres (extensão adequada), porém não contém cláusula de disparo explícita ('Use when...' / 'Ative quando...') e omite termos discriminantes vitais para indexação semântica, como LinPEAS, SUID, sudoers, LD_PRELOAD, GTFOBins e capabilities.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' no final do documento (linhas 526-527) contém texto redundante e genérico de template ('This skill is applicable to execute the workflow or actions described in the overview.'), agregando ruído sem critério prático de acionamento.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover ou substituir a seção redundante 'When to Use' final (linhas 526-527) por gatilhos contextuais reais, e condensar listas clichês em Inputs/Prerequisites.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Avaliação e exploração sistemática de vetores de escalonamento de privilégios para obtenção de acesso root em sistemas Linux com guardrails de autorização.",
+      "entidades": [
+        "LinPEAS",
+        "LinEnum",
+        "GTFOBins",
+        "Dirty COW (CVE-2016-5195)",
+        "Dirty Pipe (CVE-2022-0847)",
+        "sudo",
+        "SUID",
+        "LD_PRELOAD",
+        "getcap",
+        "crontab",
+        "NFS"
+      ],
+      "keywords": [
+        "privilege escalation",
+        "linux security",
+        "root shell",
+        "suid binaries",
+        "sudoers exploitation",
+        "kernel exploit",
+        "capabilities",
+        "cron job hijacking",
+        "path hijacking",
+        "nfs no_root_squash",
+        "gtfobins",
+        "linpeas",
+        "reverse shell"
+      ]
+    },
+    "summary": "Excelente profundidade técnica defensiva/ofensiva com portão de confirmação obrigatório, necessitando apenas de gatilho condicional na description e poda de boilerplate final."
+  },
+  {
+    "skillName": "linux-shell-scripting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linux-shell-scripting/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description carece de gatilho formal de acionamento ('Use when...') e contém desalinhamento semântico ao afirmar que os scripts servem para 'security operations and penetration testing environments', quando na realidade o acervo é composto de scripts operacionais de administração de sistemas (backups, monitoramento de CPU/disco, criação de usuários, rotação).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "O frontmatter classifica a skill como 'risk: critical' de forma injustificada para templates convencionais de administração em Bash.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' na linha 507 é um placeholder vazio de template ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Eliminar a seção 'When to Use' vazia (linhas 507-509) e a repetição literal da description na seção 'Purpose' (linhas 12-14).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação e administração de sistemas Linux através de scripts prontos em Bash para backups, monitoramento, rotação e manutenção.",
+      "entidades": [
+        "Bash",
+        "rsync",
+        "mysqldump",
+        "tar",
+        "openssl",
+        "systemctl",
+        "crontab",
+        "top",
+        "df",
+        "apt-get"
+      ],
+      "keywords": [
+        "bash scripting",
+        "linux sysadmin",
+        "backup automation",
+        "system monitoring",
+        "log analysis",
+        "user management",
+        "rsync rotation",
+        "crontab scheduler",
+        "openssl encryption",
+        "service health check"
+      ]
+    },
+    "summary": "Scripts práticos e robustos em Bash para sysadmin Linux, exigindo realinhamento da description sem apelo falso a pentest e eliminação de placeholders."
+  },
+  {
+    "skillName": "linux-troubleshooting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/linux-troubleshooting/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 126 caracteres (muito abaixo do limite de 200 a 400 chars), não possui gatilho 'Use when...' e omite comandos diagnósticos vitais (iostat, journalctl, strace, lsof, ss).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Poluição de esqueleto sintético de 'workflow bundle', inserindo dezenas de referências a skills fictícias (@bash-linux, @devops-troubleshooter, @performance-engineer, @error-detective, etc.) e prompts copy-paste redundantes em cada uma das 7 fases.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Baixa densidade de código executável comparada ao volume de preâmbulos e checklists repetitivos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 24,
+    "cuts": [
+      {
+        "text": "Remover as seções artificiais 'Skills to Invoke' e 'Copy-Paste Prompts' de todas as 7 fases (economizando cerca de 24% de ruído estrutural), preservando comandos Linux reais e fluxo metodológico.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Fluxo estruturado de diagnóstico e resolução de gargalos de desempenho, incidentes de rede e falhas de serviços no Linux.",
+      "entidades": [
+        "systemctl",
+        "journalctl",
+        "dmesg",
+        "iostat",
+        "top",
+        "free",
+        "strace",
+        "lsof",
+        "ss",
+        "dig"
+      ],
+      "keywords": [
+        "linux troubleshooting",
+        "performance diagnostic",
+        "process investigation",
+        "journalctl logs",
+        "systemctl service recovery",
+        "network diagnostics",
+        "strace debugging",
+        "io analysis",
+        "incident response"
+      ]
+    },
+    "summary": "Metodologia de troubleshooting válida com bons comandos, porém prejudicada por description subdimensionada e bloat de invocações fictícias a skills inexistentes."
+  },
+  {
+    "skillName": "liuguang-banlan-ui",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/liuguang-banlan-ui/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação e validação de interfaces visuais parametrizadas nos modos 流光溢彩白 (Opal) e 五彩斑斓黑 (Obsidian) com shaders WebGL, fallback CSS e métricas cromáticas em OKLCH.",
+      "entidades": [
+        "OKLCH",
+        "WebGL",
+        "CSS fallback",
+        "Opal",
+        "Obsidian",
+        "scripts/scaffold_template.py",
+        "scripts/validate_manifest.py",
+        "scripts/measure_preview.py"
+      ],
+      "keywords": [
+        "oklch color",
+        "spectral field",
+        "iridescent white",
+        "colorful black",
+        "webgl shaders",
+        "vision gating",
+        "screenshot qa",
+        "deterministic pixel metrics",
+        "chromatic ratio",
+        "accessibility",
+        "manifest validation"
+      ]
+    },
+    "summary": "Padrão ouro em skill de IA: description exemplar com 271 chars e gatilho explícito, zero bloat, guardrails anti-pattern rígidos e suíte completa de assets e scripts determinísticos."
+  },
+  {
+    "skillName": "llm-app-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-app-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 147 caracteres (< 200 chars), não possui gatilho 'Use when...' e contém link markdown ('[Dify](https://github.com/langgenius/dify)') dentro do campo description do YAML, além de omitir termos discriminantes cruciais (RAG, ReAct, Function Calling, Plan-and-Execute, Redis cache).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de adjetivo promocional vazio ('industry best practices') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Repetição literal do texto da description no preâmbulo do corpo (linhas 9-11) e seção final de limitações genéricas de template (linhas 765-769).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o link markdown do campo description do YAML, podar o blockquote repetido no topo (linhas 9-11) e condensar as limitações genéricas no final.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais para sistemas de IA baseados em LLMs, integrando pipelines RAG híbridos, orquestração de agentes, observabilidade e infraestrutura de produção.",
+      "entidades": [
+        "Pinecone",
+        "Weaviate",
+        "pgvector",
+        "OpenTelemetry",
+        "Redis",
+        "Tenacity",
+        "BM25",
+        "ReAct",
+        "FunctionCallingAgent"
+      ],
+      "keywords": [
+        "rag architecture",
+        "hybrid search",
+        "reciprocal rank fusion",
+        "react agent",
+        "function calling",
+        "plan and execute",
+        "prompt ide",
+        "prompt chaining",
+        "llmops metrics",
+        "opentelemetry tracing",
+        "redis cache",
+        "rate limiting fallback"
+      ]
+    },
+    "summary": "Excepcional catálogo técnico em Python para arquitetura de aplicações com LLM, necessitando apenas de saneamento da description (remover link markdown, expandir para 200-400 chars com gatilho) e poda de preâmbulo."
+  },
+  {
+    "skillName": "llm-application-dev-ai-assistant",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-application-dev-ai-assistant/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description corrompida e truncada no meio de uma palavra ('...solutions with natur'), com 206 caracteres, indicando erro de extração automatizada.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description escrita como persona prompt ('You are an AI assistant development expert...') em vez de descrever as capacidades operacionais e os discriminantes técnicos da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md é uma casca oca de apenas 44 linhas contendo placeholders não preenchidos ('Requirements: $ARGUMENTS') e delegando integralmente seu conteúdo ao playbook externo 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "As seções 'Use this skill when' e 'Do not use this skill when' contêm tautologias circulares ('Working on ai assistant development tasks...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Eliminar os placeholders ocos ($ARGUMENTS, tautologias de Use/Do not use) e incorporar os padrões essenciais de NLU e ConversationContext do playbook diretamente ao SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e desenvolvimento de assistentes virtuais conversacionais com NLU, classificação de intenções e gestão de contexto de diálogo.",
+      "entidades": [
+        "AIAssistantArchitecture",
+        "ConversationContext",
+        "IntentClassifier",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "ai assistant",
+        "conversational ai",
+        "chatbot development",
+        "nlu component",
+        "intent recognition",
+        "context management",
+        "dialog manager",
+        "session state",
+        "response generator"
+      ]
+    },
+    "summary": "Skill em estado ruim devido à description truncada no meio de palavra, formato de persona prompt, placeholder cru $ARGUMENTS e SKILL.md oco terceirizado para playbook."
+  },
+  {
+    "skillName": "llm-application-dev-langchain-agent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-application-dev-langchain-agent/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 133 caracteres (< 200 chars), está redigida como persona prompt ('You are an expert LangChain agent developer...'), não possui gatilho 'Use when...' e omite termos discriminantes cruciais (StateGraph, VoyageAI, Pinecone, LangSmith, FastAPI streaming).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de placeholder não substituído na linha 32 ('Build sophisticated AI agent system for: $ARGUMENTS').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência fantasma na linha 28 orientando abrir 'resources/implementation-playbook.md', arquivo inexistente no diretório desta skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover a referência ao playbook inexistente (linha 28), o placeholder $ARGUMENTS (linha 32) e as seções tautológicas de 'Use this skill when / Do not use' (linhas 13-22).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de agentes autônomos orientados a grafo com LangChain 0.1+, LangGraph, persistência de estado e observabilidade via LangSmith.",
+      "entidades": [
+        "LangGraph",
+        "StateGraph",
+        "MessagesState",
+        "Claude Sonnet 4.5",
+        "VoyageAI (voyage-3-large)",
+        "PineconeVectorStore",
+        "LangSmith",
+        "FastAPI"
+      ],
+      "keywords": [
+        "langgraph",
+        "langchain agent",
+        "stategraph",
+        "react agent",
+        "plan and execute",
+        "multi-agent orchestration",
+        "hybrid rag",
+        "voyage embeddings",
+        "fastapi streaming",
+        "langsmith tracing",
+        "checkpointer state"
+      ]
+    },
+    "summary": "Excelente profundidade de código e padrões reais com LangGraph e StateGraph, mas prejudicada por description curta em formato de persona, placeholder $ARGUMENTS e link para arquivo inexistente."
+  },
+  {
+    "skillName": "llm-application-dev-prompt-optimize",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-application-dev-prompt-optimize/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description corrompida e truncada no meio da palavra ('...and model-specific optimizati'), com 206 caracteres exatos, idêntico defeito de scraping da skill 6.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description formulada como persona prompt ('You are an expert prompt engineer...') e adjetivos promocionais ('expert', 'advanced').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O SKILL.md possui apenas 46 linhas e é um stub vazio com placeholder cru 'Requirements: $ARGUMENTS' e afirmações numéricas não comprovadas de marketing ('improve accuracy by 40%...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "O conteúdo instrucional real está completamente fora do SKILL.md, relegado a 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 40,
+    "cuts": [
+      {
+        "text": "Podar as tautologias vazias de escopo, remover o placeholder $ARGUMENTS e resgatar os padrões práticos de Chain-of-Thought e Constitutional AI do playbook para o corpo do SKILL.md.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Técnicas de engenharia de prompt para otimização de instruções, mitigação de alucinações e redução de consumo de tokens em LLMs.",
+      "entidades": [
+        "Constitutional AI",
+        "Chain-of-Thought",
+        "resources/implementation-playbook.md"
+      ],
+      "keywords": [
+        "prompt optimization",
+        "prompt engineering",
+        "chain of thought",
+        "constitutional ai",
+        "token optimization",
+        "hallucination reduction",
+        "system prompt tuning",
+        "few shot prompting"
+      ]
+    },
+    "summary": "Skill em estado ruim devido à description truncada por erro de scraping, persona prompt indevida e SKILL.md resumido a um stub com placeholder $ARGUMENTS."
+  },
+  {
+    "skillName": "llm-council",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-council/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 104 caracteres (muito curta, abaixo de 200 chars), não possui cláusula 'Use when...' e omite termos discriminantes essenciais da arquitetura (Karpathy's council, peer-ranking anônimo, Chairman synthesis, ThreadPoolExecutor).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' nas linhas 28-29 é um placeholder tautológico grosseiro ('Use when this workflow matches the user request: Use this skill for its documented workflow.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção de Setup repete orientações triviais de exportação de variáveis de ambiente já cobertas na seção Pre-flight Check.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica 'When to Use' (linhas 26-29) e consolidar as instruções de exportação de FIREWORKS_API_KEY entre Pre-flight e Setup.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Execução de conselhos deliberativos multi-LLM (Karpathy's Council) com respostas paralelas, avaliação anônima cruzada e síntese por Chairman via Fireworks AI.",
+      "entidades": [
+        "Fireworks AI",
+        "GLM 5",
+        "DeepSeek V3.2",
+        "MiniMax M2.1",
+        "Kimi K2.5",
+        "Qwen3 235B",
+        "Llama 4 Maverick",
+        "AskUserQuestion"
+      ],
+      "keywords": [
+        "llm council",
+        "fireworks ai",
+        "open weight models",
+        "peer ranking",
+        "cross model evaluation",
+        "chairman synthesis",
+        "parallel inference",
+        "threadpoolexecutor",
+        "anonymized responses",
+        "consensus deliberation"
+      ]
+    },
+    "summary": "Fluxo multi-modelo altamente prático, transparente e funcional via Fireworks AI; requer apenas expansão da description para 200-400 chars com gatilho e expurgo da tautologia no corpo."
+  },
+  {
+    "skillName": "llm-evaluation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-evaluation/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 132 caracteres (< 200 chars), usa tom professoral/promocional ('Master comprehensive evaluation strategies...') e não possui cláusula 'Use when...', além de omitir métricas discriminantes reais (BLEU, ROUGE, BERTScore, DeBERTa NLI, Cohen's kappa, A/B testing).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de 9 referências a arquivos locais inexistentes no diretório (linha 23 e linhas 459-468 citam 'resources/implementation-playbook.md', 'references/metrics.md', 'assets/evaluation-framework.py', etc., quando apenas o SKILL.md existe na pasta).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Repetição da description no cabeçalho do documento (linhas 9-11) e presença de instruções vazias de template (linhas 18-23).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Eliminar a lista de recursos inexistentes (linhas 459-468), remover a referência fantasma da linha 23 e expurgar o preâmbulo repetitivo das linhas 9-11.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégias computacionais e estatísticas de avaliação de LLMs abrangendo métricas automatizadas (BLEU, ROUGE, BERTScore, NLI), juízes LLM, anotação humana e testes A/B.",
+      "entidades": [
+        "BLEU (NLTK)",
+        "ROUGE (rouge_scorer)",
+        "BERTScore (microsoft/deberta-xlarge-mnli)",
+        "Detoxify",
+        "Cohen's kappa (scikit-learn)",
+        "SciPy stats (ttest_ind)",
+        "Cohen's d"
+      ],
+      "keywords": [
+        "llm evaluation",
+        "automated metrics",
+        "bertscore",
+        "groundedness nli",
+        "toxicity scoring",
+        "llm as judge",
+        "pairwise comparison",
+        "human evaluation",
+        "inter-rater agreement",
+        "ab testing",
+        "regression detection",
+        "benchmarking"
+      ]
+    },
+    "summary": "Excelente conjunto de snippets de avaliação estatística e métricas em Python, porém rebaixada para Regular devido à description curta/promocional e 9 referências fantasmas a arquivos inexistentes."
+  }
+]

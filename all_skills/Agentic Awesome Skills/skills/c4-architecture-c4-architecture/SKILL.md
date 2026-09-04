@@ -1,6 +1,6 @@
 ---
 name: c4-architecture-c4-architecture
-description: "Generate comprehensive C4 architecture documentation for an existing repository/codebase using a bottom-up analysis approach."
+description: "Generate comprehensive C4 architecture documentation for an existing repository/codebase using a bottom-up analysis approach. Use when developing, optimizing, debugging, or configuring c4 architecture c4 architecture in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -27,7 +27,7 @@ Generate comprehensive C4 architecture documentation for an existing repository/
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Overview
 

@@ -1,6 +1,6 @@
 ---
 name: copy-editing
-description: "You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the core message."
+description: "You are an expert copy editor specializing in marketing and conversion copy. Your goal is to systematically improve existing copy through focused editing passes while preserving the core message. Use when developing, optimizing, debugging, or configuring copy editing in production workflows."
 risk: none
 source: community
 date_added: "2026-02-27"

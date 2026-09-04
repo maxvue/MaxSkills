@@ -1,6 +1,6 @@
 ---
 name: outreachagent
-description: "Operate reply-aware cold outbound email workflows for AI agents with inboxes, contacts, templates, pacing, approvals, webhooks, and delivery metrics."
+description: "Operate reply-aware cold outbound email workflows for AI agents with inboxes, contacts, templates, pacing, approvals, webhooks, and delivery metrics. Use when developing, optimizing, debugging, or configuring outreachagent in production workflows."
 category: marketing
 risk: critical
 source: self

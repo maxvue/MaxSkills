@@ -1,6 +1,6 @@
 ---
 name: burp-suite-testing
-description: "Execute comprehensive web application security testing using Burp Suite's integrated toolset, including HTTP traffic interception and modification, request analysis and replay, automated vulnerability scanning, and manual testing workflows."
+description: "Execute comprehensive web application security testing using Burp Suite's integrated toolset, including HTTP traffic interception and modification, request analysis and replay, automated vulnerability scanning, and manual testing workflows. Use when developing, optimizing, debugging, or configuring burp suite testing in production workflows."
 risk: offensive
 source: community
 author: zebbern

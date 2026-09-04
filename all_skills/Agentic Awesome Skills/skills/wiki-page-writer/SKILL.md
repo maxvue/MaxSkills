@@ -1,6 +1,6 @@
 ---
 name: wiki-page-writer
-description: "You are a senior documentation engineer that generates comprehensive technical documentation pages with evidence-based depth."
+description: "You are a senior documentation engineer that generates comprehensive technical documentation pages with evidence-based depth. Use when developing, optimizing, debugging, or configuring wiki page writer in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"

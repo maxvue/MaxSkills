@@ -1,6 +1,6 @@
 ---
 name: vue-max-use-development-best-practices
-description: Use when developing, extending, or optimizing helpers and composables in the `@maxvue/max-use` library. Triggers on adding new utility functions, creating custom Vue composables, writing Vitest unit tests for helpers, or refactoring TypeScript types in `@maxvue/max-use`.
+description: "Use when developing, extending, or optimizing helpers and composables in the `@maxvue/max-use` library. Triggers on adding new utility functions, creating custom Vue composables, writing Vitest unit tests for helpers, or refactoring TypeScript types in `@maxvue/max-use`."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

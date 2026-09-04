@@ -1,6 +1,6 @@
 ---
 name: selenium-skill
-description: Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, JavaScript, C#, Ruby, or PHP. Supports local execution and TestMu AI cloud with 3000+ browser/OS combinations. Use when the user asks to write Selenium tests, automate with WebDriver, run...
+description: "Comprehensive engineering guide and best practices for selenium skill. Use when configuring, developing, debugging, or optimizing selenium skill architecture in production systems. Guides architecture, best practices, and implementation standards for selenium skill."
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/selenium-skill
 source_repo: LambdaTest/agent-skills

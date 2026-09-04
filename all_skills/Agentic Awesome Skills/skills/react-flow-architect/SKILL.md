@@ -1,6 +1,6 @@
 ---
 name: react-flow-architect
-description: "Build production-ready ReactFlow applications with hierarchical navigation, performance optimization, and advanced state management."
+description: "Build production-ready ReactFlow applications with hierarchical navigation, performance optimization, and advanced state management. Use when developing, optimizing, debugging, or configuring react flow architect in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"

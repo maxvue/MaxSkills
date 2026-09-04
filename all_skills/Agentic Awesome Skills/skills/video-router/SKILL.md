@@ -1,6 +1,6 @@
 ---
 name: video-router
-description: "Route a video-production brief to generation, deterministic composition, supplied-footage editing, or an automatic cross-modal plan before production begins."
+description: "Route a video-production brief to generation, deterministic composition, supplied-footage editing, or an automatic cross-modal plan before production begins. Use when developing, optimizing, debugging, or configuring video router in production workflows."
 category: media
 risk: none
 source: "https://github.com/Orkas-AI/Orkas-VideoStudio/tree/dd4a0f40b2bc6c6b0fe6f2e732c9540ffffefe08/packages/skills/video-router"

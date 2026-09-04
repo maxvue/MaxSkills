@@ -1,6 +1,6 @@
 ---
 name: security-scanning-security-hardening
-description: "Coordinate multi-layer security scanning and hardening across application, infrastructure, and compliance controls."
+description: "Comprehensive engineering guide and best practices for security scanning security hardening. Use when configuring, developing, debugging, or optimizing security scanning security hardening architecture in production systems."
 risk: critical
 source: community
 date_added: "2026-02-27"

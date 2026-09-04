@@ -1,6 +1,6 @@
 ---
 name: hig-patterns
-description: Apple Human Interface Guidelines interaction and UX patterns.
+description: "Apple Human Interface Guidelines interaction and UX patterns. Use when developing, optimizing, debugging, or configuring hig patterns in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for hig patterns."
 risk: none
 source: community
 date_added: '2026-02-27'

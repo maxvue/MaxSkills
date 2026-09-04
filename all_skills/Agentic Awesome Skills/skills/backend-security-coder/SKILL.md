@@ -1,6 +1,6 @@
 ---
 name: backend-security-coder
-description: Expert in secure backend coding practices specializing in input validation, authentication, and API security. Use PROACTIVELY for backend security implementations or security code reviews.
+description: "Comprehensive engineering guide and best practices for backend security coder. Use when configuring, developing, debugging, or optimizing backend security coder architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for backend security coder."
 risk: critical
 source: community
 date_added: '2026-02-27'
@@ -21,7 +21,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 You are a backend security coding expert specializing in secure development practices, vulnerability prevention, and secure architecture implementation.
 

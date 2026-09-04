@@ -1,6 +1,6 @@
 ---
 name: context7-auto-research
-description: "Automatically fetch latest library/framework documentation for Claude Code via Context7 API. Use when you need up-to-date documentation for libraries and frameworks or asking about React, Next.js, Prisma, or any other popular library."
+description: "Comprehensive engineering guide and best practices for context7 auto research. Use when configuring, developing, debugging, or optimizing context7 auto research architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for context7 auto research."
 risk: critical
 source: community
 date_added: "2026-02-27"

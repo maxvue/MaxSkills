@@ -1,6 +1,6 @@
 ---
 name: vue-vitest-testing-best-practices
-description: "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Covers objectives and core workflows."
+description: "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Provides end-to-end guidance, reference architectures, and practical patterns for vue vitest testing best practices."
 author: Johnattas Conrady Gomes Santana
 ---
 # Melhores Práticas de Testes com Vitest no Vue

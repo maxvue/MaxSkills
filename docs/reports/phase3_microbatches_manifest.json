@@ -1,0 +1,1368 @@
+[
+  {
+    "id": "MB_CREATED_001",
+    "domain": "created-skills",
+    "skillName": "laravel-ai-agents-ecosystem",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-ai-agents-ecosystem/SKILL.md",
+    "items": [
+      "A frase final da description ('Covers objectives and core workflows.') é um clichê genérico de preenchimento (padding) que viola o Critério 12 (Ausência de Redundâncias) e reduz a densidade semântica."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_002",
+    "domain": "created-skills",
+    "skillName": "laravel-anticaptcha-integration-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+    "items": [
+      "A description possui 198 caracteres, ficando ligeiramente abaixo da faixa recomendada de 200 a 400 caracteres (Critério 1).",
+      "Presença da frase de preenchimento 'Covers objectives and core workflows.' na description (Critério 12), além da omissão de termos discriminantes das classes reais do wrapper como Anticaptcha e AnticaptchaBase (Critério 4)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_003",
+    "domain": "created-skills",
+    "skillName": "laravel-authorization-policies-gates",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-authorization-policies-gates/SKILL.md",
+    "items": [
+      "A description termina com a frase de preenchimento genérica 'Covers objectives and core workflows.', infringindo os critérios de ausência de redundâncias e densidade de ganho semântico (Critérios 12 e 13)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_004",
+    "domain": "created-skills",
+    "skillName": "laravel-brazilian-localization-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md",
+    "items": [
+      "A description contém frase final redundante ('Covers Brazilian localization best practices and document validation.'), repetindo os termos já apresentados no gatilho de uso e reduzindo a densidade semântica (Critério 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_005",
+    "domain": "created-skills",
+    "skillName": "laravel-browser-automation-webdriver",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+    "items": [
+      "Distorção semântica severa na description: cita tecnologias como Dusk, Puppeteer, Python RPA e microsserviços de backend que não existem nem no SKILL.md nem no engeapp, violando o Critério 5 (Fidelidade Estrita ao Conteúdo Real) e Critério 8 (Equilíbrio de Amplitude).",
+      "Omissão dos discriminantes semânticos reais na description: não cita Firefox, geckodriver, a classe App\\Classes\\Browser, nem o pool de portas gerenciado em Redis (Critério 4).",
+      "Frase genérica redundante ao final da description ('Covers browser automation, driver configuration, and element interactions.') violando o Critério 12."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_006",
+    "domain": "created-skills",
+    "skillName": "laravel-digital-signatures-integration",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-digital-signatures-integration",
+    "items": [
+      "A description contém a frase redundante de preenchimento 'Covers objectives and core workflows.' no final (critério 12), devendo ser eliminada ou substituída por termos discriminantes como 'ProjectPowerOfAttorneyDocument' ou 'ReloadPowerAttorneyStatusJob'."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_007",
+    "domain": "created-skills",
+    "skillName": "laravel-electrical-calculations-dimensioning-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices",
+    "items": [
+      "A description repete no encerramento 'Covers electrical sizing, breaker calculations, and cable sizing standards.', duplicando exatamente os conceitos já expressos na oração inicial (critério 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_008",
+    "domain": "created-skills",
+    "skillName": "laravel-engeapp-project-homologation-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices",
+    "items": [
+      "A description termina com o filler redundante 'Covers objectives and connection regulations.' (critério 12), gerando repetição de termos já enunciados na primeira sentença."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_009",
+    "domain": "created-skills",
+    "skillName": "laravel-finance-coupons-discounts-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices",
+    "items": [
+      "A description apresenta no final o texto de preenchimento 'Covers objectives and core workflows.' (critério 12), sem agregar ganho semântico e repetindo a ideia de cobertura geral."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_010",
+    "domain": "created-skills",
+    "skillName": "laravel-frankenphp-octane-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices",
+    "items": [
+      "A description cita 'tuning Caddyfile workers', enquanto o conteúdo e a infraestrutura do Engeapp explicam que o Caddyfile é gerado pelo Octane e não deve ser editado manualmente, devendo referenciar 'tuning worker CLI options' ou 'worker process management' (critério 5).",
+      "A description finaliza com a sentença redundante de preenchimento 'Covers objectives and core workflows.' (critério 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_011",
+    "domain": "created-skills",
+    "skillName": "laravel-gemini-file-api-media-integration-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-gemini-file-api-media-integration-best-practices/SKILL.md",
+    "items": [
+      "Description contém frase boilerplate de preenchimento ('Covers objectives and core workflows.') que gera redundância de 'Covers' e reduz a densidade semântica.",
+      "Description cita processamento de áudio e PDF ('Covers video, audio, or PDF file processing'), o que colide com a seção 1 do próprio SKILL.md, que instrui a NÃO usar a Google File API para áudio e PDFs no engeapp (já cobertos pelo Laravel AI SDK), restringindo o nicho real a arquivos de vídeo e grandes mídias (> 20MB)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_012",
+    "domain": "created-skills",
+    "skillName": "laravel-gemini-php-sdk-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md",
+    "items": [
+      "Description encerra com cláusula redundante ('Covers objectives, Facade model, and Gemini API schemas.') que repete termos já introduzidos e agrega ruído com termos genéricos ('objectives')."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_013",
+    "domain": "created-skills",
+    "skillName": "laravel-holiday-sla-calculation-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-holiday-sla-calculation-best-practices/SKILL.md",
+    "items": [
+      "Description finaliza com frase boilerplate genérica ('Covers objectives and core workflows.') que consome caracteres sem valor semântico discriminante."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_014",
+    "domain": "created-skills",
+    "skillName": "laravel-livekit-server-sdk-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-livekit-server-sdk-best-practices/SKILL.md",
+    "items": [
+      "Description encerra com boilerplate genérico ('Covers objectives and core workflows.'), gerando redundância sintática.",
+      "Corpo da skill duplica uma implementação completa de 146 linhas do LiveKitService com docblocks extensos, sobrecarregando o arquivo com código boilerplate que poderia ser condensado nos trechos operacionais críticos.",
+      "Condensar o esqueleto completo da classe LiveKitService.php nas linhas 53 a 199, focando nos trechos cruciais (sanitização ws->http, instanciação com RoomCreateOptions e tratamento de ListParticipantsResponse) e eliminando docblocks prolixos."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_015",
+    "domain": "created-skills",
+    "skillName": "laravel-meta-graph-api-integration-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+    "items": [
+      "Description conclui com cláusula boilerplate ('Covers objectives, architectural structure, and Meta API endpoints.') que adiciona termos vagos e repete a raiz sintática."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_016",
+    "domain": "created-skills",
+    "skillName": "laravel-migrations-seeders-factories-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+    "items": [
+      "Description encerra com o fragmento genérico repetitivo ('Covers objectives and core workflows.').",
+      "Description omitiu menção a convenções e termos discriminantes centrais do Engeapp detalhados no corpo da skill, como chaves ULID char(26), anonymous migrations e factory helpers tipados."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_017",
+    "domain": "created-skills",
+    "skillName": "laravel-multitenancy-data-isolation-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-multitenancy-data-isolation-best-practices/SKILL.md",
+    "items": [
+      "Description traz cauda boilerplate redundante ('Covers objectives, tenant scoping, and user permission models.') que duplica o conceito de tenant scoping e inclui termos genéricos."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_018",
+    "domain": "created-skills",
+    "skillName": "laravel-performance-and-profiling-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+    "items": [
+      "A description encerra com a expressão genérica de preenchimento 'Covers objectives and core workflows.', que dilui a densidade semântica e poderia ser substituída por termos discriminantes concretos como gates de autorização ou comandos CLI."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_019",
+    "domain": "created-skills",
+    "skillName": "laravel-power-of-attorney-generation-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-power-of-attorney-generation-best-practices/SKILL.md",
+    "items": [
+      "A description apresenta redundância interna direta no fechamento ('...rendering DomPDF documents. Covers document generation and DomPDF rendering.'), repetindo a menção a DomPDF e geração de documentos."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_020",
+    "domain": "created-skills",
+    "skillName": "laravel-qrcode-generation-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+    "items": [
+      "A description contém a frase genérica e redundante 'Covers objectives and core workflows.' no encerramento, reduzindo a densidade semântica final."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_021",
+    "domain": "created-skills",
+    "skillName": "laravel-redis-integration-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-redis-integration-best-practices/SKILL.md",
+    "items": [
+      "A description contém o filler genérico 'Covers objectives and core workflows.' no encerramento, o que gera redundância estilística e dilui o ganho semântico."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_022",
+    "domain": "created-skills",
+    "skillName": "laravel-reverb-websockets-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-reverb-websockets-best-practices/SKILL.md",
+    "items": [
+      "A description menciona 'Caddy WSS reverse proxy', porém o SKILL.md ensina e detalha na Seção 2 exclusivamente a configuração de reverse proxy com Nginx, gerando divergência de fidelidade semântica."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_023",
+    "domain": "created-skills",
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+    "items": [
+      "Duplicação estrutural de diretrizes: A seção '## Idioma' (linhas 26-28) repete de forma redundante a mesma diretriz da seção '## Restrições' (linhas 29-30).",
+      "Ruído na cauda da description: 'Covers objectives, TypeScript DTO transformation, and language rules.' adiciona termos genéricos e meta-regras desnecessárias.",
+      "Remover a seção duplicada '## Idioma' (linhas 26-28) consolidando a diretriz sob '## Restrições'."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_024",
+    "domain": "created-skills",
+    "skillName": "laravel-vue-geocoordinates-maps-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
+    "items": [
+      "Discrepância semântica na description (Critério 5): a description afirma 'Covers validating Spatie Data DTOs', porém as Seções 1 e Restrições do próprio SKILL.md determinam explicitamente que o backend não valida coordenadas ('NÃO invente uma camada de validação... hoje o fluxo real persiste $request->all() via fill()/save(), sem validação') e que os Spatie Data DTOs atuam estritamente como classes de transferência/tipagem para o TypeScript Transformer."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_025",
+    "domain": "created-skills",
+    "skillName": "vue-boleto-utils-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+    "items": [
+      "A description contém cauda genérica/redundante 'Covers objectives and core workflows.' ao final, que reduz a densidade informativa (Critérios 7 e 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_026",
+    "domain": "created-skills",
+    "skillName": "vue-brand-positioning-character-management-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md",
+    "items": [
+      "A description contém cauda redundante 'Covers brand positioning, character management, and social media stores.' que duplica os termos do gatilho inicial (Critério 12).",
+      "A numeração de seções salta de '## Instruções' diretamente para '### 2. Formulários de Posicionamento de Marca', omitindo a seção 1."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_027",
+    "domain": "created-skills",
+    "skillName": "vue-complex-modal-forms-autosave-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-complex-modal-forms-autosave-best-practices/SKILL.md",
+    "items": [
+      "A description cita 'max-use', mas o corpo da skill não detalha nem exemplifica o uso direto dessa lib, focando em MaxModal e MaxPinia (Critério 5).",
+      "A description possui cauda repetitiva 'Covers complex modal forms, auto-save state, and multi-tab layouts.' que duplica o gatilho (Critério 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_028",
+    "domain": "created-skills",
+    "skillName": "vue-debugging-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-debugging-best-practices/SKILL.md",
+    "items": [
+      "A description contém cauda de preenchimento genérico 'Covers best practices, debugging strategies, and objectives.' sem valor discriminante (Critérios 7 e 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_029",
+    "domain": "created-skills",
+    "skillName": "vue-eslint-stylelint-quality-standards",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+    "items": [
+      "A description contém cauda genérica/redundante 'Covers objectives, ESLint/Stylelint standards, and execution commands.' (Critérios 7 e 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_030",
+    "domain": "created-skills",
+    "skillName": "vue-frontend-bug-fixing-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+    "items": [
+      "A description contém cauda redundante 'Covers objectives, project stack, and frontend bug fixing.' que enfraquece a densidade do gatilho (Critérios 7 e 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_031",
+    "domain": "created-skills",
+    "skillName": "vue-inputs-masks-validation-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md",
+    "items": [
+      "A description possui cauda genérica 'Covers objectives and core workflows.' que não agrega valor semântico (Critérios 7 e 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_032",
+    "domain": "created-skills",
+    "skillName": "vue-keyboard-shortcuts-navigation-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+    "items": [
+      "A description contém cauda genérica 'Covers objectives and core workflows.' (Critérios 7 e 12)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_033",
+    "domain": "created-skills",
+    "skillName": "vue-max-ecosystem-api-reference",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+    "items": [
+      "Description possui redundância textual interna repetindo termos ('Covers component props...') e meta-ruído de preenchimento ('Covers objectives')."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_034",
+    "domain": "created-skills",
+    "skillName": "vue-max-stack-frontend-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md",
+    "items": [
+      "Exemplo ensina classes e atributos utilitários inline no template (ex: s100 flex flex-col, s-70 w-max-400) — adotar classes semânticas e estilizar em <style lang=\"scss\">."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_035",
+    "domain": "created-skills",
+    "skillName": "vue-max-use-usecachedapi-state-cache-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-max-use-usecachedapi-state-cache-best-practices/SKILL.md",
+    "items": [
+      "Description contém meta-ruído de preenchimento ('Covers objectives...') que reduz a densidade semântica da frase final."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_036",
+    "domain": "created-skills",
+    "skillName": "vue-meta-api-oauth-integration-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md",
+    "items": [
+      "Exemplo ensina estilo inline style=\"text-align: right;\" e atributo utilitário s50 no template sem bloco <style lang=\"scss\"> scoped.",
+      "Description contém meta-ruído de preenchimento genérico ('Covers objectives and core workflows.')."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_037",
+    "domain": "created-skills",
+    "skillName": "vue-pinia-state-management-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-pinia-state-management-best-practices/SKILL.md",
+    "items": [
+      "Description possui fragmento truncado com meta-ruído de preenchimento ('Covers objectives and best practices, Registro main.')."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_038",
+    "domain": "created-skills",
+    "skillName": "vue-typescript-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md",
+    "items": [
+      "Description cita 'tsconfig.json', tópico ausente no corpo do documento (fidelidade estrita comprometida), além de meta-ruído ('Covers objectives...').",
+      "Restrição na linha 106 sugere permissividade com classes utilitárias do UnoCSS inline, em desacordo com a diretriz de classes semânticas em <style lang=\"scss\">."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_039",
+    "domain": "created-skills",
+    "skillName": "vue-unocss-styling-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md",
+    "items": [
+      "Exemplo ensina classes utilitárias inline no template — adotar classes semânticas e estilizar em <style lang=\"scss\">.",
+      "Description contém meta-ruído de preenchimento ('Covers objectives and core workflows.')."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_040",
+    "domain": "created-skills",
+    "skillName": "vue-vitest-testing-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+    "items": [
+      "A descrição no frontmatter contém o trecho genérico redundante 'Covers objectives and core workflows.' ao final, violando os critérios 10, 12 e 13 (redundância de preenchimento e redução da densidade semântica útil). Recomenda-se remover o trecho ou substituí-lo por discriminantes mais específicos (ex.: stubs de MaxComponentsUi, apiGetRoute)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_041",
+    "domain": "created-skills",
+    "skillName": "vue-whatsapp-interactive-messages-simulator-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-whatsapp-interactive-messages-simulator-best-practices/SKILL.md",
+    "items": [
+      "A descrição no frontmatter inclui a frase de boilerplate 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica e violando os critérios 10 e 12."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CREATED_042",
+    "domain": "created-skills",
+    "skillName": "project-history",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-history/SKILL.md",
+    "items": [
+      "A descrição omite totalmente o nome do projeto ('SocialMedia') e usa a expressão genérica 'in this project', gerando risco crítico de falso-positivo de ativação em qualquer projeto do repositório/workspace (violação dos critérios 4, 7 e 8).",
+      "A descrição contém ruído meta-operacional ('moved out of CLAUDE.md so it isn't always loaded'), violando os critérios 10 e 11 (linguagem anti-promocional e ausência de procedimentos operacionais/justificativas meta na description).",
+      "A seção '## Instruções' é meramente decorativa/oca ('Siga as instruções e padrões descritos na documentação.'), sem procedimentos cognitivos reais ou diretrizes de consulta histórica."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_043",
+    "domain": "created-skills",
+    "skillName": "project-history",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-history/SKILL.md",
+    "items": [
+      "Inversão estrutural grave: a totalidade do arquivo (~31KB) consiste em um changelog factual massivo despejado diretamente dentro da seção '## Objetivo', descaracterizando a estrutura de uma skill acionável.",
+      "Mover o changelog detalhado dos Marcos 1 a 5 e Fases 1 a 7 (linhas 13-35, ~31KB) para um arquivo de referência dedicado (ex.: references/changelog-socialmedia.md), mantendo no SKILL.md apenas o guia cognitivo de consulta histórica e decisões arquiteturais.",
+      "Substituir o texto vazio de '## Instruções' ('Siga as instruções e padrões descritos na documentação.') por instruções acionáveis de rastreamento e busca de contexto histórico do projeto SocialMedia."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_044",
+    "domain": "created-skills",
+    "skillName": "project-setup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-setup/SKILL.md",
+    "items": [
+      "A descrição utiliza termos genéricos ('this project') sem identificar explicitamente que o setup refere-se exclusivamente ao projeto 'SocialMedia', induzindo acionamento errôneo e execução de scripts indevidos em outros projetos (violação dos critérios 4, 7 e 8).",
+      "Inversão estrutural e seção morta: todos os comandos de instalação, flags de ambiente e smoke tests estão alocados sob '## Objetivo', enquanto a seção '## Instruções' possui apenas o placeholder vazio 'Siga as instruções e padrões descritos na documentação.'.",
+      "Quebra de encapsulamento: o conteúdo aponta para arquivos externos inexistentes no contexto da skill ('ver Ambiente de Dev no CLAUDE.md', 'ver regra 16 do CLAUDE.md')."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_045",
+    "domain": "created-skills",
+    "skillName": "project-setup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-setup/SKILL.md",
+    "items": [
+      "Remover o placeholder vazio 'Siga as instruções e padrões descritos na documentação.' em '## Instruções' e realocar os passos operacionais de '## Objetivo' para '## Instruções'.",
+      "Substituir as referências externas a 'CLAUDE.md' por instruções autossuficientes dentro da própria skill."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CREATED_046",
+    "domain": "created-skills",
+    "skillName": "typescript-advanced-types-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/typescript/typescript-advanced-types-best-practices/SKILL.md",
+    "items": [
+      "A descrição contém a frase de preenchimento redundante 'Covers objectives and core workflows.' no final, reduzindo a densidade semântica (violação dos critérios 10, 12 e 13)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CRIT_047",
+    "domain": "critica",
+    "skillName": "get-shit-done",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/get-shit-done/SKILL.md",
+    "items": [
+      "Extensão insuficiente da description (124 caracteres, violando a faixa ideal de 200 a 400 caracteres).",
+      "Ausência total de condição de gatilho formal ('Use when...' ou 'Ative quando...') na description.",
+      "Uso de vocabulário promocional e adjetivos vazios de marketing na description ('High-velocity autonomous engineering', 'minimal friction', 'velocidade máxima')."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_048",
+    "domain": "critica",
+    "skillName": "get-shit-done",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/get-shit-done/SKILL.md",
+    "items": [
+      "Estrutura do corpo é um boilerplate estéril copiado entre várias skills do lote, apresentando diretrizes genéricas de senso comum ('Investigação Prévia', 'Isolamento Seguro') sem nenhuma instrução técnica ou comando acionável do framework GSD.",
+      "A seção 'Quando Usar' apresenta justificativa tautológica circular ('Execução determinística e de alta fidelidade para rotinas de get-shit-done').",
+      "Presença de URLs sintéticas/mockadas do YouTube (ex.: 'david_technical_doc_skills_81', 'alex_finn_gsd_skill_85') sem valor documental real."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_049",
+    "domain": "critica",
+    "skillName": "get-shit-done",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/get-shit-done/SKILL.md",
+    "items": [
+      "Eliminar as seções genéricas de 'Diretrizes de Execução' (linhas 49-55) e 'Quando Usar' circular (linhas 40-47), substituindo por mecânicas reais de decomposição de tarefas e loops de execução do GSD.",
+      "Remover a lista de vídeos de referência do YouTube com links sintéticos (linhas 58-64)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_050",
+    "domain": "critica",
+    "skillName": "git-worktree",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/git-worktree/SKILL.md",
+    "items": [
+      "Extensão insuficiente da description (132 caracteres, violando o piso de 200 caracteres).",
+      "Ausência de gatilho explícito ('Use when...') na description.",
+      "Ausência total de comandos CLI de git worktree (como 'git worktree add', 'remove', 'list', 'prune') no corpo da skill, tornando-a inoperante."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_051",
+    "domain": "critica",
+    "skillName": "git-worktree",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/git-worktree/SKILL.md",
+    "items": [
+      "Corpo composto por template repetitivo copiado com diretrizes vazias e 'Quando Usar' tautológico ('rotinas de git-worktree').",
+      "Links sintéticos de YouTube ('cole_skills_masterclass_31', etc.) sem correspondência factual com conteúdos reais.",
+      "Substituir integralmente o boilerplate genérico das linhas 40-55 por fluxos reais de trabalho com worktrees para agentes paralelos, comandos CLI e convenções de diretório."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_052",
+    "domain": "critica",
+    "skillName": "git-worktree",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/git-worktree/SKILL.md",
+    "items": [
+      "Remover a lista de vídeos recomendados com URLs sintéticas (linhas 58-64)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_053",
+    "domain": "critica",
+    "skillName": "mermaid-diagrammer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/mermaid-diagrammer/SKILL.md",
+    "items": [
+      "Description com apenas 135 caracteres e sem cláusula de ativação formal ('Use when...').",
+      "Ausência total de blocos de sintaxe Mermaid, convenções de diagramação ou exemplos práticos no corpo da skill.",
+      "Metadados incorretos no frontmatter: repositório aponta para 'mckaywrigley/chatbot-ui' em vez de ferramentas ou documentações de Mermaid."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_054",
+    "domain": "critica",
+    "skillName": "mermaid-diagrammer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/mermaid-diagrammer/SKILL.md",
+    "items": [
+      "Corpo composto pelo mesmo boilerplate genérico e circular de outras skills do lote, com links sintéticos de YouTube.",
+      "Substituir as seções genéricas vazias (linhas 40-55) por diretrizes concretas de sintaxe Mermaid (flowcharts, sequence, ERD, C4), escape de nós e renderização via mermaid-cli.",
+      "Remover os links sintéticos de YouTube (linhas 58-64)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_055",
+    "domain": "critica",
+    "skillName": "piv-loop",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/piv-loop/SKILL.md",
+    "items": [
+      "Extensão insuficiente da description (144 caracteres) e ausência de cláusula de gatilho ('Use when...').",
+      "Ausência de especificação técnica do loop Plan-Implement-Validate: não define formato de planos, critérios para portões de validação (gates) nem regras de transição entre estados.",
+      "Corpo estruturado sobre o mesmo boilerplate genérico repetitivo, com tautologias ('rotinas de piv-loop') e links sintéticos de YouTube."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_056",
+    "domain": "critica",
+    "skillName": "piv-loop",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/piv-loop/SKILL.md",
+    "items": [
+      "Reescrever integralmente o corpo da skill (linhas 40-55) para fornecer o protocolo acionável de 3 etapas do PIV Loop (Plan, Implement, Validate), checklists de validação e critérios de saída de loop.",
+      "Remover os links sintéticos de YouTube (linhas 58-64)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_057",
+    "domain": "critica",
+    "skillName": "pytest-and-jest-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/pytest-and-jest-automation/SKILL.md",
+    "items": [
+      "Description abaixo da faixa ideal (144 caracteres) e sem cláusula de gatilho ('Use when...').",
+      "Inconsistência entre 'description' (cita Pytest, Jest e Vitest) e 'description_pt_br' (restringe-se unicamente a Python com pytest).",
+      "Ausência total de código, fixtures, padrões de mock ou exemplos de configuração para qualquer um dos frameworks citados (Pytest, Jest, Vitest)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_058",
+    "domain": "critica",
+    "skillName": "pytest-and-jest-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/pytest-and-jest-automation/SKILL.md",
+    "items": [
+      "Uso do boilerplate vazio repetitivo com justificativa circular ('rotinas de pytest-and-jest-automation') e links sintéticos de YouTube.",
+      "Metadados de repositório apontam para 'Anthropic' com URL 'karanb192/awesome-claude-skills', inflando métricas (24500 stars de um repositório curado geral).",
+      "Substituir o template estéril (linhas 40-55) por padrões acionáveis de testes (fixtures do Pytest, mocks com pytest-mock, render e queries do Jest/testing-library, comandos de cobertura de código)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_059",
+    "domain": "critica",
+    "skillName": "pytest-and-jest-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/pytest-and-jest-automation/SKILL.md",
+    "items": [
+      "Remover os links sintéticos de YouTube (linhas 58-64)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_060",
+    "domain": "critica",
+    "skillName": "vue-components",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/vue-components/SKILL.md",
+    "items": [
+      "Description de 101 caracteres totalmente genérica ('Specialized AI agent skill for vue components providing best practices and automated workflows') com ausência total de termos discriminantes (sem citação a Vue 3, Composition API, SFC, script setup, props ou emits).",
+      "Ausência completa de cláusula condicional de ativação / gatilho contextual ('Use when...') no frontmatter.",
+      "Metadados de stack técnicos no frontmatter YAML completamente vazios (languages: [], frameworks: [], libs: [])."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_061",
+    "domain": "critica",
+    "skillName": "vue-components",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/vue-components/SKILL.md",
+    "items": [
+      "Corpo stub scaffold de 65 linhas desprovido de qualquer código ou instrução de desenvolvimento de componentes em Vue 3.",
+      "Remover integralmente o scaffold genérico de 65 linhas e reescrever o SKILL.md com padrões reais de Vue 3 (Composition API, script setup, reatividade e tipagem TypeScript)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_062",
+    "domain": "critica",
+    "skillName": "fal-audio",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md",
+    "items": [
+      "A tag description possui apenas 60 caracteres (muito abaixo do piso de 200 chars), não apresenta cláusula 'Use when...' e carece totalmente de discriminantes técnicos dos modelos suportados.",
+      "O arquivo é um stub oco (placeholder) de apenas 29 linhas que repete a mesma frase tautológica três vezes ('Overview', 'When to Use' e 'Instructions') sem ensinar nenhuma API, endpoint, SDK ou parâmetro.",
+      "Ausência total de exemplos de código ou instruções práticas para integração com a plataforma fal.ai (nem Python SDK, nem @fal-ai/serverless-client, nem endpoints REST)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_063",
+    "domain": "critica",
+    "skillName": "fal-audio",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-audio/SKILL.md",
+    "items": [
+      "Dependência externa exclusiva para terceiros através de link sem documentação local dos modelos de áudio (STT/TTS).",
+      "O arquivo atual é 80%+ composto de tautologias e boilerplate de limitações sem nenhuma documentação técnica; necessita ser reconstruído do zero com exemplos reais ou removido."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_064",
+    "domain": "critica",
+    "skillName": "fal-upscale",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md",
+    "items": [
+      "A tag description possui apenas 59 caracteres (muito abaixo do piso de 200 chars), sem cláusula de ativação formal 'Use when...' e sem termos discriminantes.",
+      "O arquivo é um stub/placeholder vazio de 29 linhas que repete a mesma frase genérica em Overview, When to Use e Instructions sem fornecer conteúdo técnico.",
+      "Ausência total de implementações, modelos suportados (ex: Real-ESRGAN, Clarity, CCSR, AuraSR), chamadas de API, endpoints ou SDKs fal.ai."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_065",
+    "domain": "critica",
+    "skillName": "fal-upscale",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/fal-upscale/SKILL.md",
+    "items": [
+      "Delegação completa para URL externa do GitHub sem qualquer utilidade autônoma para agentes.",
+      "Remover a estrutura oca de 29 linhas que consiste em boilerplate e tautologias sem dados, substituindo-a por implementações concretas de upscale com fal.ai ou expurgando a skill."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_066",
+    "domain": "critica",
+    "skillName": "ai-studio-image",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md",
+    "items": [
+      "Quebra crítica de portabilidade: Todos os comandos de instalação e execução contêm caminhos absolutos hardcoded de máquina Windows local ('C:\\Users\\renat\\skills\\ai-studio-image\\...'), quebrando imediatamente a execução em qualquer outro ambiente (linhas 73, 81, 87, 123, 161, 166, 193, 230).",
+      "Critérios 1 e 3: Description curta em português com 161 caracteres (< 200) e ausência de gatilho explícito 'Use when...' ou 'Ative quando...'.",
+      "Inconsistência linguística: SKILL.md e description redigidos em português em repositório majoritariamente de língua inglesa."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_067",
+    "domain": "critica",
+    "skillName": "ai-studio-image",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md",
+    "items": [
+      "Boilerplate genérico desconectado nas seções 'Best Practices' e 'Common Pitfalls' (linhas 300-311), contendo placeholders genéricos sem relação com geração de imagem.",
+      "Substituir com urgência todos os caminhos absolutos locais 'C:\\Users\\renat\\skills\\ai-studio-image\\' por caminhos relativos ao projeto ('scripts/...').",
+      "Remover o boilerplate descontextualizado de 'Best Practices' e 'Common Pitfalls' (linhas 300-311)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_068",
+    "domain": "critica",
+    "skillName": "loki-mode",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md",
+    "items": [
+      "A description é um amontoado promocional de versões e buzzwords sem ação clara, sem gatilho 'Use when...' e com apenas 161 caracteres ('Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced...').",
+      "Violação severa de segurança operacional e governança de agente: impõe regras explícitas para desativar a supervisão humana ('NEVER ask questions', 'NEVER wait for confirmation', 'NEVER stop voluntarily') e força loops infinitos descontrolados.",
+      "Documento hipertrofiado com 728 linhas (>28 KB) repleto de ruído conceitual, tabelas gigantescas de agentes e buzzwords de redes sociais ('Boris Cherny patterns', 'HN Production 2025', 37 agent types)."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_069",
+    "domain": "critica",
+    "skillName": "loki-mode",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md",
+    "items": [
+      "Remover as regras de execução cega que proíbem o agente de consultar o usuário ou confirmar comandos críticos (linhas 105-116).",
+      "Podar o excesso de seções teóricas repetitivas sobre 37 tipos de agentes e referências desnecessárias a threads do Hacker News e padrões informais (linhas 68-93 e 698-721).",
+      "Condensar os fluxos de trabalho e diagramas ASCII redundantes para um guia direto focado no ciclo SDLC e gestão de contexto."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_070",
+    "domain": "critica",
+    "skillName": "makepad-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md",
+    "items": [
+      "Skill consiste em um stub oco de apenas 29 linhas que não fornece nenhum código, shader, arquitetura ou instrução concreta sobre Makepad em Rust.",
+      "Redundância quádrupla idêntica: a mesma frase genérica é repetida na description, Overview, When to Use e Instructions.",
+      "Description de 111 caracteres puramente descritiva, sem discriminantes técnicos ou condições reais de disparo."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_071",
+    "domain": "critica",
+    "skillName": "makepad-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/makepad-skills/SKILL.md",
+    "items": [
+      "Ausência total de ganho semântico e procedimentos reais, servindo apenas como redirecionador raso para link externo.",
+      "O arquivo inteiro é redundante e oco; necessita de reescrita completa baseada no repositório upstream ou exclusão/descarte do stub."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_072",
+    "domain": "critica",
+    "skillName": "nerdzao-elite-gemini-high",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md",
+    "items": [
+      "Instrução de sequestro global de execução (prompt hijacking): linha 13 determina 'Ative automaticamente este workflow completo em TODA tarefa:', violando o princípio de isolamento e ativação contextual das skills.",
+      "Alucinação em cascata de sub-skills inexistentes: instrui invocar 16 referências '@' fictícias (@concise-planning, @brainstorming, @senior-architect, @test-driven-development, @lint-and-validate, @ui-ux-pro-max, @kaizen, etc.) que não existem no repositório.",
+      "Linguagem promocional, hiperbólica e não técnica: termos como 'Modo Elite Coder', 'Engenheiro Sênior Elite (15+ anos)', 'UX Pixel-Perfect' e 'qualidade máxima'."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_073",
+    "domain": "critica",
+    "skillName": "nerdzao-elite-gemini-high",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nerdzao-elite-gemini-high/SKILL.md",
+    "items": [
+      "Description subdimensionada (167 chars) e ausência de gatilho formal 'Use when...'; corpo sem procedimentos técnicos concretos, limitando-se a meta-prompts de persona.",
+      "Eliminar o arquivo ou purgar as linhas 9-48: o conteúdo é 80% composto de persona roleplay, comandos invasivos de ativação incondicional e chamadas a skills inexistentes."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_074",
+    "domain": "critica",
+    "skillName": "anti-reversing-techniques",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md",
+    "items": [
+      "Description corrompida e truncada no meio de um marcador markdown ('AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1.'), omitindo totalmente o propósito prático e discriminantes da skill.",
+      "Tripla redundância de avisos jurídicos quase idênticos no início do arquivo (linhas 9-12, 14-22 e 23-29), além de duplicação da seção de referências (linhas 55 e 57-60).",
+      "SKILL.md desprovido de comandos ou substância técnica real (apenas passos abstratos de 1 linha), delegando tudo sem orientações mínimas sobre anti-debugging, ofuscação ou análise de binários."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_075",
+    "domain": "critica",
+    "skillName": "anti-reversing-techniques",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md",
+    "items": [
+      "Fundir os três blocos redundantes de avisos legais e confirmação obrigatória (linhas 9-29) em um único aviso de conformidade sucinto de 4 linhas.",
+      "Remover a seção duplicada '## Resources' (linhas 57-60) que repete verbatim o link para 'resources/implementation-playbook.md' já fornecido na linha 55."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_076",
+    "domain": "critica",
+    "skillName": "pypict-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md",
+    "items": [
+      "Description com apenas 24 caracteres ('Pairwise test generation'), configurando ausência quase absoluta de discriminantes semânticos e sem gatilhos operacionais.",
+      "Arquivo SKILL.md consiste em um casulo oco (hollow stub) de 29 linhas sem código, sem sintaxe de definição de parâmetros PICT e sem exemplos de uso prático do pypict.",
+      "Seções 'When to Use' e 'Instructions' constituem tautologias puras que apenas repetem o nome da tarefa sem fornecer instruções acionáveis ao agente."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_077",
+    "domain": "critica",
+    "skillName": "pypict-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md",
+    "items": [
+      "Eliminar o texto tautológico e substituir a totalidade do arquivo por um guia técnico real com a API do pypict, formato de modelos PICT e geração combinatorial de testes."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_078",
+    "domain": "critica",
+    "skillName": "rayden-code",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/rayden-code/SKILL.md",
+    "items": [
+      "Dependência fantasma crítica: a skill afirma explicitamente na visão geral e passos (linhas 18, 31 e 88) carregar o arquivo 'RAYDEN_RULES.md' (34 componentes, props, tokens e anti-patterns), mas o arquivo não existe no repositório, inviabilizando sua execução confiável.",
+      "Description muito curta (104 caracteres), sem gatilho formal 'Use when...' e com adjetivo promocional/marketing vago ('premium layout patterns').",
+      "Remover a dependência ao arquivo fantasma 'RAYDEN_RULES.md' e embutir a especificação real dos 34 componentes diretamente na skill ou fornecer o arquivo ausente."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_079",
+    "domain": "critica",
+    "skillName": "react-flow-node-ts",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/react-flow-node-ts/SKILL.md",
+    "items": [
+      "Dependência fantasma: a seção Quick Start instrui explicitamente a copiar modelos de 'assets/template.tsx' e 'assets/types.template.ts', porém o diretório 'assets/' não existe na skill.",
+      "Overfitting e acoplamento a projeto proprietário externo: o passo a passo exige paths inexistentes ('src/frontend/src/types/index.ts', 'src/frontend/src/store/app-store.ts') e componentes específicos ('AddBlockMenu', 'ConnectMenu'), além de description curta (124 chars) sem 'Use when...'.",
+      "Eliminar referências ao diretório fantasma 'assets/' e desvincular o passo a passo dos caminhos rígidos e menus ('AddBlockMenu', 'ConnectMenu') do projeto upstream particular."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_080",
+    "domain": "critica",
+    "skillName": "skill-seekers",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/skill-seekers/SKILL.md",
+    "items": [
+      "Description mal formatada (108 chars) iniciando com hífen residual de scraping ('-Automatically...'), contendo termo promocional ('in minutes') e sem gatilho formal 'Use when...' (Critérios 1, 3 e 10).",
+      "Arquivo SKILL.md é um stub oco gerado por scraping mecânico (29 linhas) sem qualquer instrução técnica, parâmetros, comandos ou scripts, limitando-se a repetir 3 vezes a mesma frase truncada e remeter a um link externo do GitHub.",
+      "O arquivo inteiro é um placeholder oco; deve ser reescrito com instruções e comandos reais de CLI/scaffolding da ferramenta ou descartado por inexistência de conteúdo operacional."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_081",
+    "domain": "critica",
+    "skillName": "ui-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md",
+    "items": [
+      "Stub vazio gerado por automação contendo apenas 29 linhas, sem nenhum conteúdo instrucional, padrões técnicos ou regras de UI concretas.",
+      "Description de 73 caracteres ('Opinionated, evolving constraints to guide agents when building interfaces') puramente abstrata, sem gatilho 'Use when...' e sem termos discriminantes.",
+      "Redundância extrema: a frase da description é repetida literalmente no Overview, no When to Use e no Instructions, sem adicionar qualquer instrução técnica útil."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_082",
+    "domain": "critica",
+    "skillName": "ui-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md",
+    "items": [
+      "Ausência completa de ganho semântico para o agente, poluindo o catálogo de skills com um placeholder não funcional.",
+      "Remover as seções tautológicas Overview, When to Use e Instructions (linhas 11-24), substituindo o arquivo por conteúdo instrucional real de UI ou deprecando o artefato em favor de ui-skills-root."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_083",
+    "domain": "critica",
+    "skillName": "varlock-claude-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md",
+    "items": [
+      "Description curta (131 caracteres, longe do ideal de 200 a 400) e desprovida de cláusula de ativação ('Use when...') ou discriminantes operacionais.",
+      "Tautologia absoluta: o arquivo de 29 linhas repete a mesma frase genérica quatro vezes ('Overview', 'When to Use', 'Instructions', 'Description') sem introduzir nenhuma instrução técnica.",
+      "Inexistência total de conteúdo técnico: ausência de comandos da CLI Varlock, padrões de configuração, regras de variáveis ou exemplos, constituindo um placeholder inútil para um link externo do GitHub."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_084",
+    "domain": "critica",
+    "skillName": "varlock-claude-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md",
+    "items": [
+      "Eliminar o loop tautológico de repetições da mesma frase e preencher o documento com o manual prático e comandos do utilitário Varlock."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_085",
+    "domain": "critica",
+    "skillName": "aws-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md",
+    "items": [
+      "Description excessivamente curta (80 caracteres), sem gatilho 'Use when...', sem discriminantes técnicos específicos e puramente genérica ('AWS development with infrastructure automation and cloud architecture patterns').",
+      "O arquivo SKILL.md é um stub vazio de apenas 29 linhas que apenas repete a mesma frase genérica em 4 seções diferentes sem fornecer nenhum padrão, instrução ou código prático.",
+      "Ausência total de valor operacional para um agente de IA; a skill atua apenas como redirecionador raso para um repositório GitHub externo."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CRIT_086",
+    "domain": "critica",
+    "skillName": "aws-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md",
+    "items": [
+      "Remover ou substituir integralmente o arquivo; 90% do conteúdo é repetição de boilerplate sem qualquer substância técnica."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_CURATED_087",
+    "domain": "curated-youtube",
+    "skillName": "agent-orchestrator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/agent-orchestrator/SKILL.md",
+    "items": [
+      "Description com apenas 163 caracteres (abaixo da faixa ideal de 200-400 chars) e sem gatilho explícito de contexto ('Use when...' ou 'Ative quando...').",
+      "Forte acoplamento a scripts em caminhos locais específicos ('agent-orchestrator/scripts/') e tabela estática hardcoded do ecossistema do autor ('junta-leiloeiros', 'whatsapp-cloud-api') que não generalizam.",
+      "Presença de seções finais de boilerplate genérico ('Best Practices', 'Common Pitfalls', 'Limitations') sem discriminantes operacionais reais."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_088",
+    "domain": "curated-youtube",
+    "skillName": "agent-orchestrator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/agent-orchestrator/SKILL.md",
+    "items": [
+      "Remover seções genéricas 'Best Practices', 'Common Pitfalls' e 'Limitations' (linhas 301-322), pois contêm apenas advertências vazias de template.",
+      "Condensar a tabela 'Skills Atuais Do Ecossistema' (linhas 290-300) em um exemplo conceitual ilustrativo para evitar acoplamento a artefatos locais obsoletos."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_089",
+    "domain": "curated-youtube",
+    "skillName": "cloud-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/cloud-architect/SKILL.md",
+    "items": [
+      "Description curta (183 chars), redigida em tom promocional/persona ('Expert cloud architect specializing in...') sem cláusula de ativação ('Use when...').",
+      "Estrutura no formato de prompt de persona conversacional ('You are a cloud architect...'), desprovida de snippets executáveis de IaC ou arquitetura prática.",
+      "Seções circulares de gatilho ('Use this skill when: Working on cloud architect tasks') e referência a playbook externo inexistente ('resources/implementation-playbook.md')."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_090",
+    "domain": "curated-youtube",
+    "skillName": "cloud-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/cloud-architect/SKILL.md",
+    "items": [
+      "Remover seções vazias de persona conversacional: 'Behavioral Traits' (linhas 93-102), 'Knowledge Base' (linhas 103-112), 'Response Approach' (linhas 113-122) e 'Example Interactions' (linhas 123-132).",
+      "Substituir as tautologias em 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e ferramentas concretas de contexto."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_091",
+    "domain": "curated-youtube",
+    "skillName": "damage-control",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/damage-control/SKILL.md",
+    "items": [
+      "Description muito curta (130 chars < 200) e desprovida de qualquer gatilho 'Use when...' ou discriminantes de ferramentas reais.",
+      "Ausência total de conteúdo operacional executável: o corpo não ensina nem implementa regras de interceptação de comandos destrutivos (rm -rf, DROP, git reset --hard).",
+      "Conteúdo bilíngue puramente tautológico que repete as mesmas frases genéricas em português e inglês."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_092",
+    "domain": "curated-youtube",
+    "skillName": "damage-control",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/damage-control/SKILL.md",
+    "items": [
+      "Estrutura de stub/placeholder raspado de metadados de vídeos do YouTube com listas vazias no frontmatter ('frameworks: []', 'libs: []').",
+      "Remover seções de texto duplicado pt-BR/EN na Visão Geral (linhas 15-28).",
+      "Eliminar a lista de links genéricos do YouTube (linhas 58-65) e a seção de diretrizes genéricas vazias (linhas 49-55), substituindo por regras reais de sandbox/interceptação."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_093",
+    "domain": "curated-youtube",
+    "skillName": "database-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/database-optimizer/SKILL.md",
+    "items": [
+      "Description excessivamente curta (121 chars), promocional ('Expert database optimizer specializing in...') e sem gatilhos explícitos ('Use when...').",
+      "Formatação em estilo persona ('You are a database optimization expert...') sem snippets práticos de queries, índices ou configurações reais.",
+      "Gatilhos circulares/tautológicos ('Use this skill when: Working on database optimizer tasks') e apontamento para playbook inexistente ('resources/implementation-playbook.md')."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_094",
+    "domain": "curated-youtube",
+    "skillName": "database-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/database-optimizer/SKILL.md",
+    "items": [
+      "Remover blocos de persona vazia: 'Behavioral Traits' (linhas 122-133), 'Knowledge Base' (linhas 134-143), 'Response Approach' (linhas 144-154) e 'Example Interactions' (linhas 155-164).",
+      "Substituir o preâmbulo circular de 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e comandos de ativação reais."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_095",
+    "domain": "curated-youtube",
+    "skillName": "mcp-server-routing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/mcp-server-routing/SKILL.md",
+    "items": [
+      "Divergência severa de escopo e nomenclatura: o diretório é denominado 'mcp-server-routing', enquanto o nome da skill no frontmatter é 'mcp-builder' e todo o conteúdo trata da criação e avaliação de servidores MCP (Python/TypeScript), sem relação com roteamento.",
+      "A description utiliza adjetivo qualitativo ('high-quality MCP servers') que poderia ser substituído por termos técnicos mais objetivos."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_096",
+    "domain": "curated-youtube",
+    "skillName": "react-components",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/react-components/SKILL.md",
+    "items": [
+      "Description com 139 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem cláusula explícita de condição de uso / gatilho ('Use when...' ou 'Ative quando...').",
+      "Divergência severa de fidelidade entre a descrição e o corpo: a descrição promete padrões de produção para React 19, custom hooks, isolamento de estado e WCAG, porém o arquivo é um stub scaffold de 65 linhas sem nenhum padrão de código, hook ou diretriz técnica implementada.",
+      "Corpo composto por boilerplate repetitivo que apenas espelha campos do frontmatter YAML em seções redundantes de Overview e Stack, além de URLs fictícias/simuladas de vídeos do YouTube ('builder_ui_ux_skills_51', etc.)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_097",
+    "domain": "curated-youtube",
+    "skillName": "react-components",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/react-components/SKILL.md",
+    "items": [
+      "Remover seções redundantes de 'Visão Geral (Overview)' bilíngue e 'Stack Tecnológica' que duplicam o frontmatter, e substituir o preâmbulo genérico por instruções e padrões técnicos reais de componentes React 19."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_098",
+    "domain": "curated-youtube",
+    "skillName": "shadcn-ui",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/shadcn-ui/SKILL.md",
+    "items": [
+      "Description com 143 caracteres (abaixo do limiar de 200 chars) e sem declaração explícita de gatilho ('Use when...').",
+      "Ausência de fidelidade técnica ao corpo: promete automação e integração de componentes Radix UI e Tailwind CSS, mas o arquivo é um stub scaffold de 65 linhas sem instruções sobre a CLI da shadcn ('npx shadcn@latest add'), components.json, utilitário cn ou componentes reais.",
+      "Presença de ruído estrutural com repetição literal dos campos do YAML nas seções de Overview e Stack, e inclusão de URLs simuladas de vídeos do YouTube."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_099",
+    "domain": "curated-youtube",
+    "skillName": "shadcn-ui",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/shadcn-ui/SKILL.md",
+    "items": [
+      "Podar blocos duplicados de Visão Geral e Stack Tecnológica que espelham o frontmatter, substituindo as diretrizes genéricas por exemplos práticos de instalação, configuração e estilização do shadcn/ui."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_100",
+    "domain": "curated-youtube",
+    "skillName": "superpowers",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/superpowers/SKILL.md",
+    "items": [
+      "Description com 136 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem condição de gatilho contextual ('Use when...').",
+      "Uso de adjetivos promocionais não técnicos no frontmatter e na visão geral ('Complete agentic engineering workflow', 'reliable, high-velocity engineering loop') sem suporte factual.",
+      "Corpo stub oco: não implementa nenhuma instrução, especificação técnica, regra de TDD ou ciclo de subagentes do framework Superpowers, consistindo em scaffold genérico de 65 linhas."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_101",
+    "domain": "curated-youtube",
+    "skillName": "superpowers",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/superpowers/SKILL.md",
+    "items": [
+      "Substituir o boilerplate genérico de 65 linhas pelas rotinas operacionais reais do framework Superpowers (planejamento estruturado, templates de especificação e ciclo de subagentes)."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_102",
+    "domain": "curated-youtube",
+    "skillName": "tailwind-css",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/tailwind-css/SKILL.md",
+    "items": [
+      "Description com 138 caracteres, abaixo da faixa recomendada de 200-400 chars, e sem cláusula explícita de ativação ('Use when...').",
+      "Corpo stub de 65 linhas desprovido de conteúdo técnico: não traz regras de classes utilitárias responsivas, tokens de design, diretrizes mobile-first nem configuração de dark mode ou Tailwind CSS v4 (@theme).",
+      "Redundância estrutural decorrente da duplicação dos metadados do YAML nas seções Overview e Stack Tecnológica, acompanhadas de links simulados de YouTube."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_103",
+    "domain": "curated-youtube",
+    "skillName": "tailwind-css",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/tailwind-css/SKILL.md",
+    "items": [
+      "Remover o template de 65 linhas e incorporar diretrizes técnicas reais para estilização com classes utilitárias, mapeamento de temas e suporte a Tailwind CSS v3 e v4."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_104",
+    "domain": "curated-youtube",
+    "skillName": "the-library",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/the-library/SKILL.md",
+    "items": [
+      "Description com 128 caracteres (abaixo dos 200 chars ideais) e sem cláusula condicional de gatilho ('Use when...').",
+      "Corpo stub oco (65 linhas): não documenta nenhuma rotina prática de sincronização, versionamento, comandos de terminal ou gerenciamento do catálogo descentralizado de skills.",
+      "Ruído estrutural com repetição literal dos campos do frontmatter YAML nas seções de Overview e Stack, acompanhado de links placeholder de YouTube."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_105",
+    "domain": "curated-youtube",
+    "skillName": "the-library",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/the-library/SKILL.md",
+    "items": [
+      "Eliminar os blocos redundantes de Overview e Stack e documentar o procedimento técnico real de catálogo e sincronização de skills entre ambientes."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_106",
+    "domain": "curated-youtube",
+    "skillName": "token-optimization",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/token-optimization/SKILL.md",
+    "items": [
+      "Description curta (128 caracteres), sem gatilho contextual ('Use when...') e com afirmação promocional quantitativa sem validação ('by up to 80%').",
+      "Corpo stub de 65 linhas desprovido de técnicas reais de budgeting de contexto, medição de tokens, compressão de prompts ou desconexão de MCPs ociosos.",
+      "Estrutura inchada por repetição inútil dos metadados do YAML em seções redundantes de Overview e Stack com links mockados de YouTube."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_CURATED_107",
+    "domain": "curated-youtube",
+    "skillName": "token-optimization",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/token-optimization/SKILL.md",
+    "items": [
+      "Remover os blocos repetitivos de Visão Geral e Stack Tecnológica e substituir as diretrizes genéricas por rotinas práticas de pruning de histórico e otimização de ferramentas MCP."
+    ],
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "id": "MB_PHASE2_108",
+    "domain": "phase2_cluster",
+    "skillName": "laravel-brazilian-localization-best-practices + vue-inputs-masks-validation-best-practices",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de LAPIDAR: Embora pertençam a camadas distintas (backend Laravel vs. frontend Vue 3), 'laravel-brazilian-localization-best-practices' possui uma seção inteira (seção 2, ~40% do arquivo) detalhando componentes de UI do Vue 3 (MaxInputCpfCnpj, MaxInputCep, MaxInputPhoneMail, InputNumber) e helpers de validação do TypeScript (@maxvue/max-use/validations). Isso duplica diretamente o conteúdo e as responsabilidades de 'vue-inputs-masks-validation-best-practices', que já é a skill especializada em inputs mascarados, validação e manipulação de formulários Vue 3. A recomendação é LAPIDAR: manter ambas as skills separadas por camada, mas remover/enxugar a seção redundante de componentes Vue da skill backend de localização, mantendo nela apenas a lógica Laravel/PHP (sanitização no banco, BrUtils, StringsHelper, number_format, NumberToWords) e um link de referência para a skill de frontend; e calibrar os gatilhos 'Use when...' para que não haja sobreposição de chamada.",
+      "Plano de integracao: Ajustar escopos sem perdas"
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_109",
+    "domain": "phase2_cluster",
+    "skillName": "laravel-ziggy-routing-integration-best-practices + vue-axios-api-integration-best-practices",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de LAPIDAR: 'laravel-ziggy-routing-integration-best-practices' lida com a infraestrutura de geração e exposição de rotas nomeadas via Tighten Ziggy (artisan ziggy:generate, config/ziggy.php, tipos RouteList e bootstrap do resolvedor de rotas em app.ts). 'vue-axios-api-integration-best-practices' foca no cliente HTTP frontend (@maxvue/max-use: apiGetRoute, apiPostRoute, contratos de retorno e credenciais de sessão). Contudo, a skill de axios duplica integralmente o trecho de código e a explicação detalhada de 'setRouteResolver' em resources/app.ts (Regra 3), além de repetir preceitos sobre rotas nomeadas. A recomendação é LAPIDAR: manter ambas as skills devido a seus objetivos arquiteturais distintos (geração/resolução de rotas vs transporte HTTP), mas refinar 'vue-axios-api-integration-best-practices' para focar puramente em mutações HTTP, tratamento de retornos e erros, removendo a duplicação do bootstrap do resolver que pertence canonicamente à skill de Ziggy.",
+      "Plano de integracao: Ajustar escopos sem perdas"
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_110",
+    "domain": "phase2_cluster",
+    "skillName": "vue-max-stack-frontend-best-practices + vue-typescript-best-practices",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de LAPIDAR: 'vue-max-stack-frontend-best-practices' é o guia macro de arquitetura de Single File Components (SFC) no ecossistema Max (estrutura de templates, componentes Max*, formulários com MaxGrid e visão geral da stack). 'vue-typescript-best-practices' deve ser o guia focado em tipagem estática e segurança de tipos (defineProps/defineEmits tipados, DTOs gerados via spatie/laravel-typescript-transformer, tipos de template refs). No entanto, 'vue-typescript-best-practices' repete longas explicações sobre o funcionamento funcional do cache/auto-save do MaxPinia e a resolução de rotas sem prefixo api/ (seções 5 e 6), invadindo o escopo da skill macro. A recomendação é LAPIDAR: enxugar essas seções em 'vue-typescript-best-practices' para focar puramente em como TIPAR as stores e propriedades (interfaces, genéricos, contratos DTO), deixando os preceitos arquiteturais do ecossistema a cargo de 'vue-max-stack-frontend-best-practices', e calibrar os gatilhos 'Use when...' para distinguir scaffold/composição de SFCs de tipagem estática TypeScript.",
+      "Plano de integracao: Ajustar escopos sem perdas"
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_111",
+    "domain": "phase2_cluster",
+    "skillName": "typescript-advanced-types-best-practices + typescript-pro",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: typescript-pro é uma skill genérica e rasa (59 linhas) da comunidade que aborda exatamente o mesmo escopo técnico de typescript-advanced-types-best-practices (205 linhas), a qual é altamente customizada, alinhada aos projetos reais do repositório e substancialmente mais profunda. O conteúdo de typescript-pro consiste em diretrizes conceituais abstratas de generics, conditional types, mapped types, tsconfig estrito e testes que já constam implementados, com exemplos reais de código e validações práticas (satisfies, template literals, branded types, compiler testing com AssertEqual) na skill de types avançados. Manter ambas ativas provocaria colisão direta de ativação no orquestrador ao direcionar tarefas de modelagem e resolução de tipos em TypeScript.",
+      "Plano de integracao: Absorver em typescript-advanced-types-best-practices as poucas menções complementares de typescript-pro, especificamente a referência a decorators/metadados e declarações ambient (.d.ts). Consolidar no frontmatter de typescript-advanced-types-best-practices os gatilhos explícitos de 'Use this skill when' e 'Do not use this skill when' derivados de typescript-pro para prevenir ambiguidades de roteamento. Desativar/remover typescript-pro do catálogo de skills."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_112",
+    "domain": "phase2_cluster",
+    "skillName": "typescript-tooling-monorepo-best-practices + typescript-expert",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: typescript-expert é um monolito de 432 linhas da comunidade com alta redundância interna e externa. Sua seção de Type-Level Programming (branded types, conditional types, recursive types, satisfies) já é coberta de forma canônica por typescript-advanced-types-best-practices e infringe a demarcação explícita de escopo estabelecida no repositório. Por outro lado, a sua porção de infraestrutura, diagnósticos do compilador CLI (--traceResolution, --generateTrace), monorepo (composite, project references) e migração de ferramentas (Biome vs ESLint, ts-migrate) sobrepõe-se diretamente a typescript-tooling-monorepo-best-practices (que inclusive já mantém um cheatsheet derivado de typescript-expert como referência). A unificação em typescript-tooling-monorepo-best-practices centraliza toda a governança de build, tooling e arquitetura de pacotes na skill criada sob medida para o ecossistema do projeto.",
+      "Plano de integracao: Transferir para typescript-tooling-monorepo-best-practices os tópicos práticos de tooling avançado presentes em typescript-expert: diagnósticos avançados de compilação CLI (npx tsc --traceResolution, --generateTrace e análise de memória), estratégias de migração incremental (allowJs/checkJs, ts-migrate) e o comparativo de decisão Biome vs ESLint. Descartar integralmente a seção de Type-Level Programming de typescript-expert, pois sua autoridade pertence exclusivamente a typescript-advanced-types-best-practices. Desativar typescript-expert do catálogo."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_113",
+    "domain": "phase2_cluster",
+    "skillName": "api-design + api-and-interface-design",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: Trata-se de uma duplicação física exata (100% idêntica byte a byte, com 308 linhas) entre o catálogo curated-youtube/api-design e all_skills/Agentic Awesome Skills/skills/api-and-interface-design. Ambos os arquivos compartilham inclusive o mesmo frontmatter com name: api-and-interface-design, mesma descrição, mesma autoria e mesmo código. A existência da pasta curated-youtube/api-design é uma cópia não consolidada do mesmo módulo da comunidade (addyosmani/agent-skills).",
+      "Plano de integracao: Remover a pasta duplicada curated-youtube/api-design do repositório, preservando api-and-interface-design como a entrada canônica única no catálogo. Nenhuma alteração textual ou de conteúdo é necessária dada a total paridade entre os arquivos."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_114",
+    "domain": "phase2_cluster",
+    "skillName": "mcp-server-routing + mcp-tool-developer",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: Ambas as skills abordam a engenharia integral de servidores e ferramentas do Model Context Protocol (MCP) com SDKs oficiais em TypeScript e Python, validação de schemas (Zod/Pydantic), suporte a transportes (stdio, SSE, Streamable HTTP) e inspeção com MCP Inspector. curated-youtube/mcp-server-routing possui uma discrepância nominal grave entre seu diretório e seu frontmatter (name: mcp-builder, sem nenhuma rotina de roteamento de requisições), porém carrega recursos valiosos de referência (mcp_best_practices, node_mcp_server, python_mcp_server, evaluation.md) e scripts. Já mcp-tool-developer possui uma interface limpa, moderna (API McpServer) e padronizada. A unificação sob mcp-tool-developer elimina a sobreposição e corrige a anomalia nominal do repositório.",
+      "Plano de integracao: Eleger mcp-tool-developer como a skill canônica unificada de desenvolvimento MCP. Integrar ao seu SKILL.md os padrões avançados de mcp-server-routing: anotações de hint (readOnlyHint, destructiveHint, idempotentHint), boas práticas de design e o fluxo de criação de suítes de avaliação (10 QA pairs em XML). Mover e vincular as pastas reference/ e scripts/ de mcp-server-routing para a estrutura de mcp-tool-developer, eliminando em seguida o diretório redundante curated-youtube/mcp-server-routing."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_115",
+    "domain": "phase2_cluster",
+    "skillName": "pytest-and-jest-automation + javascript-testing-patterns",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de LAPIDAR: javascript-testing-patterns é uma skill de alta fidelidade e profundidade técnica (possuindo um playbook detalhado de 1.025 linhas) com foco estrito e abrangente no ecossistema JavaScript e TypeScript (Jest, Vitest, Testing Library, Supertest, mocking e testes de integração). Por outro lado, pytest-and-jest-automation foi originada a partir de pytest-automation (upstream da Anthropic focado em testes Python com pytest), mas sofreu uma extensão inadequada em seu nome e metadados para incluir Jest e Vitest, embora seu corpo seja um stub sem implementação de código JS. A recomendação não é MERGE porque os domínios de linguagem fundamentais (Python vs JavaScript/TypeScript) devem permanecer desacoplados para manter a integridade dos prompts de agentes. A recomendação técnica é LAPIDAR: purgar de pytest-and-jest-automation qualquer referência a Jest, Vitest, JavaScript e TypeScript, especializando seu conteúdo estritamente para automação de testes em Python (pytest, fixtures, parametrize, mocks e coverage), enquanto javascript-testing-patterns retém com exclusividade todo o escopo de testes em JS/TS.",
+      "Plano de integracao: Ajustar escopos sem perdas"
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_116",
+    "domain": "phase2_cluster",
+    "skillName": "ad-creative + paid-ads",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de LAPIDAR: ad-creative e paid-ads representam papéis complementares mas distintos em marketing de crescimento: ad-creative foca na geração textual e visual, variação para testes A/B, restrições de caracteres e iteração baseada em métricas criativas, enquanto paid-ads foca na estratégia de mídia paga, arquitetura de campanhas, alocação de orçamento, bid strategies e rastreamento (GA4/pixels). Contudo, paid-ads inclui seções redundantes de fórmulas de copywriting (PAS, BAB, headlines) e possui gatilhos de ativação excessivamente genéricos, gerando colisão. A recomendação é LAPIDAR: remover o bloco de fórmulas de copy de paid-ads substituindo-o por referência delegatória a ad-creative, e calibrar o 'Use when...' de paid-ads para focar exclusivamente em gestão de tráfego, orçamentos e configuração de contas.",
+      "Plano de integracao: Ajustar escopos sem perdas"
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_117",
+    "domain": "phase2_cluster",
+    "skillName": "emil-design-eng + review-animations",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de LAPIDAR: Ambas as skills têm origem comum (emilkowalski/skills). emil-design-eng é um repositório conceitual e prático extenso (700+ linhas) sobre design engineering, física de springs, clip-path, easings e heurísticas de UI, mas incorpora indevidamente uma seção mandatória de revisão de código ('Review Format (Required)') e checklists que colidem diretamente com a função de review-animations. review-animations, por sua vez, é um subagente/revisor especializado com 'disable-model-invocation: true' desenhado estritamente para code review de diffs com postura rigorosa e veredicto formal Block/Approve. A recomendação é LAPIDAR: remover a formatação coercitiva de code review de emil-design-eng para que esta atue como mentora e guia de implementação de UI craft, mantendo review-animations focada na auditoria passiva de motion diffs, demarcando os gatilhos para evitar sobreposição.",
+      "Plano de integracao: Ajustar escopos sem perdas"
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_118",
+    "domain": "phase2_cluster",
+    "skillName": "fp-types-ref + fp-taskeither-ref",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: Ambas as skills são cheatsheets curtas de referência rápida (79 e 116 linhas, respectivamente) voltadas para a biblioteca fp-ts. fp-types-ref já atua como ponto de entrada para a escolha de tipos (Option vs Either vs Task vs TaskEither), enquanto fp-taskeither-ref isola a sintaxe de TaskEither de maneira excessivamente fragmentada. Manter micro-skills separadas para referências sintáticas da mesma biblioteca dispersa a base de conhecimento e sobrecarrega o roteador do orquestrador. A recomendação é MERGE: unificar fp-taskeither-ref dentro de fp-types-ref, formando uma folha de referência rápida completa e concisa sobre os tipos e operadores fundamentais do fp-ts.",
+      "Plano de integracao: 1. Em fp-types-ref, manter a árvore de decisão de tipos e a tabela de imports. 2. Incorporar as seções de fp-taskeither-ref ('Create', 'Transform', 'Execute', 'Common Patterns' e 'vs async/await') sob uma seção dedicada 'TaskEither Reference' em fp-types-ref. 3. Atualizar o frontmatter de fp-types-ref incluindo as tags de fp-taskeither-ref (taskeither, async, promise) e expandindo a descrição e cláusula 'When to Use' para cobrir tanto seleção de tipos quanto sintaxe rápida de TaskEither. 4. Descontinuar e remover a pasta/arquivo de fp-taskeither-ref."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_119",
+    "domain": "phase2_cluster",
+    "skillName": "ui-skills + ui-skills-root",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: A skill 'ui-skills' é apenas um stub genérico e placeholder redundante originário do mesmo repositório upstream ('ibelick/ui-skills'), sem ferramentas ou orientações acionáveis. Já 'ui-skills-root' é a implementação oficial e operacional do roteador de UI Skills, contendo CLI ('npx ui-skills'), protocolo de roteamento em 7 etapas e regras estritas de seleção. Manter ambas gera confusão direta no orquestrador.",
+      "Plano de integracao: Absorver eventuais metadados contextuais ou referências upstream de 'ui-skills' em 'ui-skills-root', atualizando a descrição do 'ui-skills-root' para deixar explícito que é a porta de entrada para todas as UI skills do ecossistema ibelick, e remover a pasta/stub 'ui-skills'."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_120",
+    "domain": "phase2_cluster",
+    "skillName": "tdd-workflows-tdd-green + tdd-workflows-tdd-red + tdd-workflows-tdd-refactor",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de LAPIDAR: As três skills representam as fases especializadas do ciclo canônico de TDD (Red, Green e Refactor). A separação modular por fase é uma prática sólida em sistemas agentic, pois cada etapa impõe restrições mutuamente exclusivas ao modelo (no Red é proibido escrever código de produção; no Green é proibido antecipar refatorações; no Refactor é proibido alterar comportamento ou adicionar novos testes). No entanto, o cluster necessita de profunda lapidação interna: 'tdd-workflows-tdd-green' teve seu SKILL.md corrompido/truncado (começa abruptamente sem bloco de código e suas diretrizes essenciais foram isoladas indevidamente em 'resources/implementation-playbook.md'), enquanto 'tdd-workflows-tdd-refactor' possui metadados tautológicos genéricos e referências a arquivos inexistentes. É necessário restaurar o corpo de 'tdd-workflows-tdd-green', aprimorar o conteúdo de 'tdd-workflows-tdd-refactor' e calibrar rigorosamente as transições de fase entre as três skills.",
+      "Plano de integracao: Ajustar escopos sem perdas"
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_121",
+    "domain": "phase2_cluster",
+    "skillName": "seo-meta-optimizer + seo-aeo-meta-description-generator",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: Ambas as skills implementam a mesma funcionalidade de forma fragmentada e redundante: criação de títulos e meta descrições otimizados para SEO e taxa de clique (CTR), geração de 3 variações A/B por página e tags de compartilhamento social. 'seo-meta-optimizer' possui um escopo mais canônico (incluindo URLs, suporte a CMS como WordPress/Yoast/RankMath e frameworks como Next.js/Astro), porém contém boilerplate genérico e referências a arquivos inexistentes. Já 'seo-aeo-meta-description-generator' traz frameworks de redação de CTR robustos (V1 Benefício, V2 Pergunta, V3 Prova Social) e regras explícitas para Open Graph e Twitter Cards, mas tem nomenclatura excessivamente restrita. A unificação sob 'seo-meta-optimizer' consolida as melhores práticas de ambas em uma skill completa e elimina a ambiguidade para o orquestrador.",
+      "Plano de integracao: 1. Destino: 'seo-meta-optimizer'.\n2. Incorporar a estrutura de 3 ângulos de CTR de 'seo-aeo-meta-description-generator' (V1 Benefit Lead, V2 Question Hook, V3 Social Proof/Specificity) nas regras de geração de variações.\n3. Absorver a seção de tags sociais (Open Graph e Twitter Card tags) e SERP preview de 'seo-aeo-meta-description-generator'.\n4. Preservar as regras de estrutura de URL, limites de caracteres/pixels, integrações de CMS (Yoast/RankMath) e componentes de frameworks (Astro/Next.js) já presentes em 'seo-meta-optimizer'.\n5. Remover o boilerplate vazio e a referência ao arquivo inexistente 'resources/implementation-playbook.md' de 'seo-meta-optimizer'.\n6. Depreciar e remover 'seo-aeo-meta-description-generator' redirecionando seus gatilhos para 'seo-meta-optimizer'."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_122",
+    "domain": "phase2_cluster",
+    "skillName": "vector-database-engineer + vector-index-tuning",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: 'vector-index-tuning' é um subconjunto estritamente operacional da competência mais ampla de 'vector-database-engineer'. Enquanto 'vector-database-engineer' define a arquitetura macro de bancos vetoriais, modelos de embedding, chunking, busca híbrida e RAG, ela contém apenas 69 linhas em formato de tópicos e cita explicitamente 'resources/implementation-playbook.md' — arquivo inexistente em seu próprio diretório. Em contrapartida, 'vector-index-tuning' possui um SKILL.md de 51 linhas acompanhado exatamente pelo robusto 'resources/implementation-playbook.md' (508 linhas com algoritmos, matrizes de quantização e benchmarks empíricos em Python com hnswlib/faiss). Manter duas skills separadas fragmenta a engenharia de bancos de dados vetoriais e causa colisão direta de roteamento quando o usuário solicita otimização de latência, memória e recall (HNSW/PQ) em um banco vetorial.",
+      "Plano de integracao: 1. Mover 'resources/implementation-playbook.md' de 'vector-index-tuning' para 'vector-database-engineer/resources/implementation-playbook.md', resolvendo a dependência quebrada.\n2. Incorporar na descrição e na seção 'Use this skill when' de 'vector-database-engineer' os gatilhos específicos de tuning de hiperparâmetros HNSW (M, efConstruction, efSearch), estratégias de quantização (FP16, INT8, PQ, binária) e benchmarking de recall vs latência.\n3. Incorporar o checklist de segurança e plano de rollback pré-reindexação em produção presente em 'vector-index-tuning'.\n4. Descontinuar e remover o diretório 'vector-index-tuning', unificando a engenharia de bancos vetoriais da arquitetura ao fine-tuning de índice."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_123",
+    "domain": "phase2_cluster",
+    "skillName": "skill-creator + skill-writer",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: Ambas as skills competem diretamente pelo mesmo propósito canônico de criar, redigir e iterar sobre Agent Skills ('Use when asked to create, write, or update skills'). 'skill-creator' (da suíte oficial Anthropic / curated-youtube) é um framework executável e iterativo de 33 KB com subagentes especializados (grader, comparator, analyzer), suíte de benchmark e visualizador iterativo de reviews via script Python ('generate_review.py'), além de otimização de gatilhos ('run_loop.py'). 'skill-writer' (do Agentic Awesome Skills) é uma implementação documental que traz taxonomias conceituais valiosas (padrões de workflow, padrões de saída determinísticos, matriz de decisão de modos e gates de profundidade). Manter ambas como skills ativas causa fragmentação e colisão de ativação primária pelo orquestrador. A fusão em 'skill-creator' consolida a melhor suíte de execução dinâmica com os melhores princípios de arquitetura estática.",
+      "Plano de integracao: 1. Adotar 'skill-creator' como skill destino canônica devido à sua infraestrutura completa de execução ('eval-viewer/', 'scripts/', 'agents/').\n2. Migrar os guias de design e padrões arquiteturais de 'skill-writer/references/' (notadamente 'workflow-patterns.md', 'output-patterns.md', 'mode-selection.md' e 'design-principles.md') para dentro da pasta 'references/' de 'skill-creator'.\n3. Adicionar na seção de redação ('Write the SKILL.md / Skill Writing Guide') de 'skill-creator' referências explícitas a essas taxonomias de padrões estruturais para quando o usuário desejar uma abordagem estática sem rodar evals completas.\n4. Descontinuar 'skill-writer' no catálogo de skills para eliminar conflito de orquestração."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "id": "MB_PHASE2_124",
+    "domain": "phase2_cluster",
+    "skillName": "skill-scanner + skill-audit",
+    "skillPath": "Phase 2 Cluster",
+    "items": [
+      "Proposta de MERGE: Ambas as skills abordam exatamente a mesma funcionalidade com o mesmo propósito: análise estática e comportamental de segurança pré-instalação de skills de agentes de terceiros para detectar injeção de prompt, código malicioso, exfiltração de credenciais, abuso de permissões e riscos de supply chain. 'skill-scanner' possui uma arquitetura de avaliação mais robusta em 8 fases estruturadas, incluindo análise comportamental (envenenamento de 'CLAUDE.md' e 'MEMORY.md'), formato de vulnerabilidades com IDs específicos ('[SKILL-SEC-XXX]') e diferenciação criteriosa entre código atacante e código que documenta ameaças (minimizando falsos positivos). Já 'skill-audit' contribui com checagens valiosas de engenharia social (urgência, falsa autoridade e comandos ocultos em comentários), inteligência de repositório (idade da conta, fazendas de estrelas), escala de risco de 0 a 100 e catálogo de vetores reais documentados. Manter ambas separadas é redundância direta de catálogo.",
+      "Plano de integracao: 1. Adotar 'skill-scanner' como skill destino canônica, mantendo sua estrutura em 8 fases e formato de relatório vulnerabilidade por vulnerabilidade.\n2. Incorporar em 'skill-scanner' as etapas de 'Social Engineering Check' (detecção de urgência fabricada, autoridade falsa e instruções ocultas em comentários) e 'Repo Intelligence' (avaliação de antiguidade de conta, perfil de repositórios e anomalias de estrelas) provenientes de 'skill-audit'.\n3. Adicionar a escala de risco numérico (0-39 Seguro, 40-69 Médio Risco, 70-100 Crítico) e os exemplos de ataques reais documentados de 'skill-audit' dentro das diretrizes de avaliação de 'skill-scanner'.\n4. Calibrar a descrição de 'skill-scanner' para cobrir explicitamente o gatilho pré-instalação ('Use when evaluating or auditing third-party agent skills before installation...').\n5. Descontinuar/remover 'skill-audit' do catálogo de skills."
+    ],
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  }
+]

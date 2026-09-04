@@ -1,0 +1,44 @@
+Você é o Juiz de IA para a Fase 2 (Redundância Inter-Skills) do lote J1.
+Avalie os seguintes 5 clusters de skills:
+
+Cluster 1:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-inputs-masks-validation-best-practices/SKILL.md
+
+Cluster 2:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md
+
+Cluster 3:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/frontend-design-best-practices/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-unocss-styling-best-practices/SKILL.md
+
+Cluster 4:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-typescript-best-practices/SKILL.md
+
+Cluster 5:
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-history/SKILL.md
+  - /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-setup/SKILL.md
+
+Para CADA cluster:
+1. Leia o SKILL.md de cada skill do cluster usando view_file.
+2. Analise escopo, ferramentas, código, arquitetura e intenções.
+3. Decida a recomendação técnica:
+   - MERGE: quando uma skill é subconjunto óbvio de outra, ou quando são stubs duplicados, ou quando abordam exatamente a mesma funcionalidade de modo fragmentado. Indique a skill destino em "into" e detalhe o "mergePlan".
+   - LAPIDAR: manter ambas, mas ajustar o conteúdo interno para que cada uma cumpra estritamente seu escopo e elimine sobreposições internas.
+   - DEMARCAR: manter ambas completas, bastando calibrar as descrições e gatilhos Use when... para que não haja colisão de ativação pelo orquestrador.
+   - FALSO-POSITIVO: as skills parecem similares apenas pelo nome ou termos genéricos, mas seus domínios, ferramentas e propósitos são substancialmente distintos.
+
+Retorne SEMPRE um array JSON contendo um objeto para cada cluster avaliado no formato padrao:
+[
+  {
+    "cluster": ["skillNameA", "skillNameB"],
+    "recommendation": "MERGE | LAPIDAR | DEMARCAR | FALSO-POSITIVO",
+    "into": "nome da skill destino se MERGE, senao null",
+    "rationale": "justificativa detalhada do veredito",
+    "mergePlan": "detalhes de preservacao de conteudo sem perda se MERGE, senao null",
+    "reviewModel": "Tier 1 (Fast) | Tier 2 (High-Reasoning)"
+  }
+]
+Envie o resultado OBRIGATORIAMENTE via send_message para o orquestrador.

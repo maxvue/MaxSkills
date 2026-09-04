@@ -1,0 +1,569 @@
+[
+  {
+    "skillName": "daily-gift",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/daily-gift/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 184 caracteres (ligeiramente abaixo do limiar de 200 a 400 caracteres) e ausência de cláusula de ativação explícita no formato 'Use when...' / 'Ative quando...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Menção direta no corpo a scripts utilitários em 'scripts/' e armazenamento em 'workspace/daily-gift/' que não acompanham o pacote da skill, dependendo de setup externo prévio no ambiente ClawHub.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração autônoma de presentes diários personalizados e criativos em H5, imagens ou vídeos com base no contexto conversacional e perfil de gosto.",
+      "entidades": [
+        "p5.js",
+        "ClawHub",
+        "Canvas",
+        "OpenClaw",
+        "AI Generation APIs"
+      ],
+      "keywords": [
+        "daily-gift",
+        "h5",
+        "p5.js",
+        "creative-pipeline",
+        "editorial-judgment",
+        "gift-thesis",
+        "taste-profile",
+        "anti-repetition",
+        "personalization",
+        "canvas",
+        "clawhub",
+        "ai-video",
+        "ai-image",
+        "cron-trigger"
+      ]
+    },
+    "summary": "Skill criativa bem concebida com pipeline de 5 estágios e lógica anti-repetição; requer ajuste na description para incluir gatilhos e extensão mínima."
+  },
+  {
+    "skillName": "daily-news-report",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/daily-news-report/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (126 caracteres, abaixo dos 200 caracteres mínimos) e sem sintaxe de gatilho canônico 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description de discriminantes arquiteturais cruciais documentados no corpo (orquestração de SubAgents, MCP Chrome DevTools para SPA e cache dedup).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção '## When to Use' no rodapé é tautológica e vazia ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover seção final '## When to Use' (linhas 357-358) por ser mero boilerplate tautológico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a duplicação dos esquemas de payload JSON entre a Fase 3 e os exemplos de chamada de SubAgent (linhas 218-278).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Coleta, filtragem qualitativa e geração automatizada de relatórios diários de notícias técnicas em Markdown via arquitetura multi-agente e headless browser.",
+      "entidades": [
+        "HackerNews",
+        "HuggingFace Papers",
+        "mcp__chrome-devtools",
+        "Chrome DevTools",
+        "SubAgent",
+        "Main Agent",
+        "NewsReport"
+      ],
+      "keywords": [
+        "web-scraping",
+        "daily-report",
+        "multi-agent",
+        "orchestration",
+        "subagent",
+        "headless-browser",
+        "chrome-devtools",
+        "hacker-news",
+        "huggingface",
+        "markdown-report",
+        "cache-deduplication",
+        "quality-scoring",
+        "js-rendering"
+      ]
+    },
+    "summary": "Excelente arquitetura de orquestração multi-agente e scraping resiliente, necessitando apenas podar o boilerplate final e enriquecer a description."
+  },
+  {
+    "skillName": "data-engineering-data-pipeline",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/data-engineering-data-pipeline/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description formulada como roleplay de persona ('You are a data pipeline architecture expert...') e com 153 caracteres (<200), carecendo de gatilhos 'Use when...' e discriminantes operacionais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão total na description das tecnologias reais tratadas no corpo (Apache Airflow, Prefect, dbt, Apache Spark, Kafka, Delta Lake, Apache Iceberg, Great Expectations).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Gatilhos tautológicos no corpo ('Use this skill when: Working on data pipeline architecture tasks...') e presença de placeholder de template não expandido '$ARGUMENTS' (linha 25).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção de Limitations (linhas 206-210) composta inteiramente por boilerplate genérico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover ou reformular a seção tautológica 'Use this skill when / Do not use this skill when' (linhas 13-22) e o placeholder cru '$ARGUMENTS' (linha 25).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar boilerplate genérico de Limitations (linhas 206-210).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e implementação de pipelines de dados em lote e streaming com orquestração, governança e armazenamento Lakehouse.",
+      "entidades": [
+        "Apache Airflow",
+        "Prefect",
+        "dbt",
+        "Apache Spark",
+        "Apache Kafka",
+        "Delta Lake",
+        "Apache Iceberg",
+        "Great Expectations",
+        "CloudWatch",
+        "Grafana"
+      ],
+      "keywords": [
+        "data-pipeline",
+        "etl",
+        "elt",
+        "lakehouse",
+        "batch-ingestion",
+        "streaming",
+        "airflow",
+        "prefect",
+        "dbt",
+        "spark",
+        "kafka",
+        "delta-lake",
+        "apache-iceberg",
+        "great-expectations",
+        "cloudwatch",
+        "prometheus",
+        "acid-transactions"
+      ]
+    },
+    "summary": "Conteúdo técnico sólido sobre ingestão, Lakehouse e orquestração, prejudicado por description em formato de persona, placeholder cru e tautologias."
+  },
+  {
+    "skillName": "data-scientist",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/data-scientist/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description de 173 caracteres (<200) com adjetivos promocionais vazios ('Expert', 'advanced analytics', 'complex data analysis') e modelada como persona/cargo, sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Escopo hiper-amplo e genérico que tenta cobrir todo o universo de um cargo ('data scientist') sem foco ou especialização operacional acionável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Tautologia flagrante em 'Use this skill when / Do not use this skill when' (linhas 9-18: 'Working on data scientist tasks... The task is unrelated to data scientist').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Bloat estrutural substancial com seções de prompt de persona ('Behavioral Traits', 'Knowledge Base' e 'Instructions' genéricas de 3 linhas) que não agregam valor procedural.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover seção 'Behavioral Traits' (linhas 154-165) e 'Knowledge Base' (linhas 166-177) por constituírem puro preenchimento de persona.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Eliminar preâmbulos e instruções tautológicas (linhas 9-24) e limitations genéricas (linhas 198-202).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Guia geral para análise exploratória de dados, modelagem preditiva, inferência causal e machine learning aplicado a negócios.",
+      "entidades": [
+        "pandas",
+        "NumPy",
+        "scikit-learn",
+        "XGBoost",
+        "LightGBM",
+        "PyTorch",
+        "TensorFlow",
+        "MLflow",
+        "FastAPI",
+        "Optuna",
+        "SHAP",
+        "Streamlit"
+      ],
+      "keywords": [
+        "data-science",
+        "machine-learning",
+        "eda",
+        "statistical-modeling",
+        "ab-testing",
+        "causal-inference",
+        "time-series",
+        "xgboost",
+        "deep-learning",
+        "feature-engineering",
+        "model-interpretability",
+        "mlflow",
+        "scikit-learn",
+        "predictive-analytics"
+      ]
+    },
+    "summary": "Skill excessivamente inflada com traços de persona e escopo de cargo generalista, carecendo de objetividade e podas de mais de 25%."
+  },
+  {
+    "skillName": "database-cloud-optimization-cost-optimize",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/database-cloud-optimization-cost-optimize/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de 260 caracteres inicia com prompt de persona ('You are a cloud cost optimization expert specializing in...') e omite a cláusula canônica 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "SKILL.md é uma casca vazia de 53 linhas que expõe a variável crua não expandida '$ARGUMENTS' (linha 30) e instruções vagas de alto nível.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Delegação total a um playbook secundário ('resources/implementation-playbook.md' de 1442 linhas) sem sintetizar as diretrizes principais no SKILL.md primário.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover placeholder não interpolado '$ARGUMENTS' (linha 30) e limpar o boilerplate de limitações (linhas 49-53).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar o preâmbulo de persona e instruções genéricas, trazendo síntese dos padrões do playbook para o corpo principal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Análise de faturamento, detecção de desperdícios de infraestrutura e otimização de custos de banco de dados e computação em nuvem.",
+      "entidades": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "boto3",
+        "AWS Cost Explorer",
+        "CloudCostAnalyzer",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "cloud-cost-optimization",
+        "finops",
+        "aws-ce",
+        "boto3",
+        "rightsizing",
+        "idle-resources",
+        "waste-detection",
+        "reserved-instances",
+        "lifecycle-policies",
+        "cost-explorer",
+        "tagging-policies",
+        "azure-cost-management",
+        "gcp-billing"
+      ]
+    },
+    "summary": "Arquivo principal esquelético com placeholder residual, contrastando com um playbook complementar rico em scripts boto3 para FinOps."
+  },
+  {
+    "skillName": "database-migrations-migration-observability",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/database-migrations-migration-observability/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description criticamente curta (60 caracteres, muito abaixo do intervalo ideal de 200-400), sem verbo de ação e sem cláusula de ativação 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão na description de tecnologias determinantes presentes no código (Debezium, Kafka, Prometheus, Grafana, MongoDB Atlas).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de placeholder cru não expandido '$ARGUMENTS' (linha 28) e gatilhos tautológicos ('Use this skill when: Working on migration observability...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Menção inadequada a 'plugin' na seção 'Cross-Plugin Integration' (linha 415), resquício de arquitetura anterior do Claude Plugins.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover bloco tautológico 'Use this skill when / Do not use this skill when' (linhas 14-23) e o placeholder cru '$ARGUMENTS' (linha 28).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover seção 'Cross-Plugin Integration' (linhas 415-421) e limitações genéricas (linhas 422-426).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Infraestrutura de observabilidade, telemetria em tempo real e Change Data Capture (CDC) para migrações de banco de dados sem downtime.",
+      "entidades": [
+        "Debezium",
+        "Apache Kafka",
+        "Prometheus",
+        "Grafana",
+        "MongoDB Atlas",
+        "prom-client",
+        "winston",
+        "Slack Webhook"
+      ],
+      "keywords": [
+        "database-migrations",
+        "migration-observability",
+        "cdc",
+        "debezium",
+        "kafka",
+        "prometheus",
+        "grafana",
+        "mongodb-atlas",
+        "prom-client",
+        "replication-lag",
+        "consumer-lag",
+        "anomaly-detection",
+        "slack-alerts",
+        "zero-downtime"
+      ]
+    },
+    "summary": "Excelente código técnico para pipelines CDC e métricas Prometheus/Grafana, porém com description truncada (60 chars) e placeholders residuais."
+  },
+  {
+    "skillName": "database-migrations-sql-migrations",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/database-migrations-sql-migrations/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de 147 caracteres (abaixo de 200 chars) e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "SKILL.md atua apenas como casca superficial de 55 linhas sem código prático, referenciando vagamente playbooks sem linkar o arquivo 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "O playbook auxiliar duplica todo o cabeçalho, persona e placeholder cru '$ARGUMENTS' do SKILL.md (linhas 5-24 de implementation-playbook.md).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Eliminar boilerplate duplicado e o placeholder '$ARGUMENTS' dentro de 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover instruções genéricas e limitations vazias (linhas 51-55 do SKILL.md), adicionando referência explícita ao playbook de recursos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégias de migração de esquema SQL sem downtime com padrões Expand-Contract, sincronização dual-write e planos de rollback.",
+      "entidades": [
+        "PostgreSQL",
+        "MySQL",
+        "SQL Server",
+        "plpgsql",
+        "implementation-playbook.md"
+      ],
+      "keywords": [
+        "sql-migrations",
+        "zero-downtime",
+        "expand-contract",
+        "blue-green",
+        "dual-write",
+        "triggers",
+        "rollback-procedures",
+        "concurrent-index",
+        "postgresql",
+        "mysql",
+        "sql-server",
+        "schema-migration",
+        "batch-update"
+      ]
+    },
+    "summary": "Padrões zero-downtime de alta qualidade no playbook auxiliar, mas SKILL.md é excessivamente raso e possui cabeçalhos duplicados com placeholders."
+  },
+  {
+    "skillName": "dbos-typescript",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/dbos-typescript/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento de aplicações TypeScript resilientes com fluxos de trabalho duráveis, controle de concorrência e steps transacionais via DBOS.",
+      "entidades": [
+        "@dbos-inc/dbos-sdk",
+        "DBOS",
+        "DBOSClient"
+      ],
+      "keywords": [
+        "dbos",
+        "typescript",
+        "durable-workflows",
+        "workflow-determinism",
+        "steps",
+        "queues",
+        "concurrency-control",
+        "fault-tolerance",
+        "transactional-steps",
+        "event-streaming",
+        "idempotency",
+        "stateful-apps"
+      ]
+    },
+    "summary": "Padrão ouro de engenharia de skills: description perfeita com 228 caracteres, regras críticas de determinismo e índice modular para 32 referências."
+  },
+  {
+    "skillName": "dbt-transformation-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/dbt-transformation-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 147 caracteres (abaixo de 200) e ausência de cláusula explícita 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Tautologia leve na seção negativa ('Do not use this skill when: The project is not using dbt...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Limpar linhas de limitations genéricas (linhas 39-43) no SKILL.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de engenharia analítica com dbt cobrindo arquitetura em camadas (Medallion), testes de qualidade, documentação e modelos incrementais.",
+      "entidades": [
+        "dbt",
+        "dbt-core",
+        "dbt_project.yml",
+        "Stripe",
+        "Shopify",
+        "Fivetran"
+      ],
+      "keywords": [
+        "dbt",
+        "data-build-tool",
+        "transformation-patterns",
+        "medallion-architecture",
+        "staging-layer",
+        "marts",
+        "intermediate-models",
+        "incremental-strategy",
+        "schema-tests",
+        "source-freshness",
+        "sql-modeling",
+        "analytics-engineering"
+      ]
+    },
+    "summary": "Excelente organização modular apontando para playbook completo de arquitetura Medallion em dbt, requerendo apenas ampliação da description com gatilhos."
+  },
+  {
+    "skillName": "debug-buttercup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/debug-buttercup/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description inicia com afirmação factual passiva ('All pods run in namespace crs.') em vez de verbo de ação procedural que defina a função da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência quebrada no texto (linha 250) para 'references/failure-patterns.md', arquivo inexistente no pacote da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Referência quebrada no texto (linha 265) para '{baseDir}/scripts/diagnose.sh', script de diagnóstico ausente no repositório local da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diagnóstico, depuração e recuperação de falhas em cascata, pods reiniciando e filas Redis no ecossistema Kubernetes Buttercup (namespace crs).",
+      "entidades": [
+        "Kubernetes (kubectl)",
+        "Redis",
+        "Helm",
+        "OpenTelemetry",
+        "Signoz",
+        "LiteLLM",
+        "DinD",
+        "crs namespace"
+      ],
+      "keywords": [
+        "debug-buttercup",
+        "kubernetes",
+        "crs-namespace",
+        "crashloopbackoff",
+        "oomkilled",
+        "cascade-failure",
+        "redis-streams",
+        "aof",
+        "opentelemetry",
+        "signoz",
+        "fuzzer-bot",
+        "scheduler",
+        "kubectl",
+        "liveness-probes"
+      ]
+    },
+    "summary": "Excelente profundidade de comandos para triagem em Kubernetes/Redis, porém prejudicada por referências a arquivos e scripts inexistentes no pacote."
+  }
+]

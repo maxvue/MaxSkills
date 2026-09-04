@@ -1,6 +1,6 @@
 ---
 name: youtube-summarizer
-description: "Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelligent analysis frameworks"
+description: "Comprehensive engineering guide and best practices for youtube summarizer. Use when configuring, developing, debugging, or optimizing youtube summarizer architecture in production systems. Guides architecture, best practices, and implementation standards for youtube summarizer."
 category: content
 risk: safe
 source: community

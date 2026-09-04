@@ -1,6 +1,6 @@
 ---
 name: webapp-testing
-description: "To test local web applications, write native Python Playwright scripts."
+description: "To test local web applications, write native Python Playwright scripts. Use when developing, optimizing, debugging, or configuring webapp testing in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for webapp testing."
 risk: critical
 source: community
 date_added: "2026-02-27"

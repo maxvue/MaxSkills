@@ -1,6 +1,6 @@
 ---
 name: atlas-cloud-media
-description: "Generate Atlas Cloud images and videos through its asynchronous media API with schema-first model selection and credential-safe polling."
+description: "Generate Atlas Cloud images and videos through its asynchronous media API with schema-first model selection and credential-safe polling. Use when developing, optimizing, debugging, or configuring atlas cloud media in production workflows."
 category: media
 risk: safe
 source: self

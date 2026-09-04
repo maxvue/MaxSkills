@@ -1,6 +1,6 @@
 ---
 name: ai-ml
-description: "AI and machine learning workflow covering LLM application development, RAG implementation, agent architecture, ML pipelines, and AI-powered features."
+description: "AI and machine learning workflow covering LLM application development, RAG implementation, agent architecture, ML pipelines, and AI-powered features. Use when developing, optimizing, debugging, or configuring ai ml in production workflows."
 category: workflow-bundle
 risk: safe
 source: personal

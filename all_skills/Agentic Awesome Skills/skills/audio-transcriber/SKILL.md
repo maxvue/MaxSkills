@@ -1,6 +1,6 @@
 ---
 name: audio-transcriber
-description: "Transform audio recordings into professional Markdown documentation with intelligent summaries using LLM integration"
+description: "Comprehensive engineering guide and best practices for audio transcriber. Use when configuring, developing, debugging, or optimizing audio transcriber architecture in production systems. Guides architecture, best practices, and implementation standards for audio transcriber."
 category: content
 risk: safe
 source: community

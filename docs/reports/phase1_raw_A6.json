@@ -1,0 +1,391 @@
+[
+  {
+    "skillName": "laravel-vue-geocoordinates-maps-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-vue-geocoordinates-maps-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Discrepância semântica na description (Critério 5): a description afirma 'Covers validating Spatie Data DTOs', porém as Seções 1 e Restrições do próprio SKILL.md determinam explicitamente que o backend não valida coordenadas ('NÃO invente uma camada de validação... hoje o fluxo real persiste $request->all() via fill()/save(), sem validação') e que os Spatie Data DTOs atuam estritamente como classes de transferência/tipagem para o TypeScript Transformer.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes de manuseio e armazenamento de coordenadas geográficas no Laravel e conversão reativa no frontend Vue 3 via store MaxPinia e utm-latlng com componente MaxMaps.",
+      "entidades": [
+        "LocationCoordinate",
+        "CoordinateDecimalData",
+        "CoordinateUTMData",
+        "CoordinateDMSData",
+        "useCoordinates.Store.ts",
+        "MaxMaps",
+        "utm-latlng",
+        "GoogleMap",
+        "LocationExecuteController"
+      ],
+      "keywords": [
+        "coordenadas geográficas",
+        "decimal",
+        "utm",
+        "dms",
+        "MaxPinia",
+        "useCoordinates",
+        "utm-latlng",
+        "Google Maps",
+        "MaxMaps",
+        "LocationCoordinate",
+        "Spatie Data",
+        "UnoCSS",
+        "Ziggy",
+        "reatividade",
+        "conversão de coordenadas"
+      ]
+    },
+    "summary": "Excelente aderência técnica ao ecossistema real do Engeapp, necessitando apenas de ajuste pontual na description para remover a menção de validação por DTOs."
+  },
+  {
+    "skillName": "laravel-vue-login-maxauthcard-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-vue-login-maxauthcard-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padronização do fluxo full-stack de login por sessão e cookie no Laravel 13 integrado ao Vue 3 com MaxAuthCard, stores MaxPinia e Socialite.",
+      "entidades": [
+        "AuthenticatedSessionController",
+        "LoginRequest",
+        "SocialiteController",
+        "MaxAuthCard",
+        "useLogin.Store.ts",
+        "useUser.Store.ts",
+        "MaxPinia",
+        "Ziggy",
+        "PhoneClass",
+        "RouteLocationRaw"
+      ],
+      "keywords": [
+        "autenticação",
+        "login",
+        "sessão",
+        "cookie",
+        "MaxAuthCard",
+        "useLogin",
+        "useUser",
+        "MaxPinia",
+        "Socialite",
+        "OAuth",
+        "Ziggy",
+        "Laravel 13",
+        "Vue 3",
+        "CSRF",
+        "PhoneClass"
+      ]
+    },
+    "summary": "Implementação e diretrizes 100% alinhadas com a arquitetura do Engeapp, sem invenção de Sanctum SPA stateful e descrição semanticamente precisa."
+  },
+  {
+    "skillName": "laravel-vuefinder-media-library-integration",
+    "skillPath": "created-skills/backend_laravel/laravel-vuefinder-media-library-integration/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Sincronização em tempo real entre operações de arquivos no VueFinder e registros do Spatie MediaLibrary no banco de dados do Engeapp.",
+      "entidades": [
+        "VueFinderBuilder",
+        "ActionFactory",
+        "PreviewAction",
+        "DownloadAction",
+        "Media",
+        "Spatie MediaLibrary",
+        "NotificationService",
+        "ProcessMediaDocumentReaderJob",
+        "LocalFilesystemAdapter"
+      ],
+      "keywords": [
+        "VueFinder",
+        "Spatie MediaLibrary",
+        "file manager",
+        "upload sync",
+        "legacy_folder",
+        "saveQuietly",
+        "toBase delete",
+        "ProcessMediaDocumentReaderJob",
+        "metadados",
+        "Flysystem",
+        "enriquecimento JSON"
+      ]
+    },
+    "summary": "Documentação enxuta, altamente técnica e perfeitamente aderente ao fluxo do Engeapp com hooks de sincronização e prevenção de eventos Eloquent redundantes."
+  },
+  {
+    "skillName": "laravel-whatsapp-cloud-api-integration",
+    "skillPath": "created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração resiliente com a WhatsApp Cloud API no Laravel através de processamento em duas etapas de filas, SDK Netflie e normalização PhoneClass.",
+      "entidades": [
+        "WebhookController",
+        "WebhookWhatsappJob",
+        "WhatsappService",
+        "WebhookWhatsappJobExecuteJob",
+        "SupportMessage",
+        "SupportContact",
+        "PhoneClass",
+        "Netflie\\WhatsAppCloudApi\\WhatsAppCloudApi"
+      ],
+      "keywords": [
+        "WhatsApp Cloud API",
+        "webhooks",
+        "Netflie SDK",
+        "filas assíncronas",
+        "PhoneClass",
+        "SupportMessage",
+        "SupportContact",
+        "idempotência",
+        "rate limiting",
+        "Meta Graph API",
+        "jobs"
+      ]
+    },
+    "summary": "Excelente especificação de webhooks, filas assíncronas e uso estrito do SDK oficial Netflie instalado no projeto."
+  },
+  {
+    "skillName": "laravel-ziggy-routing-integration-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-ziggy-routing-integration-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração e consumo de rotas nomeadas do Laravel 13 no frontend Vue 3 via Ziggy, auto-import de route(), helpers do MaxUse e contratos MaxPinia.",
+      "entidades": [
+        "Ziggy",
+        "config/ziggy.php",
+        "resources/Js/ziggy.js",
+        "resources/Js/ziggy.d.ts",
+        "unplugin-auto-import",
+        "route()",
+        "apiGetRoute",
+        "apiPostRoute",
+        "setRouteResolver",
+        "createMaxPinia"
+      ],
+      "keywords": [
+        "Ziggy",
+        "rotas nomeadas",
+        "Laravel 13",
+        "Vue 3",
+        "MaxUse",
+        "MaxPinia",
+        "apiGetRoute",
+        "setRouteResolver",
+        "unplugin-auto-import",
+        "RouteList",
+        "TypeScript",
+        "generate --types"
+      ]
+    },
+    "summary": "Guia impecável sobre a integração e tipagem de rotas Ziggy pontilhadas, sem rotas cruas no front e com integração ao setRouteResolver."
+  },
+  {
+    "skillName": "systematic-debugging-best-practices",
+    "skillPath": "created-skills/dev-practices/systematic-debugging-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia sistemática de depuração e análise de causa raiz com foco em evidências de logs, limites de camada e testes de regressão com Pest.",
+      "entidades": [
+        "Laravel logs",
+        "Pest",
+        "MaxPinia status",
+        "Ziggy",
+        "DevTools",
+        "git bisect"
+      ],
+      "keywords": [
+        "debugging sistemático",
+        "causa raiz",
+        "investigação",
+        "hipótese",
+        "teste de regressão",
+        "Pest",
+        "MaxPinia status",
+        "logs do Laravel",
+        "git bisect",
+        "método científico"
+      ]
+    },
+    "summary": "Metodologia rigorosa e clara de investigação sistemática perfeitamente adaptada ao ecossistema Engeapp (Laravel, MaxPinia e Pest)."
+  },
+  {
+    "skillName": "technical-documentation-best-practices",
+    "skillPath": "created-skills/dev-practices/technical-documentation-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões, fluxos e templates padronizados para documentação técnica estruturada e manutenível no ecossistema Engeapp.",
+      "entidades": [
+        "MaxComponentsUi",
+        "MaxUse",
+        "MaxPinia",
+        "Ziggy",
+        "Laravel 13",
+        "Vue 3",
+        "TSDoc",
+        "JSDoc"
+      ],
+      "keywords": [
+        "documentação técnica",
+        "README",
+        "ADR",
+        "Changelog",
+        "TSDoc",
+        "JSDoc",
+        "MaxComponentsUi",
+        "Ziggy",
+        "MaxPinia",
+        "templates",
+        "Vue 3",
+        "Laravel 13"
+      ]
+    },
+    "summary": "Templates e padrões de documentação de alta qualidade técnica com proibição estrita de rotas cruas e foco no ecossistema Max."
+  },
+  {
+    "skillName": "frontend-design-best-practices",
+    "skillPath": "created-skills/frontEnd/frontend-design-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes de engenharia de design para produção de interfaces memoráveis no Engeapp utilizando Vue 3, presetMaxUno do UnoCSS e componentes Max.",
+      "entidades": [
+        "Vue 3",
+        "UnoCSS",
+        "presetMaxUno",
+        "presetWind3",
+        "presetAttributify",
+        "MaxComponentsUi",
+        "MaxGrid",
+        "MaxTitle1",
+        "MaxButton"
+      ],
+      "keywords": [
+        "design de frontend",
+        "UnoCSS",
+        "presetMaxUno",
+        "MaxComponentsUi",
+        "Vue 3",
+        "tipografia Quicksand",
+        "atributos inline",
+        "MaxGrid",
+        "UI memorável",
+        "acessibilidade"
+      ]
+    },
+    "summary": "Equilíbrio exemplar entre visão estética expressiva e as regras técnicas estritas do repositório (componentes Max, UnoCSS attributify e atributos inline)."
+  },
+  {
+    "skillName": "vue-auto-import-components-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-auto-import-components-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração e manutenção de auto-imports e resolvers de componentes no Vue 3 com unplugin-auto-import, unplugin-vue-components e bibliotecas Max.",
+      "entidades": [
+        "unplugin-auto-import",
+        "unplugin-vue-components",
+        "vite.config.ts",
+        "MaxComponentsUiResolver",
+        "maxUseAutoImport",
+        "auto-import.d.ts",
+        "auto-import-components.d.ts",
+        "tsconfig.json"
+      ],
+      "keywords": [
+        "auto-import",
+        "unplugin-auto-import",
+        "unplugin-vue-components",
+        "MaxComponentsUiResolver",
+        "maxUseAutoImport",
+        "Vite",
+        "Vue 3",
+        "TypeScript",
+        "tsconfig.json",
+        "dts"
+      ]
+    },
+    "summary": "Configuração exata e fiel ao projeto real, documentando a integração com MaxComponentsUiResolver, maxUseAutoImport e tsconfig."
+  },
+  {
+    "skillName": "vue-axios-api-integration-best-practices",
+    "skillPath": "created-skills/frontEnd/vue-axios-api-integration-best-practices/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padronização de comunicação HTTP no Vue 3 com helpers do MaxUse, resolução de nomes Ziggy e fluxo de stores MaxPinia sem camada global de Axios.",
+      "entidades": [
+        "apiGetRoute",
+        "apiPostRoute",
+        "apiPutRoute",
+        "apiDeleteRoute",
+        "@maxvue/max-use",
+        "setRouteResolver",
+        "useLogin.Store.ts",
+        "useSystemStore",
+        "Toast",
+        "MaxComponentsUi"
+      ],
+      "keywords": [
+        "HTTP helpers",
+        "apiGetRoute",
+        "apiPostRoute",
+        "MaxUse",
+        "Ziggy",
+        "MaxPinia",
+        "sem axios global",
+        "withCredentials",
+        "sessão cookie",
+        "upload CSRF",
+        "Vue 3"
+      ]
+    },
+    "summary": "Excelente definição dos contratos de retorno, propagação de erros, sem camada global de Axios e uso estrito de rotas nomeadas Ziggy."
+  }
+]

@@ -1,6 +1,6 @@
 ---
 name: multi-platform-apps-multi-platform
-description: "Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies."
+description: "Build and deploy the same feature consistently across web, mobile, and desktop platforms using API-first architecture and parallel implementation strategies. Use when developing, optimizing, debugging, or configuring multi platform apps multi platform in production workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -27,7 +27,7 @@ Build and deploy the same feature consistently across web, mobile, and desktop p
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Phase 1: Architecture and API Design (Sequential)
 

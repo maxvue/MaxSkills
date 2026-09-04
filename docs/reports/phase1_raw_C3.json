@@ -1,0 +1,510 @@
+[
+  {
+    "skillName": "agent-squad",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-squad/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 (Extensão) e 3 (Gatilho): Description possui apenas 78 caracteres ('Main agent orchestrator that coordinates a specialized squad of agents'), muito abaixo do intervalo ideal (200-400 chars) e sem gatilho explícito no formato 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Omissão dos nomes dos papéis/especialistas do squad (Rex, Alex, Aria, Mason, Luna, Quinn, Max, Dep) e de termos operacionais vitais como context compression, briefing packets e artifact references.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Redundância): Seção 'When to Use' (linhas 18-20) repete de forma tautológica a frase da description: '- Use this skill when the task matches this description: Main agent orchestrator that coordinates a specialized squad of agents.'",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Linhas 18-20: Remover a linha tautológica da seção '## When to Use' que repete inutilmente a description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração e roteamento multi-agente centralizado com controle rigoroso de contexto e transmissão por referência de artefatos.",
+      "entidades": [
+        "agent-squad",
+        "Rex",
+        "Alex",
+        "Aria",
+        "Mason",
+        "Luna",
+        "Quinn",
+        "Max",
+        "Dep"
+      ],
+      "keywords": [
+        "orchestrator",
+        "multi-agent",
+        "context window",
+        "routing logic",
+        "briefing packet",
+        "autonomous agents",
+        "project state",
+        "artifact reference",
+        "compressed summary",
+        "task delegation",
+        "handoff protocol",
+        "requirements",
+        "architecture",
+        "code review",
+        "qa testing"
+      ]
+    },
+    "summary": "Protocolo de orquestração multi-agente bem estruturado com controle de contexto, requerendo enriquecimento semântico da description e remoção de tautologia."
+  },
+  {
+    "skillName": "agent-squad/aria",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-squad/aria/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 (Extensão) e 3 (Gatilho): Description contém apenas 82 caracteres ('Designs the data model, API contracts, and structural foundation of the system.'), abaixo da faixa ideal de 200 a 400 chars e sem cláusula condicional de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Faltam termos discriminantes cruciais detalhados no arquivo, como Architecture Decision Records (ADR), modelagem de esquemas relacionais/NoSQL, contratos de endpoints REST/GraphQL, import rules e segurança OWASP.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Redundância): Seção 'When to Use' (linhas 22-24) apresenta redundância tautológica idêntica à description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Linhas 22-24: Remover a entrada redundante em '## When to Use' que replica a description literalmente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Definição de arquitetura de software, modelagem de dados, contratos de API e desenho modular para implementação orientada a blueprints.",
+      "entidades": [
+        "aria",
+        "agent-squad",
+        "rex",
+        "alex",
+        "mason",
+        "luna"
+      ],
+      "keywords": [
+        "system architect",
+        "data modeling",
+        "api contracts",
+        "file structure",
+        "ADR",
+        "design patterns",
+        "security architecture",
+        "OWASP",
+        "schema design",
+        "entity relationships",
+        "endpoint specs",
+        "blueprint handoff",
+        "RESTful"
+      ]
+    },
+    "summary": "Especificação excelente do papel de arquiteto de software, demandando apenas ampliação semântica da description e eliminação de tautologia."
+  },
+  {
+    "skillName": "agent-squad/luna",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-squad/luna/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 (Extensão) e 3 (Gatilho): Description possui apenas 69 caracteres ('Reviews code for objective correctness, security, and reliability.'), muito abaixo da faixa recomendada de 200 a 400 caracteres e carente de gatilho formal de uso ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Omissão de discriminantes técnicos chave como detecção de injeções (SQLi/NoSQLi), IDOR, race conditions, N+1 queries, conformidade com blueprints e classificação de severidade (CRITICAL, HIGH, MED, LOW).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Redundância): A seção 'When to Use' (linhas 22-24) é uma cópia ipsis litteris da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Linhas 22-24: Podar a linha tautológica de '## When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Revisão estática de código com foco em segurança, confiabilidade e conformidade estrita com blueprints arquiteturais.",
+      "entidades": [
+        "luna",
+        "agent-squad",
+        "mason",
+        "aria",
+        "quinn",
+        "max"
+      ],
+      "keywords": [
+        "code review",
+        "security analysis",
+        "vulnerabilities",
+        "sql injection",
+        "idor",
+        "race conditions",
+        "blueprint conformance",
+        "n+1 queries",
+        "critical findings",
+        "quality gate",
+        "secrets leakage",
+        "auth bypass",
+        "reliability"
+      ]
+    },
+    "summary": "Guia de revisão de código técnico, objetivo e rigoroso, necessitando expansão discriminante da description e eliminação da redundância de gatilho."
+  },
+  {
+    "skillName": "agent-squad/mason",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-squad/mason/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 (Extensão) e 3 (Gatilho): Description com apenas 76 caracteres ('Produces clean, functional code that matches the architecture and checklists.'), abaixo de 200 chars e sem cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Faltam discriminantes centrais como implementação guiada por marcos (milestones), validação de Definition of Done (DoD), funções puras, consultas parametrizadas e isolamento de SDKs de terceiros.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Redundância): Seção 'When to Use' (linhas 22-24) apresenta cópia tautológica da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Linhas 22-24: Podar a linha tautológica presente na seção '## When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implementação metódica de software orientada a blueprints arquiteturais e verificação rigorosa de Definition of Done.",
+      "entidades": [
+        "mason",
+        "agent-squad",
+        "rex",
+        "alex",
+        "aria",
+        "luna",
+        "quinn"
+      ],
+      "keywords": [
+        "code implementation",
+        "builder",
+        "definition of done",
+        "milestones",
+        "pure functions",
+        "boilerplate setup",
+        "single responsibility",
+        "parameterized queries",
+        "clean code",
+        "blueprint adherence",
+        "unit testable"
+      ]
+    },
+    "summary": "Diretrizes práticas e disciplinadas para implementação de código limpo, requerendo description enriquecida e poda de linha tautológica."
+  },
+  {
+    "skillName": "agent-squad/quinn",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-squad/quinn/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 (Extensão) e 3 (Gatilho): Description tem apenas 78 caracteres ('Proves the system works by writing and executing comprehensive test suites.'), abaixo de 200 caracteres e sem gatilho condicional explícito ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Faltam termos discriminantes técnicos fundamentais como estrutura AAA (Arrange-Act-Assert), testes unitários, testes de integração, testes E2E, cobertura de branches/linhas, testes de regressão e mapeamento de critérios de aceitação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Redundância): Seção 'When to Use' (linhas 22-24) repete literalmente a description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Linhas 22-24: Podar a linha tautológica de '## When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenho de estratégia e desenvolvimento de suítes completas de testes unitários, de integração e E2E mapeados a critérios de aceitação.",
+      "entidades": [
+        "quinn",
+        "agent-squad",
+        "rex",
+        "alex",
+        "mason",
+        "luna",
+        "dep"
+      ],
+      "keywords": [
+        "qa testing",
+        "test suites",
+        "unit tests",
+        "integration tests",
+        "e2e tests",
+        "aaa pattern",
+        "test coverage",
+        "acceptance criteria",
+        "regression tests",
+        "edge case testing",
+        "mocking",
+        "dod verification"
+      ]
+    },
+    "summary": "Guia de QA rigoroso baseado em evidências e critérios de aceitação, exigindo expansão semântica na description e corte de tautologia."
+  },
+  {
+    "skillName": "agent-tool-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-tool-builder/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 3 (Gatilho): Falta cláusula formal de ativação 'Use when...' para indicar prontamente quando invocar a skill na construção ou design de ferramentas de agentes.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 7 (Generalismo) e 10 (Linguagem Anti-Promocional): A description se inicia com preâmbulo dissertativo e estilístico ('Tools are how AI agents interact with the world. A well-designed tool is the difference between an agent that works and one that hallucinates, fails silently, or costs 10x more tokens...'), desperdiçando densidade semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Não menciona na description padrões cruciais do documento como Model Context Protocol (MCP), JSON Schema, Anthropic SDK beta tool runner, chamadas paralelas e tipagem com Zod.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Engenharia de ferramentas e schemas para agentes de IA, cobrindo JSON Schema, servidores MCP, tratamento de erros e tool runners.",
+      "entidades": [
+        "JSON Schema",
+        "MCP (Model Context Protocol)",
+        "Anthropic SDK",
+        "OpenAI Functions",
+        "Vercel AI SDK",
+        "LangChain Tools",
+        "Zod"
+      ],
+      "keywords": [
+        "agent tools",
+        "function calling",
+        "tool schema design",
+        "mcp server",
+        "error handling",
+        "input examples",
+        "tool runner",
+        "parallel tool execution",
+        "validation checks",
+        "anthropic beta",
+        "stdio transport"
+      ]
+    },
+    "summary": "Manual técnico exaustivo e de excelência sobre criação de ferramentas e servidores MCP para LLMs, necessitando reescrever a description para remover o tom opinativo e adicionar gatilhos e discriminantes técnicos."
+  },
+  {
+    "skillName": "agentfolio",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agentfolio/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Critério 1 (Extensão): Description com 116 caracteres ('Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the AgentFolio directory.'), abaixo da faixa ideal de 200 a 400 chars.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 3 (Gatilho) e 7 (Generalismo): Começa com preâmbulo descartável ('Skill for...') em vez de gatilho claro ('Use when researching, benchmarking, or comparing autonomous AI agents...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Omissão de discriminantes operacionais como benchmarking, vendor shortlisting, padrões de UX de agentes, modelos de autonomia e taxonomia de deployment.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Pesquisa, descoberta e comparação de agentes autônomos, frameworks e produtos no diretório AgentFolio.",
+      "entidades": [
+        "AgentFolio",
+        "agentfolio.io"
+      ],
+      "keywords": [
+        "agent discovery",
+        "autonomous agents",
+        "benchmarking",
+        "market research",
+        "agent frameworks",
+        "vendor shortlisting",
+        "ux patterns",
+        "autonomy models",
+        "directory search",
+        "competitive analysis"
+      ]
+    },
+    "summary": "Guia conciso e funcional para benchmarking de agentes no ecossistema AgentFolio, necessitando de ampliação e formalização do gatilho na description."
+  },
+  {
+    "skillName": "agentic-actions-auditor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agentic-actions-auditor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Critério 3 (Gatilho): Falta cláusula condicional de ativação 'Use when...' explícita no início da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 12 (Redundâncias/Fluência): Erro de pontuação na description quebra indevidamente a oração com um ponto final ('Detects attack vectors where attacker-controlled input reaches. AI agents running in CI/CD pipelines.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Análise estática de segurança em fluxos de trabalho do GitHub Actions integrados com agentes de IA para detecção de injeção de prompt e vetores de ataque.",
+      "entidades": [
+        "Claude Code Action",
+        "Gemini CLI",
+        "OpenAI Codex",
+        "GitHub AI Inference",
+        "GitHub Actions",
+        "gh api"
+      ],
+      "keywords": [
+        "security audit",
+        "github actions",
+        "prompt injection",
+        "pull_request_target",
+        "attack vectors",
+        "env var intermediary",
+        "static analysis",
+        "sandbox configuration",
+        "subshell expansion",
+        "eval output",
+        "least privilege"
+      ]
+    },
+    "summary": "Documentação de altíssimo calibre e rigor técnico para auditoria de segurança em GitHub Actions com IA, necessitando apenas de correção tipográfica e gatilho 'Use when...' na description."
+  },
+  {
+    "skillName": "agentmail",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agentmail/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Critério 1 (Extensão) e 3 (Gatilho): Description possui apenas 137 caracteres ('Email infrastructure for AI agents. Create accounts, send/receive emails, manage webhooks, and check karma balance via the AgentMail API.'), abaixo da extensão recomendada (200-400 chars) e sem gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 4 (Discriminantes): Faltam discriminantes importantes abordados na skill, como o SDK TypeScript (@agentmail/sdk), validação de webhooks HMAC-SHA256, suporte a anexos em base64 e automação de fluxos de verificação/signup.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração de infraestrutura de e-mail e webhooks para agentes de IA via AgentMail API e SDK TypeScript.",
+      "entidades": [
+        "AgentMail API",
+        "@agentmail/sdk",
+        "api.theagentmail.net",
+        "@theagentmail.net"
+      ],
+      "keywords": [
+        "email infrastructure",
+        "agentmail",
+        "karma system",
+        "webhooks",
+        "hmac-sha256",
+        "inbox polling",
+        "verification email",
+        "rest api",
+        "typescript sdk",
+        "transactional email",
+        "attachment handling"
+      ]
+    },
+    "summary": "Guia de integração de e-mail e webhooks extremamente prático e bem estruturado, necessitando expansão da description para incluir gatilhos e discriminantes técnicos."
+  },
+  {
+    "skillName": "agentphone",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agentphone/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Critério 7 (Ausência de Generalismo) e 8 (Equilíbrio de Amplitude): A cauda final da description ('— anything related to telephony, phone numbers, or voice AI') incorre em generalismo vago, devendo ser substituída por termos técnicos discriminantes específicos (streaming NDJSON, STT/TTS, DTMF, barge-in).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Critério 10 (Linguagem Anti-Promocional) / Bloat: A seção '## Ideas: What You Can Build' (linhas 1361-1376) introduz ruído e tom promocional ('Now that your agent has a phone number, here are things you can do...') desnecessário em um guia de referência de API.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Linhas 1361-1376: Remover ou condensar a seção '## Ideas: What You Can Build', eliminando o tom de marketing/brainstorming que destoa da documentação técnica da API.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Plataforma de telefonia e automação de voz/SMS para agentes de IA com streaming de áudio, webhooks e controle de chamadas via AgentPhone API.",
+      "entidades": [
+        "AgentPhone API",
+        "api.agentphone.to",
+        "Twilio",
+        "ElevenLabs",
+        "Polly"
+      ],
+      "keywords": [
+        "telephony",
+        "voice agents",
+        "sms messaging",
+        "phone numbers",
+        "webhooks",
+        "streaming ndjson",
+        "stt",
+        "tts",
+        "barge-in",
+        "dtmf",
+        "call transcript",
+        "e.164",
+        "outbound calls",
+        "hosted mode"
+      ]
+    },
+    "summary": "Documentação exaustiva e de alta qualidade para telefonia de agentes de IA, recomendando-se podar a seção promocional de ideias e aprimorar a cauda da description."
+  }
+]

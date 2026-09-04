@@ -1,0 +1,473 @@
+[
+  {
+    "skillName": "sendblue-api",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sendblue/sendblue-api/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Ausência de locução explícita de gatilho de ativação ('Use when...' ou 'Ative quando...') na description frontmatter, embora apresente clareza de ação e termos discriminantes adequados (219 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração HTTP REST com a Sendblue API para envio e recebimento programático de iMessage, SMS e RCS com suporte a reações, mídias e webhooks.",
+      "entidades": [
+        "Sendblue HTTP API",
+        "/api/send-message",
+        "/api/send-group-message",
+        "/api/create-group",
+        "/api/send-reaction",
+        "/api/send-typing-indicator",
+        "/api/mark-read",
+        "/api/upload-file",
+        "/api/status",
+        "/api/evaluate-service",
+        "/api/lines",
+        "status_callback",
+        "message_handle"
+      ],
+      "keywords": [
+        "sendblue",
+        "imessage",
+        "sms",
+        "rcs",
+        "rest api",
+        "webhooks",
+        "status callback",
+        "message handle",
+        "tapback reactions",
+        "send styles",
+        "typing indicator",
+        "e164 phone format",
+        "group messaging",
+        "media upload"
+      ]
+    },
+    "summary": "Skill técnica e completa para a API REST da Sendblue, necessitando apenas da inclusão de gatilho explícito na descrição."
+  },
+  {
+    "skillName": "sendblue-cli",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sendblue/sendblue-cli/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 174 caracteres, abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula formal de ativação ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Uso do CLI @sendblue/cli para envio de SMS e iMessage via linha de comando, scripts shell, cron jobs e hooks de agentes.",
+      "entidades": [
+        "@sendblue/cli",
+        "sendblue setup",
+        "sendblue login",
+        "sendblue send",
+        "sendblue messages",
+        "sendblue add-contact",
+        "sendblue contacts",
+        "sendblue status",
+        "sendblue whoami",
+        "~/.sendblue/credentials.json"
+      ],
+      "keywords": [
+        "sendblue cli",
+        "imessage",
+        "sms",
+        "shell messaging",
+        "terminal alerts",
+        "contact verification",
+        "credentials.json",
+        "npm package",
+        "claude code hooks",
+        "e164",
+        "automation scripts"
+      ]
+    },
+    "summary": "Guia conciso e preciso para automação de mensagens via CLI, precisando de expansão para a faixa de 200-400 caracteres e gatilho explícito."
+  },
+  {
+    "skillName": "sendblue-notify",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sendblue/sendblue-notify/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 187 caracteres, ligeiramente abaixo da faixa de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta da locução canônica de gatilho ('Use when...' / 'Ative quando...') na description frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de notificação móvel (SMS/iMessage) pós-execução de tarefas longas e configuração de hooks de encerramento no Claude Code.",
+      "entidades": [
+        "@sendblue/cli",
+        "Claude Code Stop hook",
+        ".claude/settings.json",
+        "CLAUDE_TURN_DURATION_SECONDS",
+        "NOTIFY_NUMBER",
+        "@textme",
+        "@update-config"
+      ],
+      "keywords": [
+        "sendblue notify",
+        "long-running tasks",
+        "stop hooks",
+        "terminal notifications",
+        "imessage alerts",
+        "claude code",
+        "turn completion",
+        "lock screen privacy",
+        "fire-and-forget",
+        "sms notification"
+      ]
+    },
+    "summary": "Excelente especificação de notificações outbound pós-tarefas longas, necessitando de leve expansão e gatilho na descrição."
+  },
+  {
+    "skillName": "sendgrid-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sendgrid-automation/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Ausência de cláusula de gatilho 'Use when...' na description frontmatter (204 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção '## When to Use' tautológica nas linhas 230-232 ('This skill is applicable to execute the workflow or actions described in the overview') e disclaimers genéricos de template em '## Limitations' (linhas 233-237).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover a seção tautológica '## When to Use' (linhas 230-232) e o boilerplate genérico de '## Limitations' (linhas 233-237).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de campanhas de email, gestão de contatos/listas, identidades de remetente e análise de métricas no SendGrid via Rube MCP / Composio.",
+      "entidades": [
+        "Rube MCP",
+        "SENDGRID_CREATE_SINGLE_SEND",
+        "SENDGRID_RETRIEVE_ALL_LISTS",
+        "SENDGRID_ADD_OR_UPDATE_A_CONTACT",
+        "SENDGRID_GET_ALL_SENDER_IDENTITIES",
+        "SENDGRID_RETRIEVE_GLOBAL_EMAIL_STATISTICS",
+        "SENDGRID_FILTER_ALL_MESSAGES"
+      ],
+      "keywords": [
+        "sendgrid",
+        "rube mcp",
+        "composio",
+        "single sends",
+        "marketing campaigns",
+        "contact lists",
+        "sender identities",
+        "can-spam",
+        "email analytics",
+        "suppression groups",
+        "dynamic templates"
+      ]
+    },
+    "summary": "Documentação robusta para os toolkits SendGrid via Rube MCP, prejudicada por seção tautológica de encerramento e ausência de gatilho."
+  },
+  {
+    "skillName": "senior-frontend",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/senior-frontend/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de boilerplate genérico de disclaimers na seção '## Limitations' (linhas 492-496) que não adiciona valor técnico específico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 1,
+    "cuts": [
+      {
+        "text": "Remover a seção de disclaimer genérico '## Limitations' (linhas 492-496).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais, scaffolding, testes e otimização de performance para aplicações frontend em React, Next.js, TypeScript e Tailwind CSS.",
+      "entidades": [
+        "scripts/frontend_scaffolder.py",
+        "scripts/component_generator.py",
+        "scripts/bundle_analyzer.py",
+        "references/react_patterns.md",
+        "references/nextjs_optimization_guide.md",
+        "references/frontend_best_practices.md",
+        "React",
+        "Next.js App Router",
+        "Tailwind CSS",
+        "Vitest",
+        "React Testing Library"
+      ],
+      "keywords": [
+        "react",
+        "nextjs",
+        "typescript",
+        "tailwind css",
+        "server components",
+        "bundle analyzer",
+        "scaffolder",
+        "compound components",
+        "custom hooks",
+        "accessibility a11y",
+        "vitest",
+        "performance optimization"
+      ]
+    },
+    "summary": "Excelente skill de engenharia frontend com scripts locais funcionais e description exemplar de 280 chars, contendo apenas um mínimo disclaimer de template ao final."
+  },
+  {
+    "skillName": "seo-aeo-blog-writer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-aeo-blog-writer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de seção de disclaimer genérico de limitações nas linhas 90-94 herdada de template sem especificidade para o domínio de redação.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a seção genérica de disclaimers '## Limitations' (linhas 90-94).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Redação estruturada de artigos de blog e guias long-form otimizados para ranqueamento em SEO e citação em motores de resposta de IA (AEO).",
+      "entidades": [
+        "SEO-AEO Engine",
+        "TL;DR direct-answer block",
+        "definition sentence",
+        "5 FAQ entries",
+        "comparison table",
+        "@seo-aeo-content-cluster",
+        "@seo-aeo-content-quality-auditor",
+        "@seo-aeo-internal-linking"
+      ],
+      "keywords": [
+        "seo aeo blog writer",
+        "answer engine optimization",
+        "tldr block",
+        "definition sentence",
+        "ai extraction",
+        "perplexity citation",
+        "chatgpt search",
+        "long-form content",
+        "faq structure",
+        "topical authority"
+      ]
+    },
+    "summary": "Guia objetivo e prático de redação orientada a SEO/AEO com description de alta densidade (230 chars), restando apenas podar o disclaimer final genérico."
+  },
+  {
+    "skillName": "seo-aeo-content-cluster",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-aeo-content-cluster/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de bloco genérico de limitações/disclaimers de template nas linhas 91-95 sem valor técnico específico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a seção boilerplate genérica de '## Limitations' (linhas 91-95).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Planejamento arquitetural de clusters de conteúdo e mapas de autoridade tópica com páginas pilares e subartigos priorizados para SEO e AEO.",
+      "entidades": [
+        "SEO-AEO Engine",
+        "pillar page",
+        "Priority 1/2/3 tiers",
+        "internal link map",
+        "content gap analysis",
+        "@seo-aeo-keyword-research",
+        "@seo-aeo-blog-writer",
+        "@seo-aeo-internal-linking"
+      ],
+      "keywords": [
+        "content cluster",
+        "topical authority",
+        "pillar page",
+        "topic map",
+        "content strategy",
+        "aeo gaps",
+        "link equity",
+        "keyword cannibalization",
+        "search intent",
+        "content hierarchy"
+      ]
+    },
+    "summary": "Metodologia bem articulada para modelagem de clusters de autoridade tópica, com description exemplar (231 chars) e ruído restrito ao rodapé."
+  },
+  {
+    "skillName": "seo-aeo-content-quality-auditor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-aeo-content-quality-auditor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de seção de disclaimer genérico de limitações nas linhas 95-99 sem adição de contexto operacional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a seção boilerplate de disclaimers '## Limitations' (linhas 95-99).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria técnica e semântica de qualidade para páginas web e posts de blog com pontuação dual SEO/AEO e plano corretivo priorizado.",
+      "entidades": [
+        "SEO-AEO Engine",
+        "SEO Score",
+        "AEO Score",
+        "Readability Score",
+        "TL;DR block",
+        "definition sentence",
+        "FAQ section",
+        "severity-ranked issues (Critical/Important/Polish)"
+      ],
+      "keywords": [
+        "content quality audit",
+        "aeo audit",
+        "seo compliance",
+        "scoring system",
+        "readability checks",
+        "ai engine extraction",
+        "projected scores",
+        "severity ranking",
+        "direct answer signals"
+      ]
+    },
+    "summary": "Framework prático de auditoria dual SEO/AEO com matriz de scoring clara e description adequada (219 chars), necessitando apenas remoção de disclaimers inócuos."
+  },
+  {
+    "skillName": "seo-aeo-internal-linking",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-aeo-internal-linking/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de boilerplate genérico de limitações nas linhas 87-91.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a seção genérica de disclaimers '## Limitations' (linhas 87-91).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégia e mapeamento de links internos entre artigos e páginas pilares com texto âncora contextual, prevenção de canibalização e eliminação de páginas órfãs.",
+      "entidades": [
+        "SEO-AEO Engine",
+        "Cluster → Pillar",
+        "Pillar → Cluster",
+        "Cluster → Cluster",
+        "Contextual Boost",
+        "orphan page detection",
+        "anchor text cannibalization",
+        "@seo-aeo-content-cluster"
+      ],
+      "keywords": [
+        "internal linking",
+        "anchor text",
+        "orphan pages",
+        "link equity",
+        "topical authority",
+        "context sentence",
+        "keyword cannibalization",
+        "cluster to pillar",
+        "site architecture"
+      ]
+    },
+    "summary": "Excelente guia de linking interno e distribuição de autoridade, com description exemplar (236 chars) e presença pontual de disclaimer genérico no fim."
+  },
+  {
+    "skillName": "seo-aeo-keyword-research",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-aeo-keyword-research/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de seção de disclaimer genérico de limitações nas linhas 115-119.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 4,
+    "cuts": [
+      {
+        "text": "Remover a seção boilerplate genérica de '## Limitations' (linhas 115-119).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Pesquisa e priorização de palavras-chave estruturada em tiers de dificuldade, combinando termos tradicionais de busca e consultas conversacionais para AEO.",
+      "entidades": [
+        "SEO-AEO Engine",
+        "Tier 1/2/3 Keywords",
+        "AEO Keywords (People Also Ask, direct answers)",
+        "content production map",
+        "cannibalization check",
+        "@seo-aeo-content-cluster",
+        "@seo-aeo-landing-page-writer",
+        "@seo-aeo-blog-writer"
+      ],
+      "keywords": [
+        "keyword research",
+        "aeo queries",
+        "search intent",
+        "difficulty tiers",
+        "seed keywords",
+        "keyword cannibalization",
+        "people also ask",
+        "answer format",
+        "content mapping",
+        "conversion intent"
+      ]
+    },
+    "summary": "Metodologia sólida para pesquisa e mapeamento de palavras-chave com AEO, description ideal (230 chars) e mínimo ruído de template ao fim."
+  }
+]

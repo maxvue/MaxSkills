@@ -1,6 +1,6 @@
 ---
 name: buywhere-product-catalog
-description: "Use BuyWhere's MCP and API surfaces to add product search, price comparison, and deal discovery to AI shopping agents."
+description: "Use BuyWhere's MCP and API surfaces to add product search, price comparison, and deal discovery to AI shopping agents. Use when developing, optimizing, debugging, or configuring buywhere product catalog in production workflows."
 category: ecommerce
 risk: safe
 source: official

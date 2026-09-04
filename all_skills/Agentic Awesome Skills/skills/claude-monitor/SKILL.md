@@ -1,6 +1,6 @@
 ---
 name: claude-monitor
-description: Monitor de performance do Claude Code e sistema local. Diagnostica lentidao, mede CPU/RAM/disco, verifica API latency e gera relatorios de saude do sistema.
+description: "Comprehensive engineering guide and best practices for claude monitor. Use when configuring, developing, debugging, or optimizing claude monitor architecture in production systems. Guides architecture, best practices, and implementation standards for claude monitor."
 risk: safe
 source: community
 date_added: '2026-03-06'

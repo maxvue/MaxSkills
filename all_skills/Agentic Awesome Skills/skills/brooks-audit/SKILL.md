@@ -1,6 +1,6 @@
 ---
 name: brooks-audit
-description: "Architecture audit that maps module dependencies, checks layering integrity, and flags structural decay across a codebase, drawing on twelve classic engineering books. Triggers when: user asks to audit architecture, review folder/module structure, check for circular imports, understand..."
+description: "Comprehensive engineering guide and best practices for brooks audit. Use when configuring, developing, debugging, or optimizing brooks audit architecture in production systems. Guides architecture, best practices, and implementation standards for brooks audit."
 risk: safe
 source: https://github.com/hyhmrright/brooks-lint/tree/main/skills/brooks-audit
 source_repo: hyhmrright/brooks-lint

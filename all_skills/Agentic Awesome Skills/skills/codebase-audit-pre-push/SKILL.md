@@ -1,6 +1,6 @@
 ---
 name: codebase-audit-pre-push
-description: "Deep audit before GitHub push: removes junk files, dead code, security holes, and optimization issues. Checks every file line-by-line for production readiness."
+description: "Deep audit before GitHub push: removes junk files, dead code, security holes, and optimization issues. Checks every file line-by-line for production readiness. Use when developing, optimizing, debugging, or configuring codebase audit pre push in production workflows."
 category: development
 risk: safe
 source: community
@@ -8,8 +8,6 @@ date_added: "2026-03-05"
 ---
 
 # Pre-Push Codebase Audit
-
-As a senior engineer, you're doing the final review before pushing this code to GitHub. Check everything carefully and fix problems as you find them.  
 
 ## When to Use This Skill  
 

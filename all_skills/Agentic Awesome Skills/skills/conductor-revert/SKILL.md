@@ -1,6 +1,6 @@
 ---
 name: conductor-revert
-description: "Git-aware undo by logical work unit (track, phase, or task)"
+description: "Git-aware undo by logical work unit (track, phase, or task) Use when developing, optimizing, debugging, or configuring conductor revert in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor revert."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -25,7 +25,7 @@ Revert changes by logical work unit with full git awareness. Supports reverting 
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Pre-flight Checks
 

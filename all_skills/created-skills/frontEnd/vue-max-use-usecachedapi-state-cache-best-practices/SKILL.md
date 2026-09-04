@@ -1,6 +1,6 @@
 ---
 name: vue-max-use-usecachedapi-state-cache-best-practices
-description: "Use when implementing or debugging Vue 3 code with useRefCachedApi (or useCachedApi, useSharedCacheApi, useInCacheApi) from @maxvue/max-use to cache GET requests in localStorage with background revalidation. Covers objectives, composable signatures, and cached state management."
+description: "Use when implementing or debugging Vue 3 code with useRefCachedApi (or useCachedApi, useSharedCacheApi, useInCacheApi) from @maxvue/max-use to cache GET requests in localStorage with background revalidation."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

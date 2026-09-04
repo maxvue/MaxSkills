@@ -1,0 +1,518 @@
+[
+  {
+    "skillName": "skill-writer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/skill-writer/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta (125 chars) abaixo do limite recomendado (200-400 chars), omitindo discriminantes centrais da arquitetura do workflow como síntese de fontes com depth gates, padrões estruturais, iteração com holdout slices e validação de registro.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais 'When to Use' e 'Limitations' (linhas 107-114) trazem apenas preâmbulos e salvaguardas genéricas em formato de boilerplate repetitivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover as seções 'When to Use' e 'Limitations' (linhas 107-114), pois consistem em texto vazio genérico desprovido de valor técnico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação, atualização, síntese e avaliação estruturada de skills de IA conforme a especificação Agent Skills.",
+      "entidades": [
+        "references/mode-selection.md",
+        "references/authoring-path.md",
+        "references/synthesis-path.md",
+        "references/iteration-path.md",
+        "references/evaluation-path.md",
+        "references/registration-validation.md",
+        "references/design-principles.md",
+        "SKILL.md"
+      ],
+      "keywords": [
+        "agent skills",
+        "skill authoring",
+        "skill-patterns",
+        "workflow-patterns",
+        "synthesis-path",
+        "iteration-path",
+        "depth gates",
+        "prompt engineering",
+        "description optimization",
+        "registration validation",
+        "holdout slices",
+        "evaluation rubric"
+      ]
+    },
+    "summary": "Skill modular e bem estruturada com subarquivos de referência, necessitando expansão da description com discriminantes e poda de boilerplate genérico ao final."
+  },
+  {
+    "skillName": "slack-bot-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/slack-bot-builder/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 234 chars não inclui fórmula clara de gatilho/condição de uso ('Use when...') para ativar a skill em tarefas de desenvolvimento de bots Slack.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'Validation Checks' (linhas 1299-1380) reproduz quase ipsis litteris os mesmos tópicos e soluções exaustivamente tratados na seção 'Sharp Edges', criando redundância desnecessária.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Condensar a seção 'Validation Checks' (linhas 1299-1380) e podar a subseção de 'Limitations' genérica (linhas 1404-1408), eliminando regras duplicadas em relação às Sharp Edges.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção de bots e aplicações Slack utilizando o framework Bolt, Block Kit, OAuth 2.0 e Workflow Builder.",
+      "entidades": [
+        "slack_bolt",
+        "SocketModeHandler",
+        "OAuthSettings",
+        "WorkflowStep",
+        "App",
+        "views_open",
+        "chat_postMessage",
+        "views_publish",
+        "Block Kit"
+      ],
+      "keywords": [
+        "slack bot",
+        "bolt framework",
+        "block kit",
+        "slash commands",
+        "socket mode",
+        "oauth 2.0",
+        "modal dialogs",
+        "interactive components",
+        "workflow builder",
+        "lazy listeners",
+        "signing secret",
+        "webhooks"
+      ]
+    },
+    "summary": "Excelente profundidade técnica com exemplos completos de Bolt e Block Kit, necessitando apenas de gatilho explícito na description e desduplicação de validações."
+  },
+  {
+    "skillName": "smart-git-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/smart-git-automation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (80 chars: 'Smart change detection, auto branch naming, and streamlined commit/PR workflow'), ausente de gatilho 'Use when...' e de termos discriminantes essenciais (git diff/status, conventional commits, gh CLI).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'Limitations' ao final (linhas 95-99) consiste em salvaguardas genéricas de boilerplate sem especificidade operacional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o bloco genérico de 'Limitations' ao final (linhas 95-99) para manter o arquivo focado nas regras de automação Git.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação do ciclo Git com detecção inteligente de alterações, nomenclatura automática de branches e geração de commits e PRs.",
+      "entidades": [
+        "git status",
+        "git diff",
+        "git checkout -b",
+        "git add",
+        "git push",
+        "gh pr create",
+        "GitHub CLI"
+      ],
+      "keywords": [
+        "git automation",
+        "change grouping",
+        "branch naming",
+        "conventional commits",
+        "pull request",
+        "gh cli",
+        "git diff",
+        "staging pathspec",
+        "git workflow",
+        "automated commits"
+      ]
+    },
+    "summary": "Fluxo de trabalho de automação Git direto e bem delimitado, demandando enriquecimento da description para atingir a faixa de 200-400 chars com discriminantes técnicos."
+  },
+  {
+    "skillName": "smartui-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/smartui-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com terminação truncada/corrompida ('...Triggers on:...'). A seção 'When to Use' replica exatamente esse trecho com reticências e erro de concordância ('when you need generates...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a arquivo inexistente 'reference/playbook.md' na linha 143; o repositório da skill possui apenas o arquivo SKILL.md sem o diretório 'reference/'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seção de salvaguardas genéricas 'Limitations' (linhas 145-150) copiada de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover a menção ao arquivo inexistente 'reference/playbook.md' (linhas 140-143), a seção duplicada 'When to Use' (linhas 14-17) e o boilerplate 'Limitations' (linhas 145-150).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração e execução de testes de regressão visual com SmartUI (LambdaTest / TestMu AI) integrados a Playwright, Selenium e Storybook.",
+      "entidades": [
+        "@lambdatest/smartui-cli",
+        "smartuiSnapshot",
+        "smartui.config.json",
+        "Playwright chromium",
+        "Selenium WebDriver JavascriptExecutor",
+        "Storybook"
+      ],
+      "keywords": [
+        "smartui",
+        "visual regression",
+        "screenshot comparison",
+        "lambdatest",
+        "playwright",
+        "selenium",
+        "storybook",
+        "visual testing",
+        "responsive viewports",
+        "automated ui testing"
+      ]
+    },
+    "summary": "Exemplos técnicos funcionais para Playwright e Selenium, porém penalizada por description truncada com reticências, link quebrado para playbook inexistente e boilerplate repetitivo."
+  },
+  {
+    "skillName": "smtp-penetration-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/smtp-penetration-testing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 202 chars carece de fórmula de gatilho explícita ('Use when conducting authorized security assessments...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Tripla repetição consecutiva de avisos éticos de uso autorizado (linhas 10-13, 15-23 e 24) gerando ruído textual, acompanhada por seção 'When to Use' vaga ao final (linhas 519-520).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Unificar os três blocos de aviso ético do preâmbulo em um único portão mandatório de confirmação e remover a seção final genérica 'When to Use' (linhas 519-521).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria de segurança e pentest em servidores de correio SMTP cobrindo descoberta, enumeração de usuários, open relay, força bruta e criptografia.",
+      "entidades": [
+        "smtp-user-enum",
+        "nmap",
+        "hydra",
+        "metasploit auxiliary/scanner/smtp",
+        "netcat",
+        "openssl s_client",
+        "dig",
+        "VRFY",
+        "EXPN",
+        "RCPT TO"
+      ],
+      "keywords": [
+        "smtp penetration testing",
+        "open relay",
+        "user enumeration",
+        "banner grabbing",
+        "mail transfer agent",
+        "starttls",
+        "hydra",
+        "nmap smtp scripts",
+        "spf dkim dmarc",
+        "smtp auth brute force"
+      ]
+    },
+    "summary": "Guia de pentest ofensivo rigoroso com passos detalhados de validação e mitigação, necessitando inclusão de gatilho formal e desduplicação dos blocos de aviso de segurança."
+  },
+  {
+    "skillName": "snowflake-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/snowflake-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description inicia com formulação de persona/assistente ('Comprehensive Snowflake development assistant covering...') em vez de tom imperativo direto e carece de gatilho formal ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção final 'Limitations' (linhas 234-238) traz o boilerplate genérico padrão de desresponsabilização sem acréscimo prático.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover o bloco 'Limitations' genérico ao final (linhas 234-238).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento em Snowflake cobrindo SQL avançado, pipelines reativos com Dynamic Tables e Tasks, Cortex AI, Snowpark Python e dbt.",
+      "entidades": [
+        "DYNAMIC TABLE",
+        "STREAM",
+        "TASK",
+        "Snowpipe",
+        "Cortex AI (AI_COMPLETE, AI_CLASSIFY)",
+        "Cortex Agents",
+        "Snowpark Session",
+        "dbt-snowflake"
+      ],
+      "keywords": [
+        "snowflake",
+        "dynamic tables",
+        "streams and tasks",
+        "snowpark python",
+        "cortex ai",
+        "cortex agents",
+        "dbt snowflake",
+        "lateral flatten",
+        "semi-structured variant",
+        "data engineering",
+        "performance tuning"
+      ]
+    },
+    "summary": "Excelente densidade técnica e aderência a padrões modernos do ecossistema Snowflake, carecendo apenas de ajuste imperativo com gatilho na description e remoção de 4 linhas de boilerplate."
+  },
+  {
+    "skillName": "social-content",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/social-content/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description viola múltiplos critérios: emprega instrução de persona ('You are an expert social media strategist...'), alucina capacidades inexistentes ('with direct access to a scheduling platform that publishes to all major social networks' quando o arquivo é estritamente um guia de copywriting e templates sem ferramentas de agendamento inclusas), usa linguagem promocional ('expert', 'engaging content') e não possui gatilho formal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Classificação de risco distorcida no frontmatter ('risk: critical') para uma skill puramente textual de estratégia de marketing e redação de posts sem execução de comandos ou scripts de infraestrutura.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções finais redundantes com boilerplate genérico 'When to Use' e 'Limitations' (linhas 812-819).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo redundante de persona no corpo (linhas 10-12) e as seções vazias de 'When to Use' e 'Limitations' (linhas 812-819).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégia de conteúdo, redação de ganchos (hooks) e templates de postagens para LinkedIn, Twitter/X, Instagram, TikTok e Facebook.",
+      "entidades": [
+        "LinkedIn",
+        "Twitter/X",
+        "Instagram (Reels, Carousels, Stories)",
+        "TikTok",
+        "Facebook Groups",
+        "Apify",
+        "Phantom Buster",
+        "SparkToro"
+      ],
+      "keywords": [
+        "social media marketing",
+        "content strategy",
+        "linkedin carousels",
+        "twitter threads",
+        "instagram reels",
+        "viral hooks",
+        "content pillars",
+        "content repurposing",
+        "engagement strategy",
+        "reverse engineering viral content"
+      ]
+    },
+    "summary": "Conteúdo estratégico extenso sobre mídias sociais, porém com description gravemente comprometida por alucinação de integração técnica de agendamento e enquadramento de persona."
+  },
+  {
+    "skillName": "social-metadata-hardening",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/social-metadata-hardening/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 198 caracteres (no limiar inferior de 200 chars) sem cláusula de gatilho explícita ('Use when...') para orientar o disparo automático.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadados do frontmatter listam ferramentas de ambiente genéricas (tools: [claude, cursor, gemini, claude-code]) que não agregam valor discriminante ao artefato.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Endurecimento e validação de metadados de compartilhamento social (Open Graph, Twitter Cards e imagens) em aplicações web modernas.",
+      "entidades": [
+        "buildSocialMetadata",
+        "metadataBase",
+        "og:title",
+        "og:image",
+        "og:description",
+        "twitter:card (summary_large_image)",
+        "Next.js App Router",
+        "Facebook Sharing Debugger",
+        "LinkedIn Post Inspector"
+      ],
+      "keywords": [
+        "social metadata",
+        "open graph",
+        "twitter cards",
+        "rich previews",
+        "og:image",
+        "link unfurling",
+        "nextjs metadata",
+        "metatags",
+        "absolute image url",
+        "social sharing debugger"
+      ]
+    },
+    "summary": "Excelente skill técnica, enxuta, focada e pragmática com helpers para Next.js App Router; necessita apenas de inclusão de gatilho formal na description."
+  },
+  {
+    "skillName": "social-orchestrator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/social-orchestrator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description em português de 279 caracteres não possui gatilho formal ('Ative quando...' / 'Use when...') para coordenar publicações cross-channel.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'Overview' (linhas 23-25) repete literalmente a description, e as seções 'When to Use This Skill' / 'Do Not Use This Skill When' (linhas 27-36) são compostas por placeholders genéricos sem substância.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais 'Best Practices', 'Common Pitfalls' e 'Limitations' (linhas 283-305) constituem boilerplate descontextualizado da orquestração social ('Review all suggestions before applying them to production code').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção repetida de Overview, os blocos ocos de 'When to Use / Do Not Use' (linhas 27-36) e o boilerplate final de Best Practices/Common Pitfalls/Limitations (linhas 283-305).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração centralizada de publicações, campanhas e métricas em canais sociais simultâneos (Instagram, Telegram e WhatsApp).",
+      "entidades": [
+        "/Publish_All",
+        "/Campaign",
+        "/Insights_All",
+        "/Content_Plan",
+        "instagram",
+        "telegram",
+        "whatsapp-cloud-api",
+        "inline keyboards",
+        "Meta templates"
+      ],
+      "keywords": [
+        "orquestrador social",
+        "cross-channel publishing",
+        "instagram",
+        "telegram",
+        "whatsapp business",
+        "campanhas sociais",
+        "metricas unificadas",
+        "adaptacao de conteudo",
+        "calendario editorial",
+        "agendamento sincronizado"
+      ]
+    },
+    "summary": "Abordagem coesa de orquestração multiplataforma com fluxos e comandos claros, exigindo adição de gatilho na description e eliminação de placeholders e boilerplate genérico."
+  },
+  {
+    "skillName": "social-post-writer-seo",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/social-post-writer-seo/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de 125 chars muito curta, com rótulo de função ('Social Media Strategist and Content Writer'), sem cláusula 'Use when...' e sem menção a SEO ou incorporação de palavras-chave, apesar de estarem presentes no título da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação estrutural evidente: o bloco '## Examples' contendo o exemplo 'New Product Launch (SolMug)' aparece integralmente duplicado no corpo do arquivo (linhas 72-88 e linhas 96-112).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo operacional focado em redação geral de posts sociais simples com hashtags, com profundidade superficial quanto a SEO e otimização de descoberta orgânica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a segunda ocorrência idêntica da seção '## Examples' (linhas 96-112) que repete o exemplo do produto SolMug.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Redação e estruturação de posts para Instagram, LinkedIn e Facebook integrando palavras-chave, ganchos e chamadas para ação.",
+      "entidades": [
+        "Instagram",
+        "LinkedIn",
+        "Facebook",
+        "Hook",
+        "Call to Action (CTA)",
+        "Hashtags"
+      ],
+      "keywords": [
+        "social post writer",
+        "copywriting",
+        "instagram captions",
+        "linkedin posts",
+        "facebook updates",
+        "hook generation",
+        "engagement",
+        "seo keywords",
+        "content formatting",
+        "hashtag strategy"
+      ]
+    },
+    "summary": "Estrutura básica de copywriting com regras de formatação mobile, prejudicada por duplicação do bloco de exemplos no SKILL.md e description subdimensionada sem discriminantes de SEO."
+  }
+]

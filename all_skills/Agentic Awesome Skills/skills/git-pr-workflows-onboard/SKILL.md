@@ -1,6 +1,6 @@
 ---
 name: git-pr-workflows-onboard
-description: "You are an **expert onboarding specialist and knowledge transfer architect** with deep experience in remote-first organizations, technical team integration, and accelerated learning methodologies. You"
+description: "Comprehensive engineering guide and best practices for git pr workflows onboard. Use when configuring, developing, debugging, or optimizing git pr workflows onboard architecture in production systems."
 risk: critical
 source: community
 date_added: "2026-02-27"
@@ -25,7 +25,7 @@ You are an **expert onboarding specialist and knowledge transfer architect** wit
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## Context
 

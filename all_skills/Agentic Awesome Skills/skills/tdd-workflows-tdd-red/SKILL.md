@@ -1,6 +1,6 @@
 ---
 name: tdd-workflows-tdd-red
-description: "Generate failing tests for the TDD red phase to define expected behavior and edge cases."
+description: "Comprehensive engineering guide and best practices for tdd workflows tdd red. Use when configuring, developing, debugging, or optimizing tdd workflows tdd red architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for tdd workflows tdd red."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,0 +1,494 @@
+[
+  {
+    "skillName": "atlas-cloud-media",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/atlas-cloud-media/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description possui 147 caracteres (abaixo da faixa recomendada de 200 a 400 chars) e não apresenta cláusula explícita de condição de uso / gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração assíncrona de imagens e vídeos via API REST da Atlas Cloud com descoberta de modelos por schema e polling seguro.",
+      "entidades": [
+        "https://api.atlascloud.ai/api/v1/models",
+        "https://api.atlascloud.ai/api/v1/model/generateImage",
+        "https://api.atlascloud.ai/api/v1/model/generateVideo",
+        "https://api.atlascloud.ai/api/v1/model/prediction/{id}",
+        "ATLASCLOUD_API_KEY",
+        "curl",
+        "jq"
+      ],
+      "keywords": [
+        "atlas-cloud",
+        "image-generation",
+        "video-generation",
+        "async-media",
+        "schema-validation",
+        "model-catalog",
+        "polling-deadline",
+        "bearer-auth",
+        "media-api",
+        "credential-safety",
+        "curl",
+        "jq"
+      ]
+    },
+    "summary": "Skill operacionalmente sólida com excelentes exemplos de integração curl/jq e tratamento de erros HTTP, necessitando apenas de ajuste na description para atingir 200-400 chars com gatilho claro."
+  },
+  {
+    "skillName": "atlas-contract",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/atlas-contract/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "O arquivo possui 663 linhas e contém duplicação completa dos templates de eventos em inglês e em chinês (§6, §8, §9, §12), gerando redundância estrutural que pode ser condensada referenciando a tabela de mapeamento de termos de §1.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Consolidar os blocos de template duplicados integralmente em chinês (Goal Contract, Phase Check, Deviation Notice, Final Audit), mantendo apenas os templates unificados com a tabela canônica de tradução de §1 para economizar ~15% de tokens de contexto.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Protocolo rigoroso de governança de metas e prevenção de silent drift para agentes em tarefas complexas via contratos de fase, avisos de desvio e auditoria final.",
+      "entidades": [
+        "Goal Contract",
+        "Phase Ledger",
+        "Deviation Notice",
+        "Phase Check",
+        "Final Audit",
+        "Post Review",
+        "Atlas.md",
+        "atlas-ledger",
+        "ATLAS_STOP"
+      ],
+      "keywords": [
+        "goal-integrity",
+        "anti-drift",
+        "phase-governance",
+        "goal-contract",
+        "deviation-notice",
+        "phase-check",
+        "final-audit",
+        "adversarial-pass",
+        "atlas-ledger",
+        "contract-freeze",
+        "execution-evidence",
+        "unverified-claims"
+      ]
+    },
+    "summary": "Protocolo excepcional de mitigação de desalinhamento e deriva de metas, com description precisa e robusta, mas com volume inflado por templates de eventos bilíngues redundantes."
+  },
+  {
+    "skillName": "attack-tree-construction",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/attack-tree-construction/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 177 caracteres (abaixo dos 200 chars ideais), contendo termo promocional 'comprehensive' e omitindo termos técnicos discriminantes como decomposição AND/OR e anotação métrica de nós.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Disclaimers legais e de autorização repetidos de forma redundante em múltiplos callouts consecutivos no cabeçalho (linhas 9-13 e linha 23 repetindo 'AUTHORIZED USE ONLY').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o callout duplicado 'AUTHORIZED USE ONLY' da linha 23 e condensar seções genéricas de Safety e Limitations boilerplate (~15% do arquivo).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Construção sistemática de árvores de ataque com ramificações AND/OR e métricas de folhas para modelagem de ameaças e análise de defesas.",
+      "entidades": [
+        "attack trees",
+        "AND/OR structure",
+        "implementation-playbook.md",
+        "threat modeling"
+      ],
+      "keywords": [
+        "attack-tree",
+        "threat-modeling",
+        "attack-paths",
+        "security-assessment",
+        "and-or-decomposition",
+        "leaf-annotations",
+        "defense-gaps",
+        "risk-communication",
+        "mitigation-mapping",
+        "cost-detectability"
+      ]
+    },
+    "summary": "Skill conceitualmente válida com playbook de suporte funcional, porém prejudicada por disclaimers repetitivos, seções vazias e description subdimensionada com adjetivo promocional."
+  },
+  {
+    "skillName": "audio-transcriber",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/audio-transcriber/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta de 124 caracteres com adjetivos promocionais ('professional', 'intelligent'), sem cláusula de gatilho ('Use when...') e sem discriminantes técnicos essenciais (Faster-Whisper, whisper, ffmpeg, diarization, SRT/VTT).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Quebra severa na ordenação lógica e numeração de etapas: a sequência de passos pula de Step 1 para Step 3 e de Step 3 para Step 5 (Steps 2 e 4 omitidos); a seção de exemplos pula de Example 1 para 3 e para 5 (Examples 2 e 4 omitidos).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Mistura desordenada de idiomas (inglês e português) no código, nomes de arquivos e logs simulados ('transcript' vs 'ata', 'Ata não gerada', 'Salvando arquivos', 'Melhorando prompt').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de comandos bash interativos bloqueantes ('read -p') que exigem confirmação interativa do usuário via terminal, inviabilizando execução autônoma por agentes de IA.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover simulações decorativas de progresso ASCII de console, eliminar scripts com 'read -p' interativo, unificar o idioma dos exemplos para inglês e corrigir a numeração de passos faltantes (Steps 2 e 4), enxugando ~30% do arquivo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de transcrição de áudio e geração de atas de reunião e relatórios Markdown usando Faster-Whisper, OpenAI Whisper, FFmpeg e LLM.",
+      "entidades": [
+        "faster-whisper",
+        "openai-whisper",
+        "ffmpeg",
+        "ffprobe",
+        "rich.progress",
+        "claude CLI",
+        "gh copilot"
+      ],
+      "keywords": [
+        "audio-transcription",
+        "speech-to-text",
+        "whisper",
+        "faster-whisper",
+        "ffmpeg",
+        "speaker-diarization",
+        "meeting-minutes",
+        "srt",
+        "vtt",
+        "executive-summary",
+        "audio-metadata"
+      ]
+    },
+    "summary": "Skill problemática apresentando description promocional curta, truncamento com etapas e exemplos faltantes, scripts interativos com 'read -p' e mistura inconsistente de idiomas."
+  },
+  {
+    "skillName": "audit-agent-run-evidence",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/audit-agent-run-evidence/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Protocolo determinístico e read-only para auditar evidências, traces, checkpoints e aprovações de execuções de agentes sem confiar em auto-relato.",
+      "entidades": [
+        "claim ledger",
+        "witness ranking",
+        "MCP tool calls",
+        "idempotency key",
+        "checkpoints",
+        "RFC3339 timestamps",
+        "sha256 digests"
+      ],
+      "keywords": [
+        "evidence-audit",
+        "agent-traces",
+        "claim-ledger",
+        "witness-ranking",
+        "idempotency",
+        "checkpoints",
+        "state-transition",
+        "mcp-audit",
+        "deployment-verification",
+        "verdict-matrix",
+        "non-repudiation",
+        "runtime-governance"
+      ]
+    },
+    "summary": "Skill exemplar de referência com description perfeita (236 chars, 'Use when...', rica em discriminantes), estrutura enxuta e metodologia rigorosa de avaliação de evidências."
+  },
+  {
+    "skillName": "auth-implementation-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/auth-implementation-patterns/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 135 caracteres (abaixo de 200 chars), desprovida de gatilho ('Use when...'), repleta de jargão promocional genérico ('secure, scalable', 'industry-standard', 'modern best practices') e omitindo discriminantes como OAuth2, JWT, OIDC e RBAC.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "SKILL.md atua como esqueleto excessivamente raso (48 linhas), onde quase metade do texto é composta por seções repetitivas de Safety e Limitations genéricas, dependendo quase integralmente de arquivo externo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Eliminar o boilerplate genérico de Safety e Limitations e incorporar orientações arquiteturais essenciais diretamente no SKILL.md, eliminando cerca de 20% de ruído.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de implementação e arquitetura de sistemas de autenticação, autorização, gestão de sessões e RBAC para APIs.",
+      "entidades": [
+        "OAuth2",
+        "JWT",
+        "OIDC",
+        "RBAC",
+        "implementation-playbook.md",
+        "REST/GraphQL APIs"
+      ],
+      "keywords": [
+        "authentication",
+        "authorization",
+        "oauth2",
+        "jwt",
+        "oidc",
+        "rbac",
+        "session-management",
+        "token-lifecycle",
+        "api-security",
+        "least-privilege",
+        "credential-storage",
+        "threat-modeling"
+      ]
+    },
+    "summary": "Skill com base conceitual correta via playbook externo, mas com SKILL.md raso e description genérica e promocional abaixo do tamanho ideal."
+  },
+  {
+    "skillName": "autonomous-agent-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/autonomous-agent-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (139 caracteres) contendo formatação inadequada com links markdown ('[Cline](...)') no frontmatter YAML, ausência de gatilho 'Use when...' e omissão de discriminantes tratados no código (SandboxedExecution, BrowserTool, CheckpointManager, FastMCP).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de software e arquitetura para construção de agentes autônomos de desenvolvimento com tool-calling, sandboxing, automação com Playwright e integração MCP.",
+      "entidades": [
+        "AgentLoop",
+        "MultiModelAgent",
+        "ToolResult",
+        "ReadFileTool",
+        "EditFileTool",
+        "ApprovalManager",
+        "SandboxedExecution",
+        "BrowserTool",
+        "VisualAgent",
+        "ContextManager",
+        "CheckpointManager",
+        "FastMCP",
+        "Playwright"
+      ],
+      "keywords": [
+        "autonomous-agents",
+        "agent-loop",
+        "tool-use",
+        "function-calling",
+        "sandboxing",
+        "permission-levels",
+        "browser-automation",
+        "playwright",
+        "visual-agent",
+        "context-injection",
+        "checkpoint-resume",
+        "fastmcp"
+      ]
+    },
+    "summary": "Excelente repositório de código de referência com implementações robustas de loops de agentes, isolamento de comandos e automação visual, carecendo apenas de limpeza e expansão de sua description."
+  },
+  {
+    "skillName": "avalonia-layout-zafiro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/avalonia-layout-zafiro/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de 140 caracteres (< 200 chars), sem cláusula de gatilho ('Use when...') e sem discriminantes dos componentes semânticos principais (HeaderedContainer, EdgePanel).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de caminho absoluto hardcoded de máquina externa inexistente na linha 35 ('/mnt/fast/Repos/angor/src/Angor/Avalonia/Angor.Avalonia.sln').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' (linhas 63-64) vazia e tautológica ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o path absoluto hardcoded externo e substituir a seção tautológica 'When to Use' por regras de ativação práticas para layouts XAML (~15% de corte).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes de layout XAML limpo, estilos compartilhados e componentes semânticos para Avalonia UI utilizando Zafiro.Avalonia.",
+      "entidades": [
+        "Zafiro.Avalonia",
+        "HeaderedContainer",
+        "EdgePanel",
+        "IconExtension",
+        "IconOptions",
+        "Xaml.Interaction.Behaviors",
+        "DynamicResource"
+      ],
+      "keywords": [
+        "avalonia-ui",
+        "zafiro-avalonia",
+        "xaml-layout",
+        "semantic-containers",
+        "edgepanel",
+        "headeredcontainer",
+        "shared-styles",
+        "icon-extension",
+        "interaction-behaviors",
+        "dynamic-resource",
+        "desktop-ui"
+      ]
+    },
+    "summary": "Guia válido para Zafiro.Avalonia, porém penalizado por path absoluto hardcoded de ambiente de terceiros, seção 'When to Use' tautológica e description curta."
+  },
+  {
+    "skillName": "avalonia-zafiro-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/avalonia-zafiro-development/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 108 caracteres com termos imperativos genéricos ('Mandatory skills, conventions...'), sem gatilho ('Use when...') e omitindo DynamicData, ReactiveUI e MVVM.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' (linhas 34-35) tautológica e inútil ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Substituir a seção 'When to Use' inócua por gatilhos concretos e integrar resumos dos pilares das sub-guias no SKILL.md principal, eliminando cerca de 20% de conteúdo oco.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Convenções e regras de desenvolvimento funcional-reativo para Avalonia UI utilizando MVVM, ReactiveUI, DynamicData e toolkit Zafiro.",
+      "entidades": [
+        "Zafiro toolkit",
+        "Avalonia UI",
+        "DynamicData",
+        "ReactiveUI",
+        "Result type",
+        "RefreshableCollection"
+      ],
+      "keywords": [
+        "avalonia-ui",
+        "zafiro",
+        "reactive-ui",
+        "dynamic-data",
+        "functional-reactive",
+        "mvvm",
+        "result-types",
+        "csharp",
+        "dotnet",
+        "cross-platform",
+        "reactive-pipelines"
+      ]
+    },
+    "summary": "Conjunto coerente de regras de arquitetura funcional-reativa em C#/Avalonia, mas com SKILL.md superficial contendo seção 'When to Use' vazia e description deficiente."
+  },
+  {
+    "skillName": "aws-agentic-ai",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-agentic-ai/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description no frontmatter YAML truncada abruptamente com reticências no meio da frase ('Covers agent deployment, MCP...'), sem aspas delimitadoras e contendo adjetivo promocional ('comprehensive expert').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' (linha 16) repete o texto truncado da description com erro de digitação ('aWS' com minúscula).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo exige verificação compulsória via ferramentas MCP específicas ('mcp__acdocs__*' / 'mcp__aws-mcp__*') e referencia caminhos locais ('services/gateway/README.md', 'references/', 'scripts/') que não existem no diretório da skill, constando apenas no repositório GitHub remoto.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o parágrafo duplicado e truncado de 'When to Use' (linhas 16-17) e flexibilizar a exigência rígida de ferramentas MCP ausentes para viabilizar o uso autônomo via AWS CLI padrão (~10% de ruído).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implantação, governança e integração dos nove serviços do AWS Bedrock AgentCore com protocolos MCP, A2A e HTTP para agentes de IA.",
+      "entidades": [
+        "AWS Bedrock AgentCore",
+        "AgentCore Gateway",
+        "AgentCore Runtime",
+        "AgentCore Memory",
+        "AgentCore Identity",
+        "AgentCore Code Interpreter",
+        "AgentCore Browser",
+        "AgentCore Observability",
+        "Agent Registry",
+        "OpenTelemetry ADOT",
+        "FastAPI"
+      ],
+      "keywords": [
+        "aws-bedrock",
+        "agentcore",
+        "bedrock-agents",
+        "mcp-gateway",
+        "runtime-deployment",
+        "identity-provider",
+        "agent-registry",
+        "code-interpreter",
+        "browser-automation",
+        "agent-evaluations",
+        "cloudwatch",
+        "opentelemetry"
+      ]
+    },
+    "summary": "Visão geral rica dos serviços do AWS Bedrock AgentCore, mas prejudicada por description truncada com reticências no YAML, erro de digitação e forte dependência de links externos e ferramentas MCP ausentes."
+  }
+]

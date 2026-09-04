@@ -1,0 +1,503 @@
+[
+  {
+    "skillName": "cloud-penetration-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cloud-penetration-testing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 160 caracteres (abaixo do recomendado de 200 a 400), carece de cláusula explícita de gatilho ('Use when...') e utiliza o adjetivo genérico 'comprehensive'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção final '## When to Use' (linhas 524-525) apresenta texto tautológico vazio ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover a seção vazia '## When to Use' nas linhas 524-525 por ser puramente boilerplate sem ganho semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia prática e comandos operacionais para testes de invasão e auditoria de segurança em Microsoft Azure, AWS e Google Cloud Platform.",
+      "entidades": [
+        "Az",
+        "MSOnline",
+        "AzureAD",
+        "awscli",
+        "gcloud",
+        "ScoutSuite",
+        "Pacu",
+        "Connect-AzAccount",
+        "Invoke-AzVMRunCommand",
+        "aws sts get-caller-identity",
+        "gsutil",
+        "kubectl"
+      ],
+      "keywords": [
+        "cloud penetration testing",
+        "Azure",
+        "AWS",
+        "GCP",
+        "IAM",
+        "privilege escalation",
+        "metadata service",
+        "IMDSv2",
+        "S3 enumeration",
+        "service principal",
+        "reconnaissance",
+        "Key Vault",
+        "CloudTrail"
+      ]
+    },
+    "summary": "Guia técnico consistente para pentest multicloud com gates de segurança adequados, demandando apenas ampliação da description com gatilho condicional e remoção de seção tautológica residual."
+  },
+  {
+    "skillName": "cloudflare-security-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cloudflare-security-audit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui apenas 149 caracteres (abaixo da faixa de 200 a 400) e omite a cláusula explícita de gatilho ('Use when...'), a qual consta apenas no corpo do documento (linhas 42-44).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Framework adversarial estruturado para auditoria de segurança em repositórios de código com orquestração multi-agente e validação dinâmica.",
+      "entidades": [
+        "HUNTING.md",
+        "RECONNAISSANCE.md",
+        "VALIDATION-AND-REPORTING.md",
+        "ATTACK-CLASSES.md",
+        "findings.json",
+        "target.json"
+      ],
+      "keywords": [
+        "security audit",
+        "vulnerability assessment",
+        "source code review",
+        "adversarial validation",
+        "trust boundaries",
+        "auth bypass",
+        "injection",
+        "subagents",
+        "findings report",
+        "severity rating"
+      ]
+    },
+    "summary": "Framework profissional de auditoria de código com elevado rigor metodológico e princípios antifalsos-positivos, requerendo somente expansão de extensão e inclusão do gatilho condicional na description."
+  },
+  {
+    "skillName": "co-marketing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/co-marketing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description termina truncada sintaticamente com aspas simples abertas e reticências ('collaborate with...'), revelando corte acidental de texto.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A cláusula condicional baseia-se em correspondência literal de frases do usuário ('when the user says...') e formulação passiva, em vez de focar na intenção semântica da capacidade.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estratégias de seleção de parceiros, pontuação de afinidade e planejamento de campanhas conjuntas de marketing para empresas SaaS.",
+      "entidades": [
+        "Crossbeam",
+        "Reveal",
+        "PartnerStack",
+        "Introw",
+        ".agents/product-marketing.md"
+      ],
+      "keywords": [
+        "co-marketing",
+        "partner marketing",
+        "joint campaigns",
+        "audience overlap",
+        "partner scoring",
+        "webinars",
+        "integration marketing",
+        "cross-promotion",
+        "lead sharing",
+        "SaaS partnerships"
+      ]
+    },
+    "summary": "Excelente manual prático para estratégias e campanhas de co-marketing, necessitando de saneamento na description para corrigir o truncamento sintático e substituir literais de prompt por intenções conceituais."
+  },
+  {
+    "skillName": "code-documentation-code-explain",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/code-documentation-code-explain/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description escrita no padrão de persona ('You are a code education expert...') sem cláusula de gatilho 'Use when...' e com adjetivos vagos ('clear narratives', 'difficult concepts into understandable explanations').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença da variável de template crua e não interpolada '$ARGUMENTS' na seção '## Requirements' (linha 30).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Abertura do corpo do arquivo (linha 11) repete ipsis litteris a redação da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite os discriminantes técnicos aprofundados contidos no playbook associado (análise de AST, complexidade ciclomática, detecção de padrões de projeto).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o placeholder não processado '$ARGUMENTS' na linha 30 e a linha introdutória 11 que duplica textualmente a description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Explicação pedagógica, análise de complexidade estrutural e decomposição visual de fluxos e algoritmos de código.",
+      "entidades": [
+        "resources/implementation-playbook.md",
+        "CodeAnalyzer",
+        "ast.parse",
+        "ast.walk",
+        "CyclomaticComplexity"
+      ],
+      "keywords": [
+        "code explanation",
+        "code analysis",
+        "AST parsing",
+        "cyclomatic complexity",
+        "flow diagrams",
+        "onboarding",
+        "algorithm breakdown",
+        "step-by-step walkthrough",
+        "software architecture"
+      ]
+    },
+    "summary": "Skill amparada por playbook técnico aprofundado, mas prejudicada por formato de persona na description, falta de gatilho condicional, placeholder não tratado e redundância de abertura."
+  },
+  {
+    "skillName": "code-documentation-doc-generate",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/code-documentation-doc-generate/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description formatada como instrução de persona ('You are a documentation expert...') desprovida de gatilho condicional 'Use when...' e repleta de termos promocionais genéricos ('AI-powered analysis', 'industry best practices').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença da variável de template crua '$ARGUMENTS' na seção '## Requirements' (linha 30).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linha 11 do corpo do documento replica textualmente a redação da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Baixa densidade de termos discriminantes concretos na description frente às capacidades do playbook associado (OpenAPI, TypeDoc, pipelines de CI/CD para documentação).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o placeholder '$ARGUMENTS' na linha 30 e a linha 11 duplicada no corpo do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação da extração e geração de documentação de APIs, arquitetura e guias técnicos sincronizados com o código-fonte.",
+      "entidades": [
+        "resources/implementation-playbook.md",
+        "OpenAPI",
+        "Swagger",
+        "TypeDoc",
+        "Sphinx",
+        "Mermaid"
+      ],
+      "keywords": [
+        "automated documentation",
+        "API docs",
+        "architecture diagrams",
+        "living documentation",
+        "user guides",
+        "technical reference",
+        "code extraction",
+        "CI/CD doc generation"
+      ]
+    },
+    "summary": "Estrutura documental válida com suporte a pipelines em playbook, porém carente de revisão na description (remover estilo persona e buzzwords), eliminação de $ARGUMENTS e corte de introdução duplicada."
+  },
+  {
+    "skillName": "code-refactoring-refactor-clean",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/code-refactoring-refactor-clean/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description escrita como persona de prompt ('You are a code refactoring expert...') sem gatilho 'Use when...' e com chavões amplos ('modern software engineering best practices').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença do placeholder residual de template '$ARGUMENTS' na linha 30.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação textual idêntica da description na linha 11 do corpo do arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado de risco hipertrofiado ('risk: critical') para uma skill de boas práticas de refatoração e limpeza de código.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover a variável não interpolada '$ARGUMENTS' na linha 30 e a linha 11 de introdução duplicada.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Refatoração incremental de código e aplicação de princípios SOLID para eliminação de code smells e débito técnico.",
+      "entidades": [
+        "resources/implementation-playbook.md",
+        "SOLID",
+        "Clean Code",
+        "code smells",
+        "regression testing"
+      ],
+      "keywords": [
+        "code refactoring",
+        "clean code",
+        "SOLID principles",
+        "code smells",
+        "technical debt",
+        "modularization",
+        "maintainability",
+        "regression testing",
+        "decoupling",
+        "incremental refactor"
+      ]
+    },
+    "summary": "Guia de refatoração ancorado em playbook robusto, necessitando de conversão da description de persona para capacidade funcional com gatilho, correção do nível de risco e remoção de placeholder inerte."
+  },
+  {
+    "skillName": "code-review-checklist",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/code-review-checklist/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (133 caracteres, abaixo de 200), ausência de gatilho explícito 'Use when...' no frontmatter e presença de termos promocionais ('Comprehensive', 'thorough').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Alta redundância interna com itens de verificação (funcionalidade, segurança, qualidade, performance) repetidos 3 vezes nas seções 'How It Works', 'Examples' e 'Complete Review Checklist'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Metadado de risco classificado erroneamente como 'critical' para uma checklist estática consultiva de revisão de código.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Consolidar as seções 'How It Works' (passos 1 a 6) e 'Complete Review Checklist' em uma única lista de verificação integrada, eliminando duplicações redundantes de critérios.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Roteiro sistemático e checklist para condução de revisões de código em pull requests cobrindo corretude, segurança, performance e manutenibilidade.",
+      "entidades": [
+        "OWASP Top 10",
+        "SQL Injection",
+        "XSS",
+        "CSRF",
+        "N+1 queries",
+        "npm audit",
+        "Snyk"
+      ],
+      "keywords": [
+        "code review",
+        "pull request",
+        "checklist",
+        "input validation",
+        "SQL injection prevention",
+        "N+1 query",
+        "code quality",
+        "PR comments",
+        "unit tests",
+        "code audit"
+      ]
+    },
+    "summary": "Checklist de revisão de código prático e didático com bons exemplos de código, prejudicado por repetição estrutural triplicada de critérios, classificação de risco inadequada e description curta."
+  },
+  {
+    "skillName": "code-showcase-core-components",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/code-showcase-core-components/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description abaixo da extensão ideal (136 caracteres) e iniciada por frase nominal sem verbo de ação, omitindo a stack-alvo (React / React Native) e os componentes primitivos fundamentais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linha 16 do corpo do arquivo replica textualmente o texto da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover a linha 16 no corpo do arquivo por ser duplicação redundante da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implementação e padrões de uso de biblioteca de componentes de UI e design tokens semânticos em React e React Native.",
+      "entidades": [
+        "Box",
+        "HStack",
+        "VStack",
+        "Text",
+        "Button",
+        "Input",
+        "Card",
+        "Screen",
+        "ScreenHeader",
+        "Avatar",
+        "Icon"
+      ],
+      "keywords": [
+        "design tokens",
+        "UI components",
+        "React Native",
+        "design system",
+        "layout patterns",
+        "HStack",
+        "VStack",
+        "Box",
+        "typography tokens",
+        "component props"
+      ]
+    },
+    "summary": "Guia de design system objetivo e muito bem exemplificado para React Native, demandando apenas enriquecimento da description com verbo ativo e menção explícita à biblioteca de primitivos."
+  },
+  {
+    "skillName": "code-showcase-testing-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/code-showcase-testing-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (175 caracteres, abaixo de 200) e estruturada como listagem nominal de tópicos sem verbo de ação orientador.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linha 16 do corpo do documento replica textualmente a description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado 'risk: critical' superdimensionado para uma skill de padrões de testes unitários Jest.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover a linha 16 no corpo do arquivo por duplicar ipsis litteris a description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de teste unitário com Jest, criação de factories de dados/props, estratégias de mock e ciclo TDD em aplicações React / React Native.",
+      "entidades": [
+        "Jest",
+        "@testing-library/react-native",
+        "renderWithTheme",
+        "fireEvent",
+        "screen",
+        "waitFor",
+        "useGetItemsQuery"
+      ],
+      "keywords": [
+        "Jest",
+        "unit testing",
+        "test factory",
+        "mocking",
+        "TDD",
+        "React Native Testing Library",
+        "custom render",
+        "GraphQL mock",
+        "red-green-refactor",
+        "behavior-driven testing"
+      ]
+    },
+    "summary": "Excelente repositório prático de padrões de testes com Jest e React Native Testing Library, necessitando de expansão da description para atingir 200+ caracteres com verbo de ação e ajuste no metadado de risco."
+  },
+  {
+    "skillName": "code-simplifier",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/code-simplifier/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A cláusula condicional baseia-se parcialmente em enumeração de termos entre aspas ('simplify code', 'clean up code') em vez de focar puramente em intenções semânticas descritivas.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Classificação de risco 'risk: critical' mostra-se conservadora em excesso para operações de simplificação que preservam rigorosamente o comportamento funcional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Refinamento e simplificação de código visando legibilidade, consistência e redução de complexidade com preservação funcional estrita.",
+      "entidades": [
+        "CLAUDE.md",
+        "ES modules",
+        "React component patterns",
+        "TypeScript type annotations"
+      ],
+      "keywords": [
+        "code simplification",
+        "refactoring",
+        "code clarity",
+        "maintainability",
+        "readability",
+        "nested ternaries",
+        "clean code",
+        "code refinement",
+        "functionality preservation",
+        "code review"
+      ]
+    },
+    "summary": "Skill de referência com description idealmente dimensionada (304 caracteres), regras claras de equilíbrio entre concisão e clareza, e exemplos concretos de refatoração limpa."
+  }
+]

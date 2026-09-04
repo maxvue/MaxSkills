@@ -1,6 +1,6 @@
 ---
 name: delegating-to-agents
-description: "Delegate bounded work to other AI agents while preserving context, ownership, and progress checks."
+description: "Delegate bounded work to other AI agents while preserving context, ownership, and progress checks. Use when developing, optimizing, debugging, or configuring delegating to agents in production workflows."
 category: agent-orchestration
 risk: critical
 source: community

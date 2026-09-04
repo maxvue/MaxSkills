@@ -1,0 +1,512 @@
+[
+  {
+    "skillName": "grilling",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/grilling/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 159 caracteres (abaixo da meta de 200 a 400 caracteres), omitindo discriminantes operacionais como questionamento sistemático em árvore de decisão, recomendação de respostas por pergunta e priorização de inspeção do codebase antes de interrogar o usuário.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Glitch de formatação Markdown na linha 28: a atribuição da fonte '_Source: [mattpocock/skills](https://github.com/mattpocock/skills) (MIT)._' está concatenada diretamente sem espaço ou quebra de linha com a frase 'Interview me relentlessly...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrita na seção '## When to Use' (linhas 23-25), que apenas duplica verbatim o texto da description sem ganho semântico adicional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção redundante '## When to Use' (linhas 23-25) e corrigir a quebra de linha colada na linha 28.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Protocolo de entrevista e questionamento aprofundado para validação e stress-testing de planos e arquiteturas antes da implementação.",
+      "entidades": [
+        "claude-code",
+        "codex-cli",
+        "cursor",
+        "mattpocock/skills"
+      ],
+      "keywords": [
+        "grilling",
+        "interview",
+        "stress-test",
+        "plan validation",
+        "design tree",
+        "decision dependencies",
+        "codebase exploration",
+        "productivity",
+        "workflow",
+        "coding-agents"
+      ]
+    },
+    "summary": "Skill concisa e eficaz para stress-testing de planos de arquitetura, necessitando de expansão da description para 200-400 chars e reparo de formatação na linha 28."
+  },
+  {
+    "skillName": "grok-build",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/grok-build/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 180 caracteres (abaixo da faixa ideal de 200 a 400 chars) e sem cláusula condicional explícita de ativação no formato 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não cita discriminantes técnicos e flags de invocação do CLI headless como '--prompt-file', '--always-approve' e '--output-format json'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Orquestração de tarefas de codificação delegadas ao xAI Grok Build CLI em modo headless com gates estritos de revisão de diffs e segurança.",
+      "entidades": [
+        "xAI",
+        "Grok Build CLI",
+        "grok-4.5",
+        "grok-composer-2.5-fast",
+        "references/cli.md"
+      ],
+      "keywords": [
+        "grok-build",
+        "xAI",
+        "agent-orchestration",
+        "headless cli",
+        "task specs",
+        "diff review",
+        "always-approve",
+        "code generation",
+        "review gate",
+        "sequential dispatch",
+        "worktrees",
+        "git diff"
+      ]
+    },
+    "summary": "Skill de orquestração técnica e rigorosa para delegar tarefas ao Grok Build CLI com safety gates de revisão, exigindo apenas expansão da description com gatilho explícito."
+  },
+  {
+    "skillName": "growth-engine",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/growth-engine/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Contaminação e acoplamento severo a um produto específico privado ('Auri - Assistente de Voz para Alexa') por todo o corpo da skill (linhas 45-211), transformando o que deveria ser um motor de growth genérico em um repositório de copy, métricas AARRR e ASO de um único app de terceiros.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description curta (149 caracteres, abaixo do limiar de 200), em língua portuguesa, genérica e sem gatilho de ativação explícito ('Use when...' / 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções '## When to Use This Skill' e '## Do Not Use This Skill When' (linhas 28-37) compostas exclusivamente de boilerplate vazio e tautológico ('When you need specialized assistance with this domain', 'The task is unrelated to growth engine').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções de Best Practices e Common Pitfalls (linhas 226-236) genéricas e desprovidas de valor técnico acionável.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inconsistência de idioma no documento: mescla cabeçalhos em inglês com seções inteiras de regras e tabelas em português.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 65,
+    "cuts": [
+      {
+        "text": "Eliminar todo o material hardcoded do app 'Auri' (linhas 45-211) ou convertê-lo em templates abstratos e reutilizáveis de growth hacking.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover os blocos de boilerplate tautológico das seções When to Use, Do Not Use, Best Practices e Common Pitfalls (linhas 28-37 e 226-236).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégias de growth hacking, métricas AARRR, SEO, ASO e viral loops (fortemente contaminado por referências ao app 'Auri' para Alexa).",
+      "entidades": [
+        "Auri",
+        "Amazon Alexa",
+        "Claude AI",
+        "Product Hunt",
+        "calculate_k_factor",
+        "Schema.org"
+      ],
+      "keywords": [
+        "growth-engine",
+        "growth hacking",
+        "seo",
+        "aso",
+        "aarrr",
+        "viral loops",
+        "k-factor",
+        "email marketing",
+        "referral",
+        "alexa skill",
+        "landing page",
+        "acquisition"
+      ]
+    },
+    "summary": "Skill severamente comprometida por contaminação de dados proprietários de um produto específico ('Auri') e boilerplate vago, demandando reestruturação profunda ou expurgo."
+  },
+  {
+    "skillName": "handoff",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/handoff/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta com apenas 85 caracteres (muito abaixo do piso de 200 chars), desprovida de cláusula explícita 'Use when...' e sem discriminantes operacionais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite diretrizes essenciais presentes nas instruções internas: gravação fora do workspace (no diretório temporário do SO), inclusão de seção de 'suggested skills' e redação rigorosa de credenciais/PII.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Glitch de formatação na linha 30: junção direta sem quebra de linha entre '(MIT)._' e 'Write a handoff document...', além de repetição tautológica na seção '## When to Use'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção redundante '## When to Use' (linhas 25-27) que replica a description e ajustar a quebra de linha na atribuição de fonte (linha 30).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Compactação e estruturação do histórico da sessão atual em documento de transição seguro para continuidade por outros agentes.",
+      "entidades": [
+        "claude-code",
+        "codex-cli",
+        "cursor",
+        "mattpocock/skills"
+      ],
+      "keywords": [
+        "handoff",
+        "context compaction",
+        "session transfer",
+        "multi-agent",
+        "temporary directory",
+        "suggested skills",
+        "pii redaction",
+        "workflow",
+        "productivity"
+      ]
+    },
+    "summary": "Procedimento útil e seguro para transição de contexto entre sessões de agentes, exigindo ampliação da description para 200-400 chars e ajuste de formatação."
+  },
+  {
+    "skillName": "hasdata",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hasdata/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 70 caracteres (muito aquém do intervalo de 200 a 400 chars), excessivamente genérica e sem discriminantes vitais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não menciona os principais verticais e capacidades do HasData (Google SERP, Google Maps, Amazon, Zillow, Scraper Jobs assíncronos, crawler em markdown e o cabeçalho de autenticação 'x-api-key').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Extração estruturada de dados da web e web scraping em nuvem via APIs HasData (Web Scraping, Scraper APIs síncronas e Scraper Jobs assíncronos).",
+      "entidades": [
+        "HasData",
+        "https://api.hasdata.com",
+        "x-api-key",
+        "references/web-scraping.md",
+        "references/search.md",
+        "references/ecommerce.md"
+      ],
+      "keywords": [
+        "hasdata",
+        "web-scraping",
+        "serp",
+        "google-maps",
+        "structured data",
+        "crawler",
+        "scraper jobs",
+        "async jobs",
+        "ecommerce",
+        "zillow",
+        "anti-bot",
+        "api client"
+      ]
+    },
+    "summary": "Skill oficial de altíssima qualidade técnica e clareza arquitetural sobre a API HasData, carecendo unicamente de uma description expandida de 200-400 chars com discriminantes."
+  },
+  {
+    "skillName": "hf-mcp",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hf-mcp/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A seção '## When to Use' (linhas 14-17) repete verbatim a description do frontmatter e contém um erro gramatical ('when you need use Hugging Face Hub').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Embora a description esteja na faixa recomendada (217 chars), a redação pode ser otimizada substituindo o início imperativo por uma condição explícita 'Use when...' detalhando as principais tools MCP (ex.: model_search, space_search, hf_jobs).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração e consumo das ferramentas do ecossistema Hugging Face Hub (modelos, datasets, papers, Spaces e compute jobs) via protocolo MCP.",
+      "entidades": [
+        "Hugging Face",
+        "model_search",
+        "dataset_search",
+        "space_search",
+        "paper_search",
+        "hub_repo_details",
+        "hf_jobs",
+        "dynamic_space",
+        "gr1_flux1_schnell_infer",
+        "hf_whoami"
+      ],
+      "keywords": [
+        "hf-mcp",
+        "huggingface",
+        "mcp server",
+        "model search",
+        "dataset search",
+        "gradio spaces",
+        "gpu compute",
+        "peft",
+        "lora",
+        "ai tools",
+        "transformers",
+        "training jobs"
+      ]
+    },
+    "summary": "Excelente integração de servidor MCP para Hugging Face com exemplos práticos robustos de tools, precisando apenas de pequenos ajustes de redação no gatilho e When to Use."
+  },
+  {
+    "skillName": "hierarchical-agent-memory",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hierarchical-agent-memory/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 180 caracteres (ligeiramente abaixo do limiar de 200 chars) e sem cláusula condicional de ativação direta 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não menciona os comandos centrais do ecossistema HAM como 'go ham', 'ham savings' ou a estrutura da camada '.memory/'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Sistema de memória hierárquica e escopada em CLAUDE.md para agentes de codificação, otimizando o consumo de tokens através de roteamento contextual por subdiretório.",
+      "entidades": [
+        "CLAUDE.md",
+        ".memory/decisions.md",
+        ".memory/patterns.md",
+        ".memory/inbox.md",
+        "HAM Dashboard",
+        "go ham",
+        "ham savings"
+      ],
+      "keywords": [
+        "hierarchical-agent-memory",
+        "ham",
+        "claude-code",
+        "context routing",
+        "token reduction",
+        "scoped memory",
+        "claude.md",
+        "adr",
+        "dashboard",
+        "developer-productivity"
+      ]
+    },
+    "summary": "Skill estruturada e altamente relevante para otimização de contexto e tokens no Claude Code, demandando apenas expansão da description para a faixa de 200-400 chars com gatilho explícito."
+  },
+  {
+    "skillName": "hig-components-status",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hig-components-status/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta com apenas 122 caracteres (abaixo dos 200 chars ideais), sem cláusula explícita de ativação 'Use when...' e sem detalhar diretrizes como determinate vs indeterminate e acessibilidade VoiceOver.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate inútil e tautológico na seção '## When to Use' (linhas 81-83): 'This skill is applicable to execute the workflow or actions described in the overview.'",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de rodapé promocional genérico da ferramenta de scaffolding ('Built by Raintree Technology') e bloco de limitations genérico (linhas 79-88).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover a seção When to Use tautológica (linhas 81-83) e a linha promocional externa (linha 79).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes do Apple Human Interface Guidelines (HIG) para indicadores de progresso, barras de status e anéis de atividade no ecossistema Apple.",
+      "entidades": [
+        "Apple HIG",
+        "HealthKit",
+        "VoiceOver",
+        "progress-indicators.md",
+        "status-bars.md",
+        "activity-rings.md"
+      ],
+      "keywords": [
+        "apple-hig",
+        "status components",
+        "progress indicators",
+        "progress bar",
+        "spinner",
+        "status bar",
+        "activity rings",
+        "healthkit",
+        "voiceover",
+        "ios",
+        "watchos",
+        "ux guidelines"
+      ]
+    },
+    "summary": "Diretrizes de design Apple de alta fidelidade para componentes de status, necessitando de expansão da description para 200-400 chars e limpeza de seções de boilerplate tautológico."
+  },
+  {
+    "skillName": "hig-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hig-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description extremamente curta com apenas 62 caracteres (muito distante do intervalo de 200 a 400 chars), desprovida de verbos de ação, gatilhos de ativação ('Use when...') e nomes discriminantes dos padrões.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description omite os padrões cruciais cobertos no documento, como Dynamic Island, Live Activities, Sign in with Apple, Passkeys, Undo/Redo e Sheet/Modal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Boilerplate tautológico nas linhas 98-99 ('This skill is applicable to execute the workflow or actions described in the overview') e assinatura de terceiros na linha 96.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção '## When to Use' vazia (linhas 98-99) e a linha de branding externo 'Built by Raintree Technology' (linha 96).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões fundamentais de interação e experiência de usuário (UX) do Apple Human Interface Guidelines para iOS, iPadOS, macOS e watchOS.",
+      "entidades": [
+        "Apple HIG",
+        "Live Activities",
+        "Dynamic Island",
+        "Sign in with Apple",
+        "Passkeys",
+        "Core Haptics",
+        "SKStoreReviewController",
+        "SharePlay",
+        "Stage Manager"
+      ],
+      "keywords": [
+        "apple-hig",
+        "interaction patterns",
+        "ux patterns",
+        "progressive disclosure",
+        "modality",
+        "undo-redo",
+        "dynamic island",
+        "live activities",
+        "passkeys",
+        "onboarding",
+        "haptics",
+        "multitasking"
+      ]
+    },
+    "summary": "Guia abrangente e valioso de padrões de UX da Apple, necessitando de expansão substancial da description (atualmente com 62 chars) e poda de boilerplate genérico."
+  },
+  {
+    "skillName": "hono",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/hono/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 149 caracteres (abaixo da meta de 200 a 400 chars), uso de adjetivo levemente promocional ('ultra-fast') e ausência de cláusula explícita 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não cita discriminantes técnicos avançados presentes no conteúdo, como o cliente RPC tipado 'hc', o validador 'zValidator', middleware nativo e suporte a streaming no runtime WinterCG.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento de APIs web de alto desempenho e tipagem ponta a ponta com o framework Hono para Cloudflare Workers, Bun, Deno e Node.js.",
+      "entidades": [
+        "Hono",
+        "Cloudflare Workers",
+        "D1Database",
+        "Bun",
+        "Deno",
+        "Node.js",
+        "WinterCG",
+        "@hono/zod-validator",
+        "hono/client",
+        "hono/jwt",
+        "hono/streaming"
+      ],
+      "keywords": [
+        "hono",
+        "web framework",
+        "edge api",
+        "cloudflare workers",
+        "bun",
+        "deno",
+        "rpc client",
+        "hc",
+        "zod-validator",
+        "middleware",
+        "jwt",
+        "streaming",
+        "wintercg",
+        "typescript"
+      ]
+    },
+    "summary": "Skill excepcional com implementação completa de padrões do Hono (routing, middlewares, RPC e Zod), necessitando apenas de ajuste na description para 200-400 chars com discriminantes técnicos."
+  }
+]

@@ -1,6 +1,6 @@
 ---
 name: aria
-description: "Designs the data model, API contracts, and structural foundation of the system."
+description: "Designs the data model, API contracts, and structural foundation of the system. Use when developing, optimizing, debugging, or configuring agent squad/aria in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for aria."
 risk: safe
 source: community
 date_added: "2026-06-11"

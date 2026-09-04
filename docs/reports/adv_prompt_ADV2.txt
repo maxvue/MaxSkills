@@ -1,0 +1,143 @@
+Você é o Revisor Adversarial da Fase 3 para o lote ADV2.
+Sua missão é atuar como Advogado do Diabo e avaliar rigorosamente os seguintes 16 micro-lotes de problemas/cortes contra o código real em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ e os arquivos SKILL.md:
+
+### Micro-Lote [MB_CREATED_002] - Skill: laravel-anticaptcha-integration-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description possui 198 caracteres, ficando ligeiramente abaixo da faixa recomendada de 200 a 400 caracteres (Critério 1).
+  2. Presença da frase de preenchimento 'Covers objectives and core workflows.' na description (Critério 12), além da omissão de termos discriminantes das classes reais do wrapper como Anticaptcha e AnticaptchaBase (Critério 4).
+
+### Micro-Lote [MB_CREATED_010] - Skill: laravel-frankenphp-octane-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description cita 'tuning Caddyfile workers', enquanto o conteúdo e a infraestrutura do Engeapp explicam que o Caddyfile é gerado pelo Octane e não deve ser editado manualmente, devendo referenciar 'tuning worker CLI options' ou 'worker process management' (critério 5).
+  2. A description finaliza com a sentença redundante de preenchimento 'Covers objectives and core workflows.' (critério 12).
+
+### Micro-Lote [MB_CREATED_018] - Skill: laravel-performance-and-profiling-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description encerra com a expressão genérica de preenchimento 'Covers objectives and core workflows.', que dilui a densidade semântica e poderia ser substituída por termos discriminantes concretos como gates de autorização ou comandos CLI.
+
+### Micro-Lote [MB_CREATED_026] - Skill: vue-brand-positioning-character-management-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-brand-positioning-character-management-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém cauda redundante 'Covers brand positioning, character management, and social media stores.' que duplica os termos do gatilho inicial (Critério 12).
+  2. A numeração de seções salta de '## Instruções' diretamente para '### 2. Formulários de Posicionamento de Marca', omitindo a seção 1.
+
+### Micro-Lote [MB_CREATED_034] - Skill: vue-max-stack-frontend-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-max-stack-frontend-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Exemplo ensina classes e atributos utilitários inline no template (ex: s100 flex flex-col, s-70 w-max-400) — adotar classes semânticas e estilizar em <style lang="scss">.
+
+### Micro-Lote [MB_CREATED_042] - Skill: project-history
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-history/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. A descrição omite totalmente o nome do projeto ('SocialMedia') e usa a expressão genérica 'in this project', gerando risco crítico de falso-positivo de ativação em qualquer projeto do repositório/workspace (violação dos critérios 4, 7 e 8).
+  2. A descrição contém ruído meta-operacional ('moved out of CLAUDE.md so it isn't always loaded'), violando os critérios 10 e 11 (linguagem anti-promocional e ausência de procedimentos operacionais/justificativas meta na description).
+  3. A seção '## Instruções' é meramente decorativa/oca ('Siga as instruções e padrões descritos na documentação.'), sem procedimentos cognitivos reais ou diretrizes de consulta histórica.
+
+### Micro-Lote [MB_CRIT_050] - Skill: git-worktree
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/git-worktree/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Extensão insuficiente da description (132 caracteres, violando o piso de 200 caracteres).
+  2. Ausência de gatilho explícito ('Use when...') na description.
+  3. Ausência total de comandos CLI de git worktree (como 'git worktree add', 'remove', 'list', 'prune') no corpo da skill, tornando-a inoperante.
+
+### Micro-Lote [MB_CRIT_058] - Skill: pytest-and-jest-automation
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/pytest-and-jest-automation/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Uso do boilerplate vazio repetitivo com justificativa circular ('rotinas de pytest-and-jest-automation') e links sintéticos de YouTube.
+  2. Metadados de repositório apontam para 'Anthropic' com URL 'karanb192/awesome-claude-skills', inflando métricas (24500 stars de um repositório curado geral).
+  3. Substituir o template estéril (linhas 40-55) por padrões acionáveis de testes (fixtures do Pytest, mocks com pytest-mock, render e queries do Jest/testing-library, comandos de cobertura de código).
+
+### Micro-Lote [MB_CRIT_066] - Skill: ai-studio-image
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ai-studio-image/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Quebra crítica de portabilidade: Todos os comandos de instalação e execução contêm caminhos absolutos hardcoded de máquina Windows local ('C:\Users\renat\skills\ai-studio-image\...'), quebrando imediatamente a execução em qualquer outro ambiente (linhas 73, 81, 87, 123, 161, 166, 193, 230).
+  2. Critérios 1 e 3: Description curta em português com 161 caracteres (< 200) e ausência de gatilho explícito 'Use when...' ou 'Ative quando...'.
+  3. Inconsistência linguística: SKILL.md e description redigidos em português em repositório majoritariamente de língua inglesa.
+
+### Micro-Lote [MB_CRIT_074] - Skill: anti-reversing-techniques
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/anti-reversing-techniques/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description corrompida e truncada no meio de um marcador markdown ('AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1.'), omitindo totalmente o propósito prático e discriminantes da skill.
+  2. Tripla redundância de avisos jurídicos quase idênticos no início do arquivo (linhas 9-12, 14-22 e 23-29), além de duplicação da seção de referências (linhas 55 e 57-60).
+  3. SKILL.md desprovido de comandos ou substância técnica real (apenas passos abstratos de 1 linha), delegando tudo sem orientações mínimas sobre anti-debugging, ofuscação ou análise de binários.
+
+### Micro-Lote [MB_CRIT_082] - Skill: ui-skills
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ui-skills/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Ausência completa de ganho semântico para o agente, poluindo o catálogo de skills com um placeholder não funcional.
+  2. Remover as seções tautológicas Overview, When to Use e Instructions (linhas 11-24), substituindo o arquivo por conteúdo instrucional real de UI ou deprecando o artefato em favor de ui-skills-root.
+
+### Micro-Lote [MB_CURATED_090] - Skill: cloud-architect
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/cloud-architect/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Remover seções vazias de persona conversacional: 'Behavioral Traits' (linhas 93-102), 'Knowledge Base' (linhas 103-112), 'Response Approach' (linhas 113-122) e 'Example Interactions' (linhas 123-132).
+  2. Substituir as tautologias em 'Use this skill when' / 'Do not use this skill when' (linhas 9-18) por condições e ferramentas concretas de contexto.
+
+### Micro-Lote [MB_CURATED_098] - Skill: shadcn-ui
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/shadcn-ui/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description com 143 caracteres (abaixo do limiar de 200 chars) e sem declaração explícita de gatilho ('Use when...').
+  2. Ausência de fidelidade técnica ao corpo: promete automação e integração de componentes Radix UI e Tailwind CSS, mas o arquivo é um stub scaffold de 65 linhas sem instruções sobre a CLI da shadcn ('npx shadcn@latest add'), components.json, utilitário cn ou componentes reais.
+  3. Presença de ruído estrutural com repetição literal dos campos do YAML nas seções de Overview e Stack, e inclusão de URLs simuladas de vídeos do YouTube.
+
+### Micro-Lote [MB_CURATED_106] - Skill: token-optimization
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/token-optimization/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description curta (128 caracteres), sem gatilho contextual ('Use when...') e com afirmação promocional quantitativa sem validação ('by up to 80%').
+  2. Corpo stub de 65 linhas desprovido de técnicas reais de budgeting de contexto, medição de tokens, compressão de prompts ou desconexão de MCPs ociosos.
+  3. Estrutura inchada por repetição inútil dos metadados do YAML em seções redundantes de Overview e Stack com links mockados de YouTube.
+
+### Micro-Lote [MB_PHASE2_114] - Skill: mcp-server-routing + mcp-tool-developer
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: Ambas as skills abordam a engenharia integral de servidores e ferramentas do Model Context Protocol (MCP) com SDKs oficiais em TypeScript e Python, validação de schemas (Zod/Pydantic), suporte a transportes (stdio, SSE, Streamable HTTP) e inspeção com MCP Inspector. curated-youtube/mcp-server-routing possui uma discrepância nominal grave entre seu diretório e seu frontmatter (name: mcp-builder, sem nenhuma rotina de roteamento de requisições), porém carrega recursos valiosos de referência (mcp_best_practices, node_mcp_server, python_mcp_server, evaluation.md) e scripts. Já mcp-tool-developer possui uma interface limpa, moderna (API McpServer) e padronizada. A unificação sob mcp-tool-developer elimina a sobreposição e corrige a anomalia nominal do repositório.
+  2. Plano de integracao: Eleger mcp-tool-developer como a skill canônica unificada de desenvolvimento MCP. Integrar ao seu SKILL.md os padrões avançados de mcp-server-routing: anotações de hint (readOnlyHint, destructiveHint, idempotentHint), boas práticas de design e o fluxo de criação de suítes de avaliação (10 QA pairs em XML). Mover e vincular as pastas reference/ e scripts/ de mcp-server-routing para a estrutura de mcp-tool-developer, eliminando em seguida o diretório redundante curated-youtube/mcp-server-routing.
+
+### Micro-Lote [MB_PHASE2_122] - Skill: vector-database-engineer + vector-index-tuning
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: 'vector-index-tuning' é um subconjunto estritamente operacional da competência mais ampla de 'vector-database-engineer'. Enquanto 'vector-database-engineer' define a arquitetura macro de bancos vetoriais, modelos de embedding, chunking, busca híbrida e RAG, ela contém apenas 69 linhas em formato de tópicos e cita explicitamente 'resources/implementation-playbook.md' — arquivo inexistente em seu próprio diretório. Em contrapartida, 'vector-index-tuning' possui um SKILL.md de 51 linhas acompanhado exatamente pelo robusto 'resources/implementation-playbook.md' (508 linhas com algoritmos, matrizes de quantização e benchmarks empíricos em Python com hnswlib/faiss). Manter duas skills separadas fragmenta a engenharia de bancos de dados vetoriais e causa colisão direta de roteamento quando o usuário solicita otimização de latência, memória e recall (HNSW/PQ) em um banco vetorial.
+  2. Plano de integracao: 1. Mover 'resources/implementation-playbook.md' de 'vector-index-tuning' para 'vector-database-engineer/resources/implementation-playbook.md', resolvendo a dependência quebrada.
+2. Incorporar na descrição e na seção 'Use this skill when' de 'vector-database-engineer' os gatilhos específicos de tuning de hiperparâmetros HNSW (M, efConstruction, efSearch), estratégias de quantização (FP16, INT8, PQ, binária) e benchmarking de recall vs latência.
+3. Incorporar o checklist de segurança e plano de rollback pré-reindexação em produção presente em 'vector-index-tuning'.
+4. Descontinuar e remover o diretório 'vector-index-tuning', unificando a engenharia de bancos vetoriais da arquitetura ao fine-tuning de índice.
+
+Diretrizes de Avaliação:
+1. Abra o arquivo SKILL.md da skill com view_file.
+2. Quando a acusação envolver conformidade técnica com o código de Engeapp/MaxVue, abra e confira os arquivos em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ (projects/engeapp, projects/MaxComponentsUi, projects/MaxPinia, projects/MaxUse, projects/MaxCode).
+3. Para cada problema listado, decida:
+   - CONFIRMADO: se o defeito técnico, não conformidade ou necessidade de corte/merge for real e comprovado.
+   - REFUTADO: se for falso positivo, exagero, código existente ou sugestão puramente cosmética.
+4. Forneça evidence concreta (arquivo e linha/trecho).
+5. Se CONFIRMADO e envolver a description, proponha correctedDescription calibrada (200-400 chars). Senão, deixe string vazia.
+
+Retorne SEMPRE um array JSON contendo um objeto para CADA problema avaliado no formato:
+[
+  {
+    "skillName": "nome da skill",
+    "problem": "texto exato ou resumo fiel do problema",
+    "verdict": "CONFIRMADO | REFUTADO",
+    "evidence": "arquivo e linha/trecho real",
+    "correctedDescription": "string se CONFIRMADO e impreciso, senao """
+  }
+]
+Salve o resultado em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/docs/reports/phase3_raw_ADV2.json usando write_to_file (sem ArtifactMetadata) e envie o resultado para o orquestrador via send_message.

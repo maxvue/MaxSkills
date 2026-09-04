@@ -1,0 +1,58 @@
+[
+  {
+    "cluster": [
+      "wordpress-theme-development",
+      "wordpress-woocommerce-development"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Embora ambas compartilhem o prefixo 'wordpress-' e façam referência ao ecossistema moderno do WordPress 7.0 (como DataViews e admin refresh), seus domínios técnicos e propósitos arquiteturais são completamente distintos. 'wordpress-theme-development' foca estritamente na arquitetura de temas, hierarquia de templates (index, single, archive, 404), theme.json, blocos Gutenberg e estilização frontend. Já 'wordpress-woocommerce-development' foca nas regras de negócio de e-commerce, configuração de catálogo, métodos de envio, integração com gateways de pagamento (Stripe, PayPal), Abilities API para inventário e pedidos, e detecção de fraudes. Não há sobreposição de ativação nem redundância técnica entre desenvolvimento de temas e arquitetura de loja virtual.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "wordpress-penetration-testing",
+      "wp-site-health-auditor"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "Trata-se de uma falsa equivalência motivada por palavras-chave em comum ('wordpress', 'security'). 'wordpress-penetration-testing' é uma skill de segurança ofensiva (pentesting) baseada em ferramentas de ataque externas (WPScan, Metasploit, Nmap, exploração de CVEs, enumeração de usuários e ataques de força bruta). Em contrapartida, 'wp-site-health-auditor' é uma skill de manutenção defensiva e administração de sistemas focada em interpretar o painel interno 'Site Health' (Ferramentas > Diagnóstico) do WordPress e aplicar correções seguras de configuração com rotinas de backup, WP-CLI e validação de linting PHP. Os perfis de usuário, ferramentas, posturas de segurança (ofensiva vs. corretiva interna) e objetivos são completamente diferentes.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "sendblue-api",
+      "sendblue-cli",
+      "sendblue-notify"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "O trio forma uma suíte oficial coesa de três camadas complementares para Sendblue: protocolo de integração HTTP/REST ('sendblue-api'), ferramenta CLI de terminal ('sendblue-cli') e padrão de orquestração de notificações com gating de duração ('sendblue-notify'). A fragmentação modular é conceitualmente correta e intencional. No entanto, existe colisão direta de gatilhos de ativação ('Use when...') entre 'sendblue-cli' e 'sendblue-notify': ambas reivindicam frases como 'ping my phone', 'notify on completion' e 'text me when X finishes'. A demarcação é necessária para calibrar os gatilhos: 'sendblue-cli' deve responder exclusivamente a comandos diretos de shell, autenticação e gerenciamento de credenciais via @sendblue/cli, enquanto 'sendblue-notify' deve ter a exclusividade sobre padrões de alerta assíncrono de finalização de tarefas ('text me when done') e integração com Stop hooks.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "seo-images",
+      "seo-image-gen"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "As skills cobrem fases opostas do ciclo de vida de mídia e foram projetadas intencionalmente para atuar em cadeia, como explicitado na seção 'Cross-Skill Integration' de 'seo-image-gen'. 'seo-images' é uma ferramenta de auditoria e diagnóstico estático que inspeciona tags <img> existentes (texto alternativo, formatos WebP/AVIF, Core Web Vitals/CLS, tamanhos e lazy loading). Por outro lado, 'seo-image-gen' é um pipeline generativo ativo que cria novos arquivos visuais para SEO (cards Open Graph, banners hero, assets de schema) integrando a extensão MCP 'banana' e modelos de geração de imagem Gemini. Não há redundância funcional nem colisão de triggers entre auditoria estática e geração generativa de imagens.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "seo-meta-optimizer",
+      "seo-aeo-meta-description-generator"
+    ],
+    "recommendation": "MERGE",
+    "into": "seo-meta-optimizer",
+    "rationale": "Ambas as skills implementam a mesma funcionalidade de forma fragmentada e redundante: criação de títulos e meta descrições otimizados para SEO e taxa de clique (CTR), geração de 3 variações A/B por página e tags de compartilhamento social. 'seo-meta-optimizer' possui um escopo mais canônico (incluindo URLs, suporte a CMS como WordPress/Yoast/RankMath e frameworks como Next.js/Astro), porém contém boilerplate genérico e referências a arquivos inexistentes. Já 'seo-aeo-meta-description-generator' traz frameworks de redação de CTR robustos (V1 Benefício, V2 Pergunta, V3 Prova Social) e regras explícitas para Open Graph e Twitter Cards, mas tem nomenclatura excessivamente restrita. A unificação sob 'seo-meta-optimizer' consolida as melhores práticas de ambas em uma skill completa e elimina a ambiguidade para o orquestrador.",
+    "mergePlan": "1. Destino: 'seo-meta-optimizer'.\n2. Incorporar a estrutura de 3 ângulos de CTR de 'seo-aeo-meta-description-generator' (V1 Benefit Lead, V2 Question Hook, V3 Social Proof/Specificity) nas regras de geração de variações.\n3. Absorver a seção de tags sociais (Open Graph e Twitter Card tags) e SERP preview de 'seo-aeo-meta-description-generator'.\n4. Preservar as regras de estrutura de URL, limites de caracteres/pixels, integrações de CMS (Yoast/RankMath) e componentes de frameworks (Astro/Next.js) já presentes em 'seo-meta-optimizer'.\n5. Remover o boilerplate vazio e a referência ao arquivo inexistente 'resources/implementation-playbook.md' de 'seo-meta-optimizer'.\n6. Depreciar e remover 'seo-aeo-meta-description-generator' redirecionando seus gatilhos para 'seo-meta-optimizer'.",
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  }
+]

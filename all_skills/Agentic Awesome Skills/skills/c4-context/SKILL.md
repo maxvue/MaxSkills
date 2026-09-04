@@ -1,6 +1,6 @@
 ---
 name: c4-context
-description: Expert C4 Context-level documentation specialist. Creates high-level system context diagrams, documents personas, user journeys, system features, and external dependencies.
+description: "Expert C4 Context-level documentation specialist. Creates high-level system context diagrams, documents personas, user journeys, system features, and external dependencies. Use when developing, optimizing, debugging, or configuring c4 context in production workflows."
 risk: none
 source: community
 date_added: '2026-02-27'
@@ -23,7 +23,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## System Overview
 

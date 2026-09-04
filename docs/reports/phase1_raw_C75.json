@@ -1,0 +1,542 @@
+[
+  {
+    "skillName": "wiki-changelog",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wiki-changelog/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição possui 188 caracteres, ficando ligeiramente abaixo do piso recomendado de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de subseção residual e redundante '### When to Use' no rodapé (linhas 31-32) com texto genérico de template ('This skill is applicable to execute the workflow or actions described in the overview'), duplicando a seção '## When to Use' já existente nas linhas 13-16.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o bloco residual '### When to Use' nas linhas 31-32 por ser ruído repetitivo de template.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração automatizada e estruturada de changelogs e resumos de atividades de desenvolvimento a partir do histórico de commits do git.",
+      "entidades": [
+        "git log",
+        "git",
+        "README",
+        "commits"
+      ],
+      "keywords": [
+        "changelog",
+        "git log",
+        "git history",
+        "commit classification",
+        "release notes",
+        "features",
+        "bug fixes",
+        "refactoring",
+        "breaking changes",
+        "documentation",
+        "user-facing changes"
+      ]
+    },
+    "summary": "Skill compacta e eficiente para changelogs via git log, com description ligeiramente abaixo de 200 caracteres e pequeno boilerplate redundante no rodapé."
+  },
+  {
+    "skillName": "wiki-page-writer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wiki-page-writer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Extensão crítica da descrição com apenas 124 caracteres, muito abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A descrição é formulada como uma diretiva de persona de prompt ('You are a senior documentation engineer...') em vez de descrever as capacidades operacionais e funcionais da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...', 'Ative quando...') na descrição.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos discriminantes vitais na descrição: o arquivo instrui detalhadamente frontmatter VitePress, regras estritas de diagramas Mermaid em dark mode e rastreabilidade de código via 'file_path:line_number', mas a descrição resume tudo a 'generates comprehensive technical documentation pages'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover subseção duplicada '### When to Use' (linhas 69-71) e o bloco genérico de salvaguardas '## Limitations' (linhas 72-76), que representam boilerplate artificial comum na biblioteca.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Elaboração de documentação técnica arquitetural e profunda baseada em código real, formatada para VitePress e diagramas Mermaid em tema escuro.",
+      "entidades": [
+        "VitePress",
+        "Mermaid",
+        "sequenceDiagram",
+        "classDiagram",
+        "stateDiagram-v2",
+        "erDiagram",
+        "flowchart"
+      ],
+      "keywords": [
+        "technical documentation",
+        "code tracing",
+        "source citation",
+        "VitePress frontmatter",
+        "Mermaid dark mode",
+        "architecture diagrams",
+        "data flow",
+        "first principles",
+        "wiki writer",
+        "markdown tables"
+      ]
+    },
+    "summary": "Excelente profundidade técnica na padronização de documentação VitePress/Mermaid, mas enfraquecida por description em formato de persona de 124 caracteres sem gatilhos nem discriminantes."
+  },
+  {
+    "skillName": "wiki-vitepress",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wiki-vitepress/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Pequeno erro de sintaxe/digitação no gatilho da descrição: cita 'user runs the /deep-wiki, or user wants...' em vez de '/deep-wiki:build', que é o comando documentado na linha 15 do arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de boilerplate residual no encerramento (linhas 152-159) contendo '### When to Use' genérico e bloco padronizado '## Limitations'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover o bloco redundante de fechamento '### When to Use' e '## Limitations' nas linhas 152-159.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Empacotamento e configuração de documentação Markdown gerada em um site estático VitePress com tema escuro e Mermaid interativo com zoom modal.",
+      "entidades": [
+        "VitePress",
+        "vitepress-plugin-mermaid",
+        "withMermaid",
+        "Vue",
+        "config.mts",
+        "custom.css",
+        "onMounted"
+      ],
+      "keywords": [
+        "VitePress",
+        "static site",
+        "Mermaid diagrams",
+        "dark theme",
+        "SSR compatibility",
+        "click to zoom",
+        "custom CSS",
+        "markdown packaging",
+        "themeConfig",
+        "interactive documentation",
+        "vue compiler"
+      ]
+    },
+    "summary": "Skill de altíssimo valor técnico na integração VitePress com Mermaid em tema escuro e compatibilidade SSR, contendo description bem calibrada (284 chars) e pequeno ruído de rodapé."
+  },
+  {
+    "skillName": "wireshark-analysis",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wireshark-analysis/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição possui 191 caracteres (ligeiramente abaixo do limite ideal de 200) e não inclui gatilho explícito de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seção redundante '## When to Use' nas linhas 500-502 com texto vago, conflitando com a listagem rica de use cases presente nas linhas 30-36.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 1,
+    "cuts": [
+      {
+        "text": "Remover a seção residual '## When to Use' nas linhas 500-502.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Execução abrangente de captura, filtragem e análise de tráfego de rede e pacotes com Wireshark para segurança e resolução de problemas.",
+      "entidades": [
+        "Wireshark",
+        "PCAP",
+        "PCAPNG",
+        "TCP",
+        "UDP",
+        "HTTP",
+        "DNS",
+        "ARP",
+        "TLS",
+        "SMB",
+        "ICMP"
+      ],
+      "keywords": [
+        "Wireshark",
+        "network traffic",
+        "packet capture",
+        "display filters",
+        "capture filters",
+        "TCP stream reconstruction",
+        "port scan detection",
+        "ARP spoofing",
+        "malware C2",
+        "retransmissions",
+        "security analysis",
+        "protocol hierarchy"
+      ]
+    },
+    "summary": "Excelente manual técnico de filtros e investigação de pacotes de rede com Wireshark, precisando apenas de gatilho explícito na description e poda de boilerplate final."
+  },
+  {
+    "skillName": "wjttc-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wjttc-builder/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Descrição gravemente truncada no frontmatter terminando com reticências no meio de uma oração: 'This is the BUILDER — it plans and...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem excessivamente promocional e termos em caixa alta na description ('PLAN and GENERATE', 'Championship-Grade') violando o critério anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de disparo clara ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Forte dependência de terminologia e metáforas proprietárias ('WJTTC', 'GOLD Code ✨', F1, Brake/Engine/Aero/Tyre/Pit) que ofuscam termos universais de engenharia de software.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover quadro decorativo em ASCII 'GOLD CODE ✨' (linhas 29-46) e slogans vazios de Fórmula 1 (linhas 349-350).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Podar o bloco genérico de limitações nas linhas 351-356.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Planejamento e geração de planos de testes em cinco níveis com ênfase na eliminação de testes instáveis e cálculo de integridade de sinal CI.",
+      "entidades": [
+        "project.faf",
+        "WJTTC-TESTS.md",
+        "Jest",
+        "Vitest",
+        "pytest",
+        "CI/CD"
+      ],
+      "keywords": [
+        "test planning",
+        "tiered testing",
+        "signal integrity",
+        "flaky tests",
+        "edge cases",
+        "TDD",
+        "test scaffolding",
+        "Jest",
+        "pytest",
+        "regression tests",
+        "test generation"
+      ]
+    },
+    "summary": "Metodologia sólida para combate a testes instáveis (flaky) e testes em camadas, comprometida por description truncada com reticências e framing excessivamente promocional."
+  },
+  {
+    "skillName": "wordpress-centric-high-seo-optimized-blogwriting-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wordpress-centric-high-seo-optimized-blogwriting-skill/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Extensão da descrição com 173 caracteres, abaixo da faixa mínima recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...', 'Ative quando...') na descrição, embora a intenção e os recursos estejam bem delineados.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Condensar as notas genéricas de 'Limitations' e 'Security and Safety Notes' (linhas 312-324) por serem redundantes com o perfil de um gerador de texto.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração estruturada de artigos de blog para WordPress com otimização avançada de SEO on-page, metadados Yoast e schema JSON-LD.",
+      "entidades": [
+        "WordPress",
+        "Yoast SEO",
+        "JSON-LD",
+        "BlogPosting",
+        "FAQPage",
+        "Truth Box"
+      ],
+      "keywords": [
+        "WordPress blog",
+        "SEO writing",
+        "Yoast metadata",
+        "JSON-LD schema",
+        "image SEO",
+        "alt text",
+        "content structure",
+        "search intent",
+        "FAQ schema",
+        "editorial guidelines",
+        "on-page SEO"
+      ]
+    },
+    "summary": "Excelente especificação de prompt editorial e schema para WordPress, necessitando apenas de gatilho explícito e expansão marginal para atingir 200 caracteres na description."
+  },
+  {
+    "skillName": "wordpress-penetration-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wordpress-penetration-testing/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão crítica da descrição com apenas 99 caracteres ('Assess WordPress installations for common vulnerabilities and WordPress 7.0 attack surfaces.'), violando gravemente o limite mínimo de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...') e ausência total de ferramentas discriminantes na descrição (omite WPScan, Metasploit, enumeração de plugins/temas, força bruta XML-RPC, REST API, etc.).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Repetição redundante de banners de segurança ('AUTHORIZED USE ONLY' nas linhas 10-13 e novamente na linha 24) e seção residual vazia '## When to Use' no rodapé (linhas 609-611).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Unificar avisos repetitivos de autorização de uso (linhas 10-14 e linha 24) e remover o fechamento '## When to Use' (linhas 609-611).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria de segurança ofensiva, enumeração e testes de invasão em ambientes WordPress e novas superfícies de ataque do WordPress 7.0.",
+      "entidades": [
+        "WPScan",
+        "Metasploit",
+        "Nmap",
+        "Burp Suite",
+        "searchsploit",
+        "xmlrpc.php",
+        "WordPress 7.0",
+        "AI Connector API",
+        "Abilities API"
+      ],
+      "keywords": [
+        "WordPress penetration testing",
+        "WPScan",
+        "user enumeration",
+        "plugin vulnerabilities",
+        "theme exploits",
+        "XML-RPC attack",
+        "Metasploit shell upload",
+        "webshell",
+        "AI prompt injection",
+        "security assessment",
+        "vulnerability scanning"
+      ]
+    },
+    "summary": "Manual de segurança ofensiva em WordPress tecnicamente rico e detalhado, mas desvalorizado por uma descrição empobrecida de apenas 99 caracteres sem gatilhos nem ferramentas discriminantes."
+  },
+  {
+    "skillName": "wordpress-plugin-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wordpress-plugin-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A descrição (257 caracteres) possui excelente extensão e discriminantes, porém não possui cláusula de disparo explícita ('Use when...', 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de bloco de fechamento genérico '## Limitations' nas linhas 498-502, além de sugestão no corpo de invocar a skill de pentest ofensivo (@wordpress-penetration-testing) para tarefas de desenvolvimento padrão de hooks (linhas 113, 124).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o bloco padronizado '## Limitations' nas linhas 498-502.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e desenvolvimento de plugins para WordPress com integração aos recursos do WP 7.0 (Abilities API, AI Connectors e DataViews).",
+      "entidades": [
+        "WordPress",
+        "DataViews",
+        "Abilities API",
+        "AI Connector",
+        "register_block_type",
+        "register_post_meta",
+        "WP_Error",
+        "PHPUnit"
+      ],
+      "keywords": [
+        "WordPress plugin",
+        "plugin architecture",
+        "action hooks",
+        "filter hooks",
+        "REST API endpoints",
+        "DataViews",
+        "AI Connectors",
+        "Abilities API",
+        "nonce verification",
+        "PHP-only blocks",
+        "custom post meta"
+      ]
+    },
+    "summary": "Guia de desenvolvimento de plugins WordPress moderno e bem estruturado com código PHP/JS real, necessitando apenas da inclusão de gatilho explícito na description."
+  },
+  {
+    "skillName": "wordpress-theme-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wordpress-theme-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A descrição (254 caracteres) possui extensão ideal e termos discriminantes, mas carece de gatilho explícito de uso ('Use when...', 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro conceitual de referência cruzada no corpo (linhas 197, 231): recomenda invocar a skill de pentest '@wordpress-penetration-testing' para compreender padrões de Custom Post Types (CPTs) em desenvolvimento de temas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inclusão de boilerplate genérico '## Limitations' nas linhas 503-507.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover subseção genérica '## Limitations' (linhas 503-507) e corrigir prompt que invoca ferramenta de pentest para criação de CPTs (linhas 197, 231).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento de temas clássicos e baseados em blocos (FSE) para WordPress com suporte a theme.json v3 e novos blocos do WP 7.0.",
+      "entidades": [
+        "WordPress",
+        "theme.json",
+        "Gutenberg",
+        "register_post_type",
+        "register_post_meta",
+        "DataViews",
+        "Playwright"
+      ],
+      "keywords": [
+        "WordPress theme",
+        "template hierarchy",
+        "theme.json",
+        "block editor",
+        "block patterns",
+        "contentOnly",
+        "custom post types",
+        "navigation overlay",
+        "view transitions",
+        "FSE",
+        "responsive design"
+      ]
+    },
+    "summary": "Excelente guia para criação de temas WordPress e blocos Gutenberg com theme.json v3, demandando inserção de gatilho na description e correção de chamadas inadequadas de pentest no texto."
+  },
+  {
+    "skillName": "wordpress-woocommerce-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wordpress-woocommerce-development/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A descrição (213 caracteres) carece de gatilho explícito de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inconsistência sistemática severa decorrente de copy-paste no corpo do workflow: indica invocar '@wordpress-penetration-testing' para 'Store Setup' (linha 59), 'WooCommerce patterns' (linha 88), 'WooCommerce shipping' (linha 210) e 'WooCommerce extensions' (linha 367), sugerindo o uso de ferramentas de pentest para configurar frete e produtos.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença do bloco boilerplate genérico '## Limitations' nas linhas 629-633.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Substituir as invocações equivocadas da skill '@wordpress-penetration-testing' nas fases 1, 2, 4 e 6 (linhas 59, 88, 143, 210, 258, 367, 479) por skills adequadas de e-commerce e desenvolvimento backend.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover o rodapé genérico '## Limitations' (linhas 629-633).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento, configuração e customização de lojas WooCommerce com suporte a gateways de pagamento, frete e extensões orientadas por IA.",
+      "entidades": [
+        "WooCommerce",
+        "Stripe",
+        "PayPal",
+        "DataViews",
+        "Abilities API",
+        "AI Connector",
+        "wc_get_product",
+        "wc_get_order",
+        "wc_update_product_stock"
+      ],
+      "keywords": [
+        "WooCommerce",
+        "e-commerce",
+        "payment gateways",
+        "shipping zones",
+        "product configuration",
+        "inventory management",
+        "order processing",
+        "AI product descriptions",
+        "checkout flow",
+        "Abilities API",
+        "fraud detection"
+      ]
+    },
+    "summary": "Guia prático para desenvolvimento de lojas WooCommerce com suporte a IA e Abilities API, mas penalizado por chamadas inconsistentes de pentest para tarefas de e-commerce e ausência de gatilho na description."
+  }
+]

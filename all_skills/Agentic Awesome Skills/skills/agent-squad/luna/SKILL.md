@@ -1,6 +1,6 @@
 ---
 name: luna
-description: "Reviews code for objective correctness, security, and reliability."
+description: "Reviews code for objective correctness, security, and reliability. Use when developing, optimizing, debugging, or configuring agent squad/luna in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for luna."
 risk: safe
 source: community
 date_added: "2026-06-11"

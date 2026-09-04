@@ -1,6 +1,6 @@
 ---
 name: laravel-authorization-policies-gates
-description: "Use when creating or reviewing authorization in Laravel via spatie/laravel-permission. Covers roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia integration. Covers objectives and core workflows."
+description: "Use when creating or reviewing authorization in Laravel via spatie/laravel-permission. Covers roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia integration."
 author: Johnattas Conrady Gomes Santana
 ---
 # Laravel Authorization Policies and Gates

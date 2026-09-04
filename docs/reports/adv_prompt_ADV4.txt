@@ -1,0 +1,139 @@
+Você é o Revisor Adversarial da Fase 3 para o lote ADV4.
+Sua missão é atuar como Advogado do Diabo e avaliar rigorosamente os seguintes 16 micro-lotes de problemas/cortes contra o código real em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ e os arquivos SKILL.md:
+
+### Micro-Lote [MB_CREATED_004] - Skill: laravel-brazilian-localization-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-brazilian-localization-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém frase final redundante ('Covers Brazilian localization best practices and document validation.'), repetindo os termos já apresentados no gatilho de uso e reduzindo a densidade semântica (Critério 12).
+
+### Micro-Lote [MB_CREATED_012] - Skill: laravel-gemini-php-sdk-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-gemini-php-sdk-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description encerra com cláusula redundante ('Covers objectives, Facade model, and Gemini API schemas.') que repete termos já introduzidos e agrega ruído com termos genéricos ('objectives').
+
+### Micro-Lote [MB_CREATED_020] - Skill: laravel-qrcode-generation-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém a frase genérica e redundante 'Covers objectives and core workflows.' no encerramento, reduzindo a densidade semântica final.
+
+### Micro-Lote [MB_CREATED_028] - Skill: vue-debugging-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-debugging-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. A description contém cauda de preenchimento genérico 'Covers best practices, debugging strategies, and objectives.' sem valor discriminante (Critérios 7 e 12).
+
+### Micro-Lote [MB_CREATED_036] - Skill: vue-meta-api-oauth-integration-best-practices
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/frontEnd/vue-meta-api-oauth-integration-best-practices/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Exemplo ensina estilo inline style="text-align: right;" e atributo utilitário s50 no template sem bloco <style lang="scss"> scoped.
+  2. Description contém meta-ruído de preenchimento genérico ('Covers objectives and core workflows.').
+
+### Micro-Lote [MB_CREATED_044] - Skill: project-setup
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/created-skills/project-setup/SKILL.md
+Domínio: created-skills | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. A descrição utiliza termos genéricos ('this project') sem identificar explicitamente que o setup refere-se exclusivamente ao projeto 'SocialMedia', induzindo acionamento errôneo e execução de scripts indevidos em outros projetos (violação dos critérios 4, 7 e 8).
+  2. Inversão estrutural e seção morta: todos os comandos de instalação, flags de ambiente e smoke tests estão alocados sob '## Objetivo', enquanto a seção '## Instruções' possui apenas o placeholder vazio 'Siga as instruções e padrões descritos na documentação.'.
+  3. Quebra de encapsulamento: o conteúdo aponta para arquivos externos inexistentes no contexto da skill ('ver Ambiente de Dev no CLAUDE.md', 'ver regra 16 do CLAUDE.md').
+
+### Micro-Lote [MB_CRIT_052] - Skill: git-worktree
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/git-worktree/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Remover a lista de vídeos recomendados com URLs sintéticas (linhas 58-64).
+
+### Micro-Lote [MB_CRIT_060] - Skill: vue-components
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/vue-components/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description de 101 caracteres totalmente genérica ('Specialized AI agent skill for vue components providing best practices and automated workflows') com ausência total de termos discriminantes (sem citação a Vue 3, Composition API, SFC, script setup, props ou emits).
+  2. Ausência completa de cláusula condicional de ativação / gatilho contextual ('Use when...') no frontmatter.
+  3. Metadados de stack técnicos no frontmatter YAML completamente vazios (languages: [], frameworks: [], libs: []).
+
+### Micro-Lote [MB_CRIT_068] - Skill: loki-mode
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. A description é um amontoado promocional de versões e buzzwords sem ação clara, sem gatilho 'Use when...' e com apenas 161 caracteres ('Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced...').
+  2. Violação severa de segurança operacional e governança de agente: impõe regras explícitas para desativar a supervisão humana ('NEVER ask questions', 'NEVER wait for confirmation', 'NEVER stop voluntarily') e força loops infinitos descontrolados.
+  3. Documento hipertrofiado com 728 linhas (>28 KB) repleto de ruído conceitual, tabelas gigantescas de agentes e buzzwords de redes sociais ('Boris Cherny patterns', 'HN Production 2025', 37 agent types).
+
+### Micro-Lote [MB_CRIT_076] - Skill: pypict-skill
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/pypict-skill/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Description com apenas 24 caracteres ('Pairwise test generation'), configurando ausência quase absoluta de discriminantes semânticos e sem gatilhos operacionais.
+  2. Arquivo SKILL.md consiste em um casulo oco (hollow stub) de 29 linhas sem código, sem sintaxe de definição de parâmetros PICT e sem exemplos de uso prático do pypict.
+  3. Seções 'When to Use' e 'Instructions' constituem tautologias puras que apenas repetem o nome da tarefa sem fornecer instruções acionáveis ao agente.
+
+### Micro-Lote [MB_CRIT_084] - Skill: varlock-claude-skill
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/varlock-claude-skill/SKILL.md
+Domínio: critica | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Eliminar o loop tautológico de repetições da mesma frase e preencher o documento com o manual prático e comandos do utilitário Varlock.
+
+### Micro-Lote [MB_CURATED_092] - Skill: damage-control
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/damage-control/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Estrutura de stub/placeholder raspado de metadados de vídeos do YouTube com listas vazias no frontmatter ('frameworks: []', 'libs: []').
+  2. Remover seções de texto duplicado pt-BR/EN na Visão Geral (linhas 15-28).
+  3. Eliminar a lista de links genéricos do YouTube (linhas 58-65) e a seção de diretrizes genéricas vazias (linhas 49-55), substituindo por regras reais de sandbox/interceptação.
+
+### Micro-Lote [MB_CURATED_100] - Skill: superpowers
+Caminho absoluto: /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/curated-youtube/superpowers/SKILL.md
+Domínio: curated-youtube | Modelo recomendado: Tier 1 (Fast)
+Problemas / Propostas a testar:
+  1. Description com 136 caracteres (abaixo do intervalo ideal de 200 a 400 chars) e sem condição de gatilho contextual ('Use when...').
+  2. Uso de adjetivos promocionais não técnicos no frontmatter e na visão geral ('Complete agentic engineering workflow', 'reliable, high-velocity engineering loop') sem suporte factual.
+  3. Corpo stub oco: não implementa nenhuma instrução, especificação técnica, regra de TDD ou ciclo de subagentes do framework Superpowers, consistindo em scaffold genérico de 65 linhas.
+
+### Micro-Lote [MB_PHASE2_108] - Skill: laravel-brazilian-localization-best-practices + vue-inputs-masks-validation-best-practices
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de LAPIDAR: Embora pertençam a camadas distintas (backend Laravel vs. frontend Vue 3), 'laravel-brazilian-localization-best-practices' possui uma seção inteira (seção 2, ~40% do arquivo) detalhando componentes de UI do Vue 3 (MaxInputCpfCnpj, MaxInputCep, MaxInputPhoneMail, InputNumber) e helpers de validação do TypeScript (@maxvue/max-use/validations). Isso duplica diretamente o conteúdo e as responsabilidades de 'vue-inputs-masks-validation-best-practices', que já é a skill especializada em inputs mascarados, validação e manipulação de formulários Vue 3. A recomendação é LAPIDAR: manter ambas as skills separadas por camada, mas remover/enxugar a seção redundante de componentes Vue da skill backend de localização, mantendo nela apenas a lógica Laravel/PHP (sanitização no banco, BrUtils, StringsHelper, number_format, NumberToWords) e um link de referência para a skill de frontend; e calibrar os gatilhos 'Use when...' para que não haja sobreposição de chamada.
+  2. Plano de integracao: Ajustar escopos sem perdas
+
+### Micro-Lote [MB_PHASE2_116] - Skill: ad-creative + paid-ads
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de LAPIDAR: ad-creative e paid-ads representam papéis complementares mas distintos em marketing de crescimento: ad-creative foca na geração textual e visual, variação para testes A/B, restrições de caracteres e iteração baseada em métricas criativas, enquanto paid-ads foca na estratégia de mídia paga, arquitetura de campanhas, alocação de orçamento, bid strategies e rastreamento (GA4/pixels). Contudo, paid-ads inclui seções redundantes de fórmulas de copywriting (PAS, BAB, headlines) e possui gatilhos de ativação excessivamente genéricos, gerando colisão. A recomendação é LAPIDAR: remover o bloco de fórmulas de copy de paid-ads substituindo-o por referência delegatória a ad-creative, e calibrar o 'Use when...' de paid-ads para focar exclusivamente em gestão de tráfego, orçamentos e configuração de contas.
+  2. Plano de integracao: Ajustar escopos sem perdas
+
+### Micro-Lote [MB_PHASE2_124] - Skill: skill-scanner + skill-audit
+Caminho absoluto: Phase 2 Cluster
+Domínio: phase2_cluster | Modelo recomendado: Tier 2 (High-Reasoning)
+Problemas / Propostas a testar:
+  1. Proposta de MERGE: Ambas as skills abordam exatamente a mesma funcionalidade com o mesmo propósito: análise estática e comportamental de segurança pré-instalação de skills de agentes de terceiros para detectar injeção de prompt, código malicioso, exfiltração de credenciais, abuso de permissões e riscos de supply chain. 'skill-scanner' possui uma arquitetura de avaliação mais robusta em 8 fases estruturadas, incluindo análise comportamental (envenenamento de 'CLAUDE.md' e 'MEMORY.md'), formato de vulnerabilidades com IDs específicos ('[SKILL-SEC-XXX]') e diferenciação criteriosa entre código atacante e código que documenta ameaças (minimizando falsos positivos). Já 'skill-audit' contribui com checagens valiosas de engenharia social (urgência, falsa autoridade e comandos ocultos em comentários), inteligência de repositório (idade da conta, fazendas de estrelas), escala de risco de 0 a 100 e catálogo de vetores reais documentados. Manter ambas separadas é redundância direta de catálogo.
+  2. Plano de integracao: 1. Adotar 'skill-scanner' como skill destino canônica, mantendo sua estrutura em 8 fases e formato de relatório vulnerabilidade por vulnerabilidade.
+2. Incorporar em 'skill-scanner' as etapas de 'Social Engineering Check' (detecção de urgência fabricada, autoridade falsa e instruções ocultas em comentários) e 'Repo Intelligence' (avaliação de antiguidade de conta, perfil de repositórios e anomalias de estrelas) provenientes de 'skill-audit'.
+3. Adicionar a escala de risco numérico (0-39 Seguro, 40-69 Médio Risco, 70-100 Crítico) e os exemplos de ataques reais documentados de 'skill-audit' dentro das diretrizes de avaliação de 'skill-scanner'.
+4. Calibrar a descrição de 'skill-scanner' para cobrir explicitamente o gatilho pré-instalação ('Use when evaluating or auditing third-party agent skills before installation...').
+5. Descontinuar/remover 'skill-audit' do catálogo de skills.
+
+Diretrizes de Avaliação:
+1. Abra o arquivo SKILL.md da skill com view_file.
+2. Quando a acusação envolver conformidade técnica com o código de Engeapp/MaxVue, abra e confira os arquivos em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/projects/ (projects/engeapp, projects/MaxComponentsUi, projects/MaxPinia, projects/MaxUse, projects/MaxCode).
+3. Para cada problema listado, decida:
+   - CONFIRMADO: se o defeito técnico, não conformidade ou necessidade de corte/merge for real e comprovado.
+   - REFUTADO: se for falso positivo, exagero, código existente ou sugestão puramente cosmética.
+4. Forneça evidence concreta (arquivo e linha/trecho).
+5. Se CONFIRMADO e envolver a description, proponha correctedDescription calibrada (200-400 chars). Senão, deixe string vazia.
+
+Retorne SEMPRE um array JSON contendo um objeto para CADA problema avaliado no formato:
+[
+  {
+    "skillName": "nome da skill",
+    "problem": "texto exato ou resumo fiel do problema",
+    "verdict": "CONFIRMADO | REFUTADO",
+    "evidence": "arquivo e linha/trecho real",
+    "correctedDescription": "string se CONFIRMADO e impreciso, senao """
+  }
+]
+Salve o resultado em /home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/docs/reports/phase3_raw_ADV4.json usando write_to_file (sem ArtifactMetadata) e envie o resultado para o orquestrador via send_message.

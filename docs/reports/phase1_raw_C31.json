@@ -1,0 +1,552 @@
+[
+  {
+    "skillName": "gemini-omni-flash-api",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/gemini-omni-flash-api/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Descrição no frontmatter é truncada abruptamente com reticências (',...'): '...high-resolution or long source videos with ffmpeg,...' (linha 3), violando o Critério 1 (extensão/completude) e o Critério 12 (ausência de redundâncias).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Repetição sintática truncada na seção 'When to Use' (linha 16): 'Use this skill when you need use this skill for...', copiando o texto inacabado da description com erro de concordância.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Condensar a seção final genérica 'Limitations' (linhas 331-336) que repete texto padronizado sem valor prático adicional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração e edição generativa de vídeo com o modelo Gemini Omni Flash (gemini-omni-flash-preview) via SDK google-genai, Interactions API e pré-processamento via ffmpeg.",
+      "entidades": [
+        "gemini-omni-flash-preview",
+        "google-genai",
+        "Interactions API",
+        "Files API",
+        "ffmpeg",
+        "ffprobe",
+        "scripts/upload_file.py",
+        "scripts/video/generate_video.py",
+        "scripts/video/inspect_video.py",
+        "scripts/video/prep_video.py",
+        "<FIRST_FRAME>",
+        "<IMAGE_REF_N>"
+      ],
+      "keywords": [
+        "gemini-omni-flash",
+        "google-genai",
+        "Interactions API",
+        "Files API",
+        "text-to-video",
+        "image-to-video",
+        "video editing",
+        "ffmpeg",
+        "ffprobe",
+        "interpolation",
+        "audio stripping",
+        "batch generation",
+        "meta prompting",
+        "timecode prompting",
+        "prompt tags"
+      ]
+    },
+    "summary": "Skill robusta com scripts utilitários em Python prontos para uso, pendente apenas do reparo de truncamento no final da description."
+  },
+  {
+    "skillName": "generate-nanobanana",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/generate-nanobanana/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 187 caracteres, ligeiramente abaixo da faixa ideal de 200-400 caracteres (Critério 1).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito no formato 'Use when...' / 'Ative quando...' na description do frontmatter (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração e edição multimodal de imagens e vídeos via modelos Gemini com aprovação prévia obrigatória de custos e registro em sidecar JSON.",
+      "entidades": [
+        "gemini-3.1-flash-lite-image",
+        "gemini-3.1-flash-image",
+        "gemini-3-pro-image",
+        "gemini-omni-flash-preview",
+        "google-genai",
+        "Interactions API",
+        "generations/refs/",
+        "sets.json",
+        "style.md",
+        "GEMINI_API_KEY"
+      ],
+      "keywords": [
+        "nanobanana",
+        "gemini",
+        "image generation",
+        "video generation",
+        "cost-approval gate",
+        "reference images",
+        "sidecar json",
+        "prompt logging",
+        "multi-image fusion",
+        "pricing verification",
+        "brand consistency",
+        "Interactions API"
+      ]
+    },
+    "summary": "Excelente especificação técnica com governança de custos e referências validadas, demandando apenas inclusão de gatilho formal na description."
+  },
+  {
+    "skillName": "gha-security-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/gha-security-review/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta com 177 caracteres (abaixo de 200 chars, Critério 1) e ausência de cláusula condicional de ativação padrão ('Use when...', Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de instrução operacional imperativa na description: 'Every finding MUST include a concrete exploitation scenario — if you can't build the attack, don't report it' (Critério 11).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Instruções na etapa Step 1 (linhas 77-87) direcionam para 9 arquivos em 'references/' (ex: 'references/pwn-request.md', 'references/expression-injection.md') que inexistem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a tabela do Step 1 com links quebrados para o diretório 'references/' inexistente ou incorporar seus padrões diretamente no corpo do documento.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Podar a seção 'Limitations' boilerplate genérica das linhas 195-199.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria de segurança ofensiva focada em vulnerabilidades exploráveis por atores externos sem privilégio de escrita em fluxos do GitHub Actions.",
+      "entidades": [
+        "pull_request_target",
+        "issue_comment",
+        "actions/checkout",
+        "run:",
+        "workflow_dispatch",
+        "workflow_call",
+        "${{ }}",
+        "author_association",
+        "permissions",
+        "StepSecurity"
+      ],
+      "keywords": [
+        "github actions",
+        "ci/cd security",
+        "pwn request",
+        "expression injection",
+        "credential escalation",
+        "config poisoning",
+        "supply chain",
+        "unpinned actions",
+        "attack path",
+        "threat model",
+        "fork pr",
+        "runner infrastructure"
+      ]
+    },
+    "summary": "Ótima fundamentação de segurança ofensiva em CI/CD, porém enfraquecida por 9 referências a arquivos inexistentes e description imperativa curta."
+  },
+  {
+    "skillName": "git-advanced-workflows",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/git-advanced-workflows/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description de apenas 138 caracteres (< 200 chars, Critério 1) sem termos discriminantes técnicos dos comandos abordados (Critério 4).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem promocional e vaga na description ('Master advanced Git techniques...', 'recover from any situation with confidence'), violando o Critério 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional explícito ('Use when...' / 'Ative quando...') na description (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover seção vazia 'Do not use this skill when' (linhas 13-17) e 'Instructions' genéricas de 3 itens (linhas 18-23) que adicionam puro ruído.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover boilerplate repetitivo da seção 'Limitations' (linhas 407-411).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Técnicas avançadas de Git para saneamento interativo de histórico, isolamento em worktrees, localização bissexta de bugs e recuperação via reflog.",
+      "entidades": [
+        "git rebase -i",
+        "git cherry-pick",
+        "git bisect",
+        "git worktree",
+        "git reflog",
+        "--force-with-lease",
+        "--autosquash",
+        "git restore",
+        "git reset"
+      ],
+      "keywords": [
+        "git advanced",
+        "interactive rebase",
+        "cherry-pick",
+        "git bisect",
+        "worktree",
+        "reflog",
+        "autosquash",
+        "split commit",
+        "force-with-lease",
+        "linear history",
+        "conflict resolution",
+        "recovery",
+        "history hygiene"
+      ]
+    },
+    "summary": "Guia prático de comandos de Git com bons exemplos, mas prejudicado por description puramente promocional e seções de ruído genérico."
+  },
+  {
+    "skillName": "git-hooks-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/git-hooks-automation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 191 caracteres, ligeiramente abaixo dos 200 caracteres ideais (Critério 1), iniciando com verbo de tom promocional ('Master Git hooks...', Critério 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho de ativação sintático padrão ('Use when...' / 'Ative quando...') na description do frontmatter (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 4,
+    "cuts": [
+      {
+        "text": "Podar a seção final genérica 'Limitations' (linhas 418-422).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implementação e automação de hooks de Git no ecossistema Node, Python e Shell com Husky, lint-staged, pre-commit framework e commitlint.",
+      "entidades": [
+        "Husky v9+",
+        "lint-staged",
+        "pre-commit",
+        "@commitlint/cli",
+        "@commitlint/config-conventional",
+        "core.hooksPath",
+        "black",
+        "ruff-pre-commit",
+        "shellcheck-py",
+        ".git/hooks/"
+      ],
+      "keywords": [
+        "git hooks",
+        "pre-commit",
+        "commit-msg",
+        "pre-push",
+        "husky",
+        "lint-staged",
+        "commitlint",
+        "conventional commits",
+        "code quality",
+        "ruff",
+        "black",
+        "shellcheck",
+        "core.hooksPath",
+        "no-verify"
+      ]
+    },
+    "summary": "Skill muito completa e prática para automação de qualidade via git hooks, necessitando apenas ajuste de tom e inclusão de gatilho na description."
+  },
+  {
+    "skillName": "git-pr-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/git-pr-review/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description muito curta com apenas 95 caracteres (Critério 1: < 200 chars).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional 'Use when...' na description do frontmatter (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Divergência semântica de nomenclatura: o nome da skill é 'git-pr-review', mas o conteúdo não executa code review de PR, e sim geração de descrição de PR a partir do git log (Critério 5).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração econômica e estruturada de descrições e títulos de Pull Requests analisando mensagens de commit via git log e neutralizando prompt injection.",
+      "entidades": [
+        "git log",
+        "git show",
+        "main..HEAD",
+        "Conventional Commits",
+        "feat",
+        "fix",
+        "refactor",
+        "chore",
+        "docs",
+        "test"
+      ],
+      "keywords": [
+        "pr description generator",
+        "commit history",
+        "token efficiency",
+        "untrusted input",
+        "prompt injection defense",
+        "commit clustering",
+        "conventional commits",
+        "pull request summary",
+        "scope extraction"
+      ]
+    },
+    "summary": "Excelente gerador token-eficiente de descrições de PR com blindagem contra prompt injection, sofrendo apenas de description insuficiente e desvio de nome."
+  },
+  {
+    "skillName": "git-pr-workflows-onboard",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/git-pr-workflows-onboard/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description truncada no final com a palavra solta 'You' (linha 3, 199 chars), violando o Critério 1.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description escrita inteiramente como persona de prompt de sistema ('You are an expert onboarding specialist...'), sem gatilho de ativação nem discriminantes operacionais (Critérios 2, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Desconexão semântica severa: a skill intitula-se 'git-pr-workflows-onboard', porém o conteúdo é um manual de onboarding de RH corporativo (equipamentos, benefícios, buddy system, planos 30/60/90), sem relação direta com PRs ou Git (Critérios 5 e 6).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Link quebrado para arquivo inexistente 'resources/implementation-playbook.md' na linha 28.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de placeholder de macro não resolvido '$ARGUMENTS' na linha 37.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover anti-triggers vazios ('Do not use this skill when the task is unrelated to onboard', linhas 18-22) e 'Instructions' genéricas (linhas 23-28).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Eliminar ou realocar para skill de People/RH todo o conteúdo de benefícios corporativos, envio de laptop e happy hour, ou renomear e refatorar a skill completamente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover chamada para recurso inexistente 'resources/implementation-playbook.md' e o placeholder '$ARGUMENTS'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração de onboarding de novos engenheiros com marcos de 30/60/90 dias, integração cultural e programas de buddy/mentoria.",
+      "entidades": [
+        "resources/implementation-playbook.md (inexistente)",
+        "$ARGUMENTS (placeholder solto)",
+        "Slack",
+        "AWS",
+        "Jira",
+        "GitHub"
+      ],
+      "keywords": [
+        "developer onboarding",
+        "new hire",
+        "knowledge transfer",
+        "30-60-90 plan",
+        "buddy system",
+        "culture integration",
+        "remote onboarding",
+        "time-to-first-commit",
+        "mentor checklist",
+        "orientation"
+      ]
+    },
+    "summary": "Skill desalinhada com seu identificador de PR workflow, apresentando description truncada com persona, link quebrado para playbook e variável $ARGUMENTS crua."
+  },
+  {
+    "skillName": "git-pr-workflows-pr-enhance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/git-pr-workflows-pr-enhance/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada no final com 'and ensu' (linha 3, 199 chars), violando o Critério 1.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description redigida como persona ('You are a PR optimization expert...'), desprovida de condição de ativação explícita 'Use when...' (Critérios 2, 3 e 10).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md é uma casca oca de 57 linhas com placeholder de macro não expandido '$ARGUMENTS' (linha 27) e instruções vazias, delegando todo o conteúdo para o playbook.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "O arquivo referenciado 'resources/implementation-playbook.md' também contém o placeholder cru '$ARGUMENTS' na linha 13.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover seções genéricas redundantes de 'Do not use this skill when' (linhas 18-22) e instruções triviais (linhas 29-35) no SKILL.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Consolidar a lógica essencial de scripts Python do playbook dentro do SKILL.md, eliminando a casca intermediária e o marcador '$ARGUMENTS'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação e aprimoramento de pull requests com análise programática de diffs via Python e geração de checklists e resumos executivos.",
+      "entidades": [
+        "PRAnalyzer",
+        "generate_pr_description",
+        "resources/implementation-playbook.md",
+        "git diff --name-status",
+        "git diff --shortstat",
+        "$ARGUMENTS"
+      ],
+      "keywords": [
+        "pull request enhancement",
+        "pr analysis",
+        "git diff stats",
+        "change categorization",
+        "pr summary",
+        "review checklist",
+        "risk level",
+        "visual changes",
+        "automated PR description"
+      ]
+    },
+    "summary": "Playbook Python associado possui conteúdo de análise de diff relevante, mas o SKILL.md principal é um invólucro raso com description truncada e macros não resolvidas."
+  },
+  {
+    "skillName": "git-pushing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/git-pushing/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Fluxo defensivo de staging atômico em índice temporário, geração de commits convencionais e push seguro com verificação de branches protegidas.",
+      "entidades": [
+        "scripts/smart_commit.sh",
+        "git status --short --branch",
+        "branch.<name>.pushRemote",
+        "remote.pushDefault",
+        "origin",
+        "files ref backend",
+        "reftable"
+      ],
+      "keywords": [
+        "git push",
+        "atomic staging",
+        "conventional commits",
+        "protected branch",
+        "safety gates",
+        "smart_commit.sh",
+        "temporary index",
+        "pushRemote",
+        "pushDefault",
+        "isolated commit"
+      ]
+    },
+    "summary": "Padrão de excelência técnica com description impecável de 206 chars, script utilitário seguro presente e diretrizes rígidas de segurança."
+  },
+  {
+    "skillName": "github",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/github/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de apenas 85 caracteres, substancialmente abaixo dos 200 caracteres mínimos preconizados (Critério 1).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional explícito 'Use when...' na description do frontmatter (Critério 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Podar a seção boilerplate repetitiva de 'Limitations' (linhas 77-81).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Inspeção e manipulação de pull requests, workflows de CI/Actions e recursos da API do GitHub utilizando o CLI gh.",
+      "entidades": [
+        "gh",
+        "gh pr checks",
+        "gh run list",
+        "gh run view --log-failed",
+        "gh api",
+        "gh issue list",
+        "--jq",
+        "--json"
+      ],
+      "keywords": [
+        "github cli",
+        "gh",
+        "pull requests",
+        "workflow runs",
+        "failed step logs",
+        "ci failure debugging",
+        "github api",
+        "jq filtering",
+        "json output",
+        "actions inspection"
+      ]
+    },
+    "summary": "Guia conciso e de alto valor prático para diagnóstico de CI com o CLI gh, requerendo apenas a expansão da description para incluir gatilhos."
+  }
+]

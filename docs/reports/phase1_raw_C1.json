@@ -1,0 +1,504 @@
+[
+  {
+    "skillName": "007",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/007/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description possui 162 caracteres (abaixo da faixa ideal de 200-400 chars) e não apresenta a cláusula obrigatória de condição de ativação ('Use when...' ou 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Todos os scripts de automação referenciam caminhos absolutos locais do Windows pertencentes ao autor original ('python C:\\Users\\renat\\skills\\007\\scripts\\...'), inviabilizando a execução e portabilidade em qualquer outro ambiente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo corrompido/truncado na linha 234 ('- [ ] Au'), cortando o checklist de segurança de IA/Agentes antes do início da seção da Fase 4.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância e ruído estrutural com repetição de títulos principais ('007 — Licenca para Auditar' nas linhas 23 e 59) e duplicação da listagem de comandos rápidos em relação aos scripts de automação.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Eliminar preâmbulos duplicados de apresentação e unificar a seção 'Comandos Rapidos' com 'Scripts De Automacao' para remover 15% de conteúdo repetitivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Processo de auditoria de segurança e hardening em 6 fases baseado em STRIDE, PASTA, checklists técnicos e playbooks de incidentes.",
+      "entidades": [
+        "STRIDE",
+        "PASTA",
+        "OWASP Top 10",
+        "PCI-DSS",
+        "LGPD/GDPR",
+        "Zero Trust",
+        "surface_mapper.py",
+        "threat_modeler.py",
+        "hardening_advisor.py",
+        "score_calculator.py"
+      ],
+      "keywords": [
+        "security audit",
+        "threat modeling",
+        "STRIDE",
+        "PASTA",
+        "OWASP",
+        "hardening",
+        "incident response",
+        "zero trust",
+        "red team",
+        "blue team",
+        "attack surface",
+        "prompt injection",
+        "jailbreak",
+        "vulnerability scan"
+      ]
+    },
+    "summary": "Auditoria de segurança abrangente, porém severamente prejudicada por caminhos absolutos locais do Windows do autor, linha de checklist truncada e description sem gatilhos."
+  },
+  {
+    "skillName": "2slides-ppt-generator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/2slides-ppt-generator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Presença de seção de vendas e precificação comercial de pacotes de crédito com linguagem promocional ('Purchasing Credits: Current promotion: up to 20% off', tabelas de valores em dólares), que foge ao escopo técnico operacional da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a tabela de venda de pacotes de crédito promocionais e detalhes de checkout comercial (linhas 624-640), mantendo apenas os custos computacionais por página.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Geração automatizada de apresentações e slides via API 2slides com suporte a temas, imagens de referência, narração por voz e exportação.",
+      "entidades": [
+        "2slides API",
+        "Fast PPT",
+        "Nano Banana Pro",
+        "SLIDES_2SLIDES_API_KEY",
+        "generate_slides.py",
+        "create_pdf_slides.py",
+        "generate_narration.py",
+        "search_themes.py",
+        "download_slides_pages_voices.py",
+        "2slides-mcp"
+      ],
+      "keywords": [
+        "presentation generation",
+        "slides",
+        "PowerPoint",
+        "deck creation",
+        "PDF slides",
+        "AI voice narration",
+        "slide themes",
+        "document summarization",
+        "reference image matching",
+        "2slides API",
+        "multi-speaker narration",
+        "slide export"
+      ]
+    },
+    "summary": "Excelente documentação operacional de integração com API de slides, requerendo apenas a poda de tabela comercial promocional de vendas de créditos."
+  },
+  {
+    "skillName": "ab-test-setup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ab-test-setup/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 114 caracteres (muito abaixo do limite de 200 chars), não possui o gatilho formal 'Use when...' e utiliza vocabulário genérico ('Structured guide').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' ao final do documento (linhas 251-253) é um placeholder tautológico e vazio ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos estatísticos discriminantes vitais na description (como MDE, poder estatístico, tráfego mínimo, métricas primárias e guardrails).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Eliminar a seção redundante e vazia '## When to Use' no rodapé (linhas 251-253).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Protocolo rigoroso de validação de hipóteses, dimensionamento de amostra e gates de prontidão para execução de testes A/B.",
+      "entidades": [
+        "MDE",
+        "statistical power",
+        "A/B/n Test",
+        "Multivariate Test (MVT)",
+        "Split URL Test",
+        "Primary Metric",
+        "Guardrail Metrics",
+        "Execution Readiness Gate"
+      ],
+      "keywords": [
+        "A/B testing",
+        "hypothesis lock",
+        "minimum detectable effect",
+        "MDE",
+        "statistical power",
+        "sample size",
+        "guardrail metrics",
+        "variant attribution",
+        "tracking verification",
+        "execution gate",
+        "experiment design",
+        "conversion rate"
+      ]
+    },
+    "summary": "Protocolo metodológico rigoroso de governança estatística pré-teste, prejudicado por description subdimensionada e placeholder tautológico."
+  },
+  {
+    "skillName": "ab-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ab-testing/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description termina abruptamente com reticências ('...'), evidenciando truncamento de texto não revisado, além de adotar keyword stuffing mecânico em lista de aspas.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Erro gramatical e repetição redundante na linha 16: 'Use this skill when you need when the user wants to plan, design, or implement...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Planejamento, dimensionamento estatístico, execução de testes A/B/n e estruturação de programas contínuos de experimentação e growth (ICE).",
+      "entidades": [
+        "Evan Miller Calculator",
+        "Optimizely",
+        "PostHog",
+        "LaunchDarkly",
+        "Split",
+        "VWO",
+        "ICE Score",
+        "A/B/n",
+        "MVT"
+      ],
+      "keywords": [
+        "A/B testing",
+        "split testing",
+        "growth experimentation",
+        "ICE score",
+        "hypothesis framework",
+        "sample size",
+        "primary metric",
+        "guardrail metrics",
+        "statistical significance",
+        "p-value",
+        "confidence intervals",
+        "experiment playbook"
+      ]
+    },
+    "summary": "Excelente framework de experimentação e growth com métricas e priorização ICE, necessitando de saneamento da description truncada com reticências e correção de sintaxe."
+  },
+  {
+    "skillName": "ad-creative",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ad-creative/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, validação de limites técnicos e iteração orientada a métricas de criativos publicitários em escala para plataformas de mídia paga.",
+      "entidades": [
+        "Google Ads RSAs",
+        "Meta Ads",
+        "LinkedIn Ads",
+        "TikTok Ads",
+        "Twitter/X Ads",
+        "Remotion",
+        "ElevenLabs",
+        "Flux",
+        "Ideogram",
+        "Veo",
+        "Runway"
+      ],
+      "keywords": [
+        "ad creative",
+        "paid ads",
+        "responsive search ads",
+        "copy generation",
+        "performance creative",
+        "ROAS",
+        "CTR",
+        "ad variations",
+        "Meta ads",
+        "Google ads",
+        "character limits",
+        "Remotion",
+        "ad angles",
+        "creative testing"
+      ]
+    },
+    "summary": "Skill exemplar com description de alta densidade (236 chars), limites e especificações rígidos por plataforma e ciclo completo de geração e iteração analítica."
+  },
+  {
+    "skillName": "adhx",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/adhx/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description (219 caracteres) não inclui o formato padronizado de gatilho explícito ('Use when...' ou 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'Installation' (linhas 78-89) apresenta instruções autorreferenciais para instalação da própria skill via plugin marketplace ou curl, o que é ruído dispensável para uma skill já integrada ao catálogo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção '## Installation' (linhas 78-89) com comandos de marketplace e curl para economizar ~10% de ruído desnecessário.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração estruturada de postagens e artigos longos do X/Twitter em formato JSON via endpoint público ADHX sem necessidade de scraping.",
+      "entidades": [
+        "ADHX API",
+        "x.com",
+        "twitter.com",
+        "adhx.com",
+        "curl"
+      ],
+      "keywords": [
+        "X/Twitter reader",
+        "tweet parser",
+        "X articles",
+        "social media JSON",
+        "engagement metrics",
+        "twitter status",
+        "statusId",
+        "tweet summarization",
+        "headless twitter API",
+        "LLM-friendly content"
+      ]
+    },
+    "summary": "Utilitário direto e funcional para leitura estruturada do X/Twitter sem scraping, requerendo apenas inserção de gatilho formal na description e poda de seção de instalação redundante."
+  },
+  {
+    "skillName": "aegisops-ai",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aegisops-ai/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description muito curta (147 caracteres vs mínimo de 200), redigida em formato de slogan promocional ('Autonomous DevSecOps & FinOps Guardrails') e sem cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A skill funciona como um mero README/wrapper de repositório externo, instruindo o agente a executar 'git clone https://github.com/Champbreed/AegisOps-AI.git' e criar venv em tempo de execução em vez de fornecer recursos autônomos ou integrados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Módulos centrais descritos ('patch_analyzer.py', 'cost_auditor.py', 'k8s_policy_generator.py') não existem localmente no diretório da skill, gerando quebra de execução.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Formatação degradada com hard line breaks artificiais a cada 30-40 caracteres e marcadores de diff corrompidos ('+ - **Repository**:').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover instruções de clone de repositório git externo e setup de ambiente Python sob demanda, ajustando as quebras de linha duras do texto.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria de segurança de patches de Kernel Linux (UAF), análise de desvios de custo em Terraform e geração de manifests restritivos de Kubernetes com Gemini.",
+      "entidades": [
+        "Gemini 3 Flash",
+        "Google GenAI SDK",
+        "Linux Kernel",
+        "Terraform plan",
+        "Kubernetes securityContext",
+        "patch_analyzer.py",
+        "cost_auditor.py",
+        "k8s_policy_generator.py"
+      ],
+      "keywords": [
+        "DevSecOps",
+        "FinOps",
+        "kernel patches",
+        "memory safety",
+        "use-after-free",
+        "Terraform drift",
+        "Kubernetes hardening",
+        "securityContext",
+        "IaC audit",
+        "Gemini reasoning",
+        "cloud costs",
+        "container security"
+      ]
+    },
+    "summary": "Conceitualmente interessante para DevSecOps/FinOps com Gemini, mas atua como mero wrapper que exige git clone externo, não possui scripts locais empacotados e apresenta formatação degradada."
+  },
+  {
+    "skillName": "agent-creator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-creator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui apenas 111 caracteres (muito abaixo dos 200 mínimos), carece de gatilho explícito ('Use when...') e omite discriminantes técnicos fundamentais da infraestrutura gerada (como plugin.json, Prompt Defense Baseline e routing companion skills).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Scaffolding estruturado de subagentes de IA e plugins, geração de personas com Prompt Defense Baseline e skills de roteamento companheiras.",
+      "entidades": [
+        "plugin.json",
+        "subagents",
+        "Prompt Defense Baseline",
+        "ask_question",
+        "routing skills",
+        "agent scaffolding"
+      ],
+      "keywords": [
+        "subagent creation",
+        "agent creator",
+        "persona generation",
+        "plugin structure",
+        "routing skill",
+        "system prompt",
+        "prompt defense",
+        "agent isolation",
+        "companion skill",
+        "tool permissions"
+      ]
+    },
+    "summary": "Excelente guia de engenharia de personas e scaffolding para subagentes com fortes defesas de prompt e sanitização de paths, necessitando apenas da expansão da description."
+  },
+  {
+    "skillName": "agent-evaluation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-evaluation/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description inclui comentário dissertativo não-operacional ('—where even top agents achieve less than 50% on real-world benchmarks') e não apresenta a cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inchaço estrutural severo (>1130 linhas e 36KB): contém centenas de linhas de código TypeScript mock demonstrativo (classes StatisticalEvaluator, BehavioralContractTester, AdversarialTester, ProductionReadinessEvaluator, LeakageDetector) que consomem contexto desnecessariamente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Condensar as implementações fictícias completas de classes TypeScript em especificações concisas de algoritmos e padrões de avaliação, reduzindo em ~35% o volume do arquivo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia e infraestrutura de avaliação, testes comportamentais, métricas de confiabilidade estatística e detecção de regressão em agentes LLM.",
+      "entidades": [
+        "AgentBench",
+        "τ-bench (Tau-bench)",
+        "ToolEmu",
+        "Langsmith",
+        "Braintrust",
+        "PromptFoo",
+        "StatisticalEvaluator",
+        "BehavioralContract",
+        "LeakageDetector"
+      ],
+      "keywords": [
+        "agent evaluation",
+        "behavioral testing",
+        "benchmark design",
+        "reliability metrics",
+        "regression testing",
+        "adversarial testing",
+        "flaky tests",
+        "prompt injection",
+        "data leakage",
+        "pass rate",
+        "confidence intervals",
+        "multi-dimensional evaluation"
+      ]
+    },
+    "summary": "Guia conceitualmente profundo sobre testes e confiabilidade de agentes, porém excessivamente inchado com código mock ilustrativo e description com ruído dissertativo."
+  },
+  {
+    "skillName": "agent-evaluation-reporting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/agent-evaluation-reporting/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 140 caracteres (abaixo dos 200 caracteres recomendados), necessitando incorporar discriminantes como ledger de desfechos mútuos, fórmulas de denominador e gates de decisão pré-declarados.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Protocolo de consolidação e elaboração de relatórios estatísticos de avaliação de agentes com separação estrita de desfechos, denominadores e gates de decisão.",
+      "entidades": [
+        "autonomous_success",
+        "assisted_success",
+        "outcome ledger",
+        "N_eval",
+        "N_all",
+        "T_all",
+        "decision gates",
+        "DeepSWE"
+      ],
+      "keywords": [
+        "agent evaluation reporting",
+        "outcome ledger",
+        "autonomous success",
+        "assisted completion",
+        "benchmark reporting",
+        "denominator lock",
+        "evaluation metrics",
+        "decision gates",
+        "latency populations",
+        "retry policy",
+        "operational delivery"
+      ]
+    },
+    "summary": "Guia metodológico exemplar para relatórios de benchmark e avaliação de agentes com reconciliação matemática estrita, exigindo apenas expansão de tamanho da description."
+  }
+]

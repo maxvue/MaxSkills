@@ -1,0 +1,516 @@
+[
+  {
+    "skillName": "web-artifacts-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/web-artifacts-builder/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (66 caracteres) e inacabada ('follow these steps:'), violando o critério de extensão (200-400 chars) e clareza de ação.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...') e ausência de termos discriminantes essenciais da stack real na description (React 18, Vite, Parcel, Tailwind CSS, shadcn/ui, bundle.html).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivo promocional não-descritivo ('powerful') na description, infringindo o critério de linguagem anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seções de boilerplate genérico injetado ('## When to Use' e '## Limitations', linhas 78-84) contendo texto vago e sem valor contextual.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover linhas 78-84 ('When to Use' e 'Limitations' genéricas clichês que repetem que a skill executa o workflow descrito no overview).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Scaffolding, desenvolvimento e empacotamento em arquivo único HTML de artefatos web com React, Vite, Tailwind CSS e shadcn/ui.",
+      "entidades": [
+        "React 18",
+        "TypeScript",
+        "Vite",
+        "Parcel",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Radix UI",
+        "html-inline",
+        "scripts/init-artifact.sh",
+        "scripts/bundle-artifact.sh",
+        "bundle.html"
+      ],
+      "keywords": [
+        "artifacts",
+        "react",
+        "typescript",
+        "vite",
+        "parcel",
+        "tailwind",
+        "shadcn-ui",
+        "radix-ui",
+        "single-html",
+        "inlining",
+        "frontend",
+        "claude-artifacts",
+        "bundling",
+        "component-library"
+      ]
+    },
+    "summary": "Skill funcional apoiada em scripts locais de bundling, mas prejudicada por description truncada de 66 caracteres e boilerplate genérico no rodapé."
+  },
+  {
+    "skillName": "web-media-getter",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/web-media-getter/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description no frontmatter (260 chars) possui alta densidade técnica, mas carece do gatilho explícito no padrão 'Use when...' (presente apenas no corpo do markdown).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Consulta fan-out em APIs gratuitas de mídia (fotos históricas, stock, GIFs, áudio) com normalização, download e geração de manifesto de atribuição.",
+      "entidades": [
+        "webmedia.py",
+        "openverse",
+        "wikimedia",
+        "internetarchive",
+        "loc",
+        "nasa",
+        "pexels",
+        "pixabay",
+        "klipy",
+        "giphy",
+        "freesound-fetch.py",
+        "audio-judge.py",
+        "Twelve Labs",
+        "PySceneDetect"
+      ],
+      "keywords": [
+        "media-retrieval",
+        "stock-photos",
+        "historical-footage",
+        "archival-video",
+        "gif-search",
+        "licensing",
+        "attribution-sidecar",
+        "openverse",
+        "wikimedia",
+        "pexels",
+        "pixabay",
+        "internet-archive",
+        "sfx",
+        "freesound"
+      ]
+    },
+    "summary": "Skill excelente e densamente documentada com integração a scripts em Python; requer apenas inclusão do gatilho 'Use when...' na description."
+  },
+  {
+    "skillName": "web-project-brainstorming",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/web-project-brainstorming/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description contém termo promocional inflado ('Masterclass framework') violando a regra de linguagem anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description possui 197 caracteres (ligeiramente abaixo do piso de 200 chars) e não inicia com o gatilho formal 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover adjetivação hiperbólica ('masterclass-level framework') e condensar preâmbulos redundantes nas seções de Overview.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework estruturado de ideação e planejamento de projetos e páginas web cobrindo escopo, UX, design system, stack técnica, SEO e MVP.",
+      "entidades": [
+        "Next.js",
+        "Vite",
+        "Astro",
+        "Tailwind CSS",
+        "Zustand",
+        "Prisma",
+        "PostgreSQL",
+        "Cloudflare",
+        "Google Fonts",
+        "ARIA"
+      ],
+      "keywords": [
+        "brainstorming",
+        "web-development",
+        "product-scoping",
+        "information-architecture",
+        "user-flow",
+        "design-system",
+        "tech-stack",
+        "seo",
+        "accessibility",
+        "mvp",
+        "blueprint"
+      ]
+    },
+    "summary": "Estrutura metodológica sólida em 6 fases para concepção de aplicações web, necessitando apenas neutralização de adjetivos promocionais e ajuste de gatilho na description."
+  },
+  {
+    "skillName": "web-scraper",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/web-scraper/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta (160 caracteres), redigida em português ('Web scraping inteligente multi-estrategia...') enquanto a totalidade do corpo técnico está em inglês.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivo vago/promocional ('inteligente') na description e ausência de cláusula de ativação ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite termos discriminantes de alta relevância contidos no arquivo, como Browser automation, WebFetch, JSON-LD e defesas contra prompt injection.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções infladas com checklists repetitivos de quando usar ('When the user mentions...') e blocos genéricos de 'Best Practices' e 'Limitations' no encerramento (linhas 777-793).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Podar repetições mecânicas de gatilho (linhas 27-35), seção redundante 'Do Not Use This Skill When' (linhas 36-41) e o boilerplate genérico de fechamento (linhas 777-793).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração de dados web estruturados multi-estratégia (WebFetch, automação de browser, curl/APIs, JSON-LD) com sanitização de segurança e suporte a paginação.",
+      "entidades": [
+        "WebFetch",
+        "Browser automation",
+        "tabs_context_mcp",
+        "javascript_tool",
+        "curl",
+        "jq",
+        "JSON-LD",
+        "OpenGraph"
+      ],
+      "keywords": [
+        "web-scraping",
+        "data-extraction",
+        "tables",
+        "pricing",
+        "pagination",
+        "infinite-scroll",
+        "browser-automation",
+        "json-ld",
+        "microdata",
+        "prompt-injection-defense",
+        "csv-export",
+        "json-export"
+      ]
+    },
+    "summary": "Skill altamente detalhada com excelentes protocolos anti-prompt-injection e fallback de estratégias, necessitando alinhar idioma/gatilhos da description e podar clichês repetitivos."
+  },
+  {
+    "skillName": "web-security-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/web-security-testing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres (abaixo da faixa ideal de 200-400 chars) e sem gatilho condicional explícito 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de seções 'Copy-Paste Prompts' com invocações elementares repetitivas ('Use @x to...') para cada uma das 7 fases, gerando ruído estrutural.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Condensar os blocos triviais de 'Copy-Paste Prompts' espalhados em todas as fases e remover as Limitations genéricas (linhas 185-189).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração de fluxo de testes de penetração e avaliação de segurança contra vulnerabilidades OWASP Top 10 em aplicações web.",
+      "entidades": [
+        "OWASP Top 10",
+        "sqlmap",
+        "@scanning-tools",
+        "@sql-injection-testing",
+        "@xss-html-injection",
+        "@broken-authentication",
+        "@idor-testing",
+        "@file-path-traversal",
+        "@api-security-best-practices",
+        "@reporting-standards"
+      ],
+      "keywords": [
+        "security-testing",
+        "owasp-top-10",
+        "penetration-testing",
+        "sql-injection",
+        "xss",
+        "broken-authentication",
+        "idor",
+        "path-traversal",
+        "security-headers",
+        "csp",
+        "vulnerability-assessment"
+      ]
+    },
+    "summary": "Bundle orquestrador bem organizado para auditoria OWASP Top 10, demandando expansão de gatilho na description e eliminação de blocos repetitivos de prompt."
+  },
+  {
+    "skillName": "webapp-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/webapp-testing/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description extremamente curta (72 caracteres), sem gatilho ('Use when...') e formulada como ordem imperativa simples, omitindo elementos cruciais da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de termos discriminantes vitais na description, como gerenciamento de ciclo de vida de servidor com with_server.py, sync_playwright, sincronização via networkidle e inspeção DOM.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de bloco de fechamento com 'When to Use' e 'Limitations' puramente genéricos (linhas 100-107).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover linhas 100-107 contendo boilerplate vago de When to Use e Limitations.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Testes automatizados ponta a ponta em aplicações web locais usando scripts Python Playwright com gerenciamento de lifecycle de servidor via with_server.py.",
+      "entidades": [
+        "Playwright",
+        "sync_playwright",
+        "Chromium",
+        "scripts/with_server.py",
+        "networkidle",
+        "element_discovery.py"
+      ],
+      "keywords": [
+        "webapp-testing",
+        "playwright",
+        "python",
+        "e2e-testing",
+        "server-lifecycle",
+        "headless-browser",
+        "dom-inspection",
+        "networkidle",
+        "selectors",
+        "local-dev-server"
+      ]
+    },
+    "summary": "Excelente workflow para automação E2E local com gerenciamento de servidores em Python Playwright, porém penalizada por description lacônica de 72 caracteres e boilerplate no rodapé."
+  },
+  {
+    "skillName": "webdriverio-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/webdriverio-skill/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description possui redundância interna na parte final: apresenta 'Use when user mentions...' seguido imediatamente por 'Triggers on: ...' com termos repetidos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração e execução de testes automatizados E2E com WebdriverIO (WDIO) em JS/TS para execução local ou na nuvem LambdaTest/TestMu.",
+      "entidades": [
+        "WebdriverIO",
+        "WDIO",
+        "Mocha",
+        "Jasmine",
+        "Cucumber",
+        "wdio.conf.js",
+        "LambdaTest",
+        "TestMu AI",
+        "Page Object Model"
+      ],
+      "keywords": [
+        "webdriverio",
+        "wdio",
+        "e2e-testing",
+        "page-object-model",
+        "lambdatest",
+        "testmu",
+        "mocha",
+        "browser-automation",
+        "cucumber-bdd",
+        "cloud-testing"
+      ]
+    },
+    "summary": "Skill enxuta, altamente técnica e completa com integração a runners e cloud LambdaTest; requer apenas desduplicação leve dos gatilhos na description."
+  },
+  {
+    "skillName": "wechat-official-account-strategist",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wechat-official-account-strategist/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 153 caracteres (abaixo dos 200 chars recomendados) e desprovida de cláusula explícita 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso do adjetivo de marketing 'high-conversion' na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estratégia editorial e redação de artigos para WeChat Official Accounts (contas de assinatura e serviço) focada em retenção e integração com Mini-Programs.",
+      "entidades": [
+        "WeChat Official Accounts",
+        "微信公众号",
+        "Subscription Account (订阅号)",
+        "Service Account (服务号)",
+        "Mini-Program",
+        "Moments (朋友圈)",
+        "Private Traffic (私域流量)"
+      ],
+      "keywords": [
+        "wechat",
+        "official-accounts",
+        "content-strategy",
+        "chinese-market",
+        "title-engineering",
+        "article-architecture",
+        "first-fold",
+        "mini-programs",
+        "moments-sharing",
+        "conversion-funnel"
+      ]
+    },
+    "summary": "Estratégia refinada e especializada para o ecossistema WeChat com estrutura clara, demandando apenas ampliação e gatilho formal na description."
+  },
+  {
+    "skillName": "wiki-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wiki-architect/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description redigida no padrão ultrapassado de persona ('You are a documentation architect that...'), curta (114 chars) e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite os principais artefatos e discriminantes técnicos detalhados no guia: catálogo hierárquico em JSON, Deep Dive, Principal-Level Guide e Zero-to-Hero.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção '### When to Use' duplicada e vazia no final do arquivo (linhas 64-65) após a existência de '## When to Use' completa nas linhas 13-18.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover seção duplicada e genérica '### When to Use / This skill is applicable...' ao final do documento (linhas 64-65).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Análise arquitetural de repositórios para geração de catálogo de documentação hierárquico em JSON e guias de onboarding em múltiplos níveis de senioridade.",
+      "entidades": [
+        "JSON catalogue",
+        "Principal-Level Guide",
+        "Zero-to-Hero Learning Path",
+        "Mermaid diagram",
+        "ER diagram",
+        "Deep Dive"
+      ],
+      "keywords": [
+        "documentation-architect",
+        "wiki-catalogue",
+        "onboarding-guide",
+        "zero-to-hero",
+        "codebase-analysis",
+        "system-architecture",
+        "deep-dive",
+        "developer-onboarding",
+        "codebase-mapping"
+      ]
+    },
+    "summary": "Abordagem robusta para estruturação de catálogos e onboarding técnico em repositórios, comprometida por redação de persona na description e seção duplicada no final."
+  },
+  {
+    "skillName": "wiki-builder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/wiki-builder/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 125 caracteres (abaixo de 200 chars) e sem cláusula formal de acionamento 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite discriminantes estruturais relevantes do ecossistema DAIR, como init_wiki.sh, wiki.config.md, sources.md e organização raw/wiki/derived.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, estruturação e manutenção de wikis de pesquisa em Markdown com rastreamento estrito de proveniência de fontes e templates configuráveis.",
+      "entidades": [
+        "init_wiki.sh",
+        "wiki.config.md",
+        "sources.md",
+        "compile-index.md",
+        "compile-source-page.md",
+        "compile-concept-page.md",
+        "maintenance-log.md"
+      ],
+      "keywords": [
+        "research-wiki",
+        "knowledge-management",
+        "source-provenance",
+        "wiki-scaffolding",
+        "markdown-wiki",
+        "init_wiki",
+        "concept-pages",
+        "research-notes",
+        "knowledge-base"
+      ]
+    },
+    "summary": "Excelente padrão arquitetural para gestão de conhecimento e proveniência de fontes em Markdown com scripts de automação, carecendo apenas de expansão de gatilho na description."
+  }
+]

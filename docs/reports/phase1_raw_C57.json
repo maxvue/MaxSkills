@@ -1,0 +1,566 @@
+[
+  {
+    "skillName": "routerbase-model-gateway",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/routerbase-model-gateway/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 137 caracteres, abaixo do intervalo ideal recomendado de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de gatilho explícita padronizada ('Use when...', 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração e roteamento de modelos de IA (GPT, Claude, Gemini, áudio e embeddings) através do gateway compatível com OpenAI RouterBase.",
+      "entidades": [
+        "RouterBase",
+        "OpenAI SDK",
+        "ROUTERBASE_API_KEY",
+        "google/gemini-2.5-flash",
+        "anthropic/claude-sonnet-4-6",
+        "chat.completions.create",
+        "isRetryableRouterBaseError"
+      ],
+      "keywords": [
+        "routerbase",
+        "model gateway",
+        "llm routing",
+        "openai compatible",
+        "fallback models",
+        "streaming",
+        "tool calling",
+        "multimodal",
+        "latency",
+        "context length",
+        "api key",
+        "retry logic",
+        "embeddings"
+      ]
+    },
+    "summary": "Skill bem estruturada com código funcional e boas práticas, necessitando apenas de expansão da description para 200-400 caracteres com gatilho explícito."
+  },
+  {
+    "skillName": "ruby-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/ruby-pro/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Referência a arquivo fantasma inexistente 'resources/implementation-playbook.md' na linha 24.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções 'Use this skill when' e 'Do not use this skill when' compostas por tautologias vazias de template ('Working on ruby pro tasks or workflows', 'The task is unrelated to ruby pro').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado 'risk: critical' desproporcional e injustificado para uma skill de desenvolvimento de código Ruby e Rails.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description curta com 172 caracteres (< 200 chars), sem cláusula de gatilho explícita ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover linhas 9-25 contendo tautologias de template e referência a arquivo inexistente 'resources/implementation-playbook.md'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover boilerplate genérico de limitações nas linhas 56-59.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes de desenvolvimento idiomático em Ruby e Ruby on Rails, metaprogramação, gems, testes e otimização de performance.",
+      "entidades": [
+        "Ruby",
+        "Rails",
+        "ActiveRecord",
+        "RSpec",
+        "Minitest",
+        "RuboCop",
+        "benchmark-ips",
+        "Gemfile"
+      ],
+      "keywords": [
+        "ruby",
+        "rails",
+        "metaprogramming",
+        "active record",
+        "rspec",
+        "minitest",
+        "rubocop",
+        "gems",
+        "dsl",
+        "blocks",
+        "enumerables",
+        "mixins",
+        "benchmark-ips",
+        "idiomatic ruby"
+      ]
+    },
+    "summary": "Conteúdo superficial e genérico com link quebrado para playbook inexistente, tautologias de template e classificação de risco crítico injustificada."
+  },
+  {
+    "skillName": "saas-multi-tenant",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/saas-multi-tenant/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 198 caracteres, ligeiramente abaixo do limiar recomendado de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do prefixo padronizado de gatilho de ativação ('Use when...') no início da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura multi-tenant com PostgreSQL Row-Level Security (RLS), isolamento em esquema compartilhado e middlewares com escopo de tenant em TypeScript.",
+      "entidades": [
+        "PostgreSQL",
+        "TypeScript",
+        "Express",
+        "PrismaClient",
+        "prisma.$use",
+        "Drizzle",
+        "PgBouncer",
+        "set_config",
+        "current_setting"
+      ],
+      "keywords": [
+        "multi tenancy",
+        "saas",
+        "row level security",
+        "rls",
+        "tenant id",
+        "shared schema",
+        "postgresql",
+        "prisma middleware",
+        "tenant isolation",
+        "cross tenant admin",
+        "data leakage",
+        "pg connection pool"
+      ]
+    },
+    "summary": "Guia arquitetural de altíssima qualidade técnica com implementações práticas de RLS e middlewares, precisando apenas de ajuste no gatilho da description."
+  },
+  {
+    "skillName": "saas-mvp-launcher",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/saas-mvp-launcher/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 161 caracteres, abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de tecnologias discriminantes essenciais detalhadas no guia (Next.js, Clerk, Stripe, Prisma, Supabase) na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Roteiro estruturado e seleção de stack técnica para planejamento, construção e lançamento ágil de MVPs SaaS do zero.",
+      "entidades": [
+        "Next.js 15",
+        "TypeScript",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Supabase",
+        "Prisma",
+        "Drizzle",
+        "Clerk",
+        "NextAuth.js",
+        "Stripe",
+        "Resend",
+        "Sentry",
+        "PostHog",
+        "Railway",
+        "Vercel"
+      ],
+      "keywords": [
+        "saas mvp",
+        "tech stack",
+        "nextjs",
+        "clerk auth",
+        "stripe subscriptions",
+        "prisma schema",
+        "pre-launch checklist",
+        "product validation",
+        "multi-tenant",
+        "onboarding",
+        "mvp roadmap"
+      ]
+    },
+    "summary": "Excelente roteiro prático e moderno com exemplos de autenticação e cobrança, necessitando apenas de expansão da description para 200-400 caracteres."
+  },
+  {
+    "skillName": "sankhya-dashboard-html-jsp-custom-best-pratices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sankhya-dashboard-html-jsp-custom-best-pratices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 147 caracteres (< 200 chars) com redação prolixa ('This skill should be used when the user asks for...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos e componentes discriminantes vitais do ERP Sankhya (JSTL core_rt, snk:query, openLevel, DBExplorer, TGFCAB) na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de desenvolvimento, parametrização e boas práticas de dashboards HTML5, gadgets JSP, consultas SQL e BI no ERP Sankhya.",
+      "entidades": [
+        "Sankhya",
+        "JSP",
+        "JSTL core_rt",
+        "snk:load",
+        "snk:query",
+        "TGFCAB",
+        "TGFITE",
+        "TGFTOP",
+        "TSIUSU",
+        "openLevel",
+        "DBExplorer",
+        "BeanShell"
+      ],
+      "keywords": [
+        "sankhya",
+        "dashboard jsp",
+        "bi html5",
+        "snk query",
+        "openlevel",
+        "drill down",
+        "dbexplorer",
+        "tgfcab",
+        "tgfite",
+        "blindagem parametros",
+        "lazy load abas",
+        "sql sankhya"
+      ]
+    },
+    "summary": "Guia técnico altamente especializado e profundo para dashboards do ERP Sankhya, necessitando de refinamento na concisão e termos discriminantes da description."
+  },
+  {
+    "skillName": "sast-configuration",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sast-configuration/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta com 177 caracteres, sem gatilho explícito ('Use when...') e omitindo as ferramentas centrais (Semgrep, SonarQube, CodeQL).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Citação de arquivos e scripts inexistentes no diretório da skill: 'scripts/run-sast.sh', 'references/semgrep-rules.md', 'semgrep-config.yml', 'sonarqube-settings.xml'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ruído estrutural de template nas seções iniciais repetindo a description literalmente no título e cabeçalho, além de seções de template vazias.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Classificação de metadado 'risk: critical' inflada e desproporcional para configuração de ferramentas de análise estática SAST.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover seção 'Templates & Assets' (linhas 95-100) e comando fantasma (linhas 154-156) que referenciam scripts inexistentes no repositório.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Condensar seções redundantes de template inicial (linhas 9-40) e boilerplate final de limitações (linhas 217-221).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração, criação de regras customizadas e integração em CI/CD de ferramentas SAST (Semgrep, SonarQube, CodeQL).",
+      "entidades": [
+        "Semgrep",
+        "SonarQube",
+        "CodeQL",
+        "GitHub Actions",
+        "GitLab CI",
+        "Jenkins",
+        "Docker",
+        "SARIF",
+        "pre-commit"
+      ],
+      "keywords": [
+        "sast",
+        "semgrep",
+        "sonarqube",
+        "codeql",
+        "static analysis",
+        "custom security rules",
+        "quality gates",
+        "false positives",
+        "sarif",
+        "ci-cd integration",
+        "pci-dss",
+        "vulnerability scanning"
+      ]
+    },
+    "summary": "Conteúdo conceitual sólido sobre Semgrep, SonarQube e CodeQL, mas prejudicado por referências a scripts inexistentes e ruído de template."
+  },
+  {
+    "skillName": "scanning-tools",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/scanning-tools/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description utiliza verbo promocional proibido ('Master essential security scanning tools...'), não inclui gatilho 'Use when...' e omite ferramentas centrais (Nmap, Nessus, Burp Suite, ZAP, Prowler).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Placeholder de template vazio ao final do arquivo: '## When to Use\\nThis skill is applicable to execute the workflow or actions described in the overview.' (linhas 606-608).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância interna entre comandos práticos da Seção Phase 1 (Nmap) e a tabela de Quick Reference / Cheat Sheet (linhas 529-544).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover placeholder vazio '## When to Use' nas linhas 606-608 e repetição da description no cabeçalho (linhas 26-29).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar tabelas redundantes do Quick Reference que duplicam a seção Phase 1.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Seleção, configuração e execução de ferramentas de varredura de segurança para rede, vulnerabilidades, web, wireless e nuvem.",
+      "entidades": [
+        "Nmap",
+        "Masscan",
+        "Nessus",
+        "OpenVAS",
+        "Burp Suite",
+        "OWASP ZAP",
+        "Nikto",
+        "Aircrack-ng",
+        "Kismet",
+        "ClamAV",
+        "Metasploit",
+        "Prowler",
+        "ScoutSuite",
+        "Lynis",
+        "OpenSCAP"
+      ],
+      "keywords": [
+        "security scanning",
+        "nmap",
+        "masscan",
+        "nessus",
+        "openvas",
+        "burp suite",
+        "owasp zap",
+        "nikto",
+        "aircrack-ng",
+        "prowler",
+        "scoutsuite",
+        "lynis",
+        "vulnerability assessment",
+        "port scan",
+        "network discovery"
+      ]
+    },
+    "summary": "Guia exaustivo de ferramentas de scanning com comandos práticos, mas com tom promocional na description, redundâncias de cheat sheet e placeholder vazio ao final."
+  },
+  {
+    "skillName": "schema-markup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/schema-markup/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description extremamente curta com 119 caracteres (muito abaixo do ideal de 200 a 400), sem cláusula de ativação ('Use when...') e sem citar JSON-LD ou Rich Results.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado 'risk: critical' totalmente injustificado para marcação de dados estruturados para SEO.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Placeholder de template vazio ao final do arquivo: '## When to Use\\nThis skill is applicable to execute the workflow or actions described in the overview.' (linhas 368-370).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover placeholder de template 'When to Use' vazio nas linhas 368-370 e podar boilerplate genérico de limitations nas linhas 371-375.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar persona excessiva e preâmbulo das linhas 11-24.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Planejamento, validação e implementação de dados estruturados schema.org em JSON-LD com foco em elegibilidade de Google Rich Results.",
+      "entidades": [
+        "schema.org",
+        "JSON-LD",
+        "Google Rich Results Test",
+        "Schema Validator",
+        "Search Console",
+        "Organization",
+        "Product",
+        "FAQPage",
+        "HowTo",
+        "BreadcrumbList",
+        "@graph"
+      ],
+      "keywords": [
+        "schema markup",
+        "structured data",
+        "json ld",
+        "rich results",
+        "google search console",
+        "seo",
+        "schema org",
+        "eligibility index",
+        "breadcrumblist",
+        "faqpage",
+        "product schema",
+        "entity graph"
+      ]
+    },
+    "summary": "Excelente matriz de elegibilidade de schema e regras para Google Rich Results, mas com description truncada de 119 chars, metadado de risco crítico inflado e placeholder vazio no final."
+  },
+  {
+    "skillName": "screenshots",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/screenshots/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 177 caracteres, ligeiramente abaixo da faixa ideal de 200 a 400 caracteres, beneficiando-se da inclusão de especificações técnicas (HiDPI 2x retina, Playwright headless, seletores inteligentes).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Captura automatizada de screenshots de aplicações web em qualidade retina HiDPI utilizando Playwright para materiais de marketing e documentação.",
+      "entidades": [
+        "Playwright",
+        "Chromium",
+        "Node.js",
+        "Next.js",
+        "Rails",
+        "Vite",
+        "sips",
+        "deviceScaleFactor",
+        "AskUserQuestion"
+      ],
+      "keywords": [
+        "screenshots",
+        "playwright",
+        "hidpi",
+        "retina 2x",
+        "marketing screenshots",
+        "product hunt",
+        "automated capture",
+        "browser context",
+        "smart locators",
+        "authentication flow",
+        "full page screenshot"
+      ]
+    },
+    "summary": "Roteiro prático excelente e detalhado para geração de screenshots em alta resolução com script Node.js completo, necessitando apenas de leve expansão na description."
+  },
+  {
+    "skillName": "sdk-dx",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/sdk-dx/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 298 caracteres está truncada com reticências no YAML ('...Trigger phrases: \"SDK design\",...'), contém adjetivos promocionais ('developers love to use', 'exceptional developer experience') e carece de gatilho canônico limpo.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado 'risk: critical' incorreto e desproporcional para design de bibliotecas e usabilidade de SDKs.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural com repetição literal do texto truncado da description sob o cabeçalho '## When to Use' (linhas 14-17).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover o bloco truncado em '## When to Use' (linhas 14-18) e condensar preâmbulo em tom de manifesto de marketing (linhas 19-21).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Boas práticas de design e experiência do desenvolvedor (DX) na criação de SDKs corporativos e clientes de API.",
+      "entidades": [
+        "TypeScript",
+        "Python",
+        "Go",
+        "OpenAPI Generator",
+        "Speakeasy",
+        "Fern",
+        "Swagger Codegen",
+        "VCR/Betamax",
+        "WireMock",
+        "TypeDoc",
+        "Sphinx"
+      ],
+      "keywords": [
+        "sdk design",
+        "developer experience",
+        "dx",
+        "api ergonomics",
+        "error messages",
+        "progressive disclosure",
+        "sensible defaults",
+        "type safety",
+        "semantic versioning",
+        "migration guides",
+        "codemods"
+      ]
+    },
+    "summary": "Conteúdo substancial e valioso sobre ergonomia de código e design de APIs para SDKs, prejudicado por description truncada com reticências e metadado de risco crítico injustificado."
+  }
+]

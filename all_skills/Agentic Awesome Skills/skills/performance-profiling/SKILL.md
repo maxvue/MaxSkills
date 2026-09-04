@@ -1,6 +1,6 @@
 ---
 name: performance-profiling
-description: "Performance profiling principles. Measurement, analysis, and optimization techniques."
+description: "Performance profiling principles. Measurement, analysis, and optimization techniques. Use when developing, optimizing, debugging, or configuring performance profiling in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for performance profiling."
 risk: critical
 source: community
 date_added: "2026-02-27"

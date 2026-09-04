@@ -1,6 +1,6 @@
 ---
 name: product-manager
-description: "Senior PM agent with 6 knowledge domains, 30+ frameworks, 12 templates, and 32 SaaS metrics with formulas. Pure Markdown, zero scripts."
+description: "Comprehensive engineering guide and best practices for product manager. Use when configuring, developing, debugging, or optimizing product manager architecture in production systems. Guides architecture, best practices, and implementation standards for product manager."
 risk: safe
 version: "1.0.0"
 author: "Digidai"

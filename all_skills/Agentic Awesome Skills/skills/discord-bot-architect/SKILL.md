@@ -1,6 +1,6 @@
 ---
 name: discord-bot-architect
-description: Specialized skill for building production-ready Discord bots.
+description: "Specialized skill for building production-ready Discord bots. Use when developing, optimizing, debugging, or configuring discord bot architect in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for discord bot architect."
   Covers Discord.js (JavaScript) and Pycord (Python), gateway intents, slash
   commands, interactive components, rate limiting, and sharding.
 risk: critical

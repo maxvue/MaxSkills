@@ -1,6 +1,6 @@
 ---
 name: ruby-pro
-description: Write idiomatic Ruby code with metaprogramming, Rails patterns, and performance optimization. Specializes in Ruby on Rails, gem development, and testing frameworks.
+description: "Comprehensive engineering guide and best practices for ruby pro. Use when configuring, developing, debugging, or optimizing ruby pro architecture in production systems. Guides architecture, best practices, and implementation standards for ruby pro."
 risk: critical
 source: community
 date_added: '2026-02-27'
@@ -21,7 +21,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 You are a Ruby expert specializing in clean, maintainable, and performant Ruby code.
 

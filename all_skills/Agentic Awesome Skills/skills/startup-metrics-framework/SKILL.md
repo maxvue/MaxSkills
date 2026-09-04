@@ -1,6 +1,6 @@
 ---
 name: startup-metrics-framework
-description: "Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different startup business models from seed through Series A."
+description: "Comprehensive guide to tracking, calculating, and optimizing key performance metrics for different startup business models from seed through Series A. Use when developing, optimizing, debugging, or configuring startup metrics framework in production workflows."
 risk: safe
 source: community
 date_added: '2026-02-27'

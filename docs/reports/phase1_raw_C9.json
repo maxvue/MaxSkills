@@ -1,0 +1,585 @@
+[
+  {
+    "skillName": "aws-cost-operations",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-cost-operations/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description termina abruptamente com reticências 'billing,...' (linha 3), indicando truncamento indevido no frontmatter original.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description utiliza termos promocionais e definição de persona desnecessária ('operational excellence expert', 'Essential when user mentions...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O corpo cita caminhos de arquivos de referência locais inexistentes ('references/operations-patterns.md' e 'references/cloudwatch-alarms.md' nas linhas 247 e 258) que não existem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "A seção 'When to Use This Skill' (linhas 55-67) e 'Using MCP Servers Effectively' (linhas 185-216) geram redundância interna considerável sobre os mesmos passos de auditoria e monitoramento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover referências mortas a arquivos locais inexistentes em 'Additional Resources' e 'CloudWatch Alarms Reference' (linhas 244-268).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a repetição de fluxos operacionais em 'Using MCP Servers Effectively' (linhas 185-216), que já foram abordados nas seções de melhores práticas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização de custos, monitoramento CloudWatch e governança operacional na AWS com apoio de servidores MCP.",
+      "entidades": [
+        "AWS Pricing MCP",
+        "AWS Cost Explorer MCP",
+        "Amazon CloudWatch MCP",
+        "CloudWatch Application Signals MCP",
+        "AWS CloudTrail MCP",
+        "AWS Managed Prometheus MCP",
+        "AWS Well-Architected Security Assessment MCP",
+        "aws-mcp-setup"
+      ],
+      "keywords": [
+        "aws",
+        "cost optimization",
+        "cloudwatch",
+        "cloudtrail",
+        "cost explorer",
+        "pricing",
+        "alarms",
+        "logs",
+        "billing",
+        "metrics",
+        "apm",
+        "slo",
+        "prometheus",
+        "security assessment",
+        "mcp",
+        "finops"
+      ]
+    },
+    "summary": "Conteúdo técnico rico em padrões de FinOps e observabilidade AWS via MCP, mas prejudicado por truncamento na description e links para referências locais inexistentes."
+  },
+  {
+    "skillName": "aws-mcp-setup",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-mcp-setup/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description termina truncada no meio da frase com parêntese aberto: 'Covers both Full AWS MCP Server (with...' (linha 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' (linhas 14-18) replica textualmente a mesma frase truncada da description com erro gramatical ('when you need configure AWS MCP...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o bloco 'When to Use' duplicado e truncado nas linhas 14-18.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Configuração de servidores MCP da AWS para consulta de documentação e execução de chamadas à API via uvx ou HTTP.",
+      "entidades": [
+        "uvx",
+        "mcp-proxy-for-aws",
+        "aws-mcp",
+        "awsdocs",
+        ".claude.json",
+        ".mcp.json",
+        "aws sts get-caller-identity",
+        "IAM Policy"
+      ],
+      "keywords": [
+        "mcp",
+        "aws-mcp",
+        "awsdocs",
+        "uvx",
+        "claude",
+        "mcp-proxy-for-aws",
+        "credentials",
+        "iam",
+        "documentation",
+        "search",
+        "api access",
+        "configuration",
+        "sts"
+      ]
+    },
+    "summary": "Excelente manual prático para provisionamento do AWS MCP proxy e HTTP server, necessitando apenas da correção da description truncada e poda da seção duplicada."
+  },
+  {
+    "skillName": "aws-serverless-eda",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-serverless-eda/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description termina truncada com reticências 'Step Functions,...' (linha 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de persona desnecessária na description ('AWS serverless and event-driven architecture expert...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Múltiplas referências a arquivos locais sob 'references/' que não existem no pacote ('references/eda-patterns.md', 'references/serverless-patterns.md', 'references/security-best-practices.md', etc., linhas 255-269 e 347-382).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Lista de 'When to Use This Skill' (linhas 31-42) repete de forma redundante gatilhos já cobertos pela descrição.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover os blocos que referenciam arquivos locais inexistentes em 'Architecture Patterns' e 'Additional Resources' (linhas 252-270 e 343-389).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a seção 'When to Use This Skill' (linhas 31-42).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões arquiteturais serverless e orientados a eventos (EDA) na AWS seguindo o Well-Architected Framework com CDK e TypeScript.",
+      "entidades": [
+        "AWS Lambda",
+        "Amazon API Gateway",
+        "Amazon DynamoDB",
+        "AWS Step Functions",
+        "Amazon EventBridge",
+        "Amazon SQS",
+        "Amazon SNS",
+        "AWS CDK",
+        "AWS X-Ray",
+        "aws-cdk-development"
+      ],
+      "keywords": [
+        "aws",
+        "serverless",
+        "lambda",
+        "event-driven",
+        "eda",
+        "step functions",
+        "dynamodb",
+        "sqs",
+        "sns",
+        "eventbridge",
+        "cdk",
+        "typescript",
+        "idempotency",
+        "dlq",
+        "well-architected"
+      ]
+    },
+    "summary": "Guia arquitetural de alto nível com ótimos exemplos de código CDK e Lambda, exigindo saneamento de referências locais quebradas e finalização da description truncada."
+  },
+  {
+    "skillName": "aws-skills",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/aws-skills/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (80 caracteres), sem gatilho 'Use when...', sem discriminantes técnicos específicos e puramente genérica ('AWS development with infrastructure automation and cloud architecture patterns').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md é um stub vazio de apenas 29 linhas que apenas repete a mesma frase genérica em 4 seções diferentes sem fornecer nenhum padrão, instrução ou código prático.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ausência total de valor operacional para um agente de IA; a skill atua apenas como redirecionador raso para um repositório GitHub externo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 90,
+    "cuts": [
+      {
+        "text": "Remover ou substituir integralmente o arquivo; 90% do conteúdo é repetição de boilerplate sem qualquer substância técnica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Stub vazio e genérico para desenvolvimento e automação de arquitetura na AWS.",
+      "entidades": [
+        "AWS"
+      ],
+      "keywords": [
+        "aws",
+        "cloud architecture",
+        "infrastructure automation",
+        "cloud",
+        "devops",
+        "placeholder",
+        "stub"
+      ]
+    },
+    "summary": "Stub vazio com repetição cíclica de uma única frase genérica, destituído de discriminantes e sem qualquer instrução técnica acionável."
+  },
+  {
+    "skillName": "awt-e2e-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/awt-e2e-testing/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "A description embute um comando de instalação operacional ('Install: npx skills add ksgisang/awt-skill --skill awt -g'), violando frontalmente a diretriz de não conter tutoriais ou comandos de execução.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description faz uso de linguagem metafórica/promocional ('eyes and hands for AI coding tools').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta da cláusula formal de ativação contextual ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O arquivo SKILL.md (41 linhas) é estruturado como README comercial de projeto pessoal, omitindo esquemas YAML, comandos CLI de execução e sintaxe necessária para que o agente gere ou execute testes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de ruído pessoal/promocional no corpo ('Built with the help of AI coding tools... Actively developed by a solo developer at AILoopLab. Feedback welcome!', linhas 33-35).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Remover notas pessoais de desenvolvimento e pedido de feedback do autor (linhas 33-35).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover comandos de instalação em npx e links redundantes de demo no corpo (linhas 10, 28-32).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de testes E2E com Playwright, cenários declarativos em YAML e reconhecimento visual com OpenCV e OCR.",
+      "entidades": [
+        "AWT",
+        "Playwright",
+        "OpenCV",
+        "SQLite",
+        "Flutter",
+        "React",
+        "Next.js",
+        "Vue",
+        "Angular",
+        "Svelte"
+      ],
+      "keywords": [
+        "e2e testing",
+        "playwright",
+        "opencv",
+        "ocr",
+        "visual matching",
+        "yaml scenarios",
+        "ai testing",
+        "test automation",
+        "flutter",
+        "react",
+        "vue",
+        "failure diagnosis"
+      ]
+    },
+    "summary": "Estruturada como README promocional com comando de instalação na description e sem especificação técnica da sintaxe YAML dos testes."
+  },
+  {
+    "skillName": "azd-deployment",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azd-deployment/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta (144 caracteres, abaixo do intervalo de 200 a 400 caracteres) e desprovida da cláusula explícita de condição 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite termos discriminantes fundamentais presentes no corpo, como 'azd', 'bicep' e 'azure.yaml'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O corpo faz referências a arquivos locais que não existem no diretório da skill ('references/bicep-patterns.md', 'references/troubleshooting.md', 'references/azure-yaml-schema.md', linhas 287-292).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença da seção redundante e tautológica 'When to Use' com texto de boilerplate genérico ('This skill is applicable to execute the workflow or actions described in the overview.', linhas 301-303).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover referências a arquivos inexistentes na seção 'Reference Files' (linhas 287-292).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover boilerplate tautológico da seção 'When to Use' (linhas 301-303).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Deploy de aplicações conteinerizadas no Azure Container Apps usando Azure Developer CLI (azd) e Bicep.",
+      "entidades": [
+        "Azure Developer CLI (azd)",
+        "Azure Container Apps",
+        "Bicep",
+        "azure.yaml",
+        "Azure Container Registry (ACR)",
+        "Managed Identity",
+        "RBAC"
+      ],
+      "keywords": [
+        "azd",
+        "azure container apps",
+        "bicep",
+        "azure.yaml",
+        "remote build",
+        "docker",
+        "managed identity",
+        "rbac",
+        "idempotent",
+        "container registry",
+        "service discovery",
+        "deployment"
+      ]
+    },
+    "summary": "Manual detalhado e robusto de automação com azd e Bicep, necessitando de expansão da description e remoção de referências locais fantasmas."
+  },
+  {
+    "skillName": "azure-ai-contentunderstanding-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-ai-contentunderstanding-py/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 128 caracteres (abaixo dos 200 caracteres mínimos recomendados), omitindo nomes centrais de classes e métodos do SDK.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description emprega 'Use for...' em vez do padrão de gatilho condicional 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' (linhas 275-277) apresenta boilerplate tautológico sem valor semântico ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover seção de boilerplate tautológico 'When to Use' nas linhas 275-277.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração multimodal de conteúdo semântico em documentos, imagens, áudio e vídeo usando Azure AI Content Understanding SDK para Python.",
+      "entidades": [
+        "ContentUnderstandingClient",
+        "AnalyzeInput",
+        "AnalyzeResult",
+        "DocumentContent",
+        "AudioVisualContent",
+        "MediaContentKind",
+        "DefaultAzureCredential"
+      ],
+      "keywords": [
+        "azure ai",
+        "content understanding",
+        "python",
+        "multimodal",
+        "document extraction",
+        "rag",
+        "speech to text",
+        "video search",
+        "ocr",
+        "prebuilt analyzers",
+        "custom analyzers",
+        "aio"
+      ]
+    },
+    "summary": "Conteúdo de código impecável para o SDK multimodal do Azure, demandando apenas ampliação da description e eliminação do parágrafo boilerplate 'When to Use'."
+  },
+  {
+    "skillName": "azure-ai-textanalytics-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-ai-textanalytics-py/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 177 caracteres, ligeiramente abaixo do limiar de 200 caracteres, com condição final genérica ('Use for natural language processing on text.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do nome exato da classe cliente ('TextAnalyticsClient') na description para aumentar a discriminância.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença do bloco tautológico 'When to Use' (linhas 229-231) com frase genérica repetida em lote.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover o bloco tautológico 'When to Use' (linhas 229-231).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Processamento de linguagem natural e análise textual (sentimento, entidades, PII e saúde) com Azure AI Text Analytics SDK em Python.",
+      "entidades": [
+        "TextAnalyticsClient",
+        "AzureKeyCredential",
+        "DefaultAzureCredential",
+        "RecognizeEntitiesAction",
+        "ExtractKeyPhrasesAction",
+        "AnalyzeSentimentAction"
+      ],
+      "keywords": [
+        "azure ai",
+        "text analytics",
+        "sentiment analysis",
+        "entity recognition",
+        "pii detection",
+        "key phrases",
+        "language detection",
+        "healthcare nlp",
+        "opinion mining",
+        "python"
+      ]
+    },
+    "summary": "Excelente cobertura técnica dos métodos e modelos do Text Analytics SDK, requerendo ajuste fino de extensão na description e remoção do boilerplate."
+  },
+  {
+    "skillName": "azure-ai-transcription-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-ai-transcription-py/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description muito curta (134 caracteres, abaixo de 200) e sem discriminação explícita das classes de cliente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O SDK ensinado ('azure-ai-transcription') é um pacote preview/experimental com histórico de indisponibilidade no PyPI, diferindo do pacote padrão estável de produção ('azure-cognitiveservices-speech'), sem esclarecer essa distinção crucial.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo técnico excessivamente raso (78 linhas), sem tratamento de erros, tipagens completas de retorno ou exemplos de cliente assíncrono presentes nos demais módulos da mesma suíte.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inclusão da seção tautológica 'When to Use' (linhas 71-73) sem acréscimo de valor semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o parágrafo boilerplate 'When to Use' (linhas 71-73).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Transcrição de áudio para texto em tempo real e em lote com timestamps e diarização usando o cliente experimental Azure AI Transcription em Python.",
+      "entidades": [
+        "TranscriptionClient",
+        "azure-ai-transcription",
+        "TRANSCRIPTION_ENDPOINT",
+        "TRANSCRIPTION_KEY"
+      ],
+      "keywords": [
+        "azure ai",
+        "transcription",
+        "speech to text",
+        "stt",
+        "diarization",
+        "timestamps",
+        "batch transcription",
+        "real-time transcription",
+        "audio",
+        "python"
+      ]
+    },
+    "summary": "Documentação muito concisa baseada em pacote preview com ressalvas de disponibilidade no PyPI, exigindo enriquecimento de contexto e descarte do boilerplate."
+  },
+  {
+    "skillName": "azure-ai-translation-document-py",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/azure-ai-translation-document-py/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 181 caracteres, ligeiramente abaixo dos 200 caracteres mínimos, omitindo os nomes das classes principais ('DocumentTranslationClient', 'SingleDocumentTranslationClient').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho formulado como 'Use for translating...' em vez de 'Use when translating...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença da seção genérica de boilerplate 'When to Use' (linhas 251-253).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover o bloco tautológico 'When to Use' (linhas 251-253).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Tradução de documentos em lote e arquivos individuais preservando estrutura e formatação via Azure AI Document Translation SDK para Python.",
+      "entidades": [
+        "DocumentTranslationClient",
+        "SingleDocumentTranslationClient",
+        "DocumentTranslationInput",
+        "TranslationTarget",
+        "TranslationGlossary",
+        "DefaultAzureCredential"
+      ],
+      "keywords": [
+        "azure ai",
+        "document translation",
+        "translation",
+        "batch translation",
+        "pdf",
+        "docx",
+        "pptx",
+        "xlsx",
+        "glossary",
+        "sas token",
+        "blob storage",
+        "python",
+        "async"
+      ]
+    },
+    "summary": "Guia de implementação completo e de alta fidelidade para tradução documental em lote e individual, necessitando apenas de ligeira expansão na description."
+  }
+]

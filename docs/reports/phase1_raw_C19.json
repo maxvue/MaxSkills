@@ -1,0 +1,449 @@
+[
+  {
+    "skillName": "context-kit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/context-kit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta com 125 caracteres, abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de gatilho explícito 'Use when...' na description e omissão de termos discriminantes sobre auditoria de scripts de instalação shell e templates PCA (pca-wiki.md, pca-protocols.md).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria de segurança, adaptação local e instalação controlada de artefatos de contexto pessoal (Personal Context Artifacts) para Claude Code e agentes de desenvolvimento.",
+      "entidades": [
+        "Claude Code",
+        "Context Kit",
+        "pca-wiki.md",
+        "pca-mental-models.md",
+        "pca-voice.md",
+        "pca-protocols.md",
+        ".gitignore",
+        "bash"
+      ],
+      "keywords": [
+        "personal context",
+        "context kit",
+        "claude code",
+        "pca templates",
+        "safety rules",
+        "shell inspection",
+        "data privacy",
+        "local-first context",
+        "open loops",
+        "session digests",
+        "knowledge management"
+      ]
+    },
+    "summary": "Conteúdo de alta relevância focado em segurança de contexto e inspeção de scripts, necessitando apenas de expansão semântica e gatilho explícito na description."
+  },
+  {
+    "skillName": "context-window-management",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/context-window-management/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description concisa demais (137 caracteres), aquém do intervalo ótimo de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho formal 'Use when...' na description e omissão de termos conceituais presentes no texto como serial position optimization, token budget allocation e tiered context strategy.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de engenharia e estratégias de código para otimização de janela de contexto de LLMs, abrangendo sumarização por importância, orçamento de tokens e efeitos de posição serial.",
+      "entidades": [
+        "tiktoken",
+        "LangChain",
+        "Claude API",
+        "ContextTier",
+        "TokenBudget",
+        "MessageWithMetadata"
+      ],
+      "keywords": [
+        "context window",
+        "token budget",
+        "smart summarization",
+        "serial position effect",
+        "context rot",
+        "token trimming",
+        "primacy recency",
+        "context tiering",
+        "token counting",
+        "context engineering"
+      ]
+    },
+    "summary": "Implementação técnica e patterns em TypeScript excelentes; requer apenas enriquecimento da description com gatilhos e termos discriminantes."
+  },
+  {
+    "skillName": "context7-auto-research",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/context7-auto-research/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A skill atua como casca vazia (stub) sem instruções operacionais próprias, comandos de integração com a API Context7 ou esquemas de payloads, limitando-se a delegar execução a 'npx skills add -g' e redirecionar para repositório GitHub externo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de 'Examples' e 'Troubleshooting' constituídas exclusivamente por links placeholders vazios ('See GitHub Repository...'), desprovidas de valor prático para o modelo em tempo de inferência.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Remover ou substituir linhas 28-30 e 35-37 (seções Examples e Troubleshooting que contêm apenas referências vazias ao GitHub) por exemplos reais de requisição à Context7 API.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Wrapper de instalação e ativação de ferramenta externa para busca automatizada de documentação técnica via Context7 API no Claude Code.",
+      "entidades": [
+        "Context7 API",
+        "Claude Code",
+        "npx skills",
+        "React",
+        "Next.js",
+        "Prisma"
+      ],
+      "keywords": [
+        "context7",
+        "auto research",
+        "documentation fetcher",
+        "api docs",
+        "claude code",
+        "library reference",
+        "framework documentation",
+        "npx skills"
+      ]
+    },
+    "summary": "Stub superficial com placeholders apontando para GitHub externo; carece de corpo técnico substancial sobre a API e funcionamento real."
+  },
+  {
+    "skillName": "conversation-memory",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/conversation-memory/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description curta de 104 caracteres, sem densidade terminológica suficiente para ativar plenamente todos os recursos da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de condicional de disparo 'Use when...' na description e ausência de termos-chave cruciais tratados no arquivo, como isolamento multi-tenant, ciclo de vida de memória e conformidade GDPR.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Arquitetura de persistência, consolidação e recuperação de memória em diálogos com LLMs, cobrindo memória episódica, extração de entidades e isolamento multi-usuário com salvaguardas de privacidade.",
+      "entidades": [
+        "Mem0",
+        "LangChain Memory",
+        "Redis",
+        "TieredMemory",
+        "EntityMemory",
+        "IsolatedMemory",
+        "ManagedMemory"
+      ],
+      "keywords": [
+        "conversation memory",
+        "short-term memory",
+        "long-term memory",
+        "entity memory",
+        "memory persistence",
+        "memory consolidation",
+        "user isolation",
+        "gdpr compliance",
+        "importance scoring",
+        "semantic retrieval"
+      ]
+    },
+    "summary": "Skill de arquitetura de memória e código TypeScript de excepcional qualidade técnica; necessita unicamente de alinhamento da description com gatilho e expansão de caracteres."
+  },
+  {
+    "skillName": "convex",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/convex/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 147 caracteres, abaixo do limite mínimo recomendado de 200 caracteres, apresentando leve traço promocional/persona ('expert').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência da cláusula explícita 'Use when...' na description (embora haja seção detalhada no corpo).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Guia exaustivo de desenvolvimento backend serverless e reativo com Convex, cobrindo esquemas tipados, queries reativas, mutações transacionais, actions com APIs externas, autenticação e rotinas agendadas.",
+      "entidades": [
+        "Convex",
+        "defineSchema",
+        "defineTable",
+        "query",
+        "mutation",
+        "action",
+        "httpAction",
+        "@convex-dev/auth",
+        "Clerk",
+        "Better Auth",
+        "ctx.db",
+        "ctx.scheduler"
+      ],
+      "keywords": [
+        "convex",
+        "reactive backend",
+        "document-relational database",
+        "mutations",
+        "queries",
+        "actions",
+        "schema validation",
+        "real-time subscriptions",
+        "vector index",
+        "cron jobs",
+        "file storage",
+        "optimistic concurrency"
+      ]
+    },
+    "summary": "Documentação técnica de altíssimo rigor e completude sobre Convex; pendência restrita ao formato da description."
+  },
+  {
+    "skillName": "copy-editing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/copy-editing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description estruturada em estilo de persona e prompt em 2ª pessoa ('You are an expert copy editor... Your goal is to...'), violando a diretriz de linguagem declarativa/anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta do disparador direto 'Use when...' na description e omissão da metodologia central da skill: 'The Seven Sweeps Framework' (Clarity, Voice, So What, Prove It, Specificity, Emotion, Zero Risk).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia de revisão e aprimoramento sequencial de textos comerciais e de conversão através do framework The Seven Sweeps e listas de controle analítico.",
+      "entidades": [
+        "The Seven Sweeps Framework",
+        "Clarity Sweep",
+        "Voice and Tone Sweep",
+        "So What Test",
+        "Prove It Sweep",
+        "Specificity Sweep",
+        "Zero Risk Pass"
+      ],
+      "keywords": [
+        "copy editing",
+        "seven sweeps",
+        "conversion copy",
+        "marketing review",
+        "clarity pass",
+        "tone of voice",
+        "social proof",
+        "emotional triggers",
+        "risk reduction",
+        "cta optimization"
+      ]
+    },
+    "summary": "Metodologia de revisão minuciosa e altamente prática; requer reformulação da description para estilo funcional sem persona."
+  },
+  {
+    "skillName": "copywriting",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/copywriting/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 147 caracteres, abaixo do ideal de 200 a 400 caracteres, sem cláusula 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' ao final do arquivo (linha 248) contém texto genérico e circular de template ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Redação de copy de alta conversão para landing pages e e-mails baseada em validação prévia de briefing (brief lock), proibição absoluta de dados inventados e variantes testáveis.",
+      "entidades": [
+        "Copy Brief Lock",
+        "Above the Fold Framework",
+        "Feature-Benefit-Outcome Bridge",
+        "Headline",
+        "Subheadline",
+        "Primary CTA"
+      ],
+      "keywords": [
+        "copywriting",
+        "conversion copy",
+        "landing page",
+        "email marketing",
+        "copy brief summary",
+        "no-fabrication rule",
+        "value proposition",
+        "a/b test copy",
+        "objection handling",
+        "cta design"
+      ]
+    },
+    "summary": "Processo disciplinado com hard gates que evitam alucinações; necessita apenas de ajuste na description e eliminação de boilerplate residual."
+  },
+  {
+    "skillName": "copywriting-psychologist",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/copywriting-psychologist/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description é textualmente um placeholder de template não preenchido ('One sentence - what this skill does and when to invoke it', 60 caracteres), quebrando completamente a indexação e capacidade de ativação semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Apesar do conteúdo corporal ser rico, a ausência de termos discriminantes na description impede o casamento semântico com estágios de consciência, JTBD, modelos ELM e matrizes psicológicas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Engenharia de persuasão e escrita de copy orientada por psicologia comportamental, estágios de consciência do consumidor e matriz de decisão motivacional.",
+      "entidades": [
+        "Consumer Psychology",
+        "ELM (Elaboration Likelihood Model)",
+        "Jobs to be Done (JTBD)",
+        "Eugene Schwartz Awareness Stages",
+        "Mechanism-First Copy Stack"
+      ],
+      "keywords": [
+        "persuasion psychology",
+        "behavioral triggers",
+        "awareness stages",
+        "belief sequencing",
+        "loss gain framing",
+        "objection preempting",
+        "cognitive resistance",
+        "narrative transportation",
+        "ethical persuasion",
+        "jtbd"
+      ]
+    },
+    "summary": "Corpo instrucional robusto e fundamentado cientificamente, mas estado classificado como Ruim devido à description ser um placeholder literal de template."
+  },
+  {
+    "skillName": "cpp-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cpp-pro/SKILL.md",
+    "state": "Regular",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 161 caracteres, sem cláusula 'Use when...' nem termos sobre as referências de build/concorrência contidas no pacote.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "O SKILL.md principal possui seções com tautologias e instruções genéricas ('Use this skill when: Working on cpp pro tasks... Instructions: Clarify goals, constraints...'), que não agregam valor operacional ao modelo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Podar as linhas 9-23 ('Use this skill when', 'Do not use this skill when' circulares e 'Instructions' genéricas de agente) e apontar diretamente para as diretrizes de código e pastas de referências.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes para desenvolvimento em C++ moderno (C++11 a C++23) enfatizando RAII, ponteiros inteligentes, algoritmos STL, templates e otimização de performance com profiling.",
+      "entidades": [
+        "C++11/14/17/20/23",
+        "std::unique_ptr",
+        "std::shared_ptr",
+        "std::thread",
+        "CMakeLists.txt",
+        "Google Test",
+        "Catch2",
+        "AddressSanitizer",
+        "Google Benchmark"
+      ],
+      "keywords": [
+        "modern cpp",
+        "raii",
+        "smart pointers",
+        "stl algorithms",
+        "move semantics",
+        "template metaprogramming",
+        "concurrency",
+        "memory safety",
+        "cmake",
+        "address sanitizer",
+        "performance optimization"
+      ]
+    },
+    "summary": "Possui bons manuais em subdiretórios, mas o SKILL.md principal apresenta seções de preâmbulo tautológico circular e description curta sem gatilho."
+  },
+  {
+    "skillName": "cqrs-implementation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cqrs-implementation/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Implementação do padrão arquitetural CQRS (Command Query Responsibility Segregation) com barramentos de comando/consulta e projeções para sistemas com Event Sourcing.",
+      "entidades": [
+        "Command",
+        "CommandHandler",
+        "CommandBus",
+        "Query",
+        "QueryHandler",
+        "EventStore",
+        "Projector",
+        "OrderView"
+      ],
+      "keywords": [
+        "cqrs",
+        "command query responsibility segregation",
+        "event sourcing",
+        "command bus",
+        "query handler",
+        "read model",
+        "write model",
+        "eventual consistency",
+        "aggregate root",
+        "projections"
+      ]
+    },
+    "summary": "Exemplar em todos os critérios: description calibrada com gatilho 'Use when...', limites nítidos e playbook técnico aprofundado."
+  }
+]

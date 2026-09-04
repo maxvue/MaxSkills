@@ -1,6 +1,6 @@
 ---
 name: graphql-architect
-description: Master modern GraphQL with federation, performance optimization, and enterprise security. Build scalable schemas, implement advanced caching, and design real-time systems.
+description: "Comprehensive engineering guide and best practices for graphql architect. Use when configuring, developing, debugging, or optimizing graphql architect architecture in production systems. Guides architecture, best practices, and implementation standards for graphql architect."
 risk: critical
 source: community
 date_added: '2026-02-27'
@@ -21,9 +21,7 @@ date_added: '2026-02-27'
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
-
-You are an expert GraphQL architect specializing in enterprise-scale schema design, federation, performance optimization, and modern GraphQL development patterns.
+- If detailed examples are required, open ``.
 
 ## Purpose
 

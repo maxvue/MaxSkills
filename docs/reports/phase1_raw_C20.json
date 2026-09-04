@@ -1,0 +1,539 @@
+[
+  {
+    "skillName": "create-branch",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/create-branch/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Seção final '## Limitations' (linhas 116-120) contém boilerplate genérico artificial replicado em massa ('Use this skill only when...', 'Do not treat the output as a substitute...'), desnecessário para uma skill operacional de git branching.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o bloco '## Limitations' genérico das linhas 116 a 120 para manter o foco exclusivamente nas regras e etapas de criação de branches.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Criação padronizada de branches Git seguindo convenções semânticas de nomenclatura do Sentry.",
+      "entidades": [
+        "git branch",
+        "git checkout",
+        "gh api",
+        "Sentry Branch Naming",
+        "refs/remotes"
+      ],
+      "keywords": [
+        "git",
+        "branch naming",
+        "sentry conventions",
+        "git checkout",
+        "feat",
+        "fix",
+        "ref",
+        "chore",
+        "git diff",
+        "kebab-case",
+        "branch creation",
+        "version control"
+      ]
+    },
+    "summary": "Excelente implementação com descrição precisa de 219 caracteres e regras de classificação claras, contendo apenas um pequeno boilerplate de limitações ao final."
+  },
+  {
+    "skillName": "cro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cro/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description termina truncada abruptamente com reticências na linha 3 ('...this page isn\\'t...'), violando o critério de integridade e completude semântica.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description carece de Clareza de Ação em terceira pessoa na abertura, iniciando de forma passiva com 'When the user wants to optimize...' em vez de definir o que a skill executa.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação com erro sintático na linha 16 ('Use this skill when you need when the user wants to optimize...'), herdando a frase truncada da description no corpo do documento.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Corrigir e desduplicar a introdução quebrada da linha 16 e remover a seção genérica de limitações das linhas 198-203.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização da taxa de conversão (CRO) para landing pages, formulários e páginas de precificação.",
+      "entidades": [
+        "references/experiments.md",
+        "references/form.md",
+        "Value Proposition",
+        "CTA Hierarchy",
+        "A/B Testing"
+      ],
+      "keywords": [
+        "cro",
+        "conversion rate optimization",
+        "landing page",
+        "pricing page",
+        "call to action",
+        "friction points",
+        "social proof",
+        "form optimization",
+        "a/b testing",
+        "copywriting",
+        "lead capture",
+        "analytics"
+      ]
+    },
+    "summary": "Conteúdo analítico de marketing sólido, prejudicado por uma description truncada no meio de uma frase e introdução interna gramaticalmente duplicada."
+  },
+  {
+    "skillName": "cross-platform-contract-propagation-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cross-platform-contract-propagation-audit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 141 caracteres, ficando abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description inicia diretamente pelo gatilho 'Use when...', omitindo uma oração inicial que defina formalmente a ação de auditoria de propagação e prevenção de schema drift.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria estática e rastreamento de evidências para propagação ponta a ponta de contratos de API, schemas, enums e feature flags.",
+      "entidades": [
+        "DTO",
+        "schema migration",
+        "feature flags",
+        "propagation graph",
+        "telemetry events"
+      ],
+      "keywords": [
+        "contract audit",
+        "schema drift",
+        "api contract",
+        "feature flags",
+        "cross platform",
+        "nullability",
+        "serialization",
+        "propagation graph",
+        "data migration",
+        "release gates",
+        "evidence matrix"
+      ]
+    },
+    "summary": "Metodologia exemplar e rigorosa de auditoria sem bloat, exigindo apenas expansão semântica na description para atingir a extensão ideal."
+  },
+  {
+    "skillName": "crypto-bd-agent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/crypto-bd-agent/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Caractere de citação espúrio '>' incorporado no meio da description ('...discover, > evaluate, and acquire...'), decorrente de cópia defeituosa de markdown.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description com 153 caracteres (abaixo de 200), carecendo de gatilho explícito ('Use when...') e utilizando jargão promocional ('Production-tested patterns').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Violação de neutralidade e linguagem promocional nas seções 'Overview' e 'Reference Implementation', com autopromoção de projeto privado (Buzz BD Agent / SolCex Exchange) e inclusão de link de streaming pessoal (retake.tv/BuzzBD).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença do bloco genérico de Limitations (linhas 237-241) colado no rodapé sem relevância técnica.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover autopromoção comercial excessiva da SolCex Exchange / retake.tv e o bloco genérico de Limitations no final.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de prospecção, pontuação de tokens e análise forense de deployers para listagem em exchanges de criptomoedas.",
+      "entidades": [
+        "ERC-8004",
+        "x402",
+        "DexScreener",
+        "GeckoTerminal",
+        "RugCheck",
+        "Helius",
+        "Allium"
+      ],
+      "keywords": [
+        "crypto bd",
+        "token scoring",
+        "wallet forensics",
+        "erc-8004",
+        "x402 payments",
+        "deployer analysis",
+        "dexscreener",
+        "rugcheck",
+        "autonomous agent",
+        "defi",
+        "token listings"
+      ]
+    },
+    "summary": "Arquitetura técnica interessante com x402 e ERC-8004, porém comprometida por caractere espúrio na description, autopromoção institucional e ausência de gatilhos padronizados."
+  },
+  {
+    "skillName": "cucumber-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cucumber-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada no final com reticências ('...Given/When/Then\", \"step...') e repetição redundante dos mesmos gatilhos ('Use when user mentions...' seguido imediatamente por 'Triggers on:...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação textual no corpo (linha 16) repetindo a redação truncada com erro gramatical ('Use this skill when you need generates Cucumber BDD tests...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Vendor lock-in comercial injustificado na seção 'Cloud Execution on TestMu AI' (linhas 177-204), induzindo uso e variáveis de ambiente exclusivas da plataforma proprietária LambdaTest em uma skill genérica de Cucumber.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Inclusão do boilerplate artificial de limitações nas linhas 232-236.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção promocional 'Cloud Execution on TestMu AI' / credenciais LambdaTest (linhas 177-204) e o boilerplate de Limitations para manter a skill estritamente focada em BDD neutro.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação de testes de aceitação orientados a comportamento (BDD) com Gherkin e step definitions multi-linguagem.",
+      "entidades": [
+        "Cucumber",
+        "Gherkin",
+        "JUnit",
+        "Selenium WebDriver",
+        "PicoContainer",
+        "TestMu AI / LambdaTest"
+      ],
+      "keywords": [
+        "cucumber",
+        "bdd",
+        "gherkin",
+        "step definitions",
+        "feature file",
+        "scenario outline",
+        "given when then",
+        "automated testing",
+        "hooks",
+        "qa"
+      ]
+    },
+    "summary": "Boas diretrizes de escrita Gherkin e step definitions, mas penalizada por description truncada, redundância de gatilhos e injeção de propaganda do LambdaTest."
+  },
+  {
+    "skillName": "customer-support",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/customer-support/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Description curta (161 caracteres) carregada de linguagem hiperbólica e promocional ('Elite AI-powered customer support specialist mastering...'), violando os critérios de modéstia técnica e ausência de marketing.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito 'Use when...' na description e falta de Clareza de Ação prática (foca em descrever uma persona pomposa em vez de listar tarefas executáveis).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Link fantasma quebrado na linha 24 apontando para arquivo inexistente ('open resources/implementation-playbook.md'); o diretório não contém a pasta 'resources'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Bloat estrutural severo com seções inteiras de 'persona fluff' inoperante, como 'Behavioral Traits' (linhas 123-134: 'Empathy-first approach with genuine care...') e 'Response Approach' genérico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Tautologia vazia na seção de gatilhos do corpo ('Use this skill when: - Working on customer support tasks or workflows').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Eliminar o bloco 'Behavioral Traits' (linhas 123-134), a lista óbvia de 10 passos em 'Response Approach' (linhas 147-158), o link fantasma para playbook inexistente e a introdução redundante de persona.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Estratégias operacionais e arquitetura de automação para suporte ao cliente omnichannel e autoatendimento.",
+      "entidades": [
+        "Zendesk",
+        "Freshdesk",
+        "Intercom",
+        "Salesforce",
+        "Gorgias",
+        "CSAT",
+        "NPS",
+        "CES"
+      ],
+      "keywords": [
+        "customer support",
+        "ticketing",
+        "conversational ai",
+        "omnichannel",
+        "csat",
+        "nps",
+        "sla",
+        "help desk",
+        "knowledge base",
+        "sentiment analysis",
+        "escalation matrix"
+      ]
+    },
+    "summary": "Skill inflada por persona fluff e adjetivação vazia, com link para recurso inexistente e description promocional sem gatilhos adequados."
+  },
+  {
+    "skillName": "customs-trade-compliance",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/customs-trade-compliance/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (172 caracteres), ficando abaixo dos 200 caracteres ideais.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho formal 'Use when...' na description e leve tom promocional de abertura ('Codified expertise for...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação estrutural da seção de gatilhos no corpo: definida no início (linhas 9-10) e repetida desnecessariamente no final (linhas 235-241).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover a segunda ocorrência da seção 'When to Use' (linhas 235-241) e o boilerplate de Limitations genérico ao fim do arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Conformidade aduaneira e comércio exterior com regras GRI, Incoterms 2020, otimização tarifária e triagem de sanções.",
+      "entidades": [
+        "ACE",
+        "CDS",
+        "ATLAS",
+        "CBP",
+        "Incoterms 2020",
+        "USMCA",
+        "OFAC SDN",
+        "GRI Rules"
+      ],
+      "keywords": [
+        "customs compliance",
+        "tariff classification",
+        "hs code",
+        "incoterms 2020",
+        "usmca",
+        "duty drawback",
+        "ftz",
+        "restricted party screening",
+        "ofac",
+        "export control",
+        "gri",
+        "customs valuation"
+      ]
+    },
+    "summary": "Conteúdo de profundidade e precisão regulatória extraordinárias, necessitando apenas de refinamento da description e remoção de uma duplicação interna menor."
+  },
+  {
+    "skillName": "cyber-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cyber-audit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description excessivamente concisa (104 caracteres), bastante abaixo da faixa mínima de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description não traz a cláusula de ativação 'Use when...' nem sinaliza sua forte especialização em comandos e diretórios do macOS.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria de segurança local em modo estritamente read-only para verificação de exposição a CVEs e vulnerabilidades de dependências.",
+      "entidades": [
+        "npm",
+        "pnpm",
+        "yarn",
+        "pip",
+        "uv",
+        "brew",
+        "LaunchAgents",
+        "lsof",
+        "security-audits"
+      ],
+      "keywords": [
+        "cyber audit",
+        "cve",
+        "vulnerability scan",
+        "read-only check",
+        "security advisory",
+        "supply chain",
+        "audit report",
+        "homebrew",
+        "process listening",
+        "macos security"
+      ]
+    },
+    "summary": "Excelente protocolo defensivo e estritamente read-only para auditoria de CVEs locais sem bloat, dependendo apenas da expansão descritiva."
+  },
+  {
+    "skillName": "cypress-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/cypress-skill/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada com múltiplos pontos finais '....' no término e adjetivo vago/promocional ('production-grade').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Duplicação textual com erro de regência na linha 16 do corpo ('Use this skill when you need generates production-grade Cypress E2E...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Injeção de publicidade e vendor lock-in na seção 'TestMu AI Cloud' (linhas 142-176), atrelando o Cypress a credenciais e pacotes proprietários da LambdaTest em vez de focar nas capacidades nativas da ferramenta.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença do bloco genérico de Limitations (linhas 231-236) ao fim do arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover o trecho comercial da LambdaTest/TestMu AI (linhas 142-176), a introdução truncada duplicada na linha 16 e o rodapé de Limitations.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação e boas práticas de testes end-to-end e de componentes utilizando Cypress.",
+      "entidades": [
+        "Cypress",
+        "cy.get",
+        "cy.intercept",
+        "cy.session",
+        "cy.visit",
+        "TestMu AI / LambdaTest"
+      ],
+      "keywords": [
+        "cypress",
+        "e2e testing",
+        "component testing",
+        "cy intercept",
+        "cy session",
+        "selectors",
+        "test automation",
+        "javascript",
+        "typescript",
+        "qa",
+        "network interception"
+      ]
+    },
+    "summary": "Instruções valiosas de boas práticas de encadeamento e seletores no Cypress, mas prejudicada por description truncada e propaganda comercial de plataforma terceirizada."
+  },
+  {
+    "skillName": "daily",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/daily/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description criticamente curta (apenas 52 caracteres: 'Documentation and capabilities reference for Daily'), violando brutalmente o piso de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Severa desconexão semântica e omissão de discriminantes vitais: a skill é 90% focada no framework open-source Pipecat e pipelines de áudio/voz multimodal em tempo real com WebRTC, mas a description cita apenas 'Daily', arriscando falsos positivos com reuniões diárias (standups/daily meetings).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ausência total de condição de disparo ('Use when...' ou gatilhos correspondentes) no campo description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença do bloco genérico de Limitations ao final do arquivo (linhas 310-314).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico de limitações nas linhas 310-314.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração de pipelines de IA multimodal e agentes de voz em tempo real utilizando o framework Pipecat e WebRTC.",
+      "entidades": [
+        "Pipecat",
+        "Daily.co",
+        "WebRTC",
+        "Deepgram",
+        "ElevenLabs",
+        "Twilio",
+        "RTVI standard",
+        "Silero VAD"
+      ],
+      "keywords": [
+        "pipecat",
+        "daily",
+        "realtime voice",
+        "multimodal ai",
+        "webrtc",
+        "speech to text",
+        "text to speech",
+        "voice activity detection",
+        "turn detection",
+        "voice assistant",
+        "telephony",
+        "audio pipeline"
+      ]
+    },
+    "summary": "Excelente referência para construção de bots de voz em tempo real com Pipecat, prejudicada por uma description de apenas 52 caracteres que omite os termos discriminantes do ecossistema."
+  }
+]

@@ -1,0 +1,505 @@
+[
+  {
+    "skillName": "brooks-harness",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brooks-harness/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description no frontmatter termina truncada abruptamente com reticências ('...audit trigger...') em 274 caracteres, denotando corte mecânico e perda de fechamento semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula explícita de condição de uso / gatilho ('Use when...') na description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' (L14-17) apenas replica literalmente o texto truncado da description sem fornecer cenários de ativação contextualizados.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Remover ou reescrever a seção redundante 'When to Use' (L14-17) que repete o texto truncado da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Orquestração sequencial de pipeline de subagentes para manutenção, evolução de skills, QA e release do repositório brooks-lint.",
+      "entidades": [
+        "brooks-lint",
+        "skill-author",
+        "eval-curator",
+        "consistency-qa",
+        "trigger-boundary-auditor",
+        "release-manager",
+        "Claude Agent tool",
+        "npm run validate",
+        "npm test"
+      ],
+      "keywords": [
+        "brooks-lint",
+        "subagent pipeline",
+        "orchestrator",
+        "consistency-qa",
+        "skill-author",
+        "eval-curator",
+        "trigger audit",
+        "release-manager",
+        "opus model",
+        "manifest sync",
+        "qa gate",
+        "regression prevention"
+      ]
+    },
+    "summary": "Skill funcionalmente clara para governança do brooks-lint, mas prejudicada por description truncada com reticências e duplicação em When to Use."
+  },
+  {
+    "skillName": "brooks-sweep",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brooks-sweep/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada abruptamente com reticências ('...Drawing on twelve classic...') aos 273 caracteres, quebrando a oração.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...') na description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' duplica mecanicamente o texto truncado da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Estrutura atua como mero stub de 45 linhas apontando para arquivos externos ausentes no isolamento da skill (sweep-guide.md e ../_shared/*).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Eliminar duplicação da description na seção 'When to Use' (L14-17).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Varredura completa e aplicação autônoma de correções de qualidade de código, arquitetura, testes e débito técnico no framework brooks-lint.",
+      "entidades": [
+        "brooks-lint",
+        "sweep-guide.md",
+        "Auto Scope Detection",
+        "decay-risks.md",
+        "test-decay-risks.md",
+        "Full Sweep Report"
+      ],
+      "keywords": [
+        "code decay",
+        "architecture review",
+        "tech debt",
+        "test quality",
+        "full sweep",
+        "auto-fix",
+        "safe fixes",
+        "extended-safe",
+        "iron law",
+        "health score"
+      ]
+    },
+    "summary": "Modo de auditoria e correção abrangente do brooks-lint reduzido a stub dependente de _shared, com description truncada."
+  },
+  {
+    "skillName": "brooks-test",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/brooks-test/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description truncada com reticências ('...brittleness, mock...') em 283 caracteres, cortando o final da sentença.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...') na description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' duplica a frase truncada da description sem acréscimo semântico.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Forte dependência de guias externos não incorporados (test-guide.md e ../_shared/*), limitando a utilidade do SKILL.md isolado.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção redundante 'When to Use' (L14-17) que replica a description truncada.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico estrutural e revisão de qualidade de suítes de teste apoiados em literatura clássica de engenharia de software.",
+      "entidades": [
+        "brooks-lint",
+        "xUnit Test Patterns",
+        "The Art of Unit Testing",
+        "How Google Tests Software",
+        "Working Effectively with Legacy Code",
+        "test-guide.md"
+      ],
+      "keywords": [
+        "test quality review",
+        "brittleness",
+        "mock abuse",
+        "test decay",
+        "xunit patterns",
+        "legacy code",
+        "unit testing",
+        "test suite map",
+        "code health"
+      ]
+    },
+    "summary": "Excelente fundamentação teórica em livros clássicos, porém com description truncada e alta dependência de arquivos externos em _shared."
+  },
+  {
+    "skillName": "browser-testing-with-devtools",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/browser-testing-with-devtools/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta com 149 caracteres (abaixo da faixa de 200-400 chars) e sem cláusula explícita de condição de uso / gatilho ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Inspeção e teste dinâmico de aplicações web em tempo de execução via Chrome DevTools MCP com ênfase em segurança e limites de perfil.",
+      "entidades": [
+        "Chrome DevTools MCP",
+        "Chrome",
+        "Playwright",
+        "DOM",
+        "Core Web Vitals",
+        "LCP",
+        "CLS",
+        "INP",
+        "Accessibility Tree"
+      ],
+      "keywords": [
+        "browser testing",
+        "chrome devtools",
+        "mcp",
+        "live dom inspection",
+        "console errors",
+        "network monitoring",
+        "performance traces",
+        "profile isolation",
+        "untrusted data",
+        "accessibility verification",
+        "visual regression",
+        "screenshots"
+      ]
+    },
+    "summary": "Guia técnico de excelência com forte governança de segurança contra injeção em dados do navegador; requer apenas expansão da description."
+  },
+  {
+    "skillName": "bugs-are-annoying",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bugs-are-annoying/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 133 caracteres, abaixo da faixa ideal de 200-400 caracteres, com pouca densidade de termos discriminantes das categorias cobertas.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria estática adversarial e caça sistemática a falhas de lógica, concorrência, segurança e regressões entre arquivos em qualquer linguagem.",
+      "entidades": [
+        "bugs.md",
+        "git diff",
+        "Bug Taxonomy",
+        "Adversarial simulation"
+      ],
+      "keywords": [
+        "bug hunter",
+        "adversarial audit",
+        "code correctness",
+        "logic errors",
+        "concurrency",
+        "race conditions",
+        "edge cases",
+        "security flaws",
+        "cross-file consistency",
+        "static analysis",
+        "bugs.md report"
+      ]
+    },
+    "summary": "Metodologia adversarial exemplar e processo rigoroso de 8 fases sem auto-fix; necessita unicamente enriquecer a description para 200-400 chars."
+  },
+  {
+    "skillName": "bun-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bun-development/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 136 caracteres (abaixo de 200 chars), contendo link markdown '[oven-sh/bun](...)' inadequado para metadados YAML e adjetivos promocionais ('Fast, modern').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...') na description do frontmatter.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Arquivo inflado para 707 linhas com material redundante de documentação básica/tutorial (instalação de CLI multiplataforma, cheatsheet básico de package manager 'bun add', testes com 1+1=2).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Podar subseção de instalação multiplataforma (L27-52) e comandos elementares de gerenciador de pacotes (L144-198), condensando em referências diretas (~20%).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar testes triviais de soma 1+1 (L405-420) e matchers básicos (L446-480) focando nas capacidades exclusivas do bun:test e mocking (~15%).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento, execução de TypeScript nativo, servidores HTTP/WebSocket de alta performance, SQLite e bundling com o runtime Bun.",
+      "entidades": [
+        "Bun",
+        "oven-sh/bun",
+        "Bun.serve",
+        "Bun.file",
+        "bun:sqlite",
+        "bun:test",
+        "bun build",
+        "bunx",
+        "Elysia"
+      ],
+      "keywords": [
+        "bun",
+        "javascript runtime",
+        "typescript",
+        "bun serve",
+        "bun test",
+        "bun build",
+        "sqlite",
+        "package manager",
+        "node migration",
+        "watch mode",
+        "bundling"
+      ]
+    },
+    "summary": "Documentação abrangente do runtime Bun, mas inflada com tutoriais de introdução e description curta com link markdown impróprio."
+  },
+  {
+    "skillName": "burp-suite-testing",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/burp-suite-testing/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description não possui a cláusula explícita de condição de uso / gatilho ('Use when...'), iniciando com verbo imperativo direto.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A seção 'When to Use' no final do arquivo (L399-400) é um placeholder genérico e tautológico ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância de avisos éticos e de autorização nas linhas 10-25, empilhando 3 caixas de aviso com propósitos e termos quase idênticos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Unificar os 3 blocos de avisos de autorização do topo (L10-25) em um único gate operacional conciso (~6%).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover ou detalhar a seção tautológica 'When to Use' nas linhas 399-400 (~4%).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia prática para testes de segurança e auditoria de vulnerabilidades em aplicações web utilizando o ecossistema Burp Suite.",
+      "entidades": [
+        "Burp Suite",
+        "Burp Proxy",
+        "Repeater",
+        "Intruder",
+        "Burp Scanner",
+        "CA certificate",
+        "Site map"
+      ],
+      "keywords": [
+        "burp suite",
+        "web security",
+        "traffic interception",
+        "request modification",
+        "repeater",
+        "intruder",
+        "vulnerability scan",
+        "sql injection",
+        "xss",
+        "access control",
+        "penetration testing"
+      ]
+    },
+    "summary": "Ótimo guia de operação de Burp Suite com guardrails e workflows práticos, necessitando de ajustes na seção When to Use e desduplicação de avisos."
+  },
+  {
+    "skillName": "burpsuite-project-parser",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/burpsuite-project-parser/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Busca, extração e inspeção de tráfego HTTP e auditorias em arquivos de projeto do Burp Suite (.burp) via linha de comando com estrita proteção de contexto.",
+      "entidades": [
+        "Burp Suite Professional",
+        "burpsuite-project-file-parser",
+        "burp-search.sh",
+        "jq",
+        "proxyHistory",
+        "siteMap",
+        "auditItems"
+      ],
+      "keywords": [
+        "burp project",
+        ".burp parser",
+        "cli search",
+        "proxy history",
+        "audit findings",
+        "regex search",
+        "context window limit",
+        "truncation",
+        "sub-component filters",
+        "http inspection",
+        "security triage"
+      ]
+    },
+    "summary": "Padrão ouro de skill: description com 273 caracteres perfeitamente calibrada, discriminantes precisos e regras mandatórias de proteção contra overflow de contexto."
+  },
+  {
+    "skillName": "business-analyst",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/business-analyst/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description promocional e vaga ('Master modern business analysis with AI-powered analytics...'), com 195 caracteres (abaixo de 200) e sem gatilho 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções 'Use this skill when' e 'Do not use this skill when' (L9-18) são totalmente tautológicas e vazias de valor semântico ('Working on business analyst tasks... The task is unrelated to business analyst').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Escopo irrealisticamente amplo e inflado com buzzwords (agrega ML, visão computacional, Tableau, finanças, supply chain, saúde e NLP) sem fornecer um script, checklist específico ou workflow técnico acionável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 30,
+    "cuts": [
+      {
+        "text": "Eliminar as seções tautológicas 'Use this skill when' e 'Do not use this skill when' (L9-18) (~8%).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar a enumeração exaustiva de dezenas de tópicos genéricos de consultoria em um framework analítico focado (~22%).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework abrangente de análise de negócios, definição de KPIs, modelagem preditiva, dashboards de BI e recomendações estratégicas baseadas em dados.",
+      "entidades": [
+        "Tableau",
+        "Power BI",
+        "Looker",
+        "Snowflake",
+        "BigQuery",
+        "OKR",
+        "KPI",
+        "CLV",
+        "CAC",
+        "TAM"
+      ],
+      "keywords": [
+        "business analysis",
+        "kpi frameworks",
+        "dashboards",
+        "predictive modeling",
+        "data storytelling",
+        "okr",
+        "cohort analysis",
+        "financial modeling",
+        "market analytics",
+        "business intelligence"
+      ]
+    },
+    "summary": "Skill genérica em formato de persona inflada com jargões corporativos, gatilhos tautológicos e description promocional sem procedimentos operacionais concretos."
+  },
+  {
+    "skillName": "buywhere-product-catalog",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/buywhere-product-catalog/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description muito curta com apenas 118 caracteres (bem abaixo da faixa de 200-400), omitindo gatilhos específicos de ambientes (Cursor, Claude Desktop, REST API) e discriminantes de integração.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração de busca estruturada de produtos, comparação de preços e catálogo de ofertas em agentes de compras via MCP e API da BuyWhere.",
+      "entidades": [
+        "BuyWhere",
+        "BuyWhere MCP",
+        "buywhere-cursor-plugin",
+        "Cursor",
+        "Claude Desktop",
+        "REST API"
+      ],
+      "keywords": [
+        "buywhere",
+        "product catalog",
+        "price comparison",
+        "deal discovery",
+        "shopping agent",
+        "mcp integration",
+        "cursor plugin",
+        "ecommerce api",
+        "product search",
+        "api onboarding"
+      ]
+    },
+    "summary": "Excelente guia prático e seguro de onboarding de MCP/API para e-commerce, requerendo apenas a expansão semântica de sua description."
+  }
+]

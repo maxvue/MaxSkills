@@ -1,0 +1,446 @@
+[
+  {
+    "skillName": "seo-hreflang",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-hreflang/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description (287 chars) apoia-se em enumeração de palavras-chave literais ('Use when user says \"hreflang\"...') em vez de formular gatilhos baseados em condições operacionais e contextuais de uso.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria técnica, validação de conformidade ISO e geração de tags hreflang bidirecionais e sitemaps multilíngues para SEO internacional.",
+      "entidades": [
+        "ISO 639-1",
+        "ISO 3166-1 Alpha-2",
+        "x-default",
+        "rel=alternate",
+        "xhtml:link",
+        "Google Search Console"
+      ],
+      "keywords": [
+        "hreflang",
+        "international SEO",
+        "i18n",
+        "multilingual",
+        "multiregional",
+        "ISO 639-1",
+        "ISO 3166-1",
+        "x-default",
+        "return tags",
+        "self-referencing",
+        "canonical URL",
+        "XML sitemap",
+        "HTTP headers",
+        "cross-domain"
+      ]
+    },
+    "summary": "Excelente conteúdo técnico para SEO internacional com cobertura completa de métodos de implementação, necessitando apenas refinar o gatilho da description para condições contextuais."
+  },
+  {
+    "skillName": "seo-image-gen",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-image-gen/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 191 caracteres, ligeiramente abaixo do piso ideal (200-400 chars), omitindo discriminantes centrais como extensão banana, pipeline Creative Director e conversão WebP.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Forte acoplamento operacional a caminhos absolutos locais do Claude Desktop ('~/.claude/skills/seo-image-gen/scripts/...') e scripts auxiliares que podem não existir no ambiente de execução.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Geração direcionada de assets visuais para SEO (OG previews, hero, infográficos e ImageObject) utilizando modelos Gemini via pipeline guiado por parâmetros.",
+      "entidades": [
+        "gemini_generate_image",
+        "set_aspect_ratio",
+        "ImageObject",
+        "WebP",
+        "ImageMagick",
+        "banana extension"
+      ],
+      "keywords": [
+        "image generation",
+        "OG image",
+        "hero image",
+        "infographic",
+        "ImageObject",
+        "WebP",
+        "alt text",
+        "aspect ratio",
+        "Gemini Flash",
+        "cost tracking",
+        "Creative Director"
+      ]
+    },
+    "summary": "Skill bem elaborada para criação visual otimizada para SEO, exigindo expansão da description para 200+ chars e desacoplamento de caminhos rígidos de filesystem."
+  },
+  {
+    "skillName": "seo-images",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-images/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Gatilho na description formula-se como lista de termos orais entre aspas ('Use when user says...') em vez de descrever cenários funcionais de auditoria técnica de ativos de mídia e Core Web Vitals.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria e otimização técnica de imagens web abrangendo alt text, compressão, formatos de próxima geração e estabilidade visual (Core Web Vitals).",
+      "entidades": [
+        "<picture>",
+        "<source>",
+        "srcset",
+        "sizes",
+        "loading=lazy",
+        "fetchpriority=high",
+        "decoding=async",
+        "WebP",
+        "AVIF",
+        "JPEG XL"
+      ],
+      "keywords": [
+        "image SEO",
+        "alt text",
+        "file size",
+        "WebP",
+        "AVIF",
+        "JPEG XL",
+        "Core Web Vitals",
+        "LCP",
+        "CLS",
+        "lazy loading",
+        "fetchpriority",
+        "responsive images",
+        "picture tag"
+      ]
+    },
+    "summary": "Guia técnico de auditoria de imagens de alta qualidade e atualidade (incluindo JPEG XL e fetchpriority), requerendo apenas ajuste contextual no gatilho da description."
+  },
+  {
+    "skillName": "seo-meta-optimizer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-meta-optimizer/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 189 caracteres (abaixo de 200), utilizando apelo em caixa alta ('Use PROACTIVELY') e adjetivo vago ('compelling') sem listar discriminantes de tags ou limites de pixels.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de boilerplate introdutório vazio e tautológico nas seções 'Use this skill when' e 'Do not use this skill when' (linhas 9-18), repetindo o nome da skill sem agregação de valor.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência operacional a arquivo inexistente 'resources/implementation-playbook.md' na linha 24.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover blocos tautológicos 'Use this skill when', 'Do not use this skill when' e 'Instructions' (linhas 9-25), consolidando as instruções práticas diretamente no corpo da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Formulação e otimização de títulos, meta descrições e URLs focadas em CTR, psicologia de busca e limites de caracteres/pixels da SERP.",
+      "entidades": [
+        "Title tag",
+        "Meta description",
+        "URL slug",
+        "Yoast SEO",
+        "RankMath",
+        "Open Graph"
+      ],
+      "keywords": [
+        "meta title",
+        "meta description",
+        "URL structure",
+        "CTR",
+        "SERP snippet",
+        "character limits",
+        "power words",
+        "emotional triggers",
+        "Yoast",
+        "RankMath",
+        "A/B testing"
+      ]
+    },
+    "summary": "Contém regras sólidas de limites de caracteres para meta tags, mas sofre de boilerplate tautológico, referência a playbook inexistente e description subdimensionada."
+  },
+  {
+    "skillName": "seo-page",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-page/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Gatilho de ativação na description estruturado em torno de frases literais ('Use when user says \"analyze this page\"...') em vez de intenções analíticas de auditoria on-page individual.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Auditoria on-page integral de URL única integrando tags técnicas, qualidade de conteúdo, sinais E-E-A-T, dados estruturados e performance.",
+      "entidades": [
+        "JSON-LD",
+        "Open Graph",
+        "Twitter Card",
+        "E-E-A-T",
+        "Flesch Reading Ease",
+        "DataForSEO"
+      ],
+      "keywords": [
+        "on-page SEO",
+        "single page audit",
+        "title tag",
+        "meta description",
+        "H1 hierarchy",
+        "content quality",
+        "E-E-A-T",
+        "canonical",
+        "schema markup",
+        "Core Web Vitals",
+        "DataForSEO"
+      ]
+    },
+    "summary": "Guia analítico conciso e bem direcionado para diagnóstico de páginas individuais, precisando apenas de refinamento no gatilho da description."
+  },
+  {
+    "skillName": "seo-plan",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-plan/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Gatilho na description apoia-se em menções orais ('Use when user says...') em vez de especificar cenários como planejamento estratégico inicial, análise competitiva de lacunas e roadmap faseado.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Planejamento estratégico de SEO, análise competitiva de lacunas de mercado, estruturação de conteúdo e roadmap de implementação em quatro fases.",
+      "entidades": [
+        "DataForSEO",
+        "Google Search Console",
+        "E-E-A-T",
+        "Core Web Vitals",
+        "Content Calendar"
+      ],
+      "keywords": [
+        "strategic SEO",
+        "SEO planning",
+        "competitive analysis",
+        "site architecture",
+        "content strategy",
+        "implementation roadmap",
+        "KPIs",
+        "E-E-A-T",
+        "topic clusters",
+        "DataForSEO"
+      ]
+    },
+    "summary": "Excelente roteiro de planejamento estratégico e governança de SEO em fases, necessitando apenas refinar o gatilho da description para condições operacionais."
+  },
+  {
+    "skillName": "seo-programmatic",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-programmatic/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Planejamento, engenharia de templates e auditoria de páginas de SEO programático em escala com salvaguardas rigorosas contra thin content e index bloat.",
+      "entidades": [
+        "Google SpamBrain",
+        "Scaled Content Abuse Policy",
+        "BreadcrumbList",
+        "XML Sitemap",
+        "rel=canonical"
+      ],
+      "keywords": [
+        "programmatic SEO",
+        "scaled content",
+        "template engine",
+        "data-driven pages",
+        "quality gates",
+        "thin content",
+        "index bloat",
+        "canonical strategy",
+        "internal linking",
+        "crawl budget",
+        "hub-spoke"
+      ]
+    },
+    "summary": "Skill de qualidade impecável, com description precisa e calibrada (201 chars), contextualização avançada de enforcement de políticas do Google e métricas quantitativas de quality gate."
+  },
+  {
+    "skillName": "seo-schema",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-schema/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com apenas 171 caracteres (abaixo da faixa ideal de 200-400 chars), omitindo discriminantes de tipos de Schema.org suportados e checagem de tipos descontinuados.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho de ativação restrito a palavras-chave literais faladas ('Use when user says \"schema\"...') sem enunciar a tarefa técnica de geração ou validação sintática/semântica de rich results.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Detecção, validação estrutural e geração de marcações de dados estruturados Schema.org em JSON-LD com atualização contra tipos descontinuados pelo Google.",
+      "entidades": [
+        "Schema.org",
+        "JSON-LD",
+        "Microdata",
+        "RDFa",
+        "Organization",
+        "LocalBusiness",
+        "Article",
+        "BreadcrumbList"
+      ],
+      "keywords": [
+        "schema markup",
+        "structured data",
+        "JSON-LD",
+        "rich results",
+        "Schema.org",
+        "Organization",
+        "LocalBusiness",
+        "Article",
+        "rich snippets",
+        "deprecated schemas",
+        "validation"
+      ]
+    },
+    "summary": "Referência de ponta para marcação Schema.org com distinção clara de esquemas ativos e obsoletos (fev 2026), demandando apenas ampliação e sofisticação da description."
+  },
+  {
+    "skillName": "seo-sitemap",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-sitemap/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description com 196 caracteres, ligeiramente abaixo do piso de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho na description depende de palavras-chave literais ('Use when user says \"sitemap\"...') em vez de descrever necessidades operacionais de auditoria e particionamento de índices.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Análise técnica de conformidade e geração automatizada de sitemaps XML e índices sitemapindex particionados com quality gates contra inflação de URLs.",
+      "entidades": [
+        "<urlset>",
+        "<sitemapindex>",
+        "<lastmod>",
+        "robots.txt",
+        "XML Sitemap Protocol"
+      ],
+      "keywords": [
+        "XML sitemap",
+        "sitemapindex",
+        "sitemap generation",
+        "sitemap audit",
+        "lastmod",
+        "protocol limit",
+        "robots.txt",
+        "canonical URLs",
+        "quality gates",
+        "crawl budget"
+      ]
+    },
+    "summary": "Guia prático e eficaz para validação e geração de arquivos de sitemap XML com limites de protocolo, necessitando expansão marginal e refinamento de gatilho na description."
+  },
+  {
+    "skillName": "seo-structure-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/seo-structure-architect/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description com apenas 175 caracteres (abaixo de 200 chars) e sem qualquer gatilho de ativação condicional ('Use when...' ou 'Ative quando...'), violando o critério 3 dos 13 critérios semânticos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Prescreve 'HowTo Schema' (descontinuado dos rich results do Google em setembro de 2023) e 'FAQ Schema' (restrito a órgãos governamentais e de saúde desde agosto de 2023) como 'High-Impact Schemas' nas linhas 59-60, colidindo frontalmente com as diretrizes das demais skills do ecossistema.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Boilerplate tautológico nas seções 'Use this skill when' e 'Do not use this skill when' (linhas 9-18), com circularidade semântica vazia.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Referência a arquivo fantasma 'resources/implementation-playbook.md' na linha 24.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Eliminar o bloco tautológico inicial (linhas 9-25) que apenas repete o nome da skill e referencia arquivo inexistente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Depurar a seção 'Schema Markup Priority' (linhas 55-64) para remover HowTo Schema e contextualizar as restrições severas do FAQ Schema perante os motores de busca.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Organização arquitetural de conteúdo, hierarquia de cabeçalhos (H1-H6), clusters temáticos (silos) e links internos para otimização de busca.",
+      "entidades": [
+        "H1-H6 tags",
+        "BreadcrumbList",
+        "TOC plugins",
+        "JSON-LD",
+        "Schema.org"
+      ],
+      "keywords": [
+        "content structure",
+        "header hierarchy",
+        "heading tags",
+        "siloing",
+        "topical clusters",
+        "internal linking",
+        "table of contents",
+        "featured snippets",
+        "jump links"
+      ]
+    },
+    "summary": "Apresenta conceitos úteis de siloing e cabeçalhos, mas falha criticamente por description incompleta sem gatilho, boilerplate morto e recomendação de schemas obsoletos (HowTo e FAQ)."
+  }
+]

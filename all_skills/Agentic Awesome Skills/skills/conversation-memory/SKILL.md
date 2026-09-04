@@ -1,6 +1,6 @@
 ---
 name: conversation-memory
-description: Persistent memory systems for LLM conversations including
+description: "Persistent memory systems for LLM conversations including Use when developing, optimizing, debugging, or configuring conversation memory in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conversation memory."
   short-term, long-term, and entity-based memory
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)

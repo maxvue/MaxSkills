@@ -1,0 +1,517 @@
+[
+  {
+    "skillName": "nextjs-supabase-auth",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nextjs-supabase-auth/SKILL.md",
+    "state": "Regular",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Extensão da description severamente insuficiente (60 caracteres, bem abaixo da faixa recomendada de 200 a 400 caracteres: 'Expert integration of Supabase Auth with Next.js App Router').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito de ativação ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de termos semanticamente discriminantes vitais presentes no conteúdo (@supabase/ssr, createBrowserClient, createServerClient, middleware.ts, exchangeCodeForSession, Server Actions).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de adjetivo promocional vazio no início da description ('Expert integration...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Inclusão de bloco artificial de colaboração entre skills com pseudo-roteamento e orquestrações desnecessárias (linhas 263-296), gerando ruído estrutural.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover a seção de Collaboration (linhas 263-296) e podar os gatilhos repetitivos de 'When to Use' (linhas 301-309) para enxugar o arquivo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Autenticação e gerenciamento de sessões com Supabase Auth no Next.js App Router via SSR",
+      "entidades": [
+        "@supabase/ssr",
+        "createBrowserClient",
+        "createServerClient",
+        "NextResponse",
+        "NextRequest",
+        "cookies",
+        "middleware.ts",
+        "revalidatePath"
+      ],
+      "keywords": [
+        "nextjs",
+        "supabase",
+        "auth",
+        "ssr",
+        "middleware",
+        "session-refresh",
+        "server-actions",
+        "oauth-callback",
+        "createbrowserclient",
+        "createserverclient",
+        "jwt",
+        "cookies",
+        "redirect"
+      ]
+    },
+    "summary": "Implementação técnica sólida de autenticação SSR com Next.js 15 e Supabase, mas com description excessivamente curta, promocional e seções de delegação artificiais."
+  },
+  {
+    "skillName": "nodejs-best-practices",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/nodejs-best-practices/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Extensão da description abaixo da faixa ideal (154 caracteres vs 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de slogan promocional na description ('Teaches thinking, not copying.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes centrais na description que caracterizam a árvore de decisão da skill (Hono, Fastify, NestJS, Zod, node:test).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Condensar os preâmbulos redundantes ('Learn to THINK', '⚠️ How to Use This Skill') e as limitações genéricas de boilerplate (linhas 340-344).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Princípios arquiteturais, seleção de frameworks e boas práticas de desenvolvimento em Node.js moderno",
+      "entidades": [
+        "Hono",
+        "Fastify",
+        "NestJS",
+        "Express",
+        "Zod",
+        "Valibot",
+        "Vitest",
+        "Supertest",
+        "node:test",
+        "Helmet.js"
+      ],
+      "keywords": [
+        "nodejs",
+        "architecture",
+        "fastify",
+        "hono",
+        "nestjs",
+        "express",
+        "layered-architecture",
+        "error-handling",
+        "async-patterns",
+        "event-loop",
+        "zod",
+        "input-validation",
+        "security",
+        "node-test"
+      ]
+    },
+    "summary": "Guia arquitetural de alta qualidade com árvores de decisão modernas para Node.js, demandando ajuste de extensão e tom na description."
+  },
+  {
+    "skillName": "notebooklm",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/notebooklm/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Ausência de cláusula de gatilho formal ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de citação explícita dos scripts CLI que implementam a ferramenta na description (ask_question.py, notebook_manager.py, auth_manager.py).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Redundância estrutural acentuada: repetição dos mesmos comandos de CLI entre Core Workflow (linhas 67-134), Script Reference (linhas 153-184), Decision Flow (linhas 222-240) e Best Practices (linhas 252-260).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Condensar a seção 'Script Reference' e o fluxograma textual 'Decision Flow' integrando-os diretamente ao 'Core Workflow', eliminando duplicação de exemplos de CLI.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Automação via navegador e CLI para consulta a documentos e gerenciamento de cadernos no Google NotebookLM",
+      "entidades": [
+        "scripts/run.py",
+        "ask_question.py",
+        "notebook_manager.py",
+        "auth_manager.py",
+        "cleanup_manager.py",
+        "patchright",
+        "Chromium"
+      ],
+      "keywords": [
+        "notebooklm",
+        "google",
+        "gemini",
+        "rag",
+        "documentation",
+        "browser-automation",
+        "patchright",
+        "python",
+        "cli",
+        "auth-manager",
+        "notebook-manager",
+        "research-assistant"
+      ]
+    },
+    "summary": "Ferramenta funcional para automação de consultas no Google NotebookLM via scripts Python, contendo redundâncias internas de comandos entre seções."
+  },
+  {
+    "skillName": "obsidian-bases",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/obsidian-bases/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, edição e configuração de arquivos .base para visualizações estruturadas de dados no Obsidian",
+      "entidades": [
+        ".base",
+        "table",
+        "cards",
+        "list",
+        "map",
+        "file.ctime",
+        "file.mtime",
+        "file.hasTag",
+        "file.inFolder",
+        "date()",
+        "now()",
+        "today()"
+      ],
+      "keywords": [
+        "obsidian",
+        "bases",
+        "base-files",
+        "yaml",
+        "database-views",
+        "filters",
+        "formulas",
+        "summaries",
+        "table-view",
+        "cards-view",
+        "duration",
+        "date-arithmetic"
+      ]
+    },
+    "summary": "Excelente skill com documentação técnica precisa, exemplos práticos de schemas YAML e regras completas de fórmulas e filtros para Obsidian Bases."
+  },
+  {
+    "skillName": "obsidian-cli",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/obsidian-cli/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão da description abaixo da faixa ideal (147 caracteres vs 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de gatilho explícito ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de subcomandos e ações discriminantes na description (ex.: plugin:reload, dev:errors, dev:screenshot, obsidian create).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Operação e automação do Obsidian via CLI para gerenciamento de vaults e desenvolvimento de plugins",
+      "entidades": [
+        "obsidian",
+        "obsidian create",
+        "obsidian search",
+        "obsidian daily:read",
+        "obsidian plugin:reload",
+        "obsidian dev:errors",
+        "obsidian dev:screenshot",
+        "obsidian dev:dom"
+      ],
+      "keywords": [
+        "obsidian",
+        "obsidian-cli",
+        "vault-management",
+        "markdown",
+        "plugin-development",
+        "debugging",
+        "dom-inspection",
+        "command-line",
+        "theme-development"
+      ]
+    },
+    "summary": "Guia conciso e preciso da CLI oficial do Obsidian para gestão de vaults e ciclo de desenvolvimento de plugins, necessitando apenas expansão da description."
+  },
+  {
+    "skillName": "obsidian-markdown",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/obsidian-markdown/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Sintaxe e formatação de notas usando Obsidian Flavored Markdown com wikilinks, embeds e callouts",
+      "entidades": [
+        "[[wikilinks]]",
+        "![[embeds]]",
+        "> [!callout]",
+        "frontmatter",
+        "cssclasses",
+        "aliases",
+        "%%comments%%",
+        "==highlight=="
+      ],
+      "keywords": [
+        "obsidian",
+        "markdown",
+        "wikilinks",
+        "embeds",
+        "callouts",
+        "frontmatter",
+        "properties",
+        "block-id",
+        "nested-tags",
+        "latex-math",
+        "mermaid"
+      ]
+    },
+    "summary": "Excelente especificação de Obsidian Flavored Markdown, combinando regras sintáticas claras, discriminantes precisos e zero bloat."
+  },
+  {
+    "skillName": "odoo-automated-tests",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-automated-tests/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão da description abaixo do ideal (151 caracteres vs 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito de ativação ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Divergência de fidelidade semântica: a description promete 'mocking' e 'browser tour tests', mas a seção de Limitações adverte expressamente que tours e mocks de serviços externos não são cobertos no guia.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Desenvolvimento e execução de testes automatizados unitários e de integração no framework Odoo",
+      "entidades": [
+        "odoo.tests.common.TransactionCase",
+        "odoo.tests.common.HttpCase",
+        "@tagged",
+        "setUpClass",
+        "odoo-bin",
+        "--test-enable",
+        "--test-tags",
+        "self.with_user",
+        "self.authenticate"
+      ],
+      "keywords": [
+        "odoo",
+        "automated-tests",
+        "transactioncase",
+        "httpcase",
+        "unittest",
+        "python",
+        "odoo-bin",
+        "setupclass",
+        "tagged",
+        "access-rights",
+        "ci-cd"
+      ]
+    },
+    "summary": "Guia técnico conciso para testes em Odoo com TransactionCase e HttpCase, demandando expansão e alinhamento de fidelidade na description."
+  },
+  {
+    "skillName": "odoo-backup-strategy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-backup-strategy/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Extensão da description abaixo do ideal (153 caracteres vs 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de gatilho explícito ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de comandos e componentes discriminantes vitais na description (pg_dump, pg_restore, filestore tarball, cron, S3).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estratégia completa de backup e restauração para instâncias Odoo unindo PostgreSQL e filestore",
+      "entidades": [
+        "pg_dump",
+        "pg_restore",
+        "tar",
+        "crontab",
+        "aws s3",
+        "dropdb",
+        "createdb",
+        "docker compose"
+      ],
+      "keywords": [
+        "odoo",
+        "backup",
+        "restore",
+        "postgres",
+        "pg-dump",
+        "filestore",
+        "cron",
+        "s3",
+        "disaster-recovery",
+        "data-integrity"
+      ]
+    },
+    "summary": "Procedimento operacional conciso e robusto para rotinas de backup e restauração do Odoo, necessitando apenas enriquecimento da description."
+  },
+  {
+    "skillName": "odoo-ecommerce-configurator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-ecommerce-configurator/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Extensão da description abaixo da faixa recomendada (147 caracteres vs 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Linguagem promocional na abertura da description ('Expert guide for...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes técnicos funcionais na description (provedor Stripe, webhooks, regras de frete fixo/grátis, automação de carrinho abandonado).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração funcional de lojas virtuais no Odoo englobando catálogo, pagamentos, frete e marketing",
+      "entidades": [
+        "Website",
+        "eCommerce",
+        "Payment Providers",
+        "Stripe",
+        "Delivery Methods",
+        "Marketing Automation",
+        "sale.order"
+      ],
+      "keywords": [
+        "odoo",
+        "ecommerce",
+        "website",
+        "product-catalog",
+        "stripe",
+        "payment-gateway",
+        "shipping-methods",
+        "abandoned-cart",
+        "seo",
+        "order-fulfillment"
+      ]
+    },
+    "summary": "Guia funcional limpo e eficaz para parametrização do Odoo eCommerce, precisando de remoção de tom promocional e expansão da description."
+  },
+  {
+    "skillName": "odoo-migration-helper",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/odoo-migration-helper/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Extensão da description abaixo do ideal (153 caracteres vs 200 a 400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de gatilho explícito ('Use when...' ou 'Ative quando...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de fórmula procedimental na description ('Step-by-step guide for...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Omissão de discriminantes de sintaxe específicos na description (invisible, attrs, chatter, is_published).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Migração e refatoração de módulos customizados entre versões principais do Odoo (v14 a v17)",
+      "entidades": [
+        "attrs",
+        "invisible",
+        "required",
+        "<chatter/>",
+        "is_published",
+        "mail.alias.domain",
+        "_render_qweb_pdf",
+        "__manifest__.py"
+      ],
+      "keywords": [
+        "odoo",
+        "migration",
+        "version-upgrade",
+        "odoo16-to-17",
+        "odoo15-to-16",
+        "xml-views",
+        "deprecated-methods",
+        "breaking-changes",
+        "manifest"
+      ]
+    },
+    "summary": "Referência técnica enxuta e focada nas mudanças estruturais de APIs e views do Odoo v14 a v17, demandando reformulação anti-tutorial na description."
+  }
+]

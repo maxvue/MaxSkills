@@ -1,6 +1,6 @@
 ---
 name: project-history
-description: Use when you need historical context on how a feature was built, why a past decision was made, or the validation/test-count trail for a completed milestone in this project — the changelog of every marco/fase from Marco 1 through the most recent branch, moved out of CLAUDE.md so it isn't always loaded.
+description: "Historical milestones, completed roadmap tasks, and architectural decisions for the SocialMedia project. Use when reviewing past engineering milestones, test suite validations, or historical context for SocialMedia."
 author: Johnattas Conrady Gomes Santana
 ---
 # Histórico de Marcos — SocialMedia

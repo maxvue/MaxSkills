@@ -1,0 +1,545 @@
+[
+  {
+    "skillName": "computer-vision-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/computer-vision-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 141 caracteres, ficando abaixo da faixa semântica recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula de ativação explícita no padrão 'Use when...' ou gatilho situacional na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de termos laudatórios e formato de persona na description ('SOTA Computer Vision Expert', 'Specialized in') violando a diretriz de linguagem anti-promocional.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover o bloco genérico de Limitations (linhas 75-79), que consiste em boilerplate repetitivo sem ganho informacional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura, implementação e otimização de pipelines modernos de visão computacional em tempo real e modelos de fundação visual.",
+      "entidades": [
+        "YOLO26",
+        "Segment Anything 3 (SAM 3)",
+        "Depth Anything V2",
+        "Florence-2",
+        "PaliGemma 2",
+        "Qwen2-VL",
+        "ONNX",
+        "TensorRT",
+        "MuSGD",
+        "ProgLoss",
+        "STAL"
+      ],
+      "keywords": [
+        "computer-vision",
+        "object-detection",
+        "YOLO26",
+        "SAM-3",
+        "segmentation",
+        "VLMs",
+        "visual-grounding",
+        "depth-estimation",
+        "edge-deployment",
+        "TensorRT",
+        "ONNX",
+        "NMS-free",
+        "MuSGD",
+        "spatial-intelligence",
+        "visual-SLAM",
+        "camera-calibration"
+      ]
+    },
+    "summary": "Conteúdo técnico de alta precisão e atualidade para visão computacional, necessitando expandir a description curta e promocional e podar o disclaimer final genérico."
+  },
+  {
+    "skillName": "conductor-implement",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/conductor-implement/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description é extremamente curta (77 caracteres), violando o critério de extensão mínima (200-400 caracteres).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de termos discriminantes essenciais na description, omitindo referências ao ecossistema Conductor e seus artefatos (conductor/tracks.md, plan.md, metadata.json).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seções 'Use this skill when' e 'Do not use this skill when' tautológicas e vazias no corpo do documento (linhas 13-22), além de instruções operacionais genéricas (linhas 23-29).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Podar as seções de gatilho tautológico e instruções vazias de preenchimento (linhas 13-29, 17 linhas) e o bloco final genérico de Limitations (linhas 391-395, 5 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Execução automatizada e guiada por TDD de tarefas do plano de implementação no ecossistema Conductor com governança de git e checkpoints.",
+      "entidades": [
+        "Conductor",
+        "conductor/tracks.md",
+        "conductor/workflow.md",
+        "conductor/product.md",
+        "metadata.json",
+        "plan.md",
+        "git commit"
+      ],
+      "keywords": [
+        "conductor",
+        "tdd",
+        "implementation-plan",
+        "track-execution",
+        "git-workflow",
+        "red-green-refactor",
+        "task-runner",
+        "phase-checkpoints",
+        "code-verification",
+        "metadata-tracking",
+        "automated-commits"
+      ]
+    },
+    "summary": "Implementação robusta de workflow de tarefas guiado por TDD no Conductor, prejudicada por description telegráfica e seções introdutórias redundantes."
+  },
+  {
+    "skillName": "conductor-revert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/conductor-revert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui apenas 61 caracteres, muito aquém do limite mínimo ideal de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de gatilho claro e ausência de identificação do Conductor e dos artefatos estruturais associados na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções introdutórias de 'When to use' e 'Instructions' (linhas 13-29) contêm boilerplate tautológico sem ganho de densidade semântica.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover o preâmbulo redundante de uso e instruções genéricas (linhas 13-29, 17 linhas) e o disclaimer genérico de limitações (linhas 375-379, 5 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Reversão atômica e segura de unidades lógicas de trabalho (tracks, fases ou tarefas) no Conductor via git revert com sincronização de metadados.",
+      "entidades": [
+        "Conductor",
+        "git revert",
+        "git status",
+        "conductor/tracks.md",
+        "plan.md",
+        "metadata.json"
+      ],
+      "keywords": [
+        "conductor",
+        "git-revert",
+        "rollback",
+        "atomic-undo",
+        "phase-revert",
+        "task-revert",
+        "git-history",
+        "merge-conflict-handling",
+        "non-destructive-undo",
+        "safety-rules",
+        "track-management"
+      ]
+    },
+    "summary": "Excelente protocolo de segurança e reversão lógica de código via git revert, demandando expansão semântica da description e poda de preâmbulos ocos."
+  },
+  {
+    "skillName": "container-security-hardening",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/container-security-hardening/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Hardening abrangente de contêineres e runtime em cinco camadas: Dockerfile seguro, scanning de vulnerabilidades, runtime flags, supply chain com Cosign e Kubernetes PSA/NetworkPolicy.",
+      "entidades": [
+        "Docker",
+        "Dockerfile",
+        "Distroless",
+        "Trivy",
+        "Grype",
+        "Hadolint",
+        "Cosign",
+        "Syft",
+        "Seccomp",
+        "AppArmor",
+        "Kubernetes",
+        "PodSecurityAdmission",
+        "Kyverno",
+        "NetworkPolicy",
+        "RBAC"
+      ],
+      "keywords": [
+        "container-security",
+        "docker-hardening",
+        "distroless",
+        "cve-scanning",
+        "trivy",
+        "grype",
+        "cosign",
+        "sbom",
+        "seccomp",
+        "apparmor",
+        "pod-security-admission",
+        "networkpolicy",
+        "rbac-hardening",
+        "kyverno",
+        "non-root"
+      ]
+    },
+    "summary": "Skill exemplar de referência em segurança de contêineres, 100% aderente a todos os critérios semânticos, densa, estruturada e livre de ruído."
+  },
+  {
+    "skillName": "content-creator",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/content-creator/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description possui apenas 104 caracteres, ficando significativamente abaixo da faixa recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de adjetivo vago e promocional ('Professional-grade') violando a diretriz anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito no padrão 'Use when...' na description e omissão das ferramentas/scripts da própria skill (brand_voice_analyzer.py, seo_optimizer.py).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seção explícita de 'Keywords' em lista separada por vírgula (linhas 17-19) constituindo ruído/keyword stuffing, além de bloco 'Quick Commands' duplicado.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 9,
+    "cuts": [
+      {
+        "text": "Remover a seção ## Keywords (linhas 17-19, 3 linhas) que gera ruído de meta-tagging inútil para o agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Condensar ou podar ## Quick Commands (linhas 232-246, 15 linhas) pois repete os comandos já detalhados em Core Workflows e Key Scripts.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover o bloco ## Limitations genérico (linhas 248-252, 5 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Frameworks para análise de tom e voz de marca, otimização de SEO para artigos de blog e planejamento de calendário editorial multicanal.",
+      "entidades": [
+        "scripts/brand_voice_analyzer.py",
+        "scripts/seo_optimizer.py",
+        "references/brand_guidelines.md",
+        "references/content_frameworks.md",
+        "assets/content_calendar_template.md"
+      ],
+      "keywords": [
+        "content-creation",
+        "brand-voice",
+        "seo-optimization",
+        "keyword-density",
+        "blog-posts",
+        "social-media-marketing",
+        "editorial-calendar",
+        "readability-score",
+        "content-frameworks",
+        "content-pillars"
+      ]
+    },
+    "summary": "Skill funcional com scripts auxiliares concretos, mas penalizada por description curta e promocional, keyword stuffing explícito e repetições de comandos."
+  },
+  {
+    "skillName": "content-marketer",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/content-marketer/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description curta (167 caracteres), sem gatilho de ativação situacional e com linguagem hiper-promocional ('Elite content marketing strategist', 'specializing in').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo formatado no estilo ultrapassado de 'persona prompt' de chatbot ('You are an elite...', 'Master content marketer...', 'Behavioral Traits'), sem scripts, templates de código ou ferramentas acionáveis.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de gatilho tautológicas e inúteis (linhas 9-18) afirmando 'Use this skill when working on content marketer tasks... Do not use when unrelated'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença massiva de preenchimento discursivo e listas conceituais genéricas ('Behavioral Traits', 'Knowledge Base', 'Response Approach') sem ganho semântico executável.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 32,
+    "cuts": [
+      {
+        "text": "Eliminar o bloco tautológico de When to Use / Do not use (linhas 9-18, 10 linhas) e Instructions genéricas (linhas 19-25, 7 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover preâmbulos de persona 'You are an elite...' e 'Expert Purpose' laudatório (linhas 26-30, 5 linhas).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Eliminar a seção 'Behavioral Traits' (linhas 123-134, 12 linhas) e a lista vazia 'Knowledge Base' (linhas 135-146, 12 linhas), que apenas ocupam tokens com fluff comportamental.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Remover o disclaimer genérico de limitações (linhas 169-173, 5 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes estratégicas gerais para marketing de conteúdo, SEO semântico, automação de e-mail e distribuição em mídias sociais.",
+      "entidades": [
+        "GA4",
+        "Buffer",
+        "Hootsuite",
+        "Agility Writer",
+        "Jasper",
+        "Midjourney",
+        "DALL-E",
+        "Shopify",
+        "WooCommerce"
+      ],
+      "keywords": [
+        "content-marketing",
+        "omnichannel-distribution",
+        "seo-strategy",
+        "email-automation",
+        "social-media-strategy",
+        "performance-marketing",
+        "content-pillars",
+        "conversion-rate-optimization",
+        "ga4-analytics"
+      ]
+    },
+    "summary": "Skill inflada concebida como persona prompt promocional, repleta de tautologias, seções comportamentais mortas e destituída de código ou ferramentas acionáveis."
+  },
+  {
+    "skillName": "content-strategy",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/content-strategy/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Metodologia quantitativa e arquitetural para estratégia de conteúdo, definição de pilares, matriz de priorização ponderada e modelagem headless CMS.",
+      "entidades": [
+        ".agents/product-marketing-context.md",
+        "references/headless-cms.md",
+        "Ahrefs",
+        "SEMrush",
+        "Google Search Console",
+        "Reddit",
+        "Quora"
+      ],
+      "keywords": [
+        "content-strategy",
+        "topic-clusters",
+        "content-pillars",
+        "hub-and-spoke",
+        "buyer-journey",
+        "search-intent",
+        "shareable-content",
+        "content-prioritization",
+        "keyword-research",
+        "editorial-roadmap",
+        "headless-cms"
+      ]
+    },
+    "summary": "Metodologia exemplar de estratégia de conteúdo com critérios quantitativos claros de priorização, matriz de clustering e description impecável."
+  },
+  {
+    "skillName": "context-agent",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/context-agent/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 145 caracteres (< 200 chars), não apresenta gatilho explícito ('Use when...') e omite ferramentas discriminantes (context_manager.py, SQLite FTS5, JSONL parser).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Caminhos absolutos do Windows do autor pessoal ('C:\\Users\\renat\\skills\\context-agent\\...' e 'C:\\Users\\renat\\.claude\\...') hardcoded nos blocos de comando (linhas 61, 88, 96, 112, 121, 129, 138, 173), quebrando a portabilidade para outros ambientes e agentes.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seções de 'Boas Praticas' e 'Armadilhas Comuns' (linhas 184-195) constituídas inteiramente por preenchimento genérico e conselhos óbvios de catálogo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 9,
+    "cuts": [
+      {
+        "text": "Remover o bloco genérico de Quando Nao Usar (linhas 46-51, 6 linhas) e Boas Praticas / Armadilhas Comuns (linhas 184-195, 12 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Normalizar comandos e caminhos substituindo referências absolutas hardcoded de 'C:\\Users\\renat\\...' por caminhos relativos ao workspace ou variáveis de ambiente.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Persistência e recuperação estruturada de contexto entre sessões de IA com parsing de histórico JSONL, sincronização com MEMORY.md e busca FTS5 SQLite.",
+      "entidades": [
+        "scripts/context_manager.py",
+        "ACTIVE_CONTEXT.md",
+        "MEMORY.md",
+        "SQLite FTS5",
+        "session_parser.py",
+        "Claude Code CLI"
+      ],
+      "keywords": [
+        "context-agent",
+        "session-continuity",
+        "context-persistence",
+        "jsonl-parser",
+        "fts5-search",
+        "sqlite-context",
+        "briefing",
+        "active-context",
+        "memory-md",
+        "claude-code"
+      ]
+    },
+    "summary": "Arquitetura funcional valiosa para continuidade de sessões de IA, prejudicada por caminhos locais hardcoded do Windows e description curta sem discriminantes."
+  },
+  {
+    "skillName": "context-compression",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/context-compression/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 183 caracteres (< 200 chars), ficando ligeiramente abaixo da faixa ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description é formulada como uma frase de introdução discursiva/retórica ('When agent sessions generate millions of tokens... The naive approach is...') em vez de declarar a ação operacional e capacidades da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Ausência total de condição de uso / gatilho ('Use when...') e omissão de discriminantes essenciais (Anchored Iterative Summarization, tokens-per-task, sliding window, probe-based evaluation).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Engenharia de compressão de contexto para agentes autônomos, otimização da métrica tokens-per-task, rastreamento de artefatos e avaliação por sondas cognitivas.",
+      "entidades": [
+        "Anchored Iterative Summarization",
+        "Opaque Compression",
+        "Regenerative Full Summary",
+        "Factory Research",
+        "LLM-as-judge",
+        "Netflix Engineering"
+      ],
+      "keywords": [
+        "context-compression",
+        "tokens-per-task",
+        "anchored-iterative-summarization",
+        "artifact-trail",
+        "probe-based-evaluation",
+        "sliding-window",
+        "coding-agents",
+        "context-window",
+        "summarization-strategy",
+        "token-optimization"
+      ]
+    },
+    "summary": "Conteúdo de altíssimo rigor técnico fundamentado em pesquisas empíricas sobre engenharia de contexto, necessitando apenas reescrever a description retórica para um formato diretivo com discriminantes."
+  },
+  {
+    "skillName": "context-driven-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/context-driven-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description possui 191 caracteres, ligeiramente abaixo da meta mínima de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho explícito no padrão 'Use when...' na description e omissão dos discriminantes do ecossistema Conductor (conductor/product.md, tech-stack.md, workflow.md, tracks.md).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seções introdutórias com negativas tautológicas e instruções genéricas (linhas 13-25).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 4,
+    "cuts": [
+      {
+        "text": "Remover o bloco tautológico 'Do not use this skill when' e as instruções operacionais vazias (linhas 13-25, 13 linhas) e o disclaimer genérico de limitações (linhas 402-406, 5 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Metodologia de governança de documentação canônica viva e arquitetura de contexto de projeto para guiar interações de IA no framework Conductor.",
+      "entidades": [
+        "Conductor",
+        "/conductor:setup",
+        "conductor/product.md",
+        "conductor/tech-stack.md",
+        "conductor/workflow.md",
+        "conductor/tracks.md",
+        "conductor/product-guidelines.md"
+      ],
+      "keywords": [
+        "context-driven-development",
+        "conductor",
+        "living-documentation",
+        "single-source-of-truth",
+        "context-lifecycle",
+        "greenfield-brownfield",
+        "project-alignment",
+        "session-continuity",
+        "git-hooks",
+        "architecture-documentation"
+      ]
+    },
+    "summary": "Metodologia excelente de governança de contexto com especificações claras de artefatos no Conductor, demandando inclusão de discriminantes na description e limpeza de preâmbulo genérico."
+  }
+]

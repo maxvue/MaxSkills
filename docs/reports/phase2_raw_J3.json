@@ -1,0 +1,42 @@
+[
+  {
+    "cluster": ["ad-creative", "paid-ads"],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "ad-creative e paid-ads representam papéis complementares mas distintos em marketing de crescimento: ad-creative foca na geração textual e visual, variação para testes A/B, restrições de caracteres e iteração baseada em métricas criativas, enquanto paid-ads foca na estratégia de mídia paga, arquitetura de campanhas, alocação de orçamento, bid strategies e rastreamento (GA4/pixels). Contudo, paid-ads inclui seções redundantes de fórmulas de copywriting (PAS, BAB, headlines) e possui gatilhos de ativação excessivamente genéricos, gerando colisão. A recomendação é LAPIDAR: remover o bloco de fórmulas de copy de paid-ads substituindo-o por referência delegatória a ad-creative, e calibrar o 'Use when...' de paid-ads para focar exclusivamente em gestão de tráfego, orçamentos e configuração de contas.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": ["agent-qa-debug-fix", "agent-qa-result-triage"],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas as skills integram o framework Agent QA compondo um pipeline de qualidade de duas etapas: agent-qa-result-triage é uma ferramenta segura (risk: safe) de análise e classificação diagnóstica somente-leitura de execuções com falha, enquanto agent-qa-debug-fix é uma ferramenta crítica (risk: critical) responsável por aplicar patches em código/YAML e executar validações locais. A separação respeita o princípio de privilégio mínimo e governança de segurança para agentes autônomos. As skills já referenciam uma à outra internamente. A recomendação é DEMARCAR: manter ambas intactas e calibrar estritamente suas descrições e cláusulas 'Use when...' para que o orquestrador direcione triagens/diagnósticos para agent-qa-result-triage e reserve agent-qa-debug-fix para a execução pós-diagnóstico de correções no código.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": ["emil-design-eng", "review-animations"],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "Ambas as skills têm origem comum (emilkowalski/skills). emil-design-eng é um repositório conceitual e prático extenso (700+ linhas) sobre design engineering, física de springs, clip-path, easings e heurísticas de UI, mas incorpora indevidamente uma seção mandatória de revisão de código ('Review Format (Required)') e checklists que colidem diretamente com a função de review-animations. review-animations, por sua vez, é um subagente/revisor especializado com 'disable-model-invocation: true' desenhado estritamente para code review de diffs com postura rigorosa e veredicto formal Block/Approve. A recomendação é LAPIDAR: remover a formatação coercitiva de code review de emil-design-eng para que esta atue como mentora e guia de implementação de UI craft, mantendo review-animations focada na auditoria passiva de motion diffs, demarcando os gatilhos para evitar sobreposição.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": ["fp-errors", "fp-pragmatic"],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "Ambas foram desenvolvidas pelo mesmo autor (kadu) para TypeScript com fp-ts, mas cumprem papéis de escopo e audiência distintos. fp-pragmatic é um guia introdutório e arquitetural focado no princípio 80/20, pragmatismo e legibilidade, orientando desenvolvedores sobre quando NÃO usar FP e cobrindo conceitos básicos (Pipe, Option, Either inicial). fp-errors é um guia técnico avançado focado exclusivamente na modelagem e resiliência de erros sem exceções, aprofundando em TaskEither, acumulação de erros com NonEmptyArray via Applicative Validation, Do notation, retries e bulk operations com sucesso parcial. Um MERGE prejudicaria a clareza didática de fp-pragmatic e geraria um arquivo massivo (>1400 linhas). A recomendação é DEMARCAR: calibrar as descrições e gatilhos para que fp-pragmatic seja acionada para governança, mindset funcional e boas práticas, e fp-errors seja acionada exclusivamente quando houver demanda explícita de arquitetura de erros e validações complexas.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": ["fp-types-ref", "fp-taskeither-ref"],
+    "recommendation": "MERGE",
+    "into": "fp-types-ref",
+    "rationale": "Ambas as skills são cheatsheets curtas de referência rápida (79 e 116 linhas, respectivamente) voltadas para a biblioteca fp-ts. fp-types-ref já atua como ponto de entrada para a escolha de tipos (Option vs Either vs Task vs TaskEither), enquanto fp-taskeither-ref isola a sintaxe de TaskEither de maneira excessivamente fragmentada. Manter micro-skills separadas para referências sintáticas da mesma biblioteca dispersa a base de conhecimento e sobrecarrega o roteador do orquestrador. A recomendação é MERGE: unificar fp-taskeither-ref dentro de fp-types-ref, formando uma folha de referência rápida completa e concisa sobre os tipos e operadores fundamentais do fp-ts.",
+    "mergePlan": "1. Em fp-types-ref, manter a árvore de decisão de tipos e a tabela de imports. 2. Incorporar as seções de fp-taskeither-ref ('Create', 'Transform', 'Execute', 'Common Patterns' e 'vs async/await') sob uma seção dedicada 'TaskEither Reference' em fp-types-ref. 3. Atualizar o frontmatter de fp-types-ref incluindo as tags de fp-taskeither-ref (taskeither, async, promise) e expandindo a descrição e cláusula 'When to Use' para cobrir tanto seleção de tipos quanto sintaxe rápida de TaskEither. 4. Descontinuar e remover a pasta/arquivo de fp-taskeither-ref.",
+    "reviewModel": "Tier 1 (Fast)"
+  }
+]

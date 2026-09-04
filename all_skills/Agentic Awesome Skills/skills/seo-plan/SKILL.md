@@ -1,6 +1,6 @@
 ---
 name: seo-plan
-description: >
+description: "> Use when developing, optimizing, debugging, or configuring seo plan in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo plan. Use when developing, optimizing, testing, or configuring seo plan in production environments."
   Strategic SEO planning for new or existing websites. Industry-specific
   templates, competitive analysis, content strategy, and implementation
   roadmap. Use when user says "SEO plan", "SEO strategy", "content strategy",

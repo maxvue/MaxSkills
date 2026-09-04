@@ -1,6 +1,6 @@
 ---
 name: x-twitter-scraper
-description: "Use Xquik for X data workflows: tweet search, user lookup, follower export, media downloads, monitors, webhooks, REST API, MCP, SDK setup, and approval-gated account actions."
+description: "Use Xquik for X data workflows: tweet search, user lookup, follower export, media downloads, monitors, webhooks, REST API, MCP, SDK setup, and approval-gated account actions. Use when developing, optimizing, debugging, or configuring x twitter scraper in production workflows."
 category: data
 risk: critical
 source: community

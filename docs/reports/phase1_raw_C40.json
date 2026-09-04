@@ -1,0 +1,553 @@
+[
+  {
+    "skillName": "llm-ops",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-ops/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "A description possui apenas 155 caracteres (abaixo do intervalo recomendado de 200 a 400 caracteres) e carece de gatilho explícito de ativação ('Use when...' ou 'Ative quando...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Os blocos de código Python não utilizam blocos de código formatados com syntax fences (```python), apresentando indentação crua com quebras literais incorretas dentro de strings multiline.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Vazamento de contexto e artefatos de projetos proprietários ('Auri / Amazon Alexa') nas instruções de prompt e testes de avaliação (AURI_EVALS), quebrando a neutralidade técnica esperada de uma skill pública.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Presença de seções com boilerplate genérico e redundante ('When to Use This Skill' dizendo 'When you need specialized assistance with this domain', além de 'Best Practices' e 'Common Pitfalls' triviais).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 18,
+    "cuts": [
+      {
+        "text": "Remover o boilerplate genérico das seções 'When to Use This Skill' e 'Do Not Use This Skill When' (linhas 28 a 37).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover seções genéricas 'Best Practices', 'Common Pitfalls' e 'Limitations' (linhas 248 a 264) que apenas repetem conselhos óbvios de engenharia.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Expurgar referências residuais do assistente proprietário 'Auri / Alexa' (linhas 134-140 e 227-232), tornando os exemplos neutros e reutilizáveis.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Operações e arquiteturas de produção para LLMs com foco em RAG, pgvector, Chroma, cache semântico e pipelines de avaliação.",
+      "entidades": [
+        "Anthropic",
+        "chromadb",
+        "PersistentClient",
+        "pgvector",
+        "vector(1536)",
+        "ivfflat",
+        "SemanticCache",
+        "claude-opus-4",
+        "claude-sonnet-4-5",
+        "claude-haiku-3-5"
+      ],
+      "keywords": [
+        "llm-ops",
+        "rag",
+        "embeddings",
+        "vector-db",
+        "pgvector",
+        "chromadb",
+        "semantic cache",
+        "prompt engineering",
+        "evals",
+        "cost estimation",
+        "fine-tuning",
+        "chunking",
+        "cosine similarity"
+      ]
+    },
+    "summary": "Skill prática sobre infraestrutura RAG e operações de LLM com Chroma e pgvector, necessitando de ampliação da description com gatilho formal, correção de fences de código e remoção de boilerplate e resíduos de assistente específico."
+  },
+  {
+    "skillName": "llm-structured-output",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/llm-structured-output/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description possui 160 caracteres (abaixo do intervalo ideal de 200 a 400 caracteres) e não possui fórmula de gatilho explícita ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 3,
+    "cuts": [
+      {
+        "text": "Remover o bloco final de 4 linhas de limitações genéricas (linhas 209-213) mantendo o foco total nas diretrizes de decodificação estruturada.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração confiável de esquemas JSON, enums e modelos tipados a partir de respostas de LLMs usando OpenAI, Anthropic e Gemini com decodificação restrita.",
+      "entidades": [
+        "OpenAI",
+        "response_format",
+        "json_schema",
+        "Pydantic",
+        "BaseModel",
+        "Anthropic",
+        "tool_use",
+        "tool_choice",
+        "Zod",
+        "zodResponseFormat",
+        "Gemini",
+        "responseSchema"
+      ],
+      "keywords": [
+        "structured output",
+        "json schema",
+        "pydantic",
+        "zod",
+        "response_format",
+        "tool_use",
+        "constrained decoding",
+        "strict mode",
+        "type safety",
+        "enums",
+        "data extraction",
+        "retry logic"
+      ]
+    },
+    "summary": "Skill técnica de altíssima qualidade cobrindo OpenAI structured outputs, Anthropic tool_use e Zod/Pydantic com nuances de produção, necessitando apenas de ajuste na description para 200-400 chars com gatilho explícito."
+  },
+  {
+    "skillName": "local-legal-seo-audit",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/local-legal-seo-audit/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description tem 196 caracteres (levemente abaixo dos 200 caracteres ideais) e não inclui fórmula de gatilho de ativação formal ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 2,
+    "cuts": [
+      {
+        "text": "Remover o bloco residual de 4 linhas de limitações genéricas no final do arquivo (linhas 349-353).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria e melhoria de SEO local, autoridade E-E-A-T e consistência de diretórios para escritórios de advocacia e peritos forenses.",
+      "entidades": [
+        "Google Business Profile",
+        "GBP",
+        "OAB",
+        "Jusbrasil",
+        "Escavador",
+        "Avvo",
+        "Justia",
+        "FindLaw",
+        "LegalService Schema",
+        "NAP"
+      ],
+      "keywords": [
+        "local seo",
+        "law firms",
+        "attorneys",
+        "perito forense",
+        "google business profile",
+        "e-e-a-t",
+        "ymyl",
+        "citations",
+        "nap consistency",
+        "practice area pages",
+        "legal directories"
+      ]
+    },
+    "summary": "Guia estruturado e prático de auditoria de SEO local e confiança E-E-A-T para profissionais do direito e peritos, precisando apenas de expansão de description com gatilho 'Use when'."
+  },
+  {
+    "skillName": "local-llm-expert",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/local-llm-expert/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui 194 caracteres (abaixo de 200) e carece de gatilho de ativação no formato 'Use when...'.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Uso de termos auto-promocionais no frontmatter ('Master local LLM...', 'Expert in quantization formats...'), violando a diretriz anti-promocional.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 4,
+    "cuts": [
+      {
+        "text": "Remover o bloco de encerramento de limitações genéricas (linhas 85-89).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Implantação, dimensionamento de VRAM, seleção de formatos de quantização e configuração de engines para LLMs locais.",
+      "entidades": [
+        "Ollama",
+        "llama.cpp",
+        "vLLM",
+        "LM Studio",
+        "GGUF",
+        "EXL2",
+        "AWQ",
+        "GPTQ",
+        "ChatML",
+        "Llama 3",
+        "DeepSeek",
+        "Mistral"
+      ],
+      "keywords": [
+        "local llm",
+        "inference engine",
+        "vram calculation",
+        "quantization",
+        "gguf",
+        "exl2",
+        "ollama",
+        "llama.cpp",
+        "vllm",
+        "chat templates",
+        "paged attention",
+        "kv cache"
+      ]
+    },
+    "summary": "Skill objetiva e bem dimensionada sobre cálculo de VRAM e inferência de modelos locais com Ollama, llama.cpp e vLLM, necessitando de eliminação de jargão promocional e inclusão de gatilho na description."
+  },
+  {
+    "skillName": "logic-diff",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/logic-diff/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description foi truncada de forma abrupta terminando com reticências ('... \"are...'), demonstrando importação corrompida do repositório upstream.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Quebra severa de dependências internas: instrui leitura obrigatória de 5 arquivos inexistentes em '../_shared/' (common.md, logic-risks.md, semiformal-guide.md, semiformal-checklist.md, report-template.md), gerando erros de execução (ENOENT) em agentes que a ativarem.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover instruções de carregamento lazy-loading para o diretório ausente '../_shared/' (linhas 21-24), tornando o guia auto-contido.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Corrigir e completar o texto truncado na description e no bloco 'When to Use' (linhas 3 e 16).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Verificação semi-formal de equivalência semântica e identificação de divergências lógicas entre versões refatoradas de código.",
+      "entidades": [
+        "logic-diff",
+        "logic-diff-guide.md",
+        "L-code",
+        "Report Template"
+      ],
+      "keywords": [
+        "semantic diff",
+        "code equivalence",
+        "refactoring verification",
+        "semi-formal tracing",
+        "behavioral divergence",
+        "regression detection",
+        "boundary conditions",
+        "fault trigger"
+      ]
+    },
+    "summary": "Metodologia sólida de análise diferencial de código, porém severamente prejudicada por description truncada e referências a arquivos compartilhados inexistentes."
+  },
+  {
+    "skillName": "logic-lens",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/logic-lens/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description possui apenas 176 caracteres, não inclui o gatilho formal 'Use when...' e utiliza vocabulário promocional ('AI-powered Claude Code skill...', 'beyond what linters catch').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de ruído estrutural importado de README público de divulgação (seção de instalação via marketplace/npx, links para artigos de blog no Dev.to e percentuais de benchmark de marketing).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 22,
+    "cuts": [
+      {
+        "text": "Remover seção de instalação de marketplace e NPX (linhas 43-53) por ser inútil ao agente durante execução.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover métricas de marketing da seção 'Benchmark Results' (linhas 103-110).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover links promocionais externos da seção 'Additional Resources' (linhas 117-122).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Revisão lógica e detecção de riscos de código através de 9 categorias de inspeção comportamental e segurança além de linters sintáticos.",
+      "entidades": [
+        "Logic Lens",
+        "Claude Code",
+        "ESLint",
+        "TypeScript",
+        "Snyk"
+      ],
+      "keywords": [
+        "code review",
+        "formal logic",
+        "concurrency",
+        "race conditions",
+        "type safety",
+        "resource leaks",
+        "security injection",
+        "boundary conditions",
+        "state management",
+        "api contracts"
+      ]
+    },
+    "summary": "Revisão analítica estruturada em 9 categorias lógicas com alto valor técnico, necessitando de poda de marketing de repositório e descrição desprovida de adjetivos vazios."
+  },
+  {
+    "skillName": "logic-locate",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/logic-locate/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description termina truncada abruptamente com reticências ('... \"why is...'), fruto de ingestão incompleta da fonte original.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Dependência quebrada com diretório '../_shared/': referencia arquivos essenciais inexistentes (common.md, logic-risks.md, semiformal-guide.md, semiformal-checklist.md, report-template.md) para classificação de confiança e formato do laudo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Remover referências externas aos arquivos ausentes em '../_shared/' (linhas 21-25) e incluir diretrizes de relatório inline.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Corrigir a frase truncada na description e na seção 'When to Use' (linhas 3 e 16).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Isolamento da causa-raiz de falhas e bugs confirmados por meio de rastreamento semi-formal reverso e confirmação direta.",
+      "entidades": [
+        "logic-locate",
+        "logic-locate-guide.md",
+        "Fault Confidence",
+        "Primary Fault"
+      ],
+      "keywords": [
+        "root cause analysis",
+        "fault localization",
+        "backward tracing",
+        "stack trace analysis",
+        "failing assertion",
+        "debugging",
+        "interprocedural tracing",
+        "divergence classification"
+      ]
+    },
+    "summary": "Procedimento estruturado de diagnóstico de falhas via rastreamento reverso, inviabilizado operacionalmente por description truncada e 5 arquivos de suporte inexistentes."
+  },
+  {
+    "skillName": "loki-mode",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/loki-mode/SKILL.md",
+    "state": "Crítica",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A description é um amontoado promocional de versões e buzzwords sem ação clara, sem gatilho 'Use when...' e com apenas 161 caracteres ('Version 2.35.0 | PRD to Production | Zero Human Intervention > Research-enhanced...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Violação severa de segurança operacional e governança de agente: impõe regras explícitas para desativar a supervisão humana ('NEVER ask questions', 'NEVER wait for confirmation', 'NEVER stop voluntarily') e força loops infinitos descontrolados.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Documento hipertrofiado com 728 linhas (>28 KB) repleto de ruído conceitual, tabelas gigantescas de agentes e buzzwords de redes sociais ('Boris Cherny patterns', 'HN Production 2025', 37 agent types).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 45,
+    "cuts": [
+      {
+        "text": "Remover as regras de execução cega que proíbem o agente de consultar o usuário ou confirmar comandos críticos (linhas 105-116).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Podar o excesso de seções teóricas repetitivas sobre 37 tipos de agentes e referências desnecessárias a threads do Hacker News e padrões informais (linhas 68-93 e 698-721).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Condensar os fluxos de trabalho e diagramas ASCII redundantes para um guia direto focado no ciclo SDLC e gestão de contexto.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Sistema multi-agente para orquestração autônoma do ciclo completo de desenvolvimento de software da concepção à produção com ciclo RARV.",
+      "entidades": [
+        "Loki Mode",
+        "RARV Cycle",
+        "CONTINUITY.md",
+        "OpenAPI",
+        "Playwright MCP",
+        "Opus",
+        "Sonnet",
+        "Haiku"
+      ],
+      "keywords": [
+        "autonomous agents",
+        "multi-agent system",
+        "prd to production",
+        "sdlc automation",
+        "working memory",
+        "episodic memory",
+        "guardrails",
+        "spec-driven development",
+        "self-verification"
+      ]
+    },
+    "summary": "Sistema multi-agente hipertrofiado com description promocional vazia e instruções perigosas de execução ininterrupta sem confirmação humana."
+  },
+  {
+    "skillName": "longbridge",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/longbridge/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description carece de gatilho explícito ('Use when...') e inclui expressões promocionais e de empacotamento ('125+ agent skills...', '...and more').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença de instruções operacionais de instalação via plugin marketplace e npx (linhas 70-79) e contagem de estrelas de repositório, irrelevantes para o agente.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover seção de instalação de marketplace e NPX (linhas 70-79).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover menções a métricas de repositório público (linha 27).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Interface e execução de comandos CLI e MCP da Longbridge Securities para cotações em tempo real, fundamentos e gestão de portfólio em HK, US, A-share e Cingapura.",
+      "entidades": [
+        "longbridge",
+        "Longbridge Securities",
+        "CLI",
+        "MCP Tools",
+        "HKEX",
+        "NASDAQ",
+        "NYSE",
+        "SSE",
+        "SZSE",
+        "SGX"
+      ],
+      "keywords": [
+        "longbridge",
+        "stock quotes",
+        "market data",
+        "portfolio analysis",
+        "options",
+        "hk stocks",
+        "us stocks",
+        "a-shares",
+        "financial cli",
+        "mcp fallback"
+      ]
+    },
+    "summary": "Skill oficial bem estruturada de integração com a corretora Longbridge via terminal/MCP, necessitando apenas de ajuste de gatilho na description e remoção de comandos de instalação."
+  },
+  {
+    "skillName": "longbridge-market-data",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/longbridge-market-data/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description foi truncada no final com reticências ('... Triggers:...'), configurando texto inacabado.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Quebra de dependência local: a tabela de sub-topic routing orienta o carregamento de 18 arquivos em 'references/*.md' (quote.md, kline.md, depth.md, etc.) que não existem no diretório da skill, gerando erros em tempo de execução.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover ou adaptar a tabela de sub-topic routing (linhas 28-48) para não referenciar arquivos locais inexistentes em 'references/'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Corrigir a terminação truncada da description no frontmatter (linha 3).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Consulta de dados de mercado em tempo real e históricos via CLI da Longbridge, cobrindo cotações, K-lines, livro de ofertas e fluxo de capital.",
+      "entidades": [
+        "longbridge",
+        "longbridge-terminal",
+        "K-line",
+        "Level 2 order book",
+        "HKEX",
+        "A/H premium",
+        "ADR premium",
+        "FX carry"
+      ],
+      "keywords": [
+        "market data",
+        "real-time quotes",
+        "candlestick charts",
+        "order book",
+        "tick data",
+        "capital flow",
+        "ipo calendar",
+        "exchange rate",
+        "adr premium",
+        "fx carry",
+        "longbridge"
+      ]
+    },
+    "summary": "Documentação abrangente de dados de mercado da Longbridge com description truncada e quebra funcional grave devido à ausência de 18 arquivos locais de referência mapeados no roteamento."
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "cluster": [
+      "laravel-brazilian-localization-best-practices",
+      "vue-inputs-masks-validation-best-practices"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "Embora pertençam a camadas distintas (backend Laravel vs. frontend Vue 3), 'laravel-brazilian-localization-best-practices' possui uma seção inteira (seção 2, ~40% do arquivo) detalhando componentes de UI do Vue 3 (MaxInputCpfCnpj, MaxInputCep, MaxInputPhoneMail, InputNumber) e helpers de validação do TypeScript (@maxvue/max-use/validations). Isso duplica diretamente o conteúdo e as responsabilidades de 'vue-inputs-masks-validation-best-practices', que já é a skill especializada em inputs mascarados, validação e manipulação de formulários Vue 3. A recomendação é LAPIDAR: manter ambas as skills separadas por camada, mas remover/enxugar a seção redundante de componentes Vue da skill backend de localização, mantendo nela apenas a lógica Laravel/PHP (sanitização no banco, BrUtils, StringsHelper, number_format, NumberToWords) e um link de referência para a skill de frontend; e calibrar os gatilhos 'Use when...' para que não haja sobreposição de chamada.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "laravel-ziggy-routing-integration-best-practices",
+      "vue-axios-api-integration-best-practices"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "'laravel-ziggy-routing-integration-best-practices' lida com a infraestrutura de geração e exposição de rotas nomeadas via Tighten Ziggy (artisan ziggy:generate, config/ziggy.php, tipos RouteList e bootstrap do resolvedor de rotas em app.ts). 'vue-axios-api-integration-best-practices' foca no cliente HTTP frontend (@maxvue/max-use: apiGetRoute, apiPostRoute, contratos de retorno e credenciais de sessão). Contudo, a skill de axios duplica integralmente o trecho de código e a explicação detalhada de 'setRouteResolver' em resources/app.ts (Regra 3), além de repetir preceitos sobre rotas nomeadas. A recomendação é LAPIDAR: manter ambas as skills devido a seus objetivos arquiteturais distintos (geração/resolução de rotas vs transporte HTTP), mas refinar 'vue-axios-api-integration-best-practices' para focar puramente em mutações HTTP, tratamento de retornos e erros, removendo a duplicação do bootstrap do resolver que pertence canonicamente à skill de Ziggy.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "frontend-design-best-practices",
+      "vue-unocss-styling-best-practices"
+    ],
+    "recommendation": "DEMARCAR",
+    "into": null,
+    "rationale": "As duas skills operam em níveis de abstração completamente distintos e complementares no frontend: 'frontend-design-best-practices' aborda a direção de arte, mandato estético, ritmo visual, diferenciação e combate a layouts genéricos de IA (design thinking e UX); enquanto 'vue-unocss-styling-best-practices' é estritamente técnica, ensinando a sintaxe do UnoCSS, regras do presetMaxUno, params.scss, seletores de atributos e suporte a dark mode via CSS variables. Não há duplicação de regras no corpo dos documentos, mas seus gatilhos 'Use when...' atuais colidem quando o prompt menciona desenvolvimento/remodelagem de UI com UnoCSS. A recomendação é DEMARCAR: manter ambos os arquivos íntegros e calibrar suas descrições/gatilhos para que o orquestrador direcione tarefas conceituais de design e layout para 'frontend-design-best-practices', e tarefas de codificação de classes/estilos e sintaxe UnoCSS para 'vue-unocss-styling-best-practices'.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  },
+  {
+    "cluster": [
+      "vue-max-stack-frontend-best-practices",
+      "vue-typescript-best-practices"
+    ],
+    "recommendation": "LAPIDAR",
+    "into": null,
+    "rationale": "'vue-max-stack-frontend-best-practices' é o guia macro de arquitetura de Single File Components (SFC) no ecossistema Max (estrutura de templates, componentes Max*, formulários com MaxGrid e visão geral da stack). 'vue-typescript-best-practices' deve ser o guia focado em tipagem estática e segurança de tipos (defineProps/defineEmits tipados, DTOs gerados via spatie/laravel-typescript-transformer, tipos de template refs). No entanto, 'vue-typescript-best-practices' repete longas explicações sobre o funcionamento funcional do cache/auto-save do MaxPinia e a resolução de rotas sem prefixo api/ (seções 5 e 6), invadindo o escopo da skill macro. A recomendação é LAPIDAR: enxugar essas seções em 'vue-typescript-best-practices' para focar puramente em como TIPAR as stores e propriedades (interfaces, genéricos, contratos DTO), deixando os preceitos arquiteturais do ecossistema a cargo de 'vue-max-stack-frontend-best-practices', e calibrar os gatilhos 'Use when...' para distinguir scaffold/composição de SFCs de tipagem estática TypeScript.",
+    "mergePlan": null,
+    "reviewModel": "Tier 2 (High-Reasoning)"
+  },
+  {
+    "cluster": [
+      "project-history",
+      "project-setup"
+    ],
+    "recommendation": "FALSO-POSITIVO",
+    "into": null,
+    "rationale": "O cluster foi agrupado unicamente pela semelhança léxica do prefixo 'project-'. 'project-history' é um log cronológico extenso (~31 KB) documentando marcos concluídos, decisões de arquitetura e validações de testes desde o Marco 1 até a Fase 7, servindo como base de conhecimento histórica. 'project-setup' é um guia estritamente operacional (~3 KB) com comandos de terminal (composer, npm, artisan db:bootstrap, redis, horizon) para subir o ambiente do zero em uma nova máquina. Os escopos, ferramentas, ciclos de vida e intenções são completamente ortogonais. Trata-se de um claro falso-positivo; ambas devem ser preservadas sem qualquer alteração de conteúdo ou mescla.",
+    "mergePlan": null,
+    "reviewModel": "Tier 1 (Fast)"
+  }
+]

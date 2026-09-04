@@ -1,0 +1,593 @@
+[
+  {
+    "skillName": "backend-dev-guidelines",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/backend-dev-guidelines/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description inicia com prompt injection de persona ('You are a senior backend engineer operating production-grade services...') em desacordo com os Critérios 2 e 7, em vez de descrever as capacidades técnicas da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Gatilho de uso gramaticalmente quebrado ('Use when routes, controllers, services, repositories, express middleware, or prisma database access.') faltando verbo de ação (ex.: 'Use when implementing, refactoring, or reviewing routes...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' duplicada na cauda (linhas 346-347) repetindo redundâncias com bloco de limitações genérico de template (linhas 349-352).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover cauda de template com repetição vazia de 'When to Use' e 'Limitations' (linhas 344-353) e desacoplar menções estritas de skills externas na seção 11 (linhas 316-324).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes arquiteturais em camadas estritas (rotas, controllers, serviços e repositórios) para microsserviços Node.js/Express com Prisma, Zod e Sentry.",
+      "entidades": [
+        "BaseController",
+        "unifiedConfig",
+        "PrismaClient",
+        "Zod",
+        "Sentry",
+        "asyncErrorWrapper",
+        "Express",
+        "TypeScript"
+      ],
+      "keywords": [
+        "layered architecture",
+        "express",
+        "prisma",
+        "zod",
+        "sentry",
+        "base-controller",
+        "dependency-injection",
+        "repositories",
+        "controllers",
+        "error-boundaries",
+        "observability",
+        "data-validation",
+        "node-js",
+        "async-error-handling",
+        "bfri"
+      ]
+    },
+    "summary": "Conteúdo técnico de arquitetura backend Node.js de alta qualidade, necessitando apenas de saneamento da persona na description e poda de boilerplate final."
+  },
+  {
+    "skillName": "backend-security-coder",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/backend-security-coder/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 5,
+    "problems": [
+      {
+        "text": "Referência fantasma a arquivo inexistente na linha 24: 'open resources/implementation-playbook.md', mas o arquivo e pasta resources não existem.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Artefato evidente de conversão crua de agente/system prompt nas linhas 31-35 ('Use this agent for... / Use security-auditor for... / Key difference: This agent focuses on...').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Tautologias em seções operacionais nas linhas 9-18 ('Use this skill when: Working on backend security coder tasks / Do not use when: The task is unrelated to backend security coder').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência completa de exemplos práticos de código em todo o documento de 161 linhas, restringindo-se a listas exaustivas de tópicos conceituais.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description de 196 caracteres focada em persona ('Expert in secure backend coding practices...'), com uso promocional em caixa alta ('Use PROACTIVELY') e carência de discriminantes técnicos concretos (OWASP, JWT, CSRF, CSP, bcrypt/Argon2).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "INCHADA",
+    "estimatedCutPct": 35,
+    "cuts": [
+      {
+        "text": "Eliminar preâmbulos tautológicos (linhas 9-25), comparação de personas de sub-agentes (linhas 28-35), traços comportamentais e listas duplicadas de knowledge base (linhas 112-135) e limitações genéricas (linhas 157-161).",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Catálogo de boas práticas defensivas e segurança backend cobrindo validação de entrada, autenticação, headers HTTP, CSRF, mitigação de injeções e APIs.",
+      "entidades": [
+        "OWASP",
+        "JWT",
+        "OAuth 2.0",
+        "Argon2",
+        "bcrypt",
+        "CSP",
+        "HSTS",
+        "CORS",
+        "SameSite",
+        "HashiCorp Vault"
+      ],
+      "keywords": [
+        "backend security",
+        "input validation",
+        "sql injection",
+        "csrf protection",
+        "ssrf prevention",
+        "security headers",
+        "authentication",
+        "authorization",
+        "rate limiting",
+        "audit logging",
+        "jwt",
+        "password hashing",
+        "defensive programming",
+        "parameterized queries"
+      ]
+    },
+    "summary": "Apresenta link quebrado para playbook inexistente, ausência de código, tautologias graves e resquícios de prompt de subagente, demandando reestruturação profunda."
+  },
+  {
+    "skillName": "backtesting-frameworks",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/backtesting-frameworks/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (138 caracteres), sem cláusula de gatilho ('Use when...'), sem discriminantes semânticos da área (Python, event-driven, slippage, walk-forward, Sharpe) e com termos promocionais ('robust, production-grade', 'reliable').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "SKILL.md funciona como um mero stub raso de 48 linhas que delega todo o conhecimento real para resources/implementation-playbook.md, sem trazer nenhuma síntese arquitetural de alto nível no arquivo raiz.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Instruções operacionais genéricas e seção de limitações de template boilerplate (linhas 44-48).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Podar limitações genéricas de template (linhas 44-48) no SKILL.md e integrar os conceitos chave do playbook diretamente para enriquecer o arquivo raiz.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Framework e padrões em Python para simulação de backtesting quantitativo orientado a eventos, modelagem de slippage/comissões e análise walk-forward.",
+      "entidades": [
+        "Order",
+        "OrderSide",
+        "OrderType",
+        "Fill",
+        "Position",
+        "WalkForwardOptimizer",
+        "SharpeRatio",
+        "SortinoRatio",
+        "MaxDrawdown",
+        "Pandas"
+      ],
+      "keywords": [
+        "backtesting",
+        "event-driven",
+        "quantitative finance",
+        "walk-forward analysis",
+        "slippage model",
+        "execution logic",
+        "look-ahead bias",
+        "survivorship bias",
+        "sharpe ratio",
+        "drawdown",
+        "trading strategy",
+        "python",
+        "point-in-time data"
+      ]
+    },
+    "summary": "O playbook técnico em Python é robusto, mas o SKILL.md é um stub raso e sua description falha em extensão, gatilhos e discriminantes essenciais."
+  },
+  {
+    "skillName": "baseline-ui",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/baseline-ui/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (153 caracteres) abaixo do piso de 200 caracteres, utilizando gíria informal ('deslop') em vez de terminologia técnica precisa.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite os discriminantes tecnológicos fundamentais presentes no corpo da skill: Tailwind CSS, motion/react, Radix, Base UI e utilitário cn (clsx + tailwind-merge).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância direta entre a description e a seção 'When to Use' (linhas 14-17), que repete a frase de forma quase literal.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Condensar a redundância da seção 'When to Use' (linhas 14-17) e alinhar com o preâmbulo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Regras opinativas e estritas de design system e polimento de UI para interfaces React/Tailwind CSS, acessibilidade e micro-animações.",
+      "entidades": [
+        "Tailwind CSS",
+        "motion/react",
+        "tw-animate-css",
+        "Base UI",
+        "React Aria",
+        "Radix",
+        "clsx",
+        "tailwind-merge",
+        "AlertDialog"
+      ],
+      "keywords": [
+        "baseline-ui",
+        "tailwind-css",
+        "motion-react",
+        "base-ui",
+        "radix",
+        "accessibility",
+        "typography",
+        "text-balance",
+        "tabular-nums",
+        "layout",
+        "compositor-animation",
+        "z-index",
+        "h-dvh",
+        "safe-area-inset",
+        "ui-polish"
+      ]
+    },
+    "summary": "Excelente conjunto de diretrizes de UI moderno para React/Tailwind; necessita apenas de expansão da description para incluir as bibliotecas e remoção de gíria."
+  },
+  {
+    "skillName": "bats-testing-patterns",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bats-testing-patterns/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description de 198 caracteres adota imperativo promocional ('Master Bash Automated Testing System...') e repete 'comprehensive' em desacordo com o Critério 10.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "SKILL.md atua como roteador para resources/implementation-playbook.md contendo limitações de template boilerplate dispensáveis (linhas 40-43).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 12,
+    "cuts": [
+      {
+        "text": "Remover seção de limitações de template genérico (linhas 40-43) no SKILL.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Padrões de teste unitário e integração para scripts Shell utilizando o framework Bats (Bash Automated Testing System) e CI/CD.",
+      "entidades": [
+        "bats-core",
+        "bats-assert",
+        "bats-support",
+        "bats-file",
+        "TAP",
+        "setup",
+        "teardown",
+        "@test",
+        "run"
+      ],
+      "keywords": [
+        "bats",
+        "bash",
+        "shell-testing",
+        "bats-core",
+        "unit-testing",
+        "fixtures",
+        "mocks",
+        "ci-cd",
+        "tdd",
+        "exit-codes",
+        "assertions",
+        "tap-protocol",
+        "test-runner"
+      ]
+    },
+    "summary": "Playbook técnico de testes Shell Bats muito rico e estruturado; requer apenas ajuste anti-promocional e enriquecimento da description com bibliotecas auxiliares."
+  },
+  {
+    "skillName": "bazel-build-optimization",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bazel-build-optimization/SKILL.md",
+    "state": "Boa",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Referência quebrada a arquivo inexistente na linha 23 ('open resources/implementation-playbook.md'), pois o diretório contém unicamente o SKILL.md.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description curta (162 caracteres) sem os discriminantes técnicos de peso contidos na skill: .bazelrc, aspect_rules_js, rules_python, remote cache, bazel query e Starlark rules.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Tautologias em 'Do not use this skill when' (linhas 13-17: 'The task is unrelated to bazel build optimization').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Configuração centrada em WORKSPACE.bazel sem mencionar ou preparar compatibilidade com Bzlmod (MODULE.bazel), padrão adotado a partir do Bazel 6/7+.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 7,
+    "cuts": [
+      {
+        "text": "Eliminar boilerplate de 'Do not use when unrelated' e instruções genéricas (linhas 13-24) que contêm link para playbook fantasma, além das limitações genéricas (linhas 402-406).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Otimização de builds Bazel para monorepos, incluindo cache remoto, execução remota gRPC, regras Starlark personalizadas e análise de grafo via bazel query.",
+      "entidades": [
+        "WORKSPACE.bazel",
+        ".bazelrc",
+        "BUILD.bazel",
+        "aspect_rules_js",
+        "rules_python",
+        "ts_project",
+        "py_library",
+        "docker.bzl",
+        "DefaultInfo"
+      ],
+      "keywords": [
+        "bazel",
+        "monorepo",
+        "build optimization",
+        "remote cache",
+        "remote execution",
+        "starlark",
+        "bazel query",
+        "build profiling",
+        "disk cache",
+        "aspect_rules_js",
+        "rules_python",
+        "toolchains",
+        "platforms"
+      ]
+    },
+    "summary": "Excelente repertório de configurações e templates executáveis para Bazel; requer expurgo de referência fantasma a playbook e description mais densa."
+  },
+  {
+    "skillName": "bdi-mental-states",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bdi-mental-states/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Referência fantasma à pasta inexistente 'references/' nas linhas 286-291 (bdi-ontology-core.md, rdf-examples.md, sparql-competency.md, framework-integration.md).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description de 295 caracteres adota fórmula meta-condicional ('This skill should be used when the user asks to...') em vez de iniciar com uma proposição ativa declarando o que a skill executa.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Bloco de limitações de template genérico nas linhas 298-301.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 6,
+    "cuts": [
+      {
+        "text": "Remover bloco de referências a arquivos inexistentes (linhas 286-291) e limitações de template boilerplate (linhas 298-301).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Modelagem formal de estados mentais de agentes cognitivos (Belief-Desire-Intention) em RDF/Turtle e SPARQL integrada a arquiteturas neuro-simbólicas e LLMs.",
+      "entidades": [
+        "bdi:Belief",
+        "bdi:Desire",
+        "bdi:Intention",
+        "bdi:WorldState",
+        "bdi:Plan",
+        "SPARQL",
+        "Turtle",
+        "DOLCE",
+        "SEMAS",
+        "JADE"
+      ],
+      "keywords": [
+        "bdi architecture",
+        "belief-desire-intention",
+        "rdf",
+        "turtle",
+        "sparql",
+        "cognitive agents",
+        "neuro-symbolic ai",
+        "logic augmented generation",
+        "world state",
+        "temporal reasoning",
+        "ontology",
+        "deliberation",
+        "agent modeling"
+      ]
+    },
+    "summary": "Excepcional densidade teórica e formalismos em RDF/Turtle/SPARQL/Prolog; demanda apenas remoção de links fantasmas e refinamento sintático da description."
+  },
+  {
+    "skillName": "bdistill-behavioral-xray",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bdistill-behavioral-xray/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta (151 caracteres) com ausência de gatilho formal ('Use when...'), uso de metáfora ('X-ray') no lugar de verbo técnico de ação e tom comercial ('No API key needed').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description não cita as entidades e comandos centrais: MCP server, bdistill, /xray, /xray-report e geração de relatórios gráficos de calibração.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Limitações de template genéricas de preenchimento automático nas linhas 89-92.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Remover seção de limitações repetitivas de template (linhas 89-92).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diagnóstico e sondagem comportamental automatizada de modelos de IA via protocolo MCP com o bdistill para avaliar recusas, alucinações e raciocínio.",
+      "entidades": [
+        "bdistill",
+        "bdistill-mcp",
+        "Claude Code",
+        "MCP",
+        "/xray",
+        "/xray-report"
+      ],
+      "keywords": [
+        "bdistill",
+        "mcp",
+        "behavioral analysis",
+        "ai evaluation",
+        "refusal boundaries",
+        "hallucination detection",
+        "reasoning style",
+        "model profiling",
+        "red teaming",
+        "self probing",
+        "cot usage",
+        "claude code"
+      ]
+    },
+    "summary": "Skill enxuta, clara e com comandos MCP práticos para avaliação empírica de LLMs; necessita de expansão da description e substituição do tom promocional."
+  },
+  {
+    "skillName": "bdistill-knowledge-extraction",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/bdistill-knowledge-extraction/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description muito curta (125 caracteres) violando o Critério 1, sem cláusula explícita de gatilho ('Use when...') e com pitch promocional ('No API key needed').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description omite discriminantes técnicos fundamentais do arquivo: /distill, JSONL, datasets tabulares para ML (/schema), MCP e validação adversarial.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Boilerplate de limitações de template copiado nas linhas 108-111.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 5,
+    "cuts": [
+      {
+        "text": "Eliminar boilerplate genérico de limitações (linhas 108-111).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Extração estruturada de conhecimento de domínio a partir de LLMs via bdistill MCP e modelos locais Ollama com exportação em JSONL e datasets tabulares para ML.",
+      "entidades": [
+        "bdistill",
+        "bdistill-mcp",
+        "Ollama",
+        "Claude Code",
+        "JSONL",
+        "/distill",
+        "/schema"
+      ],
+      "keywords": [
+        "knowledge extraction",
+        "bdistill",
+        "ollama",
+        "mcp",
+        "structured data",
+        "domain knowledge",
+        "jsonl",
+        "reference dataset",
+        "machine learning data",
+        "adversarial validation",
+        "claude code",
+        "tabular ml"
+      ]
+    },
+    "summary": "Excelente utilitário para geração de datasets e bases de conhecimento via MCP e Ollama; requer expansão da description para >=200 caracteres com discriminantes."
+  },
+  {
+    "skillName": "behavioral-modes",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/behavioral-modes/SKILL.md",
+    "state": "Regular",
+    "problemCount": 4,
+    "problems": [
+      {
+        "text": "Description excessivamente curta (129 caracteres), com gatilho vago ('Use to adapt behavior based on task type') e listagem do modo 'orchestrate' que não existe no corpo da skill.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção morta e vazia '## Combining Modes' (linhas 231-232) sem texto algum, seguida diretamente por um divisor e outro título.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância tautológica na seção 'When to Use' (linhas 246-247: 'This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Acoplamento rígido a skill externa 'clean-code' na linha 51 ('CRITICAL: Use clean-code skill standards').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Remover a seção vazia '## Combining Modes' (linhas 231-232), a seção tautológica 'When to Use' (linhas 246-247) e as limitações de template (linhas 249-253).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Definição de modos operacionais adaptativos (brainstorming, implementação, depuração, revisão, ensino e release) para agentes de IA e colaboração multiagente.",
+      "entidades": [
+        "BRAINSTORM",
+        "IMPLEMENT",
+        "DEBUG",
+        "REVIEW",
+        "TEACH",
+        "SHIP",
+        "EXPLORE",
+        "PLAN-EXECUTE-CRITIC",
+        "clean-code"
+      ],
+      "keywords": [
+        "behavioral modes",
+        "agent behavior",
+        "brainstorm mode",
+        "implement mode",
+        "debug mode",
+        "code review",
+        "teaching mode",
+        "pre-ship checklist",
+        "mode switching",
+        "multi-agent patterns",
+        "prompt engineering",
+        "plan-execute-critic"
+      ]
+    },
+    "summary": "Conceito útil de modos operacionais de IA, mas prejudicado por seção fantasma vazia, description subdimensionada (<130 caracteres) e modo citado não documentado."
+  }
+]

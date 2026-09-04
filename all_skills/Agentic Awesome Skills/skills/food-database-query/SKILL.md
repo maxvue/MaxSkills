@@ -1,6 +1,6 @@
 ---
 name: food-database-query
-description: Food Database Query
+description: "Comprehensive engineering guide and best practices for food database query. Use when configuring, developing, debugging, or optimizing food database query architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for food database query."
 risk: critical
 source: community
 ---

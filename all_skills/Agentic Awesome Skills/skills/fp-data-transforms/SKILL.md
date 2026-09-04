@@ -1,6 +1,6 @@
 ---
 name: fp-data-transforms
-description: Everyday data transformations using functional patterns - arrays, objects, grouping, aggregation, and null-safe access
+description: "Everyday data transformations using functional patterns - arrays, objects, grouping, aggregation, and null-safe access Use when developing, optimizing, debugging, or configuring fp data transforms in production workflows."
 risk: critical
 source: community
 version: 1.0.0

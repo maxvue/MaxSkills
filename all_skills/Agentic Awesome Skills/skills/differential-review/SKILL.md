@@ -1,6 +1,6 @@
 ---
 name: differential-review
-description: "Security-focused code review for PRs, commits, and diffs."
+description: "Comprehensive engineering guide and best practices for differential review. Use when configuring, developing, debugging, or optimizing differential review architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for differential review."
 risk: critical
 source: community
 ---

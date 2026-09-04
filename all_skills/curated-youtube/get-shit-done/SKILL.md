@@ -1,64 +1,40 @@
 ---
 name: get-shit-done
-description: "High-velocity autonomous engineering workflow framework moving agents from idea to verified delivery with minimal friction."
-description_pt_br: "Framework de execução autônoma em alta velocidade (GSD / Finn-Loop) do planejamento à entrega."
-repository: "GSD"
-url_skill: "https://github.com/gsd-build"
-stars: 2100
-languages: ["Markdown", "Shell"]
-frameworks: []
-libs: []
+description: "High-velocity execution and task delivery engine for engineering workflows. Use when breaking down complex user goals into atomic steps, tracking execution loops, avoiding premature optimization, and driving rapid task completion."
+risk: safe
+source: curated-youtube
 ---
+# Get Shit Done (GSD) Workflow Engine
 
-# Skill: get-shit-done
+## When to Use
+- You have an ambitious or complex feature request and need to deconstruct it into executable, verifiable micro-tasks.
+- The workflow demands ruthless focus on working software, avoiding analysis paralysis and unnecessary abstraction layers.
+- You need a structured execution loop: Spec -> Decompose -> Implement -> Verify -> Ship.
 
-## 📖 Visão Geral (Overview)
+## Core Principles
+1. **Bias for Action:** Prefer working code over speculative architecture.
+2. **Atomic Slices:** Keep every task small enough to verify in under 5 minutes.
+3. **Continuous Verification:** Run tests or execute scripts immediately after every modification.
+4. **No Unrequested Refactoring:** Fix only what is in scope for the current milestone.
 
-### Português (pt-BR)
-Impulsiona o desenvolvimento autônomo na velocidade máxima enquanto mantém checagens rigorosas de qualidade.
+## Execution Loop
+```bash
+# 1. Define Milestone Goal
+# State the single acceptance criterion for the current step.
 
-**Descrição Detalhada:**
-Framework de execução autônoma em alta velocidade (GSD / Finn-Loop) do planejamento à entrega.
+# 2. Implement Smallest Working Diff
+# Touch only the files required to satisfy the criterion.
 
-### English
-Drives autonomous development at maximum speed while keeping rigorous quality checks in place.
+# 3. Verify Immediately
+npm test -- -t "target-feature" || pytest tests/test_target.py
 
-**Detailed Description:**
-High-velocity autonomous engineering workflow framework moving agents from idea to verified delivery with minimal friction.
+# 4. Review Diff
+git diff --stat
 
----
+# 5. Check off and proceed to next atomic task.
+```
 
-## 🛠️ Stack Tecnológica e Requisitos
-
-- **Linguagens Otimizadas:** Markdown, Shell
-- **Frameworks Compatíveis:** Geral / Específico do projeto
-- **Bibliotecas e Dependências:** Padrão
-- **Repositório Oficial:** [GSD](https://github.com/gsd-build)
-
----
-
-## 🎯 Quando Usar (When to Use)
-
-Use esta skill sempre que o agente ou desenvolvedor precisar de:
-1. Execução determinística e de alta fidelidade para rotinas de `get-shit-done`.
-2. Aplicação das melhores práticas de arquitetura, consistência e prevenção de erros.
-3. Padronização nos padrões de código e economia no consumo de contexto e tokens.
-
----
-
-## 📋 Diretrizes de Execução e Melhores Práticas
-
-1. **Investigação Prévia:** Analise o contexto e os arquivos antes de aplicar alterações.
-2. **Isolamento Seguro:** Realize testes e modificações com isolamento de ambiente (worktrees ou sandboxes).
-3. **Validação Contínua:** Execute suítes de testes automatizados e verifique integridade após cada etapa.
-4. **Documentação Integrada:** Mantenha registros claros das decisões e passos executados.
-
----
-
-## 📺 Vídeos de Referência no YouTube
-
-- [Vídeo Recomendado 1](https://www.youtube.com/watch?v=david_technical_doc_skills_81)
-- [Vídeo Recomendado 2](https://www.youtube.com/watch?v=indydevdan_graphify_memory_82)
-- [Vídeo Recomendado 3](https://www.youtube.com/watch?v=nate_token_optimization_83)
-- [Vídeo Recomendado 4](https://www.youtube.com/watch?v=mckay_mermaid_architecture_84)
-- [Vídeo Recomendado 5](https://www.youtube.com/watch?v=alex_finn_gsd_skill_85)
+## Checklist de Conclusão Rápida
+- [ ] O código cumpre a solicitação sem criar débitos técnicos evidentes?
+- [ ] A suíte de testes passou ou foi validada a execução manual?
+- [ ] Arquivos temporários e logs de depuração foram limpos?

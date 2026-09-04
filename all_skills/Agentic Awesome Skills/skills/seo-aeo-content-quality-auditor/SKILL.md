@@ -1,6 +1,6 @@
 ---
 name: seo-aeo-content-quality-auditor
-description: "Audits content for SEO and AEO performance with scored reports, severity-ranked fix lists, and projected scores after fixes. Activate when the user wants to audit, review, or score content for SEO or AEO compliance."
+description: "Audits content for SEO and AEO performance with scored reports, severity-ranked fix lists, and projected scores after fixes. Activate when the user wants to audit, review, or score content for SEO or AEO compliance. Use when developing, optimizing, debugging, or configuring seo aeo content quality auditor in production workflows."
 risk: safe
 source: community
 date_added: "2026-04-01"

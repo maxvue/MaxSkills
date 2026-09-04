@@ -1,6 +1,6 @@
 ---
 name: vue-typescript-best-practices
-description: "Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, tsconfig.json, and module declarations. Covers objectives, SFC structure, and TypeScript declarations."
+description: "TypeScript typing conventions for Vue 3 SFCs: typed defineProps, defineEmits, template refs, and backend DTO integration via Spatie TypeScript Transformer. Use when typing Vue components, store states, or API contracts."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

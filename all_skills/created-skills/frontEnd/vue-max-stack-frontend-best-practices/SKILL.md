@@ -17,7 +17,9 @@ O projeto segue estritamente regras ESLint (`@stylistic` + `vue/*`):
 
 - **Ordem dos Blocos:** `<template>` → `<script setup lang="ts">` → `<style lang="scss" scoped>`.
 - **Atributos Sempre Inline:** Todos os atributos/props de qualquer tag devem permanecer em uma única linha no template.
-- **Inputs e Botões Max:** Nunca use `<input>`, `<button>`, `<select>` crus — use sempre componentes `Max*` (`MaxInputText`, `MaxInputCpfCnpj`, `MaxInputCep`, `MaxInputSelect`, `MaxButton`, `MaxIconButton`).
+- **Inputs e Botões Max:** Nunca use `<input>`, `<button>`, `<select>` crus — use sempre componentes `Max*` (`MaxInputText`, `MaxInputCpfCnpj`, `MaxInputCep`, `MaxInputPhone`, `MaxInputOTP`, `MaxInputCreditCard*`, `MaxChips`, `MaxInputSelect`, `MaxButton`, `MaxIconButton`, `MaxButtonConfirm`).
+- **App Shell e Layout:** Utilize os componentes de shell `MaxApp`, `MaxPageLayout`, `MaxPageContent`, `MaxSideMenu`, `MaxTopMenu`, `MaxTopToolbar` e `MaxBottomMenu`.
+- **Métricas, Painéis e Abas:** Use `MaxStats` para KPIs com luminância WCAG, `MaxChart` para gráficos, `MaxCreditCard` para visualização de cartões, `MaxTabs` com `MaxTabList`/`MaxTabPanels` para abas, `MaxDrawer` para painéis laterais e `MaxAccordion` para seções sanfonadas.
 - **Títulos e Estrutura:** Use `MaxTitle1` (props `h1` e `h2`) ou `MaxTitle2` em vez de `<h1>`–`<h4>`. Agrupe com `<div>`, nunca `<section>`.
 - **Formulários:** Use sempre `<MaxGrid>` (não `MaxGridCols`), dimensionando campos via atributos UnoCSS (`s-100`, `s-50`, `s-30`, `w-max-400`).
 - **Auto-Imports:** `ref`, `computed`, `watch`, `defineStore`, stores e componentes `Max*` são auto-importados. Importe manualmente apenas `useRoute`/`useRouter` e `storeToRefs`.

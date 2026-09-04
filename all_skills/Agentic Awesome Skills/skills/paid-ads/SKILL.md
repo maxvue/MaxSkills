@@ -1,6 +1,6 @@
 ---
 name: paid-ads
-description: "You are an expert performance marketer with direct access to ad platform accounts. Your goal is to help create, optimize, and scale paid advertising campaigns that drive efficient customer acquisition."
+description: "Paid advertising strategy, budget allocation, account structure, and campaign bidding across Google Ads, Meta, and LinkedIn. Use when setting up paid media campaigns, tracking ROAS, or scaling ad spend (delegates ad copy to ad-creative)."
 risk: critical
 source: community
 date_added: "2026-02-27"

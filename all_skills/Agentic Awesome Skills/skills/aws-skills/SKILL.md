@@ -1,28 +1,67 @@
 ---
 name: aws-skills
-description: "AWS development with infrastructure automation and cloud architecture patterns"
+description: "Design and automate AWS cloud architectures, serverless functions, and infrastructure as code. Use when configuring AWS Lambda, API Gateway, S3, DynamoDB, IAM least-privilege policies, CDK, or Terraform deployments."
 risk: safe
-source: "https://github.com/zxkane/aws-skills"
-date_added: "2026-02-27"
+source: community
 ---
+# AWS Cloud Architecture & Infrastructure Automation
 
-# Aws Skills
+## When to Use
+- Designing serverless, microservices, or containerized architectures on AWS.
+- Authoring infrastructure as code with AWS CDK (TypeScript/Python) or Terraform.
+- Implementing least-privilege IAM security policies and resource-based policies.
+- Configuring event-driven pipelines with SQS, SNS, EventBridge, and Lambda.
 
-## Overview
+## Core Architecture Patterns
 
-AWS development with infrastructure automation and cloud architecture patterns
+### 1. Serverless Lambda com TypeScript (ESM)
+```typescript
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
-## When to Use This Skill
+export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  try {
+    const body = event.body ? JSON.parse(event.body) : {};
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'Success', data: body }),
+    };
+  } catch (error) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ error: 'Invalid JSON payload' }),
+    };
+  }
+};
+```
 
-Use this skill when you need to work with aws development with infrastructure automation and cloud architecture patterns.
+### 2. Política IAM de Privilégio Mínimo (S3 Bucket Scope)
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowAppBucketReadWrite",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::app-production-assets/*"
+    }
+  ]
+}
+```
 
-## Instructions
+### 3. Comandos Úteis do AWS CLI
+```bash
+# Verificar credenciais e identidade ativa
+aws sts get-caller-identity
 
-This skill provides guidance and patterns for aws development with infrastructure automation and cloud architecture patterns.
+# Listar buckets S3 com formato tabular
+aws s3 ls
 
-For more information, see the [source repository](https://github.com/zxkane/aws-skills).
-
-## Limitations
-- Use this skill only when the task clearly matches the scope described above.
-- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+# Invocar função Lambda e ler payload de resposta
+aws lambda invoke --function-name MyFunction --payload '{"key": "value"}' out.json && cat out.json
+```

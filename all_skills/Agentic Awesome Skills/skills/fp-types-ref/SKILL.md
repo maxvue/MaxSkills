@@ -1,10 +1,10 @@
 ---
 name: fp-types-ref
-description: Quick reference for fp-ts types. Use when user asks which type to use, needs Option/Either/Task decision help, or wants fp-ts imports.
+description: "Comprehensive quick reference for fp-ts core types and TaskEither operators. Use when selecting Option, Either, Task, or TaskEither, building async error-handling pipelines, or looking up fp-ts syntax patterns."
 risk: safe
 source: community
 version: 1.0.0
-tags: [fp-ts, typescript, quick-reference, option, either, task]
+tags: [fp-ts, typescript, quick-reference, option, either, task, taskeither, async, promise, error-handling]
 ---
 
 # fp-ts Quick Reference
@@ -76,3 +76,41 @@ pipe(result, E.match(
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+
+## TaskEither Operators & Reference
+
+`TaskEither<E, A>` represents an asynchronous computation that can fail (`Promise<Either<E, A>>`).
+
+### Create
+```typescript
+import * as TE from 'fp-ts/TaskEither'
+
+TE.right(value)                 // Async success
+TE.left(error)                  // Async failure
+TE.tryCatch(asyncFn, toError)   // Promise -> TaskEither
+TE.fromEither(either)           // Either -> TaskEither
+TE.fromNullable(nullErr)(val)   // Nullable -> TaskEither
+```
+
+### Transform & Chain
+```typescript
+TE.map((data) => data.id)              // Transform success value
+TE.mapLeft((err) => new CustomErr(err)) // Transform error
+TE.flatMap((user) => fetchOrders(user)) // Sequential async chain
+TE.orElse((err) => fallbackTaskEither) // Recover from error
+```
+
+### Execution
+```typescript
+// TaskEither is lazy: invoke the function to trigger execution
+const result: Either<Error, User> = await myTaskEither();
+
+// Or run with pattern match:
+await pipe(
+  myTaskEither,
+  TE.match(
+    (err) => console.error('Falha:', err),
+    (val) => console.log('Sucesso:', val)
+  )
+)();
+```

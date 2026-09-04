@@ -1,6 +1,6 @@
 ---
 name: photopea-embedded-editor
-description: Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and the full Photoshop-compatible API.
+description: "Embed Photopea in web apps using photopea.js. Covers embedding, file I/O, scripting, exporting, layers, text, filters, and the full Photoshop-compatible API. Use when developing, optimizing, debugging, or configuring photopea embedded editor in production workflows."
 risk: safe
 source: community
 source_repo: yikuansun/PhotopeaAPI

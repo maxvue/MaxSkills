@@ -1,6 +1,6 @@
 ---
 name: tdd-workflows-tdd-green
-description: "Implement the minimal code needed to make failing tests pass in the TDD green phase."
+description: "Comprehensive engineering guide and best practices for tdd workflows tdd green. Use when configuring, developing, debugging, or optimizing tdd workflows tdd green architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for tdd workflows tdd green."
 risk: critical
 source: community
 date_added: "2026-02-27"

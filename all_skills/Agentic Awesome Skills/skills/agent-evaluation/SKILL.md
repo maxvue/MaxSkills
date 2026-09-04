@@ -1,6 +1,6 @@
 ---
 name: agent-evaluation
-description: Testing and benchmarking LLM agents including behavioral testing,
+description: "Testing and benchmarking LLM agents including behavioral testing, Use when developing, optimizing, debugging, or configuring agent evaluation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agent evaluation."
   capability assessment, reliability metrics, and production monitoring—where
   even top agents achieve less than 50% on real-world benchmarks
 risk: safe

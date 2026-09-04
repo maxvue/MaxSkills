@@ -1,0 +1,435 @@
+[
+  {
+    "skillName": "vibers-code-review",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vibers-code-review/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description possui apenas 147 caracteres (abaixo da faixa recomendada de 200 a 400 chars) e não apresenta a cláusula condicional de ativação explícita ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Presença ostensiva de conteúdo comercial e promocional de terceiros no corpo do documento (seção 'Pricing' com taxas por hora de $1 a $15, seção 'Feedback & Support' com curl para endpoint comercial externo e divulgação de perfis pessoais de Telegram/Moltbook), contrariando a neutralidade anti-promocional.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Orientação de segurança de alto risco instruindo a adição de uma conta externa de terceiros ('marsiandeployer') como colaborador direto com privilégios de escrita no repositório GitHub sem sandbox ou isolamento.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover ou condensar as seções comerciais 'Pricing' (linhas 102-110) e 'Feedback & Support' (linhas 112-127), eliminando tabelas de preços de consultoria humana e links de contato pessoal.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Workflow de revisão humana e validação de especificações para projetos GitHub gerados por IA via GitHub Actions e serviço Vibers.",
+      "entidades": ["GitHub Actions", "vibers-action", "marsiandeployer", "CLAUDE.md", "OWASP", "Vibers API"],
+      "keywords": [
+        "code review",
+        "human review",
+        "github action",
+        "pull request",
+        "spec compliance",
+        "vibers",
+        "vibers-action",
+        "marsiandeployer",
+        "security audit",
+        "automated pr",
+        "spec-based review",
+        "commit rules"
+      ]
+    },
+    "summary": "Skill de integração comercial para revisão humana com description curta (<200 chars), ausência de gatilho condicional e bloat promocional com tabelas de preços."
+  },
+  {
+    "skillName": "video-content-extractor",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/video-content-extractor/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 178 caracteres, ficando ligeiramente abaixo da faixa recomendada de 200 a 400 chars.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de cláusula condicional de ativação direta ('Use when...') no texto da description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Extração periódica de keyframes e transcrição óptica de caracteres (OCR) de vídeos MP4 locais via FFmpeg e Tesseract com geração de relatórios em Markdown.",
+      "entidades": ["FFmpeg", "ffprobe", "Tesseract OCR", "Codex CLI", "Markdown", "JPEG"],
+      "keywords": [
+        "video content extraction",
+        "keyframes",
+        "ocr",
+        "tesseract",
+        "ffmpeg",
+        "ffprobe",
+        "mp4",
+        "transcription",
+        "timestamped transcripts",
+        "screencast analysis",
+        "lecture text extraction",
+        "markdown reports"
+      ]
+    },
+    "summary": "Guia prático e seguro para OCR local e extração de frames em vídeos, exigindo apenas expansão sutil e gatilho 'Use when...' na description."
+  },
+  {
+    "skillName": "video-router",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/video-router/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 153 caracteres, ficando abaixo do piso ideal de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do prefixo de gatilho condicional ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Classificação e roteamento cognitivo de briefs de produção audiovisual entre eixos de geração por IA, composição determinística em HTML e edição de filmagens existentes.",
+      "entidades": ["OrkasVideoStudio", "video-router", "stage-plan", "stage-assemble", "EDL", "HTML composition"],
+      "keywords": [
+        "video routing",
+        "video brief",
+        "generative video",
+        "deterministic composition",
+        "footage editing",
+        "motion graphics",
+        "kinetic typography",
+        "decision rules",
+        "cross-modal plan",
+        "edl",
+        "orkas video studio"
+      ]
+    },
+    "summary": "Excelente framework de roteamento e decisão conceitual para produção de vídeo, demandando apenas ampliação da description e gatilho explícito."
+  },
+  {
+    "skillName": "videodb",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/videodb/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Ausência de gatilho condicional explícito ('Use when...') no início da description, que abre diretamente com termos declarativos.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Redundância estrutural no corpo com repetição cíclica de casos de uso e escopo em quatro seções distintas ('When to Use', 'Desktop Perception / Ingest', 'Canonical prompts' e 'When to use what').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 15,
+    "cuts": [
+      {
+        "text": "Condensar as listas introdutórias redundantes (linhas 15 a 64), integrando 'When to Use', as 5 capacidades enumeradas e 'Canonical prompts' em uma única seção objetiva.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Podar a tabela 'When to use what' (linhas 359-370), pois duplica orientações práticas já documentadas no Quick Reference e nos trechos de código.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Ingestão, indexação multimodal (visual e falada), busca temporal e edição programática de linha do tempo em vídeos e transmissões ao vivo via SDK VideoDB em Python.",
+      "entidades": ["videodb", "Timeline", "VideoAsset", "TextAsset", "AudioAsset", "CaptionAsset", "SceneExtractionType", "SearchType", "IndexType", "TranscodeMode", "ReframeMode"],
+      "keywords": [
+        "videodb",
+        "video perception",
+        "spoken word index",
+        "scene search",
+        "timeline editing",
+        "transcoding",
+        "video reframing",
+        "rtsp stream",
+        "desktop capture",
+        "websocket listener",
+        "subtitles burn-in",
+        "ai video search"
+      ]
+    },
+    "summary": "Documentação robusta e abrangente do SDK VideoDB em Python, com extensão de description adequada mas sem gatilho condicional e com repetições seccionais no corpo."
+  },
+  {
+    "skillName": "vitest-skill",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vitest-skill/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description apresenta redundância explícita ao repetir a lista de gatilhos duas vezes consecutivas ('Use when user mentions...' e 'Triggers on:...') e inclui adjetivo promocional vazio ('with Vite-native speed').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' no corpo do SKILL.md (linhas 14-17) apenas replica integralmente a description com erro de concordância gramatical ('when you need generates Vitest tests...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Metadado 'risk: critical' no frontmatter é desproporcional e semanticamente descontextualizado para uma biblioteca de testes unitários locais em JavaScript/TypeScript.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Reescrever a seção 'When to Use' (linhas 14-17) para remover a duplicação textual crua da description e corrigir o erro gramatical.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Autoria, mock e execução de testes automatizados unitários e de componentes em JavaScript/TypeScript utilizando Vitest no ecossistema Vite.",
+      "entidades": ["vitest", "vi", "vi.mock", "vi.fn", "vi.spyOn", "vitest/config", "defineConfig", "@testing-library/react", "import.meta.vitest"],
+      "keywords": [
+        "vitest",
+        "unit testing",
+        "vite",
+        "typescript testing",
+        "vi mock",
+        "spyOn",
+        "fake timers",
+        "in-source testing",
+        "snapshot testing",
+        "react testing library",
+        "vitest config",
+        "esm testing"
+      ]
+    },
+    "summary": "Excelente conjunto de padrões de teste para Vitest, prejudicado pontualmente por redundância de triggers na description e cópia da introdução no corpo."
+  },
+  {
+    "skillName": "voice-ai-engine-development",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/voice-ai-engine-development/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description possui 181 caracteres, ficando abaixo da extensão recomendada de 200 a 400 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional explícito ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seções finais recapitulativas ('Implementation Workflow', 'Resources' e 'Summary') geram repetições de provedores e conceitos já aprofundados no guia.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 8,
+    "cuts": [
+      {
+        "text": "Condensar as seções finais 'Resources' e 'Summary' (linhas 699 a 725), unificando a recapitulação com as diretrizes principais do corpo.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Desenvolvimento arquitetural de motores de conversação por voz em tempo real baseados em pipeline assíncrono de workers, streaming de áudio e suporte a interrupções imediatas.",
+      "entidades": ["BaseWorker", "asyncio.Queue", "Deepgram", "AssemblyAI", "ElevenLabs", "Azure TTS", "OpenAI", "WebsocketOutputDevice", "StreamingConversation", "InterruptibleEvent"],
+      "keywords": [
+        "voice ai",
+        "conversational ai",
+        "async worker pipeline",
+        "streaming stt",
+        "streaming tts",
+        "interruption handling",
+        "barge-in",
+        "echo prevention",
+        "rate limiting audio",
+        "websocket audio",
+        "deepgram",
+        "elevenlabs"
+      ]
+    },
+    "summary": "Referência arquitetural impecável para pipelines assíncronos de agentes de voz, necessitando apenas de ajuste de tamanho e gatilho na description."
+  },
+  {
+    "skillName": "vscode-extension-guide-en",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vscode-extension-guide-en/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com apenas 79 caracteres, sem discriminantes técnicos específicos e sem cláusula condicional de uso ('Use when...').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A skill funciona como um 'stub/teaser' promocional incompleto: promete tópicos de referência detalhados (Webview, TreeView, Testes, CSP) que não existem no repositório local e instrui o usuário a instalar a skill completa externamente via 'npx skills add lewiswigmore/agent-skills --skill vscode-extension-guide-en'.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Conteúdo extremamente superficial para uma skill de desenvolvimento de extensões, omitindo códigos e padrões operacionais das APIs prometidas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover o bloco 'Install the Full Skill' (linhas 71-77) e os tópicos de referência de arquivos inexistentes (linhas 59-70), substituindo por conteúdo técnico real ou removendo as promessas não cumpridas.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Roteiro introdutório e ciclo de vida de extensões para VS Code, cobrindo scaffolding com yo code, compilação, empacotamento com vsce e publicação no Marketplace.",
+      "entidades": ["yo", "generator-code", "@vscode/vsce", "package.json", "extension.ts", ".vscodeignore", "VS Code Marketplace", "@vscode/test-electron"],
+      "keywords": [
+        "vscode extension",
+        "marketplace",
+        "vsce",
+        "yo code",
+        "generator-code",
+        "vsix",
+        "extension development host",
+        "activation events",
+        "treeview",
+        "webview csp"
+      ]
+    },
+    "summary": "Skill incompleta em formato de teaser promocional que aponta para instalação externa de referências ausentes, com description de apenas 79 caracteres."
+  },
+  {
+    "skillName": "vulnerability-scanner",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/vulnerability-scanner/SKILL.md",
+    "state": "Boa",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description curta com 125 caracteres (abaixo dos 200 recomendados) e presença de adjetivo vago/promocional ('Advanced').",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de gatilho condicional de ativação ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Seção 'When to Use' no corpo (linhas 280-282) consiste em uma tautologia genérica e vazia ('This skill is applicable to execute the workflow or actions described in the overview.').",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 10,
+    "cuts": [
+      {
+        "text": "Substituir a seção 'When to Use' tautológica (linhas 280-282) por critérios concretos de acionamento em auditorias de segurança e varredura de vulnerabilidades.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Remover o slogan motivacional informal da linha 11 ('> Think like an attacker, defend like an expert...').",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Auditoria de segurança e priorização de vulnerabilidades de código e dependências alinhadas ao OWASP Top 10:2025, supply chain security, CVSS/EPSS e padrões inseguros de software.",
+      "entidades": ["OWASP Top 10:2025", "CVSS", "EPSS", "security_scan.py", "checklists.md", "eval", "pickle.loads", "SSRF", "IDOR"],
+      "keywords": [
+        "vulnerability scanner",
+        "owasp 2025",
+        "supply chain security",
+        "attack surface mapping",
+        "risk prioritization",
+        "cvss",
+        "epss",
+        "code pattern analysis",
+        "secrets detection",
+        "fail secure",
+        "dependency audit"
+      ]
+    },
+    "summary": "Manual analítico sólido de segurança alinhado ao OWASP 2025 com script funcional, exigindo expansão da description, remoção do termo 'Advanced' e substituição de seção tautológica."
+  },
+  {
+    "skillName": "warehouse",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/warehouse/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui apenas 116 caracteres, ficando consideravelmente abaixo da faixa ideal de 200 a 400 chars.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Falta de cláusula condicional de ativação direta ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Planejamento e revisão metódica de análises de dados e consultas SQL read-only em data warehouses com ênfase em governança, integridade de grão e privacidade.",
+      "entidades": ["SQL", "Data Warehouse", "Analytical Contract", "Aggregations", "Cohort Analysis", "Provenance Report"],
+      "keywords": [
+        "data warehouse",
+        "warehouse analysis",
+        "sql review",
+        "read-only queries",
+        "data quality",
+        "grain preservation",
+        "join duplication",
+        "data privacy",
+        "metric governance",
+        "provenance",
+        "analytical contract"
+      ]
+    },
+    "summary": "Guia conciso e metodologicamente impecável para governança de análises em data warehouse, demandando apenas expansão e inclusão de gatilho na description."
+  },
+  {
+    "skillName": "weaviate",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/weaviate/SKILL.md",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "Description possui 135 caracteres, ficando abaixo do piso de 200 caracteres.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência do gatilho condicional explícito ('Use when...') na description.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Inspeção de esquemas, execução de buscas híbridas/semânticas e ingestão de arquivos em coleções do banco de dados vetorial Weaviate via scripts CLI oficiais.",
+      "entidades": ["Weaviate Cloud", "Weaviate API", "uv", "text2vec_weaviate", "list_collections.py", "get_collection.py", "explore_collection.py", "create_collection.py", "import.py", "ask.py", "query_search.py", "hybrid_search.py"],
+      "keywords": [
+        "weaviate",
+        "vector database",
+        "semantic search",
+        "hybrid search",
+        "keyword search",
+        "data import",
+        "collection schema",
+        "weaviate cloud",
+        "query agent",
+        "vectorizer",
+        "csv import",
+        "pdf ingest"
+      ]
+    },
+    "summary": "Documentação oficial de Weaviate clara, objetiva e suportada por scripts operacionais, necessitando somente de extensão da description e gatilho explícito."
+  }
+]

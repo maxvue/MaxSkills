@@ -1,0 +1,448 @@
+[
+  {
+    "skillName": "github-actions-advanced",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/github-actions-advanced/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 195 caracteres (abaixo da faixa recomendada de 200 a 400 chars) e sem cláusula formal de ativação/gatilho ('Use when...'). Omissão de discriminantes avançados documentados na skill como StepSecurity harden-runner, Actions Runner Controller (ARC) e SLSA provenance.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Design, depuração, automação de releases e hardening de segurança de pipelines CI/CD com GitHub Actions.",
+      "entidades": [
+        "actions/checkout",
+        "actions/setup-node",
+        "docker/build-push-action",
+        "aws-actions/configure-aws-credentials",
+        "google-github-actions/auth",
+        "azure/login",
+        "step-security/harden-runner",
+        "action-tmate",
+        "Actions Runner Controller (ARC)",
+        "CodeQL",
+        "Trivy"
+      ],
+      "keywords": [
+        "github actions",
+        "ci-cd",
+        "reusable workflows",
+        "matrix builds",
+        "self-hosted runners",
+        "oidc",
+        "caching",
+        "secrets",
+        "composite actions",
+        "harden-runner",
+        "concurrency",
+        "dynamic matrix",
+        "workflow_dispatch",
+        "pull_request_target"
+      ]
+    },
+    "summary": "Excelente guia de engenharia e segurança para GitHub Actions, necessitando apenas de ajuste semântico na description para inclusão de gatilho e expansão de caracteres."
+  },
+  {
+    "skillName": "github-presence",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/github-presence/SKILL.md",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Otimização de visibilidade e conversão no GitHub por meio de READMEs estruturados, badges de confiança, perfil pessoal, tópicos e awesome lists.",
+      "entidades": [
+        "shields.io",
+        "badgen.net",
+        "github-readme-stats",
+        "gautamkrishnar/blog-post-workflow",
+        "lowlighter/metrics",
+        "Octolens",
+        "GitHub Sponsors",
+        "funding.yml"
+      ],
+      "keywords": [
+        "github presence",
+        "readme template",
+        "profile readme",
+        "badges",
+        "shields.io",
+        "awesome lists",
+        "github topics",
+        "discoverability",
+        "github stars",
+        "sponsors",
+        "funding.yml",
+        "traffic insights"
+      ]
+    },
+    "summary": "Skill exemplar com description de alta densidade (247 chars), gatilhos precisos, templates claros e total ausência de bloat."
+  },
+  {
+    "skillName": "github-workflow-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/github-workflow-automation/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (161 caracteres) contendo link markdown desnecessário ('[Gemini CLI](...)'), desprovida de gatilho 'Use when...' e omitindo discriminantes centrais do documento como revisão de PR com IA, triagem inteligente de issues e testes, rollback automático e bots por menção.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Automação de processos do ciclo de desenvolvimento no GitHub integrada com inteligência artificial, cobrindo revisões de código, triagem, testes seletivos e operações Git.",
+      "entidades": [
+        "actions/github-script",
+        "actions/checkout",
+        "actions/stale",
+        "slackapi/slack-github-action",
+        "@anthropic-ai/sdk",
+        "Gemini CLI",
+        "CODEOWNERS"
+      ],
+      "keywords": [
+        "github automation",
+        "ai code review",
+        "issue triage",
+        "smart tests",
+        "deployment validation",
+        "auto rebase",
+        "cherry pick",
+        "branch cleanup",
+        "mention bot",
+        "branch protection",
+        "codeowners"
+      ]
+    },
+    "summary": "Coleção rica e prática de automações CI/CD com IA, necessitando de refinamento na description para remover link markdown, adicionar gatilho e listar capacidades discriminantes."
+  },
+  {
+    "skillName": "global-chat-agent-discovery",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/global-chat-agent-discovery/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 139 caracteres (abaixo de 200), com métricas promocionais ('18K+ MCP servers across 6+ registries'), sem gatilho formal 'Use when...' e com omissão dos discriminantes de protocolo A2A, validação de agents.txt e pacote @global-chat/mcp-server.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Descoberta federada de servidores MCP e agentes de IA entre múltiplos registros e protocolos heterogêneos (MCP, A2A e agents.txt).",
+      "entidades": [
+        "@global-chat/mcp-server",
+        "global-chat.io",
+        "agents.txt",
+        "A2A protocol",
+        "mcpservers.org",
+        "mcp.so"
+      ],
+      "keywords": [
+        "mcp server discovery",
+        "ai agents",
+        "agent registry",
+        "agents.txt validator",
+        "a2a protocol",
+        "cross-protocol directory",
+        "global-chat",
+        "tool discovery",
+        "mcp client"
+      ]
+    },
+    "summary": "Guia funcional e direto para descoberta multi-protocolo de agentes e servidores MCP, requerendo ajuste semântico na description para inclusão de gatilho e termos discriminantes."
+  },
+  {
+    "skillName": "go-rod-master",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/go-rod-master/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description curta (154 caracteres) que recorre a meta-anúncio vago ('Comprehensive guide for...'), carece de gatilho formal ('Use when...') e omite discriminantes operacionais presentes no SKILL.md como stealth.MustPage, PagePool, interceptação CDP e request hijacking.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Automação de navegadores headless, web scraping de SPAs e evasão de detecção anti-bot em Go utilizando go-rod diretamente sobre o Chrome DevTools Protocol.",
+      "entidades": [
+        "github.com/go-rod/rod",
+        "github.com/go-rod/stealth",
+        "github.com/go-rod/rod/lib/launcher",
+        "github.com/go-rod/rod/lib/input",
+        "proto (CDP)",
+        "PagePool",
+        "HijackRequests"
+      ],
+      "keywords": [
+        "go-rod",
+        "browser automation",
+        "web scraping",
+        "stealth",
+        "anti-bot detection",
+        "chrome devtools protocol",
+        "cdp",
+        "headless chrome",
+        "page pool",
+        "request hijacking",
+        "eval on new document"
+      ]
+    },
+    "summary": "Implementação de excelência técnica com código Go idiomático e arquivos de exemplo reais, demandando apenas alinhamento semântico de redação na description."
+  },
+  {
+    "skillName": "goal-loop",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/goal-loop/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description extremamente curta com apenas 104 caracteres, sem cláusula 'Use when...' e omitindo discriminantes essenciais como o comando `/goal`, conceito de Ralph loop, agentes compatíveis (Codex, Claude Code, Hermes Agent) e a estrutura de contrato de 5 partes com validação.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Estruturação de contratos e comandos persistentes de execução autônoma (/goal e Ralph loop) para agentes de IA com validação contínua e condições de parada estritas.",
+      "entidades": [
+        "/goal",
+        "Codex",
+        "Claude Code",
+        "Hermes Agent",
+        "AGENTS.md",
+        "create_goal"
+      ],
+      "keywords": [
+        "goal loop",
+        "persistent agent",
+        "stop conditions",
+        "ralph loop",
+        "autonomous execution",
+        "claude code",
+        "codex",
+        "hermes agent",
+        "5-part contract",
+        "reward-hacking prevention",
+        "verification command"
+      ]
+    },
+    "summary": "Manual conciso e de alto valor prático sobre loops de autonomia persistente em agentes, carecendo apenas da expansão semântica e gatilhos da description."
+  },
+  {
+    "skillName": "golang-pro",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/golang-pro/SKILL.md",
+    "state": "Regular",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Description com 126 caracteres usando imperativo promocional ('Master Go 1.21+...'), sem gatilho 'Use when...' e omitindo discriminantes técnicos centrais (slog, worker pools, pprof, generics, context).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Conteúdo 100% conceitual em formato de persona/system prompt ('You are a Go expert specializing in...'), desprovido de implementações práticas, snippets de código ou exemplos executáveis.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Redundância interna notável entre as seções Capabilities e Knowledge Base, que repetem os mesmos temas (concorrência, profiling, microservices) apenas alterando a pontuação dos marcadores.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Fundir ou condensar as seções 'Purpose' e 'Knowledge Base' dentro de 'Capabilities', removendo repetições redundantes de tópicos de concorrência e profiling (~35 linhas).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Diretrizes conceituais e padrões de arquitetura para desenvolvimento backend, microsserviços e concorrência em Go 1.21+.",
+      "entidades": [
+        "Go 1.21+",
+        "net/http",
+        "slog",
+        "pprof",
+        "go tool trace",
+        "sync",
+        "gqlgen",
+        "wire",
+        "testify",
+        "golangci-lint"
+      ],
+      "keywords": [
+        "golang",
+        "concurrency",
+        "goroutines",
+        "channels",
+        "worker pools",
+        "generics",
+        "context",
+        "pprof",
+        "slog",
+        "microservices",
+        "clean architecture",
+        "benchmarks"
+      ]
+    },
+    "summary": "Guia conceitual amplo em formato de persona sem exemplos de código executável, com redundâncias internas entre seções e description promocional subdimensionada."
+  },
+  {
+    "skillName": "google-calendar-automation",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/google-calendar-automation/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "A skill depende integralmente da execução de scripts locais ('scripts/auth.py' e 'scripts/gcal.py') que não existem no diretório da skill nem em sua árvore, tornando seus comandos CLI inoperantes de forma autônoma.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Description com apenas 106 caracteres contendo adjetivo promocional vago ('Lightweight...'), sem gatilho 'Use when...' e omitindo os comandos suportados e a restrição exclusiva a contas Google Workspace.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Ausência de instruções de fallback ou código-fonte dos scripts Python citados, impossibilitando a execução direta pelo agente sem reconstrução manual externa dos utilitários.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento e automação de agenda do Google Calendar via scripts CLI Python e OAuth standalone sem necessidade de servidor MCP.",
+      "entidades": [
+        "scripts/gcal.py",
+        "scripts/auth.py",
+        "Google Calendar API",
+        "Google Workspace",
+        "Keyring (Keychain/Secret Service)"
+      ],
+      "keywords": [
+        "google calendar",
+        "oauth",
+        "gcal cli",
+        "calendar events",
+        "scheduling",
+        "find free time",
+        "event invitations",
+        "google workspace",
+        "keyring",
+        "iso 8601"
+      ]
+    },
+    "summary": "Documentação de comandos CLI bem estruturada, porém inoperante como skill autônoma devido à ausência física dos scripts Python essenciais ('scripts/auth.py' e 'scripts/gcal.py')."
+  },
+  {
+    "skillName": "gpt-taste",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/gpt-taste/SKILL.md",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "Description com 132 caracteres contendo adjetivo promocional subjetivo ('elite') e omitindo tecnologias centrais como React, Tailwind CSS, ScrollTrigger, física de hover e a simulação de plano de design pré-voo.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Design e engenharia de interfaces frontend ricas em animação com GSAP, Tailwind CSS, estrutura AIDA, heróis tipográficos e bento grids densos.",
+      "entidades": [
+        "GSAP",
+        "@gsap/react",
+        "ScrollTrigger",
+        "Tailwind CSS",
+        "grid-flow-dense",
+        "@phosphor-icons/react",
+        "picsum.photos"
+      ],
+      "keywords": [
+        "gsap",
+        "frontend design",
+        "motion engineering",
+        "scrolltrigger",
+        "bento grid",
+        "aida framework",
+        "tailwind css",
+        "typography",
+        "hover physics",
+        "card stacking",
+        "marquee"
+      ]
+    },
+    "summary": "Guia estilístico de design frontend com ótimas regras contra vícios de LLM e diretrizes técnicas para GSAP/Tailwind, necessitando de purificação e enriquecimento semântico na description."
+  },
+  {
+    "skillName": "graphql-architect",
+    "skillPath": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-21748545/all_skills/Agentic Awesome Skills/skills/graphql-architect/SKILL.md",
+    "state": "Ruim",
+    "problemCount": 3,
+    "problems": [
+      {
+        "text": "Referência a arquivo inexistente na linha 24: instrui o agente a abrir 'resources/implementation-playbook.md' para obter exemplos detalhados, porém o arquivo e a pasta 'resources' não existem no diretório da skill.",
+        "reviewModel": "Tier 2 (High-Reasoning)"
+      },
+      {
+        "text": "Seção de ativação interna ('When to Use') com tautologia circular ('Use this skill when: - Working on graphql architect tasks or workflows') violando critérios semânticos de discriminação e gatilho contextual.",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "Description com 177 caracteres com imperativo promocional ('Master modern GraphQL...'), sem gatilho 'Use when...' e corpo 100% conceitual em bullets de persona sem código ou esquemas SDL concretos, além de forte duplicação entre Capabilities e Knowledge Base.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "PODAR",
+    "estimatedCutPct": 20,
+    "cuts": [
+      {
+        "text": "Remover a linha de referência ao arquivo fantasma 'resources/implementation-playbook.md' e fundir 'Knowledge Base' e 'Purpose' em 'Capabilities' para eliminar cerca de 35 linhas de bullets repetitivos.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "mapSummary": {
+      "tema": "Arquitetura e design de esquemas GraphQL corporativos, federação Apollo v2, resolução de N+1 com DataLoader, caching e segurança.",
+      "entidades": [
+        "Apollo Federation v2",
+        "DataLoader",
+        "GraphQL Yoga",
+        "Hasura",
+        "Pothos",
+        "Relay specification",
+        "Automatic Persisted Queries (APQ)",
+        "SDL"
+      ],
+      "keywords": [
+        "graphql architect",
+        "federation",
+        "subgraphs",
+        "schema design",
+        "dataloader",
+        "n+1 problem",
+        "caching",
+        "subscriptions",
+        "jwt authorization",
+        "relay spec",
+        "query complexity"
+      ]
+    },
+    "summary": "Skill estruturada como persona puramente conceitual com tautologia circular em When to Use, referência a arquivo playbook inexistente e ausência de esquemas SDL práticos."
+  }
+]

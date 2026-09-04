@@ -1,6 +1,6 @@
 ---
 name: agent-evaluation-reporting
-description: "Use when summarizing agent evaluations where autonomous, assisted, failed, timed-out, or invalid outcomes must remain distinct and comparable."
+description: "Use when summarizing agent evaluations where autonomous, assisted, failed, timed-out, or invalid outcomes must remain distinct and comparable. Guides architecture, best practices, and implementation standards for agent evaluation reporting."
 category: agent-evaluation
 risk: none
 source: self

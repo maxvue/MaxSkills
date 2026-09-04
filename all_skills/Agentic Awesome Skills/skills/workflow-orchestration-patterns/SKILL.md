@@ -1,6 +1,6 @@
 ---
 name: workflow-orchestration-patterns
-description: "Master workflow orchestration architecture with Temporal, covering fundamental design decisions, resilience patterns, and best practices for building reliable distributed systems."
+description: "Master workflow orchestration architecture with Temporal, covering fundamental design decisions, resilience patterns, and best practices for building reliable distributed systems. Use when developing, optimizing, debugging, or configuring workflow orchestration patterns in production workflows."
 risk: none
 source: community
 date_added: "2026-02-27"
@@ -25,7 +25,7 @@ Master workflow orchestration architecture with Temporal, covering fundamental d
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
-- If detailed examples are required, open `resources/implementation-playbook.md`.
+- If detailed examples are required, open ``.
 
 ## When to Use Workflow Orchestration
 

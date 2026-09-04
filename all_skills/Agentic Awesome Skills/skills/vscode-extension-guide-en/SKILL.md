@@ -1,6 +1,6 @@
 ---
 name: vscode-extension-guide-en
-description: "Guide for VS Code extension development from scaffolding to Marketplace publication"
+description: "Comprehensive engineering guide and best practices for vscode extension guide en. Use when configuring, developing, debugging, or optimizing vscode extension guide en architecture in production systems."
 category: core-dev
 risk: safe
 source: community

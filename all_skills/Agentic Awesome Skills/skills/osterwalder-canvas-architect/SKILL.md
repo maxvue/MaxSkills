@@ -1,6 +1,6 @@
 ---
 name: osterwalder-canvas-architect
-description: "Iterative consultant agent for building and validating logically consistent 9-block Business Model Canvases."
+description: "Iterative consultant agent for building and validating logically consistent 9-block Business Model Canvases. Use when developing, optimizing, debugging, or configuring osterwalder canvas architect in production workflows."
 category: business-strategy
 risk: safe
 source: self

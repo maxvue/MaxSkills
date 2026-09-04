@@ -1,6 +1,6 @@
 ---
 name: emil-design-eng
-description: "Use when designing or reviewing polished product UI with Emil Kowalski-inspired animation, interaction, and component craft guidance."
+description: "Use when designing or reviewing polished product UI with Emil Kowalski-inspired animation, interaction, and component craft guidance. Guides architecture, best practices, and implementation standards for emil design eng."
 category: frontend
 risk: safe
 source: community

@@ -1,0 +1,388 @@
+[
+  {
+    "skillName": "laravel-cache-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-cache-best-practices",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Diretrizes e padrões estruturados de cache no ecossistema Laravel 13/Octane do Engeapp com Redis/phpredis.",
+      "entidades": [
+        "Cache::remember",
+        "Cache::forget",
+        "Cache::tags",
+        "Cache::lock",
+        "Inverter",
+        "SupportContact",
+        "Module",
+        "StationModule",
+        "TrtPaymentSchedulingService",
+        "Context"
+      ],
+      "keywords": [
+        "cache-aside",
+        "Cache::remember",
+        "Cache::forget",
+        "Cache::tags",
+        "Cache::lock",
+        "Redis",
+        "phpredis",
+        "TTL",
+        "Laravel Octane",
+        "deploy cache",
+        "stateless",
+        "observers",
+        "namespace specs"
+      ]
+    },
+    "summary": "Skill excelente, 100% ancorada no código real com convenções claras, avisos de colisão de namespace e description concisa sem ruídos."
+  },
+  {
+    "skillName": "laravel-cloud-storage-integrations",
+    "skillPath": "created-skills/backend_laravel/laravel-cloud-storage-integrations",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Padrões de armazenamento remoto em nuvem focados no driver customizado Seafile WebDAV e helpers do Engeapp.",
+      "entidades": [
+        "Storage::extend",
+        "WebDAVAdapter",
+        "Sabre\\DAV\\Client",
+        "AppServiceProvider",
+        "FilesHelpers",
+        "resolveLocalDiskPath",
+        "saveToRemoteDisk",
+        "Project",
+        "Spatie Media Library"
+      ],
+      "keywords": [
+        "Seafile",
+        "WebDAV",
+        "Flysystem",
+        "Storage",
+        "FilesHelpers",
+        "resolveLocalDiskPath",
+        "saveToRemoteDisk",
+        "temporaryUrl",
+        "Spatie Media Library",
+        "private disks"
+      ]
+    },
+    "summary": "Skill excelente, altamente cirúrgica ao documentar o adapter Seafile/WebDAV e armadilhas reais de Storage::path()."
+  },
+  {
+    "skillName": "laravel-concessionaires-connection-regulation-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-concessionaires-connection-regulation-best-practices",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Gerenciamento de concessionárias de energia, filiais, canais e normas técnicas de conexão elétrica para homologação solar.",
+      "entidades": [
+        "ConcessionaireCompany",
+        "ConcessionaireSubsidiary",
+        "ConcessionaireSubsidiaryRegulation",
+        "ConcessionaireSubsidiaryRegulationData",
+        "ConcessionaireAutomation",
+        "ConcessionaireSubsidiaryChannel",
+        "ConcessionairesDataController",
+        "ConcessionairesExecuteController"
+      ],
+      "keywords": [
+        "concessionárias",
+        "normas de conexão",
+        "disjuntor",
+        "bitolas",
+        "fases",
+        "tensão",
+        "HasUlids",
+        "Ziggy",
+        "global scope",
+        "cache de automações",
+        "Spatie Laravel Data"
+      ]
+    },
+    "summary": "Skill excelente, expõe detalhadamente armadilhas de banco, FKs inconsistentes, rotas quebradas e parâmetros elétricos reais."
+  },
+  {
+    "skillName": "laravel-digital-signatures-integration",
+    "skillPath": "created-skills/backend_laravel/laravel-digital-signatures-integration",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description contém a frase redundante de preenchimento 'Covers objectives and core workflows.' no final (critério 12), devendo ser eliminada ou substituída por termos discriminantes como 'ProjectPowerOfAttorneyDocument' ou 'ReloadPowerAttorneyStatusJob'.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Integração de assinaturas eletrônicas via Autentique e Clicksign com webhooks seguros e processamento em fila.",
+      "entidades": [
+        "vinicinbgs/autentique-v2",
+        "ProjectPowerOfAttorneyDocument",
+        "ReloadPowerAttorneyStatusJob",
+        "SignatureService",
+        "AutentiqueWebhookController",
+        "ClicksignService"
+      ],
+      "keywords": [
+        "assinatura digital",
+        "Autentique",
+        "Clicksign",
+        "webhooks",
+        "hash_equals",
+        "ReloadPowerAttorneyStatusJob",
+        "procuração",
+        "histórico linear",
+        "Storage",
+        "WhatsApp delivery"
+      ]
+    },
+    "summary": "Skill boa e tecnicamente precisa sobre Autentique, necessitando apenas da remoção de uma frase de preenchimento redundante na description."
+  },
+  {
+    "skillName": "laravel-editorial-calendar-event-workflow-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-editorial-calendar-event-workflow-best-practices",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Orquestração do ciclo de vida de eventos do calendário editorial e encadeamento de jobs de agentes de IA.",
+      "entidades": [
+        "App\\Models\\Calendar\\Event",
+        "CalendarEventStatusEnum",
+        "EventObserver",
+        "CopywriterJob",
+        "CopywriterReviewerJob",
+        "GraphicEditorJob",
+        "ArtAnalystJob",
+        "PublishEventJob",
+        "CalendarEventArtworkAnalysis"
+      ],
+      "keywords": [
+        "calendário editorial",
+        "Instagram",
+        "EventObserver",
+        "status transitions",
+        "gemini queue",
+        "Horizon",
+        "HasAgentAiRequest",
+        "revisão de arte",
+        "slide-level revision",
+        "ShouldHandleEventsAfterCommit"
+      ]
+    },
+    "summary": "Skill excelente, documenta com fidelidade matemática a máquina de estados, traits de IA e orquestração do EventObserver."
+  },
+  {
+    "skillName": "laravel-electrical-calculations-dimensioning-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-electrical-calculations-dimensioning-best-practices",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description repete no encerramento 'Covers electrical sizing, breaker calculations, and cable sizing standards.', duplicando exatamente os conceitos já expressos na oração inicial (critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Dimensionamento elétrico padronizado de cabos, disjuntores e inversores conforme a NBR 5410 usando helpers globais.",
+      "entidades": [
+        "getWireSize",
+        "getCircuitBrake",
+        "getInverter",
+        "toPhasePhase",
+        "toPhaseNeutral",
+        "voltageBetweenPhases",
+        "ElectricalHelper",
+        "Inverter",
+        "WireTable"
+      ],
+      "keywords": [
+        "dimensionamento elétrico",
+        "cálculo de cabos",
+        "queda de tensão",
+        "NBR 5410",
+        "disjuntores comerciais",
+        "inversores solares",
+        "getWireSize",
+        "getCircuitBrake",
+        "ElectricalHelper"
+      ]
+    },
+    "summary": "Skill boa com diretrizes exatas sobre helpers de dimensionamento e NBR 5410, necessitando apenas podar o trecho redundante da description."
+  },
+  {
+    "skillName": "laravel-engeapp-project-homologation-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-engeapp-project-homologation-best-practices",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description termina com o filler redundante 'Covers objectives and connection regulations.' (critério 12), gerando repetição de termos já enunciados na primeira sentença.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Fluxo de homologação de projetos solares com concessionárias, sincronização de protocolos e integração com frontend MaxPinia.",
+      "entidades": [
+        "ConcessionaireSubsidiaryRegulation",
+        "HasProtocol",
+        "Protocol",
+        "PlannerCard",
+        "Project",
+        "UpdatePlannerCardExpiresAtCommand",
+        "MaxPinia",
+        "Ziggy"
+      ],
+      "keywords": [
+        "homologação",
+        "projetos solares",
+        "concessionárias",
+        "HasProtocol",
+        "Protocol",
+        "PlannerCard",
+        "expires_at",
+        "MaxPinia",
+        "Ziggy",
+        "normas elétricas"
+      ]
+    },
+    "summary": "Skill boa com pleno alinhamento às regras de negócio e de frontend MaxPinia/Ziggy, requerendo apenas ajuste redacional na cauda da description."
+  },
+  {
+    "skillName": "laravel-exception-handling-logging",
+    "skillPath": "created-skills/backend_laravel/laravel-exception-handling-logging",
+    "state": "Excelente",
+    "problemCount": 0,
+    "problems": [],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Tratamento padronizado de exceções customizadas e logging estruturado no Laravel 13 para integrações e jobs de fila.",
+      "entidades": [
+        "ShouldntReport",
+        "AgentAiIncompleteException",
+        "HasAgentAiRequest",
+        "reportFinalAgentFailure",
+        "bootstrap/app.php",
+        "config/logging.php"
+      ],
+      "keywords": [
+        "exception handling",
+        "logging estruturado",
+        "ShouldntReport",
+        "failed callback",
+        "canais de log",
+        "try-catch defensivo",
+        "auto-report",
+        "Bug model",
+        "context array"
+      ]
+    },
+    "summary": "Skill excelente, altamente refinada em relação ao tratamento de falhas em jobs de IA e canais de log de integrações."
+  },
+  {
+    "skillName": "laravel-finance-coupons-discounts-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices",
+    "state": "Boa",
+    "problemCount": 1,
+    "problems": [
+      {
+        "text": "A description apresenta no final o texto de preenchimento 'Covers objectives and core workflows.' (critério 12), sem agregar ganho semântico e repetindo a ideia de cobertura geral.",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Criação, validação, aplicação segura contra concorrência e precisão no cálculo de cupons de desconto financeiro.",
+      "entidades": [
+        "FinanceDiscountCoupons",
+        "PaymentPricing",
+        "EfiPaymentStatus",
+        "ProjectsInvoiceExecuteController",
+        "finance_discounts_coupon_use",
+        "DB::transaction"
+      ],
+      "keywords": [
+        "cupons de desconto",
+        "concorrência",
+        "lockForUpdate",
+        "BCMath",
+        "PaymentPricing",
+        "finance_discounts_coupon_use",
+        "stdClass cast",
+        "validação de cupom"
+      ]
+    },
+    "summary": "Skill boa com diagnóstico aprofundado de armadilhas em casts de objetos e float vs BCMath, necessitando remoção da frase redundante na description."
+  },
+  {
+    "skillName": "laravel-frankenphp-octane-best-practices",
+    "skillPath": "created-skills/backend_laravel/laravel-frankenphp-octane-best-practices",
+    "state": "Boa",
+    "problemCount": 2,
+    "problems": [
+      {
+        "text": "A description cita 'tuning Caddyfile workers', enquanto o conteúdo e a infraestrutura do Engeapp explicam que o Caddyfile é gerado pelo Octane e não deve ser editado manualmente, devendo referenciar 'tuning worker CLI options' ou 'worker process management' (critério 5).",
+        "reviewModel": "Tier 1 (Fast)"
+      },
+      {
+        "text": "A description finaliza com a sentença redundante de preenchimento 'Covers objectives and core workflows.' (critério 12).",
+        "reviewModel": "Tier 1 (Fast)"
+      }
+    ],
+    "bloatVerdict": "ENXUTA",
+    "estimatedCutPct": 0,
+    "cuts": [],
+    "mapSummary": {
+      "tema": "Configuração, deploy e depuração do Laravel Octane com FrankenPHP mantendo statelessness e mitigação de memory leaks.",
+      "entidades": [
+        "FrankenPHP",
+        "Laravel Octane",
+        "Supervisor",
+        "Deployer (deploy.php)",
+        "AppServiceProvider",
+        "scoped bindings",
+        "SequentialTaskDispatcher"
+      ],
+      "keywords": [
+        "FrankenPHP",
+        "Laravel Octane",
+        "stateless",
+        "memory leaks",
+        "scoped vs singleton",
+        "resolver closures",
+        "Supervisor restart",
+        "fuser kill",
+        "max-requests"
+      ]
+    },
+    "summary": "Skill boa e rica em detalhes operacionais do FrankenPHP sob Deployer/Supervisor, com inconsistência pontual na menção ao Caddyfile e cauda redundante na description."
+  }
+]
