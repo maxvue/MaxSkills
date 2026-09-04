@@ -1,13 +1,27 @@
 # Auditar, Corrigir e Otimizar Skills (High-Efficiency Runbook)
 
-Runbook de alta eficiência para auditar, validar, corrigir e otimizar **todas as skills de `all_skills/`** aplicando **Regras Adaptativas por Domínio** contra o código real dos projetos de referência em `projects/`. Projetado para ser executado por um agente autônomo do início ao fim, com orquestração multi-agente otimizada para **mínimo consumo de tokens**, **máxima agilidade/paralelismo seguro** e **zero perda de rigor técnico**.
+Runbook de alta eficiência para auditar, validar, corrigir e otimizar **todas as skills de `all_skills/`** aplicando **Regras Adaptativas por Domínio** contra o código real dos projetos de referência em `projects/`. Projetado para ser executado por um agente autônomo do início ao fim, com orquestração multi-agente focada em **auditoria semântica real de IA**, **paralelismo seguro por lotes** e **máximo rigor qualitativo**.
 
 > **Idioma:** conduza toda a conversa com o humano em **pt-BR**.  
 > **Escopo:** somente `all_skills/`. Não altere qualquer coisa fora deste escopo.  
 > **Regras Adaptativas por Domínio:**  
 > - **Skills Proprietárias (`created-skills/`):** auditadas com rigor máximo contra os projetos locais em `projects/` (Engeapp, MaxComponentsUi, MaxPinia, MaxUse, Ziggy, PHP 8.4/Laravel 13).  
-> - **Skills Externas e Terceiros (`Agentic Awesome Skills/` e `curated-youtube/`):** auditadas contra qualidade intrínseca (sintaxe YAML íntegra, `description` entre 200–400 chars, ausência de comandos perigosos e eliminação de bloat/redundância). **Nunca force convenções do Engeapp (ex: MaxPinia, MaxComponentsUi) sobre ferramentas externas (ex: AWS, Docker, React, Django)**.  
+> - **Skills Externas e Terceiros (`Agentic Awesome Skills/` e `curated-youtube/`):** auditadas contra qualidade intrínseca (sintaxe YAML íntegra, `description` entre 200–400 chars com alta densidade semântica, ausência de comandos perigosos e eliminação de bloat/redundância). **Nunca force convenções do Engeapp (ex: MaxPinia, MaxComponentsUi) sobre ferramentas externas (ex: AWS, Docker, React, Django)**.  
 > **Ferramenta de apoio (uso restrito — não carregar em toda fase):** a `skill-creator` é referência de boa `SKILL.md` (description acionável de 200–400 chars, progressive disclosure, instruções imperativas com o *porquê*). **Só carregue a skill-creator quando a tarefa envolve julgar/reescrever FORMA ou `description`** — ou seja, apenas em: Fase 1 quando o problema encontrado for de forma/gatilho, Etapas 2 e 3 do plano (reescrita de Críticas/Ruins), e Etapa 5 (Boas). Nas Fases 0.5, 2, 3 e nas Etapas 1 e 4 do plano, a tarefa é puramente técnica/factual (redundância, refutação, remoção/merge, podas) — **não carregue a skill-creator ali**, ela não agrega e consome tokens inutilmente.
+
+---
+
+> ### 🛑 CLÁUSULA PÉTREA ANTI-BYPASS: AUDITORIA SEMÂNTICA OBRIGATÓRIA POR IA (LLM)
+> **NUNCA CRIE OU EXECUTE SCRIPTS PARA SIMULAR, ATALHAR OU SUBSTITUIR O JULGAMENTO DA IA.**  
+> O valor e a exigência central deste processo estão no **discernimento qualitativo, raciocínio contextual e cognição semântica** que somente Modelos de Linguagem (LLMs) atuando como agente orquestrador e subagentes são capazes de fornecer.
+> 
+> 1. **Proibição Absoluta de Scripts de Auditoria:** É TERMINANTEMENTE PROIBIDO criar, gerar ou executar scripts em Python, Bash, Node.js ou qualquer outra linguagem (como `audit_engine.py` ou similares) para analisar o texto das skills, julgar a qualidade de descrições, verificar regras de negócio/projeto, classificar estados (`Excelente`, `Boa`, `Regular`, `Ruim`, `Crítica`) ou gerar tabelas de consolidação por heurística mecânica.
+> 2. **Por que heurísticas mecânicas são estritamente vedadas:** Um script Python apenas mede tamanho (`len(description)`) e busca strings cruas com regex; ele é **completamente incapaz** de entender se uma descrição é clara, se representa o conteúdo real, se possui termos discriminantes, se é genérica, se é promocional ou se ensina padrões arquiteturais errados.
+> 3. **Consequência de Violação:** Qualquer tentativa do agente executor de criar scripts de auditoria, classificadores regex ou automações locais para "agilizar" ou "economizar chamadas" é considerada uma **falha grave de execução e invalida 100% da auditoria**.
+> 4. **Divisão Rígida de Responsabilidades:**
+>    - **Scripts Locais (Fase 0.5 apenas):** Restritos unicamente a catalogar os caminhos dos arquivos (`SKILL.md`) e validar parsing sintático do YAML básico. Eles **NUNCA** emitem vereditos semânticos.
+>    - **Subagentes de IA (Fases 1, 2, 3, 6, 7):** Toda e qualquer auditoria qualitativa, avaliação dos 13 critérios de description, conformidade com o código real e detecção de bloat **DEVE OBRIGATORIAMENTE** ser feita por inferência real de LLM via `invoke_subagent`.
+>    - **Orquestrador de IA (Fases 4 e 5):** A conciliação e a síntese final são calculadas inline pelo modelo orquestrador com base exclusiva nos relatórios qualitativos retornados pelos subagentes de IA.
 
 ---
 
@@ -54,133 +68,158 @@ Convenções fundamentais confirmadas no código real:
 ## Visão Geral do Fluxo Otimizado
 
 ```
-Fase 0.5  Pré-Triagem Determinística    → Script zero-token: YAML, contagem de chars, regex de strings proibidas
-Fase 1    Auditoria unificada           → Fan-out Tier 1 (1 verificador/skill): conformidade + bloat + resumo-map
-Fase 2    Redundância inter-skills      → Pré-filtro de afinidade léxica → Cluster (Tier 2) → Judge paralelo
-Fase 3    Revisão adversarial           → Micro-batching contextual (2-4 problemas por arquivo/contexto comum)
-Fase 4    Conciliação                   → Inline no Orquestrador: REMOVER > FUNDIR > PODAR > CORRIGIR > MANTER
-Fase 5    Tabela consolidada            → Linha-a-linha 1:1 de todas as skills [no-op: encerra se tudo MANTER]
-Fase 6    Plano de correção (5 etapas)  → ⛔ PARADA OBRIGATÓRIA: aprovar antes de executar (Pipelines de contexto quente)
-Fase 7    Verificação adversarial final → Tier 2 focado em alto risco (Críticas, Ruins, Merges)
-Fase 8    Versionamento (git)           → ⛔ commit/push/merge SÓ sob pedido explícito do humano
+Fase 0.5  Pré-Triagem Cadastral          → Script estático zero-token: inventário de arquivos e integridade de parsing YAML
+Fase 1    Auditoria Semântica de IA      → Subagentes Tier 1 em Lotes (5-10 skills/subagente): 13 critérios semânticos + conformidade real + bloat
+Fase 2    Redundância Inter-Skills       → Agrupamento semântico → Cluster (Tier 2) → Judge de IA paralelo
+Fase 3    Revisão Adversarial de IA      → Micro-batching contextual via LLM conferindo código real em projects/
+Fase 4    Conciliação de IA              → Raciocínio inline no Orquestrador: REMOVER > FUNDIR > PODAR > CORRIGIR > MANTER
+Fase 5    Tabela Consolidada             → Linha-a-linha 1:1 de todas as skills auditadas pelos subagentes [no-op se tudo MANTER]
+Fase 6    Plano de Correção (5 etapas)   → ⛔ PARADA OBRIGATÓRIA: aprovar antes de executar (Pipelines de contexto quente)
+Fase 7    Verificação Adversarial Final  → Tier 2 focado em alto risco (Críticas, Ruins, Merges)
+Fase 8    Versionamento (git)            → ⛔ commit/push/merge SÓ sob pedido explícito do humano
 ```
 
 **Fases 0.5 a 5 executam SEMPRE de forma direta e read-only.** Não modificam arquivos de skills nem executam comandos git. Ao receber a ordem de rodar o runbook, execute direto até a Fase 5.
 
 ---
 
-## Fase 0.5 — Pré-Triagem Determinística (Zero-Token Fast-Path)
+## Fase 0.5 — Pré-Triagem Cadastral e Sintática (Zero-Token Fast-Path)
 
-Antes de invocar qualquer modelo LLM, o agente orquestrador roda a varredura estática e instantânea através do script em `docs/scripts/pre_triage.py` (executa em milissegundos sem consumo de tokens):
+Antes de invocar os modelos LLM, o agente orquestrador roda um inventário puramente estático e mecânico através do script em `docs/scripts/pre_triage.py`:
 
 ```bash
 python3 docs/scripts/pre_triage.py --target all_skills --output docs/reports/pre_triage.json
 ```
 
-O script automatiza:
-1. **Checagem de YAML Frontmatter & Tamanho de Description:**
-   - Detecta `description` ausente, sintaxe YAML inválida, ou fora da faixa de **200 a 400 caracteres**.
-2. **Scan de Violações Adaptativas de Convenção:**
-   - Detecta ocorrências de `adonis`, `AdonisJS`, rotas cruas `/api/` no frontend, e imports diretos de `lodash` ou `vueuse` restritos ao escopo de `created-skills/`.
-3. **Mapeamento Estruturado de Todas as 881 Skills:**
-   - Classifica as skills por domínio (`created-skills`, `awesome-skills`, `curated-youtube`) e gera o relatório estruturado em `docs/reports/pre_triage.json`.
-
-> **Ganho de Eficiência:** Os subagentes da Fase 1 já recebem essa lista de fatos pré-computados em seu briefing de entrada, eliminando buscas cegas e focando 100% de seu tempo de inferência na validação técnica profunda.
+**Delimitação Estrita de Papel da Fase 0.5:**
+- ✅ **O que o script FAZ (restrito à mecânica de arquivos):**
+  1. Mapeia a lista completa de caminhos dos arquivos `SKILL.md` existentes.
+  2. Valida se o frontmatter YAML possui sintaxe íntegra (não quebra parsers).
+  3. Contabiliza o número bruto de caracteres do campo `description` para servir como dado cadastral inicial.
+  4. Agrupa a lista por domínios (`created-skills`, `curated-youtube`, `awesome-skills`) para permitir o fatiamento dos lotes de subagentes.
+- ❌ **O que o script NUNCA FAZ (estritamente vedado):**
+  1. **NÃO avalia a semântica da `description`:** Não julga clareza, intenção, gatilhos, termos discriminantes nem qualidade.
+  2. **NÃO classifica estados:** Não define se uma skill é `Excelente`, `Boa`, `Regular`, `Ruim` ou `Crítica`.
+  3. **NÃO decide destinos:** Não define `MANTER`, `CORRIGIR`, `PODAR`, `FUNDIR` ou `REMOVER`.
+  4. **NÃO substitui a leitura de IA:** O arquivo `pre_triage.json` gerado é apenas o mapa de entrada para que o Orquestrador divida o trabalho entre os subagentes cognitivos de IA.
 
 ---
 
-## Fase 1 — Auditoria Unificada (Lotes Seguros com Batching) — **Tier 1 (Fast)**
+## Fase 1 — Auditoria Semântica Unificada por Subagentes de IA — **Tier 1 (Fast)**
 
-Para auditar as 881 skills com estabilidade e evitar erros de taxa (HTTP 429), esgotamento de contexto ou limites de subprocessos, a auditoria adota **Orquestração em Lotes Controlados (Safe Batching)**:
+> ### 🛑 AVISO DE EXECUÇÃO: PROIBIDO CRIAR SCRIPTS DE AUDITORIA
+> O agente orquestrador **NUNCA deve criar scripts Python (como `audit_engine.py`) para substituir os subagentes**. Toda a análise da Fase 1 deve ser executada por subagentes reais de IA via `invoke_subagent`.
+
+Para auditar as skills com máxima profundidade cognitiva, sem risco de timeout, sem esgotamento de contexto e sem violar limites de taxa (HTTP 429), a orquestração adota **Lotes Semânticos Controlados (5 a 10 skills por subagente)**:
 
 1. Carregue a lista de alvos a partir de `docs/reports/pre_triage.json`.
-2. Dispare verificadores em **lotes concorrentes de 5 a 10 subagentes por rodada** em **Tier 1** (`invoke_subagent` com `Model: 'flash'` ou `'flash_lite'`).
-3. Recomenda-se processar modularmente por domínio:
-   - **Lote A (Prioritário):** `created-skills/` (88 skills proprietárias — auditoria profunda de stack).
-   - **Lote B:** `curated-youtube/` (30 skills — auditoria de escopo e qualidade).
-   - **Lote C:** `Agentic Awesome Skills/` (763 skills — auditoria em blocos por categoria).
+2. Fatie as skills em lotes de **5 a 10 skills por subagente**.
+3. Dispare ondas concorrentes de **5 a 10 subagentes por rodada** em **Tier 1** (`invoke_subagent` com `Model: 'flash'` ou `'flash_lite'`).
+4. Conduza a auditoria modularmente por domínio:
+   - **Lote A (Prioridade Máxima):** `created-skills/` (88 skills proprietárias) → ~9 a 12 subagentes. Auditoria semântica profunda contra os repositórios reais em `projects/`.
+   - **Lote B:** `curated-youtube/` (30 skills) → ~3 a 4 subagentes. Auditoria de escopo, relevância e integridade.
+   - **Lote C:** `Agentic Awesome Skills/` (763 skills) → Processado em blocos temáticos/categorias (ex: devops, frontend, backend, test, etc.), 5 a 10 skills por subagente.
 
-**Ação do verificador (3 sinais na mesma chamada):**
+---
 
-**(a) Conformidade Adaptativa:**
+### Ações Cognitivas Obrigatórias do Subagente de IA
+
+Cada subagente lê o conteúdo de cada `SKILL.md` de seu lote e avalia 5 dimensões semânticas fundamentais:
+
+#### (a) Conformidade Adaptativa com o Código Real
 - Ler o `SKILL.md` e referências dele.
-- **Se a skill pertencer a `created-skills/`:** para cada afirmação técnica (rota, classe, config, tabela/coluna, componente, lib, método), abrir os projetos `projects/` (`Grep`/`Read`) e confirmar/refutar contra as convenções da Seção 0.
+- **Se a skill pertencer a `created-skills/`:** para cada afirmação técnica (rota, classe, config, tabela/coluna, componente, lib, método), verificar nos projetos em `projects/` (`grep_search`/`view_file`) e confirmar/refutar contra as convenções da Seção 0.
 - **Se a skill for externa (`Awesome Skills` ou `curated-youtube`):** verificar a coerência e exatidão técnica da ferramenta ensinada (ex.: Docker, Git, AWS), sem forçar padrões do Engeapp sobre ela.
 
-**(b) Descrição:**
-- Verificar se o campo description da SKILL está em conformidade com as seguintes regras:
-  - O Campo description existe e seu conteúdo está entre 200 e 400 Caracteres;
-  - O Campo description descreve claramente o que a Skill faz;
-  - O Campo description permite inferir de forma clara e fácil quando ela deve ser usada;
-  - O Campo description contém termos semanticamente discriminantes;
-  - O Campo description representa corretamente o conteúdo real da Skill;
-  - O Campo description cobre as principais intenções que deveriam ativá-la;
-  - O Campo description evita ser genérica demais;
-  - O Campo description evita ser ampla demais;
-  - O Campo description evita ser restritiva demais;
-  - O Campo description evita linguagem promocional ou sem valor de roteamento;
-  - O Campo description evita procedimentos que deveriam estar no corpo da Skill;
-  - O Campo description evita redundâncias;
-  - O Campo description evita repetir informações sem ganho semântico.
+#### (b) Avaliação Semântica Aprofundada da Description (Os 13 Critérios Obrigatórios)
+A análise da `description` é **essencialmente cognitiva** e NUNCA mecânica. O subagente de IA deve inspecionar semanticamente o texto contra cada uma das 13 regras:
+1. **Existência e Extensão (200 a 400 caracteres):** Métrica quantitativa de suporte. Se tiver < 200 caracteres, é curta demais para guiar a seleção; se tiver > 400 caracteres, é longa demais e polui o contexto. *Atenção:* Ter entre 200 e 400 caracteres é apenas um pré-requisito mínimo, NÃO garante aprovação!
+2. **Clareza de Ação:** O texto deve expressar com clareza imediata e inequívoca *o que* a skill faz e quais tarefas ela executa.
+3. **Inferência Clara de Condição de Uso (Gatilho):** O texto deve deixar óbvio para qualquer outro agente LLM *quando* a skill deve ser acionada (ex.: padrões explícitos como "Use when...", "Ative quando o usuário solicitar...", "Guia para quando for necessário...").
+4. **Termos Semanticamente Discriminantes:** Deve conter substantivos técnicos, nomes exatos de bibliotecas, componentes, métodos, entidades ou padrões que funcionem como chaves discriminatórias frente a outras skills similares (ex: `MaxComponentsUi`, `apiGetRoute`, `LocalForage`, `getKey()`, `Pinia`).
+5. **Fidelidade Estrita ao Conteúdo Real:** A description deve representar com 100% de precisão o conteúdo real encontrado no corpo do `SKILL.md`. Não pode prometer recursos inexistentes nem omitir o escopo real do documento.
+6. **Cobertura de Intenções Reais:** Deve antecipar e cobrir as reais intenções, dúvidas e solicitações típicas de um desenvolvedor ou agente que busca aquela funcionalidade.
+7. **Ausência de Generalismo:** Não pode usar termos vagos e genéricos (ex: "ajuda a codificar melhor", "conjunto de boas práticas de programação", "dicas úteis").
+8. **Equilíbrio de Amplitude (Não Ampla Demais):** A description não pode reivindicar áreas amplas demais que invadam ou roubem gatilhos de outras skills especializadas do ecossistema.
+9. **Equilíbrio de Especificidade (Não Restritiva Demais):** A description não pode ser afunilada a ponto de impedir o acionamento em casos de uso legítimos e diretamente cobertos pela skill.
+10. **Linguagem Anti-Promocional (Sem Marketing):** Terminantemente proibido adjetivos vazios ou jargões promocionais (ex: "poderosa", "incrível", "mágica", "melhores práticas mundiais", "código perfeito"). O espaço é puramente utilitário de roteamento técnico.
+11. **Ausência de Procedimentos Operacionais:** A description orienta O QUÊ e QUANDO usar. Ela NÃO deve listar comandos passo a passo, tutoriais ou regras de implementação interna que pertencem ao corpo do markdown.
+12. **Ausência de Redundâncias:** Não repetir o mesmo conceito com palavras ligeiramente diferentes apenas para preencher espaço.
+13. **Densidade de Ganho Semântico:** Cada frase e oração deve agregar uma nova dimensão de valor informativo, restrição de uso ou capacidade técnica.
 
-**(c) Bloat:**
-- Seções mortas que não correspondem a nada usável no projeto.
-- Redundância interna e preâmbulos verbosos que não afetam o comportamento do agente.
-- Arquivos órfãos em `references/` ou `rules/`.
+> ⚠️ **Regra de Julgamento Semântico:** Se a description falhar em qualquer um dos critérios 2 a 13 (mesmo tendo entre 200 e 400 caracteres), o subagente DEVE apontar como problema, classificar a severidade e propor a reformulação textual completa nos padrões ideais.
 
-**(d) Front-End (Específico para Skills de FrontEnd do ecossistema Engeapp/MaxVue):**
+#### (c) Bloat e Ruído Estrutural
+- Detectar seções mortas ou obsoletas que não correspondem a nada usável no projeto.
+- Detectar redundância interna e preâmbulos verbosos que não afetam o comportamento do agente.
+- Mapear arquivos órfãos em `references/` ou `rules/`.
+
+#### (d) Front-End (Específico para Skills de FrontEnd do ecossistema Engeapp/MaxVue)
 - Pular esta etapa quando a skill não for sobre o front-end do projeto:
-  - Para componentes genéricos e de uso recorrente, sempre adotar a biblioteca local MaxComponentsUi.
-    - Exemplos:
-      - Botões: MaxButton, MaxIconButton, MaxIconButtonConfirm, MaxButtonConfirm
-      - Tabs: MaxTabs
-      - Tabelas: MaxTable ou MaxTableFields
-      - Inputs: MaxInput* (MaxInputText, MaxInputCep, MaxInputPhone, MaxInputCpfCnpj, etc. )
-      - Select: MaxInputSelect
-      - Select em formato de Badge (Tag): MaxTagSelect
-      - Formulários -> MaxGrid
-      - Titulos -> MaxTitle1 e MaxTitle2
+  - Para componentes genéricos e de uso recorrente, sempre adotar a biblioteca local MaxComponentsUi (`MaxButton`, `MaxIconButton`, `MaxTabs`, `MaxTable`, `MaxTableFields`, `MaxInput*`, `MaxInputSelect`, `MaxTagSelect`, `MaxGrid`, `MaxTitle1`, `MaxTitle2`).
   - Para Funções Helpers no Frontend, sempre adotar "MaxUse".
-  - Para Funções Helpers no Frontend, nunca adotar "VueUse" nem tampouco "Lodash" (MaxUse possui as funções de VueUse e Lodash próprias).
-  - Para Salvamentos no Frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia".
-  - Para Cache no Frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia".
-  - Para Salvamentos Automáticos no frontend, as skills devem sempre adotar Stores Pinia com "MaxPinia".
+  - Para Funções Helpers no Frontend, nunca adotar "VueUse" nem "Lodash" diretamente.
+  - Para Salvamentos, Cache e Salvamentos Automáticos no Frontend, adotar Stores Pinia com "MaxPinia".
   - O Formato dos nomes de arquivos pinia deverá ser `Use{NomeStore}.Store.ts` (ex: `UseSystm.Store.ts`).
-  - **Classes no front-end:** não fazer uso de **classes utilitárias inline** no template (ex.: classes utilitárias inline de Tailwind/UnoCSS como `class="p-4 rounded-2xl"`). Adotar classes semânticas no template (ex.: `class="contact-info"`, `class="payment-content"`) com estilização isolada na seção `<style lang="scss">`.
+  - **Classes no front-end:** não fazer uso de **classes utilitárias inline** no template (ex.: Tailwind/UnoCSS inline como `class="p-4 rounded-2xl"`). Adotar classes semânticas (ex.: `class="contact-info"`) com estilização isolada na seção `<style lang="scss">`.
 
-**(e) Resumo-map:**
-- Extração concisa: tema (1 frase), entidades citadas (libs, rotas, componentes, classes) e ~10 palavras-chave.
+#### (e) Resumo-map e Roteamento de Revisão
+- Extração concisa: tema (1 frase), entidades citadas (libs, rotas, componentes, classes) e ~10 a 20 palavras-chave discriminantes.
+- Classificação de `reviewModel` para a Fase 3:
+  - `"Tier 1 (Fast)"` — problema factual pontual e localizado (1 citação verificável em 1 arquivo). Cortes de bloat padrão.
+  - `"Tier 2 (High-Reasoning)"` — problema arquitetural/estrutural: fluxo, contrato ou design multi-arquivo (ex.: padrão multi-tenant, ciclo de vida complexo, guards).
 
-**Classificação de `reviewModel` para a Fase 3:**
-- `"Tier 1 (Fast)"` — problema **factual pontual e localizado**: 1 citação (nome de rota/config/tabela/coluna/classe/caminho) verificável em 1 arquivo. Cortes de bloat padrão.
-- `"Tier 2 (High-Reasoning)"` — problema **arquitetural/estrutural**: fluxo, contrato ou design multi-arquivo (ex.: padrão multi-tenant, ciclo de vida complexo, guards).
+---
 
-**Saída estruturada (JSON compacto):**
-```json
-{
-  "skillName": "string",
-  "skillPath": "string",
-  "state": "Excelente | Boa | Regular | Ruim | Crítica",
-  "problemCount": 0,
-  "problems": [
-    { "text": "1 problema concreto com evidência", "reviewModel": "Tier 1 (Fast) | Tier 2 (High-Reasoning)" }
-  ],
-  "bloatVerdict": "ENXUTA | PODAR | INCHADA",
-  "estimatedCutPct": 0,
-  "cuts": [
-    { "text": "seção a remover/condensar e o porquê", "reviewModel": "Tier 1 (Fast) | Tier 2 (High-Reasoning)" }
-  ],
-  "mapSummary": {
-    "tema": "1 frase",
-    "entidades": ["libs/classes/rotas/componentes citados"],
-    "keywords": ["10 a 20 palavras-chave"]
-  },
-  "summary": "veredito em 1 frase"
-}
+### Template de Prompt Padronizado para Invocação dos Subagentes da Fase 1
+
+O Orquestrador dispara cada subagente com um prompt estruturado contendo a lista das 5 a 10 skills do lote:
+
+```text
+Você é um Auditor Semântico Especialista em Skills de IA.
+Sua missão é realizar a auditoria semântica profunda e cognitiva do seguinte lote de skills:
+[LISTA COM CAMINHOS DAS 5 A 10 SKILLS DO LOTE]
+
+Para CADA skill:
+1. Leia o arquivo SKILL.md completo.
+2. Avalie rigorosamente a DESCRIPTION contra os 13 Critérios Semânticos (extensão 200-400 chars, clareza, gatilhos de ativação, termos discriminantes, fidelidade ao corpo da skill, intenções cobertas, não-genérica, não ampla, não restritiva, zero marketing/adjetivos promocionais, zero procedimentos passo a passo, zero redundância, densidade semântica real).
+3. Se for do ecossistema Engeapp (created-skills/), valide as afirmações técnicas contra os projetos reais em projects/ (MaxComponentsUi, MaxPinia, MaxUse, Laravel 13).
+4. Avalie Bloat (seções mortas, preâmbulos vazios, redundâncias).
+5. Extraia o mapSummary (tema, entidades, keywords).
+
+Retorne OBRIGATORIAMENTE um array JSON contendo um objeto para cada skill no seguinte formato:
+[
+  {
+    "skillName": "string",
+    "skillPath": "string",
+    "state": "Excelente | Boa | Regular | Ruim | Crítica",
+    "problemCount": 0,
+    "problems": [
+      { "text": "descrição qualitativa do problema com evidência", "reviewModel": "Tier 1 (Fast) | Tier 2 (High-Reasoning)" }
+    ],
+    "bloatVerdict": "ENXUTA | PODAR | INCHADA",
+    "estimatedCutPct": 0,
+    "cuts": [
+      { "text": "seção a remover/condensar e o porquê", "reviewModel": "Tier 1 (Fast) | Tier 2 (High-Reasoning)" }
+    ],
+    "mapSummary": {
+      "tema": "1 frase",
+      "entidades": ["libs/classes/rotas/componentes citados"],
+      "keywords": ["10 a 20 palavras-chave"]
+    },
+    "summary": "veredito em 1 frase"
+  }
+]
 ```
 
-Régua de estado: **Excelente** (100% aderente) | **Boa** (ajustes só de formato/redação) | **Regular** (desacordos superficiais) | **Ruim** (desacordos medianos) | **Crítica** (ensina arquitetura/APIs inexistentes).  
-Régua de bloat: **ENXUTA** (0%) | **PODAR** (< 25%) | **INCHADA** (≥ 25%).
+**Régua de Estado:**
+- **Excelente:** 100% aderente sem pendências conceituais nem de descrição.
+- **Boa:** Conteúdo correto, ajustes estritamente semânticos de redação/gatilhos na `description` ou formato.
+- **Regular:** Desacordos superficiais ou pontuais (ex.: 1 convenção simples, pequenas omissões).
+- **Ruim:** Múltiplos desacordos técnicos ou descrição severamente distorcida/omisso-promocional.
+- **Crítica:** Ensina arquitetura/APIs inexistentes, quebra convenções estruturais vitais ou ausência total de discriminantes.
+
+**Régua de Bloat:** **ENXUTA** (0%) | **PODAR** (< 25%) | **INCHADA** (≥ 25%).
 
 ---
 
@@ -248,7 +287,9 @@ Qualquer problema **não CONFIRMADO** pela revisão adversarial da Fase 3 é **S
 
 ## Fase 5 — Tabela Consolidada (1 Linha por Skill)
 
-> **Regra Obrigatória:** A tabela apresentada ao humano deve conter **exatamente N linhas** (onde N = total de `SKILL.md` auditados), ordenada por severidade (`Crítica → Ruim → Regular → Boa → Excelente`) e nº de problemas decrescente. O relatório completo é salvo em `docs/reports/fase_5_consolidado.md`:
+> **Origem Obrigatória dos Dados:** Esta consolidação deve ser compilada **exclusivamente a partir dos vereditos semânticos emitidos pelos subagentes de IA nas Fases 1, 2 e 3**. É expressamente proibido rodar scripts para inventar vereditos ou simular a saída desta fase.
+> 
+> **Regra de Formato:** A tabela apresentada ao humano deve conter **exatamente N linhas** (onde N = total de `SKILL.md` auditados), ordenada por severidade (`Crítica → Ruim → Regular → Boa → Excelente`) e nº de problemas decrescente. O relatório completo é salvo pelo Orquestrador em `docs/reports/fase_5_consolidado.md`:
 
 | # | Skill | Estado | Nº de problemas | Destino | Descrição dos problemas |
 |---|-------|--------|------------------|---------|--------------------------|
@@ -261,7 +302,7 @@ Acompanhada de:
 - Seções de apoio opcionais (ex.: lista de pares `FUNDIR`, lista de `DEMARCAR`).
 
 ### Critério de Parada Rápida (No-Op)
-Se todas as skills resultarem em destino **`MANTER`** (zero problemas confirmados), o runbook encerra imediatamente exibindo: **"Nenhuma correção necessária — todas as skills em MANTER"**, economizando 100% dos tokens das Fases 6 a 8.
+Se todas as skills resultarem em destino **`MANTER`** (zero problemas confirmados pela auditoria de IA), o runbook encerra imediatamente exibindo: **"Nenhuma correção necessária — todas as skills em MANTER"**, economizando 100% dos tokens das Fases 6 a 8.
 
 ---
 
@@ -318,10 +359,11 @@ Dispara 1 verificador em **Tier 2 (High-Reasoning)** para cada skill de alto ris
 
 ## Tabela de Impacto e Eficiência (Benchmark Estimado)
 
-| Dimensão | Runbook Anterior | Runbook Otimizado (Este) | Ganho / Economia |
+| Dimensão | Abordagem Anterior (Não Otimizada) | Runbook Otimizado de IA (Este) | Ganho / Eficiência Real |
 | :--- | :--- | :--- | :--- |
-| **Consumo de Tokens** | ~5.200.000 tokens | **~1.600.000 tokens** | **~69% de economia de tokens** |
-| **Tempo Total Estimado** | ~35 a 45 minutos | **~9 a 12 minutos** | **~3.8x mais rápido** |
+| **Profundidade Semântica** | Risco de automações mecânicas rasas / regex | **100% IA Semântica (13 critérios avaliados por LLM)** | **Rigor técnico máximo sem atalhos artificiais de scripts** |
+| **Arquitetura de Execução** | Subagente individual por skill (881 chamadas) | **Lotes Semânticos Controlados (5-10 skills/subagente)** | **Redução drástica de overhead sem perda cognitiva** |
+| **Consumo de Tokens** | ~5.200.000 tokens (sem batching) | **~1.600.000 tokens** | **~69% de economia por contexto compartilhado** |
 | **Chamadas de Revisão (Fase 3)** | 1 subagente / problema (~120 chamadas) | Micro-batching contextual (~30 chamadas) | **-75% de round-trips** |
-| **Triagem Inicial** | 100% LLM | Pré-triagem determinística zero-token | **Zero gasto em checagens sintáticas** |
-| **Reaproveitamento de Contexto** | Paralelo isolado (releituras do zero) | Pipelines de contexto quente por domínio | **Arquivos de projeto lidos 1x por domínio** |
+| **Triagem Sintática Inicial** | 100% tokens de LLM para ler sintaxe | Pré-triagem determinística cadastral (Fase 0.5) | **Zero tokens gastos com parsing mecânico de YAML** |
+| **Reaproveitamento de Contexto** | Releituras do zero a cada chamada | Pipelines de contexto quente por domínio | **Arquivos de projeto em projects/ lidos 1x por domínio** |
