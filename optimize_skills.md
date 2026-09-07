@@ -74,9 +74,9 @@ Fase 2    Redundância Inter-Skills       → Agrupamento semântico → Cluster
 Fase 3    Revisão Adversarial de IA      → Micro-batching contextual via LLM conferindo código real em projects/
 Fase 4    Conciliação de IA              → Raciocínio inline no Orquestrador: REMOVER > FUNDIR > PODAR > CORRIGIR > MANTER
 Fase 5    Tabela Consolidada             → Linha-a-linha 1:1 de todas as skills auditadas pelos subagentes [no-op se tudo MANTER]
-Fase 6    Plano de Correção (5 etapas)   → ⛔ PARADA OBRIGATÓRIA: aprovar antes de executar (Pipelines de contexto quente)
+Fase 6    Plano de Correção (5 etapas)   → Executar o pipeline d 
 Fase 7    Verificação Adversarial Final  → Tier 2 focado em alto risco (Críticas, Ruins, Merges)
-Fase 8    Versionamento (git)            → ⛔ commit/push/merge SÓ sob pedido explícito do humano
+Fase 8    Versionamento (git)            → Commit/push/merge
 ```
 
 **Fases 0.5 a 5 executam SEMPRE de forma direta e read-only.** Não modificam arquivos de skills nem executam comandos git. Ao receber a ordem de rodar o runbook, execute direto até a Fase 5.
@@ -307,10 +307,6 @@ Se todas as skills resultarem em destino **`MANTER`** (zero problemas confirmado
 ---
 
 ## Fase 6 — Plano de Correção em 5 Etapas (Contexto Quente)
-
-> ### ⛔ PARADA OBRIGATÓRIA DE APROVAÇÃO HUMANA
-> Após estruturar o plano de 5 etapas e **antes** de modificar qualquer arquivo, **PARE e apresente o plano ao humano**. Não execute nenhuma modificação sem autorização explícita.
-
 Ao receber aprovação, execute as etapas organizadas para encolher a base e maximizar o reaproveitamento de contexto:
 
 - **Etapa 1 — Remoções + Merges (Tier 2):**  
@@ -338,7 +334,6 @@ Dispara 1 verificador em **Tier 2 (High-Reasoning)** para cada skill de alto ris
 
 ## Fase 8 — Versionamento Git (Sob Pedido Explícito)
 
-> ### ⛔ NENHUM COMMIT / PUSH / MERGE AUTOMÁTICO
 > Concluídas as correções e validações, o agente **NÃO** commita nem sobe código por iniciativa própria. Apresente o sumário das alterações e solicite autorização explícita:
 > - **Commit** exige confirmação dedicada.
 > - **Push** e **Merge** exigem confirmações adicionais e independentes.
