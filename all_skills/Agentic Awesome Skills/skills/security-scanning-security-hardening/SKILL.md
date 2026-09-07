@@ -1,6 +1,6 @@
 ---
 name: security-scanning-security-hardening
-description: "Comprehensive engineering guide and best practices for security scanning security hardening. Use when configuring, developing, debugging, or optimizing security scanning security hardening architecture in production systems."
+description: "Orchestrates multi-layer security hardening and vulnerability remediation across codebases, containers, and CI/CD pipelines using SAST, DAST, and secret scanners. Use when executing defense-in-depth hardening, mitigating CVSS vulnerabilities with WAF or HashiCorp Vault, or conducting OWASP ASVS compliance audits."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,6 +1,6 @@
 ---
 name: conductor-revert
-description: "Git-aware undo by logical work unit (track, phase, or task) Use when developing, optimizing, debugging, or configuring conductor revert in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor revert."
+description: "Performs git-aware rollback of Conductor tracks, phases, or individual tasks by identifying matching commit hashes and executing clean reverts. Use when rolling back specific track changes, reversing completed tasks in conductor/tracks/plan.md, or restoring metadata.json and git working tree state after failed implementation units."
 risk: critical
 source: community
 date_added: "2026-02-27"

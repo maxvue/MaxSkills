@@ -1,6 +1,6 @@
 ---
 name: metasploit-framework
-description: "Comprehensive engineering guide and best practices for metasploit framework. Use when configuring, developing, debugging, or optimizing metasploit framework architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for metasploit framework."
+description: "Executes authorized penetration testing, vulnerability exploitation, payload generation, and post-exploitation workflows using the Metasploit Framework. Operates msfconsole and msfvenom for target scanning, exploit modules, and Meterpreter session management. Use when conducting authorized security assessments, verifying CVE exploits, or generating test payloads with Metasploit."
 risk: offensive
 source: community
 author: zebbern

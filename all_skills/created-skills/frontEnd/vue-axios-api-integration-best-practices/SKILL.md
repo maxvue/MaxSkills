@@ -19,7 +19,7 @@ Nunca faça `axios.get` (ou `apiGetRoute`) direto em um componente. GETs de leit
 Para enviar formulários e alterar estado no backend, use `apiPostRoute`, `apiPutRoute` ou `apiDeleteRoute`. Eles executam o Axios internamente e retornam `response.data` em sucesso. Não instancie Axios nem chame `axios.post` cru — você perderia os headers e o `withCredentials` que os helpers já injetam.
 
 ### 3. Rotas são NOMES Ziggy pontilhados, nunca strings de path
-O primeiro argumento dos helpers é o **nome** da rota (ex.: `'login'`, `'social.providers'`, `'profile.update'`, `'planner.card.add.task'`), não um path como `'/api/login'`. O resolvedor é configurado uma única vez em `resources/app.ts`:
+O primeiro argumento dos helpers é o **nome** da rota (ex.: `'login'`, `'social.providers'`, `'profile.update'`, `'planner.card.add.task'`), não paths literais de URL. O resolvedor é configurado uma única vez em `resources/app.ts`:
 
 ```typescript
 setRouteResolver((name: string, params?: any) => {
@@ -48,7 +48,7 @@ Contrato real dos helpers de mutação (ver Regra 2), em `@maxvue/max-use`:
 
 Atenção: `apiGetRoute` **não tem** a guarda de `false` — nome falsy nele faz `apiRoute` retornar `null`, e no caminho default (sem `options.error === false`) o `catch` interno desreferencia esse `null` de novo ao montar a mensagem de erro (`system_options.routeURL`), produzindo um segundo `TypeError` **não capturado** que propaga para o chamador. Só quando o chamador passa `options.error === false` esse segundo throw é evitado e a função retorna `null` de fato. Nome inexistente também lança. Como GET no projeto vai sempre via store MaxPinia (Regra 1), isso raramente aparece no seu código.
 
-Portanto, para as mutações: **ramifique pelo valor de retorno** (`response.data` = ok; `null`/`false` = falha, mostre mensagem ao usuário) **e** proteja-se do `throw` de rota inexistente com `try/catch` quando o nome não for uma constante confiável. Não há interceptador global de resposta. Erros de validação 422 detalhados (`{ message, errors }`) **não** chegam ao chamador — o helper os engole no `null`. Se um formulário precisar do corpo do 422, esse endpoint teria de usar `axios.post` direto. Isso não é apenas teórico: `axios.get`/`axios.post` direto aparecem hoje dezenas de vezes no código do engeapp (ex.: `ArtisanPage.vue`, `PublicationsPage.vue`, `PromotionsPage.vue`), inclusive com paths crus `'/api/...'`. A regra desta skill é a convenção-alvo a seguir em código novo — não presuma que o código existente já está isolado disso.
+Portanto, para as mutações: **ramifique pelo valor de retorno** (`response.data` = ok; `null`/`false` = falha, mostre mensagem ao usuário) **e** proteja-se do `throw` de rota inexistente com `try/catch` quando o nome não for uma constante confiável. Não há interceptador global de resposta. Erros de validação 422 detalhados (`{ message, errors }`) **não** chegam ao chamador — o helper os engole no `null`. Se um formulário precisar do corpo do 422, esse endpoint teria de usar `axios.post` direto. Isso não é apenas teórico: `axios.get`/`axios.post` direto aparecem hoje dezenas de vezes no código do engeapp (ex.: `ArtisanPage.vue`, `PublicationsPage.vue`, `PromotionsPage.vue`), inclusive com paths crus de URL. A regra desta skill é a convenção-alvo a seguir em código novo — não presuma que o código existente já está isolado disso.
 
 ### 5. Headers e credenciais já são responsabilidade dos helpers
 Não configure `Accept`, `Content-Type`, `X-Requested-With` nem `withCredentials` manualmente para chamadas normais. `apiPostRoute` já envia esses headers, mescla `getConfiguredHeaders()` e usa `withCredentials` (padrão `true`, definido em `@maxvue/max-use`). A autenticação é por sessão + cookie; não anexe `Authorization: Bearer` para chamadas de API comuns.
@@ -66,7 +66,7 @@ const submit = async () => {
     loading.value = true;
     error.value = '';
 
-    // NOME de rota Ziggy 'login' (não um path '/api/login').
+    // NOME de rota Ziggy 'login' (nome de rota registrado, não URL crua).
     const result_api = await apiPostRoute('login', {
         method: method.value,
         email: email.value,

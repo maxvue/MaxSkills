@@ -1,11 +1,11 @@
 ---
 name: ux-feedback
-description: "Add appropriate user feedback states (loading, success, error, empty) to a component or page Use when developing, optimizing, debugging, or configuring ux feedback in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux feedback."
+description: "Implement the four core UI feedback states—loading skeletons, zero-data empty states, error fallbacks, and success toasts—for data-dependent views. Use when handling async UI states in components, replacing raw spinners with layout-matching pulse skeletons, adding retry buttons, or configuring undoable toasts."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-feedback
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

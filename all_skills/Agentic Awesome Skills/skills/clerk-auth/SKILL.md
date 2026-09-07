@@ -1,10 +1,9 @@
 ---
 name: clerk-auth
-description: "Expert patterns for Clerk auth implementation, middleware, Use when developing, optimizing, debugging, or configuring clerk auth in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for clerk auth."
-  organizations, webhooks, and user sync
+description: "Implement Clerk authentication and multi-tenant authorization in Next.js App Router applications. Configures ClerkProvider, clerkMiddleware, createRouteMatcher, auth(), currentUser(), Client hooks, and Svix webhook signature verification. Use when integrating Clerk auth, setting up RBAC organizations, or syncing user lifecycle events with Prisma or PostgreSQL."
 risk: safe
-source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+source: "vibeship-spawner-skills (Apache 2.0)"
+date_added: "2026-02-27"
 ---
 
 # Clerk Authentication

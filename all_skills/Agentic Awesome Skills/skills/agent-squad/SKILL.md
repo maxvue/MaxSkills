@@ -1,6 +1,6 @@
 ---
 name: agent-squad
-description: "Main agent orchestrator that coordinates a specialized squad of agents Use when developing, optimizing, debugging, or configuring agent squad in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agent squad."
+description: "Orchestrates specialized agent squads (Rex, Alex, Aria, Mason, Luna, Quinn, Max, Dep) across project lifecycles using context-compressed briefings and artifact references. Use when coordinating autonomous multi-agent engineering workflows, delegating role-based tasks, or tracking stage transitions from requirements to deployment."
 risk: critical
 source: community
 role: Orchestrator / Agent Panel

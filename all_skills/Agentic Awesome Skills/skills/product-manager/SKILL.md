@@ -1,6 +1,6 @@
 ---
 name: product-manager
-description: "Comprehensive engineering guide and best practices for product manager. Use when configuring, developing, debugging, or optimizing product manager architecture in production systems. Guides architecture, best practices, and implementation standards for product manager."
+description: "Structures product management deliverables with PRD templates, roadmap planning, and SaaS metrics analysis. Applies prioritization frameworks including RICE scoring, MoSCoW, Kano Model, Jobs-to-be-Done, and Opportunity Solution Trees while computing MRR, ARR, LTV, CAC, and Rule of 40. Use when drafting PRDs, scoring feature backlogs, or evaluating product unit economics."
 risk: safe
 version: "1.0.0"
 author: "Digidai"

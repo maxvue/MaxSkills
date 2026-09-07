@@ -1,6 +1,6 @@
 ---
 name: security-auditor
-description: "Comprehensive engineering guide and best practices for security auditor. Use when configuring, developing, debugging, or optimizing security auditor architecture in production systems. Guides architecture, best practices, and implementation standards for security auditor."
+description: "Performs application security audits, STRIDE threat modeling, and data flow vulnerability analysis for IDOR, SSRF, and auth bypasses across trust boundaries. Use when auditing backend APIs, configuring SAST/DAST tools like Semgrep, CodeQL, or OWASP ZAP, or validating OWASP ASVS and SOC 2 security compliance."
 risk: critical
 source: community
 date_added: '2026-02-27'

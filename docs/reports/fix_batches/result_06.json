@@ -1,0 +1,82 @@
+[
+  {
+    "skillName": "growth-engine",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/growth-engine/SKILL.md",
+    "correctedDescription": "Elabora e executa estratégias de growth hacking, SEO técnico, ASO para app stores, viral loops, referral programs e automação de CRM. Ative quando precisar planejar aquisição orgânica, otimizar funis de conversão digital ou estruturar campanhas de retenção de usuários com métricas de crescimento.",
+    "charCount": 290,
+    "discriminants": ["growth hacking", "SEO técnico", "ASO", "viral loops", "CRM", "referral programs"],
+    "cleanFrontmatter": "name: growth-engine\ndescription: \"Elabora e executa estratégias de growth hacking, SEO técnico, ASO para app stores, viral loops, referral programs e automação de CRM. Ative quando precisar planejar aquisição orgânica, otimizar funis de conversão digital ou estruturar campanhas de retenção de usuários com métricas de crescimento.\"\nrisk: none\nsource: community\ndate_added: '2026-03-06'\nauthor: renat\ntags:\n- growth\n- seo\n- marketing\n- viral\n- acquisition\ntools:\n- claude-code\n- antigravity\n- cursor\n- gemini-cli\n- codex-cli"
+  },
+  {
+    "skillName": "hugging-face-tool-builder",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/hugging-face-tool-builder/SKILL.md",
+    "correctedDescription": "Creates reusable command-line scripts and utilities leveraging the Hugging Face API and `hf` CLI tool. Use when building shell-friendly pipelines for model inspection, dataset queries, repository management, or piping Hugging Face Hub metadata and assets into automated workflows.",
+    "charCount": 277,
+    "discriminants": ["Hugging Face API", "hf CLI", "Hugging Face Hub", "dataset queries"],
+    "cleanFrontmatter": "name: hugging-face-tool-builder\ndescription: \"Creates reusable command-line scripts and utilities leveraging the Hugging Face API and `hf` CLI tool. Use when building shell-friendly pipelines for model inspection, dataset queries, repository management, or piping Hugging Face Hub metadata and assets into automated workflows.\"\nrisk: critical\nsource: community"
+  },
+  {
+    "skillName": "iconsax-library",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/iconsax-library/SKILL.md",
+    "correctedDescription": "Integrates and customizes Iconsax icon sets across web applications, supporting Linear, Bold, Bulk, and Two-tone styles alongside Iconsax AI generation. Use when standardizing UI icon design systems, embedding crisp 24x24 SVG components, or replacing generic default icons with styled visual sets.",
+    "charCount": 287,
+    "discriminants": ["Iconsax", "Iconsax AI", "Linear", "Bold", "Bulk", "Two-tone", "SVG"],
+    "cleanFrontmatter": "name: iconsax-library\ndescription: \"Integrates and customizes Iconsax icon sets across web applications, supporting Linear, Bold, Bulk, and Two-tone styles alongside Iconsax AI generation. Use when standardizing UI icon design systems, embedding crisp 24x24 SVG components, or replacing generic default icons with styled visual sets.\"\nrisk: safe\nsource: community\ndate_added: \"2026-03-07\""
+  },
+  {
+    "skillName": "javascript-pro",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/javascript-pro/SKILL.md",
+    "correctedDescription": "Develops and refactors modern ES6+ JavaScript code for Node.js and browser runtimes, focusing on event loop mechanics, microtasks, and async/await error handling. Use when migrating legacy JS to modern ES modules, resolving asynchronous race conditions, or optimizing runtime execution and bundle sizes.",
+    "charCount": 295,
+    "discriminants": ["ES6+", "Node.js", "event loop", "microtasks", "async/await", "ES modules"],
+    "cleanFrontmatter": "name: javascript-pro\ndescription: \"Develops and refactors modern ES6+ JavaScript code for Node.js and browser runtimes, focusing on event loop mechanics, microtasks, and async/await error handling. Use when migrating legacy JS to modern ES modules, resolving asynchronous race conditions, or optimizing runtime execution and bundle sizes.\"\nrisk: safe\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "keyword-extractor",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/keyword-extractor/SKILL.md",
+    "correctedDescription": "Extracts up to 50 prioritized SEO keywords, search phrases, and semantic entities from raw text, formatted in machine-readable JSON or markdown. Use when analyzing content for keyword density, optimizing page metadata, generating search tags, or discovering high-intent ranking targets from corpus text.",
+    "charCount": 294,
+    "discriminants": ["SEO keywords", "search phrases", "keyword density", "page metadata", "semantic entities"],
+    "cleanFrontmatter": "name: keyword-extractor\ndescription: \"Extracts up to 50 prioritized SEO keywords, search phrases, and semantic entities from raw text, formatted in machine-readable JSON or markdown. Use when analyzing content for keyword density, optimizing page metadata, generating search tags, or discovering high-intent ranking targets from corpus text.\"\nrisk: safe\nsource: original\ndate_added: \"2026-03-11\""
+  },
+  {
+    "skillName": "langfuse",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/langfuse/SKILL.md",
+    "correctedDescription": "Implements open-source LLM observability with Langfuse, covering distributed tracing, prompt management, model evaluation, and dataset curation. Use when integrating Langfuse SDK with LangChain, LlamaIndex, or OpenAI APIs, debugging token usage and latency bottlenecks, or monitoring production AI apps.",
+    "charCount": 297,
+    "discriminants": ["Langfuse", "LLM observability", "distributed tracing", "LangChain", "LlamaIndex", "prompt management"],
+    "cleanFrontmatter": "name: langfuse\ndescription: \"Implements open-source LLM observability with Langfuse, covering distributed tracing, prompt management, model evaluation, and dataset curation. Use when integrating Langfuse SDK with LangChain, LlamaIndex, or OpenAI APIs, debugging token usage and latency bottlenecks, or monitoring production AI apps.\"\nrisk: critical\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "llm-application-dev-ai-assistant",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/llm-application-dev-ai-assistant/SKILL.md",
+    "correctedDescription": "Architects and implements conversational AI assistants, handling multi-turn dialog state tracking, context memory, and NLP execution pipelines. Use when building intelligent chatbots or autonomous assistants with LLM backends, designing intent routing flows, or managing stateful agent-user conversations.",
+    "charCount": 297,
+    "discriminants": ["conversational AI", "dialog state tracking", "NLP pipelines", "intent routing", "context memory"],
+    "cleanFrontmatter": "name: llm-application-dev-ai-assistant\ndescription: \"Architects and implements conversational AI assistants, handling multi-turn dialog state tracking, context memory, and NLP execution pipelines. Use when building intelligent chatbots or autonomous assistants with LLM backends, designing intent routing flows, or managing stateful agent-user conversations.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "llm-application-dev-prompt-optimize",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/llm-application-dev-prompt-optimize/SKILL.md",
+    "correctedDescription": "Refines and benchmarks prompts for large language models using chain-of-thought, few-shot conditioning, constitutional constraints, and token pruning. Use when optimizing system prompts to reduce hallucinations, improving adherence to complex schemas, or cutting token consumption across production LLM APIs.",
+    "charCount": 299,
+    "discriminants": ["chain-of-thought", "few-shot", "constitutional constraints", "token pruning", "hallucinations"],
+    "cleanFrontmatter": "name: llm-application-dev-prompt-optimize\ndescription: \"Refines and benchmarks prompts for large language models using chain-of-thought, few-shot conditioning, constitutional constraints, and token pruning. Use when optimizing system prompts to reduce hallucinations, improving adherence to complex schemas, or cutting token consumption across production LLM APIs.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "llm-structured-output",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/llm-structured-output/SKILL.md",
+    "correctedDescription": "Extracts typed, validated JSON and enums from LLMs using OpenAI response_format with JSON Schema, Anthropic tool_use blocks, and Gemini responseSchema. Use when enforcing structured output compliance via Pydantic or Zod, configuring constrained decoding, or handling API schema validation retries.",
+    "charCount": 295,
+    "discriminants": ["response_format", "tool_use", "responseSchema", "JSON Schema", "Pydantic", "Zod", "constrained decoding"],
+    "cleanFrontmatter": "name: llm-structured-output\ndescription: \"Extracts typed, validated JSON and enums from LLMs using OpenAI response_format with JSON Schema, Anthropic tool_use blocks, and Gemini responseSchema. Use when enforcing structured output compliance via Pydantic or Zod, configuring constrained decoding, or handling API schema validation retries.\"\nrisk: safe\nsource: community\ndate_added: \"2026-03-12\""
+  },
+  {
+    "skillName": "logic-diff",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/logic-diff/SKILL.md",
+    "correctedDescription": "Performs semi-formal semantic diffing between two code versions to verify behavioral equivalence across happy and edge case traces. Use when evaluating refactors, language migrations, or rewrites to detect unexpected divergences in logic, boundary conditions, state mutations, or error handling paths.",
+    "charCount": 294,
+    "discriminants": ["semantic diffing", "behavioral equivalence", "edge case traces", "boundary conditions", "logic divergences"],
+    "cleanFrontmatter": "name: logic-diff\ndescription: \"Performs semi-formal semantic diffing between two code versions to verify behavioral equivalence across happy and edge case traces. Use when evaluating refactors, language migrations, or rewrites to detect unexpected divergences in logic, boundary conditions, state mutations, or error handling paths.\"\nrisk: safe\nsource: https://github.com/hyhmrright/logic-lens/tree/main/skills/logic-diff\nsource_repo: hyhmrright/logic-lens\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/hyhmrright/logic-lens/blob/main/LICENSE"
+  }
+]

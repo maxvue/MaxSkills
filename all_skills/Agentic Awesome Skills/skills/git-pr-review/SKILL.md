@@ -1,6 +1,6 @@
 ---
 name: git-pr-review
-description: "Generate a concise and structured PR description from commit history with minimal token usage Use when developing, optimizing, debugging, or configuring git pr review in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for git pr review."
+description: "Generate structured pull request descriptions by analyzing branch commit history using git log. Filters noise, groups commits by domain, classifies change types, and inspects diffs via git show while safely handling untrusted commit text. Use when drafting token-efficient, consistent PR summaries from commit logs prior to submitting code reviews."
 risk: safe
 source: community
 source_type: community

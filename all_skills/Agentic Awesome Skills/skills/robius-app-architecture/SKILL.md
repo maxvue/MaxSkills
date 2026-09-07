@@ -1,10 +1,6 @@
 ---
 name: robius-app-architecture
-description: "| Use when developing, optimizing, debugging, or configuring robius app architecture in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for robius app architecture."
-  CRITICAL: Use for Robius app architecture patterns. Triggers on:
-  Tokio, async, submit_async_request, 异步, 架构,
-  SignalToUI, Cx::post_action, worker task,
-  app structure, MatchEvent, handle_startup
+description: "Implements Makepad and Robius application architectures, connecting the Rust UI thread to Tokio async runtimes via crossbeam channels, SignalToUI, and Cx::post_action. Use when designing Makepad applications, managing Robrix or Moly async state, or handling submit_async_request and MatchEvent lifecycles."
 risk: critical
 source: community
 ---

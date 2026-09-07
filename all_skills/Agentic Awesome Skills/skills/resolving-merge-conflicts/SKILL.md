@@ -1,6 +1,6 @@
 ---
 name: resolving-merge-conflicts
-description: "Use when you need to resolve an in-progress git merge/rebase conflict. Guides architecture, best practices, and implementation standards for resolving merge conflicts. Provides end-to-end guidance, reference architectures, and practical patterns for resolving merge conflicts."
+description: "Resolve in-progress Git merge and rebase conflicts systematically without aborting. Use when reconciling conflicting diff hunks, evaluating commit history and PR intent, verifying code integrity with typecheck and automated test suites, and staging resolved files to complete merge or rebase operations."
 risk: critical
 source: https://github.com/mattpocock/skills/tree/main/skills/engineering/resolving-merge-conflicts
 source_repo: mattpocock/skills

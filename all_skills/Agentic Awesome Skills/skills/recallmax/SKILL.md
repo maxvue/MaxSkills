@@ -1,6 +1,6 @@
 ---
 name: recallmax
-description: "Comprehensive engineering guide and best practices for recallmax. Use when configuring, developing, debugging, or optimizing recallmax architecture in production systems. Guides architecture, best practices, and implementation standards for recallmax."
+description: "Injects external RAG documents, compresses multi-turn conversation history into dense token sequences, and applies adaptive summarization with fact-verification. Use when agent sessions exceed 20 turns, context windows near token limits, or large external context requires deduplication without hallucination drift."
 category: memory
 risk: safe
 source: community

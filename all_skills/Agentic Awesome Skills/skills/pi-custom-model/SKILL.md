@@ -1,6 +1,6 @@
 ---
 name: pi-custom-model
-description: "Register custom Pi Agent model slugs so saved OpenRouter variants resolve correctly. Use when developing, optimizing, debugging, or configuring pi custom model in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for pi custom model."
+description: "Register custom model slugs and OpenRouter routing-shortcut variants in Pi Agent configuration files. Use when configuring ~/.pi/agent/models.json and settings.json to resolve provider model IDs like :nitro or :floor, preventing silent fallbacks to default models when exact provider and model ID matches fail."
 category: operations
 risk: critical
 source: community

@@ -1,6 +1,6 @@
 ---
 name: azure-keyvault-keys-ts
-description: "Comprehensive engineering guide and best practices for azure keyvault keys ts. Use when configuring, developing, debugging, or optimizing azure keyvault keys ts architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for azure keyvault keys ts."
+description: "Manages Azure Key Vault cryptographic keys, rotation policies, and secrets using @azure/keyvault-keys and @azure/identity in TypeScript. Use when implementing KeyClient and CryptographyClient for RSA/EC key generation, RSA-OAEP encrypt/decrypt, RS256 signing and verification, key wrapping, secret lifecycle, or soft-delete recovery."
 risk: critical
 source: community
 date_added: "2026-02-27"

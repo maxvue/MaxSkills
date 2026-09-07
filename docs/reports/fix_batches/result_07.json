@@ -1,0 +1,175 @@
+[
+  {
+    "skillName": "logic-locate",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/logic-locate/SKILL.md",
+    "correctedDescription": "Isolates the root cause of confirmed software failures and assertion errors using backward-then-forward semi-formal tracing. Identifies root divergence points with L-codes and outputs structured Fault Locate reports with premises and minimal remedies. Use when tracking down failing tests, stack traces, crashes, or incorrect values via Logic-Lens.",
+    "charCount": 343,
+    "discriminants": [
+      "Logic-Lens",
+      "semi-formal tracing",
+      "backward-then-forward",
+      "stack trace",
+      "failing assertion",
+      "root divergence",
+      "L-code",
+      "Fault Confidence"
+    ],
+    "cleanFrontmatter": "name: logic-locate\ndescription: \"Isolates the root cause of confirmed software failures and assertion errors using backward-then-forward semi-formal tracing. Identifies root divergence points with L-codes and outputs structured Fault Locate reports with premises and minimal remedies. Use when tracking down failing tests, stack traces, crashes, or incorrect values via Logic-Lens.\"\nrisk: safe\nsource: https://github.com/hyhmrright/logic-lens/tree/main/skills/logic-locate\nsource_repo: hyhmrright/logic-lens\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/hyhmrright/logic-lens/blob/main/LICENSE"
+  },
+  {
+    "skillName": "longbridge-market-data",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/longbridge-market-data/SKILL.md",
+    "correctedDescription": "Fetches real-time and historical market data for HK, US, A-share, and SG equities via Longbridge CLI or MCP. Retrieves quotes, OHLCV candlestick charts, Level 2 order book depth, broker queues, tick trades, capital flows, IPO calendars, and ADR/AH premiums. Use when analyzing equity prices, market sentiment, trading schedules, or currency carry trades with Longbridge.",
+    "charCount": 367,
+    "discriminants": [
+      "Longbridge CLI",
+      "longbridge",
+      "Level 2 order book",
+      "OHLCV",
+      "candlestick charts",
+      "broker queues",
+      "capital flow",
+      "ADR premium",
+      "A/H premium",
+      "IPO calendar"
+    ],
+    "cleanFrontmatter": "name: longbridge-market-data\ndescription: \"Fetches real-time and historical market data for HK, US, A-share, and SG equities via Longbridge CLI or MCP. Retrieves quotes, OHLCV candlestick charts, Level 2 order book depth, broker queues, tick trades, capital flows, IPO calendars, and ADR/AH premiums. Use when analyzing equity prices, market sentiment, trading schedules, or currency carry trades with Longbridge.\"\nrisk: critical\nsource: https://github.com/longbridge/skills/tree/main/skills/longbridge-market-data\nsource_repo: longbridge/skills\nsource_type: official\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/longbridge/skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "magic-animator",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/magic-animator/SKILL.md",
+    "correctedDescription": "Applies AI-driven motion design to static design assets, logos, UI loaders, and micro-interactions using Magic Animator. Configures context-aware easing curves and keyframes, exporting animations into production Lottie JSON, GIF, or MP4 formats. Use when animating static SVG or Figma design assets, interface widgets, or interactive website icons with Magic Animator.",
+    "charCount": 362,
+    "discriminants": [
+      "Magic Animator",
+      "Lottie JSON",
+      "micro-interactions",
+      "easing curves",
+      "keyframes",
+      "UI loaders",
+      "SVG animation",
+      "Figma"
+    ],
+    "cleanFrontmatter": "name: magic-animator\ndescription: \"Applies AI-driven motion design to static design assets, logos, UI loaders, and micro-interactions using Magic Animator. Configures context-aware easing curves and keyframes, exporting animations into production Lottie JSON, GIF, or MP4 formats. Use when animating static SVG or Figma design assets, interface widgets, or interactive website icons with Magic Animator.\"\nrisk: safe\nsource: community\ndate_added: \"2026-03-07\""
+  },
+  {
+    "skillName": "magic-ui-generator",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/magic-ui-generator/SKILL.md",
+    "correctedDescription": "Generates responsive UI component variations and design directions using Magic by 21st.dev inspired by Shadcn UI, Magic UI, and Aceternity. Produces production-ready TypeScript code configured with Tailwind CSS, Framer Motion, and SVGL icons. Use when creating landing page components, pricing tables, hero sections, or animated interfaces via Magic 21st.dev.",
+    "charCount": 357,
+    "discriminants": [
+      "Magic by 21st.dev",
+      "Shadcn UI",
+      "Magic UI",
+      "Aceternity",
+      "Tailwind CSS",
+      "Framer Motion",
+      "lucide-react",
+      "SVGL"
+    ],
+    "cleanFrontmatter": "name: magic-ui-generator\ndescription: \"Generates responsive UI component variations and design directions using Magic by 21st.dev inspired by Shadcn UI, Magic UI, and Aceternity. Produces production-ready TypeScript code configured with Tailwind CSS, Framer Motion, and SVGL icons. Use when creating landing page components, pricing tables, hero sections, or animated interfaces via Magic 21st.dev.\"\nrisk: safe\nsource: community\ndate_added: \"2026-03-07\""
+  },
+  {
+    "skillName": "marketing-ideas",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/marketing-ideas/SKILL.md",
+    "correctedDescription": "Filters, scores, and prioritizes SaaS growth and acquisition channels from a 140-idea catalog using the Marketing Feasibility Score (MFS). Evaluates impact, effort, cost, speed to signal, and lifecycle stage fit from pre-launch to scale. Use when selecting and ranking viable SaaS marketing experiments, GTM tactics, or customer acquisition strategies without idea dumping.",
+    "charCount": 367,
+    "discriminants": [
+      "Marketing Feasibility Score",
+      "MFS",
+      "SaaS marketing",
+      "acquisition channels",
+      "ICP",
+      "growth stages",
+      "learning velocity"
+    ],
+    "cleanFrontmatter": "name: marketing-ideas\ndescription: \"Filters, scores, and prioritizes SaaS growth and acquisition channels from a 140-idea catalog using the Marketing Feasibility Score (MFS). Evaluates impact, effort, cost, speed to signal, and lifecycle stage fit from pre-launch to scale. Use when selecting and ranking viable SaaS marketing experiments, GTM tactics, or customer acquisition strategies without idea dumping.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "marketing-psychology",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/marketing-psychology/SKILL.md",
+    "correctedDescription": "Applies behavioral science principles and cognitive mental models to conversion funnels using the Psychological Leverage & Feasibility Score (PLFS). Maps models like loss aversion, anchoring, and paradox of choice across journey stages while preventing dark patterns. Use when optimizing landing pages, pricing tiers, CTAs, or onboarding flows through ethical behavioral psychology.",
+    "charCount": 377,
+    "discriminants": [
+      "Psychological Leverage & Feasibility Score",
+      "PLFS",
+      "behavioral science",
+      "mental models",
+      "loss aversion",
+      "anchoring",
+      "paradox of choice",
+      "dark patterns"
+    ],
+    "cleanFrontmatter": "name: marketing-psychology\ndescription: \"Applies behavioral science principles and cognitive mental models to conversion funnels using the Psychological Leverage & Feasibility Score (PLFS). Maps models like loss aversion, anchoring, and paradox of choice across journey stages while preventing dark patterns. Use when optimizing landing pages, pricing tiers, CTAs, or onboarding flows through ethical behavioral psychology.\"\nrisk: none\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "metasploit-framework",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/metasploit-framework/SKILL.md",
+    "correctedDescription": "Executes authorized penetration testing, vulnerability exploitation, payload generation, and post-exploitation workflows using the Metasploit Framework. Operates msfconsole and msfvenom for target scanning, exploit modules, and Meterpreter session management. Use when conducting authorized security assessments, verifying CVE exploits, or generating test payloads with Metasploit.",
+    "charCount": 375,
+    "discriminants": [
+      "Metasploit Framework",
+      "msfconsole",
+      "msfvenom",
+      "Meterpreter",
+      "exploit modules",
+      "post-exploitation",
+      "payload generation",
+      "auxiliary scanners"
+    ],
+    "cleanFrontmatter": "name: metasploit-framework\ndescription: \"Executes authorized penetration testing, vulnerability exploitation, payload generation, and post-exploitation workflows using the Metasploit Framework. Operates msfconsole and msfvenom for target scanning, exploit modules, and Meterpreter session management. Use when conducting authorized security assessments, verifying CVE exploits, or generating test payloads with Metasploit.\"\nrisk: offensive\nsource: community\nauthor: zebbern\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "molykit",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/molykit/SKILL.md",
+    "correctedDescription": "Builds cross-platform AI chat applications in Rust using Makepad and MolyKit. Implements native and WASM asynchronous runtimes via PlatformSend and ThreadToken, integrates OpenAI-compatible SSE streaming with the BotClient trait, and constructs chat widgets. Use when developing Rust-based chat interfaces, LLM client connections, or Makepad UI components using MolyKit.",
+    "charCount": 365,
+    "discriminants": [
+      "MolyKit",
+      "Makepad",
+      "Rust",
+      "PlatformSend",
+      "ThreadToken",
+      "BotClient",
+      "SSE streaming",
+      "Chat widget",
+      "WASM"
+    ],
+    "cleanFrontmatter": "name: molykit\ndescription: \"Builds cross-platform AI chat applications in Rust using Makepad and MolyKit. Implements native and WASM asynchronous runtimes via PlatformSend and ThreadToken, integrates OpenAI-compatible SSE streaming with the BotClient trait, and constructs chat widgets. Use when developing Rust-based chat interfaces, LLM client connections, or Makepad UI components using MolyKit.\"\nrisk: critical\nsource: community"
+  },
+  {
+    "skillName": "monopoly",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/monopoly/SKILL.md",
+    "correctedDescription": "Architects, reviews, and scales distributed backend systems and microservices across cloud architectures. Generates comprehensive system blueprints, computes mathematical scale estimations for RPS and storage, and designs caching and database topologies. Use when designing scalable backend architectures, reviewing system trade-offs, or preparing for system design interviews.",
+    "charCount": 377,
+    "discriminants": [
+      "system design",
+      "scale estimation",
+      "microservices",
+      "distributed systems",
+      "caching topology",
+      "database sharding",
+      "MONOPOLY",
+      "load balancing"
+    ],
+    "cleanFrontmatter": "name: monopoly\ndescription: \"Architects, reviews, and scales distributed backend systems and microservices across cloud architectures. Generates comprehensive system blueprints, computes mathematical scale estimations for RPS and storage, and designs caching and database topologies. Use when designing scalable backend architectures, reviewing system trade-offs, or preparing for system design interviews.\"\nrisk: none\nsource: community"
+  },
+  {
+    "skillName": "monorepo-architect",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/monorepo-architect/SKILL.md",
+    "correctedDescription": "Architects and optimizes monorepo workspaces and build pipelines using Nx, Turborepo, Bazel, and Lerna. Implements local and remote build caching, dependency graph management, affected project detection for CI/CD pipelines, and task orchestration. Use when configuring multi-project monorepos, migrating from polyrepos, or speeding up monorepo build and test workflows.",
+    "charCount": 367,
+    "discriminants": [
+      "Nx",
+      "Turborepo",
+      "Bazel",
+      "Lerna",
+      "monorepo",
+      "remote caching",
+      "dependency graph",
+      "affected detection",
+      "task orchestration"
+    ],
+    "cleanFrontmatter": "name: monorepo-architect\ndescription: \"Architects and optimizes monorepo workspaces and build pipelines using Nx, Turborepo, Bazel, and Lerna. Implements local and remote build caching, dependency graph management, affected project detection for CI/CD pipelines, and task orchestration. Use when configuring multi-project monorepos, migrating from polyrepos, or speeding up monorepo build and test workflows.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  }
+]

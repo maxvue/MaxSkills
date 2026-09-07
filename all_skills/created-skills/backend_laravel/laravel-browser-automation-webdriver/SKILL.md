@@ -1,6 +1,6 @@
 ---
 name: laravel-browser-automation-webdriver
-description: "Browser automation in Laravel using App\Classes\Browser\Browser, Facebook WebDriver, and headless Firefox via geckodriver. Use when automating web navigation, screenshots, scraping, or Redis queue-driven browser jobs."
+description: "Automate browser sessions in Laravel using App\\Classes\\Browser and php-webdriver with Firefox and geckodriver. Use when managing dynamic Redis geckodriver port allocation, executing BrowserPlaybookExecutor workflows, capturing GD element screenshots, or preventing orphaned browser processes in queue jobs."
 author: Johnattas Conrady Gomes Santana
 ---
 # Automação de Navegador com WebDriver no engeapp

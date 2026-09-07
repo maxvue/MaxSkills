@@ -1,6 +1,6 @@
 ---
 name: canvas-design
-description: "Comprehensive engineering guide and best practices for canvas design. Use when configuring, developing, debugging, or optimizing canvas design architecture in production systems. Guides architecture, best practices, and implementation standards for canvas design."
+description: "Creates visual design philosophies and renders them into single-page abstract art artifacts in PDF or PNG formats. Use when formulating aesthetic manifestos (.md) and executing visual-first canvas compositions with minimal typography, geometric abstraction, disciplined spatial hierarchy, and curated typographic assets from ./canvas-fonts."
 risk: critical
 source: community
 date_added: "2026-02-27"

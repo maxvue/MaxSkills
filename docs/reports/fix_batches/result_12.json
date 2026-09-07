@@ -1,0 +1,161 @@
+[
+  {
+    "skillName": "ui-ux-designer",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ui-ux-designer/SKILL.md",
+    "correctedDescription": "Design and audit digital interfaces, design systems, and token architectures. Use when building token-based component libraries with Figma Variables or Style Dictionary, enforcing WCAG 2.1/2.2 AA accessibility standards, integrating with Storybook or Chromatic, and creating responsive user flows.",
+    "charCount": 295,
+    "discriminants": [
+      "Figma Variables",
+      "Style Dictionary",
+      "WCAG 2.1/2.2 AA",
+      "Storybook",
+      "Chromatic",
+      "Atomic Design"
+    ],
+    "cleanFrontmatter": "name: ui-ux-designer\ndescription: \"Design and audit digital interfaces, design systems, and token architectures. Use when building token-based component libraries with Figma Variables or Style Dictionary, enforcing WCAG 2.1/2.2 AA accessibility standards, integrating with Storybook or Chromatic, and creating responsive user flows.\"\nrisk: critical\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "user-thoughts",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/user-thoughts/SKILL.md",
+    "correctedDescription": "Capture and persist user architectural decisions, project constraints, and UI preferences across agent sessions into local mdbase storage. Use when recording persistent project rules, managing memory via /user-thoughts or /ustht commands, and organizing raw notes from .ustht/raw into .ustht/mdbase.",
+    "charCount": 300,
+    "discriminants": [
+      "/user-thoughts",
+      "/ustht",
+      "mdbase",
+      ".ustht/raw",
+      ".ustht/mdbase"
+    ],
+    "cleanFrontmatter": "name: user-thoughts\ndescription: \"Capture and persist user architectural decisions, project constraints, and UI preferences across agent sessions into local mdbase storage. Use when recording persistent project rules, managing memory via /user-thoughts or /ustht commands, and organizing raw notes from .ustht/raw into .ustht/mdbase.\"\nlicense: MIT\nsource: \"https://github.com/JularDepick/user-thoughts.SKILL\"\nsource_repo: JularDepick/user-thoughts.SKILL\nsource_type: community\ndate_added: \"2026-05-31\"\nauthor: JularDepick\ntags: [userthoughts, documentation, project-management, mdbase]\ntools: [claude, cursor, gemini]\nrisk: safe\nallowed-tools: read write bash\nmetadata:\n  author: JularDepick\n  category: productivity\n  supported_agents: \"[claude, cursor, gemini]\""
+  },
+  {
+    "skillName": "using-neon",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/using-neon/SKILL.md",
+    "correctedDescription": "Configure, query, and manage Neon Serverless Postgres databases with autoscaling and database branching. Use when implementing serverless edge connections via @neondatabase/serverless or Drizzle ORM, configuring @neondatabase/auth or @neondatabase/neon-js, and provisioning via Neon CLI or Neon REST API.",
+    "charCount": 304,
+    "discriminants": [
+      "Neon Serverless Postgres",
+      "@neondatabase/serverless",
+      "Drizzle ORM",
+      "@neondatabase/auth",
+      "@neondatabase/neon-js",
+      "Neon CLI"
+    ],
+    "cleanFrontmatter": "name: using-neon\ndescription: \"Configure, query, and manage Neon Serverless Postgres databases with autoscaling and database branching. Use when implementing serverless edge connections via @neondatabase/serverless or Drizzle ORM, configuring @neondatabase/auth or @neondatabase/neon-js, and provisioning via Neon CLI or Neon REST API.\"\nrisk: safe\nsource: \"https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "uxui-principles",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/uxui-principles/SKILL.md",
+    "correctedDescription": "Evaluate user interfaces and interaction flows against 168 research-backed design principles and smell taxonomies. Use when auditing UI antipatterns with interface-auditor, reviewing AI features against 44 AI-era UX principles with ai-interface-reviewer, or checking navigation flows with flow-checker.",
+    "charCount": 301,
+    "discriminants": [
+      "168 research-backed principles",
+      "interface-auditor",
+      "ai-interface-reviewer",
+      "flow-checker",
+      "antipatterns taxonomy"
+    ],
+    "cleanFrontmatter": "name: uxui-principles\ndescription: \"Evaluate user interfaces and interaction flows against 168 research-backed design principles and smell taxonomies. Use when auditing UI antipatterns with interface-auditor, reviewing AI features against 44 AI-era UX principles with ai-interface-reviewer, or checking navigation flows with flow-checker.\"\ncategory: design\nrisk: safe\nsource: community\ndate_added: \"2026-04-03\"\nauthor: uxuiprinciples\ntags: [ux, ui, design, evaluation, principles, antipatterns, accessibility]\ntools: [claude, cursor, windsurf]"
+  },
+  {
+    "skillName": "vscode-extension-guide-en",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/vscode-extension-guide-en/SKILL.md",
+    "correctedDescription": "Develop, test, and publish extensions for Visual Studio Code using the VS Code Extension API. Use when scaffolding extensions with yo generator-code, implementing Webview panels with CSP security, creating TreeView data providers, running tests with @vscode/test-electron, or packaging VSIX via @vscode/vsce.",
+    "charCount": 304,
+    "discriminants": [
+      "VS Code Extension API",
+      "yo generator-code",
+      "@vscode/test-electron",
+      "@vscode/vsce",
+      "Webview CSP",
+      "TreeView"
+    ],
+    "cleanFrontmatter": "name: vscode-extension-guide-en\ndescription: \"Develop, test, and publish extensions for Visual Studio Code using the VS Code Extension API. Use when scaffolding extensions with yo generator-code, implementing Webview panels with CSP security, creating TreeView data providers, running tests with @vscode/test-electron, or packaging VSIX via @vscode/vsce.\"\ncategory: core-dev\nrisk: safe\nsource: community\nsource_repo: lewiswigmore/agent-skills\nsource_type: community\ndate_added: \"2026-04-12\"\nauthor: lewiswigmore\ntags: [vscode, extension, ide, typescript, marketplace]\ntools: [claude, cursor, copilot, codex, gemini]"
+  },
+  {
+    "skillName": "wiki-changelog",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/wiki-changelog/SKILL.md",
+    "correctedDescription": "Generate structured changelogs and release notes from git commit history. Use when parsing git log history to summarize recent activity, classifying commits into categorized groups (Features, Fixes, Docs, Breaking changes), or formatting chronological daily and weekly development updates for users.",
+    "charCount": 297,
+    "discriminants": [
+      "git log",
+      "commit classification",
+      "changelog",
+      "release notes",
+      "breaking changes"
+    ],
+    "cleanFrontmatter": "name: wiki-changelog\ndescription: \"Generate structured changelogs and release notes from git commit history. Use when parsing git log history to summarize recent activity, classifying commits into categorized groups (Features, Fixes, Docs, Breaking changes), or formatting chronological daily and weekly development updates for users.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "wiki-vitepress",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/wiki-vitepress/SKILL.md",
+    "correctedDescription": "Scaffold and package Markdown wiki documentation into a VitePress static documentation site. Use when converting generated markdown pages into an HTML site, configuring vitepress-plugin-mermaid with dark-mode diagram fixes in config.mts, setting up sidebar navigation, or executing /deep-wiki:build.",
+    "charCount": 297,
+    "discriminants": [
+      "VitePress",
+      "vitepress-plugin-mermaid",
+      "config.mts",
+      "Mermaid dark theme",
+      "/deep-wiki:build"
+    ],
+    "cleanFrontmatter": "name: wiki-vitepress\ndescription: \"Scaffold and package Markdown wiki documentation into a VitePress static documentation site. Use when converting generated markdown pages into an HTML site, configuring vitepress-plugin-mermaid with dark-mode diagram fixes in config.mts, setting up sidebar navigation, or executing /deep-wiki:build.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "youtube-seo-optimizer",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/youtube-seo-optimizer/SKILL.md",
+    "correctedDescription": "Generate optimized metadata packages and SEO audits for YouTube videos, podcasts, and Shorts. Use when conducting live keyword research via web search to create search-optimized titles, descriptions, tags, hashtags, and chapter timestamps, or auditing underperforming video metadata to increase ranking.",
+    "charCount": 301,
+    "discriminants": [
+      "YouTube SEO",
+      "podcast metadata",
+      "web search keyword research",
+      "chapter timestamps",
+      "tags and hashtags"
+    ],
+    "cleanFrontmatter": "name: youtube-seo-optimizer\ndescription: \"Generate optimized metadata packages and SEO audits for YouTube videos, podcasts, and Shorts. Use when conducting live keyword research via web search to create search-optimized titles, descriptions, tags, hashtags, and chapter timestamps, or auditing underperforming video metadata to increase ranking.\"\nrisk: safe\nsource: community\nsource_type: community\nauthor: whoisabhishekadhikari\ndate_added: \"2026-06-15\"\nallowed-tools: web_search web_fetch"
+  },
+  {
+    "skillName": "youtube-summarizer",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/youtube-summarizer/SKILL.md",
+    "correctedDescription": "Extract transcripts and generate structured summaries from YouTube videos using youtube-transcript-api. Use when parsing video URLs to extract subtitle transcripts, generating exhaustive educational documentation, or structuring arguments, key insights, and takeaways with STAR and R-I-S-E frameworks.",
+    "charCount": 299,
+    "discriminants": [
+      "youtube-transcript-api",
+      "transcripts",
+      "STAR framework",
+      "R-I-S-E framework",
+      "YouTube video URLs"
+    ],
+    "cleanFrontmatter": "name: youtube-summarizer\ndescription: \"Extract transcripts and generate structured summaries from YouTube videos using youtube-transcript-api. Use when parsing video URLs to extract subtitle transcripts, generating exhaustive educational documentation, or structuring arguments, key insights, and takeaways with STAR and R-I-S-E frameworks.\"\ncategory: content\nrisk: safe\nsource: community\ntags: \"[video, summarization, transcription, youtube, content-analysis]\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "laravel-browser-automation-webdriver",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+    "correctedDescription": "Automate browser sessions in Laravel using App\\Classes\\Browser and php-webdriver with Firefox and geckodriver. Use when managing dynamic Redis geckodriver port allocation, executing BrowserPlaybookExecutor workflows, capturing GD element screenshots, or preventing orphaned browser processes in queue jobs.",
+    "charCount": 301,
+    "discriminants": [
+      "App\\Classes\\Browser",
+      "php-webdriver",
+      "geckodriver",
+      "Redis geckodriver_ports",
+      "BrowserPlaybookExecutor",
+      "GD screenshots"
+    ],
+    "cleanFrontmatter": "name: laravel-browser-automation-webdriver\ndescription: \"Automate browser sessions in Laravel using App\\\\Classes\\\\Browser and php-webdriver with Firefox and geckodriver. Use when managing dynamic Redis geckodriver port allocation, executing BrowserPlaybookExecutor workflows, capturing GD element screenshots, or preventing orphaned browser processes in queue jobs.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "browser-automation",
+    "relPath": "all_skills/curated-youtube/browser-automation/SKILL.md",
+    "correctedDescription": "Automate browser interactions, web scraping, and end-to-end testing using Playwright and Puppeteer. Use when implementing resilient user-facing locators (getByRole, getByText), auto-waiting strategies, anti-detection with puppeteer-extra-plugin-stealth or playwright-extra, and context-isolated test flows.",
+    "charCount": 299,
+    "discriminants": [
+      "Playwright",
+      "Puppeteer",
+      "getByRole",
+      "auto-waiting",
+      "puppeteer-extra-plugin-stealth",
+      "playwright-extra"
+    ],
+    "cleanFrontmatter": "name: browser-automation\ndescription: \"Automate browser interactions, web scraping, and end-to-end testing using Playwright and Puppeteer. Use when implementing resilient user-facing locators (getByRole, getByText), auto-waiting strategies, anti-detection with puppeteer-extra-plugin-stealth or playwright-extra, and context-isolated test flows.\"\nrisk: critical\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  }
+]

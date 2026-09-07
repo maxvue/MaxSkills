@@ -1,6 +1,6 @@
 ---
 name: social-content
-description: "Comprehensive engineering guide and best practices for social content. Use when configuring, developing, debugging, or optimizing social content architecture in production systems. Guides architecture, best practices, and implementation standards for social content."
+description: "Plans and writes social media content tailored for LinkedIn, Twitter/X, Instagram, TikTok, and Facebook. Structures multi-tier content pillars, high-retention hooks, PDF carousels, educational threads, short-form video scripts, and posting cadences. Use when creating platform-specific social posts, planning brand content calendars, or repurposing material across networks."
 risk: critical
 source: community
 date_added: "2026-02-27"

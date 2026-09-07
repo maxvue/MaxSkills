@@ -1,0 +1,412 @@
+[
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/SKILL.md",
+    "name": "agent-squad",
+    "desc": "Main agent orchestrator that coordinates a specialized squad of agents Use when developing, optimizing, debugging, or configuring agent squad in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agent squad."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/aria/SKILL.md",
+    "name": "aria",
+    "desc": "Designs the data model, API contracts, and structural foundation of the system. Use when developing, optimizing, debugging, or configuring agent squad/aria in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for aria."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/luna/SKILL.md",
+    "name": "luna",
+    "desc": "Reviews code for objective correctness, security, and reliability. Use when developing, optimizing, debugging, or configuring agent squad/luna in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for luna."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/mason/SKILL.md",
+    "name": "mason",
+    "desc": "Produces clean, functional code that matches the architecture and checklists. Use when developing, optimizing, debugging, or configuring agent squad/mason in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for mason."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/quinn/SKILL.md",
+    "name": "quinn",
+    "desc": "Proves the system works by writing and executing comprehensive test suites. Use when developing, optimizing, debugging, or configuring agent squad/quinn in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for quinn."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/app-store-changelog/SKILL.md",
+    "name": "app-store-changelog",
+    "desc": "Generate user-facing App Store release notes from git history since the last tag. Use when developing, optimizing, debugging, or configuring app store changelog in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for app store changelog."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/bats-testing-patterns/SKILL.md",
+    "name": "bats-testing-patterns",
+    "desc": "Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for shell scripts, CI/CD pipelines, or requiring test-driven development of shell utilities. Provides end-to-end guidance, reference architectures, and practical patterns for bats testing patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/brain-to-docs/SKILL.md",
+    "name": "brain-to-docs",
+    "desc": "Interview the user to turn project vision and decisions into README and ADR documentation. Use when developing, optimizing, debugging, or configuring brain to docs in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for brain to docs."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/conductor-implement/SKILL.md",
+    "name": "conductor-implement",
+    "desc": "Execute tasks from a track's implementation plan following TDD workflow Use when developing, optimizing, debugging, or configuring conductor implement in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor implement."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/conductor-revert/SKILL.md",
+    "name": "conductor-revert",
+    "desc": "Git-aware undo by logical work unit (track, phase, or task) Use when developing, optimizing, debugging, or configuring conductor revert in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor revert."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/cqrs-implementation/SKILL.md",
+    "name": "cqrs-implementation",
+    "desc": "Implement Command Query Responsibility Segregation for scalable architectures. Use when separating read and write models, optimizing query performance, or building event-sourced systems. Provides end-to-end guidance, reference architectures, and practical patterns for cqrs implementation."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/cyber-audit/SKILL.md",
+    "name": "cyber-audit",
+    "desc": "Run read-only exposure checks for security advisories and write a structured local audit report. Use when developing, optimizing, debugging, or configuring cyber audit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for cyber audit."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/daily/SKILL.md",
+    "name": "daily",
+    "desc": "Documentation and capabilities reference for Daily Use when developing, optimizing, debugging, or configuring daily in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for daily."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/database-migrations-migration-observability/SKILL.md",
+    "name": "database-migrations-migration-observability",
+    "desc": "Migration monitoring, CDC, and observability infrastructure Use when developing, optimizing, debugging, or configuring database migrations migration observability in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for database migrations migration observability."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/deepapi/SKILL.md",
+    "name": "deepapi",
+    "desc": "Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval. Use when developing, optimizing, debugging, or configuring deepapi in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for deepapi."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/design-philosophy/SKILL.md",
+    "name": "design-philosophy",
+    "desc": "Visual philosophy and art-direction for frontend. Use when creating high-concept work, campaigns, or when the user asks for a visual philosophy, manifesto, or unmistakable art-like aesthetic. Provides end-to-end guidance, reference architectures, and practical patterns for design philosophy."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/expo-api-routes/SKILL.md",
+    "name": "expo-api-routes",
+    "desc": "Guidelines for creating API routes in Expo Router with EAS Hosting Use when developing, optimizing, debugging, or configuring expo api routes in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for expo api routes."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/fp-refactor/SKILL.md",
+    "name": "fp-refactor",
+    "desc": "Comprehensive guide for refactoring imperative TypeScript code to fp-ts functional patterns Use when developing, optimizing, debugging, or configuring fp refactor in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for fp refactor."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/frontend-slides/SKILL.md",
+    "name": "frontend-slides",
+    "desc": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when developing, optimizing, debugging, or configuring frontend slides in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for frontend slides."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/git-pr-review/SKILL.md",
+    "name": "git-pr-review",
+    "desc": "Generate a concise and structured PR description from commit history with minimal token usage Use when developing, optimizing, debugging, or configuring git pr review in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for git pr review."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/github/SKILL.md",
+    "name": "github",
+    "desc": "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. Use when developing, optimizing, debugging, or configuring github in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for github."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/goal-loop/SKILL.md",
+    "name": "goal-loop",
+    "desc": "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions. Use when developing, optimizing, debugging, or configuring goal loop in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for goal loop."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/handoff/SKILL.md",
+    "name": "handoff",
+    "desc": "Compact the current conversation into a handoff document for another agent to pick up. Use when developing, optimizing, debugging, or configuring handoff in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for handoff."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/hasdata/SKILL.md",
+    "name": "hasdata",
+    "desc": "Use HasData APIs for web scraping and structured web data extraction. Use when developing, optimizing, debugging, or configuring hasdata in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for hasdata."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/hig-patterns/SKILL.md",
+    "name": "hig-patterns",
+    "desc": "Apple Human Interface Guidelines interaction and UX patterns. Use when developing, optimizing, debugging, or configuring hig patterns in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for hig patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/libreoffice/base/SKILL.md",
+    "name": "base",
+    "desc": "Database management, forms, reports, and data operations with LibreOffice Base. Use when developing, optimizing, debugging, or configuring libreoffice/base in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for base."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/llm-council/SKILL.md",
+    "name": "llm-council",
+    "desc": "Run Fireworks-hosted open-weight model councils that compare responses and synthesize a final answer. Use when developing, optimizing, debugging, or configuring llm council in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for llm council."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/m365-agents-ts/SKILL.md",
+    "name": "m365-agents-ts",
+    "desc": "Microsoft 365 Agents SDK for TypeScript/Node.js. Use when developing, optimizing, debugging, or configuring m365 agents ts in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for m365 agents ts."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/markdown-rendering/SKILL.md",
+    "name": "markdown-rendering",
+    "desc": "Open Markdown reliably in cmux panes and recover from blank rendered surfaces. Use when developing, optimizing, debugging, or configuring markdown rendering in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for markdown rendering."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/monopoly/security-checklist/SKILL.md",
+    "name": "security-checklist",
+    "desc": "Reference document for monopoly security-checklist. Use when developing, optimizing, debugging, or configuring security checklist in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for security checklist."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/nextjs-supabase-auth/SKILL.md",
+    "name": "nextjs-supabase-auth",
+    "desc": "Expert integration of Supabase Auth with Next.js App Router Use when developing, optimizing, debugging, or configuring nextjs supabase auth in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for nextjs supabase auth."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/page-cro/SKILL.md",
+    "name": "page-cro",
+    "desc": "Analyze and optimize individual pages for conversion performance. Use when developing, optimizing, debugging, or configuring page cro in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for page cro."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/performance-profiling/SKILL.md",
+    "name": "performance-profiling",
+    "desc": "Performance profiling principles. Measurement, analysis, and optimization techniques. Use when developing, optimizing, debugging, or configuring performance profiling in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for performance profiling."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/pi-custom-model/SKILL.md",
+    "name": "pi-custom-model",
+    "desc": "Register custom Pi Agent model slugs so saved OpenRouter variants resolve correctly. Use when developing, optimizing, debugging, or configuring pi custom model in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for pi custom model."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/podcast-generation/SKILL.md",
+    "name": "podcast-generation",
+    "desc": "Generate real audio narratives from text content using Azure OpenAI's Realtime API. Use when developing, optimizing, debugging, or configuring podcast generation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for podcast generation."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/python-testing-patterns/SKILL.md",
+    "name": "python-testing-patterns",
+    "desc": "Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven development. Use when writing Python tests, setting up test suites, or implementing testing best practices. Provides end-to-end guidance, reference architectures, and practical patterns for python testing patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/react-component-performance/SKILL.md",
+    "name": "react-component-performance",
+    "desc": "Diagnose slow React components and suggest targeted performance fixes. Use when developing, optimizing, debugging, or configuring react component performance in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for react component performance."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/react-patterns/SKILL.md",
+    "name": "react-patterns",
+    "desc": "Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. Use when developing, optimizing, debugging, or configuring react patterns in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for react patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/receiving-code-review/SKILL.md",
+    "name": "receiving-code-review",
+    "desc": "Code review requires technical evaluation, not emotional performance. Use when developing, optimizing, debugging, or configuring receiving code review in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for receiving code review."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/remotion-best-practices/SKILL.md",
+    "name": "remotion-best-practices",
+    "desc": "Best practices for Remotion - Video creation in React Use when developing, optimizing, debugging, or configuring remotion best practices in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for remotion best practices."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/resolving-merge-conflicts/SKILL.md",
+    "name": "resolving-merge-conflicts",
+    "desc": "Use when you need to resolve an in-progress git merge/rebase conflict. Guides architecture, best practices, and implementation standards for resolving merge conflicts. Provides end-to-end guidance, reference architectures, and practical patterns for resolving merge conflicts."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/security-requirement-extraction/SKILL.md",
+    "name": "security-requirement-extraction",
+    "desc": "Derive security requirements from threat models and business context. Use when translating threats into actionable requirements, creating security user stories, or building security test cases. Provides end-to-end guidance, reference architectures, and practical patterns for security requirement extraction."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/security/aws-secrets-rotation/SKILL.md",
+    "name": "aws-secrets-rotation",
+    "desc": "Automate AWS secrets rotation for RDS, API keys, and credentials Use when developing, optimizing, debugging, or configuring aws secrets rotation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for aws secrets rotation."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/smart-git-automation/SKILL.md",
+    "name": "smart-git-automation",
+    "desc": "Smart change detection, auto branch naming, and streamlined commit/PR workflow Use when developing, optimizing, debugging, or configuring smart git automation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for smart git automation."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/spark-optimization/SKILL.md",
+    "name": "spark-optimization",
+    "desc": "Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use when improving Spark performance, debugging slow jobs, or scaling data processing pipelines. Provides end-to-end guidance, reference architectures, and practical patterns for spark optimization."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/super-code/typescript/SKILL.md",
+    "name": "typescript",
+    "desc": "Language-specific super-code guidelines for typescript. Use when developing, optimizing, debugging, or configuring typescript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for typescript."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-a11y/SKILL.md",
+    "name": "ui-a11y",
+    "desc": "Audit a component or page for accessibility issues and fix them Use when developing, optimizing, debugging, or configuring ui a11y in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui a11y."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-lint/SKILL.md",
+    "name": "ui-lint",
+    "desc": "Quick automated lint — detects common design system violations in seconds Use when developing, optimizing, debugging, or configuring ui lint in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui lint."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-page/SKILL.md",
+    "name": "ui-page",
+    "desc": "Scaffold a new mobile page/screen using the StyleSeed layout patterns Use when developing, optimizing, debugging, or configuring ui page in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui page."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-tokens/SKILL.md",
+    "name": "ui-tokens",
+    "desc": "View, add, or modify design tokens in the StyleSeed design system Use when developing, optimizing, debugging, or configuring ui tokens in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui tokens."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-update/SKILL.md",
+    "name": "ui-update",
+    "desc": "Update StyleSeed engine in your project — analyzes what's outdated and updates safely Use when developing, optimizing, debugging, or configuring ui update in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui update."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/unship/SKILL.md",
+    "name": "unship",
+    "desc": "Compare AI agent-made UI variants locally in a real app, then keep one and clean up unused temporary code. Use when developing, optimizing, debugging, or configuring unship in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for unship."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ux-audit/SKILL.md",
+    "name": "ux-audit",
+    "desc": "Audit screens for UX issues using Nielsen's heuristics and modern mobile UX best practices Use when developing, optimizing, debugging, or configuring ux audit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux audit."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ux-feedback/SKILL.md",
+    "name": "ux-feedback",
+    "desc": "Add appropriate user feedback states (loading, success, error, empty) to a component or page Use when developing, optimizing, debugging, or configuring ux feedback in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux feedback."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ux-flow/SKILL.md",
+    "name": "ux-flow",
+    "desc": "Design user flows and navigation structure following proven UX patterns Use when developing, optimizing, debugging, or configuring ux flow in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux flow."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/web-artifacts-builder/SKILL.md",
+    "name": "web-artifacts-builder",
+    "desc": "To build powerful frontend claude.ai artifacts, follow these steps: Use when developing, optimizing, debugging, or configuring web artifacts builder in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for web artifacts builder."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/webapp-testing/SKILL.md",
+    "name": "webapp-testing",
+    "desc": "To test local web applications, write native Python Playwright scripts. Use when developing, optimizing, debugging, or configuring webapp testing in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for webapp testing."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/writing-skills/SKILL.md",
+    "name": "writing-skills",
+    "desc": "Use when creating, updating, or improving agent skills. Guides architecture, best practices, and implementation standards for writing skills. Provides end-to-end guidance, reference architectures, and practical patterns for writing skills."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/youtube-transcript/SKILL.md",
+    "name": "youtube-transcript",
+    "desc": "Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output. Use when developing, optimizing, debugging, or configuring youtube transcript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for youtube transcript."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+    "name": "laravel-anticaptcha-integration-best-practices",
+    "desc": "Use when implementing or debugging CAPTCHA resolution services (Anti-Captcha) in Laravel, including ImageToText tasks, API keys, error handling, timeouts, and logging. Provides end-to-end guidance, reference architectures, and practical patterns for laravel anticaptcha integration best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
+    "name": "laravel-digital-signatures-integration",
+    "desc": "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, and background job processing. Provides end-to-end guidance, reference architectures, and practical patterns for laravel digital signatures integration."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
+    "name": "laravel-finance-coupons-discounts-best-practices",
+    "desc": "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks. Provides end-to-end guidance, reference architectures, and practical patterns for laravel finance coupons discounts best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
+    "name": "laravel-frankenphp-octane-best-practices",
+    "desc": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, avoiding memory leaks, managing singletons, and tuning Caddyfile workers. Provides end-to-end guidance, reference architectures, and practical patterns for laravel frankenphp octane best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+    "name": "laravel-meta-graph-api-integration-best-practices",
+    "desc": "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Provides end-to-end guidance, reference architectures, and practical patterns for laravel meta graph api integration best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+    "name": "laravel-migrations-seeders-factories-best-practices",
+    "desc": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Provides end-to-end guidance, reference architectures, and practical patterns for laravel migrations seeders factories best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+    "name": "laravel-performance-and-profiling-best-practices",
+    "desc": "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, and Pail log tailing. Provides end-to-end guidance, reference architectures, and practical patterns for laravel performance and profiling best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+    "name": "laravel-qrcode-generation-best-practices",
+    "desc": "Use when generating, customizing, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers SVG/PNG outputs, base64 encoding for Blade/APIs, logos, and labels. Provides end-to-end guidance, reference architectures, and practical patterns for laravel qrcode generation best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
+    "name": "laravel-services-best-practices",
+    "desc": "Use when creating, refactoring, or reviewing Laravel Service classes, applying Single Responsibility Principle, dependency injection, and standardized error handling. Provides end-to-end guidance, reference architectures, and practical patterns for laravel services best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
+    "name": "laravel-task-scheduling-best-practices",
+    "desc": "Use when creating, configuring, or debugging Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, and Studio Totem integration. Provides end-to-end guidance, reference architectures, and practical patterns for laravel task scheduling best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
+    "name": "laravel-trello-api-integration",
+    "desc": "Use when maintaining or debugging Trello API integration in Engeapp (TrelloService), reading config/api.php, handling webhooks via ProcessTrelloWebhookJob, and running trello Artisan commands. Provides end-to-end guidance, reference architectures, and practical patterns for laravel trello api integration."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+    "name": "laravel-typescript-transformer-best-practices",
+    "desc": "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Provides end-to-end guidance, reference architectures, and practical patterns for laravel typescript transformer best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
+    "name": "laravel-whatsapp-cloud-api-integration",
+    "desc": "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Provides end-to-end guidance, reference architectures, and practical patterns for laravel whatsapp cloud api integration."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+    "name": "vue-boleto-utils-best-practices",
+    "desc": "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting. Provides end-to-end guidance, reference architectures, and practical patterns for vue boleto utils best practices."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+    "name": "vue-eslint-stylelint-quality-standards",
+    "desc": "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, indent, quotes, comma-dangle, and pseudo-element overrides. Provides end-to-end guidance, reference architectures, and practical patterns for vue eslint stylelint quality standards."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+    "name": "vue-frontend-bug-fixing-best-practices",
+    "desc": "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing. Provides end-to-end guidance, reference architectures, and practical patterns for vue frontend bug fixing best practices."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+    "name": "vue-keyboard-shortcuts-navigation-best-practices",
+    "desc": "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Provides end-to-end guidance, reference architectures, and practical patterns for vue keyboard shortcuts navigation best practices."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+    "name": "vue-max-ecosystem-api-reference",
+    "desc": "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Covers component props/events/slots, composables, and cached store configurations. Provides end-to-end guidance, reference architectures, and practical patterns for vue max ecosystem api reference."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+    "name": "vue-vitest-testing-best-practices",
+    "desc": "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Provides end-to-end guidance, reference architectures, and practical patterns for vue vitest testing best practices."
+  },
+  {
+    "path": "all_skills/curated-youtube/context-engineering/SKILL.md",
+    "name": "context-engineering",
+    "desc": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project. Provides end-to-end guidance, reference architectures, and practical patterns for context engineering."
+  },
+  {
+    "path": "all_skills/curated-youtube/fastapi-templates/SKILL.md",
+    "name": "fastapi-templates",
+    "desc": "Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensive error handling. Use when building new FastAPI applications or setting up backend API projects. Provides end-to-end guidance, reference architectures, and practical patterns for fastapi templates."
+  },
+  {
+    "path": "all_skills/curated-youtube/git-workflow/SKILL.md",
+    "name": "git-workflow-and-versioning",
+    "desc": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams. Provides end-to-end guidance, reference architectures, and practical patterns for git workflow."
+  },
+  {
+    "path": "all_skills/curated-youtube/test-driven-development/SKILL.md",
+    "name": "test-driven-development",
+    "desc": "Use when implementing any feature or bugfix, before writing implementation code Provides end-to-end guidance, reference architectures, and practical patterns for test driven development. Use when developing, optimizing, testing, or configuring test driven development in production environments."
+  }
+]

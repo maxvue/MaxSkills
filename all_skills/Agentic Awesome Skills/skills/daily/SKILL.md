@@ -1,6 +1,6 @@
 ---
 name: daily
-description: "Documentation and capabilities reference for Daily Use when developing, optimizing, debugging, or configuring daily in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for daily."
+description: "Architect and configure real-time voice and multimodal conversational AI pipelines using Daily and Pipecat. Coordinates WebRTC and WebSocket transports, VAD turn detection, STT transcription, LLM tool calling, and streaming TTS audio synthesis. Use when building or debugging low-latency voice bots, video agents, or real-time interactive multimodal systems."
 metadata:
   mintlify-proj: daily
   version: "1.0"

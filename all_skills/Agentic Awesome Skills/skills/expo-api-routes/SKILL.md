@@ -1,11 +1,11 @@
 ---
 name: expo-api-routes
-description: "Guidelines for creating API routes in Expo Router with EAS Hosting Use when developing, optimizing, debugging, or configuring expo api routes in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for expo api routes."
+description: "Develop and configure server-side API routes in Expo Router using +api.ts files and EAS Hosting on Cloudflare Workers. Implements HTTP method handlers, CORS headers, server-side secrets, and local testing via npx expo serve. Use when building backend endpoints, third-party API proxies, or webhook receivers directly within an Expo cross-platform mobile application."
 risk: critical
 source: https://github.com/expo/skills/tree/main/plugins/expo/skills/expo-api-routes
 source_repo: expo/skills
 source_type: official
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/expo/skills/blob/main/LICENSE
 ---

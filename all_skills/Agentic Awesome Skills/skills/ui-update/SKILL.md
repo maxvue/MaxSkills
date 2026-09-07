@@ -1,11 +1,11 @@
 ---
 name: ui-update
-description: "Update StyleSeed engine in your project — analyzes what's outdated and updates safely Use when developing, optimizing, debugging, or configuring ui update in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui update."
+description: "Audit and update local StyleSeed design system engine files against pinned upstream repository releases. Use when checking for outdated StyleSeed assets, migrating legacy ui-* and ux-* skills to ss-*, verifying DESIGN-LANGUAGE.md and theme.css revisions, or applying safe upstream diffs with worktree backups."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-update
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

@@ -1,13 +1,13 @@
 ---
 name: competitor-tracking
-description: "Systematic competitor analysis for developer tools. Track features, pricing, positioning, content strategy, and community sentiment for direct and indirect competitors. Trigger phrases: \\"competitor analysis\\", \\"track competitors\\", \\"competitive intelligence\\", \\"competitor research\\", \\"what... Use when developing, optimizing, debugging, or configuring competitor tracking in..."
+description: "Execute competitive intelligence and competitor tracking for developer tools and software products. Tracks feature matrices, pricing tiers, messaging changes, GitHub traction signals, and community sentiment across social platforms. Use when benchmarking competitors, analyzing developer tool positioning, or creating competitive battlecards with win-loss frameworks."
 risk: critical
-source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/competitor-tracking
-source_repo: jonathimer/devmarketing-skills
+source: "https://github.com/jonathimer/devmarketing-skills/tree/main/skills/competitor-tracking"
+source_repo: "jonathimer/devmarketing-skills"
 source_type: community
-date_added: 2026-07-01
-license: MIT
-license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
+date_added: "2026-07-01"
+license: "MIT"
+license_source: "https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE"
 ---
 
 # Competitor Tracking

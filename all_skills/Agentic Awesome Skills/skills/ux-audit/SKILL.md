@@ -1,11 +1,11 @@
 ---
 name: ux-audit
-description: "Audit screens for UX issues using Nielsen's heuristics and modern mobile UX best practices Use when developing, optimizing, debugging, or configuring ux audit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux audit."
+description: "Evaluate user interface screens against Jakob Nielsen's 10 Usability Heuristics and mobile UX standards. Use when conducting usability reviews to identify friction, missing skeleton loading states, absent undo actions, vague error messages, inconsistent typography hierarchies, or tap targets under 44px."
 risk: safe
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-audit
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

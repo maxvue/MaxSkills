@@ -1,6 +1,6 @@
 ---
 name: vue-boleto-utils-best-practices
-description: "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting. Provides end-to-end guidance, reference architectures, and practical patterns for vue boleto utils best practices."
+description: "Use when validating, parsing, or formatting Brazilian bank slips (boletos) in Vue 3 using @mrmgomes/boleto-utils. Covers validarBoleto integration, digit lengths (36, 44, 46, 47, 48), TypeScript module augmentation for Date fields, barcode and digitable line parsing, and reusable useBoleto composables."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas para Vue Boleto Utils

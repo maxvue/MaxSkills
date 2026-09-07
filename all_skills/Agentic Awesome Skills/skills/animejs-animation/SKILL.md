@@ -1,6 +1,6 @@
---- 
+---
 name: animejs-animation
-description: "Comprehensive engineering guide and best practices for animejs animation. Use when configuring, developing, debugging, or optimizing animejs animation architecture in production systems. Guides architecture, best practices, and implementation standards for animejs animation."
+description: "Creates and sequences web animations using Anime.js, implementing choreographed timelines, staggered element reveals, SVG path morphing, and physics-based spring easings for interactive UIs. Use when building complex web animations, sequenced landing page transitions, staggered grid or text reveals, or interactive SVG path motions using the Anime.js animation engine."
 risk: safe
 source: community
 date_added: "2026-03-07"

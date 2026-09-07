@@ -1,11 +1,11 @@
 ---
 name: ui-lint
-description: "Quick automated lint — detects common design system violations in seconds Use when developing, optimizing, debugging, or configuring ui lint in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui lint."
+description: "Execute fast grep-based static linting to detect design system violations in Tailwind CSS components. Use when scanning code for hardcoded hex colors, arbitrary pixel dimensions, legacy w/h sizing instead of size-*, physical spacing over logical properties, missing data-slot attributes, or uncomposed classNames."
 risk: safe
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-lint
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

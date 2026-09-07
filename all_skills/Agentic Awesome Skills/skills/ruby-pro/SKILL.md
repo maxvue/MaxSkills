@@ -1,6 +1,6 @@
 ---
 name: ruby-pro
-description: "Comprehensive engineering guide and best practices for ruby pro. Use when configuring, developing, debugging, or optimizing ruby pro architecture in production systems. Guides architecture, best practices, and implementation standards for ruby pro."
+description: "Develops idiomatic Ruby and Ruby on Rails applications with metaprogramming, ActiveRecord patterns, gem packaging, and benchmark-ips profiling. Use when writing or refactoring Ruby code, implementing Rails MVC components, setting up RSpec or Minitest suites, or configuring RuboCop style and lint rules."
 risk: critical
 source: community
 date_added: '2026-02-27'

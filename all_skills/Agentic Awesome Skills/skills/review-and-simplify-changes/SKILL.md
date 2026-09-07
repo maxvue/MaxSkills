@@ -1,6 +1,6 @@
 ---
 name: review-and-simplify-changes
-description: "Comprehensive engineering guide and best practices for review and simplify changes. Use when configuring, developing, debugging, or optimizing review and simplify changes architecture in production systems."
+description: "Analyzes git diffs and modified files across four parallel read-only review axes: code reuse, quality, runtime efficiency, and clarity standards. Use when reviewing git diff or staged changes, simplifying complex refactors, removing duplicate abstractions, or validating code maintainability before commit."
 risk: critical
 source: https://github.com/Dimillian/Skills/tree/main/review-and-simplify-changes
 source_repo: Dimillian/Skills

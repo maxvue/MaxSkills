@@ -1,6 +1,6 @@
 ---
 name: performance-profiling
-description: "Performance profiling principles. Measurement, analysis, and optimization techniques. Use when developing, optimizing, debugging, or configuring performance profiling in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for performance profiling."
+description: "Profiles web application runtime performance and diagnoses bottlenecks across Core Web Vitals (LCP, INP, CLS), JavaScript bundle sizes, and memory leaks. Executes automated audits via scripts/lighthouse_audit.py. Use when optimizing page load latency, debugging long tasks in DevTools, or analyzing bundle chunks."
 risk: critical
 source: community
 date_added: "2026-02-27"

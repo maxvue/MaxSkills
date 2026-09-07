@@ -1,11 +1,11 @@
 ---
 name: ui-tokens
-description: "View, add, or modify design tokens in the StyleSeed design system Use when developing, optimizing, debugging, or configuring ui tokens in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui tokens."
+description: "Manage, list, add, and synchronize design tokens across JSON definition files and CSS theme implementations. Use when updating StyleSeed design system tokens for colors, typography, spacing, border radii, or shadows, ensuring synchronized variables between tokens/*.json, Tailwind @theme inline, and css/theme.css."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-tokens
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

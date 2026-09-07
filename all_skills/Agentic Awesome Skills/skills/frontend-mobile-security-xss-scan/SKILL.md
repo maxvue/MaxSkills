@@ -1,6 +1,6 @@
 ---
 name: frontend-mobile-security-xss-scan
-description: "Comprehensive engineering guide and best practices for frontend mobile security xss scan. Use when configuring, developing, debugging, or optimizing frontend mobile security xss scan architecture in production systems."
+description: "Scans frontend and hybrid mobile web codebases for Cross-Site Scripting (XSS, CWE-79) vulnerabilities and dangerous DOM sinks. Use when detecting unsafe innerHTML or dangerouslySetInnerHTML usages in React, Vue, or Angular, validating input sanitization with DOMPurify, or auditing Content Security Policies."
 risk: critical
 source: community
 date_added: "2026-02-27"

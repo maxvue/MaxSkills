@@ -1,6 +1,6 @@
 ---
 name: llm-application-dev-ai-assistant
-description: "Comprehensive engineering guide and best practices for llm application dev ai assistant. Use when configuring, developing, debugging, or optimizing llm application dev ai assistant architecture in production systems."
+description: "Architects and implements conversational AI assistants, handling multi-turn dialog state tracking, context memory, and NLP execution pipelines. Use when building intelligent chatbots or autonomous assistants with LLM backends, designing intent routing flows, or managing stateful agent-user conversations."
 risk: safe
 source: community
 date_added: "2026-02-27"

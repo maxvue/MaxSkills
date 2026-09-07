@@ -1,6 +1,6 @@
 ---
 name: receiving-code-review
-description: "Code review requires technical evaluation, not emotional performance. Use when developing, optimizing, debugging, or configuring receiving code review in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for receiving code review."
+description: "Evaluate and implement code review and pull request feedback with rigorous technical verification. Use when processing reviewer comments, preventing performative agreement, clarifying ambiguous feedback before editing, pushing back against invalid changes or YAGNI violations, and ordering fixes safely."
 risk: critical
 source: community
 date_added: "2026-02-27"

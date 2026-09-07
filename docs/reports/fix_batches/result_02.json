@@ -1,0 +1,171 @@
+[
+  {
+    "skillName": "audio-transcriber",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/audio-transcriber/SKILL.md",
+    "correctedDescription": "Transcribes audio and video files into structured Markdown reports with timestamps, speaker diarization, and meeting minutes using faster-whisper or openai-whisper with ffmpeg. Use when converting speech to text from MP3, WAV, M4A, FLAC, or WEBM files, generating meeting summaries, or extracting SRT/VTT subtitles.",
+    "charCount": 314,
+    "discriminants": [
+      "faster-whisper",
+      "openai-whisper",
+      "ffmpeg",
+      "ffprobe",
+      "speaker diarization",
+      "meeting minutes",
+      "SRT/VTT",
+      "MP3/WAV/M4A/FLAC/WEBM"
+    ],
+    "cleanFrontmatter": "name: audio-transcriber\ndescription: \"Transcribes audio and video files into structured Markdown reports with timestamps, speaker diarization, and meeting minutes using faster-whisper or openai-whisper with ffmpeg. Use when converting speech to text from MP3, WAV, M4A, FLAC, or WEBM files, generating meeting summaries, or extracting SRT/VTT subtitles.\"\ncategory: content\nrisk: safe\nsource: community\ntags: \"[audio, transcription, whisper, meeting-minutes, speech-to-text]\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "awt-e2e-testing",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/awt-e2e-testing/SKILL.md",
+    "correctedDescription": "Executes declarative YAML end-to-end test scenarios through real browsers using Playwright, OpenCV visual template matching, and OCR. Use when running AI-assisted E2E browser testing, diagnosing test failures across React, Next.js, Vue, Angular, or Flutter apps without brittle CSS selectors, and recording fix patterns in SQLite.",
+    "charCount": 330,
+    "discriminants": [
+      "Playwright",
+      "OpenCV template matching",
+      "OCR",
+      "YAML test scenarios",
+      "SQLite learning DB",
+      "E2E browser testing",
+      "Flutter/React/Next.js/Vue/Angular"
+    ],
+    "cleanFrontmatter": "name: awt-e2e-testing\ndescription: \"Executes declarative YAML end-to-end test scenarios through real browsers using Playwright, OpenCV visual template matching, and OCR. Use when running AI-assisted E2E browser testing, diagnosing test failures across React, Next.js, Vue, Angular, or Flutter apps without brittle CSS selectors, and recording fix patterns in SQLite.\"\nrisk: critical\nsource: \"https://github.com/ksgisang/awt-skill\""
+  },
+  {
+    "skillName": "azure-keyvault-keys-ts",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/azure-keyvault-keys-ts/SKILL.md",
+    "correctedDescription": "Manages Azure Key Vault cryptographic keys, rotation policies, and secrets using @azure/keyvault-keys and @azure/identity in TypeScript. Use when implementing KeyClient and CryptographyClient for RSA/EC key generation, RSA-OAEP encrypt/decrypt, RS256 signing and verification, key wrapping, secret lifecycle, or soft-delete recovery.",
+    "charCount": 333,
+    "discriminants": [
+      "@azure/keyvault-keys",
+      "@azure/identity",
+      "KeyClient",
+      "CryptographyClient",
+      "DefaultAzureCredential",
+      "RSA-OAEP",
+      "RS256",
+      "key rotation policy"
+    ],
+    "cleanFrontmatter": "name: azure-keyvault-keys-ts\ndescription: \"Manages Azure Key Vault cryptographic keys, rotation policies, and secrets using @azure/keyvault-keys and @azure/identity in TypeScript. Use when implementing KeyClient and CryptographyClient for RSA/EC key generation, RSA-OAEP encrypt/decrypt, RS256 signing and verification, key wrapping, secret lifecycle, or soft-delete recovery.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "backend-security-coder",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/backend-security-coder/SKILL.md",
+    "correctedDescription": "Implements defensive backend security controls and vulnerability remediations in server-side applications. Use when preventing SQL injection with parameterized queries, mitigating SSRF and CSRF attacks, configuring CSP, HSTS, and SameSite cookies, hashing passwords with Argon2 or bcrypt, and implementing OAuth 2.1, JWT, or RBAC authorization.",
+    "charCount": 342,
+    "discriminants": [
+      "SQL injection",
+      "SSRF prevention",
+      "CSRF protection",
+      "CSP/HSTS headers",
+      "SameSite cookies",
+      "Argon2/bcrypt",
+      "OAuth 2.1/JWT",
+      "RBAC"
+    ],
+    "cleanFrontmatter": "name: backend-security-coder\ndescription: \"Implements defensive backend security controls and vulnerability remediations in server-side applications. Use when preventing SQL injection with parameterized queries, mitigating SSRF and CSRF attacks, configuring CSP, HSTS, and SameSite cookies, hashing passwords with Argon2 or bcrypt, and implementing OAuth 2.1, JWT, or RBAC authorization.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "bdi-mental-states",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/bdi-mental-states/SKILL.md",
+    "correctedDescription": "Transforms RDF semantic graphs into cognitive agent mental states (Beliefs, Desires, Intentions) using formal BDI ontology patterns and Turtle/SPARQL. Use when modeling rational agency, deliberative reasoning chains, mental state temporal transitions, or implementing BDI cognitive architectures for multi-agent systems in SEMAS, JADE, or JADEX.",
+    "charCount": 344,
+    "discriminants": [
+      "BDI ontology",
+      "Beliefs Desires Intentions",
+      "RDF graphs",
+      "Turtle",
+      "SPARQL",
+      "SEMAS",
+      "JADE",
+      "JADEX",
+      "cognitive agent architecture"
+    ],
+    "cleanFrontmatter": "name: bdi-mental-states\ndescription: \"Transforms RDF semantic graphs into cognitive agent mental states (Beliefs, Desires, Intentions) using formal BDI ontology patterns and Turtle/SPARQL. Use when modeling rational agency, deliberative reasoning chains, mental state temporal transitions, or implementing BDI cognitive architectures for multi-agent systems in SEMAS, JADE, or JADEX.\"\nrisk: critical\nsource: community"
+  },
+  {
+    "skillName": "brooks-audit",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/brooks-audit/SKILL.md",
+    "correctedDescription": "Performs architectural audits using the Brooks-Lint framework to map module dependencies and detect structural decay across codebases. Use when analyzing architectural integrity, visualizing dependency graphs in Mermaid, flagging circular imports and layering violations, evaluating Conway's Law alignment, or generating developer onboarding tours.",
+    "charCount": 347,
+    "discriminants": [
+      "Brooks-Lint",
+      "Mermaid dependency graph",
+      "structural decay",
+      "circular imports",
+      "layering violations",
+      "Conway's Law",
+      "Testability Seam Assessment",
+      "onboarding tour"
+    ],
+    "cleanFrontmatter": "name: brooks-audit\ndescription: \"Performs architectural audits using the Brooks-Lint framework to map module dependencies and detect structural decay across codebases. Use when analyzing architectural integrity, visualizing dependency graphs in Mermaid, flagging circular imports and layering violations, evaluating Conway's Law alignment, or generating developer onboarding tours.\"\nrisk: safe\nsource: https://github.com/hyhmrright/brooks-lint/tree/main/skills/brooks-audit\nsource_repo: hyhmrright/brooks-lint\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE"
+  },
+  {
+    "skillName": "business-analyst",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/business-analyst/SKILL.md",
+    "correctedDescription": "Designs KPI frameworks, financial models, and business intelligence dashboards using Tableau, Power BI, Looker, Snowflake, and BigQuery. Use when structuring OKRs and North Star metrics, conducting cohort retention analysis, calculating unit economics (CLV, CAC), forecasting revenue, or evaluating business process optimization opportunities.",
+    "charCount": 337,
+    "discriminants": [
+      "Tableau",
+      "Power BI",
+      "Looker",
+      "Snowflake",
+      "BigQuery",
+      "OKRs",
+      "North Star metrics",
+      "CLV/CAC unit economics",
+      "cohort retention analysis"
+    ],
+    "cleanFrontmatter": "name: business-analyst\ndescription: \"Designs KPI frameworks, financial models, and business intelligence dashboards using Tableau, Power BI, Looker, Snowflake, and BigQuery. Use when structuring OKRs and North Star metrics, conducting cohort retention analysis, calculating unit economics (CLV, CAC), forecasting revenue, or evaluating business process optimization opportunities.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "c4-container",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/c4-container/SKILL.md",
+    "correctedDescription": "Generates Level 2 C4 container architecture models, Mermaid C4Container diagrams, and OpenAPI 3.1 interface specifications. Use when documenting deployable software units (web apps, APIs, databases, message queues), detailing container technology stacks and communication protocols (REST, gRPC, GraphQL), or mapping container runtime boundaries.",
+    "charCount": 339,
+    "discriminants": [
+      "C4 model",
+      "Level 2 Container",
+      "Mermaid C4Container",
+      "OpenAPI 3.1",
+      "REST/GraphQL/gRPC",
+      "ContainerDb",
+      "System_Boundary"
+    ],
+    "cleanFrontmatter": "name: c4-container\ndescription: \"Generates Level 2 C4 container architecture models, Mermaid C4Container diagrams, and OpenAPI 3.1 interface specifications. Use when documenting deployable software units (web apps, APIs, databases, message queues), detailing container technology stacks and communication protocols (REST, gRPC, GraphQL), or mapping container runtime boundaries.\"\nrisk: none\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "canvas-design",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/canvas-design/SKILL.md",
+    "correctedDescription": "Creates visual design philosophies and renders them into single-page abstract art artifacts in PDF or PNG formats. Use when formulating aesthetic manifestos (.md) and executing visual-first canvas compositions with minimal typography, geometric abstraction, disciplined spatial hierarchy, and curated typographic assets from ./canvas-fonts.",
+    "charCount": 342,
+    "discriminants": [
+      "visual design philosophy",
+      "aesthetic manifesto .md",
+      "canvas art artifacts",
+      "PDF rendering",
+      "PNG export",
+      "spatial hierarchy",
+      "canvas-fonts"
+    ],
+    "cleanFrontmatter": "name: canvas-design\ndescription: \"Creates visual design philosophies and renders them into single-page abstract art artifacts in PDF or PNG formats. Use when formulating aesthetic manifestos (.md) and executing visual-first canvas compositions with minimal typography, geometric abstraction, disciplined spatial hierarchy, and curated typographic assets from ./canvas-fonts.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "ckw-design",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ckw-design/SKILL.md",
+    "correctedDescription": "Orchestrates frontend UI styling, design systems, and responsive layout audits for React, Vue, and HTML/CSS web interfaces. Use when building or refining web UIs, enforcing 8-point spatial grid systems, eliminating horizontal overflow (overflow-x:clip), conducting Nielsen usability heuristic reviews, or coordinating design-thinking and design-spatial subskills.",
+    "charCount": 364,
+    "discriminants": [
+      "design-thinking",
+      "design-system",
+      "design-spatial",
+      "design-ux",
+      "8-point spatial grid",
+      "overflow-x:clip",
+      "Nielsen usability heuristics",
+      "React/Vue/HTML-CSS"
+    ],
+    "cleanFrontmatter": "name: ckw-design\ndescription: \"Orchestrates frontend UI styling, design systems, and responsive layout audits for React, Vue, and HTML/CSS web interfaces. Use when building or refining web UIs, enforcing 8-point spatial grid systems, eliminating horizontal overflow (overflow-x:clip), conducting Nielsen usability heuristic reviews, or coordinating design-thinking and design-spatial subskills.\"\nrisk: safe\nsource: community\nsource_type: community\nsource_repo: connerkward/ckw-design-skill\ndate_added: \"2026-06-16\"\nauthor: Conner K Ward\nlicense: MIT\ntags:\n  - design\n  - frontend\n  - ui\n  - css\n  - typography\n  - responsive\ntools:\n  - claude-code\n  - antigravity\n  - cursor\n  - gemini-cli\n  - codex-cli"
+  }
+]

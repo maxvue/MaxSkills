@@ -1,9 +1,6 @@
 ---
 name: seo-sitemap
-description: "> Use when developing, optimizing, debugging, or configuring seo sitemap in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo sitemap. Use when developing, optimizing, testing, or configuring seo sitemap in production environments."
-  Analyze existing XML sitemaps or generate new ones with industry templates.
-  Validates format, URLs, and structure. Use when user says "sitemap",
-  "generate sitemap", "sitemap issues", or "XML sitemap".
+description: "Analyzes existing XML sitemaps or generates new sitemap and sitemapindex files according to search engine protocol specifications. Validates HTTP 200 status codes, lastmod tags, 50,000 URL limits, robots.txt references, and canonical URL alignment while pruning noindexed pages. Use when validating XML sitemap health, resolving indexation errors, or architecting multi-file sitemaps."
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"

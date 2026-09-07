@@ -1,6 +1,6 @@
 ---
 name: cyber-audit
-description: "Run read-only exposure checks for security advisories and write a structured local audit report. Use when developing, optimizing, debugging, or configuring cyber audit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for cyber audit."
+description: "Execute read-only local security exposure audits against CVEs, supply-chain advisories, and breach notices. Inspects packages across npm, pnpm, yarn, pip, poetry, uv, and Homebrew, as well as listening ports and processes. Use when assessing system or project exposure to reported vulnerabilities without modifying environment state."
 category: security
 risk: safe
 source: community

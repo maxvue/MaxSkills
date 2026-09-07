@@ -1,9 +1,9 @@
 ---
 name: sql-pro
-description: "Comprehensive engineering guide and best practices for sql pro. Use when configuring, developing, debugging, or optimizing sql pro architecture in production systems. Guides architecture, best practices, and implementation standards for sql pro."
+description: "Designs database schemas and optimizes advanced SQL queries for OLTP and OLAP workloads. Use when tuning execution plans with EXPLAIN, structuring window functions or recursive CTEs, designing star and snowflake schemas, or configuring indexing and partitioning in PostgreSQL, Snowflake, BigQuery, or Aurora."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 ## Use this skill when
 

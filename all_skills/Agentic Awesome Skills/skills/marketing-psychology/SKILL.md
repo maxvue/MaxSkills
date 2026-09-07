@@ -1,6 +1,6 @@
 ---
 name: marketing-psychology
-description: "Comprehensive engineering guide and best practices for marketing psychology. Use when configuring, developing, debugging, or optimizing marketing psychology architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for marketing psychology."
+description: "Applies behavioral science principles and cognitive mental models to conversion funnels using the Psychological Leverage & Feasibility Score (PLFS). Maps models like loss aversion, anchoring, and paradox of choice across journey stages while preventing dark patterns. Use when optimizing landing pages, pricing tiers, CTAs, or onboarding flows through ethical behavioral psychology."
 risk: none
 source: community
 date_added: "2026-02-27"

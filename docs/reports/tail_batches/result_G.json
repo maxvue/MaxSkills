@@ -1,0 +1,178 @@
+[
+  {
+    "skillName": "laravel-qrcode-generation-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+    "correctedDescription": "Use when generating, styling, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers Builder configuration with PngWriter or SvgWriter, base64 data URIs, raw binary streams, ErrorCorrectionLevel, logo embedding with punchout, label rendering limitations, and disk persistence.",
+    "charCount": 293,
+    "discriminants": [
+      "endroid/qr-code",
+      "Builder",
+      "PngWriter",
+      "SvgWriter",
+      "ErrorCorrectionLevel",
+      "logoPunchoutBackground",
+      "getDataUri"
+    ],
+    "cleanFrontmatter": "name: laravel-qrcode-generation-best-practices\ndescription: \"Use when generating, styling, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers Builder configuration with PngWriter or SvgWriter, base64 data URIs, raw binary streams, ErrorCorrectionLevel, logo embedding with punchout, label rendering limitations, and disk persistence.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-services-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
+    "correctedDescription": "Use when creating, refactoring, or reviewing Laravel Service classes in app/Services. Enforces Single Responsibility Principle, PHP 8 constructor property promotion for dependency injection, typed DTOs from app/Data, domain exceptions, structured Log facade context, and Octane-safe stateless architecture without HTTP controller coupling.",
+    "charCount": 339,
+    "discriminants": [
+      "app/Services",
+      "PHP 8 constructor promotion",
+      "app/Data DTOs",
+      "Single Responsibility Principle",
+      "Octane-safe",
+      "Log facade context"
+    ],
+    "cleanFrontmatter": "name: laravel-services-best-practices\ndescription: \"Use when creating, refactoring, or reviewing Laravel Service classes in app/Services. Enforces Single Responsibility Principle, PHP 8 constructor property promotion for dependency injection, typed DTOs from app/Data, domain exceptions, structured Log facade context, and Octane-safe stateless architecture without HTTP controller coupling.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-task-scheduling-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
+    "correctedDescription": "Use when configuring, scheduling, or debugging Laravel background tasks in routes/console.php or Studio Totem. Covers Schedule facade commands, withoutOverlapping mutex locks, runInBackground, onOneServer, task_results retention policies, Totem::auth callback security, and channel logging in config/logging.php.",
+    "charCount": 311,
+    "discriminants": [
+      "routes/console.php",
+      "Schedule facade",
+      "withoutOverlapping",
+      "Studio Totem",
+      "task_results retention",
+      "Totem::auth",
+      "config/logging.php"
+    ],
+    "cleanFrontmatter": "name: laravel-task-scheduling-best-practices\ndescription: \"Use when configuring, scheduling, or debugging Laravel background tasks in routes/console.php or Studio Totem. Covers Schedule facade commands, withoutOverlapping mutex locks, runInBackground, onOneServer, task_results retention policies, Totem::auth callback security, and channel logging in config/logging.php.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-trello-api-integration",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
+    "correctedDescription": "Use when integrating, maintaining, or debugging the Trello API in Laravel via TrelloService. Covers credentials from config/api.php, default board handling, webhook reception via ProcessTrelloWebhookJob, async queued mutations with SyncToTrelloJob, Artisan commands trello:register-webhook and sync:cards-trello, and trello channel logging.",
+    "charCount": 341,
+    "discriminants": [
+      "TrelloService",
+      "config/api.php",
+      "ProcessTrelloWebhookJob",
+      "SyncToTrelloJob",
+      "trello:register-webhook",
+      "sync:cards-trello",
+      "channel trello"
+    ],
+    "cleanFrontmatter": "name: laravel-trello-api-integration\ndescription: \"Use when integrating, maintaining, or debugging the Trello API in Laravel via TrelloService. Covers credentials from config/api.php, default board handling, webhook reception via ProcessTrelloWebhookJob, async queued mutations with SyncToTrelloJob, Artisan commands trello:register-webhook and sync:cards-trello, and trello channel logging.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-typescript-transformer-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+    "correctedDescription": "Use when configuring, generating, or synchronizing TypeScript definitions from PHP DTOs and Enums in Laravel using spatie/typescript-transformer. Covers programmatic setup in TypeScriptTransformerServiceProvider, php artisan typescript:transform, FlatGlobalWriter, #[DataCollectionOf], and output in resources/Types/generated.d.ts.",
+    "charCount": 333,
+    "discriminants": [
+      "spatie/typescript-transformer",
+      "TypeScriptTransformerServiceProvider",
+      "php artisan typescript:transform",
+      "FlatGlobalWriter",
+      "#[DataCollectionOf]",
+      "resources/Types/generated.d.ts"
+    ],
+    "cleanFrontmatter": "name: laravel-typescript-transformer-best-practices\ndescription: \"Use when configuring, generating, or synchronizing TypeScript definitions from PHP DTOs and Enums in Laravel using spatie/typescript-transformer. Covers programmatic setup in TypeScriptTransformerServiceProvider, php artisan typescript:transform, FlatGlobalWriter, #[DataCollectionOf], and output in resources/Types/generated.d.ts.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-whatsapp-cloud-api-integration",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
+    "correctedDescription": "Use when building or debugging WhatsApp Cloud API integrations in Laravel using netflie/whatsapp-cloud-api. Covers hub_challenge webhook verification, two-stage queue pipelines (webhooks and whatsapp queues), WebhookWhatsappJobExecuteJob, SupportMessage and SupportContact persistence, PhoneClass helpers, and NotifyRetryingWhatsappMiddleware.",
+    "charCount": 341,
+    "discriminants": [
+      "netflie/whatsapp-cloud-api",
+      "hub_challenge",
+      "WebhookWhatsappJob",
+      "WebhookWhatsappJobExecuteJob",
+      "SupportMessage",
+      "SupportContact",
+      "PhoneClass",
+      "NotifyRetryingWhatsappMiddleware"
+    ],
+    "cleanFrontmatter": "name: laravel-whatsapp-cloud-api-integration\ndescription: \"Use when building or debugging WhatsApp Cloud API integrations in Laravel using netflie/whatsapp-cloud-api. Covers hub_challenge webhook verification, two-stage queue pipelines (webhooks and whatsapp queues), WebhookWhatsappJobExecuteJob, SupportMessage and SupportContact persistence, PhoneClass helpers, and NotifyRetryingWhatsappMiddleware.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "vue-boleto-utils-best-practices",
+    "relPath": "all_skills/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+    "correctedDescription": "Use when validating, parsing, or formatting Brazilian bank slips (boletos) in Vue 3 using @mrmgomes/boleto-utils. Covers validarBoleto integration, digit lengths (36, 44, 46, 47, 48), TypeScript module augmentation for Date fields, barcode and digitable line parsing, and reusable useBoleto composables.",
+    "charCount": 303,
+    "discriminants": [
+      "@mrmgomes/boleto-utils",
+      "validarBoleto",
+      "Boleto",
+      "useBoleto",
+      "linhaDigitavel",
+      "codigoBarras",
+      "vencimentoComNovoFator2025"
+    ],
+    "cleanFrontmatter": "name: vue-boleto-utils-best-practices\ndescription: \"Use when validating, parsing, or formatting Brazilian bank slips (boletos) in Vue 3 using @mrmgomes/boleto-utils. Covers validarBoleto integration, digit lengths (36, 44, 46, 47, 48), TypeScript module augmentation for Date fields, barcode and digitable line parsing, and reusable useBoleto composables.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "vue-eslint-stylelint-quality-standards",
+    "relPath": "all_skills/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+    "correctedDescription": "Use when linting, formatting, or fixing Vue 3 SFCs and SCSS styles against ESLint (flat config in eslint.config.js) and Stylelint (.stylelintrc.json). Covers vue/block-order (template, script, style), @stylistic formatting rules, unused var prefixes (^_), Vue pseudo-elements (v-deep), and npm run lint.",
+    "charCount": 300,
+    "discriminants": [
+      "eslint.config.js",
+      ".stylelintrc.json",
+      "vue/block-order",
+      "@stylistic",
+      "vue/script-indent",
+      "^_ prefix",
+      "v-deep",
+      "npm run lint"
+    ],
+    "cleanFrontmatter": "name: vue-eslint-stylelint-quality-standards\ndescription: \"Use when linting, formatting, or fixing Vue 3 SFCs and SCSS styles against ESLint (flat config in eslint.config.js) and Stylelint (.stylelintrc.json). Covers vue/block-order (template, script, style), @stylistic formatting rules, unused var prefixes (^_), Vue pseudo-elements (v-deep), and npm run lint.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "vue-frontend-bug-fixing-best-practices",
+    "relPath": "all_skills/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+    "correctedDescription": "Use when diagnosing and fixing frontend bugs in Engeapp Vue 3 applications. Covers root-cause debugging across @maxvue/max-pinia cached stores, @maxvue/max-use route helpers (apiGetRoute, apiPostRoute), @maxvue/max-components-ui components, UnoCSS presetMaxUno styling, and npm run typecheck:tsgo verification.",
+    "charCount": 311,
+    "discriminants": [
+      "@maxvue/max-pinia",
+      "@maxvue/max-use",
+      "@maxvue/max-components-ui",
+      "apiGetRoute",
+      "apiPostRoute",
+      "presetMaxUno",
+      "npm run typecheck:tsgo"
+    ],
+    "cleanFrontmatter": "name: vue-frontend-bug-fixing-best-practices\ndescription: \"Use when diagnosing and fixing frontend bugs in Engeapp Vue 3 applications. Covers root-cause debugging across @maxvue/max-pinia cached stores, @maxvue/max-use route helpers (apiGetRoute, apiPostRoute), @maxvue/max-components-ui components, UnoCSS presetMaxUno styling, and npm run typecheck:tsgo verification.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "vue-keyboard-shortcuts-navigation-best-practices",
+    "relPath": "all_skills/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+    "correctedDescription": "Use when implementing or debugging keyboard shortcuts, hotkeys, and focus traps in Vue 3. Covers useActiveElement input collision prevention, reactive useMagicKeys and whenever watchers via @maxvue/max-use, template key modifiers (.exact, .prevent), modal focus restoration, and accessible navigation.",
+    "charCount": 300,
+    "discriminants": [
+      "useActiveElement",
+      "useMagicKeys",
+      "whenever",
+      "@maxvue/max-use",
+      ".exact modifier",
+      ".prevent modifier",
+      "focus trap"
+    ],
+    "cleanFrontmatter": "name: vue-keyboard-shortcuts-navigation-best-practices\ndescription: \"Use when implementing or debugging keyboard shortcuts, hotkeys, and focus traps in Vue 3. Covers useActiveElement input collision prevention, reactive useMagicKeys and whenever watchers via @maxvue/max-use, template key modifiers (.exact, .prevent), modal focus restoration, and accessible navigation.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "vue-max-ecosystem-api-reference",
+    "relPath": "all_skills/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+    "correctedDescription": "Use when looking up API signatures, props, emits, slots, and store contracts for Engeapp internal libraries: @maxvue/max-components-ui (110 components), @maxvue/max-use (useRefCachedApi, apiGetRoute, lodash helper _), and @maxvue/max-pinia (cached store options.get and debounced options.save).",
+    "charCount": 295,
+    "discriminants": [
+      "@maxvue/max-components-ui",
+      "@maxvue/max-use",
+      "@maxvue/max-pinia",
+      "useRefCachedApi",
+      "apiGetRoute",
+      "options.get",
+      "options.save"
+    ],
+    "cleanFrontmatter": "name: vue-max-ecosystem-api-reference\ndescription: \"Use when looking up API signatures, props, emits, slots, and store contracts for Engeapp internal libraries: @maxvue/max-components-ui (110 components), @maxvue/max-use (useRefCachedApi, apiGetRoute, lodash helper _), and @maxvue/max-pinia (cached store options.get and debounced options.save).\"\nauthor: Johnattas Conrady Gomes Santana"
+  }
+]

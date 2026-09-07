@@ -1,0 +1,189 @@
+[
+  {
+    "skillName": "handoff",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/handoff/SKILL.md",
+    "correctedDescription": "Compacts current conversation into a structured handoff document saved to the OS temporary directory so a new agent can resume work. Use when ending an agent session, transferring context to a fresh subagent, switching workspaces, or compacting chat history with suggested skills and redacted secrets.",
+    "charCount": 297,
+    "discriminants": [
+      "handoff document",
+      "OS temporary directory",
+      "suggested skills",
+      "fresh agent session",
+      "secret redaction"
+    ],
+    "cleanFrontmatter": "name: handoff\ndescription: \"Compacts current conversation into a structured handoff document saved to the OS temporary directory so a new agent can resume work. Use when ending an agent session, transferring context to a fresh subagent, switching workspaces, or compacting chat history with suggested skills and redacted secrets.\"\nargument-hint: \"What will the next session be used for?\"\ndisable-model-invocation: true\ncategory: \"productivity\"\nrisk: \"safe\"\nsource: \"community\"\nsource_repo: \"mattpocock/skills\"\nsource_type: \"community\"\ndate_added: \"2026-06-19\"\nauthor: \"Matt Pocock\"\nlicense: \"MIT\"\nlicense_source: \"https://github.com/mattpocock/skills/blob/main/LICENSE\"\ntags:\n  - productivity\n  - workflow\n  - coding-agents\ntools:\n  - claude-code\n  - codex-cli\n  - cursor"
+  },
+  {
+    "skillName": "hasdata",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/hasdata/SKILL.md",
+    "correctedDescription": "Extracts public web and search engine data using HasData APIs via sync endpoints (/scrape/web, Google SERP, Maps, Amazon) or async bulk Scraper Jobs with JS rendering. Use when scraping structured web data, extracting search results, scraping ecommerce or business directories, or managing HasData crawlers.",
+    "charCount": 302,
+    "discriminants": [
+      "HasData API",
+      "/scrape/web",
+      "Google SERP",
+      "Scraper Jobs",
+      "JS rendering",
+      "crawler",
+      "x-api-key"
+    ],
+    "cleanFrontmatter": "name: hasdata\ndescription: \"Extracts public web and search engine data using HasData APIs via sync endpoints (/scrape/web, Google SERP, Maps, Amazon) or async bulk Scraper Jobs with JS rendering. Use when scraping structured web data, extracting search results, scraping ecommerce or business directories, or managing HasData crawlers.\"\nrisk: safe\nsource: official\nsource_type: official\nsource_repo: HasData/hasdata-cli\nlicense: MIT\nlicense_source: \"https://github.com/HasData/hasdata-cli/blob/main/LICENSE\"\ndate_added: \"2026-06-04\""
+  },
+  {
+    "skillName": "hig-patterns",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/hig-patterns/SKILL.md",
+    "correctedDescription": "Applies Apple Human Interface Guidelines (HIG) interaction and UX design patterns across iOS, iPadOS, macOS, and watchOS. Use when designing user flows, modal presentations, onboarding, Dynamic Island, Live Activities, haptic feedback with UIFeedbackGenerator, passkey auth, or auditing HIG compliance.",
+    "charCount": 305,
+    "discriminants": [
+      "Apple HIG",
+      "iOS",
+      "iPadOS",
+      "macOS",
+      "Dynamic Island",
+      "Live Activities",
+      "UIFeedbackGenerator",
+      "passkeys",
+      "modality"
+    ],
+    "cleanFrontmatter": "name: hig-patterns\ndescription: \"Applies Apple Human Interface Guidelines (HIG) interaction and UX design patterns across iOS, iPadOS, macOS, and watchOS. Use when designing user flows, modal presentations, onboarding, Dynamic Island, Live Activities, haptic feedback with UIFeedbackGenerator, passkey auth, or auditing HIG compliance.\"\nrisk: none\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "base",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/libreoffice/base/SKILL.md",
+    "correctedDescription": "Manages LibreOffice Base databases (.odb), tables, forms, and automated reports using embedded HSQLDB or Firebird, and external SQL databases via JDBC or ODBC. Use when creating ODB databases, scripting Base via Python UNO bridge, automating headless soffice CLI tasks, or connecting to PostgreSQL and MySQL.",
+    "charCount": 305,
+    "discriminants": [
+      "LibreOffice Base",
+      ".odb",
+      "HSQLDB",
+      "Firebird",
+      "Python UNO bridge",
+      "soffice --base",
+      "JDBC/ODBC",
+      "com.sun.star.sdb.DatabaseDocument"
+    ],
+    "cleanFrontmatter": "name: base\ndescription: \"Manages LibreOffice Base databases (.odb), tables, forms, and automated reports using embedded HSQLDB or Firebird, and external SQL databases via JDBC or ODBC. Use when creating ODB databases, scripting Base via Python UNO bridge, automating headless soffice CLI tasks, or connecting to PostgreSQL and MySQL.\"\ncategory: database-processing\nrisk: safe\nsource: personal\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "llm-council",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/llm-council/SKILL.md",
+    "correctedDescription": "Orchestrates multi-model deliberation councils (Karpathy LLM Council) via Fireworks AI inference. Executes parallel queries across open-weight models (DeepSeek, Qwen, GLM, Llama), anonymized peer ranking, and Chairman synthesis. Use when resolving complex queries, comparing LLM responses, or seeking multi-model consensus.",
+    "charCount": 324,
+    "discriminants": [
+      "Karpathy LLM Council",
+      "Fireworks AI",
+      "open-weight models",
+      "DeepSeek",
+      "Qwen",
+      "GLM",
+      "Llama",
+      "anonymized peer ranking",
+      "Chairman synthesis"
+    ],
+    "cleanFrontmatter": "name: llm-council\ndescription: \"Orchestrates multi-model deliberation councils (Karpathy LLM Council) via Fireworks AI inference. Executes parallel queries across open-weight models (DeepSeek, Qwen, GLM, Llama), anonymized peer ranking, and Chairman synthesis. Use when resolving complex queries, comparing LLM responses, or seeking multi-model consensus.\"\nallowed-tools: Read, Write, Bash, AskUserQuestion\ncategory: \"ai-agents\"\nrisk: \"safe\"\nsource: \"official\"\nsource_repo: \"dair-ai/dair-academy-plugins\"\nsource_type: \"official\"\ndate_added: \"2026-06-19\"\nauthor: \"DAIR.AI\"\nlicense: \"MIT\"\nlicense_source: \"https://github.com/dair-ai/dair-academy-plugins/blob/main/README.md#license\"\ntags:\n  - dair-academy\n  - ai\n  - workflow\ntools:\n  - claude-code\n  - codex-cli\n  - cursor"
+  },
+  {
+    "skillName": "m365-agents-ts",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/m365-agents-ts/SKILL.md",
+    "correctedDescription": "Builds Microsoft 365 and Teams conversational agents in TypeScript using @microsoft/agents-hosting, Express, and Copilot Studio. Use when implementing AgentApplication routing, handling invoke activities, streaming responses with Azure OpenAI, or integrating CopilotStudioClient with Direct Line WebChat.",
+    "charCount": 304,
+    "discriminants": [
+      "Microsoft 365 Agents SDK",
+      "@microsoft/agents-hosting",
+      "AgentApplication",
+      "TurnContext",
+      "Express",
+      "CopilotStudioClient",
+      "Azure OpenAI streaming",
+      "Direct Line WebChat"
+    ],
+    "cleanFrontmatter": "name: m365-agents-ts\ndescription: \"Builds Microsoft 365 and Teams conversational agents in TypeScript using @microsoft/agents-hosting, Express, and Copilot Studio. Use when implementing AgentApplication routing, handling invoke activities, streaming responses with Azure OpenAI, or integrating CopilotStudioClient with Direct Line WebChat.\"\nrisk: critical\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "markdown-rendering",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/markdown-rendering/SKILL.md",
+    "correctedDescription": "Displays Markdown files reliably in cmux terminal multiplexer panes while preventing and recovering from blank surface rendering bugs caused by move-surface. Use when opening Markdown docs in cmux side panes, managing workspace pane layouts via cmux CLI, or resetting corrupted cmux markdown view surfaces.",
+    "charCount": 308,
+    "discriminants": [
+      "cmux",
+      "cmux markdown open",
+      "move-surface",
+      "$CMUX_WORKSPACE_ID",
+      "cmux list-panes",
+      "cmux close-surface",
+      "blank surface rendering bug"
+    ],
+    "cleanFrontmatter": "name: markdown-rendering\ndescription: \"Displays Markdown files reliably in cmux terminal multiplexer panes while preventing and recovering from blank surface rendering bugs caused by move-surface. Use when opening Markdown docs in cmux side panes, managing workspace pane layouts via cmux CLI, or resetting corrupted cmux markdown view surfaces.\"\ncategory: productivity\nrisk: safe\nsource: community\nsource_repo: davidondrej/skills\nsource_type: community\ndate_added: \"2026-07-07\"\nauthor: davidondrej\ntags:\n  - markdown\n  - cmux\n  - rendering\ntools:\n  - claude\n  - codex\nlicense: \"MIT\"\nlicense_source: \"https://github.com/davidondrej/skills/blob/main/LICENSE\""
+  },
+  {
+    "skillName": "security-checklist",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/monopoly/security-checklist/SKILL.md",
+    "correctedDescription": "Audits infrastructure and applications against comprehensive security hardening checklists covering network VPCs, WAF OWASP rules, JWT authentication, data encryption, and secrets management. Use when conducting pre-deployment security audits, hardening cloud architectures, or verifying SOC 2, GDPR, and HIPAA compliance.",
+    "charCount": 323,
+    "discriminants": [
+      "VPC",
+      "WAF OWASP rules",
+      "JWT authentication",
+      "data encryption",
+      "secrets management",
+      "SOC 2",
+      "GDPR",
+      "HIPAA",
+      "cloud architecture hardening"
+    ],
+    "cleanFrontmatter": "name: security-checklist\ndescription: \"Audits infrastructure and applications against comprehensive security hardening checklists covering network VPCs, WAF OWASP rules, JWT authentication, data encryption, and secrets management. Use when conducting pre-deployment security audits, hardening cloud architectures, or verifying SOC 2, GDPR, and HIPAA compliance.\"\nsource: community\nrisk: safe\nreports-to: monopoly"
+  },
+  {
+    "skillName": "nextjs-supabase-auth",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/nextjs-supabase-auth/SKILL.md",
+    "correctedDescription": "Integrates Supabase Auth with Next.js App Router using @supabase/ssr across browser and server contexts. Implements cookie-based session refreshes in middleware, OAuth code exchange callback routes, and Server Actions. Use when configuring Supabase authentication, protecting Next.js routes, or managing user sessions.",
+    "charCount": 313,
+    "discriminants": [
+      "Supabase Auth",
+      "Next.js App Router",
+      "@supabase/ssr",
+      "createBrowserClient",
+      "createServerClient",
+      "auth middleware",
+      "OAuth callback route",
+      "Server Actions",
+      "getUser()"
+    ],
+    "cleanFrontmatter": "name: nextjs-supabase-auth\ndescription: \"Integrates Supabase Auth with Next.js App Router using @supabase/ssr across browser and server contexts. Implements cookie-based session refreshes in middleware, OAuth code exchange callback routes, and Server Actions. Use when configuring Supabase authentication, protecting Next.js routes, or managing user sessions.\"\nrisk: none\nsource: \"vibeship-spawner-skills (Apache 2.0)\"\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "page-cro",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/page-cro/SKILL.md",
+    "correctedDescription": "Diagnoses webpage conversion bottlenecks using the Page Conversion Readiness & Impact Index (0-100 scoring) across value propositions, CTA hierarchy, trust signals, and UX friction. Use when auditing landing pages, optimizing SaaS pricing pages, vetting pages before A/B testing, or restructuring conversion funnels.",
+    "charCount": 313,
+    "discriminants": [
+      "Conversion Rate Optimization (CRO)",
+      "Page Conversion Readiness & Impact Index",
+      "value proposition clarity",
+      "CTA hierarchy",
+      "trust signals",
+      "UX friction",
+      "A/B testing readiness",
+      "landing pages"
+    ],
+    "cleanFrontmatter": "name: page-cro\ndescription: \"Diagnoses webpage conversion bottlenecks using the Page Conversion Readiness & Impact Index (0-100 scoring) across value propositions, CTA hierarchy, trust signals, and UX friction. Use when auditing landing pages, optimizing SaaS pricing pages, vetting pages before A/B testing, or restructuring conversion funnels.\"\nrisk: none\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "performance-profiling",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/performance-profiling/SKILL.md",
+    "correctedDescription": "Profiles web application runtime performance and diagnoses bottlenecks across Core Web Vitals (LCP, INP, CLS), JavaScript bundle sizes, and memory leaks. Executes automated audits via scripts/lighthouse_audit.py. Use when optimizing page load latency, debugging long tasks in DevTools, or analyzing bundle chunks.",
+    "charCount": 307,
+    "discriminants": [
+      "Core Web Vitals",
+      "LCP",
+      "INP",
+      "CLS",
+      "scripts/lighthouse_audit.py",
+      "Chrome DevTools",
+      "bundle analysis",
+      "memory leak profiling",
+      "long tasks"
+    ],
+    "cleanFrontmatter": "name: performance-profiling\ndescription: \"Profiles web application runtime performance and diagnoses bottlenecks across Core Web Vitals (LCP, INP, CLS), JavaScript bundle sizes, and memory leaks. Executes automated audits via scripts/lighthouse_audit.py. Use when optimizing page load latency, debugging long tasks in DevTools, or analyzing bundle chunks.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  }
+]

@@ -1,6 +1,6 @@
 ---
 name: longbridge-market-data
-description: "Comprehensive engineering guide and best practices for longbridge market data. Use when configuring, developing, debugging, or optimizing longbridge market data architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for longbridge market data."
+description: "Fetches real-time and historical market data for HK, US, A-share, and SG equities via Longbridge CLI or MCP. Retrieves quotes, OHLCV candlestick charts, Level 2 order book depth, broker queues, tick trades, capital flows, IPO calendars, and ADR/AH premiums. Use when analyzing equity prices, market sentiment, trading schedules, or currency carry trades with Longbridge."
 risk: critical
 source: https://github.com/longbridge/skills/tree/main/skills/longbridge-market-data
 source_repo: longbridge/skills

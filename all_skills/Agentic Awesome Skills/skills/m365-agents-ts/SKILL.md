@@ -1,6 +1,6 @@
 ---
 name: m365-agents-ts
-description: "Microsoft 365 Agents SDK for TypeScript/Node.js. Use when developing, optimizing, debugging, or configuring m365 agents ts in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for m365 agents ts."
+description: "Builds Microsoft 365 and Teams conversational agents in TypeScript using @microsoft/agents-hosting, Express, and Copilot Studio. Use when implementing AgentApplication routing, handling invoke activities, streaming responses with Azure OpenAI, or integrating CopilotStudioClient with Direct Line WebChat."
 risk: critical
 source: community
 date_added: '2026-02-27'

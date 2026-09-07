@@ -1,6 +1,6 @@
 ---
 name: fastapi-templates
-description: "Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensive error handling. Use when building new FastAPI applications or setting up backend API projects. Provides end-to-end guidance, reference architectures, and practical patterns for fastapi templates."
+description: "Scaffolds production-grade FastAPI applications featuring async route handlers, Pydantic v2 validation models, SQLAlchemy async sessions, and Depends injection. Use when bootstrapping Python backend services, structuring modular APIRouter endpoints, configuring CORS middleware, or writing pytest-asyncio tests."
 risk: critical
 source: community
 date_added: "2026-02-27"

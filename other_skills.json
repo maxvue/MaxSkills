@@ -2,7 +2,7 @@
   {
     "id": "01M0G4G52FS4JB7ES3Z9C8N4F1",
     "skill_name": "agent-orchestrator",
-    "description_en": "Multi-agent coordination engine for hierarchical task delegation, background subagent management, and parallel execution.",
+    "description_en": "Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por capacidades, coordenacao de workflows multi-skill e registry management. Use when developing, configuring, optimizing, or troubleshooting agent orchestrator in production workflows.",
     "description_pt_br": "Orquestração e disparo coordenado de múltiplos subagentes autônomos para resolução distribuída de problemas complexos.",
     "promo_en": "Coordinates specialized subagents in parallel to solve complex architectures while preserving primary session token context.",
     "promo_pt_br": "Coordene múltiplos agentes de inteligência artificial em um fluxo de trabalho unificado. O sistema identifica automaticamente as ferramentas disponíveis, seleciona as mais adequadas para o objetivo desejado e executa tarefas complexas de ponta a ponta sem necessidade de intervenção manual constante.",
@@ -70,7 +70,7 @@
   {
     "id": "01M0G4G52F32ZTYMTYQK259587",
     "skill_name": "browser-automation",
-    "description_en": "Autonomous web interaction, DOM inspection, scraping, and end-to-end user flow verification using Playwright and Chrome DevTools.",
+    "description_en": "Automate browser interactions, web scraping, and end-to-end testing using Playwright and Puppeteer. Use when implementing resilient user-facing locators (getByRole, getByText), auto-waiting strategies, anti-detection with puppeteer-extra-plugin-stealth or playwright-extra, and context-isolated test flows.",
     "description_pt_br": "Automação e interação autônoma com o navegador via Chrome DevTools Protocol e Playwright para scraping e testes de UI.",
     "promo_en": "Enables agents to navigate the web, test user journeys, verify UI rendering visually, and automate complex web portals.",
     "promo_pt_br": "Automatize a navegação na web com alta confiabilidade para testes de ponta a ponta e extração de dados. O sistema preenche formulários, contorna bloqueios comuns, interage com páginas dinâmicas e executa fluxos complexos de forma estável, sem falhas causadas por lentidão ou mudanças visuais.",
@@ -159,7 +159,7 @@
   {
     "id": "01M0G4G52F9TT91W6TR5FTQXT9",
     "skill_name": "cloud-architect",
-    "description_en": "Multi-cloud architecture design (AWS, GCP, Azure), Terraform/OpenTofu Infrastructure-as-Code modules, and FinOps optimization.",
+    "description_en": "Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC (Terraform/OpenTofu/CDK), FinOps cost optimization, and modern architectural patterns. Use when developing, configuring, optimizing, or troubleshooting cloud architect in production workflows.",
     "description_pt_br": "Provisionamento de infraestrutura como código (IaC) com Terraform e cloud architecture.",
     "promo_en": "Designs and provisions scalable, cost-efficient cloud infrastructure with automated IaC blueprints.",
     "promo_pt_br": "Desenvolva projetos de infraestrutura em nuvem seguros, escaláveis e com custos controlados. Aplique as melhores práticas para arquiteturas modernas, automação de servidores como código e estratégias de alta disponibilidade, garantindo máxima eficiência operacional para sistemas corporativos.",
@@ -209,7 +209,7 @@
   {
     "id": "01M0G4G52FM4PKRXYWCZ20ZSBV",
     "skill_name": "code-review",
-    "description_en": "Automated pull request review agent performing static analysis, cyclomatic complexity checks, style conformance, and bug detection.",
+    "description_en": "Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch.",
     "description_pt_br": "Revisão automatizada de código, análise estática de conformidade e detecção de antipadrões em Pull Requests.",
     "promo_en": "Acts as an automated senior engineer reviewing diffs to catch subtle bugs, logic flaws, and architectural debt before merging.",
     "promo_pt_br": "Avalie a qualidade de códigos e alterações antes de integrá-los ao projeto principal. A análise cobre conformidade funcional, boas práticas de segurança, clareza na escrita, desempenho e padrões de arquitetura, identificando falhas precocemente e elevando o nível técnico do software entregue.",
@@ -298,7 +298,7 @@
   {
     "id": "01M0G4G52FE36M320YYCE4WKRV",
     "skill_name": "context-engineering",
-    "description_en": "LLM token budgeting, context pruning, progressive disclosure indexers, and systematic session state handoff techniques.",
+    "description_en": "Optimizes AI agent context setup, system prompt budgets, and hierarchical project instructions across AGENTS.md, CLAUDE.md, and scratchpads. Use when starting fresh agent sessions, diagnosing prompt degradation, scoping context windows, or structuring rule files to minimize hallucination and token waste.",
     "description_pt_br": "Gerenciamento eficiente de janelas de contexto, divulgação progressiva de contexto e estratégias de compressão de prompt.",
     "promo_en": "Drastically slashes LLM token consumption while boosting reasoning accuracy through smart context hygiene.",
     "promo_pt_br": "Estruture as regras, documentações e instruções do seu projeto para que assistentes inteligentes compreendam o contexto com perfeição. Evite respostas incorretas, otimize o uso de informações essenciais e mantenha a consistência do time durante todas as fases de criação do software.",
@@ -362,7 +362,7 @@
   {
     "id": "01M0G4G52FHZMPGHHTZFX8Q0XN",
     "skill_name": "damage-control",
-    "description_en": "High-risk command interceptor and sandbox guardrail preventing accidental data loss, destructive SQL, and uncommitted git wipes.",
+    "description_en": "Defensive safeguards, destructive command interception, and rollback patterns for automated agents. Use when reviewing potentially destructive terminal operations (rm, drop database, format, git reset --hard) to prevent data loss.",
     "description_pt_br": "Mecanismo de proteção contra operações destrutivas e isolamento em sandboxes.",
     "promo_en": "Acts as a safety shield preventing autonomous agents from accidentally deleting production data or running dangerous operations.",
     "promo_pt_br": "Proteja seus sistemas e ambientes de produção contra comandos perigosos e erros humanos acidentais. O mecanismo detecta ações de risco, como exclusão indevida de dados ou arquivos críticos, criando uma camada de segurança que previne perdas irreparáveis durante tarefas automatizadas.",
@@ -402,7 +402,7 @@
   {
     "id": "01M0G4G52FPHZ3VCA06Z2NTCG5",
     "skill_name": "database-optimizer",
-    "description_en": "SQL query performance tuning, index optimization (B-Tree, GIN, GiST), EXPLAIN execution plan analysis, and N+1 query elimination.",
+    "description_en": "Expert database optimizer specializing in modern performance tuning, query optimization, and scalable architectures. Use when developing, configuring, optimizing, or troubleshooting database optimizer in production workflows.",
     "description_pt_br": "Análise e otimização de consultas SQL, modelagem relacional, planos de execução e indexação.",
     "promo_en": "Optimizes relational databases to handle high throughput queries with minimal latency and smart indexing strategies.",
     "promo_pt_br": "Identifique gargalos de desempenho e acelere o tempo de resposta em bancos de dados relacionais e não relacionais. Obtenha diagnósticos precisos sobre consultas lentas, sugestões de índices eficientes e ajustes estruturais para suportar grandes volumes de requisições com estabilidade.",
@@ -451,7 +451,7 @@
   {
     "id": "01M0G4G52FPQGPD3CF1ZW3BKSB",
     "skill_name": "deep-research",
-    "description_en": "Autonomous iterative multi-source web search, reference synthesis, fact validation, and formatted technical report generation.",
+    "description_en": "Run autonomous research tasks that plan, search, read, and synthesize information into comprehensive reports. Use when developing, configuring, optimizing, or troubleshooting deep research in production workflows.",
     "description_pt_br": "Pesquisa profunda automatizada na web, cruzamento analítico de fontes técnicas e geração de relatórios consolidados.",
     "promo_en": "Conducts deep internet research across technical documentations and papers to compile cited, authoritative summaries.",
     "promo_pt_br": "Conduza pesquisas aprofundadas e estruturadas na internet para tomada de decisões estratégicas. O assistente navega por múltiplas fontes, sintetiza informações relevantes, compara tendências de mercado e entrega relatórios completos com referências confiáveis de forma totalmente autônoma.",
@@ -516,7 +516,7 @@
   {
     "id": "01M0G4G52F4V1VXAMC0WYZZ9Z7",
     "skill_name": "docker-expert",
-    "description_en": "Multi-stage Dockerfile optimization, container hardening, multi-service Docker Compose orchestration, and CI/CD container pipelines.",
+    "description_en": "You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patterns, and production deployment strategies based on current industry best practices.",
     "description_pt_br": "Criação de Dockerfiles otimizados, gerenciamento de múltiplos serviços com docker-compose e conteinerização de ambientes.",
     "promo_en": "Produces lightweight, secure, and production-ready containerized microservices and reproducible dev environments.",
     "promo_pt_br": "Crie e configure contêineres otimizados, seguros e prontos para produção. Aprenda a reduzir o tamanho das imagens, acelerar processos de compilação, proteger ambientes contra vulnerabilidades e estruturar a comunicação entre múltiplos serviços de forma simples, estável e escalável.",
@@ -572,7 +572,7 @@
   {
     "id": "01M0G4G52F1C753JPHMPTS9EMK",
     "skill_name": "fastapi-templates",
-    "description_en": "Scaffolding and patterns for high-performance async Python web APIs using FastAPI, Pydantic V2, and SQLAlchemy 2.0.",
+    "description_en": "Scaffolds production-grade FastAPI applications featuring async route handlers, Pydantic v2 validation models, SQLAlchemy async sessions, and Depends injection. Use when bootstrapping Python backend services, structuring modular APIRouter endpoints, configuring CORS middleware, or writing pytest-asyncio tests.",
     "description_pt_br": "Templates e padrões de scaffolding para construção ágil de microsserviços e APIs com FastAPI e Python assíncrono.",
     "promo_en": "Builds async Python microservices with automatic OpenAPI docs, dependency injection, and clean layered architecture.",
     "promo_pt_br": "Acelere o desenvolvimento de serviços modernos em Python com arquitetura limpa e assíncrona de alta performance. Conte com estruturas prontas para tratamento de falhas, injeção de dependências, conexão com bancos de dados e documentação interativa automática para suas integrações.",
@@ -629,7 +629,7 @@
   {
     "id": "01M0G4G52FH90TKJ99SM1D454A",
     "skill_name": "frontend-design",
-    "description_en": "Modern aesthetic UI/UX guidelines, accessibility best practices, and responsive design systems preventing repetitive, generic AI templates.",
+    "description_en": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "description_pt_br": "Diretrizes de design de interface de usuário, acessibilidade, responsividade e padrões estéticos modernos para desenvolvimento web frontend.",
     "promo_en": "Elevates AI-generated web interfaces from generic mockups to polished, accessible, and distinctive production-ready designs.",
     "promo_pt_br": "Desenvolva interfaces visuais autênticas, elegantes e memoráveis, fugindo do visual genérico de modelos prontos. Defina combinações de fontes expressivas, paletas de cores harmoniosas e layouts sob medida que valorizam a identidade da sua marca e encantam os usuários finais.",
@@ -713,7 +713,7 @@
   {
     "id": "01M0G4G52FGN0MWZAFZYXN7109",
     "skill_name": "get-shit-done",
-    "description_en": "High-velocity autonomous engineering workflow framework moving agents from idea to verified delivery with minimal friction.",
+    "description_en": "High-velocity execution and task delivery engine for engineering workflows. Use when breaking down complex user goals into atomic steps, tracking execution loops, avoiding premature optimization, and driving rapid task completion.",
     "description_pt_br": "Framework de execução autônoma em alta velocidade (GSD / Finn-Loop) do planejamento à entrega.",
     "promo_en": "Drives autonomous development at maximum speed while keeping rigorous quality checks in place.",
     "promo_pt_br": "Acelere a execução de projetos técnicos transformando ideias em entregas concretas e validadas em tempo recorde. Esse método ágil estrutura o trabalho em etapas objetivas com verificações constantes, eliminando travamentos e garantindo que cada funcionalidade funcione perfeitamente.",
@@ -743,7 +743,7 @@
   {
     "id": "01M0G4G52F663YHJWYW67CP8KR",
     "skill_name": "git-workflow",
-    "description_en": "Git branching governance, atomic Conventional Commits, isolated git worktrees management, and automated pull request generation.",
+    "description_en": "Structures Git versioning workflows using trunk-based branching, git worktree isolation, atomic conventional commits, and clean interactive rebasing. Use when coordinating multi-branch features, organizing parallel task worktrees, resolving complex merge conflicts, or standardizing team pull request releases.",
     "description_pt_br": "Padronização de fluxo Git, geração de conventional commits, criação de Pull Requests e regras de branching.",
     "promo_en": "Enforces clean Git versioning discipline, worktree isolation for parallel agents, and seamless collaborative workflows.",
     "promo_pt_br": "Organize o histórico de versões do seu projeto com fluxos de trabalho eficientes e colaborativos. Aprenda a padronizar entregas pequenas e rastreáveis, gerenciar ramificações de código de forma limpa, resolver divergências sem traumas e manter a base do sistema sempre estável e confiável.",
@@ -807,7 +807,7 @@
   {
     "id": "01M0G4G52F3YQWZTYC3K1S074P",
     "skill_name": "git-worktree",
-    "description_en": "Strict task isolation and parallel branch management with Git Worktrees for multiple autonomous agents working concurrently.",
+    "description_en": "Manage isolated Git worktrees for concurrent agent workflows, feature branches, and safe experimentation. Use when creating clean branch environments, switching contexts without stash conflicts, or pruning stale worktrees.",
     "description_pt_br": "Isolamento estrito de tarefas e desenvolvimento paralelo em branches separadas utilizando git worktrees.",
     "promo_en": "Enables multiple AI agents to develop, test, and build features in parallel without stepping on each other's branch workspaces.",
     "promo_pt_br": "Trabalhe em diferentes ramificações do projeto ao mesmo tempo sem precisar alternar de tela ou clonar o repositório novamente. Permite testar ideias, corrigir falhas urgentes e rodar múltiplos fluxos de desenvolvimento de forma isolada, rápida e sem perigo de conflitos no código.",
@@ -858,7 +858,7 @@
   {
     "id": "01M0G4G52FF04J8FCWYMH48QBD",
     "skill_name": "mermaid-diagrammer",
-    "description_en": "Automated generation of Mermaid syntax diagrams (flowcharts, sequence diagrams, ERD, C4 architecture, and state machines).",
+    "description_en": "Author and render declarative Mermaid diagrams for system architecture, sequence flows, entity relationships, and state machines. Use when visualizing code flows, documenting technical specifications, or generating architecture diagrams.",
     "description_pt_br": "Geração automatizada de diagramas em sintaxe Mermaid (fluxogramas, ERD, arquitetura C4).",
     "promo_en": "Transforms complex software architectures and flows into crisp, embeddable Mermaid diagrams automatically.",
     "promo_pt_br": "Transforme ideias e arquiteturas complexas em diagramas visuais claros e elegantes para documentação técnica. Gere fluxogramas, modelos conceituais de dados e gráficos de processos a partir de instruções simples em texto, facilitando o alinhamento visual entre equipes e gestores.",
@@ -890,7 +890,7 @@
   {
     "id": "01M0G4G52FSJ578YDABJWPFQM4",
     "skill_name": "piv-loop",
-    "description_en": "Plan-Implement-Validate (PIV) structured engineering loop breaking complex tasks into clear milestones with strict validation gates.",
+    "description_en": "Plan-Implement-Verify engineering feedback loop for autonomous coding tasks. Use when executing multi-step refactors, feature builds, or bugfixes requiring structured task decomposition and rigorous verification gating.",
     "description_pt_br": "Framework que divide desenvolvimento em Planejamento, Implementação e Validação.",
     "promo_en": "Prevents runaway coding by ensuring every task is planned, implemented in isolated chunks, and verified before completion.",
     "promo_pt_br": "Organize o desenvolvimento de projetos em três etapas bem definidas: planejamento, implementação e validação. Esse processo estruturado divide desafios grandes em metas graduais e checagens pontuais, evitando retrabalho, garantindo o foco e entregando soluções robustas sem desvios.",
@@ -939,7 +939,7 @@
   {
     "id": "01M0G4G52F953EWRK967AST11H",
     "skill_name": "pytest-and-jest-automation",
-    "description_en": "Automated unit and integration test suite generation with Pytest (Python) and Jest/Vitest (TypeScript), mocking, and coverage analysis.",
+    "description_en": "Automated testing with Python pytest, fixtures, parameterization, mocks, and code coverage. Use when generating unit and integration tests for Python backends, mocking external dependencies, or analyzing test suites.",
     "description_pt_br": "Automação de testes em Python com pytest e fixtures avançadas.",
     "promo_en": "Automates the creation of comprehensive unit and integration test suites with mocks and coverage reports.",
     "promo_pt_br": "Crie rotinas completas de testes automatizados para verificar a estabilidade do seu software em diferentes linguagens. Desenvolva testes de unidade e integração com simulações inteligentes de cenários, detectando problemas antes da publicação e garantindo alta cobertura de qualidade.",
@@ -988,7 +988,7 @@
   {
     "id": "01M0G4G52FV8AC72Q93QPP5PPE",
     "skill_name": "python-concessionarias-automation",
-    "description_en": "RPA browser automation and API extraction for Brazilian electric power concessionaire portals (Cemig, Energisa, Equatorial, Coelba) and invoice processing.",
+    "description_en": "Use when creating, modifying, or debugging Python RPA scripts (Selenium + requests) for energy concessionaire portals (Cemig, Energisa, Equatorial, Coelba), automation scripts, and TRT submissions. Covers concessionaire regulations, RPA automation, and portal scripts.",
     "description_pt_br": "Automação RPA em Python para portais de concessionárias de energia brasileiras (Cemig, Energisa, Equatorial, Coelba).",
     "promo_en": "Specialized automation skill for scraping utility portals, submitting TRT protocols, and parsing energy billing invoices in Brazil.",
     "promo_pt_br": "Automatize tarefas burocráticas em portais de concessionárias de energia e órgãos reguladores. O robô preenche cadastros, submete projetos técnicos, consulta andamentos de processos e emite documentos operacionais de forma automática, economizando horas de trabalho repetitivo do time.",
@@ -1024,7 +1024,7 @@
   {
     "id": "01M0XEW2JAAC9XDNKBQAX1W48T",
     "skill_name": "react-components",
-    "description_en": "Production patterns for modern React 19 / TypeScript component development, custom hooks, state isolation, and accessibility.",
+    "description_en": "Design and implementation of modern React 19 functional components using TypeScript, hooks, and server components. Use when building modular UI components, compound component architectures, or optimizing React rendering performance.",
     "description_pt_br": "Boas práticas para geração e estruturação de componentes React com TypeScript.",
     "promo_en": "Production-ready guidelines and agentic workflows for react components. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Facilita a criação de componentes de interface modernos e acessíveis para a web com React e TypeScript. Auxilia no desenvolvimento de telas fluidas, gerenciamento eficiente de estados, criação de lógicas visuais reutilizáveis e conformidade com regras de acessibilidade, tornando suas aplicações mais organizadas e fáceis de manter.",
@@ -1053,7 +1053,7 @@
   {
     "id": "01M0G4G52FV5WNNFWAXJX7HKYG",
     "skill_name": "security-audit",
-    "description_en": "Automated security scanning, OWASP Top 10 vulnerability prevention, secret leakage detection, and dependency risk assessment.",
+    "description_en": "Comprehensive security auditing workflow covering web application testing, API security, penetration testing, vulnerability scanning, and security hardening. Use when developing, configuring, optimizing, or troubleshooting security audit in production workflows.",
     "description_pt_br": "Varredura de segurança, auditoria de vulnerabilidades em dependências e conformidade SAIF.",
     "promo_en": "Protects applications by auditing source code for security vulnerabilities, compliance risks, and hardcoded credentials before deployment.",
     "promo_pt_br": "Estrutura auditorias completas de segurança para aplicações web e APIs. Ajuda a identificar vulnerabilidades antes que sejam exploradas, testando falhas de autenticação, injeções maliciosas e brechas em bibliotecas, oferecendo relatórios detalhados com passos práticos para proteger seu sistema contra ataques.",
@@ -1121,7 +1121,7 @@
   {
     "id": "01M0XEW2JAC4WCETPW2WFG47VG",
     "skill_name": "shadcn-ui",
-    "description_en": "Integration and customization of accessible, headless Radix UI and Tailwind CSS components into modern React and Next.js applications.",
+    "description_en": "Implement accessible UI components using Radix UI primitives, Tailwind CSS, and the shadcn/ui component registry. Use when scaffolding design systems, configuring components.json, or customizing unstyled Accessible primitives.",
     "description_pt_br": "Guia e automação de integração de componentes Tailwind/Radix da biblioteca shadcn/ui em aplicações React, Next.js e Vite.",
     "promo_en": "Production-ready guidelines and agentic workflows for shadcn ui. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Agiliza a construção de interfaces visuais modernas e acessíveis integrando blocos de componentes prontos e personalizáveis. Permite estilizar botões, formulários e janelas modais de forma rápida e padronizada, acelerando o desenvolvimento frontend em projetos React e Next.js sem abrir mão do controle visual total.",
@@ -1151,7 +1151,7 @@
   {
     "id": "01M0G4G52FCRTTHSA4Z23Q336F",
     "skill_name": "skill-creator",
-    "description_en": "Official meta-skill for scaffolding, designing frontmatter triggers, writing clear SKILL.md specs, and running automated eval suites.",
+    "description_en": "Create, iterate, and benchmark agent skills with rigorous evals and design patterns. Use when authoring new skills, running evaluation loops, optimizing trigger descriptions, or applying structural workflow patterns.",
     "description_pt_br": "Meta-skill oficial para criar, iterar, estruturar arquivos SKILL.md e testar novas habilidades com avaliações automatizadas.",
     "promo_en": "Empowers developers to build, test, and distribute custom, modular AI agent skills with rigorous evaluation benchmarks.",
     "promo_pt_br": "Auxilia na criação, teste e aprimoramento contínuo de novas habilidades para assistentes de inteligência artificial. Permite estruturar fluxos de trabalho sob medida, rodar testes comparativos e avaliar resultados práticos, garantindo que o assistente execute tarefas complexas com máxima precisão e confiabilidade.",
@@ -1218,7 +1218,7 @@
   {
     "id": "01M0G4G52FVBQNA612AE7T78GH",
     "skill_name": "superpowers",
-    "description_en": "Complete agentic engineering workflow framework enforcing structured planning, technical specs, TDD, and subagent review cycles.",
+    "description_en": "Autonomous engineering framework enforcing structured planning, test-driven development, and verification cycles. Use when executing complex multi-file features, running subagent review loops, or enforcing architectural quality standards.",
     "description_pt_br": "Framework de engenharia agentic com planejamento arquitetural estruturado e prevenção de erros.",
     "promo_en": "Transforms autonomous coding into a reliable, high-velocity engineering loop with built-in quality gates.",
     "promo_pt_br": "Organiza o fluxo de desenvolvimento de software em etapas estruturadas, combinando planejamento prévio, criação de testes antes da implementação e revisões criteriosas de qualidade. Transforma tarefas complexas em entregas seguras, reduzindo erros e garantindo que o código final seja robusto e confiável.",
@@ -1259,7 +1259,7 @@
   {
     "id": "01M0XEW2JAT5P44JP04K17RRDZ",
     "skill_name": "tailwind-css",
-    "description_en": "Tailwind CSS v3/v4 design token mapping, responsive utility layout structuring, mobile-first design, and dark mode configuration.",
+    "description_en": "Utility-first CSS styling using Tailwind CSS v4, theme tokens, responsive modifiers, and container queries. Use when building modern web layouts, configuring design tokens in @theme, or optimizing CSS bundle output.",
     "description_pt_br": "Regras e práticas recomendadas para estilização com Tailwind CSS v3 e v4.",
     "promo_en": "Production-ready guidelines and agentic workflows for tailwind css. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Facilita a estilização de páginas e sistemas web por meio de utilitários CSS modernos. Permite criar layouts atraentes, totalmente responsivos e adaptáveis a dispositivos móveis ou telas grandes, além de configurar temas claros e escuros de forma ágil, padronizada e com excelente desempenho visual.",
@@ -1289,7 +1289,7 @@
   {
     "id": "01M0G4G52FQ2GH4WZB4MDWRTW6",
     "skill_name": "test-driven-development",
-    "description_en": "Strict Red-Green-Refactor test-driven development workflow requiring automated tests written and failing before feature implementation.",
+    "description_en": "Enforces strict Red-Green-Refactor test-driven development (TDD) discipline across software engineering workflows. Use when developing new features, fixing bugs, or refactoring code to ensure tests fail first with expected assertions before writing the minimal production implementation necessary to pass.",
     "description_pt_br": "Fluxo estruturado de desenvolvimento orientado por testes (TDD) com ciclo Red-Green-Refactor e validação contínua.",
     "promo_en": "Guarantees production-grade code quality and zero regressions by turning coding agents into disciplined TDD practitioners.",
     "promo_pt_br": "Aplica a metodologia de desenvolvimento orientada a testes, garantindo que testes automatizados sejam escritos antes de qualquer linha de código de produção. Essa abordagem previne falhas lógicas, documenta o comportamento esperado e permite refatorar sistemas com total segurança e confiança técnica.",
@@ -1372,7 +1372,7 @@
   {
     "id": "01M0XEW2JBXNG2CKHRMHAMGG12",
     "skill_name": "the-library",
-    "description_en": "Decentralized catalog and private synchronization system for distributing reusable skills, agent personas, and prompt kits.",
+    "description_en": "Catalog search, curation, and discovery tool for software engineering references, libraries, and design patterns. Use when searching for canonical reference implementations, technical documentation, or modular skill packages.",
     "description_pt_br": "Meta-skill para distribuição, versionamento e sincronização centralizada de habilidades, agentes e prompts.",
     "promo_en": "Production-ready guidelines and agentic workflows for the library. Enforces best practices, maintainability, and error-free execution.",
     "promo_pt_br": "Gerencia e sincroniza um catálogo centralizado de instruções personalizadas, perfis de agentes e ferramentas reutilizáveis entre diferentes projetos. Garante que as melhores soluções criadas para sua rotina de trabalho estejam sempre acessíveis, versionadas e prontas para uso em qualquer ambiente de desenvolvimento.",
@@ -1392,7 +1392,7 @@
   {
     "id": "01M0G4G52F5Y1T4W98MNDFXK8H",
     "skill_name": "token-optimization",
-    "description_en": "Context window budgeting, idle tool detachment, prompt compression, and token consumption reduction techniques by up to 80%.",
+    "description_en": "Token usage reduction, context pruning, and prompt compression techniques for AI agents. Use when optimizing context window efficiency, trimming verbose system prompts, or designing token-efficient agent tools.",
     "description_pt_br": "Regras para poda de contexto, desconexão de MCPs ociosos e redução de custos de LLM em até 80%.",
     "promo_en": "Dramatically cuts API costs and boosts model response speed by trimming redundant tokens from conversation contexts.",
     "promo_pt_br": "Otimiza o uso de modelos de inteligência artificial reduzindo o consumo de dados nas conversas e requisições. Remove informações repetitivas ou desnecessárias do contexto, acelerando o tempo de resposta do assistente e diminuindo significativamente os custos operacionais com provedores de IA no dia a dia.",
@@ -1422,7 +1422,7 @@
   {
     "id": "01M0G4G52FHV0YSD6V1ZJMX69R",
     "skill_name": "vue-components",
-    "description_en": "Specialized AI agent skill for vue components providing best practices and automated workflows.",
+    "description_en": "Author modular Vue 3 Single File Components using Composition API, script setup, typed props, emits, and slots. Use when creating reactive UI widgets, form controls, and accessible component architectures in Vue 3.",
     "description_pt_br": "Padrões de desenvolvimento para Vue 3 utilizando SFC e Composition API.",
     "promo_en": "Enhances AI agent performance in vue components with structured execution patterns and error-prevention guidelines.",
     "promo_pt_br": "Orienta o desenvolvimento de componentes modernos e reativos para a web com Vue 3. Ajuda a estruturar interfaces modulares, isolar a lógica de negócios de forma limpa e organizar elementos visuais reutilizáveis, proporcionando facilidade de manutenção e alto desempenho para sistemas frontend interativos.",

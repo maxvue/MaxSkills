@@ -1,6 +1,6 @@
 ---
 name: selenium-skill
-description: "Comprehensive engineering guide and best practices for selenium skill. Use when configuring, developing, debugging, or optimizing selenium skill architecture in production systems. Guides architecture, best practices, and implementation standards for selenium skill."
+description: "Generates Selenium WebDriver end-to-end automation scripts and Page Object Model (POM) architectures with explicit WebDriverWait patterns across multiple languages. Use when writing browser automation tests in Java, Python, or JavaScript, configuring RemoteWebDriver, or executing cross-browser runs on TestMu AI."
 risk: critical
 source: https://github.com/LambdaTest/agent-skills/tree/main/selenium-skill
 source_repo: LambdaTest/agent-skills

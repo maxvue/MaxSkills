@@ -1,6 +1,6 @@
 ---
 name: database-migrations-migration-observability
-description: "Migration monitoring, CDC, and observability infrastructure Use when developing, optimizing, debugging, or configuring database migrations migration observability in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for database migrations migration observability."
+description: "Implement real-time observability and monitoring for database migrations and Change Data Capture (CDC) pipelines. Tracks replication lag, consumer lag, and throughput using Debezium, Kafka, Prometheus metrics, and Grafana dashboards with anomaly alerting. Use when instrumenting database migrations, synchronizing streaming datasets, or monitoring CDC health."
 risk: critical
 source: community
 tags: "database, cdc, debezium, kafka, prometheus, grafana, monitoring"

@@ -1,0 +1,179 @@
+[
+  {
+    "skillName": "spark-optimization",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/spark-optimization/SKILL.md",
+    "correctedDescription": "Optimize Apache Spark and PySpark jobs by tuning shuffle partitions, memory allocation, AQE adaptive execution, and serialization with Kryo. Use when resolving Spark performance bottlenecks, data skew with salting or broadcast joins, executor OOM errors, or configuring optimal partition sizing for Parquet pipelines.",
+    "charCount": 317,
+    "discriminants": [
+      "Apache Spark",
+      "PySpark",
+      "AQE",
+      "KryoSerializer",
+      "broadcast joins",
+      "salting",
+      "data skew",
+      "partitioning"
+    ],
+    "cleanFrontmatter": "name: spark-optimization\ndescription: \"Optimize Apache Spark and PySpark jobs by tuning shuffle partitions, memory allocation, AQE adaptive execution, and serialization with Kryo. Use when resolving Spark performance bottlenecks, data skew with salting or broadcast joins, executor OOM errors, or configuring optimal partition sizing for Parquet pipelines.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "typescript",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/super-code/typescript/SKILL.md",
+    "correctedDescription": "Apply idiomatic TypeScript and JavaScript efficiency patterns covering array operations, destructuring, Promise.all parallelization, type inference, and React hooks. Use when refactoring messy TS/JS code, eliminating any types and unsafe type assertions, optimizing async workflows, or preventing unnecessary React re-renders.",
+    "charCount": 326,
+    "discriminants": [
+      "TypeScript",
+      "JavaScript",
+      "Promise.all",
+      "type inference",
+      "React hooks",
+      "destructuring",
+      "async/await"
+    ],
+    "cleanFrontmatter": "name: typescript\ndescription: \"Apply idiomatic TypeScript and JavaScript efficiency patterns covering array operations, destructuring, Promise.all parallelization, type inference, and React hooks. Use when refactoring messy TS/JS code, eliminating any types and unsafe type assertions, optimizing async workflows, or preventing unnecessary React re-renders.\"\nrisk: safe\nsource: community\ndate_added: \"2026-06-16\""
+  },
+  {
+    "skillName": "ui-a11y",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ui-a11y/SKILL.md",
+    "correctedDescription": "Audit frontend components and pages for WCAG 2.2 AA accessibility compliance and apply automated fixes. Use when verifying color contrast ratios, checking 44x44px touch targets, ensuring keyboard focus rings, validating form ARIA labels, or inspecting prefers-reduced-motion rules in StyleSeed and Tailwind UI.",
+    "charCount": 305,
+    "discriminants": [
+      "WCAG 2.2 AA",
+      "accessibility",
+      "contrast ratio",
+      "touch targets",
+      "focus-visible",
+      "ARIA",
+      "prefers-reduced-motion",
+      "StyleSeed",
+      "Tailwind"
+    ],
+    "cleanFrontmatter": "name: ui-a11y\ndescription: \"Audit frontend components and pages for WCAG 2.2 AA accessibility compliance and apply automated fixes. Use when verifying color contrast ratios, checking 44x44px touch targets, ensuring keyboard focus rings, validating form ARIA labels, or inspecting prefers-reduced-motion rules in StyleSeed and Tailwind UI.\"\nrisk: critical\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-a11y\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  },
+  {
+    "skillName": "ui-lint",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ui-lint/SKILL.md",
+    "correctedDescription": "Execute fast grep-based static linting to detect design system violations in Tailwind CSS components. Use when scanning code for hardcoded hex colors, arbitrary pixel dimensions, legacy w/h sizing instead of size-*, physical spacing over logical properties, missing data-slot attributes, or uncomposed classNames.",
+    "charCount": 309,
+    "discriminants": [
+      "Tailwind CSS",
+      "grep",
+      "data-slot",
+      "cn()",
+      "logical properties",
+      "design system",
+      "tokens"
+    ],
+    "cleanFrontmatter": "name: ui-lint\ndescription: \"Execute fast grep-based static linting to detect design system violations in Tailwind CSS components. Use when scanning code for hardcoded hex colors, arbitrary pixel dimensions, legacy w/h sizing instead of size-*, physical spacing over logical properties, missing data-slot attributes, or uncomposed classNames.\"\nrisk: safe\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-lint\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  },
+  {
+    "skillName": "ui-page",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ui-page/SKILL.md",
+    "correctedDescription": "Scaffold mobile-first pages and screens using StyleSeed layout components and Golden Rules design constraints. Use when generating new mobile views with PageShell, TopBar, and BottomNav, enforcing 430px container bounds, card-based section hierarchy, semantic tokens, 6px grid spacing, and safe-area padding.",
+    "charCount": 307,
+    "discriminants": [
+      "PageShell",
+      "TopBar",
+      "BottomNav",
+      "StyleSeed",
+      "mobile-first",
+      "safe-area",
+      "design tokens"
+    ],
+    "cleanFrontmatter": "name: ui-page\ndescription: \"Scaffold mobile-first pages and screens using StyleSeed layout components and Golden Rules design constraints. Use when generating new mobile views with PageShell, TopBar, and BottomNav, enforcing 430px container bounds, card-based section hierarchy, semantic tokens, 6px grid spacing, and safe-area padding.\"\nrisk: critical\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-page\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  },
+  {
+    "skillName": "ui-tokens",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ui-tokens/SKILL.md",
+    "correctedDescription": "Manage, list, add, and synchronize design tokens across JSON definition files and CSS theme implementations. Use when updating StyleSeed design system tokens for colors, typography, spacing, border radii, or shadows, ensuring synchronized variables between tokens/*.json, Tailwind @theme inline, and css/theme.css.",
+    "charCount": 312,
+    "discriminants": [
+      "tokens/*.json",
+      "css/theme.css",
+      "@theme inline",
+      "StyleSeed",
+      "Tailwind",
+      "design tokens",
+      "CSS variables"
+    ],
+    "cleanFrontmatter": "name: ui-tokens\ndescription: \"Manage, list, add, and synchronize design tokens across JSON definition files and CSS theme implementations. Use when updating StyleSeed design system tokens for colors, typography, spacing, border radii, or shadows, ensuring synchronized variables between tokens/*.json, Tailwind @theme inline, and css/theme.css.\"\nrisk: critical\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-tokens\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  },
+  {
+    "skillName": "ui-update",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ui-update/SKILL.md",
+    "correctedDescription": "Audit and update local StyleSeed design system engine files against pinned upstream repository releases. Use when checking for outdated StyleSeed assets, migrating legacy ui-* and ux-* skills to ss-*, verifying DESIGN-LANGUAGE.md and theme.css revisions, or applying safe upstream diffs with worktree backups.",
+    "charCount": 306,
+    "discriminants": [
+      "StyleSeed",
+      "DESIGN-LANGUAGE.md",
+      "theme.css",
+      "upstream diff",
+      "engine/VERSION",
+      "migration"
+    ],
+    "cleanFrontmatter": "name: ui-update\ndescription: \"Audit and update local StyleSeed design system engine files against pinned upstream repository releases. Use when checking for outdated StyleSeed assets, migrating legacy ui-* and ux-* skills to ss-*, verifying DESIGN-LANGUAGE.md and theme.css revisions, or applying safe upstream diffs with worktree backups.\"\nrisk: critical\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-update\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  },
+  {
+    "skillName": "unship",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/unship/SKILL.md",
+    "correctedDescription": "Compare AI-generated UI alternatives in local running apps using temporary markup and interactive browser pickers. Use when creating frontend variations with data-unship-pick and data-unship-option, evaluating competing component designs locally, and automatically pruning rejected variant code before shipping.",
+    "charCount": 308,
+    "discriminants": [
+      "@unship/cli",
+      "data-unship-pick",
+      "data-unship-option",
+      "UI variants",
+      "local preview",
+      "code pruning"
+    ],
+    "cleanFrontmatter": "name: unship\ndescription: \"Compare AI-generated UI alternatives in local running apps using temporary markup and interactive browser pickers. Use when creating frontend variations with data-unship-pick and data-unship-option, evaluating competing component designs locally, and automatically pruning rejected variant code before shipping.\"\ncategory: development\nrisk: critical\nsource: community\nsource_repo: mbenhard/unship\nsource_type: community\ndate_added: \"2026-06-07\"\nauthor: Marcus Benhard\ntags: [ui-variants, frontend, local-first, coding-agents]\ntools: [claude-code, antigravity, cursor, gemini-cli, codex-cli, opencode]\nlicense: \"MIT\"\nlicense_source: \"https://github.com/mbenhard/unship/blob/main/LICENSE\"\nplugin:\n  targets:\n    codex: blocked\n    claude: blocked"
+  },
+  {
+    "skillName": "ux-audit",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ux-audit/SKILL.md",
+    "correctedDescription": "Evaluate user interface screens against Jakob Nielsen's 10 Usability Heuristics and mobile UX standards. Use when conducting usability reviews to identify friction, missing skeleton loading states, absent undo actions, vague error messages, inconsistent typography hierarchies, or tap targets under 44px.",
+    "charCount": 303,
+    "discriminants": [
+      "Nielsen heuristics",
+      "usability audit",
+      "skeleton screens",
+      "undo toasts",
+      "error prevention",
+      "touch targets",
+      "mobile UX"
+    ],
+    "cleanFrontmatter": "name: ux-audit\ndescription: \"Evaluate user interface screens against Jakob Nielsen's 10 Usability Heuristics and mobile UX standards. Use when conducting usability reviews to identify friction, missing skeleton loading states, absent undo actions, vague error messages, inconsistent typography hierarchies, or tap targets under 44px.\"\nrisk: safe\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-audit\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  },
+  {
+    "skillName": "ux-feedback",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ux-feedback/SKILL.md",
+    "correctedDescription": "Implement the four core UI feedback states—loading skeletons, zero-data empty states, error fallbacks, and success toasts—for data-dependent views. Use when handling async UI states in components, replacing raw spinners with layout-matching pulse skeletons, adding retry buttons, or configuring undoable toasts.",
+    "charCount": 306,
+    "discriminants": [
+      "skeleton screens",
+      "EmptyState",
+      "toast notifications",
+      "error recovery",
+      "animate-pulse",
+      "async states",
+      "feedback states"
+    ],
+    "cleanFrontmatter": "name: ux-feedback\ndescription: \"Implement the four core UI feedback states—loading skeletons, zero-data empty states, error fallbacks, and success toasts—for data-dependent views. Use when handling async UI states in components, replacing raw spinners with layout-matching pulse skeletons, adding retry buttons, or configuring undoable toasts.\"\nrisk: critical\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-feedback\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  },
+  {
+    "skillName": "ux-flow",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ux-flow/SKILL.md",
+    "correctedDescription": "Design structured user flows, information architecture, and multi-screen mobile navigation patterns. Use when mapping application paths like hub-and-spoke or linear multi-step funnels, defining screen inventories with 3-tap reachability, and planning PageShell, TopBar, and BottomNav layouts before page scaffolding.",
+    "charCount": 316,
+    "discriminants": [
+      "user flows",
+      "information architecture",
+      "Hub & Spoke",
+      "linear flow",
+      "BottomNav",
+      "PageShell",
+      "navigation"
+    ],
+    "cleanFrontmatter": "name: ux-flow\ndescription: \"Design structured user flows, information architecture, and multi-screen mobile navigation patterns. Use when mapping application paths like hub-and-spoke or linear multi-step funnels, defining screen inventories with 3-tap reachability, and planning PageShell, TopBar, and BottomNav layouts before page scaffolding.\"\nrisk: critical\nsource: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-flow\nsource_repo: bitjaru/styleseed\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE"
+  }
+]

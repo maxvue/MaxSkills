@@ -1,6 +1,6 @@
 ---
 name: ckw-design
-description: "Frontend design entry point: direction, design system, visual philosophy. Use whenever building or touching the look of any web UI (components, pages, dashboards, React/Vue/HTML-CSS) or when the user says \\"make this look better\\", \\"fix the spacing/layout\\", or mentions styling, color, type, or polish."
+description: "Orchestrates frontend UI styling, design systems, and responsive layout audits for React, Vue, and HTML/CSS web interfaces. Use when building or refining web UIs, enforcing 8-point spatial grid systems, eliminating horizontal overflow (overflow-x:clip), conducting Nielsen usability heuristic reviews, or coordinating design-thinking and design-spatial subskills."
 risk: safe
 source: community
 source_type: community

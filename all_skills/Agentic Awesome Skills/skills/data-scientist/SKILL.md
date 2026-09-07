@@ -1,6 +1,6 @@
 ---
 name: data-scientist
-description: "Comprehensive engineering guide and best practices for data scientist. Use when configuring, developing, debugging, or optimizing data scientist architecture in production systems. Guides architecture, best practices, and implementation standards for data scientist."
+description: "Performs statistical modeling, experimental design, exploratory analysis, and predictive machine learning. Use when designing A/B tests, building forecasting or classification pipelines with scikit-learn, XGBoost, LightGBM, or PyTorch, running time series with ARIMA or Prophet, and explaining models using SHAP."
 risk: critical
 source: community
 date_added: '2026-02-27'

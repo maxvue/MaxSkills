@@ -1,6 +1,6 @@
 ---
 name: exa-search
-description: "Comprehensive engineering guide and best practices for exa search. Use when configuring, developing, debugging, or optimizing exa search architecture in production systems. Guides architecture, best practices, and implementation standards for exa search."
+description: "Performs semantic search, embeddings-based web discovery, and similar content retrieval via the Exa API. Use when searching web content by semantic similarity, researching specific categories such as companies or research papers, or finding structurally similar web pages using Exa endpoints."
 risk: critical
 source: community
 date_added: "2026-02-27"

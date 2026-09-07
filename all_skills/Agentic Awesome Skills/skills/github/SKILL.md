@@ -1,6 +1,6 @@
 ---
 name: github
-description: "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. Use when developing, optimizing, debugging, or configuring github in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for github."
+description: "Manage GitHub repositories and GitHub Actions workflows using the official gh CLI. Inspects issues with gh issue, tracks PR checks with gh pr, investigates failing workflow logs with gh run view --log-failed, and queries data using gh api. Use when triaging issues, reviewing pull requests, or debugging GitHub Actions CI failures from the terminal."
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"

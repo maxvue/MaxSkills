@@ -1,11 +1,9 @@
 ---
 name: firebase
-description: "Firebase gives you a complete backend in minutes - auth, database, Use when developing, optimizing, debugging, or configuring firebase in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for firebase."
-  storage, functions, hosting. But the ease of setup hides real complexity.
-  Security rules are your last line of defense, and they're often wrong.
+description: "Architects and implements Firebase applications using the Modular SDK v9+, Firestore denormalized data models, Cloud Functions v2, Authentication, and Cloud Storage. Use when designing Firestore query patterns, authoring or unit testing Firebase Security Rules, or configuring client and admin SDK integrations."
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+date_added: "2026-02-27"
 ---
 
 # Firebase

@@ -1,6 +1,6 @@
 ---
 name: base
-description: "Database management, forms, reports, and data operations with LibreOffice Base. Use when developing, optimizing, debugging, or configuring libreoffice/base in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for base."
+description: "Manages LibreOffice Base databases (.odb), tables, forms, and automated reports using embedded HSQLDB or Firebird, and external SQL databases via JDBC or ODBC. Use when creating ODB databases, scripting Base via Python UNO bridge, automating headless soffice CLI tasks, or connecting to PostgreSQL and MySQL."
 category: database-processing
 risk: safe
 source: personal

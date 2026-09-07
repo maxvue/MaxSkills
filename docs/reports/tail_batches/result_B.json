@@ -1,0 +1,176 @@
+[
+  {
+    "skillName": "cyber-audit",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/cyber-audit/SKILL.md",
+    "correctedDescription": "Execute read-only local security exposure audits against CVEs, supply-chain advisories, and breach notices. Inspects packages across npm, pnpm, yarn, pip, poetry, uv, and Homebrew, as well as listening ports and processes. Use when assessing system or project exposure to reported vulnerabilities without modifying environment state.",
+    "charCount": 330,
+    "discriminants": [
+      "CVEs",
+      "supply-chain advisories",
+      "npm",
+      "pnpm",
+      "yarn",
+      "pip",
+      "poetry",
+      "uv",
+      "Homebrew",
+      "read-only audit"
+    ],
+    "cleanFrontmatter": "name: cyber-audit\ndescription: \"Execute read-only local security exposure audits against CVEs, supply-chain advisories, and breach notices. Inspects packages across npm, pnpm, yarn, pip, poetry, uv, and Homebrew, as well as listening ports and processes. Use when assessing system or project exposure to reported vulnerabilities without modifying environment state.\"\ncategory: security\nrisk: safe\nsource: community\nsource_repo: davidondrej/skills\nsource_type: community\ndate_added: \"2026-07-07\"\nauthor: davidondrej\ntags: [security, audit, read-only]\ntools: [claude, codex]\nlicense: \"MIT\"\nlicense_source: \"https://github.com/davidondrej/skills/blob/main/LICENSE\"\ndisable-model-invocation: true"
+  },
+  {
+    "skillName": "daily",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/daily/SKILL.md",
+    "correctedDescription": "Architect and configure real-time voice and multimodal conversational AI pipelines using Daily and Pipecat. Coordinates WebRTC and WebSocket transports, VAD turn detection, STT transcription, LLM tool calling, and streaming TTS audio synthesis. Use when building or debugging low-latency voice bots, video agents, or real-time interactive multimodal systems.",
+    "charCount": 357,
+    "discriminants": [
+      "Daily",
+      "Pipecat",
+      "WebRTC",
+      "WebSocket",
+      "VAD",
+      "STT",
+      "TTS",
+      "multimodal pipelines"
+    ],
+    "cleanFrontmatter": "name: daily\ndescription: \"Architect and configure real-time voice and multimodal conversational AI pipelines using Daily and Pipecat. Coordinates WebRTC and WebSocket transports, VAD turn detection, STT transcription, LLM tool calling, and streaming TTS audio synthesis. Use when building or debugging low-latency voice bots, video agents, or real-time interactive multimodal systems.\"\nmetadata:\n  mintlify-proj: daily\n  version: \"1.0\"\nrisk: safe\nsource: community\ndate_added: \"2026-03-07\""
+  },
+  {
+    "skillName": "database-migrations-migration-observability",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/database-migrations-migration-observability/SKILL.md",
+    "correctedDescription": "Implement real-time observability and monitoring for database migrations and Change Data Capture (CDC) pipelines. Tracks replication lag, consumer lag, and throughput using Debezium, Kafka, Prometheus metrics, and Grafana dashboards with anomaly alerting. Use when instrumenting database migrations, synchronizing streaming datasets, or monitoring CDC health.",
+    "charCount": 359,
+    "discriminants": [
+      "Change Data Capture (CDC)",
+      "Debezium",
+      "Kafka",
+      "Prometheus",
+      "Grafana",
+      "replication lag",
+      "consumer lag"
+    ],
+    "cleanFrontmatter": "name: database-migrations-migration-observability\ndescription: \"Implement real-time observability and monitoring for database migrations and Change Data Capture (CDC) pipelines. Tracks replication lag, consumer lag, and throughput using Debezium, Kafka, Prometheus metrics, and Grafana dashboards with anomaly alerting. Use when instrumenting database migrations, synchronizing streaming datasets, or monitoring CDC health.\"\nrisk: critical\nsource: community\ntags: \"database, cdc, debezium, kafka, prometheus, grafana, monitoring\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "deepapi",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/deepapi/SKILL.md",
+    "correctedDescription": "Execute web scraping, email management, and automated deep research workflows through DeepAPI REST endpoints. Handles crawling across LinkedIn, Twitter, GitHub, and YouTube, drafting and sending emails, and enforcing maxCostUsd spend limits with idempotency keys. Use when integrating DeepAPI services for targeted data scraping, research runs, or email dispatch.",
+    "charCount": 362,
+    "discriminants": [
+      "DeepAPI",
+      "maxCostUsd",
+      "LinkedIn scraping",
+      "YouTube transcripts",
+      "email dispatch",
+      "deep research"
+    ],
+    "cleanFrontmatter": "name: deepapi\ndescription: \"Execute web scraping, email management, and automated deep research workflows through DeepAPI REST endpoints. Handles crawling across LinkedIn, Twitter, GitHub, and YouTube, drafting and sending emails, and enforcing maxCostUsd spend limits with idempotency keys. Use when integrating DeepAPI services for targeted data scraping, research runs, or email dispatch.\"\ncategory: research\nrisk: critical\nsource: community\nsource_repo: davidondrej/skills\nsource_type: community\ndate_added: \"2026-07-07\"\nauthor: davidondrej\ntags: [deepapi, scraping, email, api]\ntools: [claude, codex]\nlicense: \"MIT\"\nlicense_source: \"https://github.com/davidondrej/skills/blob/main/LICENSE\"\nversion: b17ad5148ab7"
+  },
+  {
+    "skillName": "design-philosophy",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/design-philosophy/SKILL.md",
+    "correctedDescription": "Formulate frontend art direction, design manifestos, and cohesive visual philosophies for high-concept web projects. Establishes named design movements, balanced compositions, curated palettes, and subtle thematic references woven into UI structure and typography. Use when designing artistic web experiences, high-concept marketing campaigns, or bespoke aesthetic manifestos.",
+    "charCount": 376,
+    "discriminants": [
+      "art direction",
+      "visual philosophy",
+      "design manifestos",
+      "named design movements",
+      "visual hierarchy"
+    ],
+    "cleanFrontmatter": "name: design-philosophy\ndescription: \"Formulate frontend art direction, design manifestos, and cohesive visual philosophies for high-concept web projects. Establishes named design movements, balanced compositions, curated palettes, and subtle thematic references woven into UI structure and typography. Use when designing artistic web experiences, high-concept marketing campaigns, or bespoke aesthetic manifestos.\"\nrisk: none\nsource: https://github.com/connerkward/ckw-design-skill/tree/main/design-philosophy\nsource_repo: connerkward/ckw-design-skill\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/connerkward/ckw-design-skill/blob/main/LICENSE\nauthor: Conner K Ward"
+  },
+  {
+    "skillName": "expo-api-routes",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/expo-api-routes/SKILL.md",
+    "correctedDescription": "Develop and configure server-side API routes in Expo Router using +api.ts files and EAS Hosting on Cloudflare Workers. Implements HTTP method handlers, CORS headers, server-side secrets, and local testing via npx expo serve. Use when building backend endpoints, third-party API proxies, or webhook receivers directly within an Expo cross-platform mobile application.",
+    "charCount": 363,
+    "discriminants": [
+      "Expo Router",
+      "+api.ts",
+      "EAS Hosting",
+      "Cloudflare Workers",
+      "npx expo serve",
+      "CORS"
+    ],
+    "cleanFrontmatter": "name: expo-api-routes\ndescription: \"Develop and configure server-side API routes in Expo Router using +api.ts files and EAS Hosting on Cloudflare Workers. Implements HTTP method handlers, CORS headers, server-side secrets, and local testing via npx expo serve. Use when building backend endpoints, third-party API proxies, or webhook receivers directly within an Expo cross-platform mobile application.\"\nrisk: critical\nsource: https://github.com/expo/skills/tree/main/plugins/expo/skills/expo-api-routes\nsource_repo: expo/skills\nsource_type: official\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/expo/skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "fp-refactor",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/fp-refactor/SKILL.md",
+    "correctedDescription": "Refactor imperative TypeScript code to typed functional patterns using fp-ts abstractions. Converts try-catch blocks and Promise chains into Either or TaskEither, null checks into Option, callbacks into Task, and class-based DI into Reader monads with pipe composition. Use when modernizing imperative TypeScript codebases into purely functional, type-safe error handling pipelines.",
+    "charCount": 375,
+    "discriminants": [
+      "fp-ts",
+      "Either",
+      "TaskEither",
+      "Option",
+      "Reader",
+      "Task",
+      "pipe composition",
+      "TypeScript"
+    ],
+    "cleanFrontmatter": "name: fp-refactor\ndescription: \"Refactor imperative TypeScript code to typed functional patterns using fp-ts abstractions. Converts try-catch blocks and Promise chains into Either or TaskEither, null checks into Option, callbacks into Task, and class-based DI into Reader monads with pipe composition. Use when modernizing imperative TypeScript codebases into purely functional, type-safe error handling pipelines.\"\nrisk: critical\nsource: community\nversion: 1.0.0\nauthor: fp-ts-skills\ntags:\n  - fp-ts\n  - refactoring\n  - functional-programming\n  - typescript\n  - migration\n  - either\n  - option\n  - task\n  - reader"
+  },
+  {
+    "skillName": "frontend-slides",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/frontend-slides/SKILL.md",
+    "correctedDescription": "Generate zero-dependency, animated HTML slide decks from scratch or by converting PowerPoint PPTX files. Enforces strict viewport fitting (100vh/100dvh), CSS clamp typography, and staggered animations in single self-contained files. Use when creating responsive browser-based pitch decks, technical presentations, or converting slide decks to HTML.",
+    "charCount": 349,
+    "discriminants": [
+      "HTML slide decks",
+      "PPTX conversion",
+      "100vh/100dvh",
+      "CSS clamp",
+      "zero-dependency",
+      "staggered animations"
+    ],
+    "cleanFrontmatter": "name: frontend-slides\ndescription: \"Generate zero-dependency, animated HTML slide decks from scratch or by converting PowerPoint PPTX files. Enforces strict viewport fitting (100vh/100dvh), CSS clamp typography, and staggered animations in single self-contained files. Use when creating responsive browser-based pitch decks, technical presentations, or converting slide decks to HTML.\"\nrisk: safe\nsource: https://github.com/zarazhangrui/frontend-slides\ndate_added: \"2026-03-07\""
+  },
+  {
+    "skillName": "git-pr-review",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/git-pr-review/SKILL.md",
+    "correctedDescription": "Generate structured pull request descriptions by analyzing branch commit history using git log. Filters noise, groups commits by domain, classifies change types, and inspects diffs via git show while safely handling untrusted commit text. Use when drafting token-efficient, consistent PR summaries from commit logs prior to submitting code reviews.",
+    "charCount": 349,
+    "discriminants": [
+      "git log",
+      "git show",
+      "pull request descriptions",
+      "commit history",
+      "noise filtering",
+      "token efficiency"
+    ],
+    "cleanFrontmatter": "name: git-pr-review\ndescription: \"Generate structured pull request descriptions by analyzing branch commit history using git log. Filters noise, groups commits by domain, classifies change types, and inspects diffs via git show while safely handling untrusted commit text. Use when drafting token-efficient, consistent PR summaries from commit logs prior to submitting code reviews.\"\nrisk: safe\nsource: community\nsource_type: community\ndate_added: \"2026-05-03\"\nauthor: community"
+  },
+  {
+    "skillName": "github",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/github/SKILL.md",
+    "correctedDescription": "Manage GitHub repositories and GitHub Actions workflows using the official gh CLI. Inspects issues with gh issue, tracks PR checks with gh pr, investigates failing workflow logs with gh run view --log-failed, and queries data using gh api. Use when triaging issues, reviewing pull requests, or debugging GitHub Actions CI failures from the terminal.",
+    "charCount": 347,
+    "discriminants": [
+      "gh CLI",
+      "gh issue",
+      "gh pr",
+      "gh run view --log-failed",
+      "gh api",
+      "GitHub Actions CI"
+    ],
+    "cleanFrontmatter": "name: github\ndescription: \"Manage GitHub repositories and GitHub Actions workflows using the official gh CLI. Inspects issues with gh issue, tracks PR checks with gh pr, investigates failing workflow logs with gh run view --log-failed, and queries data using gh api. Use when triaging issues, reviewing pull requests, or debugging GitHub Actions CI failures from the terminal.\"\nrisk: safe\nsource: \"Dimillian/Skills (MIT)\"\ndate_added: \"2026-03-25\""
+  },
+  {
+    "skillName": "goal-loop",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/goal-loop/SKILL.md",
+    "correctedDescription": "Formulate structured /goal loop contracts for persistent autonomous execution in Claude Code, Codex, or Hermes Agent. Establishes the 5-part specification covering objective, constraints, validation commands, verifiable stop conditions, and documentation rules. Use when configuring long-running autonomous agent loops for migrations, test coverage lifts, or refactorings.",
+    "charCount": 372,
+    "discriminants": [
+      "/goal loop",
+      "Ralph loop",
+      "Claude Code",
+      "Codex",
+      "Hermes Agent",
+      "stop conditions",
+      "validation commands"
+    ],
+    "cleanFrontmatter": "name: goal-loop\ndescription: \"Formulate structured /goal loop contracts for persistent autonomous execution in Claude Code, Codex, or Hermes Agent. Establishes the 5-part specification covering objective, constraints, validation commands, verifiable stop conditions, and documentation rules. Use when configuring long-running autonomous agent loops for migrations, test coverage lifts, or refactorings.\"\ncategory: agent-orchestration\nrisk: safe\nsource: community\nsource_repo: davidondrej/skills\nsource_type: community\ndate_added: \"2026-07-07\"\nauthor: davidondrej\ntags: [goals, autonomy, planning]\ntools: [claude, codex]\nlicense: \"MIT\"\nlicense_source: \"https://github.com/davidondrej/skills/blob/main/LICENSE\""
+  }
+]

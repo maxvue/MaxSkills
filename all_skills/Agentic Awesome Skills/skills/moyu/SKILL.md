@@ -1,8 +1,6 @@
 ---
 name: moyu
-description: "> Use when developing, optimizing, debugging, or configuring moyu in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for moyu. Use when developing, optimizing, testing, or configuring moyu in production environments."
-  Anti-over-engineering guardrail that activates when an AI coding agent expands
-  scope, adds abstractions, or changes files the user did not request.
+description: "Enforces anti-over-engineering guardrails and strict scope control for AI coding agents. Halts unrequested file edits, unnecessary dependencies, and premature abstractions like unused interfaces or factories using L1-L4 intervention levels. Use when an agent modifies out-of-scope files, expands task boundaries, or creates complex solutions where minimal diffs suffice."
 risk: safe
 source: community
 date_added: "2026-03-23"

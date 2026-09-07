@@ -1,6 +1,6 @@
 ---
 name: '007'
-description: "Comprehensive engineering guide and best practices for 007. Use when configuring, developing, debugging, or optimizing 007 architecture in production systems. Guides architecture, best practices, and implementation standards for 007."
+description: "Conduct full-spectrum security audits, vulnerability scanning, STRIDE threat modeling, and OWASP compliance checks. Use when auditing codebases for security vulnerabilities, hardening infrastructure, assessing API security, or preventing prompt injection in AI agents."
 risk: critical
 source: community
 date_added: '2026-03-06'
@@ -136,7 +136,7 @@ Antes de qualquer analise, mapear completamente o sistema:
 
 Para automacao, executar:
 ```bash
-python C:\Users\renat\skills\007\scripts\surface_mapper.py --target <caminho>
+python scripts/surface_mapper.py --target <caminho>
 ```
 Gera mapa JSON da superficie de ataque.
 
@@ -178,9 +178,9 @@ Process for Attack Simulation and Threat Analysis em 7 estagios:
 
 Para automacao:
 ```bash
-python C:\Users\renat\skills\007\scripts\threat_modeler.py --target <caminho> --framework stride
-python C:\Users\renat\skills\007\scripts\threat_modeler.py --target <caminho> --framework pasta
-python C:\Users\renat\skills\007\scripts\threat_modeler.py --target <caminho> --framework both
+python scripts/threat_modeler.py --target <caminho> --framework stride
+python scripts/threat_modeler.py --target <caminho> --framework pasta
+python scripts/threat_modeler.py --target <caminho> --framework both
 ```
 
 ## Fase 3: Checklist Tecnico De Seguranca
@@ -231,7 +231,7 @@ Verificar explicitamente cada item. O checklist adapta-se ao tipo de sistema:
 - [ ] Limite de ferramentas por agente (principio do menor poder)
 - [ ] Limite de iteracoes/custo por execucao
 - [ ] Nenhuma execucao de codigo de usuario sem sandbox
-- [ ] Au
+- [ ] Auditoria e rastreamento de ações críticas e tool calls realizadas por agentes
 
 ## Fase 4: Red Team Mental (Ataque Realista)
 
@@ -296,9 +296,9 @@ Para cada ameaca identificada, propor defesas concretas:
 
 Para automacao de hardening:
 ```bash
-python C:\Users\renat\skills\007\scripts\hardening_advisor.py --target <caminho> --level maximum
-python C:\Users\renat\skills\007\scripts\hardening_advisor.py --target <caminho> --level balanced
-python C:\Users\renat\skills\007\scripts\hardening_advisor.py --target <caminho> --level minimum
+python scripts/hardening_advisor.py --target <caminho> --level maximum
+python scripts/hardening_advisor.py --target <caminho> --level balanced
+python scripts/hardening_advisor.py --target <caminho> --level minimum
 ```
 
 ## Fase 6: Veredito Final
@@ -330,7 +330,7 @@ Cada dominio recebe uma nota de 0-100:
 
 Para automacao:
 ```bash
-python C:\Users\renat\skills\007\scripts\score_calculator.py --target <caminho>
+python scripts/score_calculator.py --target <caminho>
 ```
 
 ## Formato De Resposta
@@ -567,43 +567,43 @@ TEMPO DE RESPOSTA: URGENTE
 
 ## Scan Rapido De Seguranca (Automatizado)
 
-python C:\Users\renat\skills\007\scripts\quick_scan.py --target <caminho>
+python scripts/quick_scan.py --target <caminho>
 
 ## Auditoria Completa
 
-python C:\Users\renat\skills\007\scripts\full_audit.py --target <caminho>
+python scripts/full_audit.py --target <caminho>
 
 ## Threat Modeling Automatizado
 
-python C:\Users\renat\skills\007\scripts\threat_modeler.py --target <caminho> --framework both
+python scripts/threat_modeler.py --target <caminho> --framework both
 
 ## Checklist Tecnico
 
-python C:\Users\renat\skills\007\scripts\security_checklist.py --target <caminho>
+python scripts/security_checklist.py --target <caminho>
 
 ## Scoring De Seguranca
 
-python C:\Users\renat\skills\007\scripts\score_calculator.py --target <caminho>
+python scripts/score_calculator.py --target <caminho>
 
 ## Mapa De Superficie De Ataque
 
-python C:\Users\renat\skills\007\scripts\surface_mapper.py --target <caminho>
+python scripts/surface_mapper.py --target <caminho>
 
 ## Advisor De Hardening
 
-python C:\Users\renat\skills\007\scripts\hardening_advisor.py --target <caminho>
+python scripts/hardening_advisor.py --target <caminho>
 
 ## Scan De Segredos
 
-python C:\Users\renat\skills\007\scripts\scanners\secrets_scanner.py --target <caminho>
+python scripts/scanners/secrets_scanner.py --target <caminho>
 
 ## Scan De Dependencias
 
-python C:\Users\renat\skills\007\scripts\scanners\dependency_scanner.py --target <caminho>
+python scripts/scanners/dependency_scanner.py --target <caminho>
 
 ## Scan De Injection Patterns
 
-python C:\Users\renat\skills\007\scripts\scanners\injection_scanner.py --target <caminho>
+python scripts/scanners/injection_scanner.py --target <caminho>
 ```
 
 ## Referencias

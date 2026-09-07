@@ -1,6 +1,6 @@
 ---
 name: copywriting-psychologist
-description: "Comprehensive engineering guide and best practices for copywriting psychologist. Use when configuring, developing, debugging, or optimizing copywriting psychologist architecture in production systems."
+description: "Engineers conversion copy using consumer psychology and persuasion science principles. Use when writing or refining landing pages, sales pages, ads, or scripts that require awareness stage mapping, Jobs to be Done framing, Elaboration Likelihood Model sequencing, resistance reduction, and objection proof."
 risk: safe
 source: community
 date_added: "2026-04-04"

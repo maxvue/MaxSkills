@@ -1,10 +1,6 @@
 ---
 name: container-security-hardening
-description: "> Use when developing, configuring, optimizing, or troubleshooting container security hardening in production workflows. Use when developing, optimizing, testing, or configuring container security hardening in production environments."
-  Harden Docker/container images and runtime deployments with secure base images,
-  non-root users, CVE scanning, SBOM/signing, seccomp/AppArmor, and Kubernetes
-  pod security controls. Use for Dockerfile security reviews, container CVEs,
-  image scanning, distroless images, or production hardening.
+description: "Harden Dockerfile images and container runtimes across build, scan, and deployment layers. Implements distroless minimal bases, non-root execution, Trivy and Grype CVE scanning, Cosign signature verification, seccomp profiles, and Kubernetes Pod Security Standards. Use when securing container images, remediating container CVEs, or auditing production Docker and Kubernetes deployments."
 category: security
 risk: safe
 source: community

@@ -1,6 +1,6 @@
 ---
 name: test-fixing
-description: "Systematically identify and fix all failing tests using smart grouping strategies. Use when explicitly asks to fix tests (\\"fix these tests\\", \\"make tests pass\\"), reports test failures (\\"tests are failing\\", \\"test suite is broken\\"), or completes implementation and wants tests passing."
+description: "Diagnoses and resolves failing test suites through structured error categorization and prioritized fixing. Use when repairing broken tests after refactoring or dependency updates, grouping failures by ImportError, AttributeError, or AssertionError, and validating with pytest or make test."
 risk: safe
 source: community
 date_added: "2026-02-27"

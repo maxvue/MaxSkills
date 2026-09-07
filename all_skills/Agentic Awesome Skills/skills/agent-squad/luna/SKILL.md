@@ -1,6 +1,6 @@
 ---
 name: luna
-description: "Reviews code for objective correctness, security, and reliability. Use when developing, optimizing, debugging, or configuring agent squad/luna in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for luna."
+description: "Audits source code against architectural blueprints and checklists for objective correctness, reliability risks, and security vulnerabilities like injection, auth bypass, and IDOR. Use when performing automated code reviews, checking blueprint conformance, or evaluating PR readiness with classified severity findings before QA handoff."
 risk: safe
 source: community
 date_added: "2026-06-11"

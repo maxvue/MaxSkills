@@ -1,10 +1,6 @@
 ---
 name: seo-competitor-pages
-description: "> Use when developing, configuring, optimizing, or troubleshooting seo competitor pages in production workflows. Use when developing, optimizing, testing, or configuring seo competitor pages in production environments."
-  Generate SEO-optimized competitor comparison and alternatives pages. Covers
-  "X vs Y" layouts, "alternatives to X" pages, feature matrices, schema markup,
-  and conversion optimization. Use when user says "comparison page", "vs page",
-  "alternatives page", "competitor comparison", or "X vs Y".
+description: "Generates SEO-optimized competitor comparison and alternative landing pages with side-by-side feature matrices and Schema.org structured data. Use when building 'X vs Y' pages, product alternatives directories, roundup comparisons, or targeting high-intent commercial keywords with SoftwareApplication schemas."
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"

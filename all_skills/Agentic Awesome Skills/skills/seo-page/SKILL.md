@@ -1,9 +1,6 @@
 ---
 name: seo-page
-description: "> Use when developing, optimizing, debugging, or configuring seo page in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo page. Use when developing, optimizing, testing, or configuring seo page in production environments."
-  Deep single-page SEO analysis covering on-page elements, content quality,
-  technical meta tags, schema, images, and performance. Use when user says
-  "analyze this page", "check page SEO", or provides a single URL for review.
+description: "Conducts single-page SEO audits evaluating title and meta descriptions, H1-H6 heading hierarchy, canonical tags, Open Graph, and E-E-A-T content quality signals. Analyzes JSON-LD schema markup, image assets, internal linking, and optional DataForSEO SERP metrics. Use when reviewing a specific URL for on-page SEO health, technical tag validation, or content optimization."
 risk: safe
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"

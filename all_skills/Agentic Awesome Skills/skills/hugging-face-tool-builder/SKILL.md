@@ -1,6 +1,6 @@
 ---
 name: hugging-face-tool-builder
-description: "Comprehensive engineering guide and best practices for hugging face tool builder. Use when configuring, developing, debugging, or optimizing hugging face tool builder architecture in production systems."
+description: "Creates reusable command-line scripts and utilities leveraging the Hugging Face API and `hf` CLI tool. Use when building shell-friendly pipelines for model inspection, dataset queries, repository management, or piping Hugging Face Hub metadata and assets into automated workflows."
 risk: critical
 source: community
 ---

@@ -1,0 +1,180 @@
+[
+  {
+    "skillName": "moyu",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/moyu/SKILL.md",
+    "correctedDescription": "Enforces anti-over-engineering guardrails and strict scope control for AI coding agents. Halts unrequested file edits, unnecessary dependencies, and premature abstractions like unused interfaces or factories using L1-L4 intervention levels. Use when an agent modifies out-of-scope files, expands task boundaries, or creates complex solutions where minimal diffs suffice.",
+    "charCount": 371,
+    "discriminants": [
+      "anti-over-engineering",
+      "scope control",
+      "minimal diffs",
+      "YAGNI",
+      "L1-L4 intervention levels",
+      "premature abstractions"
+    ],
+    "cleanFrontmatter": "name: moyu\ndescription: \"Enforces anti-over-engineering guardrails and strict scope control for AI coding agents. Halts unrequested file edits, unnecessary dependencies, and premature abstractions like unused interfaces or factories using L1-L4 intervention levels. Use when an agent modifies out-of-scope files, expands task boundaries, or creates complex solutions where minimal diffs suffice.\"\nrisk: safe\nsource: community\ndate_added: \"2026-03-23\"\nlicense: MIT"
+  },
+  {
+    "skillName": "network-engineer",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/network-engineer/SKILL.md",
+    "correctedDescription": "Designs, configures, and diagnoses cloud networking across AWS VPC, Azure VNet, and GCP. Implements L4/L7 load balancing (ALB, Envoy, Nginx), container CNI (Cilium, Calico), and service mesh mTLS (Istio). Use when architecting cloud network topologies, configuring zero-trust policies, or debugging connectivity issues with tcpdump, Wireshark, and iperf3.",
+    "charCount": 355,
+    "discriminants": [
+      "AWS VPC",
+      "Azure VNet",
+      "GCP",
+      "ALB",
+      "Envoy",
+      "Nginx",
+      "Cilium",
+      "Calico",
+      "Istio",
+      "tcpdump",
+      "Wireshark",
+      "iperf3"
+    ],
+    "cleanFrontmatter": "name: network-engineer\ndescription: \"Designs, configures, and diagnoses cloud networking across AWS VPC, Azure VNet, and GCP. Implements L4/L7 load balancing (ALB, Envoy, Nginx), container CNI (Cilium, Calico), and service mesh mTLS (Istio). Use when architecting cloud network topologies, configuring zero-trust policies, or debugging connectivity issues with tcpdump, Wireshark, and iperf3.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "open-source-marketing",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/open-source-marketing/SKILL.md",
+    "correctedDescription": "Optimizes open-source projects for discoverability, developer adoption, and contributor growth. Formats GitHub README files, dynamic badges, CONTRIBUTING.md guides, issue templates, and launch playbooks for Hacker News and Reddit. Use when launching OSS repositories, establishing contributor funnels, or monitoring traction with Octolens and Star History.",
+    "charCount": 356,
+    "discriminants": [
+      "GitHub README",
+      "CONTRIBUTING.md",
+      "issue templates",
+      "Show HN",
+      "Hacker News",
+      "Reddit",
+      "Octolens",
+      "Star History",
+      "contributor funnels"
+    ],
+    "cleanFrontmatter": "name: open-source-marketing\ndescription: \"Optimizes open-source projects for discoverability, developer adoption, and contributor growth. Formats GitHub README files, dynamic badges, CONTRIBUTING.md guides, issue templates, and launch playbooks for Hacker News and Reddit. Use when launching OSS repositories, establishing contributor funnels, or monitoring traction with Octolens and Star History.\"\nrisk: critical\nsource: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/open-source-marketing\nsource_repo: jonathimer/devmarketing-skills\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: MIT\nlicense_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "php-pro",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/php-pro/SKILL.md",
+    "correctedDescription": "Develops idiomatic PHP 8+ applications focusing on memory efficiency and type safety. Implements SPL data structures (SplQueue, SplStack, SplHeap), generators, iterators, match expressions, enums, attributes, and constructor promotion. Use when building modern PHP services, optimizing memory-intensive datasets, or enforcing strict typing and PSR standards.",
+    "charCount": 358,
+    "discriminants": [
+      "PHP 8+",
+      "SplQueue",
+      "SplStack",
+      "SplHeap",
+      "generators",
+      "iterators",
+      "match expressions",
+      "enums",
+      "attributes",
+      "constructor promotion",
+      "PSR standards"
+    ],
+    "cleanFrontmatter": "name: php-pro\ndescription: \"Develops idiomatic PHP 8+ applications focusing on memory efficiency and type safety. Implements SPL data structures (SplQueue, SplStack, SplHeap), generators, iterators, match expressions, enums, attributes, and constructor promotion. Use when building modern PHP services, optimizing memory-intensive datasets, or enforcing strict typing and PSR standards.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "plaid-fintech",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/plaid-fintech/SKILL.md",
+    "correctedDescription": "Integrates Plaid API endpoints for banking connectivity, ACH payments, and financial data sync. Implements Plaid Link token creation, public token exchange, incremental /transactions/sync, Auth for ACH routing numbers, and JWKS webhook verification. Use when building Plaid Link onboarding flows, validating real-time account balances, or processing bank transaction feeds.",
+    "charCount": 373,
+    "discriminants": [
+      "Plaid API",
+      "Plaid Link",
+      "linkTokenCreate",
+      "transactions/sync",
+      "Auth ACH",
+      "accountsBalanceGet",
+      "JWKS webhook verification"
+    ],
+    "cleanFrontmatter": "name: plaid-fintech\ndescription: \"Integrates Plaid API endpoints for banking connectivity, ACH payments, and financial data sync. Implements Plaid Link token creation, public token exchange, incremental /transactions/sync, Auth for ACH routing numbers, and JWKS webhook verification. Use when building Plaid Link onboarding flows, validating real-time account balances, or processing bank transaction feeds.\"\nrisk: critical\nsource: \"vibeship-spawner-skills (Apache 2.0)\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "planning-with-files",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/planning-with-files/SKILL.md",
+    "correctedDescription": "Manages persistent agent memory on disk using markdown artifacts (task_plan.md, findings.md, progress.md) inspired by Manus. Enforces the 2-action logging rule, 3-strike error protocol, and phase tracking to avoid context degradation. Use when executing complex multi-step tasks, research sessions, or agent workflows requiring structured on-disk state tracking.",
+    "charCount": 362,
+    "discriminants": [
+      "task_plan.md",
+      "findings.md",
+      "progress.md",
+      "Manus",
+      "2-action logging rule",
+      "3-strike error protocol",
+      "context degradation"
+    ],
+    "cleanFrontmatter": "name: planning-with-files\ndescription: \"Manages persistent agent memory on disk using markdown artifacts (task_plan.md, findings.md, progress.md) inspired by Manus. Enforces the 2-action logging rule, 3-strike error protocol, and phase tracking to avoid context degradation. Use when executing complex multi-step tasks, research sessions, or agent workflows requiring structured on-disk state tracking.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "product-manager",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/product-manager/SKILL.md",
+    "correctedDescription": "Structures product management deliverables with PRD templates, roadmap planning, and SaaS metrics analysis. Applies prioritization frameworks including RICE scoring, MoSCoW, Kano Model, Jobs-to-be-Done, and Opportunity Solution Trees while computing MRR, ARR, LTV, CAC, and Rule of 40. Use when drafting PRDs, scoring feature backlogs, or evaluating product unit economics.",
+    "charCount": 373,
+    "discriminants": [
+      "PRD templates",
+      "RICE scoring",
+      "MoSCoW",
+      "Kano Model",
+      "Jobs-to-be-Done",
+      "Opportunity Solution Trees",
+      "MRR",
+      "ARR",
+      "CAC",
+      "LTV",
+      "Rule of 40"
+    ],
+    "cleanFrontmatter": "name: product-manager\ndescription: \"Structures product management deliverables with PRD templates, roadmap planning, and SaaS metrics analysis. Applies prioritization frameworks including RICE scoring, MoSCoW, Kano Model, Jobs-to-be-Done, and Opportunity Solution Trees while computing MRR, ARR, LTV, CAC, and Rule of 40. Use when drafting PRDs, scoring feature backlogs, or evaluating product unit economics.\"\nrisk: safe\nversion: \"1.0.0\"\nauthor: \"Digidai\"\ntags: [\"product-management\", \"saas\", \"frameworks\", \"metrics\", \"strategy\"]\nsource: \"Digidai/product-manager-skills (MIT)\"\ndate_added: \"2026-03-06\""
+  },
+  {
+    "skillName": "pydantic-models-py",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/pydantic-models-py/SKILL.md",
+    "correctedDescription": "Builds Pydantic schemas using the multi-model pattern (Base, Create, Update, Response, InDB) for REST API contracts. Configures camelCase field aliasing with populate_by_name, optional fields for PATCH requests, and database doc_type fields. Use when creating Pydantic validation models, structuring CRUD request/response payloads, or aligning Python models with database entities.",
+    "charCount": 381,
+    "discriminants": [
+      "Pydantic",
+      "BaseModel",
+      "multi-model pattern",
+      "populate_by_name",
+      "camelCase alias",
+      "PATCH requests",
+      "doc_type"
+    ],
+    "cleanFrontmatter": "name: pydantic-models-py\ndescription: \"Builds Pydantic schemas using the multi-model pattern (Base, Create, Update, Response, InDB) for REST API contracts. Configures camelCase field aliasing with populate_by_name, optional fields for PATCH requests, and database doc_type fields. Use when creating Pydantic validation models, structuring CRUD request/response payloads, or aligning Python models with database entities.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "python-pro",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/python-pro/SKILL.md",
+    "correctedDescription": "Develops production Python 3.12+ systems using the modern ecosystem toolchain. Implements dependency management with uv, linting and formatting with ruff, static type checking with mypy and pyright, and APIs with FastAPI and SQLAlchemy 2.0. Use when building Python 3.12+ services, setting up pyproject.toml, writing pytest suites, or tuning asyncio performance.",
+    "charCount": 362,
+    "discriminants": [
+      "Python 3.12+",
+      "uv",
+      "ruff",
+      "mypy",
+      "pyright",
+      "FastAPI",
+      "SQLAlchemy 2.0",
+      "pyproject.toml",
+      "pytest",
+      "asyncio"
+    ],
+    "cleanFrontmatter": "name: python-pro\ndescription: \"Develops production Python 3.12+ systems using the modern ecosystem toolchain. Implements dependency management with uv, linting and formatting with ruff, static type checking with mypy and pyright, and APIs with FastAPI and SQLAlchemy 2.0. Use when building Python 3.12+ services, setting up pyproject.toml, writing pytest suites, or tuning asyncio performance.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "readme",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/readme/SKILL.md",
+    "correctedDescription": "Audits project codebases to generate exhaustive README.md documentation. Details local development setup, directory architecture, request lifecycles, environment variable tables, test execution, and deployment configurations (Docker, Kamal, Fly.io). Use when creating or updating a README.md file, establishing developer onboarding docs, or documenting system architecture from code.",
+    "charCount": 383,
+    "discriminants": [
+      "README.md",
+      "codebase exploration",
+      "local development setup",
+      "architecture directory structure",
+      "request lifecycles",
+      "environment variable tables",
+      "deployment (Docker, Kamal, Fly.io)",
+      "troubleshooting"
+    ],
+    "cleanFrontmatter": "name: readme\ndescription: \"Audits project codebases to generate exhaustive README.md documentation. Details local development setup, directory architecture, request lifecycles, environment variable tables, test execution, and deployment configurations (Docker, Kamal, Fly.io). Use when creating or updating a README.md file, establishing developer onboarding docs, or documenting system architecture from code.\"\nrisk: safe\nsource: \"https://github.com/Shpigford/skills/tree/main/readme\"\ndate_added: \"2026-02-27\""
+  }
+]

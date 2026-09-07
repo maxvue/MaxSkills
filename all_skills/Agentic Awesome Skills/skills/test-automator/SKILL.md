@@ -1,9 +1,9 @@
 ---
 name: test-automator
-description: "Comprehensive engineering guide and best practices for test automator. Use when configuring, developing, debugging, or optimizing test automator architecture in production systems. Guides architecture, best practices, and implementation standards for test automator."
+description: "Builds end-to-end test automation suites and testing pipelines across the testing pyramid. Use when setting up cross-browser automation with Playwright or Selenium, testing APIs with REST Assured or Postman, automating mobile apps with Appium, or running performance tests using K6 and JMeter."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when

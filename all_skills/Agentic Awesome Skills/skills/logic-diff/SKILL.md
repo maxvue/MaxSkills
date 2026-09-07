@@ -1,6 +1,6 @@
 ---
 name: logic-diff
-description: "Comprehensive engineering guide and best practices for logic diff. Use when configuring, developing, debugging, or optimizing logic diff architecture in production systems. Guides architecture, best practices, and implementation standards for logic diff."
+description: "Performs semi-formal semantic diffing between two code versions to verify behavioral equivalence across happy and edge case traces. Use when evaluating refactors, language migrations, or rewrites to detect unexpected divergences in logic, boundary conditions, state mutations, or error handling paths."
 risk: safe
 source: https://github.com/hyhmrright/logic-lens/tree/main/skills/logic-diff
 source_repo: hyhmrright/logic-lens

@@ -1,6 +1,6 @@
 ---
 name: git-workflow-and-versioning
-description: "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams. Provides end-to-end guidance, reference architectures, and practical patterns for git workflow."
+description: "Structures Git versioning workflows using trunk-based branching, git worktree isolation, atomic conventional commits, and clean interactive rebasing. Use when coordinating multi-branch features, organizing parallel task worktrees, resolving complex merge conflicts, or standardizing team pull request releases."
 risk: critical
 source: https://github.com/addyosmani/agent-skills/tree/main/skills/git-workflow-and-versioning
 source_repo: addyosmani/agent-skills

@@ -1,0 +1,57 @@
+[
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/web-artifacts-builder/SKILL.md",
+    "name": "web-artifacts-builder",
+    "desc": "To build powerful frontend claude.ai artifacts, follow these steps: Use when developing, optimizing, debugging, or configuring web artifacts builder in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for web artifacts builder."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/webapp-testing/SKILL.md",
+    "name": "webapp-testing",
+    "desc": "To test local web applications, write native Python Playwright scripts. Use when developing, optimizing, debugging, or configuring webapp testing in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for webapp testing."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/writing-skills/SKILL.md",
+    "name": "writing-skills",
+    "desc": "Use when creating, updating, or improving agent skills. Guides architecture, best practices, and implementation standards for writing skills. Provides end-to-end guidance, reference architectures, and practical patterns for writing skills."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/youtube-transcript/SKILL.md",
+    "name": "youtube-transcript",
+    "desc": "Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output. Use when developing, optimizing, debugging, or configuring youtube transcript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for youtube transcript."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+    "name": "laravel-anticaptcha-integration-best-practices",
+    "desc": "Use when implementing or debugging CAPTCHA resolution services (Anti-Captcha) in Laravel, including ImageToText tasks, API keys, error handling, timeouts, and logging. Provides end-to-end guidance, reference architectures, and practical patterns for laravel anticaptcha integration best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
+    "name": "laravel-digital-signatures-integration",
+    "desc": "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, and background job processing. Provides end-to-end guidance, reference architectures, and practical patterns for laravel digital signatures integration."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
+    "name": "laravel-finance-coupons-discounts-best-practices",
+    "desc": "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks. Provides end-to-end guidance, reference architectures, and practical patterns for laravel finance coupons discounts best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
+    "name": "laravel-frankenphp-octane-best-practices",
+    "desc": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, avoiding memory leaks, managing singletons, and tuning Caddyfile workers. Provides end-to-end guidance, reference architectures, and practical patterns for laravel frankenphp octane best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+    "name": "laravel-meta-graph-api-integration-best-practices",
+    "desc": "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Provides end-to-end guidance, reference architectures, and practical patterns for laravel meta graph api integration best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+    "name": "laravel-migrations-seeders-factories-best-practices",
+    "desc": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Provides end-to-end guidance, reference architectures, and practical patterns for laravel migrations seeders factories best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+    "name": "laravel-performance-and-profiling-best-practices",
+    "desc": "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, and Pail log tailing. Provides end-to-end guidance, reference architectures, and practical patterns for laravel performance and profiling best practices."
+  }
+]

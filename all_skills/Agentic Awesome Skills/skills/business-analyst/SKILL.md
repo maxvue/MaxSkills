@@ -1,9 +1,9 @@
 ---
 name: business-analyst
-description: "Comprehensive engineering guide and best practices for business analyst. Use when configuring, developing, debugging, or optimizing business analyst architecture in production systems. Guides architecture, best practices, and implementation standards for business analyst."
+description: "Designs KPI frameworks, financial models, and business intelligence dashboards using Tableau, Power BI, Looker, Snowflake, and BigQuery. Use when structuring OKRs and North Star metrics, conducting cohort retention analysis, calculating unit economics (CLV, CAC), forecasting revenue, or evaluating business process optimization opportunities."
 risk: safe
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when

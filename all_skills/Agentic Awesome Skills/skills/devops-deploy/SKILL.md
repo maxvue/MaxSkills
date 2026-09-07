@@ -1,6 +1,6 @@
 ---
 name: devops-deploy
-description: "Comprehensive engineering guide and best practices for devops deploy. Use when configuring, developing, debugging, or optimizing devops deploy architecture in production systems. Guides architecture, best practices, and implementation standards for devops deploy."
+description: "Automates application containerization, CI/CD pipelines, and AWS cloud deployments. Use when configuring multi-stage Dockerfiles, Docker Compose setups, AWS SAM Lambda templates, GitHub Actions workflows, FastAPI health check endpoints, CloudWatch metric alarms, or managing production rollback plans."
 risk: critical
 source: community
 date_added: '2026-03-06'

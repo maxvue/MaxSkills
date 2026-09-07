@@ -1,10 +1,9 @@
 ---
 name: conversation-memory
-description: "Persistent memory systems for LLM conversations including Use when developing, optimizing, debugging, or configuring conversation memory in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conversation memory."
-  short-term, long-term, and entity-based memory
+description: "Implement multi-tier persistent memory systems for conversational LLM agents. Manages conversation buffers, short-term session stores, long-term persistence, entity extraction with fact upserting, and consolidation workflows using Redis, Mem0, and LangChain. Use when creating stateful AI agents, persisting user context across sessions, or maintaining dynamic entity knowledge bases."
 risk: critical
-source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+source: "vibeship-spawner-skills (Apache 2.0)"
+date_added: "2026-02-27"
 ---
 
 # Conversation Memory

@@ -1,12 +1,9 @@
 ---
 name: telegram-bot-builder
-description: "Expert in building Telegram bots that solve real problems - from Use when developing, optimizing, debugging, or configuring telegram bot builder in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for telegram bot builder."
-  simple automation to complex AI-powered bots. Covers bot architecture, the
-  Telegram Bot API, user experience, monetization strategies, and scaling bots
-  to thousands of users.
+description: "Develops Telegram bots using the Telegram Bot API with Telegraf, grammY, python-telegram-bot, or aiogram. Use when implementing command handlers, paginated inline keyboards, Express or Vercel webhook endpoints, Telegram Payments with replyWithInvoice, or Bottleneck rate limiting."
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+date_added: "2026-02-27"
 ---
 
 # Telegram Bot Builder

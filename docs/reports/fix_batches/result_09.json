@@ -1,0 +1,169 @@
+[
+  {
+    "skillName": "recallmax",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/recallmax/SKILL.md",
+    "correctedDescription": "Injects external RAG documents, compresses multi-turn conversation history into dense token sequences, and applies adaptive summarization with fact-verification. Use when agent sessions exceed 20 turns, context windows near token limits, or large external context requires deduplication without hallucination drift.",
+    "charCount": 315,
+    "discriminants": [
+      "RAG deduplication",
+      "adaptive summarization",
+      "history compression",
+      "fact verification",
+      "hallucination drift",
+      "long-context"
+    ],
+    "cleanFrontmatter": "name: recallmax\ndescription: \"Injects external RAG documents, compresses multi-turn conversation history into dense token sequences, and applies adaptive summarization with fact-verification. Use when agent sessions exceed 20 turns, context windows near token limits, or large external context requires deduplication without hallucination drift.\"\ncategory: memory\nrisk: safe\nsource: community\ndate_added: \"2026-03-13\"\nauthor: christopherlhammer11-ai\ntags: [memory, context, rag, summarization, compression, long-context, agent-infrastructure]\ntools: [claude, cursor, codex, gemini, copilot, windsurf, antigravity, grok]"
+  },
+  {
+    "skillName": "review-and-simplify-changes",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/review-and-simplify-changes/SKILL.md",
+    "correctedDescription": "Analyzes git diffs and modified files across four parallel read-only review axes: code reuse, quality, runtime efficiency, and clarity standards. Use when reviewing git diff or staged changes, simplifying complex refactors, removing duplicate abstractions, or validating code maintainability before commit.",
+    "charCount": 306,
+    "discriminants": [
+      "git diff",
+      "git diff --cached",
+      "code reuse",
+      "code quality",
+      "runtime efficiency",
+      "read-only review axes"
+    ],
+    "cleanFrontmatter": "name: review-and-simplify-changes\ndescription: \"Analyzes git diffs and modified files across four parallel read-only review axes: code reuse, quality, runtime efficiency, and clarity standards. Use when reviewing git diff or staged changes, simplifying complex refactors, removing duplicate abstractions, or validating code maintainability before commit.\"\nrisk: critical\nsource: https://github.com/Dimillian/Skills/tree/main/review-and-simplify-changes\nsource_repo: Dimillian/Skills\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/Dimillian/Skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "robius-app-architecture",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/robius-app-architecture/SKILL.md",
+    "correctedDescription": "Implements Makepad and Robius application architectures, connecting the Rust UI thread to Tokio async runtimes via crossbeam channels, SignalToUI, and Cx::post_action. Use when designing Makepad applications, managing Robrix or Moly async state, or handling submit_async_request and MatchEvent lifecycles.",
+    "charCount": 306,
+    "discriminants": [
+      "Makepad",
+      "Robius",
+      "Tokio",
+      "SignalToUI",
+      "Cx::post_action",
+      "submit_async_request",
+      "MatchEvent",
+      "crossbeam"
+    ],
+    "cleanFrontmatter": "name: robius-app-architecture\ndescription: \"Implements Makepad and Robius application architectures, connecting the Rust UI thread to Tokio async runtimes via crossbeam channels, SignalToUI, and Cx::post_action. Use when designing Makepad applications, managing Robrix or Moly async state, or handling submit_async_request and MatchEvent lifecycles.\"\nrisk: critical\nsource: community"
+  },
+  {
+    "skillName": "ruby-pro",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ruby-pro/SKILL.md",
+    "correctedDescription": "Develops idiomatic Ruby and Ruby on Rails applications with metaprogramming, ActiveRecord patterns, gem packaging, and benchmark-ips profiling. Use when writing or refactoring Ruby code, implementing Rails MVC components, setting up RSpec or Minitest suites, or configuring RuboCop style and lint rules.",
+    "charCount": 303,
+    "discriminants": [
+      "Ruby",
+      "Ruby on Rails",
+      "ActiveRecord",
+      "RSpec",
+      "Minitest",
+      "RuboCop",
+      "benchmark-ips",
+      "metaprogramming"
+    ],
+    "cleanFrontmatter": "name: ruby-pro\ndescription: \"Develops idiomatic Ruby and Ruby on Rails applications with metaprogramming, ActiveRecord patterns, gem packaging, and benchmark-ips profiling. Use when writing or refactoring Ruby code, implementing Rails MVC components, setting up RSpec or Minitest suites, or configuring RuboCop style and lint rules.\"\nrisk: critical\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "security-auditor",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/security-auditor/SKILL.md",
+    "correctedDescription": "Performs application security audits, STRIDE threat modeling, and data flow vulnerability analysis for IDOR, SSRF, and auth bypasses across trust boundaries. Use when auditing backend APIs, configuring SAST/DAST tools like Semgrep, CodeQL, or OWASP ZAP, or validating OWASP ASVS and SOC 2 security compliance.",
+    "charCount": 309,
+    "discriminants": [
+      "STRIDE",
+      "IDOR",
+      "SSRF",
+      "SAST",
+      "DAST",
+      "Semgrep",
+      "CodeQL",
+      "OWASP ZAP",
+      "OWASP ASVS",
+      "SOC 2"
+    ],
+    "cleanFrontmatter": "name: security-auditor\ndescription: \"Performs application security audits, STRIDE threat modeling, and data flow vulnerability analysis for IDOR, SSRF, and auth bypasses across trust boundaries. Use when auditing backend APIs, configuring SAST/DAST tools like Semgrep, CodeQL, or OWASP ZAP, or validating OWASP ASVS and SOC 2 security compliance.\"\nrisk: critical\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "security-scanning-security-hardening",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/security-scanning-security-hardening/SKILL.md",
+    "correctedDescription": "Orchestrates multi-layer security hardening and vulnerability remediation across codebases, containers, and CI/CD pipelines using SAST, DAST, and secret scanners. Use when executing defense-in-depth hardening, mitigating CVSS vulnerabilities with WAF or HashiCorp Vault, or conducting OWASP ASVS compliance audits.",
+    "charCount": 314,
+    "discriminants": [
+      "defense-in-depth",
+      "SAST",
+      "DAST",
+      "HashiCorp Vault",
+      "WAF",
+      "OWASP ASVS",
+      "CVSS",
+      "secret scanning"
+    ],
+    "cleanFrontmatter": "name: security-scanning-security-hardening\ndescription: \"Orchestrates multi-layer security hardening and vulnerability remediation across codebases, containers, and CI/CD pipelines using SAST, DAST, and secret scanners. Use when executing defense-in-depth hardening, mitigating CVSS vulnerabilities with WAF or HashiCorp Vault, or conducting OWASP ASVS compliance audits.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "seek-and-analyze-video",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seek-and-analyze-video/SKILL.md",
+    "correctedDescription": "Indexes, queries, and analyzes video content from YouTube, TikTok, and Instagram using Memories.ai LVMM and Memory Augmented Generation (MAG). Use when extracting meeting transcripts, performing cross-video Q&A with chat_video or caption_video, or searching audio segments and social trends across video URLs.",
+    "charCount": 311,
+    "discriminants": [
+      "Memories.ai",
+      "LVMM",
+      "Memory Augmented Generation",
+      "MAG",
+      "chat_video",
+      "caption_video",
+      "search_audio",
+      "YouTube",
+      "TikTok",
+      "Instagram"
+    ],
+    "cleanFrontmatter": "name: seek-and-analyze-video\ndescription: \"Indexes, queries, and analyzes video content from YouTube, TikTok, and Instagram using Memories.ai LVMM and Memory Augmented Generation (MAG). Use when extracting meeting transcripts, performing cross-video Q&A with chat_video or caption_video, or searching audio segments and social trends across video URLs.\"\ncategory: data-ai\nrisk: safe\nsource: \"https://github.com/kennyzheng-builds/seek-and-analyze-video\"\ndate_added: \"2026-03-09\"\nauthor: kennyzheng-builds\ntags: [video, ai, memories, social-media, youtube, tiktok, analysis]\ntools: [claude, cursor, gemini]"
+  },
+  {
+    "skillName": "selenium-skill",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/selenium-skill/SKILL.md",
+    "correctedDescription": "Generates Selenium WebDriver end-to-end automation scripts and Page Object Model (POM) architectures with explicit WebDriverWait patterns across multiple languages. Use when writing browser automation tests in Java, Python, or JavaScript, configuring RemoteWebDriver, or executing cross-browser runs on TestMu AI.",
+    "charCount": 313,
+    "discriminants": [
+      "Selenium WebDriver",
+      "Page Object Model",
+      "POM",
+      "WebDriverWait",
+      "RemoteWebDriver",
+      "TestMu AI",
+      "cross-browser"
+    ],
+    "cleanFrontmatter": "name: selenium-skill\ndescription: \"Generates Selenium WebDriver end-to-end automation scripts and Page Object Model (POM) architectures with explicit WebDriverWait patterns across multiple languages. Use when writing browser automation tests in Java, Python, or JavaScript, configuring RemoteWebDriver, or executing cross-browser runs on TestMu AI.\"\nrisk: critical\nsource: https://github.com/LambdaTest/agent-skills/tree/main/selenium-skill\nsource_repo: LambdaTest/agent-skills\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "seo-competitor-pages",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-competitor-pages/SKILL.md",
+    "correctedDescription": "Generates SEO-optimized competitor comparison and alternative landing pages with side-by-side feature matrices and Schema.org structured data. Use when building 'X vs Y' pages, product alternatives directories, roundup comparisons, or targeting high-intent commercial keywords with SoftwareApplication schemas.",
+    "charCount": 310,
+    "discriminants": [
+      "X vs Y",
+      "feature matrix",
+      "Schema.org",
+      "SoftwareApplication",
+      "alternatives page",
+      "commercial keywords",
+      "roundup comparisons"
+    ],
+    "cleanFrontmatter": "name: seo-competitor-pages\ndescription: \"Generates SEO-optimized competitor comparison and alternative landing pages with side-by-side feature matrices and Schema.org structured data. Use when building 'X vs Y' pages, product alternatives directories, roundup comparisons, or targeting high-intent commercial keywords with SoftwareApplication schemas.\"\nrisk: critical\nsource: \"https://github.com/AgriciDaniel/claude-seo\"\ndate_added: \"2026-03-21\"\nuser-invokable: true\nargument-hint: \"[url or generate] [competitor]\"\nallowed-tools:\n  - Read\n  - Grep\n  - Glob\n  - Bash\n  - WebFetch"
+  },
+  {
+    "skillName": "seo-content-planner",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-content-planner/SKILL.md",
+    "correctedDescription": "Structures topic cluster architectures, pillar pages, and editorial content calendars with search intent mapping and internal linking blueprints. Use when planning SEO content strategies, creating detailed section-by-section article outlines, conducting topic gap analysis, or establishing topical authority.",
+    "charCount": 307,
+    "discriminants": [
+      "topic clusters",
+      "pillar page",
+      "content calendar",
+      "search intent",
+      "topical authority",
+      "internal linking blueprint",
+      "article outlines"
+    ],
+    "cleanFrontmatter": "name: seo-content-planner\ndescription: \"Structures topic cluster architectures, pillar pages, and editorial content calendars with search intent mapping and internal linking blueprints. Use when planning SEO content strategies, creating detailed section-by-section article outlines, conducting topic gap analysis, or establishing topical authority.\"\nrisk: none\nsource: community\ndate_added: '2026-02-27'"
+  }
+]

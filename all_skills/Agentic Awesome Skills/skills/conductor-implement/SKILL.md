@@ -1,6 +1,6 @@
 ---
 name: conductor-implement
-description: "Execute tasks from a track's implementation plan following TDD workflow Use when developing, optimizing, debugging, or configuring conductor implement in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor implement."
+description: "Executes tasks from Conductor track implementation plans following red-green-refactor TDD cycles, spec requirements, and workflow guidelines. Use when implementing conductor/tracks/ plan tasks sequentially, updating metadata.json and markdown task status checkpoints, or performing automated git commits for completed track phases."
 risk: critical
 source: community
 date_added: "2026-02-27"

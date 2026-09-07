@@ -1,6 +1,6 @@
 ---
 name: quinn
-description: "Proves the system works by writing and executing comprehensive test suites. Use when developing, optimizing, debugging, or configuring agent squad/quinn in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for quinn."
+description: "Validates software systems by writing and executing unit, integration, and E2E test suites mapped to user acceptance criteria and Definitions of Done. Use when establishing AAA test cases, testing API contracts and database persistence, covering edge boundaries, or generating branch coverage reports before deployment."
 risk: safe
 source: community
 date_added: "2026-06-11"

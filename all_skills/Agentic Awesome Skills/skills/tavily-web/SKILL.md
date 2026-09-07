@@ -1,6 +1,6 @@
 ---
 name: tavily-web
-description: "Comprehensive engineering guide and best practices for tavily web. Use when configuring, developing, debugging, or optimizing tavily web architecture in production systems. Guides architecture, best practices, and implementation standards for tavily web."
+description: "Performs web search, URL content extraction, and site crawling using the Tavily Search API via BenedictKing/tavily-web. Use when gathering real-time web information, crawling web domains, or scraping clean markdown and text content from URLs in agentic research workflows."
 risk: critical
 source: community
 date_added: "2026-02-27"

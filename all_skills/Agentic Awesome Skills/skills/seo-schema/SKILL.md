@@ -1,9 +1,6 @@
 ---
 name: seo-schema
-description: "> Use when developing, optimizing, debugging, or configuring seo schema in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo schema. Use when developing, optimizing, testing, or configuring seo schema in production environments."
-  Detect, validate, and generate Schema.org structured data. JSON-LD format
-  preferred. Use when user says "schema", "structured data", "rich results",
-  "JSON-LD", or "markup".
+description: "Detects, validates, and generates Schema.org structured data in JSON-LD, Microdata, and RDFa formats for Google Rich Results. Verifies required properties, flags deprecated types like HowTo or SpecialAnnouncement, and outputs compliant code for Organization, Product, Article, and LocalBusiness. Use when auditing rich snippet eligibility, repairing schema errors, or generating JSON-LD markup."
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"

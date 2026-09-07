@@ -1,11 +1,11 @@
 ---
 name: ui-a11y
-description: "Audit a component or page for accessibility issues and fix them Use when developing, optimizing, debugging, or configuring ui a11y in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui a11y."
+description: "Audit frontend components and pages for WCAG 2.2 AA accessibility compliance and apply automated fixes. Use when verifying color contrast ratios, checking 44x44px touch targets, ensuring keyboard focus rings, validating form ARIA labels, or inspecting prefers-reduced-motion rules in StyleSeed and Tailwind UI."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-a11y
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

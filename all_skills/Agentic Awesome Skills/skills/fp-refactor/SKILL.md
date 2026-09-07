@@ -1,6 +1,6 @@
 ---
 name: fp-refactor
-description: "Comprehensive guide for refactoring imperative TypeScript code to fp-ts functional patterns Use when developing, optimizing, debugging, or configuring fp refactor in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for fp refactor."
+description: "Refactor imperative TypeScript code to typed functional patterns using fp-ts abstractions. Converts try-catch blocks and Promise chains into Either or TaskEither, null checks into Option, callbacks into Task, and class-based DI into Reader monads with pipe composition. Use when modernizing imperative TypeScript codebases into purely functional, type-safe error handling pipelines."
 risk: critical
 source: community
 version: 1.0.0

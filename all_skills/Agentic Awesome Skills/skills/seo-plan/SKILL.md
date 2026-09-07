@@ -1,10 +1,6 @@
 ---
 name: seo-plan
-description: "> Use when developing, optimizing, debugging, or configuring seo plan in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo plan. Use when developing, optimizing, testing, or configuring seo plan in production environments."
-  Strategic SEO planning for new or existing websites. Industry-specific
-  templates, competitive analysis, content strategy, and implementation
-  roadmap. Use when user says "SEO plan", "SEO strategy", "content strategy",
-  "site architecture", or "SEO roadmap".
+description: "Develops strategic SEO plans and implementation roadmaps using industry templates for SaaS, ecommerce, agencies, publishers, and local businesses. Performs competitor gap analysis, designs URL architecture and content pillars, schedules content calendars, and integrates DataForSEO metrics. Use when planning domain SEO strategies, site architecture overhauls, or phased content roadmaps."
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"

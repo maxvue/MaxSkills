@@ -1,9 +1,9 @@
 ---
 name: python-pro
-description: "Comprehensive engineering guide and best practices for python pro. Use when configuring, developing, debugging, or optimizing python pro architecture in production systems. Guides architecture, best practices, and implementation standards for python pro."
+description: "Develops production Python 3.12+ systems using the modern ecosystem toolchain. Implements dependency management with uv, linting and formatting with ruff, static type checking with mypy and pyright, and APIs with FastAPI and SQLAlchemy 2.0. Use when building Python 3.12+ services, setting up pyproject.toml, writing pytest suites, or tuning asyncio performance."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 You are a Python expert specializing in modern Python 3.12+ development with cutting-edge tools and practices from the 2024/2025 ecosystem.
 

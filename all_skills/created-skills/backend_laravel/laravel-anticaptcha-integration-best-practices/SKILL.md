@@ -1,6 +1,6 @@
 ---
 name: laravel-anticaptcha-integration-best-practices
-description: "Use when implementing or debugging CAPTCHA resolution services (Anti-Captcha) in Laravel, including ImageToText tasks, API keys, error handling, timeouts, and logging. Provides end-to-end guidance, reference architectures, and practical patterns for laravel anticaptcha integration best practices."
+description: "Integrates Anti-Captcha solving in Laravel using App\\Classes\\Anticaptcha wrappers (Anticaptcha, ImageToText). Configures ANTICAPTCHA_KEY, executes createTask, handles waitForResult polling, and writes to Log::channel('anticaptcha'). Use when implementing or debugging visual CAPTCHA solving in Laravel."
 author: Johnattas Conrady Gomes Santana
 ---
 # Boas Práticas de Integração com Anti-Captcha no Laravel

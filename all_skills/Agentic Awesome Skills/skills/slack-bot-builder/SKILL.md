@@ -1,9 +1,6 @@
 ---
 name: slack-bot-builder
-description: "Build Slack apps using the Bolt framework across Python, Use when developing, optimizing, debugging, or configuring slack bot builder in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for slack bot builder."
-  JavaScript, and Java. Covers Block Kit for rich UIs, interactive components,
-  slash commands, event handling, OAuth installation flows, and Workflow Builder
-  integration.
+description: "Builds Slack bots and applications using the official Slack Bolt framework across Python, JavaScript, and Java. Implements Block Kit UI layouts, interactive modals, slash commands, event listeners, Socket Mode handlers, and OAuth v2 installation flows. Use when developing Slack bots, creating Block Kit user interfaces, handling Slack webhook events, or integrating Workflow Builder steps."
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27

@@ -1,6 +1,6 @@
 ---
 name: monorepo-architect
-description: "Comprehensive engineering guide and best practices for monorepo architect. Use when configuring, developing, debugging, or optimizing monorepo architect architecture in production systems. Guides architecture, best practices, and implementation standards for monorepo architect."
+description: "Architects and optimizes monorepo workspaces and build pipelines using Nx, Turborepo, Bazel, and Lerna. Implements local and remote build caching, dependency graph management, affected project detection for CI/CD pipelines, and task orchestration. Use when configuring multi-project monorepos, migrating from polyrepos, or speeding up monorepo build and test workflows."
 risk: safe
 source: community
 date_added: "2026-02-27"

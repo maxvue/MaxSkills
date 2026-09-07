@@ -1,0 +1,72 @@
+[
+  {
+    "rel_path": "Agentic Awesome Skills/skills/moyu/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/moyu/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/network-engineer/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/network-engineer/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/open-source-marketing/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/open-source-marketing/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/php-pro/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/php-pro/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/plaid-fintech/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/plaid-fintech/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/planning-with-files/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/planning-with-files/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/product-manager/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/product-manager/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/pydantic-models-py/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/pydantic-models-py/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/python-pro/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/python-pro/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/readme/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/readme/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  }
+]

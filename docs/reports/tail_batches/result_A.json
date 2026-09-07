@@ -1,0 +1,185 @@
+[
+  {
+    "skillName": "agent-squad",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-squad/SKILL.md",
+    "correctedDescription": "Orchestrates specialized agent squads (Rex, Alex, Aria, Mason, Luna, Quinn, Max, Dep) across project lifecycles using context-compressed briefings and artifact references. Use when coordinating autonomous multi-agent engineering workflows, delegating role-based tasks, or tracking stage transitions from requirements to deployment.",
+    "charCount": 326,
+    "discriminants": [
+      "Rex",
+      "Alex",
+      "Aria",
+      "Mason",
+      "Luna",
+      "Quinn",
+      "Max",
+      "Dep",
+      "briefing packet",
+      "artifact by reference"
+    ],
+    "cleanFrontmatter": "name: agent-squad\ndescription: \"Orchestrates specialized agent squads (Rex, Alex, Aria, Mason, Luna, Quinn, Max, Dep) across project lifecycles using context-compressed briefings and artifact references. Use when coordinating autonomous multi-agent engineering workflows, delegating role-based tasks, or tracking stage transitions from requirements to deployment.\"\nrisk: critical\nsource: community\nrole: Orchestrator / Agent Panel\nphase: all\nsquad: agent-squad\nversion: 1.0"
+  },
+  {
+    "skillName": "aria",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-squad/aria/SKILL.md",
+    "correctedDescription": "Designs system architectures, relational/NoSQL data schemas, REST/GraphQL API contracts, module directories, and security boundaries into an Aria Blueprint. Use when translating project requirements and plans into technical blueprints, defining database entity models, or establishing API response envelopes before implementation.",
+    "charCount": 323,
+    "discriminants": [
+      "Aria Blueprint",
+      "data model",
+      "API contracts",
+      "REST/GraphQL",
+      "OWASP Top 10",
+      "ADR summary",
+      "Mason handoff"
+    ],
+    "cleanFrontmatter": "name: aria\ndescription: \"Designs system architectures, relational/NoSQL data schemas, REST/GraphQL API contracts, module directories, and security boundaries into an Aria Blueprint. Use when translating project requirements and plans into technical blueprints, defining database entity models, or establishing API response envelopes before implementation.\"\nrisk: safe\nsource: community\ndate_added: \"2026-06-11\"\nrole: System Architect\nphase: 3 — Architecture\nsquad: agent-squad\nreports-to: agent-squad\ndepends-on: rex, alex"
+  },
+  {
+    "skillName": "luna",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-squad/luna/SKILL.md",
+    "correctedDescription": "Audits source code against architectural blueprints and checklists for objective correctness, reliability risks, and security vulnerabilities like injection, auth bypass, and IDOR. Use when performing automated code reviews, checking blueprint conformance, or evaluating PR readiness with classified severity findings before QA handoff.",
+    "charCount": 335,
+    "discriminants": [
+      "code review",
+      "blueprint conformance",
+      "OWASP",
+      "IDOR",
+      "injection vulnerabilities",
+      "race conditions",
+      "N+1 query",
+      "severity levels"
+    ],
+    "cleanFrontmatter": "name: luna\ndescription: \"Audits source code against architectural blueprints and checklists for objective correctness, reliability risks, and security vulnerabilities like injection, auth bypass, and IDOR. Use when performing automated code reviews, checking blueprint conformance, or evaluating PR readiness with classified severity findings before QA handoff.\"\nrisk: safe\nsource: community\ndate_added: \"2026-06-11\"\nrole: Code Reviewer\nphase: 5 — Code Review\nsquad: agent-squad\nreports-to: agent-squad\ndepends-on: mason, aria"
+  },
+  {
+    "skillName": "mason",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-squad/mason/SKILL.md",
+    "correctedDescription": "Implements production-ready source code strictly following architectural blueprints and task checklist Definitions of Done file-by-file. Use when scaffolding project boilerplate, writing pure business logic, integrating third-party SDKs, or parameterizing database queries to prepare milestone deliverables for code review.",
+    "charCount": 323,
+    "discriminants": [
+      "Definition of Done",
+      "Aria blueprint",
+      "scaffolding",
+      "pure functions",
+      "parameterized queries",
+      "service SDK abstraction",
+      "milestone deliverables"
+    ],
+    "cleanFrontmatter": "name: mason\ndescription: \"Implements production-ready source code strictly following architectural blueprints and task checklist Definitions of Done file-by-file. Use when scaffolding project boilerplate, writing pure business logic, integrating third-party SDKs, or parameterizing database queries to prepare milestone deliverables for code review.\"\nrisk: safe\nsource: community\ndate_added: \"2026-06-11\"\nrole: Builder / Implementer\nphase: 4 — Implementation\nsquad: agent-squad\nreports-to: agent-squad\ndepends-on: rex, alex, aria"
+  },
+  {
+    "skillName": "quinn",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-squad/quinn/SKILL.md",
+    "correctedDescription": "Validates software systems by writing and executing unit, integration, and E2E test suites mapped to user acceptance criteria and Definitions of Done. Use when establishing AAA test cases, testing API contracts and database persistence, covering edge boundaries, or generating branch coverage reports before deployment.",
+    "charCount": 316,
+    "discriminants": [
+      "unit tests",
+      "integration tests",
+      "E2E tests",
+      "contract testing",
+      "AAA structure",
+      "acceptance criteria",
+      "Definition of Done",
+      "branch coverage"
+    ],
+    "cleanFrontmatter": "name: quinn\ndescription: \"Validates software systems by writing and executing unit, integration, and E2E test suites mapped to user acceptance criteria and Definitions of Done. Use when establishing AAA test cases, testing API contracts and database persistence, covering edge boundaries, or generating branch coverage reports before deployment.\"\nrisk: safe\nsource: community\ndate_added: \"2026-06-11\"\nrole: QA Tester\nphase: 6 — Testing\nsquad: agent-squad\nreports-to: agent-squad\ndepends-on: rex, alex, mason, luna"
+  },
+  {
+    "skillName": "app-store-changelog",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/app-store-changelog/SKILL.md",
+    "correctedDescription": "Extracts git commit history since the latest tag and transforms technical changes into user-facing App Store release notes. Use when drafting storefront What's New release bullets, triaging user-visible commits with scripts/collect_release_changes.sh, or filtering out internal chores and CI refactors before app submission.",
+    "charCount": 324,
+    "discriminants": [
+      "App Store",
+      "release notes",
+      "What's New",
+      "collect_release_changes.sh",
+      "git tag history",
+      "commit triage"
+    ],
+    "cleanFrontmatter": "name: app-store-changelog\ndescription: \"Extracts git commit history since the latest tag and transforms technical changes into user-facing App Store release notes. Use when drafting storefront What's New release bullets, triaging user-visible commits with scripts/collect_release_changes.sh, or filtering out internal chores and CI refactors before app submission.\"\nrisk: safe\nsource: \"Dimillian/Skills (MIT)\"\ndate_added: \"2026-03-25\""
+  },
+  {
+    "skillName": "bats-testing-patterns",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/bats-testing-patterns/SKILL.md",
+    "correctedDescription": "Implements automated unit testing for Bash and shell scripts using Bats (Bash Automated Testing System) with test fixtures and lifecycle hooks. Use when testing shell script exit codes, validating stdout and stderr streams, configuring setup and teardown fixtures, or integrating automated Bats test suites into CI/CD pipelines.",
+    "charCount": 322,
+    "discriminants": [
+      "Bats",
+      "Bash Automated Testing System",
+      "shell unit testing",
+      "setup/teardown",
+      "fixtures",
+      "exit codes",
+      "stdout/stderr",
+      "CI/CD"
+    ],
+    "cleanFrontmatter": "name: bats-testing-patterns\ndescription: \"Implements automated unit testing for Bash and shell scripts using Bats (Bash Automated Testing System) with test fixtures and lifecycle hooks. Use when testing shell script exit codes, validating stdout and stderr streams, configuring setup and teardown fixtures, or integrating automated Bats test suites into CI/CD pipelines.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "brain-to-docs",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/brain-to-docs/SKILL.md",
+    "correctedDescription": "Conducts structured user interviews to transform project vision, architectural choices, and technical trade-offs into markdown documentation. Use when capturing engineering decisions into numbered docs/adr/ ADR files, structuring project README.md vision statements, or updating documentation through an iterative question loop.",
+    "charCount": 324,
+    "discriminants": [
+      "ADR",
+      "docs/adr/",
+      "README.md",
+      "interview loop",
+      "decision records",
+      "vision documentation"
+    ],
+    "cleanFrontmatter": "name: brain-to-docs\ndescription: \"Conducts structured user interviews to transform project vision, architectural choices, and technical trade-offs into markdown documentation. Use when capturing engineering decisions into numbered docs/adr/ ADR files, structuring project README.md vision statements, or updating documentation through an iterative question loop.\"\ncategory: productivity\nrisk: critical\nsource: community\nsource_repo: davidondrej/skills\nsource_type: community\ndate_added: \"2026-07-07\"\nauthor: davidondrej\ntags:\n  - documentation\n  - adr\n  - planning\ntools:\n  - claude\n  - codex\nlicense: \"MIT\"\nlicense_source: \"https://github.com/davidondrej/skills/blob/main/LICENSE\""
+  },
+  {
+    "skillName": "conductor-implement",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/conductor-implement/SKILL.md",
+    "correctedDescription": "Executes tasks from Conductor track implementation plans following red-green-refactor TDD cycles, spec requirements, and workflow guidelines. Use when implementing conductor/tracks/ plan tasks sequentially, updating metadata.json and markdown task status checkpoints, or performing automated git commits for completed track phases.",
+    "charCount": 327,
+    "discriminants": [
+      "Conductor tracks",
+      "conductor/tracks/",
+      "plan.md",
+      "spec.md",
+      "metadata.json",
+      "workflow.md",
+      "TDD red-green-refactor",
+      "task status"
+    ],
+    "cleanFrontmatter": "name: conductor-implement\ndescription: \"Executes tasks from Conductor track implementation plans following red-green-refactor TDD cycles, spec requirements, and workflow guidelines. Use when implementing conductor/tracks/ plan tasks sequentially, updating metadata.json and markdown task status checkpoints, or performing automated git commits for completed track phases.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "conductor-revert",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/conductor-revert/SKILL.md",
+    "correctedDescription": "Performs git-aware rollback of Conductor tracks, phases, or individual tasks by identifying matching commit hashes and executing clean reverts. Use when rolling back specific track changes, reversing completed tasks in conductor/tracks/plan.md, or restoring metadata.json and git working tree state after failed implementation units.",
+    "charCount": 332,
+    "discriminants": [
+      "Conductor revert",
+      "conductor/tracks/",
+      "plan.md",
+      "metadata.json",
+      "git revert",
+      "commit SHAs",
+      "track:phase",
+      "track:task"
+    ],
+    "cleanFrontmatter": "name: conductor-revert\ndescription: \"Performs git-aware rollback of Conductor tracks, phases, or individual tasks by identifying matching commit hashes and executing clean reverts. Use when rolling back specific track changes, reversing completed tasks in conductor/tracks/plan.md, or restoring metadata.json and git working tree state after failed implementation units.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "cqrs-implementation",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/cqrs-implementation/SKILL.md",
+    "correctedDescription": "Implements Command Query Responsibility Segregation (CQRS) architectures by decoupling write command handling from read query models. Use when separating read and write data models, designing asynchronous read projections, optimizing query performance under heavy read workloads, or implementing event-sourced domain models.",
+    "charCount": 323,
+    "discriminants": [
+      "CQRS",
+      "Command Query Responsibility Segregation",
+      "read model",
+      "write model",
+      "read projections",
+      "command handlers",
+      "event sourcing",
+      "eventual consistency"
+    ],
+    "cleanFrontmatter": "name: cqrs-implementation\ndescription: \"Implements Command Query Responsibility Segregation (CQRS) architectures by decoupling write command handling from read query models. Use when separating read and write data models, designing asynchronous read projections, optimizing query performance under heavy read workloads, or implementing event-sourced domain models.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  }
+]

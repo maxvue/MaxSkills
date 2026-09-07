@@ -1,6 +1,6 @@
---- 
+---
 name: magic-ui-generator
-description: "Comprehensive engineering guide and best practices for magic ui generator. Use when configuring, developing, debugging, or optimizing magic ui generator architecture in production systems. Guides architecture, best practices, and implementation standards for magic ui generator."
+description: "Generates responsive UI component variations and design directions using Magic by 21st.dev inspired by Shadcn UI, Magic UI, and Aceternity. Produces production-ready TypeScript code configured with Tailwind CSS, Framer Motion, and SVGL icons. Use when creating landing page components, pricing tables, hero sections, or animated interfaces via Magic 21st.dev."
 risk: safe
 source: community
 date_added: "2026-03-07"

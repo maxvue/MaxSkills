@@ -1,0 +1,57 @@
+[
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/handoff/SKILL.md",
+    "name": "handoff",
+    "desc": "Compact the current conversation into a handoff document for another agent to pick up. Use when developing, optimizing, debugging, or configuring handoff in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for handoff."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/hasdata/SKILL.md",
+    "name": "hasdata",
+    "desc": "Use HasData APIs for web scraping and structured web data extraction. Use when developing, optimizing, debugging, or configuring hasdata in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for hasdata."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/hig-patterns/SKILL.md",
+    "name": "hig-patterns",
+    "desc": "Apple Human Interface Guidelines interaction and UX patterns. Use when developing, optimizing, debugging, or configuring hig patterns in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for hig patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/libreoffice/base/SKILL.md",
+    "name": "base",
+    "desc": "Database management, forms, reports, and data operations with LibreOffice Base. Use when developing, optimizing, debugging, or configuring libreoffice/base in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for base."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/llm-council/SKILL.md",
+    "name": "llm-council",
+    "desc": "Run Fireworks-hosted open-weight model councils that compare responses and synthesize a final answer. Use when developing, optimizing, debugging, or configuring llm council in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for llm council."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/m365-agents-ts/SKILL.md",
+    "name": "m365-agents-ts",
+    "desc": "Microsoft 365 Agents SDK for TypeScript/Node.js. Use when developing, optimizing, debugging, or configuring m365 agents ts in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for m365 agents ts."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/markdown-rendering/SKILL.md",
+    "name": "markdown-rendering",
+    "desc": "Open Markdown reliably in cmux panes and recover from blank rendered surfaces. Use when developing, optimizing, debugging, or configuring markdown rendering in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for markdown rendering."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/monopoly/security-checklist/SKILL.md",
+    "name": "security-checklist",
+    "desc": "Reference document for monopoly security-checklist. Use when developing, optimizing, debugging, or configuring security checklist in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for security checklist."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/nextjs-supabase-auth/SKILL.md",
+    "name": "nextjs-supabase-auth",
+    "desc": "Expert integration of Supabase Auth with Next.js App Router Use when developing, optimizing, debugging, or configuring nextjs supabase auth in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for nextjs supabase auth."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/page-cro/SKILL.md",
+    "name": "page-cro",
+    "desc": "Analyze and optimize individual pages for conversion performance. Use when developing, optimizing, debugging, or configuring page cro in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for page cro."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/performance-profiling/SKILL.md",
+    "name": "performance-profiling",
+    "desc": "Performance profiling principles. Measurement, analysis, and optimization techniques. Use when developing, optimizing, debugging, or configuring performance profiling in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for performance profiling."
+  }
+]

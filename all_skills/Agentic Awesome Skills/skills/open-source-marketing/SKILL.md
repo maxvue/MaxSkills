@@ -1,11 +1,11 @@
 ---
 name: open-source-marketing
-description: "Comprehensive engineering guide and best practices for open source marketing. Use when configuring, developing, debugging, or optimizing open source marketing architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for open source marketing."
+description: "Optimizes open-source projects for discoverability, developer adoption, and contributor growth. Formats GitHub README files, dynamic badges, CONTRIBUTING.md guides, issue templates, and launch playbooks for Hacker News and Reddit. Use when launching OSS repositories, establishing contributor funnels, or monitoring traction with Octolens and Star History."
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/open-source-marketing
 source_repo: jonathimer/devmarketing-skills
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE
 ---

@@ -1,14 +1,6 @@
 ---
 name: agentic-actions-auditor
-description: "> Use when developing, optimizing, debugging, or configuring agentic actions auditor in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agentic actions auditor."
-  Audits GitHub Actions workflows for security
-  vulnerabilities in AI agent integrations 
-  including Claude Code Action, 
-  Gemini CLI, OpenAI Codex, and GitHub AI 
-  Inference. 
-  Detects attack vectors where attacker-controlled 
-  input reaches.
-  AI agents running in CI/CD pipelines.
+description: "Performs static security analysis of GitHub Actions workflows integrating AI coding agents like Claude Code Action, Gemini CLI, or OpenAI Codex. Detects prompt injection paths, dangerous trigger events, and excessive runner permissions. Use when auditing CI/CD workflows for AI agent vulnerabilities, pull_request_target risks, untrusted prompt inputs, or sandbox misconfigurations."
 risk: safe
 source: community
 date_added: 2026-03-18

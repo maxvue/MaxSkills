@@ -1,7 +1,6 @@
 ---
 name: ai-agents-architect
-description: "Expert in designing and building autonomous AI agents. Masters tool Use when developing, optimizing, debugging, or configuring ai agents architect in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ai agents architect."
-  use, memory systems, planning strategies, and multi-agent orchestration.
+description: "Architects autonomous AI agent systems, structuring execution loops (ReAct, Plan-and-Execute), dynamic tool registries, hierarchical memory, and multi-agent coordination topologies. Defines failure boundaries, recovery strategies, and guardrails. Use when designing agent architectures, selecting execution loops, organizing tool registries, or implementing multi-agent coordination patterns."
 risk: none
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27

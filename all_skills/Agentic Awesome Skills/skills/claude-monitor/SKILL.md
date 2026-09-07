@@ -1,21 +1,21 @@
 ---
 name: claude-monitor
-description: "Comprehensive engineering guide and best practices for claude monitor. Use when configuring, developing, debugging, or optimizing claude monitor architecture in production systems. Guides architecture, best practices, and implementation standards for claude monitor."
+description: "Diagnose performance bottlenecks, high CPU, and RAM pressure in Claude Code and local processes using psutil and health check scripts. Identifies browser process leaks, disk swap saturation, and Anthropic API latency. Use when troubleshooting system slowdowns, UI lag, or session switching delays during Claude Code execution."
 risk: safe
 source: community
 date_added: '2026-03-06'
 author: renat
 tags:
-- monitoring
-- performance
-- diagnostics
-- system-health
+  - monitoring
+  - performance
+  - diagnostics
+  - system-health
 tools:
-- claude-code
-- antigravity
-- cursor
-- gemini-cli
-- codex-cli
+  - claude-code
+  - antigravity
+  - cursor
+  - gemini-cli
+  - codex-cli
 ---
 
 # Claude Monitor — Diagnóstico de Performance

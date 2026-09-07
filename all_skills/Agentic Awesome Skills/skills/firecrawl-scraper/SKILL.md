@@ -1,6 +1,6 @@
 ---
 name: firecrawl-scraper
-description: "Comprehensive engineering guide and best practices for firecrawl scraper. Use when configuring, developing, debugging, or optimizing firecrawl scraper architecture in production systems. Guides architecture, best practices, and implementation standards for firecrawl scraper."
+description: "Performs web crawling, deep content extraction, screenshot capture, and PDF parsing via the Firecrawl API. Use when scraping JavaScript-rendered web pages requiring browser interactions like clicking and scrolling, batch scraping multiple URLs, or extracting clean markdown from entire website domains."
 risk: critical
 source: community
 date_added: "2026-02-27"

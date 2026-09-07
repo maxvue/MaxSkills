@@ -1,6 +1,6 @@
 ---
 name: debugging-toolkit
-description: "Comprehensive engineering guide and best practices for debugging toolkit. Use when configuring, developing, debugging, or optimizing debugging toolkit architecture in production systems. Guides architecture, best practices, and implementation standards for debugging toolkit."
+description: "Alias redirecting to canonical skill debugging-toolkit-smart-debug for structured code debugging. Use when troubleshooting complex software defects, analyzing error logs, isolating execution regressions, or needing guided smart debug routines and systematic error isolation across codebases."
 risk: none
 source: "alias"
 date_added: "2026-06-02"

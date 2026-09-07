@@ -1,0 +1,76 @@
+[
+  {
+    "skillName": "vue-vitest-testing-best-practices",
+    "relPath": "all_skills/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+    "correctedDescription": "Use when authoring or updating unit and integration tests with Vitest and Vue Test Utils in tests/Js/. Covers Vue 3 SFC mounting, @maxvue/max-pinia cached store state mocks, composable isolation, vi.mock network handlers, flushPromises async ticks, and coverage thresholds for Engeapp frontend suites.",
+    "charCount": 299,
+    "discriminants": [
+      "Vitest",
+      "Vue Test Utils",
+      "tests/Js/",
+      "@maxvue/max-pinia",
+      "vi.mock",
+      "flushPromises",
+      "Vue 3 SFC"
+    ],
+    "cleanFrontmatter": "name: vue-vitest-testing-best-practices\ndescription: \"Use when authoring or updating unit and integration tests with Vitest and Vue Test Utils in tests/Js/. Covers Vue 3 SFC mounting, @maxvue/max-pinia cached store state mocks, composable isolation, vi.mock network handlers, flushPromises async ticks, and coverage thresholds for Engeapp frontend suites.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "context-engineering",
+    "relPath": "all_skills/curated-youtube/context-engineering/SKILL.md",
+    "correctedDescription": "Optimizes AI agent context setup, system prompt budgets, and hierarchical project instructions across AGENTS.md, CLAUDE.md, and scratchpads. Use when starting fresh agent sessions, diagnosing prompt degradation, scoping context windows, or structuring rule files to minimize hallucination and token waste.",
+    "charCount": 305,
+    "discriminants": [
+      "context window",
+      "system prompt",
+      "AGENTS.md",
+      "CLAUDE.md",
+      "scratchpads",
+      "token budget"
+    ],
+    "cleanFrontmatter": "name: context-engineering\ndescription: \"Optimizes AI agent context setup, system prompt budgets, and hierarchical project instructions across AGENTS.md, CLAUDE.md, and scratchpads. Use when starting fresh agent sessions, diagnosing prompt degradation, scoping context windows, or structuring rule files to minimize hallucination and token waste.\"\nrisk: critical\nsource: https://github.com/addyosmani/agent-skills/tree/main/skills/context-engineering\nsource_repo: addyosmani/agent-skills\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "fastapi-templates",
+    "relPath": "all_skills/curated-youtube/fastapi-templates/SKILL.md",
+    "correctedDescription": "Scaffolds production-grade FastAPI applications featuring async route handlers, Pydantic v2 validation models, SQLAlchemy async sessions, and Depends injection. Use when bootstrapping Python backend services, structuring modular APIRouter endpoints, configuring CORS middleware, or writing pytest-asyncio tests.",
+    "charCount": 309,
+    "discriminants": [
+      "FastAPI",
+      "Pydantic v2",
+      "SQLAlchemy async",
+      "Depends",
+      "APIRouter",
+      "pytest-asyncio"
+    ],
+    "cleanFrontmatter": "name: fastapi-templates\ndescription: \"Scaffolds production-grade FastAPI applications featuring async route handlers, Pydantic v2 validation models, SQLAlchemy async sessions, and Depends injection. Use when bootstrapping Python backend services, structuring modular APIRouter endpoints, configuring CORS middleware, or writing pytest-asyncio tests.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "git-workflow-and-versioning",
+    "relPath": "all_skills/curated-youtube/git-workflow/SKILL.md",
+    "correctedDescription": "Structures Git versioning workflows using trunk-based branching, git worktree isolation, atomic conventional commits, and clean interactive rebasing. Use when coordinating multi-branch features, organizing parallel task worktrees, resolving complex merge conflicts, or standardizing team pull request releases.",
+    "charCount": 307,
+    "discriminants": [
+      "trunk-based branching",
+      "git worktree",
+      "conventional commits",
+      "interactive rebasing",
+      "merge conflicts"
+    ],
+    "cleanFrontmatter": "name: git-workflow-and-versioning\ndescription: \"Structures Git versioning workflows using trunk-based branching, git worktree isolation, atomic conventional commits, and clean interactive rebasing. Use when coordinating multi-branch features, organizing parallel task worktrees, resolving complex merge conflicts, or standardizing team pull request releases.\"\nrisk: critical\nsource: https://github.com/addyosmani/agent-skills/tree/main/skills/git-workflow-and-versioning\nsource_repo: addyosmani/agent-skills\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/addyosmani/agent-skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "test-driven-development",
+    "relPath": "all_skills/curated-youtube/test-driven-development/SKILL.md",
+    "correctedDescription": "Enforces strict Red-Green-Refactor test-driven development (TDD) discipline across software engineering workflows. Use when developing new features, fixing bugs, or refactoring code to ensure tests fail first with expected assertions before writing the minimal production implementation necessary to pass.",
+    "charCount": 301,
+    "discriminants": [
+      "Red-Green-Refactor",
+      "TDD",
+      "failing test first",
+      "minimal implementation",
+      "unit testing"
+    ],
+    "cleanFrontmatter": "name: test-driven-development\ndescription: \"Enforces strict Red-Green-Refactor test-driven development (TDD) discipline across software engineering workflows. Use when developing new features, fixing bugs, or refactoring code to ensure tests fail first with expected assertions before writing the minimal production implementation necessary to pass.\""
+  }
+]

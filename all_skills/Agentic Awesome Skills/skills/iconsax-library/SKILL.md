@@ -1,6 +1,6 @@
---- 
+---
 name: iconsax-library
-description: "Comprehensive engineering guide and best practices for iconsax library. Use when configuring, developing, debugging, or optimizing iconsax library architecture in production systems. Guides architecture, best practices, and implementation standards for iconsax library."
+description: "Integrates and customizes Iconsax icon sets across web applications, supporting Linear, Bold, Bulk, and Two-tone styles alongside Iconsax AI generation. Use when standardizing UI icon design systems, embedding crisp 24x24 SVG components, or replacing generic default icons with styled visual sets."
 risk: safe
 source: community
 date_added: "2026-03-07"

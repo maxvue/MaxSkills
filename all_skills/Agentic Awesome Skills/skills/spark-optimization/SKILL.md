@@ -1,6 +1,6 @@
 ---
 name: spark-optimization
-description: "Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use when improving Spark performance, debugging slow jobs, or scaling data processing pipelines. Provides end-to-end guidance, reference architectures, and practical patterns for spark optimization."
+description: "Optimize Apache Spark and PySpark jobs by tuning shuffle partitions, memory allocation, AQE adaptive execution, and serialization with Kryo. Use when resolving Spark performance bottlenecks, data skew with salting or broadcast joins, executor OOM errors, or configuring optimal partition sizing for Parquet pipelines."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,6 +1,6 @@
 ---
 name: bdi-mental-states
-description: "This skill should be used when the user asks to \\"model agent mental states\\", \\"implement BDI architecture\\", \\"create belief-desire-intention models\\", \\"transform RDF to beliefs\\", \\"build cognitive agent\\", or mentions BDI ontology, mental state modeling, rational agency, or neuro-symbolic AI integration. Use when developing, optimizing, debugging, or configuring bdi mental..."
+description: "Transforms RDF semantic graphs into cognitive agent mental states (Beliefs, Desires, Intentions) using formal BDI ontology patterns and Turtle/SPARQL. Use when modeling rational agency, deliberative reasoning chains, mental state temporal transitions, or implementing BDI cognitive architectures for multi-agent systems in SEMAS, JADE, or JADEX."
 risk: critical
 source: community
 ---

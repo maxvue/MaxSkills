@@ -1,6 +1,6 @@
 ---
 name: aws-secrets-rotation
-description: "Automate AWS secrets rotation for RDS, API keys, and credentials Use when developing, optimizing, debugging, or configuring aws secrets rotation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for aws secrets rotation."
+description: "Automate credential rotation schedules using AWS Secrets Manager and AWS Lambda execution functions. Use when configuring rotation lifecycle steps createSecret, setSecret, testSecret, and finishSecret with boto3 for RDS databases, DocumentDB, Redshift, or third-party API tokens such as Stripe keys."
 category: security
 risk: safe
 source: community

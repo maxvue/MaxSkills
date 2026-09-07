@@ -1,6 +1,6 @@
 ---
 name: aegisops-ai
-description: "Comprehensive engineering guide and best practices for aegisops ai. Use when configuring, developing, debugging, or optimizing aegisops ai architecture in production systems. Guides architecture, best practices, and implementation standards for aegisops ai."
+description: "Automates infrastructure security audits, Linux kernel C patch reviews, and Kubernetes hardening using Google GenAI SDK. Analyzes Git diffs for memory safety flaws, checks Terraform plans for cost drifts, and generates securityContext YAML. Use when auditing kernel patches for UAF errors, checking Terraform diffs for cost spikes, or hardening Kubernetes deployment policies."
 risk: safe
 source: community
 author: Champbreed

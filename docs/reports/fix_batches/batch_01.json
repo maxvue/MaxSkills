@@ -1,0 +1,72 @@
+[
+  {
+    "rel_path": "Agentic Awesome Skills/skills/2slides-ppt-generator/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/2slides-ppt-generator/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/aegisops-ai/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/aegisops-ai/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/agent-evaluation/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/agent-evaluation/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/agent-memory-systems/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/agent-memory-systems/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/agent-tool-builder/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/agent-tool-builder/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/agentic-actions-auditor/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/agentic-actions-auditor/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/ai-agents-architect/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/ai-agents-architect/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/animejs-animation/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/animejs-animation/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/api-analyzer/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/api-analyzer/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/architect-review/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/architect-review/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  }
+]

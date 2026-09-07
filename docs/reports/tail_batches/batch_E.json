@@ -1,0 +1,57 @@
+[
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/spark-optimization/SKILL.md",
+    "name": "spark-optimization",
+    "desc": "Optimize Apache Spark jobs with partitioning, caching, shuffle optimization, and memory tuning. Use when improving Spark performance, debugging slow jobs, or scaling data processing pipelines. Provides end-to-end guidance, reference architectures, and practical patterns for spark optimization."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/super-code/typescript/SKILL.md",
+    "name": "typescript",
+    "desc": "Language-specific super-code guidelines for typescript. Use when developing, optimizing, debugging, or configuring typescript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for typescript."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-a11y/SKILL.md",
+    "name": "ui-a11y",
+    "desc": "Audit a component or page for accessibility issues and fix them Use when developing, optimizing, debugging, or configuring ui a11y in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui a11y."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-lint/SKILL.md",
+    "name": "ui-lint",
+    "desc": "Quick automated lint — detects common design system violations in seconds Use when developing, optimizing, debugging, or configuring ui lint in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui lint."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-page/SKILL.md",
+    "name": "ui-page",
+    "desc": "Scaffold a new mobile page/screen using the StyleSeed layout patterns Use when developing, optimizing, debugging, or configuring ui page in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui page."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-tokens/SKILL.md",
+    "name": "ui-tokens",
+    "desc": "View, add, or modify design tokens in the StyleSeed design system Use when developing, optimizing, debugging, or configuring ui tokens in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui tokens."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ui-update/SKILL.md",
+    "name": "ui-update",
+    "desc": "Update StyleSeed engine in your project — analyzes what's outdated and updates safely Use when developing, optimizing, debugging, or configuring ui update in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui update."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/unship/SKILL.md",
+    "name": "unship",
+    "desc": "Compare AI agent-made UI variants locally in a real app, then keep one and clean up unused temporary code. Use when developing, optimizing, debugging, or configuring unship in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for unship."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ux-audit/SKILL.md",
+    "name": "ux-audit",
+    "desc": "Audit screens for UX issues using Nielsen's heuristics and modern mobile UX best practices Use when developing, optimizing, debugging, or configuring ux audit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux audit."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ux-feedback/SKILL.md",
+    "name": "ux-feedback",
+    "desc": "Add appropriate user feedback states (loading, success, error, empty) to a component or page Use when developing, optimizing, debugging, or configuring ux feedback in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux feedback."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/ux-flow/SKILL.md",
+    "name": "ux-flow",
+    "desc": "Design user flows and navigation structure following proven UX patterns Use when developing, optimizing, debugging, or configuring ux flow in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux flow."
+  }
+]

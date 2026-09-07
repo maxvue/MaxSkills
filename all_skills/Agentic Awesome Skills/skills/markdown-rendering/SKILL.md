@@ -1,6 +1,6 @@
 ---
 name: markdown-rendering
-description: "Open Markdown reliably in cmux panes and recover from blank rendered surfaces. Use when developing, optimizing, debugging, or configuring markdown rendering in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for markdown rendering."
+description: "Displays Markdown files reliably in cmux terminal multiplexer panes while preventing and recovering from blank surface rendering bugs caused by move-surface. Use when opening Markdown docs in cmux side panes, managing workspace pane layouts via cmux CLI, or resetting corrupted cmux markdown view surfaces."
 category: productivity
 risk: safe
 source: community
@@ -8,8 +8,13 @@ source_repo: davidondrej/skills
 source_type: community
 date_added: "2026-07-07"
 author: davidondrej
-tags: [markdown, cmux, rendering]
-tools: [claude, codex]
+tags:
+  - markdown
+  - cmux
+  - rendering
+tools:
+  - claude
+  - codex
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---

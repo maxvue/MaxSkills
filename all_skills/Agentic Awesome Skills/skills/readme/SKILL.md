@@ -1,6 +1,6 @@
 ---
 name: readme
-description: "Comprehensive engineering guide and best practices for readme. Use when configuring, developing, debugging, or optimizing readme architecture in production systems. Guides architecture, best practices, and implementation standards for readme."
+description: "Audits project codebases to generate exhaustive README.md documentation. Details local development setup, directory architecture, request lifecycles, environment variable tables, test execution, and deployment configurations (Docker, Kamal, Fly.io). Use when creating or updating a README.md file, establishing developer onboarding docs, or documenting system architecture from code."
 risk: safe
 source: "https://github.com/Shpigford/skills/tree/main/readme"
 date_added: "2026-02-27"

@@ -1,0 +1,72 @@
+[
+  {
+    "rel_path": "Agentic Awesome Skills/skills/growth-engine/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/growth-engine/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/hugging-face-tool-builder/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/hugging-face-tool-builder/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/iconsax-library/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/iconsax-library/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/javascript-pro/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/javascript-pro/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/keyword-extractor/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/keyword-extractor/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/langfuse/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/langfuse/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/llm-application-dev-ai-assistant/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/llm-application-dev-ai-assistant/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/llm-application-dev-prompt-optimize/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/llm-application-dev-prompt-optimize/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/llm-structured-output/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/llm-structured-output/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/logic-diff/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/logic-diff/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  }
+]

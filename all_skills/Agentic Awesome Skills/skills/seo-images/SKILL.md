@@ -1,10 +1,6 @@
 ---
 name: seo-images
-description: "> Use when developing, optimizing, debugging, or configuring seo images in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo images. Use when developing, optimizing, testing, or configuring seo images in production environments."
-  Image optimization analysis for SEO and performance. Checks alt text, file
-  sizes, formats, responsive images, lazy loading, and CLS prevention. Use when
-  user says "image optimization", "alt text", "image SEO", "image size",
-  or "image audit".
+description: "Audits web images for SEO and performance, evaluating alt text quality, file size thresholds, WebP/AVIF formats, and picture tag fallbacks. Analyzes responsive srcset and sizes, loading=lazy, fetchpriority=high on LCP assets, and dimension attributes to prevent CLS. Use when optimizing image delivery, resolving layout shifts, or auditing page media for Core Web Vitals."
 risk: safe
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"

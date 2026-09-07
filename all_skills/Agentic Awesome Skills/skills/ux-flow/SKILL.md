@@ -1,11 +1,11 @@
 ---
 name: ux-flow
-description: "Design user flows and navigation structure following proven UX patterns Use when developing, optimizing, debugging, or configuring ux flow in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ux flow."
+description: "Design structured user flows, information architecture, and multi-screen mobile navigation patterns. Use when mapping application paths like hub-and-spoke or linear multi-step funnels, defining screen inventories with 3-tap reachability, and planning PageShell, TopBar, and BottomNav layouts before page scaffolding."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-flow
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

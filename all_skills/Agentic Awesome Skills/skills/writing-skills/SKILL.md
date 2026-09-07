@@ -1,6 +1,6 @@
 ---
 name: writing-skills
-description: "Use when creating, updating, or improving agent skills. Guides architecture, best practices, and implementation standards for writing skills. Provides end-to-end guidance, reference architectures, and practical patterns for writing skills."
+description: "Guides architectural structuring and authoring of agent skills across Tier 1, Tier 2, and Tier 3 patterns. Applies Context Search Optimization (CSO), anti-rationalization rules, and YAML frontmatter standards. Use when designing, authoring, modularizing, or testing new and existing AI agent skills."
 category: meta
 risk: critical
 source: community

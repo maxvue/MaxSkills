@@ -1,6 +1,6 @@
 ---
 name: tdd-workflows-tdd-red
-description: "Comprehensive engineering guide and best practices for tdd workflows tdd red. Use when configuring, developing, debugging, or optimizing tdd workflows tdd red architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for tdd workflows tdd red."
+description: "Generates comprehensive failing tests defining expected behaviors and edge cases during the TDD red phase. Use when starting test-driven development before implementation, establishing Arrange-Act-Assert specifications, or validating failure states across Jest, Vitest, pytest, Go, or RSpec."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,0 +1,79 @@
+[
+  {
+    "rel_path": "Agentic Awesome Skills/skills/ui-ux-designer/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/ui-ux-designer/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/user-thoughts/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/user-thoughts/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/using-neon/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/using-neon/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/uxui-principles/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/uxui-principles/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/vscode-extension-guide-en/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/vscode-extension-guide-en/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/wiki-changelog/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/wiki-changelog/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/wiki-vitepress/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/wiki-vitepress/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/youtube-seo-optimizer/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/youtube-seo-optimizer/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  },
+  {
+    "rel_path": "Agentic Awesome Skills/skills/youtube-summarizer/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/Agentic Awesome Skills/skills/youtube-summarizer/SKILL.md",
+    "reasons": [
+      "generic_template_desc"
+    ]
+  },
+  {
+    "rel_path": "created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/created-skills/backend_laravel/laravel-browser-automation-webdriver/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while scanning a double-quoted scalar"
+    ]
+  },
+  {
+    "rel_path": "curated-youtube/browser-automation/SKILL.md",
+    "full_path": "/home/johnattas/GitHub/MaxSkills/.max-code-worktrees/wt-e15fb46e/all_skills/curated-youtube/browser-automation/SKILL.md",
+    "reasons": [
+      "yaml_parse_error: while parsing a block mapping"
+    ]
+  }
+]

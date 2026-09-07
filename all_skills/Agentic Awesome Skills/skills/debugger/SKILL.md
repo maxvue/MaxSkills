@@ -1,10 +1,6 @@
 ---
 name: debugger
-description: "Comprehensive engineering guide and best practices for debugger. Use when configuring, developing, debugging, or optimizing debugger architecture in production systems. Guides architecture, best practices, and implementation standards for debugger."
-
-  behavior. Use proactively when encountering any issues.
-
-  '
+description: "Diagnoses software defects, analyzes stack traces, and isolates root causes for systematic bug resolution. Use when investigating unexpected runtime exceptions, service crashes, test failures, or silent logic bugs requiring log analysis, hypothesis testing, variable state inspection, and verified minimal fixes."
 risk: safe
 source: community
 date_added: '2026-02-27'

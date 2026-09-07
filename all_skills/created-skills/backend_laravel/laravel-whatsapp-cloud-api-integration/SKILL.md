@@ -1,6 +1,6 @@
 ---
 name: laravel-whatsapp-cloud-api-integration
-description: "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Provides end-to-end guidance, reference architectures, and practical patterns for laravel whatsapp cloud api integration."
+description: "Use when building or debugging WhatsApp Cloud API integrations in Laravel using netflie/whatsapp-cloud-api. Covers hub_challenge webhook verification, two-stage queue pipelines (webhooks and whatsapp queues), WebhookWhatsappJobExecuteJob, SupportMessage and SupportContact persistence, PhoneClass helpers, and NotifyRetryingWhatsappMiddleware."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo

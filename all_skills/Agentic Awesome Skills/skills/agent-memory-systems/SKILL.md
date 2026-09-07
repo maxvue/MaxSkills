@@ -1,9 +1,6 @@
 ---
 name: agent-memory-systems
-description: "Memory is the cornerstone of intelligent agents. Without it, every Use when developing, optimizing, debugging, or configuring agent memory systems in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agent memory systems."
-  interaction starts from zero. This skill covers the architecture of agent
-  memory: short-term (context window), long-term (vector stores), and the
-  cognitive architectures that organize them."
+description: "Architects multi-tier memory systems for LLM agents based on the CoALA framework, managing short-term context, episodic experiences, and semantic knowledge. Integrates LangMem, MemGPT, Letta, Mem0, and vector stores like Qdrant or pgvector. Use when designing agent memory tiers, implementing context paging, structuring episodic or semantic recall, or configuring memory decay pipelines."
 risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27

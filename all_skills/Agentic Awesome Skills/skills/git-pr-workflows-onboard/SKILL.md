@@ -1,6 +1,6 @@
 ---
 name: git-pr-workflows-onboard
-description: "Comprehensive engineering guide and best practices for git pr workflows onboard. Use when configuring, developing, debugging, or optimizing git pr workflows onboard architecture in production systems."
+description: "Guides structured technical onboarding for software engineers across Day 1 through 90-day milestones. Use when setting up developer environments, introducing repository architectures and Git pull request workflows, configuring CI/CD and linting practices, or establishing engineering buddy mentorships."
 risk: critical
 source: community
 date_added: "2026-02-27"

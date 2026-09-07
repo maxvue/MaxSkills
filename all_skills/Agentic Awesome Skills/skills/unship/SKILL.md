@@ -1,6 +1,6 @@
 ---
 name: unship
-description: "Compare AI agent-made UI variants locally in a real app, then keep one and clean up unused temporary code. Use when developing, optimizing, debugging, or configuring unship in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for unship."
+description: "Compare AI-generated UI alternatives in local running apps using temporary markup and interactive browser pickers. Use when creating frontend variations with data-unship-pick and data-unship-option, evaluating competing component designs locally, and automatically pruning rejected variant code before shipping."
 category: development
 risk: critical
 source: community

@@ -1,6 +1,6 @@
 ---
 name: youtube-transcript
-description: "Fetch YouTube transcripts through DeepAPI or local fallback tooling and save clean text output. Use when developing, optimizing, debugging, or configuring youtube transcript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for youtube transcript."
+description: "Extracts YouTube video transcripts and captions into clean text files using DeepAPI (/v1/scrape/youtube/transcript) with local yt-dlp json3 fallback parsing. Handles polling, multi-language subtitles, and bot-detection limits. Use when fetching YouTube video transcripts, subtitles, or spoken dialogue."
 category: research
 risk: safe
 source: community

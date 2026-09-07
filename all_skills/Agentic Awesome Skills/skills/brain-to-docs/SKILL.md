@@ -1,6 +1,6 @@
 ---
 name: brain-to-docs
-description: "Interview the user to turn project vision and decisions into README and ADR documentation. Use when developing, optimizing, debugging, or configuring brain to docs in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for brain to docs."
+description: "Conducts structured user interviews to transform project vision, architectural choices, and technical trade-offs into markdown documentation. Use when capturing engineering decisions into numbered docs/adr/ ADR files, structuring project README.md vision statements, or updating documentation through an iterative question loop."
 category: productivity
 risk: critical
 source: community
@@ -8,8 +8,13 @@ source_repo: davidondrej/skills
 source_type: community
 date_added: "2026-07-07"
 author: davidondrej
-tags: [documentation, adr, planning]
-tools: [claude, codex]
+tags:
+  - documentation
+  - adr
+  - planning
+tools:
+  - claude
+  - codex
 license: "MIT"
 license_source: "https://github.com/davidondrej/skills/blob/main/LICENSE"
 ---

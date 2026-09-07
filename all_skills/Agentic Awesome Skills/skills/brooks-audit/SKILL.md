@@ -1,11 +1,11 @@
 ---
 name: brooks-audit
-description: "Comprehensive engineering guide and best practices for brooks audit. Use when configuring, developing, debugging, or optimizing brooks audit architecture in production systems. Guides architecture, best practices, and implementation standards for brooks audit."
+description: "Performs architectural audits using the Brooks-Lint framework to map module dependencies and detect structural decay across codebases. Use when analyzing architectural integrity, visualizing dependency graphs in Mermaid, flagging circular imports and layering violations, evaluating Conway's Law alignment, or generating developer onboarding tours."
 risk: safe
 source: https://github.com/hyhmrright/brooks-lint/tree/main/skills/brooks-audit
 source_repo: hyhmrright/brooks-lint
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/hyhmrright/brooks-lint/blob/main/LICENSE
 ---

@@ -1,6 +1,6 @@
 ---
 name: marketing-ideas
-description: "Comprehensive engineering guide and best practices for marketing ideas. Use when configuring, developing, debugging, or optimizing marketing ideas architecture in production systems. Guides architecture, best practices, and implementation standards for marketing ideas."
+description: "Filters, scores, and prioritizes SaaS growth and acquisition channels from a 140-idea catalog using the Marketing Feasibility Score (MFS). Evaluates impact, effort, cost, speed to signal, and lifecycle stage fit from pre-launch to scale. Use when selecting and ranking viable SaaS marketing experiments, GTM tactics, or customer acquisition strategies without idea dumping."
 risk: safe
 source: community
 date_added: "2026-02-27"

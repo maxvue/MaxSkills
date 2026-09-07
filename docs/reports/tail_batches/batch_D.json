@@ -1,0 +1,57 @@
+[
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/pi-custom-model/SKILL.md",
+    "name": "pi-custom-model",
+    "desc": "Register custom Pi Agent model slugs so saved OpenRouter variants resolve correctly. Use when developing, optimizing, debugging, or configuring pi custom model in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for pi custom model."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/podcast-generation/SKILL.md",
+    "name": "podcast-generation",
+    "desc": "Generate real audio narratives from text content using Azure OpenAI's Realtime API. Use when developing, optimizing, debugging, or configuring podcast generation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for podcast generation."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/python-testing-patterns/SKILL.md",
+    "name": "python-testing-patterns",
+    "desc": "Implement comprehensive testing strategies with pytest, fixtures, mocking, and test-driven development. Use when writing Python tests, setting up test suites, or implementing testing best practices. Provides end-to-end guidance, reference architectures, and practical patterns for python testing patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/react-component-performance/SKILL.md",
+    "name": "react-component-performance",
+    "desc": "Diagnose slow React components and suggest targeted performance fixes. Use when developing, optimizing, debugging, or configuring react component performance in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for react component performance."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/react-patterns/SKILL.md",
+    "name": "react-patterns",
+    "desc": "Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. Use when developing, optimizing, debugging, or configuring react patterns in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for react patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/receiving-code-review/SKILL.md",
+    "name": "receiving-code-review",
+    "desc": "Code review requires technical evaluation, not emotional performance. Use when developing, optimizing, debugging, or configuring receiving code review in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for receiving code review."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/remotion-best-practices/SKILL.md",
+    "name": "remotion-best-practices",
+    "desc": "Best practices for Remotion - Video creation in React Use when developing, optimizing, debugging, or configuring remotion best practices in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for remotion best practices."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/resolving-merge-conflicts/SKILL.md",
+    "name": "resolving-merge-conflicts",
+    "desc": "Use when you need to resolve an in-progress git merge/rebase conflict. Guides architecture, best practices, and implementation standards for resolving merge conflicts. Provides end-to-end guidance, reference architectures, and practical patterns for resolving merge conflicts."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/security-requirement-extraction/SKILL.md",
+    "name": "security-requirement-extraction",
+    "desc": "Derive security requirements from threat models and business context. Use when translating threats into actionable requirements, creating security user stories, or building security test cases. Provides end-to-end guidance, reference architectures, and practical patterns for security requirement extraction."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/security/aws-secrets-rotation/SKILL.md",
+    "name": "aws-secrets-rotation",
+    "desc": "Automate AWS secrets rotation for RDS, API keys, and credentials Use when developing, optimizing, debugging, or configuring aws secrets rotation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for aws secrets rotation."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/smart-git-automation/SKILL.md",
+    "name": "smart-git-automation",
+    "desc": "Smart change detection, auto branch naming, and streamlined commit/PR workflow Use when developing, optimizing, debugging, or configuring smart git automation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for smart git automation."
+  }
+]

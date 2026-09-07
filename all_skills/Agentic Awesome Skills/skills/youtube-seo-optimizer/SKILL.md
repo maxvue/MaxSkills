@@ -1,9 +1,6 @@
 ---
 name: youtube-seo-optimizer
-description: "> Use when developing, optimizing, debugging, or configuring youtube seo optimizer in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for youtube seo optimizer."
-  Generate complete YouTube & podcast SEO packages with live-researched keywords —
-  titles, descriptions, tags, hashtags, chapters, and audit fixes. Use for new or
-  underperforming content.
+description: "Generate optimized metadata packages and SEO audits for YouTube videos, podcasts, and Shorts. Use when conducting live keyword research via web search to create search-optimized titles, descriptions, tags, hashtags, and chapter timestamps, or auditing underperforming video metadata to increase ranking."
 risk: safe
 source: community
 source_type: community

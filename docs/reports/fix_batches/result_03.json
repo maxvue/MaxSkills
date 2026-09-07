@@ -1,0 +1,157 @@
+[
+  {
+    "skillName": "claude-monitor",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/claude-monitor/SKILL.md",
+    "correctedDescription": "Diagnose performance bottlenecks, high CPU, and RAM pressure in Claude Code and local processes using psutil and health check scripts. Identifies browser process leaks, disk swap saturation, and Anthropic API latency. Use when troubleshooting system slowdowns, UI lag, or session switching delays during Claude Code execution.",
+    "charCount": 326,
+    "discriminants": [
+      "Claude Code",
+      "psutil",
+      "health_check.py",
+      "Anthropic API latency",
+      "CPU/RAM",
+      "browser processes"
+    ],
+    "cleanFrontmatter": "name: claude-monitor\ndescription: \"Diagnose performance bottlenecks, high CPU, and RAM pressure in Claude Code and local processes using psutil and health check scripts. Identifies browser process leaks, disk swap saturation, and Anthropic API latency. Use when troubleshooting system slowdowns, UI lag, or session switching delays during Claude Code execution.\"\nrisk: safe\nsource: community\ndate_added: '2026-03-06'\nauthor: renat\ntags:\n  - monitoring\n  - performance\n  - diagnostics\n  - system-health\ntools:\n  - claude-code\n  - antigravity\n  - cursor\n  - gemini-cli\n  - codex-cli"
+  },
+  {
+    "skillName": "clerk-auth",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/clerk-auth/SKILL.md",
+    "correctedDescription": "Implement Clerk authentication and multi-tenant authorization in Next.js App Router applications. Configures ClerkProvider, clerkMiddleware, createRouteMatcher, auth(), currentUser(), Client hooks, and Svix webhook signature verification. Use when integrating Clerk auth, setting up RBAC organizations, or syncing user lifecycle events with Prisma or PostgreSQL.",
+    "charCount": 362,
+    "discriminants": [
+      "Clerk",
+      "Next.js App Router",
+      "ClerkProvider",
+      "clerkMiddleware",
+      "createRouteMatcher",
+      "Svix",
+      "Prisma"
+    ],
+    "cleanFrontmatter": "name: clerk-auth\ndescription: \"Implement Clerk authentication and multi-tenant authorization in Next.js App Router applications. Configures ClerkProvider, clerkMiddleware, createRouteMatcher, auth(), currentUser(), Client hooks, and Svix webhook signature verification. Use when integrating Clerk auth, setting up RBAC organizations, or syncing user lifecycle events with Prisma or PostgreSQL.\"\nrisk: safe\nsource: \"vibeship-spawner-skills (Apache 2.0)\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "competitor-tracking",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/competitor-tracking/SKILL.md",
+    "correctedDescription": "Execute competitive intelligence and competitor tracking for developer tools and software products. Tracks feature matrices, pricing tiers, messaging changes, GitHub traction signals, and community sentiment across social platforms. Use when benchmarking competitors, analyzing developer tool positioning, or creating competitive battlecards with win-loss frameworks.",
+    "charCount": 368,
+    "discriminants": [
+      "competitive intelligence",
+      "feature matrix",
+      "pricing tiers",
+      "GitHub traction signals",
+      "battlecards",
+      "win-loss frameworks"
+    ],
+    "cleanFrontmatter": "name: competitor-tracking\ndescription: \"Execute competitive intelligence and competitor tracking for developer tools and software products. Tracks feature matrices, pricing tiers, messaging changes, GitHub traction signals, and community sentiment across social platforms. Use when benchmarking competitors, analyzing developer tool positioning, or creating competitive battlecards with win-loss frameworks.\"\nrisk: critical\nsource: \"https://github.com/jonathimer/devmarketing-skills/tree/main/skills/competitor-tracking\"\nsource_repo: \"jonathimer/devmarketing-skills\"\nsource_type: community\ndate_added: \"2026-07-01\"\nlicense: \"MIT\"\nlicense_source: \"https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE\""
+  },
+  {
+    "skillName": "comprehensive-review-pr-enhance",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/comprehensive-review-pr-enhance/SKILL.md",
+    "correctedDescription": "Generate structured pull request descriptions from git diffs with categorized change summaries, test coverage notes, rollback plans, and contextual review checklists. Evaluates diff scope and breaking changes while guiding large PR splits. Use when writing PR descriptions, preparing code reviews, or assessing deployment risk before merging pull requests.",
+    "charCount": 357,
+    "discriminants": [
+      "git diff",
+      "pull request",
+      "PR descriptions",
+      "review checklists",
+      "rollback plans",
+      "breaking changes",
+      "git cherry-pick"
+    ],
+    "cleanFrontmatter": "name: comprehensive-review-pr-enhance\ndescription: \"Generate structured pull request descriptions from git diffs with categorized change summaries, test coverage notes, rollback plans, and contextual review checklists. Evaluates diff scope and breaking changes while guiding large PR splits. Use when writing PR descriptions, preparing code reviews, or assessing deployment risk before merging pull requests.\"\nrisk: critical\nsource: community"
+  },
+  {
+    "skillName": "computer-use-agents",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/computer-use-agents/SKILL.md",
+    "correctedDescription": "Implement GUI computer use agents utilizing perception-reasoning-action loops with vision models. Controls screen capture, mouse clicks, and keyboard strokes via Anthropic Computer Use API, PyAutoGUI, and virtual displays while enforcing Docker sandboxing with seccomp. Use when building desktop automation agents, vision-based UI workflows, or sandboxed GUI execution environments.",
+    "charCount": 382,
+    "discriminants": [
+      "Anthropic Computer Use API",
+      "PyAutoGUI",
+      "perception-reasoning-action loop",
+      "Docker sandboxing",
+      "seccomp",
+      "Xvfb"
+    ],
+    "cleanFrontmatter": "name: computer-use-agents\ndescription: \"Implement GUI computer use agents utilizing perception-reasoning-action loops with vision models. Controls screen capture, mouse clicks, and keyboard strokes via Anthropic Computer Use API, PyAutoGUI, and virtual displays while enforcing Docker sandboxing with seccomp. Use when building desktop automation agents, vision-based UI workflows, or sandboxed GUI execution environments.\"\nrisk: critical\nsource: \"vibeship-spawner-skills (Apache 2.0)\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "container-security-hardening",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/container-security-hardening/SKILL.md",
+    "correctedDescription": "Harden Dockerfile images and container runtimes across build, scan, and deployment layers. Implements distroless minimal bases, non-root execution, Trivy and Grype CVE scanning, Cosign signature verification, seccomp profiles, and Kubernetes Pod Security Standards. Use when securing container images, remediating container CVEs, or auditing production Docker and Kubernetes deployments.",
+    "charCount": 387,
+    "discriminants": [
+      "Dockerfile",
+      "distroless",
+      "Trivy",
+      "Grype",
+      "Cosign",
+      "seccomp",
+      "Kubernetes Pod Security Standards",
+      "CVE"
+    ],
+    "cleanFrontmatter": "name: container-security-hardening\ndescription: \"Harden Dockerfile images and container runtimes across build, scan, and deployment layers. Implements distroless minimal bases, non-root execution, Trivy and Grype CVE scanning, Cosign signature verification, seccomp profiles, and Kubernetes Pod Security Standards. Use when securing container images, remediating container CVEs, or auditing production Docker and Kubernetes deployments.\"\ncategory: security\nrisk: safe\nsource: community\ndate_added: \"2026-05-30\""
+  },
+  {
+    "skillName": "content-marketer",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/content-marketer/SKILL.md",
+    "correctedDescription": "Develop omnichannel content marketing strategies and copy across web, email, and social channels. Coordinates SEO topic clusters, keyword intent research, automated email nurture sequences, editorial calendars, and GA4 conversion analytics. Use when planning content roadmaps, drafting marketing copy, optimizing for search SERPs, or scaling lead acquisition funnels.",
+    "charCount": 369,
+    "discriminants": [
+      "SEO topic clusters",
+      "keyword intent research",
+      "email nurture sequences",
+      "editorial calendars",
+      "GA4",
+      "SERP"
+    ],
+    "cleanFrontmatter": "name: content-marketer\ndescription: \"Develop omnichannel content marketing strategies and copy across web, email, and social channels. Coordinates SEO topic clusters, keyword intent research, automated email nurture sequences, editorial calendars, and GA4 conversion analytics. Use when planning content roadmaps, drafting marketing copy, optimizing for search SERPs, or scaling lead acquisition funnels.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "context-window-management",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/context-window-management/SKILL.md",
+    "correctedDescription": "Optimize LLM context window utilization and token allocation in multi-turn AI workflows. Implements token counting with tiktoken, tiered context sizing, serial position optimization for prompt placement, importance-weighted message summarization, and token budget partitioning. Use when preventing context overflow, eliminating lost-in-the-middle degradation, or managing prompt token budgets.",
+    "charCount": 394,
+    "discriminants": [
+      "tiktoken",
+      "context window",
+      "tiered context",
+      "serial position optimization",
+      "token budget",
+      "lost-in-the-middle"
+    ],
+    "cleanFrontmatter": "name: context-window-management\ndescription: \"Optimize LLM context window utilization and token allocation in multi-turn AI workflows. Implements token counting with tiktoken, tiered context sizing, serial position optimization for prompt placement, importance-weighted message summarization, and token budget partitioning. Use when preventing context overflow, eliminating lost-in-the-middle degradation, or managing prompt token budgets.\"\nrisk: critical\nsource: \"vibeship-spawner-skills (Apache 2.0)\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "context7-auto-research",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/context7-auto-research/SKILL.md",
+    "correctedDescription": "Retrieve up-to-date software library and framework documentation directly in Claude Code using the Context7 API. Fetches official API references, code examples, and version-specific guides for libraries including React, Next.js, and Prisma. Use when looking up current API syntax, validating framework features, or eliminating outdated training data assumptions during coding sessions.",
+    "charCount": 383,
+    "discriminants": [
+      "Context7 API",
+      "Claude Code",
+      "React",
+      "Next.js",
+      "Prisma",
+      "API reference documentation"
+    ],
+    "cleanFrontmatter": "name: context7-auto-research\ndescription: \"Retrieve up-to-date software library and framework documentation directly in Claude Code using the Context7 API. Fetches official API references, code examples, and version-specific guides for libraries including React, Next.js, and Prisma. Use when looking up current API syntax, validating framework features, or eliminating outdated training data assumptions during coding sessions.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "conversation-memory",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/conversation-memory/SKILL.md",
+    "correctedDescription": "Implement multi-tier persistent memory systems for conversational LLM agents. Manages conversation buffers, short-term session stores, long-term persistence, entity extraction with fact upserting, and consolidation workflows using Redis, Mem0, and LangChain. Use when creating stateful AI agents, persisting user context across sessions, or maintaining dynamic entity knowledge bases.",
+    "charCount": 383,
+    "discriminants": [
+      "multi-tier memory",
+      "conversation buffer",
+      "entity extraction",
+      "memory consolidation",
+      "Redis",
+      "Mem0",
+      "LangChain"
+    ],
+    "cleanFrontmatter": "name: conversation-memory\ndescription: \"Implement multi-tier persistent memory systems for conversational LLM agents. Manages conversation buffers, short-term session stores, long-term persistence, entity extraction with fact upserting, and consolidation workflows using Redis, Mem0, and LangChain. Use when creating stateful AI agents, persisting user context across sessions, or maintaining dynamic entity knowledge bases.\"\nrisk: critical\nsource: \"vibeship-spawner-skills (Apache 2.0)\"\ndate_added: \"2026-02-27\""
+  }
+]

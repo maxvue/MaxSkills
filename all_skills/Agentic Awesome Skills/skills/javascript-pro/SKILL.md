@@ -1,6 +1,6 @@
 ---
 name: javascript-pro
-description: "Comprehensive engineering guide and best practices for javascript pro. Use when configuring, developing, debugging, or optimizing javascript pro architecture in production systems. Guides architecture, best practices, and implementation standards for javascript pro."
+description: "Develops and refactors modern ES6+ JavaScript code for Node.js and browser runtimes, focusing on event loop mechanics, microtasks, and async/await error handling. Use when migrating legacy JS to modern ES modules, resolving asynchronous race conditions, or optimizing runtime execution and bundle sizes."
 risk: safe
 source: community
 date_added: '2026-02-27'

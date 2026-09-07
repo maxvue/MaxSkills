@@ -1,10 +1,9 @@
 ---
 name: context-window-management
-description: "Strategies for managing LLM context windows including Use when developing, optimizing, debugging, or configuring context window management in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for context window management."
-  summarization, trimming, routing, and avoiding context rot
+description: "Optimize LLM context window utilization and token allocation in multi-turn AI workflows. Implements token counting with tiktoken, tiered context sizing, serial position optimization for prompt placement, importance-weighted message summarization, and token budget partitioning. Use when preventing context overflow, eliminating lost-in-the-middle degradation, or managing prompt token budgets."
 risk: critical
-source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+source: "vibeship-spawner-skills (Apache 2.0)"
+date_added: "2026-02-27"
 ---
 
 # Context Window Management

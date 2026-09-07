@@ -1,6 +1,6 @@
 ---
 name: test-driven-development
-description: "Use when implementing any feature or bugfix, before writing implementation code Provides end-to-end guidance, reference architectures, and practical patterns for test driven development. Use when developing, optimizing, testing, or configuring test driven development in production environments."
+description: "Enforces strict Red-Green-Refactor test-driven development (TDD) discipline across software engineering workflows. Use when developing new features, fixing bugs, or refactoring code to ensure tests fail first with expected assertions before writing the minimal production implementation necessary to pass."
 ---
 
 # Test-Driven Development (TDD)

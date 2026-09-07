@@ -1,9 +1,9 @@
 ---
 name: graphql-architect
-description: "Comprehensive engineering guide and best practices for graphql architect. Use when configuring, developing, debugging, or optimizing graphql architect architecture in production systems. Guides architecture, best practices, and implementation standards for graphql architect."
+description: "Architects distributed GraphQL systems, federated schemas, and optimized API gateways using Apollo Federation v2 and SDL. Use when designing subgraph compositions, resolving N+1 query bottlenecks with DataLoader, enforcing field-level authorization, or implementing GraphQL subscriptions over WebSockets."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when

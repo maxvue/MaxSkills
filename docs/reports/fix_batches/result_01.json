@@ -1,0 +1,157 @@
+[
+  {
+    "skillName": "2slides-ppt-generator",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/2slides-ppt-generator/SKILL.md",
+    "correctedDescription": "Generates presentations, slide decks, and AI voice narrations via the 2slides API and local Python scripts. Supports theme selection, image style matching, and PDF or audio exports. Use when creating presentations from text outlines or documents, matching slide styles from images, or adding voice narration with 2slides.",
+    "charCount": 321,
+    "discriminants": [
+      "2slides API",
+      "Fast PPT",
+      "search_themes.py",
+      "generate_slides.py",
+      "voice narration",
+      "PDF export"
+    ],
+    "cleanFrontmatter": "name: 2slides-ppt-generator\ndescription: \"Generates presentations, slide decks, and AI voice narrations via the 2slides API and local Python scripts. Supports theme selection, image style matching, and PDF or audio exports. Use when creating presentations from text outlines or documents, matching slide styles from images, or adding voice narration with 2slides.\"\ncategory: api-integration\nrisk: safe\nsource: community\nsource_repo: 2slides/slides-generation-2slides-skills\nsource_type: community\ndate_added: \"2026-06-05\"\nauthor: 2slides\ntags: [presentations, slides, powerpoint, ai, api-integration, pdf, narration, document-summarization]\ntools: [claude, cursor, gemini, codex, antigravity]\nplugin:\n  setup:\n    type: manual\n    summary: \"Install Python requirements and configure a 2slides API key before running generation scripts.\"\n    docs: SKILL.md"
+  },
+  {
+    "skillName": "aegisops-ai",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/aegisops-ai/SKILL.md",
+    "correctedDescription": "Automates infrastructure security audits, Linux kernel C patch reviews, and Kubernetes hardening using Google GenAI SDK. Analyzes Git diffs for memory safety flaws, checks Terraform plans for cost drifts, and generates securityContext YAML. Use when auditing kernel patches for UAF errors, checking Terraform diffs for cost spikes, or hardening Kubernetes deployment policies.",
+    "charCount": 373,
+    "discriminants": [
+      "Google GenAI SDK",
+      "Linux kernel C patch",
+      "Terraform plan",
+      "Kubernetes securityContext",
+      "UAF errors",
+      "cost drifts"
+    ],
+    "cleanFrontmatter": "name: aegisops-ai\ndescription: \"Automates infrastructure security audits, Linux kernel C patch reviews, and Kubernetes hardening using Google GenAI SDK. Analyzes Git diffs for memory safety flaws, checks Terraform plans for cost drifts, and generates securityContext YAML. Use when auditing kernel patches for UAF errors, checking Terraform diffs for cost spikes, or hardening Kubernetes deployment policies.\"\nrisk: safe\nsource: community\nauthor: Champbreed\ndate_added: \"2026-03-24\""
+  },
+  {
+    "skillName": "agent-evaluation",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-evaluation/SKILL.md",
+    "correctedDescription": "Evaluates and benchmarks autonomous LLM agents using statistical testing, behavioral invariant contracts, and trajectory analysis. Measures pass rates, latency distributions, and behavioral consistency across repeated runs. Use when designing agent benchmarks, testing stochastic LLM behaviors, measuring pass rates and latency, or validating behavioral contracts and tool safety.",
+    "charCount": 375,
+    "discriminants": [
+      "AgentBench",
+      "tau-bench",
+      "ToolEmu",
+      "statistical testing",
+      "behavioral invariant contracts",
+      "trajectory analysis",
+      "p95 latency"
+    ],
+    "cleanFrontmatter": "name: agent-evaluation\ndescription: \"Evaluates and benchmarks autonomous LLM agents using statistical testing, behavioral invariant contracts, and trajectory analysis. Measures pass rates, latency distributions, and behavioral consistency across repeated runs. Use when designing agent benchmarks, testing stochastic LLM behaviors, measuring pass rates and latency, or validating behavioral contracts and tool safety.\"\nrisk: safe\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "agent-memory-systems",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-memory-systems/SKILL.md",
+    "correctedDescription": "Architects multi-tier memory systems for LLM agents based on the CoALA framework, managing short-term context, episodic experiences, and semantic knowledge. Integrates LangMem, MemGPT, Letta, Mem0, and vector stores like Qdrant or pgvector. Use when designing agent memory tiers, implementing context paging, structuring episodic or semantic recall, or configuring memory decay pipelines.",
+    "charCount": 388,
+    "discriminants": [
+      "CoALA framework",
+      "LangMem",
+      "MemGPT",
+      "Letta",
+      "Mem0",
+      "Qdrant",
+      "pgvector",
+      "episodic memory",
+      "semantic memory"
+    ],
+    "cleanFrontmatter": "name: agent-memory-systems\ndescription: \"Architects multi-tier memory systems for LLM agents based on the CoALA framework, managing short-term context, episodic experiences, and semantic knowledge. Integrates LangMem, MemGPT, Letta, Mem0, and vector stores like Qdrant or pgvector. Use when designing agent memory tiers, implementing context paging, structuring episodic or semantic recall, or configuring memory decay pipelines.\"\nrisk: safe\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "agent-tool-builder",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agent-tool-builder/SKILL.md",
+    "correctedDescription": "Designs and implements tools and function-calling interfaces for AI agents following JSON Schema and MCP (Model Context Protocol). Covers schema optimization, Anthropic tool runners, OpenAI strict mode, and error handling. Use when designing agent tool schemas, building MCP tools, implementing function calling for Claude or OpenAI, or configuring tool validation and error recovery.",
+    "charCount": 384,
+    "discriminants": [
+      "JSON Schema",
+      "MCP (Model Context Protocol)",
+      "Anthropic SDK",
+      "OpenAI Functions",
+      "strict mode",
+      "tool validation"
+    ],
+    "cleanFrontmatter": "name: agent-tool-builder\ndescription: \"Designs and implements tools and function-calling interfaces for AI agents following JSON Schema and MCP (Model Context Protocol). Covers schema optimization, Anthropic tool runners, OpenAI strict mode, and error handling. Use when designing agent tool schemas, building MCP tools, implementing function calling for Claude or OpenAI, or configuring tool validation and error recovery.\"\nrisk: critical\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "agentic-actions-auditor",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/agentic-actions-auditor/SKILL.md",
+    "correctedDescription": "Performs static security analysis of GitHub Actions workflows integrating AI coding agents like Claude Code Action, Gemini CLI, or OpenAI Codex. Detects prompt injection paths, dangerous trigger events, and excessive runner permissions. Use when auditing CI/CD workflows for AI agent vulnerabilities, pull_request_target risks, untrusted prompt inputs, or sandbox misconfigurations.",
+    "charCount": 382,
+    "discriminants": [
+      "GitHub Actions",
+      "Claude Code Action",
+      "Gemini CLI",
+      "OpenAI Codex",
+      "pull_request_target",
+      "prompt injection",
+      "CI/CD security"
+    ],
+    "cleanFrontmatter": "name: agentic-actions-auditor\ndescription: \"Performs static security analysis of GitHub Actions workflows integrating AI coding agents like Claude Code Action, Gemini CLI, or OpenAI Codex. Detects prompt injection paths, dangerous trigger events, and excessive runner permissions. Use when auditing CI/CD workflows for AI agent vulnerabilities, pull_request_target risks, untrusted prompt inputs, or sandbox misconfigurations.\"\nrisk: safe\nsource: community\ndate_added: 2026-03-18"
+  },
+  {
+    "skillName": "ai-agents-architect",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/ai-agents-architect/SKILL.md",
+    "correctedDescription": "Architects autonomous AI agent systems, structuring execution loops (ReAct, Plan-and-Execute), dynamic tool registries, hierarchical memory, and multi-agent coordination topologies. Defines failure boundaries, recovery strategies, and guardrails. Use when designing agent architectures, selecting execution loops, organizing tool registries, or implementing multi-agent coordination patterns.",
+    "charCount": 388,
+    "discriminants": [
+      "ReAct loop",
+      "Plan-and-Execute",
+      "tool registry",
+      "hierarchical memory",
+      "multi-agent orchestration",
+      "guardrails"
+    ],
+    "cleanFrontmatter": "name: ai-agents-architect\ndescription: \"Architects autonomous AI agent systems, structuring execution loops (ReAct, Plan-and-Execute), dynamic tool registries, hierarchical memory, and multi-agent coordination topologies. Defines failure boundaries, recovery strategies, and guardrails. Use when designing agent architectures, selecting execution loops, organizing tool registries, or implementing multi-agent coordination patterns.\"\nrisk: none\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "animejs-animation",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/animejs-animation/SKILL.md",
+    "correctedDescription": "Creates and sequences web animations using Anime.js, implementing choreographed timelines, staggered element reveals, SVG path morphing, and physics-based spring easings for interactive UIs. Use when building complex web animations, sequenced landing page transitions, staggered grid or text reveals, or interactive SVG path motions using the Anime.js animation engine.",
+    "charCount": 367,
+    "discriminants": [
+      "Anime.js",
+      "anime.timeline",
+      "anime.stagger",
+      "SVG path morphing",
+      "spring easing",
+      "web animations"
+    ],
+    "cleanFrontmatter": "name: animejs-animation\ndescription: \"Creates and sequences web animations using Anime.js, implementing choreographed timelines, staggered element reveals, SVG path morphing, and physics-based spring easings for interactive UIs. Use when building complex web animations, sequenced landing page transitions, staggered grid or text reveals, or interactive SVG path motions using the Anime.js animation engine.\"\nrisk: safe\nsource: community\ndate_added: \"2026-03-07\""
+  },
+  {
+    "skillName": "api-analyzer",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/api-analyzer/SKILL.md",
+    "correctedDescription": "Validates and debugs HTTP API requests and curl commands against protocol requirements, verifying HTTP methods, URLs, headers, JSON payloads, query parameters, and auth schemes like Bearer tokens. Returns concise one-line verdicts. Use when checking or debugging API calls, validating pasted curl commands, or verifying endpoint parameters and request formatting.",
+    "charCount": 364,
+    "discriminants": [
+      "HTTP methods",
+      "curl",
+      "Bearer tokens",
+      "JSON payloads",
+      "query parameters",
+      "REST API validation"
+    ],
+    "cleanFrontmatter": "name: api-analyzer\ndescription: \"Validates and debugs HTTP API requests and curl commands against protocol requirements, verifying HTTP methods, URLs, headers, JSON payloads, query parameters, and auth schemes like Bearer tokens. Returns concise one-line verdicts. Use when checking or debugging API calls, validating pasted curl commands, or verifying endpoint parameters and request formatting.\"\nrisk: none\nsource: https://github.com/LambdaTest/agent-skills/tree/main/api-skill/api-analyzer\nsource_repo: LambdaTest/agent-skills\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/LambdaTest/agent-skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "architect-review",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/architect-review/SKILL.md",
+    "correctedDescription": "Conducts software architecture reviews across distributed systems, Clean Architecture, and Domain-Driven Design (DDD). Evaluates microservices boundaries, event-driven patterns (CQRS, Saga), resilience, and scalability. Use when reviewing system designs, assessing architectural trade-offs, analyzing service boundaries, or validating distributed system patterns.",
+    "charCount": 364,
+    "discriminants": [
+      "Clean Architecture",
+      "Domain-Driven Design (DDD)",
+      "CQRS",
+      "Saga pattern",
+      "microservices",
+      "event-driven architecture"
+    ],
+    "cleanFrontmatter": "name: architect-review\ndescription: \"Conducts software architecture reviews across distributed systems, Clean Architecture, and Domain-Driven Design (DDD). Evaluates microservices boundaries, event-driven patterns (CQRS, Saga), resilience, and scalability. Use when reviewing system designs, assessing architectural trade-offs, analyzing service boundaries, or validating distributed system patterns.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  }
+]

@@ -1,11 +1,11 @@
 ---
 name: design-philosophy
-description: "Visual philosophy and art-direction for frontend. Use when creating high-concept work, campaigns, or when the user asks for a visual philosophy, manifesto, or unmistakable art-like aesthetic. Provides end-to-end guidance, reference architectures, and practical patterns for design philosophy."
+description: "Formulate frontend art direction, design manifestos, and cohesive visual philosophies for high-concept web projects. Establishes named design movements, balanced compositions, curated palettes, and subtle thematic references woven into UI structure and typography. Use when designing artistic web experiences, high-concept marketing campaigns, or bespoke aesthetic manifestos."
 risk: none
 source: https://github.com/connerkward/ckw-design-skill/tree/main/design-philosophy
 source_repo: connerkward/ckw-design-skill
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/connerkward/ckw-design-skill/blob/main/LICENSE
 author: Conner K Ward

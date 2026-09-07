@@ -1,9 +1,9 @@
 ---
 name: content-marketer
-description: "Comprehensive engineering guide and best practices for content marketer. Use when configuring, developing, debugging, or optimizing content marketer architecture in production systems. Guides architecture, best practices, and implementation standards for content marketer."
+description: "Develop omnichannel content marketing strategies and copy across web, email, and social channels. Coordinates SEO topic clusters, keyword intent research, automated email nurture sequences, editorial calendars, and GA4 conversion analytics. Use when planning content roadmaps, drafting marketing copy, optimizing for search SERPs, or scaling lead acquisition funnels."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when

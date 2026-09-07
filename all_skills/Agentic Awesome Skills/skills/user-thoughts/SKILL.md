@@ -1,9 +1,6 @@
 ---
 name: user-thoughts
-description: ">- Use when developing, optimizing, debugging, or configuring user thoughts in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for user thoughts. Use when developing, optimizing, testing, or configuring user thoughts in production environments."
-  Persist user decisions and project constraints to mdbase across sessions.
-  Trigger on /user-thoughts or /ustht, or when the user discusses architecture,
-  tech stack, rules, UI/UX, or project memory.
+description: "Capture and persist user architectural decisions, project constraints, and UI preferences across agent sessions into local mdbase storage. Use when recording persistent project rules, managing memory via /user-thoughts or /ustht commands, and organizing raw notes from .ustht/raw into .ustht/mdbase."
 license: MIT
 source: "https://github.com/JularDepick/user-thoughts.SKILL"
 source_repo: JularDepick/user-thoughts.SKILL

@@ -1,0 +1,177 @@
+[
+  {
+    "skillName": "pi-custom-model",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/pi-custom-model/SKILL.md",
+    "correctedDescription": "Register custom model slugs and OpenRouter routing-shortcut variants in Pi Agent configuration files. Use when configuring ~/.pi/agent/models.json and settings.json to resolve provider model IDs like :nitro or :floor, preventing silent fallbacks to default models when exact provider and model ID matches fail.",
+    "charCount": 308,
+    "discriminants": [
+      "~/.pi/agent/models.json",
+      "settings.json",
+      "OpenRouter",
+      "Pi Agent",
+      ":nitro",
+      ":floor",
+      "defaultModel"
+    ],
+    "cleanFrontmatter": "name: pi-custom-model\ndescription: \"Register custom model slugs and OpenRouter routing-shortcut variants in Pi Agent configuration files. Use when configuring ~/.pi/agent/models.json and settings.json to resolve provider model IDs like :nitro or :floor, preventing silent fallbacks to default models when exact provider and model ID matches fail.\"\ncategory: operations\nrisk: critical\nsource: community\nsource_repo: davidondrej/skills\nsource_type: community\ndate_added: \"2026-07-07\"\nauthor: davidondrej\ntags: [pi-agent, models, openrouter]\ntools: [claude, codex]\nlicense: \"MIT\"\nlicense_source: \"https://github.com/davidondrej/skills/blob/main/LICENSE\"\ndisable-model-invocation: true"
+  },
+  {
+    "skillName": "podcast-generation",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/podcast-generation/SKILL.md",
+    "correctedDescription": "Generate streaming audio narratives from text prompts using Azure OpenAI Realtime API and gpt-realtime-mini over WebSockets. Use when establishing AsyncOpenAI realtime sessions, collecting response.output_audio.delta PCM audio streams, converting PCM chunks to 24kHz WAV, and handling browser playback.",
+    "charCount": 304,
+    "discriminants": [
+      "Azure OpenAI Realtime API",
+      "gpt-realtime-mini",
+      "AsyncOpenAI",
+      "WebSockets",
+      "response.output_audio.delta",
+      "PCM to WAV",
+      "24kHz"
+    ],
+    "cleanFrontmatter": "name: podcast-generation\ndescription: \"Generate streaming audio narratives from text prompts using Azure OpenAI Realtime API and gpt-realtime-mini over WebSockets. Use when establishing AsyncOpenAI realtime sessions, collecting response.output_audio.delta PCM audio streams, converting PCM chunks to 24kHz WAV, and handling browser playback.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "python-testing-patterns",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/python-testing-patterns/SKILL.md",
+    "correctedDescription": "Implement Python unit and integration test suites using pytest fixtures, parameterization, and mocking. Use when structuring tests with AAA patterns, isolating external dependencies via unittest.mock patch, handling async functions with pytest-asyncio, asserting exceptions, or enforcing TDD workflows.",
+    "charCount": 301,
+    "discriminants": [
+      "pytest",
+      "@pytest.fixture",
+      "unittest.mock",
+      "pytest-asyncio",
+      "@pytest.mark.parametrize",
+      "pytest.raises",
+      "TDD"
+    ],
+    "cleanFrontmatter": "name: python-testing-patterns\ndescription: \"Implement Python unit and integration test suites using pytest fixtures, parameterization, and mocking. Use when structuring tests with AAA patterns, isolating external dependencies via unittest.mock patch, handling async functions with pytest-asyncio, asserting exceptions, or enforcing TDD workflows.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "react-component-performance",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/react-component-performance/SKILL.md",
+    "correctedDescription": "Profile and resolve React component render bottlenecks using React DevTools Profiler flamegraphs and ranked charts. Use when debugging unnecessary re-renders, isolating fast-changing state from heavy subtrees, stabilizing callbacks with useCallback, memoizing calculations with useMemo, or optimizing lists.",
+    "charCount": 306,
+    "discriminants": [
+      "React DevTools Profiler",
+      "flamegraph",
+      "ranked chart",
+      "useCallback",
+      "useMemo",
+      "React.memo",
+      "re-renders"
+    ],
+    "cleanFrontmatter": "name: react-component-performance\ndescription: \"Profile and resolve React component render bottlenecks using React DevTools Profiler flamegraphs and ranked charts. Use when debugging unnecessary re-renders, isolating fast-changing state from heavy subtrees, stabilizing callbacks with useCallback, memoizing calculations with useMemo, or optimizing lists.\"\nrisk: safe\nsource: \"Dimillian/Skills (MIT)\"\ndate_added: \"2026-03-25\""
+  },
+  {
+    "skillName": "react-patterns",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/react-patterns/SKILL.md",
+    "correctedDescription": "Structure modern React applications using component composition, custom hooks, and React 19 features. Use when designing compound components, implementing useActionState, useOptimistic, or the use hook, structuring state across Context, Zustand, or TanStack Query, and typing props with TypeScript.",
+    "charCount": 300,
+    "discriminants": [
+      "React 19",
+      "useActionState",
+      "useOptimistic",
+      "use hook",
+      "compound components",
+      "Zustand",
+      "TanStack Query",
+      "TypeScript"
+    ],
+    "cleanFrontmatter": "name: react-patterns\ndescription: \"Structure modern React applications using component composition, custom hooks, and React 19 features. Use when designing compound components, implementing useActionState, useOptimistic, or the use hook, structuring state across Context, Zustand, or TanStack Query, and typing props with TypeScript.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "receiving-code-review",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/receiving-code-review/SKILL.md",
+    "correctedDescription": "Evaluate and implement code review and pull request feedback with rigorous technical verification. Use when processing reviewer comments, preventing performative agreement, clarifying ambiguous feedback before editing, pushing back against invalid changes or YAGNI violations, and ordering fixes safely.",
+    "charCount": 302,
+    "discriminants": [
+      "code review",
+      "pull request feedback",
+      "reviewer comments",
+      "YAGNI",
+      "technical verification",
+      "clarification protocol"
+    ],
+    "cleanFrontmatter": "name: receiving-code-review\ndescription: \"Evaluate and implement code review and pull request feedback with rigorous technical verification. Use when processing reviewer comments, preventing performative agreement, clarifying ambiguous feedback before editing, pushing back against invalid changes or YAGNI violations, and ordering fixes safely.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "remotion-best-practices",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/remotion-best-practices/SKILL.md",
+    "correctedDescription": "Build programmatic React video compositions, animations, and audio timelines using Remotion. Use when defining compositions, sequencing scenes, configuring spring physics and interpolate curves, syncing audio, rendering captions with @remotion/captions, or integrating Three.js, Lottie, and Mediabunny.",
+    "charCount": 299,
+    "discriminants": [
+      "Remotion",
+      "React video",
+      "@remotion/captions",
+      "Mediabunny",
+      "Three.js",
+      "Lottie",
+      "interpolate",
+      "spring physics"
+    ],
+    "cleanFrontmatter": "name: remotion-best-practices\ndescription: \"Build programmatic React video compositions, animations, and audio timelines using Remotion. Use when defining compositions, sequencing scenes, configuring spring physics and interpolate curves, syncing audio, rendering captions with @remotion/captions, or integrating Three.js, Lottie, and Mediabunny.\"\nrisk: safe\nsource: community\ntags: \"remotion, video, react, animation, composition\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "resolving-merge-conflicts",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/resolving-merge-conflicts/SKILL.md",
+    "correctedDescription": "Resolve in-progress Git merge and rebase conflicts systematically without aborting. Use when reconciling conflicting diff hunks, evaluating commit history and PR intent, verifying code integrity with typecheck and automated test suites, and staging resolved files to complete merge or rebase operations.",
+    "charCount": 301,
+    "discriminants": [
+      "Git merge",
+      "git rebase",
+      "diff hunks",
+      "commit history",
+      "typecheck",
+      "automated test suites"
+    ],
+    "cleanFrontmatter": "name: resolving-merge-conflicts\ndescription: \"Resolve in-progress Git merge and rebase conflicts systematically without aborting. Use when reconciling conflicting diff hunks, evaluating commit history and PR intent, verifying code integrity with typecheck and automated test suites, and staging resolved files to complete merge or rebase operations.\"\nrisk: critical\nsource: https://github.com/mattpocock/skills/tree/main/skills/engineering/resolving-merge-conflicts\nsource_repo: mattpocock/skills\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/mattpocock/skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "security-requirement-extraction",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/security-requirement-extraction/SKILL.md",
+    "correctedDescription": "Derive functional and non-functional security requirements from threat models and architectural context. Use when translating identified threats into security user stories, defining testable acceptance criteria, and mapping security controls to compliance frameworks such as OWASP, NIST CSF, and SOC2.",
+    "charCount": 299,
+    "discriminants": [
+      "threat models",
+      "security user stories",
+      "acceptance criteria",
+      "OWASP",
+      "NIST CSF",
+      "SOC2",
+      "security controls"
+    ],
+    "cleanFrontmatter": "name: security-requirement-extraction\ndescription: \"Derive functional and non-functional security requirements from threat models and architectural context. Use when translating identified threats into security user stories, defining testable acceptance criteria, and mapping security controls to compliance frameworks such as OWASP, NIST CSF, and SOC2.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "aws-secrets-rotation",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/security/aws-secrets-rotation/SKILL.md",
+    "correctedDescription": "Automate credential rotation schedules using AWS Secrets Manager and AWS Lambda execution functions. Use when configuring rotation lifecycle steps createSecret, setSecret, testSecret, and finishSecret with boto3 for RDS databases, DocumentDB, Redshift, or third-party API tokens such as Stripe keys.",
+    "charCount": 297,
+    "discriminants": [
+      "AWS Secrets Manager",
+      "AWS Lambda",
+      "boto3",
+      "createSecret",
+      "setSecret",
+      "testSecret",
+      "finishSecret",
+      "RDS"
+    ],
+    "cleanFrontmatter": "name: aws-secrets-rotation\ndescription: \"Automate credential rotation schedules using AWS Secrets Manager and AWS Lambda execution functions. Use when configuring rotation lifecycle steps createSecret, setSecret, testSecret, and finishSecret with boto3 for RDS databases, DocumentDB, Redshift, or third-party API tokens such as Stripe keys.\"\ncategory: security\nrisk: safe\nsource: community\ntags: \"[aws, secrets-manager, security, automation, kiro-cli, credentials]\"\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "smart-git-automation",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/smart-git-automation/SKILL.md",
+    "correctedDescription": "Automate Git workflows through intelligent diff inspection, change grouping, and branch naming. Use when analyzing git status and git diff outputs to group related changes, generate kebab-case branches (feature/, fix/), format conventional commit messages, and create pull requests via gh pr create.",
+    "charCount": 297,
+    "discriminants": [
+      "git status",
+      "git diff",
+      "kebab-case branches",
+      "gh pr create",
+      "conventional commit"
+    ],
+    "cleanFrontmatter": "name: smart-git-automation\nversion: 1.0.0\ndescription: \"Automate Git workflows through intelligent diff inspection, change grouping, and branch naming. Use when analyzing git status and git diff outputs to group related changes, generate kebab-case branches (feature/, fix/), format conventional commit messages, and create pull requests via gh pr create.\"\nrisk: critical\nsource: community\nsource_type: community\nsource_repo: mskadu/opencode-agent-skills\nlicense: MIT\nlicense_source: \"https://github.com/mskadu/opencode-agent-skills/blob/main/LICENSE\"\ndate_added: \"2026-06-05\""
+  }
+]

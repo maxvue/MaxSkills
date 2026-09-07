@@ -1,0 +1,162 @@
+[
+  {
+    "skillName": "copywriting-psychologist",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/copywriting-psychologist/SKILL.md",
+    "correctedDescription": "Engineers conversion copy using consumer psychology and persuasion science principles. Use when writing or refining landing pages, sales pages, ads, or scripts that require awareness stage mapping, Jobs to be Done framing, Elaboration Likelihood Model sequencing, resistance reduction, and objection proof.",
+    "charCount": 306,
+    "discriminants": [
+      "awareness stage mapping",
+      "Jobs to be Done",
+      "Elaboration Likelihood Model",
+      "conversion copy",
+      "resistance reduction",
+      "objection proof"
+    ],
+    "cleanFrontmatter": "name: copywriting-psychologist\ndescription: \"Engineers conversion copy using consumer psychology and persuasion science principles. Use when writing or refining landing pages, sales pages, ads, or scripts that require awareness stage mapping, Jobs to be Done framing, Elaboration Likelihood Model sequencing, resistance reduction, and objection proof.\"\nrisk: safe\nsource: community\ndate_added: \"2026-04-04\""
+  },
+  {
+    "skillName": "customer-support",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/customer-support/SKILL.md",
+    "correctedDescription": "Designs and automates AI-driven customer support workflows, conversational bots, and omnichannel ticketing systems. Use when integrating Zendesk, Freshdesk Freddy, Intercom Fin, or Gorgias, configuring SLA escalation rules, setting up CRM routing with Salesforce or HubSpot, and tracking CSAT or NPS metrics.",
+    "charCount": 306,
+    "discriminants": [
+      "Zendesk",
+      "Freshdesk Freddy",
+      "Intercom Fin",
+      "Gorgias",
+      "Salesforce",
+      "HubSpot",
+      "SLA escalation",
+      "CSAT",
+      "NPS"
+    ],
+    "cleanFrontmatter": "name: customer-support\ndescription: \"Designs and automates AI-driven customer support workflows, conversational bots, and omnichannel ticketing systems. Use when integrating Zendesk, Freshdesk Freddy, Intercom Fin, or Gorgias, configuring SLA escalation rules, setting up CRM routing with Salesforce or HubSpot, and tracking CSAT or NPS metrics.\"\nrisk: critical\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "data-scientist",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/data-scientist/SKILL.md",
+    "correctedDescription": "Performs statistical modeling, experimental design, exploratory analysis, and predictive machine learning. Use when designing A/B tests, building forecasting or classification pipelines with scikit-learn, XGBoost, LightGBM, or PyTorch, running time series with ARIMA or Prophet, and explaining models using SHAP.",
+    "charCount": 312,
+    "discriminants": [
+      "A/B testing",
+      "scikit-learn",
+      "XGBoost",
+      "LightGBM",
+      "PyTorch",
+      "ARIMA",
+      "Prophet",
+      "SHAP"
+    ],
+    "cleanFrontmatter": "name: data-scientist\ndescription: \"Performs statistical modeling, experimental design, exploratory analysis, and predictive machine learning. Use when designing A/B tests, building forecasting or classification pipelines with scikit-learn, XGBoost, LightGBM, or PyTorch, running time series with ARIMA or Prophet, and explaining models using SHAP.\"\nrisk: critical\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "debugger",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/debugger/SKILL.md",
+    "correctedDescription": "Diagnoses software defects, analyzes stack traces, and isolates root causes for systematic bug resolution. Use when investigating unexpected runtime exceptions, service crashes, test failures, or silent logic bugs requiring log analysis, hypothesis testing, variable state inspection, and verified minimal fixes.",
+    "charCount": 312,
+    "discriminants": [
+      "stack trace analysis",
+      "runtime exceptions",
+      "log analysis",
+      "hypothesis testing",
+      "variable state inspection",
+      "root cause diagnosis"
+    ],
+    "cleanFrontmatter": "name: debugger\ndescription: \"Diagnoses software defects, analyzes stack traces, and isolates root causes for systematic bug resolution. Use when investigating unexpected runtime exceptions, service crashes, test failures, or silent logic bugs requiring log analysis, hypothesis testing, variable state inspection, and verified minimal fixes.\"\nrisk: safe\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "debugging-toolkit",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/debugging-toolkit/SKILL.md",
+    "correctedDescription": "Alias redirecting to canonical skill debugging-toolkit-smart-debug for structured code debugging. Use when troubleshooting complex software defects, analyzing error logs, isolating execution regressions, or needing guided smart debug routines and systematic error isolation across codebases.",
+    "charCount": 290,
+    "discriminants": [
+      "debugging-toolkit-smart-debug",
+      "error logs",
+      "regression isolation",
+      "smart debug routines",
+      "systematic error isolation"
+    ],
+    "cleanFrontmatter": "name: debugging-toolkit\ndescription: \"Alias redirecting to canonical skill debugging-toolkit-smart-debug for structured code debugging. Use when troubleshooting complex software defects, analyzing error logs, isolating execution regressions, or needing guided smart debug routines and systematic error isolation across codebases.\"\nrisk: none\nsource: \"alias\"\ndate_added: \"2026-06-02\""
+  },
+  {
+    "skillName": "developer-audience-context",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/developer-audience-context/SKILL.md",
+    "correctedDescription": "Builds and updates `.agents/developer-audience-context.md` for technical marketing and DevRel. Use when defining developer personas, mapping tech stacks, documenting pain points and competitor alternatives, capturing verbatim developer language from GitHub or Reddit, or setting conversion trust signals.",
+    "charCount": 303,
+    "discriminants": [
+      ".agents/developer-audience-context.md",
+      "DevRel",
+      "developer personas",
+      "tech stacks",
+      "verbatim developer language",
+      "GitHub",
+      "Reddit"
+    ],
+    "cleanFrontmatter": "name: developer-audience-context\ndescription: \"Builds and updates `.agents/developer-audience-context.md` for technical marketing and DevRel. Use when defining developer personas, mapping tech stacks, documenting pain points and competitor alternatives, capturing verbatim developer language from GitHub or Reddit, or setting conversion trust signals.\"\nrisk: critical\nsource: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/developer-audience-context\nsource_repo: jonathimer/devmarketing-skills\nsource_type: community\ndate_added: 2026-07-01\nlicense: MIT\nlicense_source: https://github.com/jonathimer/devmarketing-skills/blob/main/LICENSE"
+  },
+  {
+    "skillName": "devops-deploy",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/devops-deploy/SKILL.md",
+    "correctedDescription": "Automates application containerization, CI/CD pipelines, and AWS cloud deployments. Use when configuring multi-stage Dockerfiles, Docker Compose setups, AWS SAM Lambda templates, GitHub Actions workflows, FastAPI health check endpoints, CloudWatch metric alarms, or managing production rollback plans.",
+    "charCount": 301,
+    "discriminants": [
+      "Dockerfile",
+      "Docker Compose",
+      "AWS SAM",
+      "AWS Lambda",
+      "GitHub Actions",
+      "FastAPI",
+      "CloudWatch alarms",
+      "rollback plans"
+    ],
+    "cleanFrontmatter": "name: devops-deploy\ndescription: \"Automates application containerization, CI/CD pipelines, and AWS cloud deployments. Use when configuring multi-stage Dockerfiles, Docker Compose setups, AWS SAM Lambda templates, GitHub Actions workflows, FastAPI health check endpoints, CloudWatch metric alarms, or managing production rollback plans.\"\nrisk: critical\nsource: community\ndate_added: '2026-03-06'\nauthor: renat\ntags:\n- devops\n- docker\n- ci-cd\n- aws\n- terraform\n- github-actions\ntools:\n- claude-code\n- antigravity\n- cursor\n- gemini-cli\n- codex-cli"
+  },
+  {
+    "skillName": "differential-review",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/differential-review/SKILL.md",
+    "correctedDescription": "Conducts differential security code reviews on pull requests, commit ranges, and diffs. Use when analyzing changes touching authentication, cryptography, access control modifiers, external calls, or removed validation checks requiring blast radius calculation, git blame tracing, and adversarial exploit modeling.",
+    "charCount": 314,
+    "discriminants": [
+      "differential security review",
+      "PR diffs",
+      "access control",
+      "git blame",
+      "blast radius calculation",
+      "adversarial exploit modeling"
+    ],
+    "cleanFrontmatter": "name: differential-review\ndescription: \"Conducts differential security code reviews on pull requests, commit ranges, and diffs. Use when analyzing changes touching authentication, cryptography, access control modifiers, external calls, or removed validation checks requiring blast radius calculation, git blame tracing, and adversarial exploit modeling.\"\nrisk: critical\nsource: community"
+  },
+  {
+    "skillName": "discord-bot-architect",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/discord-bot-architect/SKILL.md",
+    "correctedDescription": "Architects and builds production Discord bots using Discord.js v14 and Pycord. Use when implementing SlashCommandBuilder application commands, configuring GatewayIntentBits, handling interactionCreate event routing, building button or modal components, managing API rate limits, or implementing bot sharding.",
+    "charCount": 307,
+    "discriminants": [
+      "Discord.js v14",
+      "Pycord",
+      "SlashCommandBuilder",
+      "GatewayIntentBits",
+      "interactionCreate",
+      "modals",
+      "sharding"
+    ],
+    "cleanFrontmatter": "name: discord-bot-architect\ndescription: \"Architects and builds production Discord bots using Discord.js v14 and Pycord. Use when implementing SlashCommandBuilder application commands, configuring GatewayIntentBits, handling interactionCreate event routing, building button or modal components, managing API rate limits, or implementing bot sharding.\"\nrisk: critical\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "email-systems",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/email-systems/SKILL.md",
+    "correctedDescription": "Architects reliable email delivery infrastructure, transactional queues, and deliverability pipelines. Use when configuring SPF, DKIM, and DMARC DNS records, separating transactional and marketing providers with Postmark or SendGrid, handling bounce webhooks, or designing templates with React Email components.",
+    "charCount": 309,
+    "discriminants": [
+      "SPF",
+      "DKIM",
+      "DMARC",
+      "Postmark",
+      "SendGrid",
+      "bounce webhooks",
+      "React Email components",
+      "transactional queues"
+    ],
+    "cleanFrontmatter": "name: email-systems\ndescription: \"Architects reliable email delivery infrastructure, transactional queues, and deliverability pipelines. Use when configuring SPF, DKIM, and DMARC DNS records, separating transactional and marketing providers with Postmark or SendGrid, handling bounce webhooks, or designing templates with React Email components.\"\nrisk: none\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  }
+]

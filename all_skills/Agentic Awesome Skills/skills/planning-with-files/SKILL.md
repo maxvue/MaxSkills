@@ -1,6 +1,6 @@
 ---
 name: planning-with-files
-description: "Work like Manus: Use persistent markdown files as your \\"working memory on disk.\ Use when developing, optimizing, debugging, or configuring planning with files in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for planning with files."
+description: "Manages persistent agent memory on disk using markdown artifacts (task_plan.md, findings.md, progress.md) inspired by Manus. Enforces the 2-action logging rule, 3-strike error protocol, and phase tracking to avoid context degradation. Use when executing complex multi-step tasks, research sessions, or agent workflows requiring structured on-disk state tracking."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,6 +1,6 @@
 ---
 name: app-store-changelog
-description: "Generate user-facing App Store release notes from git history since the last tag. Use when developing, optimizing, debugging, or configuring app store changelog in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for app store changelog."
+description: "Extracts git commit history since the latest tag and transforms technical changes into user-facing App Store release notes. Use when drafting storefront What's New release bullets, triaging user-visible commits with scripts/collect_release_changes.sh, or filtering out internal chores and CI refactors before app submission."
 risk: safe
 source: "Dimillian/Skills (MIT)"
 date_added: "2026-03-25"

@@ -1,6 +1,6 @@
 ---
 name: goal-loop
-description: "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions. Use when developing, optimizing, debugging, or configuring goal loop in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for goal loop."
+description: "Formulate structured /goal loop contracts for persistent autonomous execution in Claude Code, Codex, or Hermes Agent. Establishes the 5-part specification covering objective, constraints, validation commands, verifiable stop conditions, and documentation rules. Use when configuring long-running autonomous agent loops for migrations, test coverage lifts, or refactorings."
 category: agent-orchestration
 risk: safe
 source: community

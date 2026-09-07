@@ -1,6 +1,6 @@
 ---
 name: typescript
-description: "Language-specific super-code guidelines for typescript. Use when developing, optimizing, debugging, or configuring typescript in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for typescript."
+description: "Apply idiomatic TypeScript and JavaScript efficiency patterns covering array operations, destructuring, Promise.all parallelization, type inference, and React hooks. Use when refactoring messy TS/JS code, eliminating any types and unsafe type assertions, optimizing async workflows, or preventing unnecessary React re-renders."
 risk: safe
 source: community
 date_added: "2026-06-16"

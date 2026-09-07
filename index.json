@@ -40,7 +40,7 @@
   {
     "id": "01M0G4G52EYV7E1XB1AR91RA7C",
     "skill_name": "laravel-ai-agents-ecosystem",
-    "description_en": "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules. Covers objectives and core workflows.",
+    "description_en": "Use when creating, testing, or monitoring AI agents in Laravel (laravel/ai). Covers agent classes, function-calling tools, structured JSON outputs, Pest testing with fakeAgent, token metrics, and AgentHealthScore rules.",
     "description_pt_br": "Use ao criar, testar ou monitorar AI agents no Laravel (laravel/ai). Cobre agent classes, ferramentas de function calling, saídas estruturadas em JSON, Pest testes de com fakeAgent, métricas de consumo de tokens, e AgentHealthScore rules. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for ai agents ecosystem in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Construa e monitore agentes de inteligência artificial autônomos integrados ao backend do sistema. A funcionalidade permite executar tarefas automatizadas com respostas estruturadas e confiáveis, além de oferecer acompanhamento do consumo de processamento e testes contínuos para garantir estabilidade.",
@@ -157,7 +157,7 @@
   {
     "id": "01M0G4G52E658QPZ1C0F301826",
     "skill_name": "laravel-anticaptcha-integration-best-practices",
-    "description_en": "Use when implementing or debugging CAPTCHA resolution services (Anti-Captcha) in Laravel, including ImageToText tasks, API keys, error handling, timeouts, and logging. Covers objectives and core workflows.",
+    "description_en": "Integrates Anti-Captcha solving in Laravel using App\\Classes\\Anticaptcha wrappers (Anticaptcha, ImageToText). Configures ANTICAPTCHA_KEY, executes createTask, handles waitForResult polling, and writes to Log::channel('anticaptcha'). Use when implementing or debugging visual CAPTCHA solving in Laravel.",
     "description_pt_br": "Use ao implementar ou depurar CAPTCHA resolution services (Anti-Captcha) no Laravel, incluindo ImageToText tasks, API keys, error tratamento de, timeouts, e logging. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for anticaptcha integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Integre serviços de resolução automática de desafios visuais e captchas de imagem em rotinas automatizadas. A ferramenta permite que sistemas realizem consultas em portais externos sem interrupções manuais, gerenciando tempos de resposta, tentativas e falhas com segurança e alta confiabilidade.",
@@ -235,7 +235,7 @@
   {
     "id": "01M0G4G52EZACYS1CEZG32T53N",
     "skill_name": "laravel-authorization-policies-gates",
-    "description_en": "Use when creating or reviewing authorization in Laravel via spatie/laravel-permission. Covers roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia integration. Covers objectives and core workflows.",
+    "description_en": "Use when creating or reviewing authorization in Laravel via spatie/laravel-permission. Covers roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), and Vue SPA MaxPinia integration.",
     "description_pt_br": "Use ao criar ou revisar authorization no Laravel via spatie/laravel-permission. Cobre roles/permissions, Gates, multi-tenant Policies (allowedSolarCompanyIds), e Vue SPA MaxPinia integration. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for authorization policies gates in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie o controle de acesso e as permissões de usuários com segurança em sistemas com múltiplos clientes ou empresas. A ferramenta organiza perfis, regras de visualização e edição de maneira centralizada, assegurando que cada usuário acesse exclusivamente os dados e recursos autorizados para seu nível.",
@@ -311,7 +311,7 @@
   {
     "id": "01M0G4G52E7Y6F0YXKZ5CHW4WF",
     "skill_name": "laravel-brazilian-localization-best-practices",
-    "description_en": "Use when validating, formatting, or sanitizing Brazilian documents (CPF, CNPJ, CEP, phone numbers) and currency values (BRL, pt-BR) across Laravel backend and Vue 3 / MaxUse frontend. Covers Brazilian localization best practices and document validation.",
+    "description_en": "Backend localization patterns for Laravel in Brazil: CPF/CNPJ sanitization in database, currency formatting (BRL/centavos), Brazilian phone standards, and timezone handling. Use when formatting data or validating Brazilian documents in Laravel.",
     "description_pt_br": "Use quando para validação de, formatação de, ou sanitização de Brazilian documents (CPF, CNPJ, CEP, phone numbers) e currency values (BRL, pt-BR) across Laravel backend e Vue 3 / MaxUse frontend. Cobre Brazilian localization best practices e document validation.",
     "promo_en": "Enterprise guidelines and architectural standards for brazilian localization in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Valide e formate documentos nacionais como CPF, CNPJ, CEP e números de telefone com precisão no sistema. A solução padroniza a digitação do usuário, limpa caracteres especiais para salvar no banco de dados e formata valores monetários em Real de forma consistente em todas as telas.",
@@ -390,7 +390,7 @@
   {
     "id": "01M0G4G52ENM960HYNFXV97H2A",
     "skill_name": "laravel-browser-automation-webdriver",
-    "description_en": "Use when creating, modifying, or debugging web browser automation tasks (Selenium WebDriver, Dusk, Puppeteer, Python RPA) in Laravel or backend microservices. Covers browser automation, driver configuration, and element interactions.",
+    "description_en": "Automate browser sessions in Laravel using App\\Classes\\Browser and php-webdriver with Firefox and geckodriver. Use when managing dynamic Redis geckodriver port allocation, executing BrowserPlaybookExecutor workflows, capturing GD element screenshots, or preventing orphaned browser processes in queue jobs.",
     "description_pt_br": "Use ao criar, modificar ou depurar web browser automation tasks (Selenium WebDriver, Dusk, Puppeteer, Python RPA) no Laravel ou backend microservices. Cobre browser automation, driver configuration, e element interactions.",
     "promo_en": "Enterprise guidelines and architectural standards for browser automation webdriver in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize a navegação na internet para preencher formulários, baixar documentos e consultar portais governamentais ou de concessionárias. A solução controla navegadores em segundo plano com estabilidade, permitindo executar tarefas repetitivas com rapidez e sem intervenção humana.",
@@ -546,7 +546,7 @@
   {
     "id": "01M0G4G52EBH67GJV397R7602V",
     "skill_name": "laravel-digital-signatures-integration",
-    "description_en": "Use when designing or modifying digital signature integrations (Autentique, Clicksign) in Laravel. Covers document upload, signers, secure webhooks, and background job processing. Covers objectives and core workflows.",
+    "description_en": "Implements digital signature workflows in Laravel using Autentique (vinicinbgs/autentique-v2) and Clicksign APIs. Configures signers, validates webhooks with hash_equals, dispatches queue jobs, and downloads signed PDFs to Storage. Use when integrating, dispatching, or verifying electronic signature webhooks in Laravel.",
     "description_pt_br": "Use ao projetar ou modifying digital signature integrations (Autentique, Clicksign) no Laravel. Cobre document upload, signers, secure webhooks, e background job processamento de. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for digital signatures integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize o envio, acompanhamento e coleta de assinaturas eletrônicas em contratos e propostas comerciais. A integração conecta a aplicação a plataformas especializadas, gerenciando prazos com signatários e arquivando os documentos assinados com validade jurídica de forma ágil.",
@@ -737,7 +737,7 @@
   {
     "id": "01M0G4G52E5329B3BXTNW6Q5YY",
     "skill_name": "laravel-finance-coupons-discounts-best-practices",
-    "description_en": "Use when creating, applying, or validating discount coupons, referral rules, or financial discounts in Laravel. Covers coupon validation logic, payment adjustments, and expiration checks. Covers objectives and core workflows.",
+    "description_en": "Manages financial discount coupons and promotional rules in Laravel using FinanceDiscountCoupons and PaymentPricing. Enforces expiration, usage quotas, DB::transaction with lockForUpdate, and BCMath precision calculations. Use when validating, calculating, or auditing coupon discounts and checkout payments in Laravel.",
     "description_pt_br": "Use ao criar, applying, ou validação de discount coupons, referral rules, ou financial discounts no Laravel. Cobre coupon validation logic, payment adjustments, e expiration checks. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for finance coupons discounts in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie e valide cupons de desconto e condições promocionais no fechamento de pedidos com segurança. O recurso controla datas de validade, limites de utilização por cliente e impede aplicações indevidas simultâneas, garantindo total transparência e precisão nas regras financeiras.",
@@ -774,7 +774,7 @@
   {
     "id": "01M0G4G52E2CWKHNK3N6E91RS4",
     "skill_name": "laravel-frankenphp-octane-best-practices",
-    "description_en": "Use when configuring, deploying, or debugging Laravel Octane on FrankenPHP in production, writing stateless PHP code, avoiding memory leaks, managing singletons, and tuning Caddyfile workers. Covers objectives and core workflows.",
+    "description_en": "Configures and optimizes Laravel Octane on FrankenPHP and Caddy web servers. Enforces stateless PHP patterns, scoped container bindings, octane.flush listeners, memory leak prevention, and Supervisor process management. Use when deploying, tuning workers, or debugging memory leaks in Laravel Octane with FrankenPHP.",
     "description_pt_br": "Use ao configurar, deploying, ou depuração de Laravel Octane em FrankenPHP in production, escrita de stateless PHP code, avoiding memory leaks, gerenciamento de singletons, e tuning Caddyfile workers. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for frankenphp octane in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Acelere a performance de aplicações Laravel executando o sistema diretamente na memória com servidores modernos. Aprenda a gerenciar o ciclo de vida dos processos, evitar vazamentos de memória, reaproveitar conexões com segurança e realizar atualizações em produção sem interromper o serviço aos usuários.",
@@ -813,7 +813,7 @@
   {
     "id": "01M0G4G52E63VH9SV4003B4Y1R",
     "skill_name": "laravel-gemini-file-api-media-integration-best-practices",
-    "description_en": "Use when managing media uploads and multimodal processing via Google AI File API with Gemini SDK in Laravel. Covers video, audio, or PDF file processing, temp uploads, active state polling, and cleanup. Covers objectives and core workflows.",
+    "description_en": "Use when managing media uploads and multimodal processing via Google AI File API with Gemini SDK in Laravel. Covers video, audio, or PDF file processing, temp uploads, active state polling, and cleanup.",
     "description_pt_br": "Use ao gerenciar media uploads e multimodal processamento de via Google AI File API com Gemini SDK no Laravel. Cobre video, audio, ou PDF file processamento de, temp uploads, active state polling, e cleanup. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for gemini file api media integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Processe arquivos pesados de vídeo, áudio e documentos no Laravel integrando inteligência artificial sem sobrecarregar a memória do servidor. Saiba como enviar grandes mídias em segundo plano, monitorar o processamento automaticamente e liberar espaço temporário com segurança e estabilidade.",
@@ -852,7 +852,7 @@
   {
     "id": "01M0G4G52EZFM3K4GGMPMH1H5P",
     "skill_name": "laravel-gemini-php-sdk-best-practices",
-    "description_en": "Use when interacting with Gemini API using google-gemini-php/laravel SDK. Covers GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, and exception handling. Covers objectives, Facade model, and Gemini API schemas.",
+    "description_en": "Use when interacting with Gemini API using google-gemini-php/laravel SDK. Covers GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, and exception handling.",
     "description_pt_br": "Use quando para interação com Gemini API usando google-gemini-php/laravel SDK. Cobre GenerationConfig, structured JSON schemas, multimodal Blob inputs (Images, Audio, PDF), model selection, e exception tratamento de. Cobre objectives, Facade model, e Gemini API schemas.",
     "promo_en": "Enterprise guidelines and architectural standards for gemini php sdk in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Integre recursos de inteligência artificial generativa em aplicações Laravel de forma estruturada e confiável. Obtenha respostas padronizadas em formatos organizados, processe múltiplos formatos como imagens e documentos em tempo real e garanta alta disponibilidade com planos de contingência entre modelos de IA.",
@@ -928,7 +928,7 @@
   {
     "id": "01M0G4G52EYEJVD5QHWVGNZXEG",
     "skill_name": "laravel-holiday-sla-calculation-best-practices",
-    "description_en": "Use when implementing or debugging SLA tracking, business-day calculations, or deadlines in Engeapp backend. Covers DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween). Covers objectives and core workflows.",
+    "description_en": "Use when implementing or debugging SLA tracking, business-day calculations, or deadlines in Engeapp backend. Covers DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween).",
     "description_pt_br": "Use ao implementar ou depurar SLA tracking, business-day calculations, ou deadlines no Engeapp backend. Cobre DatesHelper globals (addBusinessDays, isHoliday, isBusinessHours, businessMinutesBetween). Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for holiday sla calculation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Calcule prazos de entrega, limites de atendimento e horas comerciais em sistemas Laravel levando em conta feriados e dias úteis. Garanta previsões precisas para fluxos de aprovação e operações de suporte, respeitando calendários regionais e horários de funcionamento da sua empresa.",
@@ -965,7 +965,7 @@
   {
     "id": "01M0G4G52EMZX2NAXDAJN2GAGE",
     "skill_name": "laravel-jobs-queues-horizon-best-practices",
-    "description_en": "Use when creating, reviewing, or debugging queue Jobs, Horizon supervisors, retries, backoff, timeouts, API rate limiting, idempotency guards, and HasAgentAiRequest trait. Covers objectives and core workflows.",
+    "description_en": "Use when creating, reviewing, or debugging queue Jobs, Horizon supervisors, retries, backoff strategies, timeouts, API rate limiting, idempotency guards, and HasAgentAiRequest trait in Engeapp Laravel backend.",
     "description_pt_br": "Use ao criar, revisar ou depurar queue Jobs, Horizon supervisors, retries, backoff, timeouts, API rate limiting, idempotency guards, e HasAgentAiRequest trait. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for jobs queues horizon in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Execute tarefas em segundo plano no Laravel com alta resiliência e controle total de filas. Configure tentativas automáticas com intervalos inteligentes, controle limites de tempo para evitar travamentos e monitore o processamento assíncrono para garantir que falhas externas não afetem a experiência do usuário.",
@@ -1004,7 +1004,7 @@
   {
     "id": "01M0G4G52EF6QCHQEM9Q9SDFGY",
     "skill_name": "laravel-livekit-server-sdk-best-practices",
-    "description_en": "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging. Covers objectives and core workflows.",
+    "description_en": "Use when creating, updating, or debugging WebRTC audio/video services using LiveKit Server SDK (agence104/livekit-server-sdk) in Laravel. Covers AccessToken with VideoGrant, RoomServiceClient, and error logging.",
     "description_pt_br": "Use ao criar, atualização de, ou depuração de WebRTC audio/video services usando LiveKit Server SDK (agence104/livekit-server-sdk) no Laravel. Cobre AccessToken com VideoGrant, RoomServiceClient, e error logging. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for livekit server sdk in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Crie salas de videoconferência e transmissões de áudio em tempo real integrando servidores de comunicação ao Laravel. Gere tokens de acesso seguros com controle de permissões por participante, gerencie salas interativas dinamicamente e acompanhe eventos de conexão com estabilidade e baixa latência.",
@@ -1082,7 +1082,7 @@
   {
     "id": "01M0G4G52EQ46JEKV691NC2RFC",
     "skill_name": "laravel-meta-graph-api-integration-best-practices",
-    "description_en": "Use when implementing or debugging Meta Graph API (Instagram/Facebook) in Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, and MetaWebhookJob. Covers objectives, architectural structure, and Meta API endpoints.",
+    "description_en": "Integrates Meta Graph API for Facebook and Instagram in Laravel via MetaService, PublishHandler, and MetaRequestTrait. Manages media containers for photos, reels, and carousels, verifies hub_challenge, and queues MetaWebhookJob. Use when publishing social media content or handling Meta Graph webhooks in Laravel.",
     "description_pt_br": "Use ao implementar ou depurar Meta Graph API (Instagram/Facebook) no Engeapp: publishing photos, reels, carousels via media containers, comments, insights, MetaService, e MetaWebhookJob. Cobre objectives, architectural structure, e Meta API endpoints.",
     "promo_en": "Enterprise guidelines and architectural standards for meta graph api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize publicações e interações nas redes sociais do Facebook e Instagram diretamente pelo Laravel. Publique fotos, carrosséis e vídeos, responda a comentários de clientes, receba notificações de eventos em tempo real e acompanhe métricas de alcance e engajamento das postagens da sua marca.",
@@ -1121,7 +1121,7 @@
   {
     "id": "01M0G4G52EQ3RJ9J2W2FJGJXPK",
     "skill_name": "laravel-migrations-seeders-factories-best-practices",
-    "description_en": "Use when creating, reviewing, or debugging database migrations, seeders, or model factories in Laravel. Covers schema definitions, foreign keys, database seeders, and factory states. Covers objectives and core workflows.",
+    "description_en": "Builds resilient database migrations, seeders, and model factories in Laravel. Enforces anonymous migrations, ULID primary keys, separate foreign key definitions, idempotent updateOrCreate seeders, and typed factory states. Use when authoring or refactoring database schemas, seeders, or factories in Laravel.",
     "description_pt_br": "Use ao criar, revisar ou depurar database migrations, seeders, ou model factories no Laravel. Cobre schema definitions, foreign keys, database seeders, e factory states. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for migrations seeders factories in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Estruture o banco de dados da sua aplicação Laravel com migrações seguras, dados iniciais reutilizáveis e geradores de registros para testes. Mantenha esquemas de tabelas consistentes entre ambientes de desenvolvimento e produção, facilitando atualizações seguras sem perda de dados.",
@@ -1158,7 +1158,7 @@
   {
     "id": "01M0G4G52EWS1XFNG7E5VA2FW1",
     "skill_name": "laravel-multitenancy-data-isolation-best-practices",
-    "description_en": "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies. Covers objectives, tenant scoping, and user permission models.",
+    "description_en": "Use when designing, reviewing, or debugging multi-company tenant isolation in Engeapp (tenant is solar_company_id). Covers scopeForUserTenant scope, User::allowedSolarCompanyIds(), and tenant resolving Policies.",
     "description_pt_br": "Use ao projetar, revisão de, ou depuração de multi-company tenant isolation no Engeapp (tenant is solar_company_id). Cobre scopeForUserTenant scope, User::allowedSolarCompanyIds(), e tenant resolving Policies. Cobre objectives, tenant scoping, e user permission models.",
     "promo_en": "Enterprise guidelines and architectural standards for multitenancy data isolation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Garanta o isolamento total de dados entre diferentes empresas em sistemas multi-inquilino no Laravel. Controle o acesso de usuários para que visualizem apenas as informações e projetos autorizados, aplicando filtros seguros nas consultas e políticas de permissão sem comprometer a estabilidade do sistema.",
@@ -1234,7 +1234,7 @@
   {
     "id": "01M0G4G52EDC220YG70SVNTF4V",
     "skill_name": "laravel-performance-and-profiling-best-practices",
-    "description_en": "Use when configuring, optimizing, or debugging Laravel 13 profiling tools in Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, and Pail log tailing. Covers objectives and core workflows.",
+    "description_en": "Profiles, monitors, and debugs Laravel application performance using Laravel Pulse, Clockwork, LaraDumps ds(), Debugbar CLI, Log Viewer, and Laravel Pail log streaming. Enforces Gate authorizations and N+1 query detection. Use when diagnosing slow database queries, memory bottlenecks, or tailing logs in Laravel.",
     "description_pt_br": "Use ao configurar, otimização de, ou depuração de Laravel 13 profiling tools no Engeapp: Pulse, Clockwork, LaraDumps ds(), Debugbar, Telescope, Log Viewer, e Pail log tailing. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for performance and profiling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Monitore e otimize a velocidade da sua aplicação Laravel identificando consultas lentas ao banco e gargalos no servidor. Utilize ferramentas modernas de diagnóstico e telemetria para inspecionar requisições, reduzir o consumo de memória e melhorar a experiência de navegação de todos os usuários.",
@@ -1389,7 +1389,7 @@
   {
     "id": "01M0G4G52E9NHSSAVVM63K35W2",
     "skill_name": "laravel-qrcode-generation-best-practices",
-    "description_en": "Use when generating, customizing, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers SVG/PNG outputs, base64 encoding for Blade/APIs, logos, and labels. Covers objectives and core workflows.",
+    "description_en": "Use when generating, styling, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers Builder configuration with PngWriter or SvgWriter, base64 data URIs, raw binary streams, ErrorCorrectionLevel, logo embedding with punchout, label rendering limitations, and disk persistence.",
     "description_pt_br": "Use quando para geração de, customizing, rendering, ou testes de QR Codes no Laravel usando endroid/qr-code. Cobre SVG/PNG outputs, base64 encoding para Blade/APIs, logos, e labels. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for qrcode generation in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Crie e personalize códigos QR em imagens de alta resolução ou vetores diretamente no Laravel. Adicione logotipos centrais, textos informativos e níveis de correção de erro sob medida, gerando códigos prontos para exibição em telas, notas fiscais, crachás ou relatórios para impressão.",
@@ -1465,7 +1465,7 @@
   {
     "id": "01M0G4G52EQJCSMT32MAFD936X",
     "skill_name": "laravel-redis-integration-best-practices",
-    "description_en": "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues). Covers objectives and core workflows.",
+    "description_en": "Use when configuring, optimizing, or debugging Redis connections in Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, and Horizon queues).",
     "description_pt_br": "Use ao configurar, otimização de, ou depuração de Redis connections no Engeapp (phpredis client, key prefixes, atomic HSETNX operations, pipelines, RedisException fallback, cache tags, e Horizon queues). Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for redis integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Aumente a velocidade de resposta do sistema utilizando armazenamento em memória para cache e processamento de filas no Laravel. Otimize o acesso ao banco em alta performance, execute operações simultâneas de forma segura e mantenha a estabilidade mesmo em instabilidades de rede.",
@@ -1622,7 +1622,7 @@
   {
     "id": "01M0G4G52FYW6F10SWM38VNXAK",
     "skill_name": "laravel-service-providers-dependency-injection-best-practices",
-    "description_en": "Use when creating or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Container, PHP 8 constructor property promotion, dependency injection, and Octane memory safety. Covers objectives and core workflows.",
+    "description_en": "Use when creating or registering Laravel Service Providers, binding services (bind, singleton, scoped) to the Container, PHP 8 constructor property promotion, dependency injection, and Octane memory safety.",
     "description_pt_br": "Use ao criar ou registering Laravel Service Providers, binding services (bind, singleton, scoped) para the Container, PHP 8 constructor property promotion, dependency injection, e Octane memory safety. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for service providers dependency injection in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Organize a inicialização de serviços e a injeção de dependências no backend com máxima eficiência. A funcionalidade gerencia o ciclo de vida dos componentes, evita vazamentos de memória em servidores de alta performance e desacopla a arquitetura para facilitar testes e manutenções contínuas.",
@@ -1661,7 +1661,7 @@
   {
     "id": "01M0G4G52FH4PYVMV8YJFA2PNM",
     "skill_name": "laravel-services-best-practices",
-    "description_en": "Use when creating, refactoring, or reviewing Laravel Service classes, applying Single Responsibility Principle, dependency injection, and standardized error handling. Covers objectives and core workflows.",
+    "description_en": "Use when creating, refactoring, or reviewing Laravel Service classes in app/Services. Enforces Single Responsibility Principle, PHP 8 constructor property promotion for dependency injection, typed DTOs from app/Data, domain exceptions, structured Log facade context, and Octane-safe stateless architecture without HTTP controller coupling.",
     "description_pt_br": "Use ao criar, refatoração de, ou revisão de Laravel Service classes, applying Single Responsibility Principle, dependency injection, e standardized error tratamento de. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for services in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Centralize as regras de negócio em camadas de serviço organizadas e reutilizáveis. O padrão mantém os controladores enxutos, padroniza o tratamento de erros, melhora a legibilidade do código e permite que equipes desenvolvam funcionalidades complexas com maior velocidade e segurança.",
@@ -1780,7 +1780,7 @@
   {
     "id": "01M0G4G52F8KMB5WX6JP3M717H",
     "skill_name": "laravel-task-scheduling-best-practices",
-    "description_en": "Use when creating, configuring, or debugging Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, and Studio Totem integration. Covers objectives and core workflows.",
+    "description_en": "Use when configuring, scheduling, or debugging Laravel background tasks in routes/console.php or Studio Totem. Covers Schedule facade commands, withoutOverlapping mutex locks, runInBackground, onOneServer, task_results retention policies, Totem::auth callback security, and channel logging in config/logging.php.",
     "description_pt_br": "Use ao criar, configuring, ou depuração de Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, e Studio Totem integration. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for task scheduling in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Automatize rotinas e tarefas periódicas em segundo plano com controle e estabilidade. O recurso agenda relatórios, limpezas e sincronizações automáticas, evitando travamentos por sobreposição de tarefas e garantindo que o sistema opere com alta disponibilidade sem sobrecarregar o servidor.",
@@ -1857,7 +1857,7 @@
   {
     "id": "01M0G4G52FKTF5149YTWZCRXZG",
     "skill_name": "laravel-trello-api-integration",
-    "description_en": "Use when maintaining or debugging Trello API integration in Engeapp (TrelloService), reading config/api.php, handling webhooks via ProcessTrelloWebhookJob, and running trello Artisan commands. Covers objectives and core workflows.",
+    "description_en": "Use when integrating, maintaining, or debugging the Trello API in Laravel via TrelloService. Covers credentials from config/api.php, default board handling, webhook reception via ProcessTrelloWebhookJob, async queued mutations with SyncToTrelloJob, Artisan commands trello:register-webhook and sync:cards-trello, and trello channel logging.",
     "description_pt_br": "Use ao manter ou depurar Trello API integration no Engeapp (TrelloService), reading config/api.php, tratamento de webhooks via ProcessTrelloWebhookJob, e running trello Artisan commands. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for trello api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Conecte o sistema diretamente aos quadros do Trello para sincronizar tarefas, listas e anexos de forma automatizada. A integração processa atualizações em tempo real, organiza fluxos de trabalho da equipe e elimina a necessidade de copiar manualmente informações entre plataformas.",
@@ -1896,7 +1896,7 @@
   {
     "id": "01M0G4G52F5EWFT8TVSJXKCEAM",
     "skill_name": "laravel-typescript-transformer-best-practices",
-    "description_en": "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Covers objectives, TypeScript DTO transformation, and language rules.",
+    "description_en": "Use when configuring, generating, or synchronizing TypeScript definitions from PHP DTOs and Enums in Laravel using spatie/typescript-transformer. Covers programmatic setup in TypeScriptTransformerServiceProvider, php artisan typescript:transform, FlatGlobalWriter, #[DataCollectionOf], and output in resources/Types/generated.d.ts.",
     "description_pt_br": "Use ao configurar, atualização de, ou geração de TypeScript types/interfaces de PHP DTOs e Enums no Laravel usando Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Cobre objectives, TypeScript DTO transformation, e language rules.",
     "promo_en": "Enterprise guidelines and architectural standards for typescript transformer in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Sincronize automaticamente os tipos de dados do backend com a interface do usuário. A ferramenta converte estruturas e opções do sistema em definições tipadas no frontend, eliminando divergências de dados entre as camadas, reduzindo erros de desenvolvimento e acelerando a criação de telas.",
@@ -2064,7 +2064,7 @@
   {
     "id": "01M0G4G52FQ50YYSPJG6FMWM19",
     "skill_name": "laravel-vuefinder-media-library-integration",
-    "description_en": "Use when integrating VueFinder file manager with Spatie MediaLibrary in Engeapp. Covers upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), and VueFinder JSON enrichment. Covers objectives and core workflows.",
+    "description_en": "Use when integrating VueFinder file manager with Spatie MediaLibrary in Engeapp. Covers upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), and VueFinder JSON enrichment.",
     "description_pt_br": "Use quando para integrating VueFinder file manager com Spatie MediaLibrary no Engeapp. Cobre upload/delete/rename/move/copy sync hooks, legacy_folder custom properties, saveQuietly(), e VueFinder JSON enrichment. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for vuefinder media library integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Gerencie arquivos, pastas e documentos com sincronização automática entre o disco e o banco de dados. Permite que os usuários enviem, renomeiem, organizem e visualizem mídias com facilidade em um gerenciador intuitivo, mantendo todos os registros sempre atualizados e sem arquivos órfãos.",
@@ -2107,7 +2107,7 @@
   {
     "id": "01M0G4G52F93MEV0NBHVH0EPB9",
     "skill_name": "laravel-whatsapp-cloud-api-integration",
-    "description_en": "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Covers objectives and core workflows.",
+    "description_en": "Use when building or debugging WhatsApp Cloud API integrations in Laravel using netflie/whatsapp-cloud-api. Covers hub_challenge webhook verification, two-stage queue pipelines (webhooks and whatsapp queues), WebhookWhatsappJobExecuteJob, SupportMessage and SupportContact persistence, PhoneClass helpers, and NotifyRetryingWhatsappMiddleware.",
     "description_pt_br": "Use ao criar ou depurar WhatsApp Cloud API integrations, tratamento de webhooks, queued job processamento de, sending template/interactive messages, processamento de incoming messages, e gerenciamento de state. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Enterprise guidelines and architectural standards for whatsapp cloud api integration in Laravel. Enforces best practices, strong typing, clean domain separation, and optimal performance across backend services and APIs.",
     "promo_pt_br": "Integre o atendimento da sua empresa diretamente ao WhatsApp oficial para envio e recebimento de mensagens. A solução processa conversas em segundo plano, suporta botões interativos e mensagens estruturadas, garantindo entregas rápidas, seguras e com proteção contra limites de envio.",
@@ -2185,7 +2185,7 @@
   {
     "id": "01M0G4G52FPABCWP4S35T8BE88",
     "skill_name": "project-history",
-    "description_en": "Use when you need historical context on how a feature was built, why a past decision was made, or the validation/test-count trail for a completed milestone in this project — the changelog of every marco/fase from Marco 1 through the most recent branch, moved out of CLAUDE.md so it isn't always loaded.",
+    "description_en": "Historical milestones, completed roadmap tasks, and architectural decisions for the SocialMedia project. Use when reviewing past engineering milestones, test suite validations, or historical context for SocialMedia.",
     "description_pt_br": "Use quando precisar de contexto histórico sobre como uma funcionalidade foi construída ou o motivo de decisões passadas, ou the trilha de validação e contagem de testes para marcos concluídos neste projeto — o changelog de cada marco/fase desde o Marco 1 até a branch mais recente, movido para fora do CLAUDE.md para não ser carregado constantemente.",
     "promo_en": "Structured change tracking and project history standard. Captures key architectural decisions, feature implementations, and evolutionary milestones across the repository.",
     "promo_pt_br": "Acesse a linha do tempo completa e o histórico de decisões do projeto. O registro detalha a evolução das etapas de desenvolvimento, motivos de escolhas arquiteturais e histórico de validações de testes, permitindo que novos membros e gestores compreendam rapidamente a trajetória do software.",
@@ -2220,7 +2220,7 @@
   {
     "id": "01M0G4G52FM2QXVR4AZP8HS2XR",
     "skill_name": "project-setup",
-    "description_en": "Use when setting up this project from scratch on a new machine, or when onboarding steps are needed (installing dependencies, configuring .env, bootstrapping the database, starting dev services). Not needed for day-to-day work in an already-set-up environment.",
+    "description_en": "Environment bootstrapping and local setup instructions for the SocialMedia project (PHP 8.2+, Laravel, Redis, MySQL, Horizon). Use when configuring a new developer environment or running migration commands for SocialMedia.",
     "description_pt_br": "Use ao configurar este projeto do zero em uma nova máquina ou quando passos de onboarding forem necessários (instalação de dependências, configuração do .env, inicialização do banco de dados e serviços dev). Não necessário para o dia a dia em ambientes já configurados.",
     "promo_en": "Unified project bootstrapping and environment setup guide. Guarantees consistent developer onboarding, standard tooling configurations, and reproducible environments.",
     "promo_pt_br": "Configure o ambiente completo de desenvolvimento do projeto em minutos a partir do zero. O guia orienta a instalação de dependências, configuração de variáveis, preparação do banco de dados e ativação de serviços em segundo plano, garantindo uma inicialização rápida e sem complicações.",
@@ -2289,7 +2289,7 @@
   {
     "id": "01M0G4G52FEQE51DMZ9YKMEYCA",
     "skill_name": "technical-documentation-best-practices",
-    "description_en": "Use when writing or improving technical documentation: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, and Laravel/Vue doc patterns. Covers best practices, debugging strategies, and objectives.",
+    "description_en": "Use when writing or improving technical documentation: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, and Laravel/Vue doc patterns. Covers best practices, progressive disclosure, and templates.",
     "description_pt_br": "Use ao escrever ou aprimorar documentação técnica: READMEs, API endpoints, UI components, ADRs, changelogs, JSDoc/TSDoc, e Laravel/Vue doc patterns. Cobre melhores práticas, estratégias de depuração e objetivos.",
     "promo_en": "Standardized framework for writing maintainable, clear, and actionable technical documentation across APIs, frontend components, architecture decision records (ADRs), and guides.",
     "promo_pt_br": "Crie documentações técnicas claras, organizadas e profissionais para sistemas, serviços e componentes visuais. O método orienta a elaboração de manuais práticos, referências de integração e registros de decisões arquiteturais para facilitar a colaboração e o aprendizado de toda a equipe.",
@@ -2324,7 +2324,7 @@
   {
     "id": "01M0G4G52F477ME1WMWZNJDX3J",
     "skill_name": "typescript-advanced-types-best-practices",
-    "description_en": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, and strict config. Covers objectives and core workflows.",
+    "description_en": "Use when designing type-safe TypeScript architectures or solving advanced type problems: generics, conditional types, mapped types, template literals, utility types, branded types, decorators, ambient declarations (.d.ts), and strict tsconfig settings.",
     "description_pt_br": "Use ao projetar arquiteturas TypeScript type-safe ou resolver problemas avançados de tipagem: generics, conditional types, mapped types, template literals, utility types, branded types, e strict config. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Advanced TypeScript engineering standard for advanced types. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
     "promo_pt_br": "Aprenda a criar tipos avançados e seguros em TypeScript para blindar seu código contra erros em tempo de desenvolvimento. Descubra como modelar regras de negócio complexas, construir estruturas reutilizáveis e garantir contratos de dados consistentes para projetos e bibliotecas de alta confiabilidade.",
@@ -2433,7 +2433,7 @@
   {
     "id": "01M0G4G52F89MV92CC8JTBEX4D",
     "skill_name": "typescript-tooling-monorepo-best-practices",
-    "description_en": "Use when solving TypeScript and JavaScript tooling issues: compiler performance (slow tsc), project references with per-package composite, JS to TS migration, module resolution errors, ESM/CJS interop, and tsc debugging. Focuses on ESM-first, moduleResolution bundler, ESLint, typescript-eslint, and Vitest. Triggers on tsconfig, build speed, and type errors.",
+    "description_en": "Use when solving TypeScript tooling issues: compiler performance (tsc/vue-tsc), per-package composite references, module resolution errors, ESM/CJS interop, ESLint/typescript-eslint configuration, and build speed in Engeapp/Max* packages.",
     "description_pt_br": "Use quando para solving TypeScript e JavaScript tooling issues: compiler performance (slow tsc), project references com per-package composite, JS para TS migration, module resolution errors, ESM/CJS interop, e tsc depuração de. Focuses em ESM-first, moduleResolution bundler, ESLint, typescript-eslint, e Vitest. Acionado em tsconfig, build speed, e type errors.",
     "promo_en": "Advanced TypeScript engineering standard for tooling monorepo. Enforces strict typing, type safety, modular design, and robust contracts across shared libraries and monorepo architectures.",
     "promo_pt_br": "Otimize a infraestrutura de compilação e o ecossistema de ferramentas em projetos TypeScript e monorepositórios. Melhore o tempo de build, organize o compartilhamento de código entre múltiplos pacotes e resolva com facilidade problemas de compatibilidade entre módulos e empacotadores modernos.",
@@ -2514,7 +2514,7 @@
   {
     "id": "01M0G4G52FMY72CNEFPYVGGCK1",
     "skill_name": "vue-axios-api-integration-best-practices",
-    "description_en": "Use when integrating Vue 3 front-end with Laravel backend API using @maxvue/max-use HTTP helpers (apiGetRoute, apiPostRoute, apiPutRoute, apiDeleteRoute). Covers Ziggy named routes resolution, credentials handling, return contracts, and MaxPinia store data flow.",
+    "description_en": "HTTP communication standards in Vue 3 frontend via @maxvue/max-use and Axios: apiGetRoute, apiPostRoute, Ziggy named routes, session credentials, and API error handling. Use when integrating Vue frontend with Laravel API endpoints.",
     "description_pt_br": "Use when integrating Vue 3 front-end with Laravel backend API using @maxvue/max-use HTTP helpers (apiGetRoute, apiPostRoute, apiPutRoute, apiDeleteRoute). Covers Ziggy named routes resolution, credentials handling, return contracts, and MaxPinia store data flow.",
     "promo_en": "Production-grade frontend standard for axios api integration in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padronize a comunicação HTTP entre o frontend em Vue 3 e o backend em Laravel com máxima eficiência. Aprenda a consultar rotas nomeadas com segurança, gerenciar autenticação por sessão, tratar erros de requisição de forma consistente e alimentar os estados da aplicação sem redundâncias.",
@@ -2556,7 +2556,7 @@
   {
     "id": "01M0G4G52FHZWZ0HXJ6BHDPQKS",
     "skill_name": "vue-boleto-utils-best-practices",
-    "description_en": "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting. Covers objectives and core workflows.",
+    "description_en": "Use when validating, parsing, or formatting Brazilian bank slips (boletos) in Vue 3 using @mrmgomes/boleto-utils. Covers validarBoleto integration, digit lengths (36, 44, 46, 47, 48), TypeScript module augmentation for Date fields, barcode and digitable line parsing, and reusable useBoleto composables.",
     "description_pt_br": "Use quando para validação de, formatação de, análise e conversão de, ou tratamento de bank slip data (boletos) no Vue 3 usando @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, e payment input formatação de. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for boleto utils in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Valide e formate boletos bancários de forma simples e precisa em interfaces Vue. Calcule automaticamente datas de vencimento, valores e dígitos verificadores a partir de linhas digitáveis ou códigos de barras, oferecendo uma experiência de pagamento fluida e sem erros de preenchimento.",
@@ -2756,7 +2756,7 @@
   {
     "id": "01M0G4G52FR45GY3Q2E1Y36D87",
     "skill_name": "vue-eslint-stylelint-quality-standards",
-    "description_en": "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, indent, quotes, comma-dangle, and pseudo-element overrides. Covers objectives, ESLint/Stylelint standards, and execution commands.",
+    "description_en": "Use when linting, formatting, or fixing Vue 3 SFCs and SCSS styles against ESLint (flat config in eslint.config.js) and Stylelint (.stylelintrc.json). Covers vue/block-order (template, script, style), @stylistic formatting rules, unused var prefixes (^_), Vue pseudo-elements (v-deep), and npm run lint.",
     "description_pt_br": "Use quando para running ou fixing ESLint (flat config) e Stylelint no Vue 3 SFCs e SCSS. Cobre block-order template/script/style, indent, quotes, comma-dangle, e pseudo-element overrides. Cobre objectives, ESLint/Stylelint standards, e execution commands.",
     "promo_en": "Production-grade frontend standard for eslint stylelint quality standards in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Garanta a qualidade e a padronização do código frontend em projetos Vue. Aplique regras automáticas de estilo para scripts, templates e folhas de estilo, corrigindo inconsistências visuais, problemas de indentação e ordem de blocos para manter a base de código limpa, organizada e legível.",
@@ -2797,7 +2797,7 @@
   {
     "id": "01M0G4G52F736SSZVZDWV8HQ5Q",
     "skill_name": "vue-frontend-bug-fixing-best-practices",
-    "description_en": "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing. Covers objectives, project stack, and frontend bug fixing.",
+    "description_en": "Use when diagnosing and fixing frontend bugs in Engeapp Vue 3 applications. Covers root-cause debugging across @maxvue/max-pinia cached stores, @maxvue/max-use route helpers (apiGetRoute, apiPostRoute), @maxvue/max-components-ui components, UnoCSS presetMaxUno styling, and npm run typecheck:tsgo verification.",
     "description_pt_br": "Use quando para diagnosing e fixing front-end bugs no Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, e routing. Cobre objectives, project stack, e frontend bug fixing.",
     "promo_en": "Production-grade frontend standard for frontend bug fixing in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Solucione defeitos visuais, lógicos e de integração no frontend de aplicações Vue de forma estruturada. Investigue a causa raiz de problemas em telas, falhas de sincronização de dados com o servidor, quebras de layout responsivo e comportamentos inesperados do usuário sem mascarar sintomas.",
@@ -2842,7 +2842,7 @@
   {
     "id": "01M0G4G52FJ4QZKB4R0K2TGM0R",
     "skill_name": "vue-inputs-masks-validation-best-practices",
-    "description_en": "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card. Covers objectives and core workflows.",
+    "description_en": "Use when implementing or validating masked inputs in Vue 3 with Maska v3, libphonenumber-js, card-validator, and @polvo-labs/card-type for phone, CPF, CNPJ, currency, CEP, license plate, and credit card.",
     "description_pt_br": "Use ao implementar ou validação de masked inputs no Vue 3 com Maska v3, libphonenumber-js, card-validator, e @polvo-labs/card-type para phone, CPF, CNPJ, currency, CEP, license plate, e credit card. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for inputs masks validation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Crie campos de formulário inteligentes com máscaras automáticas e validações em tempo real no Vue. Formate com precisão dados como CPF, CNPJ, telefone, CEP, valores monetários e cartões de crédito, garantindo que o usuário digite com facilidade e o sistema armazene os dados limpos e válidos.",
@@ -2884,7 +2884,7 @@
   {
     "id": "01M0G4G52FPRWYTT588CZRBTYB",
     "skill_name": "vue-keyboard-shortcuts-navigation-best-practices",
-    "description_en": "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Covers objectives and core workflows.",
+    "description_en": "Use when implementing or debugging keyboard shortcuts, hotkeys, and focus traps in Vue 3. Covers useActiveElement input collision prevention, reactive useMagicKeys and whenever watchers via @maxvue/max-use, template key modifiers (.exact, .prevent), modal focus restoration, and accessible navigation.",
     "description_pt_br": "Use ao implementar ou depurar keyboard shortcuts, hotkeys, focus management, e keyboard navigation no Vue 3 usando useMagicKeys, useActiveElement, e key modifiers. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for keyboard shortcuts navigation in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Implemente atalhos de teclado ágeis e navegação acessível em aplicações Vue. Permita acionar ações rápidas com combinações de teclas sem conflitar com a digitação em formulários, gerenciando o foco de elementos visuais e melhorando a produtividade do usuário nas tarefas cotidianas.",
@@ -2964,7 +2964,7 @@
   {
     "id": "01M0G4G52F058W41SS9BH3M23N",
     "skill_name": "vue-max-ecosystem-api-reference",
-    "description_en": "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Covers component props/events/slots, composables, and cached store configurations. Covers objectives, component props, composables, and API navigation.",
+    "description_en": "Use when looking up API signatures, props, emits, slots, and store contracts for Engeapp internal libraries: @maxvue/max-components-ui (110 components), @maxvue/max-use (useRefCachedApi, apiGetRoute, lodash helper _), and @maxvue/max-pinia (cached store options.get and debounced options.save).",
     "description_pt_br": "Use quando para referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, e MaxPinia. Cobre component props/events/slots, composables, e cached store configurations. Cobre objectives, component props, composables, e API navigation.",
     "promo_en": "Production-grade frontend standard for max ecosystem api reference in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Consulte o catálogo de referência rápida para os componentes de interface, funções auxiliares e gerenciadores de estado do projeto. Encontre facilmente propriedades disponíveis, eventos emitidos, tipos de dados e contratos de uso para acelerar o desenvolvimento do frontend no dia a dia.",
@@ -3094,7 +3094,7 @@
   {
     "id": "01M0G4G52F9X8JJ3EV6AHP7MTG",
     "skill_name": "vue-max-use-usecachedapi-state-cache-best-practices",
-    "description_en": "Use when implementing or debugging Vue 3 code with useRefCachedApi (or useCachedApi, useSharedCacheApi, useInCacheApi) from @maxvue/max-use to cache GET requests in localStorage with background revalidation. Covers objectives, composable signatures, and cached state management.",
+    "description_en": "Use when implementing or debugging Vue 3 code with useRefCachedApi (or useCachedApi, useSharedCacheApi, useInCacheApi) from @maxvue/max-use to cache GET requests in localStorage with background revalidation.",
     "description_pt_br": "Use ao implementar ou depurar Vue 3 code com useRefCachedApi (ou useCachedApi, useSharedCacheApi, useInCacheApi) de @maxvue/max-use para cache GET requests in localStorage com background revalidation. Cobre objectives, composable signatures, e cached state management.",
     "promo_en": "Production-grade frontend standard for max use usecachedapi state cache in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Acelere o carregamento de telas no Vue 3 através de cache local de requisições com atualização transparente em segundo plano. Exiba dados salvos instantaneamente para o usuário na inicialização da página enquanto consulta a API de forma assíncrona para sincronizar novas alterações.",
@@ -3134,7 +3134,7 @@
   {
     "id": "01M0G4G52FD6G89W0Q773PB3KM",
     "skill_name": "vue-meta-api-oauth-integration-best-practices",
-    "description_en": "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store. Covers objectives and core workflows.",
+    "description_en": "Use when building or debugging official Meta API (Instagram/Facebook) credentials UI in Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, and Pinia store.",
     "description_pt_br": "Use ao construir ou depuração de official Meta API (Instagram/Facebook) credentials UI no Vue 3 (SocialMedia/TabCredentials.vue): manual external_account_id/token input, MaxInputText/MaxButton, e Pinia store. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for meta api oauth integration in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Interface segura para conexão de contas de redes sociais como Facebook e Instagram. Permite aos gestores inserir identificadores de páginas e tokens de acesso oficiais de forma simples e direta, mantendo as chaves protegidas e garantindo a integração correta das plataformas no sistema.",
@@ -3300,7 +3300,7 @@
   {
     "id": "01M0G4G52F0CEX4Y8AWFQVWR1T",
     "skill_name": "vue-typescript-best-practices",
-    "description_en": "Use when writing, reviewing, or debugging Vue 3 components, composables, Pinia stores, or utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, tsconfig.json, and module declarations. Covers objectives, SFC structure, and TypeScript declarations.",
+    "description_en": "TypeScript typing conventions for Vue 3 SFCs: typed defineProps, defineEmits, template refs, and backend DTO integration via Spatie TypeScript Transformer. Use when typing Vue components, store states, or API contracts.",
     "description_pt_br": "Use quando para escrita de, revisão de, ou depuração de Vue 3 components, composables, Pinia stores, ou utility functions in TypeScript: SFC structure, defineProps/defineEmits typing, tsconfig.json, e module declarations. Cobre objectives, SFC structure, e TypeScript declarations.",
     "promo_en": "Production-grade frontend standard for typescript in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Boas práticas e padronização para desenvolvimento no front-end com tipagem estrita de dados. Garante maior qualidade de código, previne falhas na interface antes que cheguem aos usuários e assegura que as informações trafegadas estejam sempre alinhadas com o servidor.",
@@ -3340,7 +3340,7 @@
   {
     "id": "01M0G4G52F7HCNBBVQ423KY0TJ",
     "skill_name": "vue-unocss-styling-best-practices",
-    "description_en": "Use when styling templates, styles, and layouts in Vue 3 with UnoCSS + presetMaxUno: attributify classes/attributes, color shortcuts, transformerVariantGroup, params.scss, SCSS scoped blocks, and dark mode via useDark. Covers objectives and core workflows.",
+    "description_en": "Use when styling templates, styles, and layouts in Vue 3 with UnoCSS + presetMaxUno: attributify classes/attributes, color shortcuts, transformerVariantGroup, params.scss, SCSS scoped blocks, and dark mode via useDark.",
     "description_pt_br": "Use quando para styling templates, styles, e layouts no Vue 3 com UnoCSS + presetMaxUno: attributify classes/attributes, color shortcuts, transformerVariantGroup, params.scss, SCSS scoped blocks, e dark mode via useDark. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for unocss styling in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Diretrizes para estilização moderna e ágil de interfaces, aplicando cores padronizadas, espaçamentos consistentes e suporte automático ao modo escuro. Garante um visual refinado e uniforme em todo o sistema, além de facilitar a manutenção e acelerar a criação de telas.",
@@ -3382,7 +3382,7 @@
   {
     "id": "01M0G4G52FJ69WE0FRS2ZJTDD0",
     "skill_name": "vue-vitest-testing-best-practices",
-    "description_en": "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Covers objectives and core workflows.",
+    "description_en": "Use when authoring or updating unit and integration tests with Vitest and Vue Test Utils in tests/Js/. Covers Vue 3 SFC mounting, @maxvue/max-pinia cached store state mocks, composable isolation, vi.mock network handlers, flushPromises async ticks, and coverage thresholds for Engeapp frontend suites.",
     "description_pt_br": "Use quando para escrita de ou atualização de front-end unit/integration tests com Vitest e Vue Test Utils para Vue 3 components, MaxPinia stores, e composables in tests/Js/, incluindo API mocking. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for vitest testing in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Padrões para criação de testes automatizados no front-end, validando o comportamento de telas, botões e fluxos de dados em ambiente isolado. Garante estabilidade nas entregas de novas funcionalidades e assegura que o sistema continue funcionando perfeitamente sem regressões.",
@@ -3422,7 +3422,7 @@
   {
     "id": "01M0G4G52FFKRZ5RZHFQ5YXYEZ",
     "skill_name": "vue-whatsapp-interactive-messages-simulator-best-practices",
-    "description_en": "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates. Covers objectives and core workflows.",
+    "description_en": "Use when designing, building, or debugging Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, and templates.",
     "description_pt_br": "Use ao projetar, construção de, ou depuração de Vue 3 components/views that simulate WhatsApp interactive messages: text, media headers, quick replies, list messages, CTA buttons, SCSS/UnoCSS styling, e templates. Cobre objetivos e fluxos de trabalho centrais.",
     "promo_en": "Production-grade frontend standard for whatsapp interactive messages simulator in Vue 3 applications. Accelerates UI development with predictable state management, reactive components, clean architecture, and consistent code quality.",
     "promo_pt_br": "Simulador visual e interativo de mensagens para WhatsApp que divide a tela entre edição e prévia em tempo real. Permite criar modelos de mensagens com botões de ação rápida, menus de listas e imagens, validando limites de texto para garantir mensagens perfeitas antes do envio.",

@@ -1,6 +1,6 @@
 ---
 name: context-engineering
-description: "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project. Provides end-to-end guidance, reference architectures, and practical patterns for context engineering."
+description: "Optimizes AI agent context setup, system prompt budgets, and hierarchical project instructions across AGENTS.md, CLAUDE.md, and scratchpads. Use when starting fresh agent sessions, diagnosing prompt degradation, scoping context windows, or structuring rule files to minimize hallucination and token waste."
 risk: critical
 source: https://github.com/addyosmani/agent-skills/tree/main/skills/context-engineering
 source_repo: addyosmani/agent-skills

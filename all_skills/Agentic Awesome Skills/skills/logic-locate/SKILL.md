@@ -1,6 +1,6 @@
 ---
 name: logic-locate
-description: "Comprehensive engineering guide and best practices for logic locate. Use when configuring, developing, debugging, or optimizing logic locate architecture in production systems. Guides architecture, best practices, and implementation standards for logic locate."
+description: "Isolates the root cause of confirmed software failures and assertion errors using backward-then-forward semi-formal tracing. Identifies root divergence points with L-codes and outputs structured Fault Locate reports with premises and minimal remedies. Use when tracking down failing tests, stack traces, crashes, or incorrect values via Logic-Lens."
 risk: safe
 source: https://github.com/hyhmrright/logic-lens/tree/main/skills/logic-locate
 source_repo: hyhmrright/logic-lens

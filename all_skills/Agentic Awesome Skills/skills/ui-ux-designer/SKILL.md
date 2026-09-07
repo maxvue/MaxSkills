@@ -1,6 +1,6 @@
 ---
 name: ui-ux-designer
-description: "Comprehensive engineering guide and best practices for ui ux designer. Use when configuring, developing, debugging, or optimizing ui ux designer architecture in production systems. Guides architecture, best practices, and implementation standards for ui ux designer."
+description: "Design and audit digital interfaces, design systems, and token architectures. Use when building token-based component libraries with Figma Variables or Style Dictionary, enforcing WCAG 2.1/2.2 AA accessibility standards, integrating with Storybook or Chromatic, and creating responsive user flows."
 risk: critical
 source: community
 date_added: '2026-02-27'

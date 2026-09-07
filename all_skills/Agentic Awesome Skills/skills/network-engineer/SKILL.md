@@ -1,9 +1,9 @@
 ---
 name: network-engineer
-description: "Comprehensive engineering guide and best practices for network engineer. Use when configuring, developing, debugging, or optimizing network engineer architecture in production systems. Guides architecture, best practices, and implementation standards for network engineer."
+description: "Designs, configures, and diagnoses cloud networking across AWS VPC, Azure VNet, and GCP. Implements L4/L7 load balancing (ALB, Envoy, Nginx), container CNI (Cilium, Calico), and service mesh mTLS (Istio). Use when architecting cloud network topologies, configuring zero-trust policies, or debugging connectivity issues with tcpdump, Wireshark, and iperf3."
 risk: safe
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when

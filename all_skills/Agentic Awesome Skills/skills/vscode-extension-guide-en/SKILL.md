@@ -1,6 +1,6 @@
 ---
 name: vscode-extension-guide-en
-description: "Comprehensive engineering guide and best practices for vscode extension guide en. Use when configuring, developing, debugging, or optimizing vscode extension guide en architecture in production systems."
+description: "Develop, test, and publish extensions for Visual Studio Code using the VS Code Extension API. Use when scaffolding extensions with yo generator-code, implementing Webview panels with CSP security, creating TreeView data providers, running tests with @vscode/test-electron, or packaging VSIX via @vscode/vsce."
 category: core-dev
 risk: safe
 source: community

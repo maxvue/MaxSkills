@@ -1,6 +1,6 @@
 ---
 name: differential-review
-description: "Comprehensive engineering guide and best practices for differential review. Use when configuring, developing, debugging, or optimizing differential review architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for differential review."
+description: "Conducts differential security code reviews on pull requests, commit ranges, and diffs. Use when analyzing changes touching authentication, cryptography, access control modifiers, external calls, or removed validation checks requiring blast radius calculation, git blame tracing, and adversarial exploit modeling."
 risk: critical
 source: community
 ---

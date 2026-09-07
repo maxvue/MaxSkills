@@ -1,6 +1,6 @@
 ---
 name: seo-structure-architect
-description: "Comprehensive engineering guide and best practices for seo structure architect. Use when configuring, developing, debugging, or optimizing seo structure architect architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for seo structure architect."
+description: "Architects on-page content hierarchy and information structure for SEO and featured snippets. Evaluates H1-H6 heading order, designs topical silos and theme clusters, maps contextual internal linking matrices, and configures breadcrumb navigation and table of contents. Use when structuring article outlines, organizing website content silos, or optimizing heading hierarchy for search engines."
 risk: safe
 source: community
 date_added: '2026-02-27'

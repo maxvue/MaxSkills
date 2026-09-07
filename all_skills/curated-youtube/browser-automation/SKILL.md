@@ -1,9 +1,6 @@
 ---
 name: browser-automation
-description: "Browser automation powers web testing, scraping, and AI agent Use when developing, configuring, optimizing, or troubleshooting browser automation in production workflows. Use when developing, optimizing, testing, or configuring browser automation in production environments."
-  interactions. The difference between a flaky script and a reliable system
-  comes down to understanding selectors, waiting strategies, and anti-detection
-  patterns.
+description: "Automate browser interactions, web scraping, and end-to-end testing using Playwright and Puppeteer. Use when implementing resilient user-facing locators (getByRole, getByText), auto-waiting strategies, anti-detection with puppeteer-extra-plugin-stealth or playwright-extra, and context-isolated test flows."
 risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27

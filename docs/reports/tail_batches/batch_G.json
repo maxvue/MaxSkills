@@ -1,0 +1,57 @@
+[
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-qrcode-generation-best-practices/SKILL.md",
+    "name": "laravel-qrcode-generation-best-practices",
+    "desc": "Use when generating, customizing, rendering, or testing QR Codes in Laravel using endroid/qr-code. Covers SVG/PNG outputs, base64 encoding for Blade/APIs, logos, and labels. Provides end-to-end guidance, reference architectures, and practical patterns for laravel qrcode generation best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-services-best-practices/SKILL.md",
+    "name": "laravel-services-best-practices",
+    "desc": "Use when creating, refactoring, or reviewing Laravel Service classes, applying Single Responsibility Principle, dependency injection, and standardized error handling. Provides end-to-end guidance, reference architectures, and practical patterns for laravel services best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-task-scheduling-best-practices/SKILL.md",
+    "name": "laravel-task-scheduling-best-practices",
+    "desc": "Use when creating, configuring, or debugging Laravel task schedules in routes/console.php, cron jobs, overlapping prevention, background tasks, scheduler logging, and Studio Totem integration. Provides end-to-end guidance, reference architectures, and practical patterns for laravel task scheduling best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-trello-api-integration/SKILL.md",
+    "name": "laravel-trello-api-integration",
+    "desc": "Use when maintaining or debugging Trello API integration in Engeapp (TrelloService), reading config/api.php, handling webhooks via ProcessTrelloWebhookJob, and running trello Artisan commands. Provides end-to-end guidance, reference architectures, and practical patterns for laravel trello api integration."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-typescript-transformer-best-practices/SKILL.md",
+    "name": "laravel-typescript-transformer-best-practices",
+    "desc": "Use when configuring, updating, or generating TypeScript types/interfaces from PHP DTOs and Enums in Laravel using Spatie Laravel TypeScript Transformer (php artisan typescript:transform). Provides end-to-end guidance, reference architectures, and practical patterns for laravel typescript transformer best practices."
+  },
+  {
+    "path": "all_skills/created-skills/backend_laravel/laravel-whatsapp-cloud-api-integration/SKILL.md",
+    "name": "laravel-whatsapp-cloud-api-integration",
+    "desc": "Use when creating or debugging WhatsApp Cloud API integrations, handling webhooks, queued job processing, sending template/interactive messages, processing incoming messages, and managing state. Provides end-to-end guidance, reference architectures, and practical patterns for laravel whatsapp cloud api integration."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-boleto-utils-best-practices/SKILL.md",
+    "name": "vue-boleto-utils-best-practices",
+    "desc": "Use when validating, formatting, parsing, or handling bank slip data (boletos) in Vue 3 using @mrmgomes/boleto-utils: digit lines, barcodes, expiration dates, values, and payment input formatting. Provides end-to-end guidance, reference architectures, and practical patterns for vue boleto utils best practices."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-eslint-stylelint-quality-standards/SKILL.md",
+    "name": "vue-eslint-stylelint-quality-standards",
+    "desc": "Use when running or fixing ESLint (flat config) and Stylelint in Vue 3 SFCs and SCSS. Covers block-order template/script/style, indent, quotes, comma-dangle, and pseudo-element overrides. Provides end-to-end guidance, reference architectures, and practical patterns for vue eslint stylelint quality standards."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-frontend-bug-fixing-best-practices/SKILL.md",
+    "name": "vue-frontend-bug-fixing-best-practices",
+    "desc": "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing. Provides end-to-end guidance, reference architectures, and practical patterns for vue frontend bug fixing best practices."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-keyboard-shortcuts-navigation-best-practices/SKILL.md",
+    "name": "vue-keyboard-shortcuts-navigation-best-practices",
+    "desc": "Use when implementing or debugging keyboard shortcuts, hotkeys, focus management, and keyboard navigation in Vue 3 using useMagicKeys, useActiveElement, and key modifiers. Provides end-to-end guidance, reference architectures, and practical patterns for vue keyboard shortcuts navigation best practices."
+  },
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-max-ecosystem-api-reference/SKILL.md",
+    "name": "vue-max-ecosystem-api-reference",
+    "desc": "Use when referencing APIs of Engeapp local Vue libraries: MaxComponentsUi, MaxUse, and MaxPinia. Covers component props/events/slots, composables, and cached store configurations. Provides end-to-end guidance, reference architectures, and practical patterns for vue max ecosystem api reference."
+  }
+]

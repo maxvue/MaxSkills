@@ -1,15 +1,9 @@
 ---
 name: php-pro
-description: "Write idiomatic PHP code with generators, iterators, SPL data Use when developing, optimizing, debugging, or configuring php pro in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for php pro."
-
-  structures, and modern OOP features. Use PROACTIVELY for high-performance PHP
-
-  applications.
-
-  '
+description: "Develops idiomatic PHP 8+ applications focusing on memory efficiency and type safety. Implements SPL data structures (SplQueue, SplStack, SplHeap), generators, iterators, match expressions, enums, attributes, and constructor promotion. Use when building modern PHP services, optimizing memory-intensive datasets, or enforcing strict typing and PSR standards."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when

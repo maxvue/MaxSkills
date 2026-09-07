@@ -1,6 +1,6 @@
 ---
 name: security-requirement-extraction
-description: "Derive security requirements from threat models and business context. Use when translating threats into actionable requirements, creating security user stories, or building security test cases. Provides end-to-end guidance, reference architectures, and practical patterns for security requirement extraction."
+description: "Derive functional and non-functional security requirements from threat models and architectural context. Use when translating identified threats into security user stories, defining testable acceptance criteria, and mapping security controls to compliance frameworks such as OWASP, NIST CSF, and SOC2."
 risk: safe
 source: community
 date_added: "2026-02-27"

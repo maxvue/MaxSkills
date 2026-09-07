@@ -1,8 +1,6 @@
 ---
 name: agent-evaluation
-description: "Testing and benchmarking LLM agents including behavioral testing, Use when developing, optimizing, debugging, or configuring agent evaluation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agent evaluation."
-  capability assessment, reliability metrics, and production monitoring—where
-  even top agents achieve less than 50% on real-world benchmarks
+description: "Evaluates and benchmarks autonomous LLM agents using statistical testing, behavioral invariant contracts, and trajectory analysis. Measures pass rates, latency distributions, and behavioral consistency across repeated runs. Use when designing agent benchmarks, testing stochastic LLM behaviors, measuring pass rates and latency, or validating behavioral contracts and tool safety."
 risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27

@@ -1,6 +1,6 @@
 ---
 name: tdd-workflows-tdd-green
-description: "Comprehensive engineering guide and best practices for tdd workflows tdd green. Use when configuring, developing, debugging, or optimizing tdd workflows tdd green architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for tdd workflows tdd green."
+description: "Implements the minimal production code necessary to satisfy failing tests during the TDD green phase. Use when moving from red to green in a test-driven cycle, writing simple implementations to pass test assertions in Express, Django, or Node.js, and deferring architectural cleanup to refactor."
 risk: critical
 source: community
 date_added: "2026-02-27"

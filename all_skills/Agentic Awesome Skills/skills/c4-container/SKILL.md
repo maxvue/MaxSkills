@@ -1,9 +1,9 @@
 ---
 name: c4-container
-description: "Comprehensive engineering guide and best practices for c4 container. Use when configuring, developing, debugging, or optimizing c4 container architecture in production systems. Guides architecture, best practices, and implementation standards for c4 container."
+description: "Generates Level 2 C4 container architecture models, Mermaid C4Container diagrams, and OpenAPI 3.1 interface specifications. Use when documenting deployable software units (web apps, APIs, databases, message queues), detailing container technology stacks and communication protocols (REST, gRPC, GraphQL), or mapping container runtime boundaries."
 risk: none
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 # C4 Container Level: System Deployment

@@ -1,6 +1,6 @@
 ---
 name: growth-engine
-description: "Comprehensive engineering guide and best practices for growth engine. Use when configuring, developing, debugging, or optimizing growth engine architecture in production systems. Guides architecture, best practices, and implementation standards for growth engine."
+description: "Elabora e executa estratégias de growth hacking, SEO técnico, ASO para app stores, viral loops, referral programs e automação de CRM. Ative quando precisar planejar aquisição orgânica, otimizar funis de conversão digital ou estruturar campanhas de retenção de usuários com métricas de crescimento."
 risk: none
 source: community
 date_added: '2026-03-06'

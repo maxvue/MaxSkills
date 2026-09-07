@@ -1,11 +1,9 @@
 ---
 name: plaid-fintech
-description: "Expert patterns for Plaid API integration including Link token Use when developing, optimizing, debugging, or configuring plaid fintech in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for plaid fintech."
-  flows, transactions sync, identity verification, Auth for ACH, balance checks,
-  webhook handling, and fintech compliance best practices.
+description: "Integrates Plaid API endpoints for banking connectivity, ACH payments, and financial data sync. Implements Plaid Link token creation, public token exchange, incremental /transactions/sync, Auth for ACH routing numbers, and JWKS webhook verification. Use when building Plaid Link onboarding flows, validating real-time account balances, or processing bank transaction feeds."
 risk: critical
-source: vibeship-spawner-skills (Apache 2.0)
-date_added: 2026-02-27
+source: "vibeship-spawner-skills (Apache 2.0)"
+date_added: "2026-02-27"
 ---
 
 # Plaid Fintech

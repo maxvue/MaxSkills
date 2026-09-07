@@ -1,6 +1,6 @@
 ---
 name: security-checklist
-description: "Reference document for monopoly security-checklist. Use when developing, optimizing, debugging, or configuring security checklist in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for security checklist."
+description: "Audits infrastructure and applications against comprehensive security hardening checklists covering network VPCs, WAF OWASP rules, JWT authentication, data encryption, and secrets management. Use when conducting pre-deployment security audits, hardening cloud architectures, or verifying SOC 2, GDPR, and HIPAA compliance."
 source: community
 risk: safe
 reports-to: monopoly

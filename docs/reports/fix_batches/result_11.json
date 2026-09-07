@@ -1,0 +1,170 @@
+[
+  {
+    "skillName": "software-architecture",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/software-architecture/SKILL.md",
+    "correctedDescription": "Enforces Clean Architecture and Domain-Driven Design (DDD) principles with a library-first approach. Use when structuring application modules, isolating domain business logic from UI and controllers, decomposing functions over 80 lines, or replacing custom utility code with libraries like cockatiel, Zustand, or Supabase.",
+    "charCount": 317,
+    "discriminants": [
+      "Clean Architecture",
+      "Domain-Driven Design (DDD)",
+      "cockatiel",
+      "Zustand",
+      "Supabase",
+      "library-first approach",
+      "early return pattern"
+    ],
+    "cleanFrontmatter": "name: software-architecture\ndescription: \"Enforces Clean Architecture and Domain-Driven Design (DDD) principles with a library-first approach. Use when structuring application modules, isolating domain business logic from UI and controllers, decomposing functions over 80 lines, or replacing custom utility code with libraries like cockatiel, Zustand, or Supabase.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "sql-pro",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/sql-pro/SKILL.md",
+    "correctedDescription": "Designs database schemas and optimizes advanced SQL queries for OLTP and OLAP workloads. Use when tuning execution plans with EXPLAIN, structuring window functions or recursive CTEs, designing star and snowflake schemas, or configuring indexing and partitioning in PostgreSQL, Snowflake, BigQuery, or Aurora.",
+    "charCount": 304,
+    "discriminants": [
+      "OLTP/OLAP",
+      "EXPLAIN",
+      "window functions",
+      "recursive CTEs",
+      "star schema",
+      "snowflake schema",
+      "PostgreSQL",
+      "Snowflake",
+      "BigQuery",
+      "Aurora"
+    ],
+    "cleanFrontmatter": "name: sql-pro\ndescription: \"Designs database schemas and optimizes advanced SQL queries for OLTP and OLAP workloads. Use when tuning execution plans with EXPLAIN, structuring window functions or recursive CTEs, designing star and snowflake schemas, or configuring indexing and partitioning in PostgreSQL, Snowflake, BigQuery, or Aurora.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "tavily-web",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/tavily-web/SKILL.md",
+    "correctedDescription": "Performs web search, URL content extraction, and site crawling using the Tavily Search API via BenedictKing/tavily-web. Use when gathering real-time web information, crawling web domains, or scraping clean markdown and text content from URLs in agentic research workflows.",
+    "charCount": 270,
+    "discriminants": [
+      "Tavily Search API",
+      "BenedictKing/tavily-web",
+      "web search",
+      "content extraction",
+      "site crawling"
+    ],
+    "cleanFrontmatter": "name: tavily-web\ndescription: \"Performs web search, URL content extraction, and site crawling using the Tavily Search API via BenedictKing/tavily-web. Use when gathering real-time web information, crawling web domains, or scraping clean markdown and text content from URLs in agentic research workflows.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "tdd-orchestrator",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/tdd-orchestrator/SKILL.md",
+    "correctedDescription": "Orchestrates complete Red-Green-Refactor cycles and coordinates multi-agent test-driven development workflows. Use when enforcing test-first compliance, directing specialized testing subagents, implementing Chicago or London school TDD, or configuring quality gates across Jest, pytest, JUnit, or NUnit.",
+    "charCount": 299,
+    "discriminants": [
+      "Red-Green-Refactor",
+      "multi-agent TDD",
+      "Chicago school TDD",
+      "London school TDD",
+      "quality gates",
+      "Jest",
+      "pytest",
+      "JUnit",
+      "NUnit"
+    ],
+    "cleanFrontmatter": "name: tdd-orchestrator\ndescription: \"Orchestrates complete Red-Green-Refactor cycles and coordinates multi-agent test-driven development workflows. Use when enforcing test-first compliance, directing specialized testing subagents, implementing Chicago or London school TDD, or configuring quality gates across Jest, pytest, JUnit, or NUnit.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "tdd-workflows-tdd-green",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-green/SKILL.md",
+    "correctedDescription": "Implements the minimal production code necessary to satisfy failing tests during the TDD green phase. Use when moving from red to green in a test-driven cycle, writing simple implementations to pass test assertions in Express, Django, or Node.js, and deferring architectural cleanup to refactor.",
+    "charCount": 291,
+    "discriminants": [
+      "TDD green phase",
+      "minimal production code",
+      "failing tests",
+      "Express",
+      "Django",
+      "Node.js",
+      "red-to-green transition"
+    ],
+    "cleanFrontmatter": "name: tdd-workflows-tdd-green\ndescription: \"Implements the minimal production code necessary to satisfy failing tests during the TDD green phase. Use when moving from red to green in a test-driven cycle, writing simple implementations to pass test assertions in Express, Django, or Node.js, and deferring architectural cleanup to refactor.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "tdd-workflows-tdd-red",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-red/SKILL.md",
+    "correctedDescription": "Generates comprehensive failing tests defining expected behaviors and edge cases during the TDD red phase. Use when starting test-driven development before implementation, establishing Arrange-Act-Assert specifications, or validating failure states across Jest, Vitest, pytest, Go, or RSpec.",
+    "charCount": 289,
+    "discriminants": [
+      "TDD red phase",
+      "failing tests",
+      "Arrange-Act-Assert",
+      "Jest",
+      "Vitest",
+      "pytest",
+      "RSpec",
+      "test-automator"
+    ],
+    "cleanFrontmatter": "name: tdd-workflows-tdd-red\ndescription: \"Generates comprehensive failing tests defining expected behaviors and edge cases during the TDD red phase. Use when starting test-driven development before implementation, establishing Arrange-Act-Assert specifications, or validating failure states across Jest, Vitest, pytest, Go, or RSpec.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "tdd-workflows-tdd-refactor",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/tdd-workflows-tdd-refactor/SKILL.md",
+    "correctedDescription": "Refactors verified code to eliminate code smells and improve design while maintaining all tests passing. Use when executing the TDD refactor phase, applying SOLID principles and design patterns, removing code duplication, or restructuring legacy modules under a green test safety net.",
+    "charCount": 280,
+    "discriminants": [
+      "TDD refactor phase",
+      "code smells",
+      "SOLID principles",
+      "design patterns",
+      "test safety net",
+      "tdd-orchestrator",
+      "Strangler Fig"
+    ],
+    "cleanFrontmatter": "name: tdd-workflows-tdd-refactor\ndescription: \"Refactors verified code to eliminate code smells and improve design while maintaining all tests passing. Use when executing the TDD refactor phase, applying SOLID principles and design patterns, removing code duplication, or restructuring legacy modules under a green test safety net.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "telegram-bot-builder",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/telegram-bot-builder/SKILL.md",
+    "correctedDescription": "Develops Telegram bots using the Telegram Bot API with Telegraf, grammY, python-telegram-bot, or aiogram. Use when implementing command handlers, paginated inline keyboards, Express or Vercel webhook endpoints, Telegram Payments with replyWithInvoice, or Bottleneck rate limiting.",
+    "charCount": 278,
+    "discriminants": [
+      "Telegram Bot API",
+      "Telegraf",
+      "grammY",
+      "python-telegram-bot",
+      "aiogram",
+      "replyWithInvoice",
+      "Bottleneck",
+      "inline keyboards",
+      "webhooks"
+    ],
+    "cleanFrontmatter": "name: telegram-bot-builder\ndescription: \"Develops Telegram bots using the Telegram Bot API with Telegraf, grammY, python-telegram-bot, or aiogram. Use when implementing command handlers, paginated inline keyboards, Express or Vercel webhook endpoints, Telegram Payments with replyWithInvoice, or Bottleneck rate limiting.\"\nrisk: critical\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "test-automator",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/test-automator/SKILL.md",
+    "correctedDescription": "Builds end-to-end test automation suites and testing pipelines across the testing pyramid. Use when setting up cross-browser automation with Playwright or Selenium, testing APIs with REST Assured or Postman, automating mobile apps with Appium, or running performance tests using K6 and JMeter.",
+    "charCount": 284,
+    "discriminants": [
+      "Playwright",
+      "Selenium",
+      "Appium",
+      "REST Assured",
+      "Postman",
+      "K6",
+      "JMeter",
+      "test pyramid",
+      "test automation"
+    ],
+    "cleanFrontmatter": "name: test-automator\ndescription: \"Builds end-to-end test automation suites and testing pipelines across the testing pyramid. Use when setting up cross-browser automation with Playwright or Selenium, testing APIs with REST Assured or Postman, automating mobile apps with Appium, or running performance tests using K6 and JMeter.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "test-fixing",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/test-fixing/SKILL.md",
+    "correctedDescription": "Diagnoses and resolves failing test suites through structured error categorization and prioritized fixing. Use when repairing broken tests after refactoring or dependency updates, grouping failures by ImportError, AttributeError, or AssertionError, and validating with pytest or make test.",
+    "charCount": 287,
+    "discriminants": [
+      "pytest",
+      "make test",
+      "ImportError",
+      "AttributeError",
+      "AssertionError",
+      "root cause grouping",
+      "error categorization"
+    ],
+    "cleanFrontmatter": "name: test-fixing\ndescription: \"Diagnoses and resolves failing test suites through structured error categorization and prioritized fixing. Use when repairing broken tests after refactoring or dependency updates, grouping failures by ImportError, AttributeError, or AssertionError, and validating with pytest or make test.\"\nrisk: safe\nsource: community\ndate_added: \"2026-02-27\""
+  }
+]

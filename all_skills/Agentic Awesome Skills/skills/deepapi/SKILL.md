@@ -1,6 +1,6 @@
 ---
 name: deepapi
-description: "Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval. Use when developing, optimizing, debugging, or configuring deepapi in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for deepapi."
+description: "Execute web scraping, email management, and automated deep research workflows through DeepAPI REST endpoints. Handles crawling across LinkedIn, Twitter, GitHub, and YouTube, drafting and sending emails, and enforcing maxCostUsd spend limits with idempotency keys. Use when integrating DeepAPI services for targeted data scraping, research runs, or email dispatch."
 category: research
 risk: critical
 source: community

@@ -1,6 +1,6 @@
 ---
 name: seek-and-analyze-video
-description: "Comprehensive engineering guide and best practices for seek and analyze video. Use when configuring, developing, debugging, or optimizing seek and analyze video architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for seek and analyze video."
+description: "Indexes, queries, and analyzes video content from YouTube, TikTok, and Instagram using Memories.ai LVMM and Memory Augmented Generation (MAG). Use when extracting meeting transcripts, performing cross-video Q&A with chat_video or caption_video, or searching audio segments and social trends across video URLs."
 category: data-ai
 risk: safe
 source: "https://github.com/kennyzheng-builds/seek-and-analyze-video"

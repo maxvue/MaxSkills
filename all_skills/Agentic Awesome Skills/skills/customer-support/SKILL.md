@@ -1,6 +1,6 @@
 ---
 name: customer-support
-description: "Comprehensive engineering guide and best practices for customer support. Use when configuring, developing, debugging, or optimizing customer support architecture in production systems. Guides architecture, best practices, and implementation standards for customer support."
+description: "Designs and automates AI-driven customer support workflows, conversational bots, and omnichannel ticketing systems. Use when integrating Zendesk, Freshdesk Freddy, Intercom Fin, or Gorgias, configuring SLA escalation rules, setting up CRM routing with Salesforce or HubSpot, and tracking CSAT or NPS metrics."
 risk: critical
 source: community
 date_added: '2026-02-27'

@@ -1,6 +1,6 @@
 ---
 name: llm-application-dev-prompt-optimize
-description: "Comprehensive engineering guide and best practices for llm application dev prompt optimize. Use when configuring, developing, debugging, or optimizing llm application dev prompt optimize architecture in production systems."
+description: "Refines and benchmarks prompts for large language models using chain-of-thought, few-shot conditioning, constitutional constraints, and token pruning. Use when optimizing system prompts to reduce hallucinations, improving adherence to complex schemas, or cutting token consumption across production LLM APIs."
 risk: safe
 source: community
 date_added: "2026-02-27"

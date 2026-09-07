@@ -1,6 +1,6 @@
 ---
 name: tdd-workflows-tdd-refactor
-description: "Comprehensive engineering guide and best practices for tdd workflows tdd refactor. Use when configuring, developing, debugging, or optimizing tdd workflows tdd refactor architecture in production systems."
+description: "Refactors verified code to eliminate code smells and improve design while maintaining all tests passing. Use when executing the TDD refactor phase, applying SOLID principles and design patterns, removing code duplication, or restructuring legacy modules under a green test safety net."
 risk: critical
 source: community
 date_added: "2026-02-27"

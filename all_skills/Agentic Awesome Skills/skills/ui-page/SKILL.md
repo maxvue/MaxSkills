@@ -1,11 +1,11 @@
 ---
 name: ui-page
-description: "Scaffold a new mobile page/screen using the StyleSeed layout patterns Use when developing, optimizing, debugging, or configuring ui page in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for ui page."
+description: "Scaffold mobile-first pages and screens using StyleSeed layout components and Golden Rules design constraints. Use when generating new mobile views with PageShell, TopBar, and BottomNav, enforcing 430px container bounds, card-based section hierarchy, semantic tokens, 6px grid spacing, and safe-area padding."
 risk: critical
 source: https://github.com/bitjaru/styleseed/tree/main/engine/.claude/skills/ss-page
 source_repo: bitjaru/styleseed
 source_type: community
-date_added: 2026-07-01
+date_added: "2026-07-01"
 license: MIT
 license_source: https://github.com/bitjaru/styleseed/blob/main/LICENSE
 ---

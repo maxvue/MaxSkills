@@ -1,6 +1,6 @@
 ---
 name: uxui-principles
-description: "Comprehensive engineering guide and best practices for uxui principles. Use when configuring, developing, debugging, or optimizing uxui principles architecture in production systems. Guides architecture, best practices, and implementation standards for uxui principles."
+description: "Evaluate user interfaces and interaction flows against 168 research-backed design principles and smell taxonomies. Use when auditing UI antipatterns with interface-auditor, reviewing AI features against 44 AI-era UX principles with ai-interface-reviewer, or checking navigation flows with flow-checker."
 category: design
 risk: safe
 source: community

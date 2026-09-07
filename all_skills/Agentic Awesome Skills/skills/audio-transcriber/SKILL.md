@@ -1,6 +1,6 @@
 ---
 name: audio-transcriber
-description: "Comprehensive engineering guide and best practices for audio transcriber. Use when configuring, developing, debugging, or optimizing audio transcriber architecture in production systems. Guides architecture, best practices, and implementation standards for audio transcriber."
+description: "Transcribes audio and video files into structured Markdown reports with timestamps, speaker diarization, and meeting minutes using faster-whisper or openai-whisper with ffmpeg. Use when converting speech to text from MP3, WAV, M4A, FLAC, or WEBM files, generating meeting summaries, or extracting SRT/VTT subtitles."
 category: content
 risk: safe
 source: community

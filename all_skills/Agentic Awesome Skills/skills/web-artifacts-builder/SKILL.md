@@ -1,6 +1,6 @@
 ---
 name: web-artifacts-builder
-description: "To build powerful frontend claude.ai artifacts, follow these steps: Use when developing, optimizing, debugging, or configuring web artifacts builder in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for web artifacts builder."
+description: "Builds and bundles standalone single-file HTML artifacts using React 18, TypeScript, Vite, Tailwind CSS, and shadcn/ui. Bundles code via Parcel and html-inline for Claude.ai presentations. Use when scaffolding, developing, or packaging self-contained frontend web artifacts into a single bundle.html."
 risk: critical
 source: community
 date_added: "2026-02-27"

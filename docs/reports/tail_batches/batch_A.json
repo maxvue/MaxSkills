@@ -1,0 +1,57 @@
+[
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/SKILL.md",
+    "name": "agent-squad",
+    "desc": "Main agent orchestrator that coordinates a specialized squad of agents Use when developing, optimizing, debugging, or configuring agent squad in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for agent squad."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/aria/SKILL.md",
+    "name": "aria",
+    "desc": "Designs the data model, API contracts, and structural foundation of the system. Use when developing, optimizing, debugging, or configuring agent squad/aria in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for aria."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/luna/SKILL.md",
+    "name": "luna",
+    "desc": "Reviews code for objective correctness, security, and reliability. Use when developing, optimizing, debugging, or configuring agent squad/luna in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for luna."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/mason/SKILL.md",
+    "name": "mason",
+    "desc": "Produces clean, functional code that matches the architecture and checklists. Use when developing, optimizing, debugging, or configuring agent squad/mason in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for mason."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/agent-squad/quinn/SKILL.md",
+    "name": "quinn",
+    "desc": "Proves the system works by writing and executing comprehensive test suites. Use when developing, optimizing, debugging, or configuring agent squad/quinn in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for quinn."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/app-store-changelog/SKILL.md",
+    "name": "app-store-changelog",
+    "desc": "Generate user-facing App Store release notes from git history since the last tag. Use when developing, optimizing, debugging, or configuring app store changelog in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for app store changelog."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/bats-testing-patterns/SKILL.md",
+    "name": "bats-testing-patterns",
+    "desc": "Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for shell scripts, CI/CD pipelines, or requiring test-driven development of shell utilities. Provides end-to-end guidance, reference architectures, and practical patterns for bats testing patterns."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/brain-to-docs/SKILL.md",
+    "name": "brain-to-docs",
+    "desc": "Interview the user to turn project vision and decisions into README and ADR documentation. Use when developing, optimizing, debugging, or configuring brain to docs in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for brain to docs."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/conductor-implement/SKILL.md",
+    "name": "conductor-implement",
+    "desc": "Execute tasks from a track's implementation plan following TDD workflow Use when developing, optimizing, debugging, or configuring conductor implement in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor implement."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/conductor-revert/SKILL.md",
+    "name": "conductor-revert",
+    "desc": "Git-aware undo by logical work unit (track, phase, or task) Use when developing, optimizing, debugging, or configuring conductor revert in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for conductor revert."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/cqrs-implementation/SKILL.md",
+    "name": "cqrs-implementation",
+    "desc": "Implement Command Query Responsibility Segregation for scalable architectures. Use when separating read and write models, optimizing query performance, or building event-sourced systems. Provides end-to-end guidance, reference architectures, and practical patterns for cqrs implementation."
+  }
+]

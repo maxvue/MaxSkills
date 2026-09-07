@@ -1,8 +1,6 @@
 ---
 name: email-systems
-description: "Email has the highest ROI of any marketing channel. $36 for every Use when developing, optimizing, debugging, or configuring email systems in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for email systems."
-  $1 spent. Yet most startups treat it as an afterthought - bulk blasts, no
-  personalization, landing in spam folders.
+description: "Architects reliable email delivery infrastructure, transactional queues, and deliverability pipelines. Use when configuring SPF, DKIM, and DMARC DNS records, separating transactional and marketing providers with Postmark or SendGrid, handling bounce webhooks, or designing templates with React Email components."
 risk: none
 source: vibeship-spawner-skills (Apache 2.0)
 date_added: 2026-02-27

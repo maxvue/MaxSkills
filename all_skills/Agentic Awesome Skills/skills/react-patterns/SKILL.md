@@ -1,6 +1,6 @@
 ---
 name: react-patterns
-description: "Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. Use when developing, optimizing, debugging, or configuring react patterns in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for react patterns."
+description: "Structure modern React applications using component composition, custom hooks, and React 19 features. Use when designing compound components, implementing useActionState, useOptimistic, or the use hook, structuring state across Context, Zustand, or TanStack Query, and typing props with TypeScript."
 risk: safe
 source: community
 date_added: "2026-02-27"

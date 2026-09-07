@@ -1,7 +1,6 @@
 ---
 name: sharp-coder
-description: "> Use when developing, optimizing, debugging, or configuring sharp coder in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for sharp coder. Use when developing, optimizing, testing, or configuring sharp coder in production environments."
-  Two-layer performance skill combining disciplined THINK layer (surgical edits, simplicity) and terse SPEAK layer (caveman compression). Triggers on requests for brevity, token efficiency, or disciplined coding.
+description: "Enforces a dual-layer coding framework pairing surgical code edits with terse token-efficient communication. The THINK layer mandates minimal diffs, zero speculative abstractions, and test verification; the SPEAK layer applies caveman prose compression across configurable modes. Use when requesting extreme token brevity, caveman mode, or disciplined, minimal code modifications."
 risk: safe
 source: self
 source_type: self

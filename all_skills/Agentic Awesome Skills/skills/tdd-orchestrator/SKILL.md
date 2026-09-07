@@ -1,9 +1,9 @@
 ---
 name: tdd-orchestrator
-description: "Comprehensive engineering guide and best practices for tdd orchestrator. Use when configuring, developing, debugging, or optimizing tdd orchestrator architecture in production systems. Guides architecture, best practices, and implementation standards for tdd orchestrator."
+description: "Orchestrates complete Red-Green-Refactor cycles and coordinates multi-agent test-driven development workflows. Use when enforcing test-first compliance, directing specialized testing subagents, implementing Chicago or London school TDD, or configuring quality gates across Jest, pytest, JUnit, or NUnit."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when

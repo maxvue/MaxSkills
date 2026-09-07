@@ -1,6 +1,6 @@
 ---
 name: google-calendar-automation
-description: "Comprehensive engineering guide and best practices for google calendar automation. Use when configuring, developing, debugging, or optimizing google calendar automation architecture in production systems."
+description: "Automates Google Calendar operations via standalone OAuth authentication scripts without requiring an MCP server. Use when querying schedules, listing calendars, creating, updating, or deleting Google Workspace calendar events with attendees, locations, and reminders using scripts/gcal.py CLI commands."
 license: Apache-2.0
 risk: critical
 source: community

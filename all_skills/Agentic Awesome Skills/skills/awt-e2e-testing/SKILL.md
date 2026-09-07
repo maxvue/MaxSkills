@@ -1,6 +1,6 @@
 ---
 name: awt-e2e-testing
-description: "Comprehensive engineering guide and best practices for awt e2e testing. Use when configuring, developing, debugging, or optimizing awt e2e testing architecture in production systems. Guides architecture, best practices, and implementation standards for awt e2e testing."
+description: "Executes declarative YAML end-to-end test scenarios through real browsers using Playwright, OpenCV visual template matching, and OCR. Use when running AI-assisted E2E browser testing, diagnosing test failures across React, Next.js, Vue, Angular, or Flutter apps without brittle CSS selectors, and recording fix patterns in SQLite."
 risk: critical
 source: "https://github.com/ksgisang/awt-skill"
 ---

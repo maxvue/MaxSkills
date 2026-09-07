@@ -1,6 +1,6 @@
 ---
 name: aria
-description: "Designs the data model, API contracts, and structural foundation of the system. Use when developing, optimizing, debugging, or configuring agent squad/aria in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for aria."
+description: "Designs system architectures, relational/NoSQL data schemas, REST/GraphQL API contracts, module directories, and security boundaries into an Aria Blueprint. Use when translating project requirements and plans into technical blueprints, defining database entity models, or establishing API response envelopes before implementation."
 risk: safe
 source: community
 date_added: "2026-06-11"

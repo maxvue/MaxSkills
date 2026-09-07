@@ -1,6 +1,6 @@
 ---
 name: software-architecture
-description: "Comprehensive engineering guide and best practices for software architecture. Use when configuring, developing, debugging, or optimizing software architecture architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for software architecture."
+description: "Enforces Clean Architecture and Domain-Driven Design (DDD) principles with a library-first approach. Use when structuring application modules, isolating domain business logic from UI and controllers, decomposing functions over 80 lines, or replacing custom utility code with libraries like cockatiel, Zustand, or Supabase."
 risk: critical
 source: community
 date_added: "2026-02-27"

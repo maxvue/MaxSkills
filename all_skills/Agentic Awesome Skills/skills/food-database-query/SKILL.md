@@ -1,6 +1,6 @@
 ---
 name: food-database-query
-description: "Comprehensive engineering guide and best practices for food database query. Use when configuring, developing, debugging, or optimizing food database query architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for food database query."
+description: "Queries structured food and nutrition datasets to retrieve macronutrients, vitamins, minerals, and glycemic index values. Use when analyzing dietary data, performing food nutrient comparisons, calculating nutritional totals, or converting portion sizes using food-database.json and food-categories.json datasets."
 risk: critical
 source: community
 ---

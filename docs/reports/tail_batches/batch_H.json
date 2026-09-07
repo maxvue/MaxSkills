@@ -1,0 +1,27 @@
+[
+  {
+    "path": "all_skills/created-skills/frontEnd/vue-vitest-testing-best-practices/SKILL.md",
+    "name": "vue-vitest-testing-best-practices",
+    "desc": "Use when writing or updating front-end unit/integration tests with Vitest and Vue Test Utils for Vue 3 components, MaxPinia stores, and composables in tests/Js/, including API mocking. Provides end-to-end guidance, reference architectures, and practical patterns for vue vitest testing best practices."
+  },
+  {
+    "path": "all_skills/curated-youtube/context-engineering/SKILL.md",
+    "name": "context-engineering",
+    "desc": "Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project. Provides end-to-end guidance, reference architectures, and practical patterns for context engineering."
+  },
+  {
+    "path": "all_skills/curated-youtube/fastapi-templates/SKILL.md",
+    "name": "fastapi-templates",
+    "desc": "Create production-ready FastAPI projects with async patterns, dependency injection, and comprehensive error handling. Use when building new FastAPI applications or setting up backend API projects. Provides end-to-end guidance, reference architectures, and practical patterns for fastapi templates."
+  },
+  {
+    "path": "all_skills/curated-youtube/git-workflow/SKILL.md",
+    "name": "git-workflow-and-versioning",
+    "desc": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, or when you need to organize work across multiple parallel streams. Provides end-to-end guidance, reference architectures, and practical patterns for git workflow."
+  },
+  {
+    "path": "all_skills/curated-youtube/test-driven-development/SKILL.md",
+    "name": "test-driven-development",
+    "desc": "Use when implementing any feature or bugfix, before writing implementation code Provides end-to-end guidance, reference architectures, and practical patterns for test driven development. Use when developing, optimizing, testing, or configuring test driven development in production environments."
+  }
+]

@@ -1,6 +1,6 @@
 ---
 name: vue-frontend-bug-fixing-best-practices
-description: "Use when diagnosing and fixing front-end bugs in Engeapp (Vue 3 + TS + MaxPinia + UnoCSS + MaxComponentsUi + MaxUse): reactivity issues, TS errors, store cache/auto-save, HMR, and routing. Provides end-to-end guidance, reference architectures, and practical patterns for vue frontend bug fixing best practices."
+description: "Use when diagnosing and fixing frontend bugs in Engeapp Vue 3 applications. Covers root-cause debugging across @maxvue/max-pinia cached stores, @maxvue/max-use route helpers (apiGetRoute, apiPostRoute), @maxvue/max-components-ui components, UnoCSS presetMaxUno styling, and npm run typecheck:tsgo verification."
 author: Johnattas Conrady Gomes Santana
 ---
 # Correção de Bugs do Front-End Vue — Melhores Práticas

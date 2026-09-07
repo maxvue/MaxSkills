@@ -1,10 +1,6 @@
 ---
 name: seo-hreflang
-description: "> Use when developing, optimizing, debugging, or configuring seo hreflang in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo hreflang. Use when developing, optimizing, testing, or configuring seo hreflang in production environments."
-  Hreflang and international SEO audit, validation, and generation. Detects
-  common mistakes, validates language/region codes, and generates correct
-  hreflang implementations. Use when user says "hreflang", "i18n SEO",
-  "international SEO", "multi-language", "multi-region", or "language tags".
+description: "Audits, validates, and generates hreflang tags across HTML links, HTTP headers, and XML sitemaps for international SEO. Verifies self-referencing tags, bidirectional return links, x-default fallbacks, ISO 639-1 languages, and ISO 3166-1 regions. Use when auditing or implementing hreflang annotations, multilingual URL sets, or regional targeting."
 risk: critical
 source: "https://github.com/AgriciDaniel/claude-seo"
 date_added: "2026-03-21"

@@ -1,0 +1,57 @@
+[
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/cyber-audit/SKILL.md",
+    "name": "cyber-audit",
+    "desc": "Run read-only exposure checks for security advisories and write a structured local audit report. Use when developing, optimizing, debugging, or configuring cyber audit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for cyber audit."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/daily/SKILL.md",
+    "name": "daily",
+    "desc": "Documentation and capabilities reference for Daily Use when developing, optimizing, debugging, or configuring daily in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for daily."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/database-migrations-migration-observability/SKILL.md",
+    "name": "database-migrations-migration-observability",
+    "desc": "Migration monitoring, CDC, and observability infrastructure Use when developing, optimizing, debugging, or configuring database migrations migration observability in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for database migrations migration observability."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/deepapi/SKILL.md",
+    "name": "deepapi",
+    "desc": "Use DeepAPI for supported scraping, research, and email workflows with explicit credentials and approval. Use when developing, optimizing, debugging, or configuring deepapi in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for deepapi."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/design-philosophy/SKILL.md",
+    "name": "design-philosophy",
+    "desc": "Visual philosophy and art-direction for frontend. Use when creating high-concept work, campaigns, or when the user asks for a visual philosophy, manifesto, or unmistakable art-like aesthetic. Provides end-to-end guidance, reference architectures, and practical patterns for design philosophy."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/expo-api-routes/SKILL.md",
+    "name": "expo-api-routes",
+    "desc": "Guidelines for creating API routes in Expo Router with EAS Hosting Use when developing, optimizing, debugging, or configuring expo api routes in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for expo api routes."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/fp-refactor/SKILL.md",
+    "name": "fp-refactor",
+    "desc": "Comprehensive guide for refactoring imperative TypeScript code to fp-ts functional patterns Use when developing, optimizing, debugging, or configuring fp refactor in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for fp refactor."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/frontend-slides/SKILL.md",
+    "name": "frontend-slides",
+    "desc": "Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when developing, optimizing, debugging, or configuring frontend slides in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for frontend slides."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/git-pr-review/SKILL.md",
+    "name": "git-pr-review",
+    "desc": "Generate a concise and structured PR description from commit history with minimal token usage Use when developing, optimizing, debugging, or configuring git pr review in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for git pr review."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/github/SKILL.md",
+    "name": "github",
+    "desc": "Use the `gh` CLI for issues, pull requests, Actions runs, and GitHub API queries. Use when developing, optimizing, debugging, or configuring github in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for github."
+  },
+  {
+    "path": "all_skills/Agentic Awesome Skills/skills/goal-loop/SKILL.md",
+    "name": "goal-loop",
+    "desc": "Draft and explain persistent goal-loop prompts for long-running agent work with clear stop conditions. Use when developing, optimizing, debugging, or configuring goal loop in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for goal loop."
+  }
+]

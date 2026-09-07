@@ -1,7 +1,7 @@
 ---
 name: smart-git-automation
 version: 1.0.0
-description: "Smart change detection, auto branch naming, and streamlined commit/PR workflow Use when developing, optimizing, debugging, or configuring smart git automation in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for smart git automation."
+description: "Automate Git workflows through intelligent diff inspection, change grouping, and branch naming. Use when analyzing git status and git diff outputs to group related changes, generate kebab-case branches (feature/, fix/), format conventional commit messages, and create pull requests via gh pr create."
 risk: critical
 source: community
 source_type: community

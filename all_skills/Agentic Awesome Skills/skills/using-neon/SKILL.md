@@ -1,6 +1,6 @@
 ---
 name: using-neon
-description: "Comprehensive engineering guide and best practices for using neon. Use when configuring, developing, debugging, or optimizing using neon architecture in production systems. Guides architecture, best practices, and implementation standards for using neon."
+description: "Configure, query, and manage Neon Serverless Postgres databases with autoscaling and database branching. Use when implementing serverless edge connections via @neondatabase/serverless or Drizzle ORM, configuring @neondatabase/auth or @neondatabase/neon-js, and provisioning via Neon CLI or Neon REST API."
 risk: safe
 source: "https://github.com/neondatabase/agent-skills/tree/main/skills/neon-postgres"
 date_added: "2026-02-27"

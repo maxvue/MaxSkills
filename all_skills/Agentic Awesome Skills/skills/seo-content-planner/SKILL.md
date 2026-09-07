@@ -1,12 +1,6 @@
 ---
 name: seo-content-planner
-description: "Creates comprehensive content outlines and topic clusters for SEO. Use when developing, optimizing, debugging, or configuring seo content planner in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for seo content planner."
-
-  Plans content calendars and identifies topic gaps. Use PROACTIVELY for content
-
-  strategy and planning.
-
-  '
+description: "Structures topic cluster architectures, pillar pages, and editorial content calendars with search intent mapping and internal linking blueprints. Use when planning SEO content strategies, creating detailed section-by-section article outlines, conducting topic gap analysis, or establishing topical authority."
 risk: none
 source: community
 date_added: '2026-02-27'

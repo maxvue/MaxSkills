@@ -1,6 +1,6 @@
 ---
 name: llm-council
-description: "Run Fireworks-hosted open-weight model councils that compare responses and synthesize a final answer. Use when developing, optimizing, debugging, or configuring llm council in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for llm council."
+description: "Orchestrates multi-model deliberation councils (Karpathy LLM Council) via Fireworks AI inference. Executes parallel queries across open-weight models (DeepSeek, Qwen, GLM, Llama), anonymized peer ranking, and Chairman synthesis. Use when resolving complex queries, comparing LLM responses, or seeking multi-model consensus."
 allowed-tools: Read, Write, Bash, AskUserQuestion
 category: "ai-agents"
 risk: "safe"

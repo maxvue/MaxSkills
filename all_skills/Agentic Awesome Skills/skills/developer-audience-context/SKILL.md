@@ -1,6 +1,6 @@
 ---
 name: developer-audience-context
-description: "When the user wants to establish or update their developer audience context. Also use when starting any other developer marketing skill to ensure foundational context is loaded. Trigger phrases include \\"developer persona,\\" \\"target developers,\\" \\"who are our developers,\\" \\"developer... Use when developing, optimizing, debugging, or configuring developer audience context in..."
+description: "Builds and updates `.agents/developer-audience-context.md` for technical marketing and DevRel. Use when defining developer personas, mapping tech stacks, documenting pain points and competitor alternatives, capturing verbatim developer language from GitHub or Reddit, or setting conversion trust signals."
 risk: critical
 source: https://github.com/jonathimer/devmarketing-skills/tree/main/skills/developer-audience-context
 source_repo: jonathimer/devmarketing-skills

@@ -1,0 +1,164 @@
+[
+  {
+    "skillName": "seo-hreflang",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-hreflang/SKILL.md",
+    "correctedDescription": "Audits, validates, and generates hreflang tags across HTML links, HTTP headers, and XML sitemaps for international SEO. Verifies self-referencing tags, bidirectional return links, x-default fallbacks, ISO 639-1 languages, and ISO 3166-1 regions. Use when auditing or implementing hreflang annotations, multilingual URL sets, or regional targeting.",
+    "charCount": 348,
+    "discriminants": [
+      "hreflang",
+      "ISO 639-1",
+      "ISO 3166-1",
+      "x-default",
+      "self-referencing",
+      "XML sitemaps",
+      "HTTP headers"
+    ],
+    "cleanFrontmatter": "name: seo-hreflang\ndescription: \"Audits, validates, and generates hreflang tags across HTML links, HTTP headers, and XML sitemaps for international SEO. Verifies self-referencing tags, bidirectional return links, x-default fallbacks, ISO 639-1 languages, and ISO 3166-1 regions. Use when auditing or implementing hreflang annotations, multilingual URL sets, or regional targeting.\"\nrisk: critical\nsource: \"https://github.com/AgriciDaniel/claude-seo\"\ndate_added: \"2026-03-21\"\nuser-invokable: true\nargument-hint: \"[url]\"\nallowed-tools:\n  - Read\n  - Grep\n  - Glob\n  - Bash\n  - WebFetch"
+  },
+  {
+    "skillName": "seo-images",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-images/SKILL.md",
+    "correctedDescription": "Audits web images for SEO and performance, evaluating alt text quality, file size thresholds, WebP/AVIF formats, and picture tag fallbacks. Analyzes responsive srcset and sizes, loading=lazy, fetchpriority=high on LCP assets, and dimension attributes to prevent CLS. Use when optimizing image delivery, resolving layout shifts, or auditing page media for Core Web Vitals.",
+    "charCount": 372,
+    "discriminants": [
+      "WebP",
+      "AVIF",
+      "srcset",
+      "sizes",
+      "loading=lazy",
+      "fetchpriority=high",
+      "CLS",
+      "Core Web Vitals"
+    ],
+    "cleanFrontmatter": "name: seo-images\ndescription: \"Audits web images for SEO and performance, evaluating alt text quality, file size thresholds, WebP/AVIF formats, and picture tag fallbacks. Analyzes responsive srcset and sizes, loading=lazy, fetchpriority=high on LCP assets, and dimension attributes to prevent CLS. Use when optimizing image delivery, resolving layout shifts, or auditing page media for Core Web Vitals.\"\nrisk: safe\nsource: \"https://github.com/AgriciDaniel/claude-seo\"\ndate_added: \"2026-03-21\"\nuser-invokable: true\nargument-hint: \"[url]\"\nallowed-tools:\n  - Read\n  - Grep\n  - Glob\n  - Bash\n  - WebFetch"
+  },
+  {
+    "skillName": "seo-page",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-page/SKILL.md",
+    "correctedDescription": "Conducts single-page SEO audits evaluating title and meta descriptions, H1-H6 heading hierarchy, canonical tags, Open Graph, and E-E-A-T content quality signals. Analyzes JSON-LD schema markup, image assets, internal linking, and optional DataForSEO SERP metrics. Use when reviewing a specific URL for on-page SEO health, technical tag validation, or content optimization.",
+    "charCount": 372,
+    "discriminants": [
+      "JSON-LD",
+      "Open Graph",
+      "canonical tags",
+      "E-E-A-T",
+      "H1-H6 hierarchy",
+      "DataForSEO",
+      "meta robots"
+    ],
+    "cleanFrontmatter": "name: seo-page\ndescription: \"Conducts single-page SEO audits evaluating title and meta descriptions, H1-H6 heading hierarchy, canonical tags, Open Graph, and E-E-A-T content quality signals. Analyzes JSON-LD schema markup, image assets, internal linking, and optional DataForSEO SERP metrics. Use when reviewing a specific URL for on-page SEO health, technical tag validation, or content optimization.\"\nrisk: safe\nsource: \"https://github.com/AgriciDaniel/claude-seo\"\ndate_added: \"2026-03-21\"\nuser-invokable: true\nargument-hint: \"[url]\"\nallowed-tools:\n  - Read\n  - Grep\n  - Glob\n  - Bash\n  - WebFetch"
+  },
+  {
+    "skillName": "seo-plan",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-plan/SKILL.md",
+    "correctedDescription": "Develops strategic SEO plans and implementation roadmaps using industry templates for SaaS, ecommerce, agencies, publishers, and local businesses. Performs competitor gap analysis, designs URL architecture and content pillars, schedules content calendars, and integrates DataForSEO metrics. Use when planning domain SEO strategies, site architecture overhauls, or phased content roadmaps.",
+    "charCount": 388,
+    "discriminants": [
+      "DataForSEO",
+      "SaaS",
+      "ecommerce",
+      "content pillars",
+      "URL hierarchy",
+      "competitor gap analysis",
+      "content calendar"
+    ],
+    "cleanFrontmatter": "name: seo-plan\ndescription: \"Develops strategic SEO plans and implementation roadmaps using industry templates for SaaS, ecommerce, agencies, publishers, and local businesses. Performs competitor gap analysis, designs URL architecture and content pillars, schedules content calendars, and integrates DataForSEO metrics. Use when planning domain SEO strategies, site architecture overhauls, or phased content roadmaps.\"\nrisk: critical\nsource: \"https://github.com/AgriciDaniel/claude-seo\"\ndate_added: \"2026-03-21\"\nuser-invokable: true\nargument-hint: \"[business-type]\"\nallowed-tools:\n  - Read\n  - Grep\n  - Glob\n  - Bash\n  - WebFetch\n  - Write"
+  },
+  {
+    "skillName": "seo-schema",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-schema/SKILL.md",
+    "correctedDescription": "Detects, validates, and generates Schema.org structured data in JSON-LD, Microdata, and RDFa formats for Google Rich Results. Verifies required properties, flags deprecated types like HowTo or SpecialAnnouncement, and outputs compliant code for Organization, Product, Article, and LocalBusiness. Use when auditing rich snippet eligibility, repairing schema errors, or generating JSON-LD markup.",
+    "charCount": 394,
+    "discriminants": [
+      "Schema.org",
+      "JSON-LD",
+      "Microdata",
+      "RDFa",
+      "Google Rich Results",
+      "LocalBusiness",
+      "Organization",
+      "HowTo"
+    ],
+    "cleanFrontmatter": "name: seo-schema\ndescription: \"Detects, validates, and generates Schema.org structured data in JSON-LD, Microdata, and RDFa formats for Google Rich Results. Verifies required properties, flags deprecated types like HowTo or SpecialAnnouncement, and outputs compliant code for Organization, Product, Article, and LocalBusiness. Use when auditing rich snippet eligibility, repairing schema errors, or generating JSON-LD markup.\"\nrisk: critical\nsource: \"https://github.com/AgriciDaniel/claude-seo\"\ndate_added: \"2026-03-21\"\nuser-invokable: true\nargument-hint: \"[url]\"\nallowed-tools:\n  - Read\n  - Grep\n  - Glob\n  - Bash\n  - WebFetch\n  - Write"
+  },
+  {
+    "skillName": "seo-sitemap",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-sitemap/SKILL.md",
+    "correctedDescription": "Analyzes existing XML sitemaps or generates new sitemap and sitemapindex files according to search engine protocol specifications. Validates HTTP 200 status codes, lastmod tags, 50,000 URL limits, robots.txt references, and canonical URL alignment while pruning noindexed pages. Use when validating XML sitemap health, resolving indexation errors, or architecting multi-file sitemaps.",
+    "charCount": 384,
+    "discriminants": [
+      "XML sitemap",
+      "sitemapindex",
+      "robots.txt",
+      "lastmod",
+      "canonical URLs",
+      "noindex",
+      "HTTP 200"
+    ],
+    "cleanFrontmatter": "name: seo-sitemap\ndescription: \"Analyzes existing XML sitemaps or generates new sitemap and sitemapindex files according to search engine protocol specifications. Validates HTTP 200 status codes, lastmod tags, 50,000 URL limits, robots.txt references, and canonical URL alignment while pruning noindexed pages. Use when validating XML sitemap health, resolving indexation errors, or architecting multi-file sitemaps.\"\nrisk: critical\nsource: \"https://github.com/AgriciDaniel/claude-seo\"\ndate_added: \"2026-03-21\"\nuser-invokable: true\nargument-hint: \"[url or generate]\"\nallowed-tools:\n  - Read\n  - Grep\n  - Glob\n  - Bash\n  - WebFetch\n  - Write"
+  },
+  {
+    "skillName": "seo-structure-architect",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/seo-structure-architect/SKILL.md",
+    "correctedDescription": "Architects on-page content hierarchy and information structure for SEO and featured snippets. Evaluates H1-H6 heading order, designs topical silos and theme clusters, maps contextual internal linking matrices, and configures breadcrumb navigation and table of contents. Use when structuring article outlines, organizing website content silos, or optimizing heading hierarchy for search engines.",
+    "charCount": 394,
+    "discriminants": [
+      "H1-H6 hierarchy",
+      "topical silos",
+      "theme clusters",
+      "internal linking matrix",
+      "breadcrumb navigation",
+      "featured snippets",
+      "table of contents"
+    ],
+    "cleanFrontmatter": "name: seo-structure-architect\ndescription: \"Architects on-page content hierarchy and information structure for SEO and featured snippets. Evaluates H1-H6 heading order, designs topical silos and theme clusters, maps contextual internal linking matrices, and configures breadcrumb navigation and table of contents. Use when structuring article outlines, organizing website content silos, or optimizing heading hierarchy for search engines.\"\nrisk: safe\nsource: community\ndate_added: '2026-02-27'"
+  },
+  {
+    "skillName": "sharp-coder",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/sharp-coder/SKILL.md",
+    "correctedDescription": "Enforces a dual-layer coding framework pairing surgical code edits with terse token-efficient communication. The THINK layer mandates minimal diffs, zero speculative abstractions, and test verification; the SPEAK layer applies caveman prose compression across configurable modes. Use when requesting extreme token brevity, caveman mode, or disciplined, minimal code modifications.",
+    "charCount": 380,
+    "discriminants": [
+      "THINK layer",
+      "SPEAK layer",
+      "caveman mode",
+      "token brevity",
+      "surgical edits",
+      "minimal diffs"
+    ],
+    "cleanFrontmatter": "name: sharp-coder\ndescription: \"Enforces a dual-layer coding framework pairing surgical code edits with terse token-efficient communication. The THINK layer mandates minimal diffs, zero speculative abstractions, and test verification; the SPEAK layer applies caveman prose compression across configurable modes. Use when requesting extreme token brevity, caveman mode, or disciplined, minimal code modifications.\"\nrisk: safe\nsource: self\nsource_type: self"
+  },
+  {
+    "skillName": "slack-bot-builder",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/slack-bot-builder/SKILL.md",
+    "correctedDescription": "Builds Slack bots and applications using the official Slack Bolt framework across Python, JavaScript, and Java. Implements Block Kit UI layouts, interactive modals, slash commands, event listeners, Socket Mode handlers, and OAuth v2 installation flows. Use when developing Slack bots, creating Block Kit user interfaces, handling Slack webhook events, or integrating Workflow Builder steps.",
+    "charCount": 390,
+    "discriminants": [
+      "Slack Bolt",
+      "Block Kit",
+      "Socket Mode",
+      "OAuth v2",
+      "slash commands",
+      "Workflow Builder",
+      "modals"
+    ],
+    "cleanFrontmatter": "name: slack-bot-builder\ndescription: \"Builds Slack bots and applications using the official Slack Bolt framework across Python, JavaScript, and Java. Implements Block Kit UI layouts, interactive modals, slash commands, event listeners, Socket Mode handlers, and OAuth v2 installation flows. Use when developing Slack bots, creating Block Kit user interfaces, handling Slack webhook events, or integrating Workflow Builder steps.\"\nrisk: critical\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: 2026-02-27"
+  },
+  {
+    "skillName": "social-content",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/social-content/SKILL.md",
+    "correctedDescription": "Plans and writes social media content tailored for LinkedIn, Twitter/X, Instagram, TikTok, and Facebook. Structures multi-tier content pillars, high-retention hooks, PDF carousels, educational threads, short-form video scripts, and posting cadences. Use when creating platform-specific social posts, planning brand content calendars, or repurposing material across networks.",
+    "charCount": 374,
+    "discriminants": [
+      "LinkedIn",
+      "Twitter/X",
+      "Instagram",
+      "TikTok",
+      "Facebook",
+      "content pillars",
+      "carousels",
+      "short-form video"
+    ],
+    "cleanFrontmatter": "name: social-content\ndescription: \"Plans and writes social media content tailored for LinkedIn, Twitter/X, Instagram, TikTok, and Facebook. Structures multi-tier content pillars, high-retention hooks, PDF carousels, educational threads, short-form video scripts, and posting cadences. Use when creating platform-specific social posts, planning brand content calendars, or repurposing material across networks.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  }
+]

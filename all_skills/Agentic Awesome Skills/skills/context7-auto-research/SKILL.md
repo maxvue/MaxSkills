@@ -1,6 +1,6 @@
 ---
 name: context7-auto-research
-description: "Comprehensive engineering guide and best practices for context7 auto research. Use when configuring, developing, debugging, or optimizing context7 auto research architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for context7 auto research."
+description: "Retrieve up-to-date software library and framework documentation directly in Claude Code using the Context7 API. Fetches official API references, code examples, and version-specific guides for libraries including React, Next.js, and Prisma. Use when looking up current API syntax, validating framework features, or eliminating outdated training data assumptions during coding sessions."
 risk: critical
 source: community
 date_added: "2026-02-27"

@@ -1,0 +1,165 @@
+[
+  {
+    "skillName": "exa-search",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/exa-search/SKILL.md",
+    "correctedDescription": "Performs semantic search, embeddings-based web discovery, and similar content retrieval via the Exa API. Use when searching web content by semantic similarity, researching specific categories such as companies or research papers, or finding structurally similar web pages using Exa endpoints.",
+    "charCount": 292,
+    "discriminants": [
+      "Exa API",
+      "semantic search",
+      "embeddings-based discovery",
+      "similar content retrieval",
+      "category filtering"
+    ],
+    "cleanFrontmatter": "name: exa-search\ndescription: \"Performs semantic search, embeddings-based web discovery, and similar content retrieval via the Exa API. Use when searching web content by semantic similarity, researching specific categories such as companies or research papers, or finding structurally similar web pages using Exa endpoints.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "firebase",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/firebase/SKILL.md",
+    "correctedDescription": "Architects and implements Firebase applications using the Modular SDK v9+, Firestore denormalized data models, Cloud Functions v2, Authentication, and Cloud Storage. Use when designing Firestore query patterns, authoring or unit testing Firebase Security Rules, or configuring client and admin SDK integrations.",
+    "charCount": 311,
+    "discriminants": [
+      "Firebase Modular SDK v9+",
+      "Firestore",
+      "Cloud Functions v2",
+      "Firebase Security Rules",
+      "@firebase/rules-unit-testing",
+      "Authentication",
+      "Cloud Storage",
+      "firebase-admin"
+    ],
+    "cleanFrontmatter": "name: firebase\ndescription: \"Architects and implements Firebase applications using the Modular SDK v9+, Firestore denormalized data models, Cloud Functions v2, Authentication, and Cloud Storage. Use when designing Firestore query patterns, authoring or unit testing Firebase Security Rules, or configuring client and admin SDK integrations.\"\nrisk: critical\nsource: vibeship-spawner-skills (Apache 2.0)\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "firecrawl-scraper",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/firecrawl-scraper/SKILL.md",
+    "correctedDescription": "Performs web crawling, deep content extraction, screenshot capture, and PDF parsing via the Firecrawl API. Use when scraping JavaScript-rendered web pages requiring browser interactions like clicking and scrolling, batch scraping multiple URLs, or extracting clean markdown from entire website domains.",
+    "charCount": 302,
+    "discriminants": [
+      "Firecrawl API",
+      "web crawling",
+      "deep content extraction",
+      "screenshots",
+      "PDF parsing",
+      "markdown extraction",
+      "batch URL scraping"
+    ],
+    "cleanFrontmatter": "name: firecrawl-scraper\ndescription: \"Performs web crawling, deep content extraction, screenshot capture, and PDF parsing via the Firecrawl API. Use when scraping JavaScript-rendered web pages requiring browser interactions like clicking and scrolling, batch scraping multiple URLs, or extracting clean markdown from entire website domains.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "food-database-query",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/food-database-query/SKILL.md",
+    "correctedDescription": "Queries structured food and nutrition datasets to retrieve macronutrients, vitamins, minerals, and glycemic index values. Use when analyzing dietary data, performing food nutrient comparisons, calculating nutritional totals, or converting portion sizes using food-database.json and food-categories.json datasets.",
+    "charCount": 312,
+    "discriminants": [
+      "food-database.json",
+      "food-categories.json",
+      "macronutrients",
+      "glycemic index (GI)",
+      "portion conversion",
+      "nutritional comparisons"
+    ],
+    "cleanFrontmatter": "name: food-database-query\ndescription: \"Queries structured food and nutrition datasets to retrieve macronutrients, vitamins, minerals, and glycemic index values. Use when analyzing dietary data, performing food nutrient comparisons, calculating nutritional totals, or converting portion sizes using food-database.json and food-categories.json datasets.\"\nrisk: critical\nsource: community"
+  },
+  {
+    "skillName": "frontend-developer",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/frontend-developer/SKILL.md",
+    "correctedDescription": "Architects and builds modern web applications using React 19, Next.js 15 App Router, React Server Components, and Server Actions. Use when implementing client and server UI components, managing state with Zustand or TanStack Query, optimizing Core Web Vitals, or styling interfaces with Tailwind CSS.",
+    "charCount": 300,
+    "discriminants": [
+      "React 19",
+      "Next.js 15 App Router",
+      "React Server Components (RSC)",
+      "Server Actions",
+      "Zustand",
+      "TanStack Query",
+      "Tailwind CSS",
+      "Core Web Vitals"
+    ],
+    "cleanFrontmatter": "name: frontend-developer\ndescription: \"Architects and builds modern web applications using React 19, Next.js 15 App Router, React Server Components, and Server Actions. Use when implementing client and server UI components, managing state with Zustand or TanStack Query, optimizing Core Web Vitals, or styling interfaces with Tailwind CSS.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "frontend-mobile-security-xss-scan",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/frontend-mobile-security-xss-scan/SKILL.md",
+    "correctedDescription": "Scans frontend and hybrid mobile web codebases for Cross-Site Scripting (XSS, CWE-79) vulnerabilities and dangerous DOM sinks. Use when detecting unsafe innerHTML or dangerouslySetInnerHTML usages in React, Vue, or Angular, validating input sanitization with DOMPurify, or auditing Content Security Policies.",
+    "charCount": 318,
+    "discriminants": [
+      "XSS",
+      "CWE-79",
+      "DOM sinks",
+      "innerHTML",
+      "dangerouslySetInnerHTML",
+      "DOMPurify",
+      "Content Security Policies (CSP)",
+      "React/Vue/Angular"
+    ],
+    "cleanFrontmatter": "name: frontend-mobile-security-xss-scan\ndescription: \"Scans frontend and hybrid mobile web codebases for Cross-Site Scripting (XSS, CWE-79) vulnerabilities and dangerous DOM sinks. Use when detecting unsafe innerHTML or dangerouslySetInnerHTML usages in React, Vue, or Angular, validating input sanitization with DOMPurify, or auditing Content Security Policies.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "git-pr-workflows-onboard",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/git-pr-workflows-onboard/SKILL.md",
+    "correctedDescription": "Guides structured technical onboarding for software engineers across Day 1 through 90-day milestones. Use when setting up developer environments, introducing repository architectures and Git pull request workflows, configuring CI/CD and linting practices, or establishing engineering buddy mentorships.",
+    "charCount": 302,
+    "discriminants": [
+      "technical onboarding",
+      "Git pull request workflows",
+      "repository architectures",
+      "CI/CD pipelines",
+      "developer environment setup",
+      "30-60-90 day milestones",
+      "buddy mentorship"
+    ],
+    "cleanFrontmatter": "name: git-pr-workflows-onboard\ndescription: \"Guides structured technical onboarding for software engineers across Day 1 through 90-day milestones. Use when setting up developer environments, introducing repository architectures and Git pull request workflows, configuring CI/CD and linting practices, or establishing engineering buddy mentorships.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "github-actions-advanced",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/github-actions-advanced/SKILL.md",
+    "correctedDescription": "Designs, hardens, and debugs GitHub Actions CI/CD workflows in .github/workflows. Use when configuring reusable workflows, composite actions, matrix builds, self-hosted runners, OIDC cloud authentication, action caching strategies, concurrency limits, or environment secrets in GitHub repositories.",
+    "charCount": 298,
+    "discriminants": [
+      "GitHub Actions",
+      ".github/workflows",
+      "reusable workflows",
+      "composite actions",
+      "matrix builds",
+      "self-hosted runners",
+      "OIDC authentication",
+      "action caching",
+      "environment secrets"
+    ],
+    "cleanFrontmatter": "name: github-actions-advanced\ndescription: \"Designs, hardens, and debugs GitHub Actions CI/CD workflows in .github/workflows. Use when configuring reusable workflows, composite actions, matrix builds, self-hosted runners, OIDC cloud authentication, action caching strategies, concurrency limits, or environment secrets in GitHub repositories.\"\ncategory: devops\nrisk: safe\nsource: community\ndate_added: \"2026-05-30\""
+  },
+  {
+    "skillName": "google-calendar-automation",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/google-calendar-automation/SKILL.md",
+    "correctedDescription": "Automates Google Calendar operations via standalone OAuth authentication scripts without requiring an MCP server. Use when querying schedules, listing calendars, creating, updating, or deleting Google Workspace calendar events with attendees, locations, and reminders using scripts/gcal.py CLI commands.",
+    "charCount": 303,
+    "discriminants": [
+      "Google Calendar API",
+      "Google Workspace",
+      "OAuth authentication",
+      "scripts/gcal.py",
+      "scripts/auth.py",
+      "calendar events CLI"
+    ],
+    "cleanFrontmatter": "name: google-calendar-automation\ndescription: \"Automates Google Calendar operations via standalone OAuth authentication scripts without requiring an MCP server. Use when querying schedules, listing calendars, creating, updating, or deleting Google Workspace calendar events with attendees, locations, and reminders using scripts/gcal.py CLI commands.\"\nlicense: Apache-2.0\nrisk: critical\nsource: community\nmetadata:\n  author: sanjay3290\n  version: \"1.0\""
+  },
+  {
+    "skillName": "graphql-architect",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/graphql-architect/SKILL.md",
+    "correctedDescription": "Architects distributed GraphQL systems, federated schemas, and optimized API gateways using Apollo Federation v2 and SDL. Use when designing subgraph compositions, resolving N+1 query bottlenecks with DataLoader, enforcing field-level authorization, or implementing GraphQL subscriptions over WebSockets.",
+    "charCount": 304,
+    "discriminants": [
+      "GraphQL",
+      "Apollo Federation v2",
+      "SDL",
+      "subgraph compositions",
+      "DataLoader",
+      "N+1 query resolution",
+      "field-level authorization",
+      "GraphQL subscriptions",
+      "WebSockets"
+    ],
+    "cleanFrontmatter": "name: graphql-architect\ndescription: \"Architects distributed GraphQL systems, federated schemas, and optimized API gateways using Apollo Federation v2 and SDL. Use when designing subgraph compositions, resolving N+1 query bottlenecks with DataLoader, enforcing field-level authorization, or implementing GraphQL subscriptions over WebSockets.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  }
+]

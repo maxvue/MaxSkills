@@ -1,6 +1,6 @@
 ---
 name: architect-review
-description: "Comprehensive engineering guide and best practices for architect review. Use when configuring, developing, debugging, or optimizing architect review architecture in production systems. Guides architecture, best practices, and implementation standards for architect review."
+description: "Conducts software architecture reviews across distributed systems, Clean Architecture, and Domain-Driven Design (DDD). Evaluates microservices boundaries, event-driven patterns (CQRS, Saga), resilience, and scalability. Use when reviewing system designs, assessing architectural trade-offs, analyzing service boundaries, or validating distributed system patterns."
 risk: safe
 source: community
 date_added: "2026-02-27"

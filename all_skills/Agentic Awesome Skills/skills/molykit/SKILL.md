@@ -1,10 +1,6 @@
 ---
 name: molykit
-description: "| Use when developing, optimizing, debugging, or configuring molykit in production workflows. Provides end-to-end guidance, reference architectures, and practical patterns for molykit. Use when developing, optimizing, testing, or configuring molykit in production environments."
-  CRITICAL: Use for MolyKit AI chat toolkit. Triggers on:
-  BotClient, OpenAI, SSE streaming, AI chat, molykit,
-  PlatformSend, spawn(), ThreadToken, cross-platform async,
-  Chat widget, Messages, PromptInput, Avatar, LLM
+description: "Builds cross-platform AI chat applications in Rust using Makepad and MolyKit. Implements native and WASM asynchronous runtimes via PlatformSend and ThreadToken, integrates OpenAI-compatible SSE streaming with the BotClient trait, and constructs chat widgets. Use when developing Rust-based chat interfaces, LLM client connections, or Makepad UI components using MolyKit."
 risk: critical
 source: community
 ---

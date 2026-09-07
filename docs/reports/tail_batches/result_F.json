@@ -1,0 +1,177 @@
+[
+  {
+    "skillName": "web-artifacts-builder",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/web-artifacts-builder/SKILL.md",
+    "correctedDescription": "Builds and bundles standalone single-file HTML artifacts using React 18, TypeScript, Vite, Tailwind CSS, and shadcn/ui. Bundles code via Parcel and html-inline for Claude.ai presentations. Use when scaffolding, developing, or packaging self-contained frontend web artifacts into a single bundle.html.",
+    "charCount": 300,
+    "discriminants": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Parcel",
+      "html-inline",
+      "bundle.html"
+    ],
+    "cleanFrontmatter": "name: web-artifacts-builder\ndescription: \"Builds and bundles standalone single-file HTML artifacts using React 18, TypeScript, Vite, Tailwind CSS, and shadcn/ui. Bundles code via Parcel and html-inline for Claude.ai presentations. Use when scaffolding, developing, or packaging self-contained frontend web artifacts into a single bundle.html.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "webapp-testing",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/webapp-testing/SKILL.md",
+    "correctedDescription": "Automates testing of local web applications using Python Playwright scripts and headless Chromium. Manages local server lifecycles with scripts/with_server.py and executes DOM reconnaissance with networkidle waits. Use when writing end-to-end browser automation tests or inspecting UI states for local web apps.",
+    "charCount": 311,
+    "discriminants": [
+      "Python Playwright",
+      "scripts/with_server.py",
+      "headless Chromium",
+      "networkidle",
+      "DOM reconnaissance",
+      "browser automation"
+    ],
+    "cleanFrontmatter": "name: webapp-testing\ndescription: \"Automates testing of local web applications using Python Playwright scripts and headless Chromium. Manages local server lifecycles with scripts/with_server.py and executes DOM reconnaissance with networkidle waits. Use when writing end-to-end browser automation tests or inspecting UI states for local web apps.\"\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "writing-skills",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/writing-skills/SKILL.md",
+    "correctedDescription": "Guides architectural structuring and authoring of agent skills across Tier 1, Tier 2, and Tier 3 patterns. Applies Context Search Optimization (CSO), anti-rationalization rules, and YAML frontmatter standards. Use when designing, authoring, modularizing, or testing new and existing AI agent skills.",
+    "charCount": 299,
+    "discriminants": [
+      "Tier 1/2/3 architecture",
+      "Context Search Optimization (CSO)",
+      "anti-rationalization rules",
+      "YAML frontmatter standards",
+      "agent skills authoring"
+    ],
+    "cleanFrontmatter": "name: writing-skills\ndescription: \"Guides architectural structuring and authoring of agent skills across Tier 1, Tier 2, and Tier 3 patterns. Applies Context Search Optimization (CSO), anti-rationalization rules, and YAML frontmatter standards. Use when designing, authoring, modularizing, or testing new and existing AI agent skills.\"\ncategory: meta\nrisk: critical\nsource: community\ndate_added: \"2026-02-27\""
+  },
+  {
+    "skillName": "youtube-transcript",
+    "relPath": "all_skills/Agentic Awesome Skills/skills/youtube-transcript/SKILL.md",
+    "correctedDescription": "Extracts YouTube video transcripts and captions into clean text files using DeepAPI (/v1/scrape/youtube/transcript) with local yt-dlp json3 fallback parsing. Handles polling, multi-language subtitles, and bot-detection limits. Use when fetching YouTube video transcripts, subtitles, or spoken dialogue.",
+    "charCount": 302,
+    "discriminants": [
+      "DeepAPI",
+      "/v1/scrape/youtube/transcript",
+      "yt-dlp",
+      "json3",
+      "YouTube transcripts",
+      "subtitles extraction"
+    ],
+    "cleanFrontmatter": "name: youtube-transcript\ndescription: \"Extracts YouTube video transcripts and captions into clean text files using DeepAPI (/v1/scrape/youtube/transcript) with local yt-dlp json3 fallback parsing. Handles polling, multi-language subtitles, and bot-detection limits. Use when fetching YouTube video transcripts, subtitles, or spoken dialogue.\"\ncategory: research\nrisk: safe\nsource: community\nsource_repo: davidondrej/skills\nsource_type: community\ndate_added: \"2026-07-07\"\nauthor: davidondrej\ntags: [youtube, transcripts, research]\ntools: [claude, codex]\nlicense: \"MIT\"\nlicense_source: \"https://github.com/davidondrej/skills/blob/main/LICENSE\""
+  },
+  {
+    "skillName": "laravel-anticaptcha-integration-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-anticaptcha-integration-best-practices/SKILL.md",
+    "correctedDescription": "Integrates Anti-Captcha solving in Laravel using App\\Classes\\Anticaptcha wrappers (Anticaptcha, ImageToText). Configures ANTICAPTCHA_KEY, executes createTask, handles waitForResult polling, and writes to Log::channel('anticaptcha'). Use when implementing or debugging visual CAPTCHA solving in Laravel.",
+    "charCount": 302,
+    "discriminants": [
+      "Anti-Captcha",
+      "App\\Classes\\Anticaptcha",
+      "ImageToText",
+      "ANTICAPTCHA_KEY",
+      "createTask",
+      "waitForResult",
+      "Log::channel('anticaptcha')",
+      "Laravel"
+    ],
+    "cleanFrontmatter": "name: laravel-anticaptcha-integration-best-practices\ndescription: \"Integrates Anti-Captcha solving in Laravel using App\\\\Classes\\\\Anticaptcha wrappers (Anticaptcha, ImageToText). Configures ANTICAPTCHA_KEY, executes createTask, handles waitForResult polling, and writes to Log::channel('anticaptcha'). Use when implementing or debugging visual CAPTCHA solving in Laravel.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-digital-signatures-integration",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-digital-signatures-integration/SKILL.md",
+    "correctedDescription": "Implements digital signature workflows in Laravel using Autentique (vinicinbgs/autentique-v2) and Clicksign APIs. Configures signers, validates webhooks with hash_equals, dispatches queue jobs, and downloads signed PDFs to Storage. Use when integrating, dispatching, or verifying electronic signature webhooks in Laravel.",
+    "charCount": 321,
+    "discriminants": [
+      "Autentique",
+      "vinicinbgs/autentique-v2",
+      "Clicksign",
+      "hash_equals",
+      "webhooks validation",
+      "Laravel Storage",
+      "queue jobs"
+    ],
+    "cleanFrontmatter": "name: laravel-digital-signatures-integration\ndescription: \"Implements digital signature workflows in Laravel using Autentique (vinicinbgs/autentique-v2) and Clicksign APIs. Configures signers, validates webhooks with hash_equals, dispatches queue jobs, and downloads signed PDFs to Storage. Use when integrating, dispatching, or verifying electronic signature webhooks in Laravel.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-finance-coupons-discounts-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-finance-coupons-discounts-best-practices/SKILL.md",
+    "correctedDescription": "Manages financial discount coupons and promotional rules in Laravel using FinanceDiscountCoupons and PaymentPricing. Enforces expiration, usage quotas, DB::transaction with lockForUpdate, and BCMath precision calculations. Use when validating, calculating, or auditing coupon discounts and checkout payments in Laravel.",
+    "charCount": 319,
+    "discriminants": [
+      "FinanceDiscountCoupons",
+      "PaymentPricing",
+      "DB::transaction",
+      "lockForUpdate",
+      "BCMath",
+      "discount coupons",
+      "Laravel"
+    ],
+    "cleanFrontmatter": "name: laravel-finance-coupons-discounts-best-practices\ndescription: \"Manages financial discount coupons and promotional rules in Laravel using FinanceDiscountCoupons and PaymentPricing. Enforces expiration, usage quotas, DB::transaction with lockForUpdate, and BCMath precision calculations. Use when validating, calculating, or auditing coupon discounts and checkout payments in Laravel.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-frankenphp-octane-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-frankenphp-octane-best-practices/SKILL.md",
+    "correctedDescription": "Configures and optimizes Laravel Octane on FrankenPHP and Caddy web servers. Enforces stateless PHP patterns, scoped container bindings, octane.flush listeners, memory leak prevention, and Supervisor process management. Use when deploying, tuning workers, or debugging memory leaks in Laravel Octane with FrankenPHP.",
+    "charCount": 316,
+    "discriminants": [
+      "Laravel Octane",
+      "FrankenPHP",
+      "Caddy",
+      "scoped container bindings",
+      "octane.flush",
+      "Supervisor",
+      "memory leaks"
+    ],
+    "cleanFrontmatter": "name: laravel-frankenphp-octane-best-practices\ndescription: \"Configures and optimizes Laravel Octane on FrankenPHP and Caddy web servers. Enforces stateless PHP patterns, scoped container bindings, octane.flush listeners, memory leak prevention, and Supervisor process management. Use when deploying, tuning workers, or debugging memory leaks in Laravel Octane with FrankenPHP.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-meta-graph-api-integration-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-meta-graph-api-integration-best-practices/SKILL.md",
+    "correctedDescription": "Integrates Meta Graph API for Facebook and Instagram in Laravel via MetaService, PublishHandler, and MetaRequestTrait. Manages media containers for photos, reels, and carousels, verifies hub_challenge, and queues MetaWebhookJob. Use when publishing social media content or handling Meta Graph webhooks in Laravel.",
+    "charCount": 313,
+    "discriminants": [
+      "Meta Graph API",
+      "MetaService",
+      "PublishHandler",
+      "MetaRequestTrait",
+      "hub_challenge",
+      "MetaWebhookJob",
+      "Facebook",
+      "Instagram",
+      "Laravel"
+    ],
+    "cleanFrontmatter": "name: laravel-meta-graph-api-integration-best-practices\ndescription: \"Integrates Meta Graph API for Facebook and Instagram in Laravel via MetaService, PublishHandler, and MetaRequestTrait. Manages media containers for photos, reels, and carousels, verifies hub_challenge, and queues MetaWebhookJob. Use when publishing social media content or handling Meta Graph webhooks in Laravel.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-migrations-seeders-factories-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-migrations-seeders-factories-best-practices/SKILL.md",
+    "correctedDescription": "Builds resilient database migrations, seeders, and model factories in Laravel. Enforces anonymous migrations, ULID primary keys, separate foreign key definitions, idempotent updateOrCreate seeders, and typed factory states. Use when authoring or refactoring database schemas, seeders, or factories in Laravel.",
+    "charCount": 309,
+    "discriminants": [
+      "Laravel migrations",
+      "ULID primary keys",
+      "anonymous migrations",
+      "updateOrCreate seeders",
+      "factory states",
+      "Eloquent factories"
+    ],
+    "cleanFrontmatter": "name: laravel-migrations-seeders-factories-best-practices\ndescription: \"Builds resilient database migrations, seeders, and model factories in Laravel. Enforces anonymous migrations, ULID primary keys, separate foreign key definitions, idempotent updateOrCreate seeders, and typed factory states. Use when authoring or refactoring database schemas, seeders, or factories in Laravel.\"\nauthor: Johnattas Conrady Gomes Santana"
+  },
+  {
+    "skillName": "laravel-performance-and-profiling-best-practices",
+    "relPath": "all_skills/created-skills/backend_laravel/laravel-performance-and-profiling-best-practices/SKILL.md",
+    "correctedDescription": "Profiles, monitors, and debugs Laravel application performance using Laravel Pulse, Clockwork, LaraDumps ds(), Debugbar CLI, Log Viewer, and Laravel Pail log streaming. Enforces Gate authorizations and N+1 query detection. Use when diagnosing slow database queries, memory bottlenecks, or tailing logs in Laravel.",
+    "charCount": 313,
+    "discriminants": [
+      "Laravel Pulse",
+      "Clockwork",
+      "LaraDumps ds()",
+      "Debugbar CLI",
+      "Log Viewer",
+      "Laravel Pail",
+      "N+1 query detection"
+    ],
+    "cleanFrontmatter": "name: laravel-performance-and-profiling-best-practices\ndescription: \"Profiles, monitors, and debugs Laravel application performance using Laravel Pulse, Clockwork, LaraDumps ds(), Debugbar CLI, Log Viewer, and Laravel Pail log streaming. Enforces Gate authorizations and N+1 query detection. Use when diagnosing slow database queries, memory bottlenecks, or tailing logs in Laravel.\"\nauthor: Johnattas Conrady Gomes Santana"
+  }
+]

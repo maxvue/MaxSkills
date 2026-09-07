@@ -1,6 +1,6 @@
 ---
 name: pydantic-models-py
-description: "Comprehensive engineering guide and best practices for pydantic models py. Use when configuring, developing, debugging, or optimizing pydantic models py architecture in production systems. Guides architecture, best practices, and implementation standards for pydantic models py."
+description: "Builds Pydantic schemas using the multi-model pattern (Base, Create, Update, Response, InDB) for REST API contracts. Configures camelCase field aliasing with populate_by_name, optional fields for PATCH requests, and database doc_type fields. Use when creating Pydantic validation models, structuring CRUD request/response payloads, or aligning Python models with database entities."
 risk: critical
 source: community
 date_added: "2026-02-27"

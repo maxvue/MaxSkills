@@ -1,6 +1,6 @@
---- 
+---
 name: magic-animator
-description: "Comprehensive engineering guide and best practices for magic animator. Use when configuring, developing, debugging, or optimizing magic animator architecture in production systems. Guides architecture, best practices, and implementation standards for magic animator."
+description: "Applies AI-driven motion design to static design assets, logos, UI loaders, and micro-interactions using Magic Animator. Configures context-aware easing curves and keyframes, exporting animations into production Lottie JSON, GIF, or MP4 formats. Use when animating static SVG or Figma design assets, interface widgets, or interactive website icons with Magic Animator."
 risk: safe
 source: community
 date_added: "2026-03-07"

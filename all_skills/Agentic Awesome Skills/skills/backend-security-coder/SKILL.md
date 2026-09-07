@@ -1,9 +1,9 @@
 ---
 name: backend-security-coder
-description: "Comprehensive engineering guide and best practices for backend security coder. Use when configuring, developing, debugging, or optimizing backend security coder architecture in production systems. Provides end-to-end guidance, reference architectures, and practical patterns for backend security coder."
+description: "Implements defensive backend security controls and vulnerability remediations in server-side applications. Use when preventing SQL injection with parameterized queries, mitigating SSRF and CSRF attacks, configuring CSP, HSTS, and SameSite cookies, hashing passwords with Argon2 or bcrypt, and implementing OAuth 2.1, JWT, or RBAC authorization."
 risk: critical
 source: community
-date_added: '2026-02-27'
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when
