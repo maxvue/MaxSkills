@@ -31,6 +31,8 @@
 Import: `import { InputBase } from '@maxvue/max-components-ui'`
 Propósito: wrapper base unificado para todos os campos de formulário (`MaxInput*`). Gerencia FloatLabel, layout flex/grid, ícones (esquerda, direita, principal), mensagens de validação e status (`done`, `caution`, `error`), asterisco de obrigatório (`required`), alinhamento de texto e suporte a temas claro/escuro.
 
+**Encaminhamento de atributos:** o `InputBase` inspeciona `$attrs` e separa o destino: classes, `style` e atributos de layout (como tokens `s7`, `s12-full`) são aplicados via `rootAttrs` à caixa externa (`.max-input-base.max-input-main-div`), enquanto atributos específicos de controle (`type`, `placeholder`, `disabled`, `readonly`, `aria-*`, etc.) são repassados via `inputAttrs` diretamente ao controle interno. Para detalhes de dimensionamento, consulte [max-grid-sizing.md](../../vue-unocss-styling-best-practices/references/max-grid-sizing.md).
+
 **Props**
 | Prop | Tipo | Default | Obrigatório | Descrição |
 |------|------|---------|-------------|-----------|
@@ -844,7 +846,17 @@ Import: `import { MaxErrorIcon } from '@maxvue/max-components-ui'`. Ícone está
 
 ### MaxGrid
 Import: `import { MaxGrid } from '@maxvue/max-components-ui'`
-Propósito: container de grid flexível (flexbox com wrap e gap padronizado) com rótulo opcional posicionado na borda. (Arquivo `MaxGrid.vue`, classe `max-grid-cols`.)
+Propósito: container de layout flexível (flexbox com wrap e gap padronizado `13px 8px`, padding superior `14px`) com rótulo opcional na borda superior. (Arquivo `MaxGrid.vue`, classe raiz `.max-grid`.)
+
+**Estrutura interna e segmentação de linhas (`GridSlotRows`):**
+- **Sem wrappers desnecessários:** quando nenhum filho contém marcadores de quebra explícita, renderiza diretamente os nós do slot sem divs intermediárias.
+- **Coordenação em linhas (`.max-grid-row`):** ao identificar marcadores ativos nos filhos lógicos, agrupa os nós em wrappers `.max-grid-row` (`flex: 0 0 100%; width: 100%`) preservando o gap e o alinhamento.
+- **Fragments e keys:** achata nós `Fragment` (`<template>` e `v-for`) recursivamente via `flattenFragments`, compondo as keys para reconciliação estável do Vue.
+- **Escopo e ativação:** inspeciona apenas os filhos lógicos diretos do slot; reconhece classes e atributos valueless ou booleanos (`''`, `true`, `'true'`). Valores `false`, `null` ou `undefined` não ativam marcadores.
+- **Marcadores suportados para quebra coordenada:** `start` e `end` sem dispositivo, e `end-mobile` / `mobile-end` quando em dispositivo móvel (via `isMobile = useMediaQuery('(max-width: 767.98px)')`).
+- **Limitação responsiva:** marcadores como `start-mobile`, `mobile-start`, `start-tablet`, `end-tablet`, `start-desktop` e `end-desktop` emitem regras CSS pelo `presetMaxUno`, mas **não** são segmentados como novas linhas pelo `GridSlotRows`.
+- **Controle de mensagens:** os atributos `no-message` ou `no-messages` no `MaxGrid` forçam o colapso da linha de mensagem em todos os inputs internos (`.max-input-main-div`).
+- Para fórmulas detalhadas, tabela de limites em pixels e gramática da família `sN`/`s-N`, consulte a referência [max-grid-sizing.md](../../vue-unocss-styling-best-practices/references/max-grid-sizing.md).
 
 **Props**
 | Prop | Tipo | Default | Obrigatório | Descrição |
@@ -855,12 +867,13 @@ Propósito: container de grid flexível (flexbox com wrap e gap padronizado) com
 **Slots**
 | Slot | Props | Descrição |
 |------|-------|-----------|
-| default | — | conteúdo do grid |
+| default | — | conteúdo do grid (filhos lógicos organizados pelo GridSlotRows) |
 
 **Exemplo**
 ```vue
-<MaxGrid label="Endereço" gap-4>
-    <MaxInputText label="Rua" v-model="rua" />
+<MaxGrid label="Endereço">
+    <MaxInputText s12-full label="Rua" v-model="rua" />
+    <MaxInputText s6-full-end label="Número" v-model="numero" />
 </MaxGrid>
 ```
 
@@ -868,18 +881,19 @@ Propósito: container de grid flexível (flexbox com wrap e gap padronizado) com
 
 ### MaxGridCols
 Import: `import { MaxGridCols } from '@maxvue/max-components-ui'`
-Propósito: grid CSS de 24 colunas (`repeat(24, 1fr)`); repassa `$attrs` ao container.
+Propósito: container de layout CSS Grid puro com 24 colunas fixas (`grid-template-columns: repeat(24, 1fr)`), classe raiz `.max-grid-cols` e gap `15px 10px`. Repassa `$attrs` ao container.
 
-**Observação:** não declara props; repassa `$attrs` ao `<div class="grid-cols">`.
+**Observação:** componente distinto do `MaxGrid`. Não possui organizador de linhas (`GridSlotRows`), não interpreta marcadores da família `sN` para quebra de linhas e não substitui o `MaxGrid` na composição padrão de formulários. Não declara props públicas.
 
 **Slots**
 | Slot | Props | Descrição |
 |------|-------|-----------|
-| default | — | itens do grid (usam `span`/posicionamento por CSS) |
+| default | — | itens do grid (usam classes/estilos de posicionamento ou `grid-column: span ...`) |
 
 **Exemplo**
 ```vue
 <MaxGridCols>
+    <div style="grid-column: span 12">Metade</div>
     <div style="grid-column: span 12">Metade</div>
 </MaxGridCols>
 ```

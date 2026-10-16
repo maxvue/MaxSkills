@@ -122,6 +122,37 @@ const props = defineProps({
 </style>
 ```
 
+## Caso Específico: Família `sN` do presetMaxUno e MaxGrid
+
+A família de dimensionamento fluido `sN`/`s-N` (ex.: `s12-full`, `s8-full`, `s3-10-start`) opera pelo scanner estático do UnoCSS. Nunca monte tokens `sN` em tempo de execução concatenando números ou sufixos (ex.: `'s' + colunas` ou `` `s-${tamanho}` ``):
+
+```vue
+<!-- INCORRETO: UnoCSS não detecta o token em tempo de build -->
+<MaxInputText :class="'s' + tamanho" label="Campo" />
+
+<!-- CORRETO: mapeamento com literais completos estáticos -->
+<script setup lang="ts">
+// Mapeamento explícito com strings literais completas
+const tamanhoClasses = {
+  compacto: 's8-full',
+  medio: 's12-full',
+  amplo: 's16-full'
+};
+</script>
+
+<template>
+  <MaxGrid>
+    <!-- Literal estático completo detectado pelo UnoCSS -->
+    <MaxInputText :class="tamanhoClasses[tipo]" label="Campo Dinâmico" />
+  </MaxGrid>
+</template>
+```
+
+**Atenção aos limites do organizador:**
+- Lembre-se de que `sN` define limites em pixels (`min-width: N×20px`, `max-width: N×24px` ou `M×20px`), e não porcentagens.
+- O organizador `GridSlotRows` do `MaxGrid` coordena quebras de linha apenas para `start` e `end` sem dispositivo, e `end-mobile`/`mobile-end` em telas mobile. Marcadores como `start-mobile`, tablet ou desktop geram CSS no preset mas não coordenam linhas no grid.
+- Para detalhes e regras completas, consulte [max-grid-sizing.md](../../vue-unocss-styling-best-practices/references/max-grid-sizing.md).
+
 ## References
 
 - [UnoCSS: Extracting / content](https://unocss.dev/guide/extracting)

@@ -17,7 +17,8 @@ Estabelecer diretrizes claras, sólidas e padrões consistentes para estilizar c
   - **Cor de texto:** escreva o token **sem** o prefixo `text-` — a regra `^(red|green|blue|emerald|orange|amber|cyan|pink|yellow|gray|background)-?(\d+)$` casa `blue-600`, `red-700`, e também `blue600` (hífen opcional) e emite `color: var(--blue-600)`. `text-blue-600` **não** casa essa regra e cai no `presetWind3` (paleta Tailwind, não o tema); evite-o para cores do tema.
   - **Cor de fundo:** o shortcut `^bg-(.+)$` aceita qualquer token do tema, incluindo os semânticos — `bg-emerald-700`, `bg-primary-600`, `bg-background-0` compilam para `background-color: var(--emerald-700)` etc.
   - Atalhos personalizados como `fs-1.2` ou `font-size-1.2` para definir o tamanho da fonte (compila para `font-size: 1.2rem !important`)
-  - Atalhos utilitários para altura/largura como `h-full`, `h-flex`, `w-full`, `w-flex` (compila para `100% !important`)
+  - Atalhos utilitários para altura/largura como `h-full`, `h-flex`, `w-full`, `w-flex` (compila para `100% !important`).
+  - **Dimensionamento fluido (`sN`/`s-N`):** no `presetMaxUno`, a família `sN` (`s7`, `s12-full`, `s12-20`, `s3-10-start`, etc.) define limites em pixels com flexbox (`flex: 1 1 0%`, `min-width: N×20px` e `max-width: N×24px` ou `M×20px` ou `100%` com `full`/`max`), **não** porcentagens. `s50` impõe mínimo de 1.000px (não 50%) e `s100` impõe mínimo de 2.000px (não 100%). Para detalhes completos, gramática, dispositivos, integração com `MaxGrid` e migração, consulte sob demanda a referência [max-grid-sizing.md](references/max-grid-sizing.md).
   - Atalhos personalizados de margem e preenchimento (ex: `p-10`, `m-20`) processados pelo `presetMaxUno`.
 
 ### 2. Atributos Semânticos do Tema (params.scss) vs. presetAttributify

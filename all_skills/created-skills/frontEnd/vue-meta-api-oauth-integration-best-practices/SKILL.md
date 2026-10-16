@@ -38,7 +38,7 @@ Arquivos reais que esta skill descreve:
 
 # Exemplo
 
-Formulário fiel a `TabCredentials.vue`: carrega via store, edita manualmente, salva enviando o token só quando preenchido.
+Formulário fiel ao fluxo de `TabCredentials.vue`: carrega via store, edita manualmente e salva enviando o token só quando preenchido. O layout utiliza dimensionamento fluido (`s12-full` nos campos e `s8-full` no switch e ações; veja [max-grid-sizing.md](../vue-unocss-styling-best-practices/references/max-grid-sizing.md)).
 
 ```vue
 <template>
@@ -47,11 +47,11 @@ Formulário fiel a `TabCredentials.vue`: carrega via store, edita manualmente, s
             <MaxTitle2 :icon="form.icon" :title="form.api_name" :subtitle="form.has_token ? 'Conta conectada.' : 'Nenhuma credencial configurada ainda.'" />
 
             <MaxGrid p0>
-                <MaxInputText s50 :id="`cred-account-${form.event_api_id}`" :label="accountLabel(form.api_name)" v-model="form.external_account_id" no-message />
-                <MaxInputText s50 :id="`cred-token-${form.event_api_id}`" type="password" label="Token de Acesso" v-model="form.access_token" :placeholder="form.has_token ? 'Token já configurado — deixe em branco para manter' : 'Cole o token de acesso da Meta'" no-message />
-                <MaxInputSwitch s50 :id="`cred-active-${form.event_api_id}`" v-model="form.is_active" :question="`Canal ${form.is_active ? 'ativado' : 'desativado'}`" />
+                <MaxInputText s12-full :id="`cred-account-${form.event_api_id}`" :label="accountLabel(form.api_name)" v-model="form.external_account_id" no-message />
+                <MaxInputText s12-full :id="`cred-token-${form.event_api_id}`" type="password" label="Token de Acesso" v-model="form.access_token" :placeholder="form.has_token ? 'Token já configurado — deixe em branco para manter' : 'Cole o token de acesso da Meta'" no-message />
+                <MaxInputSwitch s8-full :id="`cred-active-${form.event_api_id}`" v-model="form.is_active" :question="`Canal ${form.is_active ? 'ativado' : 'desativado'}`" />
 
-                <div s50 style="text-align: right;">
+                <div s8-full style="text-align: right;">
                     <MaxButton :id="`btn-save-cred-${form.event_api_id}`" icon="mdi:content-save-outline" label="Salvar" :action="() => saveForm(form)" :loading="form.saving" />
                 </div>
             </MaxGrid>

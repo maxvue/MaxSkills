@@ -15,6 +15,8 @@ Estabelecer padrões claros e de alta qualidade de desenvolvimento para a aplica
 > **Telefone — qual componente escolher:**
 > - **`MaxPhoneField`**: use quando precisar de seleção de país/DDI. Encapsula um `Select` de bandeiras (`country_ddi_flags`) + input mascarado dinâmico e emite via `v-model` o valor concatenado `DDI + dígitos, sem '+'` (ex.: `5511999999999`) — não E.164. É o componente indicado para telefone/WhatsApp internacional.
 > - **`MaxInputPhoneMail`**: use no campo **combinado** que aceita telefone **ou** e-mail. Sem hints (`attrs.phone`/`whatsapp`/`zap` ou `attrs.email`/`mail`/`e-mail`), detecta automaticamente qual o usuário digitou (letras vs. dígitos); com um hint explícito, o modo é forçado antes da digitação. Valida telefone com `libphonenumber-js` (país `'BR'`) e e-mail por regex, aplicando máscara dinâmica com `v-maska:unmaskedValue.unmasked`. É o indicado quando o mesmo campo deve aceitar os dois formatos (ex.: login por e-mail ou WhatsApp).
+>
+> **Dimensionamento e Layout em Formulários:** os inputs `MaxInput*` são envolvidos por `InputBase`, que encaminha atributos de dimensionamento (tokens fluidos `sN`, como `s12-full`, `s8-full`) diretamente para a caixa externa (`rootAttrs`). Organize sempre os formulários dentro de `<MaxGrid>` (flexbox coordenado). Para o contrato de limites em pixels e regras de quebra, consulte a referência [max-grid-sizing.md](../vue-unocss-styling-best-practices/references/max-grid-sizing.md).
 
 ### 1. Registro e Configuração de Componentes (Maska)
 - Sempre utilize a Composition API (`<script setup lang="ts">`) e SCSS (`lang="scss"` com escopo `scoped`) para os componentes.

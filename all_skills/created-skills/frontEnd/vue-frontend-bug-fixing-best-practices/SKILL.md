@@ -40,6 +40,12 @@ Diagnosticar e corrigir bugs do front-end em projetos Vue 3 + TypeScript + MaxPi
   - Evite imports diretos de componentes PrimeVue em código novo.
 - **Estilização e UnoCSS:**
   - Em `<style lang="scss" scoped>`, use `:deep()` apenas quando necessário estilizar slots/filhos de componentes Max*.
+  - **Diagnóstico de dimensionamento fluido (`sN`/`s-N`) e MaxGrid:**
+    - **Fórmula e limites em pixels:** confira se os tamanhos pretendidos respeitam a fórmula (`min-width: N×20px`, `max-width: N×24px` ou `M×20px` ou `100%` com `full`/`max`). Lembre-se de que `s50` e `s100` não são porcentagens, mas mínimos de 1.000px e 2.000px.
+    - **Min/max conflitantes:** certifique-se de que não foi declarado `max-width` numérico menor que o `min-width` (ex.: `s10-5`).
+    - **Local do marcador:** o `GridSlotRows` do `MaxGrid` inspeciona apenas os filhos lógicos diretos do slot default; marcadores aninhados dentro de outros componentes ou em wrappers sem atributos não ativam quebra.
+    - **CSS gerado vs. segmentação:** `start` e `end` sem dispositivo coordenam linhas em qualquer tela; `end-mobile`/`mobile-end` coordenam apenas em mobile. Demais variações (`start-mobile`, tablet e desktop) geram regras CSS no preset, mas não são segmentadas pelo `MaxGrid`.
+    - Para a especificação canônica completa, consulte a referência [max-grid-sizing.md](../vue-unocss-styling-best-practices/references/max-grid-sizing.md).
 
 ---
 

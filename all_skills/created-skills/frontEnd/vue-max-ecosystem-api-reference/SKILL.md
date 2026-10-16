@@ -35,8 +35,7 @@ uma vez):
 | **MaxUse** | `@maxvue/max-use` | Composables (useRefCached…), rotas (`apiGetRoute`, `goToRoute`…), helpers de data/browser, o objeto `_` e o re-export do VueUse | [references/maxuse.md](references/maxuse.md) |
 | **MaxPinia** | `@maxvue/max-pinia` | Contrato do store cacheado: `isCached`, `options.get/save/key`, `status`, métodos injetados (`reload`, `clearAll`, `saveInServer`), ciclo de vida | [references/maxpinia.md](references/maxpinia.md) |
 
-Notas adicionais além da tabela acima:
-
+- Em `references/maxcomponentsui.md`: consulte detalhes de `MaxGrid` (flexbox com `GridSlotRows`), `MaxGridCols` (CSS Grid 24 colunas) e `InputBase` (repasses de attrs). Para as fórmulas de dimensionamento fluido (`sN`/`s-N`) do `presetMaxUno`, consulte a referência [max-grid-sizing.md](../vue-unocss-styling-best-practices/references/max-grid-sizing.md).
 - Em `references/maxuse.md`: se for um helper genérico de coleção/objeto (debounce, cloneDeep, etc.), use
   o objeto `_` — nunca `lodash` direto. Se for um composable do VueUse, ele vem de `@maxvue/max-use`, não
   de `@vueuse/core`.

@@ -21,15 +21,15 @@ O projeto segue estritamente regras ESLint (`@stylistic` + `vue/*`):
 - **App Shell e Layout:** Utilize os componentes de shell `MaxApp`, `MaxPageLayout`, `MaxPageContent`, `MaxSideMenu`, `MaxTopMenu`, `MaxTopToolbar` e `MaxBottomMenu`.
 - **Métricas, Painéis e Abas:** Use `MaxStats` para KPIs com luminância WCAG, `MaxChart` para gráficos, `MaxCreditCard` para visualização de cartões, `MaxTabs` com `MaxTabList`/`MaxTabPanels` para abas, `MaxDrawer` para painéis laterais e `MaxAccordion` para seções sanfonadas.
 - **Títulos e Estrutura:** Use `MaxTitle1` (props `h1` e `h2`) ou `MaxTitle2` em vez de `<h1>`–`<h4>`. Agrupe com `<div>`, nunca `<section>`.
-- **Formulários:** Use sempre `<MaxGrid>` (não `MaxGridCols`), dimensionando campos via atributos UnoCSS (`s-100`, `s-50`, `s-30`, `w-max-400`).
+- **Formulários:** Use sempre `<MaxGrid>` (não `MaxGridCols`), dimensionando campos via atributos fluidos UnoCSS (`s12-full`, `s12-20`, `s8-full`, `w-full`; consulte [max-grid-sizing.md](../vue-unocss-styling-best-practices/references/max-grid-sizing.md)).
 - **Auto-Imports:** `ref`, `computed`, `watch`, `defineStore`, stores e componentes `Max*` são auto-importados. Importe manualmente apenas `useRoute`/`useRouter` e `storeToRefs`.
 
 ```vue
 <template>
-    <div class="entidade-page" s100 flex flex-col>
+    <div class="entidade-page" w-full flex flex-col>
         <MaxLoader v-if="!status.server.get.is_success" label="Carregando..." />
         <MaxGrid v-else>
-            <MaxInputText v-model="data.nome" label="Nome" s-70 w-max-400 />
+            <MaxInputText v-model="data.nome" label="Nome" s12-20 />
             <MaxButton label="Salvar" icon="mdi:content-save" @click="salvar" />
         </MaxGrid>
     </div>
@@ -94,7 +94,7 @@ O projeto segue estritamente regras ESLint (`@stylistic` + `vue/*`):
 
 ### 5. Estilização: UnoCSS + SCSS
 
-- **Layout e Espaçamento:** Resolva via utilitários UnoCSS (`flex`, `items-center`, `gap-4`, `w-full`, `s100`, `s50`, `s33`, `s25`).
+- **Layout e Espaçamento:** Resolva via utilitários UnoCSS (`flex`, `items-center`, `gap-4`, `w-full`, e dimensionamento fluido `sN`/`s-N` como `s12-full`, `s12-20`, `s8-full`).
 - **Cores do Tema:** Use variáveis CSS (`var(--background-0)`, `var(--background-100)`, `var(--primary)`).
 - **Toast:** Use sempre `Toast.show({ title, severity })` do `@maxvue/max-components-ui` (`MaxToast` montado no `App.vue`).
 
