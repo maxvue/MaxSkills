@@ -1,4 +1,5 @@
 /.worktrees
+/.max-code-worktrees
 skills-lock.json
 .agents/
 .agent
