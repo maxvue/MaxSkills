@@ -108,11 +108,10 @@ describe('useUserStore (MaxPinia)', () => {
     const store = useUserStore();
 
     // reload() força o refetch pelo auto-GET declarado em options.get.route.
-    // ATENÇÃO: internamente o MaxPinia dispara `axios.get(...).then(...)` SEM
-    // aguardar essa promise (o `.then` que escreve em `store.data` e marca
-    // `is_success` roda num microtask não aguardado). Logo, `await store.reload()`
-    // pode resolver ANTES de os dados chegarem. Esvazie as promises pendentes
-    // com `flushPromises()` antes de assertar, senão o teste fica flaky.
+    // No @maxvue/max-pinia, `await store.reload()` aguarda `await loadInServer()`
+    // (transporte HTTP + persistência em cache) antes de resolver.
+    // `flushPromises()` garante que eventuais watchers síncronos/microtasks de boot
+    // (`loadInCache`) do ambiente de teste tenham drenado completamente.
     await store.reload();
     await flushPromises();
 

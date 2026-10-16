@@ -42,7 +42,7 @@ O projeto segue estritamente regras ESLint (`@stylistic` + `vue/*`):
     const { data, status } = storeToRefs(store);
 
     async function salvar(): Promise<void> {
-        await store.save();
+        await store.saveInServer();
     }
 </script>
 
@@ -58,7 +58,7 @@ O projeto segue estritamente regras ESLint (`@stylistic` + `vue/*`):
 ### 2. Utilitários e Formatação: `@maxvue/max-use`
 
 - **Validação e Formatação BR:** Use utilitários do MaxUse (`isCpf`, `isCnpj`, `cepIsValid`, `formatCurrency`, `formatCpf`, `formatPhone`), nunca regex ad-hoc.
-- **Composables Úteis:** `useRefCached` (cache local), `useDefaultReset` (reset de formulário), `useTimeAgo` (tempo relativo pt-BR).
+- **Composables Úteis:** `useRefCached` (cache local de preferências de UI), `useDefaultReset` (reset de formulário), `useTimeAgo` (tempo relativo pt-BR).
 - **Sem Libs Cruas:** Nunca importe `lodash` ou `@vueuse/core` diretamente no código de aplicação — use `@maxvue/max-use`.
 
 ---
@@ -66,21 +66,21 @@ O projeto segue estritamente regras ESLint (`@stylistic` + `vue/*`):
 ### 3. Gerenciamento de Estado: `@maxvue/max-pinia`
 
 - **Stores em Sintaxe Setup:** Localizadas em `resources/Stores/{Domínio}/use{Nome}.Store.ts`.
-- **Todo GET passa por MaxPinia:** Declare `isCached = ref(true)` e a computed `options`:
+- **Todo GET e Salvamento de Entidade passa por MaxPinia:** Declare `isCached = ref(true)` e a computed `options` (a chave de cache no LocalForage é derivada automaticamente por `store.$id + '.' + (id ?? options.id ?? 'global')`):
   ```typescript
   export const useClientStore = defineStore('project.client', () => {
       const isCached = ref(true);
+      const id = computed(() => clientId.value);
       const data = ref<Client | null>(null);
       const options = computed(() => ({
           get: { route: 'client.data', data: { id: clientId.value } },
-          save: 'client.save',
-          key: 'project.client'
+          save: 'client.save'
       }));
 
-      return { data, isCached, options };
+      return { id, data, isCached, options };
   });
   ```
-- **Mutações HTTP:** Use `apiPostRoute('rota.nome', payload)` ou `apiPutRoute`/`apiDeleteRoute` do `@maxvue/max-use`.
+- **Persistência e Mutações HTTP:** Alterações em `store.data` já disparam auto-save debounced (300ms) para `options.save` (ou envio imediato via `await store.saveInServer()`). Use `apiPostRoute('rota.nome', payload)`, `apiPutRoute` ou `apiDeleteRoute` do `@maxvue/max-use` apenas para comandos e ações procedurais pontuais fora do estado gerenciado pela store.
 
 ---
 

@@ -10,7 +10,7 @@ Padronizar a arquitetura e a UX do painel de moderação de notícias RSS do Eng
 
 - **Componente:** `TabNewsItems.vue`, `<script setup lang="ts">`. Recebe `defineProps<{ archived?: boolean }>()` e emite `theme-created`. O pai (página) decide qual aba renderizar passando `archived`; o componente NÃO tem abas internas nem `ref` de status.
 - **Status reais:** `type NewsStatus = 'pending' | 'approved' | 'reproved'`. A aba "arquivadas" mostra os `reproved`. Não existe status `archived`, e não há aba de `approved` — aprovar remove o item da lista e cria um `SocialMediaTheme`.
-- **Store:** `useSocialMediaNewsStore`, `defineStore('social.media.news.store', ...)`. É **Pinia pura** (setup store), sem `isCached`, sem `options`, sem auto-save. Faz `axios` direto contra nomes de rota Ziggy resolvidos por `route()`.
+- **Store (Exceção Legada Específica):** `useSocialMediaNewsStore`, `defineStore('social.media.news.store', ...)`. Neste arquivo existente específico (`useSocialMediaNews.Store.ts`), a store foi escrita como Pinia manual (sem `isCached`/`options`) devido ao append incremental de duas filas (`pending`/`archived`), chamando `axios` com nomes de rota Ziggy resolvidos por `route()`. **Atenção:** trata-se de uma exceção restrita à manutenção deste arquivo; no restante do ecossistema, todo GET de página e persistência de estado **deve** usar `@maxvue/max-pinia`.
 - **Cards:** texto puro — `source`, `published_at`, `title`, `keywords`, `description`, mais link externo (`item.url`). A interface `SocialMediaNewsItem` não tem campo de imagem.
 - **Paginação:** o endpoint `news.index` é paginado por `limit`/`offset` e responde `{ items, total }`. A store guarda `pendingTotal`/`archivedTotal` e faz append incremental; o componente exibe o botão "Carregar mais".
 - **Backend:** EngeApp é **Laravel 13**; a geração/IA usa o pacote `laravel/ai`. Não há card inline "Sugerir Tema" — o Tema nasce como efeito de `approve`.
@@ -29,8 +29,8 @@ const isLoading = computed(() => props.archived ? store.loadingArchived : store.
 
 Carregue no `onMounted` chamando `reload()`, que despacha `store.loadPending()` ou `store.loadArchived()` conforme a prop. O painel de palavras-chave e as ações de moderação só aparecem quando `!archived`.
 
-### 2. Store Pinia pura com axios + rotas Ziggy
-Toda leitura/gravação deste fluxo usa `axios` diretamente com **nomes de rota Ziggy** via `route(...)` (Ziggy está configurado). Replicar o padrão MaxPinia (`@maxvue/max-pinia`, `isCached`, `apiGetRoute`/`apiPostRoute`) aqui está errado.
+### 2. Contrato específico da `useSocialMediaNewsStore` (Manutenção de Código Existente)
+Ao manter especificamente `useSocialMediaNews.Store.ts` e `TabNewsItems.vue`, preserve a assinatura existente (`loadPending`, `loadArchived`, `approve`, `reprove`), que opera sobre `pending` e `archived` com paginação incremental (`limit`/`offset`). Nunca generalize este formato manual com `axios` direto para novas stores ou outras telas do projeto — novas stores devem adotar `@maxvue/max-pinia` (`isCached = ref(true)`).
 
 ```typescript
 /** Tamanho de página do carregamento incremental de notícias. */

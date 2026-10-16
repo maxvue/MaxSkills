@@ -168,37 +168,26 @@ toastStore.clear();          // remove todos
 
 ### 5. Toast para o resultado do save de uma store MaxPinia
 
-**Atenção:** `saveInServer()` da store `@maxvue/max-pinia` **não** retorna uma promise que resolve/rejeita conforme o resultado HTTP. Ela é `async`, mas captura todos os erros internamente e resolve para `undefined` quase imediatamente. Portanto **não** dispare o toast de sucesso logo após um `await store.saveInServer()` — ele apareceria mesmo em caso de falha.
+**Atenção:** `saveInServer()` da store `@maxvue/max-pinia` aguarda a conclusão real do `axios.post` e da atualização do cache (`Promise<void>`), mas **captura erros HTTP/rede internamente** sem rejeitar a Promise (registrando a falha em `status.server.save.is_error` e `status.server.save.error`). Portanto, **não** dispare o toast de sucesso incondicionalmente na linha seguinte a `await store.saveInServer()` sem antes inspecionar o status — caso contrário o toast de sucesso apareceria mesmo em caso de falha ou cancelamento.
 
-O padrão correto é observar o **estado reativo de save** da store:
+O padrão correto é verificar (ou observar) o **estado reativo de save** (`status.server.save`) da store:
 
 ```typescript
-import { watch } from 'vue';
 import { Toast } from '@maxvue/max-components-ui';
 
 // `projectStore` é uma store @maxvue/max-pinia
-projectStore.saveInServer(); // dispara o save (não é awaitable de forma confiável)
+await projectStore.saveInServer();
 
-const stop = watch(
-    () => [
-        projectStore.status.server.save.is_success,
-        projectStore.status.server.save.is_error,
-    ],
-    ([isSuccess, isError]) => {
-        if (isSuccess) {
-            Toast.show({ title: 'Projeto salvo com sucesso!', severity: 'success' });
-            stop();
-        } else if (isError) {
-            const message = projectStore.status.server.save.error?.response?.data?.message;
-            Toast.show({
-                title: 'Falha ao salvar o projeto',
-                message: message || 'Tente novamente em instantes.',
-                severity: 'error'
-            });
-            stop();
-        }
-    }
-);
+if (projectStore.status.server.save.is_success) {
+    Toast.show({ title: 'Projeto salvo com sucesso!', severity: 'success' });
+} else if (projectStore.status.server.save.is_error) {
+    const message = projectStore.status.server.save.error?.response?.data?.message;
+    Toast.show({
+        title: 'Falha ao salvar o projeto',
+        message: message || 'Tente novamente em instantes.',
+        severity: 'error'
+    });
+}
 ```
 
 Lembre-se de que o MaxPinia já faz **auto-save com debounce**: não dispare um toast de sucesso a cada tecla digitada. Reserve o toast para saves explícitos (botão "Salvar", conclusão de etapa).

@@ -33,7 +33,7 @@ uma vez):
 |-----------|--------|-----------------|---------|
 | **MaxComponentsUi** | `@maxvue/max-components-ui` | Todos os 110 componentes (`Max*`, `InputBase`, `TransitionFade`) — props, v-model, emits, slots, expose e exemplos mínimos. Cobre suítes de App Shell/Layout (`MaxApp`, `MaxPageLayout`), KPIs (`MaxStats`), Cartão de Crédito (`MaxCreditCard*`), Abas/Painéis (`MaxTabs`, `MaxDrawer`, `MaxAccordion`), inputs e todas as 12 stores Pinia com helpers WCAG | [references/maxcomponentsui.md](references/maxcomponentsui.md) |
 | **MaxUse** | `@maxvue/max-use` | Composables (useRefCached…), rotas (`apiGetRoute`, `goToRoute`…), helpers de data/browser, o objeto `_` e o re-export do VueUse | [references/maxuse.md](references/maxuse.md) |
-| **MaxPinia** | `@maxvue/max-pinia` | Contrato do store cacheado: `isCached`, `options.get/save/key`, `status`, métodos injetados (`reload`, `clearAll`, `saveInServer`), ciclo de vida | [references/maxpinia.md](references/maxpinia.md) |
+| **MaxPinia** | `@maxvue/max-pinia` | Contrato do store cacheado: `isCached`, `options.get/save`, `id`/`key`, `status`, métodos injetados (`reload`, `clearAll`, `saveInServer`, `setDefaultData`, `pauseSave`/`resumeSave`), ciclo de vida | [references/maxpinia.md](references/maxpinia.md) |
 
 - Em `references/maxcomponentsui.md`: consulte detalhes de `MaxGrid` (flexbox com `GridSlotRows`), `MaxGridCols` (CSS Grid 24 colunas) e `InputBase` (repasses de attrs). Para as fórmulas de dimensionamento fluido (`sN`/`s-N`) do `presetMaxUno`, consulte a referência [max-grid-sizing.md](../vue-unocss-styling-best-practices/references/max-grid-sizing.md).
 - Em `references/maxuse.md`: se for um helper genérico de coleção/objeto (debounce, cloneDeep, etc.), use

@@ -1,10 +1,12 @@
 ---
 name: vue-max-use-usecachedapi-state-cache-best-practices
-description: "Use when implementing or debugging Vue 3 code with useRefCachedApi (or useCachedApi, useSharedCacheApi, useInCacheApi) from @maxvue/max-use to cache GET requests in localStorage with background revalidation."
+description: "Use ONLY when maintaining legacy code or implementing isolated one-shot component lookups with useRefCachedApi (useCachedApi) from @maxvue/max-use. Page-level state, entity caching, and auto-save MUST use @maxvue/max-pinia stores instead."
 author: Johnattas Conrady Gomes Santana
 ---
 ## Objetivo
-Otimizar o gerenciamento de estado do frontend Vue 3 utilizando o `useRefCachedApi` (e seus aliases `useCachedApi`, `useSharedCacheApi`, `useInCacheApi`) da biblioteca `@maxvue/max-use` para armazenar e carregar dados de requisições GET do `localStorage` de forma síncrona na montagem, e de forma transparente buscar dados atualizados da API em segundo plano.
+Orientar o uso e a manutenção do composable `useRefCachedApi` (e seus aliases `useCachedApi`, `useSharedCacheApi`, `useInCacheApi`) da biblioteca `@maxvue/max-use` para leituras pontuais auxiliares em `localStorage`.
+
+> **REGRA ARQUITETURAL OBRIGATÓRIA (Prioridade MaxPinia):** O gerenciamento de estado de páginas, entidades de domínio, listagens principais e formulários com salvamento/auto-save no ecossistema **DEVE obrigatoriamente utilizar stores `@maxvue/max-pinia`** (`isCached = ref(true)`, que opera sobre IndexedDB/LocalForage com deduplicação, status reativo e auto-save debounced — ver skill `vue-pinia-state-management-best-practices`). **NUNCA** substitua uma store MaxPinia por `useRefCachedApi`. Utilize `useRefCachedApi` apenas em manutenção de código existente ou para lookups estáticos estritamente locais a um componente isolado sem ciclo de escrita.
 
 ## Instruções
 

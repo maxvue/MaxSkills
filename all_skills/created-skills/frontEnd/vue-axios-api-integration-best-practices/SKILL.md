@@ -12,11 +12,11 @@ Padronizar como o front Vue 3 do EngeApp conversa com a API Laravel. **Neste pro
 
 ### Regras fundamentais
 
-### 1. Todo GET ao backend passa por uma store MaxPinia
-Nunca faça `axios.get` (ou `apiGetRoute`) direto em um componente. GETs de leitura vão para uma store MaxPinia com `isCached = true` e `options.get.route` apontando para o NOME da rota Ziggy. A store cuida de cache, deduplicação e `status.server.get.is_requested/is_success`. Isso evita requisições repetidas e mantém o estado consistente entre telas.
+### 1. Todo GET e persistência de estado de página passa por uma store MaxPinia
+Nunca faça `axios.get` (ou `apiGetRoute`) direto em um componente para dados de página. GETs de leitura vão para uma store MaxPinia com `isCached = ref(true)` e `options.get.route` apontando para o NOME da rota Ziggy. A store cuida de cache (LocalForage), deduplicação, auto-save (`options.save` / `store.saveInServer()`) e `status.server.get.is_requested/is_success`. Isso evita requisições repetidas e mantém o estado consistente entre telas.
 
-### 2. Mutações (POST/PUT/DELETE) usam os helpers do @maxvue/max-use
-Para enviar formulários e alterar estado no backend, use `apiPostRoute`, `apiPutRoute` ou `apiDeleteRoute`. Eles executam o Axios internamente e retornam `response.data` em sucesso. Não instancie Axios nem chame `axios.post` cru — você perderia os headers e o `withCredentials` que os helpers já injetam.
+### 2. Mutações procedurais pontuais (POST/PUT/DELETE) usam os helpers do @maxvue/max-use
+Enquanto a persistência contínua ou manual do `data` de uma entidade gerenciada pertence à store MaxPinia (`options.save` com auto-save debounced ou chamada explícita a `await store.saveInServer()`), **ações procedurais pontuais** (login, disparo de comandos, webhooks, uploads ou mutações avulsas fora do ciclo de `store.data`) devem usar `apiPostRoute`, `apiPutRoute` ou `apiDeleteRoute`. Eles executam o Axios internamente e retornam `response.data` em sucesso. Não instancie Axios nem chame `axios.post` cru — você perderia os headers e o `withCredentials` que os helpers já injetam.
 
 ### 3. Rotas são NOMES Ziggy pontilhados, nunca strings de path
 O primeiro argumento dos helpers é o **nome** da rota (ex.: `'login'`, `'social.providers'`, `'profile.update'`, `'planner.card.add.task'`), não paths literais de URL. O resolvedor é configurado uma única vez em `resources/app.ts`:

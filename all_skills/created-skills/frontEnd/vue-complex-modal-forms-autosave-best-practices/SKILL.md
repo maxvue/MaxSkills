@@ -36,16 +36,20 @@ Padronizar formulários de modal complexos em Vue 3 (abas múltiplas, debounce, 
   const store = useCharacterStore();
   // No template, vincule os inputs a store.data.<campo>; ao alterar, o MaxPinia salva sozinho.
   ```
-- Não crie `saveStatus`/`autoSaveTimer` manuais nem chame um `saveData()` próprio. Se precisar forçar um envio imediato (ex: ao fechar o modal), use `store.saveInServer()`.
+- Não crie `saveStatus`/`autoSaveTimer` manuais nem chame um `saveData()` próprio. Se precisar forçar um envio imediato (ex: ao fechar o modal), use `await store.saveInServer()`.
+- **Modais com confirmação explícita ("Salvar" / "Cancelar"):** como o auto-save padrão dispara 300ms após qualquer mutação em `store.data`, se o modal exigir que as edições só sejam enviadas ao confirmar (permitindo descartar ao cancelar), utilize os controles nativos do MaxPinia na store:
+  - Declare `block_save = ref(true)` (ou chame `store.pauseSave()` ao abrir o modal e `store.resumeSave()` ao fechar);
+  - No clique de "Salvar", chame explicitamente `await store.saveInServer()`;
+  - No clique de "Cancelar", restaure o estado inicial limpo com `store.setDefaultData()` (para novos registros) ou recarregue a versão persistida do servidor com `await store.reload()`.
 - Para campos que NÃO pertencem ao `data` cacheado (ações pontuais fora do fluxo de página), aí sim um POST manual via `apiPostRoute` é aceitável — mas isso é a exceção, não o padrão de formulário.
 
 ### 4. Indicadores Visuais — derivados do `status` da store
 - Use o objeto reativo `store.status.server.save` (exposto pelo MaxPinia) em vez de um enum manual:
   - **Salvando**: `store.status.server.save.is_requesting` → `MaxIcon` `"mdi:loading"` com classe `spin` + texto `"Salvando..."`.
-  - **Salvo**: `store.status.server.save.is_success_now` → `MaxIcon` `"mdi:check-circle-outline"` cor `var(--emerald-600)` + texto `"Salvo"` (o `*_now` já é transitório; não precisa de `setTimeout` para limpar).
+  - **Salvo**: `store.status.server.save.is_success_now` → `MaxIcon` `"mdi:check-circle-outline"` cor `var(--emerald-600)` + texto `"Salvo"` (o `*_now` já é transitório por 500ms; não precisa de `setTimeout` para limpar).
   - **Erro**: `store.status.server.save.is_error` (e `.error`) → toast de aviso / ícone de erro.
 - O status de carregamento inicial vem de `store.status.server.get` (ou o helper `is_done_to_show`; para blank state use `store.status.server.get.is_blank` / `store.status.cache.get.is_blank`, não `store.is_blank`) para skeletons.
-- Para descartar alterações locais não persistidas, use as APIs da store (ex: `store.reload()` para revalidar do servidor) em vez de gerenciar cópias manuais.
+- Para descartar alterações locais não persistidas (quando o auto-save estiver pausado via `pauseSave()` ou bloqueado via `block_save`), use `store.setDefaultData()` ou `await store.reload()` em vez de gerenciar cópias manuais.
 
 ---
 

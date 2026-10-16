@@ -16,12 +16,12 @@ Arquivos reais que esta skill descreve:
    - NÃO implemente `window.open`, `about:blank`, `window.postMessage`, `addEventListener('message')` nem polling de `popup.closed`. Nenhum desses padrões existe na seção SocialMedia e não há rota de `auth_url`.
    - Cada API do catálogo (Facebook, Instagram) é representada por um `SocialMediaCredentialItem` com `external_account_id` (o ID da conta) e `has_token` (flag). O gestor edita esses valores num formulário e clica em Salvar.
 
-2. **Store: Pinia de composição comum (NÃO MaxPinia)**
-   - A credencial é gerida por `useSocialMediaCredentialsStore` — uma store `defineStore` de composição comum que usa `axios` diretamente com o helper Ziggy `route()`. Ela **não** é `@maxvue/max-pinia`: não tem `isCached`, `options.get.route/save`, `status.server` nem `reload()`.
-   - Ela expõe exatamente `items`, `loading`, `load()` e `save(payload)`:
+2. **Store (`useSocialMediaCredentialsStore` — Exceção Específica deste Arquivo)**
+   - Neste arquivo específico (`useSocialMediaCredentials.Store.ts`), a credencial é gerida por uma store `defineStore` manual (sem `isCached` para não persistir estados de credenciais em IndexedDB e por exigir envio condicional de `access_token`). **Nota:** esta é uma exceção estrita a este arquivo existente; para qualquer outra store de estado de página no ecossistema, o uso de `@maxvue/max-pinia` (`isCached = ref(true)`) é obrigatório.
+   - Em `useSocialMediaCredentialsStore`, são expostos `items`, `loading`, `load()` e `save(payload)`:
      - `load()` → `axios.get(route('social_media.credentials.data'))`, preenche `items` com `data.items`.
      - `save(payload)` → `axios.post(route('social_media.credentials.save'), payload)` e atualiza o item local (`external_account_id`, `is_active`, e liga `has_token` quando um novo `access_token` foi enviado).
-   - Para recarregar dados, chame `load()`, não `reload()` (que não existe). Os nomes de rota são `social_media.credentials.data` (GET) e `social_media.credentials.save` (POST) — nomes Ziggy pontilhados resolvidos por `route()`.
+   - Ao dar manutenção especificamente em `TabCredentials.vue`, chame `load()` e `save(payload)` conforme o contrato já existente da store. Os nomes de rota são `social_media.credentials.data` (GET) e `social_media.credentials.save` (POST) — nomes Ziggy pontilhados resolvidos por `route()`.
 
 3. **Segurança do token: nunca trafegue de volta ao cliente**
    - O backend nunca devolve o token salvo. A store só conhece `has_token: boolean` para indicar se já há um token configurado.

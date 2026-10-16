@@ -31,7 +31,7 @@ Diagnosticar e corrigir bugs do front-end em projetos Vue 3 + TypeScript + MaxPi
 
 - **Reatividade & Estado:**
   - Evite mutações diretas fora do ciclo do Vue ou perda de reatividade por desestruturação de `reactive`/`ref` (use `toRefs` ou `storeToRefs`).
-  - Em stores MaxPinia: verifique `isCached = ref(true)` e `getKey() = store.$id + (store.id ?? options.id)`.
+  - Em stores MaxPinia: verifique `isCached = ref(true)` e `getKey() = store.$id + '.' + (store.id ?? store.options?.id ?? 'global')` (lembre-se que `options.key` não define a chave de cache).
 - **Comunicação HTTP & Rotas:**
   - As funções `apiGetRoute` e `apiPostRoute` recebem o **nome Ziggy pontilhado** da rota (ex: `'client.data'`), nunca caminhos `/api/...`.
   - A autenticação é baseada em cookie de sessão (`guard web`). O MaxUse já inclui `withCredentials: true`.
@@ -98,5 +98,5 @@ Se o defeito estiver no código-fonte das bibliotecas locais (`MaxComponentsUi`,
 
 - **Idioma:** Sempre se comunique com o usuário humano em Português (pt-BR).
 - **Sem Edição Manual de DTOs:** Nunca edite `resources/Types/generated.d.ts` manualmente — ele é gerado pelo backend.
-- **Sem `axios` Direto:** Mutações de API devem usar `apiPostRoute`/`apiPutRoute` do `@maxvue/max-use`.
+- **Sem `axios` Direto:** Persistência de entidades gerenciadas deve usar o auto-save da store MaxPinia (`options.save` / `store.saveInServer()`); mutações procedurais pontuais de API devem usar `apiPostRoute`/`apiPutRoute` do `@maxvue/max-use`.
 - **Sem Rotas Crus:** Nunca passe caminhos `/api/...` para os helpers de rotas.

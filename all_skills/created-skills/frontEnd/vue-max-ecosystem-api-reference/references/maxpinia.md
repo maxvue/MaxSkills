@@ -4,7 +4,7 @@
 >
 > **Aviso de contrato**: não existe interface `options` exportada — o formato de `options` é convenção,
 > resolvida por resolvers que aceitam aliases (camelCase/kebab/snake) e paths aninhados. A `key` real de
-> cache é `store.$id + '.' + (store.id ?? 'global')`, **não** `options.key` (o `key` do README é ilustrativo).
+> cache é `store.$id + '.' + (store.id ?? store.options?.id ?? 'global')`, **não** `options.key`.
 > Debounce de auto-save = **300 ms**.
 
 ---
@@ -117,9 +117,9 @@ Ou seja, `"<$id>.<id | options.id | 'global'>"`. (O `key: 'user'` do exemplo do 
 | `removeToSave` / `remove_to_save` | Lista de paths removidos (`unset`) do payload antes do POST. |
 | `save_return` | `true` → substitui `data` por `response.data.original ?? response.data`; string → substitui se aquele campo mudou. |
 | `reload_after_save` (+ `reload_after_save_default`) | Refaz GET após POST bem-sucedido. |
-| `afterLoad` / `afterReload` / `getSaveData` | Hooks/callbacks chamados pela store. |
+| `afterLoad` / `afterReload` / `onServerData` / `createRequestMeta` / `getSaveData` | Hooks/callbacks opcionais na store (`onServerData(data, meta)` customiza a aplicação da resposta do GET; `createRequestMeta()` gera metadados passados a `onServerData` e `afterLoad(meta)`). |
 | `loading_options` (`{ target?, message?, enabled? }`) / `loading_target` | Controle do adapter de loading; sem `message` o loading não inicia. |
-| `cache_name` (ref) | Sobrescreve o nome do banco localforage por store. |
+| `cache_name` / `storeName` / `store_name` (em `store` ou `options`) | Sobrescreve o nome do banco (`cache_name`) ou do object store (`storeName`) do localforage por store. |
 
 ## Propriedades e métodos injetados
 
@@ -157,10 +157,12 @@ interface OperationStatus {
 
 | Nome | Assinatura | Propósito |
 |---|---|---|
-| `reload()` | `() => Promise<void>` (declarado `() => void`) | Reexecuta `loadInServer()` e chama `store.afterReload?()`. |
-| `saveInServer()` | `() => void` (async) | POST manual imediato para a rota de save com o payload resolvido; atualiza `status.server.save`, salva no cache, aplica `save_return`/`reload_after_save`. |
+| `reload()` | `() => Promise<void>` | Reexecuta `await loadInServer()` (aguardando rede e gravação em cache) e chama `store.afterReload?()`. |
+| `saveInServer()` | `() => Promise<void>` | POST manual imediato para a rota de save com o payload resolvido; atualiza `status.server.save`, salva no cache, aplica `save_return`/`reload_after_save` e aguarda conclusão. |
 | `saveInCache()` | `() => Promise<void>` | Persiste `{ data, ...includeInCacheValues }` no localforage sob a chave da store; atualiza `status.cache.save`. Aceita `data_save` opcional interno. |
-| `clearAll()` | `() => Promise<void>` | `localforage.clear()` — limpa **todo** o banco de cache. |
+| `clearAll()` | `() => Promise<void>` | Remove do localforage **apenas os registros associados a esta store** (`key === store.$id` ou prefixo `${store.$id}.`), preservando o cache das demais stores. |
+| `setDefaultData()` | `() => void` | Restaura `store.data` para o clone profundo do valor inicial (`default_value`) sem disparar auto-save. |
+| `pauseSave()` / `resumeSave()` | `() => void` | Suspende e retoma o agendamento de auto-save (pilha `pauseDepth` segura para mutações em lote). |
 | `cancelLoad(retryInSeconds?)` | `(retryInSeconds?: number \| boolean \| null) => void` | Aborta o GET em voo. Se `true`/`0` → reagenda `loadInServer()` após 5 SEGUNDOS; se número > 0 → reagenda após esse número de SEGUNDOS (não ms). |
 | `setLoadingMessage(message)` | `(message: string) => void` | Emite `loading.update({ target, key, message })` via adapter. |
 | `status` | `Status` | Ver acima. |
@@ -169,7 +171,7 @@ interface OperationStatus {
 | `default_value` | `any` | Snapshot (cloneDeep) do `data` inicial da store, capturado no boot. |
 | `countChanges` | `number` (ref) | Contador de mudanças válidas em `data`; alimenta o debounce de save. |
 | `is_save_in_pause` | `boolean` (ref) | Flag que suspende o auto-save durante reidratações. |
-| `key` | `ComputedRef<string>` | Chave de cache `"<$id>.<id\|'global'>"`. |
+| `key` | `ComputedRef<string>` | Chave de cache `"<$id>.<id\|options.id\|'global'>"`. |
 | `idx` | `any` (ref) | Espelha `store.id` no boot / troca de id. |
 
 ## Ciclo de vida / comportamento
@@ -177,9 +179,9 @@ interface OperationStatus {
 Sequência exata a partir do boot do plugin (função `maxPiniaPlugin`):
 
 1. **Guard**: se `!store.isCached && !store.is_cached`, retorna `{}` (não injeta nada).
-2. **Setup**: configura localforage (`name: cacheName`, `storeName: config.storeName ?? 'max-pinia-cache'`), captura `default_value = cloneDeep(store.data)` e zera `store.data = {}`. Cria `status` e todos os watchers de pulso (500 ms) e o watcher que emite `status-updated`.
-3. **Boot watcher** (`watch([store.id, store.enabled, store.options?.enabled], ..., { immediate: true })`): no primeiro run, pausa o save, aplica `setDefaultData()`, retoma o save, reseta `status` e — se `enabled !== false` — chama **`loadInCache()`**.
-4. **Cache-first** (`loadInCache`): lê a chave via `localforage.getItem(key)`.
+2. **Setup**: configura instância isolada de localforage (`name: cacheName`, `storeName: config.storeName ?? 'max-pinia-cache'`), captura `default_value = cloneDeep(store.data)` e zera `store.data = {}`. Cria `status` e todos os watchers de pulso (500 ms) e o watcher que emite `status-updated`.
+3. **Boot watcher** (`watch([() => getKey(), () => store.enabled, () => store.options?.enabled], ..., { immediate: true, flush: 'sync' })`): no primeiro run, pausa o save, aplica `setDefaultData()`, retoma o save, reseta `status` e — se `enabled !== false` — chama **`loadInCache()`**.
+4. **Cache-first** (`loadInCache`): lê a chave via `storage.getItem(key)`.
    - Se há `data_cache.data`, reidrata `store.data` (com `pauseSave`/`resumeSave`), reidrata as chaves de `includeInCache`. Se `only_cache` está ligado, para aqui.
    - Se cache corrompido, remove o item e segue.
    - Em seguida chama **`loadInServer()`** para revalidar (a menos que `only_cache`).
@@ -208,7 +210,7 @@ Exportados publicamente de `src/index.ts` (re-exportando de `types.ts`):
 
 Também exportados de `src/plugin.ts` (valores): `createMaxPinia`, `useAsyncStatus`.
 
-Interfaces em `types.ts`: `OperationStatus`, `Status`, `LoadingOptions`, `LoadingAdapter`, `MaxPiniaConfig`; e a augmentação `declare module 'pinia' { interface PiniaCustomProperties { ... } }` (com `cancelLoad`, `reload`, `setLoadingMessage`, `clearAll`, `saveInServer`, `saveInCache`, `default_value`, `status`, `countChanges`, `is_save_in_pause`, `idx?`, `is_done?`, `is_done_to_show?`, `key?`). Reexporta `Ref` do `vue`.
+Interfaces em `types.ts`: `OperationStatus`, `Status`, `LoadingOptions`, `LoadingAdapter`, `MaxPiniaConfig`; e a augmentação `declare module 'pinia' { interface PiniaCustomProperties { ... } }` (com `cancelLoad`, `reload`, `setLoadingMessage`, `clearAll`, `saveInServer`, `saveInCache`, `default_value`, `status`, `countChanges`, `is_save_in_pause`, `pauseSave`, `resumeSave`, `idx?`, `is_done?`, `is_done_to_show?`, `key?`). Reexporta `Ref` do `vue`.
 
 Tipo interno (não exportado do pacote), em `helpers/internal.ts`: `DefaultReset<T>`.
 
@@ -216,7 +218,7 @@ Tipo interno (não exportado do pacote), em `helpers/internal.ts`: `DefaultReset
 
 ## Exemplo completo
 
-Contrato mínimo real (o plugin só precisa de `data`, `isCached` e uma rota de GET; `save` e `key` são opcionais):
+Contrato mínimo real (o plugin só precisa de `data`, `isCached` e uma rota de GET; `save` é opcional):
 
 ```ts
 import { defineStore } from 'pinia';
@@ -229,7 +231,6 @@ export const useClientStore = defineStore('project.client', () => {
     const options = computed(() => ({
         get:  { route: 'client.data' }, // nome de rota Ziggy → GET automático + cache-first
         save: 'client.save',            // opcional: nome de rota Ziggy → POST com auto-save (debounce 300ms)
-        key:  'project.client',         // ilustrativo; a chave real é `${$id}.${id|'global'}`
     }));
 
     return { data, options, isCached };
@@ -242,7 +243,8 @@ Uso do status/métodos injetados no componente:
 const store = useClientStore();
 store.status.server.get.is_requesting; // carregando do servidor
 store.is_done_to_show;                 // pronto para renderizar (cache ou server)
-store.reload();                        // refaz o GET
-store.saveInServer();                  // POST imediato (fora do debounce)
-await store.clearAll();                // limpa todo o cache localforage
+await store.reload();                  // refaz o GET e aguarda conclusão
+await store.saveInServer();            // POST imediato (fora do debounce)
+store.setDefaultData();                // reseta data para o valor inicial sem disparar save
+await store.clearAll();                // limpa os registros de cache desta store
 ```

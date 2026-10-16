@@ -49,12 +49,12 @@ Sempre escreva stores como Setup Stores com Composition API:
 ### 2. Ativando o MaxPinia (isCached + options)
 Para que o plugin `@maxvue/max-pinia` gerencie a store, é **obrigatório** declarar:
 - `const isCached = ref(true)` — sinal para o plugin interceptar esta store.
-- `const options = computed(() => ({ get: {...}, save: '...', key: '...' }))` — configura as rotas da API (por **nome de rota Ziggy**, não caminho `/api/...`). As stores passam `key` no `options` por convenção (ex.: `key: 'project.client'`, casando com o `$id`). A chave real do cache (LocalForage), porém, é derivada por `getKey()` = `store.$id` + o `id` retornado pela store (ou `options.id`) — ver "GET com parâmetros dinâmicos".
+- `const options = computed(() => ({ get: {...}, save: '...' }))` — configura as rotas da API (por **nome de rota Ziggy**, não caminho `/api/...`). A chave real do cache (LocalForage) é derivada exclusivamente por `getKey()` = `store.$id + '.' + (store.id ?? store.options?.id ?? 'global')` — **não** use nem dependa de `options.key`, pois o plugin ignora esse campo para compor a chave de armazenamento (ver "GET com parâmetros dinâmicos").
 
 O plugin então:
-1. Carrega dados do cache LocalForage imediatamente.
+1. Carrega dados do cache LocalForage imediatamente (instância isolada por store).
 2. Faz GET ao servidor em background para revalidar.
-3. Monitora `data` e dispara POST automático (debounce 300ms) quando os dados mudam.
+3. Monitora `data` e dispara POST automático (debounce 300ms) quando os dados mudam (salvo se o auto-save estiver pausado ou bloqueado).
 
 ### 3. Propriedades de Status Injetadas
 O plugin injeta automaticamente estas propriedades em toda store com `isCached = true`:
@@ -62,24 +62,36 @@ O plugin injeta automaticamente estas propriedades em toda store com `isCached =
 - `status.server.get.is_requested` — GET **finalizado** (concluído, com sucesso OU erro; setado no `finally`). Não confunda com `is_requesting`.
 - `status.server.get.is_success` — GET concluído **com sucesso**. É este o flag que o padrão `waitRequest` (usado nos guards de rota) observa para aguardar a 1ª carga: `waitRequest()` só resolve em sucesso, não em erro (ver `useUser.Store.ts` — `waitRequest` faz `watch(() => status.server.get.is_success)` e `router.ts` chama `user.waitRequest()`).
 - `status.server.save.is_requesting` — POST/auto-save em andamento.
+- `status.server.save.is_success_now` — pulso transitório (500ms) indicando que o POST concluiu com sucesso agora.
 - `status.server.save.error` — erro no último save.
 - `status.cache.get.is_success` — dados carregados do cache local.
 - `is_done` — alias de `status.server.get.is_success`.
-- `is_done_to_show` — `true` quando dados do servidor OU do cache estão prontos para exibição.
+- `is_done_to_show` — `true` quando dados do servidor (não vazios) OU do cache estão prontos para exibição.
 
-### 4. Métodos de Controle Injetados
-- `reload()` — dispara um novo GET ao servidor (`loadInServer`), mas **não aguarda a resposta**: `afterReload` é chamado assim que a requisição é emitida, antes de `data` ser atualizado e independentemente de sucesso ou erro. Para reagir aos dados novos, use `afterLoad` (chamado dentro do `.then` de sucesso) ou observe `status.server.get.is_success`. **Não** limpa/reseta o estado antes do GET — o `data` antigo permanece visível até a nova resposta chegar.
-- `cancelLoad(retryInSeconds?)` — aborta o GET ativo.
-- `clearAll()` — limpa TODO o cache LocalForage (de todas as stores, via `localforage.clear()`); **não** reseta o estado reativo desta store. O reset do `data` para o `default_value` é interno e acontece apenas quando `store.id`/`enabled` muda (o plugin reexecuta a carga). Não há método público para resetar só o estado reativo — se precisar de dados frescos do servidor, use `reload()`.
-- `saveInServer()` — força POST imediato sem esperar o debounce.
-- `saveInCache()` — persiste imediatamente no LocalForage.
+### 4. Métodos de Controle e Ciclo de Auto-Save Injetados
+- `reload(): Promise<void>` — executa `await loadInServer()`, aguardando a conclusão da requisição HTTP e a atualização do cache local antes de resolver, e em seguida invoca `store.afterReload?.()`. **Não** limpa o estado antes do GET — o `data` antigo permanece visível até a nova resposta chegar.
+- `saveInServer(): Promise<void>` — força POST imediato ao endpoint configurado em `options.save` sem esperar o debounce de 300ms, aguardando a conclusão da rede e a atualização do cache.
+- `saveInCache(): Promise<void>` — persiste imediatamente `store.data` no LocalForage e aguarda a conclusão.
+- `setDefaultData(): void` — restaura `store.data` para uma cópia profunda isolada do valor inicial (`default_value`) sem disparar auto-save.
+- `pauseSave(): void` / `resumeSave(): void` — suspende e retoma o agendamento de auto-save (controlado por pilha de profundidade `pauseDepth`, útil para mutações em lote ou edições em modais com confirmação).
+- `cancelLoad(retryInSeconds?)` — aborta o GET ativo via `AbortController` (e opcionalmente agenda nova tentativa após `retryInSeconds` segundos).
+- `clearAll(): Promise<void>` — remove do LocalForage **apenas os registros associados a esta store** (chaves iguais a `store.$id` ou prefixadas por `${store.$id}.`), preservando o cache das demais stores da aplicação; **não** reseta o estado reativo em memória (para resetar `data` em memória, chame `setDefaultData()`).
 
-### 5. Injeção de Dependências entre Stores (Cross-Store)
+### 5. Controle de Auto-Save, Listagens e Payload de Escrita
+- **Desativando Auto-Save Contínuo (`block_save` / `isList`):** Se a store representa uma listagem ou um formulário que só deve persistir ao clicar em um botão "Salvar", exponha `const block_save = ref(true)` (ou aliases `no_save`, `noSave`, `blockSave`, `isList`, `is_list`). Mutações em `data` não agendarão auto-save automático, mas chamadas explícitas a `await store.saveInServer()` continuarão funcionando normalmente.
+- **Customizando Payload e Retorno do POST:**
+  - `getSaveData`: função ou objeto em `store` / `options.save.data` para enviar um payload customizado no lugar de `store.data`.
+  - `removeToSave` / `remove_to_save`: array de caminhos (paths) a omitir do payload antes do POST.
+  - `save_return`: se `true`, atualiza `store.data` com `response.data.original ?? response.data` retornado pelo POST (com `pauseSave` automático); se string (nome de campo), atualiza caso o campo tenha mudado.
+  - `reload_after_save`: se `true`, dispara `loadInServer()` automaticamente após um POST bem-sucedido.
+- **Modo Exclusivamente Offline (`only_cache`):** Expor `only_cache = ref(true)` (ou `options.only_cache = true`) faz a store ler e gravar apenas no IndexedDB local, sem chamar o backend.
+
+### 6. Injeção de Dependências entre Stores (Cross-Store)
 Para evitar loops de dependência circular:
 - Nunca importe stores no escopo global de outro arquivo de store se isso criar importações circulares.
 - Resolva stores dependentes de forma lazy dentro de ações ou computeds.
 
-### 6. Tipagem TypeScript
+### 7. Tipagem TypeScript
 - Sempre tipifique `data` explicitamente: `const data = ref<MeuTipo | null>(null)`.
 - Evite `any`. Use tipos de união quando necessário: `Ref<User | null>`.
 
@@ -105,7 +117,6 @@ export const useUserStore = defineStore('user', () => {
   // route é o NOME da rota Ziggy (ex.: 'user.data').
   const options = computed(() => ({
     get: { route: 'user.data' },
-    key: 'user',
   }))
 
   return { data, isCached, options }
@@ -115,8 +126,7 @@ export const useUserStore = defineStore('user', () => {
 ### Store com GET + Auto-Save (leitura e escrita automática)
 ```typescript
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
-import type { Ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export interface BrandPositioning {
   company_name: string | null
@@ -135,11 +145,11 @@ export const useBrandPositioningStore = defineStore('brand.positioning.store', (
     content_pillars: [],
   })
 
-  // save ativa auto-save com debounce ao alterar 'data'
-  const options: Ref = ref({
+  // save ativa auto-save com debounce (300ms) ao alterar 'data'
+  const options = computed(() => ({
     get: { route: 'brand_positioning.data' },
     save: 'brand_positioning.save',
-  })
+  }))
 
   return { isCached, data, options }
 })
@@ -165,7 +175,7 @@ const store = useBrandPositioningStore()
 ```
 
 ### GET com parâmetros dinâmicos
-Os parâmetros da rota vão em `options.get.data` (reativos). Para variar a **chave de cache** por parâmetro, exponha um `id` reativo na store (ou `options.id`): o MaxPinia deriva a chave do LocalForage por `getKey()` = `store.$id` + esse `id`. Não tente variar o cache por `options.key` — o plugin não lê esse campo para a chave do cache.
+Os parâmetros da rota vão em `options.get.data` (reativos). Para variar a **chave de cache** por parâmetro, exponha um `id` reativo na store (ou `options.id`): o MaxPinia deriva a chave do LocalForage por `getKey()` = `store.$id + '.' + (store.id ?? store.options?.id ?? 'global')`. Não tente variar o cache por `options.key` — o plugin não lê esse campo para a chave do cache.
 ```typescript
 export const useProjectDataStore = defineStore('project.data', () => {
   // `id` entra em getKey() → chave de cache vira 'project.data.<id>'
